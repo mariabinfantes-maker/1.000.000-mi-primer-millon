@@ -1,54 +1,96 @@
-import { Categoria, Problema, getProblema } from "./data";
+import { getProblema } from "./data";
+import type { RespuestasCuestionario } from "./cuestionario";
+import {
+  getRecomendacionesDeProblema,
+  type HerramientaRecomendada,
+} from "./recomendacionesData";
 
-export type RangoEmpleados = "1-10" | "11-50" | "51-200" | "200+";
+export type { RangoEmpleados, RespuestasCuestionario } from "./cuestionario";
+export { RANGOS_EMPLEADOS } from "./cuestionario";
 
-export const RANGOS_EMPLEADOS: { valor: RangoEmpleados; etiqueta: string }[] = [
-  { valor: "1-10", etiqueta: "1-10" },
-  { valor: "11-50", etiqueta: "11-50" },
-  { valor: "51-200", etiqueta: "51-200" },
-  { valor: "200+", etiqueta: "Más de 200" },
-];
-
-/** Respuestas que el usuario da en el cuestionario de diagnóstico. */
-export type RespuestasCuestionario = {
-  sector: string;
-  empleados: RangoEmpleados;
-  mayorProblema: string;
-  usaHerramientaActual: boolean;
-  herramientaActualNombre: string;
-};
+/** Clave de sessionStorage usada para pasar la recomendación calculada del cuestionario a la pantalla de resultados. */
+export function claveRecomendacionGuardada(problemaId: string): string {
+  return `atlas:recomendacion:${problemaId}`;
+}
 
 export type Recomendacion = {
-  problema: Problema;
+  problemaId: string;
+  problemaTitulo: string;
+  categorias: string[];
+  herramientas: HerramientaRecomendada[];
   respuestas: RespuestasCuestionario;
-  categorias: Categoria[];
+  mensaje: string;
 };
 
 /**
- * Punto de conexión con el futuro motor de recomendaciones.
+ * Motor de recomendaciones — V1 (basado en reglas, sin IA).
  *
- * Hoy simula el análisis con una espera y devuelve las categorías del
- * problema sin priorizar. Cuando exista el motor de IA, esta función debe
- * enviarle `problemaId` + `respuestas` y devolver la selección de
- * categorías/herramientas ya priorizada para esa empresa, manteniendo la
- * misma forma de `Recomendacion` para no romper a quien la consume.
+ * Lee el catálogo curado de `lib/recomendacionesData.ts` y lo prioriza según
+ * las respuestas del cuestionario. El día que exista un motor de IA o un
+ * backend real, esta es la única función que hay que reemplazar: mismo
+ * nombre, mismos parámetros (`problemaId`, `respuestas`) y mismo tipo de
+ * retorno (`Recomendacion`), para no tener que tocar nada de lo que la
+ * consume (el cuestionario ni la pantalla de resultados).
  */
 export async function generarRecomendacion(
   problemaId: string,
   respuestas: RespuestasCuestionario
 ): Promise<Recomendacion> {
   const problema = getProblema(problemaId);
-  if (!problema) {
+  const datos = getRecomendacionesDeProblema(problemaId);
+
+  if (!problema || !datos) {
     throw new Error(`Problema desconocido: ${problemaId}`);
   }
 
-  // TODO: sustituir esta simulación por la llamada real al motor de IA,
-  // por ejemplo: await fetch("/api/recomendaciones", { method: "POST", body: JSON.stringify({ problemaId, respuestas }) })
+  // TODO: sustituir esta simulación por la llamada real al motor de IA o a
+  // una base de datos, por ejemplo:
+  // await fetch("/api/recomendaciones", { method: "POST", body: JSON.stringify({ problemaId, respuestas }) })
   await new Promise((resolve) => setTimeout(resolve, 1600));
 
+  const herramientas = priorizarHerramientas(datos.herramientas, respuestas);
+
   return {
-    problema,
+    problemaId: problema.id,
+    problemaTitulo: problema.titulo,
+    categorias: datos.categorias,
+    herramientas,
     respuestas,
-    categorias: problema.categorias,
+    mensaje: construirMensajePersonalizado(problema.titulo, respuestas),
   };
+}
+
+/**
+ * Reglas V1 de personalización: sin IA, solo ordena el catálogo curado
+ * poniendo primero las herramientas pensadas para el tamaño de empresa del
+ * usuario. No se descarta ninguna herramienta, solo se reordena.
+ */
+function priorizarHerramientas(
+  herramientas: HerramientaRecomendada[],
+  respuestas: RespuestasCuestionario
+): HerramientaRecomendada[] {
+  const encajanPorTamano = herramientas.filter((h) =>
+    h.tamanosIdeales.includes(respuestas.empleados)
+  );
+  const resto = herramientas.filter(
+    (h) => !h.tamanosIdeales.includes(respuestas.empleados)
+  );
+  return [...encajanPorTamano, ...resto];
+}
+
+function construirMensajePersonalizado(
+  problemaTitulo: string,
+  respuestas: RespuestasCuestionario
+): string {
+  const sector = respuestas.sector || "tu empresa";
+  const base = `Para ${sector}, esto es lo que recomendamos para ${problemaTitulo.toLowerCase()}.`;
+
+  if (!respuestas.usaHerramientaActual) {
+    return base;
+  }
+
+  const nombre = respuestas.herramientaActualNombre;
+  return nombre
+    ? `${base} Ya usas ${nombre}: aquí tienes alternativas y complementos bien valorados.`
+    : `${base} Ya usas alguna herramienta similar: aquí tienes opciones bien valoradas para comparar.`;
 }

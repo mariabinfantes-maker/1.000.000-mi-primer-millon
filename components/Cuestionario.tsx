@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import type { Problema } from "@/lib/data";
 import {
   RANGOS_EMPLEADOS,
+  claveRecomendacionGuardada,
   generarRecomendacion,
   type RangoEmpleados,
   type RespuestasCuestionario,
@@ -73,15 +74,24 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
     }, 1100);
 
     generarRecomendacion(problema.id, respuestas)
-      .then(() => {
+      .then((recomendacion) => {
         setProgreso(100);
+        try {
+          sessionStorage.setItem(
+            claveRecomendacionGuardada(problema.id),
+            JSON.stringify(recomendacion)
+          );
+        } catch {
+          // sessionStorage no disponible (modo privado, etc.): la pantalla
+          // de resultados mostrará su propio fallback.
+        }
         setTimeout(() => {
-          router.push(`/problema/${problema.id}`);
+          router.push(`/problema/${problema.id}/recomendacion`);
         }, 400);
       })
       .catch(() => {
-        // El motor de recomendaciones aún no existe: si algo falla,
-        // llevamos igualmente al usuario a las categorías disponibles.
+        // Si el motor de recomendaciones falla, llevamos igualmente al
+        // usuario a las categorías disponibles como red de seguridad.
         router.push(`/problema/${problema.id}`);
       })
       .finally(() => {
