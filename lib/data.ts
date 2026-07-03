@@ -22,6 +22,8 @@ export type Problema = {
   titulo: string;
   descripcion: string;
   icono: string;
+  /** Pregunta del cuestionario sobre la herramienta que ya usa la empresa. */
+  preguntaHerramienta: string;
   categorias: Categoria[];
 };
 
@@ -31,6 +33,7 @@ export const problemas: Problema[] = [
     titulo: "Conseguir más clientes",
     descripcion: "Atrae y convierte más leads en ventas.",
     icono: "🎯",
+    preguntaHerramienta: "¿Ya utilizas algún CRM?",
     categorias: [
       {
         id: "crm",
@@ -127,6 +130,7 @@ export const problemas: Problema[] = [
     titulo: "Automatizar tareas",
     descripcion: "Elimina trabajo manual y repetitivo conectando tus herramientas.",
     icono: "⚙️",
+    preguntaHerramienta: "¿Ya utilizas alguna herramienta de automatización?",
     categorias: [
       {
         id: "automatizacion-workflows",
@@ -219,6 +223,7 @@ export const problemas: Problema[] = [
     titulo: "Ahorrar tiempo",
     descripcion: "Recupera horas de trabajo con IA y herramientas de productividad.",
     icono: "⏱️",
+    preguntaHerramienta: "¿Ya utilizas algún asistente de IA o herramienta de productividad?",
     categorias: [
       {
         id: "asistentes-ia",
@@ -309,6 +314,7 @@ export const problemas: Problema[] = [
     titulo: "Organizar la empresa",
     descripcion: "Centraliza proyectos, tareas y documentación de tu equipo.",
     icono: "🗂️",
+    preguntaHerramienta: "¿Ya utilizas alguna herramienta de gestión de proyectos?",
     categorias: [
       {
         id: "gestion-proyectos",
@@ -397,6 +403,7 @@ export const problemas: Problema[] = [
     titulo: "Mejorar la atención al cliente",
     descripcion: "Responde más rápido y con mayor calidad a tus clientes.",
     icono: "💬",
+    preguntaHerramienta: "¿Ya utilizas algún software de atención al cliente?",
     categorias: [
       {
         id: "helpdesk",

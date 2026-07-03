@@ -22,7 +22,7 @@ export default function Home() {
         {problemas.map((problema) => (
           <Link
             key={problema.id}
-            href={`/problema/${problema.id}`}
+            href={`/problema/${problema.id}/cuestionario`}
             className="group flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-300 hover:shadow-md"
           >
             <span className="text-3xl">{problema.icono}</span>
