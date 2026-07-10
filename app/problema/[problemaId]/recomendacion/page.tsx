@@ -4,7 +4,11 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { getProblema } from "@/lib/data";
-import { claveRecomendacionGuardada, type Recomendacion } from "@/lib/recomendaciones";
+import {
+  RANGOS_EMPLEADOS,
+  claveRecomendacionGuardada,
+  type Recomendacion,
+} from "@/lib/recomendaciones";
 import Pasos from "@/components/Pasos";
 
 export default function RecomendacionPage() {
@@ -88,20 +92,67 @@ export default function RecomendacionPage() {
         ← Repetir el cuestionario
       </Link>
 
-      <div className="mt-4 max-w-2xl">
-        <p className="text-sm font-medium text-indigo-600">
+      {/* Resumen del diagnóstico */}
+      <div className="mt-6 overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-950 via-indigo-900 to-slate-900 p-8 text-white shadow-lg sm:p-10">
+        <p className="text-sm font-medium text-indigo-300">
           {problema.icono} {problema.titulo}
         </p>
-        <h1 className="mt-1 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-          Tu recomendación personalizada
+        <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+          Hemos analizado tu empresa
         </h1>
-        <p className="mt-3 text-base text-slate-600 sm:text-lg">
-          {recomendacion.mensaje}
+        <p className="mt-3 max-w-2xl text-indigo-100">{recomendacion.mensaje}</p>
+
+        <dl className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="rounded-xl bg-white/10 p-4">
+            <dt className="text-xs font-medium uppercase tracking-wide text-indigo-300">
+              Sector
+            </dt>
+            <dd className="mt-1 truncate text-sm font-semibold text-white">
+              {recomendacion.respuestas.sector || "—"}
+            </dd>
+          </div>
+          <div className="rounded-xl bg-white/10 p-4">
+            <dt className="text-xs font-medium uppercase tracking-wide text-indigo-300">
+              Tamaño
+            </dt>
+            <dd className="mt-1 text-sm font-semibold text-white">
+              {RANGOS_EMPLEADOS.find((r) => r.valor === recomendacion.respuestas.empleados)
+                ?.etiqueta ?? recomendacion.respuestas.empleados}{" "}
+              empleados
+            </dd>
+          </div>
+          <div className="rounded-xl bg-white/10 p-4">
+            <dt className="text-xs font-medium uppercase tracking-wide text-indigo-300">
+              Reto principal
+            </dt>
+            <dd className="mt-1 line-clamp-2 text-sm font-semibold text-white">
+              {recomendacion.respuestas.mayorProblema || "—"}
+            </dd>
+          </div>
+          <div className="rounded-xl bg-white/10 p-4">
+            <dt className="text-xs font-medium uppercase tracking-wide text-indigo-300">
+              Herramienta actual
+            </dt>
+            <dd className="mt-1 truncate text-sm font-semibold text-white">
+              {recomendacion.respuestas.usaHerramientaActual
+                ? recomendacion.respuestas.herramientaActualNombre || "Sí, usa una"
+                : "Ninguna todavía"}
+            </dd>
+          </div>
+        </dl>
+      </div>
+
+      <div className="mt-10 max-w-2xl">
+        <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+          Tu recomendación personalizada
+        </h2>
+        <p className="mt-2 text-sm text-slate-500">
+          Estas son las herramientas que mejor encajan con lo que nos has contado.
         </p>
       </div>
 
       {recomendacion.categorias.length > 0 && (
-        <div className="mt-6 flex flex-wrap gap-2">
+        <div className="mt-4 flex flex-wrap gap-2">
           {recomendacion.categorias.map((categoria) => (
             <span
               key={categoria}
@@ -113,7 +164,7 @@ export default function RecomendacionPage() {
         </div>
       )}
 
-      <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {recomendacion.herramientas.map((herramienta, indice) => (
           <div
             key={herramienta.id}
