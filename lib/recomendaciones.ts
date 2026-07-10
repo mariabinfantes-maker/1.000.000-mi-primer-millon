@@ -20,6 +20,12 @@ export type Recomendacion = {
   herramientas: HerramientaRecomendada[];
   respuestas: RespuestasCuestionario;
   mensaje: string;
+  /** Explicación cercana de por qué la herramienta principal (herramientas[0]) encaja. */
+  porQueEncaja: string;
+  /** 3 beneficios de negocio de resolver este problema. */
+  beneficios: [string, string, string];
+  /** Acción concreta para dar el primer paso con la herramienta principal. */
+  siguientePaso: string;
 };
 
 /**
@@ -49,6 +55,7 @@ export async function generarRecomendacion(
   await new Promise((resolve) => setTimeout(resolve, 1600));
 
   const herramientas = priorizarHerramientas(datos.herramientas, respuestas);
+  const principal = herramientas[0];
 
   return {
     problemaId: problema.id,
@@ -57,6 +64,9 @@ export async function generarRecomendacion(
     herramientas,
     respuestas,
     mensaje: construirMensajePersonalizado(problema.titulo, respuestas),
+    porQueEncaja: construirPorQueEncaja(problema.titulo, principal, respuestas),
+    beneficios: datos.beneficios,
+    siguientePaso: construirSiguientePaso(principal, datos.accionSugerida),
   };
 }
 
@@ -93,4 +103,25 @@ function construirMensajePersonalizado(
   return nombre
     ? `${base} Ya usas ${nombre}: aquí tienes alternativas y complementos bien valorados.`
     : `${base} Ya usas alguna herramienta similar: aquí tienes opciones bien valoradas para comparar.`;
+}
+
+function construirPorQueEncaja(
+  problemaTitulo: string,
+  principal: HerramientaRecomendada,
+  respuestas: RespuestasCuestionario
+): string {
+  const situacionActual = respuestas.usaHerramientaActual
+    ? `ya utilizas ${respuestas.herramientaActualNombre || "una herramienta parecida"}`
+    : `todavía no utilizas ninguna herramienta de ${principal.categoria}`;
+
+  return `Como nos has contado que quieres ${problemaTitulo.toLowerCase()} y ${situacionActual}, te recomendamos ${principal.nombre}: ${principal.descripcionCorta.toLowerCase()}`;
+}
+
+function construirSiguientePaso(
+  principal: HerramientaRecomendada,
+  accionSugerida: string
+): string {
+  const esGratis = principal.precioInicial.toLowerCase().includes("gratis");
+  const punto = esGratis ? "la versión gratuita" : "el plan inicial";
+  return `Empieza con ${punto} de ${principal.nombre} y ${accionSugerida}.`;
 }

@@ -25,12 +25,22 @@ export type ProblemaRecomendaciones = {
   problemaId: string;
   categorias: string[];
   herramientas: HerramientaRecomendada[];
+  /** 3 beneficios de negocio (no técnicos) al resolver este problema. */
+  beneficios: [string, string, string];
+  /** Frase de acción concreta, en minúscula, para completar "Empieza con [precio] de [herramienta] y ___". */
+  accionSugerida: string;
 };
 
 export const recomendacionesPorProblema: ProblemaRecomendaciones[] = [
   {
     problemaId: "conseguir-clientes",
     categorias: ["CRM", "Email Marketing", "Automatización", "Publicidad"],
+    beneficios: [
+      "No perder clientes potenciales",
+      "Hacer seguimiento de cada oportunidad",
+      "Ahorrar tiempo en la gestión comercial",
+    ],
+    accionSugerida: "crea tu primer embudo de clientes",
     herramientas: [
       {
         id: "hubspot",
@@ -102,6 +112,12 @@ export const recomendacionesPorProblema: ProblemaRecomendaciones[] = [
       "Integraciones",
       "Documentación",
     ],
+    beneficios: [
+      "Dejar de repetir tareas manuales cada semana",
+      "Reducir errores humanos en procesos clave",
+      "Liberar tiempo de tu equipo para tareas de valor",
+    ],
+    accionSugerida: "automatiza tu primera tarea repetitiva",
     herramientas: [
       {
         id: "zapier",
@@ -173,6 +189,12 @@ export const recomendacionesPorProblema: ProblemaRecomendaciones[] = [
       "Calendarios",
       "Productividad",
     ],
+    beneficios: [
+      "Recuperar horas cada semana para lo importante",
+      "Responder y decidir más rápido",
+      "Reducir el trabajo administrativo del día a día",
+    ],
+    accionSugerida: "prueba tu primer caso de uso con una tarea real",
     herramientas: [
       {
         id: "claude",
@@ -239,6 +261,12 @@ export const recomendacionesPorProblema: ProblemaRecomendaciones[] = [
   {
     problemaId: "organizar-empresa",
     categorias: ["Gestión de proyectos", "Documentación", "Comunicación", "Tareas"],
+    beneficios: [
+      "Tener toda la información en un solo lugar",
+      "Evitar que se pierdan tareas o decisiones",
+      "Facilitar la colaboración de todo el equipo",
+    ],
+    accionSugerida: "crea tu primer proyecto o tablero",
     herramientas: [
       {
         id: "asana",
@@ -310,6 +338,12 @@ export const recomendacionesPorProblema: ProblemaRecomendaciones[] = [
       "Chatbots",
       "Automatización de soporte",
     ],
+    beneficios: [
+      "Responder a tus clientes más rápido",
+      "No dejar ninguna consulta sin respuesta",
+      "Mejorar la experiencia y fidelidad del cliente",
+    ],
+    accionSugerida: "conecta tu primer canal de atención",
     herramientas: [
       {
         id: "zendesk",
