@@ -43,3 +43,40 @@ body {
   background-size: 24px 24px;
   mask-image: radial-gradient(ellipse 60% 60% at 50% 0%, black 40%, transparent 100%);
 }
+
+/* Microanimaciones: entrada en cascada para el hero y flotación suave para acentos. */
+@keyframes entrada-arriba {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes flotar {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animar-entrada {
+  animation: entrada-arriba 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animar-flotar {
+  animation: flotar 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animar-entrada,
+  .animar-flotar {
+    animation: none;
+  }
+}
