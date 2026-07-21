@@ -13,10 +13,24 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const TITULO = "Atlas — El asesor que recomienda la herramienta exacta para tu empresa";
+const DESCRIPCION =
+  "Atlas es un asesor inteligente, no un directorio de software. Describe tu problema y te recomendamos la tecnología exacta para resolverlo, sin listas interminables ni sesgos publicitarios.";
+
 export const metadata: Metadata = {
-  title: "Atlas — El asesor que encuentra tu mejor herramienta",
-  description:
-    "Atlas te ayuda a elegir la mejor tecnología para hacer crecer tu empresa. Elige un problema, compara herramientas y ve directo al proveedor.",
+  title: TITULO,
+  description: DESCRIPCION,
+  openGraph: {
+    title: TITULO,
+    description: DESCRIPCION,
+    type: "website",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary",
+    title: TITULO,
+    description: DESCRIPCION,
+  },
 };
 
 export default function RootLayout({
