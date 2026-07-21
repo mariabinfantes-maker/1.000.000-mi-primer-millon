@@ -5,8 +5,8 @@ type Variante = "primario" | "secundario" | "fantasma";
 type Tamano = "normal" | "grande";
 
 const ESTILOS_VARIANTE: Record<Variante, string> = {
-  primario: "bg-brand-600 text-white shadow-sm shadow-brand-200 hover:bg-brand-700",
-  secundario: "border border-brand-200 bg-white text-brand-700 hover:bg-brand-50",
+  primario: "bg-brand-600 text-white shadow-premium hover:bg-brand-700 hover:shadow-premium-lg",
+  secundario: "border border-brand-200 bg-white text-brand-700 hover:border-brand-300 hover:bg-brand-50",
   fantasma: "text-brand-600 hover:bg-brand-50 hover:text-brand-800",
 };
 
