@@ -1,3 +1,5 @@
+import { Check } from "lucide-react";
+
 const PASOS = ["Problema", "Categoría", "Comparar", "Proveedor"];
 
 export default function Pasos({ pasoActual }: { pasoActual: number }) {
@@ -10,15 +12,15 @@ export default function Pasos({ pasoActual }: { pasoActual: number }) {
         return (
           <li key={paso} className="flex items-center gap-2">
             <span
-              className={`flex h-6 w-6 items-center justify-center rounded-full text-xs font-semibold ${
+              className={`flex h-6 w-6 items-center justify-center rounded-full text-xs font-semibold transition ${
                 activo
-                  ? "bg-indigo-600 text-white"
+                  ? "bg-brand-600 text-white shadow-sm shadow-brand-200"
                   : completado
-                  ? "bg-indigo-100 text-indigo-700"
+                  ? "bg-brand-100 text-brand-700"
                   : "bg-slate-100 text-slate-400"
               }`}
             >
-              {numero}
+              {completado ? <Check className="h-3.5 w-3.5" aria-hidden="true" /> : numero}
             </span>
             <span
               className={`hidden sm:inline ${

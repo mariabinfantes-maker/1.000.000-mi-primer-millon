@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 import type { Problema } from "@/lib/data";
 import {
   RANGOS_EMPLEADOS,
@@ -10,6 +11,8 @@ import {
   type RangoEmpleados,
   type RespuestasCuestionario,
 } from "@/lib/recomendaciones";
+import IconoProblema from "@/components/ui/IconoProblema";
+import Boton from "@/components/ui/Boton";
 
 const TOTAL_PREGUNTAS = 4;
 
@@ -109,8 +112,10 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
   if (analizando) {
     return (
       <div className="mx-auto flex max-w-xl flex-col items-center px-4 py-24 text-center sm:px-6">
-        <span className="text-4xl">{problema.icono}</span>
-        <h1 className="mt-4 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+        <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-600">
+          <IconoProblema problemaId={problema.id} className="h-7 w-7" />
+        </span>
+        <h1 className="mt-5 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
           Analizando tu empresa...
         </h1>
         <p className="mt-2 min-h-6 text-sm text-slate-500">
@@ -120,7 +125,7 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
         <div className="mt-8 w-full max-w-sm">
           <div className="h-2 w-full overflow-hidden rounded-full bg-slate-200">
             <div
-              className="h-full rounded-full bg-indigo-600 transition-[width] duration-200 ease-out"
+              className="h-full rounded-full bg-brand-600 transition-[width] duration-200 ease-out"
               style={{ width: `${Math.min(progreso, 100)}%` }}
             />
           </div>
@@ -134,16 +139,17 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-16">
-      <p className="text-sm font-medium text-indigo-600">
-        {problema.icono} {problema.titulo}
+      <p className="flex items-center gap-1.5 text-sm font-semibold text-brand-600">
+        <IconoProblema problemaId={problema.id} className="h-4 w-4" />
+        {problema.titulo}
       </p>
 
       <div className="mt-4 flex items-center gap-2">
         {Array.from({ length: TOTAL_PREGUNTAS }).map((_, i) => (
           <span
             key={i}
-            className={`h-1.5 flex-1 rounded-full ${
-              i <= paso ? "bg-indigo-600" : "bg-slate-200"
+            className={`h-1.5 flex-1 rounded-full transition-colors ${
+              i <= paso ? "bg-brand-600" : "bg-slate-200"
             }`}
           />
         ))}
@@ -163,7 +169,7 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
           <div>
             <label
               htmlFor="sector"
-              className="block text-xl font-semibold text-slate-900 sm:text-2xl"
+              className="block text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl"
             >
               ¿A qué se dedica tu empresa?
             </label>
@@ -174,14 +180,14 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
               value={sector}
               onChange={(e) => setSector(e.target.value)}
               placeholder="Ej. tienda de ropa online, agencia de marketing, clínica dental..."
-              className="mt-4 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200"
+              className="mt-4 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
             />
           </div>
         )}
 
         {paso === 1 && (
           <fieldset>
-            <legend className="text-xl font-semibold text-slate-900 sm:text-2xl">
+            <legend className="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">
               ¿Cuántos empleados tiene?
             </legend>
             <div className="mt-4 grid grid-cols-2 gap-3">
@@ -192,8 +198,8 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
                   onClick={() => setEmpleados(rango.valor)}
                   className={`rounded-xl border px-4 py-3 text-sm font-semibold transition ${
                     empleados === rango.valor
-                      ? "border-indigo-600 bg-indigo-50 text-indigo-700"
-                      : "border-slate-300 bg-white text-slate-700 hover:border-indigo-300"
+                      ? "border-brand-600 bg-brand-50 text-brand-700"
+                      : "border-slate-300 bg-white text-slate-700 hover:border-brand-300"
                   }`}
                 >
                   {rango.etiqueta}
@@ -207,7 +213,7 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
           <div>
             <label
               htmlFor="mayorProblema"
-              className="block text-xl font-semibold text-slate-900 sm:text-2xl"
+              className="block text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl"
             >
               ¿Cuál es tu mayor problema?
             </label>
@@ -218,14 +224,14 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
               value={mayorProblema}
               onChange={(e) => setMayorProblema(e.target.value)}
               placeholder="Cuéntanos con tus palabras qué es lo que más te cuesta"
-              className="mt-4 w-full resize-none rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200"
+              className="mt-4 w-full resize-none rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
             />
           </div>
         )}
 
         {paso === 3 && (
           <fieldset>
-            <legend className="text-xl font-semibold text-slate-900 sm:text-2xl">
+            <legend className="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">
               {problema.preguntaHerramienta}
             </legend>
             <div className="mt-4 flex gap-3">
@@ -239,8 +245,8 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
                   onClick={() => setUsaHerramienta(opcion.valor)}
                   className={`rounded-xl border px-6 py-3 text-sm font-semibold transition ${
                     usaHerramienta === opcion.valor
-                      ? "border-indigo-600 bg-indigo-50 text-indigo-700"
-                      : "border-slate-300 bg-white text-slate-700 hover:border-indigo-300"
+                      ? "border-brand-600 bg-brand-50 text-brand-700"
+                      : "border-slate-300 bg-white text-slate-700 hover:border-brand-300"
                   }`}
                 >
                   {opcion.etiqueta}
@@ -254,7 +260,7 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
                 value={herramientaNombre}
                 onChange={(e) => setHerramientaNombre(e.target.value)}
                 placeholder="¿Cuál? (opcional)"
-                className="mt-4 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200"
+                className="mt-4 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
               />
             )}
           </fieldset>
@@ -265,17 +271,14 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
             type="button"
             onClick={volverAtras}
             disabled={paso === 0}
-            className="text-sm font-medium text-slate-500 hover:text-slate-700 disabled:invisible"
+            className="flex items-center gap-1 text-sm font-medium text-slate-500 hover:text-slate-700 disabled:invisible"
           >
-            ← Atrás
+            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+            Atrás
           </button>
-          <button
-            type="submit"
-            disabled={!puedeAvanzar}
-            className="rounded-lg bg-indigo-600 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:bg-slate-300"
-          >
+          <Boton type="submit" disabled={!puedeAvanzar}>
             {paso < TOTAL_PREGUNTAS - 1 ? "Siguiente" : "Analizar mi empresa"}
-          </button>
+          </Boton>
         </div>
       </form>
     </div>
