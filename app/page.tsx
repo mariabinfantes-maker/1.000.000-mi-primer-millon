@@ -5,6 +5,10 @@ import {
   ArrowRight,
   ClipboardList,
   Award,
+  Scale,
+  Zap,
+  ShieldCheck,
+  Timer,
   CheckCircle2,
 } from "lucide-react";
 import { problemas } from "@/lib/data";
@@ -34,10 +38,26 @@ const PASOS_COMO_FUNCIONA = [
 ];
 
 const SENALES_DE_CONFIANZA = [
-  "Recomendaciones objetivas",
-  "Comparación rápida",
-  "Sin publicidad invasiva",
-  "Ahorra horas de investigación",
+  {
+    icono: Scale,
+    titulo: "Recomendaciones objetivas",
+    descripcion: "Sin marcas patrocinadas ni rankings pagados.",
+  },
+  {
+    icono: Zap,
+    titulo: "Comparación rápida",
+    descripcion: "Todo lo que necesitas saber, en una sola pantalla.",
+  },
+  {
+    icono: ShieldCheck,
+    titulo: "Sin publicidad invasiva",
+    descripcion: "Cero banners, cero pop-ups, cero ruido.",
+  },
+  {
+    icono: Timer,
+    titulo: "Ahorra horas de investigación",
+    descripcion: "Analizamos el mercado por ti, no al revés.",
+  },
 ];
 
 export default function Home() {
@@ -162,18 +182,33 @@ export default function Home() {
 
       {/* Confianza */}
       <section className="border-t border-slate-100">
-        <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
-          <RevelarAlScroll className="grid grid-cols-1 gap-x-8 gap-y-6 rounded-3xl border border-slate-200/80 bg-white p-8 shadow-[0_1px_2px_rgba(15,23,42,0.04)] sm:grid-cols-2 sm:p-10 lg:grid-cols-4">
-            {SENALES_DE_CONFIANZA.map((texto) => (
-              <div key={texto} className="flex items-start gap-3">
-                <CheckCircle2
-                  className="mt-0.5 h-5 w-5 shrink-0 text-brand-600"
-                  aria-hidden="true"
-                />
-                <span className="text-sm font-medium text-slate-700">{texto}</span>
-              </div>
-            ))}
+        <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28">
+          <RevelarAlScroll className="mx-auto max-w-2xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">
+              Por qué Atlas
+            </p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+              Pensado para que confíes en la recomendación
+            </h2>
           </RevelarAlScroll>
+
+          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {SENALES_DE_CONFIANZA.map((señal, i) => (
+              <RevelarAlScroll key={señal.titulo} retrasoMs={i * 100}>
+                <div className="group h-full rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-black/[0.02] transition hover:-translate-y-1 hover:border-brand-300 hover:shadow-premium">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-brand-100 text-brand-600 ring-1 ring-brand-100 transition group-hover:scale-105">
+                    <señal.icono className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <h3 className="mt-4 text-base font-semibold text-slate-900">
+                    {señal.titulo}
+                  </h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-slate-500">
+                    {señal.descripcion}
+                  </p>
+                </div>
+              </RevelarAlScroll>
+            ))}
+          </div>
         </div>
       </section>
 
