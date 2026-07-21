@@ -23,6 +23,10 @@
   --color-brand-800: #3730a3;
   --color-brand-900: #312e81;
   --color-brand-950: #1e1b4b;
+
+  /* Sombras premium: doble capa (contacto + elevación) con un tinte de marca. */
+  --shadow-premium: 0 1px 2px 0 rgba(15, 23, 42, 0.04), 0 12px 24px -8px rgba(79, 70, 229, 0.16);
+  --shadow-premium-lg: 0 2px 4px 0 rgba(15, 23, 42, 0.04), 0 32px 64px -16px rgba(79, 70, 229, 0.24);
 }
 
 body {
@@ -31,4 +35,11 @@ body {
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   font-feature-settings: "cv11", "ss01";
   -webkit-font-smoothing: antialiased;
+}
+
+/* Textura de puntos muy sutil para el fondo del hero — sensación técnica sin ruido visual. */
+.fondo-puntos {
+  background-image: radial-gradient(circle, rgba(79, 70, 229, 0.16) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 0%, black 40%, transparent 100%);
 }
