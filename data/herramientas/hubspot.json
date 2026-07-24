@@ -23,6 +23,11 @@
   "industriasIdeales": ["SaaS y tecnología", "B2B servicios profesionales", "marketing y agencias", "ecommerce"],
 
   "noRecomendadaPara": "Empresas que buscan cubrir también contabilidad, inventario o RRHH dentro de la misma plataforma, o negocios con presupuesto muy ajustado y bases de contactos de marketing grandes, donde el precio escala rápido.",
+  "casosNoRecomendados": [
+    "Empresas que necesiten contabilidad, inventario o RRHH en la misma plataforma",
+    "Negocios con bases de contactos de marketing muy grandes y presupuesto ajustado",
+    "Equipos que solo necesiten un CRM básico sin intención de usar marketing o automatización"
+  ],
 
   "funcionesPrincipales": [
     "CRM gratuito",
@@ -33,6 +38,8 @@
     "Operations Hub (sincronización de datos)"
   ],
   "integraciones": ["Gmail y Outlook", "Slack", "Zoom", "Salesforce", "Shopify", "WordPress", "Zapier", "más de 1.500 apps en su marketplace"],
+  "integracionesPrincipales": ["Gmail y Outlook", "Salesforce", "Zapier", "WordPress"],
+  "curvaDeAprendizaje": "muy_facil",
 
   "precioInicial": "Gratis / Desde 15€ mes por asiento en planes Starter",
   "modeloDePrecio": ["freemium", "suscripcion_mensual", "por_usuario"],

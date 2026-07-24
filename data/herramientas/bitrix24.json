@@ -23,6 +23,11 @@
   "industriasIdeales": ["pymes generalistas", "startups", "equipos remotos", "servicios profesionales"],
 
   "noRecomendadaPara": "Empresas que necesiten un CRM de ventas muy avanzado y especializado, o equipos grandes que ya dependan de otras suites de colaboración (Slack, Microsoft Teams) y no quieran duplicar herramientas.",
+  "casosNoRecomendados": [
+    "Empresas que necesiten un CRM de ventas muy avanzado y especializado",
+    "Equipos grandes que ya dependan de Slack o Microsoft Teams y no quieran duplicar herramientas de colaboración",
+    "Negocios que prioricen una interfaz muy simple sobre la cantidad de funciones disponibles"
+  ],
 
   "funcionesPrincipales": [
     "CRM de ventas",
@@ -33,6 +38,8 @@
     "Contact center multicanal"
   ],
   "integraciones": ["Zapier", "Google Workspace", "Microsoft 365", "1C (contabilidad, mercado ruso/CEI)", "API abierta"],
+  "integracionesPrincipales": ["Zapier", "Google Workspace", "Microsoft 365", "1C"],
+  "curvaDeAprendizaje": "media",
 
   "precioInicial": "Gratis (usuarios ilimitados) / Desde 49€/mes en plan Basic",
   "modeloDePrecio": ["freemium", "suscripcion_mensual"],

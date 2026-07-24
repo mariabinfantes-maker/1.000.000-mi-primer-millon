@@ -25,6 +25,11 @@
   "industriasIdeales": ["agencias de marketing", "servicios locales", "inmobiliaria", "salud y bienestar", "infoproductos"],
 
   "noRecomendadaPara": "Empresas grandes con procesos de ERP o contabilidad complejos, o negocios que necesiten gestión financiera y de inventario profunda: no es su foco.",
+  "casosNoRecomendados": [
+    "Empresas que necesiten un ERP completo con contabilidad e inventario",
+    "Negocios con procesos financieros complejos que requieran módulos contables avanzados",
+    "Equipos que no vayan a dedicar tiempo a superar la curva de aprendizaje inicial"
+  ],
 
   "funcionesPrincipales": [
     "CRM y pipeline de ventas",
@@ -35,6 +40,8 @@
     "Marca blanca (reventa como SaaS) para agencias"
   ],
   "integraciones": ["Zapier", "Stripe", "Google Calendar", "Meta Ads (Facebook/Instagram)", "Twilio", "Mailgun", "API abierta"],
+  "integracionesPrincipales": ["Zapier", "Stripe", "Meta Ads (Facebook/Instagram)", "Twilio"],
+  "curvaDeAprendizaje": "dificil",
 
   "precioInicial": "Desde 97$/mes",
   "modeloDePrecio": ["suscripcion_mensual"],

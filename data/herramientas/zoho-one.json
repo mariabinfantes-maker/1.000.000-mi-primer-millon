@@ -23,6 +23,11 @@
   "industriasIdeales": ["pymes generalistas", "servicios profesionales", "comercio minorista", "consultoría"],
 
   "noRecomendadaPara": "Empresas que necesitan una aplicación líder y muy especializada en un área concreta (ej. un CRM inmobiliario muy vertical): las apps de Zoho son generalistas y no siempre igualan a especialistas del sector.",
+  "casosNoRecomendados": [
+    "Empresas que necesiten una herramienta líder y muy especializada en un único área (ej. un CRM vertical de un sector concreto)",
+    "Equipos que prioricen tener la mejor app posible en cada categoría antes que la integración entre todas",
+    "Negocios que no vayan a aprovechar más de 3-4 de las aplicaciones incluidas"
+  ],
 
   "funcionesPrincipales": [
     "CRM (Zoho CRM)",
@@ -34,6 +39,8 @@
     "Analítica (Zoho Analytics)"
   ],
   "integraciones": ["Google Workspace", "Microsoft 365", "Zapier", "Slack", "Shopify", "API abierta entre todas las apps de Zoho"],
+  "integracionesPrincipales": ["Google Workspace", "Microsoft 365", "Zapier", "Slack"],
+  "curvaDeAprendizaje": "media",
 
   "precioInicial": "Desde 37€/usuario/mes (facturación anual)",
   "modeloDePrecio": ["suscripcion_anual", "por_usuario"],
