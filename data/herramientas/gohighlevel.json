@@ -1,0 +1,78 @@
+{
+  "id": "gohighlevel",
+  "nombre": "GoHighLevel",
+  "paginaOficial": "https://www.gohighlevel.com/",
+  "urlPrecios": "https://www.gohighlevel.com/pricing",
+  "logoUrl": "",
+
+  "categoriaId": "plataformas-todo-en-uno",
+
+  "descripcion": "Plataforma todo en uno nacida para agencias de marketing, que combina CRM, embudos de venta, automatización de marketing, gestión de reputación, calendario de citas y comunicación multicanal (SMS, email, llamadas, redes sociales) en una sola suscripción, con opción de revenderse en marca blanca.",
+  "problemasQueResuelve": [
+    "Dispersión de herramientas de marketing y ventas en varias suscripciones distintas",
+    "Falta de seguimiento centralizado de leads y conversaciones",
+    "Gestión manual de citas, recordatorios y reseñas de clientes",
+    "Agencias que necesitan ofrecer software de marketing a sus clientes bajo marca propia"
+  ],
+  "casosDeUso": [
+    "Una agencia de marketing gestiona el CRM y las campañas de varios clientes desde un único panel",
+    "Un negocio local automatiza recordatorios de citas y solicitud de reseñas por SMS",
+    "Un infoproductor construye embudos de venta y páginas de aterrizaje sin programar"
+  ],
+
+  "idealPara": "Agencias de marketing y consultores que gestionan varios clientes, y pymes de servicios locales (clínicas, inmobiliarias, gimnasios) que quieren centralizar captación y seguimiento de clientes.",
+  "segmentosIdeales": ["1-10", "11-50"],
+  "industriasIdeales": ["agencias de marketing", "servicios locales", "inmobiliaria", "salud y bienestar", "infoproductos"],
+
+  "noRecomendadaPara": "Empresas grandes con procesos de ERP o contabilidad complejos, o negocios que necesiten gestión financiera y de inventario profunda: no es su foco.",
+
+  "funcionesPrincipales": [
+    "CRM y pipeline de ventas",
+    "Embudos de venta y páginas de aterrizaje",
+    "Automatización de marketing (workflows)",
+    "Calendario y reserva de citas",
+    "Bandeja de conversaciones multicanal (SMS, email, llamadas, redes sociales)",
+    "Marca blanca (reventa como SaaS) para agencias"
+  ],
+  "integraciones": ["Zapier", "Stripe", "Google Calendar", "Meta Ads (Facebook/Instagram)", "Twilio", "Mailgun", "API abierta"],
+
+  "precioInicial": "Desde 97$/mes",
+  "modeloDePrecio": ["suscripcion_mensual"],
+  "tienePlanGratuito": false,
+
+  "idiomasDisponibles": ["inglés (interfaz principal)", "soporte parcial en español y otros idiomas"],
+
+  "puntuaciones": {
+    "facilidadDeUso": 6,
+    "calidad": 7,
+    "fiabilidad": 7,
+    "atencionAlCliente": 7,
+    "escalabilidad": 7,
+    "nivelTecnicoRequerido": 6
+  },
+  "metodologiaValoracion": "Valoración editorial de Atlas basada en documentación pública, posicionamiento de mercado y opiniones agregadas de usuarios. Pendiente de contrastar con datos de uso reales; revisar periódicamente.",
+
+  "ventajas": [
+    "Todo el stack de marketing y ventas en una sola suscripción",
+    "Permite revenderse en marca blanca a clientes de agencia",
+    "Automatizaciones muy potentes sin necesidad de código",
+    "Comunicación multicanal integrada (SMS, email, llamadas)"
+  ],
+  "inconvenientes": [
+    "Curva de aprendizaje pronunciada al principio",
+    "Interfaz puede resultar sobrecargada por la cantidad de funciones",
+    "Soporte y documentación mayoritariamente en inglés",
+    "No sustituye a un ERP para gestión financiera o de inventario"
+  ],
+
+  "programaAfiliados": {
+    "disponible": true,
+    "descripcion": "Programa de afiliados con comisión recurrente de hasta el 40% de por vida sobre las suscripciones referidas.",
+    "enlace": "https://www.gohighlevel.com/affiliates",
+    "enlaceVerificado": false
+  },
+
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-07-24",
+  "fechaUltimaRevision": "2026-07-24"
+}

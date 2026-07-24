@@ -1,0 +1,78 @@
+{
+  "id": "odoo",
+  "nombre": "Odoo",
+  "paginaOficial": "https://www.odoo.com/",
+  "urlPrecios": "https://www.odoo.com/pricing",
+  "logoUrl": "",
+
+  "categoriaId": "plataformas-todo-en-uno",
+
+  "descripcion": "ERP modular de código abierto con más de 30 aplicaciones (contabilidad, inventario, fabricación, CRM, ventas, RRHH, comercio electrónico...) que se activan y pagan solo según los módulos que la empresa necesite.",
+  "problemasQueResuelve": [
+    "Gestión desconectada de inventario, ventas y contabilidad",
+    "Necesidad de un ERP asequible frente a soluciones como SAP",
+    "Procesos de fabricación o logística que requieren un sistema a medida"
+  ],
+  "casosDeUso": [
+    "Una empresa de distribución gestiona inventario, compras y facturación desde un mismo sistema",
+    "Un fabricante integra planificación de producción (MRP) con ventas",
+    "Una empresa paga solo por los módulos que usa, por ejemplo contabilidad + inventario"
+  ],
+
+  "idealPara": "Empresas con necesidades operativas (inventario, fabricación, logística, contabilidad) que buscan un ERP flexible y personalizable, con o sin ayuda de un integrador.",
+  "segmentosIdeales": ["11-50", "51-200", "200+"],
+  "industriasIdeales": ["fabricación", "distribución y logística", "comercio minorista", "construcción"],
+
+  "noRecomendadaPara": "Equipos muy pequeños sin necesidades operativas complejas (para un freelancer o una startup de dos personas suele ser sobredimensionado), o empresas sin recursos técnicos ni presupuesto para una implementación guiada.",
+
+  "funcionesPrincipales": [
+    "Contabilidad y facturación",
+    "Gestión de inventario y almacenes",
+    "Fabricación (MRP)",
+    "CRM y ventas",
+    "Comercio electrónico",
+    "RRHH y nóminas",
+    "Gestión de proyectos"
+  ],
+  "integraciones": ["API REST abierta", "Zapier", "pasarelas de pago (Stripe, PayPal)", "transportistas y marketplaces vía módulos de la comunidad"],
+
+  "precioInicial": "Gratis (1 app) / Desde 24,90€/usuario/mes en plan Standard",
+  "modeloDePrecio": ["freemium", "por_usuario", "suscripcion_mensual"],
+  "tienePlanGratuito": true,
+
+  "idiomasDisponibles": ["más de 40 idiomas, incluyendo español, inglés, francés, alemán y portugués"],
+
+  "puntuaciones": {
+    "facilidadDeUso": 5,
+    "calidad": 7,
+    "fiabilidad": 7,
+    "atencionAlCliente": 5,
+    "escalabilidad": 9,
+    "nivelTecnicoRequerido": 8
+  },
+  "metodologiaValoracion": "Valoración editorial de Atlas basada en documentación pública, posicionamiento de mercado y opiniones agregadas de usuarios. Pendiente de contrastar con datos de uso reales; revisar periódicamente.",
+
+  "ventajas": [
+    "Cobertura funcional enorme, prácticamente un ERP completo",
+    "Modelo de pago por aplicación: solo pagas lo que usas",
+    "Gran escalabilidad y personalización al ser código abierto",
+    "Comunidad y red de partners muy amplia"
+  ],
+  "inconvenientes": [
+    "Requiere conocimiento técnico o un integrador para sacarle partido real",
+    "La interfaz y la experiencia varían según el módulo",
+    "El soporte oficial es limitado si no se contrata un partner",
+    "Las personalizaciones profundas pueden complicar futuras actualizaciones"
+  ],
+
+  "programaAfiliados": {
+    "disponible": true,
+    "descripcion": "Red oficial de partners (integradores certificados) con distintos niveles (Ready, Silver, Gold), más orientada a implementación que a un afiliado de referidos clásico.",
+    "enlace": "https://www.odoo.com/partners",
+    "enlaceVerificado": false
+  },
+
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-07-24",
+  "fechaUltimaRevision": "2026-07-24"
+}
