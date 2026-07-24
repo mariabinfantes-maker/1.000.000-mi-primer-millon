@@ -24,6 +24,11 @@
   "industriasIdeales": ["fabricación", "distribución y logística", "comercio minorista", "construcción"],
 
   "noRecomendadaPara": "Equipos muy pequeños sin necesidades operativas complejas (para un freelancer o una startup de dos personas suele ser sobredimensionado), o empresas sin recursos técnicos ni presupuesto para una implementación guiada.",
+  "casosNoRecomendados": [
+    "Equipos muy pequeños (1-2 personas) sin necesidades operativas complejas",
+    "Empresas sin recursos técnicos propios ni presupuesto para contratar un partner de implementación",
+    "Negocios que necesiten estar operativos de inmediato sin una fase de configuración"
+  ],
 
   "funcionesPrincipales": [
     "Contabilidad y facturación",
@@ -35,6 +40,8 @@
     "Gestión de proyectos"
   ],
   "integraciones": ["API REST abierta", "Zapier", "pasarelas de pago (Stripe, PayPal)", "transportistas y marketplaces vía módulos de la comunidad"],
+  "integracionesPrincipales": ["Zapier", "Stripe", "PayPal", "API REST abierta"],
+  "curvaDeAprendizaje": "dificil",
 
   "precioInicial": "Gratis (1 app) / Desde 24,90€/usuario/mes en plan Standard",
   "modeloDePrecio": ["freemium", "por_usuario", "suscripcion_mensual"],

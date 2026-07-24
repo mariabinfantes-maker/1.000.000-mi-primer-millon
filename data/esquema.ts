@@ -32,6 +32,17 @@ export type ModeloDePrecio =
 
 export type EstadoHerramienta = "activo" | "descontinuado" | "en_revision";
 
+/**
+ * Añadido: curva de aprendizaje inicial, en una escala categórica pensada
+ * para mostrarse directamente en UI (una etiqueta, no un número). Es un eje
+ * distinto de `puntuaciones.facilidadDeUso` (qué tal se usa en el día a día
+ * una vez aprendida) y de `puntuaciones.nivelTecnicoRequerido` (cuánto
+ * conocimiento técnico exige implantarla). Una herramienta puede ser fácil
+ * de usar día a día y aun así tener una curva de aprendizaje dura al
+ * principio (por la cantidad de opciones que hay que configurar primero).
+ */
+export type CurvaDeAprendizaje = "muy_facil" | "facil" | "media" | "dificil";
+
 export type Categoria = {
   id: string;
   nombre: string;
@@ -98,9 +109,27 @@ export type Herramienta = {
   industriasIdeales: string[];
 
   noRecomendadaPara: string;
+  /**
+   * Añadido: la misma idea que `noRecomendadaPara` pero en formato de lista.
+   * El motor puede necesitar recorrer casos concretos de descarte uno a uno
+   * (por ejemplo, para mostrarlos como viñetas) en vez de interpretar una
+   * frase libre.
+   */
+  casosNoRecomendados: string[];
 
   funcionesPrincipales: string[];
   integraciones: string[];
+  /**
+   * Añadido: subconjunto curado (3-4) de `integraciones`, con las que de
+   * verdad definen a la herramienta. Pensado para tarjetas o vistas
+   * resumidas donde listar todas las integraciones sería demasiado ruido.
+   */
+  integracionesPrincipales: string[];
+  /**
+   * Añadido: curva de aprendizaje inicial. Ver el comentario en el tipo
+   * `CurvaDeAprendizaje` para la diferencia con las puntuaciones numéricas.
+   */
+  curvaDeAprendizaje: CurvaDeAprendizaje;
 
   /** Texto libre para mostrar, ej. "Desde 15€/usuario/mes". */
   precioInicial: string;
