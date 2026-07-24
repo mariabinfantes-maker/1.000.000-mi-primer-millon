@@ -1,0 +1,75 @@
+{
+  "id": "hubspot",
+  "nombre": "HubSpot",
+  "paginaOficial": "https://www.hubspot.com/",
+  "urlPrecios": "https://www.hubspot.com/pricing/",
+  "logoUrl": "",
+
+  "categoriaId": "plataformas-todo-en-uno",
+
+  "descripcion": "Plataforma de CRM organizada en \"Hubs\" de marketing, ventas, atención al cliente, gestión de contenido (CMS) y operaciones, con un CRM gratuito como puerta de entrada y módulos de pago que escalan según las necesidades de la empresa.",
+  "problemasQueResuelve": [
+    "Desconexión entre los equipos de marketing y ventas",
+    "Falta de seguimiento del recorrido del cliente de principio a fin",
+    "Necesidad de generar y calificar leads de forma automatizada"
+  ],
+  "casosDeUso": [
+    "Un equipo de marketing automatiza campañas de email y las conecta directamente con el pipeline de ventas",
+    "Una empresa empieza con el CRM gratuito y va activando módulos de pago a medida que crece"
+  ],
+
+  "idealPara": "Empresas orientadas a marketing y ventas B2B que quieren empezar gratis y escalar con una plataforma muy pulida y un ecosistema amplio de integraciones.",
+  "segmentosIdeales": ["1-10", "11-50", "51-200"],
+  "industriasIdeales": ["SaaS y tecnología", "B2B servicios profesionales", "marketing y agencias", "ecommerce"],
+
+  "noRecomendadaPara": "Empresas que buscan cubrir también contabilidad, inventario o RRHH dentro de la misma plataforma, o negocios con presupuesto muy ajustado y bases de contactos de marketing grandes, donde el precio escala rápido.",
+
+  "funcionesPrincipales": [
+    "CRM gratuito",
+    "Marketing Hub (automatización, email, landing pages)",
+    "Sales Hub (pipeline, secuencias, cotizaciones)",
+    "Service Hub (tickets, base de conocimiento)",
+    "CMS Hub (gestor de contenido web)",
+    "Operations Hub (sincronización de datos)"
+  ],
+  "integraciones": ["Gmail y Outlook", "Slack", "Zoom", "Salesforce", "Shopify", "WordPress", "Zapier", "más de 1.500 apps en su marketplace"],
+
+  "precioInicial": "Gratis / Desde 15€ mes por asiento en planes Starter",
+  "modeloDePrecio": ["freemium", "suscripcion_mensual", "por_usuario"],
+  "tienePlanGratuito": true,
+
+  "idiomasDisponibles": ["español", "inglés", "portugués", "alemán", "francés", "japonés", "y otros"],
+
+  "puntuaciones": {
+    "facilidadDeUso": 8,
+    "calidad": 9,
+    "fiabilidad": 9,
+    "atencionAlCliente": 8,
+    "escalabilidad": 8,
+    "nivelTecnicoRequerido": 3
+  },
+  "metodologiaValoracion": "Valoración editorial de Atlas basada en documentación pública, posicionamiento de mercado y opiniones agregadas de usuarios. Pendiente de contrastar con datos de uso reales; revisar periódicamente.",
+
+  "ventajas": [
+    "Plan gratuito realmente utilizable, no solo una demo limitada",
+    "Interfaz muy cuidada y fácil de aprender",
+    "Ecosistema de integraciones enorme",
+    "Contenido educativo y comunidad muy amplios"
+  ],
+  "inconvenientes": [
+    "El precio se dispara al añadir contactos de marketing o funciones avanzadas",
+    "No cubre contabilidad, inventario ni RRHH",
+    "Algunos informes avanzados solo están disponibles en los planes más caros"
+  ],
+
+  "programaAfiliados": {
+    "disponible": true,
+    "descripcion": "Programa de afiliados con comisiones recurrentes durante el primer año, además de un programa de partners de agencia con condiciones distintas.",
+    "enlace": "https://www.hubspot.com/partners/affiliates",
+    "enlaceVerificado": false
+  },
+
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-07-24",
+  "fechaUltimaRevision": "2026-07-24"
+}
