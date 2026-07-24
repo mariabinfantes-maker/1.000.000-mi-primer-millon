@@ -4,13 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import type { Problema } from "@/lib/data";
-import {
-  RANGOS_EMPLEADOS,
-  claveRecomendacionGuardada,
-  generarRecomendacion,
-  type RangoEmpleados,
-  type RespuestasCuestionario,
-} from "@/lib/recomendaciones";
+import { RANGOS_EMPLEADOS, type RangoEmpleados } from "@/lib/cuestionario";
+import type { HerramientaEvaluada, RespuestasUsuario } from "@/lib/recommendationEngine";
+import { guardarResultados } from "@/lib/resultadosSesion";
 import IconoProblema from "@/components/ui/IconoProblema";
 import Boton from "@/components/ui/Boton";
 
@@ -60,12 +56,19 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
     if (!analizando || yaLanzado.current) return;
     yaLanzado.current = true;
 
-    const respuestas: RespuestasCuestionario = {
-      sector: sector.trim(),
-      empleados: empleados as RangoEmpleados,
-      mayorProblema: mayorProblema.trim(),
-      usaHerramientaActual: Boolean(usaHerramienta),
-      herramientaActualNombre: herramientaNombre.trim(),
+    const notasAdicionales = [
+      mayorProblema.trim(),
+      usaHerramienta
+        ? `Actualmente usa ${herramientaNombre.trim() || "una herramienta parecida"} para esto.`
+        : "Todavía no usa ninguna herramienta para esto.",
+    ]
+      .filter(Boolean)
+      .join(" ");
+
+    const respuestas: RespuestasUsuario = {
+      industria: sector.trim(),
+      tamanoEmpresa: empleados as RangoEmpleados,
+      notasAdicionales,
     };
 
     const intervalo = setInterval(() => {
@@ -76,18 +79,18 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
       setMensajeIndice((i) => (i + 1) % MENSAJES_ANALISIS.length);
     }, 1100);
 
-    generarRecomendacion(problema.id, respuestas)
-      .then((recomendacion) => {
+    fetch("/api/recomendaciones", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(respuestas),
+    })
+      .then((respuesta) => {
+        if (!respuesta.ok) throw new Error("La API de recomendaciones respondió con un error.");
+        return respuesta.json() as Promise<{ top: HerramientaEvaluada[] }>;
+      })
+      .then(({ top }) => {
         setProgreso(100);
-        try {
-          sessionStorage.setItem(
-            claveRecomendacionGuardada(problema.id),
-            JSON.stringify(recomendacion)
-          );
-        } catch {
-          // sessionStorage no disponible (modo privado, etc.): la pantalla
-          // de resultados mostrará su propio fallback.
-        }
+        guardarResultados(problema.id, top);
         setTimeout(() => {
           router.push(`/problema/${problema.id}/recomendacion`);
         }, 400);
@@ -277,7 +280,7 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
             Atrás
           </button>
           <Boton type="submit" disabled={!puedeAvanzar}>
-            {paso < TOTAL_PREGUNTAS - 1 ? "Siguiente" : "Analizar mi empresa"}
+            {paso < TOTAL_PREGUNTAS - 1 ? "Siguiente" : "Obtener recomendación"}
           </Boton>
         </div>
       </form>
