@@ -1,0 +1,80 @@
+import type { Herramienta } from "@/data/esquema";
+import { CRITERIOS } from "./criterios";
+import type { DetalleCriterio, HerramientaEvaluada, ResultadoRecomendacion, RespuestasUsuario } from "./tipos";
+
+const CANTIDAD_POR_DEFECTO = 3;
+/** Nº máximo de motivos que entran en el párrafo de explicación (el resto sigue disponible en `razones`). */
+const MOTIVOS_EN_EXPLICACION = 3;
+
+function porRelevancia(a: DetalleCriterio, b: DetalleCriterio): number {
+  return Math.abs(b.puntos) - Math.abs(a.puntos);
+}
+
+/** Compone un párrafo legible a partir de los motivos más relevantes de una herramienta ya evaluada. */
+function generarExplicacion(herramienta: Herramienta, razones: string[]): string {
+  if (razones.length === 0) {
+    return `${herramienta.nombre} es una opción sólida y bien valorada dentro de su categoría.`;
+  }
+  const motivos = razones.slice(0, MOTIVOS_EN_EXPLICACION).join(" ");
+  return `Recomendamos ${herramienta.nombre} porque: ${motivos}`;
+}
+
+/** Aplica todos los criterios a una única herramienta y consolida el resultado. */
+export function evaluarHerramienta(herramienta: Herramienta, respuestas: RespuestasUsuario): HerramientaEvaluada {
+  const detalles = CRITERIOS.map((criterio) => criterio(herramienta, respuestas));
+  const puntuacionTotal = detalles.reduce((total, detalle) => total + detalle.puntos, 0);
+
+  const razones = detalles
+    .filter((detalle) => detalle.explicacion !== "")
+    .sort(porRelevancia)
+    .map((detalle) => detalle.explicacion);
+
+  const tieneAdvertencia = detalles.some((detalle) => detalle.criterio === "casosNoRecomendados" && detalle.puntos < 0);
+
+  return {
+    herramienta,
+    puntuacionTotal,
+    detalles,
+    razones,
+    explicacion: generarExplicacion(herramienta, razones),
+    tieneAdvertencia,
+  };
+}
+
+/**
+ * Motor de recomendación de Atlas.
+ *
+ * Recibe las respuestas del cuestionario y el catálogo completo de
+ * herramientas (normalmente `getHerramientas()` de `data/repositorio.ts`,
+ * pero el motor no importa ese módulo: así se puede probar con catálogos de
+ * prueba y, el día de mañana, reutilizar desde una ruta de API sin cambios).
+ *
+ * Puntúa cada herramienta candidata con `CRITERIOS`, las ordena de mayor a
+ * menor puntuación (con la calidad editorial como desempate) y devuelve el
+ * top N junto con el ranking completo.
+ */
+export function recomendarHerramientas(
+  respuestas: RespuestasUsuario,
+  herramientas: Herramienta[],
+  opciones: { cantidad?: number } = {}
+): ResultadoRecomendacion {
+  const cantidad = opciones.cantidad ?? CANTIDAD_POR_DEFECTO;
+
+  const candidatas = respuestas.categoriaId
+    ? herramientas.filter((herramienta) => herramienta.categoriaId === respuestas.categoriaId)
+    : herramientas;
+
+  const evaluadas = candidatas
+    .map((herramienta) => evaluarHerramienta(herramienta, respuestas))
+    .sort(
+      (a, b) =>
+        b.puntuacionTotal - a.puntuacionTotal ||
+        b.herramienta.puntuaciones.calidad - a.herramienta.puntuaciones.calidad ||
+        b.herramienta.puntuaciones.fiabilidad - a.herramienta.puntuaciones.fiabilidad
+    );
+
+  return {
+    top: evaluadas.slice(0, cantidad),
+    todas: evaluadas,
+  };
+}
