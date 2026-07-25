@@ -73,12 +73,17 @@
 
   "programaAfiliados": {
     "disponible": true,
-    "descripcion": "Programa de partners (revendedores y consultores certificados), con comisiones e incentivos por implementación.",
-    "enlace": "https://www.zoho.com/partners/",
-    "enlaceVerificado": false
+    "descripcion": "Programa de afiliados independiente del programa de partners/revendedores (no se puede ser ambas cosas a la vez): 15% de comisión sobre lo que factura Zoho durante los 12 meses siguientes a la venta, si el referido sigue siendo cliente al menos 60 días.",
+    "enlace": "https://www.zoho.com/affiliate/",
+    "enlaceVerificado": false,
+    "plataformaGestion": "Programa propio de Zoho",
+    "tipoInscripcion": "abierta",
+    "tipoComision": "porcentaje",
+    "confianza": "media",
+    "fuente": "https://www.zoho.com/affiliate/faq.html"
   },
 
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-07-24",
-  "fechaUltimaRevision": "2026-07-24"
+  "fechaUltimaRevision": "2026-07-25"
 }

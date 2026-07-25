@@ -71,12 +71,17 @@
 
   "programaAfiliados": {
     "disponible": true,
-    "descripcion": "Programa de afiliados con comisiones recurrentes durante el primer año, además de un programa de partners de agencia con condiciones distintas.",
+    "descripcion": "Programa de afiliados con el 30% de comisión recurrente mensual durante hasta 12 meses, gestionado a través de la red Impact. Distinto del programa de partners de agencia, que tiene condiciones propias.",
     "enlace": "https://www.hubspot.com/partners/affiliates",
-    "enlaceVerificado": false
+    "enlaceVerificado": false,
+    "plataformaGestion": "Impact",
+    "tipoInscripcion": "abierta",
+    "tipoComision": "comision_recurrente",
+    "confianza": "media",
+    "fuente": "https://wecantrack.com/programs/hubspot-affiliate-program/"
   },
 
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-07-24",
-  "fechaUltimaRevision": "2026-07-24"
+  "fechaUltimaRevision": "2026-07-25"
 }

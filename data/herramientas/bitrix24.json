@@ -72,12 +72,17 @@
 
   "programaAfiliados": {
     "disponible": true,
-    "descripcion": "Programa de partners para revendedores e implementadores certificados.",
+    "descripcion": "Programa de partners para revendedores e implementadores certificados, con hasta el 50% de comisión por venta. Requiere completar un perfil de empresa y pasar una verificación de hasta 7 días laborables antes de aparecer listado.",
     "enlace": "https://www.bitrix24.com/partners/",
-    "enlaceVerificado": false
+    "enlaceVerificado": false,
+    "plataformaGestion": "Programa propio de Bitrix24",
+    "tipoInscripcion": "requiere_aprobacion",
+    "tipoComision": "porcentaje",
+    "confianza": "media",
+    "fuente": "https://www.bitrix24.com/about/blogs/bitrix24-tips-and-updates/bitrix24-partner-program.php"
   },
 
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-07-24",
-  "fechaUltimaRevision": "2026-07-24"
+  "fechaUltimaRevision": "2026-07-25"
 }

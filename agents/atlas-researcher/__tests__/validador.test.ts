@@ -91,4 +91,82 @@ describe("validarPropuesta", () => {
     const propuesta = validarPropuesta({ datos, fuentes: ["https://ejemplo.test"] }, solicitud);
     expect(propuesta.camposFaltantes).toContain("descripcion");
   });
+
+  describe("programa de afiliados", () => {
+    it("no avisa de nada si no hay programa de afiliados disponible", () => {
+      const propuesta = validarPropuesta(
+        { datos: { programaAfiliados: { disponible: false, enlaceVerificado: false } }, fuentes: [] },
+        solicitud
+      );
+
+      expect(propuesta.advertencias.some((a) => a.includes("programa de afiliados"))).toBe(false);
+    });
+
+    it("avisa de qué subcampos faltan cuando sí hay programa de afiliados pero está incompleto", () => {
+      const propuesta = validarPropuesta(
+        {
+          datos: {
+            programaAfiliados: { disponible: true, enlace: "https://ejemplo.test/afiliados", enlaceVerificado: false },
+          },
+          fuentes: ["https://ejemplo.test"],
+        },
+        solicitud
+      );
+
+      const aviso = propuesta.advertencias.find((a) => a.includes("programa de afiliados está incompleto"));
+      expect(aviso).toBeDefined();
+      expect(aviso).toContain("plataformaGestion");
+      expect(aviso).toContain("tipoInscripcion");
+      expect(aviso).toContain("tipoComision");
+      expect(aviso).toContain("confianza");
+      expect(aviso).toContain("fuente");
+      expect(aviso).not.toContain("enlace,");
+    });
+
+    it("no avisa de campos incompletos cuando el programa de afiliados está completo", () => {
+      const propuesta = validarPropuesta(
+        {
+          datos: {
+            programaAfiliados: {
+              disponible: true,
+              enlace: "https://ejemplo.test/afiliados",
+              enlaceVerificado: false,
+              plataformaGestion: "PartnerStack",
+              tipoInscripcion: "abierta",
+              tipoComision: "comision_recurrente",
+              confianza: "media",
+              fuente: "https://ejemplo.test/afiliados/condiciones",
+            },
+          },
+          fuentes: ["https://ejemplo.test"],
+        },
+        solicitud
+      );
+
+      expect(propuesta.advertencias.some((a) => a.includes("incompleto"))).toBe(false);
+    });
+
+    it('avisa por separado cuando la confianza declarada del programa de afiliados es "baja"', () => {
+      const propuesta = validarPropuesta(
+        {
+          datos: {
+            programaAfiliados: {
+              disponible: true,
+              enlace: "https://ejemplo.test/afiliados",
+              enlaceVerificado: false,
+              plataformaGestion: "Programa propio",
+              tipoInscripcion: "requiere_aprobacion",
+              tipoComision: "porcentaje",
+              confianza: "baja",
+              fuente: "https://ejemplo.test/afiliados",
+            },
+          },
+          fuentes: ["https://ejemplo.test"],
+        },
+        solicitud
+      );
+
+      expect(propuesta.advertencias.some((a) => a.includes("confianza declarada"))).toBe(true);
+    });
+  });
 });
