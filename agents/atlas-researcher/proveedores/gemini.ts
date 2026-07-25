@@ -1,8 +1,14 @@
 import { ErrorProveedorIA, type ProveedorIA } from "../proveedorIA";
 
 const NOMBRE = "gemini";
-/** Se puede sobrescribir con GEMINI_MODEL sin tocar código, por si hace falta cambiar de modelo más adelante. */
-const MODELO_POR_DEFECTO = "gemini-2.5-flash";
+/**
+ * Se puede sobrescribir con GEMINI_MODEL sin tocar código, por si hace
+ * falta cambiar de modelo más adelante — como ya tuvimos que hacer una vez
+ * (gemini-2.5-flash dejó de estar disponible para nuevos usuarios).
+ * gemini-3.6-flash es, a fecha de este cambio, el modelo flash de la
+ * familia Gemini 3 en disponibilidad general (GA).
+ */
+const MODELO_POR_DEFECTO = "gemini-3.6-flash";
 const URL_BASE = "https://generativelanguage.googleapis.com/v1beta/models";
 
 type RespuestaGemini = {
