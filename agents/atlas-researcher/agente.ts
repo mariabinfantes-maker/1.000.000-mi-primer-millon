@@ -1,3 +1,4 @@
+import type { Herramienta } from "@/data/esquema";
 import { construirPromptInvestigacion } from "./prompt";
 import type { ProveedorIA } from "./proveedorIA";
 import type { ResultadoInvestigacion, SolicitudInvestigacion } from "./tipos";
@@ -33,5 +34,30 @@ export async function investigarHerramienta(
     };
   }
 
-  return { ok: true, propuesta: validarPropuesta(crudo, solicitud) };
+  const propuesta = validarPropuesta(crudo, solicitud);
+
+  // Regla de negocio obligatoria de Atlas: el modelo de negocio se basa en
+  // la monetización por afiliación, así que una herramienta sin programa
+  // de afiliados activo y fiable no se incorpora a la base de datos, por
+  // buena que sea el resto de la investigación. Se comprueba aquí, antes
+  // de devolver la ficha como aceptada, sin cambiar el resto del flujo: si
+  // la herramienta sí cumple, se sigue devolviendo exactamente como antes.
+  if (!tieneProgramaDeAfiliadosFiable(propuesta.datos.programaAfiliados)) {
+    return {
+      ok: false,
+      error:
+        `Descartada "${solicitud.nombreHerramienta}": no dispone de un programa de afiliados activo y fiable, ` +
+        "requisito obligatorio para incorporarla a la base de datos de Atlas.",
+    };
+  }
+
+  return { ok: true, propuesta };
+}
+
+/** "Activo" (disponible) y "fiable" (la propia investigación no lo marca como de confianza baja). */
+function tieneProgramaDeAfiliadosFiable(programaAfiliados: Herramienta["programaAfiliados"] | undefined): boolean {
+  if (!programaAfiliados || programaAfiliados.disponible !== true) {
+    return false;
+  }
+  return programaAfiliados.confianza !== "baja";
 }
