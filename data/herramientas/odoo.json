@@ -74,12 +74,17 @@
 
   "programaAfiliados": {
     "disponible": true,
-    "descripcion": "Red oficial de partners (integradores certificados) con distintos niveles (Ready, Silver, Gold), más orientada a implementación que a un afiliado de referidos clásico.",
+    "descripcion": "Red oficial de partners (integradores certificados) con tres niveles según ventas anuales y empleados certificados: Ready (10%), Silver (15%) y Gold (20% de comisión sobre Odoo Enterprise). Requiere cumplir requisitos mínimos, no es una simple inscripción de afiliado.",
     "enlace": "https://www.odoo.com/partners",
-    "enlaceVerificado": false
+    "enlaceVerificado": false,
+    "plataformaGestion": "Programa propio de Odoo",
+    "tipoInscripcion": "requiere_aprobacion",
+    "tipoComision": "porcentaje",
+    "confianza": "media",
+    "fuente": "https://www.odoo.com/documentation/19.0/legal/terms/partnership.html"
   },
 
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-07-24",
-  "fechaUltimaRevision": "2026-07-24"
+  "fechaUltimaRevision": "2026-07-25"
 }

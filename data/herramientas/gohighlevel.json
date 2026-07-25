@@ -74,12 +74,17 @@
 
   "programaAfiliados": {
     "disponible": true,
-    "descripcion": "Programa de afiliados con comisión recurrente de hasta el 40% de por vida sobre las suscripciones referidas.",
+    "descripcion": "Programa de afiliados con comisión recurrente del 40% sobre las suscripciones referidas mientras el cliente siga activo, sin proceso de aprobación ni requisito de ser cliente.",
     "enlace": "https://www.gohighlevel.com/affiliates",
-    "enlaceVerificado": false
+    "enlaceVerificado": false,
+    "plataformaGestion": "PartnerStack",
+    "tipoInscripcion": "abierta",
+    "tipoComision": "comision_recurrente",
+    "confianza": "media",
+    "fuente": "https://help.gohighlevel.com/support/solutions/articles/48000980325-become-a-highlevel-affiliate"
   },
 
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-07-24",
-  "fechaUltimaRevision": "2026-07-24"
+  "fechaUltimaRevision": "2026-07-25"
 }

@@ -42,6 +42,8 @@ export function validarPropuesta(datosCrudos: unknown, solicitud: SolicitudInves
 
   const camposFaltantes = CAMPOS_INVESTIGABLES_OBLIGATORIOS.filter((campo) => campoEstaVacio(datos[campo]));
 
+  advertencias.push(...advertenciasProgramaAfiliados(datos.programaAfiliados));
+
   return {
     datos,
     camposFaltantes,
@@ -49,6 +51,41 @@ export function validarPropuesta(datosCrudos: unknown, solicitud: SolicitudInves
     confianza: calcularConfianza(camposFaltantes.length, fuentes.length),
     advertencias,
   };
+}
+
+/**
+ * Comprobación específica de `programaAfiliados`: es un objeto anidado, así
+ * que `camposFaltantes` (que solo mira campos de primer nivel) no detecta
+ * si falta, por ejemplo, `tipoComision`. Solo tiene sentido pedir estos
+ * subcampos cuando sí existe un programa de afiliados que investigar.
+ */
+function advertenciasProgramaAfiliados(programaAfiliados: Herramienta["programaAfiliados"] | undefined): string[] {
+  if (!programaAfiliados || programaAfiliados.disponible !== true) {
+    return [];
+  }
+
+  const advertencias: string[] = [];
+  const subcamposEsperados: (keyof Herramienta["programaAfiliados"])[] = [
+    "enlace",
+    "plataformaGestion",
+    "tipoInscripcion",
+    "tipoComision",
+    "confianza",
+    "fuente",
+  ];
+
+  const faltantes = subcamposEsperados.filter((campo) => campoEstaVacio(programaAfiliados[campo]));
+  if (faltantes.length > 0) {
+    advertencias.push(
+      `El programa de afiliados está incompleto: falta ${faltantes.join(", ")}. Revisar antes de publicar.`
+    );
+  }
+
+  if (programaAfiliados.confianza === "baja") {
+    advertencias.push("La confianza declarada para el programa de afiliados es baja: conviene verificarlo a mano.");
+  }
+
+  return advertencias;
 }
 
 function campoEstaVacio(valor: unknown): boolean {

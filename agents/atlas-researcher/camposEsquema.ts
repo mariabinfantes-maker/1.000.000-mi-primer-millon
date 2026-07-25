@@ -50,7 +50,14 @@ export const DESCRIPCION_CAMPOS: Record<keyof Herramienta, string> = {
   ventajas: "Lista de puntos fuertes.",
   inconvenientes: "Lista de puntos débiles.",
   programaAfiliados:
-    "Objeto con disponible (true/false), descripcion, enlace y enlaceVerificado (poner siempre false: Atlas Researcher no visita enlaces todavía).",
+    "Objeto con: disponible (true/false); descripcion; enlace (URL oficial del programa de afiliados); " +
+    "enlaceVerificado (poner siempre false: Atlas Researcher no visita enlaces todavía); " +
+    'plataformaGestion (dónde se gestiona: "PartnerStack", "Impact", "CJ Affiliate", "Programa propio", etc.); ' +
+    'tipoInscripcion ("abierta" si cualquiera puede apuntarse, "requiere_aprobacion" si la empresa aprueba cada solicitud); ' +
+    'tipoComision ("porcentaje", "pago_fijo" o "comision_recurrente"); ' +
+    "confianza (\"baja\", \"media\" o \"alta\": qué tan fiable es TODO este bloque, no solo el enlace); " +
+    "fuente (URL o referencia concreta de donde sacaste estos datos de afiliados en particular, distinta de `enlace`). " +
+    "Si no encuentras programa de afiliados, pon disponible: false y omite el resto de subcampos.",
   estado: "Ciclo de vida interno de Atlas (lo asigna Atlas, no lo investigues).",
   fechaAltaEnAtlas: "Fecha de alta en Atlas (la asigna Atlas, no la investigues).",
   fechaUltimaRevision: "Fecha de la última revisión (la asigna Atlas, no la investigues).",

@@ -1,4 +1,7 @@
-import type { Herramienta } from "@/data/esquema";
+import type { Herramienta, NivelConfianza } from "@/data/esquema";
+
+/** Re-exportado para que quien importe desde el agente no necesite saber que este tipo vive en data/esquema.ts. */
+export type { NivelConfianza };
 
 /**
  * Tipos de Atlas Researcher — el primer agente de Atlas.
@@ -20,8 +23,6 @@ export type SolicitudInvestigacion = {
   /** Contexto libre adicional para orientar la investigación (ej. "centrarse en el plan gratuito"). */
   contextoAdicional?: string;
 };
-
-export type NivelConfianza = "baja" | "media" | "alta";
 
 /**
  * Resultado de investigar una herramienta: un borrador, nunca una
