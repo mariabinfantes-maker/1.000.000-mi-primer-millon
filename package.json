@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "verificar-datos": "tsx data/verificar.ts",
-    "test": "vitest run"
+    "test": "vitest run",
+    "investigar-herramienta": "tsx agents/atlas-researcher/cli.ts"
   },
   "dependencies": {
     "lucide-react": "^1.25.0",
