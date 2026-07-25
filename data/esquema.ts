@@ -111,6 +111,72 @@ export type Puntuaciones = {
    * 1 = apto sin conocimientos técnicos · 10 = requiere equipo técnico dedicado.
    */
   nivelTecnicoRequerido: Puntuacion1a10;
+  /**
+   * Añadido: qué tan fácil es poner en marcha la herramienta (configuración
+   * inicial, migración de datos, puesta a punto), no cómo de fácil es
+   * usarla ya en marcha (eso es `facilidadDeUso`) ni cuánto conocimiento
+   * técnico exige (eso es `nivelTecnicoRequerido`). Opcional porque las 5
+   * fichas ya existentes no lo tienen investigado todavía — no había que
+   * romper esos datos para añadir esta pregunta a las futuras.
+   */
+  facilidadImplementacion?: Puntuacion1a10;
+};
+
+/** Reseña de una plataforma externa de reseñas que no sea G2 ni Capterra (TrustRadius, Product Hunt, App Store, etc.). */
+export type ReputacionExterna = {
+  fuente: string;
+  puntuacion?: number;
+  numeroResenas?: number;
+  enlace?: string;
+};
+
+/**
+ * Añadido: reputación en plataformas externas de reseñas. Ninguno de estos
+ * campos es obligatorio a nivel de esquema — muchas herramientas
+ * (sobre todo las más nuevas o muy verticales) sencillamente no tienen
+ * página en G2 o en Capterra, y eso no es un fallo de investigación, es un
+ * hecho real que hay que poder representar sin forzar un dato inventado.
+ */
+export type Reputacion = {
+  /** Escala habitual de G2: 1-5. */
+  g2Puntuacion?: number;
+  g2NumeroResenas?: number;
+  /** Escala habitual de Capterra: 1-5. */
+  capterraPuntuacion?: number;
+  capterraNumeroResenas?: number;
+  otrasFuentes?: ReputacionExterna[];
+};
+
+/** Añadido: datos de la empresa que hay detrás de la herramienta (no de la herramienta en sí). `paginaOficial` ya vive en `Herramienta`, no se duplica aquí. */
+export type InformacionEmpresa = {
+  anioFundacion?: number;
+  paisOrigen?: string;
+  /** Texto libre a propósito: los tramos de tamaño de una empresa fabricante (ej. "501-1000 empleados") no tienen por qué coincidir con `RangoEmpleados`, que describe el tamaño ideal del CLIENTE, no del proveedor. */
+  tamanoAproximado?: string;
+};
+
+/** A qué nivel de conocimiento técnico le conviene esta herramienta a quien la use — distinto de `puntuaciones.nivelTecnicoRequerido` (una puntuación 1-10 de exigencia) y de `curvaDeAprendizaje`: aquí se trata de una recomendación de perfil de usuario, en 3 escalones simples. */
+export type NivelTecnicoRecomendado = "principiante" | "intermedio" | "avanzado";
+
+/**
+ * Añadido: el análisis propio de Atlas sobre la herramienta, pensado para
+ * alimentar el futuro comparador inteligente.
+ *
+ * `puntuacion` y `motivosPuntuacion` los calcula Atlas automáticamente
+ * (ver `lib/puntuacionAtlas.ts`) a partir del resto de datos investigados
+ * — nunca los inventa el proveedor de IA. El resto de campos
+ * (`competidoresDirectos`, `tipoNegocioIdeal`, `nivelTecnicoRecomendado`)
+ * sí son investigación, igual que cualquier otro campo del esquema.
+ */
+export type AnalisisAtlas = {
+  /** 0-100. Calculado, no investigado — ver el comentario del tipo. */
+  puntuacion?: number;
+  /** Motivos legibles de por qué se ha llegado a esa puntuación, generados junto con ella. */
+  motivosPuntuacion?: string[];
+  competidoresDirectos?: string[];
+  /** Categoría breve de negocio al que más le conviene, ej. "Agencias de marketing". Complementa a `idealPara` (una frase) con una etiqueta corta pensada para filtrar/agrupar en el comparador. */
+  tipoNegocioIdeal?: string;
+  nivelTecnicoRecomendado?: NivelTecnicoRecomendado;
 };
 
 export type Herramienta = {
@@ -172,8 +238,16 @@ export type Herramienta = {
   modeloDePrecio: ModeloDePrecio[];
   /** Añadido: bandera rápida — es la primera pregunta que se hace un usuario con presupuesto ajustado. */
   tienePlanGratuito: boolean;
+  /** Añadido: no siempre el precio de entrada (`precioInicial`) es el plan que de verdad le conviene a una pyme — a veces hace falta un plan intermedio para desbloquear lo esencial. Texto libre, ej. "Plan Professional a 45€/usuario/mes". */
+  precioRecomendadoPymes?: string;
 
   idiomasDisponibles: string[];
+  /** Añadido: derivado de `idiomasDisponibles`, pero como booleano explícito — ese array a veces es texto ambiguo (ej. "más de 40 idiomas"), y comprobar "¿hay español?" a mano no es fiable. */
+  disponibleEnEspanol?: boolean;
+  /** Añadido: si existe una app móvil oficial (iOS/Android), no solo una web adaptada a móvil. */
+  tieneAppMovil?: boolean;
+  /** Añadido: si ofrece una API pública documentada para desarrolladores. */
+  tieneApiPublica?: boolean;
 
   puntuaciones: Puntuaciones;
   /**
@@ -187,6 +261,13 @@ export type Herramienta = {
   inconvenientes: string[];
 
   programaAfiliados: ProgramaAfiliados;
+
+  /** Añadido: reputación en plataformas externas de reseñas (G2, Capterra...). Opcional: no todas las herramientas tienen presencia en estas plataformas. */
+  reputacion?: Reputacion;
+  /** Añadido: datos de la empresa fabricante (fundación, país, tamaño). */
+  informacionEmpresa?: InformacionEmpresa;
+  /** Añadido: el análisis propio de Atlas — ver el comentario del tipo `AnalisisAtlas`. */
+  analisisAtlas?: AnalisisAtlas;
 
   /** Añadido: con cientos/miles de herramientas, algunas se descontinuarán o cambiarán de nombre. Sin este campo no hay forma de retirarlas sin borrar el histórico. */
   estado: EstadoHerramienta;

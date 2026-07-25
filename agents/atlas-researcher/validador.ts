@@ -1,4 +1,5 @@
 import type { Herramienta } from "@/data/esquema";
+import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
 import { CAMPOS_INVESTIGABLES_OBLIGATORIOS } from "./camposEsquema";
 import type { HerramientaPropuesta, NivelConfianza, SolicitudInvestigacion } from "./tipos";
 
@@ -43,6 +44,21 @@ export function validarPropuesta(datosCrudos: unknown, solicitud: SolicitudInves
   const camposFaltantes = CAMPOS_INVESTIGABLES_OBLIGATORIOS.filter((campo) => campoEstaVacio(datos[campo]));
 
   advertencias.push(...advertenciasProgramaAfiliados(datos.programaAfiliados));
+  advertencias.push(...advertenciasAnalisisAtlas(datos.analisisAtlas));
+
+  // La puntuación Atlas nunca la rellena el proveedor de IA (ver el
+  // comentario en `AnalisisAtlas` en data/esquema.ts): se calcula aquí, a
+  // partir de los datos ya investigados, y sustituye a lo que el proveedor
+  // haya podido devolver en esas dos claves — nunca nos fiamos de un
+  // "puntuacion"/"motivosPuntuacion" inventado por la IA.
+  const resultadoPuntuacion = calcularPuntuacionAtlas(datos);
+  if (resultadoPuntuacion) {
+    datos.analisisAtlas = {
+      ...datos.analisisAtlas,
+      puntuacion: resultadoPuntuacion.puntuacion,
+      motivosPuntuacion: resultadoPuntuacion.motivos,
+    };
+  }
 
   return {
     datos,
@@ -86,6 +102,31 @@ function advertenciasProgramaAfiliados(programaAfiliados: Herramienta["programaA
   }
 
   return advertencias;
+}
+
+/**
+ * Comprobación específica de `analisisAtlas`: al igual que
+ * `programaAfiliados`, es un objeto anidado que la comprobación genérica de
+ * "campos faltantes" de primer nivel no cubre bien — y en este caso, ni
+ * siquiera podría: `analisisAtlas` siempre acaba con una `puntuacion`
+ * calculada (ver más arriba), así que nunca aparecería "vacío" del todo.
+ * Esta función es la que de verdad comprueba si el proveedor de IA
+ * investigó su parte (competidores, tipo de negocio ideal, nivel técnico
+ * recomendado), no la parte que calcula Atlas.
+ */
+function advertenciasAnalisisAtlas(analisisAtlas: Herramienta["analisisAtlas"] | undefined): string[] {
+  if (!analisisAtlas) return [];
+
+  const subcamposInvestigables: (keyof NonNullable<Herramienta["analisisAtlas"]>)[] = [
+    "competidoresDirectos",
+    "tipoNegocioIdeal",
+    "nivelTecnicoRecomendado",
+  ];
+
+  const faltantes = subcamposInvestigables.filter((campo) => campoEstaVacio(analisisAtlas[campo]));
+  if (faltantes.length === 0) return [];
+
+  return [`El análisis de Atlas está incompleto: falta ${faltantes.join(", ")}.`];
 }
 
 function campoEstaVacio(valor: unknown): boolean {
