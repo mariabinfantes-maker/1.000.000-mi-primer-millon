@@ -169,4 +169,75 @@ describe("validarPropuesta", () => {
       expect(propuesta.advertencias.some((a) => a.includes("confianza declarada"))).toBe(true);
     });
   });
+
+  describe("análisis de Atlas", () => {
+    it("no incluye analisisAtlas si no hay ninguna señal con la que calcular una puntuación", () => {
+      const propuesta = validarPropuesta({ datos: {}, fuentes: [] }, solicitud);
+      expect(propuesta.datos.analisisAtlas).toBeUndefined();
+    });
+
+    it("calcula y añade la puntuación de Atlas cuando hay puntuaciones internas", () => {
+      const propuesta = validarPropuesta(
+        {
+          datos: {
+            puntuaciones: {
+              facilidadDeUso: 8,
+              calidad: 8,
+              fiabilidad: 8,
+              atencionAlCliente: 8,
+              escalabilidad: 8,
+              nivelTecnicoRequerido: 3,
+            },
+          },
+          fuentes: [],
+        },
+        solicitud
+      );
+
+      expect(propuesta.datos.analisisAtlas?.puntuacion).toBe(80);
+      expect(propuesta.datos.analisisAtlas?.motivosPuntuacion?.length).toBeGreaterThan(0);
+    });
+
+    it("conserva competidoresDirectos/tipoNegocioIdeal/nivelTecnicoRecomendado investigados por la IA al fusionar la puntuación calculada", () => {
+      const propuesta = validarPropuesta(
+        {
+          datos: {
+            tienePlanGratuito: true,
+            analisisAtlas: {
+              competidoresDirectos: ["Competidor A", "Competidor B"],
+              tipoNegocioIdeal: "Agencias de marketing",
+              nivelTecnicoRecomendado: "principiante",
+              // Si la IA inventa esto, debe ser ignorado y sustituido por el cálculo real.
+              puntuacion: 999,
+            },
+          },
+          fuentes: [],
+        },
+        solicitud
+      );
+
+      expect(propuesta.datos.analisisAtlas?.competidoresDirectos).toEqual(["Competidor A", "Competidor B"]);
+      expect(propuesta.datos.analisisAtlas?.tipoNegocioIdeal).toBe("Agencias de marketing");
+      expect(propuesta.datos.analisisAtlas?.nivelTecnicoRecomendado).toBe("principiante");
+      expect(propuesta.datos.analisisAtlas?.puntuacion).not.toBe(999);
+    });
+
+    it("avisa de qué subcampos investigables faltan en analisisAtlas", () => {
+      const propuesta = validarPropuesta(
+        { datos: { analisisAtlas: { tipoNegocioIdeal: "Ecommerce B2C" } }, fuentes: [] },
+        solicitud
+      );
+
+      const aviso = propuesta.advertencias.find((a) => a.includes("análisis de Atlas está incompleto"));
+      expect(aviso).toBeDefined();
+      expect(aviso).toContain("competidoresDirectos");
+      expect(aviso).toContain("nivelTecnicoRecomendado");
+      expect(aviso).not.toContain("tipoNegocioIdeal,");
+    });
+
+    it("no avisa de nada si la IA no investigó ningún dato de analisisAtlas", () => {
+      const propuesta = validarPropuesta({ datos: {}, fuentes: [] }, solicitud);
+      expect(propuesta.advertencias.some((a) => a.includes("análisis de Atlas"))).toBe(false);
+    });
+  });
 });

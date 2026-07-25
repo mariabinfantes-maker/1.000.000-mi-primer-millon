@@ -56,6 +56,22 @@ const CAMPOS_PUNTUACION: (keyof Herramienta["puntuaciones"])[] = [
   "nivelTecnicoRequerido",
 ];
 
+/** Si `valor` está presente (no es `undefined`), comprueba que sea un número dentro de `[minimo, maximo]`. No hace nada si `valor` es `undefined`: el campo es opcional. */
+function errorNumeroEnRango(errores: string[], nombreCampo: string, valor: unknown, minimo: number, maximo: number): void {
+  if (valor === undefined) return;
+  if (typeof valor !== "number" || valor < minimo || valor > maximo) {
+    errores.push(`"${nombreCampo}" debe ser un número entre ${minimo} y ${maximo}`);
+  }
+}
+
+/** Si `valor` está presente (no es `undefined`), comprueba que sea un booleano. No hace nada si `valor` es `undefined`: el campo es opcional. */
+function errorBooleanoSiPresente(errores: string[], nombreCampo: string, valor: unknown): void {
+  if (valor === undefined) return;
+  if (typeof valor !== "boolean") {
+    errores.push(`"${nombreCampo}" debe ser true/false`);
+  }
+}
+
 /**
  * Valida que un JSON tenga la forma mínima de una Herramienta antes de
  * dejarlo entrar en el catálogo. No es un validador de esquema completo
@@ -106,6 +122,26 @@ function validarHerramienta(datos: unknown, nombreArchivo: string): Herramienta 
     errores.push('falta el objeto "programaAfiliados"');
   } else if (typeof programaAfiliados.disponible !== "boolean") {
     errores.push('falta el campo booleano "programaAfiliados.disponible"');
+  }
+
+  // Campos opcionales del esquema: solo se validan SI están presentes. No
+  // forman parte de las 5 fichas históricas, así que no pueden ser
+  // obligatorios sin romperlas — pero si alguien los añade con el tipo o
+  // el rango equivocado, sigue mereciendo la pena detectarlo aquí.
+  errorNumeroEnRango(errores, 'puntuaciones.facilidadImplementacion', puntuaciones?.facilidadImplementacion, 1, 10);
+  errorBooleanoSiPresente(errores, "disponibleEnEspanol", h.disponibleEnEspanol);
+  errorBooleanoSiPresente(errores, "tieneAppMovil", h.tieneAppMovil);
+  errorBooleanoSiPresente(errores, "tieneApiPublica", h.tieneApiPublica);
+
+  const reputacion = h.reputacion as Record<string, unknown> | undefined;
+  if (typeof reputacion === "object" && reputacion !== null) {
+    errorNumeroEnRango(errores, "reputacion.g2Puntuacion", reputacion.g2Puntuacion, 0, 5);
+    errorNumeroEnRango(errores, "reputacion.capterraPuntuacion", reputacion.capterraPuntuacion, 0, 5);
+  }
+
+  const analisisAtlas = h.analisisAtlas as Record<string, unknown> | undefined;
+  if (typeof analisisAtlas === "object" && analisisAtlas !== null) {
+    errorNumeroEnRango(errores, "analisisAtlas.puntuacion", analisisAtlas.puntuacion, 0, 100);
   }
 
   if (errores.length > 0) {
