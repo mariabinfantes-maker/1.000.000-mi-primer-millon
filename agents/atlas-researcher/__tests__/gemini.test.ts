@@ -59,7 +59,7 @@ describe("crearProveedorGemini", () => {
 
     const [url, opciones] = vi.mocked(fetch).mock.calls[0];
     expect(String(url)).toContain(":generateContent?key=clave-de-prueba");
-    expect(String(url)).toContain("gemini-2.5-flash");
+    expect(String(url)).toContain("gemini-3.6-flash");
     const cuerpo = JSON.parse(String(opciones?.body));
     expect(cuerpo.contents[0].parts[0].text).toBe("investiga HubSpot");
     expect(cuerpo.generationConfig.responseMimeType).toBe("application/json");
