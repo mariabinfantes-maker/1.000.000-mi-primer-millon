@@ -1,56 +1,79 @@
 import { ErrorProveedorIA, type ProveedorIA } from "../proveedorIA";
 
 const NOMBRE = "gemini";
+/** Se puede sobrescribir con GEMINI_MODEL sin tocar código, por si hace falta cambiar de modelo más adelante. */
+const MODELO_POR_DEFECTO = "gemini-2.5-flash";
+const URL_BASE = "https://generativelanguage.googleapis.com/v1beta/models";
+
+type RespuestaGemini = {
+  candidates?: Array<{
+    content?: { parts?: Array<{ text?: string }> };
+  }>;
+  error?: { message?: string };
+};
 
 /**
- * Adaptador de Gemini para Atlas Researcher — TODAVÍA NO CONECTADO.
+ * Adaptador de Gemini para Atlas Researcher.
  *
- * Esta tarea era solo dejar lista la arquitectura del agente: el contrato
- * `ProveedorIA` que ya usan `agente.ts` y el resto del pipeline es
- * exactamente el mismo que usará Gemini el día que se conecte de verdad, de
- * ahí que este archivo exista y compile, pero no llame a ningún servicio
- * todavía. Es la pieza pendiente de una tarea futura.
+ * Implementa el contrato `ProveedorIA` (ver proveedorIA.ts) llamando a la
+ * API de generación de contenido de Gemini. La clave se lee de
+ * `GEMINI_API_KEY` en tiempo de ejecución — nunca se escribe en el código —
+ * y se pide la respuesta ya en JSON (`responseMimeType: "application/json"`)
+ * para no tener que quitar bloques de markdown a mano.
  *
- * Para conectar Gemini de verdad, sustituir el cuerpo de `generarJson` por
- * algo como:
- *
- *   const modelo = "gemini-2.0-flash"; // confirmar el modelo definitivo al conectar
- *   const respuesta = await fetch(
- *     `https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent?key=${apiKey}`,
- *     {
- *       method: "POST",
- *       headers: { "Content-Type": "application/json" },
- *       body: JSON.stringify({
- *         contents: [{ parts: [{ text: prompt }] }],
- *         generationConfig: { responseMimeType: "application/json" },
- *       }),
- *     }
- *   );
- *   const datos = await respuesta.json();
- *   const texto = datos?.candidates?.[0]?.content?.parts?.[0]?.text;
- *   return JSON.parse(texto);
- *
- * (con el mismo estilo de manejo de errores que ya usa
- * `app/api/generar-imagen/route.ts` para la API de OpenAI: comprobar
- * `respuesta.ok`, envolver el `fetch` en un try/catch, y lanzar
- * `ErrorProveedorIA` con un mensaje legible en cada caso.)
+ * Mismo estilo de manejo de errores que `app/api/generar-imagen/route.ts`
+ * para la API de OpenAI: `fetch` envuelto en try/catch, comprobación de
+ * `respuesta.ok`, y un `ErrorProveedorIA` con mensaje legible en cada caso
+ * — nunca un error genérico sin contexto.
  */
 export function crearProveedorGemini(): ProveedorIA {
   return {
     nombre: NOMBRE,
-    async generarJson(): Promise<unknown> {
+    async generarJson(prompt: string): Promise<unknown> {
       const apiKey = process.env.GEMINI_API_KEY;
       if (!apiKey) {
+        throw new ErrorProveedorIA(NOMBRE, "GEMINI_API_KEY no está configurada en el entorno del servidor.");
+      }
+
+      const modelo = process.env.GEMINI_MODEL?.trim() || MODELO_POR_DEFECTO;
+
+      let respuesta: Response;
+      try {
+        respuesta = await fetch(`${URL_BASE}/${modelo}:generateContent?key=${apiKey}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: {
+              responseMimeType: "application/json",
+              temperature: 0.2,
+              maxOutputTokens: 8192,
+            },
+          }),
+        });
+      } catch {
+        throw new ErrorProveedorIA(NOMBRE, "No se ha podido contactar con la API de Gemini.");
+      }
+
+      const datos = (await respuesta.json().catch(() => null)) as RespuestaGemini | null;
+
+      if (!respuesta.ok) {
         throw new ErrorProveedorIA(
           NOMBRE,
-          "GEMINI_API_KEY no está configurada. Este proveedor es un placeholder: la llamada real a la API de Gemini todavía no está implementada (ver comentario en agents/atlas-researcher/proveedores/gemini.ts)."
+          datos?.error?.message ?? `Error ${respuesta.status} desconocido al llamar a Gemini.`
         );
       }
 
-      throw new ErrorProveedorIA(
-        NOMBRE,
-        "La conexión con la API de Gemini todavía no está implementada. Es la siguiente tarea pendiente de Atlas Researcher."
-      );
+      const texto = datos?.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (!texto) {
+        throw new ErrorProveedorIA(NOMBRE, "Gemini no ha devuelto ningún contenido en la respuesta.");
+      }
+
+      try {
+        return JSON.parse(texto);
+      } catch {
+        throw new ErrorProveedorIA(NOMBRE, "La respuesta de Gemini no es un JSON válido.");
+      }
     },
   };
 }
