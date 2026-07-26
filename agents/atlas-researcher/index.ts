@@ -22,3 +22,5 @@ export type {
   ResultadoInvestigacion,
   SolicitudInvestigacion,
 } from "./tipos";
+/** Tipo de `HerramientaPropuesta.datosAfiliados` — información interna, nunca para el usuario final. */
+export type { AffiliateData } from "@/data/esquemaInterno";

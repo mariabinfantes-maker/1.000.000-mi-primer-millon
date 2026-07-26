@@ -1,0 +1,13 @@
+{
+  "herramientaId": "odoo",
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Red oficial de partners de Odoo (integradores certificados), no un afiliado de referidos clásico",
+  "affiliatePlatform": "Programa propio de Odoo",
+  "affiliateUrl": "https://www.odoo.com/partners",
+  "commission": "10% (nivel Ready), 15% (Silver) o 20% (Gold) sobre Odoo Enterprise, según el nivel de partner",
+  "approvalRequired": true,
+  "affiliateStatus": "active",
+  "lastAffiliateCheck": "2026-07-25",
+  "confidenceLevel": "medium",
+  "source": "https://www.odoo.com/documentation/19.0/legal/terms/partnership.html"
+}

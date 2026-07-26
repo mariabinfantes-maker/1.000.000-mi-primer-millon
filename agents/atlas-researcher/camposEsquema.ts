@@ -1,7 +1,11 @@
 import type { Herramienta } from "@/data/esquema";
 
 /**
- * Puente entre `data/esquema.ts` y el prompt de investigación.
+ * Puente entre `data/esquema.ts` (el esquema PÚBLICO) y el prompt de
+ * investigación. Los campos de afiliación tienen su propio espejo de este
+ * archivo — `camposAfiliados.ts`, sobre `data/esquemaInterno.ts` — a
+ * propósito: nunca deben mezclarse en el mismo `Record` ni en la misma
+ * lista de campos investigables.
  *
  * Usar `Record<keyof Herramienta, string>` en `DESCRIPCION_CAMPOS` obliga a
  * que este archivo se actualice si `Herramienta` gana o pierde un campo —
@@ -26,7 +30,7 @@ const CAMPOS_GESTIONADOS_POR_ATLAS = new Set<keyof Herramienta>([
  * siempre acaba rellenando su `puntuacion` (calculada, no investigada), así
  * que nunca aparecería "vacío" de todas formas: su completitud real
  * (¿investigó competidores, tipo de negocio ideal...?) la comprueba una
- * función dedicada, igual que ya pasa con `programaAfiliados`.
+ * función dedicada.
  */
 const CAMPOS_OPCIONALES = new Set<keyof Herramienta>(["urlPrecios", "logoUrl", "reputacion", "analisisAtlas"]);
 
@@ -77,15 +81,6 @@ export const DESCRIPCION_CAMPOS: Record<keyof Herramienta, string> = {
     "no todas las herramientas tienen presencia en estas plataformas, y eso está bien.",
   ventajas: "Lista de puntos fuertes.",
   inconvenientes: "Lista de puntos débiles.",
-  programaAfiliados:
-    "Objeto con: disponible (true/false); descripcion; enlace (URL oficial del programa de afiliados); " +
-    "enlaceVerificado (poner siempre false: Atlas Researcher no visita enlaces todavía); " +
-    'plataformaGestion (dónde se gestiona: "PartnerStack", "Impact", "CJ Affiliate", "Programa propio", etc.); ' +
-    'tipoInscripcion ("abierta" si cualquiera puede apuntarse, "requiere_aprobacion" si la empresa aprueba cada solicitud); ' +
-    'tipoComision ("porcentaje", "pago_fijo" o "comision_recurrente"); ' +
-    "confianza (\"baja\", \"media\" o \"alta\": qué tan fiable es TODO este bloque, no solo el enlace); " +
-    "fuente (URL o referencia concreta de donde sacaste estos datos de afiliados en particular, distinta de `enlace`). " +
-    "Si no encuentras programa de afiliados, pon disponible: false y omite el resto de subcampos.",
   analisisAtlas:
     "Objeto con: competidoresDirectos (array con 2-4 nombres de competidores directos); " +
     'tipoNegocioIdeal (categoría breve de negocio al que más le conviene, ej. "Agencias de marketing", "Ecommerce B2C", "Startups SaaS B2B"); ' +

@@ -4,9 +4,7 @@
   "paginaOficial": "https://www.zoho.com/one/",
   "urlPrecios": "https://www.zoho.com/one/pricing.html",
   "logoUrl": "",
-
   "categoriaId": "plataformas-todo-en-uno",
-
   "descripcion": "Suite de más de 45 aplicaciones integradas de Zoho (CRM, contabilidad, RRHH, gestión de proyectos, atención al cliente, marketing y más) bajo una única licencia, pensada para operar toda una empresa desde un mismo ecosistema.",
   "problemasQueResuelve": [
     "Empresas que usan muchas herramientas sueltas sin conectar entre sí",
@@ -17,18 +15,24 @@
     "Una pyme sustituye 8-10 herramientas distintas (CRM, facturación, RRHH, soporte) por un único ecosistema",
     "Un equipo coordina ventas, finanzas y atención al cliente compartiendo los mismos datos"
   ],
-
   "idealPara": "Pymes y empresas medianas que quieren cubrir la mayoría de áreas del negocio (ventas, finanzas, RRHH, soporte, marketing) con un único proveedor y presupuesto ajustado.",
-  "segmentosIdeales": ["1-10", "11-50", "51-200"],
-  "industriasIdeales": ["pymes generalistas", "servicios profesionales", "comercio minorista", "consultoría"],
-
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200"
+  ],
+  "industriasIdeales": [
+    "pymes generalistas",
+    "servicios profesionales",
+    "comercio minorista",
+    "consultoría"
+  ],
   "noRecomendadaPara": "Empresas que necesitan una aplicación líder y muy especializada en un área concreta (ej. un CRM inmobiliario muy vertical): las apps de Zoho son generalistas y no siempre igualan a especialistas del sector.",
   "casosNoRecomendados": [
     "Empresas que necesiten una herramienta líder y muy especializada en un único área (ej. un CRM vertical de un sector concreto)",
     "Equipos que prioricen tener la mejor app posible en cada categoría antes que la integración entre todas",
     "Negocios que no vayan a aprovechar más de 3-4 de las aplicaciones incluidas"
   ],
-
   "funcionesPrincipales": [
     "CRM (Zoho CRM)",
     "Contabilidad y facturación (Zoho Books)",
@@ -38,16 +42,35 @@
     "Marketing y email (Zoho Campaigns / Marketing Plus)",
     "Analítica (Zoho Analytics)"
   ],
-  "integraciones": ["Google Workspace", "Microsoft 365", "Zapier", "Slack", "Shopify", "API abierta entre todas las apps de Zoho"],
-  "integracionesPrincipales": ["Google Workspace", "Microsoft 365", "Zapier", "Slack"],
+  "integraciones": [
+    "Google Workspace",
+    "Microsoft 365",
+    "Zapier",
+    "Slack",
+    "Shopify",
+    "API abierta entre todas las apps de Zoho"
+  ],
+  "integracionesPrincipales": [
+    "Google Workspace",
+    "Microsoft 365",
+    "Zapier",
+    "Slack"
+  ],
   "curvaDeAprendizaje": "media",
-
   "precioInicial": "Desde 37€/usuario/mes (facturación anual)",
-  "modeloDePrecio": ["suscripcion_anual", "por_usuario"],
+  "modeloDePrecio": [
+    "suscripcion_anual",
+    "por_usuario"
+  ],
   "tienePlanGratuito": false,
-
-  "idiomasDisponibles": ["español", "inglés", "portugués", "francés", "alemán", "y más de 20 idiomas adicionales"],
-
+  "idiomasDisponibles": [
+    "español",
+    "inglés",
+    "portugués",
+    "francés",
+    "alemán",
+    "y más de 20 idiomas adicionales"
+  ],
   "puntuaciones": {
     "facilidadDeUso": 6,
     "calidad": 7,
@@ -57,7 +80,6 @@
     "nivelTecnicoRequerido": 5
   },
   "metodologiaValoracion": "Valoración editorial de Atlas basada en documentación pública, posicionamiento de mercado y opiniones agregadas de usuarios. Pendiente de contrastar con datos de uso reales; revisar periódicamente.",
-
   "ventajas": [
     "Relación precio / número de aplicaciones muy alta",
     "Cubre prácticamente todas las áreas de la empresa",
@@ -70,19 +92,6 @@
     "La interfaz varía ligeramente entre apps, lo que resta cohesión",
     "Soporte percibido como más lento que el de competidores premium"
   ],
-
-  "programaAfiliados": {
-    "disponible": true,
-    "descripcion": "Programa de afiliados independiente del programa de partners/revendedores (no se puede ser ambas cosas a la vez): 15% de comisión sobre lo que factura Zoho durante los 12 meses siguientes a la venta, si el referido sigue siendo cliente al menos 60 días.",
-    "enlace": "https://www.zoho.com/affiliate/",
-    "enlaceVerificado": false,
-    "plataformaGestion": "Programa propio de Zoho",
-    "tipoInscripcion": "abierta",
-    "tipoComision": "porcentaje",
-    "confianza": "media",
-    "fuente": "https://www.zoho.com/affiliate/faq.html"
-  },
-
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-07-24",
   "fechaUltimaRevision": "2026-07-25"

@@ -1,0 +1,15 @@
+{
+  "herramientaId": "gohighlevel",
+  "hasAffiliateProgram": true,
+  "affiliatePlatform": "PartnerStack",
+  "affiliateUrl": "https://www.gohighlevel.com/affiliates",
+  "commission": "40% de comisión recurrente sobre las suscripciones referidas, mientras el cliente siga activo",
+  "cookieDuration": "30 días (una fuente secundaria menciona una ventana de atribución de 90 días)",
+  "approvalRequired": false,
+  "payoutMethod": "PayPal o depósito directo",
+  "payoutFrequency": "Mensual",
+  "affiliateStatus": "active",
+  "lastAffiliateCheck": "2026-07-25",
+  "confidenceLevel": "medium",
+  "source": "https://help.gohighlevel.com/support/solutions/articles/48000980325-become-a-highlevel-affiliate"
+}

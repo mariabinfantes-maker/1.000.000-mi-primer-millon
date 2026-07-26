@@ -4,9 +4,7 @@
   "paginaOficial": "https://www.hubspot.com/",
   "urlPrecios": "https://www.hubspot.com/pricing/",
   "logoUrl": "",
-
   "categoriaId": "plataformas-todo-en-uno",
-
   "descripcion": "Plataforma de CRM organizada en \"Hubs\" de marketing, ventas, atención al cliente, gestión de contenido (CMS) y operaciones, con un CRM gratuito como puerta de entrada y módulos de pago que escalan según las necesidades de la empresa.",
   "problemasQueResuelve": [
     "Desconexión entre los equipos de marketing y ventas",
@@ -17,18 +15,24 @@
     "Un equipo de marketing automatiza campañas de email y las conecta directamente con el pipeline de ventas",
     "Una empresa empieza con el CRM gratuito y va activando módulos de pago a medida que crece"
   ],
-
   "idealPara": "Empresas orientadas a marketing y ventas B2B que quieren empezar gratis y escalar con una plataforma muy pulida y un ecosistema amplio de integraciones.",
-  "segmentosIdeales": ["1-10", "11-50", "51-200"],
-  "industriasIdeales": ["SaaS y tecnología", "B2B servicios profesionales", "marketing y agencias", "ecommerce"],
-
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200"
+  ],
+  "industriasIdeales": [
+    "SaaS y tecnología",
+    "B2B servicios profesionales",
+    "marketing y agencias",
+    "ecommerce"
+  ],
   "noRecomendadaPara": "Empresas que buscan cubrir también contabilidad, inventario o RRHH dentro de la misma plataforma, o negocios con presupuesto muy ajustado y bases de contactos de marketing grandes, donde el precio escala rápido.",
   "casosNoRecomendados": [
     "Empresas que necesiten contabilidad, inventario o RRHH en la misma plataforma",
     "Negocios con bases de contactos de marketing muy grandes y presupuesto ajustado",
     "Equipos que solo necesiten un CRM básico sin intención de usar marketing o automatización"
   ],
-
   "funcionesPrincipales": [
     "CRM gratuito",
     "Marketing Hub (automatización, email, landing pages)",
@@ -37,16 +41,39 @@
     "CMS Hub (gestor de contenido web)",
     "Operations Hub (sincronización de datos)"
   ],
-  "integraciones": ["Gmail y Outlook", "Slack", "Zoom", "Salesforce", "Shopify", "WordPress", "Zapier", "más de 1.500 apps en su marketplace"],
-  "integracionesPrincipales": ["Gmail y Outlook", "Salesforce", "Zapier", "WordPress"],
+  "integraciones": [
+    "Gmail y Outlook",
+    "Slack",
+    "Zoom",
+    "Salesforce",
+    "Shopify",
+    "WordPress",
+    "Zapier",
+    "más de 1.500 apps en su marketplace"
+  ],
+  "integracionesPrincipales": [
+    "Gmail y Outlook",
+    "Salesforce",
+    "Zapier",
+    "WordPress"
+  ],
   "curvaDeAprendizaje": "muy_facil",
-
   "precioInicial": "Gratis / Desde 15€ mes por asiento en planes Starter",
-  "modeloDePrecio": ["freemium", "suscripcion_mensual", "por_usuario"],
+  "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual",
+    "por_usuario"
+  ],
   "tienePlanGratuito": true,
-
-  "idiomasDisponibles": ["español", "inglés", "portugués", "alemán", "francés", "japonés", "y otros"],
-
+  "idiomasDisponibles": [
+    "español",
+    "inglés",
+    "portugués",
+    "alemán",
+    "francés",
+    "japonés",
+    "y otros"
+  ],
   "puntuaciones": {
     "facilidadDeUso": 8,
     "calidad": 9,
@@ -56,7 +83,6 @@
     "nivelTecnicoRequerido": 3
   },
   "metodologiaValoracion": "Valoración editorial de Atlas basada en documentación pública, posicionamiento de mercado y opiniones agregadas de usuarios. Pendiente de contrastar con datos de uso reales; revisar periódicamente.",
-
   "ventajas": [
     "Plan gratuito realmente utilizable, no solo una demo limitada",
     "Interfaz muy cuidada y fácil de aprender",
@@ -68,19 +94,6 @@
     "No cubre contabilidad, inventario ni RRHH",
     "Algunos informes avanzados solo están disponibles en los planes más caros"
   ],
-
-  "programaAfiliados": {
-    "disponible": true,
-    "descripcion": "Programa de afiliados con el 30% de comisión recurrente mensual durante hasta 12 meses, gestionado a través de la red Impact. Distinto del programa de partners de agencia, que tiene condiciones propias.",
-    "enlace": "https://www.hubspot.com/partners/affiliates",
-    "enlaceVerificado": false,
-    "plataformaGestion": "Impact",
-    "tipoInscripcion": "abierta",
-    "tipoComision": "comision_recurrente",
-    "confianza": "media",
-    "fuente": "https://wecantrack.com/programs/hubspot-affiliate-program/"
-  },
-
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-07-24",
   "fechaUltimaRevision": "2026-07-25"

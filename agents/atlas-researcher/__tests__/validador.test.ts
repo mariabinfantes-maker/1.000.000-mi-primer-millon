@@ -92,51 +92,81 @@ describe("validarPropuesta", () => {
     expect(propuesta.camposFaltantes).toContain("descripcion");
   });
 
-  describe("programa de afiliados", () => {
-    it("no avisa de nada si no hay programa de afiliados disponible", () => {
-      const propuesta = validarPropuesta(
-        { datos: { programaAfiliados: { disponible: false, enlaceVerificado: false } }, fuentes: [] },
-        solicitud
-      );
-
-      expect(propuesta.advertencias.some((a) => a.includes("programa de afiliados"))).toBe(false);
-    });
-
-    it("avisa de qué subcampos faltan cuando sí hay programa de afiliados pero está incompleto", () => {
+  describe("AffiliateData (información interna de afiliación)", () => {
+    it("se guarda por completo separada de datos (la ficha pública)", () => {
       const propuesta = validarPropuesta(
         {
-          datos: {
-            programaAfiliados: { disponible: true, enlace: "https://ejemplo.test/afiliados", enlaceVerificado: false },
-          },
+          datos: { nombre: "HubSpot", descripcion: "Un CRM." },
+          affiliateData: { hasAffiliateProgram: true, affiliateUrl: "https://ejemplo.test/afiliados" },
           fuentes: ["https://ejemplo.test"],
         },
         solicitud
       );
 
-      const aviso = propuesta.advertencias.find((a) => a.includes("programa de afiliados está incompleto"));
+      expect(propuesta.datosAfiliados.hasAffiliateProgram).toBe(true);
+      expect(propuesta.datos).not.toHaveProperty("hasAffiliateProgram");
+      expect(propuesta.datos).not.toHaveProperty("affiliateUrl");
+      expect(propuesta.datosAfiliados).not.toHaveProperty("nombre");
+      expect(propuesta.datosAfiliados).not.toHaveProperty("descripcion");
+    });
+
+    it("estampa lastAffiliateCheck con la fecha de hoy, ignorando lo que devuelva la IA", () => {
+      const propuesta = validarPropuesta(
+        {
+          datos: {},
+          affiliateData: { hasAffiliateProgram: false, lastAffiliateCheck: "2020-01-01" },
+          fuentes: [],
+        },
+        solicitud
+      );
+
+      const hoy = new Date().toISOString().slice(0, 10);
+      expect(propuesta.datosAfiliados.lastAffiliateCheck).toBe(hoy);
+    });
+
+    it("no avisa de nada si no hay programa de afiliados disponible", () => {
+      const propuesta = validarPropuesta(
+        { datos: {}, affiliateData: { hasAffiliateProgram: false, affiliateStatus: "not_available" }, fuentes: [] },
+        solicitud
+      );
+
+      expect(propuesta.advertencias.some((a) => a.includes("AffiliateData"))).toBe(false);
+    });
+
+    it("avisa de qué subcampos faltan cuando sí hay programa de afiliados pero está incompleto", () => {
+      const propuesta = validarPropuesta(
+        {
+          datos: {},
+          affiliateData: { hasAffiliateProgram: true, affiliateUrl: "https://ejemplo.test/afiliados" },
+          fuentes: ["https://ejemplo.test"],
+        },
+        solicitud
+      );
+
+      const aviso = propuesta.advertencias.find((a) => a.includes("AffiliateData está incompleto"));
       expect(aviso).toBeDefined();
-      expect(aviso).toContain("plataformaGestion");
-      expect(aviso).toContain("tipoInscripcion");
-      expect(aviso).toContain("tipoComision");
-      expect(aviso).toContain("confianza");
-      expect(aviso).toContain("fuente");
-      expect(aviso).not.toContain("enlace,");
+      expect(aviso).toContain("affiliatePlatform");
+      expect(aviso).toContain("commission");
+      expect(aviso).toContain("approvalRequired");
+      expect(aviso).toContain("affiliateStatus");
+      expect(aviso).toContain("confidenceLevel");
+      expect(aviso).toContain("source");
+      expect(aviso).not.toContain("affiliateUrl,");
     });
 
     it("no avisa de campos incompletos cuando el programa de afiliados está completo", () => {
       const propuesta = validarPropuesta(
         {
-          datos: {
-            programaAfiliados: {
-              disponible: true,
-              enlace: "https://ejemplo.test/afiliados",
-              enlaceVerificado: false,
-              plataformaGestion: "PartnerStack",
-              tipoInscripcion: "abierta",
-              tipoComision: "comision_recurrente",
-              confianza: "media",
-              fuente: "https://ejemplo.test/afiliados/condiciones",
-            },
+          datos: {},
+          affiliateData: {
+            hasAffiliateProgram: true,
+            affiliateUrl: "https://ejemplo.test/afiliados",
+            affiliatePlatform: "PartnerStack",
+            commission: "30% recurrente",
+            approvalRequired: false,
+            affiliateStatus: "active",
+            confidenceLevel: "medium",
+            source: "https://ejemplo.test/afiliados/condiciones",
           },
           fuentes: ["https://ejemplo.test"],
         },
@@ -146,20 +176,19 @@ describe("validarPropuesta", () => {
       expect(propuesta.advertencias.some((a) => a.includes("incompleto"))).toBe(false);
     });
 
-    it('avisa por separado cuando la confianza declarada del programa de afiliados es "baja"', () => {
+    it('avisa por separado cuando confidenceLevel es "low"', () => {
       const propuesta = validarPropuesta(
         {
-          datos: {
-            programaAfiliados: {
-              disponible: true,
-              enlace: "https://ejemplo.test/afiliados",
-              enlaceVerificado: false,
-              plataformaGestion: "Programa propio",
-              tipoInscripcion: "requiere_aprobacion",
-              tipoComision: "porcentaje",
-              confianza: "baja",
-              fuente: "https://ejemplo.test/afiliados",
-            },
+          datos: {},
+          affiliateData: {
+            hasAffiliateProgram: true,
+            affiliateUrl: "https://ejemplo.test/afiliados",
+            affiliatePlatform: "Programa propio",
+            commission: "Hasta 50%",
+            approvalRequired: true,
+            affiliateStatus: "active",
+            confidenceLevel: "low",
+            source: "https://ejemplo.test/afiliados",
           },
           fuentes: ["https://ejemplo.test"],
         },

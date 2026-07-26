@@ -1,4 +1,5 @@
 import type { Herramienta } from "@/data/esquema";
+import type { AffiliateData } from "@/data/esquemaInterno";
 import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
 import { CAMPOS_INVESTIGABLES_OBLIGATORIOS } from "./camposEsquema";
 import type { HerramientaPropuesta, NivelConfianza, SolicitudInvestigacion } from "./tipos";
@@ -9,6 +10,10 @@ import type { HerramientaPropuesta, NivelConfianza, SolicitudInvestigacion } fro
  * (texto plano, JSON con otra forma, campos vacíos...) se convierte en una
  * propuesta con advertencias y confianza baja, no en una excepción — quien
  * llame a `investigarHerramienta` siempre recibe algo con lo que trabajar.
+ *
+ * Extrae `datos` (público) y `affiliateData` (interno) de dos claves
+ * separadas de la respuesta y las mantiene separadas en todo momento — ver
+ * el comentario de `HerramientaPropuesta` en tipos.ts.
  *
  * No depende de ningún proveedor concreto ni hace llamadas de red: se
  * puede probar por completo con JSON de ejemplo escrito a mano.
@@ -34,6 +39,17 @@ export function validarPropuesta(datosCrudos: unknown, solicitud: SolicitudInves
     datos.nombre = solicitud.nombreHerramienta;
   }
 
+  const datosAfiliados: Partial<AffiliateData> =
+    raiz && typeof raiz.affiliateData === "object" && raiz.affiliateData !== null
+      ? { ...(raiz.affiliateData as Partial<AffiliateData>) }
+      : {};
+
+  // lastAffiliateCheck lo estampa Atlas, no lo investiga la IA (ver el
+  // comentario en AffiliateData, data/esquemaInterno.ts) — se sustituye
+  // siempre por la fecha real de esta comprobación, nunca por lo que haya
+  // podido devolver el proveedor.
+  datosAfiliados.lastAffiliateCheck = new Date().toISOString().slice(0, 10);
+
   const fuentes =
     raiz && Array.isArray(raiz.fuentes) ? raiz.fuentes.filter((f): f is string => typeof f === "string") : [];
 
@@ -43,7 +59,7 @@ export function validarPropuesta(datosCrudos: unknown, solicitud: SolicitudInves
 
   const camposFaltantes = CAMPOS_INVESTIGABLES_OBLIGATORIOS.filter((campo) => campoEstaVacio(datos[campo]));
 
-  advertencias.push(...advertenciasProgramaAfiliados(datos.programaAfiliados));
+  advertencias.push(...advertenciasAffiliateData(datosAfiliados));
   advertencias.push(...advertenciasAnalisisAtlas(datos.analisisAtlas));
 
   // La puntuación Atlas nunca la rellena el proveedor de IA (ver el
@@ -62,6 +78,7 @@ export function validarPropuesta(datosCrudos: unknown, solicitud: SolicitudInves
 
   return {
     datos,
+    datosAfiliados,
     camposFaltantes,
     fuentes,
     confianza: calcularConfianza(camposFaltantes.length, fuentes.length),
@@ -70,49 +87,49 @@ export function validarPropuesta(datosCrudos: unknown, solicitud: SolicitudInves
 }
 
 /**
- * Comprobación específica de `programaAfiliados`: es un objeto anidado, así
- * que `camposFaltantes` (que solo mira campos de primer nivel) no detecta
- * si falta, por ejemplo, `tipoComision`. Solo tiene sentido pedir estos
- * subcampos cuando sí existe un programa de afiliados que investigar.
+ * Comprobación específica de `affiliateData`: solo tiene sentido pedir los
+ * subcampos de un programa de afiliados cuando sí existe uno que
+ * investigar. Vive en el validador (no en `agente.ts`, que solo aplica la
+ * regla de aceptar/descartar) para que se pueda probar con JSON de
+ * ejemplo, igual que el resto de comprobaciones de esta función.
  */
-function advertenciasProgramaAfiliados(programaAfiliados: Herramienta["programaAfiliados"] | undefined): string[] {
-  if (!programaAfiliados || programaAfiliados.disponible !== true) {
+function advertenciasAffiliateData(datosAfiliados: Partial<AffiliateData>): string[] {
+  if (datosAfiliados.hasAffiliateProgram !== true) {
     return [];
   }
 
   const advertencias: string[] = [];
-  const subcamposEsperados: (keyof Herramienta["programaAfiliados"])[] = [
-    "enlace",
-    "plataformaGestion",
-    "tipoInscripcion",
-    "tipoComision",
-    "confianza",
-    "fuente",
+  const subcamposEsperados: (keyof AffiliateData)[] = [
+    "affiliateUrl",
+    "affiliatePlatform",
+    "commission",
+    "approvalRequired",
+    "affiliateStatus",
+    "confidenceLevel",
+    "source",
   ];
 
-  const faltantes = subcamposEsperados.filter((campo) => campoEstaVacio(programaAfiliados[campo]));
+  const faltantes = subcamposEsperados.filter((campo) => campoEstaVacio(datosAfiliados[campo]));
   if (faltantes.length > 0) {
-    advertencias.push(
-      `El programa de afiliados está incompleto: falta ${faltantes.join(", ")}. Revisar antes de publicar.`
-    );
+    advertencias.push(`AffiliateData está incompleto: falta ${faltantes.join(", ")}. Revisar antes de publicar.`);
   }
 
-  if (programaAfiliados.confianza === "baja") {
-    advertencias.push("La confianza declarada para el programa de afiliados es baja: conviene verificarlo a mano.");
+  if (datosAfiliados.confidenceLevel === "low") {
+    advertencias.push("La confianza declarada para AffiliateData es baja: conviene verificarlo a mano.");
   }
 
   return advertencias;
 }
 
 /**
- * Comprobación específica de `analisisAtlas`: al igual que
- * `programaAfiliados`, es un objeto anidado que la comprobación genérica de
- * "campos faltantes" de primer nivel no cubre bien — y en este caso, ni
- * siquiera podría: `analisisAtlas` siempre acaba con una `puntuacion`
- * calculada (ver más arriba), así que nunca aparecería "vacío" del todo.
- * Esta función es la que de verdad comprueba si el proveedor de IA
- * investigó su parte (competidores, tipo de negocio ideal, nivel técnico
- * recomendado), no la parte que calcula Atlas.
+ * Comprobación específica de `analisisAtlas`: al igual que `affiliateData`,
+ * es un objeto anidado que la comprobación genérica de "campos faltantes"
+ * de primer nivel no cubre bien — y en este caso, ni siquiera podría:
+ * `analisisAtlas` siempre acaba con una `puntuacion` calculada (ver más
+ * arriba), así que nunca aparecería "vacío" del todo. Esta función es la
+ * que de verdad comprueba si el proveedor de IA investigó su parte
+ * (competidores, tipo de negocio ideal, nivel técnico recomendado), no la
+ * parte que calcula Atlas.
  */
 function advertenciasAnalisisAtlas(analisisAtlas: Herramienta["analisisAtlas"] | undefined): string[] {
   if (!analisisAtlas) return [];

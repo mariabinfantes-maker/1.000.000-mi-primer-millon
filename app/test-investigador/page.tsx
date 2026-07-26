@@ -105,9 +105,21 @@ export default function TestInvestigadorPage() {
           )}
 
           <div>
-            <h2 className="text-xs font-semibold uppercase tracking-wide text-slate-400">Datos investigados</h2>
+            <h2 className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+              Datos investigados (ficha pública)
+            </h2>
             <pre className="mt-1 overflow-x-auto rounded-xl bg-slate-50 p-4 text-xs text-slate-700">
               {JSON.stringify(propuesta.datos, null, 2)}
+            </pre>
+          </div>
+
+          <div>
+            <h2 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
+              AffiliateData
+              <Etiqueta variante="neutra">Interno — no visible para el usuario final</Etiqueta>
+            </h2>
+            <pre className="mt-1 overflow-x-auto rounded-xl bg-slate-50 p-4 text-xs text-slate-700">
+              {JSON.stringify(propuesta.datosAfiliados, null, 2)}
             </pre>
           </div>
         </div>

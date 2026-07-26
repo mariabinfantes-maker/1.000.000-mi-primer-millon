@@ -4,9 +4,7 @@
   "paginaOficial": "https://www.odoo.com/",
   "urlPrecios": "https://www.odoo.com/pricing",
   "logoUrl": "",
-
   "categoriaId": "plataformas-todo-en-uno",
-
   "descripcion": "ERP modular de código abierto con más de 30 aplicaciones (contabilidad, inventario, fabricación, CRM, ventas, RRHH, comercio electrónico...) que se activan y pagan solo según los módulos que la empresa necesite.",
   "problemasQueResuelve": [
     "Gestión desconectada de inventario, ventas y contabilidad",
@@ -18,18 +16,24 @@
     "Un fabricante integra planificación de producción (MRP) con ventas",
     "Una empresa paga solo por los módulos que usa, por ejemplo contabilidad + inventario"
   ],
-
   "idealPara": "Empresas con necesidades operativas (inventario, fabricación, logística, contabilidad) que buscan un ERP flexible y personalizable, con o sin ayuda de un integrador.",
-  "segmentosIdeales": ["11-50", "51-200", "200+"],
-  "industriasIdeales": ["fabricación", "distribución y logística", "comercio minorista", "construcción"],
-
+  "segmentosIdeales": [
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "fabricación",
+    "distribución y logística",
+    "comercio minorista",
+    "construcción"
+  ],
   "noRecomendadaPara": "Equipos muy pequeños sin necesidades operativas complejas (para un freelancer o una startup de dos personas suele ser sobredimensionado), o empresas sin recursos técnicos ni presupuesto para una implementación guiada.",
   "casosNoRecomendados": [
     "Equipos muy pequeños (1-2 personas) sin necesidades operativas complejas",
     "Empresas sin recursos técnicos propios ni presupuesto para contratar un partner de implementación",
     "Negocios que necesiten estar operativos de inmediato sin una fase de configuración"
   ],
-
   "funcionesPrincipales": [
     "Contabilidad y facturación",
     "Gestión de inventario y almacenes",
@@ -39,16 +43,29 @@
     "RRHH y nóminas",
     "Gestión de proyectos"
   ],
-  "integraciones": ["API REST abierta", "Zapier", "pasarelas de pago (Stripe, PayPal)", "transportistas y marketplaces vía módulos de la comunidad"],
-  "integracionesPrincipales": ["Zapier", "Stripe", "PayPal", "API REST abierta"],
+  "integraciones": [
+    "API REST abierta",
+    "Zapier",
+    "pasarelas de pago (Stripe, PayPal)",
+    "transportistas y marketplaces vía módulos de la comunidad"
+  ],
+  "integracionesPrincipales": [
+    "Zapier",
+    "Stripe",
+    "PayPal",
+    "API REST abierta"
+  ],
   "curvaDeAprendizaje": "dificil",
-
   "precioInicial": "Gratis (1 app) / Desde 24,90€/usuario/mes en plan Standard",
-  "modeloDePrecio": ["freemium", "por_usuario", "suscripcion_mensual"],
+  "modeloDePrecio": [
+    "freemium",
+    "por_usuario",
+    "suscripcion_mensual"
+  ],
   "tienePlanGratuito": true,
-
-  "idiomasDisponibles": ["más de 40 idiomas, incluyendo español, inglés, francés, alemán y portugués"],
-
+  "idiomasDisponibles": [
+    "más de 40 idiomas, incluyendo español, inglés, francés, alemán y portugués"
+  ],
   "puntuaciones": {
     "facilidadDeUso": 5,
     "calidad": 7,
@@ -58,7 +75,6 @@
     "nivelTecnicoRequerido": 8
   },
   "metodologiaValoracion": "Valoración editorial de Atlas basada en documentación pública, posicionamiento de mercado y opiniones agregadas de usuarios. Pendiente de contrastar con datos de uso reales; revisar periódicamente.",
-
   "ventajas": [
     "Cobertura funcional enorme, prácticamente un ERP completo",
     "Modelo de pago por aplicación: solo pagas lo que usas",
@@ -71,19 +87,6 @@
     "El soporte oficial es limitado si no se contrata un partner",
     "Las personalizaciones profundas pueden complicar futuras actualizaciones"
   ],
-
-  "programaAfiliados": {
-    "disponible": true,
-    "descripcion": "Red oficial de partners (integradores certificados) con tres niveles según ventas anuales y empleados certificados: Ready (10%), Silver (15%) y Gold (20% de comisión sobre Odoo Enterprise). Requiere cumplir requisitos mínimos, no es una simple inscripción de afiliado.",
-    "enlace": "https://www.odoo.com/partners",
-    "enlaceVerificado": false,
-    "plataformaGestion": "Programa propio de Odoo",
-    "tipoInscripcion": "requiere_aprobacion",
-    "tipoComision": "porcentaje",
-    "confianza": "media",
-    "fuente": "https://www.odoo.com/documentation/19.0/legal/terms/partnership.html"
-  },
-
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-07-24",
   "fechaUltimaRevision": "2026-07-25"

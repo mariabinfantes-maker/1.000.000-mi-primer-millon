@@ -1,4 +1,4 @@
-import type { Herramienta } from "@/data/esquema";
+import type { AffiliateData } from "@/data/esquemaInterno";
 import { construirPromptInvestigacion } from "./prompt";
 import type { ProveedorIA } from "./proveedorIA";
 import type { ResultadoInvestigacion, SolicitudInvestigacion } from "./tipos";
@@ -42,7 +42,7 @@ export async function investigarHerramienta(
   // buena que sea el resto de la investigación. Se comprueba aquí, antes
   // de devolver la ficha como aceptada, sin cambiar el resto del flujo: si
   // la herramienta sí cumple, se sigue devolviendo exactamente como antes.
-  if (!tieneProgramaDeAfiliadosFiable(propuesta.datos.programaAfiliados)) {
+  if (!tieneProgramaDeAfiliadosFiable(propuesta.datosAfiliados)) {
     return {
       ok: false,
       error:
@@ -54,10 +54,10 @@ export async function investigarHerramienta(
   return { ok: true, propuesta };
 }
 
-/** "Activo" (disponible) y "fiable" (la propia investigación no lo marca como de confianza baja). */
-function tieneProgramaDeAfiliadosFiable(programaAfiliados: Herramienta["programaAfiliados"] | undefined): boolean {
-  if (!programaAfiliados || programaAfiliados.disponible !== true) {
+/** "Activo" (hasAffiliateProgram) y "fiable" (la propia investigación no lo marca como confidenceLevel: "low"). Lee de AffiliateData (data/esquemaInterno.ts), nunca de la ficha pública. */
+function tieneProgramaDeAfiliadosFiable(datosAfiliados: Partial<AffiliateData>): boolean {
+  if (datosAfiliados.hasAffiliateProgram !== true) {
     return false;
   }
-  return programaAfiliados.confianza !== "baja";
+  return datosAfiliados.confidenceLevel !== "low";
 }

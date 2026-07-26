@@ -1,0 +1,16 @@
+{
+  "herramientaId": "hubspot",
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "HubSpot Affiliate Program (distinto del programa de partners de agencia, que tiene condiciones propias)",
+  "affiliatePlatform": "Impact",
+  "affiliateUrl": "https://www.hubspot.com/partners/affiliates",
+  "commission": "30% de comisión recurrente mensual durante hasta 12 meses",
+  "cookieDuration": "180 días",
+  "approvalRequired": false,
+  "payoutMethod": "Gestionado a través de Impact: día programado del mes o al alcanzar un umbral mínimo",
+  "payoutFrequency": "Mensual",
+  "affiliateStatus": "active",
+  "lastAffiliateCheck": "2026-07-25",
+  "confidenceLevel": "medium",
+  "source": "https://wecantrack.com/programs/hubspot-affiliate-program/"
+}
