@@ -1,4 +1,5 @@
 import type { Herramienta, NivelConfianza } from "@/data/esquema";
+import type { AffiliateData } from "@/data/esquemaInterno";
 
 /** Re-exportado para que quien importe desde el agente no necesite saber que este tipo vive en data/esquema.ts. */
 export type { NivelConfianza };
@@ -29,10 +30,19 @@ export type SolicitudInvestigacion = {
  * `Herramienta` lista para publicar. `datos` es parcial a propósito — el
  * agente puede no encontrar todos los campos, y es mejor que falten a que
  * se inventen.
+ *
+ * `datos` (público) y `datosAfiliados` (interno) se mantienen como dos
+ * campos separados a propósito, reflejando la misma separación que ya
+ * existe en la capa de datos entre `data/esquema.ts`/`data/herramientas/`
+ * (público) y `data/esquemaInterno.ts`/`data/afiliados/` (interno,
+ * exclusivo de los agentes de Atlas). Nunca deben fusionarse en un único
+ * objeto ni exponerse juntos al usuario final.
  */
 export type HerramientaPropuesta = {
   datos: Partial<Herramienta>;
-  /** Campos obligatorios del esquema que la investigación no logró rellenar. */
+  /** Datos de afiliación investigados — de uso exclusivo de los agentes internos de Atlas, nunca para mostrar al usuario final. */
+  datosAfiliados: Partial<AffiliateData>;
+  /** Campos obligatorios del esquema PÚBLICO que la investigación no logró rellenar. No incluye datos de afiliación: esos se avisan aparte. */
   camposFaltantes: (keyof Herramienta)[];
   /** URLs citadas por el proveedor de IA como fuente de los datos. */
   fuentes: string[];

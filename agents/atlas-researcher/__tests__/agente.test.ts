@@ -9,18 +9,19 @@ function proveedorFalso(comportamiento: (prompt: string) => unknown): ProveedorI
   };
 }
 
-/** Programa de afiliados que sí cumple la regla obligatoria de Atlas: activo y no marcado como de confianza baja. */
-const programaAfiliadosFiable = {
-  disponible: true,
-  enlace: "https://hubspot.com/partners/affiliates",
-  enlaceVerificado: false,
-  confianza: "media" as const,
+/** AffiliateData que sí cumple la regla obligatoria de Atlas: programa activo y no marcado como confidenceLevel "low". */
+const affiliateDataFiable = {
+  hasAffiliateProgram: true,
+  affiliateUrl: "https://hubspot.com/partners/affiliates",
+  affiliateStatus: "active" as const,
+  confidenceLevel: "medium" as const,
 };
 
 describe("investigarHerramienta", () => {
-  it("en el camino feliz, envía un prompt al proveedor y devuelve una propuesta validada", async () => {
+  it("en el camino feliz, envía un prompt al proveedor y devuelve una propuesta validada, con datos y datosAfiliados separados", async () => {
     const proveedor = proveedorFalso(() => ({
-      datos: { nombre: "HubSpot", descripcion: "Un CRM.", programaAfiliados: programaAfiliadosFiable },
+      datos: { nombre: "HubSpot", descripcion: "Un CRM." },
+      affiliateData: affiliateDataFiable,
       fuentes: ["https://hubspot.com"],
     }));
 
@@ -30,6 +31,10 @@ describe("investigarHerramienta", () => {
     if (resultado.ok) {
       expect(resultado.propuesta.datos.nombre).toBe("HubSpot");
       expect(resultado.propuesta.fuentes).toEqual(["https://hubspot.com"]);
+      expect(resultado.propuesta.datosAfiliados.hasAffiliateProgram).toBe(true);
+      // datos (público) nunca debe llevar ningún campo de afiliación mezclado.
+      expect(resultado.propuesta.datos).not.toHaveProperty("affiliateUrl");
+      expect(resultado.propuesta.datos).not.toHaveProperty("hasAffiliateProgram");
     }
     expect(proveedor.generarJson).toHaveBeenCalledTimes(1);
     expect(proveedor.generarJson).toHaveBeenCalledWith(expect.stringContaining("HubSpot"));
@@ -57,9 +62,10 @@ describe("investigarHerramienta", () => {
   });
 
   describe("regla obligatoria del programa de afiliados", () => {
-    it("descarta la herramienta si no tiene programa de afiliados (disponible: false)", async () => {
+    it("descarta la herramienta si no tiene programa de afiliados (hasAffiliateProgram: false)", async () => {
       const proveedor = proveedorFalso(() => ({
-        datos: { nombre: "HubSpot", programaAfiliados: { disponible: false, enlaceVerificado: false } },
+        datos: { nombre: "HubSpot" },
+        affiliateData: { hasAffiliateProgram: false, affiliateStatus: "not_available" },
         fuentes: ["https://hubspot.com"],
       }));
 
@@ -72,7 +78,7 @@ describe("investigarHerramienta", () => {
       }
     });
 
-    it("descarta la herramienta si no investigó ningún programaAfiliados en absoluto", async () => {
+    it("descarta la herramienta si no investigó ningún affiliateData en absoluto", async () => {
       const proveedor = proveedorFalso(() => ({
         datos: { nombre: "HubSpot", descripcion: "Un CRM." },
         fuentes: ["https://hubspot.com"],
@@ -83,12 +89,10 @@ describe("investigarHerramienta", () => {
       expect(resultado.ok).toBe(false);
     });
 
-    it("descarta la herramienta si el programa de afiliados existe pero su confianza es baja", async () => {
+    it("descarta la herramienta si el programa de afiliados existe pero su confidenceLevel es low", async () => {
       const proveedor = proveedorFalso(() => ({
-        datos: {
-          nombre: "HubSpot",
-          programaAfiliados: { ...programaAfiliadosFiable, confianza: "baja" },
-        },
+        datos: { nombre: "HubSpot" },
+        affiliateData: { ...affiliateDataFiable, confidenceLevel: "low" },
         fuentes: ["https://hubspot.com"],
       }));
 
@@ -97,9 +101,10 @@ describe("investigarHerramienta", () => {
       expect(resultado.ok).toBe(false);
     });
 
-    it("acepta la herramienta cuando el programa de afiliados está disponible y no tiene confianza baja", async () => {
+    it("acepta la herramienta cuando el programa de afiliados está disponible y no tiene confidenceLevel low", async () => {
       const proveedor = proveedorFalso(() => ({
-        datos: { nombre: "HubSpot", programaAfiliados: programaAfiliadosFiable },
+        datos: { nombre: "HubSpot" },
+        affiliateData: affiliateDataFiable,
         fuentes: ["https://hubspot.com"],
       }));
 
@@ -108,14 +113,15 @@ describe("investigarHerramienta", () => {
       expect(resultado.ok).toBe(true);
     });
 
-    it("acepta la herramienta cuando el programa de afiliados no declara confianza (no se penaliza por ausencia)", async () => {
+    it("acepta la herramienta cuando el programa de afiliados no declara confidenceLevel (no se penaliza por ausencia)", async () => {
       const sinConfianza = {
-        disponible: programaAfiliadosFiable.disponible,
-        enlace: programaAfiliadosFiable.enlace,
-        enlaceVerificado: programaAfiliadosFiable.enlaceVerificado,
+        hasAffiliateProgram: affiliateDataFiable.hasAffiliateProgram,
+        affiliateUrl: affiliateDataFiable.affiliateUrl,
+        affiliateStatus: affiliateDataFiable.affiliateStatus,
       };
       const proveedor = proveedorFalso(() => ({
-        datos: { nombre: "HubSpot", programaAfiliados: sinConfianza },
+        datos: { nombre: "HubSpot" },
+        affiliateData: sinConfianza,
         fuentes: ["https://hubspot.com"],
       }));
 

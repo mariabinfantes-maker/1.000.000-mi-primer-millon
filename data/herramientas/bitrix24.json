@@ -4,9 +4,7 @@
   "paginaOficial": "https://www.bitrix24.com/",
   "urlPrecios": "https://www.bitrix24.com/prices/",
   "logoUrl": "",
-
   "categoriaId": "plataformas-todo-en-uno",
-
   "descripcion": "Plataforma todo en uno de colaboración, CRM y gestión de proyectos, con un plan gratuito muy amplio para equipos, que combina chat interno, videollamadas, tareas, CRM de ventas y automatización de marketing.",
   "problemasQueResuelve": [
     "Equipos que usan herramientas de chat, tareas y CRM separadas sin presupuesto para varias suscripciones",
@@ -17,18 +15,23 @@
     "Un equipo pequeño centraliza chat interno, tareas y CRM sin coste, con usuarios ilimitados en el plan gratuito",
     "Una empresa combina videollamadas y gestión de proyectos junto al CRM de ventas"
   ],
-
   "idealPara": "Equipos y pymes con presupuesto ajustado que valoran tener usuarios ilimitados gratis y quieren combinar colaboración interna (chat, tareas) con un CRM básico.",
-  "segmentosIdeales": ["1-10", "11-50"],
-  "industriasIdeales": ["pymes generalistas", "startups", "equipos remotos", "servicios profesionales"],
-
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "pymes generalistas",
+    "startups",
+    "equipos remotos",
+    "servicios profesionales"
+  ],
   "noRecomendadaPara": "Empresas que necesiten un CRM de ventas muy avanzado y especializado, o equipos grandes que ya dependan de otras suites de colaboración (Slack, Microsoft Teams) y no quieran duplicar herramientas.",
   "casosNoRecomendados": [
     "Empresas que necesiten un CRM de ventas muy avanzado y especializado",
     "Equipos grandes que ya dependan de Slack o Microsoft Teams y no quieran duplicar herramientas de colaboración",
     "Negocios que prioricen una interfaz muy simple sobre la cantidad de funciones disponibles"
   ],
-
   "funcionesPrincipales": [
     "CRM de ventas",
     "Gestión de tareas y proyectos",
@@ -37,16 +40,29 @@
     "Creador de sitios web y tiendas online",
     "Contact center multicanal"
   ],
-  "integraciones": ["Zapier", "Google Workspace", "Microsoft 365", "1C (contabilidad, mercado ruso/CEI)", "API abierta"],
-  "integracionesPrincipales": ["Zapier", "Google Workspace", "Microsoft 365", "1C"],
+  "integraciones": [
+    "Zapier",
+    "Google Workspace",
+    "Microsoft 365",
+    "1C (contabilidad, mercado ruso/CEI)",
+    "API abierta"
+  ],
+  "integracionesPrincipales": [
+    "Zapier",
+    "Google Workspace",
+    "Microsoft 365",
+    "1C"
+  ],
   "curvaDeAprendizaje": "media",
-
   "precioInicial": "Gratis (usuarios ilimitados) / Desde 49€/mes en plan Basic",
-  "modeloDePrecio": ["freemium", "suscripcion_mensual"],
+  "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual"
+  ],
   "tienePlanGratuito": true,
-
-  "idiomasDisponibles": ["más de 18 idiomas, incluyendo español, inglés, portugués y alemán"],
-
+  "idiomasDisponibles": [
+    "más de 18 idiomas, incluyendo español, inglés, portugués y alemán"
+  ],
   "puntuaciones": {
     "facilidadDeUso": 5,
     "calidad": 6,
@@ -56,7 +72,6 @@
     "nivelTecnicoRequerido": 5
   },
   "metodologiaValoracion": "Valoración editorial de Atlas basada en documentación pública, posicionamiento de mercado y opiniones agregadas de usuarios. Pendiente de contrastar con datos de uso reales; revisar periódicamente.",
-
   "ventajas": [
     "Plan gratuito muy generoso con usuarios ilimitados",
     "Combina colaboración interna y CRM en un mismo lugar",
@@ -69,19 +84,6 @@
     "Curva de aprendizaje para aprovechar todas las funciones",
     "Soporte más lento en el plan gratuito"
   ],
-
-  "programaAfiliados": {
-    "disponible": true,
-    "descripcion": "Programa de partners para revendedores e implementadores certificados, con hasta el 50% de comisión por venta. Requiere completar un perfil de empresa y pasar una verificación de hasta 7 días laborables antes de aparecer listado.",
-    "enlace": "https://www.bitrix24.com/partners/",
-    "enlaceVerificado": false,
-    "plataformaGestion": "Programa propio de Bitrix24",
-    "tipoInscripcion": "requiere_aprobacion",
-    "tipoComision": "porcentaje",
-    "confianza": "media",
-    "fuente": "https://www.bitrix24.com/about/blogs/bitrix24-tips-and-updates/bitrix24-partner-program.php"
-  },
-
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-07-24",
   "fechaUltimaRevision": "2026-07-25"

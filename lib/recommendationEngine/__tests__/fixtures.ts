@@ -32,7 +32,6 @@ export function construirHerramienta(overrides: Partial<Herramienta> & Pick<Herr
     metodologiaValoracion: "Valoración editorial de Atlas.",
     ventajas: ["Ventaja de prueba"],
     inconvenientes: ["Inconveniente de prueba"],
-    programaAfiliados: { disponible: false, enlaceVerificado: false },
     estado: "activo",
     fechaAltaEnAtlas: "2026-01-01",
     fechaUltimaRevision: "2026-01-01",

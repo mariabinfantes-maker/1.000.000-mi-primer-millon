@@ -1,0 +1,14 @@
+{
+  "herramientaId": "zoho-one",
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Zoho Affiliate Program (independiente del programa de partners/revendedores: no se puede ser ambas cosas a la vez)",
+  "affiliatePlatform": "Programa propio de Zoho",
+  "affiliateUrl": "https://www.zoho.com/affiliate/",
+  "commission": "15% de lo que factura Zoho durante los 12 meses siguientes a la venta, si el referido sigue siendo cliente al menos 60 días",
+  "cookieDuration": "90 días",
+  "approvalRequired": false,
+  "affiliateStatus": "active",
+  "lastAffiliateCheck": "2026-07-25",
+  "confidenceLevel": "medium",
+  "source": "https://www.zoho.com/affiliate/faq.html"
+}

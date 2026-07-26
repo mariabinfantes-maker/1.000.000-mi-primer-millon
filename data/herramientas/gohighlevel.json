@@ -4,9 +4,7 @@
   "paginaOficial": "https://www.gohighlevel.com/",
   "urlPrecios": "https://www.gohighlevel.com/pricing",
   "logoUrl": "",
-
   "categoriaId": "plataformas-todo-en-uno",
-
   "descripcion": "Plataforma todo en uno nacida para agencias de marketing, que combina CRM, embudos de venta, automatización de marketing, gestión de reputación, calendario de citas y comunicación multicanal (SMS, email, llamadas, redes sociales) en una sola suscripción, con opción de revenderse en marca blanca.",
   "problemasQueResuelve": [
     "Dispersión de herramientas de marketing y ventas en varias suscripciones distintas",
@@ -19,18 +17,24 @@
     "Un negocio local automatiza recordatorios de citas y solicitud de reseñas por SMS",
     "Un infoproductor construye embudos de venta y páginas de aterrizaje sin programar"
   ],
-
   "idealPara": "Agencias de marketing y consultores que gestionan varios clientes, y pymes de servicios locales (clínicas, inmobiliarias, gimnasios) que quieren centralizar captación y seguimiento de clientes.",
-  "segmentosIdeales": ["1-10", "11-50"],
-  "industriasIdeales": ["agencias de marketing", "servicios locales", "inmobiliaria", "salud y bienestar", "infoproductos"],
-
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "agencias de marketing",
+    "servicios locales",
+    "inmobiliaria",
+    "salud y bienestar",
+    "infoproductos"
+  ],
   "noRecomendadaPara": "Empresas grandes con procesos de ERP o contabilidad complejos, o negocios que necesiten gestión financiera y de inventario profunda: no es su foco.",
   "casosNoRecomendados": [
     "Empresas que necesiten un ERP completo con contabilidad e inventario",
     "Negocios con procesos financieros complejos que requieran módulos contables avanzados",
     "Equipos que no vayan a dedicar tiempo a superar la curva de aprendizaje inicial"
   ],
-
   "funcionesPrincipales": [
     "CRM y pipeline de ventas",
     "Embudos de venta y páginas de aterrizaje",
@@ -39,16 +43,31 @@
     "Bandeja de conversaciones multicanal (SMS, email, llamadas, redes sociales)",
     "Marca blanca (reventa como SaaS) para agencias"
   ],
-  "integraciones": ["Zapier", "Stripe", "Google Calendar", "Meta Ads (Facebook/Instagram)", "Twilio", "Mailgun", "API abierta"],
-  "integracionesPrincipales": ["Zapier", "Stripe", "Meta Ads (Facebook/Instagram)", "Twilio"],
+  "integraciones": [
+    "Zapier",
+    "Stripe",
+    "Google Calendar",
+    "Meta Ads (Facebook/Instagram)",
+    "Twilio",
+    "Mailgun",
+    "API abierta"
+  ],
+  "integracionesPrincipales": [
+    "Zapier",
+    "Stripe",
+    "Meta Ads (Facebook/Instagram)",
+    "Twilio"
+  ],
   "curvaDeAprendizaje": "dificil",
-
   "precioInicial": "Desde 97$/mes",
-  "modeloDePrecio": ["suscripcion_mensual"],
+  "modeloDePrecio": [
+    "suscripcion_mensual"
+  ],
   "tienePlanGratuito": false,
-
-  "idiomasDisponibles": ["inglés (interfaz principal)", "soporte parcial en español y otros idiomas"],
-
+  "idiomasDisponibles": [
+    "inglés (interfaz principal)",
+    "soporte parcial en español y otros idiomas"
+  ],
   "puntuaciones": {
     "facilidadDeUso": 6,
     "calidad": 7,
@@ -58,7 +77,6 @@
     "nivelTecnicoRequerido": 6
   },
   "metodologiaValoracion": "Valoración editorial de Atlas basada en documentación pública, posicionamiento de mercado y opiniones agregadas de usuarios. Pendiente de contrastar con datos de uso reales; revisar periódicamente.",
-
   "ventajas": [
     "Todo el stack de marketing y ventas en una sola suscripción",
     "Permite revenderse en marca blanca a clientes de agencia",
@@ -71,19 +89,6 @@
     "Soporte y documentación mayoritariamente en inglés",
     "No sustituye a un ERP para gestión financiera o de inventario"
   ],
-
-  "programaAfiliados": {
-    "disponible": true,
-    "descripcion": "Programa de afiliados con comisión recurrente del 40% sobre las suscripciones referidas mientras el cliente siga activo, sin proceso de aprobación ni requisito de ser cliente.",
-    "enlace": "https://www.gohighlevel.com/affiliates",
-    "enlaceVerificado": false,
-    "plataformaGestion": "PartnerStack",
-    "tipoInscripcion": "abierta",
-    "tipoComision": "comision_recurrente",
-    "confianza": "media",
-    "fuente": "https://help.gohighlevel.com/support/solutions/articles/48000980325-become-a-highlevel-affiliate"
-  },
-
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-07-24",
   "fechaUltimaRevision": "2026-07-25"

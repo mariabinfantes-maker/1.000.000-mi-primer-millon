@@ -13,6 +13,9 @@ import type { Categoria, Herramienta } from "./esquema";
  *
  * Solo debe importarse desde código de servidor (Server Components, route
  * handlers, scripts): usa `node:fs`, que no existe en el navegador.
+ *
+ * No expone ningún dato de afiliación — ver `data/repositorioAfiliados.ts`
+ * y `data/esquemaInterno.ts` para eso, deliberadamente separados.
  */
 
 const DIR_DATOS = path.join(process.cwd(), "data");
@@ -115,13 +118,6 @@ function validarHerramienta(datos: unknown, nombreArchivo: string): Herramienta 
         errores.push(`"puntuaciones.${campo}" debe ser un número entre 1 y 10`);
       }
     }
-  }
-
-  const programaAfiliados = h.programaAfiliados as Record<string, unknown> | undefined;
-  if (typeof programaAfiliados !== "object" || programaAfiliados === null) {
-    errores.push('falta el objeto "programaAfiliados"');
-  } else if (typeof programaAfiliados.disponible !== "boolean") {
-    errores.push('falta el campo booleano "programaAfiliados.disponible"');
   }
 
   // Campos opcionales del esquema: solo se validan SI están presentes. No

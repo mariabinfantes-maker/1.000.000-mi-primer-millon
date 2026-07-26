@@ -17,6 +17,11 @@ import type { RangoEmpleados } from "@/lib/cuestionario";
  *    resto de la aplicación sigue llamando a las mismas funciones
  *    (`getHerramientas`, `getHerramienta`, `getHerramientasPorCategoria`)
  *    sin enterarse del cambio.
+ *
+ * Deliberadamente NO incluye ningún dato de afiliación (programa, comisión,
+ * plataforma de gestión...): eso vive en `data/esquemaInterno.ts` /
+ * `data/afiliados/`, de uso exclusivo de los agentes internos de Atlas, y
+ * nunca debe mezclarse con esta ficha pública.
  */
 
 /** Escala 1-10 usada en todas las puntuaciones editoriales. */
@@ -50,51 +55,12 @@ export type Categoria = {
 };
 
 /**
- * Nivel de confianza en un dato investigado. Genérico a propósito: lo usa
- * `ProgramaAfiliados.confianza` y también lo reutiliza Atlas Researcher
+ * Nivel de confianza en un dato investigado. Lo reutiliza Atlas Researcher
  * (`agents/atlas-researcher`) para la confianza global de una propuesta —
- * un único tipo, definido aquí porque el esquema de datos es la capa base
- * de la que depende el agente, y no al revés.
+ * definido aquí porque el esquema de datos es la capa base de la que
+ * depende el agente, y no al revés.
  */
 export type NivelConfianza = "baja" | "media" | "alta";
-
-/** Si cualquiera puede apuntarse al programa de afiliados o si la empresa aprueba cada solicitud una a una. */
-export type TipoInscripcionAfiliados = "abierta" | "requiere_aprobacion";
-
-export type TipoComisionAfiliados = "porcentaje" | "pago_fijo" | "comision_recurrente";
-
-export type ProgramaAfiliados = {
-  disponible: boolean;
-  descripcion?: string;
-  enlace?: string;
-  /**
-   * Si el enlace se ha comprobado visitándolo (true) o es la mejor
-   * referencia disponible sin verificación en vivo (false). Nunca mostrar
-   * como definitivo en una campaña de afiliación sin volver a comprobarlo.
-   */
-  enlaceVerificado: boolean;
-  /**
-   * Añadido: plataforma donde se gestiona el programa (ej. "PartnerStack",
-   * "Impact", "CJ Affiliate", o "Programa propio" si lo gestiona la propia
-   * empresa sin una red externa). Determina cómo hay que darse de alta y
-   * dónde consultar el estado de las comisiones.
-   */
-  plataformaGestion?: string;
-  /** Añadido: si la inscripción es inmediata o si la empresa revisa y aprueba cada solicitud. */
-  tipoInscripcion?: TipoInscripcionAfiliados;
-  /** Añadido: cómo se paga la comisión (un % de la venta, un importe fijo por referido, o un % recurrente mientras el cliente siga activo). */
-  tipoComision?: TipoComisionAfiliados;
-  /**
-   * Añadido: confianza en TODO este bloque (plataforma, tipo de
-   * inscripción, tipo de comisión...), no solo en si se visitó `enlace`.
-   * Los programas de afiliados cambian de condiciones con frecuencia; sin
-   * este campo no habría forma de distinguir un dato recién confirmado de
-   * uno que lleva un año sin revisarse.
-   */
-  confianza?: NivelConfianza;
-  /** Añadido: URL o referencia concreta de donde se sacó esta información (distinta de `enlace`, que es la URL del propio programa de afiliados). */
-  fuente?: string;
-};
 
 export type Puntuaciones = {
   facilidadDeUso: Puntuacion1a10;
@@ -259,8 +225,6 @@ export type Herramienta = {
 
   ventajas: string[];
   inconvenientes: string[];
-
-  programaAfiliados: ProgramaAfiliados;
 
   /** Añadido: reputación en plataformas externas de reseñas (G2, Capterra...). Opcional: no todas las herramientas tienen presencia en estas plataformas. */
   reputacion?: Reputacion;
