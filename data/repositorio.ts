@@ -83,7 +83,8 @@ function errorBooleanoSiPresente(errores: string[], nombreCampo: string, valor: 
  * olvidado o mal escrito que rompería el motor de recomendaciones en
  * silencio más adelante.
  */
-function validarHerramienta(datos: unknown, nombreArchivo: string): Herramienta {
+/** Exportada para que `agents/atlas-researcher/promover.ts` reutilice la misma validación al copiar un borrador aprobado al catálogo real, en vez de duplicarla. */
+export function validarHerramienta(datos: unknown, nombreArchivo: string): Herramienta {
   const errores: string[] = [];
 
   if (typeof datos !== "object" || datos === null) {
