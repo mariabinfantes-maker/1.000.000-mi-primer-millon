@@ -3,11 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-import type { Problema } from "@/lib/data";
 import { RANGOS_EMPLEADOS, type RangoEmpleados } from "@/lib/cuestionario";
 import type { HerramientaEvaluada, RespuestasUsuario } from "@/lib/recommendationEngine";
 import { guardarResultados } from "@/lib/resultadosSesion";
-import IconoProblema from "@/components/ui/IconoProblema";
+import { claveOrigen, PREGUNTA_HERRAMIENTA_GENERICA, type OrigenDiagnostico } from "@/lib/origenDiagnostico";
+import IconoOrigen from "@/components/ui/IconoOrigen";
 import Boton from "@/components/ui/Boton";
 
 const TOTAL_PREGUNTAS = 4;
@@ -18,13 +18,13 @@ const MENSAJES_ANALISIS = [
   "Preparando tus recomendaciones...",
 ];
 
-export default function Cuestionario({ problema }: { problema: Problema }) {
+export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) {
   const router = useRouter();
 
   const [paso, setPaso] = useState(0); // 0-3 preguntas, 4 = analizando
   const [sector, setSector] = useState("");
   const [empleados, setEmpleados] = useState<RangoEmpleados | null>(null);
-  const [mayorProblema, setMayorProblema] = useState("");
+  const [mayorProblema, setMayorProblema] = useState(origen.notasPrefill ?? "");
   const [usaHerramienta, setUsaHerramienta] = useState<boolean | null>(null);
   const [herramientaNombre, setHerramientaNombre] = useState("");
 
@@ -66,6 +66,7 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
       .join(" ");
 
     const respuestas: RespuestasUsuario = {
+      categoriaId: origen.categoriaIdPrefill,
       industria: sector.trim(),
       tamanoEmpresa: empleados as RangoEmpleados,
       notasAdicionales,
@@ -90,15 +91,16 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
       })
       .then(({ top }) => {
         setProgreso(100);
-        guardarResultados(problema.id, top);
+        guardarResultados(claveOrigen(origen), top);
         setTimeout(() => {
-          router.push(`/problema/${problema.id}/recomendacion`);
+          router.push(`${origen.rutaBase}/recomendacion`);
         }, 400);
       })
       .catch(() => {
-        // Si el motor de recomendaciones falla, llevamos igualmente al
-        // usuario a las categorías disponibles como red de seguridad.
-        router.push(`/problema/${problema.id}`);
+        // Si el motor de recomendaciones falla, llevamos al usuario de
+        // vuelta al inicio como red de seguridad, en vez de a una ruta que
+        // ya no forma parte del recorrido principal.
+        router.push("/");
       })
       .finally(() => {
         clearInterval(intervalo);
@@ -116,7 +118,7 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
     return (
       <div className="mx-auto flex max-w-xl flex-col items-center px-4 py-24 text-center sm:px-6">
         <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-600">
-          <IconoProblema problemaId={problema.id} className="h-7 w-7" />
+          <IconoOrigen tipo={origen.tipo} id={origen.id} className="h-7 w-7" />
         </span>
         <h1 className="mt-5 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
           Analizando tu empresa...
@@ -143,8 +145,8 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
   return (
     <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-16">
       <p className="flex items-center gap-1.5 text-sm font-semibold text-brand-600">
-        <IconoProblema problemaId={problema.id} className="h-4 w-4" />
-        {problema.titulo}
+        <IconoOrigen tipo={origen.tipo} id={origen.id} className="h-4 w-4" />
+        {origen.titulo}
       </p>
 
       <div className="mt-4 flex items-center gap-2">
@@ -235,7 +237,7 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
         {paso === 3 && (
           <fieldset>
             <legend className="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">
-              {problema.preguntaHerramienta}
+              {origen.preguntaHerramienta ?? PREGUNTA_HERRAMIENTA_GENERICA}
             </legend>
             <div className="mt-4 flex gap-3">
               {[

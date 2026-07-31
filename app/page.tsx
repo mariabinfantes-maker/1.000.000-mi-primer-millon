@@ -1,6 +1,4 @@
-import Link from "next/link";
 import {
-  ChevronRight,
   Sparkles,
   ArrowRight,
   ClipboardList,
@@ -12,12 +10,14 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { problemas } from "@/lib/data";
-import Pasos from "@/components/Pasos";
+import { getCategorias } from "@/data/repositorio";
+import { AGENTES } from "@/lib/agentes";
 import Etiqueta from "@/components/ui/Etiqueta";
-import IconoProblema from "@/components/ui/IconoProblema";
 import IlustracionHero from "@/components/ui/IlustracionHero";
+import AvatarAgente from "@/components/ui/AvatarAgente";
 import Boton from "@/components/ui/Boton";
 import RevelarAlScroll from "@/components/ui/RevelarAlScroll";
+import SelectorEntrada from "@/components/ui/SelectorEntrada";
 
 const PASOS_COMO_FUNCIONA = [
   {
@@ -37,11 +37,15 @@ const PASOS_COMO_FUNCIONA = [
   },
 ];
 
+// La primera señal ("Recomendaciones objetivas") declara el modelo de
+// afiliación de forma visible en vez de sugerir que Atlas no cobra nada —
+// ver Sheet 12 del documento de arquitectura UX, punto P0 "Declarar el
+// modelo de afiliación al usuario, de forma visible".
 const SENALES_DE_CONFIANZA = [
   {
     icono: Scale,
     titulo: "Recomendaciones objetivas",
-    descripcion: "Sin marcas patrocinadas ni rankings pagados.",
+    descripcion: "Cobramos comisión de los proveedores, nunca al revés: nunca cambia lo que te recomendamos ni el precio que pagas.",
   },
   {
     icono: Zap,
@@ -61,6 +65,8 @@ const SENALES_DE_CONFIANZA = [
 ];
 
 export default function Home() {
+  const categorias = getCategorias();
+
   return (
     <div>
       {/* Hero */}
@@ -100,16 +106,16 @@ export default function Home() {
               className="animar-entrada mx-auto mt-5 max-w-xl text-lg leading-relaxed text-slate-600 lg:mx-0"
               style={{ animationDelay: "180ms" }}
             >
-              Atlas analiza tu negocio y te recomienda la tecnología exacta
-              para resolver tu problema, sin listas interminables ni sesgos
-              publicitarios.
+              Atlas analiza tu negocio y te recomienda la tecnología exacta para resolver tu
+              problema. Por objetivo, por categoría o explicándolo con tus palabras — tú eliges
+              por dónde empezar.
             </p>
 
             <div
               className="animar-entrada mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start"
               style={{ animationDelay: "270ms" }}
             >
-              <Boton href="#elige-problema" tamano="grande">
+              <Boton href="#elige-camino" tamano="grande">
                 Empezar diagnóstico gratuito
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Boton>
@@ -180,8 +186,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Confianza */}
+      {/* Así piensa Atlas */}
       <section className="border-t border-slate-100">
+        <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28">
+          <RevelarAlScroll className="mx-auto max-w-2xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">
+              Así piensa Atlas
+            </p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+              Tres agentes, un mismo objetivo: acertar por ti
+            </h2>
+            <p className="mt-3 text-base leading-relaxed text-slate-600">
+              No es una caja negra. Cada recomendación pasa por tres pares de manos digitales
+              distintas, y podrás ver a cada una trabajar.
+            </p>
+          </RevelarAlScroll>
+
+          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-3">
+            {AGENTES.map((agente, i) => (
+              <RevelarAlScroll key={agente.id} retrasoMs={i * 100}>
+                <div className="flex h-full flex-col items-center gap-3 rounded-2xl border border-slate-200/80 bg-white p-6 text-center ring-1 ring-black/[0.02]">
+                  <AvatarAgente id={agente.id} tamano="grande" />
+                  <h3 className="text-base font-semibold text-slate-900">{agente.nombre}</h3>
+                  <p className="text-sm leading-relaxed text-slate-500">{agente.rol}</p>
+                </div>
+              </RevelarAlScroll>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Confianza */}
+      <section className="border-t border-slate-100 bg-slate-50/60">
         <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28">
           <RevelarAlScroll className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">
@@ -212,46 +248,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Selección de problema */}
-      <section id="elige-problema" className="scroll-mt-20 border-t border-slate-100 bg-slate-50/60">
+      {/* Elige tu camino: las tres puertas de entrada */}
+      <section id="elige-camino" className="scroll-mt-20 border-t border-slate-100">
         <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28">
-          <Pasos pasoActual={1} />
-
-          <RevelarAlScroll className="mt-6 max-w-2xl">
+          <RevelarAlScroll className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">
               Empieza aquí
             </p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-              ¿Qué quieres mejorar en tu empresa?
+              ¿Cómo quieres empezar?
             </h2>
           </RevelarAlScroll>
 
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {problemas.map((problema, i) => (
-              <RevelarAlScroll key={problema.id} retrasoMs={i * 80}>
-                <Link
-                  href={`/problema/${problema.id}/cuestionario`}
-                  className="group relative flex items-start gap-4 rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-black/[0.02] transition hover:-translate-y-1 hover:border-brand-300 hover:shadow-premium-lg"
-                >
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-brand-100 text-brand-600 ring-1 ring-brand-100 transition group-hover:scale-105 group-hover:bg-brand-600 group-hover:text-white group-hover:ring-brand-600">
-                    <IconoProblema problemaId={problema.id} />
-                  </span>
-                  <span className="flex-1">
-                    <span className="block text-lg font-semibold text-slate-900 group-hover:text-brand-700">
-                      {problema.titulo}
-                    </span>
-                    <span className="mt-1 block text-sm leading-relaxed text-slate-500">
-                      {problema.descripcion}
-                    </span>
-                    <span className="mt-3 flex items-center gap-1 text-sm font-semibold text-brand-600 opacity-0 transition group-hover:opacity-100">
-                      Empezar diagnóstico
-                      <ChevronRight className="h-4 w-4" aria-hidden="true" />
-                    </span>
-                  </span>
-                </Link>
-              </RevelarAlScroll>
-            ))}
-          </div>
+          <RevelarAlScroll retrasoMs={80} className="mt-8">
+            <SelectorEntrada problemas={problemas} categorias={categorias} />
+          </RevelarAlScroll>
         </div>
       </section>
     </div>
