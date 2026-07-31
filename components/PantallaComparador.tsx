@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { CSSProperties } from "react";
 import { leerResultadosGuardados } from "@/lib/resultadosSesion";
 import { claveOrigen, type OrigenDiagnostico } from "@/lib/origenDiagnostico";
 import { construirComparativa } from "@/lib/comparador";
@@ -75,7 +76,10 @@ export default function PantallaComparador({ origen }: { origen: OrigenDiagnosti
         Solo se muestran los criterios en los que estas opciones realmente se diferencian, no una tabla exhaustiva.
       </p>
 
-      <div className="mt-8 grid gap-4" style={{ gridTemplateColumns: `repeat(${top.length}, minmax(0, 1fr))` }}>
+      <div
+        className="comparador-grid mt-8 gap-4"
+        style={{ "--comparador-columnas": top.length } as CSSProperties}
+      >
         {top.map((evaluada) => {
           const puntuacion = calcularPuntuacionAtlas(evaluada.herramienta);
           return (
@@ -103,8 +107,8 @@ export default function PantallaComparador({ origen }: { origen: OrigenDiagnosti
               <p className="mt-0.5 text-xs text-slate-500">{fila.explicacionCriterio}</p>
 
               <div
-                className="mt-4 grid gap-3"
-                style={{ gridTemplateColumns: `repeat(${fila.celdas.length}, minmax(0, 1fr))` }}
+                className="comparador-grid mt-4 gap-3"
+                style={{ "--comparador-columnas": fila.celdas.length } as CSSProperties}
               >
                 {fila.celdas.map((celda) => (
                   <div

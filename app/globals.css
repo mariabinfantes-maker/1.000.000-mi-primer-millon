@@ -109,3 +109,22 @@ body {
     animation: none;
   }
 }
+
+/*
+ * Comparador guiado (P-05): el número de columnas depende de cuántas
+ * herramientas se comparan (2-3), así que no puede fijarse con una clase
+ * de Tailwind estática. En móvil se apila a una sola columna — con 3
+ * herramientas en ~390px, repartir el ancho en 3 deja celdas de ~110px
+ * donde el texto se vuelve ilegible; a partir de `sm` hay sitio de sobra
+ * para compararlas lado a lado.
+ */
+.comparador-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .comparador-grid {
+    grid-template-columns: repeat(var(--comparador-columnas, 1), minmax(0, 1fr));
+  }
+}
