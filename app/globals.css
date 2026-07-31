@@ -80,6 +80,16 @@ body {
   }
 }
 
+/* Anillo de Puntuación Atlas: el trazo se dibuja desde vacío hasta la puntuación real al montarse. */
+@keyframes anillo-progreso {
+  from {
+    stroke-dashoffset: var(--anillo-circunferencia);
+  }
+  to {
+    stroke-dashoffset: var(--anillo-offset);
+  }
+}
+
 .animar-entrada {
   animation: entrada-arriba 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -88,9 +98,14 @@ body {
   animation: flotar 6s ease-in-out infinite;
 }
 
+.animar-anillo {
+  animation: anillo-progreso 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animar-entrada,
-  .animar-flotar {
+  .animar-flotar,
+  .animar-anillo {
     animation: none;
   }
 }

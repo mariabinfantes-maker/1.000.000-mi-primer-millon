@@ -1,4 +1,5 @@
 import type { HerramientaEvaluada } from "@/lib/recommendationEngine";
+import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
 import type { TarjetaHerramientaRecomendadaProps } from "@/components/TarjetaHerramientaRecomendada";
 
 /**
@@ -14,18 +15,19 @@ import type { TarjetaHerramientaRecomendadaProps } from "@/components/TarjetaHer
 export function aVistaDeTarjeta(evaluada: HerramientaEvaluada, posicion: number): TarjetaHerramientaRecomendadaProps {
   const { herramienta } = evaluada;
 
-  // Puntuación mostrada al usuario: calidad editorial de la ficha, no la
-  // puntuación interna de encaje (esa solo sirve para ordenar, no tiene una
-  // escala fija pensada para mostrarse — ver el comentario en
+  // La "Puntuación Atlas" (0-100) mostrada al usuario es la misma que
+  // calcula `lib/puntuacionAtlas.ts` para el resto del producto — nunca la
+  // puntuación interna de encaje (esa solo sirve para ordenar el ranking,
+  // no tiene una escala fija pensada para mostrarse — ver el comentario en
   // `HerramientaEvaluada.puntuacionTotal`).
-  const puntuacionAtlas =
-    Math.round(((herramienta.puntuaciones.calidad + herramienta.puntuaciones.fiabilidad) / 2) * 10) / 10;
+  const puntuacionAtlas = calcularPuntuacionAtlas(herramienta);
 
   return {
     posicion,
     nombre: herramienta.nombre,
     paginaOficial: herramienta.paginaOficial,
-    puntuacionAtlas,
+    puntuacionAtlas: puntuacionAtlas?.puntuacion ?? null,
+    motivosPuntuacion: puntuacionAtlas?.motivos ?? [],
     precioInicial: herramienta.precioInicial,
     tienePlanGratuito: herramienta.tienePlanGratuito,
     ventajas: herramienta.ventajas,
@@ -33,5 +35,7 @@ export function aVistaDeTarjeta(evaluada: HerramientaEvaluada, posicion: number)
     explicacionPersonalizada: evaluada.explicacion,
     integracionPrincipal: herramienta.integracionesPrincipales[0] ?? null,
     tieneAdvertencia: evaluada.tieneAdvertencia,
+    casoDeUso: herramienta.casosDeUso[0] ?? null,
+    casosNoRecomendados: herramienta.casosNoRecomendados,
   };
 }

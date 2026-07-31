@@ -1,14 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Sparkles } from "lucide-react";
 import { leerResultadosGuardados } from "@/lib/resultadosSesion";
 import { aVistaDeTarjeta } from "@/lib/vistaRecomendacion";
 import { claveOrigen, type OrigenDiagnostico } from "@/lib/origenDiagnostico";
+import { getAgente } from "@/lib/agentes";
 import type { HerramientaEvaluada } from "@/lib/recommendationEngine";
 import EnlaceAtras from "@/components/ui/EnlaceAtras";
 import Boton from "@/components/ui/Boton";
+import AvatarAgente from "@/components/ui/AvatarAgente";
 import TarjetaHerramientaRecomendada from "@/components/TarjetaHerramientaRecomendada";
+
+const RECOMENDADOR = getAgente("recomendador");
 
 /**
  * Pantalla de resultados (P-03), compartida por las tres puertas de
@@ -63,11 +66,14 @@ export default function PantallaRecomendacion({ origen }: { origen: OrigenDiagno
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
       <EnlaceAtras href={`${origen.rutaBase}/cuestionario`}>Repetir el cuestionario</EnlaceAtras>
 
-      <div className="mt-6 flex items-center gap-2 text-sm font-medium text-brand-600">
-        <Sparkles className="h-4 w-4" aria-hidden="true" />
-        Recomendación personalizada de Atlas
+      <div className="mt-6 flex items-center gap-3">
+        <AvatarAgente id="recomendador" />
+        <div>
+          <p className="text-sm font-semibold text-agente-recomendador">{RECOMENDADOR.nombre}</p>
+          <p className="text-xs text-slate-500">{RECOMENDADOR.rol}</p>
+        </div>
       </div>
-      <h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+      <h1 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
         Tus {vistas.length} mejores opciones
       </h1>
       <p className="mt-3 max-w-2xl leading-relaxed text-slate-600">
