@@ -10,13 +10,23 @@ function porRelevancia(a: DetalleCriterio, b: DetalleCriterio): number {
   return Math.abs(b.puntos) - Math.abs(a.puntos);
 }
 
-/** Compone un párrafo legible a partir de los motivos más relevantes de una herramienta ya evaluada. */
+/**
+ * Compone un párrafo legible a partir de los motivos más relevantes de una
+ * herramienta ya evaluada.
+ *
+ * Cada motivo llega ya redactado como frase independiente y capitalizada
+ * (ver los criterios en ./criterios.ts, p. ej. "Interfaz muy fácil de usar
+ * (8/10)."), así que encadenarlos tras "porque:" los convertía en
+ * fragmentos sin sujeto ("Recomendamos X porque: Pensada para..."). Un
+ * encabezado nominal en vez de una conjunción evita esa fricción
+ * gramatical sin tener que reescribir los motivos en sí.
+ */
 function generarExplicacion(herramienta: Herramienta, razones: string[]): string {
   if (razones.length === 0) {
     return `${herramienta.nombre} es una opción sólida y bien valorada dentro de su categoría.`;
   }
   const motivos = razones.slice(0, MOTIVOS_EN_EXPLICACION).join(" ");
-  return `Recomendamos ${herramienta.nombre} porque: ${motivos}`;
+  return `Por qué te recomendamos ${herramienta.nombre}: ${motivos}`;
 }
 
 /** Aplica todos los criterios a una única herramienta y consolida el resultado. */
