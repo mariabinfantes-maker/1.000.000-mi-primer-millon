@@ -213,6 +213,13 @@ export default function Home() {
               </RevelarAlScroll>
             ))}
           </div>
+
+          <div className="mt-10 text-center">
+            <Boton href="/agentes" variante="fantasma">
+              Ver cómo trabaja cada agente en detalle
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Boton>
+          </div>
         </div>
       </section>
 
