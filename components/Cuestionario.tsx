@@ -9,14 +9,9 @@ import { guardarResultados } from "@/lib/resultadosSesion";
 import { claveOrigen, PREGUNTA_HERRAMIENTA_GENERICA, type OrigenDiagnostico } from "@/lib/origenDiagnostico";
 import IconoOrigen from "@/components/ui/IconoOrigen";
 import Boton from "@/components/ui/Boton";
+import AtlasTrabajando from "@/components/AtlasTrabajando";
 
 const TOTAL_PREGUNTAS = 4;
-
-const MENSAJES_ANALISIS = [
-  "Entendiendo tu negocio...",
-  "Cruzando tus respuestas con nuestra base de herramientas...",
-  "Preparando tus recomendaciones...",
-];
 
 export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) {
   const router = useRouter();
@@ -30,7 +25,7 @@ export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) 
 
   const [analizando, setAnalizando] = useState(false);
   const [progreso, setProgreso] = useState(0);
-  const [mensajeIndice, setMensajeIndice] = useState(0);
+  const [totalHerramientas, setTotalHerramientas] = useState<number | null>(null);
 
   const puedeAvanzar =
     (paso === 0 && sector.trim().length > 0) ||
@@ -76,10 +71,6 @@ export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) 
       setProgreso((p) => (p < 90 ? p + Math.random() * 8 : p));
     }, 220);
 
-    const mensajes = setInterval(() => {
-      setMensajeIndice((i) => (i + 1) % MENSAJES_ANALISIS.length);
-    }, 1100);
-
     fetch("/api/recomendaciones", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -87,14 +78,15 @@ export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) 
     })
       .then((respuesta) => {
         if (!respuesta.ok) throw new Error("La API de recomendaciones respondió con un error.");
-        return respuesta.json() as Promise<{ top: HerramientaEvaluada[] }>;
+        return respuesta.json() as Promise<{ top: HerramientaEvaluada[]; totalEvaluadas: number }>;
       })
-      .then(({ top }) => {
+      .then(({ top, totalEvaluadas }) => {
         setProgreso(100);
+        setTotalHerramientas(totalEvaluadas);
         guardarResultados(claveOrigen(origen), top);
         setTimeout(() => {
           router.push(`${origen.rutaBase}/recomendacion`);
-        }, 400);
+        }, 500);
       })
       .catch(() => {
         // Si el motor de recomendaciones falla, llevamos al usuario de
@@ -104,42 +96,16 @@ export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) 
       })
       .finally(() => {
         clearInterval(intervalo);
-        clearInterval(mensajes);
       });
 
     return () => {
       clearInterval(intervalo);
-      clearInterval(mensajes);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [analizando]);
 
   if (analizando) {
-    return (
-      <div className="mx-auto flex max-w-xl flex-col items-center px-4 py-24 text-center sm:px-6">
-        <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-600">
-          <IconoOrigen tipo={origen.tipo} id={origen.id} className="h-7 w-7" />
-        </span>
-        <h1 className="mt-5 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-          Analizando tu empresa...
-        </h1>
-        <p className="mt-2 min-h-6 text-sm text-slate-500">
-          {MENSAJES_ANALISIS[mensajeIndice]}
-        </p>
-
-        <div className="mt-8 w-full max-w-sm">
-          <div className="h-2 w-full overflow-hidden rounded-full bg-slate-200">
-            <div
-              className="h-full rounded-full bg-brand-600 transition-[width] duration-200 ease-out"
-              style={{ width: `${Math.min(progreso, 100)}%` }}
-            />
-          </div>
-          <p className="mt-2 text-right text-xs font-medium text-slate-400">
-            {Math.round(Math.min(progreso, 100))}%
-          </p>
-        </div>
-      </div>
-    );
+    return <AtlasTrabajando progreso={progreso} totalHerramientas={totalHerramientas} />;
   }
 
   return (

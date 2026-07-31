@@ -22,5 +22,8 @@ export async function POST(request: Request) {
 
   const resultado = recomendarHerramientas(respuestas, getHerramientas());
 
-  return NextResponse.json({ top: resultado.top });
+  // `totalEvaluadas` es real (el tamaño del catálogo filtrado que puntuó el
+  // motor), no una cifra decorativa: se lo enseña Atlas al usuario en P-02
+  // como prueba de que hay un cálculo de verdad detrás, no un top-3 fijo.
+  return NextResponse.json({ top: resultado.top, totalEvaluadas: resultado.todas.length });
 }
