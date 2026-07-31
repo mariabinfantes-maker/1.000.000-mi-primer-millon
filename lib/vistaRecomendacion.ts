@@ -26,7 +26,6 @@ export function aVistaDeTarjeta(evaluada: HerramientaEvaluada, posicion: number)
     posicion,
     id: herramienta.id,
     nombre: herramienta.nombre,
-    paginaOficial: herramienta.paginaOficial,
     puntuacionAtlas: puntuacionAtlas?.puntuacion ?? null,
     motivosPuntuacion: puntuacionAtlas?.motivos ?? [],
     precioInicial: herramienta.precioInicial,

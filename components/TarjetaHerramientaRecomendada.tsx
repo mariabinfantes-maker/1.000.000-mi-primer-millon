@@ -15,10 +15,9 @@ import AnilloPuntuacion from "@/components/ui/AnilloPuntuacion";
 export type TarjetaHerramientaRecomendadaProps = {
   /** Posición en el ranking (1, 2, 3...), para la etiqueta de la tarjeta destacada. */
   posicion: number;
-  /** Slug estable de la herramienta, para enlazar a su ficha completa (P-04). */
+  /** Slug estable de la herramienta, para enlazar a su ficha completa (P-04) y a la salida al proveedor (P-07). */
   id: string;
   nombre: string;
-  paginaOficial: string;
   /** Puntuación Atlas (0-100), calculada por lib/puntuacionAtlas.ts. `null` si no hay ninguna señal con la que calcularla. */
   puntuacionAtlas: number | null;
   /** Motivos legibles de la puntuación (calidad editorial, reputación externa, señales de producto...). */
@@ -43,7 +42,6 @@ export default function TarjetaHerramientaRecomendada({
   posicion,
   id,
   nombre,
-  paginaOficial,
   puntuacionAtlas,
   motivosPuntuacion,
   precioInicial,
@@ -180,7 +178,7 @@ export default function TarjetaHerramientaRecomendada({
         <ChevronRight className="h-4 w-4" aria-hidden="true" />
       </Link>
 
-      <Boton href={paginaOficial} externo tamano="grande" className="mt-3 w-full">
+      <Boton href={`/herramienta/${id}/ir`} tamano="grande" className="mt-3 w-full">
         Ir al proveedor
         <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
       </Boton>

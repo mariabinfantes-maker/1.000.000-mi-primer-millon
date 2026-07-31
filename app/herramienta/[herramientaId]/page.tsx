@@ -69,7 +69,7 @@ export default async function FichaHerramientaPage({
       {/* Confianza + conversión */}
       <div className="mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
         <InsigniaConfianza fechaUltimaRevision={herramienta.fechaUltimaRevision} />
-        <Boton href={herramienta.paginaOficial} externo tamano="grande" className="w-full sm:w-auto">
+        <Boton href={`/herramienta/${herramienta.id}/ir`} tamano="grande" className="w-full sm:w-auto">
           Ir al proveedor
           <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
         </Boton>
