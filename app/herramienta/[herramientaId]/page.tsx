@@ -232,6 +232,15 @@ export default async function FichaHerramientaPage({
           </ul>
         )}
       </Seccion>
+
+      {/* CTA de cierre: quien lee hasta el final no debería tener que volver a subir para convertir. */}
+      <div className="mt-10 flex flex-col items-center gap-3 rounded-2xl border border-slate-200/80 bg-gradient-to-br from-brand-50 via-white to-white p-8 text-center shadow-premium">
+        <p className="text-sm text-slate-600">¿Ya tienes claro que {herramienta.nombre} encaja contigo?</p>
+        <Boton href={`/herramienta/${herramienta.id}/ir`} tamano="grande">
+          Ir al proveedor
+          <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+        </Boton>
+      </div>
     </div>
   );
 }
