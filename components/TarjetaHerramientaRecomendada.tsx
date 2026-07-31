@@ -1,4 +1,5 @@
-import { AlertTriangle, ArrowUpRight, Check, Lightbulb, Puzzle, X } from "lucide-react";
+import { AlertTriangle, ArrowUpRight, Check, ChevronRight, Lightbulb, Puzzle, X } from "lucide-react";
+import Link from "next/link";
 import Tarjeta from "@/components/ui/Tarjeta";
 import Etiqueta from "@/components/ui/Etiqueta";
 import Boton from "@/components/ui/Boton";
@@ -14,6 +15,8 @@ import AnilloPuntuacion from "@/components/ui/AnilloPuntuacion";
 export type TarjetaHerramientaRecomendadaProps = {
   /** Posición en el ranking (1, 2, 3...), para la etiqueta de la tarjeta destacada. */
   posicion: number;
+  /** Slug estable de la herramienta, para enlazar a su ficha completa (P-04). */
+  id: string;
   nombre: string;
   paginaOficial: string;
   /** Puntuación Atlas (0-100), calculada por lib/puntuacionAtlas.ts. `null` si no hay ninguna señal con la que calcularla. */
@@ -38,6 +41,7 @@ export type TarjetaHerramientaRecomendadaProps = {
 
 export default function TarjetaHerramientaRecomendada({
   posicion,
+  id,
   nombre,
   paginaOficial,
   puntuacionAtlas,
@@ -67,7 +71,11 @@ export default function TarjetaHerramientaRecomendada({
         {puntuacionAtlas !== null && <AnilloPuntuacion puntuacion={puntuacionAtlas} />}
       </div>
 
-      <h3 className="mt-4 text-xl font-bold tracking-tight text-slate-900">{nombre}</h3>
+      <h3 className="mt-4 text-xl font-bold tracking-tight text-slate-900">
+        <Link href={`/herramienta/${id}`} className="hover:text-brand-700">
+          {nombre}
+        </Link>
+      </h3>
 
       <p className="mt-3 rounded-xl bg-brand-50/70 p-3 text-sm leading-relaxed text-brand-800">
         {explicacionPersonalizada}
@@ -164,7 +172,15 @@ export default function TarjetaHerramientaRecomendada({
         </details>
       )}
 
-      <Boton href={paginaOficial} externo tamano="grande" className="mt-6 w-full">
+      <Link
+        href={`/herramienta/${id}`}
+        className="mt-6 flex items-center justify-center gap-1 text-sm font-semibold text-brand-600 hover:text-brand-800"
+      >
+        Ver ficha completa
+        <ChevronRight className="h-4 w-4" aria-hidden="true" />
+      </Link>
+
+      <Boton href={paginaOficial} externo tamano="grande" className="mt-3 w-full">
         Ir al proveedor
         <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
       </Boton>
