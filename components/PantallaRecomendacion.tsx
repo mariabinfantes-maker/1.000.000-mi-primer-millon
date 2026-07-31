@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Scale } from "lucide-react";
 import { leerResultadosGuardados } from "@/lib/resultadosSesion";
 import { aVistaDeTarjeta } from "@/lib/vistaRecomendacion";
 import { claveOrigen, type OrigenDiagnostico } from "@/lib/origenDiagnostico";
@@ -80,6 +81,13 @@ export default function PantallaRecomendacion({ origen }: { origen: OrigenDiagno
         Hemos cruzado tus respuestas con nuestra base de herramientas y estas son las que mejor
         encajan contigo, de mejor a peor ajuste.
       </p>
+
+      {vistas.length >= 2 && (
+        <Boton href={`${origen.rutaBase}/comparar`} variante="secundario" className="mt-6">
+          <Scale className="h-4 w-4" aria-hidden="true" />
+          Comparar estas opciones
+        </Boton>
+      )}
 
       <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
         {vistas.map((vista) => (
