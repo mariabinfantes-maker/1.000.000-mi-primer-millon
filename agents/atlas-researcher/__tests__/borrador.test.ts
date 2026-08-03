@@ -25,13 +25,26 @@ describe("borrador", () => {
     fs.rmSync(dirTemporal, { recursive: true, force: true });
   });
 
-  it("escribe el borrador público y el de afiliados en directorios separados", () => {
+  it("escribe el borrador público, el de afiliados y el de metadatos en directorios separados", () => {
     const resultado = escribirBorrador("hubspot", propuestaDeEjemplo, { dirBase: dirTemporal });
 
     expect(fs.existsSync(resultado.rutaHerramienta)).toBe(true);
     expect(fs.existsSync(resultado.rutaAfiliados)).toBe(true);
+    expect(fs.existsSync(resultado.rutaMetadatos)).toBe(true);
     expect(resultado.rutaHerramienta).toContain(`${path.sep}herramientas${path.sep}`);
     expect(resultado.rutaAfiliados).toContain(`${path.sep}afiliados${path.sep}`);
+    expect(resultado.rutaMetadatos).toContain(`${path.sep}metadatos${path.sep}`);
+  });
+
+  it("guarda la confianza global, las fuentes y las advertencias en el archivo de metadatos", () => {
+    const resultado = escribirBorrador("hubspot", propuestaDeEjemplo, { dirBase: dirTemporal });
+
+    const metadatos = JSON.parse(fs.readFileSync(resultado.rutaMetadatos, "utf-8"));
+    expect(metadatos).toEqual({
+      confianza: "media",
+      fuentes: ["https://hubspot.com"],
+      advertencias: [],
+    });
   });
 
   it("estampa id, estado en_revision y fechas en el lado público", () => {
@@ -78,7 +91,7 @@ describe("borrador", () => {
     expect(leerBorrador("no-existe", { dirBase: dirTemporal })).toBeUndefined();
   });
 
-  it("leerBorrador devuelve datos y datosAfiliados ya escritos", () => {
+  it("leerBorrador devuelve datos, datosAfiliados y metadatos ya escritos", () => {
     escribirBorrador("hubspot", propuestaDeEjemplo, { dirBase: dirTemporal });
 
     const leido = leerBorrador("hubspot", { dirBase: dirTemporal });
@@ -86,5 +99,21 @@ describe("borrador", () => {
     expect(leido).toBeDefined();
     expect((leido?.datos as { nombre: string }).nombre).toBe("HubSpot");
     expect((leido?.datosAfiliados as { herramientaId: string }).herramientaId).toBe("hubspot");
+    expect(leido?.metadatos).toEqual({
+      confianza: "media",
+      fuentes: ["https://hubspot.com"],
+      advertencias: [],
+    });
+  });
+
+  it("leerBorrador devuelve metadatos undefined para un borrador escrito antes de este cambio (sin archivo de metadatos)", () => {
+    // Simula un borrador "antiguo": solo herramientas/afiliados, sin metadatos/.
+    fs.mkdirSync(path.join(dirTemporal, "herramientas"), { recursive: true });
+    fs.writeFileSync(path.join(dirTemporal, "herramientas", "antiguo.json"), JSON.stringify({ nombre: "Antiguo" }), "utf-8");
+
+    const leido = leerBorrador("antiguo", { dirBase: dirTemporal });
+
+    expect(leido).toBeDefined();
+    expect(leido?.metadatos).toBeUndefined();
   });
 });
