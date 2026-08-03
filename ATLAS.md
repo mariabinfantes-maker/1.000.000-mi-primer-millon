@@ -96,3 +96,31 @@ cualquier herramienta. Nunca promoción automática, ni con panel ni sin él.
 
 No adelantar esta implementación antes de que el volumen de borradores lo
 justifique de verdad.
+
+### Capa 2 de Atlas Advisor: explicación personalizada asistida por IA
+
+**Registrada:** 2026-08-03 · **Estado:** pospuesta, no implementar todavía.
+
+Atlas Advisor (`agents/atlas-advisor/`) nace con una Capa 1 determinista y sin
+coste: el motor de criterios calcula el ranking y una explicación de
+plantilla, tal como ya hacía `lib/recommendationEngine/`. Esa capa se
+implementa ya.
+
+Una Capa 2 opcional, futura y con coste (llamadas a un proveedor de IA), está
+aprobada en principio pero pospuesta: reescribir en prosa la explicación del
+ranking ya calculado. Cuando se implemente, debe cumplir este principio sin
+excepción:
+
+- La IA **nunca** decide ni modifica el ranking — solo redacta una explicación
+  sobre el resultado que ya calculó el motor determinista.
+- La explicación **nunca** puede ser genérica. Debe usar el contexto concreto
+  de ese usuario (sector, tamaño de negocio, presupuesto, necesidades, nivel
+  técnico, etc., según lo recogido en `RespuestasUsuario`) para justificar por
+  qué esa herramienta ocupa esa posición **para ese caso específico** — no una
+  descripción intercambiable entre usuarios distintos.
+- Si la llamada a la IA falla o no está activada, el sistema debe mostrar
+  siempre la explicación determinista de la Capa 1 como respaldo. El usuario
+  nunca debe quedarse sin explicación.
+
+No adelantar esta implementación hasta que la Capa 1 esté construida, probada
+y aprobada, y se decida explícitamente destinar presupuesto a esta capa.
