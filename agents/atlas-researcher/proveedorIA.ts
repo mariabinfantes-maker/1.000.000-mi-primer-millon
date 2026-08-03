@@ -7,7 +7,7 @@
  * falso en los tests (sin llamar a ningún servicio externo), y conectar
  * Gemini — o cualquier otro modelo, el día que haga falta cambiarlo — más
  * adelante sin tocar la lógica de investigación. Es el mismo patrón que ya
- * usa `lib/recommendationEngine` recibiendo el catálogo por parámetro en
+ * usa `agents/atlas-advisor` recibiendo el catálogo por parámetro en
  * vez de leerlo él mismo.
  */
 export type ProveedorIA = {

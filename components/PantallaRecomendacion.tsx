@@ -6,7 +6,7 @@ import { leerResultadosGuardados } from "@/lib/resultadosSesion";
 import { aVistaDeTarjeta } from "@/lib/vistaRecomendacion";
 import { claveOrigen, type OrigenDiagnostico } from "@/lib/origenDiagnostico";
 import { getAgente } from "@/lib/agentes";
-import type { HerramientaEvaluada } from "@/lib/recommendationEngine";
+import type { HerramientaEvaluada } from "@/agents/atlas-advisor";
 import EnlaceAtras from "@/components/ui/EnlaceAtras";
 import Boton from "@/components/ui/Boton";
 import AvatarAgente from "@/components/ui/AvatarAgente";

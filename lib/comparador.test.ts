@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { evaluarHerramienta } from "@/lib/recommendationEngine/motor";
-import type { RespuestasUsuario } from "@/lib/recommendationEngine";
-import { crmFacil, erpComplejo, generalistaMedio } from "@/lib/recommendationEngine/__tests__/fixtures";
+import { evaluarHerramienta } from "@/agents/atlas-advisor/motor";
+import type { RespuestasUsuario } from "@/agents/atlas-advisor";
+import { crmFacil, erpComplejo, generalistaMedio } from "@/agents/atlas-advisor/__tests__/fixtures";
 import { construirComparativa } from "./comparador";
 
 describe("construirComparativa", () => {

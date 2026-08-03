@@ -7,7 +7,7 @@ import { claveOrigen, type OrigenDiagnostico } from "@/lib/origenDiagnostico";
 import { construirComparativa } from "@/lib/comparador";
 import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
 import { getAgente } from "@/lib/agentes";
-import type { HerramientaEvaluada } from "@/lib/recommendationEngine";
+import type { HerramientaEvaluada } from "@/agents/atlas-advisor";
 import EnlaceAtras from "@/components/ui/EnlaceAtras";
 import Boton from "@/components/ui/Boton";
 import AvatarAgente from "@/components/ui/AvatarAgente";

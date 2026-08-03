@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { RANGOS_EMPLEADOS, type RangoEmpleados } from "@/lib/cuestionario";
-import type { HerramientaEvaluada, RespuestasUsuario } from "@/lib/recommendationEngine";
+import type { HerramientaEvaluada, RespuestasUsuario } from "@/agents/atlas-advisor";
 import { guardarResultados } from "@/lib/resultadosSesion";
 import { claveOrigen, PREGUNTA_HERRAMIENTA_GENERICA, type OrigenDiagnostico } from "@/lib/origenDiagnostico";
 import IconoOrigen from "@/components/ui/IconoOrigen";

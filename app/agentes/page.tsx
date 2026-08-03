@@ -1,6 +1,6 @@
 import { Eye, Lock } from "lucide-react";
 import { getHerramienta, getHerramientas } from "@/data/repositorio";
-import { evaluarHerramienta } from "@/lib/recommendationEngine";
+import { evaluarHerramienta } from "@/agents/atlas-advisor";
 import { AGENTES, type IdAgente } from "@/lib/agentes";
 import AvatarAgente from "@/components/ui/AvatarAgente";
 import RevelarAlScroll from "@/components/ui/RevelarAlScroll";

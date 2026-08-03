@@ -8,7 +8,7 @@ import AnilloPuntuacion from "@/components/ui/AnilloPuntuacion";
 /**
  * Contrato de la tarjeta, deliberadamente plano y ajeno al motor de
  * recomendación: solo tipos primitivos, sin importar nada de
- * `lib/recommendationEngine` ni `data/esquema`. Si el algoritmo cambia
+ * `agents/atlas-advisor` ni `data/esquema`. Si el algoritmo cambia
  * (nuevos criterios, pesos distintos, otra forma de puntuar), solo hay que
  * tocar el adaptador que produce estas props — nunca este componente.
  */

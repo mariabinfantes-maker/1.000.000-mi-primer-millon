@@ -9,7 +9,7 @@ import { validarPropuesta } from "./validador";
  *
  * No sabe nada de Gemini ni de ningún proveedor concreto: recibe cualquier
  * `ProveedorIA` por parámetro (inyección de dependencias), igual que
- * `lib/recommendationEngine` recibe el catálogo de herramientas en vez de
+ * `agents/atlas-advisor` recibe el catálogo de herramientas en vez de
  * leerlo él mismo. Esto permite probar toda la orquestación con un
  * proveedor falso, y conectar el proveedor real de Gemini más adelante sin
  * cambiar ni una línea de esta función.

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getHerramientas } from "@/data/repositorio";
-import { recomendarHerramientas, type RespuestasUsuario } from "@/lib/recommendationEngine";
+import { recomendarHerramientas, type RespuestasUsuario } from "@/agents/atlas-advisor";
 
 /**
  * Puente HTTP hacia el motor de recomendación.

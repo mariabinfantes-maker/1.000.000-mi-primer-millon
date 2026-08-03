@@ -7,7 +7,7 @@ import AvatarAgente from "@/components/ui/AvatarAgente";
  * situación con criterios reales, no en un spinner genérico.
  *
  * Los 5 criterios de abajo son un subconjunto curado de los 10 que evalúa
- * de verdad `lib/recommendationEngine/criterios.ts` — mostrar los 10 en
+ * de verdad `agents/atlas-advisor/criterios.ts` — mostrar los 10 en
  * bruto abrumaría más de lo que educa (Sheet 12 del documento de
  * arquitectura UX), así que el resto se resume en una línea aparte.
  */

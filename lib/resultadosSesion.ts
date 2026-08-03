@@ -1,9 +1,9 @@
-import type { HerramientaEvaluada } from "@/lib/recommendationEngine";
+import type { HerramientaEvaluada } from "@/agents/atlas-advisor";
 
 /**
  * Puente entre el cuestionario y la pantalla de resultados a través de
  * `sessionStorage`, para no repetir la llamada a la API al navegar. Vive
- * fuera de `lib/recommendationEngine/` a propósito: es un detalle del
+ * fuera de `agents/atlas-advisor/` a propósito: es un detalle del
  * navegador, no del motor.
  *
  * `clave` identifica de forma única el origen del diagnóstico (ver

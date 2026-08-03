@@ -1,4 +1,4 @@
-import type { HerramientaEvaluada } from "@/lib/recommendationEngine";
+import type { HerramientaEvaluada } from "@/agents/atlas-advisor";
 
 /**
  * Construye la comparativa guiada (P-05) a partir de los mismos

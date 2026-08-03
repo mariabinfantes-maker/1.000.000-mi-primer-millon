@@ -1,4 +1,4 @@
-import type { HerramientaEvaluada } from "@/lib/recommendationEngine";
+import type { HerramientaEvaluada } from "@/agents/atlas-advisor";
 import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
 import type { TarjetaHerramientaRecomendadaProps } from "@/components/TarjetaHerramientaRecomendada";
 
