@@ -125,17 +125,33 @@ excepción:
 No adelantar esta implementación hasta que la Capa 1 esté construida, probada
 y aprobada, y se decida explícitamente destinar presupuesto a esta capa.
 
-### Atlas Affiliate Manager: piezas dejadas fuera de esta fase
+### Atlas Affiliate Manager: completado
 
-**Registrada:** 2026-08-03 · **Estado:** arquitectura aprobada, construcción en curso.
+**Registrada:** 2026-08-03 · **Estado:** completado. A partir de ahora, solo corrección de errores.
 
-Siguiente agente tras el Researcher y el Advisor: cierra el circuito entre
-"tenemos un programa de afiliados aprobado" y "el enlace real está en
-producción". `EstrategiaAfiliacion` (`data/esquemaInterno.ts`) se migró al
-modelo `{ herramientaId, cuentas: CuentaAfiliado[] }`, cada cuenta con sus
-propios `enlaces: EnlaceAfiliado[]` por país/idioma — pensado desde el
-principio para varias cuentas por plataforma, varios enlaces por segmento, y
-para crecer a cientos o miles de herramientas sin rediseño.
+Segundo agente tras el Researcher, construido sobre la Capa 1 del Advisor:
+cierra el circuito entre "tenemos un programa de afiliados aprobado" y "el
+enlace real está en producción". `EstrategiaAfiliacion` (`data/esquemaInterno.ts`)
+se migró al modelo `{ herramientaId, cuentas: CuentaAfiliado[] }`, cada
+cuenta con sus propios `enlaces: EnlaceAfiliado[]` por país/idioma — pensado
+desde el principio para varias cuentas por plataforma, varios enlaces por
+segmento, y para crecer a cientos o miles de herramientas sin rediseño.
+
+Piezas construidas (`agents/atlas-affiliate-manager/`):
+
+- `seleccionarEnlace.ts` — `elegirEnlaceAfiliado()`, la única función que el
+  redirect de producción (`app/herramienta/[id]/ir/page.tsx`) usa para
+  decidir el destino del clic; cae a la URL pública oficial si no hay
+  ninguna cuenta activa con enlace.
+- `consistencia.ts` — `detectarCuentasActivasSinEnlace()` (bloquea
+  `npm run verificar-datos` con exit 1: comisión que se pierde en silencio)
+  y `detectarCuentasEstancadas()` (cuentas "pendiente" sin revisión reciente,
+  solo informativo).
+- `priorizador.ts` + `informe.ts` + `cli-informe-afiliacion.ts` —
+  `npm run informe-afiliacion` genera un HTML autocontenido con el resumen
+  por estado, ambos avisos de consistencia, y las cuentas "no_solicitado"
+  ordenadas por Puntuación Atlas (nunca combinando comisión y puntuación en
+  una cifra inventada: la comisión investigada es texto libre heterogéneo).
 
 Quedan fuera de esta fase, a propósito:
 
