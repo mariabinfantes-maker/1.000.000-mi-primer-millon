@@ -72,6 +72,46 @@ condiciones:
 Si una propuesta no contribuye a esta misión, debe señalarse antes de
 implementarla, no después.
 
+## Hoja de ruta de agentes
+
+**Registrada:** 2026-08-03. Visión completa del sistema, definida por el
+producto. Antes de diseñar o implementar cualquier decisión de arquitectura
+—nueva o sobre un agente ya existente— hay que contrastarla contra esta
+hoja de ruta completa y señalar si dificulta el trabajo de algún agente
+futuro, antes de implementar nada. La prioridad es una arquitectura limpia,
+escalable y preparada para crecer durante años, no la pieza aislada que
+toque construir hoy.
+
+1. 🔎 **Atlas Researcher** — completado. Investiga herramientas offline, por
+   lotes, con aprobación humana obligatoria antes de promoverlas al
+   catálogo (`agents/atlas-researcher/`). También gestiona la estrategia de
+   afiliación (`EstrategiaAfiliacion`).
+2. ⭐ **Atlas Evaluador** — ya construido, bajo el nombre técnico "Atlas
+   Advisor Capa 1" (`agents/atlas-advisor/`): motor determinista de 10
+   criterios que puntúa el catálogo público en vivo, sin coste ni IA.
+3. 🎯 **Atlas Recomendador** — diseño aprobado, sin construir. Es la "Capa 2
+   de Atlas Advisor" documentada más abajo: explicación personalizada
+   asistida por IA sobre el ranking que ya calculó Evaluador — nunca decide
+   el ranking, solo lo explica.
+4. 💰 **Atlas Affiliate Manager** — completado. Cierra el circuito entre
+   "programa de afiliados aprobado" e "ingresos reales" (`agents/atlas-affiliate-manager/`).
+5. 📈 **Atlas Growth** — sin diseñar. Necesita tráfico real y eventos de
+   clic/conversión que medir; probablemente no aporta valor hasta que
+   Generador de Contenido exista y genere ese tráfico.
+6. ✍️ **Atlas Generador de Contenido** — sin diseñar. Genera contenido para
+   atraer tráfico orgánico; es lo que le da a Growth algo que medir.
+7. 💬 **Atlas Assistant** — sin diseñar. Previsiblemente una interfaz
+   conversacional que reutiliza la salida de Evaluador/Recomendador, como
+   alternativa al cuestionario estructurado.
+8. 🔧 **Atlas Mantenimiento** — sin diseñar. Mantiene el catálogo fresco con
+   el tiempo (re-investigar herramientas ya promovidas, revisar estado de
+   programas de afiliados) — previsiblemente reutiliza piezas del Researcher
+   y del Affiliate Manager, pero en modo recurrente/programado en vez de
+   alta única.
+9. 🧠 **Atlas Orchestrator** — sin diseñar. Coordina cuándo se activa cada
+   agente. Tiene sentido construirlo último, cuando ya existan agentes reales
+   que orquestar.
+
 ## Decisiones de arquitectura diferidas
 
 Evoluciones previstas y aprobadas en principio, pero pospuestas a propósito
@@ -97,11 +137,13 @@ cualquier herramienta. Nunca promoción automática, ni con panel ni sin él.
 No adelantar esta implementación antes de que el volumen de borradores lo
 justifique de verdad.
 
-### Capa 2 de Atlas Advisor: explicación personalizada asistida por IA
+### Capa 2 de Atlas Advisor: explicación personalizada asistida por IA (= Atlas Recomendador)
 
 **Registrada:** 2026-08-03 · **Estado:** pospuesta, no implementar todavía.
 
-Atlas Advisor (`agents/atlas-advisor/`) nace con una Capa 1 determinista y sin
+Esta es la pieza que la hoja de ruta llama "Atlas Recomendador" — mismo
+agente, dos nombres (uno técnico, uno de producto). Atlas Advisor
+(`agents/atlas-advisor/`) nace con una Capa 1 determinista y sin
 coste: el motor de criterios calcula el ranking y una explicación de
 plantilla, tal como ya hacía `lib/recommendationEngine/`. Esa capa se
 implementa ya.
