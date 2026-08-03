@@ -11,7 +11,8 @@
     "test": "vitest run",
     "investigar-herramienta": "tsx agents/atlas-researcher/cli.ts",
     "investigar-lote": "tsx agents/atlas-researcher/cli-lote.ts",
-    "promover-borrador": "tsx agents/atlas-researcher/cli-promover.ts"
+    "promover-borrador": "tsx agents/atlas-researcher/cli-promover.ts",
+    "generar-informe": "tsx agents/atlas-researcher/cli-generar-informe.ts"
   },
   "dependencies": {
     "lucide-react": "^1.25.0",
