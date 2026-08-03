@@ -8,6 +8,15 @@ import { ejecutarLote, type CandidatoLote, type ResultadoCandidatoLote } from ".
 import { crearProveedorGemini } from "./proveedores/gemini";
 
 /**
+ * Límite de peticiones por minuto del proveedor. El nivel gratuito de
+ * Gemini (gemini-3.6-flash) admite 5 peticiones/minuto y devuelve "Quota
+ * exceeded" por encima de eso — descubierto al ejecutar el primer lote
+ * real. Configurable con GEMINI_RATE_LIMIT_POR_MINUTO si se pasa a un
+ * nivel de pago con más margen.
+ */
+const LIMITE_PETICIONES_POR_MINUTO_POR_DEFECTO = 5;
+
+/**
  * `npm run investigar-lote -- lista.json`
  *
  * `lista.json` es un array de candidatos: cada elemento es o bien un string
@@ -113,9 +122,13 @@ async function main() {
   console.log(`Candidatos en la lista: ${candidatos.length}`);
   console.log(`Ya existentes (catálogo real o borrador), se saltarán sin coste: ${yaExistentes}`);
   console.log(`Candidatos nuevos a procesar: ${nuevos.length}`);
+  const limitePorMinuto = Number(process.env.GEMINI_RATE_LIMIT_POR_MINUTO) || LIMITE_PETICIONES_POR_MINUTO_POR_DEFECTO;
   console.log(
     `Llamadas al proveedor estimadas: entre ${nuevos.length} (si el prechequeo descarta todas) y ${nuevos.length * 2} ` +
       "(si todas pasan el prechequeo y necesitan la investigación completa)."
+  );
+  console.log(
+    `Ritmo: máximo ${limitePorMinuto} peticiones/minuto (nivel gratuito de Gemini) — con muchos candidatos puede tardar varios minutos, no es un fallo.`
   );
 
   if (nuevos.length === 0) {
@@ -129,7 +142,11 @@ async function main() {
     return;
   }
 
-  const resumen = await ejecutarLote(candidatos, idsExistentes, crearProveedorGemini());
+  const resumen = await ejecutarLote(candidatos, idsExistentes, crearProveedorGemini(), {
+    maxPeticionesPorMinuto: limitePorMinuto,
+    reintentos: 3,
+    esperaBaseReintentoMs: 2000,
+  });
 
   console.log(
     `\nTotales: ${resumen.totales.aceptados} aceptadas, ${resumen.totales.duplicados} duplicadas, ` +

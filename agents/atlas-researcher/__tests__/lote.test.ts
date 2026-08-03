@@ -185,4 +185,131 @@ describe("ejecutarLote", () => {
 
     expect(resumen.totales).toEqual({ total: 3, aceptados: 1, duplicados: 1, descartados: 1, fallidos: 0 });
   });
+
+  describe("límite de velocidad (maxPeticionesPorMinuto)", () => {
+    it("no permite más de maxPeticionesPorMinuto llamadas dentro de la ventana configurada", async () => {
+      const marcasDeTiempo: number[] = [];
+      const proveedor: ProveedorIA = {
+        nombre: "proveedor-falso",
+        generarJson: vi.fn(async () => {
+          marcasDeTiempo.push(Date.now());
+          return AFFILIATE_SIN_PROGRAMA; // se descarta en el prechequeo: una sola llamada por candidato
+        }),
+      };
+      const candidatos: CandidatoLote[] = Array.from({ length: 4 }, (_, i) => ({ nombreHerramienta: `Herramienta${i}` }));
+
+      await ejecutarLote(candidatos, [], proveedor, {
+        dirBaseBorradores: dirTemporal,
+        concurrencia: 4,
+        maxPeticionesPorMinuto: 2,
+        ventanaLimiteMs: 200,
+      });
+
+      expect(marcasDeTiempo).toHaveLength(4);
+      // Con hueco para 2 peticiones por ventana de 200ms, la 3ª y 4ª deben esperar a que las 2 primeras "caduquen".
+      expect(marcasDeTiempo[2] - marcasDeTiempo[0]).toBeGreaterThanOrEqual(190);
+      expect(marcasDeTiempo[3] - marcasDeTiempo[1]).toBeGreaterThanOrEqual(190);
+    });
+
+    it("sin maxPeticionesPorMinuto no aplica ningún límite", async () => {
+      const inicio = Date.now();
+      const proveedor: ProveedorIA = {
+        nombre: "proveedor-falso",
+        generarJson: vi.fn(async () => AFFILIATE_SIN_PROGRAMA),
+      };
+      const candidatos: CandidatoLote[] = Array.from({ length: 4 }, (_, i) => ({ nombreHerramienta: `Herramienta${i}` }));
+
+      await ejecutarLote(candidatos, [], proveedor, { dirBaseBorradores: dirTemporal, concurrencia: 4 });
+
+      expect(Date.now() - inicio).toBeLessThan(190);
+    });
+  });
+
+  describe("backoff ante error de cuota", () => {
+    it("espera el tiempo que sugiere el proveedor en el mensaje, no el backoff corto genérico", async () => {
+      let intentosPrechequeo = 0;
+      const marcasPrechequeo: number[] = [];
+      const proveedor: ProveedorIA = {
+        nombre: "proveedor-falso",
+        generarJson: vi.fn(async (prompt: string) => {
+          if (!esPromptDePrechequeo(prompt)) {
+            return { datos: { nombre: "HubSpot" }, affiliateData: AFFILIATE_FIABLE, fuentes: ["https://hubspot.com"] };
+          }
+          marcasPrechequeo.push(Date.now());
+          intentosPrechequeo += 1;
+          if (intentosPrechequeo === 1) {
+            throw new Error("Quota exceeded for quota metric. Please retry in ~0.3s.");
+          }
+          return AFFILIATE_FIABLE;
+        }),
+      };
+      const candidatos: CandidatoLote[] = [{ nombreHerramienta: "HubSpot" }];
+
+      await ejecutarLote(candidatos, [], proveedor, {
+        dirBaseBorradores: dirTemporal,
+        reintentos: 1,
+        esperaBaseReintentoMs: 0, // un fallo genérico esperaría ~0ms; el de cuota debe ignorar esto
+        margenEsperaCuotaMs: 0,
+      });
+
+      expect(marcasPrechequeo).toHaveLength(2);
+      expect(marcasPrechequeo[1] - marcasPrechequeo[0]).toBeGreaterThanOrEqual(290);
+    });
+
+    it("usa una espera fija por defecto si el mensaje de cuota no incluye un tiempo sugerido", async () => {
+      let intentosPrechequeo = 0;
+      const marcasPrechequeo: number[] = [];
+      const proveedor: ProveedorIA = {
+        nombre: "proveedor-falso",
+        generarJson: vi.fn(async (prompt: string) => {
+          if (!esPromptDePrechequeo(prompt)) {
+            return { datos: { nombre: "HubSpot" }, affiliateData: AFFILIATE_FIABLE, fuentes: ["https://hubspot.com"] };
+          }
+          marcasPrechequeo.push(Date.now());
+          intentosPrechequeo += 1;
+          if (intentosPrechequeo === 1) throw new Error("Quota exceeded, sin pista de tiempo de espera.");
+          return AFFILIATE_FIABLE;
+        }),
+      };
+      const candidatos: CandidatoLote[] = [{ nombreHerramienta: "HubSpot" }];
+
+      await ejecutarLote(candidatos, [], proveedor, {
+        dirBaseBorradores: dirTemporal,
+        reintentos: 1,
+        esperaCuotaPorDefectoMs: 150,
+        margenEsperaCuotaMs: 0,
+      });
+
+      expect(marcasPrechequeo).toHaveLength(2);
+      expect(marcasPrechequeo[1] - marcasPrechequeo[0]).toBeGreaterThanOrEqual(140);
+    });
+
+    it("un fallo genérico (no de cuota) sigue usando el backoff exponencial corto", async () => {
+      let intentosPrechequeo = 0;
+      const marcasPrechequeo: number[] = [];
+      const proveedor: ProveedorIA = {
+        nombre: "proveedor-falso",
+        generarJson: vi.fn(async (prompt: string) => {
+          if (!esPromptDePrechequeo(prompt)) {
+            return { datos: { nombre: "HubSpot" }, affiliateData: AFFILIATE_FIABLE, fuentes: ["https://hubspot.com"] };
+          }
+          marcasPrechequeo.push(Date.now());
+          intentosPrechequeo += 1;
+          if (intentosPrechequeo === 1) throw new Error("Fallo de red puntual, no relacionado con cuota.");
+          return AFFILIATE_FIABLE;
+        }),
+      };
+      const candidatos: CandidatoLote[] = [{ nombreHerramienta: "HubSpot" }];
+
+      const inicio = Date.now();
+      await ejecutarLote(candidatos, [], proveedor, {
+        dirBaseBorradores: dirTemporal,
+        reintentos: 1,
+        esperaBaseReintentoMs: 0,
+        esperaCuotaPorDefectoMs: 10000, // si se confundiera con un error de cuota, tardaría segundos
+      });
+
+      expect(Date.now() - inicio).toBeLessThan(500);
+    });
+  });
 });
