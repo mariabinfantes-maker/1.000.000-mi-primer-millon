@@ -1,4 +1,5 @@
 import type { HerramientaEvaluada } from "@/agents/atlas-advisor";
+import type { Herramienta } from "@/data/esquema";
 import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
 import type { TarjetaHerramientaRecomendadaProps } from "@/components/TarjetaHerramientaRecomendada";
 
@@ -38,4 +39,41 @@ export function aVistaDeTarjeta(evaluada: HerramientaEvaluada, posicion: number)
     casoDeUso: herramienta.casosDeUso[0] ?? null,
     casosNoRecomendados: herramienta.casosNoRecomendados,
   };
+}
+
+/**
+ * Misma tarjeta, sin cuestionario de por medio (páginas de aterrizaje de
+ * categoría/problema, Atlas Generador de Contenido): no hay
+ * `RespuestasUsuario` con las que personalizar nada, así que
+ * `explicacionPersonalizada` usa `idealPara` — un dato real ya escrito
+ * sobre la herramienta, nunca un texto que finja estar hablándole a un
+ * usuario concreto — y no hay advertencia posible sin un perfil que
+ * pueda chocar con `casosNoRecomendados`.
+ */
+export function aVistaDeTarjetaGenerica(herramienta: Herramienta, posicion: number): TarjetaHerramientaRecomendadaProps {
+  const puntuacionAtlas = calcularPuntuacionAtlas(herramienta);
+
+  return {
+    posicion,
+    id: herramienta.id,
+    nombre: herramienta.nombre,
+    puntuacionAtlas: puntuacionAtlas?.puntuacion ?? null,
+    motivosPuntuacion: puntuacionAtlas?.motivos ?? [],
+    precioInicial: herramienta.precioInicial,
+    tienePlanGratuito: herramienta.tienePlanGratuito,
+    ventajas: herramienta.ventajas,
+    inconvenientes: herramienta.inconvenientes,
+    explicacionPersonalizada: herramienta.idealPara,
+    integracionPrincipal: herramienta.integracionesPrincipales[0] ?? null,
+    tieneAdvertencia: false,
+    casoDeUso: herramienta.casosDeUso[0] ?? null,
+    casosNoRecomendados: herramienta.casosNoRecomendados,
+  };
+}
+
+/** Ordena herramientas por Puntuación Atlas descendente — el mismo criterio objetivo que ya se muestra en cada ficha, reutilizado para el orden por defecto de una landing sin cuestionario. Sin puntuación calculable, va al final. */
+export function ordenarPorPuntuacionAtlas(herramientas: Herramienta[]): Herramienta[] {
+  return [...herramientas].sort(
+    (a, b) => (calcularPuntuacionAtlas(b)?.puntuacion ?? -1) - (calcularPuntuacionAtlas(a)?.puntuacion ?? -1)
+  );
 }
