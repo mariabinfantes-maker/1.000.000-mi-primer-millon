@@ -1,4 +1,5 @@
 import type { Herramienta } from "@/data/esquema";
+import { criterioNivelTecnicoRecomendado, criterioTipoNegocioIdeal } from "./criteriosAnalisisAtlas";
 import type { Criterio, NivelTecnicoEquipo, PresupuestoMensual } from "./tipos";
 import {
   contarPalabrasComunes,
@@ -398,4 +399,6 @@ export const CRITERIOS: Criterio[] = [
   criterioIdioma,
   criterioCasosNoRecomendados,
   criterioMetodologia,
+  criterioNivelTecnicoRecomendado,
+  criterioTipoNegocioIdeal,
 ];
