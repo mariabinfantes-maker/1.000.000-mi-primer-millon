@@ -99,7 +99,7 @@ describe("promoverBorrador", () => {
     promoverBorrador("herramienta-de-prueba", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia });
 
     const estrategia = getEstrategiaAfiliacion("herramienta-de-prueba", { dirBase: dirEstrategia });
-    expect(estrategia?.estado).toBe("no_solicitado");
+    expect(estrategia?.cuentas[0].estado).toBe("no_solicitado");
     expect(estrategia?.herramientaId).toBe("herramienta-de-prueba");
   });
 
@@ -107,15 +107,21 @@ describe("promoverBorrador", () => {
     escribirBorrador("herramienta-de-prueba", propuestaValida, { dirBase: dirBorradores });
     registrarDecision("herramienta-de-prueba", "aprobado", "Ok.", { dirBase: dirBorradores });
     guardarEstrategiaAfiliacion(
-      { herramientaId: "herramienta-de-prueba", estado: "activo", fechaAprobacion: "2026-01-01", ultimaRevision: "2026-01-01" },
+      {
+        herramientaId: "herramienta-de-prueba",
+        cuentas: [
+          { id: "principal", estado: "activo", plataforma: "PartnerStack", fechaAprobacion: "2026-01-01", enlaces: [], ultimaRevision: "2026-01-01" },
+        ],
+      },
       { dirBase: dirEstrategia }
     );
 
     promoverBorrador("herramienta-de-prueba", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia });
 
     const estrategia = getEstrategiaAfiliacion("herramienta-de-prueba", { dirBase: dirEstrategia });
-    expect(estrategia?.estado).toBe("activo");
-    expect(estrategia?.fechaAprobacion).toBe("2026-01-01");
+    expect(estrategia?.cuentas).toHaveLength(1);
+    expect(estrategia?.cuentas[0].estado).toBe("activo");
+    expect(estrategia?.cuentas[0].fechaAprobacion).toBe("2026-01-01");
   });
 
   it("falla si el borrador no cumple el esquema mínimo (campo obligatorio ausente)", () => {

@@ -1,11 +1,12 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { Herramienta } from "@/data/esquema";
-import type { AffiliateData, EstrategiaAfiliacion } from "@/data/esquemaInterno";
+import type { AffiliateData, CuentaAfiliado, EstrategiaAfiliacion } from "@/data/esquemaInterno";
 import { getCategorias, getTodasLasHerramientas, validarHerramienta } from "@/data/repositorio";
 import { getEstrategiaAfiliacion, guardarEstrategiaAfiliacion } from "@/data/repositorioEstrategiaAfiliacion";
 import { leerBorrador } from "./borrador";
 import { estaAprobado } from "./decision";
+import { generarIdCuenta } from "./estrategiaAfiliacion";
 
 /**
  * Promoción (etapa final del flujo: investigar → informe → revisión →
@@ -24,9 +25,10 @@ import { estaAprobado } from "./decision";
  * comprobación que ya hace `agente.ts`).
  *
  * Al promover con éxito, siembra también un registro inicial de
- * `EstrategiaAfiliacion` (estado "no_solicitado", precargado con lo ya
- * investigado) si todavía no existe ninguno para ese id — nunca lo
- * sobrescribe si ya había progreso real de una solicitud de afiliación.
+ * `EstrategiaAfiliacion` con una primera cuenta (estado "no_solicitado",
+ * precargada con lo ya investigado) si todavía no existe ninguno para ese
+ * id — nunca lo sobrescribe si ya había progreso real de una solicitud de
+ * afiliación.
  */
 
 export type ResultadoPromocion =
@@ -108,19 +110,21 @@ export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): 
   fs.writeFileSync(rutaAfiliados, `${JSON.stringify(datosAfiliados, null, 2)}\n`, "utf-8");
 
   if (!getEstrategiaAfiliacion(id, { dirBase: opciones.dirBaseEstrategia })) {
-    const estrategiaInicial: EstrategiaAfiliacion = {
-      herramientaId: id,
+    const cuentaInicial: CuentaAfiliado = {
+      id: generarIdCuenta(datosAfiliados.affiliatePlatform),
       estado: "no_solicitado",
       nombrePrograma: datosAfiliados.affiliateProgramName,
-      plataforma: datosAfiliados.affiliatePlatform,
+      plataforma: datosAfiliados.affiliatePlatform ?? "Por determinar",
       urlSolicitud: datosAfiliados.affiliateUrl,
       comision: datosAfiliados.commission,
       duracionCookie: datosAfiliados.cookieDuration,
       metodoPago: datosAfiliados.payoutMethod,
       frecuenciaPago: datosAfiliados.payoutFrequency,
+      enlaces: [],
       ultimaRevision: hoy,
-      observaciones: "Creado automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa.",
+      observaciones: "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa.",
     };
+    const estrategiaInicial: EstrategiaAfiliacion = { herramientaId: id, cuentas: [cuentaInicial] };
     guardarEstrategiaAfiliacion(estrategiaInicial, { dirBase: opciones.dirBaseEstrategia });
   }
 

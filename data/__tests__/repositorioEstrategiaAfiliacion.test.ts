@@ -11,18 +11,24 @@ import type { EstrategiaAfiliacion } from "../esquemaInterno";
 
 const estrategiaDeEjemplo: EstrategiaAfiliacion = {
   herramientaId: "hubspot",
-  estado: "pendiente",
-  nombrePrograma: "HubSpot Affiliate Program",
-  plataforma: "PartnerStack",
-  urlSolicitud: "https://hubspot.com/partners/affiliates",
-  usuarioRegistro: "afiliados@atlas.example",
-  fechaSolicitud: "2026-08-03",
-  comision: "15% recurrente",
-  duracionCookie: "90 días",
-  metodoPago: "PayPal",
-  frecuenciaPago: "Mensual",
-  ultimaRevision: "2026-08-03",
-  observaciones: "Solicitud enviada, a la espera de respuesta.",
+  cuentas: [
+    {
+      id: "partnerstack",
+      estado: "pendiente",
+      nombrePrograma: "HubSpot Affiliate Program",
+      plataforma: "PartnerStack",
+      urlSolicitud: "https://hubspot.com/partners/affiliates",
+      usuarioRegistro: "afiliados@atlas.example",
+      fechaSolicitud: "2026-08-03",
+      comision: "15% recurrente",
+      duracionCookie: "90 días",
+      metodoPago: "PayPal",
+      frecuenciaPago: "Mensual",
+      enlaces: [],
+      ultimaRevision: "2026-08-03",
+      observaciones: "Solicitud enviada, a la espera de respuesta.",
+    },
+  ],
 };
 
 describe("repositorioEstrategiaAfiliacion", () => {
@@ -51,14 +57,17 @@ describe("repositorioEstrategiaAfiliacion", () => {
   it("una nueva escritura sobrescribe por completo la anterior para el mismo id", () => {
     guardarEstrategiaAfiliacion(estrategiaDeEjemplo, { dirBase: dirTemporal });
     guardarEstrategiaAfiliacion(
-      { ...estrategiaDeEjemplo, estado: "aprobado", fechaAprobacion: "2026-08-20", ultimaRevision: "2026-08-20" },
+      {
+        ...estrategiaDeEjemplo,
+        cuentas: [{ ...estrategiaDeEjemplo.cuentas[0], estado: "aprobado", fechaAprobacion: "2026-08-20", ultimaRevision: "2026-08-20" }],
+      },
       { dirBase: dirTemporal }
     );
 
     const leida = getEstrategiaAfiliacion("hubspot", { dirBase: dirTemporal });
 
-    expect(leida?.estado).toBe("aprobado");
-    expect(leida?.fechaAprobacion).toBe("2026-08-20");
+    expect(leida?.cuentas[0].estado).toBe("aprobado");
+    expect(leida?.cuentas[0].fechaAprobacion).toBe("2026-08-20");
   });
 
   it("getTodasLasEstrategiasAfiliacion devuelve [] si el directorio no existe todavía", () => {
@@ -77,11 +86,11 @@ describe("repositorioEstrategiaAfiliacion", () => {
   it("no mezcla estrategias de ids distintos", () => {
     guardarEstrategiaAfiliacion(estrategiaDeEjemplo, { dirBase: dirTemporal });
     guardarEstrategiaAfiliacion(
-      { ...estrategiaDeEjemplo, herramientaId: "odoo", estado: "activo" },
+      { ...estrategiaDeEjemplo, herramientaId: "odoo", cuentas: [{ ...estrategiaDeEjemplo.cuentas[0], estado: "activo" }] },
       { dirBase: dirTemporal }
     );
 
-    expect(getEstrategiaAfiliacion("hubspot", { dirBase: dirTemporal })?.estado).toBe("pendiente");
-    expect(getEstrategiaAfiliacion("odoo", { dirBase: dirTemporal })?.estado).toBe("activo");
+    expect(getEstrategiaAfiliacion("hubspot", { dirBase: dirTemporal })?.cuentas[0].estado).toBe("pendiente");
+    expect(getEstrategiaAfiliacion("odoo", { dirBase: dirTemporal })?.cuentas[0].estado).toBe("activo");
   });
 });
