@@ -1,8 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { Herramienta } from "@/data/esquema";
-import type { AffiliateData } from "@/data/esquemaInterno";
+import type { AffiliateData, EstrategiaAfiliacion } from "@/data/esquemaInterno";
 import { getCategorias, getTodasLasHerramientas, validarHerramienta } from "@/data/repositorio";
+import { getEstrategiaAfiliacion, guardarEstrategiaAfiliacion } from "@/data/repositorioEstrategiaAfiliacion";
 import { leerBorrador } from "./borrador";
 import { estaAprobado } from "./decision";
 
@@ -21,6 +22,11 @@ import { estaAprobado } from "./decision";
  * regla obligatoria de afiliados se siga cumpliendo con lo que quedó
  * guardado en el borrador (cinturón y tirantes, igual que la doble
  * comprobación que ya hace `agente.ts`).
+ *
+ * Al promover con éxito, siembra también un registro inicial de
+ * `EstrategiaAfiliacion` (estado "no_solicitado", precargado con lo ya
+ * investigado) si todavía no existe ninguno para ese id — nunca lo
+ * sobrescribe si ya había progreso real de una solicitud de afiliación.
  */
 
 export type ResultadoPromocion =
@@ -32,6 +38,8 @@ export type OpcionesPromocion = {
   dirBaseBorradores?: string;
   /** Dónde escribir el catálogo real (debe contener `herramientas/` y `afiliados/`). Por defecto `data`, la ruta real del proyecto — solo para pruebas. */
   dirDatos?: string;
+  /** De dónde leer/escribir la estrategia de afiliación al sembrar el registro inicial. Por defecto `data/estrategia-afiliados` — solo para pruebas. */
+  dirBaseEstrategia?: string;
 };
 
 function tieneProgramaDeAfiliadosFiable(datosAfiliados: Partial<AffiliateData>): boolean {
@@ -98,6 +106,23 @@ export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): 
 
   fs.writeFileSync(rutaHerramienta, `${JSON.stringify(herramientaFinal, null, 2)}\n`, "utf-8");
   fs.writeFileSync(rutaAfiliados, `${JSON.stringify(datosAfiliados, null, 2)}\n`, "utf-8");
+
+  if (!getEstrategiaAfiliacion(id, { dirBase: opciones.dirBaseEstrategia })) {
+    const estrategiaInicial: EstrategiaAfiliacion = {
+      herramientaId: id,
+      estado: "no_solicitado",
+      nombrePrograma: datosAfiliados.affiliateProgramName,
+      plataforma: datosAfiliados.affiliatePlatform,
+      urlSolicitud: datosAfiliados.affiliateUrl,
+      comision: datosAfiliados.commission,
+      duracionCookie: datosAfiliados.cookieDuration,
+      metodoPago: datosAfiliados.payoutMethod,
+      frecuenciaPago: datosAfiliados.payoutFrequency,
+      ultimaRevision: hoy,
+      observaciones: "Creado automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa.",
+    };
+    guardarEstrategiaAfiliacion(estrategiaInicial, { dirBase: opciones.dirBaseEstrategia });
+  }
 
   return { ok: true, id, rutaHerramienta, rutaAfiliados };
 }

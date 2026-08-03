@@ -6,6 +6,7 @@ import { escribirBorrador } from "../borrador";
 import { registrarDecision } from "../decision";
 import { promoverBorrador } from "../promover";
 import type { HerramientaPropuesta } from "../tipos";
+import { getEstrategiaAfiliacion, guardarEstrategiaAfiliacion } from "@/data/repositorioEstrategiaAfiliacion";
 
 /** Ficha completa y válida contra `validarHerramienta` — la categoría "plataformas-todo-en-uno" es real (la única en `data/categorias.json`). */
 const propuestaValida: HerramientaPropuesta = {
@@ -49,19 +50,22 @@ const propuestaValida: HerramientaPropuesta = {
 describe("promoverBorrador", () => {
   let dirBorradores: string;
   let dirDatos: string;
+  let dirEstrategia: string;
 
   beforeEach(() => {
     dirBorradores = fs.mkdtempSync(path.join(os.tmpdir(), "atlas-promover-borradores-"));
     dirDatos = fs.mkdtempSync(path.join(os.tmpdir(), "atlas-promover-datos-"));
+    dirEstrategia = fs.mkdtempSync(path.join(os.tmpdir(), "atlas-promover-estrategia-"));
   });
 
   afterEach(() => {
     fs.rmSync(dirBorradores, { recursive: true, force: true });
     fs.rmSync(dirDatos, { recursive: true, force: true });
+    fs.rmSync(dirEstrategia, { recursive: true, force: true });
   });
 
   it("falla si no existe ningún borrador con ese id", () => {
-    const resultado = promoverBorrador("no-existe", { dirBaseBorradores: dirBorradores, dirDatos });
+    const resultado = promoverBorrador("no-existe", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia });
 
     expect(resultado.ok).toBe(false);
     if (!resultado.ok) expect(resultado.errores[0]).toContain("No existe ningún borrador");
@@ -71,7 +75,11 @@ describe("promoverBorrador", () => {
     escribirBorrador("herramienta-de-prueba", propuestaValida, { dirBase: dirBorradores });
     registrarDecision("herramienta-de-prueba", "aprobado", "Datos completos, afiliado fiable.", { dirBase: dirBorradores });
 
-    const resultado = promoverBorrador("herramienta-de-prueba", { dirBaseBorradores: dirBorradores, dirDatos });
+    const resultado = promoverBorrador("herramienta-de-prueba", {
+      dirBaseBorradores: dirBorradores,
+      dirDatos,
+      dirBaseEstrategia: dirEstrategia,
+    });
 
     expect(resultado.ok).toBe(true);
     if (resultado.ok) {
@@ -84,6 +92,32 @@ describe("promoverBorrador", () => {
     }
   });
 
+  it("siembra un registro inicial de estrategia de afiliación (no_solicitado) al promover con éxito", () => {
+    escribirBorrador("herramienta-de-prueba", propuestaValida, { dirBase: dirBorradores });
+    registrarDecision("herramienta-de-prueba", "aprobado", "Ok.", { dirBase: dirBorradores });
+
+    promoverBorrador("herramienta-de-prueba", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia });
+
+    const estrategia = getEstrategiaAfiliacion("herramienta-de-prueba", { dirBase: dirEstrategia });
+    expect(estrategia?.estado).toBe("no_solicitado");
+    expect(estrategia?.herramientaId).toBe("herramienta-de-prueba");
+  });
+
+  it("no sobrescribe una estrategia de afiliación ya existente al promover", () => {
+    escribirBorrador("herramienta-de-prueba", propuestaValida, { dirBase: dirBorradores });
+    registrarDecision("herramienta-de-prueba", "aprobado", "Ok.", { dirBase: dirBorradores });
+    guardarEstrategiaAfiliacion(
+      { herramientaId: "herramienta-de-prueba", estado: "activo", fechaAprobacion: "2026-01-01", ultimaRevision: "2026-01-01" },
+      { dirBase: dirEstrategia }
+    );
+
+    promoverBorrador("herramienta-de-prueba", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia });
+
+    const estrategia = getEstrategiaAfiliacion("herramienta-de-prueba", { dirBase: dirEstrategia });
+    expect(estrategia?.estado).toBe("activo");
+    expect(estrategia?.fechaAprobacion).toBe("2026-01-01");
+  });
+
   it("falla si el borrador no cumple el esquema mínimo (campo obligatorio ausente)", () => {
     const propuestaIncompleta: HerramientaPropuesta = {
       ...propuestaValida,
@@ -91,7 +125,7 @@ describe("promoverBorrador", () => {
     };
     escribirBorrador("herramienta-incompleta", propuestaIncompleta, { dirBase: dirBorradores });
 
-    const resultado = promoverBorrador("herramienta-incompleta", { dirBaseBorradores: dirBorradores, dirDatos });
+    const resultado = promoverBorrador("herramienta-incompleta", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia });
 
     expect(resultado.ok).toBe(false);
   });
@@ -103,7 +137,7 @@ describe("promoverBorrador", () => {
     };
     escribirBorrador("herramienta-categoria-mala", propuestaCategoriaInvalida, { dirBase: dirBorradores });
 
-    const resultado = promoverBorrador("herramienta-categoria-mala", { dirBaseBorradores: dirBorradores, dirDatos });
+    const resultado = promoverBorrador("herramienta-categoria-mala", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia });
 
     expect(resultado.ok).toBe(false);
     if (!resultado.ok) expect(resultado.errores.some((e) => e.includes("categoría inexistente"))).toBe(true);
@@ -116,7 +150,7 @@ describe("promoverBorrador", () => {
     };
     escribirBorrador("herramienta-sin-afiliados", propuestaSinAfiliados, { dirBase: dirBorradores });
 
-    const resultado = promoverBorrador("herramienta-sin-afiliados", { dirBaseBorradores: dirBorradores, dirDatos });
+    const resultado = promoverBorrador("herramienta-sin-afiliados", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia });
 
     expect(resultado.ok).toBe(false);
     if (!resultado.ok) expect(resultado.errores.some((e) => e.includes("regla obligatoria de afiliados"))).toBe(true);
@@ -126,7 +160,7 @@ describe("promoverBorrador", () => {
     escribirBorrador("herramienta-sin-decision", propuestaValida, { dirBase: dirBorradores });
     // Deliberadamente sin registrarDecision: Atlas nunca debe promover sin aprobación explícita.
 
-    const resultado = promoverBorrador("herramienta-sin-decision", { dirBaseBorradores: dirBorradores, dirDatos });
+    const resultado = promoverBorrador("herramienta-sin-decision", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia });
 
     expect(resultado.ok).toBe(false);
     if (!resultado.ok) {
@@ -141,7 +175,7 @@ describe("promoverBorrador", () => {
       dirBase: dirBorradores,
     });
 
-    const resultado = promoverBorrador("herramienta-rechazada", { dirBaseBorradores: dirBorradores, dirDatos });
+    const resultado = promoverBorrador("herramienta-rechazada", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia });
 
     expect(resultado.ok).toBe(false);
     if (!resultado.ok) {
@@ -154,7 +188,7 @@ describe("promoverBorrador", () => {
 
     // "hubspot" ya existe en el catálogo real (data/herramientas/hubspot.json) — no se pasa dirDatos
     // de prueba aquí a propósito, para comprobar la colisión contra el catálogo real de verdad.
-    const resultado = promoverBorrador("hubspot", { dirBaseBorradores: dirBorradores });
+    const resultado = promoverBorrador("hubspot", { dirBaseBorradores: dirBorradores, dirBaseEstrategia: dirEstrategia });
 
     expect(resultado.ok).toBe(false);
     if (!resultado.ok) expect(resultado.errores.some((e) => e.includes("ya existe en el catálogo real"))).toBe(true);
