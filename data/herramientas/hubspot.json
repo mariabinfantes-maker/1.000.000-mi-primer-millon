@@ -11,6 +11,7 @@
     "Falta de seguimiento del recorrido del cliente de principio a fin",
     "Necesidad de generar y calificar leads de forma automatizada"
   ],
+  "problemasIds": ["conseguir-clientes", "atencion-cliente"],
   "casosDeUso": [
     "Un equipo de marketing automatiza campañas de email y las conecta directamente con el pipeline de ventas",
     "Una empresa empieza con el CRM gratuito y va activando módulos de pago a medida que crece"

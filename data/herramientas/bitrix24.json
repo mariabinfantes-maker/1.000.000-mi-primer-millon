@@ -11,6 +11,7 @@
     "Falta de un espacio único de colaboración interna",
     "Necesidad de un CRM gratuito para equipos pequeños"
   ],
+  "problemasIds": ["conseguir-clientes", "organizar-empresa"],
   "casosDeUso": [
     "Un equipo pequeño centraliza chat interno, tareas y CRM sin coste, con usuarios ilimitados en el plan gratuito",
     "Una empresa combina videollamadas y gestión de proyectos junto al CRM de ventas"

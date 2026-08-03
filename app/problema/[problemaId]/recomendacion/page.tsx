@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
-import { getProblema, problemas } from "@/lib/data";
+import { getProblema, getProblemas } from "@/data/repositorio";
 import type { OrigenDiagnostico } from "@/lib/origenDiagnostico";
 import PantallaRecomendacion from "@/components/PantallaRecomendacion";
 
 export function generateStaticParams() {
-  return problemas.map((p) => ({ problemaId: p.id }));
+  return getProblemas().map((p) => ({ problemaId: p.id }));
 }
 
 export default async function RecomendacionPage({

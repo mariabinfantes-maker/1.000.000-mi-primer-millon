@@ -9,8 +9,7 @@ import {
   Timer,
   CheckCircle2,
 } from "lucide-react";
-import { problemas } from "@/lib/data";
-import { getCategorias } from "@/data/repositorio";
+import { getCategorias, getProblemas } from "@/data/repositorio";
 import { AGENTES } from "@/lib/agentes";
 import Etiqueta from "@/components/ui/Etiqueta";
 import IlustracionHero from "@/components/ui/IlustracionHero";
@@ -66,6 +65,7 @@ const SENALES_DE_CONFIANZA = [
 
 export default function Home() {
   const categorias = getCategorias();
+  const problemas = getProblemas();
 
   return (
     <div>
