@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ShieldCheck } from "lucide-react";
 import { getHerramienta, getHerramientas } from "@/data/repositorio";
+import { getEstrategiaAfiliacion } from "@/data/repositorioEstrategiaAfiliacion";
+import { elegirEnlaceAfiliado, SEGMENTO_GLOBAL } from "@/agents/atlas-affiliate-manager/seleccionarEnlace";
 import EnlaceAtras from "@/components/ui/EnlaceAtras";
 import BotonIrAlProveedor from "@/components/ui/BotonIrAlProveedor";
 
@@ -11,13 +13,22 @@ export function generateStaticParams() {
 
 /**
  * P-07: cierra el recorrido con un clic de confianza, no con una tabla de
- * "planes y precios" de afiliado. Ningún campo de AffiliateData se lee
- * aquí (ni se podría: ese tipo vive en data/esquemaInterno.ts, fuera del
- * alcance de cualquier ruta de usuario) — el aviso de abajo es válido
- * para todo el catálogo por construcción: Atlas Researcher solo admite
- * una herramienta si tiene un programa de afiliados activo y fiable
- * (agents/atlas-researcher/agente.ts), así que declarar el modelo aquí no
- * exige mirar el dato interno herramienta a herramienta.
+ * "planes y precios" de afiliado.
+ *
+ * Única excepción deliberada y acotada al cortafuegos entre datos internos
+ * e interfaz de usuario (ver ATLAS.md, sección Affiliate Manager): esta
+ * página resuelve el destino del clic a través de `elegirEnlaceAfiliado()`,
+ * que solo expone una URL (o `undefined`) — nunca comisión, plataforma,
+ * fechas ni observaciones de `EstrategiaAfiliacion`. Si no hay ningún
+ * enlace propio activo todavía, cae a la URL pública oficial. El aviso de
+ * abajo sigue siendo válido para todo el catálogo por construcción: Atlas
+ * Researcher solo admite una herramienta si tiene un programa de afiliados
+ * activo y fiable (agents/atlas-researcher/agente.ts).
+ *
+ * Segmento fijo a "global" por ahora: Atlas todavía no tiene detección real
+ * de país/idioma del visitante. `elegirEnlaceAfiliado()` ya está preparado
+ * para recibir un segmento real el día que exista esa detección, sin
+ * cambiar nada más de esta página.
  */
 export default async function IrAlProveedorPage({
   params,
@@ -29,6 +40,10 @@ export default async function IrAlProveedorPage({
 
   if (!herramienta) notFound();
 
+  const estrategia = getEstrategiaAfiliacion(herramienta.id);
+  const enlaceAfiliado = elegirEnlaceAfiliado(estrategia?.cuentas ?? [], SEGMENTO_GLOBAL);
+  const destino = enlaceAfiliado ?? herramienta.paginaOficial;
+
   return (
     <div className="mx-auto flex max-w-lg flex-col items-center px-4 py-16 text-center sm:px-6 sm:py-24">
       <EnlaceAtras href={`/herramienta/${herramienta.id}`}>Volver a la ficha</EnlaceAtras>
@@ -39,7 +54,7 @@ export default async function IrAlProveedorPage({
       <p className="mt-3 leading-relaxed text-slate-600">{herramienta.idealPara}</p>
 
       <div className="mt-8">
-        <BotonIrAlProveedor href={herramienta.paginaOficial} nombre={herramienta.nombre} />
+        <BotonIrAlProveedor href={destino} nombre={herramienta.nombre} />
       </div>
 
       <div className="mt-8 flex items-start gap-2 rounded-2xl border border-slate-200/80 bg-slate-50 p-4 text-left">
