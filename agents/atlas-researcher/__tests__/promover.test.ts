@@ -3,6 +3,7 @@ import os from "node:os";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { escribirBorrador } from "../borrador";
+import { registrarDecision } from "../decision";
 import { promoverBorrador } from "../promover";
 import type { HerramientaPropuesta } from "../tipos";
 
@@ -66,8 +67,9 @@ describe("promoverBorrador", () => {
     if (!resultado.ok) expect(resultado.errores[0]).toContain("No existe ningún borrador");
   });
 
-  it("promueve un borrador válido: escribe en el catálogo real y marca estado activo", () => {
+  it("promueve un borrador válido y aprobado: escribe en el catálogo real y marca estado activo", () => {
     escribirBorrador("herramienta-de-prueba", propuestaValida, { dirBase: dirBorradores });
+    registrarDecision("herramienta-de-prueba", "aprobado", "Datos completos, afiliado fiable.", { dirBase: dirBorradores });
 
     const resultado = promoverBorrador("herramienta-de-prueba", { dirBaseBorradores: dirBorradores, dirDatos });
 
@@ -118,6 +120,33 @@ describe("promoverBorrador", () => {
 
     expect(resultado.ok).toBe(false);
     if (!resultado.ok) expect(resultado.errores.some((e) => e.includes("regla obligatoria de afiliados"))).toBe(true);
+  });
+
+  it("falla si no hay ninguna decisión 'aprobado' registrada, aunque el borrador sea válido", () => {
+    escribirBorrador("herramienta-sin-decision", propuestaValida, { dirBase: dirBorradores });
+    // Deliberadamente sin registrarDecision: Atlas nunca debe promover sin aprobación explícita.
+
+    const resultado = promoverBorrador("herramienta-sin-decision", { dirBaseBorradores: dirBorradores, dirDatos });
+
+    expect(resultado.ok).toBe(false);
+    if (!resultado.ok) {
+      expect(resultado.errores.some((e) => e.includes('no tiene una decisión "aprobado"'))).toBe(true);
+    }
+    expect(fs.existsSync(path.join(dirDatos, "herramientas", "herramienta-sin-decision.json"))).toBe(false);
+  });
+
+  it("falla si la decisión registrada es 'rechazado', aunque el borrador sea válido", () => {
+    escribirBorrador("herramienta-rechazada", propuestaValida, { dirBase: dirBorradores });
+    registrarDecision("herramienta-rechazada", "rechazado", "Comisión de afiliados sin confirmar.", {
+      dirBase: dirBorradores,
+    });
+
+    const resultado = promoverBorrador("herramienta-rechazada", { dirBaseBorradores: dirBorradores, dirDatos });
+
+    expect(resultado.ok).toBe(false);
+    if (!resultado.ok) {
+      expect(resultado.errores.some((e) => e.includes('no tiene una decisión "aprobado"'))).toBe(true);
+    }
   });
 
   it("falla si el id ya existe en el catálogo real (evita sobrescribir sin querer)", () => {

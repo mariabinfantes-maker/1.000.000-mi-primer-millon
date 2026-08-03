@@ -4,18 +4,23 @@ import type { Herramienta } from "@/data/esquema";
 import type { AffiliateData } from "@/data/esquemaInterno";
 import { getCategorias, getTodasLasHerramientas, validarHerramienta } from "@/data/repositorio";
 import { leerBorrador } from "./borrador";
+import { estaAprobado } from "./decision";
 
 /**
- * Promoción (etapa 6 del pipeline, deliberadamente separada de la etapa 5).
+ * Promoción (etapa final del flujo: investigar → informe → revisión →
+ * aprobación → promoción).
  *
  * Es el ÚNICO módulo de esta fase que escribe en `data/herramientas/` y
  * `data/afiliados/` — el catálogo real. Todo lo demás (lote.ts, borrador.ts)
- * solo llega hasta `data/borradores/`. Antes de copiar nada, corre las
- * mismas comprobaciones que `data/verificar.ts` (esquema válido, categoría
- * existente) más dos propias de la promoción: que el id no colisione con
- * uno ya promovido, y que la regla obligatoria de afiliados se siga
- * cumpliendo con lo que quedó guardado en el borrador (cinturón y tirantes,
- * igual que la doble comprobación que ya hace `agente.ts`).
+ * solo llega hasta `data/borradores/`. Antes de copiar nada, exige que
+ * exista una decisión humana "aprobado" registrada (`decision.ts`) — Atlas
+ * nunca promueve una herramienta sin esa aprobación manual explícita, sea
+ * cual sea la calidad del borrador — y corre las mismas comprobaciones que
+ * `data/verificar.ts` (esquema válido, categoría existente) más dos propias
+ * de la promoción: que el id no colisione con uno ya promovido, y que la
+ * regla obligatoria de afiliados se siga cumpliendo con lo que quedó
+ * guardado en el borrador (cinturón y tirantes, igual que la doble
+ * comprobación que ya hace `agente.ts`).
  */
 
 export type ResultadoPromocion =
@@ -36,25 +41,34 @@ function tieneProgramaDeAfiliadosFiable(datosAfiliados: Partial<AffiliateData>):
 
 export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): ResultadoPromocion {
   const dirDatos = opciones.dirDatos ?? path.join(process.cwd(), "data");
+  const dirBaseBorradores = opciones.dirBaseBorradores;
 
-  const borrador = leerBorrador(id, { dirBase: opciones.dirBaseBorradores });
+  const borrador = leerBorrador(id, { dirBase: dirBaseBorradores });
   if (!borrador) {
     return { ok: false, id, errores: [`No existe ningún borrador con id "${id}".`] };
   }
 
   const errores: string[] = [];
 
-  let herramienta: Herramienta;
+  if (!estaAprobado(id, { dirBase: dirBaseBorradores })) {
+    errores.push(
+      `"${id}" no tiene una decisión "aprobado" registrada. Revisa el informe y ejecuta primero: ` +
+        `npm run aprobar-borrador -- ${id} --decision aprobado --notas "..."`
+    );
+  }
+
+  let herramienta: Herramienta | undefined;
   try {
     herramienta = validarHerramienta(borrador.datos, `borradores/${id}.json`);
   } catch (error) {
     errores.push(error instanceof Error ? error.message : String(error));
-    return { ok: false, id, errores };
   }
 
-  const idsCategorias = new Set(getCategorias().map((c) => c.id));
-  if (!idsCategorias.has(herramienta.categoriaId)) {
-    errores.push(`"${id}" referencia una categoría inexistente: "${herramienta.categoriaId}".`);
+  if (herramienta) {
+    const idsCategorias = new Set(getCategorias().map((c) => c.id));
+    if (!idsCategorias.has(herramienta.categoriaId)) {
+      errores.push(`"${id}" referencia una categoría inexistente: "${herramienta.categoriaId}".`);
+    }
   }
 
   const idsExistentes = new Set(getTodasLasHerramientas().map((h) => h.id));
@@ -67,7 +81,7 @@ export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): 
     errores.push(`"${id}" no cumple la regla obligatoria de afiliados (programa activo y fiable) en el borrador.`);
   }
 
-  if (errores.length > 0) {
+  if (errores.length > 0 || !herramienta) {
     return { ok: false, id, errores };
   }
 
