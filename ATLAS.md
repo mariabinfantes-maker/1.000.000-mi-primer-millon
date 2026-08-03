@@ -124,3 +124,26 @@ excepción:
 
 No adelantar esta implementación hasta que la Capa 1 esté construida, probada
 y aprobada, y se decida explícitamente destinar presupuesto a esta capa.
+
+### Atlas Affiliate Manager: piezas dejadas fuera de esta fase
+
+**Registrada:** 2026-08-03 · **Estado:** arquitectura aprobada, construcción en curso.
+
+Siguiente agente tras el Researcher y el Advisor: cierra el circuito entre
+"tenemos un programa de afiliados aprobado" y "el enlace real está en
+producción". `EstrategiaAfiliacion` (`data/esquemaInterno.ts`) se migró al
+modelo `{ herramientaId, cuentas: CuentaAfiliado[] }`, cada cuenta con sus
+propios `enlaces: EnlaceAfiliado[]` por país/idioma — pensado desde el
+principio para varias cuentas por plataforma, varios enlaces por segmento, y
+para crecer a cientos o miles de herramientas sin rediseño.
+
+Quedan fuera de esta fase, a propósito:
+
+- **Redacción asistida por IA de solicitudes de afiliación**: enviar
+  información de negocio real a plataformas externas no debe automatizarse
+  sin una decisión explícita y posterior a esta.
+- **Integración con APIs de redes de afiliados** (comprobar el estado de una
+  solicitud automáticamente): depende de qué plataformas se usen realmente;
+  prematuro con el tamaño actual del catálogo.
+- **Analítica de clics/conversión real** (territorio del futuro agente
+  Growth): no tiene sentido sin tráfico real que medir.
