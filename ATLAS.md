@@ -98,8 +98,10 @@ toque construir hoy.
 5. 📈 **Atlas Growth** — sin diseñar. Necesita tráfico real y eventos de
    clic/conversión que medir; probablemente no aporta valor hasta que
    Generador de Contenido exista y genere ese tráfico.
-6. ✍️ **Atlas Generador de Contenido** — sin diseñar. Genera contenido para
-   atraer tráfico orgánico; es lo que le da a Growth algo que medir.
+6. ✍️ **Atlas Generador de Contenido** — Capa 1 completada. Genera contenido
+   para atraer tráfico orgánico; es lo que le da a Growth algo que medir
+   (`agents/atlas-generador-contenido/`). La Capa 2 (artículos con IA) sigue
+   diferida — ver más abajo.
 7. 💬 **Atlas Assistant** — sin diseñar. Previsiblemente una interfaz
    conversacional que reutiliza la salida de Evaluador/Recomendador, como
    alternativa al cuestionario estructurado.
@@ -205,6 +207,43 @@ Quedan fuera de esta fase, a propósito:
   prematuro con el tamaño actual del catálogo.
 - **Analítica de clics/conversión real** (territorio del futuro agente
   Growth): no tiene sentido sin tráfico real que medir.
+
+### Atlas Generador de Contenido: Capa 1 completada
+
+**Registrada:** 2026-08-03 · **Estado:** Capa 1 completada. Capa 2 (artículos con IA) diferida.
+
+Motor de crecimiento de Atlas: cierra el hecho de que, hasta esta fase, el
+sitio no tenía ni una sola página indexable ni forma de que el tráfico
+orgánico llegara a activar una comisión real. Reutiliza sistemáticamente
+Researcher (catálogo público, `problemasIds`), Evaluador (`agents/atlas-advisor`,
+Puntuación Atlas, `evaluarHerramienta`) y Affiliate Manager (todo enlace de
+contenido pasa por `/herramienta/[id]/ir`, nunca directo a la web oficial)
+— ningún módulo nuevo duplica su lógica ni toca datos internos de afiliación.
+
+Piezas construidas (`agents/atlas-generador-contenido/`):
+
+- **Fuente de datos de "problema" corregida antes de construir nada**:
+  `data/problemas.json` real, `Herramienta.problemasIds`, sustituyendo un
+  catálogo simulado heredado (`lib/data.ts`, eliminado) que nunca debió
+  ser la base de una página indexable.
+- **Landing de categoría y problema** (`app/categoria/[id]/page.tsx`,
+  `app/problema/[id]/page.tsx`) — las URLs que antes no existían, con
+  estado vacío honesto donde el catálogo real todavía no tiene ninguna
+  herramienta que mostrar.
+- **`metadatos.ts`** — título/descripción/OG reales por página; `noindex,
+  follow` en las ~26 páginas de flujo (cuestionario/comparar/recomendación
+  × 3 puertas de entrada, más `/ir`) — mejora de arquitectura con impacto a
+  largo plazo, propuesta y aprobada antes de implementar.
+- **Comparación par a par y alternativas** (`comparaciones.ts`,
+  `alternativas.ts`) — `evaluarHerramienta` con perfil neutro, mismo
+  `construirComparativa` que el comparador guiado; `TablaComparativa.tsx`
+  extraído de `PantallaComparador.tsx` para no duplicar la tabla.
+- **Sitemap dinámico y `robots.txt`** (`sitemap.ts`) — derivados del
+  catálogo real; dominio de producción pendiente de configurar (ver
+  "Pendiente antes de producción").
+- **Datos estructurados JSON-LD** (`datosEstructurados.ts`) — solo
+  identidad verificable; nunca `aggregateRating` ni precio (ver la
+  decisión diferida justo debajo).
 
 ### AggregateRating y precio en los datos estructurados (Atlas Generador de Contenido)
 
