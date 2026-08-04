@@ -51,6 +51,24 @@ export function metadataProblema(problema: Problema): Metadata {
   });
 }
 
+/** Página de comparación par a par — contenido de valor, indexable. */
+export function metadataComparacion(a: Herramienta, b: Herramienta): Metadata {
+  return construirMetadata(
+    `${a.nombre} vs ${b.nombre}: comparativa`,
+    `Compara ${a.nombre} y ${b.nombre} criterio a criterio: precio, facilidad de uso, funciones e integraciones.`,
+    { indexable: true }
+  );
+}
+
+/** Página "alternativas a X" — contenido de valor, indexable. */
+export function metadataAlternativas(herramienta: Herramienta): Metadata {
+  return construirMetadata(
+    `Alternativas a ${herramienta.nombre}`,
+    `Otras opciones a ${herramienta.nombre} en la misma categoría, comparadas por Atlas.`,
+    { indexable: true }
+  );
+}
+
 /**
  * Páginas de flujo (cuestionario, comparador, recomendación, salida al
  * proveedor — las 3 puertas de entrada): un cascarón que solo cobra

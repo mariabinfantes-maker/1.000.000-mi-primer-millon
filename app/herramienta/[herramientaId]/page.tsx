@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Link from "next/link";
 import type { ReactNode } from "react";
 import {
   ArrowUpRight,
@@ -252,6 +253,12 @@ export default async function FichaHerramientaPage({
           Ir al proveedor
           <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
         </Boton>
+        <Link
+          href={`/herramienta/${herramienta.id}/alternativas`}
+          className="text-xs font-medium text-slate-500 hover:text-brand-600"
+        >
+          ¿Prefieres comparar antes con otras opciones?
+        </Link>
       </div>
     </div>
   );

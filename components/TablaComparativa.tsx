@@ -1,0 +1,74 @@
+import type { CSSProperties } from "react";
+import { construirComparativa } from "@/lib/comparador";
+import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
+import type { HerramientaEvaluada } from "@/agents/atlas-advisor";
+import AnilloPuntuacion from "@/components/ui/AnilloPuntuacion";
+
+/**
+ * Cabecera + filas de la comparativa lado a lado — extraído de
+ * `PantallaComparador.tsx` (P-05) para que también lo reutilice la página
+ * estática de comparación par a par (Atlas Generador de Contenido) sin
+ * duplicar el JSX. Puramente presentacional: recibe `HerramientaEvaluada[]`
+ * ya calculadas por Evaluador, nunca vuelve a puntuar nada — igual que
+ * `construirComparativa`, del que es la vista.
+ */
+export default function TablaComparativa({ evaluadas }: { evaluadas: HerramientaEvaluada[] }) {
+  const filas = construirComparativa(evaluadas);
+
+  return (
+    <>
+      <div className="comparador-grid gap-4" style={{ "--comparador-columnas": evaluadas.length } as CSSProperties}>
+        {evaluadas.map((evaluada) => {
+          const puntuacion = calcularPuntuacionAtlas(evaluada.herramienta);
+          return (
+            <div
+              key={evaluada.herramienta.id}
+              className="flex flex-col items-center gap-2 rounded-2xl border border-slate-200/80 bg-white p-4 text-center"
+            >
+              {puntuacion && <AnilloPuntuacion puntuacion={puntuacion.puntuacion} />}
+              <span className="text-sm font-semibold text-slate-900">{evaluada.herramienta.nombre}</span>
+            </div>
+          );
+        })}
+      </div>
+
+      {filas.length === 0 ? (
+        <p className="mt-10 rounded-2xl border border-slate-200/80 bg-white p-6 text-sm leading-relaxed text-slate-600">
+          Estas opciones están muy igualadas: no hay diferencias claras entre ellas en los criterios que
+          evaluamos.
+        </p>
+      ) : (
+        <div className="mt-10 space-y-5">
+          {filas.map((fila) => (
+            <div key={fila.criterio} className="rounded-2xl border border-slate-200/80 bg-white p-5">
+              <h3 className="text-sm font-semibold text-slate-900">{fila.etiqueta}</h3>
+              <p className="mt-0.5 text-xs text-slate-500">{fila.explicacionCriterio}</p>
+
+              <div className="comparador-grid mt-4 gap-3" style={{ "--comparador-columnas": fila.celdas.length } as CSSProperties}>
+                {fila.celdas.map((celda) => (
+                  <div
+                    key={celda.herramientaId}
+                    className={`rounded-xl border p-3 text-sm leading-relaxed transition-colors ${
+                      celda.gana
+                        ? "border-agente-evaluador bg-agente-evaluador-soft text-slate-800"
+                        : "border-slate-200 text-slate-600"
+                    }`}
+                  >
+                    <p className="text-xs font-semibold text-slate-500">{celda.nombre}</p>
+                    <p className="mt-1">{celda.explicacion || "Sin diferencia destacable aquí."}</p>
+                  </div>
+                ))}
+              </div>
+
+              {fila.hayGanadorUnico && (
+                <p className="mt-3 text-xs font-semibold text-agente-evaluador">
+                  En {fila.etiqueta.toLowerCase()}, gana {fila.celdas.find((c) => c.gana)?.nombre}.
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </>
+  );
+}

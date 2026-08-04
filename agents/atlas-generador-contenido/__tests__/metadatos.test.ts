@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { metadataCategoria, metadataFlujo, metadataHerramienta, metadataProblema } from "../metadatos";
+import { metadataAlternativas, metadataCategoria, metadataComparacion, metadataFlujo, metadataHerramienta, metadataProblema } from "../metadatos";
 import { construirHerramienta } from "@/agents/atlas-advisor/__tests__/fixtures";
 import type { Categoria, Problema } from "@/data/esquema";
 
@@ -41,6 +41,30 @@ describe("metadataProblema", () => {
 
     expect(metadata.title).toContain("Conseguir más clientes");
     expect(metadata.description).toBe("Atrae y convierte más leads.");
+    expect(metadata.robots).toBeUndefined();
+  });
+});
+
+describe("metadataComparacion", () => {
+  it("nombra ambas herramientas en el título, indexable", () => {
+    const a = construirHerramienta({ id: "hubspot", nombre: "HubSpot" });
+    const b = construirHerramienta({ id: "pipedrive", nombre: "Pipedrive" });
+
+    const metadata = metadataComparacion(a, b);
+
+    expect(metadata.title).toContain("HubSpot");
+    expect(metadata.title).toContain("Pipedrive");
+    expect(metadata.robots).toBeUndefined();
+  });
+});
+
+describe("metadataAlternativas", () => {
+  it("nombra la herramienta de referencia en el título, indexable", () => {
+    const herramienta = construirHerramienta({ id: "hubspot", nombre: "HubSpot" });
+
+    const metadata = metadataAlternativas(herramienta);
+
+    expect(metadata.title).toContain("HubSpot");
     expect(metadata.robots).toBeUndefined();
   });
 });
