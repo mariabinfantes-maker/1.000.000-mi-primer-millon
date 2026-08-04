@@ -206,6 +206,30 @@ Quedan fuera de esta fase, a propósito:
 - **Analítica de clics/conversión real** (territorio del futuro agente
   Growth): no tiene sentido sin tráfico real que medir.
 
+### AggregateRating y precio en los datos estructurados (Atlas Generador de Contenido)
+
+**Registrada:** 2026-08-03 · **Estado:** pospuesta, no implementar todavía — ni siquiera de forma condicional.
+
+`agents/atlas-generador-contenido/datosEstructurados.ts` genera JSON-LD
+(schema.org/SoftwareApplication) para cada ficha de herramienta, pero solo
+con identidad y descripción — nunca `aggregateRating` ni `offers`/precio,
+tenga o no la herramienta plan gratuito o reputación investigada.
+
+Motivo, para no repetir el error más adelante: usar la Puntuación Atlas
+(un juicio editorial propio, no reseñas de usuarios) como `aggregateRating`
+incumpliría las directrices de fragmentos enriquecidos de Google y
+arriesgaría una sanción manual a todo el sitio, no solo a esa página.
+`precioInicial` es texto libre y ambiguo ("Gratis / Desde 15€ mes...");
+estructurar cualquier precio, aunque parezca un hecho simple (p. ej. "0"
+para un plan gratuito), se trata como información no verificable a estos
+efectos — decisión explícita del producto, no solo cautela técnica.
+
+Cuando exista reputación de terceros verificable y bien atribuida
+(`Herramienta.reputacion.g2Puntuacion`/`capterraPuntuacion`, con su fuente),
+seguirá siendo una decisión aparte activar `aggregateRating` a partir de
+esos datos — nunca de la Puntuación Atlas. No adelantar esta
+implementación sin ese contexto y sin aprobación explícita.
+
 ## Pendiente antes de producción
 
 Tareas operativas, no de arquitectura — nada que implementar, solo

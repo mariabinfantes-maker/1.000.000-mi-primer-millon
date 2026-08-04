@@ -16,6 +16,7 @@ import {
 import { getCategoria, getHerramienta, getHerramientas } from "@/data/repositorio";
 import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
 import { metadataHerramienta } from "@/agents/atlas-generador-contenido/metadatos";
+import { construirDatosEstructuradosHerramienta } from "@/agents/atlas-generador-contenido/datosEstructurados";
 import Etiqueta from "@/components/ui/Etiqueta";
 import Boton from "@/components/ui/Boton";
 import AnilloPuntuacion from "@/components/ui/AnilloPuntuacion";
@@ -54,9 +55,18 @@ export default async function FichaHerramientaPage({
 
   const categoria = getCategoria(herramienta.categoriaId);
   const puntuacion = calcularPuntuacionAtlas(herramienta);
+  const datosEstructurados = construirDatosEstructuradosHerramienta(herramienta);
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-16">
+      {/* JSON-LD (schema.org/SoftwareApplication) — solo identidad y
+          descripción verificables; nunca aggregateRating ni precio
+          (ver agents/atlas-generador-contenido/datosEstructurados.ts). */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(datosEstructurados).replace(/</g, "\\u003c") }}
+      />
+
       {/* Cabecera: nombre, descripción y Puntuación Atlas. Espacio reservado
           para logoUrl (hoy vacío en las 5 fichas) — el fondo abstracto de
           marca ocupa su lugar en vez de dejar un hueco vacío. */}
