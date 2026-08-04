@@ -1,10 +1,23 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { getCategoria, getCategorias } from "@/data/repositorio";
 import type { OrigenDiagnostico } from "@/lib/origenDiagnostico";
+import { metadataFlujo } from "@/agents/atlas-generador-contenido/metadatos";
 import PantallaRecomendacion from "@/components/PantallaRecomendacion";
 
 export function generateStaticParams() {
   return getCategorias().map((c) => ({ categoriaId: c.id }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ categoriaId: string }>;
+}): Promise<Metadata> {
+  const { categoriaId } = await params;
+  const categoria = getCategoria(categoriaId);
+  if (!categoria) return {};
+  return metadataFlujo(`Tu recomendación: ${categoria.nombre}`, categoria.descripcion);
 }
 
 export default async function RecomendacionCategoriaPage({

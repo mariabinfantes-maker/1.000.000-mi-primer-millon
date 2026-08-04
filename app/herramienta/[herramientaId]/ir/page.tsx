@@ -1,14 +1,27 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ShieldCheck } from "lucide-react";
 import { getHerramienta, getHerramientas } from "@/data/repositorio";
 import { getEstrategiaAfiliacion } from "@/data/repositorioEstrategiaAfiliacion";
 import { elegirEnlaceAfiliado, SEGMENTO_GLOBAL } from "@/agents/atlas-affiliate-manager/seleccionarEnlace";
+import { metadataFlujo } from "@/agents/atlas-generador-contenido/metadatos";
 import EnlaceAtras from "@/components/ui/EnlaceAtras";
 import BotonIrAlProveedor from "@/components/ui/BotonIrAlProveedor";
 
 export function generateStaticParams() {
   return getHerramientas().map((h) => ({ herramientaId: h.id }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ herramientaId: string }>;
+}): Promise<Metadata> {
+  const { herramientaId } = await params;
+  const herramienta = getHerramienta(herramientaId);
+  if (!herramienta) return {};
+  return metadataFlujo(`Ir a ${herramienta.nombre}`, herramienta.descripcion);
 }
 
 /**

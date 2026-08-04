@@ -1,13 +1,25 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { ClipboardList } from "lucide-react";
 import { getCategoria, getCategorias, getHerramientasPorCategoria } from "@/data/repositorio";
 import { aVistaDeTarjetaGenerica, ordenarPorPuntuacionAtlas } from "@/lib/vistaRecomendacion";
+import { metadataCategoria } from "@/agents/atlas-generador-contenido/metadatos";
 import EnlaceAtras from "@/components/ui/EnlaceAtras";
 import Boton from "@/components/ui/Boton";
 import TarjetaHerramientaRecomendada from "@/components/TarjetaHerramientaRecomendada";
 
 export function generateStaticParams() {
   return getCategorias().map((c) => ({ categoriaId: c.id }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ categoriaId: string }>;
+}): Promise<Metadata> {
+  const { categoriaId } = await params;
+  const categoria = getCategoria(categoriaId);
+  return categoria ? metadataCategoria(categoria) : {};
 }
 
 /**

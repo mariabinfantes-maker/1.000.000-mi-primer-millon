@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import {
   ArrowUpRight,
@@ -13,6 +14,7 @@ import {
 } from "lucide-react";
 import { getCategoria, getHerramienta, getHerramientas } from "@/data/repositorio";
 import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
+import { metadataHerramienta } from "@/agents/atlas-generador-contenido/metadatos";
 import Etiqueta from "@/components/ui/Etiqueta";
 import Boton from "@/components/ui/Boton";
 import AnilloPuntuacion from "@/components/ui/AnilloPuntuacion";
@@ -20,6 +22,16 @@ import InsigniaConfianza from "@/components/ui/InsigniaConfianza";
 
 export function generateStaticParams() {
   return getHerramientas().map((h) => ({ herramientaId: h.id }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ herramientaId: string }>;
+}): Promise<Metadata> {
+  const { herramientaId } = await params;
+  const herramienta = getHerramienta(herramientaId);
+  return herramienta ? metadataHerramienta(herramienta) : {};
 }
 
 const ETIQUETA_CURVA: Record<string, string> = {

@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { ClipboardList } from "lucide-react";
 import { getHerramientasPorProblema, getProblema, getProblemas } from "@/data/repositorio";
 import { aVistaDeTarjetaGenerica, ordenarPorPuntuacionAtlas } from "@/lib/vistaRecomendacion";
+import { metadataProblema } from "@/agents/atlas-generador-contenido/metadatos";
 import EnlaceAtras from "@/components/ui/EnlaceAtras";
 import Boton from "@/components/ui/Boton";
 import IconoProblema from "@/components/ui/IconoProblema";
@@ -9,6 +11,16 @@ import TarjetaHerramientaRecomendada from "@/components/TarjetaHerramientaRecome
 
 export function generateStaticParams() {
   return getProblemas().map((p) => ({ problemaId: p.id }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ problemaId: string }>;
+}): Promise<Metadata> {
+  const { problemaId } = await params;
+  const problema = getProblema(problemaId);
+  return problema ? metadataProblema(problema) : {};
 }
 
 /**
