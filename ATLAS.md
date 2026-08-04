@@ -205,3 +205,21 @@ Quedan fuera de esta fase, a propósito:
   prematuro con el tamaño actual del catálogo.
 - **Analítica de clics/conversión real** (territorio del futuro agente
   Growth): no tiene sentido sin tráfico real que medir.
+
+## Pendiente antes de producción
+
+Tareas operativas, no de arquitectura — nada que implementar, solo
+configurar antes de lanzar. Ninguna se ha resuelto con un valor inventado
+en el código; todas quedan aquí para no olvidarlas.
+
+### Dominio real del sitio
+
+**Registrada:** 2026-08-03 (Atlas Generador de Contenido, sitemap dinámico).
+
+`app/sitemap.ts` y `app/robots.ts` necesitan URLs absolutas. Hasta que el
+dominio de producción esté decidido, `lib/urlBase.ts` usa
+`NEXT_PUBLIC_SITE_URL` con `http://localhost:3000` como valor de
+repuesto — nunca un dominio hardcodeado. Antes de lanzar Atlas de verdad:
+configurar `NEXT_PUBLIC_SITE_URL` con el dominio real en el entorno de
+despliegue. Sin ese paso, el sitemap y `robots.txt` seguirán apuntando a
+localhost y no servirán para que Google indexe el sitio.
