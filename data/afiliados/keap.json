@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Keap Partner Program",
+  "affiliatePlatform": "PartnerStack",
+  "affiliateUrl": "https://keap.com/partners",
+  "commission": "Hasta $500 fijos por cliente referido o comisiones recurrentes de hasta 20%-30% según la modalidad del programa de partners",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, transferencia bancaria",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://keap.com/partners",
+  "lastAffiliateCheck": "2026-08-03",
+  "herramientaId": "keap"
+}

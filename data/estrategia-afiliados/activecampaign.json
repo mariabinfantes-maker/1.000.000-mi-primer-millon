@@ -1,0 +1,19 @@
+{
+  "herramientaId": "activecampaign",
+  "cuentas": [
+    {
+      "id": "partnerstack",
+      "estado": "no_solicitado",
+      "nombrePrograma": "ActiveCampaign Partner Program",
+      "plataforma": "PartnerStack",
+      "urlSolicitud": "https://www.activecampaign.com/partner/affiliate",
+      "comision": "20% a 30% recurrente mensual",
+      "duracionCookie": "90 días",
+      "metodoPago": "PayPal, Transferencia bancaria",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-05",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

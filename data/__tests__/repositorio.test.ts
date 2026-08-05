@@ -36,10 +36,12 @@ describe("getHerramientasPorProblema", () => {
     }
   });
 
-  it("devuelve un array vacío, no un error, para un problema sin ninguna herramienta asignada todavía", () => {
-    // "ahorrar-tiempo" es honesto: el catálogo real no tiene todavía ninguna
-    // herramienta de IA/productividad promovida — no se inventa ninguna coincidencia.
-    expect(getHerramientasPorProblema("ahorrar-tiempo")).toEqual([]);
+  it("devuelve solo herramientas reales cuyo problemasIds incluye 'ahorrar-tiempo'", () => {
+    const herramientas = getHerramientasPorProblema("ahorrar-tiempo");
+    expect(herramientas.length).toBeGreaterThan(0);
+    for (const h of herramientas) {
+      expect(h.problemasIds).toContain("ahorrar-tiempo");
+    }
   });
 
   it("devuelve un array vacío para un problemaId inexistente", () => {

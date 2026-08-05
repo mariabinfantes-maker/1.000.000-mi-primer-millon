@@ -1,0 +1,145 @@
+{
+  "nombre": "Systeme.io",
+  "paginaOficial": "https://systeme.io",
+  "urlPrecios": "https://systeme.io/pricing",
+  "categoriaId": "plataformas-todo-en-uno",
+  "descripcion": "Systeme.io es una plataforma todo en uno de marketing digital que permite a emprendedores y empresas crear embudos de venta, enviar campañas de correo electrónico y alojar cursos en línea. Integra herramientas de automatización, sitios web y gestión de afiliados en una sola interfaz accesible.",
+  "informacionEmpresa": {
+    "anioFundacion": 2018,
+    "paisOrigen": "Francia",
+    "tamanoAproximado": "51-200 empleados"
+  },
+  "problemasQueResuelve": [
+    "Alto coste recurrente de pagar múltiples suscripciones de software (emailing, embudos, alojamiento de cursos)",
+    "Falta de integración fluida entre el CRM, las pasarelas de pago y las campañas de email",
+    "Complejidad técnica para configurar embudos de captación y venta de infoproductos",
+    "Dificultad para gestionar e implementar un programa de afiliados propio sin herramientas de terceros"
+  ],
+  "casosDeUso": [
+    "Venta y alojamiento de cursos online, membresías e infoproductos",
+    "Creación de embudos de captación de clientes potenciales (lead magnets)",
+    "Envío de boletines periódicos y secuencias automatizadas de email marketing",
+    "Lanzamiento de sitios web corporativos y blogs con captura de contactos"
+  ],
+  "idealPara": "Emprendedores digitales, infoproductores, mentores y pequeñas empresas que buscan una plataforma todo en uno económica y fácil de usar para comercializar sus productos o servicios.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "Educación y Formación Online",
+    "Marketing y Publicidad",
+    "Comercio Electrónico / Infoproductos",
+    "Servicios Profesionales y Consultoría"
+  ],
+  "noRecomendadaPara": "Grandes empresas o e-commerce B2C con extensos catálogos de productos físicos y complejas necesidades de gestión de inventario.",
+  "casosNoRecomendados": [
+    "Tiendas de comercio electrónico masivo con miles de SKUs de productos físicos",
+    "Organizaciones enterprise que requieran un CRM avanzado con permisos multinivel detallados y flujos B2B complejos"
+  ],
+  "funcionesPrincipales": [
+    "Creador visual de embudos de venta y landing pages",
+    "Software de email marketing y automatizaciones",
+    "Alojamiento y gestión de cursos online y comunidades",
+    "Gestión de programas de afiliados propios",
+    "Creador de sitios web y blogs",
+    "Gestión de contactos y etiquetas CRM"
+  ],
+  "integraciones": [
+    "Stripe",
+    "PayPal",
+    "Razorpay",
+    "Flutterwave",
+    "Zapier",
+    "Mercado Pago"
+  ],
+  "integracionesPrincipales": [
+    "Stripe",
+    "PayPal",
+    "Zapier",
+    "Mercado Pago"
+  ],
+  "curvaDeAprendizaje": "facil",
+  "precioInicial": "Gratis (Plan Freemium sin límite de tiempo)",
+  "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual",
+    "suscripcion_anual"
+  ],
+  "tienePlanGratuito": true,
+  "precioRecomendadoPymes": "Plan Startup a 27€/mes (o 228€/año) para acceder a mayores límites de contactos y dominios personalizados.",
+  "idiomasDisponibles": [
+    "Español",
+    "Inglés",
+    "Francés",
+    "Portugués",
+    "Alemán",
+    "Italiano",
+    "Ruso"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 8,
+    "fiabilidad": 8,
+    "atencionAlCliente": 8,
+    "escalabilidad": 7,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 9
+  },
+  "metodologiaValoracion": "Puntuaciones calculadas a partir del análisis de funcionalidades, relación calidad-precio en el mercado de marketing todo-en-uno, e impresiones agregadas de miles de usuarios en G2, Capterra y Trustpilot.",
+  "reputacion": {
+    "g2Puntuacion": 4.8,
+    "g2NumeroResenas": 450,
+    "capterraPuntuacion": 4.8,
+    "capterraNumeroResenas": 1500,
+    "otrasFuentes": [
+      {
+        "fuente": "Trustpilot",
+        "puntuacion": 4.9,
+        "numeroResenas": 3800,
+        "enlace": "https://www.trustpilot.com/review/systeme.io"
+      }
+    ]
+  },
+  "ventajas": [
+    "Plan gratuito sumamente completo y sin límite de prueba",
+    "Precios de suscripción significativamente más bajos que competidores como ClickFunnels o Kajabi",
+    "Plataforma intuitiva en español que elimina la necesidad de conectar múltiples plugins",
+    "Sistema de gestión de afiliados integrado sin coste adicional"
+  ],
+  "inconvenientes": [
+    "Las plantillas de embudos y páginas tienen capacidades de diseño gráfico más reducidas que editores dedicados como Elementor o Webflow",
+    "Pocas integraciones nativas directas fuera de pasarelas de pago, dependiendo de Zapier para otras herramientas",
+    "Funcionalidades de CRM e informes analíticos algo básicas para equipos de ventas avanzados"
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "ClickFunnels",
+      "Kajabi",
+      "Kartra",
+      "Podia"
+    ],
+    "tipoNegocioIdeal": "Creadores de contenido e infoproductores",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 96,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.2/10.",
+      "G2: 4.8/5 (450 reseñas).",
+      "Capterra: 4.8/5 (1500 reseñas).",
+      "Tiene plan gratuito.",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "systeme-io",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-03",
+  "fechaUltimaRevision": "2026-08-05",
+  "problemasIds": [
+    "conseguir-clientes",
+    "automatizar-tareas"
+  ]
+}

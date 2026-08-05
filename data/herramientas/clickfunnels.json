@@ -1,0 +1,140 @@
+{
+  "nombre": "ClickFunnels",
+  "paginaOficial": "https://www.clickfunnels.com",
+  "urlPrecios": "https://www.clickfunnels.com/pricing",
+  "categoriaId": "plataformas-todo-en-uno",
+  "descripcion": "ClickFunnels es una plataforma integral diseñada para crear embudos de ventas, páginas de aterrizaje, automatizaciones de marketing y sitios de membresía. Permite a emprendedores y negocios capturar prospectos y guiar a los usuarios en un proceso de compra optimizado sin necesidad de programar.",
+  "informacionEmpresa": {
+    "anioFundacion": 2014,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "201-500 empleados"
+  },
+  "problemasQueResuelve": [
+    "Baja tasa de conversión en webs y tiendas tradicionales",
+    "Complejidad en la integración de múltiples herramientas de marketing (CRM, email, pasarela de pago)",
+    "Falta de seguimiento automático tras la captación de leads",
+    "Dependencia de desarrolladores web para lanzar campanas de venta rápidas"
+  ],
+  "casosDeUso": [
+    "Lanzamiento de infoproductos y cursos con embudos de venta directa y upsells en un clic",
+    "Captura de prospectos mediante webinars registrados y descargas de contenido",
+    "Creación de sitios de membresía y zonas privadas de alumnos",
+    "Venta de servicios de consultoría o agencias con agendas integradas"
+  ],
+  "idealPara": "Emprendedores digitales, creadores de contenido, infoproductores y pequeñas empresas que buscan maximizar conversiones y ventas online sin conocimientos técnicos de desarrollo.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "Infoproductos y Formación online",
+    "Marketing y Publicidad",
+    "Servicios Profesionales y Consultoría",
+    "Ecommerce B2C"
+  ],
+  "noRecomendadaPara": "Empresas que necesitan portales web corporativos complejos con enfoque exclusivo en blogs/SEO masivo o grandes e-commerce con catálogos de miles de productos.",
+  "casosNoRecomendados": [
+    "Tiendas online masivas que requieren gestión avanzada de inventarios y logística multi-almacén",
+    "Medios digitales o blogs informativos enfocados principalmente en posicionamiento SEO orgánico tradicional",
+    "Grandes corporaciones que exigen código fuente abierto o hosting en servidores propios"
+  ],
+  "funcionesPrincipales": [
+    "Editor visual de arrastrar y soltar para embudos y páginas de venta",
+    "Secuencias automatizadas de Email Marketing y workflows",
+    "Gestor de cursos, áreas de miembros y contenidos restringidos",
+    "Procesamiento de pagos con funcionalidades de Upsell, Downsell y Order Bump",
+    "Pruebas A/B en tiempo real para optimización de conversión",
+    "Analítica integrada de ingresos y flujo de conversión por embudo"
+  ],
+  "integraciones": [
+    "Stripe",
+    "PayPal",
+    "Zapier",
+    "ActiveCampaign",
+    "Mailchimp",
+    "Shopify",
+    "Klaviyo",
+    "Twilio",
+    "WordPress"
+  ],
+  "integracionesPrincipales": [
+    "Stripe",
+    "PayPal",
+    "Zapier",
+    "ActiveCampaign"
+  ],
+  "curvaDeAprendizaje": "media",
+  "precioInicial": "Desde $81/mes (plan Startup facturado anualmente) o $97/mes (facturado mensualmente)",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Plan Pro a $157/mes (pago anual) o $197/mes (pago mensual)",
+  "idiomasDisponibles": [
+    "Inglés"
+  ],
+  "disponibleEnEspanol": false,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 7,
+    "calidad": 8,
+    "fiabilidad": 8,
+    "atencionAlCliente": 7,
+    "escalabilidad": 7,
+    "nivelTecnicoRequerido": 4,
+    "facilidadImplementacion": 7
+  },
+  "metodologiaValoracion": "Puntuaciones calculadas a partir del análisis de reseñas públicas de usuarios en G2 y Capterra, evaluaciones de facilidad de uso de la versión ClickFunnels 2.0 y prestaciones funcionales.",
+  "reputacion": {
+    "g2Puntuacion": 4.6,
+    "g2NumeroResenas": 390,
+    "capterraPuntuacion": 4.5,
+    "capterraNumeroResenas": 600,
+    "otrasFuentes": [
+      {
+        "fuente": "Trustpilot",
+        "puntuacion": 4.6,
+        "numeroResenas": 2000,
+        "enlace": "https://www.trustpilot.com/review/clickfunnels.com"
+      }
+    ]
+  },
+  "ventajas": [
+    "Altamente enfocado en la conversión financiera directa y el aumento del valor medio del pedido (AOV)",
+    "Amplia variedad de plantillas prediseñadas orientadas a venta comprobada",
+    "Incluye un potente ecosistema educativo y de formación continua para emprendedores",
+    "Permite gestionar productos, cobros, correos y páginas dentro de un mismo panel"
+  ],
+  "inconvenientes": [
+    "Precio de suscripción elevado en comparación con alternativas simplificadas",
+    "La interfaz oficial y el soporte principal se encuentran en inglés",
+    "Capacidades de personalización mediante código o estructuras SEO tradicionales limitadas"
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Kajabi",
+      "Systeme.io",
+      "Kartra",
+      "Leadpages"
+    ],
+    "tipoNegocioIdeal": "Infoproductores y creadores de contenido",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 86,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 7.3/10.",
+      "G2: 4.6/5 (390 reseñas).",
+      "Capterra: 4.5/5 (600 reseñas).",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "clickfunnels",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-03",
+  "fechaUltimaRevision": "2026-08-05",
+  "problemasIds": [
+    "conseguir-clientes"
+  ]
+}

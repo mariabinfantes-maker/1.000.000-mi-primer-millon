@@ -1,0 +1,18 @@
+{
+  "herramientaId": "otter-ai",
+  "cuentas": [
+    {
+      "id": "shareasale",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Otter.ai Affiliate Program",
+      "plataforma": "ShareASale",
+      "urlSolicitud": "https://www.shareasale.com/shareasale.cfm?merchantID=101858",
+      "comision": "Comisión variable por cada nuevo suscriptor de pago referido (aprox. 10%-20% según la campaña vigente)",
+      "duracionCookie": "30 días",
+      "metodoPago": "Transferencia bancaria, PayPal",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-05",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

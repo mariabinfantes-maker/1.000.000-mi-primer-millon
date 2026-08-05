@@ -1,0 +1,19 @@
+{
+  "herramientaId": "clickfunnels",
+  "cuentas": [
+    {
+      "id": "programa-propio-firstpromoter",
+      "estado": "no_solicitado",
+      "nombrePrograma": "ClickFunnels Affiliate Program",
+      "plataforma": "Programa propio / FirstPromoter",
+      "urlSolicitud": "https://www.clickfunnels.com/affiliates",
+      "comision": "Hasta 30% mensual recurrente por cada cliente activo referido",
+      "duracionCookie": "45 días",
+      "metodoPago": "Tipalti, PayPal, Transferencia bancaria",
+      "frecuenciaPago": "Quincenal",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-05",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

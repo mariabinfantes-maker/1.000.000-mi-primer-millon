@@ -1,0 +1,138 @@
+{
+  "nombre": "ActiveCampaign",
+  "paginaOficial": "https://www.activecampaign.com",
+  "urlPrecios": "https://www.activecampaign.com/pricing",
+  "logoUrl": "",
+  "categoriaId": "plataformas-todo-en-uno",
+  "descripcion": "ActiveCampaign es una plataforma integrada de automatización del ciclo de vida del cliente que combina email marketing, automatización de marketing y CRM de ventas. Permite a las empresas diseñar flujos de trabajo personalizados según el comportamiento del usuario para aumentar el compromiso y las conversiones.",
+  "informacionEmpresa": {
+    "anioFundacion": 2003,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "1001-5000 empleados"
+  },
+  "problemasQueResuelve": [
+    "Falta de personalización en campañas de correo electrónico masivo",
+    "Desconexión entre las interacciones de marketing y la gestión del pipeline de ventas",
+    "Perdida de prospectos por falta de un seguimiento oportuno y automatizado",
+    "Dificultad para segmentar audiencias basadas en acciones reales y datos de comportamiento"
+  ],
+  "casosDeUso": [
+    "Automatización de secuencias de recuperación de carritos abandonados y recomendaciones de productos para tiendas online",
+    "Lead scoring y atribución de ventas para equipos comerciales B2B",
+    "Onboarding automatizado de clientes mediante cadenas de correos dinámicas"
+  ],
+  "idealPara": "Pymes y empresas en crecimiento que necesitan automatizaciones de marketing sofisticadas integradas directamente con su proceso de ventas.",
+  "segmentosIdeales": [
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "Comercio Electrónico",
+    "Servicios Profesionales y Agencias",
+    "SaaS y Tecnología",
+    "Educación"
+  ],
+  "noRecomendadaPara": "Creadores individuales o pequeños negocios que solo necesitan enviar newsletters básicas sin requerir automatización ni gestión de contactos avanzada.",
+  "casosNoRecomendados": [
+    "Empresas que buscan exclusivamente una herramienta gratuita para envíos ocasionales de email",
+    "Equipos sin capacidad técnica o estratégica para configurar flujos de trabajo multicanal"
+  ],
+  "funcionesPrincipales": [
+    "Constructor visual de automatizaciones de marketing extremadamente flexible",
+    "Email marketing con pruebas A/B y contenido dinámico",
+    "CRM de ventas integrado con automatización de tareas y pipelines",
+    "Lead scoring y seguimiento del comportamiento en sitios web",
+    "Mensajería multicanal (SMS, mensajes en sitio y webhooks)"
+  ],
+  "integraciones": [
+    "Shopify",
+    "WooCommerce",
+    "Salesforce",
+    "Zapier",
+    "WordPress",
+    "Stripe",
+    "HubSpot",
+    "Typeform",
+    "Calendly",
+    "Zendesk"
+  ],
+  "integracionesPrincipales": [
+    "Shopify",
+    "WooCommerce",
+    "Salesforce",
+    "Zapier"
+  ],
+  "curvaDeAprendizaje": "media",
+  "precioInicial": "Desde $15/mes (Plan Starter facturado anualmente)",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Plan Plus desde $49/mes (facturado anualmente)",
+  "idiomasDisponibles": [
+    "Español",
+    "Inglés",
+    "Francés",
+    "Alemán",
+    "Portugués",
+    "Italiano"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 7,
+    "calidad": 9,
+    "fiabilidad": 9,
+    "atencionAlCliente": 8,
+    "escalabilidad": 9,
+    "nivelTecnicoRequerido": 6,
+    "facilidadImplementacion": 6
+  },
+  "metodologiaValoracion": "Puntuaciones basadas en el análisis técnico del software, potencia de su motor de automatización y agregación de miles de opiniones verificadas en plataformas como G2 y Capterra.",
+  "reputacion": {
+    "g2Puntuacion": 4.5,
+    "g2NumeroResenas": 10500,
+    "capterraPuntuacion": 4.6,
+    "capterraNumeroResenas": 2400
+  },
+  "ventajas": [
+    "Uno de los creadores de automatizaciones más avanzados y potentes del mercado",
+    "Excelente integración nativa entre el marketing por email y el CRM de ventas",
+    "Relación funcionalidad-precio superior frente a suites complejas como HubSpot",
+    "Opciones de segmentación altamente detalladas basadas en eventos de usuario"
+  ],
+  "inconvenientes": [
+    "No dispone de un plan gratuito permanente (solo prueba gratis de 14 días)",
+    "La interfaz tiene tantas opciones que puede abrumar a usuarios principiantes",
+    "Los costes aumentan sensiblemente al crecer el volumen de contactos en la base de datos"
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "HubSpot",
+      "Mailchimp",
+      "Brevo",
+      "Klaviyo"
+    ],
+    "tipoNegocioIdeal": "Ecommerce B2C y Pymes SaaS/B2B",
+    "nivelTecnicoRecomendado": "intermedio",
+    "puntuacion": 90,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.0/10.",
+      "G2: 4.5/5 (10500 reseñas).",
+      "Capterra: 4.6/5 (2400 reseñas).",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "activecampaign",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-03",
+  "fechaUltimaRevision": "2026-08-05",
+  "problemasIds": [
+    "conseguir-clientes",
+    "automatizar-tareas"
+  ]
+}

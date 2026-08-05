@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "monday.com Partner & Affiliate Program",
+  "affiliatePlatform": "PartnerStack",
+  "affiliateUrl": "https://monday.com/affiliates",
+  "commission": "Hasta un 100% de la comisión del primer pago o hasta 20% de ingresos recurrentes durante el primer año según el nivel del afiliado",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, Transferencia bancaria (Stripe)",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://monday.com/affiliates",
+  "lastAffiliateCheck": "2026-08-03",
+  "herramientaId": "monday-com"
+}

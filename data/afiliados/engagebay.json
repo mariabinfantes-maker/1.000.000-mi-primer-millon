@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "EngageBay Affiliate Program",
+  "affiliatePlatform": "FirstPromoter",
+  "affiliateUrl": "https://www.engagebay.com/affiliates",
+  "commission": "30% recurrente de por vida",
+  "cookieDuration": "30 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.engagebay.com/affiliates",
+  "lastAffiliateCheck": "2026-08-03",
+  "herramientaId": "engagebay"
+}

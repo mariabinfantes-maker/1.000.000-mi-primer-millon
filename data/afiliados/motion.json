@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Motion Affiliate Program",
+  "affiliatePlatform": "Rewardful",
+  "affiliateUrl": "https://www.usemotion.com/affiliates",
+  "commission": "30% de comisión recurrente durante el primer año",
+  "cookieDuration": "30 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, Stripe",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.usemotion.com/affiliates",
+  "lastAffiliateCheck": "2026-08-04",
+  "herramientaId": "motion"
+}

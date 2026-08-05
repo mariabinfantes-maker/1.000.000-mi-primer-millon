@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Freshworks Affiliate Program",
+  "affiliatePlatform": "PartnerStack",
+  "affiliateUrl": "https://www.freshworks.com/company/partners/affiliate/",
+  "commission": "$5 por registro cualificado + 15% de comisión recurrente sobre ventas durante los primeros 12 meses",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, Transferencia bancaria",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.freshworks.com/company/partners/affiliate/",
+  "lastAffiliateCheck": "2026-08-03",
+  "herramientaId": "freshsales"
+}

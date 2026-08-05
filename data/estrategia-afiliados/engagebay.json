@@ -1,0 +1,19 @@
+{
+  "herramientaId": "engagebay",
+  "cuentas": [
+    {
+      "id": "firstpromoter",
+      "estado": "no_solicitado",
+      "nombrePrograma": "EngageBay Affiliate Program",
+      "plataforma": "FirstPromoter",
+      "urlSolicitud": "https://www.engagebay.com/affiliates",
+      "comision": "30% recurrente de por vida",
+      "duracionCookie": "30 días",
+      "metodoPago": "PayPal",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-05",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "ActiveCampaign Partner Program",
+  "affiliatePlatform": "PartnerStack",
+  "affiliateUrl": "https://www.activecampaign.com/partner/affiliate",
+  "commission": "20% a 30% recurrente mensual",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, Transferencia bancaria",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.activecampaign.com/partner/affiliate",
+  "lastAffiliateCheck": "2026-08-03",
+  "herramientaId": "activecampaign"
+}

@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Notion Affiliate Program",
+  "affiliatePlatform": "PartnerStack",
+  "affiliateUrl": "https://www.notion.so/affiliates",
+  "commission": "50% de todos los pagos durante los primeros 12 meses del cliente referido",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, Stripe / Transferencia bancaria",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.notion.so/affiliates",
+  "lastAffiliateCheck": "2026-08-04",
+  "herramientaId": "notion-ai"
+}

@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Atlas Researcher: borradores pendientes de revisión y sus informes — estado de
+# trabajo local, no forma parte del catálogo hasta que se promueve explícitamente.
+/data/borradores/

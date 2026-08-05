@@ -1,0 +1,19 @@
+{
+  "herramientaId": "notion-ai",
+  "cuentas": [
+    {
+      "id": "partnerstack",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Notion Affiliate Program",
+      "plataforma": "PartnerStack",
+      "urlSolicitud": "https://www.notion.so/affiliates",
+      "comision": "50% de todos los pagos durante los primeros 12 meses del cliente referido",
+      "duracionCookie": "90 días",
+      "metodoPago": "PayPal, Stripe / Transferencia bancaria",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-05",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}
