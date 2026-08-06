@@ -1,4 +1,5 @@
 import type { EstrategiaAfiliacion } from "@/data/esquemaInterno";
+import { diasEntre } from "@/agents/compartido/fechas";
 
 /**
  * Comprobaciones de consistencia sobre la estrategia de afiliación —
@@ -43,13 +44,6 @@ export function detectarCuentasActivasSinEnlace(estrategias: EstrategiaAfiliacio
 }
 
 export const DIAS_ESTANCAMIENTO_POR_DEFECTO = 60;
-
-function diasEntre(hoy: string, fecha: string): number | null {
-  const msHoy = Date.parse(hoy);
-  const msFecha = Date.parse(fecha);
-  if (!Number.isFinite(msHoy) || !Number.isFinite(msFecha)) return null;
-  return Math.floor((msHoy - msFecha) / (1000 * 60 * 60 * 24));
-}
 
 /**
  * Una cuenta "pendiente" es una solicitud enviada sin respuesta todavía.
