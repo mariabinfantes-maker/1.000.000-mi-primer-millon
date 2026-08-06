@@ -89,10 +89,11 @@ toque construir hoy.
 2. ⭐ **Atlas Evaluador** — ya construido, bajo el nombre técnico "Atlas
    Advisor Capa 1" (`agents/atlas-advisor/`): motor determinista de 10
    criterios que puntúa el catálogo público en vivo, sin coste ni IA.
-3. 🎯 **Atlas Recomendador** — diseño aprobado, sin construir. Es la "Capa 2
-   de Atlas Advisor" documentada más abajo: explicación personalizada
-   asistida por IA sobre el ranking que ya calculó Evaluador — nunca decide
-   el ranking, solo lo explica.
+3. 🎯 **Atlas Recomendador** — completado. Es la "Capa 2 de Atlas Advisor"
+   documentada más abajo (`agents/atlas-recomendador/`): explicación
+   personalizada asistida por IA sobre el ranking que ya calculó Evaluador —
+   nunca decide el ranking, solo lo explica. Apagada por defecto hasta
+   activar `ATLAS_RECOMENDADOR_IA_ACTIVA` en producción.
 4. 💰 **Atlas Affiliate Manager** — completado. Cierra el circuito entre
    "programa de afiliados aprobado" e "ingresos reales" (`agents/atlas-affiliate-manager/`).
 5. 📈 **Atlas Growth** — sin diseñar. Necesita tráfico real y eventos de
@@ -139,35 +140,52 @@ cualquier herramienta. Nunca promoción automática, ni con panel ni sin él.
 No adelantar esta implementación antes de que el volumen de borradores lo
 justifique de verdad.
 
-### Capa 2 de Atlas Advisor: explicación personalizada asistida por IA (= Atlas Recomendador)
+### Atlas Recomendador (= Capa 2 de Atlas Advisor): completado
 
-**Registrada:** 2026-08-03 · **Estado:** pospuesta, no implementar todavía.
+**Registrada:** 2026-08-03 · **Implementada:** 2026-08-06 · **Estado:** completado. A partir de ahora, solo corrección de errores.
 
-Esta es la pieza que la hoja de ruta llama "Atlas Recomendador" — mismo
-agente, dos nombres (uno técnico, uno de producto). Atlas Advisor
-(`agents/atlas-advisor/`) nace con una Capa 1 determinista y sin
-coste: el motor de criterios calcula el ranking y una explicación de
-plantilla, tal como ya hacía `lib/recommendationEngine/`. Esa capa se
-implementa ya.
+Mismo agente que la hoja de ruta llama "Atlas Recomendador" — dos nombres
+para la misma pieza (uno técnico: Advisor Capa 2; uno de producto:
+Recomendador). Atlas Advisor (`agents/atlas-advisor/`) se queda como Capa 1
+determinista y sin coste: el motor de criterios calcula el ranking y una
+explicación de plantilla. Encima de eso, `agents/atlas-recomendador/`
+reescribe esa explicación en prosa personalizada, sin tocar nunca el
+ranking, cumpliendo el principio aprobado sin excepción:
 
-Una Capa 2 opcional, futura y con coste (llamadas a un proveedor de IA), está
-aprobada en principio pero pospuesta: reescribir en prosa la explicación del
-ranking ya calculado. Cuando se implemente, debe cumplir este principio sin
-excepción:
-
-- La IA **nunca** decide ni modifica el ranking — solo redacta una explicación
-  sobre el resultado que ya calculó el motor determinista.
-- La explicación **nunca** puede ser genérica. Debe usar el contexto concreto
-  de ese usuario (sector, tamaño de negocio, presupuesto, necesidades, nivel
-  técnico, etc., según lo recogido en `RespuestasUsuario`) para justificar por
-  qué esa herramienta ocupa esa posición **para ese caso específico** — no una
+- La IA **nunca** decide ni modifica el ranking — solo redacta una
+  explicación sobre `puntuacionTotal` y `razones`, ya calculados por la
+  Capa 1.
+- La explicación **nunca** es genérica: el prompt (`prompt.ts`) inyecta el
+  contexto concreto disponible en `RespuestasUsuario` (sector, tamaño,
+  presupuesto, nivel técnico, etc.) y exige que se use — nunca una
   descripción intercambiable entre usuarios distintos.
-- Si la llamada a la IA falla o no está activada, el sistema debe mostrar
-  siempre la explicación determinista de la Capa 1 como respaldo. El usuario
-  nunca debe quedarse sin explicación.
+- Si la IA falla, no está configurada, o la respuesta no es válida
+  (`recomendador.ts`, `extraerExplicacionValidada`), el sistema devuelve
+  siempre la explicación determinista de la Capa 1. Verificado en caliente
+  con una clave inválida: la respuesta llega completa e idéntica a la
+  determinista, sin ningún error visible para el usuario.
 
-No adelantar esta implementación hasta que la Capa 1 esté construida, probada
-y aprobada, y se decida explícitamente destinar presupuesto a esta capa.
+Piezas construidas:
+
+- `agents/compartido/` — `ProveedorIA` y `crearProveedorGemini()`, movidos
+  fuera de `atlas-researcher` (que fue quien los creó primero) para que
+  cualquier agente que necesite IA los reutilice sin depender de un agente
+  que no le corresponde.
+- `agents/atlas-recomendador/prompt.ts` — construye el prompt a partir de la
+  herramienta, los motivos ya calculados y el contexto real del usuario.
+- `agents/atlas-recomendador/recomendador.ts` — `personalizarExplicacion()`
+  y `personalizarRecomendaciones()`, con captura de errores y validación de
+  la respuesta (longitud mínima/máxima) antes de aceptarla.
+- `app/api/recomendaciones/route.ts` — sigue calculando siempre la Capa 1;
+  solo intenta la Capa 2 si `ATLAS_RECOMENDADOR_IA_ACTIVA=true` (variable de
+  entorno, **apagada por defecto**). A diferencia de Researcher (coste
+  puntual, un lote a la vez), esta capa llamaría a la IA en cada
+  cuestionario completado — coste continuo — de ahí el interruptor
+  explícito en vez de activarse solo con que `GEMINI_API_KEY` exista.
+
+Pendiente antes de activar en producción: configurar `GEMINI_API_KEY` y
+`ATLAS_RECOMENDADOR_IA_ACTIVA=true` en el entorno real de despliegue — hasta
+entonces, el sistema sigue funcionando con la Capa 1 determinista.
 
 ### Atlas Affiliate Manager: completado
 
@@ -286,3 +304,16 @@ repuesto — nunca un dominio hardcodeado. Antes de lanzar Atlas de verdad:
 configurar `NEXT_PUBLIC_SITE_URL` con el dominio real en el entorno de
 despliegue. Sin ese paso, el sitemap y `robots.txt` seguirán apuntando a
 localhost y no servirán para que Google indexe el sitio.
+
+### Activar Atlas Recomendador (Capa 2 de Advisor) en producción
+
+**Registrada:** 2026-08-06 (Atlas Recomendador).
+
+`app/api/recomendaciones/route.ts` solo llama a la IA si
+`ATLAS_RECOMENDADOR_IA_ACTIVA=true` está configurada en el entorno — apagada
+por defecto. Antes de encenderla en producción: configurar `GEMINI_API_KEY`
+en el entorno de despliegue real (hasta ahora solo se ha usado en local, para
+los lotes de Researcher) y decidir explícitamente el momento de activar el
+interruptor, ya que a partir de ese momento cada cuestionario completado
+supone una llamada real a la IA. Mientras tanto, Atlas sigue recomendando
+con la Capa 1 determinista, sin coste.

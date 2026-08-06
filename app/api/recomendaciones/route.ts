@@ -1,16 +1,29 @@
 import { NextResponse } from "next/server";
 import { getHerramientas } from "@/data/repositorio";
-import { recomendarHerramientas, type RespuestasUsuario } from "@/agents/atlas-advisor";
+import { recomendarHerramientas, type HerramientaEvaluada, type RespuestasUsuario } from "@/agents/atlas-advisor";
+import { personalizarRecomendaciones } from "@/agents/atlas-recomendador";
+import { crearProveedorGemini } from "@/agents/compartido/proveedores/gemini";
+
+/**
+ * Interruptor de Atlas Recomendador (Capa 2 de Advisor): a diferencia de
+ * Researcher, donde tú decides cuándo lanzar un lote, esta capa llamaría a
+ * la IA en cada cuestionario completado — un coste continuo, no puntual.
+ * Por eso vive detrás de una variable de entorno explícita, apagada por
+ * defecto, en vez de activarse solo con que `GEMINI_API_KEY` exista (esa
+ * clave también la usa Researcher, con un patrón de coste muy distinto).
+ */
+const IA_ACTIVA = process.env.ATLAS_RECOMENDADOR_IA_ACTIVA === "true";
 
 /**
  * Puente HTTP hacia el motor de recomendación.
  *
  * `data/repositorio.ts` usa `node:fs`, así que solo puede ejecutarse en el
  * servidor: el cuestionario (componente cliente) no puede llamar al motor
- * directamente y pasa por aquí. La ruta no añade lógica propia — solo lee el
- * catálogo y delega en `recomendarHerramientas` — para que sea la misma
- * puerta de entrada que usaría cualquier otro cliente futuro (una app
- * móvil, un backend externo, etc.).
+ * directamente y pasa por aquí. La ruta calcula siempre la Capa 1
+ * determinista (`recomendarHerramientas`) y, solo si `IA_ACTIVA`, intenta
+ * enriquecerla con la Capa 2 (`personalizarRecomendaciones`) — que ya trae
+ * su propio respaldo: si la IA falla, cada herramienta se queda con la
+ * explicación determinista tal cual, nunca sin ninguna.
  */
 export async function POST(request: Request) {
   let respuestas: RespuestasUsuario;
@@ -22,8 +35,13 @@ export async function POST(request: Request) {
 
   const resultado = recomendarHerramientas(respuestas, getHerramientas());
 
+  let top: HerramientaEvaluada[] = resultado.top;
+  if (IA_ACTIVA) {
+    top = await personalizarRecomendaciones(resultado.top, respuestas, crearProveedorGemini());
+  }
+
   // `totalEvaluadas` es real (el tamaño del catálogo filtrado que puntuó el
   // motor), no una cifra decorativa: se lo enseña Atlas al usuario en P-02
   // como prueba de que hay un cálculo de verdad detrás, no un top-3 fijo.
-  return NextResponse.json({ top: resultado.top, totalEvaluadas: resultado.todas.length });
+  return NextResponse.json({ top, totalEvaluadas: resultado.todas.length });
 }
