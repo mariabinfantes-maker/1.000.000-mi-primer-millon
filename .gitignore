@@ -43,3 +43,8 @@ next-env.d.ts
 # Atlas Researcher: borradores pendientes de revisión y sus informes — estado de
 # trabajo local, no forma parte del catálogo hasta que se promueve explícitamente.
 /data/borradores/
+
+# Informes HTML generados por los agentes (Affiliate Manager, Mantenimiento):
+# salida de solo lectura para revisión humana, se regenera bajo demanda.
+/data/informes-afiliacion/
+/data/informes-mantenimiento/

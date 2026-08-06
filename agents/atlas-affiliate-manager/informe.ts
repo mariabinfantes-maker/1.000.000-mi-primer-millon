@@ -1,5 +1,6 @@
 import type { Herramienta } from "@/data/esquema";
 import type { EstadoAfiliacion, EstrategiaAfiliacion } from "@/data/esquemaInterno";
+import { escaparHtml } from "@/agents/compartido/html";
 import { detectarCuentasActivasSinEnlace, detectarCuentasEstancadas, type AvisoConsistencia } from "./consistencia";
 import { priorizarCuentasPendientesDeSolicitud, type CuentaPriorizada } from "./priorizador";
 
@@ -47,14 +48,6 @@ export function construirDatosInforme(
     cuentasEstancadas: detectarCuentasEstancadas(estrategias, hoy),
     priorizadas: priorizarCuentasPendientesDeSolicitud(estrategias, herramientas),
   };
-}
-
-function escaparHtml(valor: unknown): string {
-  return String(valor ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
 }
 
 const ETIQUETA_ESTADO: Record<EstadoAfiliacion, string> = {

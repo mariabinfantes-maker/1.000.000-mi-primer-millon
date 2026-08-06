@@ -106,11 +106,10 @@ toque construir hoy.
 7. 💬 **Atlas Assistant** — sin diseñar. Previsiblemente una interfaz
    conversacional que reutiliza la salida de Evaluador/Recomendador, como
    alternativa al cuestionario estructurado.
-8. 🔧 **Atlas Mantenimiento** — sin diseñar. Mantiene el catálogo fresco con
-   el tiempo (re-investigar herramientas ya promovidas, revisar estado de
-   programas de afiliados) — previsiblemente reutiliza piezas del Researcher
-   y del Affiliate Manager, pero en modo recurrente/programado en vez de
-   alta única.
+8. 🔧 **Atlas Mantenimiento** — Capa 1 completada (`agents/atlas-mantenimiento/`):
+   detecta, de forma determinista y sin coste, fichas y cuentas de afiliado
+   que llevan mucho tiempo sin revisarse. La re-investigación asistida por
+   IA (Capa 2) queda pospuesta — ver más abajo.
 9. 🧠 **Atlas Orchestrator** — sin diseñar. Coordina cuándo se activa cada
    agente. Tiene sentido construirlo último, cuando ya existan agentes reales
    que orquestar.
@@ -225,6 +224,45 @@ Quedan fuera de esta fase, a propósito:
   prematuro con el tamaño actual del catálogo.
 - **Analítica de clics/conversión real** (territorio del futuro agente
   Growth): no tiene sentido sin tráfico real que medir.
+
+### Atlas Mantenimiento: Capa 1 completada
+
+**Registrada:** 2026-08-06 · **Estado:** Capa 1 completada. La Capa 2 (re-investigación
+asistida por IA) queda pospuesta hasta que se apruebe explícitamente.
+
+Con el catálogo ya en 18 herramientas y programas de afiliados reales
+activos, nada avisaba de que una ficha o un programa de afiliados llevara
+mucho tiempo sin comprobarse — el mismo tipo de riesgo silencioso que ya se
+cerró con Affiliate Manager, pero para datos que se quedan obsoletos con el
+tiempo en vez de un enlace que nunca se llegó a poner.
+
+Capa 1: determinista, sin IA, sin coste — solo detecta y explica, nunca
+modifica ningún dato:
+
+- `agents/atlas-mantenimiento/frescura.ts` —
+  `detectarHerramientasDesactualizadas()` (fichas activas sin revisar en más
+  de 180 días) y `detectarCuentasActivasDesactualizadas()` (cuentas de
+  afiliado "activo" sin comprobar en el mismo plazo — hueco que las
+  comprobaciones de Affiliate Manager no cubrían, centradas en "activo sin
+  enlace" y "pendiente estancada").
+- `agents/atlas-mantenimiento/priorizacion.ts` — ordena los avisos por
+  Puntuación Atlas, mismo criterio que `priorizador.ts` de Affiliate
+  Manager: revisar antes lo que más se recomienda.
+- `agents/atlas-mantenimiento/informe.ts` + `npm run informe-mantenimiento`
+  — informe HTML de solo lectura, nunca bloquea `verificar-datos`.
+
+Reutilización aplicada durante la implementación: `diasEntre()` (antes
+solo en Affiliate Manager) y `escaparHtml()` (duplicada en Researcher y
+Affiliate Manager) se movieron a `agents/compartido/` para que los tres
+agentes usen la misma implementación.
+
+Queda fuera de esta fase, a propósito: re-investigar automáticamente una
+herramienta desactualizada con IA y aplicar el cambio. Es una Capa 2 con
+coste por llamada (como el Recomendador) que además necesita su propio
+flujo de aprobación humana para *actualizar* una ficha ya existente
+(distinto de `promover.ts`, que solo promueve herramientas nuevas) — se
+diseñará aparte cuando se apruebe explícitamente, nunca modificando el
+catálogo sin revisión humana previa.
 
 ### Atlas Generador de Contenido: Capa 1 completada
 

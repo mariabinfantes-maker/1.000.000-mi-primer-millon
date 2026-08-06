@@ -1,5 +1,6 @@
 import type { AffiliateData } from "@/data/esquemaInterno";
 import type { Herramienta } from "@/data/esquema";
+import { escaparHtml } from "@/agents/compartido/html";
 import type { MetadatosBorrador } from "./borrador";
 import { CAMPOS_INVESTIGABLES_AFILIADOS_OBLIGATORIOS } from "./camposAfiliados";
 import { CAMPOS_INVESTIGABLES_OBLIGATORIOS } from "./camposEsquema";
@@ -60,14 +61,6 @@ export function construirSeccionInforme(id: string, borrador: BorradorLeido): Se
     camposPublicosFaltantes,
     camposAfiliadosFaltantes,
   };
-}
-
-function escaparHtml(valor: unknown): string {
-  return String(valor ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
 }
 
 function listaHtml(items: string[] | undefined): string {
