@@ -1,6 +1,6 @@
 import type { AffiliateData } from "@/data/esquemaInterno";
 import { construirPromptInvestigacion } from "./prompt";
-import type { ProveedorIA } from "./proveedorIA";
+import type { ProveedorIA } from "@/agents/compartido/proveedorIA";
 import type { ResultadoInvestigacion, SolicitudInvestigacion } from "./tipos";
 import { validarPropuesta } from "./validador";
 

@@ -5,7 +5,7 @@ import { getTodasLasHerramientas } from "@/data/repositorio";
 import { listarIdsBorradores } from "./borrador";
 import { generarId, idYaExiste } from "./id";
 import { ejecutarLote, type CandidatoLote, type ResultadoCandidatoLote } from "./lote";
-import { crearProveedorGemini } from "./proveedores/gemini";
+import { crearProveedorGemini } from "@/agents/compartido/proveedores/gemini";
 
 /**
  * Límite de peticiones por minuto del proveedor. El nivel gratuito de

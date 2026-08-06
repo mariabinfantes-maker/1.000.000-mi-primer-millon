@@ -3,7 +3,7 @@ import os from "node:os";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { ejecutarLote, type CandidatoLote } from "../lote";
-import type { ProveedorIA } from "../proveedorIA";
+import type { ProveedorIA } from "@/agents/compartido/proveedorIA";
 
 const AFFILIATE_FIABLE = { hasAffiliateProgram: true, affiliateStatus: "active", confidenceLevel: "medium", source: "https://x.com" };
 const AFFILIATE_SIN_PROGRAMA = { hasAffiliateProgram: false, affiliateStatus: "not_available" };

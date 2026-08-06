@@ -1,6 +1,6 @@
 import type { AffiliateData } from "@/data/esquemaInterno";
 import { DESCRIPCION_CAMPOS_AFILIADOS } from "./camposAfiliados";
-import type { ProveedorIA } from "./proveedorIA";
+import type { ProveedorIA } from "@/agents/compartido/proveedorIA";
 
 /**
  * Prechequeo de afiliados (etapa 3 del pipeline por lotes).

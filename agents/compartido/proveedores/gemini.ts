@@ -19,7 +19,8 @@ type RespuestaGemini = {
 };
 
 /**
- * Adaptador de Gemini para Atlas Researcher.
+ * Adaptador de Gemini, compartido por cualquier agente de Atlas que
+ * necesite IA (Researcher, Recomendador, y los que vengan después).
  *
  * Implementa el contrato `ProveedorIA` (ver proveedorIA.ts) llamando a la
  * API de generación de contenido de Gemini. La clave se lee de

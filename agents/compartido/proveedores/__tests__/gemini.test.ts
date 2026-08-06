@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { ErrorProveedorIA } from "../proveedorIA";
-import { crearProveedorGemini } from "../proveedores/gemini";
+import { ErrorProveedorIA } from "../../proveedorIA";
+import { crearProveedorGemini } from "../gemini";
 
 function respuestaFetch(cuerpo: unknown, ok = true, status = 200): Response {
   return {

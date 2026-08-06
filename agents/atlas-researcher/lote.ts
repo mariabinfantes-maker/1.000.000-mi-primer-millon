@@ -2,7 +2,7 @@ import { investigarHerramienta } from "./agente";
 import { escribirBorrador, type BorradorEscrito } from "./borrador";
 import { generarId, idYaExiste } from "./id";
 import { prechequearAfiliados } from "./prechequeoAfiliados";
-import type { ProveedorIA } from "./proveedorIA";
+import type { ProveedorIA } from "@/agents/compartido/proveedorIA";
 import type { SolicitudInvestigacion } from "./tipos";
 
 /**

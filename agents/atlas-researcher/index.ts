@@ -4,7 +4,7 @@
  * Uso típico, una vez exista un proveedor de IA conectado de verdad:
  *
  *   import { investigarHerramienta } from "@/agents/atlas-researcher";
- *   import { crearProveedorGemini } from "@/agents/atlas-researcher/proveedores/gemini";
+ *   import { crearProveedorGemini } from "@/agents/compartido/proveedores/gemini";
  *
  *   const resultado = await investigarHerramienta(
  *     { nombreHerramienta: "Nombre del software" },
@@ -14,8 +14,8 @@
 export { investigarHerramienta } from "./agente";
 export { construirPromptInvestigacion } from "./prompt";
 export { validarPropuesta } from "./validador";
-export { ErrorProveedorIA } from "./proveedorIA";
-export type { ProveedorIA } from "./proveedorIA";
+export { ErrorProveedorIA } from "@/agents/compartido/proveedorIA";
+export type { ProveedorIA } from "@/agents/compartido/proveedorIA";
 export type {
   HerramientaPropuesta,
   NivelConfianza,
