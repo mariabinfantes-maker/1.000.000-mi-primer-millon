@@ -51,7 +51,7 @@ export default function PantallaRecomendacion({ origen }: { origen: OrigenDiagno
           Todavía no tenemos tu recomendación
         </h1>
         <p className="mt-2 leading-relaxed text-slate-600">
-          Responde primero a unas preguntas rápidas sobre tu empresa y Atlas te mostrará las
+          Responde primero a unas preguntas rápidas sobre tu empresa y Molnip te mostrará las
           herramientas que mejor encajan.
         </p>
         <Boton href={`${origen.rutaBase}/cuestionario`} className="mt-6">

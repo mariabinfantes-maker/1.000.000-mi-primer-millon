@@ -46,7 +46,7 @@ export default function PantallaComparador({ origen }: { origen: OrigenDiagnosti
       <div className="mx-auto flex max-w-xl flex-col items-center px-4 py-24 text-center">
         <h1 className="text-2xl font-bold tracking-tight text-slate-900">Todavía no hay nada que comparar</h1>
         <p className="mt-2 leading-relaxed text-slate-600">
-          Completa primero el cuestionario para que Atlas elija las opciones que quieres comparar.
+          Completa primero el cuestionario para que Molnip elija las opciones que quieres comparar.
         </p>
         <Boton href={`${origen.rutaBase}/cuestionario`} className="mt-6">
           Empezar el cuestionario

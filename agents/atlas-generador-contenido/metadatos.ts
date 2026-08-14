@@ -11,16 +11,16 @@ import type { Categoria, Herramienta, Problema } from "@/data/esquema";
  * necesita indicar su propio título, nunca el sufijo "| Atlas".
  */
 
-export const TITULO_ATLAS = "Atlas — El asesor que recomienda la herramienta exacta para tu empresa";
+export const TITULO_ATLAS = "Molnip — El asesor que recomienda la herramienta exacta para tu empresa";
 export const DESCRIPCION_ATLAS =
-  "Atlas es un asesor inteligente, no un directorio de software. Describe tu problema y te recomendamos la tecnología exacta para resolverlo, sin listas interminables ni sesgos publicitarios.";
+  "Molnip es un asesor inteligente, no un directorio de software. Describe tu problema y te recomendamos la tecnología exacta para resolverlo, sin listas interminables ni sesgos publicitarios.";
 
 function construirMetadata(titulo: string, descripcion: string, opciones: { indexable: boolean }): Metadata {
   // `title` se queda como texto plano: el layout raíz ya añade " | Atlas"
   // mediante `title.template`. openGraph/twitter no heredan esa plantilla
   // (las leen plataformas externas, no el <title> del documento), así que
   // llevan el sufijo explícito para no aparecer sin marca en una vista previa.
-  const tituloCompleto = `${titulo} | Atlas`;
+  const tituloCompleto = `${titulo} | Molnip`;
   return {
     title: titulo,
     description: descripcion,
@@ -64,7 +64,7 @@ export function metadataComparacion(a: Herramienta, b: Herramienta): Metadata {
 export function metadataAlternativas(herramienta: Herramienta): Metadata {
   return construirMetadata(
     `Alternativas a ${herramienta.nombre}`,
-    `Otras opciones a ${herramienta.nombre} en la misma categoría, comparadas por Atlas.`,
+    `Otras opciones a ${herramienta.nombre} en la misma categoría, comparadas por Molnip.`,
     { indexable: true }
   );
 }

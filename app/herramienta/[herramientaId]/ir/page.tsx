@@ -73,7 +73,7 @@ export default async function IrAlProveedorPage({
       <div className="mt-8 flex items-start gap-2 rounded-2xl border border-slate-200/80 bg-slate-50 p-4 text-left">
         <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" aria-hidden="true" />
         <p className="text-xs leading-relaxed text-slate-500">
-          Este es un enlace de afiliado: Atlas recibe una comisión del proveedor por tu clic. Nunca afecta al
+          Este es un enlace de afiliado: Molnip recibe una comisión del proveedor por tu clic. Nunca afecta al
           precio que pagas ni cambia lo que te recomendamos.
         </p>
       </div>

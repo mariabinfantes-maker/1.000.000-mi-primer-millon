@@ -10,7 +10,7 @@ export default function Header() {
             <Sparkles className="h-5 w-5" aria-hidden="true" />
           </span>
           <span className="text-lg font-semibold tracking-tight text-slate-900">
-            Atlas
+            Molnip
           </span>
         </Link>
         <p className="hidden text-sm text-slate-500 sm:block">

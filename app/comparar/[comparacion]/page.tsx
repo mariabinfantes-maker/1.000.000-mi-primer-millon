@@ -55,7 +55,7 @@ export default async function ComparacionPage({
         {a.nombre} vs {b.nombre}
       </h1>
       <p className="mt-3 max-w-2xl leading-relaxed text-slate-600">
-        Comparativa objetiva criterio a criterio, calculada por Atlas — sin cuestionario de por medio.
+        Comparativa objetiva criterio a criterio, calculada por Molnip — sin cuestionario de por medio.
       </p>
 
       <div className="mt-8">

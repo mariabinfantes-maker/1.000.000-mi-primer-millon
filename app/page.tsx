@@ -26,7 +26,7 @@ const PASOS_COMO_FUNCIONA = [
   },
   {
     icono: Sparkles,
-    titulo: "Atlas analiza tus necesidades",
+    titulo: "Molnip analiza tus necesidades",
     descripcion: "Cruzamos tus respuestas con un catálogo curado de herramientas reales.",
   },
   {
@@ -106,7 +106,7 @@ export default function Home() {
               className="animar-entrada mx-auto mt-5 max-w-xl text-lg leading-relaxed text-slate-600 lg:mx-0"
               style={{ animationDelay: "180ms" }}
             >
-              Atlas analiza tu negocio y te recomienda la tecnología exacta para resolver tu
+              Molnip analiza tu negocio y te recomienda la tecnología exacta para resolver tu
               problema. Por objetivo, por categoría o explicándolo con tus palabras — tú eliges
               por dónde empezar.
             </p>
@@ -191,7 +191,7 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28">
           <RevelarAlScroll className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">
-              Así piensa Atlas
+              Así piensa Molnip
             </p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               Tres agentes, un mismo objetivo: acertar por ti
@@ -228,7 +228,7 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28">
           <RevelarAlScroll className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">
-              Por qué Atlas
+              Por qué Molnip
             </p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               Pensado para que confíes en la recomendación

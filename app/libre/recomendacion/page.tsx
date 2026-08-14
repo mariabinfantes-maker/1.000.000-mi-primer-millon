@@ -10,7 +10,7 @@ const ORIGEN_LIBRE: OrigenDiagnostico = {
   rutaBase: "/libre",
 };
 
-export const metadata: Metadata = metadataFlujo("Tu recomendación", "Tu recomendación personalizada de Atlas.");
+export const metadata: Metadata = metadataFlujo("Tu recomendación", "Tu recomendación personalizada de Molnip.");
 
 export default function RecomendacionLibrePage() {
   return <PantallaRecomendacion origen={ORIGEN_LIBRE} />;

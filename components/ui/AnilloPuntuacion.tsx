@@ -25,7 +25,7 @@ export default function AnilloPuntuacion({
       className="relative inline-flex shrink-0 items-center justify-center"
       style={{ width: tamanoPx, height: tamanoPx }}
     >
-      <svg viewBox="0 0 96 96" className="h-full w-full -rotate-90" role="img" aria-label={`Puntuación Atlas: ${clamped} de 100`}>
+      <svg viewBox="0 0 96 96" className="h-full w-full -rotate-90" role="img" aria-label={`Puntuación Molnip: ${clamped} de 100`}>
         <circle cx="48" cy="48" r={RADIO} fill="none" stroke="#e0e7ff" strokeWidth="8" />
         <circle
           cx="48"

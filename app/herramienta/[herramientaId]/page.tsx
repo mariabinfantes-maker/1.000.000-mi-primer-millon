@@ -83,7 +83,7 @@ export default async function FichaHerramientaPage({
           {puntuacion && (
             <div className="flex shrink-0 flex-col items-center gap-1.5">
               <AnilloPuntuacion puntuacion={puntuacion.puntuacion} tamano="grande" />
-              <span className="text-xs font-medium text-slate-400">Puntuación Atlas</span>
+              <span className="text-xs font-medium text-slate-400">Puntuación Molnip</span>
             </div>
           )}
         </div>

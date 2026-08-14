@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: { default: TITULO_ATLAS, template: "%s | Atlas" },
+  title: { default: TITULO_ATLAS, template: "%s | Molnip" },
   description: DESCRIPCION_ATLAS,
   openGraph: {
     title: TITULO_ATLAS,
@@ -44,7 +44,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <footer className="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-400">
-          Atlas — recomendaciones independientes de tecnología para empresas
+          Molnip — recomendaciones independientes de tecnología para empresas
         </footer>
       </body>
     </html>

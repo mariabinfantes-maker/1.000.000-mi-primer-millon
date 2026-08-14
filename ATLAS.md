@@ -1,8 +1,17 @@
 # ATLAS
 
+> **Nota de marca (2026-08-06):** el nombre público del producto es
+> **Molnip** (dominio molnip.com, ya comprado) — toda la interfaz visible
+> para el usuario (título del sitio, metadatos, textos, JSON-LD) usa
+> "Molnip". "Atlas" se mantiene como nombre técnico interno del proyecto:
+> este documento, las carpetas (`agents/atlas-*`) y el código no se
+> renombran por ahora, para minimizar riesgo mientras el foco está en el
+> lanzamiento. Se decidirá más adelante si se hace también un rebranding
+> interno completo.
+
 ## Qué es
 
-Atlas es un asesor inteligente que ayuda a las empresas a elegir la mejor tecnología para crecer.
+Atlas (marca pública: Molnip) es un asesor inteligente que ayuda a las empresas a elegir la mejor tecnología para crecer.
 
 No es un blog.
 No es un directorio.
@@ -333,13 +342,14 @@ en el código; todas quedan aquí para no olvidarlas.
 
 ### Dominio real del sitio
 
-**Registrada:** 2026-08-03 (Atlas Generador de Contenido, sitemap dinámico).
+**Registrada:** 2026-08-03 (Atlas Generador de Contenido, sitemap dinámico) ·
+**Actualizada:** 2026-08-06 — dominio decidido: **molnip.com** (ya comprado).
 
 `app/sitemap.ts` y `app/robots.ts` necesitan URLs absolutas. Hasta que el
-dominio de producción esté decidido, `lib/urlBase.ts` usa
-`NEXT_PUBLIC_SITE_URL` con `http://localhost:3000` como valor de
-repuesto — nunca un dominio hardcodeado. Antes de lanzar Atlas de verdad:
-configurar `NEXT_PUBLIC_SITE_URL` con el dominio real en el entorno de
+dominio de producción se configure en el entorno de despliegue,
+`lib/urlBase.ts` usa `NEXT_PUBLIC_SITE_URL` con `http://localhost:3000` como
+valor de repuesto — nunca un dominio hardcodeado. Antes de lanzar de verdad:
+configurar `NEXT_PUBLIC_SITE_URL=https://molnip.com` en el entorno de
 despliegue. Sin ese paso, el sitemap y `robots.txt` seguirán apuntando a
 localhost y no servirán para que Google indexe el sitio.
 

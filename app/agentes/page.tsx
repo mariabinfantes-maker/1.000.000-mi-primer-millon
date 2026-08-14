@@ -38,11 +38,11 @@ export default function AgentesPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-16">
       <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">Transparencia</p>
-      <h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Cómo trabaja Atlas</h1>
+      <h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Cómo trabaja Molnip</h1>
       <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
-        Atlas no es una caja negra. Cada recomendación pasa por tres agentes distintos, cada uno con un
+        Molnip no es una caja negra. Cada recomendación pasa por tres agentes distintos, cada uno con un
         trabajo concreto y con acceso solo a los datos que necesita — nunca a la información de afiliación,
-        reservada al funcionamiento interno de Atlas.
+        reservada al funcionamiento interno de Molnip.
       </p>
 
       <div className="mt-10 space-y-6">

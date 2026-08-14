@@ -12,7 +12,7 @@ describe("metadataHerramienta", () => {
     expect(metadata.title).toContain("CRM Fácil");
     expect(metadata.description).toBe("Un CRM sencillo para pymes.");
     expect(metadata.robots).toBeUndefined();
-    expect(metadata.openGraph?.title).toBe(`${metadata.title} | Atlas`);
+    expect(metadata.openGraph?.title).toBe(`${metadata.title} | Molnip`);
   });
 });
 
