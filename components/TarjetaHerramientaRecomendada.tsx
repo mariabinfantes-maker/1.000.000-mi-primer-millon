@@ -1,22 +1,27 @@
-import { AlertTriangle, ArrowUpRight, Check, Puzzle, Star, X } from "lucide-react";
+import { AlertTriangle, ArrowUpRight, Check, ChevronRight, Lightbulb, Puzzle, X } from "lucide-react";
+import Link from "next/link";
 import Tarjeta from "@/components/ui/Tarjeta";
 import Etiqueta from "@/components/ui/Etiqueta";
 import Boton from "@/components/ui/Boton";
+import AnilloPuntuacion from "@/components/ui/AnilloPuntuacion";
 
 /**
  * Contrato de la tarjeta, deliberadamente plano y ajeno al motor de
  * recomendación: solo tipos primitivos, sin importar nada de
- * `lib/recommendationEngine` ni `data/esquema`. Si el algoritmo cambia
+ * `agents/atlas-advisor` ni `data/esquema`. Si el algoritmo cambia
  * (nuevos criterios, pesos distintos, otra forma de puntuar), solo hay que
  * tocar el adaptador que produce estas props — nunca este componente.
  */
 export type TarjetaHerramientaRecomendadaProps = {
   /** Posición en el ranking (1, 2, 3...), para la etiqueta de la tarjeta destacada. */
   posicion: number;
+  /** Slug estable de la herramienta, para enlazar a su ficha completa (P-04) y a la salida al proveedor (P-07). */
+  id: string;
   nombre: string;
-  paginaOficial: string;
-  /** Puntuación editorial de Atlas, en una escala 1-10 con un decimal. */
-  puntuacionAtlas: number;
+  /** Puntuación Atlas (0-100), calculada por lib/puntuacionAtlas.ts. `null` si no hay ninguna señal con la que calcularla. */
+  puntuacionAtlas: number | null;
+  /** Motivos legibles de la puntuación (calidad editorial, reputación externa, señales de producto...). */
+  motivosPuntuacion: string[];
   precioInicial: string;
   tienePlanGratuito: boolean;
   ventajas: string[];
@@ -27,13 +32,18 @@ export type TarjetaHerramientaRecomendadaProps = {
   integracionPrincipal: string | null;
   /** Si hay algún aviso a tener en cuenta (ej. el perfil del usuario coincide con un caso no recomendado). */
   tieneAdvertencia?: boolean;
+  /** Un ejemplo real de uso, para anclar la recomendación en algo concreto en vez de quedarse en lo abstracto. */
+  casoDeUso: string | null;
+  /** Situaciones reales en las que esta misma herramienta podría no ser la mejor opción. */
+  casosNoRecomendados: string[];
 };
 
 export default function TarjetaHerramientaRecomendada({
   posicion,
+  id,
   nombre,
-  paginaOficial,
   puntuacionAtlas,
+  motivosPuntuacion,
   precioInicial,
   tienePlanGratuito,
   ventajas,
@@ -41,8 +51,11 @@ export default function TarjetaHerramientaRecomendada({
   explicacionPersonalizada,
   integracionPrincipal,
   tieneAdvertencia = false,
+  casoDeUso,
+  casosNoRecomendados,
 }: TarjetaHerramientaRecomendadaProps) {
   const destacada = posicion === 1;
+  const tieneDetalles = motivosPuntuacion.length > 0 || casosNoRecomendados.length > 0;
 
   return (
     <Tarjeta
@@ -53,13 +66,14 @@ export default function TarjetaHerramientaRecomendada({
         <Etiqueta variante={destacada ? "marca" : "neutra"}>
           {destacada ? "Mejor opción para ti" : `Opción #${posicion}`}
         </Etiqueta>
-        <span className="flex shrink-0 items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700">
-          <Star className="h-3.5 w-3.5 fill-amber-500 text-amber-500" aria-hidden="true" />
-          {puntuacionAtlas.toFixed(1)}/10
-        </span>
+        {puntuacionAtlas !== null && <AnilloPuntuacion puntuacion={puntuacionAtlas} />}
       </div>
 
-      <h3 className="mt-4 text-xl font-bold tracking-tight text-slate-900">{nombre}</h3>
+      <h3 className="mt-4 text-xl font-bold tracking-tight text-slate-900">
+        <Link href={`/herramienta/${id}`} className="hover:text-brand-700">
+          {nombre}
+        </Link>
+      </h3>
 
       <p className="mt-3 rounded-xl bg-brand-50/70 p-3 text-sm leading-relaxed text-brand-800">
         {explicacionPersonalizada}
@@ -76,6 +90,13 @@ export default function TarjetaHerramientaRecomendada({
         <p className="mt-3 flex items-center gap-1.5 text-sm text-slate-600">
           <Puzzle className="h-4 w-4 shrink-0 text-slate-400" aria-hidden="true" />
           Se integra con <span className="font-medium text-slate-800">{integracionPrincipal}</span>
+        </p>
+      )}
+
+      {casoDeUso && (
+        <p className="mt-3 flex items-start gap-1.5 text-sm text-slate-600">
+          <Lightbulb className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" aria-hidden="true" />
+          <span>{casoDeUso}</span>
         </p>
       )}
 
@@ -111,7 +132,53 @@ export default function TarjetaHerramientaRecomendada({
         </p>
       )}
 
-      <Boton href={paginaOficial} externo tamano="grande" className="mt-6 w-full">
+      {tieneDetalles && (
+        <details className="mt-4 border-t border-slate-100 pt-4">
+          <summary className="cursor-pointer select-none text-sm font-semibold text-slate-600 hover:text-brand-700">
+            Ver más detalles
+          </summary>
+          <div className="mt-3 space-y-4">
+            {motivosPuntuacion.length > 0 && (
+              <div>
+                <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                  Por qué esta puntuación
+                </h4>
+                <ul className="mt-1.5 space-y-1">
+                  {motivosPuntuacion.map((motivo) => (
+                    <li key={motivo} className="text-sm leading-relaxed text-slate-600">
+                      {motivo}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {casosNoRecomendados.length > 0 && (
+              <div>
+                <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                  Cuándo podría no ser la mejor opción
+                </h4>
+                <ul className="mt-1.5 space-y-1">
+                  {casosNoRecomendados.map((caso) => (
+                    <li key={caso} className="text-sm leading-relaxed text-slate-600">
+                      {caso}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </details>
+      )}
+
+      <Link
+        href={`/herramienta/${id}`}
+        className="mt-6 flex items-center justify-center gap-1 text-sm font-semibold text-brand-600 hover:text-brand-800"
+      >
+        Ver ficha completa
+        <ChevronRight className="h-4 w-4" aria-hidden="true" />
+      </Link>
+
+      <Boton href={`/herramienta/${id}/ir`} tamano="grande" className="mt-3 w-full">
         Ir al proveedor
         <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
       </Boton>

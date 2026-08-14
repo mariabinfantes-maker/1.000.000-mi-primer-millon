@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import { DESCRIPCION_ATLAS, TITULO_ATLAS } from "@/agents/atlas-generador-contenido/metadatos";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,23 +14,19 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const TITULO = "Atlas — El asesor que recomienda la herramienta exacta para tu empresa";
-const DESCRIPCION =
-  "Atlas es un asesor inteligente, no un directorio de software. Describe tu problema y te recomendamos la tecnología exacta para resolverlo, sin listas interminables ni sesgos publicitarios.";
-
 export const metadata: Metadata = {
-  title: TITULO,
-  description: DESCRIPCION,
+  title: { default: TITULO_ATLAS, template: "%s | Molnip" },
+  description: DESCRIPCION_ATLAS,
   openGraph: {
-    title: TITULO,
-    description: DESCRIPCION,
+    title: TITULO_ATLAS,
+    description: DESCRIPCION_ATLAS,
     type: "website",
     locale: "es_ES",
   },
   twitter: {
     card: "summary",
-    title: TITULO,
-    description: DESCRIPCION,
+    title: TITULO_ATLAS,
+    description: DESCRIPCION_ATLAS,
   },
 };
 
@@ -47,7 +44,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <footer className="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-400">
-          Atlas — recomendaciones independientes de tecnología para empresas
+          Molnip — recomendaciones independientes de tecnología para empresas
         </footer>
       </body>
     </html>

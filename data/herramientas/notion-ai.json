@@ -1,0 +1,139 @@
+{
+  "nombre": "Notion AI",
+  "paginaOficial": "https://www.notion.so/product/ai",
+  "urlPrecios": "https://www.notion.so/pricing",
+  "logoUrl": "",
+  "categoriaId": "asistentes-ia",
+  "descripcion": "Notion AI es un asistente de inteligencia artificial integrado de forma nativa en el espacio de trabajo de Notion. Permite a los usuarios redactar borrador de textos, resumir documentos extensos, extraer acciones clave y consultar en lenguaje natural toda la base de conocimiento interna de la organización.",
+  "informacionEmpresa": {
+    "anioFundacion": 2013,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "501-1000 empleados"
+  },
+  "problemasQueResuelve": [
+    "Tiempo invertido en sintetizar o resumir notas de reuniones y documentos largos de forma manual.",
+    "Dificultad para localizar respuestas concretas dentro de una base de datos o wiki empresarial saturada de información.",
+    "Bloqueos creativos y lentitud en la elaboración de primeros borradores de contenido o planes de proyecto."
+  ],
+  "casosDeUso": [
+    "Búsqueda mediante la función Q&A para hacer preguntas sobre políticas o procesos internos guardados en la wiki de Notion.",
+    "Resumen automático de minutas de reuniones y extracción de tareas pendientes con asignación implícita.",
+    "Traducción instantánea y ajuste de tono (formal, directo, conciso) en documentos de trabajo.",
+    "Generación de plantillas, listas de tareas y borradores de artículos o correos directamente en el editor."
+  ],
+  "idealPara": "Equipos y empresas que ya concentran sus notas, proyectos y documentación en Notion y desean multiplicar su productividad con IA sin cambiar de aplicación.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "Tecnología y Software",
+    "Marketing y Agencias Creativas",
+    "Educación y Formación",
+    "Servicios Profesionales",
+    "Startups"
+  ],
+  "noRecomendadaPara": "Empresas que no utilicen Notion como herramienta central de trabajo o que busquen un asistente de IA enfocado en hojas de cálculo y análisis financiero complejo.",
+  "casosNoRecomendados": [
+    "Equipos cuyo flujo documental dependa por completo de Microsoft 365 o Google Workspace sin intención de usar Notion.",
+    "Procesamiento avanzado de datos cuantitativos masivos o análisis estadístico avanzado."
+  ],
+  "funcionesPrincipales": [
+    "Preguntas y Respuestas (Q&A) sobre todo el espacio de trabajo de Notion",
+    "Generación y borrador de contenidos con IA",
+    "Resumen automático de páginas e hilos de comentarios",
+    "Extracción de puntos de acción y tareas",
+    "Traducción a múltiples idiomas en tiempo real",
+    "Corrección gramatical y ajuste de tono"
+  ],
+  "integraciones": [
+    "Slack",
+    "Google Drive",
+    "Figma",
+    "GitHub",
+    "Jira",
+    "Zapier",
+    "Make"
+  ],
+  "integracionesPrincipales": [
+    "Slack",
+    "Google Drive",
+    "GitHub",
+    "Jira"
+  ],
+  "curvaDeAprendizaje": "muy_facil",
+  "precioInicial": "Desde 8€/usuario/mes (facturación anual) o 10€/usuario/mes (facturación mensual) como add-on.",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Notion AI Add-on a 8€/usuario/mes (facturado anualmente) sobre cualquier plan pagado o gratuito de Notion.",
+  "idiomasDisponibles": [
+    "Español",
+    "Inglés",
+    "Francés",
+    "Alemán",
+    "Japonés",
+    "Coreano",
+    "Portugués"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 8,
+    "fiabilidad": 8,
+    "atencionAlCliente": 7,
+    "escalabilidad": 8,
+    "nivelTecnicoRequerido": 2,
+    "facilidadImplementacion": 9
+  },
+  "metodologiaValoracion": "Puntuaciones calculadas a partir del análisis de valoraciones verificadas en G2 y Capterra relativas a Notion y sus funciones de IA, así como pruebas de integración fluida en espacios de trabajo reales.",
+  "reputacion": {
+    "g2Puntuacion": 4.7,
+    "g2NumeroResenas": 5300,
+    "capterraPuntuacion": 4.8,
+    "capterraNumeroResenas": 2100
+  },
+  "ventajas": [
+    "Integración nativa fluida dentro de las páginas sin necesidad de copiar y pegar desde pestañas externas.",
+    "La función Q&A permite indexar y responder basándose en el contexto global de los documentos de la organización.",
+    "Atajos de teclado extremadamente accesibles (presionando espacio o `/ai`).",
+    "Excelente relación valor-precio como complemento para usuarios activos de Notion."
+  ],
+  "inconvenientes": [
+    "Es un complemento de pago obligatorio por usuario, no cuenta con un plan gratuito ilimitado.",
+    "Su utilidad fuera de la plataforma Notion es inexistente.",
+    "La calidad de las respuestas en la función Q&A depende de la calidad y actualización previa de la base de datos de la empresa."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "ClickUp Brain",
+      "Mem.ai",
+      "Craft AI",
+      "Microsoft Copilot"
+    ],
+    "tipoNegocioIdeal": "Startups, agencias y empresas con bases de conocimiento centralizadas en Notion",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 92,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.2/10.",
+      "G2: 4.7/5 (5300 reseñas).",
+      "Capterra: 4.8/5 (2100 reseñas).",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "notion-ai",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-04",
+  "fechaUltimaRevision": "2026-08-05",
+  "problemasIds": [
+    "ahorrar-tiempo"
+  ]
+}

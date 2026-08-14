@@ -1,0 +1,19 @@
+{
+  "herramientaId": "monday-com",
+  "cuentas": [
+    {
+      "id": "partnerstack",
+      "estado": "no_solicitado",
+      "nombrePrograma": "monday.com Partner & Affiliate Program",
+      "plataforma": "PartnerStack",
+      "urlSolicitud": "https://monday.com/affiliates",
+      "comision": "Hasta un 100% de la comisión del primer pago o hasta 20% de ingresos recurrentes durante el primer año según el nivel del afiliado",
+      "duracionCookie": "90 días",
+      "metodoPago": "PayPal, Transferencia bancaria (Stripe)",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-05",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

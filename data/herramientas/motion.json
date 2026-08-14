@@ -1,0 +1,138 @@
+{
+  "nombre": "Motion",
+  "paginaOficial": "https://www.usemotion.com/",
+  "urlPrecios": "https://www.usemotion.com/pricing",
+  "categoriaId": "asistentes-ia",
+  "descripcion": "Motion es una herramienta de productividad impulsada por inteligencia artificial que automatiza la planificación diaria construyendo calendarios inteligentes. Combina gestión de tareas, proyectos y programación de reuniones, reordenando automáticamente las prioridades del usuario según plazos y disponibilidad.",
+  "informacionEmpresa": {
+    "anioFundacion": 2020,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "11-50 empleados"
+  },
+  "problemasQueResuelve": [
+    "Falta de tiempo para planificar manualmente la agenda diaria y priorizar tareas",
+    "Conflictos de horario entre reuniones y bloques de trabajo enfocado",
+    "Procrastinación por saturación de tareas sin asignar en el calendario",
+    "Gestión ineficiente de proyectos pequeños y medianos con plazos cambiantes"
+  ],
+  "casosDeUso": [
+    "Automatización de la agenda diaria asignando automáticamente bloques de tiempo a tareas pendientes según su prioridad y fecha límite.",
+    "Programación inteligente de reuniones mediante páginas de reserva personalizadas que respetan el tiempo de trabajo profundo.",
+    "Planificación y seguimiento de proyectos de equipo con redistribución automática de carga de trabajo cuando cambian los plazos."
+  ],
+  "idealPara": "Ideal para profesionales, ejecutivos, consultores y pequeñas agencias que gestionan agendas complejas y necesitan automatizar su plan de trabajo diario.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200"
+  ],
+  "industriasIdeales": [
+    "Tecnología y SaaS",
+    "Agencias de marketing y comunicación",
+    "Consultoría y servicios profesionales",
+    "Startups y emprendimiento"
+  ],
+  "noRecomendadaPara": "No recomendada para usuarios que buscan un calendario gratuito o empresas grandes que requieren gestión de proyectos altamente compleja y metodologías ágiles avanzadas.",
+  "casosNoRecomendados": [
+    "Equipos grandes que necesitan diagramas de Gantt avanzados, presupuestos detallados o seguimiento de recursos de nivel enterprise.",
+    "Usuarios individuales que solo buscan una agenda básica sin pagar suscripción."
+  ],
+  "funcionesPrincipales": [
+    "Algoritmo de planificación automática inteligente (AI Auto-Scheduling)",
+    "Calendario integrado con alineación de múltiples cuentas (Google Calendar y Outlook)",
+    "Gestor de tareas y proyectos con priorización dinámica",
+    "Programador de reuniones y enlaces de reserva de citas",
+    "Bloqueo automático de tiempo para trabajo enfocado (Deep Work)"
+  ],
+  "integraciones": [
+    "Google Calendar",
+    "Microsoft Outlook",
+    "Zapier",
+    "Siri",
+    "Zoom",
+    "Google Meet",
+    "Microsoft Teams"
+  ],
+  "integracionesPrincipales": [
+    "Google Calendar",
+    "Microsoft Outlook",
+    "Zapier",
+    "Zoom"
+  ],
+  "curvaDeAprendizaje": "media",
+  "precioInicial": "Desde $19/mes (facturación anual en plan Individual)",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Plan Team a $12/usuario/mes (facturado anualmente) o $20/usuario/mes (facturado mensualmente)",
+  "idiomasDisponibles": [
+    "Inglés"
+  ],
+  "disponibleEnEspanol": false,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 8,
+    "calidad": 9,
+    "fiabilidad": 8,
+    "atencionAlCliente": 7,
+    "escalabilidad": 7,
+    "nivelTecnicoRequerido": 4,
+    "facilidadImplementacion": 8
+  },
+  "metodologiaValoracion": "Puntuaciones basadas en el análisis técnico del producto, la flexibilidad de sus algoritmos de automatización y las valoraciones de usuarios en G2, Capterra y Product Hunt.",
+  "reputacion": {
+    "g2Puntuacion": 4.2,
+    "g2NumeroResenas": 90,
+    "capterraPuntuacion": 4.3,
+    "capterraNumeroResenas": 45,
+    "otrasFuentes": [
+      {
+        "fuente": "Product Hunt",
+        "puntuacion": 4.7,
+        "numeroResenas": 180,
+        "enlace": "https://www.producthunt.com/products/motion-2"
+      }
+    ]
+  },
+  "ventajas": [
+    "Ahorra tiempo reconstruyendo el calendario automáticamente cuando surgen imprevistos.",
+    "Excelente combinación de gestor de tareas, calendario y herramienta de reservas de reuniones.",
+    "Reduce drásticamente la fatiga de decisión sobre qué tarea realizar a continuación.",
+    "Interfaz moderna y atajos de teclado muy fluidos."
+  ],
+  "inconvenientes": [
+    "Precio más elevado en comparación con otros gestores de tareas y calendarios tradicionales.",
+    "No está disponible en idioma español.",
+    "Requiere adaptar el flujo de trabajo para confiar plenamente en la reorganización del algoritmo.",
+    "Funciones de gestión de proyectos limitada para grandes equipos o metodologías muy estrictas."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Reclaim.ai",
+      "Sunsama",
+      "Clockwise",
+      "Todoist"
+    ],
+    "tipoNegocioIdeal": "Startups, agencias y profesionales independientes",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 86,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 7.8/10.",
+      "G2: 4.2/5 (90 reseñas).",
+      "Capterra: 4.3/5 (45 reseñas).",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "motion",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-04",
+  "fechaUltimaRevision": "2026-08-05",
+  "problemasIds": [
+    "ahorrar-tiempo"
+  ]
+}

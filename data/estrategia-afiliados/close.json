@@ -1,0 +1,19 @@
+{
+  "herramientaId": "close",
+  "cuentas": [
+    {
+      "id": "partnerstack",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Close Partner Program",
+      "plataforma": "PartnerStack",
+      "urlSolicitud": "https://www.close.com/partners",
+      "comision": "20% de comisión recurrente durante los primeros 12 meses de cada cliente referido",
+      "duracionCookie": "90 días",
+      "metodoPago": "PayPal, Transferencia bancaria (mediante PartnerStack)",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-05",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

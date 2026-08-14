@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { Categoria, Herramienta } from "./esquema";
+import type { Categoria, Herramienta, Problema } from "./esquema";
 
 /**
  * Capa de acceso a la base de conocimiento de Atlas.
@@ -21,6 +21,7 @@ import type { Categoria, Herramienta } from "./esquema";
 const DIR_DATOS = path.join(process.cwd(), "data");
 const DIR_HERRAMIENTAS = path.join(DIR_DATOS, "herramientas");
 const RUTA_CATEGORIAS = path.join(DIR_DATOS, "categorias.json");
+const RUTA_PROBLEMAS = path.join(DIR_DATOS, "problemas.json");
 
 const CAMPOS_TEXTO_OBLIGATORIOS: (keyof Herramienta)[] = [
   "id",
@@ -83,7 +84,8 @@ function errorBooleanoSiPresente(errores: string[], nombreCampo: string, valor: 
  * olvidado o mal escrito que rompería el motor de recomendaciones en
  * silencio más adelante.
  */
-function validarHerramienta(datos: unknown, nombreArchivo: string): Herramienta {
+/** Exportada para que `agents/atlas-researcher/promover.ts` reutilice la misma validación al copiar un borrador aprobado al catálogo real, en vez de duplicarla. */
+export function validarHerramienta(datos: unknown, nombreArchivo: string): Herramienta {
   const errores: string[] = [];
 
   if (typeof datos !== "object" || datos === null) {
@@ -184,6 +186,11 @@ export function getHerramientasPorCategoria(categoriaId: string): Herramienta[] 
   return getHerramientas().filter((h) => h.categoriaId === categoriaId);
 }
 
+/** Herramientas cuyo `problemasIds` incluye `problemaId` — vacío mientras ninguna herramienta del catálogo real lo tenga asignado todavía (nunca inventa una coincidencia por texto). */
+export function getHerramientasPorProblema(problemaId: string): Herramienta[] {
+  return getHerramientas().filter((h) => h.problemasIds?.includes(problemaId) ?? false);
+}
+
 export function getCategorias(): Categoria[] {
   const contenido = fs.readFileSync(RUTA_CATEGORIAS, "utf-8");
   return JSON.parse(contenido) as Categoria[];
@@ -191,4 +198,13 @@ export function getCategorias(): Categoria[] {
 
 export function getCategoria(id: string): Categoria | undefined {
   return getCategorias().find((c) => c.id === id);
+}
+
+export function getProblemas(): Problema[] {
+  const contenido = fs.readFileSync(RUTA_PROBLEMAS, "utf-8");
+  return JSON.parse(contenido) as Problema[];
+}
+
+export function getProblema(id: string): Problema | undefined {
+  return getProblemas().find((p) => p.id === id);
 }

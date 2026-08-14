@@ -1,0 +1,157 @@
+{
+  "nombre": "monday.com",
+  "paginaOficial": "https://monday.com",
+  "urlPrecios": "https://monday.com/pricing",
+  "logoUrl": "",
+  "categoriaId": "plataformas-todo-en-uno",
+  "descripcion": "monday.com es un sistema operativo de trabajo (Work OS) en la nube que permite a los equipos crear, ejecutar y automatizar sus procesos y proyectos en una plataforma altamente visual. Ofrece módulos especializados para gestión de proyectos (Work Management), CRM de ventas y desarrollo de software.",
+  "informacionEmpresa": {
+    "anioFundacion": 2012,
+    "paisOrigen": "Israel",
+    "tamanoAproximado": "1001-5000 empleados"
+  },
+  "problemasQueResuelve": [
+    "Falta de visibilidad sobre el estado de proyectos y tareas operativas",
+    "Desconexión y falta de colaboración entre diferentes departamentos",
+    "Ineficiencia y errores por tareas repetitivas no automatizadas",
+    "Dificultad para gestionar cargas de trabajo y capacidad del equipo"
+  ],
+  "casosDeUso": [
+    "Gestión de proyectos y tareas complejas entre equipos multidisciplinares",
+    "Seguimiento del embudo de ventas y relaciones con clientes (CRM)",
+    "Planificación y ejecución de campañas de marketing y contenidos",
+    "Gestión de flujos de trabajo de desarrollo de software y gestión de sprints"
+  ],
+  "idealPara": "Equipos de cualquier tamaño y sector que buscan una plataforma flexible, intuitiva y muy visual para organizar proyectos, automatizar procesos y centralizar el trabajo.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "Marketing y Publicidad",
+    "Tecnología y Software",
+    "Servicios Profesionales y Consultoría",
+    "Educación y Sin Fines de Lucro",
+    "Construcción y Operaciones"
+  ],
+  "noRecomendadaPara": "Proyectos hiperespecíficos que requieran herramientas técnicas ultraespecializadas fuera del alcance de una plataforma generalista configurables sin desarrollo a medida.",
+  "casosNoRecomendados": [
+    "Empresas que buscan una herramienta puramente de contabilidad o gestión financiera técnica",
+    "Equipos extremadamente pequeños (1-2 personas) que solo necesitan una lista simple de tareas sin flujos ni automatizaciones"
+  ],
+  "funcionesPrincipales": [
+    "Tableros interactivos y visualizaciones personalizables (Kanban, Gantt, Calendario, Carga de trabajo)",
+    "Automatizaciones sin código para flujos de trabajo y notificaciones",
+    "Formularios integrados para captura de datos e incidencias",
+    "Gestión de documentos colaborativos y paneles de control (Dashboards) en tiempo real",
+    "Módulos específicos integrables: monday sales CRM y monday dev"
+  ],
+  "integraciones": [
+    "Slack",
+    "Microsoft Teams",
+    "Google Drive",
+    "Gmail",
+    "Outlook",
+    "Jira",
+    "Salesforce",
+    "HubSpot",
+    "Zendesk",
+    "Zapier",
+    "Make",
+    "GitHub"
+  ],
+  "integracionesPrincipales": [
+    "Slack",
+    "Microsoft Teams",
+    "Google Workspace",
+    "Zapier"
+  ],
+  "curvaDeAprendizaje": "facil",
+  "precioInicial": "Desde 9€/usuario/mes (facturación anual, mínimo 3 usuarios)",
+  "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": true,
+  "precioRecomendadoPymes": "Plan Standard a 12€/usuario/mes (mínimo 3 usuarios)",
+  "idiomasDisponibles": [
+    "Español",
+    "Inglés",
+    "Francés",
+    "Alemán",
+    "Portugués",
+    "Italiano",
+    "Japonés",
+    "Ruso",
+    "Chino"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 9,
+    "fiabilidad": 9,
+    "atencionAlCliente": 8,
+    "escalabilidad": 9,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 8
+  },
+  "metodologiaValoracion": "Puntuaciones basadas en el análisis agregado de miles de opiniones verificadas en G2 y Capterra, evaluaciones comparativas del mercado de Work OS y la flexibilidad de su API/automatizaciones.",
+  "reputacion": {
+    "g2Puntuacion": 4.7,
+    "g2NumeroResenas": 11000,
+    "capterraPuntuacion": 4.6,
+    "capterraNumeroResenas": 4700,
+    "otrasFuentes": [
+      {
+        "fuente": "TrustRadius",
+        "puntuacion": 8.5,
+        "numeroResenas": 2800,
+        "enlace": "https://www.trustradius.com/products/monday-com/reviews"
+      }
+    ]
+  },
+  "ventajas": [
+    "Interfaz de usuario excepcionalmente intuitiva, colorida y fácil de adoptar",
+    "Gran versatilidad para adaptarse a casi cualquier proceso de negocio",
+    "Potente motor de automatizaciones sin necesidad de conocimientos técnicos",
+    "Excelente capacidad de personalización de columnas, vistas y paneles"
+  ],
+  "inconvenientes": [
+    "El modelo de precios exige comprar licencias en paquetes de usuarios (mínimo 3 seats)",
+    "Funciones avanzadas como el seguimiento de tiempos o fórmulas solo están en planes superiores",
+    "Puede resultar costoso para empresas en rápido crecimiento que requieren muchos usuarios"
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Asana",
+      "ClickUp",
+      "Wrike",
+      "Smartsheet"
+    ],
+    "tipoNegocioIdeal": "Agencias, startups, pymes y departamentos corporativos que requieren gestión visual y colaborativa de procesos",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 97,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.7/10.",
+      "G2: 4.7/5 (11000 reseñas).",
+      "Capterra: 4.6/5 (4700 reseñas).",
+      "Tiene plan gratuito.",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "monday-com",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-03",
+  "fechaUltimaRevision": "2026-08-05",
+  "problemasIds": [
+    "organizar-empresa",
+    "automatizar-tareas"
+  ]
+}

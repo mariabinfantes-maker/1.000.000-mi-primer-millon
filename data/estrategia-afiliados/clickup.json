@@ -1,0 +1,19 @@
+{
+  "herramientaId": "clickup",
+  "cuentas": [
+    {
+      "id": "programa-propio-firstpromoter",
+      "estado": "no_solicitado",
+      "nombrePrograma": "ClickUp Affiliate Program",
+      "plataforma": "Programa propio / FirstPromoter",
+      "urlSolicitud": "https://clickup.com/affiliates",
+      "comision": "20% de comisión recurrente por cada suscripción pagada durante 12 meses",
+      "duracionCookie": "90 días",
+      "metodoPago": "PayPal, Transferencia bancaria",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-05",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

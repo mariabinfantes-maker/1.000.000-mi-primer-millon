@@ -1,0 +1,19 @@
+{
+  "herramientaId": "systeme-io",
+  "cuentas": [
+    {
+      "id": "programa-propio",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Programa de Afiliados de Systeme.io",
+      "plataforma": "Programa propio",
+      "urlSolicitud": "https://systeme.io/affiliate",
+      "comision": "40% a 50% de comisión recurrente vitalicia sobre todas las suscripciones vendidas",
+      "duracionCookie": "365 días (se vincula al correo del lead registrado)",
+      "metodoPago": "PayPal, Transferencia bancaria (SEPA/Wire)",
+      "frecuenciaPago": "Mensual (mínimo de cobro de 30$)",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-05",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Pipedrive Affiliate Program",
+  "affiliatePlatform": "PartnerStack",
+  "affiliateUrl": "https://www.pipedrive.com/es/affiliates",
+  "commission": "20% de comisión recurrente durante los primeros 12 meses",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, Transferencia bancaria",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.pipedrive.com/es/affiliates",
+  "lastAffiliateCheck": "2026-08-03",
+  "herramientaId": "pipedrive"
+}

@@ -1,0 +1,139 @@
+{
+  "nombre": "Keap",
+  "paginaOficial": "https://keap.com",
+  "urlPrecios": "https://keap.com/pricing",
+  "logoUrl": "",
+  "categoriaId": "plataformas-todo-en-uno",
+  "descripcion": "Keap (anteriormente Infusionsoft) es una plataforma todo en uno de CRM, automatización de ventas y marketing, y pagos diseñada para pequeñas empresas. Permite capturar leads, gestionar clientes, enviar secuencias automatizadas por correo o SMS y cobros en una sola interfaz.",
+  "informacionEmpresa": {
+    "anioFundacion": 2001,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "201-500 empleados"
+  },
+  "problemasQueResuelve": [
+    "Pérdida de clientes potenciales por falta de seguimiento automatizado e inmediato",
+    "Dispersión de información al usar herramientas separadas para CRM, facturación, citas y email marketing",
+    "Gestión manual de procesos de cobro y recordatorios de pago",
+    "Falta de visibilidad sobre las etapas del embudo de ventas y rendimiento del equipo"
+  ],
+  "casosDeUso": [
+    "Captura de clientes potenciales desde la web e inicio automático de cadenas de correos y SMS para cerrar ventas",
+    "Programación de reuniones conectada directamente al calendario y pasarela de cobro sin intervención manual",
+    "Seguimiento visual del estado de negociaciones a través de pipelines de ventas personalizables"
+  ],
+  "idealPara": "Pequeñas empresas, proveedores de servicios profesionales y consultores que buscan automatizar su proceso comercial y unificar sus herramientas de ventas en una sola plataforma.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "Servicios profesionales",
+    "Consultoría y coaching",
+    "Salud y bienestar",
+    "Servicios del hogar",
+    "Educación y formación"
+  ],
+  "noRecomendadaPara": "Empresas corporativas de gran tamaño que requieren personalización avanzada de nivel enterprise o negocios que solo buscan un CRM gratuito y simple.",
+  "casosNoRecomendados": [
+    "Empresas con más de 200 empleados con complejas estructuras de gobernanza de datos",
+    "Negocios que requieran una interfaz y soporte 100% nativos en español"
+  ],
+  "funcionesPrincipales": [
+    "Gestión de contactos y CRM",
+    "Creador visual de campañas de automatización de ventas y marketing",
+    "Pipelines de ventas visuales",
+    "Facturación, cobros y carritos de compra integrados",
+    "Programación automática de citas",
+    "Marketing por correo electrónico y SMS"
+  ],
+  "integraciones": [
+    "Zapier",
+    "Shopify",
+    "QuickBooks",
+    "WordPress",
+    "Stripe",
+    "PayPal",
+    "Gmail",
+    "Outlook"
+  ],
+  "integracionesPrincipales": [
+    "Zapier",
+    "Shopify",
+    "QuickBooks",
+    "Stripe"
+  ],
+  "curvaDeAprendizaje": "media",
+  "precioInicial": "Desde $159/mes",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Plan Pro a $159/mes (para 1.500 contactos y 2 usuarios)",
+  "idiomasDisponibles": [
+    "Inglés"
+  ],
+  "disponibleEnEspanol": false,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 7,
+    "calidad": 8,
+    "fiabilidad": 8,
+    "atencionAlCliente": 7,
+    "escalabilidad": 7,
+    "nivelTecnicoRequerido": 6,
+    "facilidadImplementacion": 6
+  },
+  "metodologiaValoracion": "Puntuaciones estimadas a partir de la agregación de más de 2.500 reseñas de usuarios verificados en G2, Capterra y TrustRadius, sumadas al análisis de sus especificaciones de producto.",
+  "reputacion": {
+    "g2Puntuacion": 4.2,
+    "g2NumeroResenas": 1460,
+    "capterraPuntuacion": 4.1,
+    "capterraNumeroResenas": 1250,
+    "otrasFuentes": [
+      {
+        "fuente": "TrustRadius",
+        "puntuacion": 7.7,
+        "numeroResenas": 240,
+        "enlace": "https://www.trustradius.com/products/keap/reviews"
+      }
+    ]
+  },
+  "ventajas": [
+    "Creador visual de campañas de automatización extremadamente completo y potente",
+    "Solución todo en uno que agrupa CRM, pagos, facturas, citas y email marketing",
+    "Gran ecosistema de integraciones a través de Zapier y API nativa"
+  ],
+  "inconvenientes": [
+    "Coste inicial sensiblemente superior al de competidores básicos",
+    "La plataforma está optimizada prioritariamente para el mercado de habla inglesa",
+    "Requiere dedicación inicial para configurar correctamente las automatizaciones avanzadas"
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "ActiveCampaign",
+      "HubSpot CRM",
+      "GoHighLevel",
+      "Zoho CRM"
+    ],
+    "tipoNegocioIdeal": "Pequeña empresa de servicios o consultoría",
+    "nivelTecnicoRecomendado": "intermedio",
+    "puntuacion": 81,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 7.2/10.",
+      "G2: 4.2/5 (1460 reseñas).",
+      "Capterra: 4.1/5 (1250 reseñas).",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "keap",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-03",
+  "fechaUltimaRevision": "2026-08-05",
+  "problemasIds": [
+    "conseguir-clientes",
+    "automatizar-tareas"
+  ]
+}

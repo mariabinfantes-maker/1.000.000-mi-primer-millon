@@ -3,34 +3,29 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-import type { Problema } from "@/lib/data";
 import { RANGOS_EMPLEADOS, type RangoEmpleados } from "@/lib/cuestionario";
-import type { HerramientaEvaluada, RespuestasUsuario } from "@/lib/recommendationEngine";
+import type { HerramientaEvaluada, RespuestasUsuario } from "@/agents/atlas-advisor";
 import { guardarResultados } from "@/lib/resultadosSesion";
-import IconoProblema from "@/components/ui/IconoProblema";
+import { claveOrigen, PREGUNTA_HERRAMIENTA_GENERICA, type OrigenDiagnostico } from "@/lib/origenDiagnostico";
+import IconoOrigen from "@/components/ui/IconoOrigen";
 import Boton from "@/components/ui/Boton";
+import AtlasTrabajando from "@/components/AtlasTrabajando";
 
 const TOTAL_PREGUNTAS = 4;
 
-const MENSAJES_ANALISIS = [
-  "Entendiendo tu negocio...",
-  "Cruzando tus respuestas con nuestra base de herramientas...",
-  "Preparando tus recomendaciones...",
-];
-
-export default function Cuestionario({ problema }: { problema: Problema }) {
+export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) {
   const router = useRouter();
 
   const [paso, setPaso] = useState(0); // 0-3 preguntas, 4 = analizando
   const [sector, setSector] = useState("");
   const [empleados, setEmpleados] = useState<RangoEmpleados | null>(null);
-  const [mayorProblema, setMayorProblema] = useState("");
+  const [mayorProblema, setMayorProblema] = useState(origen.notasPrefill ?? "");
   const [usaHerramienta, setUsaHerramienta] = useState<boolean | null>(null);
   const [herramientaNombre, setHerramientaNombre] = useState("");
 
   const [analizando, setAnalizando] = useState(false);
   const [progreso, setProgreso] = useState(0);
-  const [mensajeIndice, setMensajeIndice] = useState(0);
+  const [totalHerramientas, setTotalHerramientas] = useState<number | null>(null);
 
   const puedeAvanzar =
     (paso === 0 && sector.trim().length > 0) ||
@@ -66,6 +61,7 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
       .join(" ");
 
     const respuestas: RespuestasUsuario = {
+      categoriaId: origen.categoriaIdPrefill,
       industria: sector.trim(),
       tamanoEmpresa: empleados as RangoEmpleados,
       notasAdicionales,
@@ -75,10 +71,6 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
       setProgreso((p) => (p < 90 ? p + Math.random() * 8 : p));
     }, 220);
 
-    const mensajes = setInterval(() => {
-      setMensajeIndice((i) => (i + 1) % MENSAJES_ANALISIS.length);
-    }, 1100);
-
     fetch("/api/recomendaciones", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -86,65 +78,41 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
     })
       .then((respuesta) => {
         if (!respuesta.ok) throw new Error("La API de recomendaciones respondió con un error.");
-        return respuesta.json() as Promise<{ top: HerramientaEvaluada[] }>;
+        return respuesta.json() as Promise<{ top: HerramientaEvaluada[]; totalEvaluadas: number }>;
       })
-      .then(({ top }) => {
+      .then(({ top, totalEvaluadas }) => {
         setProgreso(100);
-        guardarResultados(problema.id, top);
+        setTotalHerramientas(totalEvaluadas);
+        guardarResultados(claveOrigen(origen), top);
         setTimeout(() => {
-          router.push(`/problema/${problema.id}/recomendacion`);
-        }, 400);
+          router.push(`${origen.rutaBase}/recomendacion`);
+        }, 500);
       })
       .catch(() => {
-        // Si el motor de recomendaciones falla, llevamos igualmente al
-        // usuario a las categorías disponibles como red de seguridad.
-        router.push(`/problema/${problema.id}`);
+        // Si el motor de recomendaciones falla, llevamos al usuario de
+        // vuelta al inicio como red de seguridad, en vez de a una ruta que
+        // ya no forma parte del recorrido principal.
+        router.push("/");
       })
       .finally(() => {
         clearInterval(intervalo);
-        clearInterval(mensajes);
       });
 
     return () => {
       clearInterval(intervalo);
-      clearInterval(mensajes);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [analizando]);
 
   if (analizando) {
-    return (
-      <div className="mx-auto flex max-w-xl flex-col items-center px-4 py-24 text-center sm:px-6">
-        <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-600">
-          <IconoProblema problemaId={problema.id} className="h-7 w-7" />
-        </span>
-        <h1 className="mt-5 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-          Analizando tu empresa...
-        </h1>
-        <p className="mt-2 min-h-6 text-sm text-slate-500">
-          {MENSAJES_ANALISIS[mensajeIndice]}
-        </p>
-
-        <div className="mt-8 w-full max-w-sm">
-          <div className="h-2 w-full overflow-hidden rounded-full bg-slate-200">
-            <div
-              className="h-full rounded-full bg-brand-600 transition-[width] duration-200 ease-out"
-              style={{ width: `${Math.min(progreso, 100)}%` }}
-            />
-          </div>
-          <p className="mt-2 text-right text-xs font-medium text-slate-400">
-            {Math.round(Math.min(progreso, 100))}%
-          </p>
-        </div>
-      </div>
-    );
+    return <AtlasTrabajando progreso={progreso} totalHerramientas={totalHerramientas} />;
   }
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-16">
       <p className="flex items-center gap-1.5 text-sm font-semibold text-brand-600">
-        <IconoProblema problemaId={problema.id} className="h-4 w-4" />
-        {problema.titulo}
+        <IconoOrigen tipo={origen.tipo} id={origen.id} className="h-4 w-4" />
+        {origen.titulo}
       </p>
 
       <div className="mt-4 flex items-center gap-2">
@@ -235,7 +203,7 @@ export default function Cuestionario({ problema }: { problema: Problema }) {
         {paso === 3 && (
           <fieldset>
             <legend className="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">
-              {problema.preguntaHerramienta}
+              {origen.preguntaHerramienta ?? PREGUNTA_HERRAMIENTA_GENERICA}
             </legend>
             <div className="mt-4 flex gap-3">
               {[

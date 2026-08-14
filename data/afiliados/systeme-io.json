@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Programa de Afiliados de Systeme.io",
+  "affiliatePlatform": "Programa propio",
+  "affiliateUrl": "https://systeme.io/affiliate",
+  "commission": "40% a 50% de comisión recurrente vitalicia sobre todas las suscripciones vendidas",
+  "cookieDuration": "365 días (se vincula al correo del lead registrado)",
+  "approvalRequired": false,
+  "payoutMethod": "PayPal, Transferencia bancaria (SEPA/Wire)",
+  "payoutFrequency": "Mensual (mínimo de cobro de 30$)",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://systeme.io/affiliate",
+  "lastAffiliateCheck": "2026-08-03",
+  "herramientaId": "systeme-io"
+}

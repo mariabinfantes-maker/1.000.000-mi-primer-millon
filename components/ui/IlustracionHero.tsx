@@ -11,7 +11,7 @@ export default function IlustracionHero({ className = "" }: { className?: string
       fill="none"
       className={className}
       role="img"
-      aria-label="Ilustración de Atlas comparando varias herramientas y destacando la recomendada"
+      aria-label="Ilustración de Molnip comparando varias herramientas y destacando la recomendada"
     >
       <defs>
         <filter id="sombraPrincipal" x="-50%" y="-50%" width="200%" height="200%">

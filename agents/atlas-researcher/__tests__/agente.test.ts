@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import { investigarHerramienta } from "../agente";
-import type { ProveedorIA } from "../proveedorIA";
+import type { ProveedorIA } from "@/agents/compartido/proveedorIA";
 
 function proveedorFalso(comportamiento: (prompt: string) => unknown): ProveedorIA {
   return {

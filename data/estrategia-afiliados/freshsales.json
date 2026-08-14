@@ -1,0 +1,19 @@
+{
+  "herramientaId": "freshsales",
+  "cuentas": [
+    {
+      "id": "partnerstack",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Freshworks Affiliate Program",
+      "plataforma": "PartnerStack",
+      "urlSolicitud": "https://www.freshworks.com/company/partners/affiliate/",
+      "comision": "$5 por registro cualificado + 15% de comisión recurrente sobre ventas durante los primeros 12 meses",
+      "duracionCookie": "90 días",
+      "metodoPago": "PayPal, Transferencia bancaria",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-05",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { investigarHerramienta } from "@/agents/atlas-researcher/agente";
-import { crearProveedorGemini } from "@/agents/atlas-researcher/proveedores/gemini";
+import { crearProveedorGemini } from "@/agents/compartido/proveedores/gemini";
 import type { SolicitudInvestigacion } from "@/agents/atlas-researcher/tipos";
 
 /**

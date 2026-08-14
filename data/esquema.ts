@@ -55,6 +55,22 @@ export type Categoria = {
 };
 
 /**
+ * Uno de los "problemas iniciales" de Atlas (ver ATLAS.md) — la puerta de
+ * entrada "por objetivo" del cuestionario, independiente de `Categoria`
+ * (un problema puede resolverse con herramientas de varias categorías).
+ * Vive en `data/` porque es contenido editorial real, igual que
+ * `Categoria` — nunca en `lib/`, donde antes convivía con un catálogo de
+ * herramientas de prueba que nunca llegó a usarse en producción.
+ */
+export type Problema = {
+  id: string;
+  titulo: string;
+  descripcion: string;
+  /** Pregunta del cuestionario sobre la herramienta que ya usa la empresa para esto. */
+  preguntaHerramienta: string;
+};
+
+/**
  * Nivel de confianza en un dato investigado. Lo reutiliza Atlas Researcher
  * (`agents/atlas-researcher`) para la confianza global de una propuesta —
  * definido aquí porque el esquema de datos es la capa base de la que
@@ -160,6 +176,15 @@ export type Herramienta = {
 
   descripcion: string;
   problemasQueResuelve: string[];
+  /**
+   * Añadido: referencias estructuradas a Problema.id (a diferencia de
+   * `problemasQueResuelve`, texto libre editorial) — permite a
+   * `getHerramientasPorProblema` filtrar el catálogo real sin adivinar por
+   * coincidencia de texto. Opcional: no forma parte de las 5 fichas
+   * históricas originales del esquema, así que no puede ser obligatorio sin
+   * romperlas; se va completando herramienta a herramienta.
+   */
+  problemasIds?: string[];
   /** Añadido: ejemplos concretos de uso real, más fáciles de reconocer para el usuario que "problemas" en abstracto. */
   casosDeUso: string[];
 

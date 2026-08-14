@@ -3,5 +3,20 @@
     "id": "plataformas-todo-en-uno",
     "nombre": "Plataformas todo en uno",
     "descripcion": "Suites que combinan CRM, marketing, ventas, operaciones y otras áreas de la empresa en un único producto, en lugar de herramientas independientes por función."
+  },
+  {
+    "id": "crm",
+    "nombre": "CRM y ventas",
+    "descripcion": "Herramientas especializadas en organizar contactos, oportunidades y el pipeline de ventas, sin el resto de módulos de una suite todo en uno."
+  },
+  {
+    "id": "gestion-proyectos",
+    "nombre": "Gestión de proyectos",
+    "descripcion": "Planifica, asigna y sigue el avance de tareas y proyectos en equipo."
+  },
+  {
+    "id": "asistentes-ia",
+    "nombre": "Asistentes de IA y productividad",
+    "descripcion": "Herramientas de inteligencia artificial que generan contenido, resumen información o automatizan tareas de productividad del día a día."
   }
 ]

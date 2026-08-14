@@ -19,6 +19,7 @@ const CAMPOS_GESTIONADOS_POR_ATLAS = new Set<keyof Herramienta>([
   "estado",
   "fechaAltaEnAtlas",
   "fechaUltimaRevision",
+  "problemasIds",
 ]);
 
 /**
@@ -48,6 +49,8 @@ export const DESCRIPCION_CAMPOS: Record<keyof Herramienta, string> = {
     'tamanoAproximado (tamaño de la EMPRESA que fabrica la herramienta, en texto libre, ej. "501-1000 empleados" — no confundir con el tamaño de empresa al que le conviene usarla). ' +
     "Omite los subcampos que no encuentres.",
   problemasQueResuelve: "Lista de problemas de negocio concretos que resuelve.",
+  problemasIds:
+    "Referencias a los 'problemas iniciales' de Atlas (ver data/problemas.json) — las asigna quien revisa la propuesta, no lo investigues.",
   casosDeUso: "Lista de ejemplos concretos de uso real.",
   idealPara: "A quién le conviene esta herramienta, en una frase.",
   segmentosIdeales: 'Tamaños de empresa ideales: array con valores entre "1-10", "11-50", "51-200", "200+".',

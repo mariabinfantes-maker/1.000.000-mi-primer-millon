@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "ClickFunnels Affiliate Program",
+  "affiliatePlatform": "Programa propio / FirstPromoter",
+  "affiliateUrl": "https://www.clickfunnels.com/affiliates",
+  "commission": "Hasta 30% mensual recurrente por cada cliente activo referido",
+  "cookieDuration": "45 días",
+  "approvalRequired": true,
+  "payoutMethod": "Tipalti, PayPal, Transferencia bancaria",
+  "payoutFrequency": "Quincenal",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.clickfunnels.com/affiliates",
+  "lastAffiliateCheck": "2026-08-03",
+  "herramientaId": "clickfunnels"
+}

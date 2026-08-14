@@ -7,7 +7,7 @@ import type { AffiliateData } from "./esquemaInterno";
  *
  * Deliberadamente independiente de `data/repositorio.ts` (el catálogo
  * público): nada de lo que hay aquí debe importarse desde componentes de
- * interfaz, el motor de recomendaciones (`lib/recommendationEngine`), ni
+ * interfaz, el motor de recomendaciones (`agents/atlas-advisor`), ni
  * ninguna ruta que sirva contenido al usuario final. Es de uso exclusivo
  * de los agentes internos de Atlas — hoy, Atlas Researcher — y de futuras
  * herramientas de administración.

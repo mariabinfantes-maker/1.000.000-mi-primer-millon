@@ -1,5 +1,5 @@
 import { investigarHerramienta } from "./agente";
-import { crearProveedorGemini } from "./proveedores/gemini";
+import { crearProveedorGemini } from "@/agents/compartido/proveedores/gemini";
 
 /**
  * `npm run investigar-herramienta -- "Nombre de la herramienta"`

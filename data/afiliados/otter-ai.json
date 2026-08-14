@@ -1,0 +1,18 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Otter.ai Affiliate Program",
+  "affiliatePlatform": "ShareASale",
+  "affiliateUrl": "https://www.shareasale.com/shareasale.cfm?merchantID=101858",
+  "commission": "Comisión variable por cada nuevo suscriptor de pago referido (aprox. 10%-20% según la campaña vigente)",
+  "cookieDuration": "30 días",
+  "approvalRequired": true,
+  "payoutMethod": "Transferencia bancaria, PayPal",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "medium",
+  "source": "https://www.shareasale.com/shareasale.cfm?merchantID=101858",
+  "lastAffiliateCheck": "2026-08-04",
+  "herramientaId": "otter-ai"
+}

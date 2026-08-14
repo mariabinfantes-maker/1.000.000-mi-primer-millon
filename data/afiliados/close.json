@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Close Partner Program",
+  "affiliatePlatform": "PartnerStack",
+  "affiliateUrl": "https://www.close.com/partners",
+  "commission": "20% de comisión recurrente durante los primeros 12 meses de cada cliente referido",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, Transferencia bancaria (mediante PartnerStack)",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.close.com/partners",
+  "lastAffiliateCheck": "2026-08-04",
+  "herramientaId": "close"
+}
