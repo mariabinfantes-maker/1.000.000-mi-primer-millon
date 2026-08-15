@@ -26,17 +26,16 @@ export default function AnilloPuntuacion({
       style={{ width: tamanoPx, height: tamanoPx }}
     >
       <svg viewBox="0 0 96 96" className="h-full w-full -rotate-90" role="img" aria-label={`Puntuación Molnip: ${clamped} de 100`}>
-        <circle cx="48" cy="48" r={RADIO} fill="none" stroke="#e0e7ff" strokeWidth="8" />
+        <circle cx="48" cy="48" r={RADIO} fill="none" className="stroke-brand-100" strokeWidth="8" />
         <circle
           cx="48"
           cy="48"
           r={RADIO}
           fill="none"
-          stroke="#4f46e5"
           strokeWidth="8"
           strokeLinecap="round"
           strokeDasharray={CIRCUNFERENCIA}
-          className="animar-anillo"
+          className="stroke-brand-600 animar-anillo"
           style={
             {
               strokeDashoffset: offset,

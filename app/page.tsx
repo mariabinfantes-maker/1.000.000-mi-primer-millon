@@ -92,7 +92,7 @@ export default function Home() {
             </div>
 
             <h1
-              className="animar-entrada mx-auto mt-6 max-w-xl text-4xl font-bold leading-[1.05] tracking-tight text-slate-900 sm:text-6xl lg:mx-0"
+              className="animar-entrada mx-auto mt-6 max-w-xl text-4xl font-display font-bold leading-[1.05] tracking-tight text-slate-900 sm:text-6xl lg:mx-0"
               style={{ animationDelay: "90ms" }}
             >
               Deja de adivinar qué herramienta
@@ -160,7 +160,7 @@ export default function Home() {
             <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">
               Cómo funciona
             </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-display font-bold tracking-tight text-slate-900 sm:text-4xl">
               De la duda a la decisión, en tres pasos
             </h2>
           </RevelarAlScroll>
@@ -200,7 +200,7 @@ export default function Home() {
             <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">
               Así piensa Molnip
             </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-display font-bold tracking-tight text-slate-900 sm:text-4xl">
               Tres agentes, un mismo objetivo: acertar por ti
             </h2>
             <p className="mt-3 text-base leading-relaxed text-slate-600">
@@ -237,7 +237,7 @@ export default function Home() {
             <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">
               Por qué Molnip
             </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-display font-bold tracking-tight text-slate-900 sm:text-4xl">
               Pensado para que confíes en la recomendación
             </h2>
           </RevelarAlScroll>
@@ -269,7 +269,7 @@ export default function Home() {
             <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">
               Empieza aquí
             </p>
-            <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+            <h2 className="mt-2 text-2xl font-display font-bold tracking-tight text-slate-900 sm:text-3xl">
               ¿Cómo quieres empezar?
             </h2>
           </RevelarAlScroll>

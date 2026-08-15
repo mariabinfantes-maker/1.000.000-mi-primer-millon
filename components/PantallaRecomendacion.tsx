@@ -47,7 +47,7 @@ export default function PantallaRecomendacion({ origen }: { origen: OrigenDiagno
   if (!top || top.length === 0) {
     return (
       <div className="mx-auto flex max-w-xl flex-col items-center px-4 py-24 text-center">
-        <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+        <h1 className="text-2xl font-display font-bold tracking-tight text-slate-900">
           Todavía no tenemos tu recomendación
         </h1>
         <p className="mt-2 leading-relaxed text-slate-600">
@@ -67,27 +67,31 @@ export default function PantallaRecomendacion({ origen }: { origen: OrigenDiagno
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
       <EnlaceAtras href={`${origen.rutaBase}/cuestionario`}>Repetir el cuestionario</EnlaceAtras>
 
-      <div className="mt-6 flex items-center gap-3">
-        <AvatarAgente id="recomendador" />
+      <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-sm font-semibold text-agente-recomendador">{RECOMENDADOR.nombre}</p>
-          <p className="text-xs text-slate-500">{RECOMENDADOR.rol}</p>
+          <div className="flex items-center gap-3">
+            <AvatarAgente id="recomendador" />
+            <div>
+              <p className="text-sm font-semibold text-agente-recomendador">{RECOMENDADOR.nombre}</p>
+              <p className="text-xs text-slate-500">{RECOMENDADOR.rol}</p>
+            </div>
+          </div>
+          <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            Tus {vistas.length} mejores opciones
+          </h1>
+          <p className="mt-3 max-w-2xl leading-relaxed text-slate-600">
+            Hemos cruzado tus respuestas con nuestra base de herramientas. Esta es la que mejor
+            encaja contigo, junto con otras opciones sólidas para comparar.
+          </p>
         </div>
-      </div>
-      <h1 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-        Tus {vistas.length} mejores opciones
-      </h1>
-      <p className="mt-3 max-w-2xl leading-relaxed text-slate-600">
-        Hemos cruzado tus respuestas con nuestra base de herramientas y estas son las que mejor
-        encajan contigo, de mejor a peor ajuste.
-      </p>
 
-      {vistas.length >= 2 && (
-        <Boton href={`${origen.rutaBase}/comparar`} variante="secundario" className="mt-6">
-          <Scale className="h-4 w-4" aria-hidden="true" />
-          Comparar estas opciones
-        </Boton>
-      )}
+        {vistas.length >= 2 && (
+          <Boton href={`${origen.rutaBase}/comparar`} variante="secundario" className="shrink-0">
+            <Scale className="h-4 w-4" aria-hidden="true" />
+            Comparar estas opciones
+          </Boton>
+        )}
+      </div>
 
       <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
         {vistas.map((vista) => (

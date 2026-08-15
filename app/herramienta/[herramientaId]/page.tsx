@@ -70,18 +70,19 @@ export default async function FichaHerramientaPage({
       {/* Cabecera: nombre, descripción y Puntuación Atlas. Espacio reservado
           para logoUrl (hoy vacío en las 5 fichas) — el fondo abstracto de
           marca ocupa su lugar en vez de dejar un hueco vacío. */}
-      <div className="overflow-hidden rounded-2xl border border-slate-200/80 bg-gradient-to-br from-brand-50 via-white to-white shadow-premium">
-        <div className="flex flex-col gap-6 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+      <div className="relative overflow-hidden rounded-3xl border border-slate-200/80 bg-gradient-to-br from-brand-50 via-white to-white shadow-premium">
+        <div className="fondo-puntos pointer-events-none absolute inset-0 opacity-60" aria-hidden="true" />
+        <div className="relative flex flex-col gap-6 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
           <div>
             {categoria && <Etiqueta variante="neutra">{categoria.nombre}</Etiqueta>}
-            <h1 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h1 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               {herramienta.nombre}
             </h1>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-slate-600">{herramienta.descripcion}</p>
           </div>
 
           {puntuacion && (
-            <div className="flex shrink-0 flex-col items-center gap-1.5">
+            <div className="flex shrink-0 flex-col items-center gap-1.5 rounded-2xl bg-white/70 px-5 py-4 shadow-sm ring-1 ring-black/[0.03] backdrop-blur">
               <AnilloPuntuacion puntuacion={puntuacion.puntuacion} tamano="grande" />
               <span className="text-xs font-medium text-slate-400">Puntuación Molnip</span>
             </div>
@@ -90,7 +91,7 @@ export default async function FichaHerramientaPage({
       </div>
 
       {/* Confianza + conversión */}
-      <div className="mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-6 flex flex-col items-start gap-4 rounded-2xl border border-slate-200/80 bg-white p-4 shadow-[0_1px_2px_rgba(15,23,42,0.04)] sm:flex-row sm:items-center sm:justify-between sm:p-5">
         <InsigniaConfianza fechaUltimaRevision={herramienta.fechaUltimaRevision} />
         <Boton href={`/herramienta/${herramienta.id}/ir`} tamano="grande" className="w-full sm:w-auto">
           Ir al proveedor
@@ -257,15 +258,18 @@ export default async function FichaHerramientaPage({
       </Seccion>
 
       {/* CTA de cierre: quien lee hasta el final no debería tener que volver a subir para convertir. */}
-      <div className="mt-10 flex flex-col items-center gap-3 rounded-2xl border border-slate-200/80 bg-gradient-to-br from-brand-50 via-white to-white p-8 text-center shadow-premium">
-        <p className="text-sm text-slate-600">¿Ya tienes claro que {herramienta.nombre} encaja contigo?</p>
-        <Boton href={`/herramienta/${herramienta.id}/ir`} tamano="grande">
+      <div className="relative mt-10 flex flex-col items-center gap-3 overflow-hidden rounded-3xl border border-slate-200/80 bg-gradient-to-br from-brand-50 via-white to-white p-8 text-center shadow-premium">
+        <div className="fondo-puntos pointer-events-none absolute inset-0 opacity-60" aria-hidden="true" />
+        <p className="relative font-display text-lg font-semibold text-slate-900">
+          ¿Ya tienes claro que {herramienta.nombre} encaja contigo?
+        </p>
+        <Boton href={`/herramienta/${herramienta.id}/ir`} tamano="grande" className="relative">
           Ir al proveedor
           <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
         </Boton>
         <Link
           href={`/herramienta/${herramienta.id}/alternativas`}
-          className="text-xs font-medium text-slate-500 hover:text-brand-600"
+          className="relative text-xs font-medium text-slate-500 hover:text-brand-600"
         >
           ¿Prefieres comparar antes con otras opciones?
         </Link>
@@ -292,7 +296,7 @@ function Seccion({
 }) {
   return (
     <section
-      className={`rounded-2xl border p-6 ${
+      className={`rounded-2xl border p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04)] ${
         tono === "exito" ? "border-emerald-200/80 bg-emerald-50/40" : "border-slate-200/80 bg-white"
       } ${className}`}
     >

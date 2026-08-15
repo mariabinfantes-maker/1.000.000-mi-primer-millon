@@ -59,17 +59,26 @@ export default function TarjetaHerramientaRecomendada({
 
   return (
     <Tarjeta
-      destacada={destacada}
-      className="flex h-full flex-col"
+      ganadora={destacada}
+      className="relative flex h-full flex-col"
     >
+      {destacada && (
+        <div
+          className="absolute -top-3 left-6 rounded-full bg-gold-500 px-3 py-1 text-xs font-bold tracking-wide text-white shadow-sm"
+          aria-hidden="true"
+        >
+          La opción elegida
+        </div>
+      )}
+
       <div className="flex items-start justify-between gap-3">
         <Etiqueta variante={destacada ? "marca" : "neutra"}>
-          {destacada ? "Mejor opción para ti" : `Opción #${posicion}`}
+          {destacada ? "Mejor ajuste para ti" : `Opción #${posicion}`}
         </Etiqueta>
         {puntuacionAtlas !== null && <AnilloPuntuacion puntuacion={puntuacionAtlas} />}
       </div>
 
-      <h3 className="mt-4 text-xl font-bold tracking-tight text-slate-900">
+      <h3 className="mt-4 font-display text-xl font-bold tracking-tight text-slate-900">
         <Link href={`/herramienta/${id}`} className="hover:text-brand-700">
           {nombre}
         </Link>
