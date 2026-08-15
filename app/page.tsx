@@ -9,10 +9,10 @@ import {
   Timer,
   CheckCircle2,
 } from "lucide-react";
+import Image from "next/image";
 import { getCategorias, getProblemas } from "@/data/repositorio";
 import { AGENTES } from "@/lib/agentes";
 import Etiqueta from "@/components/ui/Etiqueta";
-import IlustracionHero from "@/components/ui/IlustracionHero";
 import AvatarAgente from "@/components/ui/AvatarAgente";
 import Boton from "@/components/ui/Boton";
 import RevelarAlScroll from "@/components/ui/RevelarAlScroll";
@@ -129,8 +129,15 @@ export default function Home() {
             className="animar-entrada relative mx-auto w-full max-w-md lg:max-w-none"
             style={{ animationDelay: "200ms" }}
           >
-            <div className="animar-flotar">
-              <IlustracionHero className="w-full" />
+            <div className="animar-flotar overflow-hidden rounded-3xl shadow-premium-lg">
+              <Image
+                src="/imagenes/marca/hero-formas.png"
+                alt="Tres formas abstractas de cristal esmerilado; una, en índigo con un reflejo dorado, destaca sobre las otras como la opción elegida"
+                width={1024}
+                height={1024}
+                priority
+                className="w-full"
+              />
             </div>
 
             <div

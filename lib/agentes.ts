@@ -9,8 +9,9 @@ import { Compass, Scale, Sparkles, type LucideIcon } from "lucide-react";
  * arquitectura UX, "Registro de agentes, no agentes cableados").
  *
  * Los iconos son deliberadamente abstractos (brújula, balanza, destello) —
- * nunca cerebros, robots, personas ni manos — siguiendo la misma guía de
- * marca que ya documenta `components/ui/IlustracionHero.tsx`.
+ * nunca cerebros, robots, chips, circuitos, engranajes, bombillas, personas
+ * ni manos — siguiendo la misma guía de marca del hero (ver la Dirección
+ * de Arte de Molnip).
  */
 
 export type IdAgente = "researcher" | "evaluador" | "recomendador";
