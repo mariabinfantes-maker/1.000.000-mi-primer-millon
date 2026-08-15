@@ -17,8 +17,13 @@ export const maxDuration = 60;
 const URL_OPENAI_IMAGENES = "https://api.openai.com/v1/images/generations";
 const MODELO = "gpt-image-1";
 
+const TAMANOS_VALIDOS = ["1024x1024", "1536x1024", "1024x1536", "auto"] as const;
+type TamanoImagen = (typeof TAMANOS_VALIDOS)[number];
+
 type CuerpoPeticion = {
   prompt?: unknown;
+  /** Opcional: "1536x1024" (horizontal, para heroes/banners) o "1024x1536" (vertical). Por defecto, "1024x1024". */
+  size?: unknown;
 };
 
 type ImagenGenerada = {
@@ -55,6 +60,10 @@ export async function POST(request: Request) {
     );
   }
 
+  const size: TamanoImagen = TAMANOS_VALIDOS.includes(cuerpo.size as TamanoImagen)
+    ? (cuerpo.size as TamanoImagen)
+    : "1024x1024";
+
   let respuestaOpenAI: Response;
   try {
     respuestaOpenAI = await fetch(URL_OPENAI_IMAGENES, {
@@ -67,6 +76,7 @@ export async function POST(request: Request) {
         model: MODELO,
         prompt,
         n: 1,
+        size,
       }),
     });
   } catch {
