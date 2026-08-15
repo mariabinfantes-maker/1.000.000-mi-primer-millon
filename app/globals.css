@@ -1,46 +1,85 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f1222;
+  --background: #faf9fc;
+  --foreground: #14121f;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-plexmono);
+  /* Display: solo para titulares (h1/h2, wordmark) — nunca para párrafos ni interfaz. */
+  --font-display: var(--font-bricolage);
 
-  /* Paleta de marca de Atlas — un único índigo profundo, usado en toda la web. */
-  --color-brand-50: #eef2ff;
-  --color-brand-100: #e0e7ff;
-  --color-brand-200: #c7d2fe;
-  --color-brand-300: #a5b4fc;
-  --color-brand-400: #818cf8;
-  --color-brand-500: #6366f1;
-  --color-brand-600: #4f46e5;
-  --color-brand-700: #4338ca;
-  --color-brand-800: #3730a3;
-  --color-brand-900: #312e81;
-  --color-brand-950: #1e1b4b;
+  /*
+   * Paleta de marca de Molnip — índigo-violeta propio (ver la guía de
+   * Dirección de Arte, fase 0), más profundo y saturado que el índigo por
+   * defecto de Tailwind del que partía Atlas.
+   */
+  --color-brand-50: #f2f0fc;
+  --color-brand-100: #e6e3fb;
+  --color-brand-200: #cfc8f7;
+  --color-brand-300: #aea0f0;
+  --color-brand-400: #8b79ea;
+  --color-brand-500: #6952e4;
+  --color-brand-600: #4f3fe0;
+  --color-brand-700: #4331c4;
+  --color-brand-800: #35269c;
+  --color-brand-900: #251a6e;
+  --color-brand-950: #17103f;
+
+  /*
+   * Acento dorado — "la opción elegida". Se usa como mucho una vez por
+   * pantalla, siempre para señalar la respuesta (la herramienta
+   * recomendada, el dato verificado clave), nunca de forma decorativa.
+   */
+  --color-gold-50: #fbf4e4;
+  --color-gold-100: #f6ecd6;
+  --color-gold-200: #ead6ac;
+  --color-gold-300: #dcbd7e;
+  --color-gold-400: #d0aa5b;
+  --color-gold-500: #c99a3d;
+  --color-gold-600: #ad812e;
+  --color-gold-700: #8a6624;
+
+  /*
+   * Escala neutra ("slate") de Molnip: sustituye el gris neutro por
+   * defecto de Tailwind por una escala con un matiz violeta constante —
+   * de un papel cálido (50) a una tinta casi negra (950) — para que toda
+   * la web (que ya usa `bg-slate-*`/`text-slate-*` en decenas de sitios)
+   * herede el tono de marca sin tener que tocar cada componente.
+   */
+  --color-slate-50: #faf9fc;
+  --color-slate-100: #f3f1f9;
+  --color-slate-200: #e7e3f5;
+  --color-slate-300: #d3cde8;
+  --color-slate-400: #a79fc9;
+  --color-slate-500: #8079a8;
+  --color-slate-600: #605892;
+  --color-slate-700: #4a4272;
+  --color-slate-800: #362f52;
+  --color-slate-900: #211d38;
+  --color-slate-950: #14121f;
 
   /* Sombras premium: doble capa (contacto + elevación) con un tinte de marca. */
-  --shadow-premium: 0 1px 2px 0 rgba(15, 23, 42, 0.04), 0 12px 24px -8px rgba(79, 70, 229, 0.16);
-  --shadow-premium-lg: 0 2px 4px 0 rgba(15, 23, 42, 0.04), 0 32px 64px -16px rgba(79, 70, 229, 0.24);
+  --shadow-premium: 0 1px 2px 0 rgba(20, 18, 31, 0.05), 0 12px 24px -8px rgba(79, 63, 224, 0.18);
+  --shadow-premium-lg: 0 2px 4px 0 rgba(20, 18, 31, 0.05), 0 32px 64px -16px rgba(79, 63, 224, 0.26);
 
   /*
    * Color por agente (Researcher / Evaluador / Recomendador), tal y como se
    * fijó en el documento de arquitectura UX (Sheet 06): el Recomendador
    * comparte el índigo de marca a propósito, porque de cara al usuario es
-   * la voz de Atlas hablando; Researcher y Evaluador tienen acentos propios
+   * la voz de Molnip hablando; Researcher y Evaluador tienen acentos propios
    * para diferenciarse sin salir de la paleta general.
    */
   --color-agente-researcher: #0d9488;
   --color-agente-researcher-soft: #ccfbf1;
   --color-agente-evaluador: #b45309;
   --color-agente-evaluador-soft: #fef3c7;
-  --color-agente-recomendador: #4f46e5;
-  --color-agente-recomendador-soft: #e0e7ff;
+  --color-agente-recomendador: #4f3fe0;
+  --color-agente-recomendador-soft: #e6e3fb;
 }
 
 body {
