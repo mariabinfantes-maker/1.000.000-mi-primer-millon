@@ -3,6 +3,7 @@ import { Bricolage_Grotesque, IBM_Plex_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import { DESCRIPCION_ATLAS, TITULO_ATLAS } from "@/agents/atlas-generador-contenido/metadatos";
+import { URL_BASE } from "@/lib/urlBase";
 
 /**
  * Sistema tipográfico de Molnip (ver la guía de Dirección de Arte, fase 0):
@@ -33,9 +34,10 @@ export const metadata: Metadata = {
   // Sin esto, Next.js resuelve las URLs relativas de openGraph/twitter
   // (como la de `opengraph-image.tsx`) contra "localhost" incluso en
   // producción — el enlace resultante no cargaría en ninguna plataforma
-  // externa. Con `metadataBase`, cada página solo necesita indicar una
-  // ruta relativa y Next.js la resuelve contra este dominio.
-  metadataBase: new URL("https://molnip.com"),
+  // externa. Misma fuente de verdad que sitemap.ts/robots.ts
+  // (`NEXT_PUBLIC_SITE_URL`, ver lib/urlBase.ts) para no hardcodear el
+  // dominio en dos sitios distintos.
+  metadataBase: new URL(URL_BASE),
   title: { default: TITULO_ATLAS, template: "%s | Molnip" },
   description: DESCRIPCION_ATLAS,
   openGraph: {
