@@ -16,7 +16,7 @@ export default function AppleIcon() {
         style={{
           width: 180,
           height: 180,
-          background: "#4f3fe0",
+          background: "#6e5fe4",
           display: "flex",
         }}
       >

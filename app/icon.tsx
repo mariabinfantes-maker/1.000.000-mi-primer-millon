@@ -19,7 +19,7 @@ export default function Icon() {
           width: 32,
           height: 32,
           borderRadius: 9,
-          background: "#4f3fe0",
+          background: "#6e5fe4",
           display: "flex",
         }}
       >

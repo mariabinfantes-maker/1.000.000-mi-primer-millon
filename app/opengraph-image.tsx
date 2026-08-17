@@ -26,7 +26,7 @@ export default function OpengraphImage() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #17103f 0%, #35269c 55%, #4f3fe0 100%)",
+          background: "linear-gradient(135deg, #1f1859 0%, #3f2fb7 55%, #6e5fe4 100%)",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 56 }}>
@@ -36,7 +36,7 @@ export default function OpengraphImage() {
               width: 220,
               height: 220,
               borderRadius: 48,
-              background: "#4f3fe0",
+              background: "#6e5fe4",
               boxShadow: "0 24px 64px rgba(0,0,0,0.35)",
             }}
           >

@@ -17,18 +17,26 @@
    * Paleta de marca de Molnip — índigo-violeta propio (ver la guía de
    * Dirección de Arte, fase 0), más profundo y saturado que el índigo por
    * defecto de Tailwind del que partía Atlas.
+   *
+   * Revisión de luminosidad (comparativa "Índigo Prisma", Variante B
+   * aprobada): mismo matiz (247°) y la misma saturación de siempre en el
+   * ancla (600, 72%→71%, prácticamente igual, nunca al alza), solo con la
+   * luminosidad del ancla un +12,5% más alta (56%→63%) para que el color
+   * principal se sienta más claro y premium, sobre todo en móvil. Toda la
+   * familia se recalculó junto con el ancla para mantener la escala
+   * coherente — el dorado no se toca en este cambio.
    */
-  --color-brand-50: #f2f0fc;
-  --color-brand-100: #e6e3fb;
-  --color-brand-200: #cfc8f7;
-  --color-brand-300: #aea0f0;
-  --color-brand-400: #8b79ea;
-  --color-brand-500: #6952e4;
-  --color-brand-600: #4f3fe0;
-  --color-brand-700: #4331c4;
-  --color-brand-800: #35269c;
-  --color-brand-900: #251a6e;
-  --color-brand-950: #17103f;
+  --color-brand-50: #f7f6fd;
+  --color-brand-100: #f5f3fe;
+  --color-brand-200: #ddd9fa;
+  --color-brand-300: #b5adf2;
+  --color-brand-400: #a49aef;
+  --color-brand-500: #8073e8;
+  --color-brand-600: #6e5fe4;
+  --color-brand-700: #5849d0;
+  --color-brand-800: #3f2fb7;
+  --color-brand-900: #2e228c;
+  --color-brand-950: #1f1859;
 
   /*
    * Acento dorado — "la opción elegida". Se usa como mucho una vez por
@@ -64,8 +72,8 @@
   --color-slate-950: #14121f;
 
   /* Sombras premium: doble capa (contacto + elevación) con un tinte de marca. */
-  --shadow-premium: 0 1px 2px 0 rgba(20, 18, 31, 0.05), 0 12px 24px -8px rgba(79, 63, 224, 0.18);
-  --shadow-premium-lg: 0 2px 4px 0 rgba(20, 18, 31, 0.05), 0 32px 64px -16px rgba(79, 63, 224, 0.26);
+  --shadow-premium: 0 1px 2px 0 rgba(20, 18, 31, 0.05), 0 12px 24px -8px rgba(110, 95, 228, 0.18);
+  --shadow-premium-lg: 0 2px 4px 0 rgba(20, 18, 31, 0.05), 0 32px 64px -16px rgba(110, 95, 228, 0.26);
 
   /*
    * Color por agente (Researcher / Evaluador / Recomendador), tal y como se
@@ -78,8 +86,8 @@
   --color-agente-researcher-soft: #ccfbf1;
   --color-agente-evaluador: #b45309;
   --color-agente-evaluador-soft: #fef3c7;
-  --color-agente-recomendador: #4f3fe0;
-  --color-agente-recomendador-soft: #e6e3fb;
+  --color-agente-recomendador: #6e5fe4;
+  --color-agente-recomendador-soft: #f5f3fe;
 }
 
 body {
@@ -92,7 +100,7 @@ body {
 
 /* Textura de puntos muy sutil para el fondo del hero — sensación técnica sin ruido visual. */
 .fondo-puntos {
-  background-image: radial-gradient(circle, rgba(79, 70, 229, 0.16) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(110, 95, 228, 0.16) 1px, transparent 1px);
   background-size: 24px 24px;
   mask-image: radial-gradient(ellipse 60% 60% at 50% 0%, black 40%, transparent 100%);
 }

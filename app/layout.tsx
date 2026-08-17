@@ -56,7 +56,7 @@ export const metadata: Metadata = {
 // Tinta la barra de direcciones del navegador móvil con el índigo de marca
 // en vez de dejarla en blanco por defecto.
 export const viewport: Viewport = {
-  themeColor: "#4f3fe0",
+  themeColor: "#6e5fe4",
 };
 
 export default function RootLayout({
