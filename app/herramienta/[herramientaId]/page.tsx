@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import type { ReactNode } from "react";
 import {
   ArrowUpRight,
@@ -69,8 +70,18 @@ export default async function FichaHerramientaPage({
 
       {/* Cabecera: nombre, descripción y Puntuación Atlas. Espacio reservado
           para logoUrl (hoy vacío en las 5 fichas) — el fondo abstracto de
-          marca ocupa su lugar en vez de dejar un hueco vacío. */}
+          marca (textura de puntos + macro del Sistema Prisma, difuminada en
+          la esquina) ocupa su lugar en vez de dejar un hueco vacío. */}
       <div className="relative overflow-hidden rounded-3xl border border-slate-200/80 bg-gradient-to-br from-brand-50 via-white to-white shadow-premium">
+        <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 opacity-[0.16]" aria-hidden="true">
+          <Image
+            src="/imagenes/marca/ficha-macro.png"
+            alt=""
+            width={640}
+            height={640}
+            className="h-full w-full rounded-full object-cover"
+          />
+        </div>
         <div className="fondo-puntos pointer-events-none absolute inset-0 opacity-60" aria-hidden="true" />
         <div className="relative flex flex-col gap-6 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
           <div>
