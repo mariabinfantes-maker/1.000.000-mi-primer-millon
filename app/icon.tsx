@@ -4,7 +4,7 @@ export const size = { width: 32, height: 32 };
 export const contentType = "image/png";
 
 /**
- * Favicon generado a partir del mismo símbolo de marca que usa la
+ * Favicon generado a partir del mismo símbolo "Prisma" que usa la
  * cabecera (`components/ui/SimboloMolnip.tsx`) — no un archivo .ico
  * suelto y desincronizado del resto de la identidad visual. Los colores
  * van en literal (no como clases de Tailwind ni `var(--color-...)`)
@@ -23,10 +23,13 @@ export default function Icon() {
           display: "flex",
         }}
       >
-        <svg width="32" height="32" viewBox="0 0 32 32">
-          <path d="M16 5 L27 16 L16 16 Z" fill="#ffffff" fillOpacity={0.92} />
-          <path d="M16 16 L27 16 L16 27 Z" fill="#ffffff" fillOpacity={0.55} />
-          <path d="M16 16 L16 27 L5 16 Z" fill="#c99a3d" />
+        <svg width="32" height="32" viewBox="0 0 64 64">
+          <polygon points="36,26 32,8 52.78,20" fill="#c99a3d" />
+          <polygon points="36,26 52.78,20 52.78,44" fill="#ffffff" fillOpacity={0.85} />
+          <polygon points="36,26 52.78,44 32,56" fill="#ffffff" fillOpacity={0.55} />
+          <polygon points="36,26 32,56 11.22,44" fill="#ffffff" fillOpacity={0.3} />
+          <polygon points="36,26 11.22,44 11.22,20" fill="#ffffff" fillOpacity={0.55} />
+          <polygon points="36,26 11.22,20 32,8" fill="#ffffff" fillOpacity={0.85} />
         </svg>
       </div>
     ),
