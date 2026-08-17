@@ -50,7 +50,9 @@ export default async function LandingCategoriaPage({
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
       <EnlaceAtras href="/">Volver al inicio</EnlaceAtras>
 
-      <h1 className="mt-6 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">{categoria.nombre}</h1>
+      <h1 className="mt-6 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+        {categoria.nombre}
+      </h1>
       <p className="mt-3 max-w-2xl leading-relaxed text-slate-600">{categoria.descripcion}</p>
 
       <Boton href={`/categoria/${categoria.id}/cuestionario`} className="mt-6">

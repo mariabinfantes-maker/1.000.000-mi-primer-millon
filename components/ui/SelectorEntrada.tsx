@@ -104,7 +104,7 @@ function PanelObjetivo({ problemas }: { problemas: ProblemaResumen[] }) {
             <IconoProblema problemaId={problema.id} />
           </span>
           <span className="flex-1">
-            <span className="block text-lg font-semibold text-slate-900 group-hover:text-brand-700">
+            <span className="block font-display text-lg font-bold text-slate-900 group-hover:text-brand-700">
               {problema.titulo}
             </span>
             <span className="mt-1 block text-sm leading-relaxed text-slate-500">
@@ -134,7 +134,7 @@ function PanelCategoria({ categorias }: { categorias: CategoriaResumen[] }) {
             <LayoutGrid className="h-6 w-6" aria-hidden="true" />
           </span>
           <span className="flex-1">
-            <span className="block text-lg font-semibold text-slate-900 group-hover:text-brand-700">
+            <span className="block font-display text-lg font-bold text-slate-900 group-hover:text-brand-700">
               {categoria.nombre}
             </span>
             <span className="mt-1 block text-sm leading-relaxed text-slate-500">
@@ -191,7 +191,7 @@ function PanelTextoLibre() {
         value={texto}
         onChange={(e) => setTexto(e.target.value)}
         placeholder={EJEMPLOS_TEXTO_LIBRE[ejemploIndice]}
-        className="w-full resize-none rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+        className="w-full resize-none rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 shadow-sm placeholder:text-slate-400 transition hover:border-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
       />
       <div className="mt-4 flex items-center justify-end">
         <button

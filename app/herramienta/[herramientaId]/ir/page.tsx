@@ -58,27 +58,33 @@ export default async function IrAlProveedorPage({
   const destino = enlaceAfiliado ?? herramienta.paginaOficial;
 
   return (
-    <div className="mx-auto flex max-w-lg flex-col items-center px-4 py-16 text-center sm:px-6 sm:py-24">
+    <div className="mx-auto max-w-lg px-4 py-16 sm:px-6 sm:py-24">
       <EnlaceAtras href={`/herramienta/${herramienta.id}`}>Volver a la ficha</EnlaceAtras>
 
-      <h1 className="mt-6 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-        Vas a ir a {herramienta.nombre}
-      </h1>
-      <p className="mt-3 leading-relaxed text-slate-600">{herramienta.idealPara}</p>
+      <div className="relative mt-6 flex flex-col items-center overflow-hidden rounded-3xl border border-slate-200/80 bg-white px-6 py-12 text-center shadow-premium-lg ring-1 ring-black/[0.02] sm:px-10">
+        <div className="fondo-puntos pointer-events-none absolute inset-0" aria-hidden="true" />
 
-      <div className="mt-8">
-        <BotonIrAlProveedor href={destino} nombre={herramienta.nombre} />
+        <h1 className="relative font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+          Vas a ir a {herramienta.nombre}
+        </h1>
+        <p className="relative mt-3 leading-relaxed text-slate-600">{herramienta.idealPara}</p>
+
+        <div className="relative mt-8">
+          <BotonIrAlProveedor href={destino} nombre={herramienta.nombre} />
+        </div>
+
+        <div className="relative mt-8 flex w-full items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-left">
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-slate-500 ring-1 ring-slate-200">
+            <ShieldCheck className="h-4 w-4" aria-hidden="true" />
+          </span>
+          <p className="text-xs leading-relaxed text-slate-500">
+            Este es un enlace de afiliado: Molnip recibe una comisión del proveedor por tu clic. Nunca afecta al
+            precio que pagas ni cambia lo que te recomendamos.
+          </p>
+        </div>
       </div>
 
-      <div className="mt-8 flex items-start gap-2 rounded-2xl border border-slate-200/80 bg-slate-50 p-4 text-left">
-        <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" aria-hidden="true" />
-        <p className="text-xs leading-relaxed text-slate-500">
-          Este es un enlace de afiliado: Molnip recibe una comisión del proveedor por tu clic. Nunca afecta al
-          precio que pagas ni cambia lo que te recomendamos.
-        </p>
-      </div>
-
-      <p className="mt-8 text-sm text-slate-500">
+      <p className="mt-8 text-center text-sm text-slate-500">
         ¿No era lo que esperabas?{" "}
         <Link href={`/herramienta/${herramienta.id}`} className="font-semibold text-brand-600 hover:text-brand-800">
           Vuelve a la ficha

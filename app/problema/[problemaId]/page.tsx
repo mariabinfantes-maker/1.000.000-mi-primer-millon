@@ -53,7 +53,9 @@ export default async function LandingProblemaPage({
         <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-brand-100 text-brand-600 ring-1 ring-brand-100">
           <IconoProblema problemaId={problema.id} />
         </span>
-        <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">{problema.titulo}</h1>
+        <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          {problema.titulo}
+        </h1>
       </div>
       <p className="mt-3 max-w-2xl leading-relaxed text-slate-600">{problema.descripcion}</p>
 

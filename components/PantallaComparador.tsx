@@ -44,7 +44,7 @@ export default function PantallaComparador({ origen }: { origen: OrigenDiagnosti
   if (!top || top.length < 2) {
     return (
       <div className="mx-auto flex max-w-xl flex-col items-center px-4 py-24 text-center">
-        <h1 className="text-2xl font-bold tracking-tight text-slate-900">Todavía no hay nada que comparar</h1>
+        <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900">Todavía no hay nada que comparar</h1>
         <p className="mt-2 leading-relaxed text-slate-600">
           Completa primero el cuestionario para que Molnip elija las opciones que quieres comparar.
         </p>
@@ -66,7 +66,9 @@ export default function PantallaComparador({ origen }: { origen: OrigenDiagnosti
           <p className="text-xs text-slate-500">{EVALUADOR.rol}</p>
         </div>
       </div>
-      <h1 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Comparativa guiada</h1>
+      <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+        Comparativa guiada
+      </h1>
       <p className="mt-3 max-w-2xl leading-relaxed text-slate-600">
         Solo se muestran los criterios en los que estas opciones realmente se diferencian, no una tabla exhaustiva.
       </p>

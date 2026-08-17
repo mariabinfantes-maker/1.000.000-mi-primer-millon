@@ -45,7 +45,7 @@ export default async function AlternativasPage({
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
       <EnlaceAtras href={`/herramienta/${herramienta.id}`}>Volver a la ficha</EnlaceAtras>
 
-      <h1 className="mt-6 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+      <h1 className="mt-6 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
         Alternativas a {herramienta.nombre}
       </h1>
       <p className="mt-3 max-w-2xl leading-relaxed text-slate-600">

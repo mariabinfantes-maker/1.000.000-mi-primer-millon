@@ -27,7 +27,7 @@ function formatearFecha(fechaISO: string): string {
  */
 export default function InsigniaConfianza({ fechaUltimaRevision }: { fechaUltimaRevision: string }) {
   return (
-    <div className="inline-flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-white px-4 py-3">
+    <div className="inline-flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-white px-4 py-3 shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-black/[0.02]">
       <AvatarAgente id="researcher" tamano="pequeno" />
       <div>
         <p className="text-sm font-semibold text-agente-researcher">{RESEARCHER.nombre}</p>
