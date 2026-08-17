@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Scale } from "lucide-react";
 import { leerResultadosGuardados } from "@/lib/resultadosSesion";
 import { aVistaDeTarjeta } from "@/lib/vistaRecomendacion";
@@ -67,30 +68,42 @@ export default function PantallaRecomendacion({ origen }: { origen: OrigenDiagno
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
       <EnlaceAtras href={`${origen.rutaBase}/cuestionario`}>Repetir el cuestionario</EnlaceAtras>
 
-      <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <div className="flex items-center gap-3">
-            <AvatarAgente id="recomendador" />
-            <div>
-              <p className="text-sm font-semibold text-agente-recomendador">{RECOMENDADOR.nombre}</p>
-              <p className="text-xs text-slate-500">{RECOMENDADOR.rol}</p>
-            </div>
-          </div>
-          <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Tus {vistas.length} mejores opciones
-          </h1>
-          <p className="mt-3 max-w-2xl leading-relaxed text-slate-600">
-            Hemos cruzado tus respuestas con nuestra base de herramientas. Esta es la que mejor
-            encaja contigo, junto con otras opciones sólidas para comparar.
-          </p>
+      <div className="relative">
+        <div className="absolute -top-6 -right-4 hidden h-40 w-40 overflow-hidden rounded-3xl shadow-premium-lg lg:block">
+          <Image
+            src="/imagenes/marca/resultados-cristal.png"
+            alt="Un cristal facetado índigo con una faceta iluminada en dorado, la opción que destaca"
+            width={480}
+            height={480}
+            className="h-full w-full object-cover"
+          />
         </div>
 
-        {vistas.length >= 2 && (
-          <Boton href={`${origen.rutaBase}/comparar`} variante="secundario" className="shrink-0">
-            <Scale className="h-4 w-4" aria-hidden="true" />
-            Comparar estas opciones
-          </Boton>
-        )}
+        <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between lg:pr-44">
+          <div>
+            <div className="flex items-center gap-3">
+              <AvatarAgente id="recomendador" />
+              <div>
+                <p className="text-sm font-semibold text-agente-recomendador">{RECOMENDADOR.nombre}</p>
+                <p className="text-xs text-slate-500">{RECOMENDADOR.rol}</p>
+              </div>
+            </div>
+            <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+              Tus {vistas.length} mejores opciones
+            </h1>
+            <p className="mt-3 max-w-2xl leading-relaxed text-slate-600">
+              Hemos cruzado tus respuestas con nuestra base de herramientas. Esta es la que mejor
+              encaja contigo, junto con otras opciones sólidas para comparar.
+            </p>
+          </div>
+
+          {vistas.length >= 2 && (
+            <Boton href={`${origen.rutaBase}/comparar`} variante="secundario" className="shrink-0">
+              <Scale className="h-4 w-4" aria-hidden="true" />
+              Comparar estas opciones
+            </Boton>
+          )}
+        </div>
       </div>
 
       <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
