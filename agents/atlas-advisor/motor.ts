@@ -3,11 +3,22 @@ import { CRITERIOS } from "./criterios";
 import type { DetalleCriterio, HerramientaEvaluada, ResultadoRecomendacion, RespuestasUsuario } from "./tipos";
 
 const CANTIDAD_POR_DEFECTO = 3;
-/** Nº máximo de motivos que entran en el párrafo de explicación (el resto sigue disponible en `razones`). */
-const MOTIVOS_EN_EXPLICACION = 3;
+/** Nº máximo de motivos puntuados que entran en el párrafo de explicación (el resto sigue disponible en `razones`). */
+const MOTIVOS_EN_EXPLICACION = 2;
 
 function porRelevancia(a: DetalleCriterio, b: DetalleCriterio): number {
   return Math.abs(b.puntos) - Math.abs(a.puntos);
+}
+
+/**
+ * `idealPara` normalizada para insertarse tras un lead-in propio ("Para
+ * quién encaja mejor:") sin duplicar la introducción cuando el dato
+ * editorial ya empieza con "Ideal para" (una minoría de fichas la escriben
+ * así, el resto empieza directo por el perfil de negocio).
+ */
+function encajePara(herramienta: Herramienta): string {
+  const texto = herramienta.idealPara.replace(/^Ideal para\s+/i, "");
+  return texto.charAt(0).toUpperCase() + texto.slice(1);
 }
 
 /**
@@ -20,13 +31,21 @@ function porRelevancia(a: DetalleCriterio, b: DetalleCriterio): number {
  * fragmentos sin sujeto ("Recomendamos X porque: Pensada para..."). Un
  * encabezado nominal en vez de una conjunción evita esa fricción
  * gramatical sin tener que reescribir los motivos en sí.
+ *
+ * Siempre cierra con `idealPara` (dato editorial fijo de la herramienta,
+ * nunca puntuado): con el cuestionario de 4 preguntas, es habitual que dos
+ * o tres finalistas empaten en todos los criterios activos y por tanto en
+ * sus `razones` — sin este cierre, sus tarjetas mostrarían el párrafo
+ * "por qué te recomendamos" palabra por palabra idéntico, que lee como una
+ * plantilla en vez de una recomendación pensada para cada una.
  */
 function generarExplicacion(herramienta: Herramienta, razones: string[]): string {
+  const encaje = `Para quién encaja mejor: ${encajePara(herramienta)}`;
   if (razones.length === 0) {
-    return `${herramienta.nombre} es una opción sólida y bien valorada dentro de su categoría.`;
+    return `${herramienta.nombre} es una opción sólida y bien valorada dentro de su categoría. ${encaje}`;
   }
   const motivos = razones.slice(0, MOTIVOS_EN_EXPLICACION).join(" ");
-  return `Por qué te recomendamos ${herramienta.nombre}: ${motivos}`;
+  return `Por qué te recomendamos ${herramienta.nombre}: ${motivos} ${encaje}`;
 }
 
 /** Aplica todos los criterios a una única herramienta y consolida el resultado. */
