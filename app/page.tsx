@@ -136,6 +136,7 @@ export default function Home() {
                 width={1024}
                 height={1024}
                 priority
+                sizes="(min-width: 1024px) 512px, 100vw"
                 className="w-full"
               />
             </div>

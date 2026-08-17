@@ -65,8 +65,8 @@ export default function PantallaComparador({ origen }: { origen: OrigenDiagnosti
           <Image
             src="/imagenes/marca/comparador-gemas.png"
             alt="Dos cristales facetados uno junto al otro, uno dorado y otro neutro — comparar para elegir"
-            width={480}
-            height={480}
+            width={288}
+            height={288}
             className="h-full w-full object-cover"
           />
         </div>

@@ -15,8 +15,8 @@ export default function EstadoVacio({ mensaje }: { mensaje: string }) {
         <Image
           src="/imagenes/marca/vacio-piedra.png"
           alt=""
-          width={320}
-          height={320}
+          width={160}
+          height={160}
           className="h-full w-full object-cover"
         />
       </div>

@@ -52,8 +52,8 @@ export default async function AlternativasPage({
           <Image
             src="/imagenes/marca/categoria-gema.png"
             alt=""
-            width={480}
-            height={480}
+            width={256}
+            height={256}
             className="h-full w-full object-cover"
           />
         </div>

@@ -57,8 +57,8 @@ export default async function LandingCategoriaPage({
           <Image
             src="/imagenes/marca/categoria-gema.png"
             alt=""
-            width={480}
-            height={480}
+            width={288}
+            height={288}
             className="h-full w-full object-cover"
           />
         </div>

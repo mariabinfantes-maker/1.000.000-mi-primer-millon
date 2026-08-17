@@ -45,8 +45,8 @@ export default function AtlasTrabajando({
           <Image
             src="/imagenes/marca/carga-luz.png"
             alt=""
-            width={480}
-            height={480}
+            width={416}
+            height={416}
             className="h-full w-full rounded-full object-cover"
           />
         </div>

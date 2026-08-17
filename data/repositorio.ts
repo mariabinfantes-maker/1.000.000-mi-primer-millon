@@ -191,18 +191,26 @@ export function getHerramientasPorProblema(problemaId: string): Herramienta[] {
   return getHerramientas().filter((h) => h.problemasIds?.includes(problemaId) ?? false);
 }
 
+let cacheCategorias: Categoria[] | null = null;
+
 export function getCategorias(): Categoria[] {
+  if (cacheCategorias) return cacheCategorias;
   const contenido = fs.readFileSync(RUTA_CATEGORIAS, "utf-8");
-  return JSON.parse(contenido) as Categoria[];
+  cacheCategorias = JSON.parse(contenido) as Categoria[];
+  return cacheCategorias;
 }
 
 export function getCategoria(id: string): Categoria | undefined {
   return getCategorias().find((c) => c.id === id);
 }
 
+let cacheProblemas: Problema[] | null = null;
+
 export function getProblemas(): Problema[] {
+  if (cacheProblemas) return cacheProblemas;
   const contenido = fs.readFileSync(RUTA_PROBLEMAS, "utf-8");
-  return JSON.parse(contenido) as Problema[];
+  cacheProblemas = JSON.parse(contenido) as Problema[];
+  return cacheProblemas;
 }
 
 export function getProblema(id: string): Problema | undefined {

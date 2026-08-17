@@ -8,8 +8,8 @@ export default function NotFound() {
         <Image
           src="/imagenes/marca/404-grieta.png"
           alt="Un cristal facetado con una fina grieta, la luz dispersándose sin encontrar su camino"
-          width={480}
-          height={480}
+          width={288}
+          height={288}
           className="h-full w-full object-cover"
         />
       </div>

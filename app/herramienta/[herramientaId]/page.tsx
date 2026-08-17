@@ -284,8 +284,8 @@ export default async function FichaHerramientaPage({
           <Image
             src="/imagenes/marca/cta-final-dorado.png"
             alt=""
-            width={320}
-            height={320}
+            width={128}
+            height={128}
             className="h-full w-full object-cover"
           />
         </div>

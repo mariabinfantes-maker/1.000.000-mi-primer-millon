@@ -73,8 +73,8 @@ export default function PantallaRecomendacion({ origen }: { origen: OrigenDiagno
           <Image
             src="/imagenes/marca/resultados-cristal.png"
             alt="Un cristal facetado índigo con una faceta iluminada en dorado, la opción que destaca"
-            width={480}
-            height={480}
+            width={320}
+            height={320}
             className="h-full w-full object-cover"
           />
         </div>
