@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, IBM_Plex_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -49,6 +49,12 @@ export const metadata: Metadata = {
     title: TITULO_ATLAS,
     description: DESCRIPCION_ATLAS,
   },
+};
+
+// Tinta la barra de direcciones del navegador móvil con el índigo de marca
+// en vez de dejarla en blanco por defecto.
+export const viewport: Viewport = {
+  themeColor: "#4f3fe0",
 };
 
 export default function RootLayout({

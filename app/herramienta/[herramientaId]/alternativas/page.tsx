@@ -62,7 +62,7 @@ export default async function AlternativasPage({
           Alternativas a {herramienta.nombre}
         </h1>
         <p className="mt-3 max-w-2xl leading-relaxed text-slate-600">
-          Otras opciones de la misma categoría, ordenadas por Puntuación Atlas.
+          Otras opciones de la misma categoría, ordenadas por Puntuación Molnip.
         </p>
       </div>
 
