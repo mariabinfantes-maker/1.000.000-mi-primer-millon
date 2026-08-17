@@ -271,6 +271,15 @@ export default async function FichaHerramientaPage({
       {/* CTA de cierre: quien lee hasta el final no debería tener que volver a subir para convertir. */}
       <div className="relative mt-10 flex flex-col items-center gap-3 overflow-hidden rounded-3xl border border-slate-200/80 bg-gradient-to-br from-brand-50 via-white to-white p-8 text-center shadow-premium">
         <div className="fondo-puntos pointer-events-none absolute inset-0 opacity-60" aria-hidden="true" />
+        <div className="relative h-16 w-16 overflow-hidden rounded-2xl shadow-premium">
+          <Image
+            src="/imagenes/marca/cta-final-dorado.png"
+            alt=""
+            width={320}
+            height={320}
+            className="h-full w-full object-cover"
+          />
+        </div>
         <p className="relative font-display text-lg font-semibold text-slate-900">
           ¿Ya tienes claro que {herramienta.nombre} encaja contigo?
         </p>
