@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getHerramienta } from "@/data/repositorio";
 import { analizarSlugComparacion, evaluarParComparacion, generarParesComparacion } from "@/agents/atlas-generador-contenido/comparaciones";
 import { metadataComparacion } from "@/agents/atlas-generador-contenido/metadatos";
@@ -51,12 +52,24 @@ export default async function ComparacionPage({
     <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-16">
       <EnlaceAtras href="/">Volver al inicio</EnlaceAtras>
 
-      <h1 className="mt-6 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-        {a.nombre} vs {b.nombre}
-      </h1>
-      <p className="mt-3 max-w-2xl leading-relaxed text-slate-600">
-        Comparativa objetiva criterio a criterio, calculada por Molnip — sin cuestionario de por medio.
-      </p>
+      <div className="relative lg:pr-40">
+        <div className="absolute -top-2 -right-4 hidden h-32 w-32 overflow-hidden rounded-3xl shadow-premium-lg lg:block">
+          <Image
+            src="/imagenes/marca/comparador-gemas.png"
+            alt="Dos cristales facetados uno junto al otro, uno dorado y otro neutro — comparar para elegir"
+            width={480}
+            height={480}
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        <h1 className="mt-6 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          {a.nombre} vs {b.nombre}
+        </h1>
+        <p className="mt-3 max-w-2xl leading-relaxed text-slate-600">
+          Comparativa objetiva criterio a criterio, calculada por Molnip — sin cuestionario de por medio.
+        </p>
+      </div>
 
       <div className="mt-8">
         <TablaComparativa evaluadas={evaluadas} />
