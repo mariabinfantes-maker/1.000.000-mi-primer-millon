@@ -21,11 +21,24 @@ function construirMetadata(titulo: string, descripcion: string, opciones: { inde
   // (las leen plataformas externas, no el <title> del documento), así que
   // llevan el sufijo explícito para no aparecer sin marca en una vista previa.
   const tituloCompleto = `${titulo} | Molnip`;
+  // `opengraph-image.tsx` solo se adjunta automáticamente a la ruta raíz;
+  // cada página con su propio `openGraph` necesita indicar la imagen a
+  // mano para que las vistas previas (WhatsApp, Slack, X...) no salgan en
+  // blanco. Una sola imagen de marca para todo el sitio por ahora — nunca
+  // una por herramienta, para no prometer una miniatura personalizada que
+  // el catálogo no tiene.
+  const imagenSocial = [{ url: "/opengraph-image", width: 1200, height: 630 }];
   return {
     title: titulo,
     description: descripcion,
-    openGraph: { title: tituloCompleto, description: descripcion, type: "website", locale: "es_ES" },
-    twitter: { card: "summary", title: tituloCompleto, description: descripcion },
+    openGraph: {
+      title: tituloCompleto,
+      description: descripcion,
+      type: "website",
+      locale: "es_ES",
+      images: imagenSocial,
+    },
+    twitter: { card: "summary_large_image", title: tituloCompleto, description: descripcion, images: imagenSocial },
     ...(opciones.indexable ? {} : { robots: { index: false, follow: true } }),
   };
 }
