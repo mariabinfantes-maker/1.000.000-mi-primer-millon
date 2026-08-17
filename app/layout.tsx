@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, IBM_Plex_Mono, Manrope } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 import Header from "@/components/Header";
 import { DESCRIPCION_ATLAS, TITULO_ATLAS } from "@/agents/atlas-generador-contenido/metadatos";
@@ -72,8 +73,20 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col bg-slate-50 text-slate-900">
         <Header />
         <main className="flex-1">{children}</main>
-        <footer className="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-400">
-          Molnip — recomendaciones independientes de tecnología para empresas
+        <footer className="border-t border-slate-200 bg-white py-6">
+          <div className="mx-auto flex max-w-5xl flex-col items-center gap-3 px-4 text-center sm:flex-row sm:justify-between sm:px-6 sm:text-left">
+            <p className="text-xs text-slate-400">
+              Molnip — recomendaciones independientes de tecnología para empresas
+            </p>
+            <nav className="flex items-center gap-5 text-xs font-medium text-slate-500">
+              <Link href="/" className="hover:text-brand-700">
+                Inicio
+              </Link>
+              <Link href="/agentes" className="hover:text-brand-700">
+                Cómo funciona
+              </Link>
+            </nav>
+          </div>
         </footer>
       </body>
     </html>

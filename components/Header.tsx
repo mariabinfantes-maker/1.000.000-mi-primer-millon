@@ -11,9 +11,20 @@ export default function Header() {
             Molnip
           </span>
         </Link>
-        <p className="hidden text-sm text-slate-500 sm:block">
-          El asesor que encuentra tu mejor herramienta
-        </p>
+        <nav className="flex items-center gap-6">
+          <Link
+            href="/agentes"
+            className="hidden text-sm font-medium text-slate-600 transition hover:text-brand-700 sm:block"
+          >
+            Cómo funciona
+          </Link>
+          <Link
+            href="/#elige-camino"
+            className="text-sm font-semibold text-brand-600 transition hover:text-brand-800"
+          >
+            Empezar diagnóstico
+          </Link>
+        </nav>
       </div>
     </header>
   );
