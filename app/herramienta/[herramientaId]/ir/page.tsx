@@ -69,8 +69,8 @@ export default async function IrAlProveedorPage({
           <Image
             src="/imagenes/marca/cta-final-dorado.png"
             alt=""
-            width={320}
-            height={320}
+            width={128}
+            height={128}
             className="h-full w-full object-cover"
           />
         </div>
@@ -89,8 +89,9 @@ export default async function IrAlProveedorPage({
             <ShieldCheck className="h-4 w-4" aria-hidden="true" />
           </span>
           <p className="text-xs leading-relaxed text-slate-500">
-            Este es un enlace de afiliado: Molnip recibe una comisión del proveedor por tu clic. Nunca afecta al
-            precio que pagas ni cambia lo que te recomendamos.
+            {enlaceAfiliado
+              ? "Este es un enlace de afiliado: Molnip recibe una comisión del proveedor por tu clic. Nunca afecta al precio que pagas ni cambia lo que te recomendamos."
+              : `Te llevamos directamente a la web oficial de ${herramienta.nombre}. Nunca cambia lo que te recomendamos.`}
           </p>
         </div>
       </div>
