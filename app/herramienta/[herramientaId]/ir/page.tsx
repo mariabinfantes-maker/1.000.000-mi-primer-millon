@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ShieldCheck } from "lucide-react";
 import { getHerramienta, getHerramientas } from "@/data/repositorio";
 import { getEstrategiaAfiliacion } from "@/data/repositorioEstrategiaAfiliacion";
@@ -64,7 +65,17 @@ export default async function IrAlProveedorPage({
       <div className="relative mt-6 flex flex-col items-center overflow-hidden rounded-3xl border border-slate-200/80 bg-white px-6 py-12 text-center shadow-premium-lg ring-1 ring-black/[0.02] sm:px-10">
         <div className="fondo-puntos pointer-events-none absolute inset-0" aria-hidden="true" />
 
-        <h1 className="relative font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+        <div className="relative h-16 w-16 overflow-hidden rounded-2xl shadow-premium">
+          <Image
+            src="/imagenes/marca/cta-final-dorado.png"
+            alt=""
+            width={320}
+            height={320}
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        <h1 className="relative mt-4 font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
           Vas a ir a {herramienta.nombre}
         </h1>
         <p className="relative mt-3 leading-relaxed text-slate-600">{herramienta.idealPara}</p>
