@@ -132,7 +132,7 @@ export default function Home() {
             <div className="animar-flotar overflow-hidden rounded-3xl shadow-premium-lg">
               <Image
                 src="/imagenes/marca/hero-formas.png"
-                alt="Tres formas abstractas de cristal esmerilado; una, en índigo con un reflejo dorado, destaca sobre las otras como la opción elegida"
+                alt="Un cristal facetado transparente con una faceta iluminada en dorado, junto a formas de vidrio esmerilado índigo y un disco de metal cepillado — la opción que destaca entre varias"
                 width={1024}
                 height={1024}
                 priority
