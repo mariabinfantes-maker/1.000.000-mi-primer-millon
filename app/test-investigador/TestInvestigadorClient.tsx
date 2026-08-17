@@ -7,11 +7,11 @@ import type { HerramientaPropuesta, NivelConfianza } from "@/agents/atlas-resear
 
 /**
  * Pantalla de prueba interna, sin enlazar desde ninguna navegación.
- * Objetivo único: confirmar a mano que Atlas Researcher investiga una
+ * Objetivo único: confirmar a mano que Molnip Researcher investiga una
  * herramienta real de extremo a extremo en producción (Vercel +
  * GEMINI_API_KEY configurada). No forma parte del producto.
  */
-export default function TestInvestigadorPage() {
+export default function TestInvestigadorClient() {
   const [nombreHerramienta, setNombreHerramienta] = useState("");
   const [cargando, setCargando] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -50,7 +50,7 @@ export default function TestInvestigadorPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-16">
-      <h1 className="text-2xl font-bold tracking-tight text-slate-900">Prueba: Atlas Researcher</h1>
+      <h1 className="text-2xl font-bold tracking-tight text-slate-900">Prueba: Molnip Researcher</h1>
       <p className="mt-2 text-sm text-slate-500">
         Pantalla interna para verificar /api/investigar-herramienta en producción. No forma parte del
         producto.

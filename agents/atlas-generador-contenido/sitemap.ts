@@ -25,7 +25,10 @@ export function generarEntradasSitemap(): EntradaSitemap[] {
   const herramientas = getHerramientas();
   const porId = new Map(herramientas.map((h) => [h.id, h]));
 
-  const entradas: EntradaSitemap[] = [{ ruta: "/", prioridad: 1 }];
+  const entradas: EntradaSitemap[] = [
+    { ruta: "/", prioridad: 1 },
+    { ruta: "/agentes", prioridad: 0.5 },
+  ];
 
   for (const categoria of getCategorias()) {
     entradas.push({ ruta: `/categoria/${categoria.id}`, prioridad: 0.8 });

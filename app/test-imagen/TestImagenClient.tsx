@@ -9,7 +9,7 @@ import Boton from "@/components/ui/Boton";
  * extremo a extremo en producción (Vercel + OPENAI_API_KEY configurada).
  * No forma parte del producto ni sigue el flujo de "problema" de Atlas.
  */
-export default function TestImagenPage() {
+export default function TestImagenClient() {
   const [prompt, setPrompt] = useState("");
   const [cargando, setCargando] = useState(false);
   const [error, setError] = useState<string | null>(null);

@@ -1,11 +1,15 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { Eye, Lock } from "lucide-react";
 import { getHerramienta, getHerramientas } from "@/data/repositorio";
 import { evaluarHerramienta } from "@/agents/atlas-advisor";
 import { AGENTES, type IdAgente } from "@/lib/agentes";
+import { metadataAgentes } from "@/agents/atlas-generador-contenido/metadatos";
 import AvatarAgente from "@/components/ui/AvatarAgente";
 import RevelarAlScroll from "@/components/ui/RevelarAlScroll";
 import Boton from "@/components/ui/Boton";
+
+export const metadata: Metadata = metadataAgentes();
 
 const COLOR_TEXTO: Record<IdAgente, string> = {
   researcher: "text-agente-researcher",
@@ -43,8 +47,8 @@ export default function AgentesPage() {
           <Image
             src="/imagenes/marca/carga-luz.png"
             alt="Un cristal con un haz de luz visible por dentro, atravesándolo de un lado a otro"
-            width={480}
-            height={480}
+            width={256}
+            height={256}
             className="h-full w-full object-cover"
           />
         </div>
