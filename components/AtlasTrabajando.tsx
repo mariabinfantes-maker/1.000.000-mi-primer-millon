@@ -37,64 +37,70 @@ export default function AtlasTrabajando({
   );
 
   return (
-    <div className="mx-auto flex max-w-xl flex-col items-center px-4 py-24 text-center sm:px-6">
-      <AvatarAgente id="evaluador" tamano="grande" />
+    <div className="mx-auto max-w-xl px-4 py-16 sm:px-6 sm:py-24">
+      <div className="relative flex flex-col items-center overflow-hidden rounded-3xl border border-slate-200/80 bg-white px-6 py-12 text-center shadow-premium-lg ring-1 ring-black/[0.02] sm:px-10">
+        <div className="fondo-puntos pointer-events-none absolute inset-0" aria-hidden="true" />
 
-      <p className="mt-4 text-sm font-semibold text-agente-evaluador">Evaluador</p>
-      <h1 className="mt-1 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-        Cruzando tu situación con criterios reales
-      </h1>
-      <p className="mt-2 min-h-6 text-sm text-slate-500">
-        {totalHerramientas !== null
-          ? `Evaluamos ${totalHerramientas} herramientas de nuestro catálogo para ti.`
-          : "No es una lista fija: cada herramienta se puntúa de nuevo para tu caso."}
-      </p>
+        <div className="relative animar-flotar">
+          <AvatarAgente id="evaluador" tamano="grande" />
+        </div>
 
-      <ul className="mt-8 w-full max-w-sm space-y-3 text-left">
-        {CRITERIOS_DESTACADOS.map((criterio, i) => {
-          const hecho = i < completados;
-          return (
-            <li key={criterio.etiqueta} className="flex items-start gap-3">
-              <span
-                className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border transition-colors ${
-                  hecho
-                    ? "border-agente-evaluador bg-agente-evaluador text-white"
-                    : "border-slate-300 bg-white"
-                }`}
-              >
-                {hecho && <Check className="h-3 w-3" aria-hidden="true" />}
-              </span>
-              <span>
+        <p className="relative mt-4 text-sm font-semibold text-agente-evaluador">Evaluador</p>
+        <h1 className="relative mt-1 font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+          Cruzando tu situación con criterios reales
+        </h1>
+        <p className="relative mt-2 min-h-6 text-sm text-slate-500">
+          {totalHerramientas !== null
+            ? `Evaluamos ${totalHerramientas} herramientas de nuestro catálogo para ti.`
+            : "No es una lista fija: cada herramienta se puntúa de nuevo para tu caso."}
+        </p>
+
+        <ul className="relative mt-8 w-full max-w-sm space-y-3 text-left">
+          {CRITERIOS_DESTACADOS.map((criterio, i) => {
+            const hecho = i < completados;
+            return (
+              <li key={criterio.etiqueta} className="flex items-start gap-3">
                 <span
-                  className={`block text-sm font-semibold transition-colors ${
-                    hecho ? "text-slate-900" : "text-slate-400"
+                  className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
+                    hecho
+                      ? "border-agente-evaluador bg-agente-evaluador text-white"
+                      : "border-slate-300 bg-white"
                   }`}
                 >
-                  {criterio.etiqueta}
+                  {hecho && <Check className="h-3 w-3" aria-hidden="true" />}
                 </span>
-                <span className={`block text-xs transition-colors ${hecho ? "text-slate-500" : "text-slate-300"}`}>
-                  {criterio.explicacion}
+                <span>
+                  <span
+                    className={`block text-sm font-semibold transition-colors ${
+                      hecho ? "text-slate-900" : "text-slate-400"
+                    }`}
+                  >
+                    {criterio.etiqueta}
+                  </span>
+                  <span className={`block text-xs transition-colors ${hecho ? "text-slate-500" : "text-slate-300"}`}>
+                    {criterio.explicacion}
+                  </span>
                 </span>
-              </span>
-            </li>
-          );
-        })}
-      </ul>
+              </li>
+            );
+          })}
+        </ul>
 
-      <p className="mt-4 max-w-sm text-xs leading-relaxed text-slate-400">
-        + {OTROS_CRITERIOS.join(", ").toLowerCase()}.
-      </p>
-
-      <div className="mt-8 w-full max-w-sm">
-        <div className="h-2 w-full overflow-hidden rounded-full bg-slate-200">
-          <div
-            className="h-full rounded-full bg-agente-evaluador transition-[width] duration-200 ease-out"
-            style={{ width: `${Math.min(progreso, 100)}%` }}
-          />
-        </div>
-        <p className="mt-2 text-right text-xs font-medium text-slate-400">
-          {Math.round(Math.min(progreso, 100))}%
+        <p className="relative mt-4 max-w-sm text-xs leading-relaxed text-slate-400">
+          + {OTROS_CRITERIOS.join(", ").toLowerCase()}.
         </p>
+
+        <div className="relative mt-8 w-full max-w-sm">
+          <div className="h-2 w-full overflow-hidden rounded-full bg-slate-200">
+            <div
+              className="h-full rounded-full bg-agente-evaluador transition-[width] duration-200 ease-out"
+              style={{ width: `${Math.min(progreso, 100)}%` }}
+            />
+          </div>
+          <p className="mt-2 text-right text-xs font-medium text-slate-400">
+            {Math.round(Math.min(progreso, 100))}%
+          </p>
+        </div>
       </div>
     </div>
   );
