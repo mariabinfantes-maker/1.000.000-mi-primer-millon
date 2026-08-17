@@ -112,6 +112,10 @@ export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) 
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-16">
+      {/* Cada pregunta ya lleva su propio encabezado visual (label/legend, ver más abajo) del
+          tamaño y peso de un h1 — este es solo para la jerarquía semántica de la página. */}
+      <h1 className="sr-only">Cuestionario de Molnip: {origen.titulo}</h1>
+
       <div className="flex items-center gap-2.5">
         <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-600 ring-1 ring-brand-100">
           <IconoOrigen tipo={origen.tipo} id={origen.id} className="h-4 w-4" />
@@ -144,8 +148,8 @@ export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) 
           <Image
             src="/imagenes/marca/cuestionario-formacion.png"
             alt=""
-            width={480}
-            height={480}
+            width={448}
+            height={448}
             className="h-full w-full rounded-full object-cover"
           />
         </div>
