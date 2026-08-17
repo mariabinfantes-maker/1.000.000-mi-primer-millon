@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { ArrowLeft, Check } from "lucide-react";
 import { RANGOS_EMPLEADOS, type RangoEmpleados } from "@/lib/cuestionario";
 import type { HerramientaEvaluada, RespuestasUsuario } from "@/agents/atlas-advisor";
@@ -132,12 +133,23 @@ export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) 
       </p>
 
       <form
-        className="mt-8 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-premium ring-1 ring-black/[0.02] sm:p-8"
+        className="relative mt-8 overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-premium ring-1 ring-black/[0.02] sm:p-8"
         onSubmit={(e) => {
           e.preventDefault();
           irAlSiguientePaso();
         }}
       >
+        <div className="pointer-events-none absolute -top-16 -right-16 h-56 w-56 opacity-[0.14]" aria-hidden="true">
+          <Image
+            src="/imagenes/marca/cuestionario-formacion.png"
+            alt=""
+            width={480}
+            height={480}
+            className="h-full w-full rounded-full object-cover"
+          />
+        </div>
+
+        <div className="relative">
         {paso === 0 && (
           <div>
             <label
@@ -260,6 +272,7 @@ export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) 
           <Boton type="submit" disabled={!puedeAvanzar}>
             {paso < TOTAL_PREGUNTAS - 1 ? "Siguiente" : "Obtener recomendación"}
           </Boton>
+        </div>
         </div>
       </form>
     </div>
