@@ -68,6 +68,16 @@ export type Problema = {
   descripcion: string;
   /** Pregunta del cuestionario sobre la herramienta que ya usa la empresa para esto. */
   preguntaHerramienta: string;
+  /**
+   * Frases editoriales que delatan este objetivo en texto libre (ver
+   * `agents/atlas-advisor/deteccionProblema.ts`). Alimentan la puerta
+   * "Cuéntanoslo": si el texto del usuario contiene alguna, el motor
+   * prioriza el catálogo por este `Problema.id` antes de puntuar, igual que
+   * ya hace `problemaIdPrefill` cuando el usuario entra por objetivo
+   * explícito. Coincidencia por subcadena, nunca semántica — si ninguna
+   * frase aparece, el motor no descarta nada por su cuenta.
+   */
+  palabrasClave?: string[];
 };
 
 /**

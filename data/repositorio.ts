@@ -186,7 +186,7 @@ export function getHerramientasPorCategoria(categoriaId: string): Herramienta[] 
   return getHerramientas().filter((h) => h.categoriaId === categoriaId);
 }
 
-/** Herramientas cuyo `problemasIds` incluye `problemaId` — vacío mientras ninguna herramienta del catálogo real lo tenga asignado todavía (nunca inventa una coincidencia por texto). */
+/** Herramientas cuyo `problemasIds` incluye `problemaId` — nunca inventa una coincidencia por texto, solo la referencia editorial explícita. Usada por la landing SEO de cada objetivo y, desde el motor de recomendación, para prefiltrar el catálogo en las puertas "por objetivo" y "Cuéntanoslo" (ver `agents/atlas-advisor/motor.ts`). */
 export function getHerramientasPorProblema(problemaId: string): Herramienta[] {
   return getHerramientas().filter((h) => h.problemasIds?.includes(problemaId) ?? false);
 }

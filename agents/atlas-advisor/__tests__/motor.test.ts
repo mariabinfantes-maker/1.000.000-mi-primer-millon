@@ -154,6 +154,45 @@ describe("recomendarHerramientas", () => {
     expect(resultado.todas).toEqual([]);
   });
 
+  it("filtra por problemaIdsCandidatos cuando no hay categoriaId, devolviendo solo herramientas con ese objetivo", () => {
+    const resultado = recomendarHerramientas(
+      { problemaIdsCandidatos: ["conseguir-clientes"] },
+      catalogoDePrueba
+    );
+
+    expect(resultado.todas.map((e) => e.herramienta.id)).toEqual(["crm-facil"]);
+  });
+
+  it("evalúa la unión de herramientas cuando problemaIdsCandidatos trae varios ids (empate de la detección por texto)", () => {
+    const resultado = recomendarHerramientas(
+      { problemaIdsCandidatos: ["conseguir-clientes", "organizar-empresa"] },
+      catalogoDePrueba
+    );
+
+    expect(resultado.todas.map((e) => e.herramienta.id).sort()).toEqual(["crm-facil", "erp-complejo"]);
+  });
+
+  it("ignora problemaIdsCandidatos y evalúa el catálogo completo si ninguna herramienta lo tiene asignado (hueco editorial, no elección del usuario)", () => {
+    const resultado = recomendarHerramientas(
+      { problemaIdsCandidatos: ["objetivo-sin-herramientas-todavia"] },
+      catalogoDePrueba
+    );
+
+    expect(resultado.todas).toHaveLength(catalogoDePrueba.length);
+  });
+
+  it("da prioridad a categoriaId sobre problemaIdsCandidatos cuando llegan los dos a la vez", () => {
+    const resultado = recomendarHerramientas(
+      { categoriaId: "plataformas-todo-en-uno", problemaIdsCandidatos: ["conseguir-clientes"] },
+      catalogoDePrueba
+    );
+
+    // Las 4 herramientas de prueba comparten categoriaId "plataformas-todo-en-uno" (valor por defecto de
+    // construirHerramienta); si problemaIdsCandidatos ganara la prioridad, el resultado se quedaría solo en
+    // crm-facil (la única con ese problemaId).
+    expect(resultado.todas).toHaveLength(catalogoDePrueba.length);
+  });
+
   it("respeta la opción `cantidad` para devolver un top distinto de 3", () => {
     const resultado = recomendarHerramientas({}, catalogoDePrueba, { cantidad: 2 });
     expect(resultado.top).toHaveLength(2);

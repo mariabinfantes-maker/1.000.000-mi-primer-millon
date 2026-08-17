@@ -52,6 +52,35 @@ export function evaluarHerramienta(herramienta: Herramienta, respuestas: Respues
 }
 
 /**
+ * Reduce el catálogo a las herramientas relevantes para la intención del
+ * usuario, antes de puntuar nada — filtrar, no adivinar puntos.
+ *
+ * `categoriaId` es una elección explícita y siempre tiene prioridad: si no
+ * hay ninguna herramienta en esa categoría, se devuelve vacío a propósito
+ * (el usuario pidió justo esa categoría). `problemaIdsCandidatos` es más
+ * blando — puede venir de una elección explícita ("por objetivo", un solo
+ * id) o de una detección por texto libre ("Cuéntanoslo", posibles varios
+ * ids empatados) — así que si el catálogo no tiene ninguna herramienta con
+ * ese `problemasIds` todavía (hueco editorial, no elección del usuario), se
+ * ignora el filtro en vez de dejar al usuario sin recomendación.
+ */
+function seleccionarCandidatas(herramientas: Herramienta[], respuestas: RespuestasUsuario): Herramienta[] {
+  if (respuestas.categoriaId) {
+    return herramientas.filter((herramienta) => herramienta.categoriaId === respuestas.categoriaId);
+  }
+
+  if (respuestas.problemaIdsCandidatos && respuestas.problemaIdsCandidatos.length > 0) {
+    const idsObjetivo = new Set(respuestas.problemaIdsCandidatos);
+    const filtradas = herramientas.filter((herramienta) =>
+      herramienta.problemasIds?.some((id) => idsObjetivo.has(id))
+    );
+    if (filtradas.length > 0) return filtradas;
+  }
+
+  return herramientas;
+}
+
+/**
  * Motor de recomendación de Atlas.
  *
  * Recibe las respuestas del cuestionario y el catálogo completo de
@@ -70,9 +99,7 @@ export function recomendarHerramientas(
 ): ResultadoRecomendacion {
   const cantidad = opciones.cantidad ?? CANTIDAD_POR_DEFECTO;
 
-  const candidatas = respuestas.categoriaId
-    ? herramientas.filter((herramienta) => herramienta.categoriaId === respuestas.categoriaId)
-    : herramientas;
+  const candidatas = seleccionarCandidatas(herramientas, respuestas);
 
   const evaluadas = candidatas
     .map((herramienta) => evaluarHerramienta(herramienta, respuestas))

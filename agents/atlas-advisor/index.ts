@@ -18,6 +18,7 @@
  */
 export { evaluarHerramienta, recomendarHerramientas } from "./motor";
 export { CRITERIOS } from "./criterios";
+export { detectarProblemasPorTexto } from "./deteccionProblema";
 export type {
   Criterio,
   DetalleCriterio,

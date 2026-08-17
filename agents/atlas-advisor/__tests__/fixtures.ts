@@ -43,6 +43,7 @@ export function construirHerramienta(overrides: Partial<Herramienta> & Pick<Herr
 export const crmFacil = construirHerramienta({
   id: "crm-facil",
   nombre: "CRM Fácil",
+  problemasIds: ["conseguir-clientes"],
   segmentosIdeales: ["1-10", "11-50"],
   industriasIdeales: ["retail"],
   tienePlanGratuito: true,
@@ -68,6 +69,7 @@ export const crmFacil = construirHerramienta({
 export const erpComplejo = construirHerramienta({
   id: "erp-complejo",
   nombre: "ERP Complejo",
+  problemasIds: ["organizar-empresa"],
   segmentosIdeales: ["51-200", "200+"],
   industriasIdeales: ["fabricacion"],
   tienePlanGratuito: false,

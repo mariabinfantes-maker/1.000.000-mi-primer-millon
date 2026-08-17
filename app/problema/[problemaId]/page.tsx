@@ -28,11 +28,10 @@ export async function generateMetadata({
 /**
  * Landing de problema (Atlas Generador de Contenido, Capa 1) — hermana de
  * la landing de categoría, misma disciplina. `getHerramientasPorProblema`
- * puede devolver un array vacío de forma honesta (ver
- * data/herramientas/*.json: "ahorrar-tiempo" no tiene todavía ninguna
- * herramienta real con ese `problemasIds`) — nunca se rellena con nada
- * inventado; en su lugar, un estado vacío explícito que sigue ofreciendo
- * el cuestionario como camino alternativo.
+ * puede devolver un array vacío de forma honesta si algún día se añade un
+ * objetivo nuevo antes de etiquetar herramientas con ese `problemasIds` —
+ * nunca se rellena con nada inventado; en su lugar, un estado vacío
+ * explícito que sigue ofreciendo el cuestionario como camino alternativo.
  */
 export default async function LandingProblemaPage({
   params,

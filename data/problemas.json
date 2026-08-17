@@ -3,30 +3,99 @@
     "id": "conseguir-clientes",
     "titulo": "Conseguir más clientes",
     "descripcion": "Atrae y convierte más leads en ventas.",
-    "preguntaHerramienta": "¿Ya utilizas algún CRM?"
+    "preguntaHerramienta": "¿Ya utilizas algún CRM?",
+    "palabrasClave": [
+      "conseguir clientes",
+      "nuevos clientes",
+      "leads",
+      "captar clientes",
+      "convertir leads",
+      "seguimiento de clientes",
+      "seguimiento a tiempo",
+      "pipeline de ventas",
+      "cerrar ventas",
+      "cerrar tratos",
+      "prospección",
+      "embudo de ventas",
+      "pierdo oportunidades",
+      "no hago seguimiento",
+      "crm"
+    ]
   },
   {
     "id": "automatizar-tareas",
     "titulo": "Automatizar tareas",
     "descripcion": "Elimina trabajo manual y repetitivo conectando tus herramientas.",
-    "preguntaHerramienta": "¿Ya utilizas alguna herramienta de automatización?"
+    "preguntaHerramienta": "¿Ya utilizas alguna herramienta de automatización?",
+    "palabrasClave": [
+      "automatizar",
+      "automatización",
+      "tareas repetitivas",
+      "trabajo manual",
+      "conectar herramientas",
+      "flujos de trabajo",
+      "tareas manuales",
+      "hacerlo a mano"
+    ]
   },
   {
     "id": "ahorrar-tiempo",
     "titulo": "Ahorrar tiempo",
     "descripcion": "Recupera horas de trabajo con IA y herramientas de productividad.",
-    "preguntaHerramienta": "¿Ya utilizas algún asistente de IA o herramienta de productividad?"
+    "preguntaHerramienta": "¿Ya utilizas algún asistente de IA o herramienta de productividad?",
+    "palabrasClave": [
+      "ahorrar tiempo",
+      "perder horas",
+      "perder tiempo",
+      "no doy abasto",
+      "productividad",
+      "inteligencia artificial",
+      "asistente de ia",
+      "escribir contenido",
+      "redactar",
+      "resumir",
+      "transcribir",
+      "responder correos"
+    ]
   },
   {
     "id": "organizar-empresa",
     "titulo": "Organizar la empresa",
     "descripcion": "Centraliza proyectos, tareas y documentación de tu equipo.",
-    "preguntaHerramienta": "¿Ya utilizas alguna herramienta de gestión de proyectos?"
+    "preguntaHerramienta": "¿Ya utilizas alguna herramienta de gestión de proyectos?",
+    "palabrasClave": [
+      "organizar",
+      "desorganizado",
+      "proyectos",
+      "tareas del equipo",
+      "plazos",
+      "documentación",
+      "centralizar",
+      "planificación",
+      "gestión de proyectos",
+      "hoja de cálculo",
+      "excel",
+      "se me escapan cosas",
+      "se nos escapan cosas",
+      "facturas",
+      "presupuestos"
+    ]
   },
   {
     "id": "atencion-cliente",
     "titulo": "Mejorar la atención al cliente",
     "descripcion": "Responde más rápido y con mayor calidad a tus clientes.",
-    "preguntaHerramienta": "¿Ya utilizas algún software de atención al cliente?"
+    "preguntaHerramienta": "¿Ya utilizas algún software de atención al cliente?",
+    "palabrasClave": [
+      "atención al cliente",
+      "soporte",
+      "clientes esperando",
+      "responder a clientes",
+      "tickets",
+      "whatsapp",
+      "chat con clientes",
+      "servicio al cliente",
+      "no doy abasto respondiendo"
+    ]
   }
 ]

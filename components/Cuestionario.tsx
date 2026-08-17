@@ -63,6 +63,7 @@ export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) 
 
     const respuestas: RespuestasUsuario = {
       categoriaId: origen.categoriaIdPrefill,
+      problemaIdsCandidatos: origen.problemaIdPrefill ? [origen.problemaIdPrefill] : undefined,
       industria: sector.trim(),
       tamanoEmpresa: empleados as RangoEmpleados,
       notasAdicionales,

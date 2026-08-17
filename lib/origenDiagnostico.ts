@@ -23,6 +23,8 @@ export type OrigenDiagnostico = {
   preguntaHerramienta?: string;
   /** Prefiltra el catálogo por categoría en el motor de recomendación. */
   categoriaIdPrefill?: string;
+  /** Prefiltra el catálogo por objetivo (Problema.id) en el motor de recomendación — puerta "por objetivo". */
+  problemaIdPrefill?: string;
   /** Precarga la respuesta de "¿cuál es tu mayor problema?" con lo que el usuario ya escribió en la puerta de texto libre. */
   notasPrefill?: string;
   /** Base de rutas: `${rutaBase}/cuestionario` y `${rutaBase}/recomendacion`. */
