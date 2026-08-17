@@ -6,6 +6,7 @@ import { aVistaDeTarjetaGenerica, ordenarPorPuntuacionAtlas } from "@/lib/vistaR
 import { metadataCategoria } from "@/agents/atlas-generador-contenido/metadatos";
 import EnlaceAtras from "@/components/ui/EnlaceAtras";
 import Boton from "@/components/ui/Boton";
+import EstadoVacio from "@/components/ui/EstadoVacio";
 import TarjetaHerramientaRecomendada from "@/components/TarjetaHerramientaRecomendada";
 
 export function generateStaticParams() {
@@ -67,9 +68,7 @@ export default async function LandingCategoriaPage({
           ))}
         </div>
       ) : (
-        <p className="mt-8 text-sm text-slate-500">
-          Todavía no hemos investigado ninguna herramienta en esta categoría.
-        </p>
+        <EstadoVacio mensaje="Todavía no hemos investigado ninguna herramienta en esta categoría." />
       )}
     </div>
   );

@@ -5,6 +5,7 @@ import { getAlternativas } from "@/agents/atlas-generador-contenido/alternativas
 import { metadataAlternativas } from "@/agents/atlas-generador-contenido/metadatos";
 import { aVistaDeTarjetaGenerica } from "@/lib/vistaRecomendacion";
 import EnlaceAtras from "@/components/ui/EnlaceAtras";
+import EstadoVacio from "@/components/ui/EstadoVacio";
 import TarjetaHerramientaRecomendada from "@/components/TarjetaHerramientaRecomendada";
 
 export function generateStaticParams() {
@@ -59,9 +60,7 @@ export default async function AlternativasPage({
           ))}
         </div>
       ) : (
-        <p className="mt-8 text-sm text-slate-500">
-          Todavía no hemos investigado ninguna otra herramienta en esta categoría.
-        </p>
+        <EstadoVacio mensaje="Todavía no hemos investigado ninguna otra herramienta en esta categoría." />
       )}
     </div>
   );

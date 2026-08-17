@@ -7,6 +7,7 @@ import { metadataProblema } from "@/agents/atlas-generador-contenido/metadatos";
 import EnlaceAtras from "@/components/ui/EnlaceAtras";
 import Boton from "@/components/ui/Boton";
 import IconoProblema from "@/components/ui/IconoProblema";
+import EstadoVacio from "@/components/ui/EstadoVacio";
 import TarjetaHerramientaRecomendada from "@/components/TarjetaHerramientaRecomendada";
 
 export function generateStaticParams() {
@@ -71,10 +72,7 @@ export default async function LandingProblemaPage({
           ))}
         </div>
       ) : (
-        <p className="mt-8 text-sm text-slate-500">
-          Todavía no hemos investigado ninguna herramienta específica para esto — empieza el
-          diagnóstico y te ayudamos igualmente con lo que ya tenemos en el catálogo.
-        </p>
+        <EstadoVacio mensaje="Todavía no hemos investigado ninguna herramienta específica para esto — empieza el diagnóstico y te ayudamos igualmente con lo que ya tenemos en el catálogo." />
       )}
     </div>
   );
