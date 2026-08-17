@@ -44,6 +44,15 @@ const ETIQUETA_CURVA: Record<string, string> = {
   dificil: "Curva de aprendizaje exigente",
 };
 
+const ETIQUETA_MODELO_PRECIO: Record<string, string> = {
+  freemium: "Freemium",
+  suscripcion_mensual: "Suscripción mensual",
+  suscripcion_anual: "Suscripción anual",
+  pago_unico: "Pago único",
+  por_usuario: "Por usuario",
+  a_medida: "A medida",
+};
+
 export default async function FichaHerramientaPage({
   params,
 }: {
@@ -156,7 +165,7 @@ export default async function FichaHerramientaPage({
             {herramienta.tienePlanGratuito ? "Con plan gratuito" : "Sin plan gratuito"}
           </Etiqueta>
           {herramienta.modeloDePrecio.map((modelo) => (
-            <Etiqueta key={modelo}>{modelo.replaceAll("_", " ")}</Etiqueta>
+            <Etiqueta key={modelo}>{ETIQUETA_MODELO_PRECIO[modelo] ?? modelo.replaceAll("_", " ")}</Etiqueta>
           ))}
         </div>
         {herramienta.urlPrecios && (

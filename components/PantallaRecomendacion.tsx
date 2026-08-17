@@ -89,11 +89,12 @@ export default function PantallaRecomendacion({ origen }: { origen: OrigenDiagno
               </div>
             </div>
             <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Tus {vistas.length} mejores opciones
+              {vistas.length === 1 ? "Tu mejor opción" : `Tus ${vistas.length} mejores opciones`}
             </h1>
             <p className="mt-3 max-w-2xl leading-relaxed text-slate-600">
-              Hemos cruzado tus respuestas con nuestra base de herramientas. Esta es la que mejor
-              encaja contigo, junto con otras opciones sólidas para comparar.
+              {vistas.length === 1
+                ? "Hemos cruzado tus respuestas con nuestra base de herramientas. Esta es la que mejor encaja contigo — todavía no tenemos otra opción investigada en esta categoría con la que compararla."
+                : "Hemos cruzado tus respuestas con nuestra base de herramientas. El orden refleja qué tan bien encaja cada una con tu situación concreta — no siempre coincide con la Puntuación Molnip de cada tarjeta, que valora la herramienta en general, para cualquier empresa."}
             </p>
           </div>
 
