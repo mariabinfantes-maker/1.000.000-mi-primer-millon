@@ -4,6 +4,7 @@ import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { escribirBorrador } from "../borrador";
 import { registrarDecision } from "../decision";
+import { leerHistorialAprobaciones } from "../historialAprobaciones";
 import { promoverBorrador } from "../promover";
 import type { HerramientaPropuesta } from "../tipos";
 import { getEstrategiaAfiliacion, guardarEstrategiaAfiliacion } from "@/data/repositorioEstrategiaAfiliacion";
@@ -55,11 +56,13 @@ describe("promoverBorrador", () => {
   let dirBorradores: string;
   let dirDatos: string;
   let dirEstrategia: string;
+  let rutaHistorial: string;
 
   beforeEach(() => {
     dirBorradores = fs.mkdtempSync(path.join(os.tmpdir(), "atlas-promover-borradores-"));
     dirDatos = fs.mkdtempSync(path.join(os.tmpdir(), "atlas-promover-datos-"));
     dirEstrategia = fs.mkdtempSync(path.join(os.tmpdir(), "atlas-promover-estrategia-"));
+    rutaHistorial = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "atlas-promover-historial-")), "historial-aprobaciones.json");
   });
 
   afterEach(() => {
@@ -69,7 +72,7 @@ describe("promoverBorrador", () => {
   });
 
   it("falla si no existe ningún borrador con ese id", () => {
-    const resultado = promoverBorrador("no-existe", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia });
+    const resultado = promoverBorrador("no-existe", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia, rutaHistorial });
 
     expect(resultado.ok).toBe(false);
     if (!resultado.ok) expect(resultado.errores[0]).toContain("No existe ningún borrador");
@@ -83,6 +86,7 @@ describe("promoverBorrador", () => {
       dirBaseBorradores: dirBorradores,
       dirDatos,
       dirBaseEstrategia: dirEstrategia,
+      rutaHistorial,
     });
 
     expect(resultado.ok).toBe(true);
@@ -100,7 +104,7 @@ describe("promoverBorrador", () => {
     escribirBorrador("herramienta-de-prueba", propuestaValida, { dirBase: dirBorradores });
     registrarDecision("herramienta-de-prueba", "aprobado", "Ok.", { dirBase: dirBorradores });
 
-    promoverBorrador("herramienta-de-prueba", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia });
+    promoverBorrador("herramienta-de-prueba", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia, rutaHistorial });
 
     const estrategia = getEstrategiaAfiliacion("herramienta-de-prueba", { dirBase: dirEstrategia });
     expect(estrategia?.cuentas[0].estado).toBe("no_solicitado");
@@ -120,7 +124,7 @@ describe("promoverBorrador", () => {
       { dirBase: dirEstrategia }
     );
 
-    promoverBorrador("herramienta-de-prueba", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia });
+    promoverBorrador("herramienta-de-prueba", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia, rutaHistorial });
 
     const estrategia = getEstrategiaAfiliacion("herramienta-de-prueba", { dirBase: dirEstrategia });
     expect(estrategia?.cuentas).toHaveLength(1);
@@ -135,7 +139,7 @@ describe("promoverBorrador", () => {
     };
     escribirBorrador("herramienta-incompleta", propuestaIncompleta, { dirBase: dirBorradores });
 
-    const resultado = promoverBorrador("herramienta-incompleta", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia });
+    const resultado = promoverBorrador("herramienta-incompleta", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia, rutaHistorial });
 
     expect(resultado.ok).toBe(false);
   });
@@ -147,7 +151,7 @@ describe("promoverBorrador", () => {
     };
     escribirBorrador("herramienta-categoria-mala", propuestaCategoriaInvalida, { dirBase: dirBorradores });
 
-    const resultado = promoverBorrador("herramienta-categoria-mala", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia });
+    const resultado = promoverBorrador("herramienta-categoria-mala", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia, rutaHistorial });
 
     expect(resultado.ok).toBe(false);
     if (!resultado.ok) expect(resultado.errores.some((e) => e.includes("categoría inexistente"))).toBe(true);
@@ -160,7 +164,7 @@ describe("promoverBorrador", () => {
     };
     escribirBorrador("herramienta-sin-afiliados", propuestaSinAfiliados, { dirBase: dirBorradores });
 
-    const resultado = promoverBorrador("herramienta-sin-afiliados", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia });
+    const resultado = promoverBorrador("herramienta-sin-afiliados", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia, rutaHistorial });
 
     expect(resultado.ok).toBe(false);
     if (!resultado.ok) expect(resultado.errores.some((e) => e.includes("regla obligatoria de afiliados"))).toBe(true);
@@ -170,7 +174,7 @@ describe("promoverBorrador", () => {
     escribirBorrador("herramienta-sin-decision", propuestaValida, { dirBase: dirBorradores });
     // Deliberadamente sin registrarDecision: Atlas nunca debe promover sin aprobación explícita.
 
-    const resultado = promoverBorrador("herramienta-sin-decision", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia });
+    const resultado = promoverBorrador("herramienta-sin-decision", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia, rutaHistorial });
 
     expect(resultado.ok).toBe(false);
     if (!resultado.ok) {
@@ -185,7 +189,7 @@ describe("promoverBorrador", () => {
       dirBase: dirBorradores,
     });
 
-    const resultado = promoverBorrador("herramienta-rechazada", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia });
+    const resultado = promoverBorrador("herramienta-rechazada", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia, rutaHistorial });
 
     expect(resultado.ok).toBe(false);
     if (!resultado.ok) {
@@ -198,7 +202,7 @@ describe("promoverBorrador", () => {
 
     // "hubspot" ya existe en el catálogo real (data/herramientas/hubspot.json) — no se pasa dirDatos
     // de prueba aquí a propósito, para comprobar la colisión contra el catálogo real de verdad.
-    const resultado = promoverBorrador("hubspot", { dirBaseBorradores: dirBorradores, dirBaseEstrategia: dirEstrategia });
+    const resultado = promoverBorrador("hubspot", { dirBaseBorradores: dirBorradores, dirBaseEstrategia: dirEstrategia, rutaHistorial });
 
     expect(resultado.ok).toBe(false);
     if (!resultado.ok) expect(resultado.errores.some((e) => e.includes("ya existe en el catálogo real"))).toBe(true);
@@ -214,7 +218,7 @@ describe("promoverBorrador", () => {
     escribirBorrador("hubspot-marketing-hub", propuestaDuplicada, { dirBase: dirBorradores });
     registrarDecision("hubspot-marketing-hub", "aprobado", "Datos completos, afiliado fiable.", { dirBase: dirBorradores });
 
-    const resultado = promoverBorrador("hubspot-marketing-hub", { dirBaseBorradores: dirBorradores, dirBaseEstrategia: dirEstrategia });
+    const resultado = promoverBorrador("hubspot-marketing-hub", { dirBaseBorradores: dirBorradores, dirBaseEstrategia: dirEstrategia, rutaHistorial });
 
     expect(resultado.ok).toBe(false);
     if (!resultado.ok) {
@@ -233,7 +237,7 @@ describe("promoverBorrador", () => {
     escribirBorrador("herramienta-mediocre", propuestaMediocre, { dirBase: dirBorradores });
     registrarDecision("herramienta-mediocre", "aprobado", "Datos completos.", { dirBase: dirBorradores });
 
-    const resultado = promoverBorrador("herramienta-mediocre", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia });
+    const resultado = promoverBorrador("herramienta-mediocre", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia, rutaHistorial });
 
     expect(resultado.ok).toBe(false);
     if (!resultado.ok) {
@@ -253,6 +257,7 @@ describe("promoverBorrador", () => {
       dirBaseBorradores: dirBorradores,
       dirDatos,
       dirBaseEstrategia: dirEstrategia,
+      rutaHistorial,
     });
 
     // Sin reputación externa investigada — la política no la exige: lo único que importaba
@@ -271,10 +276,74 @@ describe("promoverBorrador", () => {
       dirBaseBorradores: dirBorradores,
       dirDatos,
       dirBaseEstrategia: dirEstrategia,
+      rutaHistorial,
     });
 
     expect(resultado.ok).toBe(true);
     const estrategia = getEstrategiaAfiliacion("herramienta-confianza-alta", { dirBase: dirEstrategia });
     expect(estrategia?.cuentas[0].verificacionPendiente).toBeUndefined();
+  });
+
+  it("registra en el historial de aprobaciones una promoción aceptada, con Puntuación Molnip, estado de afiliación y aprobación del CEO", () => {
+    escribirBorrador("herramienta-de-prueba", propuestaValida, { dirBase: dirBorradores });
+    registrarDecision("herramienta-de-prueba", "aprobado", "Encaja con el catálogo actual.", { dirBase: dirBorradores });
+
+    promoverBorrador("herramienta-de-prueba", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia, rutaHistorial });
+
+    const historial = leerHistorialAprobaciones({ ruta: rutaHistorial });
+    expect(historial).toHaveLength(1);
+    expect(historial[0]).toMatchObject({
+      herramientaId: "herramienta-de-prueba",
+      nombreHerramienta: "Herramienta De Prueba",
+      resultado: "aceptada",
+      estadoAfiliacion: "confirmada",
+      observaciones: "Encaja con el catálogo actual.",
+      aprobacionCeo: true,
+    });
+    expect(historial[0].puntuacionMolnip).toBeGreaterThanOrEqual(80);
+    expect(historial[0].fechaHora).toMatch(/^\d{4}-\d{2}-\d{2}T/);
+  });
+
+  it("registra en el historial una promoción rechazada, con aprobacionCeo=false y los motivos del bloqueo en observaciones", () => {
+    escribirBorrador("herramienta-sin-decision", propuestaValida, { dirBase: dirBorradores });
+    // Sin registrarDecision: nunca hubo aprobación editorial.
+
+    promoverBorrador("herramienta-sin-decision", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia, rutaHistorial });
+
+    const historial = leerHistorialAprobaciones({ ruta: rutaHistorial });
+    expect(historial).toHaveLength(1);
+    expect(historial[0].resultado).toBe("rechazada");
+    expect(historial[0].aprobacionCeo).toBe(false);
+    expect(historial[0].observaciones).toContain("Motivos del bloqueo");
+  });
+
+  it("marca estadoAfiliacion=pendiente_de_verificar en el historial cuando corresponde", () => {
+    const propuestaConfianzaMedia: HerramientaPropuesta = {
+      ...propuestaValida,
+      datosAfiliados: { hasAffiliateProgram: true, affiliateStatus: "active", confidenceLevel: "medium" },
+    };
+    escribirBorrador("herramienta-historial-media", propuestaConfianzaMedia, { dirBase: dirBorradores });
+    registrarDecision("herramienta-historial-media", "aprobado", "Ok.", { dirBase: dirBorradores });
+
+    promoverBorrador("herramienta-historial-media", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia, rutaHistorial });
+
+    const historial = leerHistorialAprobaciones({ ruta: rutaHistorial });
+    expect(historial[0].estadoAfiliacion).toBe("pendiente_de_verificar");
+  });
+
+  it("conserva varios intentos de la misma herramienta en el historial (append-only)", () => {
+    escribirBorrador("herramienta-de-prueba", propuestaValida, { dirBase: dirBorradores });
+
+    // Primer intento: sin decisión registrada todavía, rechaza.
+    promoverBorrador("herramienta-de-prueba", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia, rutaHistorial });
+
+    // Segundo intento: ya aprobado, acepta.
+    registrarDecision("herramienta-de-prueba", "aprobado", "Ok.", { dirBase: dirBorradores });
+    promoverBorrador("herramienta-de-prueba", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia, rutaHistorial });
+
+    const historial = leerHistorialAprobaciones({ ruta: rutaHistorial });
+    expect(historial).toHaveLength(2);
+    expect(historial[0].resultado).toBe("rechazada");
+    expect(historial[1].resultado).toBe("aceptada");
   });
 });

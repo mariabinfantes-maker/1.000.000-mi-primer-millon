@@ -4,11 +4,13 @@ import type { Herramienta } from "@/data/esquema";
 import type { AffiliateData, CuentaAfiliado, EstrategiaAfiliacion } from "@/data/esquemaInterno";
 import { getCategorias, getTodasLasHerramientas, validarHerramienta } from "@/data/repositorio";
 import { getEstrategiaAfiliacion, guardarEstrategiaAfiliacion } from "@/data/repositorioEstrategiaAfiliacion";
+import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
 import { detectarCasiDuplicados } from "@/agents/atlas-curator/duplicados";
 import { leerBorrador } from "./borrador";
 import { evaluarCriteriosDeCalidad } from "./criteriosCalidad";
-import { estaAprobado } from "./decision";
+import { leerDecision } from "./decision";
 import { generarIdCuenta } from "./estrategiaAfiliacion";
+import { registrarEnHistorial } from "./historialAprobaciones";
 
 /**
  * Promoción (etapa final del flujo: investigar → informe → revisión →
@@ -35,6 +37,12 @@ import { generarIdCuenta } from "./estrategiaAfiliacion";
  * precargada con lo ya investigado) si todavía no existe ninguno para ese
  * id — nunca lo sobrescribe si ya había progreso real de una solicitud de
  * afiliación.
+ *
+ * Último paso, aprobado el 2026-08-18: cada intento de promoción —
+ * aceptado o rechazado — queda registrado en el historial de aprobaciones
+ * (`historialAprobaciones.ts`), la auditoría interna de por qué una
+ * herramienta entró o no al catálogo. Se registra siempre que exista un
+ * borrador que evaluar, gane o pierda.
  */
 
 export type ResultadoPromocion =
@@ -48,6 +56,8 @@ export type OpcionesPromocion = {
   dirDatos?: string;
   /** De dónde leer/escribir la estrategia de afiliación al sembrar el registro inicial. Por defecto `data/estrategia-afiliados` — solo para pruebas. */
   dirBaseEstrategia?: string;
+  /** Dónde escribir el historial de aprobaciones. Por defecto `data/historial-aprobaciones.json` — solo para pruebas. */
+  rutaHistorial?: string;
 };
 
 function tieneProgramaDeAfiliadosFiable(datosAfiliados: Partial<AffiliateData>): boolean {
@@ -66,7 +76,9 @@ export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): 
 
   const errores: string[] = [];
 
-  if (!estaAprobado(id, { dirBase: dirBaseBorradores })) {
+  const decision = leerDecision(id, { dirBase: dirBaseBorradores });
+  const aprobacionCeo = decision?.decision === "aprobado";
+  if (!aprobacionCeo) {
     errores.push(
       `"${id}" no tiene una decisión "aprobado" registrada. Revisa el informe y ejecuta primero: ` +
         `npm run aprobar-borrador -- ${id} --decision aprobado --notas "..."`
@@ -84,6 +96,7 @@ export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): 
   const datosAfiliados = borrador.datosAfiliados as Partial<AffiliateData>;
 
   let verificacionAfiliacionPendiente = false;
+  let calidadSuperada = false;
 
   if (herramienta) {
     const idsCategorias = new Set(getCategorias().map((c) => c.id));
@@ -102,6 +115,7 @@ export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): 
     if (!resultadoCalidad.ok) {
       errores.push(...resultadoCalidad.errores.map((e) => `Criterio de calidad: ${e}`));
     } else {
+      calidadSuperada = true;
       verificacionAfiliacionPendiente = resultadoCalidad.verificacionAfiliacionPendiente;
     }
   }
@@ -115,7 +129,23 @@ export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): 
     errores.push(`"${id}" no cumple la regla obligatoria de afiliados (programa activo y fiable) en el borrador.`);
   }
 
+  const nombreHerramienta = herramienta?.nombre ?? id;
+  const puntuacionMolnip = herramienta ? (calcularPuntuacionAtlas(herramienta)?.puntuacion ?? null) : null;
+  const estadoAfiliacion = calidadSuperada ? (verificacionAfiliacionPendiente ? "pendiente_de_verificar" : "confirmada") : null;
+
   if (errores.length > 0 || !herramienta) {
+    registrarEnHistorial(
+      {
+        herramientaId: id,
+        nombreHerramienta,
+        resultado: "rechazada",
+        puntuacionMolnip,
+        estadoAfiliacion,
+        observaciones: [decision?.notas, `Motivos del bloqueo: ${errores.join(" | ")}`].filter(Boolean).join(" "),
+        aprobacionCeo,
+      },
+      { ruta: opciones.rutaHistorial }
+    );
     return { ok: false, id, errores };
   }
 
@@ -158,6 +188,19 @@ export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): 
     const estrategiaInicial: EstrategiaAfiliacion = { herramientaId: id, cuentas: [cuentaInicial] };
     guardarEstrategiaAfiliacion(estrategiaInicial, { dirBase: opciones.dirBaseEstrategia });
   }
+
+  registrarEnHistorial(
+    {
+      herramientaId: id,
+      nombreHerramienta,
+      resultado: "aceptada",
+      puntuacionMolnip,
+      estadoAfiliacion,
+      observaciones: decision?.notas ?? "Sin observaciones.",
+      aprobacionCeo,
+    },
+    { ruta: opciones.rutaHistorial }
+  );
 
   return { ok: true, id, rutaHerramienta, rutaAfiliados };
 }

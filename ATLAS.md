@@ -522,6 +522,44 @@ de aprobarlas — resultado documentado en el propio hilo de revisión, no
 aquí, porque depende de la decisión editorial de cada una, no de la
 arquitectura.
 
+### Historial de aprobaciones: auditoría interna de cada intento de promoción
+
+**Registrada y completada:** 2026-08-18 — último paso pedido explícitamente
+antes de promover cualquier herramienta al catálogo oficial: que quede
+constancia auditable de por qué se aceptó o rechazó cada una, en cualquier
+momento.
+
+No reutiliza `decision.ts`: ese módulo guarda **una** decisión por id y la
+**sobrescribe** en cada revisión — es el estado actual, nunca un
+historial. Guardar ahí habría perdido el rastro de cualquier intento
+anterior (p. ej. una herramienta rechazada por puntuación insuficiente, y
+meses después aceptada tras volver a investigarla). Se diseñó un
+mecanismo nuevo, deliberadamente simple: append-only, un único archivo
+JSON (`data/historial-aprobaciones.json`, un array — no un directorio con
+un archivo por intento, que habría exigido listar y ordenar por fecha
+solo para leer "todo el historial").
+
+Cada intento de promoción — aceptado o rechazado — añade un registro con
+exactamente los seis campos pedidos: herramienta, fecha y hora (ISO 8601
+completo, no solo la fecha), Puntuación Molnip (recalculada en el momento,
+`null` si no se pudo calcular), estado de afiliación ("confirmada" /
+"pendiente de verificar" / `null` si no llegó a evaluarse), observaciones
+(notas editoriales de `decision.ts` + motivos técnicos del bloqueo, si los
+hay) y aprobación explícita del CEO (si existía una decisión "aprobado"
+registrada en el momento del intento — la aprobación humana que ya exige
+todo el sistema, aquí etiquetada explícitamente como tal).
+
+Piezas construidas (`agents/atlas-researcher/`):
+
+- `historialAprobaciones.ts` — `registrarEnHistorial()` / `leerHistorialAprobaciones()`
+  / `historialDeHerramienta()`.
+- `promover.ts` registra un intento en los dos únicos puntos de salida
+  (rechazo y éxito) — nunca en el caso de "id sin ningún borrador", que no
+  es una decisión sobre nada.
+- `informeHistorial.ts` + `npm run informe-historial` — informe HTML de
+  solo lectura, más reciente primero, mismo patrón que
+  `informe-mantenimiento`/`informe-curador`/`informe-afiliacion`.
+
 ### Atlas Revenue: decisión diferida, no forma parte de la arquitectura todavía
 
 **Registrada:** 2026-08-18 · **Estado:** pospuesta, no implementar — ni
