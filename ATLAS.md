@@ -122,6 +122,17 @@ toque construir hoy.
 9. 🧠 **Atlas Orchestrator** — sin diseñar. Coordina cuándo se activa cada
    agente. Tiene sentido construirlo último, cuando ya existan agentes reales
    que orquestar.
+10. 🗂️ **Atlas Curator** — décimo agente, arquitectura aprobada el
+    2026-08-18, pendiente de implementar. Gobierna la calidad **estructural**
+    del catálogo a escala (duplicados, equilibrio de taxonomía, completitud
+    editorial) — ver el diseño completo más abajo.
+
+**Orden de implementación acordado para los cuatro agentes aún sin
+construir:** Atlas Curator → Atlas Orchestrator → Atlas Growth → Atlas
+Assistant. Justificación completa en el apartado de Atlas Curator más abajo
+— en síntesis: Curator es el único prerrequisito de seguridad para la fase
+de crecimiento del catálogo que empieza ahora, los otros tres mejoran una
+fase que ya estará cerrada.
 
 ## Decisiones de arquitectura diferidas
 
@@ -333,6 +344,92 @@ Cuando exista reputación de terceros verificable y bien atribuida
 seguirá siendo una decisión aparte activar `aggregateRating` a partir de
 esos datos — nunca de la Puntuación Atlas. No adelantar esta
 implementación sin ese contexto y sin aprobación explícita.
+
+### Atlas Curator: arquitectura aprobada, pendiente de implementar
+
+**Registrada:** 2026-08-18 · **Estado:** décimo agente oficial, arquitectura
+aprobada tras revisión completa del sistema de agentes. No implementar
+todavía — es el prerrequisito antes de empezar a poblar el catálogo a
+cientos o miles de herramientas: construir primero la fábrica, después
+fabricar.
+
+Gobierna la calidad **estructural** del catálogo a escala — un eje distinto
+al de Atlas Mantenimiento, que gobierna su **frescura en el tiempo**
+(`frescura.ts`: fichas y cuentas sin revisar en más de 180 días). Una
+herramienta puede estar recién revisada y aun así ser un duplicado de otra
+con distinto id, o tener una ficha con la mitad de los campos que sus
+vecinas de categoría — ninguno de los dos es un problema de Mantenimiento,
+y por eso no hay solapamiento entre ambos agentes.
+
+**Responsabilidades:**
+
+- **Duplicados y casi-duplicados** antes de promoción: hoy
+  `promoverBorrador()` (`agents/atlas-researcher/promover.ts`) solo
+  comprueba colisión exacta de `id` — dos lotes de Researcher investigando
+  la misma herramienta bajo ids distintos pasarían sin ningún aviso.
+- **Equilibrio de taxonomía**: categorías o problemas con un volumen
+  desproporcionado de herramientas frente al resto, o categorías huérfanas.
+- **Completitud editorial relativa**: `validarHerramienta()`
+  (`data/repositorio.ts`) trata `reputacion`, `disponibleEnEspanol`,
+  `tieneAppMovil`, `tieneApiPublica` y `facilidadImplementacion` como
+  opcionales por diseño (para no romper las fichas históricas) — nada
+  detecta hoy que a una ficha le falten campos que sus vecinas de categoría
+  sí tienen.
+
+Nunca fusiona, renombra ni recategoriza nada por su cuenta: detecta y avisa,
+igual que Mantenimiento y `consistencia.ts` de Affiliate Manager. Toda
+acción sobre lo detectado la aprueba una persona por CLI — mismo principio
+sin excepción que rige `promover.ts`.
+
+**Colaboración con los agentes existentes:**
+
+- **Researcher:** se engancha justo antes de que `promoverBorrador()`
+  escriba en `data/herramientas/` — una comprobación más junto a las que ya
+  existen (esquema válido, categoría existente, id no repetido, regla de
+  afiliados), no un agente paralelo.
+- **Evaluador:** ninguna — Evaluador puntúa en vivo el catálogo tal cual
+  está; Curator decide qué entra en ese catálogo, nunca cómo se puntúa.
+- **Affiliate Manager:** ninguna directa; comparten patrón (informe HTML de
+  solo lectura vía `npm run informe-*`), no dominio.
+- **Mantenimiento:** cooperación por informe, no por código — si
+  Mantenimiento activa su Capa 2 (re-investigación con IA), Curator es quien
+  debería confirmar que la ficha re-investigada sigue sin duplicar otra.
+
+**Momento del flujo** — dos puntos, cada uno reutilizando un patrón que ya
+existe en el código, no uno nuevo:
+
+- **Bloqueante, en promoción** (dedup + aviso de desequilibrio de
+  categoría): mismo patrón que las comprobaciones ya dentro de
+  `promover.ts`.
+- **Informativo, periódico, sobre el catálogo completo** (completitud
+  editorial): mismo patrón que `informe-mantenimiento` — HTML de solo
+  lectura, nunca bloquea `verificar-datos`.
+
+**Orden de implementación acordado para los cuatro agentes pendientes** —
+Curator → Orchestrator → Growth → Assistant — justificado desde negocio y
+escalabilidad, no solo desde lo técnico:
+
+- **Curator primero**: es la única de las cuatro piezas que cambia el coste
+  de no construirla ahora — cada herramienta que entre al catálogo sin este
+  filtro durante la fase de crecimiento se convierte en deuda que habrá que
+  limpiar a mano más tarde, justo cuando menos margen habrá para pararse a
+  limpiar. Prerrequisito de seguridad para la fase que empieza ahora, no una
+  mejora sobre una fase ya cerrada.
+- **Orchestrator después**: solo gana valor cuando hay varios procesos
+  periódicos que de verdad merezca la pena coordinar. Hoy hay dos
+  (`informe-afiliacion`, `informe-mantenimiento`); con Curator habría tres —
+  ese es el umbral natural donde acordarse de ejecutarlos a mano empieza a
+  ser un riesgo real, no antes.
+- **Growth después**: no aporta señal fiable sin tráfico real, y tráfico
+  real depende de que Generador de Contenido tenga algo sustancial que
+  posicionar (razonamiento ya registrado en la hoja de ruta original).
+  Construirlo antes sería medir ruido.
+- **Assistant al final**: una puerta de entrada conversacional se percibe
+  como más personal y autorizada que un formulario. Lanzarla mientras el
+  catálogo puede tener duplicados silenciosos o fichas desiguales
+  multiplica el riesgo reputacional justo en el canal que más confianza
+  transmite — tiene sentido una vez el catálogo al que apunta ya está
+  gobernado.
 
 ## Pendiente antes de producción
 
