@@ -4,6 +4,7 @@ import type { Herramienta } from "@/data/esquema";
 import type { AffiliateData, CuentaAfiliado, EstrategiaAfiliacion } from "@/data/esquemaInterno";
 import { getCategorias, getTodasLasHerramientas, validarHerramienta } from "@/data/repositorio";
 import { getEstrategiaAfiliacion, guardarEstrategiaAfiliacion } from "@/data/repositorioEstrategiaAfiliacion";
+import { detectarCasiDuplicados } from "@/agents/atlas-curator/duplicados";
 import { leerBorrador } from "./borrador";
 import { estaAprobado } from "./decision";
 import { generarIdCuenta } from "./estrategiaAfiliacion";
@@ -18,11 +19,13 @@ import { generarIdCuenta } from "./estrategiaAfiliacion";
  * exista una decisión humana "aprobado" registrada (`decision.ts`) — Atlas
  * nunca promueve una herramienta sin esa aprobación manual explícita, sea
  * cual sea la calidad del borrador — y corre las mismas comprobaciones que
- * `data/verificar.ts` (esquema válido, categoría existente) más dos propias
- * de la promoción: que el id no colisione con uno ya promovido, y que la
- * regla obligatoria de afiliados se siga cumpliendo con lo que quedó
- * guardado en el borrador (cinturón y tirantes, igual que la doble
- * comprobación que ya hace `agente.ts`).
+ * `data/verificar.ts` (esquema válido, categoría existente) más las propias
+ * de la promoción: que el id no colisione con uno ya promovido, que no sea
+ * un casi-duplicado de otra herramienta ya en el catálogo bajo otro id
+ * (Atlas Curator, `detectarCasiDuplicados` — ver ATLAS.md), y que la regla
+ * obligatoria de afiliados se siga cumpliendo con lo que quedó guardado en
+ * el borrador (cinturón y tirantes, igual que la doble comprobación que ya
+ * hace `agente.ts`).
  *
  * Al promover con éxito, siembra también un registro inicial de
  * `EstrategiaAfiliacion` con una primera cuenta (estado "no_solicitado",
@@ -74,14 +77,23 @@ export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): 
     errores.push(error instanceof Error ? error.message : String(error));
   }
 
+  const catalogoExistente = getTodasLasHerramientas();
+
   if (herramienta) {
     const idsCategorias = new Set(getCategorias().map((c) => c.id));
     if (!idsCategorias.has(herramienta.categoriaId)) {
       errores.push(`"${id}" referencia una categoría inexistente: "${herramienta.categoriaId}".`);
     }
+
+    for (const aviso of detectarCasiDuplicados(herramienta, catalogoExistente)) {
+      errores.push(
+        `Atlas Curator: ${aviso.motivo} Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas ` +
+          "antes de promover; si es la misma, no la promuevas dos veces."
+      );
+    }
   }
 
-  const idsExistentes = new Set(getTodasLasHerramientas().map((h) => h.id));
+  const idsExistentes = new Set(catalogoExistente.map((h) => h.id));
   if (idsExistentes.has(id)) {
     errores.push(`"${id}" ya existe en el catálogo real: promoverlo lo sobrescribiría. Revísalo a mano si es intencionado.`);
   }

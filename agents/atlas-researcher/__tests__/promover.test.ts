@@ -199,4 +199,22 @@ describe("promoverBorrador", () => {
     expect(resultado.ok).toBe(false);
     if (!resultado.ok) expect(resultado.errores.some((e) => e.includes("ya existe en el catálogo real"))).toBe(true);
   });
+
+  it("falla si Atlas Curator detecta un casi-duplicado de otra herramienta ya en el catálogo, aunque el id sea distinto", () => {
+    // Mismo nombre que "HubSpot" (data/herramientas/hubspot.json, catálogo real) bajo un id distinto —
+    // exactamente el hueco que promoverBorrador() no cubría antes de Atlas Curator.
+    const propuestaDuplicada: HerramientaPropuesta = {
+      ...propuestaValida,
+      datos: { ...propuestaValida.datos, nombre: "HubSpot" },
+    };
+    escribirBorrador("hubspot-marketing-hub", propuestaDuplicada, { dirBase: dirBorradores });
+    registrarDecision("hubspot-marketing-hub", "aprobado", "Datos completos, afiliado fiable.", { dirBase: dirBorradores });
+
+    const resultado = promoverBorrador("hubspot-marketing-hub", { dirBaseBorradores: dirBorradores, dirBaseEstrategia: dirEstrategia });
+
+    expect(resultado.ok).toBe(false);
+    if (!resultado.ok) {
+      expect(resultado.errores.some((e) => e.startsWith("Atlas Curator:") && e.includes("HubSpot"))).toBe(true);
+    }
+  });
 });

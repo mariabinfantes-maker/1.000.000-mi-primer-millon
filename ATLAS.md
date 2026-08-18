@@ -122,10 +122,10 @@ toque construir hoy.
 9. 🧠 **Atlas Orchestrator** — sin diseñar. Coordina cuándo se activa cada
    agente. Tiene sentido construirlo último, cuando ya existan agentes reales
    que orquestar.
-10. 🗂️ **Atlas Curator** — décimo agente, arquitectura aprobada el
-    2026-08-18, pendiente de implementar. Gobierna la calidad **estructural**
-    del catálogo a escala (duplicados, equilibrio de taxonomía, completitud
-    editorial) — ver el diseño completo más abajo.
+10. 🗂️ **Atlas Curator** — décimo agente, Capa 1 completada el 2026-08-18.
+    Gobierna la calidad **estructural** del catálogo a escala (duplicados,
+    equilibrio de taxonomía, completitud editorial) — ver el detalle
+    completo más abajo.
 
 **Orden de implementación acordado para los cuatro agentes aún sin
 construir:** Atlas Curator → Atlas Orchestrator → Atlas Growth → Atlas
@@ -345,13 +345,13 @@ seguirá siendo una decisión aparte activar `aggregateRating` a partir de
 esos datos — nunca de la Puntuación Atlas. No adelantar esta
 implementación sin ese contexto y sin aprobación explícita.
 
-### Atlas Curator: arquitectura aprobada, pendiente de implementar
+### Atlas Curator: Capa 1 completada
 
 **Registrada:** 2026-08-18 · **Estado:** décimo agente oficial, arquitectura
-aprobada tras revisión completa del sistema de agentes. No implementar
-todavía — es el prerrequisito antes de empezar a poblar el catálogo a
-cientos o miles de herramientas: construir primero la fábrica, después
-fabricar.
+aprobada tras revisión completa del sistema de agentes, y Capa 1
+implementada el mismo día. Prerrequisito antes de empezar a poblar el
+catálogo a cientos o miles de herramientas: construir primero la fábrica,
+después fabricar.
 
 Gobierna la calidad **estructural** del catálogo a escala — un eje distinto
 al de Atlas Mantenimiento, que gobierna su **frescura en el tiempo**
@@ -396,14 +396,45 @@ sin excepción que rige `promover.ts`.
   debería confirmar que la ficha re-investigada sigue sin duplicar otra.
 
 **Momento del flujo** — dos puntos, cada uno reutilizando un patrón que ya
-existe en el código, no uno nuevo:
+existe en el código, no uno nuevo. Ajuste sobre el diseño original al
+implementarlo: el aviso de desequilibrio de categoría se pensó bloqueante
+en promoción, pero bloquear una promoción legítima solo porque una
+categoría ya concentra catálogo iría en contra de la propia fase de
+crecimiento que Curator existe para destrabar — se implementó informativo,
+igual que completitud editorial:
 
-- **Bloqueante, en promoción** (dedup + aviso de desequilibrio de
-  categoría): mismo patrón que las comprobaciones ya dentro de
-  `promover.ts`.
-- **Informativo, periódico, sobre el catálogo completo** (completitud
-  editorial): mismo patrón que `informe-mantenimiento` — HTML de solo
-  lectura, nunca bloquea `verificar-datos`.
+- **Bloqueante, en promoción** (solo casi-duplicados): mismo patrón que
+  las comprobaciones ya dentro de `promover.ts`.
+- **Informativo, periódico, sobre el catálogo completo** (equilibrio de
+  taxonomía + completitud editorial): mismo patrón que
+  `informe-mantenimiento` — HTML de solo lectura, nunca bloquea
+  `verificar-datos`.
+
+Piezas construidas (`agents/atlas-curator/`):
+
+- `duplicados.ts` — `detectarCasiDuplicados()`: compara un candidato contra
+  el catálogo existente por nombre normalizado, dominio de `paginaOficial`,
+  o un nombre contenido en el otro. Enganchado como comprobación bloqueante
+  más dentro de `promoverBorrador()` (`agents/atlas-researcher/promover.ts`).
+- `equilibrio.ts` — `detectarEquilibrioCategorias()` /
+  `detectarEquilibrioProblemas()`: huérfanas (0 herramientas activas) y
+  concentración (>50% del catálogo activo en una sola categoría/problema,
+  solo evaluada con 4+ herramientas activas para que la señal sea real, no
+  trivial).
+- `completitud.ts` — `detectarHuecosEditoriales()`: campos opcionales
+  (`reputacion`, `disponibleEnEspanol`, `tieneAppMovil`, `tieneApiPublica`,
+  `puntuaciones.facilidadImplementacion`) que le faltan a una ficha y sí
+  tiene la mayoría de sus vecinas de la misma categoría — nunca compara
+  entre categorías distintas.
+- `informe.ts` + `npm run informe-curador` — informe HTML de solo lectura
+  combinando equilibrio y completitud, mismo patrón que
+  `cli-informe-mantenimiento.ts`. Verificado contra el catálogo real: hoy
+  señala que "Plataformas todo en uno" concentra el 72% de las 18
+  herramientas activas.
+
+Queda fuera de esta fase, a propósito: cualquier acción automática sobre lo
+detectado (fusionar, renombrar, recategorizar) — sigue requiriendo revisión
+humana explícita, sin excepción.
 
 **Orden de implementación acordado para los cuatro agentes pendientes** —
 Curator → Orchestrator → Growth → Assistant — justificado desde negocio y
