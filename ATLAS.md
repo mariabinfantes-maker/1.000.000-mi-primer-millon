@@ -431,6 +431,36 @@ escalabilidad, no solo desde lo técnico:
   transmite — tiene sentido una vez el catálogo al que apunta ya está
   gobernado.
 
+### Atlas Revenue: decisión diferida, no forma parte de la arquitectura todavía
+
+**Registrada:** 2026-08-18 · **Estado:** pospuesta, no implementar — ni
+siquiera como diseño. Se reconsiderará solo cuando se cumpla la condición
+de disparo explícita más abajo.
+
+Evaluado en la misma revisión estratégica que aprobó Atlas Curator, a
+propuesta de incorporar un agente de negocio dedicado exclusivamente a la
+monetización y el crecimiento económico. Descartado por solapamiento real,
+no por falta de mérito de la idea:
+
+- **Affiliate Manager** ya cubre, de facto, la única fuente de ingresos real
+  del producto hoy (afiliación): selección de enlace, consistencia,
+  priorización de solicitudes por Puntuación Atlas.
+- La regla ya establecida sin excepción en todo el sistema — la
+  monetización **nunca** toca el ranking (Evaluador puntúa sin conocer
+  comisiones; Recomendador nunca cambia el orden; `priorizador.ts` evita
+  deliberadamente combinar comisión y puntuación en una cifra inventada) —
+  elimina de raíz la única función que justificaría un agente de negocio
+  transversal: optimizar el catálogo o las recomendaciones por ingreso.
+- Sin esa función, lo único que le quedaría por hacer es *reporting cruzado
+  entre fuentes de ingreso* — pero hoy solo existe una (afiliación). No hay
+  nada que cruzar todavía. Misma razón por la que Atlas Growth sigue "sin
+  diseñar": no aporta valor sin el objeto real sobre el que operar.
+
+**Condición de disparo explícita:** se diseña Atlas Revenue cuando Molnip
+tenga una segunda fuente de ingresos real (publicidad, generación de leads
+o suscripciones) que necesite reporting cruzado con afiliación — nunca
+antes, para no fabricar un agente sin responsabilidades reales.
+
 ## Pendiente antes de producción
 
 Tareas operativas, no de arquitectura — nada que implementar, solo
