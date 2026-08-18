@@ -1,0 +1,7 @@
+[
+  { "nombreHerramienta": "Asana", "categoriaId": "gestion-proyectos" },
+  { "nombreHerramienta": "Trello", "categoriaId": "gestion-proyectos" },
+  { "nombreHerramienta": "Wrike", "categoriaId": "gestion-proyectos" },
+  { "nombreHerramienta": "Basecamp", "categoriaId": "gestion-proyectos" },
+  { "nombreHerramienta": "Smartsheet", "categoriaId": "gestion-proyectos" }
+]
