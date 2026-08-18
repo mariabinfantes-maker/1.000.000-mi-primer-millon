@@ -48,6 +48,35 @@ export default function SelectorEntrada({
   categorias: CategoriaResumen[];
 }) {
   const [puertaActiva, setPuertaActiva] = useState<Puerta>("objetivo");
+  const botonesRef = useRef<Record<Puerta, HTMLButtonElement | null>>({
+    objetivo: null,
+    categoria: null,
+    libre: null,
+  });
+
+  // Patrón ARIA de tabs con activación automática: las flechas mueven el
+  // foco Y seleccionan a la vez (como las pestañas nativas del navegador),
+  // con salto circular en los extremos — antes solo funcionaba con
+  // Tab+Intro, lo que rompía la expectativa de cualquiera navegando por
+  // teclado o con lector de pantalla sobre un `role="tablist"`.
+  function alPulsarTecla(evento: React.KeyboardEvent<HTMLButtonElement>, indice: number) {
+    let siguiente: number | null = null;
+    if (evento.key === "ArrowRight" || evento.key === "ArrowDown") {
+      siguiente = (indice + 1) % PUERTAS.length;
+    } else if (evento.key === "ArrowLeft" || evento.key === "ArrowUp") {
+      siguiente = (indice - 1 + PUERTAS.length) % PUERTAS.length;
+    } else if (evento.key === "Home") {
+      siguiente = 0;
+    } else if (evento.key === "End") {
+      siguiente = PUERTAS.length - 1;
+    }
+
+    if (siguiente === null) return;
+    evento.preventDefault();
+    const puerta = PUERTAS[siguiente];
+    setPuertaActiva(puerta.id);
+    botonesRef.current[puerta.id]?.focus();
+  }
 
   return (
     <div>
@@ -56,15 +85,22 @@ export default function SelectorEntrada({
         aria-label="Cómo quieres empezar"
         className="inline-flex w-full flex-col gap-1 rounded-2xl border border-slate-200/80 bg-white p-1.5 shadow-[0_1px_2px_rgba(15,23,42,0.04)] sm:w-auto sm:flex-row"
       >
-        {PUERTAS.map((puerta) => {
+        {PUERTAS.map((puerta, indice) => {
           const activa = puerta.id === puertaActiva;
           return (
             <button
               key={puerta.id}
+              ref={(el) => {
+                botonesRef.current[puerta.id] = el;
+              }}
               type="button"
               role="tab"
+              id={`puerta-tab-${puerta.id}`}
               aria-selected={activa}
+              aria-controls={`puerta-panel-${puerta.id}`}
+              tabIndex={activa ? 0 : -1}
               onClick={() => setPuertaActiva(puerta.id)}
+              onKeyDown={(evento) => alPulsarTecla(evento, indice)}
               className={`flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition ${
                 activa
                   ? "bg-brand-600 text-white shadow-premium"
@@ -82,7 +118,13 @@ export default function SelectorEntrada({
         {PUERTAS.find((p) => p.id === puertaActiva)?.ayuda}
       </p>
 
-      <div className="mt-6">
+      <div
+        role="tabpanel"
+        id={`puerta-panel-${puertaActiva}`}
+        aria-labelledby={`puerta-tab-${puertaActiva}`}
+        tabIndex={0}
+        className="mt-6"
+      >
         {puertaActiva === "objetivo" && <PanelObjetivo problemas={problemas} />}
         {puertaActiva === "categoria" && <PanelCategoria categorias={categorias} />}
         {puertaActiva === "libre" && <PanelTextoLibre />}

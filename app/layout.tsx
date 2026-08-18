@@ -79,10 +79,10 @@ export default function RootLayout({
               Molnip — recomendaciones independientes de tecnología para empresas
             </p>
             <nav className="flex items-center gap-5 text-xs font-medium text-slate-500">
-              <Link href="/" className="hover:text-brand-700">
+              <Link href="/" className="transition hover:text-brand-700">
                 Inicio
               </Link>
-              <Link href="/agentes" className="hover:text-brand-700">
+              <Link href="/agentes" className="transition hover:text-brand-700">
                 Cómo funciona
               </Link>
             </nav>

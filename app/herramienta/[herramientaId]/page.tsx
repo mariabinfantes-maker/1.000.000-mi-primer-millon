@@ -173,7 +173,7 @@ export default async function FichaHerramientaPage({
             href={herramienta.urlPrecios}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 hover:text-brand-800"
+            className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 transition hover:text-brand-800"
           >
             Ver precios oficiales
             <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -298,7 +298,7 @@ export default async function FichaHerramientaPage({
         </Boton>
         <Link
           href={`/herramienta/${herramienta.id}/alternativas`}
-          className="relative text-xs font-medium text-slate-500 hover:text-brand-600"
+          className="relative text-xs font-medium text-slate-500 transition hover:text-brand-600"
         >
           ¿Prefieres comparar antes con otras opciones?
         </Link>

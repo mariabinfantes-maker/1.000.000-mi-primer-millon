@@ -16,7 +16,7 @@ const ESTILOS_TAMANO: Record<Tamano, string> = {
 };
 
 const BASE =
-  "inline-flex items-center justify-center gap-1.5 rounded-xl font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-300 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50";
+  "inline-flex items-center justify-center gap-1.5 rounded-xl font-semibold transition disabled:cursor-not-allowed disabled:opacity-50";
 
 type Props = {
   children: ReactNode;

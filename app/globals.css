@@ -98,6 +98,32 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/*
+ * Foco de teclado unificado para toda la web: antes solo `Boton` llevaba
+ * su propio anillo de marca (`focus-visible:ring-2 ring-brand-300
+ * ring-offset-2`), así que navegar con Tab mostraba ese anillo en los
+ * botones y el outline azul por defecto del navegador en el resto
+ * (pestañas del selector, tarjetas de enlace, "Volver atrás"...) — justo
+ * el tipo de detalle que delata un MVP frente a un producto cuidado.
+ * Mismo efecto que ya tenía `Boton` (doble sombra: un "hueco" del color de
+ * fondo simulando el offset, luego el anillo de marca), reproducido en CSS
+ * puro para que se aplique en un solo sitio a cualquier elemento
+ * interactivo, en vez de tener que repetir las clases de Tailwind en cada
+ * componente nuevo.
+ */
+a:focus-visible,
+button:focus-visible,
+[role="tab"]:focus-visible,
+[tabindex]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-background), 0 0 0 4px var(--color-brand-300);
+}
+
+::selection {
+  background: var(--color-brand-200);
+  color: var(--color-foreground);
+}
+
 /* Textura de puntos muy sutil para el fondo del hero — sensación técnica sin ruido visual. */
 .fondo-puntos {
   background-image: radial-gradient(circle, rgba(110, 95, 228, 0.16) 1px, transparent 1px);
