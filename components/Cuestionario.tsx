@@ -5,9 +5,8 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { ArrowLeft, Check } from "lucide-react";
 import { RANGOS_EMPLEADOS, type RangoEmpleados } from "@/lib/cuestionario";
-import type { HerramientaEvaluada, RespuestasUsuario } from "@/agents/atlas-advisor";
-import { guardarResultados } from "@/lib/resultadosSesion";
-import { claveOrigen, PREGUNTA_HERRAMIENTA_GENERICA, type OrigenDiagnostico } from "@/lib/origenDiagnostico";
+import type { RespuestasUsuario } from "@/agents/atlas-advisor";
+import { PREGUNTA_HERRAMIENTA_GENERICA, type OrigenDiagnostico } from "@/lib/origenDiagnostico";
 import IconoOrigen from "@/components/ui/IconoOrigen";
 import Boton from "@/components/ui/Boton";
 import AtlasTrabajando from "@/components/AtlasTrabajando";
@@ -76,18 +75,17 @@ export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) 
     fetch("/api/recomendaciones", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(respuestas),
+      body: JSON.stringify({ respuestas, origenTipo: origen.tipo, origenId: origen.id }),
     })
       .then((respuesta) => {
         if (!respuesta.ok) throw new Error("La API de recomendaciones respondió con un error.");
-        return respuesta.json() as Promise<{ top: HerramientaEvaluada[]; totalEvaluadas: number }>;
+        return respuesta.json() as Promise<{ token: string; totalEvaluadas: number }>;
       })
-      .then(({ top, totalEvaluadas }) => {
+      .then(({ token, totalEvaluadas }) => {
         setProgreso(100);
         setTotalHerramientas(totalEvaluadas);
-        guardarResultados(claveOrigen(origen), top);
         setTimeout(() => {
-          router.push(`${origen.rutaBase}/recomendacion`);
+          router.push(`/resultado/${token}`);
         }, 500);
       })
       .catch(() => {

@@ -8,6 +8,14 @@ import {
 } from "@/agents/atlas-advisor";
 import { personalizarRecomendaciones } from "@/agents/atlas-recomendador";
 import { crearProveedorGemini } from "@/agents/compartido/proveedores/gemini";
+import type { TipoOrigenDiagnostico } from "@/lib/origenDiagnostico";
+import { generarTokenResultado } from "@/lib/resultadoToken";
+
+type CuerpoPeticion = {
+  respuestas: RespuestasUsuario;
+  origenTipo: TipoOrigenDiagnostico;
+  origenId: string;
+};
 
 /**
  * Interruptor de Atlas Recomendador (Capa 2 de Advisor): a diferencia de
@@ -29,14 +37,27 @@ const IA_ACTIVA = process.env.ATLAS_RECOMENDADOR_IA_ACTIVA === "true";
  * enriquecerla con la Capa 2 (`personalizarRecomendaciones`) — que ya trae
  * su propio respaldo: si la IA falla, cada herramienta se queda con la
  * explicación determinista tal cual, nunca sin ninguna.
+ *
+ * La respuesta lleva un `token` (ver `lib/resultadoToken.ts`) en vez del
+ * array `top` completo: el cliente solo necesita navegar a
+ * `/resultado/[token]`, que rehidrata el resultado por su cuenta — así el
+ * enlace es lo único que hace falta para recuperar exactamente esta
+ * recomendación más tarde, desde cualquier dispositivo.
  */
 export async function POST(request: Request) {
-  let respuestas: RespuestasUsuario;
+  let cuerpo: CuerpoPeticion;
   try {
-    respuestas = (await request.json()) as RespuestasUsuario;
+    cuerpo = (await request.json()) as CuerpoPeticion;
   } catch {
     return NextResponse.json({ error: "El cuerpo de la petición no es un JSON válido." }, { status: 400 });
   }
+
+  const { origenTipo, origenId } = cuerpo;
+  if (!origenTipo || !origenId) {
+    return NextResponse.json({ error: "Falta origenTipo u origenId." }, { status: 400 });
+  }
+
+  let respuestas: RespuestasUsuario = cuerpo.respuestas ?? {};
 
   // Puerta "Cuéntanoslo": a diferencia de "por categoría" y "por objetivo",
   // aquí no llega ninguna elección explícita — solo texto libre. `getProblemas()`
@@ -59,8 +80,20 @@ export async function POST(request: Request) {
     top = await personalizarRecomendaciones(resultado.top, respuestas, crearProveedorGemini());
   }
 
+  const token = generarTokenResultado({
+    origenTipo,
+    origenId,
+    items: top.map((evaluada) => ({
+      id: evaluada.herramienta.id,
+      puntuacion: evaluada.puntuacionTotal,
+      explicacion: evaluada.explicacion,
+      advertencia: evaluada.tieneAdvertencia,
+    })),
+    generadoEn: new Date().toISOString(),
+  });
+
   // `totalEvaluadas` es real (el tamaño del catálogo filtrado que puntuó el
   // motor), no una cifra decorativa: se lo enseña Atlas al usuario en P-02
   // como prueba de que hay un cálculo de verdad detrás, no un top-3 fijo.
-  return NextResponse.json({ top, totalEvaluadas: resultado.todas.length });
+  return NextResponse.json({ token, totalEvaluadas: resultado.todas.length });
 }
