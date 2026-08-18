@@ -462,6 +462,57 @@ escalabilidad, no solo desde lo técnico:
   transmite — tiene sentido una vez el catálogo al que apunta ya está
   gobernado.
 
+### Regla de calidad del catálogo: Puntuación mínima y verificación de afiliación condicionada
+
+**Registrada y completada:** 2026-08-18 — aprobada al revisar en conjunto las
+primeras seis incorporaciones reales del catálogo (Zoho CRM, Copper,
+Insightly, Asana, Wrike, Smartsheet), la primera vez que `npm run
+investigar-lote` corrió contra la API real de Gemini. Antes de esta regla,
+`promoverBorrador()` (`agents/atlas-researcher/promover.ts`) solo exigía
+programa de afiliados fiable (`confidenceLevel !== "low"`) — nada evaluaba
+la calidad de la investigación pública en sí.
+
+Regla acordada, en dos partes:
+
+1. **Umbral general de calidad, sin excepción**: si la investigación tiene
+   confianza "baja", trae alguna advertencia sin resolver, o la Puntuación
+   Molnip (recalculada en el momento de promover, nunca la cifra
+   almacenada en el borrador) no llega a **80/100**, la herramienta no se
+   promueve — "dudas importantes sobre su calidad o incertidumbre alta en
+   los datos".
+2. **Si supera el punto 1**, la confianza del programa de afiliados
+   decide cómo se promueve: `"low"` sigue bloqueando (sin cambios);
+   `"high"` promueve normal; `"medium"` promueve igualmente **solo si**
+   la reputación externa (G2 o Capterra) es **≥ 4.0/5** — la cuenta de
+   afiliado sembrada queda marcada `verificacionPendiente: true` para que
+   Atlas Affiliate Manager confirme comisión y plataforma antes de
+   solicitar el programa o dar la cuenta por lista para monetizar. Sin esa
+   reputación de respaldo, bloquea igual que `"low"`.
+
+Piezas construidas:
+
+- `agents/atlas-researcher/criteriosCalidad.ts` — `evaluarCriteriosDeCalidad()`,
+  la función pura que decide las tres salidas posibles (bloquea / promueve
+  normal / promueve con verificación pendiente).
+- `data/esquemaInterno.ts` — `CuentaAfiliado.verificacionPendiente?: boolean`,
+  campo aditivo; nunca se ha tocado el significado de `EstadoAfiliacion`
+  (sigue describiendo la relación con el programa del tercero, no la
+  confianza de la investigación).
+- `promover.ts` engancha el nuevo criterio junto a las comprobaciones que
+  ya existían (esquema, categoría, duplicados de Curator, regla de
+  afiliados), y siembra `verificacionPendiente` + una observación legible
+  en la cuenta inicial cuando aplica.
+- `agents/atlas-affiliate-manager/consistencia.ts` —
+  `detectarCuentasConVerificacionPendiente()`, mismo patrón que las demás
+  comprobaciones del agente; surge en `informe-afiliacion` como su propia
+  sección, la primera del informe (es lo más urgente de revisar de una
+  herramienta recién promovida).
+
+Aplicada retroactivamente a las 6 herramientas del primer lote real antes
+de aprobarlas — resultado documentado en el propio hilo de revisión, no
+aquí, porque depende de la decisión editorial de cada una, no de la
+arquitectura.
+
 ### Atlas Revenue: decisión diferida, no forma parte de la arquitectura todavía
 
 **Registrada:** 2026-08-18 · **Estado:** pospuesta, no implementar — ni

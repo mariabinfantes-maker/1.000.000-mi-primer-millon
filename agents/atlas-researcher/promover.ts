@@ -6,6 +6,7 @@ import { getCategorias, getTodasLasHerramientas, validarHerramienta } from "@/da
 import { getEstrategiaAfiliacion, guardarEstrategiaAfiliacion } from "@/data/repositorioEstrategiaAfiliacion";
 import { detectarCasiDuplicados } from "@/agents/atlas-curator/duplicados";
 import { leerBorrador } from "./borrador";
+import { evaluarCriteriosDeCalidad } from "./criteriosCalidad";
 import { estaAprobado } from "./decision";
 import { generarIdCuenta } from "./estrategiaAfiliacion";
 
@@ -22,7 +23,9 @@ import { generarIdCuenta } from "./estrategiaAfiliacion";
  * `data/verificar.ts` (esquema válido, categoría existente) más las propias
  * de la promoción: que el id no colisione con uno ya promovido, que no sea
  * un casi-duplicado de otra herramienta ya en el catálogo bajo otro id
- * (Atlas Curator, `detectarCasiDuplicados` — ver ATLAS.md), y que la regla
+ * (Atlas Curator, `detectarCasiDuplicados` — ver ATLAS.md), que supere el
+ * criterio de calidad (`criteriosCalidad.ts`: confianza de la
+ * investigación, advertencias, Puntuación Molnip mínima), y que la regla
  * obligatoria de afiliados se siga cumpliendo con lo que quedó guardado en
  * el borrador (cinturón y tirantes, igual que la doble comprobación que ya
  * hace `agente.ts`).
@@ -78,6 +81,9 @@ export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): 
   }
 
   const catalogoExistente = getTodasLasHerramientas();
+  const datosAfiliados = borrador.datosAfiliados as Partial<AffiliateData>;
+
+  let verificacionAfiliacionPendiente = false;
 
   if (herramienta) {
     const idsCategorias = new Set(getCategorias().map((c) => c.id));
@@ -91,6 +97,13 @@ export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): 
           "antes de promover; si es la misma, no la promuevas dos veces."
       );
     }
+
+    const resultadoCalidad = evaluarCriteriosDeCalidad(herramienta, datosAfiliados, borrador.metadatos);
+    if (!resultadoCalidad.ok) {
+      errores.push(...resultadoCalidad.errores.map((e) => `Criterio de calidad: ${e}`));
+    } else {
+      verificacionAfiliacionPendiente = resultadoCalidad.verificacionAfiliacionPendiente;
+    }
   }
 
   const idsExistentes = new Set(catalogoExistente.map((h) => h.id));
@@ -98,7 +111,6 @@ export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): 
     errores.push(`"${id}" ya existe en el catálogo real: promoverlo lo sobrescribiría. Revísalo a mano si es intencionado.`);
   }
 
-  const datosAfiliados = borrador.datosAfiliados as Partial<AffiliateData>;
   if (!tieneProgramaDeAfiliadosFiable(datosAfiliados)) {
     errores.push(`"${id}" no cumple la regla obligatoria de afiliados (programa activo y fiable) en el borrador.`);
   }
@@ -122,6 +134,12 @@ export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): 
   fs.writeFileSync(rutaAfiliados, `${JSON.stringify(datosAfiliados, null, 2)}\n`, "utf-8");
 
   if (!getEstrategiaAfiliacion(id, { dirBase: opciones.dirBaseEstrategia })) {
+    const observaciones = verificacionAfiliacionPendiente
+      ? "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa. " +
+        "Verificación pendiente: la confianza de la investigación de afiliados era media — confirma comisión y " +
+        "plataforma antes de solicitar el programa o dar la cuenta por lista para monetizar."
+      : "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa.";
+
     const cuentaInicial: CuentaAfiliado = {
       id: generarIdCuenta(datosAfiliados.affiliatePlatform),
       estado: "no_solicitado",
@@ -134,7 +152,8 @@ export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): 
       frecuenciaPago: datosAfiliados.payoutFrequency,
       enlaces: [],
       ultimaRevision: hoy,
-      observaciones: "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa.",
+      observaciones,
+      ...(verificacionAfiliacionPendiente ? { verificacionPendiente: true } : {}),
     };
     const estrategiaInicial: EstrategiaAfiliacion = { herramientaId: id, cuentas: [cuentaInicial] };
     guardarEstrategiaAfiliacion(estrategiaInicial, { dirBase: opciones.dirBaseEstrategia });

@@ -78,3 +78,31 @@ export function detectarCuentasEstancadas(
 
   return avisos;
 }
+
+/**
+ * Cuentas sembradas con `verificacionPendiente: true` (regla de calidad
+ * aprobada el 2026-08-18, ver `agents/atlas-researcher/criteriosCalidad.ts`):
+ * la herramienta se promovió con reputación y puntuación suficientes, pero
+ * la comisión/plataforma de afiliación investigada tenía confianza media —
+ * hay que confirmarla antes de solicitar el programa o dar la cuenta por
+ * lista para monetizar.
+ */
+export function detectarCuentasConVerificacionPendiente(estrategias: EstrategiaAfiliacion[]): AvisoConsistencia[] {
+  const avisos: AvisoConsistencia[] = [];
+
+  for (const estrategia of estrategias) {
+    for (const cuenta of estrategia.cuentas) {
+      if (cuenta.verificacionPendiente) {
+        avisos.push({
+          herramientaId: estrategia.herramientaId,
+          cuentaId: cuenta.id,
+          mensaje:
+            `"${estrategia.herramientaId}" tiene la cuenta "${cuenta.id}" (${cuenta.plataforma}) con la comisión "${cuenta.comision ?? "—"}" ` +
+            "pendiente de verificar antes de solicitar el programa — se promovió con confianza media en la investigación de afiliados.",
+        });
+      }
+    }
+  }
+
+  return avisos;
+}

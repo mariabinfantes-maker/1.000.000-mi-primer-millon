@@ -53,7 +53,22 @@ describe("construirDatosInforme", () => {
     expect(datos.totalCuentas).toBe(0);
     expect(datos.cuentasSinEnlace).toEqual([]);
     expect(datos.cuentasEstancadas).toEqual([]);
+    expect(datos.cuentasConVerificacionPendiente).toEqual([]);
     expect(datos.priorizadas).toEqual([]);
+  });
+
+  it("incluye las cuentas con verificacionPendiente (regla de calidad aprobada el 2026-08-18)", () => {
+    const estrategias: EstrategiaAfiliacion[] = [
+      {
+        herramientaId: "zoho-crm",
+        cuentas: [construirCuenta({ id: "a", estado: "no_solicitado", verificacionPendiente: true })],
+      },
+    ];
+
+    const datos = construirDatosInforme(estrategias, [], "2026-08-03");
+
+    expect(datos.cuentasConVerificacionPendiente).toHaveLength(1);
+    expect(datos.cuentasConVerificacionPendiente[0].herramientaId).toBe("zoho-crm");
   });
 });
 

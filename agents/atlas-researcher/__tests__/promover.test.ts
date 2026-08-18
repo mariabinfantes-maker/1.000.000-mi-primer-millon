@@ -31,19 +31,23 @@ const propuestaValida: HerramientaPropuesta = {
     ventajas: ["Fácil de usar"],
     inconvenientes: ["Pocas integraciones"],
     puntuaciones: {
-      facilidadDeUso: 8,
-      calidad: 7,
-      fiabilidad: 7,
-      atencionAlCliente: 6,
-      escalabilidad: 5,
+      facilidadDeUso: 9,
+      calidad: 9,
+      fiabilidad: 9,
+      atencionAlCliente: 8,
+      escalabilidad: 8,
       nivelTecnicoRequerido: 3,
     },
     metodologiaValoracion: "Basada en la documentación pública, pendiente de contrastar con uso real.",
   },
-  datosAfiliados: { hasAffiliateProgram: true, affiliateStatus: "active", confidenceLevel: "medium" },
+  // confidenceLevel "high" y puntuaciones altas: por encima del umbral del criterio de calidad
+  // (agents/atlas-researcher/criteriosCalidad.ts) sin necesidad de reputación externa — los casos
+  // límite de ese criterio (confianza media, puntuación insuficiente, advertencias) tienen sus
+  // propios tests más abajo, para no acoplar este fixture "camino feliz" a esos umbrales.
+  datosAfiliados: { hasAffiliateProgram: true, affiliateStatus: "active", confidenceLevel: "high" },
   camposFaltantes: [],
   fuentes: ["https://ejemplo.com"],
-  confianza: "media",
+  confianza: "alta",
   advertencias: [],
 };
 
@@ -216,5 +220,60 @@ describe("promoverBorrador", () => {
     if (!resultado.ok) {
       expect(resultado.errores.some((e) => e.startsWith("Atlas Curator:") && e.includes("HubSpot"))).toBe(true);
     }
+  });
+
+  it("falla si la Puntuación Molnip queda por debajo del umbral de calidad (regla aprobada el 2026-08-18)", () => {
+    const propuestaMediocre: HerramientaPropuesta = {
+      ...propuestaValida,
+      datos: {
+        ...propuestaValida.datos,
+        puntuaciones: { facilidadDeUso: 5, calidad: 5, fiabilidad: 5, atencionAlCliente: 5, escalabilidad: 5, nivelTecnicoRequerido: 5 },
+      },
+    };
+    escribirBorrador("herramienta-mediocre", propuestaMediocre, { dirBase: dirBorradores });
+    registrarDecision("herramienta-mediocre", "aprobado", "Datos completos.", { dirBase: dirBorradores });
+
+    const resultado = promoverBorrador("herramienta-mediocre", { dirBaseBorradores: dirBorradores, dirDatos, dirBaseEstrategia: dirEstrategia });
+
+    expect(resultado.ok).toBe(false);
+    if (!resultado.ok) {
+      expect(resultado.errores.some((e) => e.startsWith("Criterio de calidad:") && e.includes("Puntuación Molnip"))).toBe(true);
+    }
+  });
+
+  it("promueve y siembra la cuenta con verificacionPendiente cuando la afiliación tiene confianza media pero la reputación externa la respalda", () => {
+    const propuestaConReputacion: HerramientaPropuesta = {
+      ...propuestaValida,
+      datos: { ...propuestaValida.datos, reputacion: { g2Puntuacion: 4.6, capterraPuntuacion: 4.5 } },
+      datosAfiliados: { hasAffiliateProgram: true, affiliateStatus: "active", confidenceLevel: "medium" },
+    };
+    escribirBorrador("herramienta-con-reputacion", propuestaConReputacion, { dirBase: dirBorradores });
+    registrarDecision("herramienta-con-reputacion", "aprobado", "Datos completos.", { dirBase: dirBorradores });
+
+    const resultado = promoverBorrador("herramienta-con-reputacion", {
+      dirBaseBorradores: dirBorradores,
+      dirDatos,
+      dirBaseEstrategia: dirEstrategia,
+    });
+
+    expect(resultado.ok).toBe(true);
+    const estrategia = getEstrategiaAfiliacion("herramienta-con-reputacion", { dirBase: dirEstrategia });
+    expect(estrategia?.cuentas[0].verificacionPendiente).toBe(true);
+    expect(estrategia?.cuentas[0].observaciones).toContain("Verificación pendiente");
+  });
+
+  it("no marca verificacionPendiente cuando la afiliación tiene confianza alta", () => {
+    escribirBorrador("herramienta-confianza-alta", propuestaValida, { dirBase: dirBorradores });
+    registrarDecision("herramienta-confianza-alta", "aprobado", "Datos completos.", { dirBase: dirBorradores });
+
+    const resultado = promoverBorrador("herramienta-confianza-alta", {
+      dirBaseBorradores: dirBorradores,
+      dirDatos,
+      dirBaseEstrategia: dirEstrategia,
+    });
+
+    expect(resultado.ok).toBe(true);
+    const estrategia = getEstrategiaAfiliacion("herramienta-confianza-alta", { dirBase: dirEstrategia });
+    expect(estrategia?.cuentas[0].verificacionPendiente).toBeUndefined();
   });
 });

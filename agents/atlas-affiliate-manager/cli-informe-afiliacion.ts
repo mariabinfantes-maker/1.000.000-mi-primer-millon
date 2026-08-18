@@ -8,9 +8,10 @@ import { construirDatosInforme, generarInformeAfiliacionHtml } from "./informe";
  * `npm run informe-afiliacion`
  *
  * Genera un informe HTML autocontenido del estado de la estrategia de
- * afiliación — resumen por estado, comisión que se está perdiendo,
- * solicitudes estancadas y prioridad de las cuentas por solicitar. Solo
- * informativo: no cambia ni bloquea nada (a diferencia de
+ * afiliación — resumen por estado, verificación de afiliación pendiente
+ * (regla de calidad del catálogo, ver ATLAS.md), comisión que se está
+ * perdiendo, solicitudes estancadas y prioridad de las cuentas por
+ * solicitar. Solo informativo: no cambia ni bloquea nada (a diferencia de
  * `npm run verificar-datos`, que sí falla si hay una cuenta activa sin
  * enlace). Mismo patrón que `cli-generar-informe.ts` del Researcher —
  * abrible con doble clic, sin subir nada a ningún sitio.
@@ -32,7 +33,8 @@ function main() {
 
   console.log(`✓ Informe generado: ${rutaInforme}`);
   console.log(
-    `  ${datos.totalCuentas} cuenta(s) · ${datos.cuentasSinEnlace.length} sin enlace · ${datos.cuentasEstancadas.length} estancada(s) · ${datos.priorizadas.length} por solicitar`
+    `  ${datos.totalCuentas} cuenta(s) · ${datos.cuentasConVerificacionPendiente.length} con verificación pendiente · ` +
+      `${datos.cuentasSinEnlace.length} sin enlace · ${datos.cuentasEstancadas.length} estancada(s) · ${datos.priorizadas.length} por solicitar`
   );
   console.log("Ábrelo con doble clic en tu navegador para revisarlo.");
 }
