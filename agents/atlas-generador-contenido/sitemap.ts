@@ -27,7 +27,12 @@ export function generarEntradasSitemap(): EntradaSitemap[] {
 
   const entradas: EntradaSitemap[] = [
     { ruta: "/", prioridad: 1 },
+    { ruta: "/sobre", prioridad: 0.6 },
     { ruta: "/agentes", prioridad: 0.5 },
+    { ruta: "/aviso-legal", prioridad: 0.2 },
+    { ruta: "/privacidad", prioridad: 0.2 },
+    { ruta: "/cookies", prioridad: 0.2 },
+    { ruta: "/terminos", prioridad: 0.2 },
   ];
 
   for (const categoria of getCategorias()) {

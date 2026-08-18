@@ -107,6 +107,50 @@ export function metadataAgentes(): Metadata {
   );
 }
 
+/** Página "Sobre Molnip" — misión, metodología y modelo de negocio. Contenido de valor, indexable. */
+export function metadataSobre(): Metadata {
+  return construirMetadata(
+    "Sobre Molnip: nuestra misión y cómo evaluamos cada herramienta",
+    "Quiénes somos, cómo evaluamos el software que recomendamos y por qué nuestro modelo de afiliación nunca cambia lo que te recomendamos.",
+    { indexable: true, ruta: "/sobre" }
+  );
+}
+
+/**
+ * Páginas legales — indexables a propósito (identificar al titular del
+ * sitio y las condiciones de uso es parte de lo que un visitante o un
+ * buscador esperaría poder encontrar, no algo que ocultar).
+ */
+export function metadataAvisoLegal(): Metadata {
+  return construirMetadata("Aviso legal", "Identificación del titular de Molnip y condiciones de acceso al sitio.", {
+    indexable: true,
+    ruta: "/aviso-legal",
+  });
+}
+
+export function metadataPrivacidad(): Metadata {
+  return construirMetadata(
+    "Política de privacidad",
+    "Qué datos trata Molnip, con qué finalidad, y cómo ejercer tus derechos de protección de datos.",
+    { indexable: true, ruta: "/privacidad" }
+  );
+}
+
+export function metadataCookies(): Metadata {
+  return construirMetadata("Política de cookies", "Qué cookies y tecnologías de almacenamiento usa Molnip — hoy, ninguna no esencial.", {
+    indexable: true,
+    ruta: "/cookies",
+  });
+}
+
+export function metadataTerminos(): Metadata {
+  return construirMetadata(
+    "Términos y condiciones",
+    "Condiciones de uso de Molnip: naturaleza de las recomendaciones, modelo de afiliación y responsabilidad.",
+    { indexable: true, ruta: "/terminos" }
+  );
+}
+
 /**
  * Páginas de flujo (cuestionario, comparador, recomendación, salida al
  * proveedor — las 3 puertas de entrada): un cascarón que solo cobra
