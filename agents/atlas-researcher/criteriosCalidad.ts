@@ -4,12 +4,12 @@ import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
 import type { MetadatosBorrador } from "./borrador";
 
 /**
- * Regla de calidad del catálogo — aprobada explícitamente el 2026-08-18,
- * al revisar en conjunto las primeras seis incorporaciones reales
- * (Zoho CRM, Copper, Insightly, Asana, Wrike, Smartsheet). Antes de esta
- * regla, `promoverBorrador()` solo comprobaba que hubiera programa de
- * afiliados fiable (`confidenceLevel !== "low"`) — nada evaluaba la
- * calidad de la investigación pública en sí.
+ * Regla de calidad del catálogo — aprobada el 2026-08-18 al revisar en
+ * conjunto las primeras seis incorporaciones reales (Zoho CRM, Copper,
+ * Insightly, Asana, Wrike, Smartsheet), y ajustada el mismo día tras esa
+ * revisión. Antes de esta regla, `promoverBorrador()` solo comprobaba que
+ * hubiera programa de afiliados fiable (`confidenceLevel !== "low"`) —
+ * nada evaluaba la calidad de la investigación pública en sí.
  *
  * Dos decisiones, en este orden:
  *
@@ -17,37 +17,27 @@ import type { MetadatosBorrador } from "./borrador";
  *    investigación tiene confianza "baja", trae alguna advertencia, o la
  *    Puntuación Molnip no llega al umbral (o no se puede calcular), la
  *    herramienta NO se promueve — "dudas importantes sobre su calidad o
- *    incertidumbre alta en los datos", tal como se acordó.
- * 2. Si supera el punto 1, la confianza del PROGRAMA DE AFILIADOS decide
- *    cómo se promueve:
- *    - "low": sigue bloqueando, como ya hacía `tieneProgramaDeAfiliadosFiable`
- *      antes de esta regla — sin cambios.
- *    - "medium": se promueve igualmente SI la reputación externa (G2 o
- *      Capterra) es buena — la herramienta queda marcada
- *      `verificacionPendiente` para que Atlas Affiliate Manager confirme
- *      comisión/plataforma antes de solicitar el programa o monetizar.
- *      Sin esa reputación de respaldo, bloquea igual que "low".
- *    - "high" (o sin dato, que la regla obligatoria de afiliados ya trata
- *      aparte): se promueve normal, sin marca.
+ *    incertidumbre alta en los datos".
+ * 2. Si supera el punto 1, si el programa de afiliados existe y está
+ *    confirmado (`hasAffiliateProgram` + `confidenceLevel !== "low"`, ya
+ *    exigido aparte por `tieneProgramaDeAfiliadosFiable` en
+ *    `promover.ts` — solo eso bloquea por motivo de afiliación) pero la
+ *    confianza global es "media" porque algún dato SECUNDARIO (la
+ *    comisión exacta, la plataforma, la duración de cookie...) no quedó
+ *    del todo confirmado, la herramienta se promueve igual, marcada
+ *    `verificacionPendiente` para que Atlas Affiliate Manager la revise
+ *    antes de solicitar el programa o darla por lista para monetizar. No
+ *    se exige ningún respaldo adicional (reputación externa u otro) para
+ *    esto: la existencia del programa ya está confirmada, que es lo único
+ *    que de verdad importaba bloquear.
  */
 
 /** Recalculada aquí, nunca se confía en `analisisAtlas.puntuacion` del borrador tal cual: es un valor derivado, y este es el único punto de la promoción donde de verdad importa que esté actualizado. */
 export const UMBRAL_PUNTUACION_ALTA = 80;
 
-/** Escala G2/Capterra: 1-5. Por debajo de esto, la reputación externa no es un respaldo suficiente para tolerar una comisión de afiliados con confianza media. */
-export const UMBRAL_REPUTACION_BUENA = 4.0;
-
 export type ResultadoCriteriosCalidad =
   | { ok: true; verificacionAfiliacionPendiente: boolean; puntuacion: number }
   | { ok: false; errores: string[] };
-
-function tieneBuenaReputacionExterna(reputacion: Herramienta["reputacion"]): boolean {
-  if (!reputacion) return false;
-  return (
-    (reputacion.g2Puntuacion !== undefined && reputacion.g2Puntuacion >= UMBRAL_REPUTACION_BUENA) ||
-    (reputacion.capterraPuntuacion !== undefined && reputacion.capterraPuntuacion >= UMBRAL_REPUTACION_BUENA)
-  );
-}
 
 export function evaluarCriteriosDeCalidad(
   herramienta: Herramienta,
@@ -78,19 +68,12 @@ export function evaluarCriteriosDeCalidad(
     return { ok: false, errores };
   }
 
-  const confianzaAfiliacion = datosAfiliados.confidenceLevel;
-  if (confianzaAfiliacion === "medium") {
-    if (!tieneBuenaReputacionExterna(herramienta.reputacion)) {
-      return {
-        ok: false,
-        errores: [
-          "El programa de afiliados tiene confianza media y la herramienta no tiene reputación externa " +
-            `(G2/Capterra >= ${UMBRAL_REPUTACION_BUENA}) que la respalde — completa la investigación de afiliados o de reputación antes de promover.`,
-        ],
-      };
-    }
-    return { ok: true, verificacionAfiliacionPendiente: true, puntuacion: puntuacion! };
-  }
+  // El bloqueo por programa de afiliados no confirmado (hasAffiliateProgram
+  // falso, o confidenceLevel "low") lo exige `tieneProgramaDeAfiliadosFiable`
+  // en promover.ts, aparte de este criterio. Aquí solo decidimos si algún
+  // dato secundario del programa (ya confirmado que existe) merece marcarse
+  // para revisión antes de solicitarlo o monetizar.
+  const verificacionAfiliacionPendiente = datosAfiliados.confidenceLevel === "medium";
 
-  return { ok: true, verificacionAfiliacionPendiente: false, puntuacion: puntuacion! };
+  return { ok: true, verificacionAfiliacionPendiente, puntuacion: puntuacion! };
 }

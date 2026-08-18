@@ -470,7 +470,13 @@ Insightly, Asana, Wrike, Smartsheet), la primera vez que `npm run
 investigar-lote` corrió contra la API real de Gemini. Antes de esta regla,
 `promoverBorrador()` (`agents/atlas-researcher/promover.ts`) solo exigía
 programa de afiliados fiable (`confidenceLevel !== "low"`) — nada evaluaba
-la calidad de la investigación pública en sí.
+la calidad de la investigación pública en sí. **Ajustada** el mismo día,
+tras aplicarla a esas seis herramientas: la primera versión exigía además
+reputación externa (G2/Capterra ≥ 4.0) para tolerar una afiliación de
+confianza media — se simplificó porque lo único que de verdad importaba
+bloquear era que el programa de afiliados en sí no pudiera confirmarse,
+no que algún dato secundario suyo (la comisión exacta, por ejemplo)
+quedara con confianza media.
 
 Regla acordada, en dos partes:
 
@@ -480,14 +486,17 @@ Regla acordada, en dos partes:
    almacenada en el borrador) no llega a **80/100**, la herramienta no se
    promueve — "dudas importantes sobre su calidad o incertidumbre alta en
    los datos".
-2. **Si supera el punto 1**, la confianza del programa de afiliados
-   decide cómo se promueve: `"low"` sigue bloqueando (sin cambios);
-   `"high"` promueve normal; `"medium"` promueve igualmente **solo si**
-   la reputación externa (G2 o Capterra) es **≥ 4.0/5** — la cuenta de
-   afiliado sembrada queda marcada `verificacionPendiente: true` para que
-   Atlas Affiliate Manager confirme comisión y plataforma antes de
-   solicitar el programa o dar la cuenta por lista para monetizar. Sin esa
-   reputación de respaldo, bloquea igual que `"low"`.
+2. **Si supera el punto 1**, solo bloquea por motivo de afiliación si el
+   programa **no puede confirmarse** — `hasAffiliateProgram` falso o
+   `confidenceLevel === "low"` (comprobación ya existente,
+   `tieneProgramaDeAfiliadosFiable`, sin cambios). Si el programa existe y
+   está confirmado pero algún dato **secundario** (comisión exacta,
+   plataforma, duración de cookie...) queda con confianza "media", la
+   herramienta se promueve igual — la cuenta de afiliado sembrada queda
+   marcada `verificacionPendiente: true` para que Atlas Affiliate Manager
+   la confirme antes de solicitar el programa o darla por lista para
+   monetizar. No se exige ningún respaldo adicional (reputación externa u
+   otro) para esto.
 
 Piezas construidas:
 

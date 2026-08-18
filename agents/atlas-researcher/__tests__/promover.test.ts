@@ -241,23 +241,24 @@ describe("promoverBorrador", () => {
     }
   });
 
-  it("promueve y siembra la cuenta con verificacionPendiente cuando la afiliación tiene confianza media pero la reputación externa la respalda", () => {
-    const propuestaConReputacion: HerramientaPropuesta = {
+  it("promueve y siembra la cuenta con verificacionPendiente cuando el programa de afiliados existe pero un dato secundario tiene confianza media", () => {
+    const propuestaConfianzaMedia: HerramientaPropuesta = {
       ...propuestaValida,
-      datos: { ...propuestaValida.datos, reputacion: { g2Puntuacion: 4.6, capterraPuntuacion: 4.5 } },
       datosAfiliados: { hasAffiliateProgram: true, affiliateStatus: "active", confidenceLevel: "medium" },
     };
-    escribirBorrador("herramienta-con-reputacion", propuestaConReputacion, { dirBase: dirBorradores });
-    registrarDecision("herramienta-con-reputacion", "aprobado", "Datos completos.", { dirBase: dirBorradores });
+    escribirBorrador("herramienta-afiliacion-media", propuestaConfianzaMedia, { dirBase: dirBorradores });
+    registrarDecision("herramienta-afiliacion-media", "aprobado", "Datos completos.", { dirBase: dirBorradores });
 
-    const resultado = promoverBorrador("herramienta-con-reputacion", {
+    const resultado = promoverBorrador("herramienta-afiliacion-media", {
       dirBaseBorradores: dirBorradores,
       dirDatos,
       dirBaseEstrategia: dirEstrategia,
     });
 
+    // Sin reputación externa investigada — la política no la exige: lo único que importaba
+    // bloquear era que el programa en sí no pudiera confirmarse, y aquí sí está confirmado.
     expect(resultado.ok).toBe(true);
-    const estrategia = getEstrategiaAfiliacion("herramienta-con-reputacion", { dirBase: dirEstrategia });
+    const estrategia = getEstrategiaAfiliacion("herramienta-afiliacion-media", { dirBase: dirEstrategia });
     expect(estrategia?.cuentas[0].verificacionPendiente).toBe(true);
     expect(estrategia?.cuentas[0].observaciones).toContain("Verificación pendiente");
   });

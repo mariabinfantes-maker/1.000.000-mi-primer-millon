@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { construirHerramienta } from "@/agents/atlas-advisor/__tests__/fixtures";
 import type { MetadatosBorrador } from "../borrador";
-import { evaluarCriteriosDeCalidad, UMBRAL_REPUTACION_BUENA } from "../criteriosCalidad";
+import { evaluarCriteriosDeCalidad } from "../criteriosCalidad";
 
 const METADATOS_ALTA: MetadatosBorrador = { confianza: "alta", fuentes: ["https://ejemplo.test"], advertencias: [] };
 
@@ -50,14 +50,14 @@ describe("evaluarCriteriosDeCalidad", () => {
     if (!resultado.ok) expect(resultado.errores.some((e) => e.includes("Puntuación Molnip"))).toBe(true);
   });
 
-  it(`promueve y marca verificacionAfiliacionPendiente si la confianza de afiliación es media pero la reputación externa es >= ${UMBRAL_REPUTACION_BUENA}`, () => {
+  it("promueve y marca verificacionAfiliacionPendiente si la confianza de afiliación es media, aunque haya buena reputación externa", () => {
     const resultado = evaluarCriteriosDeCalidad(HERRAMIENTA_BUENA, { confidenceLevel: "medium" }, METADATOS_ALTA);
 
     expect(resultado.ok).toBe(true);
     if (resultado.ok) expect(resultado.verificacionAfiliacionPendiente).toBe(true);
   });
 
-  it("bloquea con afiliación de confianza media si además no hay reputación externa que la respalde", () => {
+  it("promueve y marca verificacionAfiliacionPendiente con confianza media aunque NO haya ninguna reputación externa investigada — el programa existe, solo un dato secundario es incierto", () => {
     const herramientaSinReputacion = construirHerramienta({
       id: "sin-reputacion",
       nombre: "Sin Reputación",
@@ -66,21 +66,8 @@ describe("evaluarCriteriosDeCalidad", () => {
 
     const resultado = evaluarCriteriosDeCalidad(herramientaSinReputacion, { confidenceLevel: "medium" }, METADATOS_ALTA);
 
-    expect(resultado.ok).toBe(false);
-    if (!resultado.ok) expect(resultado.errores.some((e) => e.includes("reputación externa"))).toBe(true);
-  });
-
-  it(`no exige reputación de respaldo cuando la reputación está justo por debajo de ${UMBRAL_REPUTACION_BUENA} en ambas fuentes: sigue bloqueando`, () => {
-    const herramientaReputacionBaja = construirHerramienta({
-      id: "reputacion-baja",
-      nombre: "Reputación Baja",
-      puntuaciones: { facilidadDeUso: 9, calidad: 9, fiabilidad: 9, atencionAlCliente: 9, escalabilidad: 9, nivelTecnicoRequerido: 3 },
-      reputacion: { g2Puntuacion: 3.9, capterraPuntuacion: 3.8 },
-    });
-
-    const resultado = evaluarCriteriosDeCalidad(herramientaReputacionBaja, { confidenceLevel: "medium" }, METADATOS_ALTA);
-
-    expect(resultado.ok).toBe(false);
+    expect(resultado.ok).toBe(true);
+    if (resultado.ok) expect(resultado.verificacionAfiliacionPendiente).toBe(true);
   });
 
   it("no marca verificacionAfiliacionPendiente cuando no hay datosAfiliados.confidenceLevel definido", () => {
