@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
 import { ShieldCheck } from "lucide-react";
 import { getHerramienta, getHerramientas } from "@/data/repositorio";
@@ -95,14 +94,6 @@ export default async function IrAlProveedorPage({
           </p>
         </div>
       </div>
-
-      <p className="mt-8 text-center text-sm text-slate-500">
-        ¿No era lo que esperabas?{" "}
-        <Link href={`/herramienta/${herramienta.id}`} className="font-semibold text-brand-600 hover:text-brand-800">
-          Vuelve a la ficha
-        </Link>
-        .
-      </p>
     </div>
   );
 }

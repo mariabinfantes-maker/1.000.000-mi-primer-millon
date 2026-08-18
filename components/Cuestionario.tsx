@@ -209,8 +209,11 @@ export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) 
               htmlFor="mayorProblema"
               className="block font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl"
             >
-              ¿Cuál es tu mayor problema?
+              {origen.notasPrefill ? "Esto es lo que nos has contado" : "¿Cuál es tu mayor problema?"}
             </label>
+            {origen.notasPrefill && (
+              <p className="mt-2 text-sm text-slate-500">Puedes ajustarlo si quieres precisar algo.</p>
+            )}
             <textarea
               id="mayorProblema"
               autoFocus

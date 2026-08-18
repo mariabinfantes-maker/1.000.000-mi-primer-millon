@@ -79,7 +79,7 @@ export default function TarjetaHerramientaRecomendada({
       </div>
 
       <h3 className="mt-4 font-display text-xl font-bold tracking-tight text-slate-900">
-        <Link href={`/herramienta/${id}`} className="hover:text-brand-700">
+        <Link href={`/herramienta/${id}`} className="transition hover:text-brand-700">
           {nombre}
         </Link>
       </h3>
@@ -143,7 +143,7 @@ export default function TarjetaHerramientaRecomendada({
 
       {tieneDetalles && (
         <details className="mt-4 border-t border-slate-100 pt-4">
-          <summary className="cursor-pointer select-none text-sm font-semibold text-slate-600 hover:text-brand-700">
+          <summary className="cursor-pointer select-none text-sm font-semibold text-slate-600 transition hover:text-brand-700">
             Ver más detalles
           </summary>
           <div className="mt-3 space-y-4">
@@ -181,13 +181,18 @@ export default function TarjetaHerramientaRecomendada({
 
       <Link
         href={`/herramienta/${id}`}
-        className="mt-6 flex items-center justify-center gap-1 text-sm font-semibold text-brand-600 hover:text-brand-800"
+        className="mt-6 flex items-center justify-center gap-1 text-sm font-semibold text-brand-600 transition hover:text-brand-800"
       >
         Ver ficha completa
         <ChevronRight className="h-4 w-4" aria-hidden="true" />
       </Link>
 
-      <Boton href={`/herramienta/${id}/ir`} tamano="grande" className="mt-3 w-full">
+      <Boton
+        href={`/herramienta/${id}/ir`}
+        tamano="grande"
+        variante={destacada ? "primario" : "secundario"}
+        className="mt-3 w-full"
+      >
         Ir al proveedor
         <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
       </Boton>

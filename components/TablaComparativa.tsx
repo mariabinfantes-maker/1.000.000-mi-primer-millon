@@ -1,8 +1,10 @@
 import type { CSSProperties } from "react";
+import { ArrowUpRight } from "lucide-react";
 import { construirComparativa } from "@/lib/comparador";
 import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
 import type { HerramientaEvaluada } from "@/agents/atlas-advisor";
 import AnilloPuntuacion from "@/components/ui/AnilloPuntuacion";
+import Boton from "@/components/ui/Boton";
 
 /**
  * Cabecera + filas de la comparativa lado a lado — extraído de
@@ -14,19 +16,33 @@ import AnilloPuntuacion from "@/components/ui/AnilloPuntuacion";
  */
 export default function TablaComparativa({ evaluadas }: { evaluadas: HerramientaEvaluada[] }) {
   const filas = construirComparativa(evaluadas);
+  // La comparativa por sí sola ya distingue una mejor encajada (fila a fila,
+  // "gana X"); el CTA principal sigue el mismo criterio a nivel de conjunto
+  // — sin esto, comparar era el único paso del recorrido sin salida directa
+  // al proveedor, un callejón entre la recomendación y la conversión.
+  const mejorPuntuacion = Math.max(...evaluadas.map((e) => e.puntuacionTotal));
 
   return (
     <>
       <div className="comparador-grid gap-4" style={{ "--comparador-columnas": evaluadas.length } as CSSProperties}>
         {evaluadas.map((evaluada) => {
           const puntuacion = calcularPuntuacionAtlas(evaluada.herramienta);
+          const esMejorEncaje = evaluadas.length > 1 && evaluada.puntuacionTotal === mejorPuntuacion;
           return (
             <div
               key={evaluada.herramienta.id}
-              className="flex flex-col items-center gap-2 rounded-2xl border border-slate-200/80 bg-white p-4 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-black/[0.02]"
+              className="flex flex-col items-center gap-3 rounded-2xl border border-slate-200/80 bg-white p-4 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-black/[0.02]"
             >
               {puntuacion && <AnilloPuntuacion puntuacion={puntuacion.puntuacion} />}
               <span className="font-display text-sm font-bold text-slate-900">{evaluada.herramienta.nombre}</span>
+              <Boton
+                href={`/herramienta/${evaluada.herramienta.id}/ir`}
+                variante={esMejorEncaje ? "primario" : "secundario"}
+                className="mt-1 w-full"
+              >
+                Ir al proveedor
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </Boton>
             </div>
           );
         })}
