@@ -1,0 +1,19 @@
+{
+  "herramientaId": "teamwork-com",
+  "cuentas": [
+    {
+      "id": "partnerstack",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Teamwork Affiliate Program",
+      "plataforma": "PartnerStack",
+      "urlSolicitud": "https://www.teamwork.com/affiliates/",
+      "comision": "30% recurrente durante los primeros 12 meses",
+      "duracionCookie": "90 días",
+      "metodoPago": "PayPal, transferencia bancaria (Stripe)",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-19",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

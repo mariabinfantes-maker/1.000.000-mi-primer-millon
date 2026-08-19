@@ -1,0 +1,148 @@
+{
+  "nombre": "Teamwork.com",
+  "paginaOficial": "https://www.teamwork.com/",
+  "urlPrecios": "https://www.teamwork.com/pricing/",
+  "logoUrl": "",
+  "categoriaId": "gestion-proyectos",
+  "descripcion": "Teamwork.com es una plataforma integral de gestión de proyectos y tareas diseñada para agencias y empresas de servicios profesionales. Facilita la planificación de proyectos, el seguimiento de horas facturables y el control de la rentabilidad de clientes en un solo lugar. Permite invitar a clientes externos con permisos personalizados sin costo adicional.",
+  "informacionEmpresa": {
+    "anioFundacion": 2007,
+    "paisOrigen": "Irlanda",
+    "tamanoAproximado": "201-500 empleados"
+  },
+  "problemasQueResuelve": [
+    "Falta de visibilidad sobre la rentabilidad real de los clientes y proyectos.",
+    "Dificultad para registrar y controlar horas facturables frente a horas no facturables.",
+    "Desorganización en la comunicación con clientes externos durante la ejecución del proyecto.",
+    "Falta de control de capacidad y sobrecarga de trabajo en el equipo."
+  ],
+  "casosDeUso": [
+    "Gestión integral de entregables en agencias de marketing digital y publicidad.",
+    "Seguimiento de hitos, presupuesto y horas invertidas en proyectos de consultoría tecnológica.",
+    "Colaboración transparente con clientes finales permitiendo acceso a tableros y reportes sin costo extra.",
+    "Planificación de recursos y distribución de carga de trabajo semanal para equipos creativos."
+  ],
+  "idealPara": "Agencias, consultoras y empresas de servicios profesionales que trabajan por proyectos para clientes y necesitan controlar horas y rentabilidad.",
+  "segmentosIdeales": [
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "Agencias de Marketing y Publicidad",
+    "Consultoría de Negocio",
+    "Tecnología y Desarrollo de Software",
+    "Servicios Profesionales y Legales",
+    "Diseño y Creatividad"
+  ],
+  "noRecomendadaPara": "Equipos internos o profesionales independientes que buscan una lista de tareas personales ultrasencilla sin necesidad de seguimiento de clientes.",
+  "casosNoRecomendados": [
+    "Gestión de tareas personales sencillas o listas to-do individuales.",
+    "Grandes empresas de construcción que requieren ERPs de obra con presupuestos pesados e integraciones físicas."
+  ],
+  "funcionesPrincipales": [
+    "Gestión de tareas, subtareas e hitos con dependencias.",
+    "Seguimiento del tiempo integrado (Time Tracking) facturable y no facturable.",
+    "Informes de rentabilidad de proyectos y clientes en tiempo real.",
+    "Vistas múltiples: diagramas de Gantt, tableros Kanban, listas y calendario.",
+    "Gestión de recursos y capacidad del equipo.",
+    "Acceso ilimitado y gratuito para clientes con permisos avanzados."
+  ],
+  "integraciones": [
+    "HubSpot",
+    "Slack",
+    "Zapier",
+    "QuickBooks",
+    "Xero",
+    "Google Drive",
+    "Dropbox",
+    "Microsoft Teams",
+    "Harvest",
+    "Softrig"
+  ],
+  "integracionesPrincipales": [
+    "HubSpot",
+    "Zapier",
+    "Slack",
+    "QuickBooks"
+  ],
+  "curvaDeAprendizaje": "media",
+  "precioInicial": "Desde $9.99/usuario/mes (plan Deliver, facturación anual)",
+  "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": true,
+  "precioRecomendadoPymes": "Plan Grow a $19.99/usuario/mes (pago anual, mínimo 5 usuarios)",
+  "idiomasDisponibles": [
+    "Español",
+    "Inglés",
+    "Francés",
+    "Alemán",
+    "Italiano",
+    "Portugués"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 8,
+    "calidad": 8.5,
+    "fiabilidad": 9,
+    "atencionAlCliente": 8.5,
+    "escalabilidad": 8.5,
+    "nivelTecnicoRequerido": 5,
+    "facilidadImplementacion": 7.5
+  },
+  "metodologiaValoracion": "Puntuaciones basadas en la agregación de más de 3,900 reseñas de usuarios verificados en G2 y Capterra, evaluaciones de facilidad de implementación para agencias y comparativas objetivas de funcionalidades.",
+  "reputacion": {
+    "g2Puntuacion": 4.4,
+    "g2NumeroResenas": 3100,
+    "capterraPuntuacion": 4.5,
+    "capterraNumeroResenas": 850,
+    "otrasFuentes": [
+      {
+        "fuente": "TrustRadius",
+        "puntuacion": 8.4,
+        "numeroResenas": 150,
+        "enlace": "https://www.trustradius.com/products/teamwork/reviews"
+      }
+    ]
+  },
+  "ventajas": [
+    "Especialmente optimizada para rentabilidad y gestión de clientes en agencias.",
+    "Acceso para clientes sin coste adicional en todos los planes.",
+    "Excelente funcionalidad nativa de control de tiempo y presupuestos de horas.",
+    "Sólidas integraciones con sistemas contables y CRMs populares como QuickBooks y HubSpot."
+  ],
+  "inconvenientes": [
+    "Las funciones más avanzadas de capacidad de personal y rentabilidad requieren planes superiores (Grow/Scale).",
+    "La aplicación móvil es menos potente que la versión para navegador web.",
+    "Puede resultar compleja para equipos que solo buscan un gestor de tareas básico."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Asana",
+      "Monday.com",
+      "ClickUp",
+      "Wrike"
+    ],
+    "tipoNegocioIdeal": "Agencias de marketing, consultoras y empresas de servicios B2B",
+    "nivelTecnicoRecomendado": "intermedio",
+    "puntuacion": 93,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.3/10.",
+      "G2: 4.4/5 (3100 reseñas).",
+      "Capterra: 4.5/5 (850 reseñas).",
+      "Tiene plan gratuito.",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "teamwork-com",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-19",
+  "fechaUltimaRevision": "2026-08-19"
+}

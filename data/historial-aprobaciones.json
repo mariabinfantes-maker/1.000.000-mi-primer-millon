@@ -158,5 +158,35 @@
     "estadoAfiliacion": "confirmada",
     "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote (segunda ronda de CRM).",
     "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T11:35:19.218Z",
+    "herramientaId": "teamwork-com",
+    "nombreHerramienta": "Teamwork.com",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 93,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe (segunda ronda de Gestión de proyectos).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T11:35:19.221Z",
+    "herramientaId": "zoho-projects",
+    "nombreHerramienta": "Zoho Projects",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 92,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe (segunda ronda de Gestión de proyectos). Motivos del bloqueo: Atlas Curator: \"Zoho Projects\" y \"Zoho CRM\" comparten el mismo dominio (zoho.com) en su página oficial. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces. | Atlas Curator: \"Zoho Projects\" y \"Zoho One\" comparten el mismo dominio (zoho.com) en su página oficial. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T11:35:19.231Z",
+    "herramientaId": "zoho-projects",
+    "nombreHerramienta": "Zoho Projects",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 92,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe (segunda ronda de Gestión de proyectos). Aviso de Curator anulado explícitamente: \"Zoho Projects\" y \"Zoho CRM\" comparten el mismo dominio (zoho.com) en su página oficial. \"Zoho Projects\" y \"Zoho One\" comparten el mismo dominio (zoho.com) en su página oficial. Justificación: Aprobado por el CEO: mismo patrón que Zoho CRM (2026-08-19) — producto distinto de otros productos Zoho ya en catálogo, alojado bajo el mismo dominio zoho.com por el mismo proveedor. No es un duplicado real.",
+    "aprobacionCeo": true
   }
 ]

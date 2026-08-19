@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Teamwork Affiliate Program",
+  "affiliatePlatform": "PartnerStack",
+  "affiliateUrl": "https://www.teamwork.com/affiliates/",
+  "commission": "30% recurrente durante los primeros 12 meses",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, transferencia bancaria (Stripe)",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.teamwork.com/affiliates/",
+  "lastAffiliateCheck": "2026-08-19",
+  "herramientaId": "teamwork-com"
+}

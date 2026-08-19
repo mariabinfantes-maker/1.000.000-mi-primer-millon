@@ -1,0 +1,141 @@
+{
+  "nombre": "Zoho Projects",
+  "paginaOficial": "https://www.zoho.com/projects/",
+  "urlPrecios": "https://www.zoho.com/projects/zohoprojects-pricing.html",
+  "logoUrl": null,
+  "categoriaId": "gestion-proyectos",
+  "descripcion": "Zoho Projects es una solución de gestión de proyectos basada en la nube que permite a las empresas planificar, realizar seguimiento y colaborar de manera eficiente. Ofrece diagramas de Gantt, control de tiempos, gestión de incidencias y hojas de horas integradas. Es especialmente valorada por su alta conectividad con el resto del ecosistema de aplicaciones de Zoho.",
+  "informacionEmpresa": {
+    "anioFundacion": 1996,
+    "paisOrigen": "India",
+    "tamanoAproximado": "10000+ empleados"
+  },
+  "problemasQueResuelve": [
+    "Desorganización en la asignación de tareas y seguimiento de plazos en proyectos de equipo.",
+    "Falta de visibilidad sobre las horas trabajadas y la rentabilidad de proyectos facturables.",
+    "Dificultad para coordinar la gestión de incidencias y errores junto con la planificación del proyecto."
+  ],
+  "casosDeUso": [
+    "Planificación y gestión del desarrollo de software mediante hitos e integración con repositorios de código.",
+    "Seguimiento de tiempos e imprevistos en agencias de marketing y servicios profesionales para facturación a clientes.",
+    "Gestión de flujos de trabajo operativos e ingeniería que requieren dependencias estrictas entre tareas."
+  ],
+  "idealPara": "Equipos de todos los tamaños que necesitan una herramienta completa de gestión de proyectos con seguimiento de tiempos e integración profunda con otras soluciones empresariales a un precio accesible.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "Tecnología y Software",
+    "Servicios Profesionales y Consultoría",
+    "Marketing y Publicidad",
+    "Construcción e Ingeniería"
+  ],
+  "noRecomendadaPara": "Equipos reducidos que buscan un gestor de tareas ultra visual y minimalista sin configuración administrativa previa.",
+  "casosNoRecomendados": [
+    "Equipos de trabajo que solo requieren un tablero Kanban simple sin dependencias ni hojas de tiempos.",
+    "Organizaciones que buscan únicamente metodologías ágiles puras con tableros Scrum avanzados sin adaptar módulos."
+  ],
+  "funcionesPrincipales": [
+    "Diagramas de Gantt interactivos con dependencias de tareas de 4 tipos",
+    "Seguimiento del tiempo, temporizadores en vivo y hojas de horas facturables",
+    "Gestión de incidencias y seguimiento de errores (Issue Tracking)",
+    "Automatización de procesos mediante flujos de trabajo (Blueprint)",
+    "Gestión de recursos y análisis de utilización de la capacidad del equipo",
+    "Integración nativa con Zoho Analytics para informes personalizados"
+  ],
+  "integraciones": [
+    "Zoho CRM",
+    "Zoho Desk",
+    "Zoho Books",
+    "Zoho Analytics",
+    "Google Drive",
+    "Microsoft Teams",
+    "Slack",
+    "Zapier",
+    "GitHub",
+    "GitLab",
+    "Jira"
+  ],
+  "integracionesPrincipales": [
+    "Zoho CRM",
+    "Google Drive",
+    "Microsoft Teams",
+    "Slack"
+  ],
+  "curvaDeAprendizaje": "media",
+  "precioInicial": "Desde 4€/usuario/mes (facturado anualmente) o versión gratuita limitada",
+  "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": true,
+  "precioRecomendadoPymes": "Plan Premium a 4€/usuario/mes (facturación anual) o 5€/usuario/mes (facturación mensual)",
+  "idiomasDisponibles": [
+    "Español",
+    "Inglés",
+    "Francés",
+    "Alemán",
+    "Italiano",
+    "Portugués",
+    "Japonés",
+    "Chino"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 8,
+    "calidad": 8.5,
+    "fiabilidad": 9,
+    "atencionAlCliente": 8,
+    "escalabilidad": 9,
+    "nivelTecnicoRequerido": 5,
+    "facilidadImplementacion": 8
+  },
+  "metodologiaValoracion": "Puntuaciones calculadas a partir de la síntesis de miles de opiniones de usuarios verificados en G2 y Capterra, análisis del conjunto de características funcionales y la propuesta de valor del producto frente a sus competidores.",
+  "reputacion": {
+    "g2Puntuacion": 4.3,
+    "g2NumeroResenas": 3600,
+    "capterraPuntuacion": 4.3,
+    "capterraNumeroResenas": 4200
+  },
+  "ventajas": [
+    "Excelente relación calidad-precio en comparación con la competencia.",
+    "Gran potencia en control de tiempos y hojas de horas sin coste adicional.",
+    "Integración fluida con el resto de la suite de software de Zoho.",
+    "Diagramas de Gantt muy completos incluidos en planes asequibles."
+  ],
+  "inconvenientes": [
+    "La interfaz de usuario puede resultar densa o cargada de opciones al principio.",
+    "La configuración de automatizaciones complejas mediante Blueprint requiere tiempo de aprendizaje.",
+    "El volumen de notificaciones por correo puede requerir ajuste inicial extenso."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Monday.com",
+      "Asana",
+      "ClickUp",
+      "Wrike"
+    ],
+    "tipoNegocioIdeal": "Servicios profesionales, agencias y empresas con uso de la suite Zoho",
+    "nivelTecnicoRecomendado": "intermedio",
+    "puntuacion": 92,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.4/10.",
+      "G2: 4.3/5 (3600 reseñas).",
+      "Capterra: 4.3/5 (4200 reseñas).",
+      "Tiene plan gratuito.",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "zoho-projects",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-19",
+  "fechaUltimaRevision": "2026-08-19"
+}
