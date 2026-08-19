@@ -1,0 +1,128 @@
+{
+  "nombre": "Nimble",
+  "paginaOficial": "https://www.nimble.com/",
+  "urlPrecios": "https://www.nimble.com/pricing/",
+  "logoUrl": "",
+  "categoriaId": "crm",
+  "descripcion": "Nimble es un CRM social y de gestión de relaciones orientado a pequeñas y medianas empresas. Destaca por su capacidad para enriquecer automáticamente contactos y unificar comunicaciones desde redes sociales, correo electrónico y web en una única extensión y plataforma.",
+  "informacionEmpresa": {
+    "anioFundacion": 2010,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "11-50 empleados"
+  },
+  "problemasQueResuelve": [
+    "Dispersión de información de contactos en redes sociales, correos y hojas de cálculo",
+    "Pérdida de tiempo en la entrada e ingreso manual de datos de prospectos",
+    "Falta de contexto sobre interacciones previas al contactar a un cliente potencial"
+  ],
+  "casosDeUso": [
+    "Prospectar clientes en LinkedIn y sitios web capturando datos al instante mediante la extensión Nimble Prospector",
+    "Gestionar oportunidades de venta B2B integrando correos de Microsoft 365 y Google Workspace",
+    "Realizar seguimiento de mensajes con análisis de clics y aperturas en campañas de alcance directo"
+  ],
+  "idealPara": "Pymes, equipos de ventas B2B y agencias que buscan un CRM ágil centrado en enriquecimiento de contactos e integración con redes sociales y suite ofimática.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200"
+  ],
+  "industriasIdeales": [
+    "Servicios profesionales",
+    "Agencias de marketing",
+    "Consultoría",
+    "Bienes raíces",
+    "Tecnología B2B"
+  ],
+  "noRecomendadaPara": "Empresas de nivel Enterprise o comercios B2C con gran volumen transaccional que necesiten flujos de automatización de marketing y permisos muy complejos.",
+  "casosNoRecomendados": [
+    "Grandes corporaciones que requieren arquitecturas complejas de datos y jerarquías multinivel avanzadas",
+    "Ecommerce B2C masivo con necesidad de automatizaciones transaccionales de marketing en tiempo real"
+  ],
+  "funcionesPrincipales": [
+    "Nimble Prospector (extensión para navegador, correo y redes sociales)",
+    "Enriquecimiento automático de perfiles con información pública y social",
+    "Gestión de pipeline de ventas y embudos visuales",
+    "Seguimiento de correos electrónicos y plantillas personalizadas",
+    "Sincronización de calendario y contactos con Microsoft 365 y Google Workspace"
+  ],
+  "integraciones": [
+    "Microsoft 365",
+    "Google Workspace",
+    "LinkedIn",
+    "Twitter/X",
+    "Mailchimp",
+    "Zapier",
+    "QuickBooks",
+    "HubSpot"
+  ],
+  "integracionesPrincipales": [
+    "Microsoft 365",
+    "Google Workspace",
+    "LinkedIn",
+    "Zapier"
+  ],
+  "curvaDeAprendizaje": "facil",
+  "precioInicial": "Desde $24.90/usuario/mes (pago anual)",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Plan Nimble Business a $24.90/usuario/mes (facturación anual)",
+  "idiomasDisponibles": [
+    "Inglés"
+  ],
+  "disponibleEnEspanol": false,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 8,
+    "fiabilidad": 8,
+    "atencionAlCliente": 8,
+    "escalabilidad": 7,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 9
+  },
+  "metodologiaValoracion": "Puntuaciones estimadas a partir de reseñas verificadas de usuarios en G2 y Capterra, análisis del conjunto de características de la plataforma e integración técnica.",
+  "reputacion": {
+    "g2Puntuacion": 4.5,
+    "g2NumeroResenas": 1050,
+    "capterraPuntuacion": 4.4,
+    "capterraNumeroResenas": 1850
+  },
+  "ventajas": [
+    "Extensión Nimble Prospector sumamente potente para trabajar desde cualquier pestaña web o buzón de correo",
+    "Enriquecimiento de datos social automático y actualizado",
+    "Excelente integración nativa con los ecosistemas de Google y Microsoft",
+    "Puesta en marcha e implementación sumamente rápidas"
+  ],
+  "inconvenientes": [
+    "Interfaz principal disponible únicamente en inglés",
+    "Informes y analíticas de ventas básicos comparados con CRMs más grandes",
+    "Funcionalidades de automatización de marketing limitadas"
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "HubSpot CRM",
+      "Zoho CRM",
+      "Pipedrive",
+      "Copper"
+    ],
+    "tipoNegocioIdeal": "Agencias, consultoras y pymes B2B",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 89,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.2/10.",
+      "G2: 4.5/5 (1050 reseñas).",
+      "Capterra: 4.4/5 (1850 reseñas).",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "nimble",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-19",
+  "fechaUltimaRevision": "2026-08-19"
+}

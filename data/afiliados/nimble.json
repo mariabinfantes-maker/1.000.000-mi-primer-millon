@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Nimble Affiliate Program",
+  "affiliatePlatform": "PartnerStack",
+  "affiliateUrl": "https://www.nimble.com/partners/affiliates/",
+  "commission": "20% de comisión recurrente durante el primer año por cada cliente referido",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, Stripe",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.nimble.com/partners/affiliates/",
+  "lastAffiliateCheck": "2026-08-19",
+  "herramientaId": "nimble"
+}

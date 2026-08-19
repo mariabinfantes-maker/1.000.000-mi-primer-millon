@@ -118,5 +118,45 @@
     "estadoAfiliacion": "confirmada",
     "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote. Aviso de Curator anulado explícitamente: \"Zoho CRM\" y \"Zoho One\" comparten el mismo dominio (zoho.com) en su página oficial. Justificación: Aprobado por el CEO: Zoho CRM y Zoho One son productos distintos del mismo proveedor (Zoho), alojados bajo el mismo dominio zoho.com — mismo patrón que Google/Microsoft/Adobe. Falso positivo de Curator confirmado tras revisión.",
     "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T11:16:42.491Z",
+    "herramientaId": "nutshell",
+    "nombreHerramienta": "Nutshell",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 90,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote (segunda ronda de CRM).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T11:16:42.494Z",
+    "herramientaId": "vtiger-crm",
+    "nombreHerramienta": "Vtiger CRM",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 87,
+    "estadoAfiliacion": "pendiente_de_verificar",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote (segunda ronda de CRM).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T11:16:42.497Z",
+    "herramientaId": "salesflare",
+    "nombreHerramienta": "Salesflare",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 95,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote (segunda ronda de CRM).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T11:16:42.499Z",
+    "herramientaId": "nimble",
+    "nombreHerramienta": "Nimble",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 89,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote (segunda ronda de CRM).",
+    "aprobacionCeo": true
   }
 ]
