@@ -43,6 +43,16 @@ import { registrarEnHistorial } from "./historialAprobaciones";
  * (`historialAprobaciones.ts`), la auditoría interna de por qué una
  * herramienta entró o no al catálogo. Se registra siempre que exista un
  * borrador que evaluar, gane o pierda.
+ *
+ * Anulación explícita de un aviso de Curator (`ignorarAvisosDuplicado`,
+ * añadido el 2026-08-19): el aviso de casi-duplicado tiene falsos
+ * positivos reales y esperables (mismo proveedor, productos distintos —
+ * primer caso real: "Zoho CRM" frente a "Zoho One", ambos en zoho.com).
+ * Curator nunca decide por su cuenta si es un falso positivo; solo una
+ * persona puede anularlo, y solo con `justificacionAnulacion` explícita —
+ * queda registrada tal cual en el historial de aprobaciones, nunca en
+ * silencio. El resto de comprobaciones (esquema, categoría, criterio de
+ * calidad, regla de afiliados) se siguen aplicando sin excepción.
  */
 
 export type ResultadoPromocion =
@@ -58,6 +68,10 @@ export type OpcionesPromocion = {
   dirBaseEstrategia?: string;
   /** Dónde escribir el historial de aprobaciones. Por defecto `data/historial-aprobaciones.json` — solo para pruebas. */
   rutaHistorial?: string;
+  /** Anula el aviso de casi-duplicado de Atlas Curator para este intento — nunca por defecto. Exige `justificacionAnulacion`. */
+  ignorarAvisosDuplicado?: boolean;
+  /** Por qué se anula el aviso de duplicado — obligatorio si `ignorarAvisosDuplicado` es `true`; queda en el historial de aprobaciones tal cual. */
+  justificacionAnulacion?: string;
 };
 
 function tieneProgramaDeAfiliadosFiable(datosAfiliados: Partial<AffiliateData>): boolean {
@@ -97,6 +111,7 @@ export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): 
 
   let verificacionAfiliacionPendiente = false;
   let calidadSuperada = false;
+  let anulacionDuplicadoAplicada: string | null = null;
 
   if (herramienta) {
     const idsCategorias = new Set(getCategorias().map((c) => c.id));
@@ -104,11 +119,22 @@ export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): 
       errores.push(`"${id}" referencia una categoría inexistente: "${herramienta.categoriaId}".`);
     }
 
-    for (const aviso of detectarCasiDuplicados(herramienta, catalogoExistente)) {
-      errores.push(
-        `Atlas Curator: ${aviso.motivo} Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas ` +
-          "antes de promover; si es la misma, no la promuevas dos veces."
-      );
+    const avisosDuplicado = detectarCasiDuplicados(herramienta, catalogoExistente);
+    if (avisosDuplicado.length > 0) {
+      if (opciones.ignorarAvisosDuplicado && opciones.justificacionAnulacion?.trim()) {
+        anulacionDuplicadoAplicada =
+          `Aviso de Curator anulado explícitamente: ${avisosDuplicado.map((a) => a.motivo).join(" ")} ` +
+          `Justificación: ${opciones.justificacionAnulacion.trim()}`;
+      } else if (opciones.ignorarAvisosDuplicado) {
+        errores.push('"ignorarAvisosDuplicado" exige "justificacionAnulacion" — explica por qué no es un duplicado real.');
+      } else {
+        for (const aviso of avisosDuplicado) {
+          errores.push(
+            `Atlas Curator: ${aviso.motivo} Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas ` +
+              "antes de promover; si es la misma, no la promuevas dos veces."
+          );
+        }
+      }
     }
 
     const resultadoCalidad = evaluarCriteriosDeCalidad(herramienta, datosAfiliados, borrador.metadatos);
@@ -141,7 +167,9 @@ export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): 
         resultado: "rechazada",
         puntuacionMolnip,
         estadoAfiliacion,
-        observaciones: [decision?.notas, `Motivos del bloqueo: ${errores.join(" | ")}`].filter(Boolean).join(" "),
+        observaciones: [decision?.notas, anulacionDuplicadoAplicada, `Motivos del bloqueo: ${errores.join(" | ")}`]
+          .filter(Boolean)
+          .join(" "),
         aprobacionCeo,
       },
       { ruta: opciones.rutaHistorial }
@@ -196,7 +224,7 @@ export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): 
       resultado: "aceptada",
       puntuacionMolnip,
       estadoAfiliacion,
-      observaciones: decision?.notas ?? "Sin observaciones.",
+      observaciones: [decision?.notas, anulacionDuplicadoAplicada].filter(Boolean).join(" ") || "Sin observaciones.",
       aprobacionCeo,
     },
     { ruta: opciones.rutaHistorial }

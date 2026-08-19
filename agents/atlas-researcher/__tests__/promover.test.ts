@@ -226,6 +226,49 @@ describe("promoverBorrador", () => {
     }
   });
 
+  it("promueve un casi-duplicado si se anula explícitamente con justificación, y lo deja registrado en el historial (caso real: Zoho CRM vs Zoho One, 2026-08-19)", () => {
+    const propuestaDuplicada: HerramientaPropuesta = {
+      ...propuestaValida,
+      datos: { ...propuestaValida.datos, nombre: "HubSpot" },
+    };
+    escribirBorrador("hubspot-marketing-hub", propuestaDuplicada, { dirBase: dirBorradores });
+    registrarDecision("hubspot-marketing-hub", "aprobado", "Datos completos, afiliado fiable.", { dirBase: dirBorradores });
+
+    const resultado = promoverBorrador("hubspot-marketing-hub", {
+      dirBaseBorradores: dirBorradores,
+      dirDatos,
+      dirBaseEstrategia: dirEstrategia,
+      rutaHistorial,
+      ignorarAvisosDuplicado: true,
+      justificacionAnulacion: "Producto distinto del mismo proveedor, no es un duplicado real.",
+    });
+
+    expect(resultado.ok).toBe(true);
+    const historial = leerHistorialAprobaciones({ ruta: rutaHistorial });
+    expect(historial[0].observaciones).toContain("Aviso de Curator anulado explícitamente");
+    expect(historial[0].observaciones).toContain("Producto distinto del mismo proveedor");
+  });
+
+  it("no promueve un casi-duplicado con ignorarAvisosDuplicado si falta la justificación", () => {
+    const propuestaDuplicada: HerramientaPropuesta = {
+      ...propuestaValida,
+      datos: { ...propuestaValida.datos, nombre: "HubSpot" },
+    };
+    escribirBorrador("hubspot-sin-justificar", propuestaDuplicada, { dirBase: dirBorradores });
+    registrarDecision("hubspot-sin-justificar", "aprobado", "Ok.", { dirBase: dirBorradores });
+
+    const resultado = promoverBorrador("hubspot-sin-justificar", {
+      dirBaseBorradores: dirBorradores,
+      dirDatos,
+      dirBaseEstrategia: dirEstrategia,
+      rutaHistorial,
+      ignorarAvisosDuplicado: true,
+    });
+
+    expect(resultado.ok).toBe(false);
+    if (!resultado.ok) expect(resultado.errores.some((e) => e.includes("justificacionAnulacion"))).toBe(true);
+  });
+
   it("falla si la Puntuación Molnip queda por debajo del umbral de calidad (regla aprobada el 2026-08-18)", () => {
     const propuestaMediocre: HerramientaPropuesta = {
       ...propuestaValida,
