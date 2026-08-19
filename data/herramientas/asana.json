@@ -1,0 +1,148 @@
+{
+  "nombre": "Asana",
+  "paginaOficial": "https://asana.com",
+  "urlPrecios": "https://asana.com/pricing",
+  "logoUrl": null,
+  "categoriaId": "gestion-proyectos",
+  "descripcion": "Asana es una plataforma de gestión del trabajo y colaboración en equipo diseñada para organizar, priorizar y realizar un seguimiento de tareas y proyectos. Facilita la visibilidad del flujo de trabajo a través de vistas en listas, tableros Kanban, cronogramas y calendarios, permitiendo a los equipos cumplir con sus objetivos de forma más eficiente.",
+  "informacionEmpresa": {
+    "anioFundacion": 2008,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "1001-5000 empleados"
+  },
+  "problemasQueResuelve": [
+    "Falta de visibilidad sobre quién está haciendo qué y los plazos de entrega.",
+    "Desorganización y dispersión de la comunicación en múltiples correos y chats.",
+    "Dificultad para detectar cuellos de botella e ineficiencias en los procesos de trabajo.",
+    "Desalineación entre las tareas diarias de los empleados y los objetivos estratégicos de la empresa."
+  ],
+  "casosDeUso": [
+    "Gestión e implementación de campañas de marketing y comunicación.",
+    "Planificación de lanzamientos de producto e itinerarios estratégicos.",
+    "Seguimiento de flujos de trabajo en agencias y servicios profesionales.",
+    "Gestión de procesos operativos recurrentes e incorporación de empleados (onboarding)."
+  ],
+  "idealPara": "Equipos en crecimiento y medianas o grandes empresas que buscan estructurar y coordinar proyectos complejos entre múltiples departamentos.",
+  "segmentosIdeales": [
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "Marketing y Publicidad",
+    "Tecnología y Software",
+    "Servicios Profesionales",
+    "Comercio Electrónico",
+    "Educación"
+  ],
+  "noRecomendadaPara": "Freelancers o microequipos extremadamente pequeños con necesidades de organización muy básicas que prefieren herramientas sin ningún tipo de complejidad o totalmente gratuitas.",
+  "casosNoRecomendados": [
+    "Proyectos de desarrollo de software que requieran un marco de trabajo Scrum o Agile puro con métricas avanzadas como gráficos de trabajo pendiente (burndown charts), donde herramientas como Jira son más adecuadas.",
+    "Gestión contable o financiera directa de proyectos que exija facturación integrada nativa."
+  ],
+  "funcionesPrincipales": [
+    "Múltiples vistas de proyectos (Listas, Tableros Kanban, Cronogramas Gantt, Calendario).",
+    "Automatización de reglas y flujos de trabajo sin necesidad de código.",
+    "Gestión de carga de trabajo del equipo y capacidad de recursos.",
+    "Formularios personalizados para recepción de solicitudes e incidencias.",
+    "Seguimiento de portafolios de proyectos y gestión de Metas/OKRs.",
+    "Paneles e informes en tiempo real sobre el estado de las tareas."
+  ],
+  "integraciones": [
+    "Slack",
+    "Microsoft Teams",
+    "Google Drive",
+    "Salesforce",
+    "Jira",
+    "Zapier",
+    "Zendesk",
+    "HubSpot",
+    "Adobe Creative Cloud",
+    "Outlook",
+    "Gmail"
+  ],
+  "integracionesPrincipales": [
+    "Slack",
+    "Microsoft Teams",
+    "Google Drive",
+    "Salesforce"
+  ],
+  "curvaDeAprendizaje": "facil",
+  "precioInicial": "Desde 10,99 €/usuario/mes (facturación anual)",
+  "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": true,
+  "precioRecomendadoPymes": "Plan Starter a 10,99 €/usuario/mes (facturado anualmente)",
+  "idiomasDisponibles": [
+    "Español",
+    "Inglés",
+    "Francés",
+    "Alemán",
+    "Portugués",
+    "Japonés",
+    "Italiano",
+    "Chino tradicional",
+    "Holandés",
+    "Coreano",
+    "Ruso",
+    "Polaco",
+    "Sueco"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 9,
+    "fiabilidad": 9,
+    "atencionAlCliente": 8,
+    "escalabilidad": 9,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 8
+  },
+  "metodologiaValoracion": "Puntuaciones basadas en la agregación de más de 20.000 valoraciones de usuarios en B2B marketplaces (G2, Capterra), análisis funcional comparativo y pruebas directas del software.",
+  "reputacion": {
+    "g2Puntuacion": 4.3,
+    "g2NumeroResenas": 10100,
+    "capterraPuntuacion": 4.5,
+    "capterraNumeroResenas": 12500
+  },
+  "ventajas": [
+    "Interfaz de usuario intuitiva, atractiva y fácil de usar desde el primer día.",
+    "Gran versatilidad de vistas y alta flexibilidad para organizar tareas.",
+    "Potentes capacidades de automatización para eliminar trabajo repetitivo.",
+    "Excelente ecosistema de integraciones nativas con las principales herramientas empresariales."
+  ],
+  "inconvenientes": [
+    "No permite asignar de manera nativa una misma tarea a más de una persona.",
+    "El precio por usuario de los planes superiores puede ser elevado para empresas pequeñas.",
+    "Las funciones avanzadas de gestión de recursos y métricas requieren planes de pago más caros."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Monday.com",
+      "ClickUp",
+      "Trello",
+      "Wrike"
+    ],
+    "tipoNegocioIdeal": "Equipos de marketing, agencias y empresas de servicios profesionales",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 94,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.7/10.",
+      "G2: 4.3/5 (10100 reseñas).",
+      "Capterra: 4.5/5 (12500 reseñas).",
+      "Tiene plan gratuito.",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "asana",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-18",
+  "fechaUltimaRevision": "2026-08-19"
+}

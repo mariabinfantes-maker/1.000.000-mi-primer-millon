@@ -1,0 +1,19 @@
+{
+  "herramientaId": "gamma",
+  "cuentas": [
+    {
+      "id": "rewardful",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Gamma Affiliate Program",
+      "plataforma": "Rewardful",
+      "urlSolicitud": "https://gamma.app/affiliates",
+      "comision": "20% recurrente durante los primeros 12 meses",
+      "duracionCookie": "60 días",
+      "metodoPago": "PayPal, Stripe",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-19",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Jasper Partner Program",
+  "affiliatePlatform": "FirstPromoter",
+  "affiliateUrl": "https://www.jasper.ai/partners",
+  "commission": "30% de comisión recurrente",
+  "cookieDuration": "30 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.jasper.ai/partners",
+  "lastAffiliateCheck": "2026-08-19",
+  "herramientaId": "jasper"
+}

@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Wrike Affiliate Program",
+  "affiliatePlatform": "PartnerStack",
+  "affiliateUrl": "https://www.wrike.com/affiliate/",
+  "commission": "Hasta 20% - 30% por venta/suscripción anual o comisiones por registros de cuentas calificadas según el tipo de partner",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, transferencia bancaria (Stripe/PartnerStack)",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.wrike.com/affiliate/",
+  "lastAffiliateCheck": "2026-08-18",
+  "herramientaId": "wrike"
+}

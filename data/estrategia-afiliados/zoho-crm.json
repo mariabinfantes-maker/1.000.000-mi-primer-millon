@@ -1,0 +1,19 @@
+{
+  "herramientaId": "zoho-crm",
+  "cuentas": [
+    {
+      "id": "programa-propio",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Zoho Affiliate Program",
+      "plataforma": "Programa propio",
+      "urlSolicitud": "https://www.zoho.com/affiliate.html",
+      "comision": "15% de comisión recurrente por las suscripciones pagadas durante los primeros 12 meses",
+      "duracionCookie": "90 días",
+      "metodoPago": "PayPal, transferencia bancaria",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-19",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

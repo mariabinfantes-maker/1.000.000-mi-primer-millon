@@ -1,0 +1,136 @@
+{
+  "nombre": "Jasper",
+  "paginaOficial": "https://www.jasper.ai",
+  "urlPrecios": "https://www.jasper.ai/pricing",
+  "logoUrl": "",
+  "categoriaId": "asistentes-ia",
+  "descripcion": "Jasper es una plataforma de generación de contenido basada en inteligencia artificial diseñada para equipos de marketing y empresas. Permite crear copys para anuncios, artículos de blog, publicaciones en redes sociales y correos manteniendo la voz y el estilo propio de cada marca.",
+  "informacionEmpresa": {
+    "anioFundacion": 2021,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "101-500 empleados"
+  },
+  "problemasQueResuelve": [
+    "Lentitud en la generación y escalado de contenido para campañas de marketing",
+    "Falta de coherencia en la voz y tono de marca entre diferentes redactores y canales",
+    "Bloqueo creativo al redactar copys publicitarios, correos y artículos de blog",
+    "Dificultad para optimizar publicaciones para motores de búsqueda (SEO) a gran escala"
+  ],
+  "casosDeUso": [
+    "Creación de borradores completos para artículos de blog optimizados para SEO",
+    "Generación de múltiples variaciones de copy para campañas publicitarias en Facebook y Google Ads",
+    "Redacción y personalización de secuencias de email marketing",
+    "Adaptación de contenidos de marca existentes a diferentes formatos y canales sociales"
+  ],
+  "idealPara": "Equipos de marketing, agencias digitales y empresas en crecimiento que necesitan escalar su producción de contenido manteniendo una identidad de marca coherente.",
+  "segmentosIdeales": [
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "Marketing y Publicidad",
+    "Comercio Electrónico",
+    "Software y Tecnología (SaaS)",
+    "Medios y Comunicación"
+  ],
+  "noRecomendadaPara": "Usuarios individuales que solo buscan un asistente de chat generalista gratuito o muy económico sin necesidad de gestión de marca.",
+  "casosNoRecomendados": [
+    "Generación automatizada de documentación técnica o legal altamente especializada sin revisión humana",
+    "Uso casual o esporádico donde no se justifique el coste mensual fijado para equipos"
+  ],
+  "funcionesPrincipales": [
+    "Voz de Marca (Brand Voice) para entrenar la IA con la identidad propia",
+    "Creación de campañas integradas a partir de un solo briefing",
+    "Librería con más de 50 plantillas preconfiguradas para diversos formatos",
+    "Jasper Chat para iteración directa y lluvia de ideas",
+    "Extensión de navegador para usar Jasper en cualquier web o editor",
+    "Generador de imágenes por IA (Jasper Art)"
+  ],
+  "integraciones": [
+    "Surfer SEO",
+    "Google Docs",
+    "Zapier",
+    "Grammarly",
+    "Webflow",
+    "Google Chrome",
+    "Make"
+  ],
+  "integracionesPrincipales": [
+    "Surfer SEO",
+    "Google Docs",
+    "Zapier",
+    "Google Chrome"
+  ],
+  "curvaDeAprendizaje": "facil",
+  "precioInicial": "Desde $39/mes (facturación anual) o $49/mes (facturación mensual)",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario",
+    "a_medida"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Plan Pro desde $59/usuario/mes (facturación anual), ideal para colaborar en equipo y gestionar múltiples voces de marca.",
+  "idiomasDisponibles": [
+    "Español",
+    "Inglés",
+    "Francés",
+    "Alemán",
+    "Italiano",
+    "Portugués",
+    "Holandés",
+    "Japonés"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": false,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 9,
+    "fiabilidad": 8,
+    "atencionAlCliente": 8,
+    "escalabilidad": 8,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 9
+  },
+  "metodologiaValoracion": "Puntuaciones basadas en el análisis de las funcionalidades de IA generativa, pruebas directas de la plataforma y contraste de más de 3.000 opiniones verificadas en portales de software.",
+  "reputacion": {
+    "g2Puntuacion": 4.7,
+    "g2NumeroResenas": 1230,
+    "capterraPuntuacion": 4.8,
+    "capterraNumeroResenas": 1820
+  },
+  "ventajas": [
+    "Capacidad avanzada para personalizar el tono y la voz de marca en todo el contenido",
+    "Integración fluida con Surfer SEO para posicionamiento en motores de búsqueda",
+    "Flujos de trabajo colaborativos eficientes para equipos de marketing",
+    "Extensión de navegador que permite usar las funciones en cualquier herramienta web"
+  ],
+  "inconvenientes": [
+    "Precio más elevado en comparación con alternativas básicas o el propio ChatGPT",
+    "No dispone de plan gratuito permanente (solo prueba gratuita de 7 días)",
+    "Requiere supervisión y edición humana para verificar datos y evitar errores de contexto"
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Copy.ai",
+      "Writesonic",
+      "Anyword",
+      "Rytr"
+    ],
+    "tipoNegocioIdeal": "Agencias de marketing y equipos de contenido B2B/B2C",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 92,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.5/10.",
+      "G2: 4.7/5 (1230 reseñas).",
+      "Capterra: 4.8/5 (1820 reseñas).",
+      "Ofrece una API pública."
+    ]
+  },
+  "id": "jasper",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-19",
+  "fechaUltimaRevision": "2026-08-19"
+}

@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Fireflies.ai Affiliate Program",
+  "affiliatePlatform": "FirstPromoter",
+  "affiliateUrl": "https://fireflies.ai/affiliate-program",
+  "commission": "30% de comisión recurrente",
+  "cookieDuration": "60 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://fireflies.ai/affiliate-program",
+  "lastAffiliateCheck": "2026-08-18",
+  "herramientaId": "fireflies-ai"
+}

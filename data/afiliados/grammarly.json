@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Grammarly Affiliate Program",
+  "affiliatePlatform": "CJ Affiliate",
+  "affiliateUrl": "https://www.grammarly.com/affiliates",
+  "commission": "$0.20 por registro de cuenta gratuita y $20 por cada compra de suscripción Premium",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "Transferencia bancaria, depósito directo, cheque",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.grammarly.com/affiliates",
+  "lastAffiliateCheck": "2026-08-18",
+  "herramientaId": "grammarly"
+}

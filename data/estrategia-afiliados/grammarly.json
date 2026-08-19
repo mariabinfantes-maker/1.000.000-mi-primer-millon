@@ -1,0 +1,19 @@
+{
+  "herramientaId": "grammarly",
+  "cuentas": [
+    {
+      "id": "cj-affiliate",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Grammarly Affiliate Program",
+      "plataforma": "CJ Affiliate",
+      "urlSolicitud": "https://www.grammarly.com/affiliates",
+      "comision": "$0.20 por registro de cuenta gratuita y $20 por cada compra de suscripción Premium",
+      "duracionCookie": "90 días",
+      "metodoPago": "Transferencia bancaria, depósito directo, cheque",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-19",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

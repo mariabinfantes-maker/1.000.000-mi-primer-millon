@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Descript Affiliate Program",
+  "affiliatePlatform": "FirstPromoter",
+  "affiliateUrl": "https://www.descript.com/affiliates",
+  "commission": "15% de comisión recurrente durante los primeros 12 meses de suscripción",
+  "cookieDuration": "30 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, Transferencia bancaria",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.descript.com/affiliates",
+  "lastAffiliateCheck": "2026-08-19",
+  "herramientaId": "descript"
+}

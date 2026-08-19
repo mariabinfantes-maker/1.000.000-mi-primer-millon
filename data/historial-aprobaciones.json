@@ -1,0 +1,122 @@
+[
+  {
+    "fechaHora": "2026-08-19T10:57:11.187Z",
+    "herramientaId": "zoho-crm",
+    "nombreHerramienta": "Zoho CRM",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 90,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote. Motivos del bloqueo: Atlas Curator: \"Zoho CRM\" y \"Zoho One\" comparten el mismo dominio (zoho.com) en su página oficial. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T10:57:11.190Z",
+    "herramientaId": "copper",
+    "nombreHerramienta": "Copper",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 89,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T10:57:11.196Z",
+    "herramientaId": "insightly",
+    "nombreHerramienta": "Insightly",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 84,
+    "estadoAfiliacion": "pendiente_de_verificar",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T10:57:11.203Z",
+    "herramientaId": "asana",
+    "nombreHerramienta": "Asana",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 94,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T10:57:11.207Z",
+    "herramientaId": "wrike",
+    "nombreHerramienta": "Wrike",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 90,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T10:57:11.211Z",
+    "herramientaId": "smartsheet",
+    "nombreHerramienta": "Smartsheet",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 92,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T10:57:11.216Z",
+    "herramientaId": "grammarly",
+    "nombreHerramienta": "Grammarly",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 100,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T10:57:11.225Z",
+    "herramientaId": "fireflies-ai",
+    "nombreHerramienta": "Fireflies.ai",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 98,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T10:57:11.231Z",
+    "herramientaId": "jasper",
+    "nombreHerramienta": "Jasper",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 92,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T10:57:11.238Z",
+    "herramientaId": "descript",
+    "nombreHerramienta": "Descript",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 90,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T10:57:11.243Z",
+    "herramientaId": "gamma",
+    "nombreHerramienta": "Gamma",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 93,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T11:01:52.279Z",
+    "herramientaId": "zoho-crm",
+    "nombreHerramienta": "Zoho CRM",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 90,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote. Aviso de Curator anulado explícitamente: \"Zoho CRM\" y \"Zoho One\" comparten el mismo dominio (zoho.com) en su página oficial. Justificación: Aprobado por el CEO: Zoho CRM y Zoho One son productos distintos del mismo proveedor (Zoho), alojados bajo el mismo dominio zoho.com — mismo patrón que Google/Microsoft/Adobe. Falso positivo de Curator confirmado tras revisión.",
+    "aprobacionCeo": true
+  }
+]
