@@ -1,5 +1,6 @@
 import type { Herramienta } from "@/data/esquema";
 import { criterioNivelTecnicoRecomendado, criterioTipoNegocioIdeal } from "./criteriosAnalisisAtlas";
+import { compararTodoEnUnoVsEspecializada } from "./todoEnUnoVsEspecializada";
 import type { Criterio, NivelTecnicoEquipo, PresupuestoMensual } from "./tipos";
 import {
   contarPalabrasComunes,
@@ -383,6 +384,52 @@ const criterioMetodologia: Criterio = (herramienta) => {
   };
 };
 
+const CATEGORIA_TODO_EN_UNO = "plataformas-todo-en-uno";
+/** Tope de la magnitud de este criterio — comparable al resto (ver el comentario de `TOPE_PUNTOS_INTEGRACIONES` más arriba), nunca debe pesar tanto como un `casosNoRecomendados` o un `tamanoEmpresa`. */
+const TOPE_PUNTOS_TIPO_SUITE = 8;
+
+/**
+ * Solo entra en juego cuando NO hay elección explícita de tipo de suite
+ * (`categoriaId` ya la filtró en `seleccionarCandidatas` antes de llegar
+ * aquí; `preferenciaSuite` explícito también). En ese caso, `puntuacion` de
+ * `compararTodoEnUnoVsEspecializada` refleja únicamente señales indirectas
+ * del perfil (tamaño de empresa, presupuesto...) — se reutiliza como
+ * magnitud del criterio para que un perfil con señales muy claras pese más
+ * que uno con señales débiles que apenas cruzan el umbral.
+ */
+const criterioTipoSuite: Criterio = (herramienta, respuestas) => {
+  if (respuestas.categoriaId || respuestas.preferenciaSuite) {
+    // Elección explícita: `seleccionarCandidatas` ya filtró por ella antes de puntuar
+    // (ver motor.ts), así que aquí repetir el motivo sería redundante para el usuario.
+    return { criterio: "tipoSuite", etiqueta: "Todo en uno vs. especializada", puntos: 0, explicacion: "" };
+  }
+
+  const comparacion = compararTodoEnUnoVsEspecializada(respuestas);
+  if (comparacion.recomendacion === "sin_senal_clara") {
+    return { criterio: "tipoSuite", etiqueta: "Todo en uno vs. especializada", puntos: 0, explicacion: "" };
+  }
+
+  const esSuite = herramienta.categoriaId === CATEGORIA_TODO_EN_UNO;
+  const encaja = (comparacion.recomendacion === "todo_en_uno") === esSuite;
+  const magnitud = Math.min(Math.abs(comparacion.puntuacion), TOPE_PUNTOS_TIPO_SUITE);
+
+  const prefiereTodoEnUno = comparacion.recomendacion === "todo_en_uno";
+  const explicacion = encaja
+    ? prefiereTodoEnUno
+      ? "Por tu perfil, una plataforma todo en uno te conviene más que sumar varias herramientas sueltas."
+      : "Por tu perfil, te conviene más una herramienta especializada que una plataforma todo en uno."
+    : prefiereTodoEnUno
+      ? "Por tu perfil te encajaría mejor una plataforma todo en uno; esta es una herramienta especializada."
+      : "Por tu perfil te encajaría mejor una herramienta especializada; esta es una plataforma todo en uno.";
+
+  return {
+    criterio: "tipoSuite",
+    etiqueta: "Todo en uno vs. especializada",
+    puntos: encaja ? magnitud : -magnitud,
+    explicacion,
+  };
+};
+
 /**
  * Lista completa de criterios que evalúa el motor. Añadir un criterio nuevo
  * es escribir la función y añadirla aquí — no requiere tocar el resto del
@@ -401,4 +448,5 @@ export const CRITERIOS: Criterio[] = [
   criterioMetodologia,
   criterioNivelTecnicoRecomendado,
   criterioTipoNegocioIdeal,
+  criterioTipoSuite,
 ];

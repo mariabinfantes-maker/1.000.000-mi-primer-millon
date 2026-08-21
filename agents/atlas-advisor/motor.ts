@@ -2,6 +2,7 @@ import type { Herramienta } from "@/data/esquema";
 import { CRITERIOS } from "./criterios";
 import type { DetalleCriterio, HerramientaEvaluada, ResultadoRecomendacion, RespuestasUsuario } from "./tipos";
 
+const CATEGORIA_TODO_EN_UNO = "plataformas-todo-en-uno";
 const CANTIDAD_POR_DEFECTO = 3;
 /** Nº máximo de motivos puntuados que entran en el párrafo de explicación (el resto sigue disponible en `razones`). */
 const MOTIVOS_EN_EXPLICACION = 2;
@@ -74,29 +75,51 @@ export function evaluarHerramienta(herramienta: Herramienta, respuestas: Respues
  * Reduce el catálogo a las herramientas relevantes para la intención del
  * usuario, antes de puntuar nada — filtrar, no adivinar puntos.
  *
- * `categoriaId` es una elección explícita y siempre tiene prioridad: si no
- * hay ninguna herramienta en esa categoría, se devuelve vacío a propósito
- * (el usuario pidió justo esa categoría). `problemaIdsCandidatos` es más
- * blando — puede venir de una elección explícita ("por objetivo", un solo
- * id) o de una detección por texto libre ("Cuéntanoslo", posibles varios
- * ids empatados) — así que si el catálogo no tiene ninguna herramienta con
- * ese `problemasIds` todavía (hueco editorial, no elección del usuario), se
- * ignora el filtro en vez de dejar al usuario sin recomendación.
+ * Tres niveles, de más a menos explícito:
+ *  1. `categoriaId` — elección explícita y siempre con prioridad: si no hay
+ *     ninguna herramienta en esa categoría, se devuelve vacío a propósito
+ *     (el usuario pidió justo esa categoría).
+ *  2. `preferenciaSuite` — respuesta explícita a la pregunta "¿todo en uno
+ *     o especializadas?" del cuestionario (ver `todoEnUnoVsEspecializada.ts`)
+ *     cuando no hay `categoriaId`: filtra a "plataformas-todo-en-uno" o la
+ *     excluye, según la respuesta. Misma lógica que `categoriaId` — es una
+ *     elección real del usuario, no una suposición — pero nunca deja al
+ *     usuario sin resultados: si el filtro vacía el catálogo (todavía no
+ *     hay herramientas de ese tipo para su situación), se ignora en vez de
+ *     devolver una lista vacía por una preferencia que no era la pregunta
+ *     principal del usuario.
+ *  3. `problemaIdsCandidatos` — más blando: puede venir de una elección
+ *     explícita ("por objetivo", un solo id) o de una detección por texto
+ *     libre ("Cuéntanoslo", posibles varios ids empatados) — así que si el
+ *     catálogo no tiene ninguna herramienta con ese `problemasIds` todavía
+ *     (hueco editorial, no elección del usuario), se ignora el filtro en
+ *     vez de dejar al usuario sin recomendación.
+ *
+ * Sin elección explícita de tipo de suite, `criterioTipoSuite` (en
+ * `criterios.ts`) usa las mismas señales pero como PUNTUACIÓN, no como
+ * filtro — ahí sí hay que "adivinar", así que no se excluye nada.
  */
 function seleccionarCandidatas(herramientas: Herramienta[], respuestas: RespuestasUsuario): Herramienta[] {
   if (respuestas.categoriaId) {
     return herramientas.filter((herramienta) => herramienta.categoriaId === respuestas.categoriaId);
   }
 
+  let universo = herramientas;
+  if (respuestas.preferenciaSuite) {
+    const filtradasPorSuite =
+      respuestas.preferenciaSuite === "todo_en_uno"
+        ? herramientas.filter((herramienta) => herramienta.categoriaId === CATEGORIA_TODO_EN_UNO)
+        : herramientas.filter((herramienta) => herramienta.categoriaId !== CATEGORIA_TODO_EN_UNO);
+    if (filtradasPorSuite.length > 0) universo = filtradasPorSuite;
+  }
+
   if (respuestas.problemaIdsCandidatos && respuestas.problemaIdsCandidatos.length > 0) {
     const idsObjetivo = new Set(respuestas.problemaIdsCandidatos);
-    const filtradas = herramientas.filter((herramienta) =>
-      herramienta.problemasIds?.some((id) => idsObjetivo.has(id))
-    );
+    const filtradas = universo.filter((herramienta) => herramienta.problemasIds?.some((id) => idsObjetivo.has(id)));
     if (filtradas.length > 0) return filtradas;
   }
 
-  return herramientas;
+  return universo;
 }
 
 /**

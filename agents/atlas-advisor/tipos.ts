@@ -60,6 +60,15 @@ export type RespuestasUsuario = {
   integracionesNecesarias?: string[];
   /** Idioma que necesita la herramienta, para el equipo o para los clientes. */
   idiomaNecesario?: string;
+  /**
+   * Respuesta explícita a la pregunta "¿plataforma todo en uno o
+   * herramientas especializadas?" (primera pregunta del cuestionario,
+   * salvo cuando `categoriaId` ya viene fijado por la puerta de entrada).
+   * `undefined` si el usuario respondió "no tengo preferencia clara" o si
+   * la pregunta no se llegó a mostrar — en ambos casos el motor decide por
+   * señales indirectas (ver `todoEnUnoVsEspecializada.ts`), nunca al azar.
+   */
+  preferenciaSuite?: "todo_en_uno" | "especializada";
   /** Descripción libre de la situación del usuario, contrastada contra casosNoRecomendados de cada herramienta. */
   notasAdicionales?: string;
 };

@@ -96,4 +96,33 @@ describe("compararTodoEnUnoVsEspecializada", () => {
     expect(resultado.motivos).toEqual([]);
     expect(resultado.recomendacion).toBe("sin_senal_clara");
   });
+
+  it('respeta preferenciaSuite "todo_en_uno" cuando no hay categoriaId', () => {
+    const resultado = compararTodoEnUnoVsEspecializada({ preferenciaSuite: "todo_en_uno" });
+
+    expect(resultado.recomendacion).toBe("todo_en_uno");
+    expect(resultado.puntuacion).toBeGreaterThan(0);
+  });
+
+  it('respeta preferenciaSuite "especializada" cuando no hay categoriaId, ignorando señales indirectas contrarias', () => {
+    const resultado = compararTodoEnUnoVsEspecializada({
+      preferenciaSuite: "especializada",
+      // Señales que, por sí solas, apuntarían a todo_en_uno — deben ignorarse: la preferencia explícita manda.
+      tamanoEmpresa: "1-10",
+      presupuesto: "ajustado",
+      nivelTecnicoEquipo: "ninguno",
+    });
+
+    expect(resultado.recomendacion).toBe("especializada");
+    expect(resultado.puntuacion).toBeLessThan(0);
+  });
+
+  it("categoriaId explícito manda incluso sobre preferenciaSuite si llegan los dos a la vez", () => {
+    const resultado = compararTodoEnUnoVsEspecializada({
+      categoriaId: "crm",
+      preferenciaSuite: "todo_en_uno",
+    });
+
+    expect(resultado.recomendacion).toBe("especializada");
+  });
 });

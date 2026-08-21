@@ -11,12 +11,42 @@ import IconoOrigen from "@/components/ui/IconoOrigen";
 import Boton from "@/components/ui/Boton";
 import AtlasTrabajando from "@/components/AtlasTrabajando";
 
-const TOTAL_PREGUNTAS = 4;
+type PreferenciaSuite = "todo_en_uno" | "especializada" | "sin_preferencia";
+
+const OPCIONES_PREFERENCIA_SUITE: { valor: PreferenciaSuite; etiqueta: string; descripcion: string }[] = [
+  {
+    valor: "todo_en_uno",
+    etiqueta: "Una plataforma todo en uno",
+    descripcion: "Prefiero centralizar en un único sitio, aunque cada función sea algo más básica.",
+  },
+  {
+    valor: "especializada",
+    etiqueta: "Herramientas especializadas",
+    descripcion: "Prefiero la mejor herramienta posible para cada necesidad, aunque sean varias por separado.",
+  },
+  {
+    valor: "sin_preferencia",
+    etiqueta: "No tengo preferencia clara",
+    descripcion: "Que Atlas decida por mí según mi situación.",
+  },
+];
 
 export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) {
   const router = useRouter();
 
-  const [paso, setPaso] = useState(0); // 0-3 preguntas, 4 = analizando
+  // La pregunta de preferencia de suite solo tiene sentido si el usuario todavía no
+  // fijó una categoría concreta al entrar (puerta "por categoría") — si ya la fijó,
+  // no hay nada que preguntar: esa elección ya manda en el motor de recomendación.
+  const mostrarPreguntaSuite = !origen.categoriaIdPrefill;
+  const TOTAL_PREGUNTAS = mostrarPreguntaSuite ? 5 : 4;
+  const PASO_SUITE = 0;
+  const PASO_SECTOR = mostrarPreguntaSuite ? 1 : 0;
+  const PASO_EMPLEADOS = PASO_SECTOR + 1;
+  const PASO_PROBLEMA = PASO_EMPLEADOS + 1;
+  const PASO_HERRAMIENTA = PASO_PROBLEMA + 1;
+
+  const [paso, setPaso] = useState(0);
+  const [preferenciaSuite, setPreferenciaSuite] = useState<PreferenciaSuite | null>(null);
   const [sector, setSector] = useState("");
   const [empleados, setEmpleados] = useState<RangoEmpleados | null>(null);
   const [mayorProblema, setMayorProblema] = useState(origen.notasPrefill ?? "");
@@ -28,10 +58,11 @@ export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) 
   const [totalHerramientas, setTotalHerramientas] = useState<number | null>(null);
 
   const puedeAvanzar =
-    (paso === 0 && sector.trim().length > 0) ||
-    (paso === 1 && empleados !== null) ||
-    (paso === 2 && mayorProblema.trim().length > 0) ||
-    (paso === 3 && usaHerramienta !== null);
+    (mostrarPreguntaSuite && paso === PASO_SUITE && preferenciaSuite !== null) ||
+    (paso === PASO_SECTOR && sector.trim().length > 0) ||
+    (paso === PASO_EMPLEADOS && empleados !== null) ||
+    (paso === PASO_PROBLEMA && mayorProblema.trim().length > 0) ||
+    (paso === PASO_HERRAMIENTA && usaHerramienta !== null);
 
   function irAlSiguientePaso() {
     if (!puedeAvanzar) return;
@@ -63,6 +94,8 @@ export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) 
     const respuestas: RespuestasUsuario = {
       categoriaId: origen.categoriaIdPrefill,
       problemaIdsCandidatos: origen.problemaIdPrefill ? [origen.problemaIdPrefill] : undefined,
+      preferenciaSuite:
+        preferenciaSuite === "todo_en_uno" || preferenciaSuite === "especializada" ? preferenciaSuite : undefined,
       industria: sector.trim(),
       tamanoEmpresa: empleados as RangoEmpleados,
       notasAdicionales,
@@ -153,7 +186,40 @@ export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) 
         </div>
 
         <div className="relative">
-        {paso === 0 && (
+        {mostrarPreguntaSuite && paso === PASO_SUITE && (
+          <fieldset>
+            <legend className="font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+              ¿Prefieres una plataforma todo en uno o herramientas especializadas?
+            </legend>
+            <div className="mt-5 flex flex-col gap-3">
+              {OPCIONES_PREFERENCIA_SUITE.map((opcion) => {
+                const seleccionado = preferenciaSuite === opcion.valor;
+                return (
+                  <button
+                    key={opcion.valor}
+                    type="button"
+                    onClick={() => setPreferenciaSuite(opcion.valor)}
+                    className={`flex items-start justify-between gap-3 rounded-xl border px-4 py-3.5 text-left transition-all ${
+                      seleccionado
+                        ? "border-brand-600 bg-brand-50 shadow-premium ring-1 ring-brand-100"
+                        : "border-slate-200 bg-white hover:border-brand-300 hover:bg-brand-50/40"
+                    }`}
+                  >
+                    <span>
+                      <span className={`block text-sm font-semibold ${seleccionado ? "text-brand-700" : "text-slate-700"}`}>
+                        {opcion.etiqueta}
+                      </span>
+                      <span className="mt-0.5 block text-sm text-slate-500">{opcion.descripcion}</span>
+                    </span>
+                    {seleccionado && <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" aria-hidden="true" />}
+                  </button>
+                );
+              })}
+            </div>
+          </fieldset>
+        )}
+
+        {paso === PASO_SECTOR && (
           <div>
             <label
               htmlFor="sector"
@@ -173,7 +239,7 @@ export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) 
           </div>
         )}
 
-        {paso === 1 && (
+        {paso === PASO_EMPLEADOS && (
           <fieldset>
             <legend className="font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
               ¿Cuántos empleados tiene?
@@ -201,7 +267,7 @@ export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) 
           </fieldset>
         )}
 
-        {paso === 2 && (
+        {paso === PASO_PROBLEMA && (
           <div>
             <label
               htmlFor="mayorProblema"
@@ -224,7 +290,7 @@ export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) 
           </div>
         )}
 
-        {paso === 3 && (
+        {paso === PASO_HERRAMIENTA && (
           <fieldset>
             <legend className="font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
               {origen.preguntaHerramienta ?? PREGUNTA_HERRAMIENTA_GENERICA}

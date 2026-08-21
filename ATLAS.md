@@ -655,27 +655,60 @@ media, mismo criterio que el resto de la lista de espera de afiliación).
 El campo `modulosIncluidos` ya se investiga automáticamente en cualquier
 investigación futura, no solo en esta categoría.
 
-**Modelo de comparación todo-en-uno vs. especializada**
-(`agents/atlas-advisor/todoEnUnoVsEspecializada.ts`): función pura
-`compararTodoEnUnoVsEspecializada(respuestas)` que devuelve
-`"todo_en_uno"`, `"especializada"` o `"sin_senal_clara"` a partir del
-perfil del cuestionario. Si el usuario ya eligió `categoriaId` de forma
-explícita, esa elección manda sin más (misma jerarquía que
-`seleccionarCandidatas` en `motor.ts`). Si no, suma señales indirectas:
-tamaño de empresa, presupuesto, capacidad técnica del equipo, si el motor
-detectó varios `problemaIdsCandidatos` a la vez, y frases sueltas en
-`notasAdicionales` ("demasiadas herramientas" vs. "quiero lo mejor en
-X"). Razonamiento de fondo: una suite gana en CONVENIENCIA (una
-suscripción, un login) a costa de PROFUNDIDAD por módulo frente a un
-especialista — el modelo no elige la mejor herramienta (eso ya lo hace
-`motor.ts`), decide qué TIPO conviene evaluar primero.
+**Modelo de comparación todo-en-uno vs. especializada — ACTIVADO en
+producción (2026-08-21).** El CEO decidió explícitamente NO activar la
+preselección automática de categoría: en su lugar, se añade una primera
+pregunta al cuestionario (ver "Pregunta de preferencia de suite" más abajo)
+para que sea el propio usuario quien elija, y el modelo solo decide por su
+cuenta cuando el usuario no expresa una preferencia clara.
 
-**Deliberadamente NO enganchado en `motor.ts` todavía.** Cambia lo que ve
-el usuario final en producción, así que antes de activarlo hace falta
-decidir cómo se usa el resultado (¿preseleccionar `categoriaId`
-automáticamente? ¿solo una nota explicativa junto al ranking? ¿una
-pregunta nueva en el cuestionario?) — decisión de producto pendiente del
-CEO, no solo de datos.
+`agents/atlas-advisor/todoEnUnoVsEspecializada.ts` — función pura
+`compararTodoEnUnoVsEspecializada(respuestas)` que devuelve
+`"todo_en_uno"`, `"especializada"` o `"sin_senal_clara"`, con tres niveles
+de prioridad, de más a menos explícito:
+
+1. `categoriaId` — si el usuario ya entró por una categoría concreta (puerta
+   "por categoría"), esa elección manda sin más.
+2. `preferenciaSuite` — respuesta directa a la nueva pregunta del
+   cuestionario (`"todo_en_uno"` o `"especializada"`; `undefined` si
+   respondió "no tengo preferencia clara" o si la pregunta no se mostró).
+3. Señales indirectas del perfil (sin elección explícita en los dos niveles
+   anteriores): tamaño de empresa, presupuesto, capacidad técnica del
+   equipo, si el motor detectó varios `problemaIdsCandidatos` a la vez, y
+   frases sueltas en `notasAdicionales` ("demasiadas herramientas" vs.
+   "quiero lo mejor en X").
+
+Razonamiento de fondo: una suite gana en CONVENIENCIA (una suscripción, un
+login) a costa de PROFUNDIDAD por módulo frente a un especialista — el
+modelo no elige la mejor herramienta (eso ya lo hace `motor.ts`), decide
+qué TIPO conviene priorizar.
+
+**Cómo se usa el resultado — dos mecanismos distintos, a propósito:**
+
+- **Elección explícita** (nivel 1 o 2 de la lista de arriba): FILTRO duro
+  en `seleccionarCandidatas` (`motor.ts`), exactamente igual que ya hacía
+  `categoriaId` — si el usuario dijo "todo en uno", se filtra a
+  `categoriaId === "plataformas-todo-en-uno"`; si dijo "especializada", se
+  excluye esa categoría. Nunca deja al usuario sin resultados: si el
+  filtro vaciara el catálogo (todavía no hay herramientas de ese tipo para
+  su situación), se ignora.
+- **Señal indirecta** (nivel 3, sin elección explícita): criterio de
+  PUNTUACIÓN más (`criterioTipoSuite` en `criterios.ts`, tope ±8 puntos,
+  escala comparable al resto de criterios) — nunca un filtro. Es el mismo
+  principio que ya regía todo el motor: "filtrar solo por elección
+  explícita, puntuar el resto por señales" (ver el comentario de
+  `seleccionarCandidatas`). Sin esta distinción, una simple suposición
+  sobre presupuesto o tamaño de empresa podría dejar al usuario sin ver
+  media categoría del catálogo por error.
+
+**Pregunta de preferencia de suite** (`components/Cuestionario.tsx`):
+nueva primera pregunta — "¿Prefieres una plataforma todo en uno o
+herramientas especializadas?", con tres opciones ("Todo en uno",
+"Herramientas especializadas", "No tengo preferencia clara") — que solo se
+muestra cuando `!origen.categoriaIdPrefill`, es decir, cuando el usuario
+NO entró ya por la puerta "por categoría" (si entró así, la categoría ya
+está decidida y la pregunta sería redundante). El cuestionario pasa de 4 a
+5 pasos en ese caso.
 
 ## Pendiente antes de producción
 

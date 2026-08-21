@@ -6,21 +6,27 @@ import { contieneTexto } from "./utilidades";
  * todo en uno (categoriaId "plataformas-todo-en-uno") o una herramienta
  * especializada de una categoría concreta?
  *
- * PROPUESTA — pedida explícitamente por el CEO al desarrollar a fondo la
- * categoría "Plataformas todo en uno" (2026-08-21). Deliberadamente NO está
- * enganchada todavía en `motor.ts` ni en `seleccionarCandidatas`: cambia lo
- * que ve el usuario final en producción, así que antes de activarla hace
- * falta decidir CÓMO se usa el resultado (¿preseleccionar `categoriaId`
- * automáticamente? ¿solo añadir una nota explicativa junto al ranking
- * habitual? ¿una pregunta nueva en el cuestionario?) — esa es una decisión
- * de producto, no solo de datos, y le corresponde al CEO tomarla.
+ * ACTIVADO — pedido explícitamente por el CEO (2026-08-21) tras revisar la
+ * propuesta inicial: se añade una primera pregunta al cuestionario
+ * ("¿todo en uno o herramientas especializadas?", ver `Cuestionario.tsx`)
+ * cuando la puerta de entrada no fija ya una categoría. Este módulo tiene
+ * dos usos, en `motor.ts` y en `criterios.ts` respectivamente:
+ *  - Elección EXPLÍCITA (`categoriaId` o `preferenciaSuite`, en ese orden
+ *    de prioridad): `seleccionarCandidatas` filtra el catálogo antes de
+ *    puntuar, igual que ya hacía con `categoriaId` — es una elección real
+ *    del usuario, no una suposición.
+ *  - Sin elección explícita ("no tengo preferencia clara" o pregunta no
+ *    mostrada): `criterioTipoSuite` usa las señales indirectas de este
+ *    módulo como un criterio de PUNTUACIÓN más, nunca como filtro — mismo
+ *    principio que el resto del motor ("filtrar solo por elección
+ *    explícita, puntuar el resto por señales").
  *
  * El razonamiento, en una frase: una suite todo en uno gana en
  * CONVENIENCIA (una sola suscripción, un solo login, menos integraciones
  * que mantener) a costa de PROFUNDIDAD (cada módulo individual suele
  * quedarse por detrás de un especialista dedicado a esa única función). El
  * modelo no intenta adivinar la mejor herramienta — ya lo hace `motor.ts` —
- * sino decidir qué TIPO de herramienta conviene evaluar primero.
+ * sino decidir qué TIPO de herramienta conviene priorizar.
  */
 
 export type RecomendacionTipoSuite = "todo_en_uno" | "especializada" | "sin_senal_clara";
@@ -74,6 +80,27 @@ function evaluarCategoriaExplicita(categoriaId: string | undefined): ResultadoCo
     recomendacion: "especializada",
     puntuacion: -100,
     motivos: ["Elegiste explícitamente una categoría especializada, no una plataforma todo en uno."],
+  };
+}
+
+/** Segundo nivel de prioridad: la respuesta a la pregunta del cuestionario, cuando no hay `categoriaId` que ya la haga innecesaria. */
+function evaluarPreferenciaExplicita(
+  preferenciaSuite: "todo_en_uno" | "especializada" | undefined
+): ResultadoComparacionSuite | null {
+  if (!preferenciaSuite) return null;
+
+  if (preferenciaSuite === "todo_en_uno") {
+    return {
+      recomendacion: "todo_en_uno",
+      puntuacion: 100,
+      motivos: ["Nos dijiste que prefieres una plataforma todo en uno."],
+    };
+  }
+
+  return {
+    recomendacion: "especializada",
+    puntuacion: -100,
+    motivos: ["Nos dijiste que prefieres herramientas especializadas."],
   };
 }
 
@@ -138,11 +165,17 @@ function evaluarSenalesIndirectas(respuestas: RespuestasUsuario): ResultadoCompa
 }
 
 /**
- * Punto de entrada del modelo. `categoriaId` explícito manda siempre (misma
- * jerarquía que `seleccionarCandidatas` en motor.ts): si el usuario ya pidió
- * una categoría concreta, no hace falta adivinar nada. Sin esa elección, se
- * suman las señales indirectas del perfil.
+ * Punto de entrada del modelo. Tres niveles de prioridad, de más a menos
+ * explícito: `categoriaId` (misma jerarquía que `seleccionarCandidatas` en
+ * motor.ts) > `preferenciaSuite` (respuesta directa a la pregunta del
+ * cuestionario) > señales indirectas del perfil. En cuanto un nivel más
+ * explícito responde, los siguientes ni se evalúan — no hace falta adivinar
+ * lo que el usuario ya ha dicho.
  */
 export function compararTodoEnUnoVsEspecializada(respuestas: RespuestasUsuario): ResultadoComparacionSuite {
-  return evaluarCategoriaExplicita(respuestas.categoriaId) ?? evaluarSenalesIndirectas(respuestas);
+  return (
+    evaluarCategoriaExplicita(respuestas.categoriaId) ??
+    evaluarPreferenciaExplicita(respuestas.preferenciaSuite) ??
+    evaluarSenalesIndirectas(respuestas)
+  );
 }
