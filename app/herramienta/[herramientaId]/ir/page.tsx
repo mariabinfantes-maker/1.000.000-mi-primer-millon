@@ -6,8 +6,15 @@ import { getHerramienta, getHerramientas } from "@/data/repositorio";
 import { getEstrategiaAfiliacion } from "@/data/repositorioEstrategiaAfiliacion";
 import { elegirEnlaceAfiliado, SEGMENTO_GLOBAL } from "@/agents/atlas-affiliate-manager/seleccionarEnlace";
 import { metadataFlujo } from "@/agents/atlas-generador-contenido/metadatos";
+import type { OrigenClic } from "@/lib/analitica/proveedorAnalitica";
 import EnlaceAtras from "@/components/ui/EnlaceAtras";
 import BotonIrAlProveedor from "@/components/ui/BotonIrAlProveedor";
+
+const ORIGENES_VALIDOS: OrigenClic[] = ["resultado", "comparar", "ficha", "desconocido"];
+
+function leerOrigen(valor: string | undefined): OrigenClic {
+  return ORIGENES_VALIDOS.includes(valor as OrigenClic) ? (valor as OrigenClic) : "desconocido";
+}
 
 export function generateStaticParams() {
   return getHerramientas().map((h) => ({ herramientaId: h.id }));
@@ -45,10 +52,13 @@ export async function generateMetadata({
  */
 export default async function IrAlProveedorPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ herramientaId: string }>;
+  searchParams: Promise<{ origen?: string }>;
 }) {
   const { herramientaId } = await params;
+  const { origen } = await searchParams;
   const herramienta = getHerramienta(herramientaId);
 
   if (!herramienta) notFound();
@@ -80,7 +90,16 @@ export default async function IrAlProveedorPage({
         <p className="relative mt-3 leading-relaxed text-slate-600">{herramienta.idealPara}</p>
 
         <div className="relative mt-8">
-          <BotonIrAlProveedor href={destino} nombre={herramienta.nombre} />
+          <BotonIrAlProveedor
+            href={destino}
+            nombre={herramienta.nombre}
+            evento={{
+              herramientaId: herramienta.id,
+              categoriaId: herramienta.categoriaId,
+              tipoEnlace: enlaceAfiliado ? "afiliado" : "oficial",
+              origen: leerOrigen(origen),
+            }}
+          />
         </div>
 
         <div className="relative mt-8 flex w-full items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-left">

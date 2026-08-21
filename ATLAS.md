@@ -765,6 +765,44 @@ Brevo y configurar `BREVO_API_KEY`, `BREVO_LIST_ID` y
 entonces el proveedor simulado mantiene todo el flujo funcional para
 desarrollo y pruebas.
 
+### Fase 2: Enlaces de afiliados + seguimiento de clics — completada
+
+**Hallazgo antes de construir nada:** la integración del enlace de
+afiliado en el flujo de recomendaciones **ya existía por completo** —
+`/herramienta/[id]/ir` ya resolvía `elegirEnlaceAfiliado()` con el
+cortafuegos correcto (nunca expone comisión ni plataforma) y las 4 rutas
+de salida del catálogo (tarjetas de resultado, tabla comparativa, ficha de
+herramienta) ya enlazaban ahí. El trabajo real de esta fase se redujo a lo
+que de verdad faltaba: el seguimiento de clics.
+
+Mismo patrón modular que el email (`ProveedorAnalitica`, análogo a
+`ProveedorIA`/`ProveedorEmail`):
+
+- **`lib/analitica/proveedorAnalitica.ts`** — contrato
+  `registrarClic(evento)`, nunca lanza (un fallo de seguimiento no debe
+  impedir que el usuario llegue al proveedor).
+- **`lib/analitica/proveedores/consola.ts`** — único proveedor real por
+  ahora: una línea de log JSON estructurada por clic (`herramientaId`,
+  `categoriaId`, `tipoEnlace` "afiliado"/"oficial", `origen`
+  "resultado"/"comparar"/"ficha"). No es un placeholder como el simulado
+  de email — es la decisión real mientras no exista un destino de
+  analítica decidido (PostHog, un almacén propio...); cambiarlo es
+  escribir un adaptador nuevo en `proveedorActivo.ts`, nada más.
+- **`app/api/clic/route.ts`** — recibido vía `navigator.sendBeacon` desde
+  `BotonIrAlProveedor.tsx` justo antes de navegar (entrega asíncrona sin
+  bloquear ni arriesgarse a que un `fetch` normal se cancele a medias por
+  el `unload` inminente).
+- **Un único punto de instrumentación**: como las 4 rutas de salida ya
+  convergían en `/herramienta/[id]/ir`, instrumentar esa página basta para
+  medir clics de todo el catálogo. El origen se pasa como
+  `?origen=resultado|comparar|ficha` desde cada sitio que enlaza ahí.
+
+Como `priorizador.ts` (Affiliate Manager) ya usa la Puntuación Atlas como
+"proxy razonable de cuánto se hace clic" por falta de datos reales — ver
+su comentario —, estos datos reales podrían sustituir o complementar ese
+proxy más adelante; no se ha tocado `priorizador.ts` en esta fase, no
+formaba parte de lo pedido.
+
 ## Pendiente antes de producción
 
 Tareas operativas, no de arquitectura — nada que implementar, solo

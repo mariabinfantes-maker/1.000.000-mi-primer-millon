@@ -188,7 +188,7 @@ export default function TarjetaHerramientaRecomendada({
       </Link>
 
       <Boton
-        href={`/herramienta/${id}/ir`}
+        href={`/herramienta/${id}/ir?origen=resultado`}
         tamano="grande"
         variante={destacada ? "primario" : "secundario"}
         className="mt-3 w-full"

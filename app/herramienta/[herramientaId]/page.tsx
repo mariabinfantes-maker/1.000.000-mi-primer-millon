@@ -113,7 +113,7 @@ export default async function FichaHerramientaPage({
       {/* Confianza + conversión */}
       <div className="mt-6 flex flex-col items-start gap-4 rounded-2xl border border-slate-200/80 bg-white p-4 shadow-[0_1px_2px_rgba(15,23,42,0.04)] sm:flex-row sm:items-center sm:justify-between sm:p-5">
         <InsigniaConfianza fechaUltimaRevision={herramienta.fechaUltimaRevision} />
-        <Boton href={`/herramienta/${herramienta.id}/ir`} tamano="grande" className="w-full sm:w-auto">
+        <Boton href={`/herramienta/${herramienta.id}/ir?origen=ficha`} tamano="grande" className="w-full sm:w-auto">
           Ir al proveedor
           <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
         </Boton>
@@ -292,7 +292,7 @@ export default async function FichaHerramientaPage({
         <p className="relative font-display text-lg font-semibold text-slate-900">
           ¿Ya tienes claro que {herramienta.nombre} encaja contigo?
         </p>
-        <Boton href={`/herramienta/${herramienta.id}/ir`} tamano="grande" className="relative">
+        <Boton href={`/herramienta/${herramienta.id}/ir?origen=ficha`} tamano="grande" className="relative">
           Ir al proveedor
           <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
         </Boton>

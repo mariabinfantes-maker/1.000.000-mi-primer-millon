@@ -36,7 +36,7 @@ export default function TablaComparativa({ evaluadas }: { evaluadas: Herramienta
               {puntuacion && <AnilloPuntuacion puntuacion={puntuacion.puntuacion} />}
               <span className="font-display text-sm font-bold text-slate-900">{evaluada.herramienta.nombre}</span>
               <Boton
-                href={`/herramienta/${evaluada.herramienta.id}/ir`}
+                href={`/herramienta/${evaluada.herramienta.id}/ir?origen=comparar`}
                 variante={esMejorEncaje ? "primario" : "secundario"}
                 className="mt-1 w-full"
               >
