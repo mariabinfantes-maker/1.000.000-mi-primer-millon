@@ -647,6 +647,7 @@ Lista viva (añadir/quitar según se investigue o se confirme cada una):
 - **Hive** (gestión de proyectos) — puntuación 94.
 - **Runn** (gestión de proyectos) — puntuación 93.
 - **Backlog** (gestión de proyectos) — puntuación 92.
+- **TeamGantt** (gestión de proyectos) — puntuación 96.
 
 ### Dominio real del sitio
 
