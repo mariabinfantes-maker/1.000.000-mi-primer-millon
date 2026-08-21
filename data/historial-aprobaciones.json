@@ -338,5 +338,15 @@
     "estadoAfiliacion": "confirmada",
     "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
     "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T17:36:14.328Z",
+    "herramientaId": "zenkit",
+    "nombreHerramienta": "Zenkit",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 93,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
   }
 ]

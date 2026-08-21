@@ -1,0 +1,17 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Zenkit Affiliate Program",
+  "affiliatePlatform": "Programa propio",
+  "affiliateUrl": "https://zenkit.com/en/affiliate/",
+  "commission": "25% de comisión recurrente",
+  "cookieDuration": "60 días",
+  "approvalRequired": true,
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://zenkit.com/en/affiliate/",
+  "lastAffiliateCheck": "2026-08-21",
+  "herramientaId": "zenkit"
+}

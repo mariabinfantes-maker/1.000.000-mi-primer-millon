@@ -1,0 +1,17 @@
+{
+  "herramientaId": "zenkit",
+  "cuentas": [
+    {
+      "id": "programa-propio",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Zenkit Affiliate Program",
+      "plataforma": "Programa propio",
+      "urlSolicitud": "https://zenkit.com/en/affiliate/",
+      "comision": "25% de comisión recurrente",
+      "duracionCookie": "60 días",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-21",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}
