@@ -650,6 +650,8 @@ Lista viva (añadir/quitar según se investigue o se confirme cada una):
 
 - **Float** (gestión de proyectos) — puntuación 91.
 - **Backlog** (gestión de proyectos) — puntuación 92.
+- **Thryv** (plataformas todo en uno) — puntuación 87.
+- **Vendasta** (plataformas todo en uno) — puntuación 87.
 
 ### Dominio real del sitio
 

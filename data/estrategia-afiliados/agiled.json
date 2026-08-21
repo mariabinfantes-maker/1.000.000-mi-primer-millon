@@ -1,0 +1,19 @@
+{
+  "herramientaId": "agiled",
+  "cuentas": [
+    {
+      "id": "firstpromoter",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Agiled Affiliate Program",
+      "plataforma": "FirstPromoter",
+      "urlSolicitud": "https://agiled.app/affiliates/",
+      "comision": "30% recurrente durante la vida de la suscripción del cliente",
+      "duracionCookie": "60 días",
+      "metodoPago": "PayPal",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-21",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Kartra Affiliate Program",
+  "affiliatePlatform": "Programa propio",
+  "affiliateUrl": "https://home.kartra.com/affiliates",
+  "commission": "30% de comisión recurrente de por vida sobre ventas directas (+ 10% en segundo nivel)",
+  "cookieDuration": "30 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal",
+  "payoutFrequency": "Mensual (tras periodo de retención de 40 días por políticas de reembolso)",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://home.kartra.com/affiliates",
+  "lastAffiliateCheck": "2026-08-21",
+  "herramientaId": "kartra"
+}

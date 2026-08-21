@@ -368,5 +368,35 @@
     "estadoAfiliacion": "confirmada",
     "observaciones": "Auto-aprobado tras reverificación: confianza de afiliación pasó de media a alta. Cumple política delegada por el CEO (2026-08-21).",
     "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T18:33:43.738Z",
+    "herramientaId": "kartra",
+    "nombreHerramienta": "Kartra",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 80,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T18:33:44.568Z",
+    "herramientaId": "agiled",
+    "nombreHerramienta": "Agiled",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 91,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T18:33:45.384Z",
+    "herramientaId": "honeybook",
+    "nombreHerramienta": "HoneyBook",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 90,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
   }
 ]
