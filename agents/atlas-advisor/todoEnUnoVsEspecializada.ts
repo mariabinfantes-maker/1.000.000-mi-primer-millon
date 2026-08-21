@@ -1,0 +1,148 @@
+import type { RespuestasUsuario } from "./tipos";
+import { contieneTexto } from "./utilidades";
+
+/**
+ * Modelo de comparación: ¿le conviene más a este usuario una plataforma
+ * todo en uno (categoriaId "plataformas-todo-en-uno") o una herramienta
+ * especializada de una categoría concreta?
+ *
+ * PROPUESTA — pedida explícitamente por el CEO al desarrollar a fondo la
+ * categoría "Plataformas todo en uno" (2026-08-21). Deliberadamente NO está
+ * enganchada todavía en `motor.ts` ni en `seleccionarCandidatas`: cambia lo
+ * que ve el usuario final en producción, así que antes de activarla hace
+ * falta decidir CÓMO se usa el resultado (¿preseleccionar `categoriaId`
+ * automáticamente? ¿solo añadir una nota explicativa junto al ranking
+ * habitual? ¿una pregunta nueva en el cuestionario?) — esa es una decisión
+ * de producto, no solo de datos, y le corresponde al CEO tomarla.
+ *
+ * El razonamiento, en una frase: una suite todo en uno gana en
+ * CONVENIENCIA (una sola suscripción, un solo login, menos integraciones
+ * que mantener) a costa de PROFUNDIDAD (cada módulo individual suele
+ * quedarse por detrás de un especialista dedicado a esa única función). El
+ * modelo no intenta adivinar la mejor herramienta — ya lo hace `motor.ts` —
+ * sino decidir qué TIPO de herramienta conviene evaluar primero.
+ */
+
+export type RecomendacionTipoSuite = "todo_en_uno" | "especializada" | "sin_senal_clara";
+
+export type ResultadoComparacionSuite = {
+  recomendacion: RecomendacionTipoSuite;
+  /** Suma de las señales: positivo favorece todo_en_uno, negativo favorece especializada. Sin rango fijo, solo para ordenar/depurar. */
+  puntuacion: number;
+  /** Motivos no neutros que explican la puntuación, en el mismo formato que `HerramientaEvaluada.razones` del motor principal. */
+  motivos: string[];
+};
+
+/** Umbral mínimo (en valor absoluto) para no devolver "sin_senal_clara" cuando las señales indirectas son débiles o se cancelan entre sí. */
+const UMBRAL_SENAL_CLARA = 3;
+
+/** Frases sueltas que delatan la intención de consolidar herramientas, buscadas en `notasAdicionales` (texto libre del usuario, puerta "Cuéntanoslo"). */
+const FRASES_QUIERE_CONSOLIDAR = [
+  "todo en un sitio",
+  "todo en una",
+  "todo en uno",
+  "una sola herramienta",
+  "un solo sitio",
+  "demasiadas herramientas",
+  "muchas suscripciones",
+  "muchas herramientas distintas",
+  "no quiero varias herramientas",
+];
+
+/** Frases que delatan lo contrario: buscar la mejor herramienta posible para UNA función concreta, no un paquete. */
+const FRASES_QUIERE_ESPECIALIZADA = [
+  "lo mejor en",
+  "el mejor",
+  "la mejor",
+  "especializad",
+  "muy completo en",
+  "a fondo",
+];
+
+function evaluarCategoriaExplicita(categoriaId: string | undefined): ResultadoComparacionSuite | null {
+  if (!categoriaId) return null;
+
+  if (categoriaId === "plataformas-todo-en-uno") {
+    return {
+      recomendacion: "todo_en_uno",
+      puntuacion: 100,
+      motivos: ["Elegiste explícitamente una plataforma todo en uno."],
+    };
+  }
+
+  return {
+    recomendacion: "especializada",
+    puntuacion: -100,
+    motivos: ["Elegiste explícitamente una categoría especializada, no una plataforma todo en uno."],
+  };
+}
+
+/**
+ * Señales indirectas cuando el usuario NO eligió categoría de forma
+ * explícita (entró por objetivo o por texto libre). Ninguna señal por sí
+ * sola es determinante — se suman, igual que en `criterios.ts` — porque
+ * ningún dato aislado del cuestionario basta para decidir esto con certeza.
+ */
+function evaluarSenalesIndirectas(respuestas: RespuestasUsuario): ResultadoComparacionSuite {
+  const motivosPositivos: string[] = [];
+  const motivosNegativos: string[] = [];
+  let puntuacion = 0;
+
+  if (respuestas.tamanoEmpresa === "1-10" || respuestas.tamanoEmpresa === "11-50") {
+    puntuacion += 2;
+    motivosPositivos.push("Los equipos pequeños suelen salir ganando al consolidar en una única suscripción.");
+  } else if (respuestas.tamanoEmpresa === "200+") {
+    puntuacion -= 2;
+    motivosNegativos.push("Las empresas grandes suelen necesitar la profundidad de una herramienta especializada por área.");
+  }
+
+  if (respuestas.presupuesto === "sin_presupuesto" || respuestas.presupuesto === "ajustado") {
+    puntuacion += 2;
+    motivosPositivos.push("Con presupuesto ajustado, una suite sale más barata que pagar varias herramientas por separado.");
+  } else if (respuestas.presupuesto === "alto" || respuestas.presupuesto === "sin_limite") {
+    puntuacion -= 1;
+    motivosNegativos.push("Con presupuesto holgado, puedes permitirte la mejor herramienta de cada categoría por separado.");
+  }
+
+  if (respuestas.nivelTecnicoEquipo === "ninguno" || respuestas.nivelTecnicoEquipo === "basico") {
+    puntuacion += 2;
+    motivosPositivos.push("Con poca capacidad técnica en el equipo, mantener menos herramientas conectadas entre sí es una ventaja real.");
+  } else if (respuestas.nivelTecnicoEquipo === "avanzado") {
+    puntuacion -= 1;
+    motivosNegativos.push("Con un equipo técnico capaz, integrar varias herramientas especializadas no supone una fricción real.");
+  }
+
+  if (respuestas.problemaIdsCandidatos && respuestas.problemaIdsCandidatos.length >= 2) {
+    puntuacion += 3;
+    motivosPositivos.push("Tu situación apunta a varias necesidades distintas a la vez, justo lo que una suite cubre mejor.");
+  }
+
+  if (respuestas.notasAdicionales) {
+    if (FRASES_QUIERE_CONSOLIDAR.some((frase) => contieneTexto(respuestas.notasAdicionales!, frase))) {
+      puntuacion += 3;
+      motivosPositivos.push("Mencionaste explícitamente que prefieres consolidar en un único sitio.");
+    }
+    if (FRASES_QUIERE_ESPECIALIZADA.some((frase) => contieneTexto(respuestas.notasAdicionales!, frase))) {
+      puntuacion -= 3;
+      motivosNegativos.push("Mencionaste que buscas la mejor herramienta posible en algo concreto, no un paquete general.");
+    }
+  }
+
+  const motivos = [...motivosPositivos, ...motivosNegativos];
+
+  if (Math.abs(puntuacion) < UMBRAL_SENAL_CLARA) {
+    return { recomendacion: "sin_senal_clara", puntuacion, motivos };
+  }
+
+  return { recomendacion: puntuacion > 0 ? "todo_en_uno" : "especializada", puntuacion, motivos };
+}
+
+/**
+ * Punto de entrada del modelo. `categoriaId` explícito manda siempre (misma
+ * jerarquía que `seleccionarCandidatas` en motor.ts): si el usuario ya pidió
+ * una categoría concreta, no hace falta adivinar nada. Sin esa elección, se
+ * suman las señales indirectas del perfil.
+ */
+export function compararTodoEnUnoVsEspecializada(respuestas: RespuestasUsuario): ResultadoComparacionSuite {
+  return evaluarCategoriaExplicita(respuestas.categoriaId) ?? evaluarSenalesIndirectas(respuestas);
+}

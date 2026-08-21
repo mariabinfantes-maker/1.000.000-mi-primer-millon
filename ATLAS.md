@@ -623,6 +623,60 @@ tenga una segunda fuente de ingresos real (publicidad, generación de leads
 o suscripciones) que necesite reporting cruzado con afiliación — nunca
 antes, para no fabricar un agente sin responsabilidades reales.
 
+### Plataformas todo en uno: categoría desarrollada a fondo
+
+**Registrada:** 2026-08-21 — a petición explícita del CEO: no abrir una
+categoría nueva sin antes desarrollar por completo la primera
+("Plataformas todo en uno"), con datos estructurados de qué combina cada
+suite y un modelo propio para decidir cuándo conviene una suite frente a
+herramientas especializadas.
+
+**Esquema — `ModuloSuite` / `Herramienta.modulosIncluidos`** (`data/esquema.ts`):
+campo aditivo y opcional con vocabulario fijo (`crm`, `gestion_proyectos`,
+`asistente_ia`, `facturacion`, `email_marketing`, `atencion_cliente`,
+`embudos_de_venta`, `comercio_electronico`, `creador_de_sitios_web`,
+`recursos_humanos`) — deliberadamente más amplio que `Categoria.id`, para
+poder representar módulos (facturación, email marketing...) que Atlas
+todavía no tiene como categoría propia. Se sincroniza solo con el resto del
+esquema vía `camposEsquema.ts` (el mismo mecanismo — `Record<keyof
+Herramienta, string>` — que ya obligaba a mantener actualizado ese archivo
+al añadir cualquier campo nuevo).
+
+**Clasificación de las 13 suites ya existentes** (`clasificarModulos.ts`,
+mismo patrón que `prechequeoAfiliados.ts`): un prompt corto y acotado, no
+el pipeline completo de investigación — reinvestigarlas enteras habría
+reescrito campos ya revisados y aprobados por el CEO (puntuaciones,
+ventajas, precios...) para rellenar un único campo nuevo. Aplicado a las
+13, con 2 reintentos por sobrecarga temporal del proveedor.
+
+**3 candidatas nuevas promovidas** (Kartra, Agiled, HoneyBook — afiliación
+confirmada confianza alta) y **2 en espera** (Thryv, Vendasta — confianza
+media, mismo criterio que el resto de la lista de espera de afiliación).
+El campo `modulosIncluidos` ya se investiga automáticamente en cualquier
+investigación futura, no solo en esta categoría.
+
+**Modelo de comparación todo-en-uno vs. especializada**
+(`agents/atlas-advisor/todoEnUnoVsEspecializada.ts`): función pura
+`compararTodoEnUnoVsEspecializada(respuestas)` que devuelve
+`"todo_en_uno"`, `"especializada"` o `"sin_senal_clara"` a partir del
+perfil del cuestionario. Si el usuario ya eligió `categoriaId` de forma
+explícita, esa elección manda sin más (misma jerarquía que
+`seleccionarCandidatas` en `motor.ts`). Si no, suma señales indirectas:
+tamaño de empresa, presupuesto, capacidad técnica del equipo, si el motor
+detectó varios `problemaIdsCandidatos` a la vez, y frases sueltas en
+`notasAdicionales` ("demasiadas herramientas" vs. "quiero lo mejor en
+X"). Razonamiento de fondo: una suite gana en CONVENIENCIA (una
+suscripción, un login) a costa de PROFUNDIDAD por módulo frente a un
+especialista — el modelo no elige la mejor herramienta (eso ya lo hace
+`motor.ts`), decide qué TIPO conviene evaluar primero.
+
+**Deliberadamente NO enganchado en `motor.ts` todavía.** Cambia lo que ve
+el usuario final en producción, así que antes de activarlo hace falta
+decidir cómo se usa el resultado (¿preseleccionar `categoriaId`
+automáticamente? ¿solo una nota explicativa junto al ranking? ¿una
+pregunta nueva en el cuestionario?) — decisión de producto pendiente del
+CEO, no solo de datos.
+
 ## Pendiente antes de producción
 
 Tareas operativas, no de arquitectura — nada que implementar, solo
