@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Paymo Affiliate Program",
+  "affiliatePlatform": "FirstPromoter",
+  "affiliateUrl": "https://www.paymoapp.com/affiliates/",
+  "commission": "20% de comisión recurrente durante los primeros 12 meses de cada suscripción",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.paymoapp.com/affiliates/",
+  "lastAffiliateCheck": "2026-08-21",
+  "herramientaId": "paymo"
+}

@@ -1,0 +1,5 @@
+[
+  { "nombreHerramienta": "Float", "categoriaId": "gestion-proyectos" },
+  { "nombreHerramienta": "Paymo", "categoriaId": "gestion-proyectos" },
+  { "nombreHerramienta": "ProofHub", "categoriaId": "gestion-proyectos" }
+]
