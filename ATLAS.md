@@ -849,6 +849,65 @@ verse.
 Ningún elemento de urgencia falsa ni cifra inventada — coherente con la
 regla de Atlas de no fabricar nunca una métrica.
 
+### Fase 4: Blog SEO — completada (estructura)
+
+**Registrada:** 2026-08-21. Alcance deliberadamente acotado: "preparar la
+estructura del blog SEO, sin desarrollar todavía todo el contenido" — es
+decir, el esquema, las rutas, la metadata y el sitemap quedan completos y
+en producción, pero la biblioteca de artículos en sí es tarea futura, no
+de esta fase. A partir de ahora la prioridad es crecimiento y captación de
+tráfico, no seguir refinando el recorrido de resultados (Fase 3, congelada).
+
+Antes de construir nada se revisó el Generador de Contenido ya existente
+(`agents/atlas-generador-contenido/`) para encajar en su mismo patrón en
+vez de inventar uno paralelo: metadata centralizada
+(`metadatos.ts`/`construirMetadata`), JSON-LD por tipo de página
+(`datosEstructurados.ts`) y una única fuente de verdad para el sitemap
+(`generarEntradasSitemap`).
+
+- **`data/esquema.ts`** — tipo `Post` (id/slug, título, resumen, cuerpo,
+  fechaPublicacion, fechaUltimaRevision opcional, autor opcional,
+  categoriaId/problemaId opcionales solo para enlazado interno) y
+  `BloqueContenido` (`parrafo` / `subtitulo` / `lista`). El cuerpo del
+  artículo es datos estructurados, nunca HTML libre — se renderiza sin
+  `dangerouslySetInnerHTML`, misma disciplina de seguridad que el resto
+  del esquema público.
+- **`data/posts/*.json`** — un archivo por post, igual patrón que
+  `data/herramientas/` (crece con el tiempo, cada uno se valida por
+  separado), a diferencia de `categorias.json`/`problemas.json`, que son
+  listas pequeñas y cerradas.
+- **`data/repositorio.ts`** — `getPosts()`/`getPost(id)` +
+  `validarPost()`, misma disciplina defensiva que `validarHerramienta()`.
+  `getPosts()` devuelve `[]` de forma honesta si `data/posts/` no existe
+  o está vacío — nunca rellena con contenido inventado.
+- **`agents/atlas-generador-contenido/metadatos.ts`** —
+  `metadataBlog()`/`metadataPost(post)`, mismo patrón `construirMetadata`
+  que el resto de páginas de contenido (indexable, canonical, OG/Twitter).
+- **`agents/atlas-generador-contenido/datosEstructurados.ts`** —
+  `construirDatosEstructuradosPost()` (schema.org `BlogPosting`): solo
+  `datePublished`/`dateModified` reales, autor como `Organization` — sin
+  `aggregateRating` ni ningún dato no verificable, misma razón que la
+  ficha de herramienta.
+- **`app/blog/page.tsx`** (índice) y **`app/blog/[slug]/page.tsx`**
+  (artículo) — el índice usa `EstadoVacio` si no hay posts; el artículo
+  muestra herramientas relacionadas (mismo `TarjetaHerramientaRecomendada`
+  de siempre) solo cuando el post declara `categoriaId` — enlazado interno
+  real, no una recomendación personalizada disfrazada.
+- **Sitemap** (`generarEntradasSitemap`) — `/blog` y cada `/blog/[id]`
+  añadidos; **footer** (`app/layout.tsx`) — enlace "Blog" junto a "Sobre
+  Molnip"/"Cómo funciona".
+- **Post real de prueba**: "Plataforma todo en uno o herramientas
+  especializadas: cómo decidir" — contenido genuino (la lógica del modelo
+  de comparación construido en la fase anterior de catálogo), no relleno,
+  para validar el pipeline completo (metadata, JSON-LD, sitemap, enlazado
+  a la categoría "Plataformas todo en uno") con datos reales antes de
+  escribir más artículos.
+
+Verificado: `tsc --noEmit`, `vitest run` (419 tests), `next build
+--webpack` (`/blog` estático, `/blog/[slug]` vía `generateStaticParams`),
+`verificar-datos`, y revisión visual del índice y del artículo con el
+servidor de desarrollo.
+
 Tareas operativas, no de arquitectura — nada que implementar, solo
 configurar antes de lanzar. Ninguna se ha resuelto con un valor inventado
 en el código; todas quedan aquí para no olvidarlas.

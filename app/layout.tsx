@@ -91,6 +91,9 @@ export default function RootLayout({
                 <Link href="/agentes" className="transition hover:text-brand-700">
                   Cómo funciona
                 </Link>
+                <Link href="/blog" className="transition hover:text-brand-700">
+                  Blog
+                </Link>
                 <Link href="/aviso-legal" className="transition hover:text-brand-700">
                   Aviso legal
                 </Link>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { Categoria, Herramienta, Problema } from "@/data/esquema";
+import type { Categoria, Herramienta, Post, Problema } from "@/data/esquema";
 import { URL_BASE } from "@/lib/urlBase";
 import { slugComparacion } from "./comparaciones";
 
@@ -96,6 +96,20 @@ export function metadataAlternativas(herramienta: Herramienta): Metadata {
     `Otras opciones a ${herramienta.nombre} en la misma categoría, comparadas por Molnip.`,
     { indexable: true, ruta: `/herramienta/${herramienta.id}/alternativas` }
   );
+}
+
+/** Índice del blog — contenido de valor, indexable. */
+export function metadataBlog(): Metadata {
+  return construirMetadata(
+    "Blog de Molnip: guías para elegir software empresarial",
+    "Análisis y guías para decidir entre herramientas y plataformas todo en uno, escritas por el mismo equipo que investiga cada ficha del catálogo.",
+    { indexable: true, ruta: "/blog" }
+  );
+}
+
+/** Artículo del blog — contenido de valor, indexable. */
+export function metadataPost(post: Post): Metadata {
+  return construirMetadata(post.titulo, post.resumen, { indexable: true, ruta: `/blog/${post.id}` });
 }
 
 /** Página "Cómo trabaja Molnip" — contenido de valor, indexable; antes heredaba el título/descripción del home sin distinguirse de la portada. */

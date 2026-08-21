@@ -103,6 +103,40 @@ export type Problema = {
 };
 
 /**
+ * Un párrafo, subtítulo o lista dentro del cuerpo de un `Post`. Bloques
+ * estructurados en vez de HTML libre a propósito: igual que el resto del
+ * esquema, el contenido es datos planos que cualquier página puede
+ * renderizar de forma segura (sin `dangerouslySetInnerHTML`) y validar con
+ * la misma disciplina que un campo de texto normal.
+ */
+export type BloqueContenido =
+  | { tipo: "parrafo"; texto: string }
+  | { tipo: "subtitulo"; texto: string }
+  | { tipo: "lista"; items: string[] };
+
+/**
+ * Un artículo del blog SEO (Fase 4 de lanzamiento — ver ATLAS.md). Vive en
+ * `data/posts/`, un archivo por post, igual que `data/herramientas/`: crece
+ * con el tiempo y cada uno se valida por separado, a diferencia de
+ * `Categoria`/`Problema`, que son listas pequeñas y cerradas.
+ *
+ * `categoriaId`/`problemaId` son opcionales y sirven solo para enlazado
+ * interno (mostrar herramientas relacionadas al final del post) — nunca
+ * cambian qué post se muestra ni introducen una recomendación personalizada.
+ */
+export type Post = {
+  id: string;
+  titulo: string;
+  resumen: string;
+  cuerpo: BloqueContenido[];
+  fechaPublicacion: string;
+  fechaUltimaRevision?: string;
+  autor?: string;
+  categoriaId?: string;
+  problemaId?: string;
+};
+
+/**
  * Nivel de confianza en un dato investigado. Lo reutiliza Atlas Researcher
  * (`agents/atlas-researcher`) para la confianza global de una propuesta —
  * definido aquí porque el esquema de datos es la capa base de la que

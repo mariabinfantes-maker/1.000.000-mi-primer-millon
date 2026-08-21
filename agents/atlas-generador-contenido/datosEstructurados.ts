@@ -1,4 +1,4 @@
-import type { Herramienta } from "@/data/esquema";
+import type { Herramienta, Post } from "@/data/esquema";
 import { URL_BASE } from "@/lib/urlBase";
 
 /**
@@ -27,5 +27,25 @@ export function construirDatosEstructuradosHerramienta(herramienta: Herramienta)
     url: `${URL_BASE}/herramienta/${herramienta.id}`,
     sameAs: herramienta.paginaOficial,
     applicationCategory: "BusinessApplication",
+  };
+}
+
+/**
+ * Datos estructurados (JSON-LD, schema.org/BlogPosting) de un artículo del
+ * blog — solo campos verificables sobre el propio post: `datePublished`
+ * real, `dateModified` solo si hay una revisión posterior real. Sin
+ * `aggregateRating` ni ningún dato de terceros, por la misma razón que la
+ * ficha de herramienta.
+ */
+export function construirDatosEstructuradosPost(post: Post): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.titulo,
+    description: post.resumen,
+    url: `${URL_BASE}/blog/${post.id}`,
+    datePublished: post.fechaPublicacion,
+    ...(post.fechaUltimaRevision ? { dateModified: post.fechaUltimaRevision } : {}),
+    author: { "@type": "Organization", name: post.autor ?? "Molnip" },
   };
 }
