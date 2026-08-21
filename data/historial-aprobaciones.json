@@ -248,5 +248,25 @@
     "estadoAfiliacion": "confirmada",
     "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
     "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T16:16:27.921Z",
+    "herramientaId": "synthesia",
+    "nombreHerramienta": "Synthesia",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 96,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T16:16:28.888Z",
+    "herramientaId": "copy-ai",
+    "nombreHerramienta": "Copy.ai",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 92,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
   }
 ]

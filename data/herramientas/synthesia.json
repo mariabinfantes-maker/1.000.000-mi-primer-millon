@@ -1,0 +1,140 @@
+{
+  "nombre": "Synthesia",
+  "paginaOficial": "https://www.synthesia.io",
+  "urlPrecios": "https://www.synthesia.io/pricing",
+  "logoUrl": "",
+  "categoriaId": "asistentes-ia",
+  "descripcion": "Synthesia es una plataforma de generación de video mediante inteligencia artificial que permite crear videos profesionales a partir de texto utilizando avatares fotorrealistas y locuciones sintéticas. Está orientada principalmente a la creación de contenido de formación corporativa, onboarding, comunicaciones internas y marketing sin requerir cámaras, estudios ni actores.",
+  "informacionEmpresa": {
+    "anioFundacion": 2017,
+    "paisOrigen": "Reino Unido",
+    "tamanoAproximado": "201-500 empleados"
+  },
+  "problemasQueResuelve": [
+    "Altos costes y tiempos prolongados en la producción de video tradicional (grabación, alquiler de estudio, edición y actores).",
+    "Dificultad para mantener actualizada la documentación y los cursos de formación internos en formato video.",
+    "Costes elevados y complejidad al traducir y localizar contenido audiovisual a múltiples idiomas para equipos internacionales."
+  ],
+  "casosDeUso": [
+    "Creación de cursos de e-learning y material de capacitación corporativa (L&D).",
+    "Onboarding interactivo de nuevos empleados y formación sobre procesos internos.",
+    "Creación de guías de producto y videos demostrativos para soporte al cliente.",
+    "Comunicaciones corporativas e informativos semanales por parte de directivos."
+  ],
+  "idealPara": "Empresas y equipos de formación corporativa o marketing que necesitan escalar la producción de videos instructivos de forma rápida, económica y en múltiples idiomas.",
+  "segmentosIdeales": [
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "Formación y E-learning",
+    "Recursos Humanos y Capacitación",
+    "Tecnología y Software SaaS",
+    "Servicios Financieros",
+    "Consultoría y Servicios Profesionales"
+  ],
+  "noRecomendadaPara": "Creadores de contenido audiovisual que requieran alta expresión artística, cinematografía compleja o grabaciones de escenarios del mundo real con personas reales.",
+  "casosNoRecomendados": [
+    "Producción de películas, cortometrajes o anuncios publicitarios de alta carga emocional.",
+    "Demostraciones de productos físicos que requieran manipulación táctil o interacción en tiempo real."
+  ],
+  "funcionesPrincipales": [
+    "Más de 160 avatares de IA fotorrealistas con movimientos de cabeza y gesticulación natural.",
+    "Generación de voz a partir de texto en más de 120 idiomas, acentos y tonos vocales.",
+    "Creación de avatares personalizados (clones digitales de miembros de la empresa).",
+    "Asistente de IA para redacción y optimización de guiones de video.",
+    "Traducción automática de videos a decenas de idiomas con un solo clic.",
+    "Editor de video tipo diapositivas con plantillas, elementos gráficos y música de fondo."
+  ],
+  "integraciones": [
+    "Zapier",
+    "PowerPoint",
+    "Google Slides",
+    "HubSpot",
+    "WordPress",
+    "Shopify",
+    "Notion",
+    "Intercom",
+    "Docebo",
+    "Cornerstone LMS"
+  ],
+  "integracionesPrincipales": [
+    "Zapier",
+    "PowerPoint",
+    "HubSpot",
+    "Docebo"
+  ],
+  "curvaDeAprendizaje": "facil",
+  "precioInicial": "Desde 18$/mes (facturado anualmente) o 22$/mes (facturado mensualmente)",
+  "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "a_medida"
+  ],
+  "tienePlanGratuito": true,
+  "precioRecomendadoPymes": "Plan Creator a 59$/mes (facturado anualmente) para acceso a avatares avanzados y mayor número de minutos de video.",
+  "idiomasDisponibles": [
+    "Español",
+    "Inglés",
+    "Francés",
+    "Alemán",
+    "Italiano",
+    "Portugués",
+    "Chino",
+    "Japonés"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": false,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 9,
+    "fiabilidad": 9,
+    "atencionAlCliente": 8,
+    "escalabilidad": 9,
+    "nivelTecnicoRequerido": 2,
+    "facilidadImplementacion": 9
+  },
+  "metodologiaValoracion": "Puntuaciones calculadas a partir de la evaluación directa de la plataforma, comparativas de mercado en herramientas de generación de video con IA y la consolidación de miles de reseñas de usuarios verificados en plataformas independientes.",
+  "reputacion": {
+    "g2Puntuacion": 4.7,
+    "g2NumeroResenas": 1450,
+    "capterraPuntuacion": 4.7,
+    "capterraNumeroResenas": 240
+  },
+  "ventajas": [
+    "Gran calidad y fotorrealismo en avatares y síntesis de voz en comparación con competidores.",
+    "Reducción drástica del coste y tiempo de producción frente a grabaciones tradicionales.",
+    "Excelente capacidad de localización y traducción de contenidos a múltiples idiomas.",
+    "Interfaz intuitiva basada en edición estilo presentaciones, muy fácil de adoptar."
+  ],
+  "inconvenientes": [
+    "Los avatares pueden carecer de emociones profundas o dinamismo en contextos informales/creativos.",
+    "Límite de minutos de video generados en los planes iniciales.",
+    "Políticas de verificación estrictas para la creación de avatares personalizados."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "HeyGen",
+      "Elai.io",
+      "Colossyan",
+      "Hour One"
+    ],
+    "tipoNegocioIdeal": "Departamentos de Formación y L&D corporativo, Recursos Humanos y agencias de marketing digital",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 96,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.8/10.",
+      "G2: 4.7/5 (1450 reseñas).",
+      "Capterra: 4.7/5 (240 reseñas).",
+      "Tiene plan gratuito.",
+      "Ofrece una API pública."
+    ]
+  },
+  "id": "synthesia",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-21",
+  "fechaUltimaRevision": "2026-08-21"
+}

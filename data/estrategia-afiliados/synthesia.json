@@ -1,0 +1,19 @@
+{
+  "herramientaId": "synthesia",
+  "cuentas": [
+    {
+      "id": "partnerstack",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Synthesia Affiliate Program",
+      "plataforma": "PartnerStack",
+      "urlSolicitud": "https://www.synthesia.io/affiliates",
+      "comision": "20% recurrente durante los primeros 12 meses",
+      "duracionCookie": "60 días",
+      "metodoPago": "PayPal, Transferencia bancaria (Stripe / PartnerStack)",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-21",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}
