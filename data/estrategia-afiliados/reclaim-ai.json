@@ -1,0 +1,17 @@
+{
+  "herramientaId": "reclaim-ai",
+  "cuentas": [
+    {
+      "id": "rewardful",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Reclaim.ai Affiliate Program",
+      "plataforma": "Rewardful",
+      "urlSolicitud": "https://reclaim.ai/affiliates",
+      "comision": "20% a 25% de comisión recurrente durante el primer año",
+      "duracionCookie": "60 días",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-21",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

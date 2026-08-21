@@ -1,0 +1,134 @@
+{
+  "nombre": "Krisp",
+  "paginaOficial": "https://krisp.ai",
+  "urlPrecios": "https://krisp.ai/pricing/",
+  "logoUrl": "",
+  "categoriaId": "asistentes-ia",
+  "descripcion": "Krisp es una herramienta basada en inteligencia artificial que elimina en tiempo real el ruido de fondo, el eco y las voces secundarias durante llamadas y videoconferencias. Además, actúa como un asistente de reuniones que ofrece transcripciones automáticas, notas y resúmenes ejecutivos.",
+  "informacionEmpresa": {
+    "anioFundacion": 2017,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "101-250 empleados"
+  },
+  "problemasQueResuelve": [
+    "Muda o elimina el ruido ambiental molesto durante llamadas remotas (ladridos, obras, teclado, niños)",
+    "Reduce las distracciones al tomar notas manuales durante videoconferencias",
+    "Elimina ecos y voces secundarias en entornos de oficina abierta o teletrabajo",
+    "Mejora la inteligibilidad y la calidad del audio en entornos con conexión o equipamiento deficiente"
+  ],
+  "casosDeUso": [
+    "Cancelación de ruido en tiempo real para llamadas de ventas, soporte al cliente y reuniones internas",
+    "Generación automática de resúmenes de reuniones y puntos de acción tras llamadas en Zoom o Teams",
+    "Atención de llamadas de trabajo en entornos ruidosos como aeropuertos, cafeterías o espacios de coworking",
+    "Mejora de la nitidez del audio para grabación de podcasts y presentaciones virtuales"
+  ],
+  "idealPara": "Profesionales remotos, centros de atención telefónica (call centers) y equipos comerciales que realizan reuniones de audio/vídeo frecuentes en entornos ruidosos.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "Tecnología y Software",
+    "Atención al Cliente y Call Centers",
+    "Ventas y Telemarketing",
+    "Consultoría y Servicios Profesionales",
+    "Educación y Formación Online"
+  ],
+  "noRecomendadaPara": "Empresas que buscan una plataforma completa de videoconferencias en lugar de una extensión/complemento de audio para sus apps existentes.",
+  "casosNoRecomendados": [
+    "Equipos que no realizan llamadas de voz o vídeo en directo",
+    "Grabaciones musicales profesionales que requieran capturar todos los matices del ambiente acústico"
+  ],
+  "funcionesPrincipales": [
+    "Cancelación de ruido bidireccional basada en IA (para el micrófono y el altavoz)",
+    "Cancelación de eco de voz y de sala",
+    "Transcripción automática de reuniones en tiempo real",
+    "Resúmenes de reuniones e historial de notas impulsados por IA",
+    "Localización de acentos para atención al cliente (Accent Localization)",
+    "Dispositivo de micrófono/altavoz virtual integrable con cualquier software de llamadas"
+  ],
+  "integraciones": [
+    "Zoom",
+    "Microsoft Teams",
+    "Google Meet",
+    "Cisco Webex",
+    "Skype",
+    "Discord",
+    "Slack",
+    "Zapier"
+  ],
+  "integracionesPrincipales": [
+    "Zoom",
+    "Microsoft Teams",
+    "Google Meet",
+    "Cisco Webex"
+  ],
+  "curvaDeAprendizaje": "muy_facil",
+  "precioInicial": "Desde $8/usuario/mes (facturación anual)",
+  "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": true,
+  "precioRecomendadoPymes": "Plan Pro a $8/usuario/mes (pago anual) o $12/usuario/mes (pago mensual)",
+  "idiomasDisponibles": [
+    "Inglés"
+  ],
+  "disponibleEnEspanol": false,
+  "tieneAppMovil": false,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 9,
+    "fiabilidad": 9,
+    "atencionAlCliente": 8,
+    "escalabilidad": 8,
+    "nivelTecnicoRequerido": 2,
+    "facilidadImplementacion": 9
+  },
+  "metodologiaValoracion": "Valoración basada en pruebas directas de rendimiento de la tecnología de cancelación de ruido, análisis de su integración en el sistema operativo y contraste de valoraciones de usuarios verificado en G2 y Capterra.",
+  "reputacion": {
+    "g2Puntuacion": 4.8,
+    "g2NumeroResenas": 720,
+    "capterraPuntuacion": 4.7,
+    "capterraNumeroResenas": 85
+  },
+  "ventajas": [
+    "Cancelación de ruido de alta fidelidad que impresiona por su efectividad en tiempo real",
+    "Funciona como micrófono/altavoz virtual compatible con cualquier aplicación del sistema",
+    "Capacidad bidireccional: limpia tu micrófono y el audio recibido de otros interlocutores",
+    "Procesamiento del audio local en el dispositivo para mayor privacidad",
+    "Agrega transcripción y resúmenes automáticos sin necesidad de bots visibles en la llamada"
+  ],
+  "inconvenientes": [
+    "El plan gratuito limita el tiempo de cancelación de ruido diario/mensual",
+    "Puede generar consumo apreciable de CPU en ordenadores antiguos",
+    "La interfaz de usuario y el soporte oficial están principalmente en inglés"
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Nvidia Broadcast",
+      "Otter.ai",
+      "Read AI",
+      "Utterly"
+    ],
+    "tipoNegocioIdeal": "Equipos remotos, centros de soporte/ventas y profesionales que pasan varias horas al día en videollamadas",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 96,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.7/10.",
+      "G2: 4.8/5 (720 reseñas).",
+      "Capterra: 4.7/5 (85 reseñas).",
+      "Tiene plan gratuito.",
+      "Ofrece una API pública."
+    ]
+  },
+  "id": "krisp",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-21",
+  "fechaUltimaRevision": "2026-08-21"
+}
