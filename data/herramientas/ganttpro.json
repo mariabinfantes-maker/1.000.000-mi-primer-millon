@@ -1,0 +1,137 @@
+{
+  "nombre": "GanttPRO",
+  "paginaOficial": "https://ganttpro.com/",
+  "urlPrecios": "https://ganttpro.com/pricing/",
+  "logoUrl": "",
+  "categoriaId": "gestion-proyectos",
+  "descripcion": "GanttPRO es un software de gestión de proyectos basado en diagramas de Gantt interactivos diseñado para simplificar la planificación de proyectos, el seguimiento de tareas y la colaboración en equipo. Permite crear cronogramas detallados, gestionar recursos, calcular la ruta crítica y controlar el presupuesto en tiempo real.",
+  "informacionEmpresa": {
+    "anioFundacion": 2015,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "11-50 empleados"
+  },
+  "problemasQueResuelve": [
+    "Falta de visibilidad sobre los plazos, hitos y dependencias de un proyecto.",
+    "Carga desigual de trabajo y mala asignación de recursos en los equipos.",
+    "Dificultad para realizar un seguimiento preciso de costes y tiempos empleados.",
+    "Excesiva complejidad y pronunciada curva de aprendizaje de herramientas tradicionales como Microsoft Project."
+  ],
+  "casosDeUso": [
+    "Planificación y gestión de obras en sectores de construcción y arquitectura.",
+    "Seguimiento de roadmaps y sprints en proyectos de desarrollo de software.",
+    "Coordinación de campañas, lanzamientos y eventos en agencias de marketing.",
+    "Gestión de proyectos con clientes externos compartiendo vistas interactivas del cronograma."
+  ],
+  "idealPara": "Gestores de proyecto y equipos que necesitan una herramienta de planificación visual potente y fácil de usar basada en diagramas de Gantt.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200"
+  ],
+  "industriasIdeales": [
+    "Construcción y Arquitectura",
+    "Agencias de Marketing y Publicidad",
+    "Desarrollo de Software y TI",
+    "Consultoría",
+    "Manufactura"
+  ],
+  "noRecomendadaPara": "Equipos que buscan una herramienta basada exclusivamente en metodologías Agile/Kanban sin necesidad de vistas temporales ni dependencias entre tareas.",
+  "casosNoRecomendados": [
+    "Equipos que solo requieren listas sencillas de tareas sin fechas ni dependencias complejas.",
+    "Empresas que necesitan automatizaciones nativas de flujos de trabajo hiperpersonalizadas sin depender de integraciones externas."
+  ],
+  "funcionesPrincipales": [
+    "Diagramas de Gantt interactivos con función de arrastrar y soltar (drag and drop).",
+    "Gestión de dependencias de tareas (Fin a Inicio, Inicio a Inicio, etc.) y cálculo de la Ruta Crítica.",
+    "Gestión de recursos, balanceo de carga de trabajo y control de costes.",
+    "Seguimiento del tiempo (Time Tracking) e historial de estimaciones.",
+    "Múltiples vistas de proyecto: Gantt, Grid, Tablero Kanban y Lista.",
+    "Creación de líneas base (Baselines) para comparar la planificación original frente a la ejecución real.",
+    "Exportación en formatos PDF, PNG, XLSX y compatibilidad de importación desde MS Project."
+  ],
+  "integraciones": [
+    "Jira",
+    "Slack",
+    "Microsoft Teams",
+    "Google Drive",
+    "OneDrive"
+  ],
+  "integracionesPrincipales": [
+    "Jira",
+    "Slack",
+    "Microsoft Teams",
+    "Google Drive"
+  ],
+  "curvaDeAprendizaje": "facil",
+  "precioInicial": "Desde $9.99/usuario/mes (plan anual)",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario",
+    "a_medida"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Plan Business a aproximadamente $15.99/usuario/mes (facturación anual)",
+  "idiomasDisponibles": [
+    "Español",
+    "Inglés",
+    "Alemán",
+    "Francés",
+    "Portugués",
+    "Italiano",
+    "Ruso"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 9,
+    "fiabilidad": 9,
+    "atencionAlCliente": 9,
+    "escalabilidad": 8,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 9
+  },
+  "metodologiaValoracion": "Puntuaciones basadas en el análisis agregado de cientos de opiniones de usuarios verificados en plataformas independientes como G2 y Capterra, evaluando facilidad de adopción, funcionalidades clave y soporte.",
+  "reputacion": {
+    "g2Puntuacion": 4.8,
+    "g2NumeroResenas": 480,
+    "capterraPuntuacion": 4.8,
+    "capterraNumeroResenas": 470
+  },
+  "ventajas": [
+    "Interfaz visual sumamente intuitiva y fácil de adoptar rápidamente por todo el equipo.",
+    "Excelente alternativa moderna y accesible a Microsoft Project.",
+    "Gestión eficaz de dependencias, ruta crítica y líneas base para proyectos complejos.",
+    "Capacidad para compartir cronogramas con clientes o terceros mediante enlaces públicos dinámicos o estáticos."
+  ],
+  "inconvenientes": [
+    "No ofrece un plan gratuito permanente (solo prueba gratuita de 14 días).",
+    "Capacidades de creación de informes personalizados limitadas en comparación con suites Enterprise mayores.",
+    "El ecosistema de integraciones nativas directas es algo reducido."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "TeamGantt",
+      "ClickUp",
+      "Monday.com",
+      "Asana",
+      "Microsoft Project"
+    ],
+    "tipoNegocioIdeal": "Pymes, agencias y empresas de servicios o construcción que gestionan proyectos estructurados",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 96,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.8/10.",
+      "G2: 4.8/5 (480 reseñas).",
+      "Capterra: 4.8/5 (470 reseñas).",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "ganttpro",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-21",
+  "fechaUltimaRevision": "2026-08-21"
+}

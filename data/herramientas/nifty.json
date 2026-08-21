@@ -1,0 +1,138 @@
+{
+  "nombre": "Nifty",
+  "paginaOficial": "https://niftypm.com",
+  "urlPrecios": "https://niftypm.com/pricing/",
+  "logoUrl": "",
+  "categoriaId": "gestion-proyectos",
+  "descripcion": "Nifty es una plataforma de gestión de proyectos y colaboración integral que centraliza hitos, tareas, documentos y comunicación de equipo en un solo lugar. Ayuda a los equipos a automatizar sus flujos de trabajo y a mantener una visibilidad clara del progreso de sus proyectos mediante diagramas de Gantt y tableros Kanban.",
+  "informacionEmpresa": {
+    "anioFundacion": 2017,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "11-50 empleados"
+  },
+  "problemasQueResuelve": [
+    "Dispersión de herramientas de gestión de tareas, chats y documentación en aplicaciones separadas.",
+    "Falta de visibilidad sobre si los proyectos están cumpliendo los plazos e hitos clave.",
+    "Pérdida de tiempo en la actualización manual del estado de tareas e informes de progreso.",
+    "Dificultad para coordinar entregables de clientes en agencias y equipos de consultoría."
+  ],
+  "casosDeUso": [
+    "Gestión integral de proyectos de clientes para agencias de marketing y diseño.",
+    "Planificación y desarrollo de productos de software mediante metodologías ágiles.",
+    "Coordinación de operaciones internas y campañas de marketing multicanal.",
+    "Centralización de comunicaciones, archivos e hitos con clientes externos."
+  ],
+  "idealPara": "Agencias, equipos de desarrollo de software y pymes que buscan centralizar la gestión de proyectos, tareas, chat y documentos en una sola plataforma económica.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200"
+  ],
+  "industriasIdeales": [
+    "Agencias de marketing y publicidad",
+    "Desarrollo de software y tecnología",
+    "Servicios profesionales y consultoría",
+    "Diseño y medios digitales"
+  ],
+  "noRecomendadaPara": "Grandes corporaciones que requieren niveles extremadamente avanzados de gobernanza empresarial, cumplimiento normativo estricto o gestión de portafolios complejos de miles de proyectos.",
+  "casosNoRecomendados": [
+    "Empresas de construcción o ingeniería con necesidades de diagramación industrial altamente complejas tipo Primavera o MS Project.",
+    "Usuarios individuales que únicamente buscan una lista personal de tareas sin funciones de colaboración."
+  ],
+  "funcionesPrincipales": [
+    "Roadmaps orientados a hitos con automatización del progreso de tareas",
+    "Vistas flexibles de proyectos (Kanban, Lista, Diagrama de Gantt, Calendario, Swimlanes)",
+    "Chat de equipo e hilos de discusión dentro de cada proyecto",
+    "Documentos integrados y notas colaborativas estilo Google Docs",
+    "Control de tiempo integrado (Time Tracking) y gestión de presupuestos de horas",
+    "Formularios personalizados e informes automatizados de carga de trabajo"
+  ],
+  "integraciones": [
+    "Slack",
+    "Google Drive",
+    "Zoom",
+    "Zapier",
+    "Figma",
+    "GitHub",
+    "Google Calendar",
+    "Microsoft Teams",
+    "Webhooks"
+  ],
+  "integracionesPrincipales": [
+    "Slack",
+    "Google Drive",
+    "Zoom",
+    "Zapier"
+  ],
+  "curvaDeAprendizaje": "facil",
+  "precioInicial": "Desde $39/mes (plan Starter facturado anualmente, incluye hasta 10 miembros)",
+  "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": true,
+  "precioRecomendadoPymes": "Plan Pro a $79/mes (facturación anual) para hasta 20 usuarios con todas las funciones de hitos, control de tiempo e integraciones.",
+  "idiomasDisponibles": [
+    "Español",
+    "Inglés",
+    "Francés",
+    "Alemán",
+    "Portugués",
+    "Italiano"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 8,
+    "fiabilidad": 8,
+    "atencionAlCliente": 9,
+    "escalabilidad": 7,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 8
+  },
+  "metodologiaValoracion": "Valoración basada en el análisis funcional directo del producto, comparativa de precios dentro del sector de gestión de proyectos y agregación de reseñas verificadas de usuarios en G2 y Capterra.",
+  "reputacion": {
+    "g2Puntuacion": 4.7,
+    "g2NumeroResenas": 430,
+    "capterraPuntuacion": 4.7,
+    "capterraNumeroResenas": 410
+  },
+  "ventajas": [
+    "Combina eficazmente gestión de tareas, hitos, documentos y chat en una única interfaz unificada.",
+    "Estructura de precios basada en bloques de usuarios, siendo muy económica para equipos pequeños y medianos.",
+    "Facilidad para migrar datos desde herramientas como Asana, Trello, ClickUp o Basecamp.",
+    "Interfaz moderna, intuitiva y rápida de configurar."
+  ],
+  "inconvenientes": [
+    "Capacidad de personalización de campos e informes ligeramente inferior a competidores como ClickUp.",
+    "La aplicación móvil tiene funciones más reducidas en comparación con la versión de escritorio.",
+    "Las opciones de automatización en los planes básicos pueden quedarse cortas para flujos muy complejos."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "ClickUp",
+      "Monday.com",
+      "Asana",
+      "Basecamp"
+    ],
+    "tipoNegocioIdeal": "Agencias de marketing y servicios profesionales",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 95,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.2/10.",
+      "G2: 4.7/5 (430 reseñas).",
+      "Capterra: 4.7/5 (410 reseñas).",
+      "Tiene plan gratuito.",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "nifty",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-21",
+  "fechaUltimaRevision": "2026-08-21"
+}

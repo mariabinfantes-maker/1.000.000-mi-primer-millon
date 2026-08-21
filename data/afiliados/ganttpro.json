@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "GanttPRO Affiliate Program",
+  "affiliatePlatform": "FirstPromoter",
+  "affiliateUrl": "https://ganttpro.com/affiliate-program/",
+  "commission": "50% de comisión por la primera compra y hasta 20% recurrente en renovaciones",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://ganttpro.com/affiliate-program/",
+  "lastAffiliateCheck": "2026-08-21",
+  "herramientaId": "ganttpro"
+}

@@ -298,5 +298,25 @@
     "estadoAfiliacion": "confirmada",
     "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
     "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T17:30:04.598Z",
+    "herramientaId": "nifty",
+    "nombreHerramienta": "Nifty",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 95,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T17:30:05.635Z",
+    "herramientaId": "ganttpro",
+    "nombreHerramienta": "GanttPRO",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 96,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
   }
 ]

@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Nifty Partner Program",
+  "affiliatePlatform": "FirstPromoter",
+  "affiliateUrl": "https://niftypm.com/affiliates/",
+  "commission": "20% a 30% recurrente durante la vida del cliente",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, Transferencia bancaria",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://niftypm.com/affiliates/",
+  "lastAffiliateCheck": "2026-08-21",
+  "herramientaId": "nifty"
+}
