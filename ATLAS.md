@@ -560,6 +560,39 @@ Piezas construidas (`agents/atlas-researcher/`):
   solo lectura, más reciente primero, mismo patrón que
   `informe-mantenimiento`/`informe-curador`/`informe-afiliacion`.
 
+### Promoción automática cuando no hay duda, conflicto o riesgo
+
+**Registrada:** 2026-08-21 — el CEO delegó la aprobación de promoción para
+el caso limpio, tras varias rondas de aprobar manualmente lotes que ya
+cumplían sin excepción la política vigente. Sigue existiendo aprobación
+explícita del CEO en todos los casos (el historial de aprobaciones sigue
+registrando cada intento con ese campo) — lo que cambia es que, cuando el
+caso es inequívoco, esa aprobación queda delegada por adelantado en esta
+regla en vez de pedirse turno a turno.
+
+Se promueve automáticamente, sin presentarla antes, una herramienta que
+cumple **todo** lo siguiente:
+
+- Pasa `evaluarCriteriosDeCalidad` con `ok: true` (confianza de
+  investigación ≠ "baja", cero advertencias, Puntuación Molnip ≥ 80).
+- `verificacionAfiliacionPendiente` es `false` — es decir, afiliación
+  **confirmada** con confianza alta, no "pendiente de verificar".
+- Atlas Curator no lanza ningún aviso de casi-duplicado (`avisosDuplicado`
+  vacío) — si lanza alguno, aunque parezca un falso positivo evidente
+  (p. ej. mismo dominio, producto distinto del mismo proveedor), se
+  presenta al CEO en vez de aplicar la excepción por cuenta propia, salvo
+  que el propio CEO ya haya autorizado ese caso concreto por adelantado.
+- Está alineada con la categoría prioritaria de océano azul del momento
+  (baja cobertura, alta intención de compra) — no se promueve solo porque
+  pasa el gate técnico si no aporta valor estratégico al catálogo.
+
+Cualquier otro caso — afiliación "pendiente de verificar", aviso de
+Curator sin autorización previa, gate de calidad que falla por poco, o
+cualquier duda editorial — se sigue presentando al CEO para su aprobación
+explícita antes de tocar el catálogo real. Las descartadas automáticamente
+por el prechequeo de afiliados (sin programa fiable) no se presentan como
+candidatas, solo se reportan de forma transparente.
+
 ### Atlas Revenue: decisión diferida, no forma parte de la arquitectura todavía
 
 **Registrada:** 2026-08-18 · **Estado:** pospuesta, no implementar — ni
