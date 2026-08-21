@@ -1,0 +1,19 @@
+{
+  "herramientaId": "productive-io",
+  "cuentas": [
+    {
+      "id": "rewardful",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Productive Affiliate Program",
+      "plataforma": "Rewardful",
+      "urlSolicitud": "https://www.productive.io/affiliate-program/",
+      "comision": "15% de comisión recurrente durante los primeros 12 meses",
+      "duracionCookie": "60 días",
+      "metodoPago": "PayPal, transferencia bancaria",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-21",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

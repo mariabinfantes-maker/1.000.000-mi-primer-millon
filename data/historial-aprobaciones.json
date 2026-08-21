@@ -188,5 +188,25 @@
     "estadoAfiliacion": "confirmada",
     "observaciones": "Aprobada por el CEO tras revisión del informe (segunda ronda de Gestión de proyectos). Aviso de Curator anulado explícitamente: \"Zoho Projects\" y \"Zoho CRM\" comparten el mismo dominio (zoho.com) en su página oficial. \"Zoho Projects\" y \"Zoho One\" comparten el mismo dominio (zoho.com) en su página oficial. Justificación: Aprobado por el CEO: mismo patrón que Zoho CRM (2026-08-19) — producto distinto de otros productos Zoho ya en catálogo, alojado bajo el mismo dominio zoho.com por el mismo proveedor. No es un duplicado real.",
     "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T16:10:25.566Z",
+    "herramientaId": "productive-io",
+    "nombreHerramienta": "Productive",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 92,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobado por el CEO: puntuación 92, confianza alta, afiliación confirmada (Rewardful, 15% recurrente 12 meses).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T16:10:26.046Z",
+    "herramientaId": "scoro",
+    "nombreHerramienta": "Scoro",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 90,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobado por el CEO: puntuación 90, confianza alta, afiliación confirmada (PartnerStack, 15-20% recurrente 1er año).",
+    "aprobacionCeo": true
   }
 ]

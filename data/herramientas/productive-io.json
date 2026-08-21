@@ -1,0 +1,133 @@
+{
+  "nombre": "Productive",
+  "paginaOficial": "https://productive.io/",
+  "urlPrecios": "https://productive.io/pricing/",
+  "categoriaId": "gestion-proyectos",
+  "descripcion": "Productive es una plataforma de gestión integral (PSA) diseñada específicamente para agencias y empresas de servicios profesionales. Unifica la gestión de proyectos, el seguimiento de tiempo, la planificación de recursos, la facturación y los cálculos de rentabilidad en una única solución.",
+  "informacionEmpresa": {
+    "anioFundacion": 2014,
+    "paisOrigen": "Croacia",
+    "tamanoAproximado": "51-200 empleados"
+  },
+  "problemasQueResuelve": [
+    "Falta de visibilidad sobre la rentabilidad real de los proyectos y clientes",
+    "Desconexión entre el seguimiento del tiempo trabajado y la facturación",
+    "Sobreasignación o subutilización del personal en el equipo",
+    "Uso fragmentado de múltiples herramientas aisladas para proyectos, tiempos e informes financieros"
+  ],
+  "casosDeUso": [
+    "Monitoreo del margen de beneficio y rentabilidad en tiempo real mientras transcurre un proyecto",
+    "Planificación de la capacidad operativa y asignación de recursos a futuro",
+    "Registro de horas integrables directamente en presupuestos y facturas",
+    "Gestión de canales de ventas y estimación de ofertas para agencias"
+  ],
+  "idealPara": "Agencias digitales, consultoras tecnológicas y empresas de servicios profesionales que necesitan medir y optimizar la rentabilidad de sus proyectos.",
+  "segmentosIdeales": [
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "Agencias de Marketing y Publicidad",
+    "Desarrollo de Software y Consultoría IT",
+    "Estudios de Diseño y Creatividad",
+    "Servicios Profesionales"
+  ],
+  "noRecomendadaPara": "Equipos que solo buscan un gestor de tareas simple y no necesitan controlar tiempos, costes ni presupuestos de clientes.",
+  "casosNoRecomendados": [
+    "Freelancers individuales o microequipos con flujos de trabajo muy sencillos",
+    "Empresas de fabricación, distribución o comercio minorista"
+  ],
+  "funcionesPrincipales": [
+    "Gestión de proyectos y tareas con vistas Kanban, Listas y Gantt",
+    "Seguimiento de tiempo (Time Tracking) integrado",
+    "Planificación y gestión de recursos (Resource Planning)",
+    "Análisis de rentabilidad e informes financieros automáticos",
+    "Presupuestos y facturación recurrente",
+    "CRM para agencias y flujo de ventas"
+  ],
+  "integraciones": [
+    "QuickBooks",
+    "Xero",
+    "Exact Online",
+    "Jira",
+    "Slack",
+    "Zapier",
+    "HubSpot",
+    "Google Calendar",
+    "Outlook Calendar",
+    "Personio",
+    "Sage"
+  ],
+  "integracionesPrincipales": [
+    "QuickBooks",
+    "Xero",
+    "Jira",
+    "Slack"
+  ],
+  "curvaDeAprendizaje": "media",
+  "precioInicial": "Desde $9/usuario/mes (plan Essential facturado anualmente)",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Plan Professional a $24/usuario/mes (facturación anual), que incluye la planificación de recursos y herramientas avanzadas de rentabilidad.",
+  "idiomasDisponibles": [
+    "Inglés",
+    "Español"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 8,
+    "calidad": 9,
+    "fiabilidad": 9,
+    "atencionAlCliente": 9,
+    "escalabilidad": 8,
+    "nivelTecnicoRequerido": 5,
+    "facilidadImplementacion": 7
+  },
+  "metodologiaValoracion": "Puntuaciones basadas en el análisis de reseñas verificadas en G2 y Capterra, documentación de funcionalidades y pruebas comparativas dentro del sector de software de gestión de servicios profesionales (PSA).",
+  "reputacion": {
+    "g2Puntuacion": 4.6,
+    "g2NumeroResenas": 170,
+    "capterraPuntuacion": 4.6,
+    "capterraNumeroResenas": 80
+  },
+  "ventajas": [
+    "Excelente capacidad para medir la rentabilidad de cada proyecto en tiempo real",
+    "Sustituye múltiples herramientas (CRM, proyectos, facturación, time tracking) en una sola",
+    "Interfaz de usuario intuitiva y moderna frente a competidores más complejos",
+    "Soporte al cliente rápido y eficiente"
+  ],
+  "inconvenientes": [
+    "Requiere una configuración inicial rigurosa de tarifas e hiper-parámetros financieros para sacarle el máximo partido",
+    "Coste más elevado que las herramientas tradicionales de gestión de tareas simples",
+    "La personalización de reportes avanzados puede requerir tiempo de aprendizaje"
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Forecast",
+      "Scoro",
+      "Accelo",
+      "Teamwork"
+    ],
+    "tipoNegocioIdeal": "Agencias de marketing, diseño y desarrollo de software",
+    "nivelTecnicoRecomendado": "intermedio",
+    "puntuacion": 92,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.3/10.",
+      "G2: 4.6/5 (170 reseñas).",
+      "Capterra: 4.6/5 (80 reseñas).",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "productive-io",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-20",
+  "fechaUltimaRevision": "2026-08-21"
+}

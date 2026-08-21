@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Scoro Partner Program",
+  "affiliatePlatform": "PartnerStack",
+  "affiliateUrl": "https://www.scoro.com/partners/",
+  "commission": "15% a 20% de comisión recurrente durante el primer año por cliente referido",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, Transferencia bancaria",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.scoro.com/partners/",
+  "lastAffiliateCheck": "2026-08-20",
+  "herramientaId": "scoro"
+}
