@@ -3,6 +3,7 @@ import { Bricolage_Grotesque, IBM_Plex_Mono, Manrope } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 import Header from "@/components/Header";
+import FormularioSuscripcion from "@/components/ui/FormularioSuscripcion";
 import { DESCRIPCION_ATLAS, TITULO_ATLAS } from "@/agents/atlas-generador-contenido/metadatos";
 import { URL_BASE } from "@/lib/urlBase";
 
@@ -73,34 +74,40 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col bg-slate-50 text-slate-900">
         <Header />
         <main className="flex-1">{children}</main>
-        <footer className="border-t border-slate-200 bg-white py-8">
-          <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 px-4 text-center sm:px-6">
-            <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium text-slate-500">
-              <Link href="/" className="transition hover:text-brand-700">
-                Inicio
-              </Link>
-              <Link href="/sobre" className="transition hover:text-brand-700">
-                Sobre Molnip
-              </Link>
-              <Link href="/agentes" className="transition hover:text-brand-700">
-                Cómo funciona
-              </Link>
-              <Link href="/aviso-legal" className="transition hover:text-brand-700">
-                Aviso legal
-              </Link>
-              <Link href="/privacidad" className="transition hover:text-brand-700">
-                Privacidad
-              </Link>
-              <Link href="/cookies" className="transition hover:text-brand-700">
-                Cookies
-              </Link>
-              <Link href="/terminos" className="transition hover:text-brand-700">
-                Términos
-              </Link>
-            </nav>
-            <p className="text-xs text-slate-400">
-              Molnip — recomendaciones independientes de tecnología para empresas
-            </p>
+        <footer className="border-t border-slate-200 bg-white py-10">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6">
+            <div className="mx-auto max-w-sm text-center">
+              <FormularioSuscripcion variante="pie-de-pagina" />
+            </div>
+
+            <div className="mt-10 flex flex-col items-center gap-4 border-t border-slate-100 pt-8 text-center">
+              <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium text-slate-500">
+                <Link href="/" className="transition hover:text-brand-700">
+                  Inicio
+                </Link>
+                <Link href="/sobre" className="transition hover:text-brand-700">
+                  Sobre Molnip
+                </Link>
+                <Link href="/agentes" className="transition hover:text-brand-700">
+                  Cómo funciona
+                </Link>
+                <Link href="/aviso-legal" className="transition hover:text-brand-700">
+                  Aviso legal
+                </Link>
+                <Link href="/privacidad" className="transition hover:text-brand-700">
+                  Privacidad
+                </Link>
+                <Link href="/cookies" className="transition hover:text-brand-700">
+                  Cookies
+                </Link>
+                <Link href="/terminos" className="transition hover:text-brand-700">
+                  Términos
+                </Link>
+              </nav>
+              <p className="text-xs text-slate-400">
+                Molnip — recomendaciones independientes de tecnología para empresas
+              </p>
+            </div>
           </div>
         </footer>
       </body>

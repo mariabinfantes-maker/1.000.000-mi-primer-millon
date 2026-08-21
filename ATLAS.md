@@ -710,11 +710,85 @@ NO entró ya por la puerta "por categoría" (si entró así, la categoría ya
 está decidida y la pregunta sería redundante). El cuestionario pasa de 4 a
 5 pasos en ese caso.
 
+## Fase de lanzamiento: de catálogo a producto que factura
+
+**Registrada:** 2026-08-21 — el CEO decidió pausar la ampliación del
+catálogo (ya desarrollado a fondo: 56 herramientas, 4 categorías) y
+centrar el trabajo en convertir Atlas en un producto lanzable, en este
+orden explícito:
+
+1. Sistema de captación de emails (infraestructura completa).
+2. Integrar enlaces de afiliados en el flujo de recomendaciones + seguimiento de clics.
+3. Mejorar la experiencia de la página de resultados (conversión, imagen premium).
+4. Preparar la estructura del blog SEO (sin contenido todavía).
+
+No ampliar el catálogo salvo que sea imprescindible para alguna de estas
+fases. Cada fase se explica brevemente antes de implementarla.
+
+### Fase 1: Sistema de captación de emails — completada
+
+Proveedor elegido: **Brevo** (plan gratuito con automatizaciones de
+bienvenida y gestión de listas). Arquitectura deliberadamente modular —
+mismo patrón que `ProveedorIA` (`agents/compartido/proveedorIA.ts`) para
+Gemini — para poder sustituir Brevo por otro proveedor sin tocar el resto
+de la app:
+
+- **`lib/email/proveedorEmail.ts`** — contrato `ProveedorEmail`
+  (`suscribir` + `enviarBienvenida`, independientes a propósito: un fallo
+  en la bienvenida no debe deshacer el alta ya hecha).
+- **`lib/email/proveedores/brevo.ts`** — adaptador real: Contacts API para
+  el alta (con `updateEnabled: true` y atributos `ORIGEN`/`CATEGORIA_ID`/
+  `PROBLEMA_ID`, la base para segmentar campañas futuras) + Transactional
+  Email API para la bienvenida, con el HTML en código
+  (`plantillaBienvenida.ts`) en vez de una plantilla del panel de Brevo,
+  para no depender de que la cuenta ya exista configurada a mano.
+- **`lib/email/proveedores/simulado.ts`** + **`proveedorActivo.ts`** —
+  mientras no exista `BREVO_API_KEY`, la app usa este proveedor de
+  respaldo automáticamente (registra en el log del servidor, responde
+  éxito): el sitio nunca se rompe ni bloquea por falta de configuración.
+- **`app/api/suscribir/route.ts`** + **`lib/email/procesarSuscripcion.ts`**
+  — validación (`validarSuscripcion.ts`: formato de email + honeypot
+  anti-spam) separada de la orquestación, mismo patrón que
+  `validarPropuesta` en Atlas Researcher.
+- **`components/ui/FormularioSuscripcion.tsx`** — un único componente con
+  dos variantes de copy: pie de página (todas las páginas) y página de
+  resultados (momento de mayor intención). En resultados, envía la
+  categoría de la herramienta top recomendada como atributo de
+  segmentación.
+- **Lead magnet real**: PDF "7 preguntas antes de elegir cualquier
+  software para tu empresa" (`public/lead-magnets/`), con contenido
+  propio y la identidad visual de Molnip — no un placeholder.
+
+**Pendiente de activación** (ver sección siguiente): crear la cuenta de
+Brevo y configurar `BREVO_API_KEY`, `BREVO_LIST_ID` y
+`BREVO_SENDER_EMAIL` (remitente verificado, ej. hola@molnip.com). Hasta
+entonces el proveedor simulado mantiene todo el flujo funcional para
+desarrollo y pruebas.
+
 ## Pendiente antes de producción
 
 Tareas operativas, no de arquitectura — nada que implementar, solo
 configurar antes de lanzar. Ninguna se ha resuelto con un valor inventado
 en el código; todas quedan aquí para no olvidarlas.
+
+### Activar Brevo (sistema de captación de emails)
+
+**Registrada:** 2026-08-21. La infraestructura está completa y probada
+(ver "Fase de lanzamiento" más arriba) — solo falta la cuenta real. Pasos:
+
+1. Crear la cuenta en Brevo y verificar un dominio/remitente de envío
+   (ej. hola@molnip.com) — necesario para que el email de bienvenida no
+   caiga en spam.
+2. Crear una lista de contactos para Molnip y anotar su id numérico.
+3. Configurar en el entorno de despliegue:
+   - `BREVO_API_KEY` — clave de API de Brevo.
+   - `BREVO_LIST_ID` — id numérico de la lista creada en el paso 2.
+   - `BREVO_SENDER_EMAIL` — el remitente verificado en el paso 1.
+   - `BREVO_SENDER_NOMBRE` — opcional, por defecto "Molnip".
+
+En cuanto `BREVO_API_KEY` existe, `lib/email/proveedorActivo.ts` cambia
+automáticamente del proveedor simulado al real — no hace falta tocar
+ningún otro archivo.
 
 ### Borradores en espera de confirmación de afiliación
 

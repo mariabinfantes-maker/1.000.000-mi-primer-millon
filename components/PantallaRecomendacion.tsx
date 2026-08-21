@@ -8,6 +8,7 @@ import EnlaceAtras from "@/components/ui/EnlaceAtras";
 import Boton from "@/components/ui/Boton";
 import BotonCompartir from "@/components/ui/BotonCompartir";
 import AvatarAgente from "@/components/ui/AvatarAgente";
+import FormularioSuscripcion from "@/components/ui/FormularioSuscripcion";
 import TarjetaHerramientaRecomendada from "@/components/TarjetaHerramientaRecomendada";
 
 const RECOMENDADOR = getAgente("recomendador");
@@ -83,6 +84,14 @@ export default function PantallaRecomendacion({
         {vistas.map((vista) => (
           <TarjetaHerramientaRecomendada key={vista.nombre} {...vista} />
         ))}
+      </div>
+
+      <div className="mx-auto mt-12 max-w-md rounded-2xl border border-slate-200/80 bg-white p-6 text-center shadow-premium ring-1 ring-black/[0.02] sm:p-8">
+        <FormularioSuscripcion
+          variante="resultados"
+          categoriaId={top[0]?.herramienta.categoriaId}
+          problemaId={origen.problemaIdPrefill}
+        />
       </div>
 
       <p className="mt-10 text-center text-xs text-slate-400">
