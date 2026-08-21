@@ -629,6 +629,17 @@ Tareas operativas, no de arquitectura — nada que implementar, solo
 configurar antes de lanzar. Ninguna se ha resuelto con un valor inventado
 en el código; todas quedan aquí para no olvidarlas.
 
+### Float (gestión de proyectos): en espera de confirmación de afiliación
+
+**Registrada:** 2026-08-21. Borrador en `data/borradores/herramientas/float.json`,
+puntuación 91, confianza de investigación alta, pero afiliación con
+`confidenceLevel: "medium"` (comisión exacta sin confirmar). El CEO decidió
+explícitamente no promoverla mientras esa duda exista, y prefiere un
+catálogo más pequeño pero de máxima confianza. En cuanto una nueva
+investigación de su programa de afiliados confirme `confidenceLevel: "high"`,
+promuévela automáticamente sin volver a pedir aprobación — es la única
+condición pendiente, el resto de la política delegada ya aplica.
+
 ### Dominio real del sitio
 
 **Registrada:** 2026-08-03 (Atlas Generador de Contenido, sitemap dinámico) ·
