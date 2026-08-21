@@ -803,7 +803,14 @@ su comentario —, estos datos reales podrían sustituir o complementar ese
 proxy más adelante; no se ha tocado `priorizador.ts` en esta fase, no
 formaba parte de lo pedido.
 
-### Fase 3: experiencia de resultados — completada
+### Fase 3: experiencia de resultados — completada y CONGELADA (estable)
+
+**Registrada:** 2026-08-21 — el CEO revisó el recorrido completo (caso de
+ejemplo real, de resultados al clic de salida) y aprobó la fase sin
+cambios adicionales. A partir de aquí, prioridad explícita: crecimiento y
+captación de tráfico antes que seguir refinando una funcionalidad ya
+madura. No tocar esta pantalla salvo que surja un motivo de peso — no es
+zona de mejora continua por ahora.
 
 **Hallazgo antes de construir nada:** Atlas ya investiga y guarda
 reputación externa (G2/Capterra) de cada herramienta (`Herramienta.reputacion`,
