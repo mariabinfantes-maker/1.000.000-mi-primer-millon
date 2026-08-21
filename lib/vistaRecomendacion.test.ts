@@ -29,6 +29,38 @@ describe("aVistaDeTarjetaGenerica", () => {
     const herramienta = construirHerramienta({ id: "crm-facil", nombre: "CRM Fácil" });
     expect(aVistaDeTarjetaGenerica(herramienta, 3).posicion).toBe(3);
   });
+
+  it("propaga reputación y badges de encaje reales, sin inventar valores por defecto", () => {
+    const herramienta = construirHerramienta({
+      id: "crm-facil",
+      nombre: "CRM Fácil",
+      reputacion: { g2Puntuacion: 4.6, g2NumeroResenas: 170 },
+      disponibleEnEspanol: true,
+      tieneAppMovil: true,
+      tieneApiPublica: false,
+    });
+
+    const vista = aVistaDeTarjetaGenerica(herramienta, 1);
+
+    expect(vista.reputacion).toEqual({ g2Puntuacion: 4.6, g2NumeroResenas: 170 });
+    expect(vista.disponibleEnEspanol).toBe(true);
+    expect(vista.tieneAppMovil).toBe(true);
+    expect(vista.tieneApiPublica).toBe(false);
+  });
+
+  it("cae a false (nunca a true) cuando los campos opcionales de encaje no están investigados", () => {
+    const herramienta = construirHerramienta({ id: "crm-facil", nombre: "CRM Fácil" });
+    delete herramienta.disponibleEnEspanol;
+    delete herramienta.tieneAppMovil;
+    delete herramienta.tieneApiPublica;
+
+    const vista = aVistaDeTarjetaGenerica(herramienta, 1);
+
+    expect(vista.reputacion).toBeUndefined();
+    expect(vista.disponibleEnEspanol).toBe(false);
+    expect(vista.tieneAppMovil).toBe(false);
+    expect(vista.tieneApiPublica).toBe(false);
+  });
 });
 
 describe("ordenarPorPuntuacionAtlas", () => {

@@ -1,9 +1,11 @@
-import { AlertTriangle, ArrowUpRight, Check, ChevronRight, Lightbulb, Puzzle, X } from "lucide-react";
+import { AlertTriangle, ArrowUpRight, Check, ChevronRight, Code2, Globe, Lightbulb, Puzzle, Smartphone, X } from "lucide-react";
 import Link from "next/link";
+import type { Reputacion } from "@/data/esquema";
 import Tarjeta from "@/components/ui/Tarjeta";
 import Etiqueta from "@/components/ui/Etiqueta";
 import Boton from "@/components/ui/Boton";
 import AnilloPuntuacion from "@/components/ui/AnilloPuntuacion";
+import InsigniaReputacion from "@/components/ui/InsigniaReputacion";
 
 /**
  * Contrato de la tarjeta, deliberadamente plano y ajeno al motor de
@@ -36,6 +38,11 @@ export type TarjetaHerramientaRecomendadaProps = {
   casoDeUso: string | null;
   /** Situaciones reales en las que esta misma herramienta podría no ser la mejor opción. */
   casosNoRecomendados: string[];
+  /** Reputación externa (G2/Capterra) ya investigada por Atlas — ver InsigniaReputacion. `undefined` si no existe, nunca inventada. */
+  reputacion?: Reputacion;
+  disponibleEnEspanol: boolean;
+  tieneAppMovil: boolean;
+  tieneApiPublica: boolean;
 };
 
 export default function TarjetaHerramientaRecomendada({
@@ -53,14 +60,23 @@ export default function TarjetaHerramientaRecomendada({
   tieneAdvertencia = false,
   casoDeUso,
   casosNoRecomendados,
+  reputacion,
+  disponibleEnEspanol,
+  tieneAppMovil,
+  tieneApiPublica,
 }: TarjetaHerramientaRecomendadaProps) {
   const destacada = posicion === 1;
   const tieneDetalles = motivosPuntuacion.length > 0 || casosNoRecomendados.length > 0;
+  const badgesEncaje = [
+    disponibleEnEspanol ? { icono: Globe, etiqueta: "Español" } : null,
+    tieneAppMovil ? { icono: Smartphone, etiqueta: "App móvil" } : null,
+    tieneApiPublica ? { icono: Code2, etiqueta: "API" } : null,
+  ].filter((b): b is { icono: typeof Globe; etiqueta: string } => b !== null);
 
   return (
     <Tarjeta
       ganadora={destacada}
-      className="relative flex h-full flex-col"
+      className="relative flex h-full flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-premium-lg"
     >
       {destacada && (
         <div
@@ -84,6 +100,8 @@ export default function TarjetaHerramientaRecomendada({
         </Link>
       </h3>
 
+      <InsigniaReputacion reputacion={reputacion} />
+
       <p className="mt-3 rounded-xl bg-brand-50/70 p-3 text-sm leading-relaxed text-brand-800">
         {explicacionPersonalizada}
       </p>
@@ -94,6 +112,17 @@ export default function TarjetaHerramientaRecomendada({
           {tienePlanGratuito ? "Con plan gratuito" : "Sin plan gratuito"}
         </Etiqueta>
       </div>
+
+      {badgesEncaje.length > 0 && (
+        <div className="mt-3 flex flex-wrap items-center gap-3">
+          {badgesEncaje.map(({ icono: Icono, etiqueta }) => (
+            <span key={etiqueta} className="inline-flex items-center gap-1 text-xs font-medium text-slate-500">
+              <Icono className="h-3.5 w-3.5 shrink-0 text-slate-400" aria-hidden="true" />
+              {etiqueta}
+            </span>
+          ))}
+        </div>
+      )}
 
       {integracionPrincipal && (
         <p className="mt-3 flex items-center gap-1.5 text-sm text-slate-600">
@@ -193,7 +222,7 @@ export default function TarjetaHerramientaRecomendada({
         variante={destacada ? "primario" : "secundario"}
         className="mt-3 w-full"
       >
-        Ir al proveedor
+        {tienePlanGratuito ? "Probar gratis" : `Ir a ${nombre}`}
         <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
       </Boton>
     </Tarjeta>

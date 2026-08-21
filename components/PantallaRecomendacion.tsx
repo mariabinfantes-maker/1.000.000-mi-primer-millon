@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Scale } from "lucide-react";
+import { ScanSearch, Scale, RefreshCw } from "lucide-react";
 import { aVistaDeTarjeta } from "@/lib/vistaRecomendacion";
 import type { OrigenDiagnostico } from "@/lib/origenDiagnostico";
 import { getAgente } from "@/lib/agentes";
@@ -12,6 +12,13 @@ import FormularioSuscripcion from "@/components/ui/FormularioSuscripcion";
 import TarjetaHerramientaRecomendada from "@/components/TarjetaHerramientaRecomendada";
 
 const RECOMENDADOR = getAgente("recomendador");
+
+/** Franja de confianza específica de esta recomendación, no una repetición de las señales genéricas de la home — refuerza por qué se puede confiar en ESTE resultado concreto. */
+const PUNTOS_DE_CONFIANZA = [
+  { icono: ScanSearch, texto: "Cada herramienta, investigada antes de entrar al catálogo" },
+  { icono: Scale, texto: "La comisión nunca cambia el orden ni lo que pagas" },
+  { icono: RefreshCw, texto: "Datos revisados con regularidad, no una vez y listo" },
+];
 
 /**
  * Pantalla de resultados (P-03): puramente presentacional, sin estado
@@ -63,6 +70,15 @@ export default function PantallaRecomendacion({
                 ? "Hemos cruzado tus respuestas con nuestra base de herramientas. Esta es la que mejor encaja contigo — todavía no tenemos otra opción investigada en esta categoría con la que compararla."
                 : "Hemos cruzado tus respuestas con nuestra base de herramientas. El orden refleja qué tan bien encaja cada una con tu situación concreta — no siempre coincide con la Puntuación Molnip de cada tarjeta, que valora la herramienta en general, para cualquier empresa."}
             </p>
+
+            <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+              {PUNTOS_DE_CONFIANZA.map(({ icono: Icono, texto }) => (
+                <span key={texto} className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500">
+                  <Icono className="h-3.5 w-3.5 shrink-0 text-brand-500" aria-hidden="true" />
+                  {texto}
+                </span>
+              ))}
+            </div>
           </div>
 
           <div className="flex shrink-0 gap-3">
@@ -80,9 +96,20 @@ export default function PantallaRecomendacion({
         </div>
       </div>
 
+      {/*
+        Entrada en cascada con CSS puro (`animar-entrada`, ya usada en el
+        hero de la home), NUNCA con `RevelarAlScroll` (basado en
+        IntersectionObserver): esta es la pantalla que sostiene todo el
+        negocio — si el JS tardara en hidratarse o el observer no llegara a
+        disparar, las tarjetas y el botón "Ir al proveedor" no pueden
+        quedarse invisibles ni un instante. Una animación CSS siempre
+        resuelve su estado final aunque nada de JS se ejecute.
+      */}
       <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
-        {vistas.map((vista) => (
-          <TarjetaHerramientaRecomendada key={vista.nombre} {...vista} />
+        {vistas.map((vista, indice) => (
+          <div key={vista.nombre} className="animar-entrada" style={{ animationDelay: `${indice * 100}ms` }}>
+            <TarjetaHerramientaRecomendada {...vista} />
+          </div>
         ))}
       </div>
 

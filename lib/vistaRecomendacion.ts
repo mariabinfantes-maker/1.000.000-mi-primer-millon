@@ -3,6 +3,16 @@ import type { Herramienta } from "@/data/esquema";
 import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
 import type { TarjetaHerramientaRecomendadaProps } from "@/components/TarjetaHerramientaRecomendada";
 
+/** Campos comunes a las dos vistas (con y sin cuestionario) que no dependen de `HerramientaEvaluada` — evita repetirlos en las dos funciones de abajo. */
+function camposComunes(herramienta: Herramienta) {
+  return {
+    reputacion: herramienta.reputacion,
+    disponibleEnEspanol: herramienta.disponibleEnEspanol ?? false,
+    tieneAppMovil: herramienta.tieneAppMovil ?? false,
+    tieneApiPublica: herramienta.tieneApiPublica ?? false,
+  };
+}
+
 /**
  * Único punto de contacto entre el motor de recomendación y la interfaz.
  *
@@ -38,6 +48,7 @@ export function aVistaDeTarjeta(evaluada: HerramientaEvaluada, posicion: number)
     tieneAdvertencia: evaluada.tieneAdvertencia,
     casoDeUso: herramienta.casosDeUso[0] ?? null,
     casosNoRecomendados: herramienta.casosNoRecomendados,
+    ...camposComunes(herramienta),
   };
 }
 
@@ -68,6 +79,7 @@ export function aVistaDeTarjetaGenerica(herramienta: Herramienta, posicion: numb
     tieneAdvertencia: false,
     casoDeUso: herramienta.casosDeUso[0] ?? null,
     casosNoRecomendados: herramienta.casosNoRecomendados,
+    ...camposComunes(herramienta),
   };
 }
 

@@ -803,7 +803,44 @@ su comentario —, estos datos reales podrían sustituir o complementar ese
 proxy más adelante; no se ha tocado `priorizador.ts` en esta fase, no
 formaba parte de lo pedido.
 
-## Pendiente antes de producción
+### Fase 3: experiencia de resultados — completada
+
+**Hallazgo antes de construir nada:** Atlas ya investiga y guarda
+reputación externa (G2/Capterra) de cada herramienta (`Herramienta.reputacion`,
+`data/esquema.ts`) pero no se mostraba en ningún sitio del producto —
+prueba social real, verificada, sin usar. Se incorpora como pieza central
+de esta fase.
+
+Cambios en `TarjetaHerramientaRecomendada.tsx` / `vistaRecomendacion.ts`:
+
+- **`InsigniaReputacion.tsx`** + **`lib/reputacion.ts`** (lógica de
+  selección, testeada aparte): muestra la fuente con más reseñas
+  (G2 o Capterra) cuando existe: `★ 4.6 · G2 (170)`. Nunca inventa un
+  dato — si no hay `reputacion`, no renderiza nada.
+- **Badges de encaje rápido** (español / app móvil / API): solo se
+  muestran los verdaderos, para no convertir la ausencia de un dato en
+  una señal negativa.
+- **CTA específico**: "Probar gratis" cuando `tienePlanGratuito`, si no
+  "Ir a {nombre}" — más persuasivo y concreto que el genérico anterior
+  "Ir al proveedor".
+- **Franja de confianza** bajo la cabecera de resultados, específica de
+  esta recomendación (no una repetición de las señales genéricas de la
+  home): investigación real, comisión que nunca cambia el orden, datos
+  revisados con regularidad.
+
+**Decisión de accesibilidad/robustez — CSS puro, no `RevelarAlScroll`:**
+la primera versión envolvía las tarjetas en `RevelarAlScroll`
+(`IntersectionObserver`, ya usado en la home). Se descartó para esta
+pantalla en concreto: es la que sostiene todo el negocio, y un fallo de
+hidratación de JS o un observer que no llegara a disparar dejaría el
+botón "Ir al proveedor" invisible. Se sustituyó por la clase CSS ya
+existente `animar-entrada` (keyframe puro, sin JS) con
+`animation-delay` escalonado por tarjeta — mismo efecto de cascada,
+sin ninguna dependencia de JavaScript para que el contenido llegue a
+verse.
+
+Ningún elemento de urgencia falsa ni cifra inventada — coherente con la
+regla de Atlas de no fabricar nunca una métrica.
 
 Tareas operativas, no de arquitectura — nada que implementar, solo
 configurar antes de lanzar. Ninguna se ha resuelto con un valor inventado
