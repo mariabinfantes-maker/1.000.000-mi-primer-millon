@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Agile CRM Affiliate Program",
+  "affiliatePlatform": "Programa propio",
+  "affiliateUrl": "https://www.agilecrm.com/affiliate-program",
+  "commission": "15% de comisión recurrente de por vida por cada cliente referido",
+  "cookieDuration": "60 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.agilecrm.com/affiliate-program",
+  "lastAffiliateCheck": "2026-08-21",
+  "herramientaId": "agile-crm"
+}

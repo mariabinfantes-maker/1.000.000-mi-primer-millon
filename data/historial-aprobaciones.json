@@ -208,5 +208,45 @@
     "estadoAfiliacion": "confirmada",
     "observaciones": "Aprobado por el CEO: puntuación 90, confianza alta, afiliación confirmada (PartnerStack, 15-20% recurrente 1er año).",
     "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T16:14:21.428Z",
+    "herramientaId": "streak",
+    "nombreHerramienta": "Streak",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 91,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T16:14:22.436Z",
+    "herramientaId": "capsule-crm",
+    "nombreHerramienta": "Capsule CRM",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 93,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T16:14:23.494Z",
+    "herramientaId": "less-annoying-crm",
+    "nombreHerramienta": "Less Annoying CRM",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 95,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T16:14:24.471Z",
+    "herramientaId": "agile-crm",
+    "nombreHerramienta": "Agile CRM",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 81,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
   }
 ]

@@ -1,0 +1,128 @@
+{
+  "nombre": "Less Annoying CRM",
+  "paginaOficial": "https://www.lessannoyingcrm.com",
+  "urlPrecios": "https://www.lessannoyingcrm.com/pricing",
+  "logoUrl": "",
+  "categoriaId": "crm",
+  "descripcion": "Less Annoying CRM es un software de gestión de relaciones con clientes diseñado específicamente para pequeñas empresas y autónomos. Ofrece seguimiento de contactos, oportunidades de venta y tareas en un entorno intuitivo y sin la complejidad de los CRM empresariales tradicionales. Su propuesta se centra en la máxima sencillez de uso, soporte humano cercano y una tarifa plana por usuario.",
+  "informacionEmpresa": {
+    "anioFundacion": 2009,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "11-50 empleados"
+  },
+  "problemasQueResuelve": [
+    "Complejidad excesiva y exceso de funciones no utilizadas en los CRM tradicionales",
+    "Falta de seguimiento de prospectos y pérdida de oportunidades de venta por desorganización",
+    "Costes impredecibles o contratos de permanencia en software de gestión",
+    "Curva de aprendizaje elevada para personal no técnico"
+  ],
+  "casosDeUso": [
+    "Gestión del embudo de ventas sencillo para pequeñas agencias o consultoras",
+    "Centralización del historial de comunicaciones y notas de clientes",
+    "Asignación y seguimiento de tareas de seguimiento diario en pequeños equipos",
+    "Sincronización de calendario y contactos para mantener a todo el equipo alineado"
+  ],
+  "idealPara": "Pequeñas empresas, autónomos y equipos reducidos que necesitan un CRM extremadamente sencillo, sin curva de aprendizaje y con una tarifa plana transparente.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "Servicios profesionales",
+    "Consultoría",
+    "Inmobiliaria",
+    "Agencias de marketing",
+    "Servicios locales y reformas"
+  ],
+  "noRecomendadaPara": "Medianas y grandes empresas que requieren automatizaciones avanzadas de ventas, flujos de trabajo complejos o integraciones empresariales profundas.",
+  "casosNoRecomendados": [
+    "Empresas de comercio electrónico con volumen masivo de transacciones automatizadas",
+    "Equipos de ventas que necesitan workflows complejos con secuencias automáticas de email integradas",
+    "Organizaciones que requieran jerarquías de permisos muy detalladas o múltiples divisas avanzadas"
+  ],
+  "funcionesPrincipales": [
+    "Gestión de contactos y empresas con campos personalizados",
+    "Pipeline y seguimiento de oportunidades de venta",
+    "Gestión de tareas y calendario integrado",
+    "Registro de correos electrónicos e historial de interacciones",
+    "Búsqueda rápida e informes sencillos de rendimiento",
+    "Acceso y permisos de usuario simplificados"
+  ],
+  "integraciones": [
+    "Zapier",
+    "Mailchimp",
+    "Google Calendar",
+    "Outlook Calendar",
+    "Mailparser",
+    "Google Contacts"
+  ],
+  "integracionesPrincipales": [
+    "Zapier",
+    "Mailchimp",
+    "Google Calendar",
+    "Outlook Calendar"
+  ],
+  "curvaDeAprendizaje": "muy_facil",
+  "precioInicial": "Desde $15/usuario/mes",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Plan Único a $15/usuario/mes (incluye todas las funciones y soporte completo)",
+  "idiomasDisponibles": [
+    "Inglés"
+  ],
+  "disponibleEnEspanol": false,
+  "tieneAppMovil": false,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 10,
+    "calidad": 9,
+    "fiabilidad": 9,
+    "atencionAlCliente": 10,
+    "escalabilidad": 5,
+    "nivelTecnicoRequerido": 2,
+    "facilidadImplementacion": 10
+  },
+  "metodologiaValoracion": "Puntuaciones calculadas a partir del consenso de opiniones verficiadas en G2 y Capterra, análisis del modelo de precios y prueba de la interfaz de usuario.",
+  "reputacion": {
+    "g2Puntuacion": 4.9,
+    "g2NumeroResenas": 580,
+    "capterraPuntuacion": 4.8,
+    "capterraNumeroResenas": 530
+  },
+  "ventajas": [
+    "Interfaz extraordinariamente limpia, intuitiva y fácil de configurar en minutos",
+    "Excelente servicio de atención al cliente sin coste adicional (incluye teléfono y correo)",
+    "Precio plano y transparente de $15/usuario sin niveles ni costes ocultos",
+    "Prueba gratuita de 30 días sin requerir tarjeta de crédito"
+  ],
+  "inconvenientes": [
+    "Interfaz y soporte técnico disponibles únicamente en inglés",
+    "Sin aplicación móvil nativa (depende de versión web adaptada a móvil)",
+    "Capacidades de automatización e integración nativa limitadas comparado con competidores",
+    "No apto para equipos de ventas que busquen analíticas avanzadas o flujos complejos"
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Pipedrive",
+      "Zoho CRM",
+      "HubSpot CRM",
+      "Nutshell"
+    ],
+    "tipoNegocioIdeal": "Pequeñas empresas y profesionales independientes",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 95,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.8/10.",
+      "G2: 4.9/5 (580 reseñas).",
+      "Capterra: 4.8/5 (530 reseñas).",
+      "Ofrece una API pública."
+    ]
+  },
+  "id": "less-annoying-crm",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-21",
+  "fechaUltimaRevision": "2026-08-21"
+}

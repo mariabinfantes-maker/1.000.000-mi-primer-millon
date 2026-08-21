@@ -1,0 +1,19 @@
+{
+  "herramientaId": "less-annoying-crm",
+  "cuentas": [
+    {
+      "id": "programa-propio",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Less Annoying CRM Affiliate Program",
+      "plataforma": "Programa propio",
+      "urlSolicitud": "https://www.lessannoyingcrm.com/affiliates",
+      "comision": "25% de comisión recurrente mientras el cliente permanezca activo",
+      "duracionCookie": "30 días",
+      "metodoPago": "PayPal",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-21",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

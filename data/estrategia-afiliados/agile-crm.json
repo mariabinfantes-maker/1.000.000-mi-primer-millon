@@ -1,0 +1,19 @@
+{
+  "herramientaId": "agile-crm",
+  "cuentas": [
+    {
+      "id": "programa-propio",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Agile CRM Affiliate Program",
+      "plataforma": "Programa propio",
+      "urlSolicitud": "https://www.agilecrm.com/affiliate-program",
+      "comision": "15% de comisión recurrente de por vida por cada cliente referido",
+      "duracionCookie": "60 días",
+      "metodoPago": "PayPal",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-21",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}
