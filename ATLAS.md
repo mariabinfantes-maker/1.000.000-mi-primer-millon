@@ -641,13 +641,15 @@ de su programa de afiliados confirme `confidenceLevel: "high"` — en ese
 momento se promueven automáticamente sin volver a pedir aprobación (el
 resto de la política delegada ya aplica sin cambios).
 
+**Reverificadas 2026-08-21:** Hive y TeamGantt confirmaron afiliación
+confianza alta y se promovieron. Runn dejó de tener programa de afiliados
+fiable en la reinvestigación (antes medio, ahora ninguno) y pasa a
+descartada definitivamente, no pendiente.
+
 Lista viva (añadir/quitar según se investigue o se confirme cada una):
 
 - **Float** (gestión de proyectos) — puntuación 91.
-- **Hive** (gestión de proyectos) — puntuación 94.
-- **Runn** (gestión de proyectos) — puntuación 93.
 - **Backlog** (gestión de proyectos) — puntuación 92.
-- **TeamGantt** (gestión de proyectos) — puntuación 96.
 
 ### Dominio real del sitio
 

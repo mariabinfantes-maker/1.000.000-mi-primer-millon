@@ -348,5 +348,25 @@
     "estadoAfiliacion": "confirmada",
     "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
     "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T17:48:15.620Z",
+    "herramientaId": "hive",
+    "nombreHerramienta": "Hive",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 93,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado tras reverificación: confianza de afiliación pasó de media a alta. Cumple política delegada por el CEO (2026-08-21).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T17:48:16.788Z",
+    "herramientaId": "teamgantt",
+    "nombreHerramienta": "TeamGantt",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 94,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado tras reverificación: confianza de afiliación pasó de media a alta. Cumple política delegada por el CEO (2026-08-21).",
+    "aprobacionCeo": true
   }
 ]
