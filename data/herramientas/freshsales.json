@@ -148,5 +148,11 @@
   "fechaUltimaRevision": "2026-08-05",
   "problemasIds": [
     "conseguir-clientes"
+  ],
+  "modulosIncluidos": [
+    "crm",
+    "asistente_ia",
+    "email_marketing",
+    "embudos_de_venta"
   ]
 }

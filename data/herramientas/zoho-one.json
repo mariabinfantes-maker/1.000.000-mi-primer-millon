@@ -11,7 +11,11 @@
     "Falta de visibilidad unificada entre ventas, soporte, finanzas y RRHH",
     "Coste elevado de licenciar por separado CRM, ERP, RRHH y helpdesk"
   ],
-  "problemasIds": ["conseguir-clientes", "organizar-empresa", "atencion-cliente"],
+  "problemasIds": [
+    "conseguir-clientes",
+    "organizar-empresa",
+    "atencion-cliente"
+  ],
   "casosDeUso": [
     "Una pyme sustituye 8-10 herramientas distintas (CRM, facturación, RRHH, soporte) por un único ecosistema",
     "Un equipo coordina ventas, finanzas y atención al cliente compartiendo los mismos datos"
@@ -95,5 +99,17 @@
   ],
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-07-24",
-  "fechaUltimaRevision": "2026-07-25"
+  "fechaUltimaRevision": "2026-07-25",
+  "modulosIncluidos": [
+    "crm",
+    "gestion_proyectos",
+    "asistente_ia",
+    "facturacion",
+    "email_marketing",
+    "atencion_cliente",
+    "embudos_de_venta",
+    "comercio_electronico",
+    "creador_de_sitios_web",
+    "recursos_humanos"
+  ]
 }

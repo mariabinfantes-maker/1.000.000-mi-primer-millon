@@ -12,7 +12,11 @@
     "Gestión manual de citas, recordatorios y reseñas de clientes",
     "Agencias que necesitan ofrecer software de marketing a sus clientes bajo marca propia"
   ],
-  "problemasIds": ["conseguir-clientes", "automatizar-tareas", "atencion-cliente"],
+  "problemasIds": [
+    "conseguir-clientes",
+    "automatizar-tareas",
+    "atencion-cliente"
+  ],
   "casosDeUso": [
     "Una agencia de marketing gestiona el CRM y las campañas de varios clientes desde un único panel",
     "Un negocio local automatiza recordatorios de citas y solicitud de reseñas por SMS",
@@ -92,5 +96,15 @@
   ],
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-07-24",
-  "fechaUltimaRevision": "2026-07-25"
+  "fechaUltimaRevision": "2026-07-25",
+  "modulosIncluidos": [
+    "crm",
+    "asistente_ia",
+    "facturacion",
+    "email_marketing",
+    "atencion_cliente",
+    "embudos_de_venta",
+    "comercio_electronico",
+    "creador_de_sitios_web"
+  ]
 }

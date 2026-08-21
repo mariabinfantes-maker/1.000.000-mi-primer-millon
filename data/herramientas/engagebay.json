@@ -136,5 +136,12 @@
   "problemasIds": [
     "conseguir-clientes",
     "atencion-cliente"
+  ],
+  "modulosIncluidos": [
+    "crm",
+    "email_marketing",
+    "atencion_cliente",
+    "embudos_de_venta",
+    "asistente_ia"
   ]
 }

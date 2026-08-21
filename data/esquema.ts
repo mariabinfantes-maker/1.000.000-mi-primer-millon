@@ -38,6 +38,28 @@ export type ModeloDePrecio =
 export type EstadoHerramienta = "activo" | "descontinuado" | "en_revision";
 
 /**
+ * Añadido: módulos funcionales que una herramienta incluye de verdad,
+ * pensado sobre todo para "plataformas-todo-en-uno" (una suite puede cubrir
+ * CRM + proyectos + facturación a la vez) pero sin atarlo a esa categoría —
+ * cualquier herramienta que combine varias funciones puede declararlos.
+ * Vocabulario fijo y deliberadamente más amplio que `Categoria.id`: incluye
+ * módulos (ej. "facturacion", "email_marketing") para los que Atlas todavía
+ * no tiene una categoría propia, así queda representado el dato aunque el
+ * catálogo aún no tenga una categoría dedicada para monetizarlo.
+ */
+export type ModuloSuite =
+  | "crm"
+  | "gestion_proyectos"
+  | "asistente_ia"
+  | "facturacion"
+  | "email_marketing"
+  | "atencion_cliente"
+  | "embudos_de_venta"
+  | "comercio_electronico"
+  | "creador_de_sitios_web"
+  | "recursos_humanos";
+
+/**
  * Añadido: curva de aprendizaje inicial, en una escala categórica pensada
  * para mostrarse directamente en UI (una etiqueta, no un número). Es un eje
  * distinto de `puntuaciones.facilidadDeUso` (qué tal se usa en el día a día
@@ -220,6 +242,13 @@ export type Herramienta = {
   casosNoRecomendados: string[];
 
   funcionesPrincipales: string[];
+  /**
+   * Añadido: qué módulos funcionales incluye de verdad la herramienta (ver
+   * el comentario del tipo `ModuloSuite`). Opcional porque solo aporta valor
+   * real en suites que combinan varias funciones — para una herramienta de
+   * un único propósito (ej. un CRM puro) sería redundante con `categoriaId`.
+   */
+  modulosIncluidos?: ModuloSuite[];
   integraciones: string[];
   /**
    * Añadido: subconjunto curado (3-4) de `integraciones`, con las que de

@@ -141,5 +141,12 @@
   "problemasIds": [
     "conseguir-clientes",
     "automatizar-tareas"
+  ],
+  "modulosIncluidos": [
+    "crm",
+    "email_marketing",
+    "embudos_de_venta",
+    "comercio_electronico",
+    "creador_de_sitios_web"
   ]
 }

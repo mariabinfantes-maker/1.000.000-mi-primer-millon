@@ -11,7 +11,9 @@
     "Necesidad de un ERP asequible frente a soluciones como SAP",
     "Procesos de fabricación o logística que requieren un sistema a medida"
   ],
-  "problemasIds": ["organizar-empresa"],
+  "problemasIds": [
+    "organizar-empresa"
+  ],
   "casosDeUso": [
     "Una empresa de distribución gestiona inventario, compras y facturación desde un mismo sistema",
     "Un fabricante integra planificación de producción (MRP) con ventas",
@@ -90,5 +92,17 @@
   ],
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-07-24",
-  "fechaUltimaRevision": "2026-07-25"
+  "fechaUltimaRevision": "2026-07-25",
+  "modulosIncluidos": [
+    "crm",
+    "gestion_proyectos",
+    "asistente_ia",
+    "facturacion",
+    "email_marketing",
+    "atencion_cliente",
+    "embudos_de_venta",
+    "comercio_electronico",
+    "creador_de_sitios_web",
+    "recursos_humanos"
+  ]
 }
