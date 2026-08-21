@@ -1,0 +1,139 @@
+{
+  "nombre": "Salesmate",
+  "paginaOficial": "https://www.salesmate.io/",
+  "urlPrecios": "https://www.salesmate.io/pricing/",
+  "logoUrl": "",
+  "categoriaId": "crm",
+  "descripcion": "Salesmate es una plataforma unificada de CRM, automatización de ventas y marketing diseñada para ayudar a las pymes a gestionar clientes y acelerar ingresos. Ofrece gestión de embudos, secuencias de correo, automatización de procesos y telefonía integrada en un único lugar.",
+  "informacionEmpresa": {
+    "anioFundacion": 2016,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "51-200 empleados"
+  },
+  "problemasQueResuelve": [
+    "Falta de seguimiento estructurado de oportunidades de venta y prospectos.",
+    "Desconexión entre las herramientas de llamadas/SMS y el historial del CRM.",
+    "Pérdida de tiempo en tareas administrativas repetitivas de ventas mediante automatización.",
+    "Falta de visibilidad sobre el rendimiento del equipo comercial."
+  ],
+  "casosDeUso": [
+    "Gestión de embudos de ventas visuales para equipos comerciales B2B.",
+    "Realización de llamadas salientes y envío de SMS directamente desde la ficha del cliente.",
+    "Automatización de secuencias de email y automatizaciones de seguimiento de leads.",
+    "Captura y cualificación de leads a través de formularios web y live chat."
+  ],
+  "idealPara": "Pymes y equipos de ventas que buscan un CRM ágil, potente y accesible con teléfono y automatización de marketing integrados.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200"
+  ],
+  "industriasIdeales": [
+    "Servicios Profesionales",
+    "Tecnología / SaaS",
+    "Agencias de Marketing",
+    "Inmobiliaria",
+    "Servicios Financieros"
+  ],
+  "noRecomendadaPara": "Grandes corporaciones globales que requieran arquitecturas On-Premise o complejas estructuras de gobernanza empresarial a nivel transaccional.",
+  "casosNoRecomendados": [
+    "Grandes empresas multinacionales que necesitan personalizaciones enterprise a medida muy profundas y soporte dedicado en servidor propio.",
+    "Equipos que solo necesitan un gestor de contactos muy básico sin automatización ni funciones avanzadas."
+  ],
+  "funcionesPrincipales": [
+    "Gestión de tuberías (pipelines) y tratos de venta interactivos",
+    "Sistema de telefonía integrando llamadas VOIP y SMS nativos",
+    "Automatización de flujos de trabajo de ventas y marketing (Journeys)",
+    "Gestión de secuencias de correo electrónico y plantillas",
+    "Chat en vivo para capturar y atender prospectos en la web",
+    "Informes personalizados y paneles de rendimiento",
+    "Aplicación móvil completa para iOS y Android"
+  ],
+  "integraciones": [
+    "Gmail",
+    "Google Workspace",
+    "Outlook",
+    "Zapier",
+    "Slack",
+    "QuickBooks",
+    "Mailchimp",
+    "DocuSign",
+    "Stripe",
+    "ActiveCampaign"
+  ],
+  "integracionesPrincipales": [
+    "Gmail",
+    "Outlook",
+    "Zapier",
+    "Slack"
+  ],
+  "curvaDeAprendizaje": "facil",
+  "precioInicial": "Desde $23/usuario/mes",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Plan Pro a $39/usuario/mes (facturado anualmente)",
+  "idiomasDisponibles": [
+    "Inglés",
+    "Español",
+    "Francés",
+    "Alemán",
+    "Italiano",
+    "Portugués"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 9,
+    "fiabilidad": 9,
+    "atencionAlCliente": 9,
+    "escalabilidad": 8,
+    "nivelTecnicoRequerido": 4,
+    "facilidadImplementacion": 8
+  },
+  "metodologiaValoracion": "Análisis exhaustivo de funcionalidades del software, estructura de precios pública y síntesis de reseñas verificadas de usuarios en G2 y Capterra.",
+  "reputacion": {
+    "g2Puntuacion": 4.6,
+    "g2NumeroResenas": 320,
+    "capterraPuntuacion": 4.7,
+    "capterraNumeroResenas": 80
+  },
+  "ventajas": [
+    "Llamadas integradas directamente en la plataforma sin necesidad de software VoIP de terceros.",
+    "Excelente relación calidad-precio en comparación con competidores como HubSpot o Salesforce.",
+    "Automatizaciones de trabajo (Journeys) muy flexibles e intuitivas.",
+    "Interfaz limpia, rápida de configurar y con baja curva de aprendizaje."
+  ],
+  "inconvenientes": [
+    "Los créditos para llamadas y SMS se cobran aparte según consumo.",
+    "No ofrece un plan gratuito permanente (solo prueba gratuita de 15 días).",
+    "El diseño de informes avanzados puede requerir un poco de entrenamiento."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Pipedrive",
+      "HubSpot CRM",
+      "Zoho CRM",
+      "Freshsales"
+    ],
+    "tipoNegocioIdeal": "Pymes B2B, agencias y equipos de ventas proactivos",
+    "nivelTecnicoRecomendado": "intermedio",
+    "puntuacion": 94,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.7/10.",
+      "G2: 4.6/5 (320 reseñas).",
+      "Capterra: 4.7/5 (80 reseñas).",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "salesmate",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-21",
+  "fechaUltimaRevision": "2026-08-21"
+}

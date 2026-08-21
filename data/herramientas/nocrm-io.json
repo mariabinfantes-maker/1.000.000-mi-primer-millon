@@ -1,0 +1,134 @@
+{
+  "nombre": "noCRM.io",
+  "paginaOficial": "https://www.nocrm.io/es",
+  "urlPrecios": "https://www.nocrm.io/es/precios",
+  "logoUrl": "",
+  "categoriaId": "crm",
+  "descripcion": "noCRM.io es un software de gestión de oportunidades de venta diseñado específicamente para comerciales, enfocado en el seguimiento de leads más que en la recolección masiva de datos. Su filosofía elimina la burocracia de los CRM tradicionales centrándose siempre en la 'siguiente acción' para cerrar ventas.",
+  "informacionEmpresa": {
+    "anioFundacion": 2013,
+    "paisOrigen": "Francia",
+    "tamanoAproximado": "11-50 empleados"
+  },
+  "problemasQueResuelve": [
+    "Pérdida de tiempo de los comerciales al rellenar campos excesivos e innecesarios en CRM tradicionales.",
+    "Falta de seguimiento oportuno a los leads por ausencia de alertas de 'próxima acción'.",
+    "Baja adopción del software de ventas por parte del equipo comercial debido a interfaces complejas."
+  ],
+  "casosDeUso": [
+    "Gestión diaria de embudos de venta B2B mediante vista Kanban orientada a acciones.",
+    "Prospección telefónica utilizando plantillas de llamadas y scripts integrados.",
+    "Captura rápida de leads desde tarjetas de visita, correos electrónicos o formularios web."
+  ],
+  "idealPara": "Pymes y equipos comerciales B2B que quieren enfocarse únicamente en vender y cerrar oportunidades sin la complejidad de un CRM tradicional.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "Servicios B2B",
+    "Agencias de marketing",
+    "Consultoría",
+    "Inmobiliaria",
+    "SaaS"
+  ],
+  "noRecomendadaPara": "Empresas que busquen una solución integral de automatización de marketing, gestión postventa o soporte mediante tickets.",
+  "casosNoRecomendados": [
+    "Gestión de soporte al cliente o atención mediante tickets postventa.",
+    "Campañas complejas de automatización de marketing multicanal."
+  ],
+  "funcionesPrincipales": [
+    "Gestión de leads basada en la 'siguiente acción' (Por hacer / En espera).",
+    "Pipelines de ventas personalizables.",
+    "Generador de scripts para llamadas de prospección (Cold Calling Script generator).",
+    "Escáner de tarjetas de visita en la aplicación móvil.",
+    "Informes y métricas de rendimiento comercial.",
+    "Captura de leads desde email, formularios y LinkedIn."
+  ],
+  "integraciones": [
+    "Zapier",
+    "Make",
+    "Google Workspace",
+    "WhatsApp",
+    "QuickBooks",
+    "Mailchimp",
+    "ActiveCampaign",
+    "Aircall",
+    "RingCentral"
+  ],
+  "integracionesPrincipales": [
+    "Zapier",
+    "Make",
+    "Google Workspace",
+    "WhatsApp"
+  ],
+  "curvaDeAprendizaje": "muy_facil",
+  "precioInicial": "Desde 12€/usuario/mes",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Plan Sales Experts a 29€/usuario/mes (pago anual), para acceder a integraciones avanzadas y gestión completa de equipos.",
+  "idiomasDisponibles": [
+    "Español",
+    "Inglés",
+    "Francés",
+    "Portugués",
+    "Alemán",
+    "Italiano",
+    "Ruso"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 8,
+    "fiabilidad": 9,
+    "atencionAlCliente": 9,
+    "escalabilidad": 6,
+    "nivelTecnicoRequerido": 2,
+    "facilidadImplementacion": 9
+  },
+  "metodologiaValoracion": "Puntuaciones basadas en el análisis de resenas verificadas de usuarios en G2 y Capterra, así como en la evaluación directa del flujo de trabajo simplificado de la plataforma.",
+  "reputacion": {
+    "g2Puntuacion": 4.6,
+    "g2NumeroResenas": 85,
+    "capterraPuntuacion": 4.6,
+    "capterraNumeroResenas": 260
+  },
+  "ventajas": [
+    "Interfaz extremadamente sencilla orientada a la acción comercial.",
+    "Implementación casi inmediata, no requiere consultores externos.",
+    "Herramientas nativas de prospección telefónica y scripts muy útiles.",
+    "Soporte rápido y disponible totalmente en español."
+  ],
+  "inconvenientes": [
+    "Falta de funcionalidades avanzadas de postventa y marketing.",
+    "Poco adecuado para empresas con estructuras de informes corporativos muy jerárquicos."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Pipedrive",
+      "Close",
+      "Freshsales",
+      "ZOHO Begin"
+    ],
+    "tipoNegocioIdeal": "Pymes B2B y agencias de servicios",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 92,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.3/10.",
+      "G2: 4.6/5 (85 reseñas).",
+      "Capterra: 4.6/5 (260 reseñas).",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "nocrm-io",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-21",
+  "fechaUltimaRevision": "2026-08-21"
+}
