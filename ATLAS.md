@@ -629,16 +629,24 @@ Tareas operativas, no de arquitectura — nada que implementar, solo
 configurar antes de lanzar. Ninguna se ha resuelto con un valor inventado
 en el código; todas quedan aquí para no olvidarlas.
 
-### Float (gestión de proyectos): en espera de confirmación de afiliación
+### Borradores en espera de confirmación de afiliación
 
-**Registrada:** 2026-08-21. Borrador en `data/borradores/herramientas/float.json`,
-puntuación 91, confianza de investigación alta, pero afiliación con
-`confidenceLevel: "medium"` (comisión exacta sin confirmar). El CEO decidió
-explícitamente no promoverla mientras esa duda exista, y prefiere un
-catálogo más pequeño pero de máxima confianza. En cuanto una nueva
-investigación de su programa de afiliados confirme `confidenceLevel: "high"`,
-promuévela automáticamente sin volver a pedir aprobación — es la única
-condición pendiente, el resto de la política delegada ya aplica.
+**Registrada:** 2026-08-21 — el CEO decidió explícitamente no promover
+ninguna herramienta mientras su programa de afiliados tenga
+`confidenceLevel: "medium"` (dato secundario, normalmente la comisión
+exacta, sin confirmar), aunque el resto del gate de calidad pase limpio.
+Prefiere un catálogo más pequeño pero de máxima confianza. Estas quedan
+como borrador, sin decisión registrada, hasta que una nueva investigación
+de su programa de afiliados confirme `confidenceLevel: "high"` — en ese
+momento se promueven automáticamente sin volver a pedir aprobación (el
+resto de la política delegada ya aplica sin cambios).
+
+Lista viva (añadir/quitar según se investigue o se confirme cada una):
+
+- **Float** (gestión de proyectos) — puntuación 91.
+- **Hive** (gestión de proyectos) — puntuación 94.
+- **Runn** (gestión de proyectos) — puntuación 93.
+- **Backlog** (gestión de proyectos) — puntuación 92.
 
 ### Dominio real del sitio
 
