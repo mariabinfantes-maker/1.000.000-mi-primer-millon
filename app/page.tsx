@@ -166,30 +166,42 @@ export default function Home() {
             </h2>
           </RevelarAlScroll>
 
-          <div className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-6">
-            {PASOS_COMO_FUNCIONA.map((paso, i) => (
-              <RevelarAlScroll
-                key={paso.titulo}
-                retrasoMs={i * 120}
-                className="relative text-center sm:text-left"
-              >
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-white to-brand-50 text-brand-600 shadow-premium ring-1 ring-brand-100 sm:mx-0">
-                  <paso.icono className="h-6 w-6" aria-hidden="true" />
-                </div>
-                <p className="mt-5 text-sm font-semibold text-brand-600">Paso {i + 1}</p>
-                <h3 className="mt-1 text-lg font-semibold text-slate-900">{paso.titulo}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                  {paso.descripcion}
-                </p>
+          <div className="relative mt-14 grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-8">
+            {/* Línea que conecta los tres pasos, de índigo a dorado — el dorado
+                marca el punto de llegada (la respuesta), igual que en el resto
+                del sitio se reserva para "la opción elegida". */}
+            <div
+              className="absolute top-7 right-[16.5%] left-[16.5%] hidden h-px bg-gradient-to-r from-brand-200 via-brand-300 to-gold-400 sm:block"
+              aria-hidden="true"
+            />
 
-                {i < PASOS_COMO_FUNCIONA.length - 1 && (
-                  <ArrowRight
-                    className="absolute -right-3 top-7 hidden h-5 w-5 text-slate-300 sm:block"
+            {PASOS_COMO_FUNCIONA.map((paso, i) => {
+              const esUltimo = i === PASOS_COMO_FUNCIONA.length - 1;
+              return (
+                <RevelarAlScroll key={paso.titulo} retrasoMs={i * 120} className="relative text-center sm:text-left">
+                  <span
+                    className="pointer-events-none absolute -top-3 left-1/2 -translate-x-1/2 font-display text-7xl font-bold text-slate-200/80 select-none sm:left-0 sm:translate-x-0"
                     aria-hidden="true"
-                  />
-                )}
-              </RevelarAlScroll>
-            ))}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div
+                    className={`relative mx-auto flex h-14 w-14 items-center justify-center rounded-2xl shadow-premium ring-1 sm:mx-0 ${
+                      esUltimo
+                        ? "bg-gradient-to-br from-white to-gold-50 text-gold-600 ring-gold-200"
+                        : "bg-gradient-to-br from-white to-brand-50 text-brand-600 ring-brand-100"
+                    }`}
+                  >
+                    <paso.icono className="h-6 w-6" aria-hidden="true" />
+                  </div>
+                  <p className={`relative mt-5 text-sm font-semibold ${esUltimo ? "text-gold-600" : "text-brand-600"}`}>
+                    Paso {i + 1}
+                  </p>
+                  <h3 className="relative mt-1 font-display text-lg font-semibold text-slate-900">{paso.titulo}</h3>
+                  <p className="relative mt-2 text-sm leading-relaxed text-slate-600">{paso.descripcion}</p>
+                </RevelarAlScroll>
+              );
+            })}
           </div>
         </div>
       </section>
