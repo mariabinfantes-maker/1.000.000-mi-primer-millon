@@ -131,24 +131,29 @@ export default function Home() {
               }}
             />
 
-            {/* En móvil, recorte a la altura de la cintura (contenedor de altura fija +
-                overflow-hidden) para no ocupar tanto alto de pantalla — en escritorio
-                (`lg:`) vuelve a la figura completa, sin recorte, igual que siempre. */}
-            <div className="relative mx-auto h-80 overflow-hidden sm:h-96 lg:h-auto lg:overflow-visible">
+            {/* Recorte a la altura de medio muslo (contenedor de altura fija +
+                overflow-hidden) en todas las resoluciones — la altura del
+                contenedor es la MISMA que antes (para no agrandar la forma
+                violeta, que se dimensiona a partir de ella); lo que cambia es
+                el ancho de la persona, más grande, así el recorte "sube" de
+                forma natural. La imagen ya viene recortada a su encuadre real
+                (sin márgenes transparentes), así el % de ancho corresponde a
+                ella y no a espacio vacío. */}
+            <div className="relative mx-auto h-80 overflow-hidden sm:h-96 lg:h-[583px]">
               <Image
                 src="/images/molnip-owner-final.png"
                 alt="Una profesional revisando una recomendación de Molnip en su tablet"
-                width={1024}
+                width={550}
                 height={1536}
                 priority
                 unoptimized
-                className="relative mx-auto h-auto w-[85%] drop-shadow-2xl sm:w-[75%]"
+                className="relative mx-auto h-auto w-[61%] drop-shadow-2xl sm:w-[54%]"
               />
             </div>
 
-            {/* Tarjeta flotante: una recomendación de software, mismo tratamiento visual que el resto del sitio (nunca datos inventados — texto genérico ilustrativo). */}
+            {/* Tarjeta flotante: una recomendación de software, mismo tratamiento visual que el resto del sitio (nunca datos inventados — texto genérico ilustrativo). Posición en % para que caiga cerca de la cintura sea cual sea el recorte. */}
             <div
-              className="animar-flotar absolute right-0 bottom-6 flex items-center gap-2.5 rounded-2xl border border-slate-200/80 bg-white/95 px-4 py-3 shadow-premium-lg backdrop-blur sm:right-4"
+              className="animar-flotar absolute right-0 bottom-[15%] flex items-center gap-2.5 rounded-2xl border border-slate-200/80 bg-white/95 px-4 py-3 shadow-premium-lg backdrop-blur sm:right-4"
               style={{ animationDelay: "1.2s" }}
             >
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-brand-500 to-brand-700 text-white">
