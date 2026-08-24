@@ -136,12 +136,12 @@ export default function Home() {
                 (`lg:`) vuelve a la figura completa, sin recorte, igual que siempre. */}
             <div className="relative mx-auto h-80 overflow-hidden sm:h-96 lg:h-auto lg:overflow-visible">
               <Image
-                src="/images/molnip-business-owner.png"
+                src="/images/molnip-owner-final.png"
                 alt="Una profesional revisando una recomendación de Molnip en su tablet"
                 width={1024}
                 height={1536}
                 priority
-                sizes="(min-width: 1024px) 480px, 80vw"
+                unoptimized
                 className="relative mx-auto h-auto w-[85%] drop-shadow-2xl sm:w-[75%]"
               />
             </div>
