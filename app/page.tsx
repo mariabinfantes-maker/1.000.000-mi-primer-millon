@@ -69,17 +69,9 @@ export default function Home() {
 
   return (
     <div>
-      {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="fondo-puntos pointer-events-none absolute inset-0" aria-hidden="true" />
-        <div
-          className="pointer-events-none absolute inset-x-0 -top-32 flex justify-center"
-          aria-hidden="true"
-        >
-          <div className="h-[420px] w-[820px] rounded-full bg-brand-200/50 blur-3xl" />
-        </div>
-
-        <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-4 pt-16 pb-20 sm:px-6 sm:pt-24 sm:pb-28 lg:grid-cols-2 lg:gap-16">
+      {/* Hero — propuesta 1 (revisión en curso, ver ATLAS.md) */}
+      <section className="relative overflow-hidden" style={{ backgroundColor: "#fdfaf5" }}>
+        <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-4 pt-16 pb-20 sm:px-6 sm:pt-24 sm:pb-28 lg:grid-cols-[1.05fr_1fr] lg:gap-10">
           <div className="text-center lg:text-left">
             <div
               className="animar-entrada flex justify-center lg:justify-start"
@@ -92,8 +84,8 @@ export default function Home() {
             </div>
 
             <h1
-              className="animar-entrada mx-auto mt-6 max-w-xl text-4xl font-display font-bold leading-[1.05] tracking-tight text-slate-900 sm:text-6xl lg:mx-0"
-              style={{ animationDelay: "90ms" }}
+              className="animar-entrada mx-auto mt-6 max-w-xl font-display font-bold leading-[1.05] tracking-tight text-slate-900 lg:mx-0"
+              style={{ animationDelay: "90ms", fontSize: "clamp(1.875rem, 5vw + 1rem, 3.75rem)" }}
             >
               Deja de adivinar qué herramienta
               <span className="bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">
@@ -126,29 +118,54 @@ export default function Home() {
           </div>
 
           <div
-            className="animar-entrada relative mx-auto w-full max-w-md lg:max-w-none"
+            className="animar-entrada relative mx-auto w-full max-w-sm lg:max-w-none"
             style={{ animationDelay: "200ms" }}
           >
-            <div className="animar-flotar overflow-hidden rounded-3xl shadow-premium-lg">
+            {/* Forma orgánica de marca, CSS puro (border-radius asimétrico), detrás del recorte de la persona — degradado violeta profundo → azul eléctrico → lavanda. */}
+            <div
+              aria-hidden="true"
+              className="absolute top-1/2 left-1/2 h-[110%] w-[92%] -translate-x-1/2 -translate-y-1/2"
+              style={{
+                borderRadius: "63% 37% 41% 59% / 55% 45% 55% 45%",
+                background: "linear-gradient(150deg, #2e1f7a 0%, #4f46e5 46%, #c9c2f7 100%)",
+              }}
+            />
+
+            {/* Recorte a la altura de medio muslo (contenedor de altura fija +
+                overflow-hidden) en todas las resoluciones — la altura del
+                contenedor es la MISMA que antes (para no agrandar la forma
+                violeta, que se dimensiona a partir de ella); lo que cambia es
+                el ancho de la persona, más grande, así el recorte "sube" de
+                forma natural. La imagen ya viene recortada a su encuadre real
+                (sin márgenes transparentes), así el % de ancho corresponde a
+                ella y no a espacio vacío. */}
+            <div className="relative mx-auto h-80 overflow-hidden sm:h-96 lg:h-[583px]">
               <Image
-                src="/imagenes/marca/hero-formas.png"
-                alt="Un cristal facetado transparente con una faceta iluminada en dorado, junto a formas de vidrio esmerilado índigo y un disco de metal cepillado — la opción que destaca entre varias"
-                width={1024}
-                height={1024}
+                src="/images/molnip-owner-final.png"
+                alt="Una profesional revisando una recomendación de Molnip en su tablet"
+                width={550}
+                height={1536}
                 priority
-                sizes="(min-width: 1024px) 512px, 100vw"
-                className="w-full"
+                unoptimized
+                className="relative mx-auto h-auto w-[61%] drop-shadow-2xl sm:w-[54%]"
               />
             </div>
 
+            {/* Tarjeta flotante: una recomendación de software, mismo tratamiento visual que el resto del sitio (nunca datos inventados — texto genérico ilustrativo). Posición en % para que caiga cerca de la cintura sea cual sea el recorte. */}
             <div
-              className="animar-flotar absolute -left-4 bottom-8 hidden items-center gap-2 rounded-2xl border border-slate-200/80 bg-white/95 px-4 py-3 shadow-premium backdrop-blur sm:flex"
+              className="animar-flotar absolute right-0 bottom-[15%] flex items-center gap-2.5 rounded-2xl border border-slate-200/80 bg-white/95 px-4 py-3 shadow-premium-lg backdrop-blur sm:right-4"
               style={{ animationDelay: "1.2s" }}
             >
-              <CheckCircle2 className="h-5 w-5 text-emerald-500" aria-hidden="true" />
-              <span className="text-sm font-semibold text-slate-700">
-                Recomendación personalizada
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-brand-500 to-brand-700 text-white">
+                <Sparkles className="h-4 w-4" aria-hidden="true" />
               </span>
+              <div className="text-left">
+                <p className="text-xs font-medium text-slate-400">Recomendación de Molnip</p>
+                <p className="flex items-center gap-1 text-sm font-semibold text-slate-800">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" aria-hidden="true" />
+                  Encaja con tu empresa
+                </p>
+              </div>
             </div>
           </div>
         </div>
