@@ -1,0 +1,19 @@
+{
+  "herramientaId": "teamgantt",
+  "cuentas": [
+    {
+      "id": "programa-propio",
+      "estado": "no_solicitado",
+      "nombrePrograma": "TeamGantt Affiliate Program",
+      "plataforma": "Programa propio",
+      "urlSolicitud": "https://www.teamgantt.com/affiliates",
+      "comision": "20% de comisión recurrente por cada suscripción referida",
+      "duracionCookie": "90 días",
+      "metodoPago": "PayPal",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-21",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

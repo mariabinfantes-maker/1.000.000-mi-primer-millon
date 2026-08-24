@@ -1,0 +1,19 @@
+{
+  "herramientaId": "nutshell",
+  "cuentas": [
+    {
+      "id": "firstpromoter",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Nutshell Affiliate Program",
+      "plataforma": "FirstPromoter",
+      "urlSolicitud": "https://www.nutshell.com/affiliates",
+      "comision": "20% de comisión recurrente durante el primer año de cada cliente referido",
+      "duracionCookie": "90 días",
+      "metodoPago": "PayPal",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-19",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

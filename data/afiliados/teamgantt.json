@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "TeamGantt Affiliate Program",
+  "affiliatePlatform": "Programa propio",
+  "affiliateUrl": "https://www.teamgantt.com/affiliates",
+  "commission": "20% de comisión recurrente por cada suscripción referida",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.teamgantt.com/affiliates",
+  "lastAffiliateCheck": "2026-08-21",
+  "herramientaId": "teamgantt"
+}

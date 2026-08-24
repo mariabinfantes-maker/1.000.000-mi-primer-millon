@@ -11,7 +11,10 @@
     "Falta de seguimiento del recorrido del cliente de principio a fin",
     "Necesidad de generar y calificar leads de forma automatizada"
   ],
-  "problemasIds": ["conseguir-clientes", "atencion-cliente"],
+  "problemasIds": [
+    "conseguir-clientes",
+    "atencion-cliente"
+  ],
   "casosDeUso": [
     "Un equipo de marketing automatiza campañas de email y las conecta directamente con el pipeline de ventas",
     "Una empresa empieza con el CRM gratuito y va activando módulos de pago a medida que crece"
@@ -83,7 +86,7 @@
     "escalabilidad": 8,
     "nivelTecnicoRequerido": 3
   },
-  "metodologiaValoracion": "Valoración editorial de Atlas basada en documentación pública, posicionamiento de mercado y opiniones agregadas de usuarios. Pendiente de contrastar con datos de uso reales; revisar periódicamente.",
+  "metodologiaValoracion": "Valoración editorial de Molnip basada en documentación pública, posicionamiento de mercado y opiniones agregadas de usuarios. Pendiente de contrastar con datos de uso reales; revisar periódicamente.",
   "ventajas": [
     "Plan gratuito realmente utilizable, no solo una demo limitada",
     "Interfaz muy cuidada y fácil de aprender",
@@ -97,5 +100,15 @@
   ],
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-07-24",
-  "fechaUltimaRevision": "2026-07-25"
+  "fechaUltimaRevision": "2026-07-25",
+  "modulosIncluidos": [
+    "crm",
+    "asistente_ia",
+    "facturacion",
+    "email_marketing",
+    "atencion_cliente",
+    "embudos_de_venta",
+    "comercio_electronico",
+    "creador_de_sitios_web"
+  ]
 }

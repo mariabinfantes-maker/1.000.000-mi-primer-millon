@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Salesflare Affiliate Program",
+  "affiliatePlatform": "FirstPromoter",
+  "affiliateUrl": "https://salesflare.com/affiliates",
+  "commission": "30% recurrente mensual mientras el cliente permanezca activo",
+  "cookieDuration": "60 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://salesflare.com/affiliates",
+  "lastAffiliateCheck": "2026-08-19",
+  "herramientaId": "salesflare"
+}

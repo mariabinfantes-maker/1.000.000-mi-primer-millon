@@ -1,0 +1,136 @@
+{
+  "nombre": "Kartra",
+  "paginaOficial": "https://www.kartra.com",
+  "urlPrecios": "https://www.kartra.com/pricing/",
+  "categoriaId": "plataformas-todo-en-uno",
+  "descripcion": "Kartra es una plataforma integral de marketing digital y ventas en línea diseñada para automatizar embudos, alojar cursos, gestionar listas de correo electrónico y vender productos o servicios. Combina CRM, hospedaje de vídeo, creador de sitios web y sistema de membresías sin necesidad de integrar múltiples herramientas de terceros.",
+  "informacionEmpresa": {
+    "anioFundacion": 2018,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "51-200 empleados"
+  },
+  "problemasQueResuelve": [
+    "La fragmentación de herramientas de marketing (pagar y conectar hosting de vídeo, creador de páginas, email marketing y pasarela de pago por separado).",
+    "La complejidad técnica de integrar plugins y software de terceros que fallan con frecuencia.",
+    "La falta de seguimiento detallado sobre el comportamiento de los clientes potenciales en el embudo de ventas."
+  ],
+  "casosDeUso": [
+    "Creación y venta de cursos en línea con áreas de miembros protegidas.",
+    "Construcción de embudos de captación (lead generation) y secuencias automatizadas de correos electrónicos.",
+    "Gestión de reservas de citas y venta de servicios de consultoría con pago integrado."
+  ],
+  "idealPara": "Emprendedores digitales, creadores de contenido, infoproductores y agencias que quieren gestionar todo su marketing digital y ventas desde un solo panel de control.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "Educación y Cursos Online",
+    "Consultoría y Coaching",
+    "Servicios Profesionales",
+    "Marketing y Publicidad"
+  ],
+  "noRecomendadaPara": "Grandes corporaciones con necesidades de CRM muy avanzadas o tiendas e-commerce tradicionales con catálogos masivos de productos físicos.",
+  "casosNoRecomendados": [
+    "Comercio electrónico masivo B2C tipo tienda de ropa con cientos de variaciones de producto (donde Shopify es superior).",
+    "Empresas que solo buscan una herramienta muy barata y sencilla para enviar newsletters informativos ocasionales."
+  ],
+  "funcionesPrincipales": [
+    "Creador de páginas web y landing pages con editor drag-and-drop",
+    "Sistema de automatización de email marketing basado en comportamiento y etiquetas",
+    "Kartra Checkouts para venta de productos digitales, suscripciones y upsells",
+    "Alojamiento de vídeo propio con elementos interactivos y análisis (Kartra Video)",
+    "Sistema de membresías y portales de cursos",
+    "Gestión de citas y reservas integradas (Kartra Calendars)",
+    "Sistema de atención al cliente con tickets y chat en vivo (Kartra Helpdesk)",
+    "Gestión de programa de afiliados propio integrado"
+  ],
+  "modulosIncluidos": [
+    "crm",
+    "email_marketing",
+    "embudos_de_venta",
+    "comercio_electronico",
+    "creador_de_sitios_web",
+    "atencion_cliente"
+  ],
+  "integraciones": [
+    "Stripe",
+    "PayPal",
+    "Authorize.net",
+    "Braintree",
+    "Zapier",
+    "Twilio",
+    "SendGrid",
+    "Postmark",
+    "Google Calendar"
+  ],
+  "integracionesPrincipales": [
+    "Stripe",
+    "PayPal",
+    "Zapier",
+    "Twilio"
+  ],
+  "curvaDeAprendizaje": "media",
+  "precioInicial": "Desde $119/mes",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Plan Growth a $229/mes (o $189/mes con facturación anual)",
+  "idiomasDisponibles": [
+    "Inglés"
+  ],
+  "disponibleEnEspanol": false,
+  "tieneAppMovil": false,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 7,
+    "calidad": 8,
+    "fiabilidad": 8,
+    "atencionAlCliente": 7,
+    "escalabilidad": 7,
+    "nivelTecnicoRequerido": 5,
+    "facilidadImplementacion": 6
+  },
+  "metodologiaValoracion": "Puntuaciones basadas en el análisis técnico de las funcionalidades de la suite y en la agregación de reseñas verificadas de usuarios en plataformas como G2 y Capterra.",
+  "reputacion": {
+    "g2Puntuacion": 4,
+    "g2NumeroResenas": 55,
+    "capterraPuntuacion": 4.5,
+    "capterraNumeroResenas": 160
+  },
+  "ventajas": [
+    "Incluye alojamiento de vídeos sin coste adicional de plataformas como Vimeo o Wistia.",
+    "Automatización avanzada por comportamiento del usuario extremadamente precisa.",
+    "Permite lanzar productos con un sistema de afiliados integrado desde el primer día.",
+    "Plantillas completas de embudos ('Done-For-You') creadas por expertos en conversión."
+  ],
+  "inconvenientes": [
+    "Precio de entrada más elevado que soluciones individuales.",
+    "Interfaz de administración únicamente disponible en inglés.",
+    "El editor visual de páginas puede resultar algo rígido frente a constructores web dedicados.",
+    "La configuración inicial requiere tiempo para estructurar etiquetas y listas."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Kajabi",
+      "ClickFunnels",
+      "Systeme.io",
+      "GoHighLevel"
+    ],
+    "tipoNegocioIdeal": "Infoproductores, creadores de cursos y consultores",
+    "nivelTecnicoRecomendado": "intermedio",
+    "puntuacion": 80,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 7.2/10.",
+      "G2: 4/5 (55 reseñas).",
+      "Capterra: 4.5/5 (160 reseñas).",
+      "Ofrece una API pública."
+    ]
+  },
+  "id": "kartra",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-21",
+  "fechaUltimaRevision": "2026-08-21"
+}

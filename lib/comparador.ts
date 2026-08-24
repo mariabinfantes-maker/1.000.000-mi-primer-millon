@@ -48,8 +48,52 @@ export const EXPLICACION_CRITERIO: Record<string, string> = {
 export function construirComparativa(evaluadas: HerramientaEvaluada[]): FilaComparativa[] {
   if (evaluadas.length < 2) return [];
 
-  const idsCriterios = evaluadas[0].detalles.map((detalle) => detalle.criterio);
+  // Precio y plan gratuito son hechos del catálogo, no criterios
+  // personalizados: a diferencia de `detalles` (que depende de lo que el
+  // cuestionario haya preguntado — hoy no pide presupuesto ni nivel
+  // técnico, así que varios criterios quedan vacíos para todas las
+  // herramientas por igual), estos dos siempre están disponibles y casi
+  // siempre diferencian algo real entre finalistas, aunque los criterios
+  // personalizados hayan empatado.
   const filas: FilaComparativa[] = [];
+
+  const planesUnicos = new Set(evaluadas.map((e) => e.herramienta.tienePlanGratuito));
+  if (planesUnicos.size > 1) {
+    filas.push({
+      criterio: "planGratuito",
+      etiqueta: "Plan gratuito",
+      explicacionCriterio: "Si puedes empezar a usarla sin pagar, aunque sea con límites.",
+      hayGanadorUnico: false,
+      celdas: evaluadas.map((e) => ({
+        herramientaId: e.herramienta.id,
+        nombre: e.herramienta.nombre,
+        puntos: e.herramienta.tienePlanGratuito ? 1 : 0,
+        explicacion: e.herramienta.tienePlanGratuito
+          ? "Tiene plan gratuito."
+          : "No tiene plan gratuito.",
+        gana: e.herramienta.tienePlanGratuito,
+      })),
+    });
+  }
+
+  const preciosUnicos = new Set(evaluadas.map((e) => e.herramienta.precioInicial));
+  if (preciosUnicos.size > 1) {
+    filas.push({
+      criterio: "precioInicial",
+      etiqueta: "Precio de entrada",
+      explicacionCriterio: "Lo que cuesta empezar, tal y como lo publica cada proveedor.",
+      hayGanadorUnico: false,
+      celdas: evaluadas.map((e) => ({
+        herramientaId: e.herramienta.id,
+        nombre: e.herramienta.nombre,
+        puntos: 0,
+        explicacion: e.herramienta.precioInicial,
+        gana: false,
+      })),
+    });
+  }
+
+  const idsCriterios = evaluadas[0].detalles.map((detalle) => detalle.criterio);
 
   for (const criterioId of idsCriterios) {
     const porHerramienta = evaluadas.map((evaluada) => ({

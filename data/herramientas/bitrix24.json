@@ -11,7 +11,10 @@
     "Falta de un espacio único de colaboración interna",
     "Necesidad de un CRM gratuito para equipos pequeños"
   ],
-  "problemasIds": ["conseguir-clientes", "organizar-empresa"],
+  "problemasIds": [
+    "conseguir-clientes",
+    "organizar-empresa"
+  ],
   "casosDeUso": [
     "Un equipo pequeño centraliza chat interno, tareas y CRM sin coste, con usuarios ilimitados en el plan gratuito",
     "Una empresa combina videollamadas y gestión de proyectos junto al CRM de ventas"
@@ -72,7 +75,7 @@
     "escalabilidad": 6,
     "nivelTecnicoRequerido": 5
   },
-  "metodologiaValoracion": "Valoración editorial de Atlas basada en documentación pública, posicionamiento de mercado y opiniones agregadas de usuarios. Pendiente de contrastar con datos de uso reales; revisar periódicamente.",
+  "metodologiaValoracion": "Valoración editorial de Molnip basada en documentación pública, posicionamiento de mercado y opiniones agregadas de usuarios. Pendiente de contrastar con datos de uso reales; revisar periódicamente.",
   "ventajas": [
     "Plan gratuito muy generoso con usuarios ilimitados",
     "Combina colaboración interna y CRM en un mismo lugar",
@@ -87,5 +90,17 @@
   ],
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-07-24",
-  "fechaUltimaRevision": "2026-07-25"
+  "fechaUltimaRevision": "2026-07-25",
+  "modulosIncluidos": [
+    "crm",
+    "gestion_proyectos",
+    "asistente_ia",
+    "facturacion",
+    "email_marketing",
+    "atencion_cliente",
+    "embudos_de_venta",
+    "comercio_electronico",
+    "creador_de_sitios_web",
+    "recursos_humanos"
+  ]
 }

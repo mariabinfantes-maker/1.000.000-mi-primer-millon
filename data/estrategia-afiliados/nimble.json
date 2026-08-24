@@ -1,0 +1,19 @@
+{
+  "herramientaId": "nimble",
+  "cuentas": [
+    {
+      "id": "partnerstack",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Nimble Affiliate Program",
+      "plataforma": "PartnerStack",
+      "urlSolicitud": "https://www.nimble.com/partners/affiliates/",
+      "comision": "20% de comisión recurrente durante el primer año por cada cliente referido",
+      "duracionCookie": "90 días",
+      "metodoPago": "PayPal, Stripe",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-19",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

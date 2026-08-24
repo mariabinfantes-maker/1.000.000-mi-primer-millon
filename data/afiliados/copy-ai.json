@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Copy.ai Affiliate Program",
+  "affiliatePlatform": "FirstPromoter",
+  "affiliateUrl": "https://www.copy.ai/affiliates",
+  "commission": "45% de comisión recurrente sobre los pagos suscritos durante el primer año del usuario referido",
+  "cookieDuration": "60 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.copy.ai/affiliates",
+  "lastAffiliateCheck": "2026-08-21",
+  "herramientaId": "copy-ai"
+}

@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Nutshell Affiliate Program",
+  "affiliatePlatform": "FirstPromoter",
+  "affiliateUrl": "https://www.nutshell.com/affiliates",
+  "commission": "20% de comisión recurrente durante el primer año de cada cliente referido",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.nutshell.com/affiliates",
+  "lastAffiliateCheck": "2026-08-19",
+  "herramientaId": "nutshell"
+}

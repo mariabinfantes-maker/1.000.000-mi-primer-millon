@@ -1,0 +1,130 @@
+{
+  "nombre": "Descript",
+  "paginaOficial": "https://www.descript.com",
+  "urlPrecios": "https://www.descript.com/pricing",
+  "categoriaId": "asistentes-ia",
+  "descripcion": "Descript es un editor todo en uno de audio y vídeo basado en texto impulsado por inteligencia artificial. Permite editar grabaciones modificando directamente el texto de la transcripción, además de ofrecer funciones avanzadas de grabación de pantalla, clonación de voz y mejora de sonido.",
+  "informacionEmpresa": {
+    "anioFundacion": 2017,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "101-250 empleados"
+  },
+  "problemasQueResuelve": [
+    "Lentitud y complejidad técnica en la edición tradicional de audio y vídeo multipista.",
+    "Costes elevados y consumo de tiempo al transcribir manualmente grabaciones o entrevistas.",
+    "Mala calidad de audio en grabaciones caseras o remotas.",
+    "Dificultad para eliminar muletillas, pausas y errores de locución sin regrabar todo el contenido."
+  ],
+  "casosDeUso": [
+    "Edición rápida de episodios de podcast eliminando silencios y palabras de relleno desde el texto transcrito.",
+    "Creación de vídeos explicativos y demos de producto grabando pantalla y webcam.",
+    "Generación automática de subtítulos animados y clips verticales para redes sociales.",
+    "Mejora automática de audio de calidad de estudio mediante Studio Sound en entrevistas grabadas por internet."
+  ],
+  "idealPara": "Creadores de contenido, podcasters, equipos de marketing y educadores que buscan editar vídeo y audio con la rapidez de un documento de texto.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200"
+  ],
+  "industriasIdeales": [
+    "Medios y Entretenimiento",
+    "Marketing y Publicidad",
+    "Educación y Formación",
+    "Software y Tecnología"
+  ],
+  "noRecomendadaPara": "Editores cinematográficos y profesionales de postproducción que requieran efectos visuales avanzados, corrección de color compleja o flujos de trabajo tradicionales en NLE.",
+  "casosNoRecomendados": [
+    "Producciones de cine o comerciales de alta gama con necesidades complejas de VFX.",
+    "Empresas que exijan que la interfaz del software esté completamente en español."
+  ],
+  "funcionesPrincipales": [
+    "Edición de vídeo y audio mediante transcripción de texto",
+    "Eliminación automática de muletillas y pausas prolongadas",
+    "Studio Sound (cancelación de ruido y ecualización con IA)",
+    "Clonación de voz e Ingestion Overdub para corregir palabras mal habladas",
+    "Grabación de pantalla y webcam integradas",
+    "Generación de subtítulos automáticos personalizables",
+    "Integración nativa con SquadCast para grabación remota multipista"
+  ],
+  "integraciones": [
+    "SquadCast",
+    "Zapier",
+    "YouTube",
+    "Podbean",
+    "Castos",
+    "Blubrry",
+    "Adobe Premiere Pro",
+    "Final Cut Pro"
+  ],
+  "integracionesPrincipales": [
+    "SquadCast",
+    "Zapier",
+    "YouTube",
+    "Adobe Premiere Pro"
+  ],
+  "curvaDeAprendizaje": "facil",
+  "precioInicial": "Desde $12/usuario/mes (facturación anual)",
+  "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": true,
+  "precioRecomendadoPymes": "Plan Creator a $24/usuario/mes (facturación anual)",
+  "idiomasDisponibles": [
+    "Inglés"
+  ],
+  "disponibleEnEspanol": false,
+  "tieneAppMovil": false,
+  "tieneApiPublica": false,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 9,
+    "fiabilidad": 8,
+    "atencionAlCliente": 7,
+    "escalabilidad": 7,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 9
+  },
+  "metodologiaValoracion": "Puntuaciones basadas en el análisis agregador de valoraciones verificadas de usuarios en G2 y Capterra, así como en pruebas funcionales del software.",
+  "reputacion": {
+    "g2Puntuacion": 4.5,
+    "g2NumeroResenas": 500,
+    "capterraPuntuacion": 4.7,
+    "capterraNumeroResenas": 370
+  },
+  "ventajas": [
+    "Permite editar proyectos de audio y vídeo con la misma facilidad que editar un texto en Google Docs.",
+    "Studio Sound limpia el sonido ambiental de manera sobresaliente con un solo clic.",
+    "Ahorra horas de trabajo en la eliminación automática de muletillas y espacios en blanco.",
+    "Integración perfecta con SquadCast para grabación remota de podcasts."
+  ],
+  "inconvenientes": [
+    "Elevado consumo de recursos de CPU y RAM durante el renderizado de vídeos pesados.",
+    "Faltan herramientas avanzadas de postproducción visual y gradación de color.",
+    "La interfaz de la aplicación solo está disponible en inglés (aunque la transcripción soporta varios idiomas)."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Riverside.fm",
+      "Adobe Premiere Pro",
+      "Podcastle",
+      "CapCut"
+    ],
+    "tipoNegocioIdeal": "Podcasters, creadores de contenido y agencias de marketing",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 90,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.2/10.",
+      "G2: 4.5/5 (500 reseñas).",
+      "Capterra: 4.7/5 (370 reseñas).",
+      "Tiene plan gratuito."
+    ]
+  },
+  "id": "descript",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-19",
+  "fechaUltimaRevision": "2026-08-19"
+}

@@ -1,4 +1,4 @@
-import { getCategorias, getHerramientas, getProblemas } from "@/data/repositorio";
+import { getCategorias, getHerramientas, getPosts, getProblemas } from "@/data/repositorio";
 import { generarParesComparacion } from "./comparaciones";
 
 /**
@@ -25,7 +25,16 @@ export function generarEntradasSitemap(): EntradaSitemap[] {
   const herramientas = getHerramientas();
   const porId = new Map(herramientas.map((h) => [h.id, h]));
 
-  const entradas: EntradaSitemap[] = [{ ruta: "/", prioridad: 1 }];
+  const entradas: EntradaSitemap[] = [
+    { ruta: "/", prioridad: 1 },
+    { ruta: "/sobre", prioridad: 0.6 },
+    { ruta: "/agentes", prioridad: 0.5 },
+    { ruta: "/blog", prioridad: 0.6 },
+    { ruta: "/aviso-legal", prioridad: 0.2 },
+    { ruta: "/privacidad", prioridad: 0.2 },
+    { ruta: "/cookies", prioridad: 0.2 },
+    { ruta: "/terminos", prioridad: 0.2 },
+  ];
 
   for (const categoria of getCategorias()) {
     entradas.push({ ruta: `/categoria/${categoria.id}`, prioridad: 0.8 });
@@ -41,6 +50,14 @@ export function generarEntradasSitemap(): EntradaSitemap[] {
       ruta: `/herramienta/${herramienta.id}/alternativas`,
       prioridad: 0.6,
       ultimaModificacion: herramienta.fechaUltimaRevision,
+    });
+  }
+
+  for (const post of getPosts()) {
+    entradas.push({
+      ruta: `/blog/${post.id}`,
+      prioridad: 0.7,
+      ultimaModificacion: post.fechaUltimaRevision ?? post.fechaPublicacion,
     });
   }
 

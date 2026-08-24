@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Productive Affiliate Program",
+  "affiliatePlatform": "Rewardful",
+  "affiliateUrl": "https://www.productive.io/affiliate-program/",
+  "commission": "15% de comisión recurrente durante los primeros 12 meses",
+  "cookieDuration": "60 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, transferencia bancaria",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.productive.io/affiliate-program/",
+  "lastAffiliateCheck": "2026-08-20",
+  "herramientaId": "productive-io"
+}

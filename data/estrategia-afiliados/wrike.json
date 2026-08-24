@@ -1,0 +1,19 @@
+{
+  "herramientaId": "wrike",
+  "cuentas": [
+    {
+      "id": "partnerstack",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Wrike Affiliate Program",
+      "plataforma": "PartnerStack",
+      "urlSolicitud": "https://www.wrike.com/affiliate/",
+      "comision": "Hasta 20% - 30% por venta/suscripción anual o comisiones por registros de cuentas calificadas según el tipo de partner",
+      "duracionCookie": "90 días",
+      "metodoPago": "PayPal, transferencia bancaria (Stripe/PartnerStack)",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-19",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

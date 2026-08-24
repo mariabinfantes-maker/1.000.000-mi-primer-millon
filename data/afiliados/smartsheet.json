@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Smartsheet Affiliate Program",
+  "affiliatePlatform": "Impact",
+  "affiliateUrl": "https://www.smartsheet.com/affiliates",
+  "commission": "Comisión por prueba gratuita válida y/o porcentaje sobre la primera suscripción",
+  "cookieDuration": "30 días",
+  "approvalRequired": true,
+  "payoutMethod": "Transferencia bancaria, PayPal",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.smartsheet.com/affiliates",
+  "lastAffiliateCheck": "2026-08-18",
+  "herramientaId": "smartsheet"
+}

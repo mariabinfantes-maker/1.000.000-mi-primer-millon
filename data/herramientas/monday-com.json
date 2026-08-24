@@ -153,5 +153,13 @@
   "problemasIds": [
     "organizar-empresa",
     "automatizar-tareas"
+  ],
+  "modulosIncluidos": [
+    "crm",
+    "gestion_proyectos",
+    "asistente_ia",
+    "atencion_cliente",
+    "embudos_de_venta",
+    "recursos_humanos"
   ]
 }

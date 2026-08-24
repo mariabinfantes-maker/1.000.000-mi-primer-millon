@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Vtiger Solution Partner & Referral Program",
+  "affiliatePlatform": "Programa propio",
+  "affiliateUrl": "https://www.vtiger.com/partners/",
+  "commission": "20% de comisión recurrente sobre las ventas de suscripción referidas durante el primer año",
+  "cookieDuration": "60 días",
+  "approvalRequired": true,
+  "payoutMethod": "Transferencia bancaria, PayPal",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "medium",
+  "source": "https://www.vtiger.com/partners/",
+  "lastAffiliateCheck": "2026-08-19",
+  "herramientaId": "vtiger-crm"
+}

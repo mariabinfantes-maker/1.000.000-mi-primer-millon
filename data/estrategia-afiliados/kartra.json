@@ -1,0 +1,19 @@
+{
+  "herramientaId": "kartra",
+  "cuentas": [
+    {
+      "id": "programa-propio",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Kartra Affiliate Program",
+      "plataforma": "Programa propio",
+      "urlSolicitud": "https://home.kartra.com/affiliates",
+      "comision": "30% de comisión recurrente de por vida sobre ventas directas (+ 10% en segundo nivel)",
+      "duracionCookie": "30 días",
+      "metodoPago": "PayPal",
+      "frecuenciaPago": "Mensual (tras periodo de retención de 40 días por políticas de reembolso)",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-21",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

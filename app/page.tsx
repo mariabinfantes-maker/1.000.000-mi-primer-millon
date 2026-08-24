@@ -9,10 +9,10 @@ import {
   Timer,
   CheckCircle2,
 } from "lucide-react";
+import Image from "next/image";
 import { getCategorias, getProblemas } from "@/data/repositorio";
 import { AGENTES } from "@/lib/agentes";
 import Etiqueta from "@/components/ui/Etiqueta";
-import IlustracionHero from "@/components/ui/IlustracionHero";
 import AvatarAgente from "@/components/ui/AvatarAgente";
 import Boton from "@/components/ui/Boton";
 import RevelarAlScroll from "@/components/ui/RevelarAlScroll";
@@ -92,7 +92,7 @@ export default function Home() {
             </div>
 
             <h1
-              className="animar-entrada mx-auto mt-6 max-w-xl text-4xl font-bold leading-[1.05] tracking-tight text-slate-900 sm:text-6xl lg:mx-0"
+              className="animar-entrada mx-auto mt-6 max-w-xl text-4xl font-display font-bold leading-[1.05] tracking-tight text-slate-900 sm:text-6xl lg:mx-0"
               style={{ animationDelay: "90ms" }}
             >
               Deja de adivinar qué herramienta
@@ -129,8 +129,16 @@ export default function Home() {
             className="animar-entrada relative mx-auto w-full max-w-md lg:max-w-none"
             style={{ animationDelay: "200ms" }}
           >
-            <div className="animar-flotar">
-              <IlustracionHero className="w-full" />
+            <div className="animar-flotar overflow-hidden rounded-3xl shadow-premium-lg">
+              <Image
+                src="/imagenes/marca/hero-formas.png"
+                alt="Un cristal facetado transparente con una faceta iluminada en dorado, junto a formas de vidrio esmerilado índigo y un disco de metal cepillado — la opción que destaca entre varias"
+                width={1024}
+                height={1024}
+                priority
+                sizes="(min-width: 1024px) 512px, 100vw"
+                className="w-full"
+              />
             </div>
 
             <div
@@ -153,7 +161,7 @@ export default function Home() {
             <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">
               Cómo funciona
             </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-display font-bold tracking-tight text-slate-900 sm:text-4xl">
               De la duda a la decisión, en tres pasos
             </h2>
           </RevelarAlScroll>
@@ -193,7 +201,7 @@ export default function Home() {
             <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">
               Así piensa Molnip
             </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-display font-bold tracking-tight text-slate-900 sm:text-4xl">
               Tres agentes, un mismo objetivo: acertar por ti
             </h2>
             <p className="mt-3 text-base leading-relaxed text-slate-600">
@@ -230,7 +238,7 @@ export default function Home() {
             <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">
               Por qué Molnip
             </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-display font-bold tracking-tight text-slate-900 sm:text-4xl">
               Pensado para que confíes en la recomendación
             </h2>
           </RevelarAlScroll>
@@ -262,7 +270,7 @@ export default function Home() {
             <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">
               Empieza aquí
             </p>
-            <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+            <h2 className="mt-2 text-2xl font-display font-bold tracking-tight text-slate-900 sm:text-3xl">
               ¿Cómo quieres empezar?
             </h2>
           </RevelarAlScroll>

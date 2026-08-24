@@ -23,15 +23,12 @@ export type OrigenDiagnostico = {
   preguntaHerramienta?: string;
   /** Prefiltra el catálogo por categoría en el motor de recomendación. */
   categoriaIdPrefill?: string;
+  /** Prefiltra el catálogo por objetivo (Problema.id) en el motor de recomendación — puerta "por objetivo". */
+  problemaIdPrefill?: string;
   /** Precarga la respuesta de "¿cuál es tu mayor problema?" con lo que el usuario ya escribió en la puerta de texto libre. */
   notasPrefill?: string;
-  /** Base de rutas: `${rutaBase}/cuestionario` y `${rutaBase}/recomendacion`. */
+  /** Base de rutas: `${rutaBase}/cuestionario` — el resultado en sí vive en `/resultado/[token]`, no bajo `rutaBase` (ver `lib/resultadoToken.ts`). */
   rutaBase: string;
 };
 
 export const PREGUNTA_HERRAMIENTA_GENERICA = "¿Ya usas alguna herramienta para esto?";
-
-/** Clave compuesta para namespacing de resultados en sessionStorage — evita colisiones entre orígenes de distinto tipo que compartan id (p. ej. un objetivo y una categoría con el mismo id). */
-export function claveOrigen(origen: Pick<OrigenDiagnostico, "tipo" | "id">): string {
-  return `${origen.tipo}:${origen.id}`;
-}

@@ -1,0 +1,17 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Reclaim.ai Affiliate Program",
+  "affiliatePlatform": "Rewardful",
+  "affiliateUrl": "https://reclaim.ai/affiliates",
+  "commission": "20% a 25% de comisión recurrente durante el primer año",
+  "cookieDuration": "60 días",
+  "approvalRequired": true,
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://reclaim.ai/affiliates",
+  "lastAffiliateCheck": "2026-08-21",
+  "herramientaId": "reclaim-ai"
+}

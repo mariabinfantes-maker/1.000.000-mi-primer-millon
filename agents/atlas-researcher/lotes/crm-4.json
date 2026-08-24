@@ -1,0 +1,5 @@
+[
+  { "nombreHerramienta": "SugarCRM", "categoriaId": "crm" },
+  { "nombreHerramienta": "Salesmate", "categoriaId": "crm" },
+  { "nombreHerramienta": "noCRM.io", "categoriaId": "crm" }
+]

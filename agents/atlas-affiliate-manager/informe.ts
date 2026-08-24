@@ -1,7 +1,12 @@
 import type { Herramienta } from "@/data/esquema";
 import type { EstadoAfiliacion, EstrategiaAfiliacion } from "@/data/esquemaInterno";
 import { escaparHtml } from "@/agents/compartido/html";
-import { detectarCuentasActivasSinEnlace, detectarCuentasEstancadas, type AvisoConsistencia } from "./consistencia";
+import {
+  detectarCuentasActivasSinEnlace,
+  detectarCuentasConVerificacionPendiente,
+  detectarCuentasEstancadas,
+  type AvisoConsistencia,
+} from "./consistencia";
 import { priorizarCuentasPendientesDeSolicitud, type CuentaPriorizada } from "./priorizador";
 
 /**
@@ -17,6 +22,7 @@ export type DatosInformeAfiliacion = {
   porEstado: Record<EstadoAfiliacion, number>;
   cuentasSinEnlace: AvisoConsistencia[];
   cuentasEstancadas: AvisoConsistencia[];
+  cuentasConVerificacionPendiente: AvisoConsistencia[];
   priorizadas: CuentaPriorizada[];
 };
 
@@ -46,6 +52,7 @@ export function construirDatosInforme(
     porEstado,
     cuentasSinEnlace: detectarCuentasActivasSinEnlace(estrategias),
     cuentasEstancadas: detectarCuentasEstancadas(estrategias, hoy),
+    cuentasConVerificacionPendiente: detectarCuentasConVerificacionPendiente(estrategias),
     priorizadas: priorizarCuentasPendientesDeSolicitud(estrategias, herramientas),
   };
 }
@@ -122,6 +129,12 @@ export function generarInformeAfiliacionHtml(datos: DatosInformeAfiliacion): str
 
   const cuerpo =
     seccionResumen(datos) +
+    seccionAvisos(
+      "Verificación de afiliación pendiente",
+      "Promovidas con reputación y puntuación suficientes, pero con la comisión/plataforma de afiliación investigada " +
+        "con confianza media — confírmalas antes de solicitar el programa o dar la cuenta por lista para monetizar.",
+      datos.cuentasConVerificacionPendiente
+    ) +
     seccionAvisos(
       "Comisión que se está perdiendo",
       "Cuentas activas sin ningún enlace de afiliado — el redirect de producción no tiene nada que servir para ellas.",

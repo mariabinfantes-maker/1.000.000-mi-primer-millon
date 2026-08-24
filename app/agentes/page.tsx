@@ -1,10 +1,15 @@
+import type { Metadata } from "next";
+import Image from "next/image";
 import { Eye, Lock } from "lucide-react";
 import { getHerramienta, getHerramientas } from "@/data/repositorio";
 import { evaluarHerramienta } from "@/agents/atlas-advisor";
 import { AGENTES, type IdAgente } from "@/lib/agentes";
+import { metadataAgentes } from "@/agents/atlas-generador-contenido/metadatos";
 import AvatarAgente from "@/components/ui/AvatarAgente";
 import RevelarAlScroll from "@/components/ui/RevelarAlScroll";
 import Boton from "@/components/ui/Boton";
+
+export const metadata: Metadata = metadataAgentes();
 
 const COLOR_TEXTO: Record<IdAgente, string> = {
   researcher: "text-agente-researcher",
@@ -37,22 +42,36 @@ export default function AgentesPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-16">
-      <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">Transparencia</p>
-      <h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Cómo trabaja Molnip</h1>
-      <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
-        Molnip no es una caja negra. Cada recomendación pasa por tres agentes distintos, cada uno con un
-        trabajo concreto y con acceso solo a los datos que necesita — nunca a la información de afiliación,
-        reservada al funcionamiento interno de Molnip.
-      </p>
+      <div className="relative lg:pr-40">
+        <div className="absolute -top-2 -right-4 hidden h-32 w-32 overflow-hidden rounded-3xl shadow-premium-lg lg:block">
+          <Image
+            src="/imagenes/marca/carga-luz.png"
+            alt="Un cristal con un haz de luz visible por dentro, atravesándolo de un lado a otro"
+            width={256}
+            height={256}
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">Transparencia</p>
+        <h1 className="mt-2 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          Cómo trabaja Molnip
+        </h1>
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
+          Molnip no es una caja negra. Cada recomendación pasa por tres agentes distintos, cada uno con un
+          trabajo concreto y con acceso solo a los datos que necesita — nunca a la información de afiliación,
+          reservada al funcionamiento interno de Molnip.
+        </p>
+      </div>
 
       <div className="mt-10 space-y-6">
         {AGENTES.map((agente, i) => (
           <RevelarAlScroll key={agente.id} retrasoMs={i * 100}>
-            <div className="rounded-2xl border border-slate-200/80 bg-white p-6 sm:p-8">
+            <div className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-black/[0.02] sm:p-8">
               <div className="flex items-center gap-4">
                 <AvatarAgente id={agente.id} tamano="grande" />
                 <div>
-                  <h2 className={`text-xl font-bold ${COLOR_TEXTO[agente.id]}`}>{agente.nombre}</h2>
+                  <h2 className={`font-display text-xl font-bold ${COLOR_TEXTO[agente.id]}`}>{agente.nombre}</h2>
                   <p className="text-sm text-slate-500">{agente.rol}</p>
                 </div>
               </div>

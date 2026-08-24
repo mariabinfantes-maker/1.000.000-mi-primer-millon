@@ -1,0 +1,143 @@
+{
+  "nombre": "Zoho CRM",
+  "paginaOficial": "https://www.zoho.com/crm/",
+  "urlPrecios": "https://www.zoho.com/crm/pricing.html",
+  "categoriaId": "crm",
+  "descripcion": "Zoho CRM es una plataforma de gestión de relaciones con clientes basada en la nube que permite a empresas de todos los tamaños gestionar ventas, marketing y soporte técnico. Ofrece automatización de flujos de trabajo, análisis de rendimiento y un asistente impulsado por inteligencia artificial llamado Zia.",
+  "informacionEmpresa": {
+    "anioFundacion": 1996,
+    "paisOrigen": "India",
+    "tamanoAproximado": "10.000+ empleados"
+  },
+  "problemasQueResuelve": [
+    "Desorganización y falta de seguimiento estructurado de contactos y prospectos.",
+    "Pérdida de oportunidades por procesos de venta manuales y poco automatizados.",
+    "Falta de visibilidad sobre el rendimiento del equipo comercial y embudo de ventas.",
+    "Desconexión entre los departamentos de ventas, marketing y atención al cliente."
+  ],
+  "casosDeUso": [
+    "Captura y asignación automática de leads desde formularios web y redes sociales.",
+    "Gestión omnicanal de interacciones con clientes por correo, teléfono, chat y redes sociales.",
+    "Creación de embudos de ventas personalizados con automatizaciones de tareas y recordatorios.",
+    "Pronósticos de ventas e informes analíticos avanzados para la toma de decisiones."
+  ],
+  "idealPara": "Empresas de cualquier tamaño que buscan un CRM altamente personalizable, completo y con una excelente relación calidad-precio.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "Servicios profesionales",
+    "Tecnología y Software",
+    "Inmobiliaria",
+    "Comercio minorista y Ecommerce",
+    "Finanzas y Seguros"
+  ],
+  "noRecomendadaPara": "Empresas que buscan una herramienta ultrasimple de usar de inmediato sin dedicar tiempo a la configuración inicial.",
+  "casosNoRecomendados": [
+    "Proyectos o profesionales independientes que solo necesitan una libreta de contactos sin automatizaciones.",
+    "Equipos que no cuentan con capacidad técnica o tiempo para configurar campos, vistas e integraciones iniciales."
+  ],
+  "funcionesPrincipales": [
+    "Gestión de prospectos, contactos, cuentas y oportunidades",
+    "Automatización de la fuerza de ventas (SFA)",
+    "Asistente con inteligencia artificial (Zia)",
+    "Gestión omnicanal (email, telefonía CTI, chat, redes sociales)",
+    "Creación de reglas de flujo de trabajo y asignaciones",
+    "Informes y paneles de control totalmente personalizables",
+    "Canvas para la personalización avanzada de la interfaz visual"
+  ],
+  "integraciones": [
+    "Zoho Suite (Desk, Books, Campaigns, Projects, Analytics)",
+    "Google Workspace",
+    "Microsoft 365",
+    "Zapier",
+    "Mailchimp",
+    "Slack",
+    "Twilio",
+    "Shopify",
+    "QuickBooks",
+    "Zendesk"
+  ],
+  "integracionesPrincipales": [
+    "Google Workspace",
+    "Microsoft 365",
+    "Zapier",
+    "Slack"
+  ],
+  "curvaDeAprendizaje": "media",
+  "precioInicial": "Desde 14€/usuario/mes (facturado anualmente)",
+  "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": true,
+  "precioRecomendadoPymes": "Plan Professional a 23€/usuario/mes (facturación anual)",
+  "idiomasDisponibles": [
+    "Español",
+    "Inglés",
+    "Francés",
+    "Alemán",
+    "Italiano",
+    "Portugués",
+    "Chino",
+    "Japonés"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 8,
+    "calidad": 9,
+    "fiabilidad": 9,
+    "atencionAlCliente": 7,
+    "escalabilidad": 9,
+    "nivelTecnicoRequerido": 6,
+    "facilidadImplementacion": 7
+  },
+  "metodologiaValoracion": "Puntuaciones basadas en el análisis comparativo de prestaciones del producto, relación calidad-precio y la consolidación de miles de opiniones de usuarios verificados en plataformas como G2 y Capterra.",
+  "reputacion": {
+    "g2Puntuacion": 4.1,
+    "g2NumeroResenas": 26000,
+    "capterraPuntuacion": 4.3,
+    "capterraNumeroResenas": 6800
+  },
+  "ventajas": [
+    "Excelente relación calidad-precio en comparación con otros grandes competidores del mercado.",
+    "Gran capacidad de personalización y potentes funciones de automatización.",
+    "Integración nativa profunda con todo el ecosistema de aplicaciones Zoho.",
+    "Inclusión de inteligencia artificial avanzada (Zia) en planes de nivel intermedio y superior."
+  ],
+  "inconvenientes": [
+    "La interfaz puede resultar abrumadora inicialmente debido a la cantidad de menús y opciones.",
+    "El soporte al cliente en el plan básico suele tener tiempos de respuesta lentos.",
+    "Requiere una curva de configuración previa para sacarle el máximo partido."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Salesforce Sales Cloud",
+      "HubSpot CRM",
+      "Pipedrive",
+      "Freshsales"
+    ],
+    "tipoNegocioIdeal": "Pymes B2B y B2C que necesitan automatizar procesos de ventas complejos a un coste competitivo",
+    "nivelTecnicoRecomendado": "intermedio",
+    "puntuacion": 90,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.2/10.",
+      "G2: 4.1/5 (26000 reseñas).",
+      "Capterra: 4.3/5 (6800 reseñas).",
+      "Tiene plan gratuito.",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "zoho-crm",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-18",
+  "fechaUltimaRevision": "2026-08-19"
+}

@@ -1,0 +1,6 @@
+[
+  { "nombreHerramienta": "Salesforce", "categoriaId": "crm" },
+  { "nombreHerramienta": "Zoho CRM", "categoriaId": "crm" },
+  { "nombreHerramienta": "Copper", "categoriaId": "crm" },
+  { "nombreHerramienta": "Insightly", "categoriaId": "crm" }
+]

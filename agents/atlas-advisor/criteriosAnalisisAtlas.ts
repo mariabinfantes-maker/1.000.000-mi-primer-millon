@@ -49,7 +49,7 @@ export const criterioNivelTecnicoRecomendado: Criterio = (herramienta, { nivelTe
       criterio: "nivelTecnicoRecomendado",
       etiqueta: "Perfil técnico recomendado",
       puntos: 5,
-      explicacion: `Atlas la recomienda para un perfil ${recomendado}, dentro de tu capacidad técnica.`,
+      explicacion: `Molnip la recomienda para un perfil ${recomendado}, dentro de tu capacidad técnica.`,
     };
   }
 
@@ -57,7 +57,7 @@ export const criterioNivelTecnicoRecomendado: Criterio = (herramienta, { nivelTe
     criterio: "nivelTecnicoRecomendado",
     etiqueta: "Perfil técnico recomendado",
     puntos: -8,
-    explicacion: `Atlas la recomienda para un perfil ${recomendado}, por encima de tu capacidad técnica declarada.`,
+    explicacion: `Molnip la recomienda para un perfil ${recomendado}, por encima de tu capacidad técnica declarada.`,
   };
 };
 
@@ -79,7 +79,7 @@ export const criterioTipoNegocioIdeal: Criterio = (herramienta, { industria }) =
       criterio: "tipoNegocioIdeal",
       etiqueta: "Tipo de negocio ideal",
       puntos: 4,
-      explicacion: `Atlas la identifica como especialmente adecuada para ${tipoIdeal.toLowerCase()}.`,
+      explicacion: `Molnip la identifica como especialmente adecuada para ${tipoIdeal.toLowerCase()}.`,
     };
   }
 

@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Agiled Affiliate Program",
+  "affiliatePlatform": "FirstPromoter",
+  "affiliateUrl": "https://agiled.app/affiliates/",
+  "commission": "30% recurrente durante la vida de la suscripción del cliente",
+  "cookieDuration": "60 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://agiled.app/affiliates/",
+  "lastAffiliateCheck": "2026-08-21",
+  "herramientaId": "agiled"
+}

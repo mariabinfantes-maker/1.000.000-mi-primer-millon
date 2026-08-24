@@ -1,0 +1,19 @@
+{
+  "herramientaId": "krisp",
+  "cuentas": [
+    {
+      "id": "firstpromoter",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Krisp Affiliate Program",
+      "plataforma": "FirstPromoter",
+      "urlSolicitud": "https://krisp.ai/affiliate/",
+      "comision": "30% de comisión recurrente",
+      "duracionCookie": "30 días",
+      "metodoPago": "PayPal, Transferencia bancaria",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-21",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

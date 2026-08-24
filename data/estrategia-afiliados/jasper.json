@@ -1,0 +1,19 @@
+{
+  "herramientaId": "jasper",
+  "cuentas": [
+    {
+      "id": "firstpromoter",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Jasper Partner Program",
+      "plataforma": "FirstPromoter",
+      "urlSolicitud": "https://www.jasper.ai/partners",
+      "comision": "30% de comisión recurrente",
+      "duracionCookie": "30 días",
+      "metodoPago": "PayPal",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-19",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

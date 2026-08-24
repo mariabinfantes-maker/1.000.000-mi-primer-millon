@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Streak Affiliate Program",
+  "affiliatePlatform": "Rewardful",
+  "affiliateUrl": "https://www.streak.com/affiliates",
+  "commission": "20% de comisión recurrente durante los primeros 12 meses",
+  "cookieDuration": "60 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.streak.com/affiliates",
+  "lastAffiliateCheck": "2026-08-21",
+  "herramientaId": "streak"
+}

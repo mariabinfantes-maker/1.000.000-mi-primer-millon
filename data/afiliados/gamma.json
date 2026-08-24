@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Gamma Affiliate Program",
+  "affiliatePlatform": "Rewardful",
+  "affiliateUrl": "https://gamma.app/affiliates",
+  "commission": "20% recurrente durante los primeros 12 meses",
+  "cookieDuration": "60 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, Stripe",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://gamma.app/affiliates",
+  "lastAffiliateCheck": "2026-08-19",
+  "herramientaId": "gamma"
+}

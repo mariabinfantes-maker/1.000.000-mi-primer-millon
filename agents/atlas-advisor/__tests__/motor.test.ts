@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { evaluarHerramienta, recomendarHerramientas } from "../motor";
 import type { RespuestasUsuario } from "../tipos";
-import { catalogoDePrueba, crmFacil, erpComplejo, generalistaMedio, nichoVertical } from "./fixtures";
+import { catalogoDePrueba, construirHerramienta, crmFacil, erpComplejo, generalistaMedio, nichoVertical } from "./fixtures";
 
 describe("recomendarHerramientas", () => {
   it("recomienda la herramienta sencilla para una startup pequeña, sin equipo técnico y con presupuesto ajustado", () => {
@@ -154,6 +154,45 @@ describe("recomendarHerramientas", () => {
     expect(resultado.todas).toEqual([]);
   });
 
+  it("filtra por problemaIdsCandidatos cuando no hay categoriaId, devolviendo solo herramientas con ese objetivo", () => {
+    const resultado = recomendarHerramientas(
+      { problemaIdsCandidatos: ["conseguir-clientes"] },
+      catalogoDePrueba
+    );
+
+    expect(resultado.todas.map((e) => e.herramienta.id)).toEqual(["crm-facil"]);
+  });
+
+  it("evalúa la unión de herramientas cuando problemaIdsCandidatos trae varios ids (empate de la detección por texto)", () => {
+    const resultado = recomendarHerramientas(
+      { problemaIdsCandidatos: ["conseguir-clientes", "organizar-empresa"] },
+      catalogoDePrueba
+    );
+
+    expect(resultado.todas.map((e) => e.herramienta.id).sort()).toEqual(["crm-facil", "erp-complejo"]);
+  });
+
+  it("ignora problemaIdsCandidatos y evalúa el catálogo completo si ninguna herramienta lo tiene asignado (hueco editorial, no elección del usuario)", () => {
+    const resultado = recomendarHerramientas(
+      { problemaIdsCandidatos: ["objetivo-sin-herramientas-todavia"] },
+      catalogoDePrueba
+    );
+
+    expect(resultado.todas).toHaveLength(catalogoDePrueba.length);
+  });
+
+  it("da prioridad a categoriaId sobre problemaIdsCandidatos cuando llegan los dos a la vez", () => {
+    const resultado = recomendarHerramientas(
+      { categoriaId: "plataformas-todo-en-uno", problemaIdsCandidatos: ["conseguir-clientes"] },
+      catalogoDePrueba
+    );
+
+    // Las 4 herramientas de prueba comparten categoriaId "plataformas-todo-en-uno" (valor por defecto de
+    // construirHerramienta); si problemaIdsCandidatos ganara la prioridad, el resultado se quedaría solo en
+    // crm-facil (la única con ese problemaId).
+    expect(resultado.todas).toHaveLength(catalogoDePrueba.length);
+  });
+
   it("respeta la opción `cantidad` para devolver un top distinto de 3", () => {
     const resultado = recomendarHerramientas({}, catalogoDePrueba, { cantidad: 2 });
     expect(resultado.top).toHaveLength(2);
@@ -163,5 +202,108 @@ describe("recomendarHerramientas", () => {
     const resultado = recomendarHerramientas({ tamanoEmpresa: "1-10" }, [crmFacil]);
     expect(resultado.top).toHaveLength(1);
     expect(resultado.top[0].herramienta.id).toBe("crm-facil");
+  });
+
+  describe("preferenciaSuite (pregunta explícita del cuestionario)", () => {
+    const suiteTodoEnUno = construirHerramienta({ id: "suite-1", nombre: "Suite 1", categoriaId: "plataformas-todo-en-uno" });
+    const crmEspecializado = construirHerramienta({ id: "crm-1", nombre: "CRM 1", categoriaId: "crm" });
+    const catalogoMixto = [suiteTodoEnUno, crmEspecializado];
+
+    it('filtra solo a "plataformas-todo-en-uno" cuando el usuario elige explícitamente esa preferencia', () => {
+      const resultado = recomendarHerramientas({ preferenciaSuite: "todo_en_uno" }, catalogoMixto);
+      expect(resultado.todas.map((e) => e.herramienta.id)).toEqual(["suite-1"]);
+    });
+
+    it("excluye las suites todo en uno cuando el usuario elige explícitamente herramientas especializadas", () => {
+      const resultado = recomendarHerramientas({ preferenciaSuite: "especializada" }, catalogoMixto);
+      expect(resultado.todas.map((e) => e.herramienta.id)).toEqual(["crm-1"]);
+    });
+
+    it("categoriaId sigue teniendo prioridad sobre preferenciaSuite si llegan los dos a la vez", () => {
+      const resultado = recomendarHerramientas(
+        { categoriaId: "crm", preferenciaSuite: "todo_en_uno" },
+        catalogoMixto
+      );
+      expect(resultado.todas.map((e) => e.herramienta.id)).toEqual(["crm-1"]);
+    });
+
+    it("ignora preferenciaSuite si vacía el catálogo (hueco editorial, no elección real posible todavía)", () => {
+      const soloEspecializadas = [crmEspecializado];
+      const resultado = recomendarHerramientas({ preferenciaSuite: "todo_en_uno" }, soloEspecializadas);
+      expect(resultado.todas.map((e) => e.herramienta.id)).toEqual(["crm-1"]);
+    });
+
+    it("combina preferenciaSuite con problemaIdsCandidatos: primero el tipo de suite, luego el objetivo", () => {
+      const suiteConProblema = construirHerramienta({
+        id: "suite-2",
+        nombre: "Suite 2",
+        categoriaId: "plataformas-todo-en-uno",
+        problemasIds: ["conseguir-clientes"],
+      });
+      const especializadaConProblema = construirHerramienta({
+        id: "crm-2",
+        nombre: "CRM 2",
+        categoriaId: "crm",
+        problemasIds: ["conseguir-clientes"],
+      });
+
+      const resultado = recomendarHerramientas(
+        { preferenciaSuite: "todo_en_uno", problemaIdsCandidatos: ["conseguir-clientes"] },
+        [suiteConProblema, especializadaConProblema]
+      );
+
+      expect(resultado.todas.map((e) => e.herramienta.id)).toEqual(["suite-2"]);
+    });
+  });
+
+  describe("criterioTipoSuite (señales indirectas, sin elección explícita)", () => {
+    const suiteTodoEnUno = construirHerramienta({ id: "suite-1", nombre: "Suite 1", categoriaId: "plataformas-todo-en-uno" });
+    const crmEspecializado = construirHerramienta({ id: "crm-1", nombre: "CRM 1", categoriaId: "crm" });
+
+    it("no filtra el catálogo por señales indirectas: ambos tipos siguen evaluándose", () => {
+      const respuestas: RespuestasUsuario = { tamanoEmpresa: "1-10", presupuesto: "ajustado", nivelTecnicoEquipo: "ninguno" };
+      const resultado = recomendarHerramientas(respuestas, [suiteTodoEnUno, crmEspecializado]);
+      expect(resultado.todas).toHaveLength(2);
+    });
+
+    it("puntúa mejor la suite todo en uno cuando las señales indirectas la favorecen", () => {
+      const respuestas: RespuestasUsuario = { tamanoEmpresa: "1-10", presupuesto: "ajustado", nivelTecnicoEquipo: "ninguno" };
+      const evaluadaSuite = evaluarHerramienta(suiteTodoEnUno, respuestas);
+      const evaluadaCrm = evaluarHerramienta(crmEspecializado, respuestas);
+
+      const detalleSuite = evaluadaSuite.detalles.find((d) => d.criterio === "tipoSuite")!;
+      const detalleCrm = evaluadaCrm.detalles.find((d) => d.criterio === "tipoSuite")!;
+
+      expect(detalleSuite.puntos).toBeGreaterThan(0);
+      expect(detalleCrm.puntos).toBeLessThan(0);
+    });
+
+    it("puntúa mejor la herramienta especializada cuando las señales indirectas la favorecen", () => {
+      const respuestas: RespuestasUsuario = { tamanoEmpresa: "200+", presupuesto: "alto", nivelTecnicoEquipo: "avanzado" };
+      const evaluadaSuite = evaluarHerramienta(suiteTodoEnUno, respuestas);
+      const evaluadaCrm = evaluarHerramienta(crmEspecializado, respuestas);
+
+      const detalleSuite = evaluadaSuite.detalles.find((d) => d.criterio === "tipoSuite")!;
+      const detalleCrm = evaluadaCrm.detalles.find((d) => d.criterio === "tipoSuite")!;
+
+      expect(detalleSuite.puntos).toBeLessThan(0);
+      expect(detalleCrm.puntos).toBeGreaterThan(0);
+    });
+
+    it("no puntúa nada cuando las señales indirectas se cancelan entre sí", () => {
+      const respuestas: RespuestasUsuario = { tamanoEmpresa: "1-10", presupuesto: "alto" };
+      const evaluada = evaluarHerramienta(suiteTodoEnUno, respuestas);
+      const detalle = evaluada.detalles.find((d) => d.criterio === "tipoSuite")!;
+      expect(detalle.puntos).toBe(0);
+      expect(detalle.explicacion).toBe("");
+    });
+
+    it("no puntúa nada cuando ya hubo elección explícita (categoriaId o preferenciaSuite), para no ser redundante", () => {
+      const respuestas: RespuestasUsuario = { categoriaId: "plataformas-todo-en-uno", tamanoEmpresa: "1-10", presupuesto: "ajustado", nivelTecnicoEquipo: "ninguno" };
+      const evaluada = evaluarHerramienta(suiteTodoEnUno, respuestas);
+      const detalle = evaluada.detalles.find((d) => d.criterio === "tipoSuite")!;
+      expect(detalle.puntos).toBe(0);
+      expect(detalle.explicacion).toBe("");
+    });
   });
 });

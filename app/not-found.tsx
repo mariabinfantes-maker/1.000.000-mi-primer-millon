@@ -1,13 +1,19 @@
-import { Compass } from "lucide-react";
+import Image from "next/image";
 import Boton from "@/components/ui/Boton";
 
 export default function NotFound() {
   return (
     <div className="mx-auto flex max-w-xl flex-col items-center px-4 py-24 text-center">
-      <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-600">
-        <Compass className="h-7 w-7" aria-hidden="true" />
-      </span>
-      <h1 className="mt-5 text-2xl font-bold tracking-tight text-slate-900">
+      <div className="h-36 w-36 overflow-hidden rounded-3xl shadow-premium-lg">
+        <Image
+          src="/imagenes/marca/404-grieta.png"
+          alt="Un cristal facetado con una fina grieta, la luz dispersándose sin encontrar su camino"
+          width={288}
+          height={288}
+          className="h-full w-full object-cover"
+        />
+      </div>
+      <h1 className="mt-6 font-display text-2xl font-bold tracking-tight text-slate-900">
         Página no encontrada
       </h1>
       <p className="mt-2 leading-relaxed text-slate-600">

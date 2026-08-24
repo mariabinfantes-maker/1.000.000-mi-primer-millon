@@ -28,8 +28,20 @@ export type PresupuestoMensual = "sin_presupuesto" | "ajustado" | "medio" | "alt
  * vez de fallar o descartar herramientas por falta de datos).
  */
 export type RespuestasUsuario = {
-  /** Categoría de software que busca (Categoria.id). Si se indica, se filtra el catálogo a esa categoría antes de puntuar. */
+  /** Categoría de software que busca (Categoria.id). Si se indica, se filtra el catálogo a esa categoría antes de puntuar — tiene prioridad sobre `problemaIdsCandidatos`. */
   categoriaId?: string;
+  /**
+   * Objetivo(s) del catálogo (`Problema.id`) a los que se prefiltra el
+   * catálogo cuando no hay `categoriaId`: exactamente uno cuando el usuario
+   * entró "por objetivo" (lo eligió de forma explícita), o varios cuando lo
+   * detectó el motor a partir de texto libre (puerta "Cuéntanoslo") y hay
+   * empate entre objetivos igual de probables. Si ninguna herramienta del
+   * catálogo tiene alguno de estos `Herramienta.problemasIds`, el motor
+   * ignora el filtro y evalúa el catálogo completo en vez de devolver una
+   * lista vacía — a diferencia de `categoriaId`, que sí es una elección
+   * explícita y determinista del usuario.
+   */
+  problemaIdsCandidatos?: string[];
   /** Tamaño de la empresa, mismo formato que Herramienta.segmentosIdeales. */
   tamanoEmpresa?: RangoEmpleados;
   /** Sector / industria en texto libre, tal y como lo escribe el usuario. */
@@ -48,6 +60,15 @@ export type RespuestasUsuario = {
   integracionesNecesarias?: string[];
   /** Idioma que necesita la herramienta, para el equipo o para los clientes. */
   idiomaNecesario?: string;
+  /**
+   * Respuesta explícita a la pregunta "¿plataforma todo en uno o
+   * herramientas especializadas?" (primera pregunta del cuestionario,
+   * salvo cuando `categoriaId` ya viene fijado por la puerta de entrada).
+   * `undefined` si el usuario respondió "no tengo preferencia clara" o si
+   * la pregunta no se llegó a mostrar — en ambos casos el motor decide por
+   * señales indirectas (ver `todoEnUnoVsEspecializada.ts`), nunca al azar.
+   */
+  preferenciaSuite?: "todo_en_uno" | "especializada";
   /** Descripción libre de la situación del usuario, contrastada contra casosNoRecomendados de cada herramienta. */
   notasAdicionales?: string;
 };

@@ -1,9 +1,11 @@
-import { AlertTriangle, ArrowUpRight, Check, ChevronRight, Lightbulb, Puzzle, X } from "lucide-react";
+import { AlertTriangle, ArrowUpRight, Check, ChevronRight, Code2, Globe, Lightbulb, Puzzle, Smartphone, X } from "lucide-react";
 import Link from "next/link";
+import type { Reputacion } from "@/data/esquema";
 import Tarjeta from "@/components/ui/Tarjeta";
 import Etiqueta from "@/components/ui/Etiqueta";
 import Boton from "@/components/ui/Boton";
 import AnilloPuntuacion from "@/components/ui/AnilloPuntuacion";
+import InsigniaReputacion from "@/components/ui/InsigniaReputacion";
 
 /**
  * Contrato de la tarjeta, deliberadamente plano y ajeno al motor de
@@ -36,6 +38,11 @@ export type TarjetaHerramientaRecomendadaProps = {
   casoDeUso: string | null;
   /** Situaciones reales en las que esta misma herramienta podría no ser la mejor opción. */
   casosNoRecomendados: string[];
+  /** Reputación externa (G2/Capterra) ya investigada por Atlas — ver InsigniaReputacion. `undefined` si no existe, nunca inventada. */
+  reputacion?: Reputacion;
+  disponibleEnEspanol: boolean;
+  tieneAppMovil: boolean;
+  tieneApiPublica: boolean;
 };
 
 export default function TarjetaHerramientaRecomendada({
@@ -53,27 +60,47 @@ export default function TarjetaHerramientaRecomendada({
   tieneAdvertencia = false,
   casoDeUso,
   casosNoRecomendados,
+  reputacion,
+  disponibleEnEspanol,
+  tieneAppMovil,
+  tieneApiPublica,
 }: TarjetaHerramientaRecomendadaProps) {
   const destacada = posicion === 1;
   const tieneDetalles = motivosPuntuacion.length > 0 || casosNoRecomendados.length > 0;
+  const badgesEncaje = [
+    disponibleEnEspanol ? { icono: Globe, etiqueta: "Español" } : null,
+    tieneAppMovil ? { icono: Smartphone, etiqueta: "App móvil" } : null,
+    tieneApiPublica ? { icono: Code2, etiqueta: "API" } : null,
+  ].filter((b): b is { icono: typeof Globe; etiqueta: string } => b !== null);
 
   return (
     <Tarjeta
-      destacada={destacada}
-      className="flex h-full flex-col"
+      ganadora={destacada}
+      className="relative flex h-full flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-premium-lg"
     >
+      {destacada && (
+        <div
+          className="absolute -top-3 left-6 rounded-full bg-gold-500 px-3 py-1 text-xs font-bold tracking-wide text-white shadow-sm"
+          aria-hidden="true"
+        >
+          La opción elegida
+        </div>
+      )}
+
       <div className="flex items-start justify-between gap-3">
         <Etiqueta variante={destacada ? "marca" : "neutra"}>
-          {destacada ? "Mejor opción para ti" : `Opción #${posicion}`}
+          {destacada ? "Mejor ajuste para ti" : `Opción #${posicion}`}
         </Etiqueta>
         {puntuacionAtlas !== null && <AnilloPuntuacion puntuacion={puntuacionAtlas} />}
       </div>
 
-      <h3 className="mt-4 text-xl font-bold tracking-tight text-slate-900">
-        <Link href={`/herramienta/${id}`} className="hover:text-brand-700">
+      <h3 className="mt-4 font-display text-xl font-bold tracking-tight text-slate-900">
+        <Link href={`/herramienta/${id}`} className="transition hover:text-brand-700">
           {nombre}
         </Link>
       </h3>
+
+      <InsigniaReputacion reputacion={reputacion} />
 
       <p className="mt-3 rounded-xl bg-brand-50/70 p-3 text-sm leading-relaxed text-brand-800">
         {explicacionPersonalizada}
@@ -85,6 +112,17 @@ export default function TarjetaHerramientaRecomendada({
           {tienePlanGratuito ? "Con plan gratuito" : "Sin plan gratuito"}
         </Etiqueta>
       </div>
+
+      {badgesEncaje.length > 0 && (
+        <div className="mt-3 flex flex-wrap items-center gap-3">
+          {badgesEncaje.map(({ icono: Icono, etiqueta }) => (
+            <span key={etiqueta} className="inline-flex items-center gap-1 text-xs font-medium text-slate-500">
+              <Icono className="h-3.5 w-3.5 shrink-0 text-slate-400" aria-hidden="true" />
+              {etiqueta}
+            </span>
+          ))}
+        </div>
+      )}
 
       {integracionPrincipal && (
         <p className="mt-3 flex items-center gap-1.5 text-sm text-slate-600">
@@ -134,7 +172,7 @@ export default function TarjetaHerramientaRecomendada({
 
       {tieneDetalles && (
         <details className="mt-4 border-t border-slate-100 pt-4">
-          <summary className="cursor-pointer select-none text-sm font-semibold text-slate-600 hover:text-brand-700">
+          <summary className="cursor-pointer select-none text-sm font-semibold text-slate-600 transition hover:text-brand-700">
             Ver más detalles
           </summary>
           <div className="mt-3 space-y-4">
@@ -172,14 +210,19 @@ export default function TarjetaHerramientaRecomendada({
 
       <Link
         href={`/herramienta/${id}`}
-        className="mt-6 flex items-center justify-center gap-1 text-sm font-semibold text-brand-600 hover:text-brand-800"
+        className="mt-6 flex items-center justify-center gap-1 text-sm font-semibold text-brand-600 transition hover:text-brand-800"
       >
         Ver ficha completa
         <ChevronRight className="h-4 w-4" aria-hidden="true" />
       </Link>
 
-      <Boton href={`/herramienta/${id}/ir`} tamano="grande" className="mt-3 w-full">
-        Ir al proveedor
+      <Boton
+        href={`/herramienta/${id}/ir?origen=resultado`}
+        tamano="grande"
+        variante={destacada ? "primario" : "secundario"}
+        className="mt-3 w-full"
+      >
+        {tienePlanGratuito ? "Probar gratis" : `Ir a ${nombre}`}
         <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
       </Boton>
     </Tarjeta>

@@ -18,6 +18,8 @@
  */
 export { evaluarHerramienta, recomendarHerramientas } from "./motor";
 export { CRITERIOS } from "./criterios";
+export { detectarProblemasPorTexto } from "./deteccionProblema";
+export { compararTodoEnUnoVsEspecializada } from "./todoEnUnoVsEspecializada";
 export type {
   Criterio,
   DetalleCriterio,
@@ -28,3 +30,4 @@ export type {
   ResultadoRecomendacion,
   RespuestasUsuario,
 } from "./tipos";
+export type { RecomendacionTipoSuite, ResultadoComparacionSuite } from "./todoEnUnoVsEspecializada";

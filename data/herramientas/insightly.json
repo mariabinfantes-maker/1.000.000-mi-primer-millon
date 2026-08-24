@@ -1,0 +1,147 @@
+{
+  "nombre": "Insightly",
+  "paginaOficial": "https://www.insightly.com",
+  "urlPrecios": "https://www.insightly.com/pricing/",
+  "logoUrl": "",
+  "categoriaId": "crm",
+  "descripcion": "Insightly es un software de gestión de relaciones con los clientes (CRM) y gestión de proyectos diseñado para empresas en crecimiento. Combina el seguimiento de ventas, la automatización del flujo de trabajo y la gestión de proyectos tras la venta en una única plataforma unificada.",
+  "informacionEmpresa": {
+    "anioFundacion": 2009,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "51-200 empleados"
+  },
+  "problemasQueResuelve": [
+    "Falta de continuidad entre el proceso comercial de ventas y la ejecución posterior del proyecto.",
+    "Desorganización e historial disperso de contactos, correos electrónicos e interacciones con clientes.",
+    "Visibilidad limitada del pipeline de ventas y del rendimiento del equipo comercial.",
+    "Dificultad para coordinar tareas post-venta sin cambiar a un software independiente de gestión de proyectos."
+  ],
+  "casosDeUso": [
+    "Conversión directa de oportunidades de venta ganadas en proyectos ejecutables con asignación de tareas e hitos.",
+    "Centralización y seguimiento automático del historial de correos de clientes desde Gmail o Microsoft Outlook.",
+    "Automatización de procesos comerciales y recordatorios de seguimiento de oportunidades.",
+    "Creación de paneles de control y métricas personalizadas sobre el rendimiento de las ventas."
+  ],
+  "idealPara": "Empresas de servicios B2B y pymes en crecimiento que buscan unificar la gestión del pipeline de ventas con el seguimiento de proyectos en una misma plataforma.",
+  "segmentosIdeales": [
+    "11-50",
+    "51-200"
+  ],
+  "industriasIdeales": [
+    "Servicios profesionales",
+    "Consultoría",
+    "Agencias de marketing y publicidad",
+    "Tecnología y software",
+    "Inmobiliario",
+    "Servicios financieros"
+  ],
+  "noRecomendadaPara": "Microempresas con presupuestos ajustados que requieran un plan totalmente gratuito o corporaciones con estructuras de ventas masivas y complejas.",
+  "casosNoRecomendados": [
+    "Equipos comerciales de gran escala (Enterprise) que necesitan máxima personalización e integración profunda nativa con ecosistemas complejos tipo Salesforce.",
+    "Empresas que buscan una herramienta completamente gratuita para almacenamiento ilimitado de contactos."
+  ],
+  "funcionesPrincipales": [
+    "Gestión de contactos y oportunidades de venta (Pipeline Management)",
+    "Gestión de proyectos integrada con hitos, tareas y entregables",
+    "Automatización de flujos de trabajo (Workflow Automation)",
+    "Integración nativa y seguimiento bidireccional de correo electrónico",
+    "Informes avanzados y paneles de control personalizables",
+    "Gestión de permisos y roles avanzados por usuario",
+    "Captura y asignación automática de prospectos (Lead Routing)"
+  ],
+  "integraciones": [
+    "Gmail",
+    "Google Workspace",
+    "Microsoft Outlook",
+    "Microsoft 365",
+    "Zapier",
+    "QuickBooks",
+    "Xero",
+    "Mailchimp",
+    "Slack",
+    "PandaDoc"
+  ],
+  "integracionesPrincipales": [
+    "Gmail",
+    "Microsoft Outlook",
+    "Zapier",
+    "QuickBooks"
+  ],
+  "curvaDeAprendizaje": "media",
+  "precioInicial": "Desde $29/usuario/mes (facturado anualmente)",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Plan Professional a $49/usuario/mes (facturación anual), que añade automatizaciones e informes avanzados.",
+  "idiomasDisponibles": [
+    "Inglés",
+    "Español",
+    "Francés",
+    "Alemán",
+    "Portugués",
+    "Italiano"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 8,
+    "calidad": 8,
+    "fiabilidad": 8,
+    "atencionAlCliente": 7,
+    "escalabilidad": 7,
+    "nivelTecnicoRequerido": 5,
+    "facilidadImplementacion": 8
+  },
+  "metodologiaValoracion": "Valoración basada en el análisis funcional del producto, documentación pública de precios y funcionalidades, e investigación de reseñas de usuarios en plataformas independientes como G2 y Capterra.",
+  "reputacion": {
+    "g2Puntuacion": 4.2,
+    "g2NumeroResenas": 890,
+    "capterraPuntuacion": 4.2,
+    "capterraNumeroResenas": 680,
+    "otrasFuentes": [
+      {
+        "fuente": "TrustRadius",
+        "puntuacion": 7.5,
+        "numeroResenas": 250,
+        "enlace": "https://www.trustradius.com/products/insightly/reviews"
+      }
+    ]
+  },
+  "ventajas": [
+    "Integración nativa fluida entre las etapas de ventas (CRM) y la entrega del trabajo (gestión de proyectos).",
+    "Excelente integración con la bandeja de entrada de Gmail y Outlook.",
+    "Interfaz intuitiva con curva de adopción rápida para el equipo comercial.",
+    "API REST sólida y conectividad con miles de apps mediante Zapier."
+  ],
+  "inconvenientes": [
+    "Los planes más económicos limitan la cantidad de automatizaciones de flujos de trabajo e informes.",
+    "El soporte técnico prioritario o telefónico requiere contratar un plan de soporte adicional.",
+    "Ya no ofrecen un plan gratuito permanente (solo prueba gratuita de 14 días)."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "HubSpot CRM",
+      "Zoho CRM",
+      "Pipedrive",
+      "Salesforce Sales Cloud"
+    ],
+    "tipoNegocioIdeal": "Agencias y empresas de servicios B2B",
+    "nivelTecnicoRecomendado": "intermedio",
+    "puntuacion": 84,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 7.7/10.",
+      "G2: 4.2/5 (890 reseñas).",
+      "Capterra: 4.2/5 (680 reseñas).",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "insightly",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-18",
+  "fechaUltimaRevision": "2026-08-19"
+}

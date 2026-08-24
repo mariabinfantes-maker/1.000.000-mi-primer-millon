@@ -1,0 +1,19 @@
+{
+  "herramientaId": "scoro",
+  "cuentas": [
+    {
+      "id": "partnerstack",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Scoro Partner Program",
+      "plataforma": "PartnerStack",
+      "urlSolicitud": "https://www.scoro.com/partners/",
+      "comision": "15% a 20% de comisión recurrente durante el primer año por cliente referido",
+      "duracionCookie": "90 días",
+      "metodoPago": "PayPal, Transferencia bancaria",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-21",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

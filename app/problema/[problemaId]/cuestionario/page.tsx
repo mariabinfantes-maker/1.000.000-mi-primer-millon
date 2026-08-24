@@ -36,6 +36,7 @@ export default async function CuestionarioPage({
     titulo: problema.titulo,
     descripcion: problema.descripcion,
     preguntaHerramienta: problema.preguntaHerramienta,
+    problemaIdPrefill: problema.id,
     rutaBase: `/problema/${problema.id}`,
   };
 

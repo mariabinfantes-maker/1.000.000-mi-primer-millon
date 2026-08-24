@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { detectarCuentasActivasSinEnlace, detectarCuentasEstancadas } from "../consistencia";
+import { detectarCuentasActivasSinEnlace, detectarCuentasConVerificacionPendiente, detectarCuentasEstancadas } from "../consistencia";
 import type { CuentaAfiliado, EstrategiaAfiliacion } from "@/data/esquemaInterno";
 
 function construirCuenta(overrides: Partial<CuentaAfiliado> & Pick<CuentaAfiliado, "id" | "estado">): CuentaAfiliado {
@@ -108,5 +108,26 @@ describe("detectarCuentasEstancadas", () => {
       ]),
     ];
     expect(detectarCuentasEstancadas(estrategias, "2026-08-03")).toEqual([]);
+  });
+});
+
+describe("detectarCuentasConVerificacionPendiente", () => {
+  it("no avisa de una cuenta sin verificacionPendiente", () => {
+    const estrategias = [construirEstrategia("hubspot", [construirCuenta({ id: "a", estado: "no_solicitado" })])];
+    expect(detectarCuentasConVerificacionPendiente(estrategias)).toEqual([]);
+  });
+
+  it("avisa de una cuenta marcada verificacionPendiente, incluyendo la comisión investigada", () => {
+    const estrategias = [
+      construirEstrategia("zoho-crm", [
+        construirCuenta({ id: "a", estado: "no_solicitado", verificacionPendiente: true, comision: "Variable, sin cifra confirmada" }),
+      ]),
+    ];
+
+    const avisos = detectarCuentasConVerificacionPendiente(estrategias);
+
+    expect(avisos).toHaveLength(1);
+    expect(avisos[0].herramientaId).toBe("zoho-crm");
+    expect(avisos[0].mensaje).toContain("Variable, sin cifra confirmada");
   });
 });

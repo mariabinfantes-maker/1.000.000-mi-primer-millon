@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Synthesia Affiliate Program",
+  "affiliatePlatform": "PartnerStack",
+  "affiliateUrl": "https://www.synthesia.io/affiliates",
+  "commission": "20% recurrente durante los primeros 12 meses",
+  "cookieDuration": "60 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, Transferencia bancaria (Stripe / PartnerStack)",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.synthesia.io/affiliates",
+  "lastAffiliateCheck": "2026-08-21",
+  "herramientaId": "synthesia"
+}

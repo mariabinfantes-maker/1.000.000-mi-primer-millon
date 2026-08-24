@@ -1,0 +1,146 @@
+{
+  "nombre": "Agiled",
+  "paginaOficial": "https://agiled.app/",
+  "urlPrecios": "https://agiled.app/pricing/",
+  "logoUrl": "",
+  "categoriaId": "plataformas-todo-en-uno",
+  "descripcion": "Agiled es una plataforma integrada de gestión empresarial diseñada para agencias, consultoras y pymes. Permite consolidar CRM, proyectos, facturación, seguimiento de tiempo, gestión de empleados y portales de clientes en un solo sistema. Su objetivo es reemplazar múltiples herramientas independientes para simplificar las operaciones diarias.",
+  "informacionEmpresa": {
+    "anioFundacion": 2020,
+    "paisOrigen": "Pakistán",
+    "tamanoAproximado": "11-50 empleados"
+  },
+  "problemasQueResuelve": [
+    "Fragmentación de datos y procesos al utilizar múltiples aplicaciones separadas para facturación, CRM y proyectos.",
+    "Falta de visibilidad sobre la rentabilidad real de proyectos y clientes.",
+    "Dificultad para mantener una comunicación fluida con clientes mediante portales profesionales con marca propia.",
+    "Incomodidad en la gestión manual de presupuestos, facturas recurrentes y cobros."
+  ],
+  "casosDeUso": [
+    "Agencias de marketing que gestionan el pipeline de ventas, envían propuestas, administran tareas de proyectos y facturan a clientes desde una única plataforma.",
+    "Consultores y freelancers que registran sus horas de trabajo vinculadas a un proyecto y emiten facturas de cobro automático mediante Stripe o PayPal.",
+    "Pequeñas empresas que necesitan un módulo sencillo de RRHH para gestionar asistencia, permisos y vacaciones de los empleados."
+  ],
+  "idealPara": "Agencias digitales, consultoras, freelancers y pymes de servicios que buscan unificar sus operaciones en una sola plataforma a un precio asequible.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "Agencias de marketing y publicidad",
+    "Desarrollo de software y diseño web",
+    "Consultoría y servicios profesionales",
+    "Servicios creativos y producción audiovisual"
+  ],
+  "noRecomendadaPara": "Grandes corporaciones que requieran herramientas ultraespecializadas o empresas con complejas cadenas de suministro e inventario físico.",
+  "casosNoRecomendados": [
+    "Empresas industriales o de ecommerce que requieran gestión avanzada de inventarios y logística (ERP tradicional).",
+    "Grandes organizaciones de más de 200 empleados con estrictos requisitos de personalización de software a medida y gobernanza de datos avanzada."
+  ],
+  "funcionesPrincipales": [
+    "CRM para gestión de contactos, prospectos y embudos de ventas",
+    "Gestión de proyectos con vistas Kanban, Gantt, tareas y hilos de discusión",
+    "Facturación, cotizaciones, contratos con firma digital y pagos recurrentes",
+    "Seguimiento de tiempo (Time Tracking) e informes de horas facturables",
+    "Portal para clientes con soporte para marca blanca (White Label)",
+    "Gestión de RRHH (control de asistencia, licencias y expediente de empleados)"
+  ],
+  "modulosIncluidos": [
+    "crm",
+    "gestion_proyectos",
+    "facturacion",
+    "atencion_cliente",
+    "recursos_humanos"
+  ],
+  "integraciones": [
+    "Stripe",
+    "PayPal",
+    "Razorpay",
+    "QuickBooks",
+    "Xero",
+    "Zapier",
+    "Make",
+    "HubSpot",
+    "Google Drive",
+    "Dropbox",
+    "Asana",
+    "Trello",
+    "Slack",
+    "Zoom"
+  ],
+  "integracionesPrincipales": [
+    "Stripe",
+    "QuickBooks",
+    "Zapier",
+    "Make"
+  ],
+  "curvaDeAprendizaje": "media",
+  "precioInicial": "Desde $15/mes",
+  "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual",
+    "suscripcion_anual"
+  ],
+  "tienePlanGratuito": true,
+  "precioRecomendadoPymes": "Plan Pro desde $45/mes (incluye automatizaciones avanzadas, más integraciones y personalización de marca blanca).",
+  "idiomasDisponibles": [
+    "Inglés",
+    "Español",
+    "Francés",
+    "Alemán",
+    "Italiano"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 7,
+    "calidad": 8,
+    "fiabilidad": 8,
+    "atencionAlCliente": 8,
+    "escalabilidad": 7,
+    "nivelTecnicoRequerido": 5,
+    "facilidadImplementacion": 7
+  },
+  "metodologiaValoracion": "Puntuaciones estimadas a partir de la evaluación técnica de sus módulos y la agregación de calificaciones de usuarios en plataformas como Capterra y G2.",
+  "reputacion": {
+    "g2Puntuacion": 4.6,
+    "g2NumeroResenas": 45,
+    "capterraPuntuacion": 4.7,
+    "capterraNumeroResenas": 320
+  },
+  "ventajas": [
+    "Amplia variedad de funcionalidades integradas a un coste reducido frente a adquirir herramientas por separado.",
+    "Excelente capacidad de personalización de portal de clientes con opciones de marca blanca.",
+    "Buenas automatizaciones de flujo de trabajo e integraciones con Zapier y Make.",
+    "Inclusión de módulos poco comunes en herramientas All-in-One simples, como gestión básica de RRHH."
+  ],
+  "inconvenientes": [
+    "La interfaz puede resultar abrumadora inicialmente por la cantidad de módulos y configuraciones.",
+    "Cada módulo individual (CRM o proyectos) carece de la profundidad que ofrecen herramientas dedicadas especializadas.",
+    "Traducciones parciales o imprecisiones menores en el idioma español."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Plutio",
+      "SuiteDash",
+      "Bonsai",
+      "ClientJoy"
+    ],
+    "tipoNegocioIdeal": "Agencias digitales y pymes de servicios profesionales",
+    "nivelTecnicoRecomendado": "intermedio",
+    "puntuacion": 91,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 7.5/10.",
+      "G2: 4.6/5 (45 reseñas).",
+      "Capterra: 4.7/5 (320 reseñas).",
+      "Tiene plan gratuito.",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "agiled",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-21",
+  "fechaUltimaRevision": "2026-08-21"
+}

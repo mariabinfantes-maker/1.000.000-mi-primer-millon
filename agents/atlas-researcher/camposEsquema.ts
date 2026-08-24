@@ -33,7 +33,13 @@ const CAMPOS_GESTIONADOS_POR_ATLAS = new Set<keyof Herramienta>([
  * (¿investigó competidores, tipo de negocio ideal...?) la comprueba una
  * función dedicada.
  */
-const CAMPOS_OPCIONALES = new Set<keyof Herramienta>(["urlPrecios", "logoUrl", "reputacion", "analisisAtlas"]);
+const CAMPOS_OPCIONALES = new Set<keyof Herramienta>([
+  "urlPrecios",
+  "logoUrl",
+  "reputacion",
+  "analisisAtlas",
+  "modulosIncluidos",
+]);
 
 export const DESCRIPCION_CAMPOS: Record<keyof Herramienta, string> = {
   id: "Identificador interno (lo asigna Atlas, no lo investigues).",
@@ -58,6 +64,12 @@ export const DESCRIPCION_CAMPOS: Record<keyof Herramienta, string> = {
   noRecomendadaPara: "A quién NO le conviene, en una frase.",
   casosNoRecomendados: "Lista de casos concretos en los que no es la mejor opción.",
   funcionesPrincipales: "Lista de las funciones más importantes.",
+  modulosIncluidos:
+    "SOLO si la herramienta es una suite que combina varias funciones de negocio distintas (no para herramientas " +
+    "de un único propósito): array con los módulos que incluye de verdad, entre \"crm\", \"gestion_proyectos\", " +
+    '"asistente_ia", "facturacion", "email_marketing", "atencion_cliente", "embudos_de_venta", ' +
+    '"comercio_electronico", "creador_de_sitios_web", "recursos_humanos". Incluye solo los que la herramienta ' +
+    "ofrece de verdad como funcionalidad propia, no integraciones con herramientas externas de terceros.",
   integraciones: "Lista de integraciones con otras herramientas.",
   integracionesPrincipales: "Subconjunto de 3-4 integraciones más destacadas de la lista anterior.",
   curvaDeAprendizaje: 'Una de: "muy_facil", "facil", "media", "dificil".',

@@ -1,0 +1,19 @@
+{
+  "herramientaId": "ganttpro",
+  "cuentas": [
+    {
+      "id": "firstpromoter",
+      "estado": "no_solicitado",
+      "nombrePrograma": "GanttPRO Affiliate Program",
+      "plataforma": "FirstPromoter",
+      "urlSolicitud": "https://ganttpro.com/affiliate-program/",
+      "comision": "50% de comisión por la primera compra y hasta 20% recurrente en renovaciones",
+      "duracionCookie": "90 días",
+      "metodoPago": "PayPal",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-21",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

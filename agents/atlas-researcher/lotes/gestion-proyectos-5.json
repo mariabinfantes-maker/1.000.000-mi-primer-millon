@@ -1,0 +1,5 @@
+[
+  { "nombreHerramienta": "Hive", "categoriaId": "gestion-proyectos" },
+  { "nombreHerramienta": "Runn", "categoriaId": "gestion-proyectos" },
+  { "nombreHerramienta": "Backlog", "categoriaId": "gestion-proyectos" }
+]

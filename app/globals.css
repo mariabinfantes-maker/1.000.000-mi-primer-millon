@@ -1,46 +1,93 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f1222;
+  --background: #faf9fc;
+  --foreground: #14121f;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-plexmono);
+  /* Display: solo para titulares (h1/h2, wordmark) — nunca para párrafos ni interfaz. */
+  --font-display: var(--font-bricolage);
 
-  /* Paleta de marca de Atlas — un único índigo profundo, usado en toda la web. */
-  --color-brand-50: #eef2ff;
-  --color-brand-100: #e0e7ff;
-  --color-brand-200: #c7d2fe;
-  --color-brand-300: #a5b4fc;
-  --color-brand-400: #818cf8;
-  --color-brand-500: #6366f1;
-  --color-brand-600: #4f46e5;
-  --color-brand-700: #4338ca;
-  --color-brand-800: #3730a3;
-  --color-brand-900: #312e81;
-  --color-brand-950: #1e1b4b;
+  /*
+   * Paleta de marca de Molnip — índigo-violeta propio (ver la guía de
+   * Dirección de Arte, fase 0), más profundo y saturado que el índigo por
+   * defecto de Tailwind del que partía Atlas.
+   *
+   * Revisión de luminosidad (comparativa "Índigo Prisma", Variante B
+   * aprobada): mismo matiz (247°) y la misma saturación de siempre en el
+   * ancla (600, 72%→71%, prácticamente igual, nunca al alza), solo con la
+   * luminosidad del ancla un +12,5% más alta (56%→63%) para que el color
+   * principal se sienta más claro y premium, sobre todo en móvil. Toda la
+   * familia se recalculó junto con el ancla para mantener la escala
+   * coherente — el dorado no se toca en este cambio.
+   */
+  --color-brand-50: #f7f6fd;
+  --color-brand-100: #f5f3fe;
+  --color-brand-200: #ddd9fa;
+  --color-brand-300: #b5adf2;
+  --color-brand-400: #a49aef;
+  --color-brand-500: #8073e8;
+  --color-brand-600: #6e5fe4;
+  --color-brand-700: #5849d0;
+  --color-brand-800: #3f2fb7;
+  --color-brand-900: #2e228c;
+  --color-brand-950: #1f1859;
+
+  /*
+   * Acento dorado — "la opción elegida". Se usa como mucho una vez por
+   * pantalla, siempre para señalar la respuesta (la herramienta
+   * recomendada, el dato verificado clave), nunca de forma decorativa.
+   */
+  --color-gold-50: #fbf4e4;
+  --color-gold-100: #f6ecd6;
+  --color-gold-200: #ead6ac;
+  --color-gold-300: #dcbd7e;
+  --color-gold-400: #d0aa5b;
+  --color-gold-500: #c99a3d;
+  --color-gold-600: #ad812e;
+  --color-gold-700: #8a6624;
+
+  /*
+   * Escala neutra ("slate") de Molnip: sustituye el gris neutro por
+   * defecto de Tailwind por una escala con un matiz violeta constante —
+   * de un papel cálido (50) a una tinta casi negra (950) — para que toda
+   * la web (que ya usa `bg-slate-*`/`text-slate-*` en decenas de sitios)
+   * herede el tono de marca sin tener que tocar cada componente.
+   */
+  --color-slate-50: #faf9fc;
+  --color-slate-100: #f3f1f9;
+  --color-slate-200: #e7e3f5;
+  --color-slate-300: #d3cde8;
+  --color-slate-400: #a79fc9;
+  --color-slate-500: #8079a8;
+  --color-slate-600: #605892;
+  --color-slate-700: #4a4272;
+  --color-slate-800: #362f52;
+  --color-slate-900: #211d38;
+  --color-slate-950: #14121f;
 
   /* Sombras premium: doble capa (contacto + elevación) con un tinte de marca. */
-  --shadow-premium: 0 1px 2px 0 rgba(15, 23, 42, 0.04), 0 12px 24px -8px rgba(79, 70, 229, 0.16);
-  --shadow-premium-lg: 0 2px 4px 0 rgba(15, 23, 42, 0.04), 0 32px 64px -16px rgba(79, 70, 229, 0.24);
+  --shadow-premium: 0 1px 2px 0 rgba(20, 18, 31, 0.05), 0 12px 24px -8px rgba(110, 95, 228, 0.18);
+  --shadow-premium-lg: 0 2px 4px 0 rgba(20, 18, 31, 0.05), 0 32px 64px -16px rgba(110, 95, 228, 0.26);
 
   /*
    * Color por agente (Researcher / Evaluador / Recomendador), tal y como se
    * fijó en el documento de arquitectura UX (Sheet 06): el Recomendador
    * comparte el índigo de marca a propósito, porque de cara al usuario es
-   * la voz de Atlas hablando; Researcher y Evaluador tienen acentos propios
+   * la voz de Molnip hablando; Researcher y Evaluador tienen acentos propios
    * para diferenciarse sin salir de la paleta general.
    */
   --color-agente-researcher: #0d9488;
   --color-agente-researcher-soft: #ccfbf1;
   --color-agente-evaluador: #b45309;
   --color-agente-evaluador-soft: #fef3c7;
-  --color-agente-recomendador: #4f46e5;
-  --color-agente-recomendador-soft: #e0e7ff;
+  --color-agente-recomendador: #6e5fe4;
+  --color-agente-recomendador-soft: #f5f3fe;
 }
 
 body {
@@ -51,9 +98,35 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/*
+ * Foco de teclado unificado para toda la web: antes solo `Boton` llevaba
+ * su propio anillo de marca (`focus-visible:ring-2 ring-brand-300
+ * ring-offset-2`), así que navegar con Tab mostraba ese anillo en los
+ * botones y el outline azul por defecto del navegador en el resto
+ * (pestañas del selector, tarjetas de enlace, "Volver atrás"...) — justo
+ * el tipo de detalle que delata un MVP frente a un producto cuidado.
+ * Mismo efecto que ya tenía `Boton` (doble sombra: un "hueco" del color de
+ * fondo simulando el offset, luego el anillo de marca), reproducido en CSS
+ * puro para que se aplique en un solo sitio a cualquier elemento
+ * interactivo, en vez de tener que repetir las clases de Tailwind en cada
+ * componente nuevo.
+ */
+a:focus-visible,
+button:focus-visible,
+[role="tab"]:focus-visible,
+[tabindex]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-background), 0 0 0 4px var(--color-brand-300);
+}
+
+::selection {
+  background: var(--color-brand-200);
+  color: var(--color-foreground);
+}
+
 /* Textura de puntos muy sutil para el fondo del hero — sensación técnica sin ruido visual. */
 .fondo-puntos {
-  background-image: radial-gradient(circle, rgba(79, 70, 229, 0.16) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(110, 95, 228, 0.16) 1px, transparent 1px);
   background-size: 24px 24px;
   mask-image: radial-gradient(ellipse 60% 60% at 50% 0%, black 40%, transparent 100%);
 }

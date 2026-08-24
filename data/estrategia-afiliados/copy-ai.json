@@ -1,0 +1,19 @@
+{
+  "herramientaId": "copy-ai",
+  "cuentas": [
+    {
+      "id": "firstpromoter",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Copy.ai Affiliate Program",
+      "plataforma": "FirstPromoter",
+      "urlSolicitud": "https://www.copy.ai/affiliates",
+      "comision": "45% de comisión recurrente sobre los pagos suscritos durante el primer año del usuario referido",
+      "duracionCookie": "60 días",
+      "metodoPago": "PayPal",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-21",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

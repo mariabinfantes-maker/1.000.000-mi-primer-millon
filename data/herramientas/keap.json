@@ -135,5 +135,13 @@
   "problemasIds": [
     "conseguir-clientes",
     "automatizar-tareas"
+  ],
+  "modulosIncluidos": [
+    "crm",
+    "asistente_ia",
+    "facturacion",
+    "email_marketing",
+    "embudos_de_venta",
+    "comercio_electronico"
   ]
 }

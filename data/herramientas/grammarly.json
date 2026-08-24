@@ -1,0 +1,136 @@
+{
+  "nombre": "Grammarly",
+  "paginaOficial": "https://www.grammarly.com",
+  "urlPrecios": "https://www.grammarly.com/plans",
+  "logoUrl": "",
+  "categoriaId": "asistentes-ia",
+  "descripcion": "Grammarly es un asistente de escritura impulsado por inteligencia artificial que ayuda a corregir gramática, ortografía y puntuación en tiempo real. Además, ofrece sugerencias de claridad, ajuste de tono y capacidades de IA generativa para optimizar la comunicación escrita en múltiples aplicaciones y navegadores.",
+  "informacionEmpresa": {
+    "anioFundacion": 2009,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "1001-5000 empleados"
+  },
+  "problemasQueResuelve": [
+    "Errores gramaticales y ortográficos en la comunicación escrita profesional",
+    "Falta de claridad, concisión y fluidez en correos electrónicos y documentos",
+    "Tono inadecuado o inconsistente en mensajes con clientes y socios",
+    "Inconsistencia con la guía de estilo de la marca en equipos de trabajo"
+  ],
+  "casosDeUso": [
+    "Redacción de correos electrónicos profesionales en Gmail y Outlook",
+    "Creación y revisión de contenido para blogs, redes sociales y campañas de marketing",
+    "Edición de documentos y propuestas comerciales en Google Docs o Microsoft Word",
+    "Estandarización del tono y respuestas en canales de soporte al cliente como Zendesk o Slack"
+  ],
+  "idealPara": "Profesionales, equipos corporativos y creadores de contenido que necesitan asegurar una comunicación escrita impecable, clara y profesional, especialmente en inglés.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "Servicios Profesionales",
+    "Tecnología y Software",
+    "Educación",
+    "Marketing y Publicidad",
+    "Atención al Cliente"
+  ],
+  "noRecomendadaPara": "Equipos o profesionales cuya redacción sea exclusivamente en español u otros idiomas donde las funciones avanzadas de Grammarly aún no están plenamente desarrolladas.",
+  "casosNoRecomendados": [
+    "Redacción y corrección avanzada en idiomas distintos del inglés",
+    "Entornos corporativos con restricciones estrictas donde no se permite el procesamiento de texto en servidores en la nube de terceros"
+  ],
+  "funcionesPrincipales": [
+    "Corrección ortográfica y gramatical en tiempo real",
+    "Sugerencias de reescritura para mejorar la claridad y concisión",
+    "Detección y ajuste de tono emocional del mensaje",
+    "Asistente de IA generativa (GrammarlyGO) para redacción y resúmenes",
+    "Detección de plagio",
+    "Guías de estilo personalizables para empresas"
+  ],
+  "integraciones": [
+    "Google Docs",
+    "Microsoft Office",
+    "Gmail",
+    "Outlook",
+    "Slack",
+    "Zendesk",
+    "Salesforce",
+    "Notion",
+    "HubSpot",
+    "Navegadores web (Chrome, Edge, Safari, Firefox)"
+  ],
+  "integracionesPrincipales": [
+    "Google Docs",
+    "Microsoft Office",
+    "Gmail",
+    "Slack"
+  ],
+  "curvaDeAprendizaje": "muy_facil",
+  "precioInicial": "Gratis (Plan Free disponible)",
+  "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": true,
+  "precioRecomendadoPymes": "Plan Business desde $15/usuario/mes (facturación anual)",
+  "idiomasDisponibles": [
+    "Inglés"
+  ],
+  "disponibleEnEspanol": false,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 10,
+    "calidad": 9,
+    "fiabilidad": 9,
+    "atencionAlCliente": 8,
+    "escalabilidad": 9,
+    "nivelTecnicoRequerido": 1,
+    "facilidadImplementacion": 10
+  },
+  "metodologiaValoracion": "Análisis de funcionalidades clave, pruebas directas de integraciones y revisión comparativa de miles de valoraciones verificadas en G2 y Capterra.",
+  "reputacion": {
+    "g2Puntuacion": 4.7,
+    "g2NumeroResenas": 8400,
+    "capterraPuntuacion": 4.7,
+    "capterraNumeroResenas": 7100
+  },
+  "ventajas": [
+    "Integración fluida y casi invisible en navegadores, aplicaciones de escritorio y móviles",
+    "Excelente retroalimentación en tiempo real para mejorar fluidez y vocabulario en inglés",
+    "Funciones de IA generativa que aceleran la composición de respuestas y borradores",
+    "Panel centralizado de administración de guías de estilo para empresas"
+  ],
+  "inconvenientes": [
+    "Soporte completo y funciones avanzadas limitados principalmente al idioma inglés",
+    "El precio del plan Premium individual o Business puede resultar elevado para equipos pequeños",
+    "Sugerencias automáticas que ocasionalmente pueden alterar el sentido original del autor"
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "LanguageTool",
+      "ProWritingAid",
+      "QuillBot",
+      "Jasper"
+    ],
+    "tipoNegocioIdeal": "Empresas con comunicación internacional, equipos de soporte global, agencias de marketing y profesionales que escriben habitualmente en inglés",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 100,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 9.2/10.",
+      "G2: 4.7/5 (8400 reseñas).",
+      "Capterra: 4.7/5 (7100 reseñas).",
+      "Tiene plan gratuito.",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "grammarly",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-18",
+  "fechaUltimaRevision": "2026-08-19"
+}

@@ -1,0 +1,19 @@
+{
+  "herramientaId": "smartsheet",
+  "cuentas": [
+    {
+      "id": "impact",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Smartsheet Affiliate Program",
+      "plataforma": "Impact",
+      "urlSolicitud": "https://www.smartsheet.com/affiliates",
+      "comision": "Comisión por prueba gratuita válida y/o porcentaje sobre la primera suscripción",
+      "duracionCookie": "30 días",
+      "metodoPago": "Transferencia bancaria, PayPal",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-19",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

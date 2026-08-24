@@ -1,0 +1,150 @@
+{
+  "nombre": "Smartsheet",
+  "paginaOficial": "https://www.smartsheet.com/",
+  "urlPrecios": "https://www.smartsheet.com/pricing",
+  "categoriaId": "gestion-proyectos",
+  "descripcion": "Smartsheet es una plataforma de gestión del trabajo basada en formato de hoja de cálculo empresarial que permite planificar, hacer seguimiento y automatizar proyectos complejos. Combina la interfaz familiar de las hojas de cálculo con vistas de Gantt, Kanban y formularios, además de integraciones avanzadas para entornos corporativos.",
+  "informacionEmpresa": {
+    "anioFundacion": 2005,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "1001-5000 empleados"
+  },
+  "problemasQueResuelve": [
+    "Falta de visibilidad y control en la gestión de portafolios de proyectos complejos.",
+    "Ineficiencia y errores por procesos manuales y seguimiento repetitivo de tareas.",
+    "Limitación de las hojas de cálculo tradicionales para colaborar en tiempo real y automatizar flujos de trabajo.",
+    "Dificultad para consolidar informes y métricas ejecutivas entre múltiples departamentos."
+  ],
+  "casosDeUso": [
+    "Gestión de portafolios de proyectos (PPM) a escala empresarial.",
+    "Automatización del flujo de aprobación de documentos y peticiones de servicios.",
+    "Planificación y seguimiento de campañas de marketing y calendarios editoriales.",
+    "Gestión de procesos de operaciones, construcción y recursos humanos."
+  ],
+  "idealPara": "Empresas medianas y grandes corporaciones que necesitan una plataforma potente, estructurada y escalable para gestionar proyectos complejos a partir de una interfaz de tipo hoja de cálculo.",
+  "segmentosIdeales": [
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "Tecnología",
+    "Construcción e Ingeniería",
+    "Servicios Financieros",
+    "Marketing y Publicidad",
+    "Salud y Farmacéutica"
+  ],
+  "noRecomendadaPara": "Autónomos o equipos muy pequeños que buscan un gestor de tareas simple sin curva de aprendizaje ni necesidad de configuración inicial.",
+  "casosNoRecomendados": [
+    "Gestión básica de tareas personales donde herramientas sencillas como Trello o Todoist son suficientes.",
+    "Equipos ágiles que requieren metodologías Scrum puras sin vistas tabulares ni hojas de cálculo."
+  ],
+  "funcionesPrincipales": [
+    "Múltiples vistas de proyectos: Cuadrícula, Gantt, Tarjetas (Kanban) y Calendario.",
+    "Flujos de trabajo y alertas totalmente automatizados sin necesidad de código.",
+    "Formularios personalizados para captura directa de datos e incidencias.",
+    "Paneles de control (Dashboards) e informes consolidados en tiempo real.",
+    "Gestión de recursos y capacidad del equipo.",
+    "Gestión avanzada de permisos y controles de seguridad enterprise."
+  ],
+  "integraciones": [
+    "Microsoft Teams",
+    "Slack",
+    "Salesforce",
+    "Google Workspace",
+    "Jira",
+    "Zapier",
+    "Adobe Creative Cloud",
+    "Tableau",
+    "Power BI",
+    "DocuSign"
+  ],
+  "integracionesPrincipales": [
+    "Microsoft Teams",
+    "Salesforce",
+    "Jira",
+    "Google Workspace"
+  ],
+  "curvaDeAprendizaje": "media",
+  "precioInicial": "Desde $9/usuario/mes (facturado anualmente)",
+  "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario",
+    "a_medida"
+  ],
+  "tienePlanGratuito": true,
+  "precioRecomendadoPymes": "Plan Business a $19/usuario/mes (mínimo 3 usuarios, facturado anualmente)",
+  "idiomasDisponibles": [
+    "Español",
+    "Inglés",
+    "Francés",
+    "Alemán",
+    "Italiano",
+    "Portugués",
+    "Japonés",
+    "Ruso"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 7,
+    "calidad": 9,
+    "fiabilidad": 9,
+    "atencionAlCliente": 8,
+    "escalabilidad": 9,
+    "nivelTecnicoRequerido": 6,
+    "facilidadImplementacion": 7
+  },
+  "metodologiaValoracion": "Puntuaciones calculadas a partir del análisis consolidado de miles de valoraciones en G2, Capterra y TrustRadius, evaluando la robustez funcional, versatilidad en entornos enterprise y opiniones sobre soporte y usabilidad.",
+  "reputacion": {
+    "g2Puntuacion": 4.4,
+    "g2NumeroResenas": 15500,
+    "capterraPuntuacion": 4.5,
+    "capterraNumeroResenas": 3200,
+    "otrasFuentes": [
+      {
+        "fuente": "TrustRadius",
+        "puntuacion": 8.4,
+        "numeroResenas": 2800,
+        "enlace": "https://www.trustradius.com/products/smartsheet/reviews"
+      }
+    ]
+  },
+  "ventajas": [
+    "Interfaz familiar tipo Excel combinada con la potencia de un gestor de proyectos profesional.",
+    "Potente motor de automatización de flujos de trabajo sin código.",
+    "Capacidades avanzadas de informes y paneles directivos personalizados.",
+    "Alta escalabilidad y certificaciones de seguridad para nivel corporativo."
+  ],
+  "inconvenientes": [
+    "Precio elevado al añadir add-ons avanzados y aumentar el número de licencias.",
+    "No reemplaza completamente un motor de fórmulas complejo como el de Excel para análisis financiero profundo.",
+    "Requiere tiempo de diseño inicial para estructurar adecuadamente las hojas y flujos."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Monday.com",
+      "Asana",
+      "Airtable",
+      "Wrike"
+    ],
+    "tipoNegocioIdeal": "Empresas medianas y grandes corporaciones",
+    "nivelTecnicoRecomendado": "intermedio",
+    "puntuacion": 92,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.2/10.",
+      "G2: 4.4/5 (15500 reseñas).",
+      "Capterra: 4.5/5 (3200 reseñas).",
+      "Tiene plan gratuito.",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "smartsheet",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-18",
+  "fechaUltimaRevision": "2026-08-19"
+}

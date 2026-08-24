@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Asana Partner & Affiliate Program",
+  "affiliatePlatform": "Impact",
+  "affiliateUrl": "https://asana.com/affiliates",
+  "commission": "Comisión variable basada en referencias y nuevos clientes de pago cualificados",
+  "cookieDuration": "30 días",
+  "approvalRequired": true,
+  "payoutMethod": "Transferencia bancaria, PayPal",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://asana.com/affiliates",
+  "lastAffiliateCheck": "2026-08-18",
+  "herramientaId": "asana"
+}

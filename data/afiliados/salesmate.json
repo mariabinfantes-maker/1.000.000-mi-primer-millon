@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Salesmate Partner Program",
+  "affiliatePlatform": "FirstPromoter",
+  "affiliateUrl": "https://www.salesmate.io/partner-program/",
+  "commission": "30% de comisión recurrente",
+  "cookieDuration": "60 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.salesmate.io/partner-program/",
+  "lastAffiliateCheck": "2026-08-21",
+  "herramientaId": "salesmate"
+}

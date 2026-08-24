@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Less Annoying CRM Affiliate Program",
+  "affiliatePlatform": "Programa propio",
+  "affiliateUrl": "https://www.lessannoyingcrm.com/affiliates",
+  "commission": "25% de comisión recurrente mientras el cliente permanezca activo",
+  "cookieDuration": "30 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.lessannoyingcrm.com/affiliates",
+  "lastAffiliateCheck": "2026-08-21",
+  "herramientaId": "less-annoying-crm"
+}

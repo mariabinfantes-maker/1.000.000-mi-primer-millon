@@ -1,0 +1,147 @@
+{
+  "nombre": "Scoro",
+  "paginaOficial": "https://www.scoro.com/",
+  "urlPrecios": "https://www.scoro.com/pricing/",
+  "logoUrl": "",
+  "categoriaId": "gestion-proyectos",
+  "descripcion": "Scoro es una plataforma integral de gestión del trabajo que combina gestión de proyectos, CRM, seguimiento del tiempo y facturación en un solo sistema. Permite a las empresas de servicios profesionales y agencias controlar todo el ciclo de vida del cliente y la rentabilidad de sus proyectos en tiempo real.",
+  "informacionEmpresa": {
+    "anioFundacion": 2013,
+    "paisOrigen": "Estonia",
+    "tamanoAproximado": "101-250 empleados"
+  },
+  "problemasQueResuelve": [
+    "Fragmentación de herramientas entre ventas, gestión de proyectos y facturación",
+    "Falta de visibilidad sobre la rentabilidad real de proyectos, clientes y servicios",
+    "Dificultad en la planificación de la capacidad del equipo y asignación de recursos",
+    "Pérdida de horas facturables por un seguimiento del tiempo ineficiente o desconectado"
+  ],
+  "casosDeUso": [
+    "Gestión integral de agencias de marketing y publicidad desde el presupuesto hasta el cobro final",
+    "Control financiero y seguimiento de horas en consultoras y empresas de servicios profesionales",
+    "Planificación de capacidad de equipo y gestión presupuestaria para proyectos de tecnología y diseño"
+  ],
+  "idealPara": "Agencias, consultoras y empresas de servicios profesionales que necesitan una plataforma 'todo en uno' para unificar CRM, proyectos, control de tiempos e informes financieros.",
+  "segmentosIdeales": [
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "Agencias de marketing y publicidad",
+    "Consultoría",
+    "Servicios profesionales",
+    "Tecnología y desarrollo de software",
+    "Arquitectura y diseño"
+  ],
+  "noRecomendadaPara": "Autónomos o microempresas muy pequeñas que buscan una herramienta de gestión de tareas sencilla y económica.",
+  "casosNoRecomendados": [
+    "Equipos de menos de 5 personas con presupuestos reducidos",
+    "Equipos de desarrollo de software que requieren herramientas exclusivamente centradas en metodologías ágiles avanzadas sin necesidad de CRM ni facturación integrada"
+  ],
+  "funcionesPrincipales": [
+    "Gestión de proyectos con diagramas de Gantt, tableros Kanban y dependencias",
+    "CRM integrado para gestión de prospectos, cotizaciones y pipelines de ventas",
+    "Seguimiento del tiempo y hojas de horas asociadas a tareas y proyectos",
+    "Planificación de recursos y gestión de la carga de trabajo del equipo",
+    "Facturación automatizada, facturas recurrentes y seguimiento de pagos",
+    "Informes avanzados de rentabilidad, margen y utilización de recursos en tiempo real"
+  ],
+  "integraciones": [
+    "Zapier",
+    "HubSpot",
+    "Salesforce",
+    "QuickBooks",
+    "Xero",
+    "Google Workspace",
+    "Microsoft Outlook",
+    "Slack",
+    "Asana",
+    "Jira",
+    "Stripe"
+  ],
+  "integracionesPrincipales": [
+    "Zapier",
+    "QuickBooks",
+    "Xero",
+    "HubSpot"
+  ],
+  "curvaDeAprendizaje": "media",
+  "precioInicial": "Desde $37/usuario/mes (mínimo 5 usuarios)",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario",
+    "a_medida"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Plan Standard a $63/usuario/mes (facturado anualmente, mínimo 5 usuarios)",
+  "idiomasDisponibles": [
+    "Inglés",
+    "Español",
+    "Alemán",
+    "Francés",
+    "Estonio"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 7,
+    "calidad": 9,
+    "fiabilidad": 9,
+    "atencionAlCliente": 8,
+    "escalabilidad": 9,
+    "nivelTecnicoRequerido": 6,
+    "facilidadImplementacion": 6
+  },
+  "metodologiaValoracion": "Puntuaciones calculadas a partir del análisis técnico de sus funcionalidades, evaluación de la estructura de precios y consolidación de reseñas de usuarios verificados en G2 y Capterra.",
+  "reputacion": {
+    "g2Puntuacion": 4.5,
+    "g2NumeroResenas": 400,
+    "capterraPuntuacion": 4.6,
+    "capterraNumeroResenas": 230,
+    "otrasFuentes": [
+      {
+        "fuente": "TrustRadius",
+        "puntuacion": 8.2,
+        "numeroResenas": 30,
+        "enlace": "https://www.trustradius.com/products/scoro/reviews"
+      }
+    ]
+  },
+  "ventajas": [
+    "Solución verdaderamente integral que reemplaza CRM, gestor de proyectos y software de facturación",
+    "Excelente capacidad de análisis de rentabilidad por proyecto, cliente y empleado",
+    "Gestión de la capacidad del equipo muy completa y visual",
+    "Altamente configurable según los flujos de trabajo de la empresa"
+  ],
+  "inconvenientes": [
+    "Requiere un mínimo de 5 usuarios para la contratación",
+    "Precio superior al de gestores de proyectos tradicionales",
+    "Proceso de implementación e inicio exigente por la amplitud de la plataforma",
+    "La aplicación móvil es más limitada que la versión web"
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Monday.com",
+      "Asana",
+      "Productive",
+      "ClickUp"
+    ],
+    "tipoNegocioIdeal": "Agencias y empresas de servicios profesionales",
+    "nivelTecnicoRecomendado": "intermedio",
+    "puntuacion": 90,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.0/10.",
+      "G2: 4.5/5 (400 reseñas).",
+      "Capterra: 4.6/5 (230 reseñas).",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "scoro",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-20",
+  "fechaUltimaRevision": "2026-08-21"
+}

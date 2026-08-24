@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Zoho Affiliate Program",
+  "affiliatePlatform": "Programa propio",
+  "affiliateUrl": "https://www.zoho.com/affiliate.html",
+  "commission": "15% de comisión recurrente por las suscripciones pagadas durante los primeros 12 meses",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, transferencia bancaria",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.zoho.com/affiliate.html",
+  "lastAffiliateCheck": "2026-08-18",
+  "herramientaId": "zoho-crm"
+}

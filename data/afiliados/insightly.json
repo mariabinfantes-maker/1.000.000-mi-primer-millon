@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Insightly Partner Program",
+  "affiliatePlatform": "Programa propio / Impact",
+  "affiliateUrl": "https://www.insightly.com/partners/",
+  "commission": "Comisión por referencia o venta según la modalidad del programa de asociados.",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "Transferencia bancaria, PayPal",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "medium",
+  "source": "https://www.insightly.com/partners/",
+  "lastAffiliateCheck": "2026-08-18",
+  "herramientaId": "insightly"
+}

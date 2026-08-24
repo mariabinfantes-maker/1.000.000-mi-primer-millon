@@ -16,7 +16,9 @@
     "aprobar-borrador": "tsx agents/atlas-researcher/cli-aprobar-borrador.ts",
     "actualizar-estrategia-afiliacion": "tsx agents/atlas-researcher/cli-actualizar-estrategia-afiliacion.ts",
     "informe-afiliacion": "tsx agents/atlas-affiliate-manager/cli-informe-afiliacion.ts",
-    "informe-mantenimiento": "tsx agents/atlas-mantenimiento/cli-informe-mantenimiento.ts"
+    "informe-mantenimiento": "tsx agents/atlas-mantenimiento/cli-informe-mantenimiento.ts",
+    "informe-curador": "tsx agents/atlas-curator/cli-informe-curador.ts",
+    "informe-historial": "tsx agents/atlas-researcher/cli-informe-historial.ts"
   },
   "dependencies": {
     "lucide-react": "^1.25.0",

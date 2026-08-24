@@ -1,0 +1,20 @@
+{
+  "herramientaId": "insightly",
+  "cuentas": [
+    {
+      "id": "programa-propio-impact",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Insightly Partner Program",
+      "plataforma": "Programa propio / Impact",
+      "urlSolicitud": "https://www.insightly.com/partners/",
+      "comision": "Comisión por referencia o venta según la modalidad del programa de asociados.",
+      "duracionCookie": "90 días",
+      "metodoPago": "Transferencia bancaria, PayPal",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-19",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa. Verificación pendiente: la confianza de la investigación de afiliados era media — confirma comisión y plataforma antes de solicitar el programa o dar la cuenta por lista para monetizar.",
+      "verificacionPendiente": true
+    }
+  ]
+}

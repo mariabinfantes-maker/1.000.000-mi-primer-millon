@@ -38,6 +38,28 @@ export type ModeloDePrecio =
 export type EstadoHerramienta = "activo" | "descontinuado" | "en_revision";
 
 /**
+ * Añadido: módulos funcionales que una herramienta incluye de verdad,
+ * pensado sobre todo para "plataformas-todo-en-uno" (una suite puede cubrir
+ * CRM + proyectos + facturación a la vez) pero sin atarlo a esa categoría —
+ * cualquier herramienta que combine varias funciones puede declararlos.
+ * Vocabulario fijo y deliberadamente más amplio que `Categoria.id`: incluye
+ * módulos (ej. "facturacion", "email_marketing") para los que Atlas todavía
+ * no tiene una categoría propia, así queda representado el dato aunque el
+ * catálogo aún no tenga una categoría dedicada para monetizarlo.
+ */
+export type ModuloSuite =
+  | "crm"
+  | "gestion_proyectos"
+  | "asistente_ia"
+  | "facturacion"
+  | "email_marketing"
+  | "atencion_cliente"
+  | "embudos_de_venta"
+  | "comercio_electronico"
+  | "creador_de_sitios_web"
+  | "recursos_humanos";
+
+/**
  * Añadido: curva de aprendizaje inicial, en una escala categórica pensada
  * para mostrarse directamente en UI (una etiqueta, no un número). Es un eje
  * distinto de `puntuaciones.facilidadDeUso` (qué tal se usa en el día a día
@@ -68,6 +90,50 @@ export type Problema = {
   descripcion: string;
   /** Pregunta del cuestionario sobre la herramienta que ya usa la empresa para esto. */
   preguntaHerramienta: string;
+  /**
+   * Frases editoriales que delatan este objetivo en texto libre (ver
+   * `agents/atlas-advisor/deteccionProblema.ts`). Alimentan la puerta
+   * "Cuéntanoslo": si el texto del usuario contiene alguna, el motor
+   * prioriza el catálogo por este `Problema.id` antes de puntuar, igual que
+   * ya hace `problemaIdPrefill` cuando el usuario entra por objetivo
+   * explícito. Coincidencia por subcadena, nunca semántica — si ninguna
+   * frase aparece, el motor no descarta nada por su cuenta.
+   */
+  palabrasClave?: string[];
+};
+
+/**
+ * Un párrafo, subtítulo o lista dentro del cuerpo de un `Post`. Bloques
+ * estructurados en vez de HTML libre a propósito: igual que el resto del
+ * esquema, el contenido es datos planos que cualquier página puede
+ * renderizar de forma segura (sin `dangerouslySetInnerHTML`) y validar con
+ * la misma disciplina que un campo de texto normal.
+ */
+export type BloqueContenido =
+  | { tipo: "parrafo"; texto: string }
+  | { tipo: "subtitulo"; texto: string }
+  | { tipo: "lista"; items: string[] };
+
+/**
+ * Un artículo del blog SEO (Fase 4 de lanzamiento — ver ATLAS.md). Vive en
+ * `data/posts/`, un archivo por post, igual que `data/herramientas/`: crece
+ * con el tiempo y cada uno se valida por separado, a diferencia de
+ * `Categoria`/`Problema`, que son listas pequeñas y cerradas.
+ *
+ * `categoriaId`/`problemaId` son opcionales y sirven solo para enlazado
+ * interno (mostrar herramientas relacionadas al final del post) — nunca
+ * cambian qué post se muestra ni introducen una recomendación personalizada.
+ */
+export type Post = {
+  id: string;
+  titulo: string;
+  resumen: string;
+  cuerpo: BloqueContenido[];
+  fechaPublicacion: string;
+  fechaUltimaRevision?: string;
+  autor?: string;
+  categoriaId?: string;
+  problemaId?: string;
 };
 
 /**
@@ -210,6 +276,13 @@ export type Herramienta = {
   casosNoRecomendados: string[];
 
   funcionesPrincipales: string[];
+  /**
+   * Añadido: qué módulos funcionales incluye de verdad la herramienta (ver
+   * el comentario del tipo `ModuloSuite`). Opcional porque solo aporta valor
+   * real en suites que combinan varias funciones — para una herramienta de
+   * un único propósito (ej. un CRM puro) sería redundante con `categoriaId`.
+   */
+  modulosIncluidos?: ModuloSuite[];
   integraciones: string[];
   /**
    * Añadido: subconjunto curado (3-4) de `integraciones`, con las que de

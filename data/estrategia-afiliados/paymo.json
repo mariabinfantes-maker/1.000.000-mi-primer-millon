@@ -1,0 +1,19 @@
+{
+  "herramientaId": "paymo",
+  "cuentas": [
+    {
+      "id": "firstpromoter",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Paymo Affiliate Program",
+      "plataforma": "FirstPromoter",
+      "urlSolicitud": "https://www.paymoapp.com/affiliates/",
+      "comision": "20% de comisión recurrente durante los primeros 12 meses de cada suscripción",
+      "duracionCookie": "90 días",
+      "metodoPago": "PayPal",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-21",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

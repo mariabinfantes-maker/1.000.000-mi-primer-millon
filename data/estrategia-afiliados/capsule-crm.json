@@ -1,0 +1,19 @@
+{
+  "herramientaId": "capsule-crm",
+  "cuentas": [
+    {
+      "id": "rewardful",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Capsule Affiliate Program",
+      "plataforma": "Rewardful",
+      "urlSolicitud": "https://capsulecrm.com/affiliates/",
+      "comision": "20% de comisión recurrente mensual durante la duración de la suscripción del cliente",
+      "duracionCookie": "60 días",
+      "metodoPago": "PayPal",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-21",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

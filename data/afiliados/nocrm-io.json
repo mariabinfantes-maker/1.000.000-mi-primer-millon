@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "noCRM.io Affiliate Program",
+  "affiliatePlatform": "FirstPromoter",
+  "affiliateUrl": "https://www.nocrm.io/es/programa-afiliados",
+  "commission": "20% de comisión recurrente",
+  "cookieDuration": "60 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, transferencia bancaria",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.nocrm.io/es/programa-afiliados",
+  "lastAffiliateCheck": "2026-08-21",
+  "herramientaId": "nocrm-io"
+}

@@ -1,0 +1,20 @@
+{
+  "herramientaId": "vtiger-crm",
+  "cuentas": [
+    {
+      "id": "programa-propio",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Vtiger Solution Partner & Referral Program",
+      "plataforma": "Programa propio",
+      "urlSolicitud": "https://www.vtiger.com/partners/",
+      "comision": "20% de comisión recurrente sobre las ventas de suscripción referidas durante el primer año",
+      "duracionCookie": "60 días",
+      "metodoPago": "Transferencia bancaria, PayPal",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-19",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa. Verificación pendiente: la confianza de la investigación de afiliados era media — confirma comisión y plataforma antes de solicitar el programa o dar la cuenta por lista para monetizar.",
+      "verificacionPendiente": true
+    }
+  ]
+}

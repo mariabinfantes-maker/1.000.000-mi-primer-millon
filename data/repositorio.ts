@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { Categoria, Herramienta, Problema } from "./esquema";
+import type { Categoria, Herramienta, Post, Problema } from "./esquema";
 
 /**
  * Capa de acceso a la base de conocimiento de Atlas.
@@ -20,6 +20,7 @@ import type { Categoria, Herramienta, Problema } from "./esquema";
 
 const DIR_DATOS = path.join(process.cwd(), "data");
 const DIR_HERRAMIENTAS = path.join(DIR_DATOS, "herramientas");
+const DIR_POSTS = path.join(DIR_DATOS, "posts");
 const RUTA_CATEGORIAS = path.join(DIR_DATOS, "categorias.json");
 const RUTA_PROBLEMAS = path.join(DIR_DATOS, "problemas.json");
 
@@ -151,6 +152,89 @@ export function validarHerramienta(datos: unknown, nombreArchivo: string): Herra
   return datos as Herramienta;
 }
 
+const TIPOS_BLOQUE_VALIDOS = new Set(["parrafo", "subtitulo", "lista"]);
+
+/** Validación defensiva de un bloque de `Post.cuerpo` — misma disciplina que el resto del esquema, sin librería externa. */
+function errorEnBloque(errores: string[], indice: number, bloque: unknown): void {
+  if (typeof bloque !== "object" || bloque === null) {
+    errores.push(`"cuerpo[${indice}]" debe ser un objeto`);
+    return;
+  }
+  const b = bloque as Record<string, unknown>;
+  if (typeof b.tipo !== "string" || !TIPOS_BLOQUE_VALIDOS.has(b.tipo)) {
+    errores.push(`"cuerpo[${indice}].tipo" debe ser "parrafo", "subtitulo" o "lista"`);
+    return;
+  }
+  if (b.tipo === "lista") {
+    if (!Array.isArray(b.items) || b.items.length === 0 || b.items.some((item) => typeof item !== "string")) {
+      errores.push(`"cuerpo[${indice}].items" debe ser un array de strings no vacío`);
+    }
+  } else if (typeof b.texto !== "string" || b.texto.trim() === "") {
+    errores.push(`"cuerpo[${indice}].texto" debe ser un string no vacío`);
+  }
+}
+
+/** Valida que un JSON tenga la forma mínima de un Post antes de dejarlo entrar en el blog. Mismo criterio que `validarHerramienta`: solo lo imprescindible para que el motor no rompa en silencio. */
+export function validarPost(datos: unknown, nombreArchivo: string): Post {
+  const errores: string[] = [];
+
+  if (typeof datos !== "object" || datos === null) {
+    throw new Error(`[data/posts/${nombreArchivo}] no contiene un objeto JSON válido.`);
+  }
+
+  const p = datos as Record<string, unknown>;
+
+  for (const campo of ["id", "titulo", "resumen", "fechaPublicacion"] as const) {
+    if (typeof p[campo] !== "string" || (p[campo] as string).trim() === "") {
+      errores.push(`falta el campo de texto "${campo}"`);
+    }
+  }
+
+  if (!Array.isArray(p.cuerpo) || p.cuerpo.length === 0) {
+    errores.push('falta el campo "cuerpo" (debe ser un array no vacío de bloques)');
+  } else {
+    p.cuerpo.forEach((bloque, indice) => errorEnBloque(errores, indice, bloque));
+  }
+
+  if (p.categoriaId !== undefined && typeof p.categoriaId !== "string") {
+    errores.push('"categoriaId" debe ser un string si está presente');
+  }
+  if (p.problemaId !== undefined && typeof p.problemaId !== "string") {
+    errores.push('"problemaId" debe ser un string si está presente');
+  }
+
+  if (errores.length > 0) {
+    throw new Error(`[data/posts/${nombreArchivo}] no es un Post válido:\n  - ${errores.join("\n  - ")}`);
+  }
+
+  return datos as Post;
+}
+
+let cachePosts: Post[] | null = null;
+
+/** Todos los posts del blog, ordenados del más reciente al más antiguo. Lanza un error claro si algún archivo está mal formado — igual que `getHerramientas`. */
+export function getPosts(): Post[] {
+  if (cachePosts) return cachePosts;
+
+  if (!fs.existsSync(DIR_POSTS)) {
+    cachePosts = [];
+    return cachePosts;
+  }
+
+  const archivos = fs.readdirSync(DIR_POSTS).filter((archivo) => archivo.endsWith(".json"));
+  const posts = archivos.map((archivo) => {
+    const contenido = fs.readFileSync(path.join(DIR_POSTS, archivo), "utf-8");
+    return validarPost(JSON.parse(contenido), archivo);
+  });
+
+  cachePosts = posts.sort((a, b) => b.fechaPublicacion.localeCompare(a.fechaPublicacion));
+  return cachePosts;
+}
+
+export function getPost(id: string): Post | undefined {
+  return getPosts().find((p) => p.id === id);
+}
+
 let cacheHerramientas: Herramienta[] | null = null;
 
 /** Todas las herramientas activas del catálogo. Lanza un error claro si algún archivo está mal formado. */
@@ -186,23 +270,31 @@ export function getHerramientasPorCategoria(categoriaId: string): Herramienta[] 
   return getHerramientas().filter((h) => h.categoriaId === categoriaId);
 }
 
-/** Herramientas cuyo `problemasIds` incluye `problemaId` — vacío mientras ninguna herramienta del catálogo real lo tenga asignado todavía (nunca inventa una coincidencia por texto). */
+/** Herramientas cuyo `problemasIds` incluye `problemaId` — nunca inventa una coincidencia por texto, solo la referencia editorial explícita. Usada por la landing SEO de cada objetivo y, desde el motor de recomendación, para prefiltrar el catálogo en las puertas "por objetivo" y "Cuéntanoslo" (ver `agents/atlas-advisor/motor.ts`). */
 export function getHerramientasPorProblema(problemaId: string): Herramienta[] {
   return getHerramientas().filter((h) => h.problemasIds?.includes(problemaId) ?? false);
 }
 
+let cacheCategorias: Categoria[] | null = null;
+
 export function getCategorias(): Categoria[] {
+  if (cacheCategorias) return cacheCategorias;
   const contenido = fs.readFileSync(RUTA_CATEGORIAS, "utf-8");
-  return JSON.parse(contenido) as Categoria[];
+  cacheCategorias = JSON.parse(contenido) as Categoria[];
+  return cacheCategorias;
 }
 
 export function getCategoria(id: string): Categoria | undefined {
   return getCategorias().find((c) => c.id === id);
 }
 
+let cacheProblemas: Problema[] | null = null;
+
 export function getProblemas(): Problema[] {
+  if (cacheProblemas) return cacheProblemas;
   const contenido = fs.readFileSync(RUTA_PROBLEMAS, "utf-8");
-  return JSON.parse(contenido) as Problema[];
+  cacheProblemas = JSON.parse(contenido) as Problema[];
+  return cacheProblemas;
 }
 
 export function getProblema(id: string): Problema | undefined {

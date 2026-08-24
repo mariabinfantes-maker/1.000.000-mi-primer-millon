@@ -1,0 +1,19 @@
+{
+  "herramientaId": "nifty",
+  "cuentas": [
+    {
+      "id": "firstpromoter",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Nifty Partner Program",
+      "plataforma": "FirstPromoter",
+      "urlSolicitud": "https://niftypm.com/affiliates/",
+      "comision": "20% a 30% recurrente durante la vida del cliente",
+      "duracionCookie": "90 días",
+      "metodoPago": "PayPal, Transferencia bancaria",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-21",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

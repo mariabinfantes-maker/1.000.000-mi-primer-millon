@@ -1,0 +1,19 @@
+{
+  "herramientaId": "honeybook",
+  "cuentas": [
+    {
+      "id": "impact",
+      "estado": "no_solicitado",
+      "nombrePrograma": "HoneyBook Educator & Referral Program",
+      "plataforma": "Impact",
+      "urlSolicitud": "https://www.honeybook.com/educators",
+      "comision": "Hasta $50 - $200 por cliente referido o comisión porcentual según el nivel de partner",
+      "duracionCookie": "30 días",
+      "metodoPago": "PayPal, Transferencia bancaria",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-21",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

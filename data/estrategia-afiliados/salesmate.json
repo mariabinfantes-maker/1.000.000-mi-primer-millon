@@ -1,0 +1,19 @@
+{
+  "herramientaId": "salesmate",
+  "cuentas": [
+    {
+      "id": "firstpromoter",
+      "estado": "no_solicitado",
+      "nombrePrograma": "Salesmate Partner Program",
+      "plataforma": "FirstPromoter",
+      "urlSolicitud": "https://www.salesmate.io/partner-program/",
+      "comision": "30% de comisión recurrente",
+      "duracionCookie": "60 días",
+      "metodoPago": "PayPal",
+      "frecuenciaPago": "Mensual",
+      "enlaces": [],
+      "ultimaRevision": "2026-08-21",
+      "observaciones": "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa."
+    }
+  ]
+}

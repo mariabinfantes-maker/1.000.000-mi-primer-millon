@@ -1,0 +1,402 @@
+[
+  {
+    "fechaHora": "2026-08-19T10:57:11.187Z",
+    "herramientaId": "zoho-crm",
+    "nombreHerramienta": "Zoho CRM",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 90,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote. Motivos del bloqueo: Atlas Curator: \"Zoho CRM\" y \"Zoho One\" comparten el mismo dominio (zoho.com) en su página oficial. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T10:57:11.190Z",
+    "herramientaId": "copper",
+    "nombreHerramienta": "Copper",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 89,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T10:57:11.196Z",
+    "herramientaId": "insightly",
+    "nombreHerramienta": "Insightly",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 84,
+    "estadoAfiliacion": "pendiente_de_verificar",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T10:57:11.203Z",
+    "herramientaId": "asana",
+    "nombreHerramienta": "Asana",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 94,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T10:57:11.207Z",
+    "herramientaId": "wrike",
+    "nombreHerramienta": "Wrike",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 90,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T10:57:11.211Z",
+    "herramientaId": "smartsheet",
+    "nombreHerramienta": "Smartsheet",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 92,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T10:57:11.216Z",
+    "herramientaId": "grammarly",
+    "nombreHerramienta": "Grammarly",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 100,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T10:57:11.225Z",
+    "herramientaId": "fireflies-ai",
+    "nombreHerramienta": "Fireflies.ai",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 98,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T10:57:11.231Z",
+    "herramientaId": "jasper",
+    "nombreHerramienta": "Jasper",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 92,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T10:57:11.238Z",
+    "herramientaId": "descript",
+    "nombreHerramienta": "Descript",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 90,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T10:57:11.243Z",
+    "herramientaId": "gamma",
+    "nombreHerramienta": "Gamma",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 93,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T11:01:52.279Z",
+    "herramientaId": "zoho-crm",
+    "nombreHerramienta": "Zoho CRM",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 90,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote. Aviso de Curator anulado explícitamente: \"Zoho CRM\" y \"Zoho One\" comparten el mismo dominio (zoho.com) en su página oficial. Justificación: Aprobado por el CEO: Zoho CRM y Zoho One son productos distintos del mismo proveedor (Zoho), alojados bajo el mismo dominio zoho.com — mismo patrón que Google/Microsoft/Adobe. Falso positivo de Curator confirmado tras revisión.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T11:16:42.491Z",
+    "herramientaId": "nutshell",
+    "nombreHerramienta": "Nutshell",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 90,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote (segunda ronda de CRM).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T11:16:42.494Z",
+    "herramientaId": "vtiger-crm",
+    "nombreHerramienta": "Vtiger CRM",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 87,
+    "estadoAfiliacion": "pendiente_de_verificar",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote (segunda ronda de CRM).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T11:16:42.497Z",
+    "herramientaId": "salesflare",
+    "nombreHerramienta": "Salesflare",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 95,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote (segunda ronda de CRM).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T11:16:42.499Z",
+    "herramientaId": "nimble",
+    "nombreHerramienta": "Nimble",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 89,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe completo del lote (segunda ronda de CRM).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T11:35:19.218Z",
+    "herramientaId": "teamwork-com",
+    "nombreHerramienta": "Teamwork.com",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 93,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe (segunda ronda de Gestión de proyectos).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T11:35:19.221Z",
+    "herramientaId": "zoho-projects",
+    "nombreHerramienta": "Zoho Projects",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 92,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe (segunda ronda de Gestión de proyectos). Motivos del bloqueo: Atlas Curator: \"Zoho Projects\" y \"Zoho CRM\" comparten el mismo dominio (zoho.com) en su página oficial. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces. | Atlas Curator: \"Zoho Projects\" y \"Zoho One\" comparten el mismo dominio (zoho.com) en su página oficial. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-19T11:35:19.231Z",
+    "herramientaId": "zoho-projects",
+    "nombreHerramienta": "Zoho Projects",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 92,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobada por el CEO tras revisión del informe (segunda ronda de Gestión de proyectos). Aviso de Curator anulado explícitamente: \"Zoho Projects\" y \"Zoho CRM\" comparten el mismo dominio (zoho.com) en su página oficial. \"Zoho Projects\" y \"Zoho One\" comparten el mismo dominio (zoho.com) en su página oficial. Justificación: Aprobado por el CEO: mismo patrón que Zoho CRM (2026-08-19) — producto distinto de otros productos Zoho ya en catálogo, alojado bajo el mismo dominio zoho.com por el mismo proveedor. No es un duplicado real.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T16:10:25.566Z",
+    "herramientaId": "productive-io",
+    "nombreHerramienta": "Productive",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 92,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobado por el CEO: puntuación 92, confianza alta, afiliación confirmada (Rewardful, 15% recurrente 12 meses).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T16:10:26.046Z",
+    "herramientaId": "scoro",
+    "nombreHerramienta": "Scoro",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 90,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Aprobado por el CEO: puntuación 90, confianza alta, afiliación confirmada (PartnerStack, 15-20% recurrente 1er año).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T16:14:21.428Z",
+    "herramientaId": "streak",
+    "nombreHerramienta": "Streak",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 91,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T16:14:22.436Z",
+    "herramientaId": "capsule-crm",
+    "nombreHerramienta": "Capsule CRM",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 93,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T16:14:23.494Z",
+    "herramientaId": "less-annoying-crm",
+    "nombreHerramienta": "Less Annoying CRM",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 95,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T16:14:24.471Z",
+    "herramientaId": "agile-crm",
+    "nombreHerramienta": "Agile CRM",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 81,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T16:16:27.921Z",
+    "herramientaId": "synthesia",
+    "nombreHerramienta": "Synthesia",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 96,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T16:16:28.888Z",
+    "herramientaId": "copy-ai",
+    "nombreHerramienta": "Copy.ai",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 92,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T17:14:35.897Z",
+    "herramientaId": "reclaim-ai",
+    "nombreHerramienta": "Reclaim.ai",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 96,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T17:14:36.858Z",
+    "herramientaId": "krisp",
+    "nombreHerramienta": "Krisp",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 96,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T17:20:24.995Z",
+    "herramientaId": "paymo",
+    "nombreHerramienta": "Paymo",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 96,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T17:30:04.598Z",
+    "herramientaId": "nifty",
+    "nombreHerramienta": "Nifty",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 95,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T17:30:05.635Z",
+    "herramientaId": "ganttpro",
+    "nombreHerramienta": "GanttPRO",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 96,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T17:34:17.277Z",
+    "herramientaId": "salesmate",
+    "nombreHerramienta": "Salesmate",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 94,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T17:34:18.363Z",
+    "herramientaId": "nocrm-io",
+    "nombreHerramienta": "noCRM.io",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 92,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T17:36:14.328Z",
+    "herramientaId": "zenkit",
+    "nombreHerramienta": "Zenkit",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 93,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T17:48:15.620Z",
+    "herramientaId": "hive",
+    "nombreHerramienta": "Hive",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 93,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado tras reverificación: confianza de afiliación pasó de media a alta. Cumple política delegada por el CEO (2026-08-21).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T17:48:16.788Z",
+    "herramientaId": "teamgantt",
+    "nombreHerramienta": "TeamGantt",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 94,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado tras reverificación: confianza de afiliación pasó de media a alta. Cumple política delegada por el CEO (2026-08-21).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T18:33:43.738Z",
+    "herramientaId": "kartra",
+    "nombreHerramienta": "Kartra",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 80,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T18:33:44.568Z",
+    "herramientaId": "agiled",
+    "nombreHerramienta": "Agiled",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 91,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-08-21T18:33:45.384Z",
+    "herramientaId": "honeybook",
+    "nombreHerramienta": "HoneyBook",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 90,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
+    "aprobacionCeo": true
+  }
+]

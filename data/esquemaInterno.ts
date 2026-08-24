@@ -109,6 +109,17 @@ export type CuentaAfiliado = {
   /** ISO 8601 (YYYY-MM-DD). Lo estampa Atlas automáticamente cada vez que se actualiza esta cuenta. */
   ultimaRevision: string;
   observaciones?: string;
+  /**
+   * Añadido: la herramienta se promovió con la información del programa
+   * de afiliados en confianza "media" (ver `agents/atlas-researcher/criteriosCalidad.ts`)
+   * — el resto de la investigación (reputación, puntuación, confianza
+   * general) era lo bastante sólido para no bloquear el catálogo por esto,
+   * pero Atlas Affiliate Manager debe verificar la comisión/plataforma
+   * reales antes de solicitar el programa o considerar la cuenta lista
+   * para monetizar. Nunca lo pone una persona a mano: solo lo siembra
+   * `promoverBorrador()`, y solo una persona lo quita una vez verificado.
+   */
+  verificacionPendiente?: boolean;
 };
 
 /**

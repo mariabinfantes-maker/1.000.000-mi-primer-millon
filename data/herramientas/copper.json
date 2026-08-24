@@ -1,0 +1,134 @@
+{
+  "nombre": "Copper",
+  "paginaOficial": "https://www.copper.com",
+  "urlPrecios": "https://www.copper.com/pricing",
+  "logoUrl": "",
+  "categoriaId": "crm",
+  "descripcion": "Copper es un CRM basado en la nube diseñado específicamente para empresas que utilizan Google Workspace. Se integra de forma nativa con Gmail, Google Calendar y Drive para automatizar la captura de contactos y el seguimiento de oportunidades comerciales sin entrada manual de datos.",
+  "informacionEmpresa": {
+    "anioFundacion": 2011,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "101-250 empleados"
+  },
+  "problemasQueResuelve": [
+    "Pérdida de tiempo en la introducción manual de datos comerciales",
+    "Falta de adopción del CRM por parte del equipo de ventas debido a interfaces complejas",
+    "Desconexión entre los correos electrónicos en Gmail y los estados del embudo de ventas",
+    "Poca visibilidad sobre el estado real de los prospectos y negociaciones"
+  ],
+  "casosDeUso": [
+    "Gestión de relaciones comerciales y oportunidades directamente desde la extensión de Gmail",
+    "Seguimiento automático de interacciones con clientes, llamadas y reuniones de calendario",
+    "Gestión de cuentas y proyectos para agencias de marketing y firmas de consultoría",
+    "Automatización de secuencias de seguimiento por correo electrónico tras reuniones"
+  ],
+  "idealPara": "Empresas pequeñas y medianas totalmente integradas en Google Workspace que buscan un CRM intuitivo y sin fricción técnica.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200"
+  ],
+  "industriasIdeales": [
+    "Agencias de marketing y publicidad",
+    "Servicios profesionales y consultoría",
+    "Sector inmobiliario (Real Estate)",
+    "Tecnología y startups B2B"
+  ],
+  "noRecomendadaPara": "Empresas que utilicen la suite de Microsoft 365/Outlook o grandes corporaciones que requieran personalizaciones complejas a nivel de código.",
+  "casosNoRecomendados": [
+    "Equipos cuyo flujo de trabajo principal esté basado en Microsoft Outlook o herramientas de Microsoft",
+    "Empresas corporativas que requieran flujos de trabajo muy complejos con integraciones avanzadas a ERPs tradicionales"
+  ],
+  "funcionesPrincipales": [
+    "Integración nativa e invisible con Google Workspace (Gmail, Calendar, Drive)",
+    "Gestión visual de tuberías de ventas (pipelines)",
+    "Captura y actualización automática de contactos e historial de interacciones",
+    "Secuencias de correo electrónico automatizadas",
+    "Gestión de tareas, actividades y avisos de seguimiento",
+    "Informes y analíticas de rendimiento comercial"
+  ],
+  "integraciones": [
+    "Google Workspace",
+    "Zapier",
+    "Slack",
+    "Mailchimp",
+    "DocuSign",
+    "QuickBooks",
+    "HubSpot",
+    "Zendesk"
+  ],
+  "integracionesPrincipales": [
+    "Google Workspace",
+    "Zapier",
+    "Slack",
+    "Mailchimp"
+  ],
+  "curvaDeAprendizaje": "facil",
+  "precioInicial": "Desde $23/usuario/mes (facturación anual)",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Plan Professional a $49/usuario/mes (facturado anualmente)",
+  "idiomasDisponibles": [
+    "Inglés",
+    "Español",
+    "Francés",
+    "Alemán",
+    "Neerlandés"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 8,
+    "fiabilidad": 8,
+    "atencionAlCliente": 8,
+    "escalabilidad": 7,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 9
+  },
+  "metodologiaValoracion": "Puntuaciones basadas en la consolidación de más de 1.600 reseñas en G2 y Capterra, analizando la tasa de adopción de los usuarios, la facilidad de integración con Google Workspace y la calidad de soporte.",
+  "reputacion": {
+    "g2Puntuacion": 4.5,
+    "g2NumeroResenas": 1100,
+    "capterraPuntuacion": 4.4,
+    "capterraNumeroResenas": 570
+  },
+  "ventajas": [
+    "Integración nativa profunda con Gmail y el resto de herramientas de Google Workspace",
+    "Excelente tasa de adopción por parte del equipo comercial gracias a su interfaz familiar",
+    "Elimina gran parte del trabajo administrativo y de introducción manual de datos",
+    "Puesta en marcha muy rápida sin necesidad de largos proyectos de implementación"
+  ],
+  "inconvenientes": [
+    "Dependencia casi total del ecosistema Google (no apto para usuarios de Microsoft)",
+    "Precio más elevado por usuario en comparación con competidores básicos como Pipedrive o Streak",
+    "Menor flexibilidad de personalización avanzada para flujos B2B muy específicos"
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Streak",
+      "Pipedrive",
+      "HubSpot CRM",
+      "Zoho CRM"
+    ],
+    "tipoNegocioIdeal": "Agencias, consultoras y PYMEs usuarias de Google Workspace",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 89,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.2/10.",
+      "G2: 4.5/5 (1100 reseñas).",
+      "Capterra: 4.4/5 (570 reseñas).",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "copper",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-08-18",
+  "fechaUltimaRevision": "2026-08-19"
+}
