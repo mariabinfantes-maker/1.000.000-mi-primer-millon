@@ -10,6 +10,11 @@
  * segmentar campañas futuras) y `enviarBienvenida` (la automatización de
  * bienvenida en sí). Un fallo en una no debe impedir la otra — ver el
  * comentario de `app/api/suscribir/route.ts`.
+ *
+ * `enviarTransaccional` es el tercer método, deliberadamente genérico: la
+ * base para cualquier automatización futura (formulario de contacto, lista
+ * de espera, registro de usuarios, notificaciones) sin tener que escribir
+ * un adaptador nuevo para cada una — `enviarBienvenida` ya se apoya en él.
  */
 
 /** Dónde se suscribió el usuario — etiqueta libre, útil para medir qué formulario convierte mejor. */
@@ -33,6 +38,8 @@ export type ProveedorEmail = {
   suscribir(datos: DatosSuscripcion): Promise<ResultadoOperacionEmail>;
   /** Envía el email de bienvenida con el lead magnet. Independiente de `suscribir` para que un fallo aquí no deshaga el alta ya hecha. */
   enviarBienvenida(email: string): Promise<ResultadoOperacionEmail>;
+  /** Envío transaccional genérico (asunto + HTML propios) — el punto de enganche para automatizaciones que todavía no existen, sin acoplarlas a la plantilla de bienvenida. */
+  enviarTransaccional(email: string, asunto: string, html: string): Promise<ResultadoOperacionEmail>;
 };
 
 /** Error de un proveedor de email concreto, con su nombre incluido en el mensaje — mismo patrón que `ErrorProveedorIA`. */

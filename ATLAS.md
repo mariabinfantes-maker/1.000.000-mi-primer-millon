@@ -912,24 +912,41 @@ Tareas operativas, no de arquitectura — nada que implementar, solo
 configurar antes de lanzar. Ninguna se ha resuelto con un valor inventado
 en el código; todas quedan aquí para no olvidarlas.
 
-### Activar Brevo (sistema de captación de emails)
+### Brevo activado como proveedor oficial de email transaccional
 
-**Registrada:** 2026-08-21. La infraestructura está completa y probada
-(ver "Fase de lanzamiento" más arriba) — solo falta la cuenta real. Pasos:
+**Registrada:** 2026-08-24 — el CEO confirmó que ya existe la cuenta de
+Brevo y que `BREVO_API_KEY` está configurada en el entorno de producción
+(Vercel). No hizo falta tocar `lib/email/proveedorActivo.ts`: ya
+seleccionaba Brevo automáticamente en cuanto la variable existiera (ver
+"Sistema de captación de emails" más arriba) — la infraestructura estaba
+preparada para este momento desde que se construyó. Nota operativa: si
+`BREVO_LIST_ID` o `BREVO_SENDER_EMAIL` todavía no están configuradas
+también, `suscribir()`/`enviarBienvenida()` seguirán devolviendo un error
+legible (capturado, sin romper el sitio) hasta que se añadan — ver pasos
+1-3 más abajo, siguen aplicando igual si falta alguna.
 
-1. Crear la cuenta en Brevo y verificar un dominio/remitente de envío
-   (ej. hola@molnip.com) — necesario para que el email de bienvenida no
-   caiga en spam.
+1. Verificar un dominio/remitente de envío en Brevo (ej. hola@molnip.com)
+   — necesario para que el email de bienvenida no caiga en spam.
 2. Crear una lista de contactos para Molnip y anotar su id numérico.
-3. Configurar en el entorno de despliegue:
-   - `BREVO_API_KEY` — clave de API de Brevo.
+3. Configurar en el entorno de despliegue (además de `BREVO_API_KEY`, ya
+   hecho):
    - `BREVO_LIST_ID` — id numérico de la lista creada en el paso 2.
    - `BREVO_SENDER_EMAIL` — el remitente verificado en el paso 1.
    - `BREVO_SENDER_NOMBRE` — opcional, por defecto "Molnip".
 
-En cuanto `BREVO_API_KEY` existe, `lib/email/proveedorActivo.ts` cambia
-automáticamente del proveedor simulado al real — no hace falta tocar
-ningún otro archivo.
+**Preparado para futuras automatizaciones:** se añadió
+`enviarTransaccional(email, asunto, html)` al contrato `ProveedorEmail`
+(`lib/email/proveedorEmail.ts`) — un envío genérico, sin acoplar a la
+plantilla de bienvenida. `enviarBienvenida` ahora es solo
+`enviarTransaccional` con el asunto y el HTML del lead magnet ya fijados
+(`lib/email/proveedores/brevo.ts`), eliminando la llamada a la API
+transaccional duplicada que existía antes. Cualquier automatización
+futura (formulario de contacto, lista de espera, registro de usuarios,
+notificaciones) puede llamar a `obtenerProveedorEmail().enviarTransaccional(...)`
+directamente, sin escribir un adaptador nuevo ni tocar la lógica de
+selección de proveedor — la propia funcionalidad (formulario, flujo de
+alta, etc.) queda para cuando se pida explícitamente, esto solo deja el
+enganche listo.
 
 ### Borradores en espera de confirmación de afiliación
 

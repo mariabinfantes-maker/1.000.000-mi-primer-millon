@@ -100,4 +100,35 @@ describe("crearProveedorBrevo", () => {
     expect(cuerpo.sender.email).toBe("hola@molnip.com");
     expect(cuerpo.to).toEqual([{ email: "ana@ejemplo.com" }]);
   });
+
+  it("enviarTransaccional() envía el asunto y el HTML dados, sin depender de la plantilla de bienvenida", async () => {
+    process.env.BREVO_API_KEY = "clave-de-prueba";
+    process.env.BREVO_SENDER_EMAIL = "hola@molnip.com";
+    const fetchFalso = vi.fn().mockResolvedValue({ ok: true, status: 201 });
+    vi.stubGlobal("fetch", fetchFalso);
+
+    const proveedor = crearProveedorBrevo();
+    const resultado = await proveedor.enviarTransaccional(
+      "ana@ejemplo.com",
+      "Hemos recibido tu mensaje",
+      "<p>Gracias por escribirnos.</p>"
+    );
+
+    expect(resultado.ok).toBe(true);
+    const cuerpo = JSON.parse(fetchFalso.mock.calls[0][1].body);
+    expect(cuerpo.subject).toBe("Hemos recibido tu mensaje");
+    expect(cuerpo.htmlContent).toBe("<p>Gracias por escribirnos.</p>");
+    expect(cuerpo.to).toEqual([{ email: "ana@ejemplo.com" }]);
+  });
+
+  it("enviarTransaccional() devuelve error legible si falta BREVO_SENDER_EMAIL", async () => {
+    process.env.BREVO_API_KEY = "clave-de-prueba";
+    delete process.env.BREVO_SENDER_EMAIL;
+    const proveedor = crearProveedorBrevo();
+
+    const resultado = await proveedor.enviarTransaccional("ana@ejemplo.com", "Asunto", "<p>Cuerpo</p>");
+
+    expect(resultado.ok).toBe(false);
+    if (!resultado.ok) expect(resultado.error).toContain("BREVO_SENDER_EMAIL");
+  });
 });

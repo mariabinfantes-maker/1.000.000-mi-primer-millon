@@ -25,5 +25,9 @@ export function crearProveedorSimulado(): ProveedorEmail {
       console.log(`[${NOMBRE}] Email de bienvenida simulado para: ${email}`);
       return { ok: true };
     },
+    async enviarTransaccional(email: string, asunto: string): Promise<ResultadoOperacionEmail> {
+      console.log(`[${NOMBRE}] Email transaccional simulado para: ${email} — asunto: "${asunto}"`);
+      return { ok: true };
+    },
   };
 }

@@ -26,14 +26,40 @@ const NOMBRE_REMITENTE_POR_DEFECTO = "Molnip";
  *    futuras directamente desde el panel de Brevo. `updateEnabled: true`
  *    para que suscribirse dos veces actualice el contacto en vez de fallar
  *    por duplicado.
- *  - `enviarBienvenida` → Transactional Email API (`POST /v3/smtp/email`):
- *    el HTML vive en código (`plantillaBienvenida.ts`), no en una plantilla
- *    del panel de Brevo, para no depender de que exista ya una cuenta
- *    configurada a mano.
+ *  - `enviarTransaccional` → Transactional Email API (`POST /v3/smtp/email`):
+ *    envío genérico (asunto + HTML propios), base de `enviarBienvenida` y de
+ *    cualquier automatización futura (formulario de contacto, lista de
+ *    espera, registro, notificaciones) que necesite enviar un correo sin
+ *    depender de una plantilla ya configurada a mano en el panel de Brevo.
+ *  - `enviarBienvenida` es solo `enviarTransaccional` con el asunto y el
+ *    HTML del lead magnet ya fijados (`plantillaBienvenida.ts`).
  */
 export function crearProveedorBrevo(): ProveedorEmail {
+  async function enviarTransaccional(email: string, asunto: string, html: string): Promise<ResultadoOperacionEmail> {
+    try {
+      const apiKey = requerirApiKey();
+      const remitente = requerirRemitente();
+
+      const respuesta = await fetch(URL_TRANSACCIONAL, {
+        method: "POST",
+        headers: cabeceras(apiKey),
+        body: JSON.stringify({ sender: remitente, to: [{ email }], subject: asunto, htmlContent: html }),
+      });
+
+      if (!respuesta.ok) {
+        const detalle = await textoDeError(respuesta);
+        return { ok: false, error: `No se pudo enviar el email transaccional (${respuesta.status}): ${detalle}` };
+      }
+
+      return { ok: true };
+    } catch (error) {
+      return { ok: false, error: mensajeDeError(error) };
+    }
+  }
+
   return {
     nombre: NOMBRE,
+    enviarTransaccional,
 
     async suscribir(datos: DatosSuscripcion): Promise<ResultadoOperacionEmail> {
       const atributos: Record<string, string> = { ORIGEN: datos.origen };
@@ -66,31 +92,8 @@ export function crearProveedorBrevo(): ProveedorEmail {
       }
     },
 
-    async enviarBienvenida(email: string): Promise<ResultadoOperacionEmail> {
-      try {
-        const apiKey = requerirApiKey();
-        const remitente = requerirRemitente();
-
-        const respuesta = await fetch(URL_TRANSACCIONAL, {
-          method: "POST",
-          headers: cabeceras(apiKey),
-          body: JSON.stringify({
-            sender: remitente,
-            to: [{ email }],
-            subject: ASUNTO_BIENVENIDA,
-            htmlContent: construirHtmlBienvenida(),
-          }),
-        });
-
-        if (!respuesta.ok) {
-          const detalle = await textoDeError(respuesta);
-          return { ok: false, error: `No se pudo enviar el email de bienvenida (${respuesta.status}): ${detalle}` };
-        }
-
-        return { ok: true };
-      } catch (error) {
-        return { ok: false, error: mensajeDeError(error) };
-      }
+    enviarBienvenida(email: string): Promise<ResultadoOperacionEmail> {
+      return enviarTransaccional(email, ASUNTO_BIENVENIDA, construirHtmlBienvenida());
     },
   };
 }

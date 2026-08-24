@@ -10,6 +10,7 @@ function proveedorFalso(opciones: {
     nombre: "proveedor-falso",
     suscribir: vi.fn(async (): Promise<ResultadoOperacionEmail> => opciones.suscribir ?? { ok: true }),
     enviarBienvenida: vi.fn(async (): Promise<ResultadoOperacionEmail> => opciones.enviarBienvenida ?? { ok: true }),
+    enviarTransaccional: vi.fn(async (): Promise<ResultadoOperacionEmail> => ({ ok: true })),
   };
 }
 
