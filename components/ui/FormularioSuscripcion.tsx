@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Loader2, Mail } from "lucide-react";
+import { Check, FileDown, Loader2, Mail, Sparkles } from "lucide-react";
+import type { ComponentType } from "react";
 import type { OrigenSuscripcion } from "@/lib/email/proveedorEmail";
 
 type Variante = "pie-de-pagina" | "resultados";
@@ -13,16 +14,23 @@ type Props = {
   problemaId?: string;
 };
 
-const COPY: Record<Variante, { titulo: string; descripcion: string; etiquetaBoton: string }> = {
+const COPY: Record<
+  Variante,
+  { icono: ComponentType<{ className?: string }>; titulo: string; descripcion: string; etiquetaBoton: string }
+> = {
   "pie-de-pagina": {
-    titulo: "No te pierdas nada",
-    descripcion: "Herramientas nuevas y consejos para elegir mejor la tecnología de tu empresa. Sin spam.",
-    etiquetaBoton: "Suscribirme",
+    icono: Sparkles,
+    titulo: "Recibe las novedades, sin ruido",
+    descripcion:
+      "Herramientas nuevas y guías prácticas, escritas por el mismo equipo que investiga cada ficha del catálogo. Cero spam — date de baja cuando quieras.",
+    etiquetaBoton: "Quiero recibirlo",
   },
   resultados: {
-    titulo: "¿Quieres la guía gratuita?",
-    descripcion: "7 preguntas que debes hacerte antes de elegir cualquier software. Te la mandamos ahora mismo.",
-    etiquetaBoton: "Enviarme la guía",
+    icono: FileDown,
+    titulo: "Llévate la chuleta antes de decidir",
+    descripcion:
+      "7 preguntas que deberías hacerte antes de elegir cualquier software — en PDF, lista en tu correo ahora mismo.",
+    etiquetaBoton: "Enviarme la guía gratis",
   },
 };
 
@@ -42,6 +50,17 @@ export default function FormularioSuscripcion({ variante, categoriaId, problemaI
   const [mensajeError, setMensajeError] = useState("");
 
   const copy = COPY[variante];
+  const Icono = copy.icono;
+  // Cada variante lleva su propio tratamiento visual: la del pie de página
+  // necesita peso propio para no diluirse en el fondo blanco del footer
+  // (antes era solo texto suelto); la de resultados hereda el mismo cartón
+  // premium que ya usaba `PantallaRecomendacion`, ahora movido aquí para
+  // que el componente sea responsable de su propia presencia, no quien lo
+  // llama.
+  const contenedor =
+    variante === "pie-de-pagina"
+      ? "mx-auto max-w-md rounded-3xl bg-gradient-to-br from-brand-50 to-white p-6 text-center ring-1 ring-brand-100/80 sm:p-8"
+      : "mx-auto max-w-md rounded-2xl border border-slate-200/80 bg-white p-6 text-center shadow-premium ring-1 ring-black/[0.02] sm:p-8";
 
   async function enviar(e: React.FormEvent) {
     e.preventDefault();
@@ -79,19 +98,30 @@ export default function FormularioSuscripcion({ variante, categoriaId, problemaI
 
   if (estado === "exito") {
     return (
-      <div className="flex items-center gap-2 text-sm font-semibold text-emerald-700">
-        <Check className="h-4 w-4 shrink-0" aria-hidden="true" />
-        Listo, revisa tu bandeja de entrada.
+      <div className={contenedor}>
+        <div className="flex flex-col items-center gap-2">
+          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+            <Check className="h-5 w-5" aria-hidden="true" />
+          </div>
+          <p className="text-sm font-semibold text-slate-900">Listo, revisa tu bandeja de entrada.</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div>
-      <p className="text-sm font-semibold text-slate-900">{copy.titulo}</p>
-      <p className="mt-1 text-sm text-slate-500">{copy.descripcion}</p>
+    <div className={contenedor}>
+      <div className="flex flex-col items-center gap-3">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-brand-100 text-brand-600 ring-1 ring-brand-100">
+          <Icono className="h-5 w-5" aria-hidden="true" />
+        </div>
+        <div>
+          <p className="font-display text-lg font-semibold text-slate-900">{copy.titulo}</p>
+          <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{copy.descripcion}</p>
+        </div>
+      </div>
 
-      <form onSubmit={enviar} className="mt-4 flex flex-col gap-2 sm:flex-row">
+      <form onSubmit={enviar} className="mt-5 flex flex-col gap-2 sm:flex-row">
         {/* Honeypot: invisible para una persona, un bot que rellena todos los campos a ciegas sí lo completa. */}
         <div className="absolute -left-[9999px]" aria-hidden="true">
           <label htmlFor={`web-${variante}`}>No rellenar</label>

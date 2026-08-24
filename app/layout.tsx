@@ -76,9 +76,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <footer className="border-t border-slate-200 bg-white py-10">
           <div className="mx-auto max-w-5xl px-4 sm:px-6">
-            <div className="mx-auto max-w-sm text-center">
-              <FormularioSuscripcion variante="pie-de-pagina" />
-            </div>
+            <FormularioSuscripcion variante="pie-de-pagina" />
 
             <div className="mt-10 flex flex-col items-center gap-4 border-t border-slate-100 pt-8 text-center">
               <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium text-slate-500">

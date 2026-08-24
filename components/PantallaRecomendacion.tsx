@@ -113,7 +113,7 @@ export default function PantallaRecomendacion({
         ))}
       </div>
 
-      <div className="mx-auto mt-12 max-w-md rounded-2xl border border-slate-200/80 bg-white p-6 text-center shadow-premium ring-1 ring-black/[0.02] sm:p-8">
+      <div className="mt-12">
         <FormularioSuscripcion
           variante="resultados"
           categoriaId={top[0]?.herramienta.categoriaId}
