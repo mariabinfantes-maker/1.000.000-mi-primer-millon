@@ -84,8 +84,8 @@ export default function Home() {
             </div>
 
             <h1
-              className="animar-entrada mx-auto mt-6 max-w-xl text-4xl font-display font-bold leading-[1.05] tracking-tight text-slate-900 sm:text-6xl lg:mx-0"
-              style={{ animationDelay: "90ms" }}
+              className="animar-entrada mx-auto mt-6 max-w-xl font-display font-bold leading-[1.05] tracking-tight text-slate-900 lg:mx-0"
+              style={{ animationDelay: "90ms", fontSize: "clamp(1.875rem, 5vw + 1rem, 3.75rem)" }}
             >
               Deja de adivinar qué herramienta
               <span className="bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">
@@ -131,15 +131,20 @@ export default function Home() {
               }}
             />
 
-            <Image
-              src="/images/molnip-business-owner.png"
-              alt="Una profesional revisando una recomendación de Molnip en su tablet"
-              width={1024}
-              height={1536}
-              priority
-              sizes="(min-width: 1024px) 480px, 80vw"
-              className="relative mx-auto h-auto w-[85%] drop-shadow-2xl sm:w-[75%]"
-            />
+            {/* En móvil, recorte a la altura de la cintura (contenedor de altura fija +
+                overflow-hidden) para no ocupar tanto alto de pantalla — en escritorio
+                (`lg:`) vuelve a la figura completa, sin recorte, igual que siempre. */}
+            <div className="relative mx-auto h-80 overflow-hidden sm:h-96 lg:h-auto lg:overflow-visible">
+              <Image
+                src="/images/molnip-business-owner.png"
+                alt="Una profesional revisando una recomendación de Molnip en su tablet"
+                width={1024}
+                height={1536}
+                priority
+                sizes="(min-width: 1024px) 480px, 80vw"
+                className="relative mx-auto h-auto w-[85%] drop-shadow-2xl sm:w-[75%]"
+              />
+            </div>
 
             {/* Tarjeta flotante: una recomendación de software, mismo tratamiento visual que el resto del sitio (nunca datos inventados — texto genérico ilustrativo). */}
             <div
