@@ -59,10 +59,43 @@ function esHostLocal(cadenaConexion: string): boolean {
   );
 }
 
+/**
+ * Fuerza `sslmode=verify-full` en la cadena de conexión de cualquier
+ * servidor remoto.
+ *
+ * Por qué en la cadena y no solo en la opción `ssl` del Pool: `pg` hace
+ * `Object.assign({}, config, parse(config.connectionString))`, es decir, lo
+ * que venga en la cadena PISA lo que se pase como opción. Un
+ * `ssl: { rejectUnauthorized: true }` explícito se descarta en silencio si
+ * la cadena trae su propio `sslmode` — que es justo lo que hace la cadena
+ * que genera Neon (`sslmode=require`).
+ *
+ * Hoy eso no rompe nada, porque `pg-connection-string` trata "require" como
+ * alias de "verify-full" y acaba verificando el certificado igualmente.
+ * Pero la propia librería avisa de que en su siguiente versión mayor
+ * adoptará la semántica de libpq, donde "require" cifra pero NO comprueba
+ * quién está al otro lado. Sería una degradación silenciosa de la seguridad
+ * al actualizar una dependencia. Dejándolo escrito como "verify-full" el
+ * comportamiento es el mismo antes y después del cambio.
+ */
+export function forzarVerificacionSsl(cadenaConexion: string): string {
+  if (esHostLocal(cadenaConexion)) return cadenaConexion;
+  try {
+    const url = new URL(cadenaConexion);
+    url.searchParams.set("sslmode", "verify-full");
+    return url.toString();
+  } catch {
+    // Cadena con un formato que `URL` no sabe interpretar: se devuelve tal
+    // cual y la opción `ssl` de abajo sigue actuando como red de seguridad.
+    return cadenaConexion;
+  }
+}
+
 function construirPool(cadenaConexion: string): Pool {
+  const esLocal = esHostLocal(cadenaConexion);
   return new Pool({
-    connectionString: cadenaConexion,
-    ssl: esHostLocal(cadenaConexion) ? undefined : { rejectUnauthorized: true },
+    connectionString: forzarVerificacionSsl(cadenaConexion),
+    ssl: esLocal ? undefined : { rejectUnauthorized: true },
     max: 5,
   });
 }
