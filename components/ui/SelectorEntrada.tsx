@@ -12,24 +12,36 @@ type Puerta = "objetivo" | "categoria" | "libre";
 type ProblemaResumen = { id: string; titulo: string; descripcion: string };
 type CategoriaResumen = { id: string; nombre: string; descripcion: string };
 
-const PUERTAS: { id: Puerta; etiqueta: string; Icono: typeof Target; ayuda: string }[] = [
+const PUERTAS: {
+  id: Puerta;
+  Icono: typeof Target;
+  titulo: string;
+  descripcion: string;
+  boton: string;
+  etiqueta?: string;
+}[] = [
   {
     id: "objetivo",
-    etiqueta: "Por objetivo",
     Icono: Target,
-    ayuda: "¿No sabes por dónde empezar? Empieza por objetivo.",
+    titulo: "Tengo un objetivo",
+    descripcion:
+      "Quiero ahorrar tiempo, organizarme mejor, vender más o resolver un problema concreto.",
+    boton: "Empezar por objetivo",
   },
   {
     id: "categoria",
-    etiqueta: "Por categoría",
     Icono: LayoutGrid,
-    ayuda: "Si ya sabes qué tipo de herramienta buscas, ve directo al grano.",
+    titulo: "Sé qué herramienta busco",
+    descripcion: "Quiero explorar una categoría como reservas, facturación, CRM o automatización.",
+    boton: "Explorar por categoría",
   },
   {
     id: "libre",
-    etiqueta: "Cuéntanoslo",
     Icono: MessageCircle,
-    ayuda: "Explícalo con tus palabras, como se lo dirías a un compañero.",
+    titulo: "Prefiero explicarlo con mis palabras",
+    descripcion: "Cuéntale a Molnip lo que necesitas sin formularios complicados.",
+    boton: "Contárselo a Molnip",
+    etiqueta: "La forma más fácil",
   },
 ];
 
@@ -80,50 +92,60 @@ export default function SelectorEntrada({
 
   return (
     <div>
-      <div
-        role="tablist"
-        aria-label="Cómo quieres empezar"
-        className="inline-flex w-full flex-col gap-1 rounded-2xl border border-slate-200/80 bg-white p-1.5 shadow-[0_1px_2px_rgba(15,23,42,0.04)] sm:w-auto sm:flex-row"
-      >
+      <div role="tablist" aria-label="Cómo quieres empezar" className="grid grid-cols-1 gap-6 sm:grid-cols-3">
         {PUERTAS.map((puerta, indice) => {
           const activa = puerta.id === puertaActiva;
           return (
-            <button
+            <div
               key={puerta.id}
-              ref={(el) => {
-                botonesRef.current[puerta.id] = el;
-              }}
-              type="button"
-              role="tab"
-              id={`puerta-tab-${puerta.id}`}
-              aria-selected={activa}
-              aria-controls={`puerta-panel-${puerta.id}`}
-              tabIndex={activa ? 0 : -1}
-              onClick={() => setPuertaActiva(puerta.id)}
-              onKeyDown={(evento) => alPulsarTecla(evento, indice)}
-              className={`flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition ${
+              className={`relative flex h-full flex-col gap-3 rounded-2xl border bg-white p-6 ring-1 transition ${
                 activa
-                  ? "bg-brand-600 text-white shadow-premium"
-                  : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                  ? "border-brand-300 shadow-premium ring-brand-100"
+                  : "border-slate-200/80 shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-black/[0.02]"
               }`}
             >
-              <puerta.Icono className="h-4 w-4" aria-hidden="true" />
-              {puerta.etiqueta}
-            </button>
+              {puerta.etiqueta && (
+                <span className="absolute -top-3 left-6 rounded-full bg-brand-600 px-3 py-1 text-xs font-semibold text-white shadow-premium">
+                  {puerta.etiqueta}
+                </span>
+              )}
+              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-brand-100 text-brand-600 ring-1 ring-brand-100">
+                <puerta.Icono className="h-6 w-6" aria-hidden="true" />
+              </span>
+              <h3 className="font-display text-lg font-bold text-slate-900">{puerta.titulo}</h3>
+              <p className="flex-1 text-sm leading-relaxed text-slate-600">{puerta.descripcion}</p>
+              <button
+                ref={(el) => {
+                  botonesRef.current[puerta.id] = el;
+                }}
+                type="button"
+                role="tab"
+                id={`puerta-tab-${puerta.id}`}
+                aria-selected={activa}
+                aria-controls={`puerta-panel-${puerta.id}`}
+                tabIndex={activa ? 0 : -1}
+                onClick={() => setPuertaActiva(puerta.id)}
+                onKeyDown={(evento) => alPulsarTecla(evento, indice)}
+                className={`mt-1 inline-flex items-center justify-center gap-1.5 rounded-xl px-4 py-2.5 text-sm font-semibold transition ${
+                  activa
+                    ? "bg-brand-600 text-white shadow-premium hover:bg-brand-700"
+                    : "bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-slate-900"
+                }`}
+              >
+                {puerta.boton}
+                <ChevronRight className="h-4 w-4" aria-hidden="true" />
+              </button>
+            </div>
           );
         })}
       </div>
-
-      <p className="mt-3 min-h-5 text-sm text-slate-500">
-        {PUERTAS.find((p) => p.id === puertaActiva)?.ayuda}
-      </p>
 
       <div
         role="tabpanel"
         id={`puerta-panel-${puertaActiva}`}
         aria-labelledby={`puerta-tab-${puertaActiva}`}
         tabIndex={0}
-        className="mt-6"
+        className="mt-8"
       >
         {puertaActiva === "objetivo" && <PanelObjetivo problemas={problemas} />}
         {puertaActiva === "categoria" && <PanelCategoria categorias={categorias} />}
@@ -149,7 +171,7 @@ function PanelObjetivo({ problemas }: { problemas: ProblemaResumen[] }) {
             <span className="block font-display text-lg font-bold text-slate-900 group-hover:text-brand-700">
               {problema.titulo}
             </span>
-            <span className="mt-1 block text-sm leading-relaxed text-slate-500">
+            <span className="mt-1 block text-sm leading-relaxed text-slate-600">
               {problema.descripcion}
             </span>
             <span className="mt-3 flex items-center gap-1 text-sm font-semibold text-brand-600 opacity-0 transition group-hover:opacity-100">
@@ -179,7 +201,7 @@ function PanelCategoria({ categorias }: { categorias: CategoriaResumen[] }) {
             <span className="block font-display text-lg font-bold text-slate-900 group-hover:text-brand-700">
               {categoria.nombre}
             </span>
-            <span className="mt-1 block text-sm leading-relaxed text-slate-500">
+            <span className="mt-1 block text-sm leading-relaxed text-slate-600">
               {categoria.descripcion}
             </span>
             <span className="mt-3 flex items-center gap-1 text-sm font-semibold text-brand-600 opacity-0 transition group-hover:opacity-100">

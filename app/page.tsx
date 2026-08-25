@@ -318,6 +318,10 @@ export default function Home() {
             <h2 className="mt-2 text-2xl font-display font-bold tracking-tight text-slate-900 sm:text-3xl">
               ¿Cómo quieres empezar?
             </h2>
+            <p className="mt-3 text-base leading-relaxed text-slate-600">
+              Elige la forma más fácil para ti. Las tres opciones te llevarán a una recomendación
+              adaptada a tu negocio.
+            </p>
           </RevelarAlScroll>
 
           <RevelarAlScroll retrasoMs={80} className="mt-8">
