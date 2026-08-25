@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getHerramienta } from "@/data/repositorio";
 import { getEstrategiaAfiliacion, guardarEstrategiaAfiliacion } from "@/data/repositorioEstrategiaAfiliacion";
+import { getAffiliateData } from "@/data/repositorioAfiliados";
 import { fusionarEstrategiaAfiliacion } from "@/agents/atlas-affiliate-manager/estrategiaAfiliacion";
 import { generarBorradorSolicitud } from "@/agents/atlas-affiliate-manager/borradorSolicitud";
 import { crearProveedorGemini } from "@/agents/compartido/proveedores/gemini";
@@ -36,11 +37,22 @@ export async function POST(request: Request) {
   const cuentaId = cuerpo.cuentaId ?? "principal";
   const existente = getEstrategiaAfiliacion(cuerpo.herramientaId);
   const hoy = new Date().toISOString().slice(0, 10);
+
+  // Misma siembra que en /requisitos: si la cuenta es nueva, conserva el
+  // nombre real del programa en vez de dejar la columna "Programa" del
+  // panel con el id de cuenta genérico.
+  const cuentaYaExistia = existente?.cuentas.some((c) => c.id === cuentaId) ?? false;
+  const datosAfiliados = cuentaYaExistia ? undefined : getAffiliateData(cuerpo.herramientaId);
+
   const actualizada = fusionarEstrategiaAfiliacion(
     cuerpo.herramientaId,
     cuentaId,
     existente,
-    { borradorSolicitud: resultado.borrador },
+    {
+      borradorSolicitud: resultado.borrador,
+      nombrePrograma: cuentaYaExistia ? undefined : (cuerpo.nombrePrograma ?? datosAfiliados?.affiliateProgramName),
+      plataforma: cuentaYaExistia ? undefined : datosAfiliados?.affiliatePlatform,
+    },
     hoy
   );
   guardarEstrategiaAfiliacion(actualizada);

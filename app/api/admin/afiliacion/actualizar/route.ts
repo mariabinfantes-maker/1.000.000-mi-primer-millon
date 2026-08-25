@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getEstrategiaAfiliacion, guardarEstrategiaAfiliacion } from "@/data/repositorioEstrategiaAfiliacion";
+import { getAffiliateData } from "@/data/repositorioAfiliados";
 import {
   esEstadoAfiliacionValido,
   fusionarEstrategiaAfiliacion,
@@ -58,10 +59,20 @@ export async function POST(request: Request) {
 
   const cuentaId = cuerpo.cuentaId ?? (cuerpo.plataforma ? generarIdCuenta(cuerpo.plataforma) : "principal");
 
+  // Al crear la cuenta por primera vez, sin plataforma/nombrePrograma
+  // explícitos en la petición (el panel no siempre los manda — p. ej. al
+  // editar solo el enlace o los requisitos), se siembran con lo que ya
+  // investigó Researcher en vez de dejar la columna "Programa" del panel
+  // con el id de cuenta genérico ("principal"). Nunca pisa un valor ya
+  // guardado en una cuenta existente.
+  const existente = getEstrategiaAfiliacion(cuerpo.herramientaId);
+  const cuentaYaExistia = existente?.cuentas.some((c) => c.id === cuentaId) ?? false;
+  const datosAfiliados = cuentaYaExistia || cuerpo.plataforma || cuerpo.nombrePrograma ? undefined : getAffiliateData(cuerpo.herramientaId);
+
   const cambios: CambiosCuentaAfiliado = {
     estado: cuerpo.estado as CambiosCuentaAfiliado["estado"],
-    plataforma: cuerpo.plataforma,
-    nombrePrograma: cuerpo.nombrePrograma,
+    plataforma: cuerpo.plataforma ?? datosAfiliados?.affiliatePlatform,
+    nombrePrograma: cuerpo.nombrePrograma ?? datosAfiliados?.affiliateProgramName,
     urlSolicitud: cuerpo.urlSolicitud,
     usuarioRegistro: cuerpo.usuarioRegistro,
     fechaSolicitud: cuerpo.fechaSolicitud,
@@ -77,7 +88,6 @@ export async function POST(request: Request) {
     observaciones: cuerpo.observaciones,
   };
 
-  const existente = getEstrategiaAfiliacion(cuerpo.herramientaId);
   const hoy = new Date().toISOString().slice(0, 10);
   const actualizada = fusionarEstrategiaAfiliacion(cuerpo.herramientaId, cuentaId, existente, cambios, hoy);
   guardarEstrategiaAfiliacion(actualizada);

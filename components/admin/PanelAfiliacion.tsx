@@ -252,14 +252,22 @@ export default function PanelAfiliacion({ filasIniciales }: { filasIniciales: Fi
           </thead>
           <tbody>
             {filasFiltradas.map((fila) => {
+              // El `key` de React puede ser el más específico (incluye
+              // cuentaId, cambia si una fila "sin cuenta" pasa a tener una
+              // cuenta real — remonta el componente, sin problema). El
+              // estado "expandida" en cambio se sigue por herramientaId a
+              // secas: si se rastreara por la misma clave que cambia al
+              // crear la primera cuenta, el panel se cerraría solo justo
+              // al guardar el primer campo — se detectó guardando
+              // requisitos por primera vez en una fila sin cuenta todavía.
               const clave = claveFila(fila);
-              const abierta = expandida === clave;
+              const abierta = expandida === fila.herramientaId;
               return (
                 <FilaAfiliacion
                   key={clave}
                   fila={fila}
                   abierta={abierta}
-                  onToggle={() => setExpandida(abierta ? null : clave)}
+                  onToggle={() => setExpandida(abierta ? null : fila.herramientaId)}
                   onActualizar={(cambios) => actualizarFila(fila, cambios)}
                   onGenerarRequisitos={() => generarRequisitos(fila)}
                   onGenerarBorrador={() => generarBorrador(fila)}

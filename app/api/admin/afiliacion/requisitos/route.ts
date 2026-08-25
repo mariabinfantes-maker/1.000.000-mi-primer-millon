@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getHerramienta } from "@/data/repositorio";
 import { getEstrategiaAfiliacion, guardarEstrategiaAfiliacion } from "@/data/repositorioEstrategiaAfiliacion";
+import { getAffiliateData } from "@/data/repositorioAfiliados";
 import { fusionarEstrategiaAfiliacion } from "@/agents/atlas-affiliate-manager/estrategiaAfiliacion";
 import { investigarRequisitosPrograma } from "@/agents/atlas-affiliate-manager/requisitos";
 import { crearProveedorGemini } from "@/agents/compartido/proveedores/gemini";
@@ -29,11 +30,26 @@ export async function POST(request: Request) {
   const cuentaId = cuerpo.cuentaId ?? "principal";
   const existente = getEstrategiaAfiliacion(cuerpo.herramientaId);
   const hoy = new Date().toISOString().slice(0, 10);
+
+  // Al crear la cuenta por primera vez (todavía no existía), se siembra
+  // nombrePrograma/plataforma con lo que ya investigó Researcher — sin
+  // esto, la columna "Programa" del panel pasaba de mostrar el nombre real
+  // (leído de AffiliateData mientras no había cuenta) a mostrar el id de
+  // cuenta genérico ("principal") en cuanto se guardaba cualquier campo.
+  // Solo se siembra si la cuenta es nueva: no pisa un nombre ya corregido
+  // a mano en una cuenta existente.
+  const cuentaYaExistia = existente?.cuentas.some((c) => c.id === cuentaId) ?? false;
+  const datosAfiliados = cuentaYaExistia ? undefined : getAffiliateData(cuerpo.herramientaId);
+
   const actualizada = fusionarEstrategiaAfiliacion(
     cuerpo.herramientaId,
     cuentaId,
     existente,
-    { requisitosPrograma: resultado.requisitos },
+    {
+      requisitosPrograma: resultado.requisitos,
+      nombrePrograma: cuentaYaExistia ? undefined : (cuerpo.nombrePrograma ?? datosAfiliados?.affiliateProgramName),
+      plataforma: cuentaYaExistia ? undefined : datosAfiliados?.affiliatePlatform,
+    },
     hoy
   );
   guardarEstrategiaAfiliacion(actualizada);
