@@ -239,16 +239,36 @@ export default function Home() {
             </p>
           </RevelarAlScroll>
 
-          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-3">
-            {AGENTES.map((agente, i) => (
-              <RevelarAlScroll key={agente.id} retrasoMs={i * 100}>
-                <div className="flex h-full flex-col items-center gap-3 rounded-2xl border border-slate-200/80 bg-white p-6 text-center ring-1 ring-black/[0.02]">
-                  <AvatarAgente id={agente.id} tamano="grande" />
-                  <h3 className="text-base font-semibold text-slate-900">{agente.nombre}</h3>
-                  <p className="text-sm leading-relaxed text-slate-500">{agente.rol}</p>
-                </div>
-              </RevelarAlScroll>
-            ))}
+          <div className="relative mt-14 grid grid-cols-1 gap-6 sm:grid-cols-3">
+            {/* Línea de conexión índigo → dorado, mismo lenguaje que "Cómo
+                funciona": el dorado marca dónde llega el proceso, aquí la
+                recomendación final que entrega el Recomendador. */}
+            <div
+              className="absolute top-1/2 right-[16.5%] left-[16.5%] hidden h-px -translate-y-1/2 bg-gradient-to-r from-brand-200 via-brand-300 to-gold-400 sm:block"
+              aria-hidden="true"
+            />
+
+            {AGENTES.map((agente, i) => {
+              const esUltimo = i === AGENTES.length - 1;
+              return (
+                <RevelarAlScroll key={agente.id} retrasoMs={i * 100}>
+                  <div
+                    className={`relative flex h-full flex-col items-center gap-3 rounded-2xl border p-6 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-black/[0.02] transition hover:-translate-y-1 hover:shadow-premium ${
+                      esUltimo
+                        ? "border-gold-200 bg-gradient-to-b from-white to-gold-50/60"
+                        : "border-slate-200/80 bg-white"
+                    }`}
+                  >
+                    <AvatarAgente id={agente.id} tamano="grande" />
+                    <h3 className="text-base font-semibold text-slate-900">{agente.nombre}</h3>
+                    <p className="text-sm leading-relaxed text-slate-500">{agente.rol}</p>
+                    {esUltimo && (
+                      <p className="mt-1 text-xs font-semibold text-gold-600">La recomendación llega aquí</p>
+                    )}
+                  </div>
+                </RevelarAlScroll>
+              );
+            })}
           </div>
 
           <div className="mt-10 text-center">
