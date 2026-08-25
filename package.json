@@ -22,7 +22,9 @@
     "verificar-enlaces-afiliados": "tsx agents/atlas-affiliate-manager/cli-verificar-enlaces.ts",
     "generar-hash-admin": "tsx lib/admin/cli-generar-hash-admin.ts",
     "aprovisionar-esquema-postgres": "tsx scripts/aprovisionar-esquema-postgres.ts",
-    "migrar-json-a-postgres": "tsx scripts/migrar-json-a-postgres.ts"
+    "migrar-json-a-postgres": "tsx scripts/migrar-json-a-postgres.ts",
+    "migrar-a-neon": "tsx scripts/migrar-a-neon.ts",
+    "copia-seguridad-afiliacion": "tsx scripts/copia-seguridad-afiliacion.ts"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.2",

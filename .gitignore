@@ -49,3 +49,7 @@ next-env.d.ts
 /data/informes-afiliacion/
 /data/informes-mantenimiento/
 /data/informes-curador/
+
+# Copias de seguridad de la estrategia de afiliación descargadas de Neon:
+# artefactos locales con datos internos, nunca se suben al repositorio.
+/copias-seguridad-afiliacion/
