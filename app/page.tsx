@@ -118,7 +118,7 @@ export default function Home() {
           </div>
 
           <div
-            className="animar-entrada relative mx-auto w-full max-w-sm lg:max-w-none"
+            className="animar-entrada relative mx-auto h-80 w-full max-w-sm sm:h-96 lg:h-[583px] lg:max-w-none"
             style={{ animationDelay: "200ms" }}
           >
             {/* Forma orgánica de marca, CSS puro (border-radius asimétrico), detrás del recorte de la persona — degradado violeta profundo → azul eléctrico → lavanda. */}
@@ -131,23 +131,23 @@ export default function Home() {
               }}
             />
 
-            {/* Recorte a la altura de medio muslo (contenedor de altura fija +
-                overflow-hidden) en todas las resoluciones — la altura del
-                contenedor es la MISMA que antes (para no agrandar la forma
-                violeta, que se dimensiona a partir de ella); lo que cambia es
-                el ancho de la persona, más grande, así el recorte "sube" de
-                forma natural. La imagen ya viene recortada a su encuadre real
-                (sin márgenes transparentes), así el % de ancho corresponde a
-                ella y no a espacio vacío. */}
-            <div className="relative mx-auto h-80 overflow-hidden sm:h-96 lg:h-[583px]">
+            {/* La persona se recorta con la MISMA silueta orgánica que la forma
+                de detrás (idéntico tamaño, posición y border-radius), en vez de
+                un rectángulo — así las piernas "desaparecen" siguiendo la curva
+                real del borde inferior de la forma, sin ninguna línea de corte
+                recta visible dentro. */}
+            <div
+              className="absolute top-1/2 left-1/2 h-[110%] w-[92%] -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+              style={{ borderRadius: "63% 37% 41% 59% / 55% 45% 55% 45%" }}
+            >
               <Image
                 src="/images/molnip-owner-final.png"
                 alt="Una profesional revisando una recomendación de Molnip en su tablet"
-                width={550}
-                height={1536}
+                width={541}
+                height={1531}
                 priority
                 unoptimized
-                className="relative mx-auto h-auto w-[61%] drop-shadow-2xl sm:w-[54%]"
+                className="relative mx-auto mt-2 h-auto w-[66%] drop-shadow-2xl sm:w-[58%]"
               />
             </div>
 

@@ -22,7 +22,8 @@ export default function Header() {
             href="/#elige-camino"
             className="text-sm font-semibold text-brand-600 transition hover:text-brand-800"
           >
-            Empezar diagnóstico
+            <span className="sm:hidden">Empezar</span>
+            <span className="hidden sm:inline">Empezar diagnóstico</span>
           </Link>
         </nav>
       </div>
