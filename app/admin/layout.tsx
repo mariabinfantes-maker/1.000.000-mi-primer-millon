@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import BotonCerrarSesion from "@/components/admin/BotonCerrarSesion";
+import { COOKIE_SESION } from "@/lib/admin/cookies";
+import { verificarTokenSesion } from "@/lib/admin/sesion";
 
 /**
  * Todo `/admin/*` es no indexable y depende de sesión en cada petición —
@@ -13,13 +16,19 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export default async function AdminLayout({ children }: { children: React.ReactNode }) {
+  // El botón de cerrar sesión solo tiene sentido si hay sesión: sin esta
+  // comprobación aparecía también en la propia pantalla de login (detectado
+  // revisando las capturas de la verificación del 2026-08-25).
+  const cookieStore = await cookies();
+  const haySesion = verificarTokenSesion(cookieStore.get(COOKIE_SESION)?.value) !== null;
+
   return (
     <div className="min-h-screen bg-slate-50">
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-[1400px] items-center justify-between px-4 py-3 sm:px-6">
           <p className="text-sm font-semibold text-slate-900">Molnip — panel interno</p>
-          <BotonCerrarSesion />
+          {haySesion && <BotonCerrarSesion />}
         </div>
       </header>
       <main className="mx-auto max-w-[1400px] px-4 py-6 sm:px-6">{children}</main>

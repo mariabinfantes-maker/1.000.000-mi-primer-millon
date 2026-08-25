@@ -65,7 +65,7 @@ export async function POST(request: Request) {
   // investigó Researcher en vez de dejar la columna "Programa" del panel
   // con el id de cuenta genérico ("principal"). Nunca pisa un valor ya
   // guardado en una cuenta existente.
-  const existente = getEstrategiaAfiliacion(cuerpo.herramientaId);
+  const existente = await getEstrategiaAfiliacion(cuerpo.herramientaId);
   const cuentaYaExistia = existente?.cuentas.some((c) => c.id === cuentaId) ?? false;
   const datosAfiliados = cuentaYaExistia || cuerpo.plataforma || cuerpo.nombrePrograma ? undefined : getAffiliateData(cuerpo.herramientaId);
 
@@ -90,7 +90,7 @@ export async function POST(request: Request) {
 
   const hoy = new Date().toISOString().slice(0, 10);
   const actualizada = fusionarEstrategiaAfiliacion(cuerpo.herramientaId, cuentaId, existente, cambios, hoy);
-  guardarEstrategiaAfiliacion(actualizada);
+  await guardarEstrategiaAfiliacion(actualizada, { usuario: verificacion.usuario });
 
   return NextResponse.json({ ok: true, cuentaId });
 }

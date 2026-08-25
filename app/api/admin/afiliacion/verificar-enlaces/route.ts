@@ -14,7 +14,7 @@ export async function POST(request: Request) {
   const verificacion = verificarPeticionAdmin(request);
   if (!verificacion.ok) return NextResponse.json({ error: verificacion.motivo }, { status: 401 });
 
-  const estrategias = getTodasLasEstrategiasAfiliacion();
+  const estrategias = await getTodasLasEstrategiasAfiliacion();
   const resultados = await verificarEnlacesActivos(estrategias);
   const hoy = new Date().toISOString().slice(0, 10);
   const ahoraIso = new Date().toISOString();
@@ -35,7 +35,7 @@ export async function POST(request: Request) {
       hoy
     );
     estrategiasPorId.set(resultado.herramientaId, actualizada);
-    guardarEstrategiaAfiliacion(actualizada);
+    await guardarEstrategiaAfiliacion(actualizada, { usuario: verificacion.usuario, motivo: "Comprobación automática de enlaces" });
   }
 
   return NextResponse.json({ ok: true, resultados });

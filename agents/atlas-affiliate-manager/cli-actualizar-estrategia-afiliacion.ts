@@ -40,8 +40,13 @@ const USO =
   "[--nombre-programa \"...\"] [--plataforma \"...\"] [--url-solicitud \"...\"] [--usuario-registro \"...\"] " +
   "[--fecha-solicitud AAAA-MM-DD] [--fecha-aprobacion AAAA-MM-DD] [--comision \"...\"] [--cookie \"...\"] " +
   "[--metodo-pago \"...\"] [--frecuencia-pago \"...\"] [--enlace \"...\"] [--segmento pais_o_idioma] " +
-  "[--requisitos \"...\"] [--borrador \"...\"] [--notas \"...\"]\n" +
-  "   o: npm run actualizar-estrategia-afiliacion -- --lote ruta/al/archivo.json";
+  '[--requisitos "..."] [--borrador "..."] [--notas "..."] [--usuario "tu-nombre"]\n' +
+  "   o: npm run actualizar-estrategia-afiliacion -- --lote ruta/al/archivo.json [--usuario \"tu-nombre\"]";
+
+/** Quién queda registrado en el historial de cambios al usar el CLI — por defecto el usuario del sistema operativo, nunca vacío. */
+function usuarioCli(args: string[]): string {
+  return leerFlag(args, "usuario") ?? process.env.USER ?? process.env.USERNAME ?? "cli-sin-usuario";
+}
 
 function leerFlag(args: string[], nombre: string): string | undefined {
   const indice = args.indexOf(`--${nombre}`);
@@ -81,15 +86,20 @@ function imprimirResumenLote(resultados: ResultadoFilaLote[]) {
   console.log(`\nTotal: ${ok.length} actualizada(s), ${fallidas.length} fallida(s) de ${resultados.length}.`);
 }
 
-function ejecutarLote(rutaArgumento: string) {
+async function ejecutarLote(rutaArgumento: string, usuario: string) {
   const entradas = leerEntradasLote(rutaArgumento);
   const hoy = new Date().toISOString().slice(0, 10);
-  const resultados = aplicarLoteEstrategia(entradas, getEstrategiaAfiliacion, guardarEstrategiaAfiliacion, hoy);
+  const resultados = await aplicarLoteEstrategia(
+    entradas,
+    (id) => getEstrategiaAfiliacion(id),
+    (estrategia) => guardarEstrategiaAfiliacion(estrategia, { usuario }),
+    hoy
+  );
   imprimirResumenLote(resultados);
   if (resultados.some((r) => !r.ok)) process.exitCode = 1;
 }
 
-function ejecutarUnaCuenta(args: string[]) {
+async function ejecutarUnaCuenta(args: string[], usuario: string) {
   const id = args[0];
 
   if (!id || id.startsWith("--")) {
@@ -131,26 +141,30 @@ function ejecutarUnaCuenta(args: string[]) {
     observaciones: leerFlag(args, "notas"),
   };
 
-  const existente = getEstrategiaAfiliacion(id);
+  const existente = await getEstrategiaAfiliacion(id);
   const hoy = new Date().toISOString().slice(0, 10);
   const actualizada = fusionarEstrategiaAfiliacion(id, cuentaId, existente, cambios, hoy);
 
-  guardarEstrategiaAfiliacion(actualizada);
+  await guardarEstrategiaAfiliacion(actualizada, { usuario });
 
   const cuenta = actualizada.cuentas.find((c) => c.id === cuentaId)!;
   console.log(`✓ Estrategia de afiliación de "${id}" (cuenta "${cuentaId}") actualizada: estado "${cuenta.estado}" (revisado ${hoy}).`);
 }
 
-function main() {
+async function main() {
   const args = process.argv.slice(2);
   const rutaLote = leerFlag(args, "lote");
+  const usuario = usuarioCli(args);
 
   if (rutaLote) {
-    ejecutarLote(rutaLote);
+    await ejecutarLote(rutaLote, usuario);
     return;
   }
 
-  ejecutarUnaCuenta(args);
+  await ejecutarUnaCuenta(args, usuario);
 }
 
-main();
+main().catch((error) => {
+  console.error(error instanceof Error ? error.message : error);
+  process.exitCode = 1;
+});

@@ -13,7 +13,7 @@ import { verificarEnlacesActivos } from "./verificarEnlaces";
  */
 
 async function main() {
-  const estrategias = getTodasLasEstrategiasAfiliacion();
+  const estrategias = await getTodasLasEstrategiasAfiliacion();
   const resultados = await verificarEnlacesActivos(estrategias);
 
   if (resultados.length === 0) {

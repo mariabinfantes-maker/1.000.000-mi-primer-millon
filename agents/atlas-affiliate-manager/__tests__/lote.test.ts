@@ -5,21 +5,21 @@ import { aplicarLoteEstrategia, type EntradaLoteEstrategia } from "../lote";
 function crearAlmacenFalso(inicial: EstrategiaAfiliacion[] = []) {
   const almacen = new Map(inicial.map((e) => [e.herramientaId, e]));
   return {
-    obtener: (id: string) => almacen.get(id),
-    guardar: (estrategia: EstrategiaAfiliacion) => almacen.set(estrategia.herramientaId, estrategia),
+    obtener: async (id: string) => almacen.get(id),
+    guardar: async (estrategia: EstrategiaAfiliacion) => { almacen.set(estrategia.herramientaId, estrategia); },
     almacen,
   };
 }
 
 describe("aplicarLoteEstrategia", () => {
-  it("aplica varias filas independientes, cada una a su propia herramienta", () => {
+  it("aplica varias filas independientes, cada una a su propia herramienta", async () => {
     const { obtener, guardar, almacen } = crearAlmacenFalso();
     const entradas: EntradaLoteEstrategia[] = [
       { id: "hubspot", plataforma: "PartnerStack", estado: "no_solicitado" },
       { id: "asana", plataforma: "Impact", estado: "pendiente", fechaSolicitud: "2026-08-25" },
     ];
 
-    const resultados = aplicarLoteEstrategia(entradas, obtener, guardar, "2026-08-25");
+    const resultados = await aplicarLoteEstrategia(entradas, obtener, guardar, "2026-08-25");
 
     expect(resultados).toHaveLength(2);
     expect(resultados.every((r) => r.ok)).toBe(true);
@@ -27,14 +27,14 @@ describe("aplicarLoteEstrategia", () => {
     expect(almacen.get("asana")?.cuentas[0].estado).toBe("pendiente");
   });
 
-  it("un error en una fila no aborta el resto del lote", () => {
+  it("un error en una fila no aborta el resto del lote", async () => {
     const { obtener, guardar, almacen } = crearAlmacenFalso();
     const entradas: EntradaLoteEstrategia[] = [
       { id: "hubspot", estado: "no_es_un_estado_valido" },
       { id: "asana", estado: "pendiente" },
     ];
 
-    const resultados = aplicarLoteEstrategia(entradas, obtener, guardar, "2026-08-25");
+    const resultados = await aplicarLoteEstrategia(entradas, obtener, guardar, "2026-08-25");
 
     expect(resultados[0].ok).toBe(false);
     expect(resultados[1].ok).toBe(true);
@@ -42,9 +42,9 @@ describe("aplicarLoteEstrategia", () => {
     expect(almacen.get("asana")?.cuentas[0].estado).toBe("pendiente");
   });
 
-  it("reporta error legible si falta el id en una fila", () => {
+  it("reporta error legible si falta el id en una fila", async () => {
     const { obtener, guardar } = crearAlmacenFalso();
-    const resultados = aplicarLoteEstrategia([{ id: "" }], obtener, guardar, "2026-08-25");
+    const resultados = await aplicarLoteEstrategia([{ id: "" }], obtener, guardar, "2026-08-25");
 
     expect(resultados[0].ok).toBe(false);
     if (!resultados[0].ok) {
@@ -52,7 +52,7 @@ describe("aplicarLoteEstrategia", () => {
     }
   });
 
-  it("actualiza una cuenta ya existente conservando los campos no indicados, igual que el CLI de una cuenta", () => {
+  it("actualiza una cuenta ya existente conservando los campos no indicados, igual que el CLI de una cuenta", async () => {
     const existente: EstrategiaAfiliacion = {
       herramientaId: "hubspot",
       cuentas: [
@@ -68,7 +68,7 @@ describe("aplicarLoteEstrategia", () => {
     };
     const { obtener, guardar, almacen } = crearAlmacenFalso([existente]);
 
-    const resultados = aplicarLoteEstrategia(
+    const resultados = await aplicarLoteEstrategia(
       [{ id: "hubspot", cuenta: "partnerstack", estado: "aprobado", fechaAprobacion: "2026-08-25" }],
       obtener,
       guardar,
@@ -82,10 +82,10 @@ describe("aplicarLoteEstrategia", () => {
     expect(cuenta.comision).toBe("20% recurrente");
   });
 
-  it("aplica requisitos y borrador desde una fila del lote", () => {
+  it("aplica requisitos y borrador desde una fila del lote", async () => {
     const { obtener, guardar, almacen } = crearAlmacenFalso();
 
-    aplicarLoteEstrategia(
+    await aplicarLoteEstrategia(
       [
         {
           id: "hubspot",

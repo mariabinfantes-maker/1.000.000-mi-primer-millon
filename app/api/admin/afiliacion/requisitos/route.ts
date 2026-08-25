@@ -28,7 +28,7 @@ export async function POST(request: Request) {
   if (!resultado.ok) return NextResponse.json({ error: resultado.error }, { status: 502 });
 
   const cuentaId = cuerpo.cuentaId ?? "principal";
-  const existente = getEstrategiaAfiliacion(cuerpo.herramientaId);
+  const existente = await getEstrategiaAfiliacion(cuerpo.herramientaId);
   const hoy = new Date().toISOString().slice(0, 10);
 
   // Al crear la cuenta por primera vez (todavía no existía), se siembra
@@ -52,7 +52,7 @@ export async function POST(request: Request) {
     },
     hoy
   );
-  guardarEstrategiaAfiliacion(actualizada);
+  await guardarEstrategiaAfiliacion(actualizada, { usuario: verificacion.usuario });
 
   return NextResponse.json({ ok: true, requisitos: resultado.requisitos });
 }

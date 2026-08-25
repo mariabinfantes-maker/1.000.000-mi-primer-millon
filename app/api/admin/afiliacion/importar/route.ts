@@ -47,21 +47,33 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "El JSON importado debe ser un array de estrategias." }, { status: 400 });
   }
 
-  const resultados: ResultadoFila[] = cuerpo.map((item, indice) => {
+  const resultados: ResultadoFila[] = [];
+  for (const [indice, item] of cuerpo.entries()) {
     const fila = indice + 1;
     if (!validarEstrategia(item)) {
       const herramientaId = typeof (item as Record<string, unknown>)?.herramientaId === "string"
         ? ((item as Record<string, unknown>).herramientaId as string)
         : undefined;
-      return { fila, herramientaId, ok: false, error: "Estructura inválida (herramientaId, cuentas[] con id/plataforma/estado válido/enlaces[]/ultimaRevision)." };
+      resultados.push({
+        fila,
+        herramientaId,
+        ok: false,
+        error: "Estructura inválida (herramientaId, cuentas[] con id/plataforma/estado válido/enlaces[]/ultimaRevision).",
+      });
+      continue;
     }
     try {
-      guardarEstrategiaAfiliacion(item);
-      return { fila, herramientaId: item.herramientaId, ok: true };
+      await guardarEstrategiaAfiliacion(item, { usuario: verificacion.usuario, motivo: "Importación desde JSON" });
+      resultados.push({ fila, herramientaId: item.herramientaId, ok: true });
     } catch (error) {
-      return { fila, herramientaId: item.herramientaId, ok: false, error: error instanceof Error ? error.message : "Error desconocido." };
+      resultados.push({
+        fila,
+        herramientaId: item.herramientaId,
+        ok: false,
+        error: error instanceof Error ? error.message : "Error desconocido.",
+      });
     }
-  });
+  }
 
   const fallidas = resultados.filter((r) => !r.ok).length;
   return NextResponse.json({ ok: fallidas === 0, resultados, total: resultados.length, fallidas });

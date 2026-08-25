@@ -7,7 +7,7 @@ export async function GET(request: Request) {
   const verificacion = verificarPeticionAdmin(request);
   if (!verificacion.ok) return NextResponse.json({ error: verificacion.motivo }, { status: 401 });
 
-  const estrategias = getTodasLasEstrategiasAfiliacion();
+  const estrategias = await getTodasLasEstrategiasAfiliacion();
   return NextResponse.json(estrategias, {
     headers: { "Content-Disposition": `attachment; filename="estrategia-afiliacion-${Date.now()}.json"` },
   });

@@ -11,7 +11,7 @@ export async function GET(request: Request) {
   if (!verificacion.ok) return NextResponse.json({ error: verificacion.motivo }, { status: 401 });
 
   const herramientas = getTodasLasHerramientas();
-  const estrategias = getTodasLasEstrategiasAfiliacion();
+  const estrategias = await getTodasLasEstrategiasAfiliacion();
   const datosAfiliados = getTodosLosDatosDeAfiliados();
   const hoy = new Date().toISOString().slice(0, 10);
 

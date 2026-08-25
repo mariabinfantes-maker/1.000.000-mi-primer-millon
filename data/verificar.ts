@@ -11,7 +11,7 @@ import { getAffiliateData } from "./repositorioAfiliados";
 import { getCategorias, getTodasLasHerramientas } from "./repositorio";
 import { getTodasLasEstrategiasAfiliacion } from "./repositorioEstrategiaAfiliacion";
 
-function main() {
+async function main() {
   const categorias = getCategorias();
   const idsCategorias = new Set(categorias.map((c) => c.id));
   console.log(`Categorías: ${categorias.length}`);
@@ -55,7 +55,7 @@ function main() {
   // está perdiendo en silencio (ver agents/atlas-affiliate-manager/consistencia.ts):
   // Atlas ya está aprobado como afiliado, pero el redirect de producción no
   // tiene ningún enlace propio que servir.
-  const estrategias = getTodasLasEstrategiasAfiliacion();
+  const estrategias = await getTodasLasEstrategiasAfiliacion();
   const cuentasSinEnlace = detectarCuentasActivasSinEnlace(estrategias);
   errores.push(...cuentasSinEnlace.map((aviso) => aviso.mensaje));
 
@@ -68,4 +68,7 @@ function main() {
   console.log("\n✅ Base de conocimiento válida.");
 }
 
-main();
+main().catch((error) => {
+  console.error(error instanceof Error ? error.message : error);
+  process.exitCode = 1;
+});

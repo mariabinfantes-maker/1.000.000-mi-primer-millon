@@ -73,44 +73,52 @@ function aCambios(entrada: EntradaLoteEstrategia): CambiosCuentaAfiliado {
 }
 
 /**
- * Aplica un lote de entradas, una por una. `obtenerExistente` y
- * `guardar` se inyectan (mismo patrón de dependencias que
- * `investigarHerramienta` con `ProveedorIA`) para poder probar toda la
- * lógica sin tocar `data/estrategia-afiliados/` — el CLI real le pasa
+ * Aplica un lote de entradas, una por una y en orden (no en paralelo — cada
+ * fila espera a que la anterior termine de escribir, para no saturar el
+ * pool de conexiones a Postgres con ~100 escrituras simultáneas).
+ * `obtenerExistente` y `guardar` se inyectan (mismo patrón de dependencias
+ * que `investigarHerramienta` con `ProveedorIA`) para poder probar toda la
+ * lógica sin tocar Postgres — el CLI real le pasa
  * `getEstrategiaAfiliacion`/`guardarEstrategiaAfiliacion`.
  */
-export function aplicarLoteEstrategia(
+export async function aplicarLoteEstrategia(
   entradas: EntradaLoteEstrategia[],
-  obtenerExistente: (id: string) => EstrategiaAfiliacion | undefined,
-  guardar: (estrategia: EstrategiaAfiliacion) => void,
+  obtenerExistente: (id: string) => Promise<EstrategiaAfiliacion | undefined>,
+  guardar: (estrategia: EstrategiaAfiliacion) => Promise<void>,
   hoy: string
-): ResultadoFilaLote[] {
-  return entradas.map((entrada, indice) => {
+): Promise<ResultadoFilaLote[]> {
+  const resultados: ResultadoFilaLote[] = [];
+
+  for (const [indice, entrada] of entradas.entries()) {
     const fila = indice + 1;
 
     if (!entrada.id || entrada.id.trim() === "") {
-      return { fila, id: entrada.id ?? "", ok: false, error: "Falta 'id' (herramientaId) en esta fila." };
+      resultados.push({ fila, id: entrada.id ?? "", ok: false, error: "Falta 'id' (herramientaId) en esta fila." });
+      continue;
     }
 
     if (entrada.estado !== undefined && !esEstadoAfiliacionValido(entrada.estado)) {
-      return {
+      resultados.push({
         fila,
         id: entrada.id,
         ok: false,
         error: `estado inválido: "${entrada.estado}". Debe ser uno de: no_solicitado, pendiente, aprobado, rechazado, activo.`,
-      };
+      });
+      continue;
     }
 
     try {
       const cuentaId = entrada.cuenta ?? (entrada.plataforma ? generarIdCuenta(entrada.plataforma) : "principal");
-      const existente = obtenerExistente(entrada.id);
+      const existente = await obtenerExistente(entrada.id);
       const actualizada = fusionarEstrategiaAfiliacion(entrada.id, cuentaId, existente, aCambios(entrada), hoy);
-      guardar(actualizada);
+      await guardar(actualizada);
 
       const cuenta = actualizada.cuentas.find((c) => c.id === cuentaId)!;
-      return { fila, id: entrada.id, cuentaId, ok: true, estadoFinal: cuenta.estado };
+      resultados.push({ fila, id: entrada.id, cuentaId, ok: true, estadoFinal: cuenta.estado });
     } catch (error) {
-      return { fila, id: entrada.id, ok: false, error: error instanceof Error ? error.message : "Error desconocido." };
+      resultados.push({ fila, id: entrada.id, ok: false, error: error instanceof Error ? error.message : "Error desconocido." });
     }
-  });
+  }
+
+  return resultados;
 }

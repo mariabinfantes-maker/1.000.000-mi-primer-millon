@@ -1,10 +1,9 @@
-import fs from "node:fs";
-import os from "node:os";
-import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { POST as actualizar } from "../route";
 import { generarTokenSesion } from "@/lib/admin/sesion";
 import { generarTokenCsrf } from "@/lib/admin/csrf";
+import { getEstrategiaAfiliacion } from "@/data/repositorioEstrategiaAfiliacion";
+import { limpiarTablasDePrueba, poolDePrueba, postgresDisponible } from "@/data/db/__tests__/entornoPruebaPostgres";
 
 /**
  * Regresión del bug encontrado durante el piloto (2026-08-25): al crear la
@@ -12,12 +11,11 @@ import { generarTokenCsrf } from "@/lib/admin/csrf";
  * plataforma/nombrePrograma explícitos (p. ej. al editar solo el enlace),
  * la columna "Programa" perdía el nombre real investigado por Researcher y
  * mostraba el id de cuenta genérico ("principal"). Usa
- * MOLNIP_E2E+ESTRATEGIA_AFILIACION_DIR con un directorio temporal propio
- * de este archivo — nunca toca `data/estrategia-afiliados/` real.
+ * MOLNIP_E2E+POSTGRES_URL_TEST contra el Postgres local temporal de
+ * `vitest.global-setup.postgres.ts` — nunca toca Neon real.
  */
 
 const envOriginal = { ...process.env };
-let dirTemporal: string;
 
 function peticionAutenticada(body: unknown): Request {
   const sesion = generarTokenSesion("admin-test");
@@ -33,15 +31,13 @@ function peticionAutenticada(body: unknown): Request {
   });
 }
 
-describe("POST /api/admin/afiliacion/actualizar — siembra de plataforma/nombrePrograma en cuentas nuevas", () => {
-  beforeEach(() => {
-    dirTemporal = fs.mkdtempSync(path.join(os.tmpdir(), "atlas-actualizar-route-"));
+describe.skipIf(!postgresDisponible())("POST /api/admin/afiliacion/actualizar — siembra de plataforma/nombrePrograma en cuentas nuevas", () => {
+  beforeEach(async () => {
     process.env.MOLNIP_E2E = "true";
-    process.env.ESTRATEGIA_AFILIACION_DIR = dirTemporal;
+    await limpiarTablasDePrueba();
   });
 
   afterEach(() => {
-    fs.rmSync(dirTemporal, { recursive: true, force: true });
     process.env = { ...envOriginal };
   });
 
@@ -50,10 +46,10 @@ describe("POST /api/admin/afiliacion/actualizar — siembra de plataforma/nombre
     const respuesta = await actualizar(peticionAutenticada({ herramientaId: "hubspot", enlaceUrl: "https://ejemplo.com/prueba" }));
     expect(respuesta.status).toBe(200);
 
-    const guardado = JSON.parse(fs.readFileSync(path.join(dirTemporal, "hubspot.json"), "utf-8"));
-    expect(guardado.cuentas[0].nombrePrograma).not.toBe("principal");
-    expect(typeof guardado.cuentas[0].nombrePrograma).toBe("string");
-    expect(guardado.cuentas[0].nombrePrograma.length).toBeGreaterThan(0);
+    const guardado = await getEstrategiaAfiliacion("hubspot", { pool: poolDePrueba() });
+    expect(guardado?.cuentas[0].nombrePrograma).not.toBe("principal");
+    expect(typeof guardado?.cuentas[0].nombrePrograma).toBe("string");
+    expect(guardado?.cuentas[0].nombrePrograma?.length ?? 0).toBeGreaterThan(0);
   });
 
   it("no pisa un nombrePrograma ya guardado en una cuenta existente", async () => {
@@ -61,15 +57,25 @@ describe("POST /api/admin/afiliacion/actualizar — siembra de plataforma/nombre
     // Segunda edición, sin volver a pasar nombrePrograma:
     await actualizar(peticionAutenticada({ herramientaId: "hubspot", enlaceUrl: "https://ejemplo.com/otra" }));
 
-    const guardado = JSON.parse(fs.readFileSync(path.join(dirTemporal, "hubspot.json"), "utf-8"));
-    expect(guardado.cuentas[0].nombrePrograma).toBe("Nombre corregido a mano");
+    const guardado = await getEstrategiaAfiliacion("hubspot", { pool: poolDePrueba() });
+    expect(guardado?.cuentas[0].nombrePrograma).toBe("Nombre corregido a mano");
   });
 
   it("respeta un nombrePrograma explícito en la propia petición de creación", async () => {
     const respuesta = await actualizar(peticionAutenticada({ herramientaId: "una-herramienta-sin-affiliate-data", nombrePrograma: "Programa X" }));
     expect(respuesta.status).toBe(200);
 
-    const guardado = JSON.parse(fs.readFileSync(path.join(dirTemporal, "una-herramienta-sin-affiliate-data.json"), "utf-8"));
-    expect(guardado.cuentas[0].nombrePrograma).toBe("Programa X");
+    const guardado = await getEstrategiaAfiliacion("una-herramienta-sin-affiliate-data", { pool: poolDePrueba() });
+    expect(guardado?.cuentas[0].nombrePrograma).toBe("Programa X");
+  });
+
+  it("registra en el historial quién hizo el cambio (usuario de la sesión autenticada)", async () => {
+    await actualizar(peticionAutenticada({ herramientaId: "hubspot", enlaceUrl: "https://ejemplo.com/prueba" }));
+
+    const { rows } = await poolDePrueba().query(
+      `SELECT usuario FROM historial_cambios_afiliacion WHERE herramienta_id = 'hubspot'`
+    );
+    expect(rows.length).toBeGreaterThan(0);
+    expect(rows.every((f: { usuario: string }) => f.usuario === "admin-test")).toBe(true);
   });
 });
