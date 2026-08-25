@@ -8,12 +8,12 @@ import {
   ShieldCheck,
   Timer,
   CheckCircle2,
+  RefreshCw,
+  Lightbulb,
 } from "lucide-react";
 import Image from "next/image";
 import { getCategorias, getProblemas } from "@/data/repositorio";
-import { AGENTES } from "@/lib/agentes";
 import Etiqueta from "@/components/ui/Etiqueta";
-import AvatarAgente from "@/components/ui/AvatarAgente";
 import Boton from "@/components/ui/Boton";
 import RevelarAlScroll from "@/components/ui/RevelarAlScroll";
 import SelectorEntrada from "@/components/ui/SelectorEntrada";
@@ -33,6 +33,24 @@ const PASOS_COMO_FUNCIONA = [
     icono: Award,
     titulo: "Recibe la mejor herramienta",
     descripcion: "Una recomendación clara y personalizada, lista para poner en marcha.",
+  },
+];
+
+const DECISION_MOLNIP = [
+  {
+    icono: RefreshCw,
+    titulo: "Información actualizada",
+    descripcion: "Analizamos herramientas reales antes de incluirlas en nuestras recomendaciones.",
+  },
+  {
+    icono: Scale,
+    titulo: "Comparación según tu negocio",
+    descripcion: "Valoramos precio, facilidad, funciones y fiabilidad según tus necesidades.",
+  },
+  {
+    icono: Lightbulb,
+    titulo: "Razones claras para decidir",
+    descripcion: "Verás qué recomendamos, por qué y qué debes tener en cuenta antes de elegir.",
   },
 ];
 
@@ -223,59 +241,37 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Así piensa Atlas */}
+      {/* Así decide Molnip — deliberadamente sin exponer la arquitectura
+          interna de agentes (Researcher/Evaluador/Recomendador): de cara al
+          usuario público solo importa qué gana con la recomendación, no
+          cómo está construida por dentro. */}
       <section className="border-t border-slate-100">
         <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28">
           <RevelarAlScroll className="mx-auto max-w-2xl text-center">
             <p className="text-sm font-semibold uppercase tracking-wide text-brand-600">
-              Así piensa Molnip
+              Así decide Molnip
             </p>
             <h2 className="mt-3 text-3xl font-display font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Tres agentes, un mismo objetivo: acertar por ti
+              Una recomendación que puedes entender
             </h2>
-            <p className="mt-3 text-base leading-relaxed text-slate-600">
-              No es una caja negra. Cada recomendación pasa por tres pares de manos digitales
-              distintas, y podrás ver a cada una trabajar.
+            <p className="mt-3 text-base leading-relaxed text-slate-700">
+              Molnip no solo te muestra una herramienta. Compara las opciones según tu negocio y
+              te explica por qué encajan contigo.
             </p>
           </RevelarAlScroll>
 
-          <div className="relative mt-14 grid grid-cols-1 gap-6 sm:grid-cols-3">
-            {/* Línea de conexión índigo → dorado, mismo lenguaje que "Cómo
-                funciona": el dorado marca dónde llega el proceso, aquí la
-                recomendación final que entrega el Recomendador. */}
-            <div
-              className="absolute top-1/2 right-[16.5%] left-[16.5%] hidden h-px -translate-y-1/2 bg-gradient-to-r from-brand-200 via-brand-300 to-gold-400 sm:block"
-              aria-hidden="true"
-            />
-
-            {AGENTES.map((agente, i) => {
-              const esUltimo = i === AGENTES.length - 1;
-              return (
-                <RevelarAlScroll key={agente.id} retrasoMs={i * 100}>
-                  <div
-                    className={`relative flex h-full flex-col items-center gap-3 rounded-2xl border p-6 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-black/[0.02] transition hover:-translate-y-1 hover:shadow-premium ${
-                      esUltimo
-                        ? "border-gold-200 bg-gradient-to-b from-white to-gold-50/60"
-                        : "border-slate-200/80 bg-white"
-                    }`}
-                  >
-                    <AvatarAgente id={agente.id} tamano="grande" />
-                    <h3 className="text-base font-semibold text-slate-900">{agente.nombre}</h3>
-                    <p className="text-sm leading-relaxed text-slate-500">{agente.rol}</p>
-                    {esUltimo && (
-                      <p className="mt-1 text-xs font-semibold text-gold-600">La recomendación llega aquí</p>
-                    )}
-                  </div>
-                </RevelarAlScroll>
-              );
-            })}
-          </div>
-
-          <div className="mt-10 text-center">
-            <Boton href="/agentes" variante="fantasma">
-              Ver cómo trabaja cada agente en detalle
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Boton>
+          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-3">
+            {DECISION_MOLNIP.map((punto, i) => (
+              <RevelarAlScroll key={punto.titulo} retrasoMs={i * 100}>
+                <div className="flex h-full flex-col items-center gap-3 rounded-2xl border border-slate-200/80 bg-white p-6 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-black/[0.02] transition hover:-translate-y-1 hover:shadow-premium">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-50 to-brand-100 text-brand-600 ring-1 ring-brand-100">
+                    <punto.icono className="h-6 w-6" aria-hidden="true" />
+                  </span>
+                  <h3 className="text-base font-semibold text-slate-900">{punto.titulo}</h3>
+                  <p className="text-sm leading-relaxed text-slate-600">{punto.descripcion}</p>
+                </div>
+              </RevelarAlScroll>
+            ))}
           </div>
         </div>
       </section>
