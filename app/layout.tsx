@@ -86,7 +86,7 @@ export default function RootLayout({
                 <Link href="/sobre" className="transition hover:text-brand-700">
                   Sobre Molnip
                 </Link>
-                <Link href="/agentes" className="transition hover:text-brand-700">
+                <Link href="/#como-funciona" className="transition hover:text-brand-700">
                   Cómo funciona
                 </Link>
                 <Link href="/blog" className="transition hover:text-brand-700">

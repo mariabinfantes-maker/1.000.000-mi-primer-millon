@@ -13,7 +13,7 @@ export default function Header() {
         </Link>
         <nav className="flex items-center gap-6">
           <Link
-            href="/agentes"
+            href="/#como-funciona"
             className="hidden text-sm font-medium text-slate-600 transition hover:text-brand-700 sm:block"
           >
             Cómo funciona

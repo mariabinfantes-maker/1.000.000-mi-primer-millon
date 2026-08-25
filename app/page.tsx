@@ -129,7 +129,7 @@ export default function Home() {
                 Empezar diagnóstico gratuito
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Boton>
-              <Boton href="#como-funciona" variante="fantasma" tamano="grande">
+              <Boton href="/#como-funciona" variante="fantasma" tamano="grande">
                 Ver cómo funciona
               </Boton>
             </div>
