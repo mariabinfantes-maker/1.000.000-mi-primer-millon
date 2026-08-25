@@ -207,4 +207,52 @@ describe("fusionarEstrategiaAfiliacion", () => {
 
     expect(resultado.cuentas[0].enlaces).toEqual([{ segmento: "global", url: "https://hubspot.com/?a=atlas" }]);
   });
+
+  it("conserva verificacionPendiente al actualizar otros campos de la cuenta (no se pierde por omisión)", () => {
+    const existente: EstrategiaAfiliacion = {
+      herramientaId: "hubspot",
+      cuentas: [
+        {
+          id: "partnerstack",
+          estado: "no_solicitado",
+          plataforma: "PartnerStack",
+          enlaces: [],
+          ultimaRevision: "2026-01-01",
+          verificacionPendiente: true,
+        },
+      ],
+    };
+
+    const resultado = fusionarEstrategiaAfiliacion(
+      "hubspot",
+      "partnerstack",
+      existente,
+      { estado: "pendiente", fechaSolicitud: "2026-08-20" },
+      "2026-08-20"
+    );
+
+    expect(resultado.cuentas[0].verificacionPendiente).toBe(true);
+  });
+
+  it("aplica y conserva requisitosPrograma y borradorSolicitud", () => {
+    const conRequisitos = fusionarEstrategiaAfiliacion(
+      "hubspot",
+      "partnerstack",
+      undefined,
+      { requisitosPrograma: "Mínimo 10k visitas/mes, solo empresas con web propia" },
+      "2026-08-25"
+    );
+    expect(conRequisitos.cuentas[0].requisitosPrograma).toBe("Mínimo 10k visitas/mes, solo empresas con web propia");
+
+    const conBorrador = fusionarEstrategiaAfiliacion(
+      "hubspot",
+      "partnerstack",
+      conRequisitos,
+      { borradorSolicitud: "Estimado equipo de PartnerStack, escribimos desde Molnip..." },
+      "2026-08-25"
+    );
+    expect(conBorrador.cuentas[0].borradorSolicitud).toBe("Estimado equipo de PartnerStack, escribimos desde Molnip...");
+    // El requisito puesto en la llamada anterior se conserva, no se pisa por omisión:
+    expect(conBorrador.cuentas[0].requisitosPrograma).toBe("Mínimo 10k visitas/mes, solo empresas con web propia");
+  });
 });

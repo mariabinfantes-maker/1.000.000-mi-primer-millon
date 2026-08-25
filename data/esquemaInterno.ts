@@ -120,6 +120,26 @@ export type CuentaAfiliado = {
    * `promoverBorrador()`, y solo una persona lo quita una vez verificado.
    */
   verificacionPendiente?: boolean;
+  /**
+   * Añadido (Sprint 1 de ampliación de Affiliate Manager, 2026-08-25): qué
+   * exige este programa para admitir afiliados (tráfico mínimo, país,
+   * documentos, tipo de negocio...), en texto libre — nunca estructurado en
+   * campos individuales, porque cada programa exige cosas distintas y
+   * forzar un esquema fijo inventaría precisión que no existe. Lo puebla
+   * `agents/atlas-affiliate-manager/requisitos.ts` (prechequeo de IA que
+   * documenta, nunca actúa) o una persona a mano; nunca bloquea nada por sí
+   * solo.
+   */
+  requisitosPrograma?: string;
+  /**
+   * Añadido (Sprint 1 de ampliación de Affiliate Manager, 2026-08-25):
+   * borrador de correo/formulario de solicitud generado por
+   * `agents/atlas-affiliate-manager/borradorSolicitud.ts` — texto de apoyo
+   * para que una persona lo revise, edite y envíe. El sistema nunca lo
+   * envía por su cuenta; guardarlo aquí es solo para no perderlo entre
+   * sesiones y poder copiarlo desde el panel interno.
+   */
+  borradorSolicitud?: string;
 };
 
 /**
@@ -147,7 +167,7 @@ export type CuentaAfiliado = {
  * `cuentas` es un array, no un único registro plano, para poder crecer sin
  * rediseño: varias cuentas por plataforma, varios enlaces por país/idioma
  * dentro de cada cuenta, y añadir o rotar un enlace sin tocar el resto del
- * sistema (ver `agents/atlas-researcher/estrategiaAfiliacion.ts`).
+ * sistema (ver `agents/atlas-affiliate-manager/estrategiaAfiliacion.ts`).
  */
 export type EstrategiaAfiliacion = {
   /** Referencia a Herramienta.id, igual que en AffiliateData. */

@@ -9,7 +9,7 @@ import { detectarCasiDuplicados } from "@/agents/atlas-curator/duplicados";
 import { leerBorrador } from "./borrador";
 import { evaluarCriteriosDeCalidad } from "./criteriosCalidad";
 import { leerDecision } from "./decision";
-import { generarIdCuenta } from "./estrategiaAfiliacion";
+import { generarIdCuenta } from "@/agents/atlas-affiliate-manager/estrategiaAfiliacion";
 import { registrarEnHistorial } from "./historialAprobaciones";
 
 /**

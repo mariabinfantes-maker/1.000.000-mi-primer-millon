@@ -94,6 +94,9 @@ export function fusionarEstrategiaAfiliacion(
     enlaces: fusionarEnlaces(cuentaExistente?.enlaces ?? [], cambios),
     ultimaRevision: hoy,
     observaciones: cambios.observaciones ?? cuentaExistente?.observaciones,
+    verificacionPendiente: cuentaExistente?.verificacionPendiente,
+    requisitosPrograma: cambios.requisitosPrograma ?? cuentaExistente?.requisitosPrograma,
+    borradorSolicitud: cambios.borradorSolicitud ?? cuentaExistente?.borradorSolicitud,
   };
 
   const otrasCuentas = cuentasExistentes.filter((cuenta) => cuenta.id !== cuentaId);

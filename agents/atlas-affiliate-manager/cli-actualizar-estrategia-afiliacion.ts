@@ -1,15 +1,19 @@
+import fs from "node:fs";
+import path from "node:path";
 import { getHerramienta } from "@/data/repositorio";
 import { getEstrategiaAfiliacion, guardarEstrategiaAfiliacion } from "@/data/repositorioEstrategiaAfiliacion";
-import { borradorYaExiste } from "./borrador";
+import { borradorYaExiste } from "@/agents/atlas-researcher/borrador";
 import {
   esEstadoAfiliacionValido,
   fusionarEstrategiaAfiliacion,
   generarIdCuenta,
   type CambiosCuentaAfiliado,
 } from "./estrategiaAfiliacion";
+import { aplicarLoteEstrategia, type EntradaLoteEstrategia, type ResultadoFilaLote } from "./lote";
 
 /**
  * `npm run actualizar-estrategia-afiliacion -- id [--cuenta id] [--estado ...] [--plataforma ...] ...`
+ * `npm run actualizar-estrategia-afiliacion -- --lote ruta/al/archivo.json`
  *
  * Registra o actualiza la relación real de Atlas con un programa de
  * afiliados de una herramienta (solicitud, aprobación, condiciones,
@@ -23,13 +27,21 @@ import {
  * `--plataforma`; si tampoco se indica ninguna de las dos, se usa
  * "principal" — así el caso simple de una sola cuenta no exige pensar en
  * ids.
+ *
+ * `--lote` (añadido para gestionar ~100 herramientas sin repetir el
+ * comando una a una): un archivo JSON con un array de entradas, cada una
+ * con los mismos campos que las flags de abajo (ver `EntradaLoteEstrategia`
+ * en `lote.ts`). Un error en una fila no aborta las demás — se reporta fila
+ * por fila al final.
  */
 
 const USO =
   'Uso: npm run actualizar-estrategia-afiliacion -- id [--cuenta id] [--estado no_solicitado|pendiente|aprobado|rechazado|activo] ' +
   "[--nombre-programa \"...\"] [--plataforma \"...\"] [--url-solicitud \"...\"] [--usuario-registro \"...\"] " +
   "[--fecha-solicitud AAAA-MM-DD] [--fecha-aprobacion AAAA-MM-DD] [--comision \"...\"] [--cookie \"...\"] " +
-  "[--metodo-pago \"...\"] [--frecuencia-pago \"...\"] [--enlace \"...\"] [--segmento pais_o_idioma] [--notas \"...\"]";
+  "[--metodo-pago \"...\"] [--frecuencia-pago \"...\"] [--enlace \"...\"] [--segmento pais_o_idioma] " +
+  "[--requisitos \"...\"] [--borrador \"...\"] [--notas \"...\"]\n" +
+  "   o: npm run actualizar-estrategia-afiliacion -- --lote ruta/al/archivo.json";
 
 function leerFlag(args: string[], nombre: string): string | undefined {
   const indice = args.indexOf(`--${nombre}`);
@@ -37,8 +49,47 @@ function leerFlag(args: string[], nombre: string): string | undefined {
   return args[indice + 1];
 }
 
-function main() {
-  const args = process.argv.slice(2);
+function leerEntradasLote(rutaArgumento: string): EntradaLoteEstrategia[] {
+  const rutaArchivo = path.resolve(process.cwd(), rutaArgumento);
+  const contenido = fs.readFileSync(rutaArchivo, "utf-8");
+  const crudo = JSON.parse(contenido);
+
+  if (!Array.isArray(crudo)) {
+    throw new Error(`"${rutaArchivo}" debe contener un array de entradas.`);
+  }
+  return crudo as EntradaLoteEstrategia[];
+}
+
+function imprimirResumenLote(resultados: ResultadoFilaLote[]) {
+  const ok = resultados.filter((r) => r.ok);
+  const fallidas = resultados.filter((r) => !r.ok);
+
+  if (ok.length > 0) {
+    console.log(`\n✓ Actualizadas (${ok.length}):`);
+    for (const r of ok) {
+      if (r.ok) console.log(`  - fila ${r.fila}: "${r.id}" (cuenta "${r.cuentaId}") → estado "${r.estadoFinal}"`);
+    }
+  }
+
+  if (fallidas.length > 0) {
+    console.log(`\n✗ Fallidas (${fallidas.length}):`);
+    for (const r of fallidas) {
+      if (!r.ok) console.log(`  - fila ${r.fila}${r.id ? ` ("${r.id}")` : ""}: ${r.error}`);
+    }
+  }
+
+  console.log(`\nTotal: ${ok.length} actualizada(s), ${fallidas.length} fallida(s) de ${resultados.length}.`);
+}
+
+function ejecutarLote(rutaArgumento: string) {
+  const entradas = leerEntradasLote(rutaArgumento);
+  const hoy = new Date().toISOString().slice(0, 10);
+  const resultados = aplicarLoteEstrategia(entradas, getEstrategiaAfiliacion, guardarEstrategiaAfiliacion, hoy);
+  imprimirResumenLote(resultados);
+  if (resultados.some((r) => !r.ok)) process.exitCode = 1;
+}
+
+function ejecutarUnaCuenta(args: string[]) {
   const id = args[0];
 
   if (!id || id.startsWith("--")) {
@@ -75,6 +126,8 @@ function main() {
     frecuenciaPago: leerFlag(args, "frecuencia-pago"),
     enlaceUrl: leerFlag(args, "enlace"),
     segmentoEnlace: leerFlag(args, "segmento"),
+    requisitosPrograma: leerFlag(args, "requisitos"),
+    borradorSolicitud: leerFlag(args, "borrador"),
     observaciones: leerFlag(args, "notas"),
   };
 
@@ -86,6 +139,18 @@ function main() {
 
   const cuenta = actualizada.cuentas.find((c) => c.id === cuentaId)!;
   console.log(`✓ Estrategia de afiliación de "${id}" (cuenta "${cuentaId}") actualizada: estado "${cuenta.estado}" (revisado ${hoy}).`);
+}
+
+function main() {
+  const args = process.argv.slice(2);
+  const rutaLote = leerFlag(args, "lote");
+
+  if (rutaLote) {
+    ejecutarLote(rutaLote);
+    return;
+  }
+
+  ejecutarUnaCuenta(args);
 }
 
 main();

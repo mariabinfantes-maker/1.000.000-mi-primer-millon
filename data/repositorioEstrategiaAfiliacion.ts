@@ -15,7 +15,7 @@ import type { EstrategiaAfiliacion } from "./esquemaInterno";
  * A diferencia de `repositorio.ts`/`repositorioAfiliados.ts` (solo
  * lectura, pensados para servir la app), este repositorio también
  * escribe: la estrategia de afiliación la actualiza un humano con el
- * tiempo (`agents/atlas-researcher/cli-actualizar-estrategia-afiliacion.ts`),
+ * tiempo (`agents/atlas-affiliate-manager/cli-actualizar-estrategia-afiliacion.ts`),
  * no una investigación puntual.
  *
  * `dirBase` es un parámetro de pruebas: en producción siempre es
