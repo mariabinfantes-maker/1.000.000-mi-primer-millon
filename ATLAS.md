@@ -83,7 +83,14 @@ implementarla, no después.
 
 ## Hoja de ruta de agentes
 
-**Registrada:** 2026-08-03. Visión completa del sistema, definida por el
+**Registrada:** 2026-08-03. **Actualizada:** 2026-08-25 — la arquitectura
+oficial pasó a 11 agentes (Atlas Revenue recuperado como agente 11); la
+referencia canónica de nombres, estado, entradas/salidas, activación y
+relaciones vive ahora en `ARQUITECTURA-AGENTES.md`. Esta sección se
+conserva como registro histórico de cómo se fue decidiendo cada pieza —
+en caso de discrepancia, `ARQUITECTURA-AGENTES.md` manda.
+
+Visión completa del sistema, definida por el
 producto. Antes de diseñar o implementar cualquier decisión de arquitectura
 —nueva o sobre un agente ya existente— hay que contrastarla contra esta
 hoja de ruta completa y señalar si dificulta el trabajo de algún agente
@@ -95,8 +102,12 @@ toque construir hoy.
    lotes, con aprobación humana obligatoria antes de promoverlas al
    catálogo (`agents/atlas-researcher/`). También gestiona la estrategia de
    afiliación (`EstrategiaAfiliacion`).
-2. ⭐ **Atlas Evaluador** — ya construido, bajo el nombre técnico "Atlas
-   Advisor Capa 1" (`agents/atlas-advisor/`): motor determinista de 10
+2. ⭐ **Atlas Advisor** — nombre canónico desde 2026-08-25 (ver
+   `ARQUITECTURA-AGENTES.md`); "Atlas Evaluador" era el nombre de producto
+   usado aquí originalmente y se conserva solo como nombre de personaje en
+   la capa de presentación pública (`lib/agentes.ts`), nunca como nombre de
+   arquitectura. Construido bajo el nombre técnico "Atlas Advisor Capa 1"
+   (`agents/atlas-advisor/`): motor determinista de 10
    criterios que puntúa el catálogo público en vivo, sin coste ni IA.
 3. 🎯 **Atlas Recomendador** — completado. Es la "Capa 2 de Atlas Advisor"
    documentada más abajo (`agents/atlas-recomendador/`): explicación
@@ -593,16 +604,26 @@ explícita antes de tocar el catálogo real. Las descartadas automáticamente
 por el prechequeo de afiliados (sin programa fiable) no se presentan como
 candidatas, solo se reportan de forma transparente.
 
-### Atlas Revenue: decisión diferida, no forma parte de la arquitectura todavía
+### Atlas Revenue: recuperado como agente 11 de la arquitectura
 
-**Registrada:** 2026-08-18 · **Estado:** pospuesta, no implementar — ni
-siquiera como diseño. Se reconsiderará solo cuando se cumpla la condición
-de disparo explícita más abajo.
+**Registrada:** 2026-08-18 · **Actualizada:** 2026-08-25 — decisión oficial
+del proyecto: Atlas Revenue deja de estar descartado y se recupera como
+agente futuro (agente 11 de 11, ver `ARQUITECTURA-AGENTES.md`), con una
+separación de responsabilidad explícita frente a Affiliate Manager que
+resuelve el solapamiento que motivó el descarte original: **Affiliate
+Manager gestiona operativamente** programas, solicitudes, estados, enlaces
+y comisiones; **Revenue analiza y optimiza el modelo económico completo**
+(ver `MODELO-DE-NEGOCIO.md`), sin poder modificar nunca el orden objetivo
+de las recomendaciones ni escribir en `EstrategiaAfiliacion`. Sigue sin
+diseño detallado ni código — el razonamiento original sobre por qué
+todavía es prematuro construirlo se conserva íntegro debajo, ahora como
+condición de disparo recomendada en vez de descarte definitivo.
 
-Evaluado en la misma revisión estratégica que aprobó Atlas Curator, a
-propuesta de incorporar un agente de negocio dedicado exclusivamente a la
-monetización y el crecimiento económico. Descartado por solapamiento real,
-no por falta de mérito de la idea:
+Evaluado originalmente en la misma revisión estratégica que aprobó Atlas
+Curator, a propuesta de incorporar un agente de negocio dedicado
+exclusivamente a la monetización y el crecimiento económico. Su descarte
+original se basaba en un solapamiento real con Affiliate Manager que la
+separación operativo/estratégico de arriba resuelve:
 
 - **Affiliate Manager** ya cubre, de facto, la única fuente de ingresos real
   del producto hoy (afiliación): selección de enlace, consistencia,
