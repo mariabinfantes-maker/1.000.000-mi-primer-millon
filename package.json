@@ -20,9 +20,12 @@
     "informe-curador": "tsx agents/atlas-curator/cli-informe-curador.ts",
     "informe-historial": "tsx agents/atlas-researcher/cli-informe-historial.ts",
     "verificar-enlaces-afiliados": "tsx agents/atlas-affiliate-manager/cli-verificar-enlaces.ts",
-    "generar-hash-admin": "tsx lib/admin/cli-generar-hash-admin.ts"
+    "generar-hash-admin": "tsx lib/admin/cli-generar-hash-admin.ts",
+    "aprovisionar-esquema-postgres": "tsx scripts/aprovisionar-esquema-postgres.ts"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
+    "@upstash/redis": "^1.38.2",
     "lucide-react": "^1.25.0",
     "next": "16.2.10",
     "react": "19.2.4",
