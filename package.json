@@ -19,7 +19,8 @@
     "informe-mantenimiento": "tsx agents/atlas-mantenimiento/cli-informe-mantenimiento.ts",
     "informe-curador": "tsx agents/atlas-curator/cli-informe-curador.ts",
     "informe-historial": "tsx agents/atlas-researcher/cli-informe-historial.ts",
-    "verificar-enlaces-afiliados": "tsx agents/atlas-affiliate-manager/cli-verificar-enlaces.ts"
+    "verificar-enlaces-afiliados": "tsx agents/atlas-affiliate-manager/cli-verificar-enlaces.ts",
+    "generar-hash-admin": "tsx lib/admin/cli-generar-hash-admin.ts"
   },
   "dependencies": {
     "lucide-react": "^1.25.0",

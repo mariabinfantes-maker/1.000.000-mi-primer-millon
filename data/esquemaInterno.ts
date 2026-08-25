@@ -140,6 +140,15 @@ export type CuentaAfiliado = {
    * sesiones y poder copiarlo desde el panel interno.
    */
   borradorSolicitud?: string;
+  /**
+   * Añadido (Sprint 1B, panel interno, 2026-08-25): resultado de la última
+   * comprobación HTTP del enlace guardado
+   * (`agents/atlas-affiliate-manager/verificarEnlaces.ts`) — persistido
+   * para poder mostrar "Fecha de última comprobación" en el panel entre
+   * sesiones, en vez de solo mientras dura una comprobación puntual.
+   */
+  enlaceUltimaComprobacion?: string;
+  enlaceComprobacionOk?: boolean;
 };
 
 /**
