@@ -82,7 +82,7 @@ export default function SobrePage() {
             verificables (documentación oficial, reputación externa, datos de uso reales cuando
             existen) antes de entrar a formar parte de ninguna recomendación. Puedes ver el
             proceso completo, agente por agente, en{" "}
-            <Link href="/agentes" className="font-semibold text-brand-600 transition hover:text-brand-800">
+            <Link href="/#como-funciona" className="font-semibold text-brand-600 transition hover:text-brand-800">
               cómo trabaja Molnip
             </Link>
             .
