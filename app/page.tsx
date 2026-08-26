@@ -87,7 +87,9 @@ export default function Home() {
 
   return (
     <div>
-      {/* Hero — propuesta 1 (revisión en curso, ver ATLAS.md) */}
+      {/* Hero. El fondo crema es el mismo suelo sobre el que están fotografiadas
+          las piezas del Sistema Prisma, así la imagen se apoya en la página en
+          vez de flotar sobre ella. */}
       <section className="relative overflow-hidden" style={{ backgroundColor: "#fdfaf5" }}>
         <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-4 pt-16 pb-20 sm:px-6 sm:pt-24 sm:pb-28 lg:grid-cols-[1.05fr_1fr] lg:gap-10">
           <div className="text-center lg:text-left">
@@ -136,42 +138,38 @@ export default function Home() {
           </div>
 
           <div
-            className="animar-entrada relative mx-auto h-80 w-full max-w-sm sm:h-96 lg:h-[583px] lg:max-w-none"
+            className="animar-entrada relative mx-auto w-full max-w-sm lg:max-w-none"
             style={{ animationDelay: "200ms" }}
           >
-            {/* Forma orgánica de marca, CSS puro (border-radius asimétrico), detrás del recorte de la persona — degradado violeta profundo → azul eléctrico → lavanda. */}
-            <div
-              aria-hidden="true"
-              className="absolute top-1/2 left-1/2 h-[110%] w-[92%] -translate-x-1/2 -translate-y-1/2"
-              style={{
-                borderRadius: "63% 37% 41% 59% / 55% 45% 55% 45%",
-                background: "linear-gradient(150deg, #2e1f7a 0%, #4f46e5 46%, #c9c2f7 100%)",
-              }}
-            />
-
-            {/* La persona se recorta con la MISMA silueta orgánica que la forma
-                de detrás (idéntico tamaño, posición y border-radius), en vez de
-                un rectángulo — así las piernas "desaparecen" siguiendo la curva
-                real del borde inferior de la forma, sin ninguna línea de corte
-                recta visible dentro. */}
-            <div
-              className="absolute top-1/2 left-1/2 h-[110%] w-[92%] -translate-x-1/2 -translate-y-1/2 overflow-hidden"
-              style={{ borderRadius: "63% 37% 41% 59% / 55% 45% 55% 45%" }}
-            >
+            {/* El cristal facetado nítido en primer plano, delante de dos formas
+                de vidrio esmerilado desenfocadas: es el titular dicho en imagen
+                — de muchas opciones confusas a una recomendación clara, con la
+                faceta dorada marcando la elegida. Mismo tratamiento (marco
+                redondeado + sombra premium) que las imágenes de marca del resto
+                del sitio. */}
+            {/* En móvil se recorta a 4:3 en vez de cuadrado: la imagen ocupa
+                menos alto y el cristal —con la faceta dorada, que es el
+                mensaje— entra dentro del pliegue en lugar de quedar cortado
+                debajo. En pantallas grandes recupera el cuadrado completo. */}
+            <div className="aspect-[4/3] overflow-hidden rounded-[2rem] shadow-premium-lg ring-1 ring-slate-900/[0.06] sm:aspect-square">
               <Image
-                src="/images/molnip-owner-final.png"
-                alt="Una profesional revisando una recomendación de Molnip en su tablet"
-                width={541}
-                height={1531}
+                src="/imagenes/marca/hero-formas.png"
+                alt="Un cristal facetado transparente con una faceta iluminada en dorado, delante de dos formas de vidrio esmerilado índigo desenfocadas"
+                width={1024}
+                height={1024}
                 priority
-                unoptimized
-                className="relative mx-auto mt-2 h-auto w-[66%] drop-shadow-2xl sm:w-[58%]"
+                className="h-full w-full object-cover"
               />
             </div>
 
-            {/* Tarjeta flotante: una recomendación de software, mismo tratamiento visual que el resto del sitio (nunca datos inventados — texto genérico ilustrativo). Posición en % para que caiga cerca de la cintura sea cual sea el recorte. */}
+            {/* Tarjeta flotante: una recomendación de software, mismo tratamiento
+                visual que el resto del sitio (nunca datos inventados — texto
+                genérico ilustrativo). Se apoya en la esquina inferior izquierda
+                del marco, desbordándolo hacia fuera para dar profundidad. Va por
+                debajo del borde, no dentro: encima tapaba el cristal, que es la
+                pieza que tiene que leerse limpia. */}
             <div
-              className="animar-flotar absolute right-0 bottom-[15%] flex items-center gap-2.5 rounded-2xl border border-slate-200/80 bg-white/95 px-4 py-3 shadow-premium-lg backdrop-blur sm:right-4"
+              className="animar-flotar absolute -bottom-4 left-4 flex items-center gap-2.5 rounded-2xl border border-slate-200/80 bg-white/95 px-4 py-3 shadow-premium-lg backdrop-blur sm:-bottom-6 sm:-left-6"
               style={{ animationDelay: "1.2s" }}
             >
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-brand-500 to-brand-700 text-white">
