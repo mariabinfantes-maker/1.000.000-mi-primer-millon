@@ -25,7 +25,8 @@
     "migrar-json-a-postgres": "tsx scripts/migrar-json-a-postgres.ts",
     "migrar-a-neon": "tsx scripts/migrar-a-neon.ts",
     "copia-seguridad-afiliacion": "tsx scripts/copia-seguridad-afiliacion.ts",
-    "verificar-neon": "tsx scripts/verificar-neon.ts"
+    "verificar-neon": "tsx scripts/verificar-neon.ts",
+    "generar-secreto-admin": "tsx lib/admin/cli-generar-secreto-admin.ts"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.2",
