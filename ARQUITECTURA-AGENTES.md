@@ -144,6 +144,18 @@ también, explícitamente, a Atlas Revenue.
 - **Entradas:** `EstrategiaAfiliacion` de cada herramienta (cuentas,
   enlaces, estados, comisiones) + el catálogo público (para cruzar con
   Puntuación Atlas).
+- **Dónde vive su información (desde 2026-08-25):** en Postgres (Neon),
+  tabla `estrategias_afiliacion`, no en archivos. El sistema de archivos de
+  producción es efímero: cualquier cambio guardado en un archivo se perdería
+  al reiniciar o volver a desplegar. Cada modificación queda además
+  registrada en `historial_cambios_afiliacion` (qué campo, valor anterior,
+  valor nuevo, fecha, usuario), una tabla que **solo admite inserciones**:
+  la propia base de datos rechaza cualquier intento de modificar o borrar un
+  registro pasado, así que restaurar un valor anterior crea un apunte nuevo
+  en vez de reescribir la historia. Los archivos de
+  `data/estrategia-afiliados/*.json` se conservan como copia de seguridad y
+  origen de la migración inicial, pero **ya no son la fuente que lee ni
+  escribe la aplicación**.
 - **Salidas:** la URL de destino real del clic (o la oficial de respaldo);
   avisos de consistencia (bloqueantes en `verificar-datos`); lista
   priorizada de cuentas por solicitar; informe HTML de estado.

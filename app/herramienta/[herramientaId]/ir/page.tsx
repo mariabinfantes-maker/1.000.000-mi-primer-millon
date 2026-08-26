@@ -63,7 +63,13 @@ export default async function IrAlProveedorPage({
 
   if (!herramienta) notFound();
 
-  const estrategia = getEstrategiaAfiliacion(herramienta.id);
+  // Desde que la estrategia vive en Postgres (sub-sprint 1E), esta página
+  // pública depende de la base de datos. Una caída de Neon NUNCA debe tirar
+  // la página que cierra el recorrido del usuario: si la consulta falla, se
+  // cae al enlace oficial del proveedor, exactamente igual que cuando
+  // todavía no hay ningún enlace de afiliado guardado. Se pierde la comisión
+  // de ese clic, pero el usuario llega igual a donde quería ir.
+  const estrategia = await getEstrategiaAfiliacion(herramienta.id).catch(() => undefined);
   const enlaceAfiliado = elegirEnlaceAfiliado(estrategia?.cuentas ?? [], SEGMENTO_GLOBAL);
   const destino = enlaceAfiliado ?? herramienta.paginaOficial;
 

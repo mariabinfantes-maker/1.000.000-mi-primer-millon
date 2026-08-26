@@ -16,9 +16,9 @@ import { construirDatosInforme, generarInformeMantenimientoHtml } from "./inform
 
 const DIR_INFORMES = path.join(process.cwd(), "data", "informes-mantenimiento");
 
-function main() {
+async function main() {
   const herramientas = getTodasLasHerramientas();
-  const estrategias = getTodasLasEstrategiasAfiliacion();
+  const estrategias = await getTodasLasEstrategiasAfiliacion();
   const hoy = new Date().toISOString().slice(0, 10);
 
   const datos = construirDatosInforme(herramientas, estrategias, hoy);
@@ -36,4 +36,7 @@ function main() {
   console.log("Ábrelo con doble clic en tu navegador para revisarlo.");
 }
 
-main();
+main().catch((error) => {
+  console.error(error instanceof Error ? error.message : error);
+  process.exitCode = 1;
+});

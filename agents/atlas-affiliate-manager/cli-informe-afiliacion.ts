@@ -19,8 +19,8 @@ import { construirDatosInforme, generarInformeAfiliacionHtml } from "./informe";
 
 const DIR_INFORMES = path.join(process.cwd(), "data", "informes-afiliacion");
 
-function main() {
-  const estrategias = getTodasLasEstrategiasAfiliacion();
+async function main() {
+  const estrategias = await getTodasLasEstrategiasAfiliacion();
   const herramientas = getTodasLasHerramientas();
   const hoy = new Date().toISOString().slice(0, 10);
 
@@ -39,4 +39,7 @@ function main() {
   console.log("Ábrelo con doble clic en tu navegador para revisarlo.");
 }
 
-main();
+main().catch((error) => {
+  console.error(error instanceof Error ? error.message : error);
+  process.exitCode = 1;
+});

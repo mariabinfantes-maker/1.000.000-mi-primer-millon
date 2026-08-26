@@ -20,7 +20,7 @@ function leerFlag(args: string[], nombre: string): string | undefined {
   return args[indice + 1];
 }
 
-function main() {
+async function main() {
   const args = process.argv.slice(2);
   const id = args[0]?.trim();
   if (!id || id.startsWith("--")) {
@@ -32,7 +32,7 @@ function main() {
   const ignorarAvisosDuplicado = args.includes("--ignorar-duplicado");
   const justificacionAnulacion = leerFlag(args, "justificacion");
 
-  const resultado = promoverBorrador(id, { ignorarAvisosDuplicado, justificacionAnulacion });
+  const resultado = await promoverBorrador(id, { ignorarAvisosDuplicado, justificacionAnulacion });
 
   if (!resultado.ok) {
     console.error(`✗ No se ha podido promover "${id}":`);

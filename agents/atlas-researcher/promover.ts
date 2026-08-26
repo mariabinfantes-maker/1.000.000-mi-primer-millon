@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import type { Pool } from "pg";
 import type { Herramienta } from "@/data/esquema";
 import type { AffiliateData, CuentaAfiliado, EstrategiaAfiliacion } from "@/data/esquemaInterno";
 import { getCategorias, getTodasLasHerramientas, validarHerramienta } from "@/data/repositorio";
@@ -9,7 +10,7 @@ import { detectarCasiDuplicados } from "@/agents/atlas-curator/duplicados";
 import { leerBorrador } from "./borrador";
 import { evaluarCriteriosDeCalidad } from "./criteriosCalidad";
 import { leerDecision } from "./decision";
-import { generarIdCuenta } from "./estrategiaAfiliacion";
+import { generarIdCuenta } from "@/agents/atlas-affiliate-manager/estrategiaAfiliacion";
 import { registrarEnHistorial } from "./historialAprobaciones";
 
 /**
@@ -64,8 +65,8 @@ export type OpcionesPromocion = {
   dirBaseBorradores?: string;
   /** Dónde escribir el catálogo real (debe contener `herramientas/` y `afiliados/`). Por defecto `data`, la ruta real del proyecto — solo para pruebas. */
   dirDatos?: string;
-  /** De dónde leer/escribir la estrategia de afiliación al sembrar el registro inicial. Por defecto `data/estrategia-afiliados` — solo para pruebas. */
-  dirBaseEstrategia?: string;
+  /** Pool de Postgres para leer/escribir la estrategia de afiliación al sembrar el registro inicial. Por defecto el pool real (`obtenerPool()`) — solo para pruebas. */
+  poolEstrategia?: Pool;
   /** Dónde escribir el historial de aprobaciones. Por defecto `data/historial-aprobaciones.json` — solo para pruebas. */
   rutaHistorial?: string;
   /** Anula el aviso de casi-duplicado de Atlas Curator para este intento — nunca por defecto. Exige `justificacionAnulacion`. */
@@ -79,7 +80,7 @@ function tieneProgramaDeAfiliadosFiable(datosAfiliados: Partial<AffiliateData>):
   return datosAfiliados.confidenceLevel !== "low";
 }
 
-export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): ResultadoPromocion {
+export async function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): Promise<ResultadoPromocion> {
   const dirDatos = opciones.dirDatos ?? path.join(process.cwd(), "data");
   const dirBaseBorradores = opciones.dirBaseBorradores;
 
@@ -191,7 +192,7 @@ export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): 
   fs.writeFileSync(rutaHerramienta, `${JSON.stringify(herramientaFinal, null, 2)}\n`, "utf-8");
   fs.writeFileSync(rutaAfiliados, `${JSON.stringify(datosAfiliados, null, 2)}\n`, "utf-8");
 
-  if (!getEstrategiaAfiliacion(id, { dirBase: opciones.dirBaseEstrategia })) {
+  if (!(await getEstrategiaAfiliacion(id, { pool: opciones.poolEstrategia }))) {
     const observaciones = verificacionAfiliacionPendiente
       ? "Creada automáticamente al promover, a partir de los datos investigados. Pendiente de solicitar el programa. " +
         "Verificación pendiente: la confianza de la investigación de afiliados era media — confirma comisión y " +
@@ -214,7 +215,7 @@ export function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): 
       ...(verificacionAfiliacionPendiente ? { verificacionPendiente: true } : {}),
     };
     const estrategiaInicial: EstrategiaAfiliacion = { herramientaId: id, cuentas: [cuentaInicial] };
-    guardarEstrategiaAfiliacion(estrategiaInicial, { dirBase: opciones.dirBaseEstrategia });
+    await guardarEstrategiaAfiliacion(estrategiaInicial, { pool: opciones.poolEstrategia, usuario: "sistema-promocion" });
   }
 
   registrarEnHistorial(
