@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Eye, EyeOff } from "lucide-react";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -10,6 +11,10 @@ export default function LoginForm() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [enviando, setEnviando] = useState(false);
+  // Poder ver lo que se escribe evita el caso más frustrante: teclear bien
+  // la contraseña, que el navegador la muestre como puntos, y no tener
+  // forma de saber si el fallo fue una errata o las credenciales.
+  const [mostrarPassword, setMostrarPassword] = useState(false);
 
   async function alEnviar(evento: React.FormEvent) {
     evento.preventDefault();
@@ -62,16 +67,27 @@ export default function LoginForm() {
         <label htmlFor="password" className="block text-sm font-medium text-slate-700">
           Contraseña
         </label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          autoComplete="current-password"
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-base text-slate-900 shadow-sm placeholder:text-slate-400 transition hover:border-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
-        />
+        <div className="relative mt-1">
+          <input
+            id="password"
+            name="password"
+            type={mostrarPassword ? "text" : "password"}
+            autoComplete="current-password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full rounded-xl border border-slate-300 bg-white py-2.5 pl-4 pr-12 text-base text-slate-900 shadow-sm placeholder:text-slate-400 transition hover:border-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+          />
+          <button
+            type="button"
+            onClick={() => setMostrarPassword((visible) => !visible)}
+            aria-label={mostrarPassword ? "Ocultar la contraseña" : "Mostrar la contraseña"}
+            aria-pressed={mostrarPassword}
+            className="absolute inset-y-0 right-0 flex w-12 items-center justify-center rounded-r-xl text-slate-400 transition hover:text-slate-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-200"
+          >
+            {mostrarPassword ? <EyeOff className="h-5 w-5" aria-hidden="true" /> : <Eye className="h-5 w-5" aria-hidden="true" />}
+          </button>
+        </div>
       </div>
 
       {error && (
