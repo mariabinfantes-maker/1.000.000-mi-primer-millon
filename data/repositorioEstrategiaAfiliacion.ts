@@ -205,6 +205,93 @@ export async function getHistorialCambios(herramientaId: string, opciones: Opcio
 }
 
 /**
+ * Neutraliza los comodines de `LIKE` dentro del texto que escribe la
+ * persona: en la base de datos `%` significa "cualquier cosa" y `_`
+ * "cualquier carácter". Sin esto, buscar "%" —algo muy normal cuando los
+ * valores son comisiones tipo "25%"— devolvería el historial entero en vez
+ * de las líneas que contienen ese símbolo.
+ */
+function escaparComodines(texto: string): string {
+  return texto.replace(/[\\%_]/g, (caracter) => `\\${caracter}`);
+}
+
+export type FiltroHistorial = {
+  /** Limita a una herramienta concreta. */
+  herramientaId?: string;
+  /** Texto libre: busca en el nombre del campo, el usuario, el motivo y los valores. */
+  busqueda?: string;
+  /** Cuántos eventos devolver (por defecto 50, máximo 200). */
+  limite?: number;
+  /** Desde qué posición, para pasar páginas. */
+  desplazamiento?: number;
+};
+
+/**
+ * Historial de TODAS las herramientas, más reciente primero, con búsqueda
+ * y paginación — lo que necesita la pantalla de historial del panel.
+ *
+ * Devuelve también el total de coincidencias (no solo la página actual)
+ * para poder mostrar "X de Y" y saber si quedan más por cargar. La
+ * búsqueda se hace en la propia base de datos y no trayéndose todo a
+ * memoria: el historial crece sin techo por diseño (es de solo inserción),
+ * así que no puede leerse entero cada vez.
+ */
+export async function getHistorialGlobal(
+  filtro: FiltroHistorial = {},
+  opciones: OpcionesRepositorio = {}
+): Promise<{ eventos: EventoHistorial[]; total: number }> {
+  const pool = resolverPool(opciones.pool);
+
+  const condiciones: string[] = [];
+  const parametros: unknown[] = [];
+
+  if (filtro.herramientaId) {
+    parametros.push(filtro.herramientaId);
+    condiciones.push(`herramienta_id = $${parametros.length}`);
+  }
+
+  const busqueda = filtro.busqueda?.trim();
+  if (busqueda) {
+    parametros.push(`%${escaparComodines(busqueda)}%`);
+    const posicion = parametros.length;
+    // `valor_anterior`/`valor_nuevo` son JSONB: se convierten a texto para
+    // poder buscar dentro de ellos igual que en el resto de columnas.
+    const comparar = (columna: string) => `${columna} ILIKE $${posicion} ESCAPE '\\'`;
+    condiciones.push(
+      `(${[
+        comparar("herramienta_id"),
+        comparar("campo"),
+        comparar("usuario"),
+        comparar("coalesce(motivo, '')"),
+        comparar("valor_anterior::text"),
+        comparar("valor_nuevo::text"),
+      ].join(" OR ")})`
+    );
+  }
+
+  const donde = condiciones.length > 0 ? `WHERE ${condiciones.join(" AND ")}` : "";
+
+  const { rows: filasTotal } = await pool.query<{ total: string }>(
+    `SELECT count(*) AS total FROM historial_cambios_afiliacion ${donde}`,
+    parametros
+  );
+
+  const limite = Math.min(Math.max(filtro.limite ?? 50, 1), 200);
+  const desplazamiento = Math.max(filtro.desplazamiento ?? 0, 0);
+  parametros.push(limite, desplazamiento);
+
+  const { rows } = await pool.query(
+    `SELECT id, herramienta_id, campo, valor_anterior, valor_nuevo, motivo, usuario, fecha
+     FROM historial_cambios_afiliacion ${donde}
+     ORDER BY fecha DESC, id DESC
+     LIMIT $${parametros.length - 1} OFFSET $${parametros.length}`,
+    parametros
+  );
+
+  return { eventos: rows.map(filaAEvento), total: Number(filasTotal[0].total) };
+}
+
+/**
  * Restaura el valor anterior de un evento de historial concreto — nunca
  * modifica ni borra el evento original (la tabla lo impide a nivel de base
  * de datos), en vez de eso vuelve a llamar a `guardarEstrategiaAfiliacion`
