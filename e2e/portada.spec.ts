@@ -84,7 +84,58 @@ test.describe("la portada es interactiva de verdad", () => {
   });
 });
 
-test.describe("lo que no es pulsable no lo parece", () => {
+test.describe("tocar una puerta enseña lo que abre", () => {
+  /**
+   * La prueba que faltaba el 2026-08-27.
+   *
+   * Las tres puertas de entrada no son enlaces: son pestañas que cambian el
+   * contenido de debajo. En un móvil las tarjetas van apiladas, así que ese
+   * contenido caía fuera de la pantalla y tocar una puerta parecía no hacer
+   * nada. "Esas tres tarjetas no están desplegando nada", dijo la
+   * propietaria — y tenía toda la razón.
+   *
+   * La prueba anterior comprobaba que los enlaces ofrecidos CAMBIABAN. Eso
+   * salía en verde mientras la persona no veía absolutamente nada. Aquí se
+   * comprueba lo que de verdad importa: que se VEA.
+   */
+  const PUERTAS = [
+    { nombre: "Explorar por categoría", patron: /Explorar por categoría/i },
+    { nombre: "Contárselo a Molnip", patron: /Contárselo a Molnip/i },
+    { nombre: "Empezar por objetivo", patron: /Empezar por objetivo/i },
+  ];
+
+  for (const { nombre, patron } of PUERTAS) {
+    test(`"${nombre}" deja a la vista lo que abre`, async ({ page, isMobile }) => {
+      await irAlaPortada(page);
+
+      const pestana = page.getByRole("tab", { name: patron });
+      await pestana.scrollIntoViewIfNeeded();
+      await page.waitForTimeout(500);
+      if (isMobile) await pestana.tap();
+      else await pestana.click();
+      // El desplazamiento es suave: hay que dejarlo llegar.
+      await page.waitForTimeout(1500);
+
+      const visible = await page.evaluate(() => {
+        const panel = document.querySelector('[role="tabpanel"]');
+        if (!panel) return null;
+        const caja = panel.getBoundingClientRect();
+        return {
+          alto: Math.max(0, Math.min(caja.bottom, window.innerHeight) - Math.max(caja.top, 0)),
+          deberia: Math.min(caja.height, window.innerHeight * 0.6),
+        };
+      });
+
+      expect(visible).not.toBeNull();
+      expect(
+        visible!.alto,
+        `se toca "${nombre}" y lo que abre queda fuera de la pantalla: desde un móvil parece que no hace nada`
+      ).toBeGreaterThanOrEqual(Math.floor(visible!.deberia));
+    });
+  }
+});
+
+test.describe("lo que no es pulsable no lo parece @raton", () => {
   /** Las siete tarjetas de texto: no llevan a ningún sitio y no deben insinuar que sí. */
   const TARJETAS_INFORMATIVAS = [
     "Recomendaciones objetivas",
