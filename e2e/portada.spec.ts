@@ -84,7 +84,7 @@ test.describe("la portada es interactiva de verdad", () => {
   });
 });
 
-test.describe("lo que no es pulsable no lo parece", () => {
+test.describe("lo que no es pulsable no lo parece @raton", () => {
   /** Las siete tarjetas de texto: no llevan a ningún sitio y no deben insinuar que sí. */
   const TARJETAS_INFORMATIVAS = [
     "Recomendaciones objetivas",
