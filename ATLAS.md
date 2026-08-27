@@ -1616,3 +1616,29 @@ detectó una prueba que ya existía. Corregido indexando por slug.
 - **Los 11 subtipos y categorías internas** siguen sin cobertura suficiente
   para publicarse.
 - **Krisp**, sin objetivo que la describa.
+
+### Despliegue y cierre del sprint
+
+| | |
+|---|---|
+| Rama de trabajo | `claude/integridad-catalogo` — commit `570b6e0` |
+| Fusión a producción | `2575035` sobre `claude/claude-md-docs-plkwnq` |
+| Pruebas sobre el commit de fusión | 713 unitarias · TypeScript · ESLint · build · 41 E2E (escritorio y móvil) |
+
+Comprobado sobre el build de producción:
+
+| Comprobación | Resultado |
+|---|---|
+| Tres puertas de entrada | Cubiertas por las pruebas E2E, en escritorio y en móvil táctil |
+| Los cinco objetivos | Página y cuestionario, 200 los diez |
+| Las cuatro categorías públicas | Página y cuestionario, 200 las ocho |
+| Subtipos de asistentes de IA | Quien no concreta recibe **tres clases distintas** (escritura, agenda, reuniones) en vez de tres correctores; quien pide vídeo recibe solo vídeo |
+| Systeme.io | **0 menciones** en "automatizar tareas"; sigue en "plataformas todo en uno" y su ficha responde 200 |
+| Elementos protegidos | Portada, Affiliate Manager, Neon, Upstash, seguridad, historial y las 51 estrategias: **sin una sola línea modificada** (diff vacío) |
+| Rutas | Sitemap con **747 URLs, 747 únicas, 0 duplicadas**; las 11 categorías internas devuelven 404 y ninguna se filtra al sitemap |
+
+Las comprobaciones se hicieron contra el build de producción exacto que se
+desplegó, no contra el dominio: este entorno no tiene salida a internet. La
+confirmación sobre molnip.com corresponde a la propietaria.
+
+**Sprint cerrado.**
