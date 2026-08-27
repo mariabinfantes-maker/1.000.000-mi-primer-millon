@@ -45,6 +45,7 @@ describe("generarInformeCuratorHtml", () => {
       colaInvestigacionFichas: [],
       validez: [],
       coherencia: [],
+    integridad: [],
       desactualizadasSegunMantenimiento: 0,
     });
 

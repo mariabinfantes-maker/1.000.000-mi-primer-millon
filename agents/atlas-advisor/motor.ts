@@ -1,5 +1,5 @@
 import type { Herramienta } from "@/data/esquema";
-import { cubreCategoria, esSuite, tipoProductoDe } from "@/data/taxonomia";
+import { categoriaTieneSubtipos, cubreCategoria, cubreSubtipo, subtiposDe, esSuite, tipoProductoDe } from "@/data/taxonomia";
 import { CRITERIOS } from "./criterios";
 import { criteriosDeRuta, rangoDeRuta } from "./criteriosRuta";
 import { compararTodoEnUnoVsEspecializada } from "./todoEnUnoVsEspecializada";
@@ -175,7 +175,12 @@ export function evaluarHerramienta(
  */
 function seleccionarCandidatas(herramientas: Herramienta[], respuestas: RespuestasUsuario): Herramienta[] {
   if (respuestas.categoriaId) {
-    return herramientas.filter((herramienta) => cubreCategoria(herramienta, respuestas.categoriaId!));
+    const deLaCategoria = herramientas.filter((herramienta) => cubreCategoria(herramienta, respuestas.categoriaId!));
+    if (!respuestas.subtipoId) return deLaCategoria;
+    // Si la persona ha concretado qué tipo de herramienta busca, lo demás
+    // no son alternativas suyas: se filtran, no se puntúan peor.
+    const delSubtipo = deLaCategoria.filter((herramienta) => cubreSubtipo(herramienta, respuestas.subtipoId!));
+    return delSubtipo.length > 0 ? delSubtipo : deLaCategoria;
   }
 
   let universo = herramientas;
@@ -231,7 +236,7 @@ export function recomendarHerramientas(
   const eligioRuta = Boolean(respuestas.categoriaId || respuestas.preferenciaSuite);
 
   return {
-    top: evaluadas.slice(0, cantidad),
+    top: repartirEntreSubtipos(evaluadas, cantidad, respuestas),
     todas: evaluadas,
     ...(eligioRuta ? {} : { comparativaDeRutas: compararRutas(evaluadas, respuestas) }),
   };
@@ -273,4 +278,57 @@ function compararRutas(evaluadas: HerramientaEvaluada[], respuestas: RespuestasU
     beneficioDeCentralizar: centralizar + (senal.recomendacion === "todo_en_uno" ? matiz : ""),
     beneficioDeEspecializar: especializar + (senal.recomendacion === "especializada" ? matiz : ""),
   };
+}
+
+
+/**
+ * Cuando la persona NO ha dicho qué tipo de herramienta busca y las
+ * candidatas pertenecen a subtipos distintos, la primera posición no puede
+ * decidirse comparándolas entre sí: un corrector de textos y un generador
+ * de vídeo no son alternativas, así que "cuál es mejor" no tiene respuesta.
+ *
+ * Lo que sí tiene respuesta es "cuál es la mejor de cada clase". Eso es lo
+ * que se devuelve: el primero de cada subtipo, por orden de puntuación, y
+ * después se completa con el resto del ranking.
+ *
+ * No es un reparto de visibilidad ni un tope artificial: nadie pierde
+ * puntos y el orden sigue siendo el que sale de sus fichas. Es que la
+ * pregunta que se estaba respondiendo antes no era una pregunta.
+ *
+ * Si solo hay un subtipo en juego —el caso normal, porque casi ninguna
+ * categoría los distingue— esto no cambia absolutamente nada.
+ */
+function repartirEntreSubtipos(
+  evaluadas: HerramientaEvaluada[],
+  cantidad: number,
+  respuestas: RespuestasUsuario
+): HerramientaEvaluada[] {
+  if (respuestas.subtipoId) return evaluadas.slice(0, cantidad);
+
+  const conSubtipo = evaluadas.filter((e) => categoriaTieneSubtipos(e.herramienta.categoriaId));
+  if (conSubtipo.length === 0) return evaluadas.slice(0, cantidad);
+
+  const subtiposEnJuego = new Set(conSubtipo.flatMap((e) => subtiposDe(e.herramienta)));
+  if (subtiposEnJuego.size <= 1) return evaluadas.slice(0, cantidad);
+
+  const elegidas: HerramientaEvaluada[] = [];
+  const yaVistos = new Set<string>();
+
+  for (const evaluada of evaluadas) {
+    if (elegidas.length >= cantidad) break;
+    const suyos = subtiposDe(evaluada.herramienta);
+    // Sin subtipo declarado no se la aparta: es un dato que falta, no un
+    // motivo para esconderla. Curator avisa de esas fichas.
+    if (suyos.length === 0) { elegidas.push(evaluada); continue; }
+    if (suyos.every((id) => yaVistos.has(id))) continue;
+    for (const id of suyos) yaVistos.add(id);
+    elegidas.push(evaluada);
+  }
+
+  // Si aún quedan huecos, se rellenan con el ranking tal cual.
+  for (const evaluada of evaluadas) {
+    if (elegidas.length >= cantidad) break;
+    if (!elegidas.includes(evaluada)) elegidas.push(evaluada);
+  }
+  return elegidas;
 }

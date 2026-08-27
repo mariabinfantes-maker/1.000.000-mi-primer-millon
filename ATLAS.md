@@ -1473,3 +1473,146 @@ pantalla táctil el navegador ni siquiera aplica esos estilos.
 | Rama de producción | `claude/claude-md-docs-plkwnq` |
 | Pruebas | 696 unitarias, TypeScript, ESLint, build y 41 E2E (escritorio y móvil) |
 | **Resultado en producción** | **Confirmado por la propietaria el 2026-08-27: funciona en el móvil.** |
+
+---
+
+## Sprint de integridad del catálogo y del recomendador (2026-08-27)
+
+Nació del caso Systeme.io. La propietaria observó que su programa de
+afiliación no debía empujarla como recomendación, y al auditarla apareció algo
+mayor: **no estaba mal puntuada, estaba mal clasificada** — y no era la única.
+
+### Lo que se encontró
+
+| Hallazgo | Magnitud |
+|---|---|
+| Herramientas **sin ningún objetivo** | **38 de 56 (68%)** |
+| Categorías internas vacías | 11 de 11 |
+| Herramientas usando categorías secundarias | **1 de 56** (monday.com) |
+| Categoría que mezclaba productos no sustituibles | `asistentes-ia`: Grammarly ganaba el **100%** |
+
+La puerta "por objetivo" **viene activa por defecto** en la portada y filtra de
+forma estricta: si alguna herramienta tiene el objetivo, las demás quedan
+fuera. Con 4-12 herramientas por objetivo, dos tercios del catálogo eran
+invisibles para quien entraba por ahí. Quince CRM en catálogo y solo dos
+aparecían al pedir "conseguir clientes".
+
+### C1 — Objetivos
+
+37 herramientas recibieron objetivo, **una a una y con la evidencia citada
+literalmente de su propia ficha**. El registro completo, auditable, está en
+`data/decisiones/objetivos-2026-08-27.json`: para cada una, el objetivo antes,
+el objetivo después y el texto exacto de `funcionesPrincipales` o
+`problemasQueResuelve` que lo justifica.
+
+**Krisp** quedó marcada con `objetivoPendienteDeInvestigacion`. Su función
+central es cancelar ruido en llamadas: ninguno de los cinco objetivos la
+describe sin forzarla. Es deuda visible y contable, no un silencio.
+
+### C2 — Subtipos
+
+`asistentes-ia` se mantiene como familia, con un eje interno de subtipo:
+escritura, vídeo, reuniones y transcripción, agenda y planificación,
+presentaciones, espacio de trabajo. El motor solo compara dentro del mismo
+subtipo; cuando la persona no ha concretado cuál busca, devuelve **lo mejor de
+cada clase** en vez de decidir entre un corrector y un generador de vídeo, que
+es una pregunta sin respuesta.
+
+No se ha publicado ninguna página ni cambiado la navegación.
+
+### C3 — Categorías secundarias, criterio uniforme
+
+Dos reglas, aplicadas a las 15 suites por igual:
+
+1. Toda suite cuya categoría principal no sea "plataformas todo en uno" la
+   declara como secundaria: es donde se la busca.
+2. Además declara una categoría pública si incluye su módulo **y** alguna de
+   sus funciones principales sustancia esa capacidad.
+
+Aplicar solo el criterio de módulos habría metido 13 de las 15 suites en
+"asistentes de IA" —casi todas declaran un módulo `asistente_ia`—, de modo que
+quien buscara un corrector competiría contra monday.com. `modulosIncluidos`
+dice "tiene un módulo", no "es una alternativa".
+
+11 suites ganaron categorías secundarias. **Ninguna gana un solo punto por
+ello**: hay una prueba que lo comprueba evaluando la misma ficha con una
+categoría y con tres.
+
+### C4 — Systeme.io
+
+Retirado el objetivo "automatizar tareas" por una **regla curada, no por una
+excepción**: ese objetivo exige capacidad de conectarse con otras herramientas,
+y su ficha registra "pocas integraciones nativas, dependiendo de Zapier". La
+regla se aplicó a las cinco herramientas del objetivo; las otras cuatro lo
+conservan porque ninguna documenta esa carencia.
+
+Sigue en el catálogo y en el piloto de afiliación. Su comisión, atribución y
+facilidad de admisión siguen sin tocar el motor.
+
+### Lo que la simulación reveló, y no esperábamos
+
+Con perfiles válidos y tipados, antes y después de todo el sprint:
+
+| | Antes | Después |
+|---|---|---|
+| Herramientas que salen 1ª alguna vez | 19 | **17** |
+| Herramientas que nunca entran en top 3 | 22 | **21** |
+
+**Asignar objetivos arregló la invisibilidad estructural pero no la
+concentración.** Las 38 herramientas ya compiten, pero siguen sin ganar: el
+cuestionario pregunta tamaño de empresa, presupuesto y plan gratuito, y esas
+variables no distinguen entre quince CRM parecidos.
+
+Los avisos de concentración lo confirman: Zoho CRM gana el 95% de la categoría
+CRM, y **dentro de subtipos con 3 y 4 alternativas** (escritura, reuniones) una
+sola gana el 100%. Ninguna pregunta actual decide si necesitas Grammarly o
+Jasper.
+
+**Esto es el siguiente problema, y es de producto, no de datos.** No se ha
+tapado con un reparto artificial: empeorar una recomendación para repartir
+visibilidad sería mentirle a quien pregunta.
+
+### Garantías automáticas
+
+Ocho, en `agents/atlas-curator/integridad.ts` y su batería de pruebas, todas
+contra el catálogo real y no contra fixtures — los tres agujeros de este sprint
+eran invisibles ficha a ficha:
+
+1. Ninguna herramienta activa sin objetivo, salvo marca explícita de pendiente.
+2. Ningún objetivo incompatible con una limitación central, con **reglas
+   curadas**: la detección por palabras clave que se probó daba falsos
+   positivos y hay una prueba que lo fija.
+3. Aviso de concentración por encima del 90%, que no modifica ningún dato.
+4. Categorías secundarias con el mismo criterio para todas las suites.
+5. Una categoría secundaria nunca aporta puntos.
+6. Cobertura y competencia mínima por objetivo y por subtipo.
+7. Perfiles de simulación con tipado estricto.
+8. La afiliación nunca interviene (ya existía; sigue en pie).
+
+La garantía 7 existe por un error propio: durante la auditoría se simuló el
+catálogo pasando `preferenciaSuite: true/false` cuando el campo admite
+`"todo_en_uno" | "especializada"`. El spread lo ocultaba de TypeScript, así que
+la rama "quiero una suite" nunca se probó y los porcentajes publicados estaban
+mal. Ahora los valores salen de arrays tipados: un valor inválido no compila.
+
+### Un fallo real que destapó el sprint
+
+Al compartir categoría dos suites, `generarParesComparacion()` generaba la
+**misma pareja dos veces** — 693 parejas para 617 únicas. Cada pareja es una
+URL, así que habrían salido páginas de comparación duplicadas en el sitemap. Lo
+detectó una prueba que ya existía. Corregido indexando por slug.
+
+### Riesgos y trabajo pendiente
+
+- **El cuestionario no distingue lo suficiente.** Es el hallazgo grande y sigue
+  abierto. Requiere decisión de producto.
+- **`gestion-proyectos` tiene el mismo problema que `asistentes-ia`**, más
+  suave: Asana gana el 75%. Mezcla generalistas con especialistas en Gantt
+  (TeamGantt, GanttPRO) y en rentabilidad (Paymo, Productive, Scoro). Se
+  proponen subtipos, no se han implementado.
+- **ClickFunnels, HoneyBook y Kartra** declaran módulos de CRM que ninguna de
+  sus funciones principales sustancia. Van a Researcher: o sobra el módulo o
+  falta la función.
+- **Los 11 subtipos y categorías internas** siguen sin cobertura suficiente
+  para publicarse.
+- **Krisp**, sin objetivo que la describa.

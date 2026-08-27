@@ -135,5 +135,6 @@
   "problemasIds": [
     "ahorrar-tiempo"
   ],
-  "tipoProducto": "especializada"
+  "tipoProducto": "especializada",
+  "subtipoId": "reuniones-transcripcion"
 }

@@ -1,0 +1,739 @@
+{
+  "fecha": "2026-08-27",
+  "criterio": {
+    "conseguir-clientes": "Función declarada de captación, embudo o seguimiento comercial (CRM, pipeline, leads).",
+    "organizar-empresa": "Función declarada de centralizar proyectos, tareas, plazos, documentación, facturas o presupuestos.",
+    "ahorrar-tiempo": "Función declarada de IA o productividad que sustituye horas de trabajo manual (redactar, transcribir, resumir, planificar).",
+    "atencion-cliente": "Función declarada de soporte al cliente: mesa de ayuda, tickets o canal de atención.",
+    "automatizar-tareas": "REGLA CURADA: exige (a) función declarada de automatización de flujos Y (b) que la ficha NO registre como inconveniente una limitación central para conectarse con otras herramientas. Se aplica igual a las 5 herramientas que lo tenían."
+  },
+  "asignaciones": [
+    {
+      "herramientaId": "agile-crm",
+      "nombre": "Agile CRM",
+      "categoria": "crm",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "conseguir-clientes",
+        "atencion-cliente"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 0,
+          "texto": "Gestión de contactos y clientes potenciales"
+        },
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 3,
+          "texto": "Helpdesk y sistema de ticketing para soporte"
+        }
+      ]
+    },
+    {
+      "herramientaId": "agiled",
+      "nombre": "Agiled",
+      "categoria": "plataformas-todo-en-uno",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "organizar-empresa",
+        "conseguir-clientes"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 1,
+          "texto": "Gestión de proyectos con vistas Kanban, Gantt, tareas y hilos de discusión"
+        },
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 0,
+          "texto": "CRM para gestión de contactos, prospectos y embudos de ventas"
+        }
+      ]
+    },
+    {
+      "herramientaId": "asana",
+      "nombre": "Asana",
+      "categoria": "gestion-proyectos",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "organizar-empresa"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 0,
+          "texto": "Múltiples vistas de proyectos (Listas, Tableros Kanban, Cronogramas Gantt, Calendario)."
+        },
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 0,
+          "texto": "Falta de visibilidad sobre quién está haciendo qué y los plazos de entrega."
+        }
+      ]
+    },
+    {
+      "herramientaId": "capsule-crm",
+      "nombre": "Capsule CRM",
+      "categoria": "crm",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "conseguir-clientes",
+        "organizar-empresa"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 0,
+          "texto": "Gestión visual del pipeline de ventas (Kanban)"
+        },
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 2,
+          "texto": "Gestión de proyectos y seguimiento posterior a la venta (Tracks)"
+        }
+      ]
+    },
+    {
+      "herramientaId": "copper",
+      "nombre": "Copper",
+      "categoria": "crm",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "conseguir-clientes"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 1,
+          "texto": "Gestión visual de tuberías de ventas (pipelines)"
+        }
+      ]
+    },
+    {
+      "herramientaId": "copy-ai",
+      "nombre": "Copy.ai",
+      "categoria": "asistentes-ia",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "ahorrar-tiempo",
+        "conseguir-clientes"
+      ],
+      "evidencia": [
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 0,
+          "texto": "Lentitud en la creación de contenidos para campañas de marketing y ventas"
+        },
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 2,
+          "texto": "Procesos manuales repetitivos en estrategias de prospección y Go-To-Market"
+        }
+      ]
+    },
+    {
+      "herramientaId": "descript",
+      "nombre": "Descript",
+      "categoria": "asistentes-ia",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "ahorrar-tiempo"
+      ],
+      "evidencia": [
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 0,
+          "texto": "Lentitud y complejidad técnica en la edición tradicional de audio y vídeo multipista."
+        },
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 1,
+          "texto": "Costes elevados y consumo de tiempo al transcribir manualmente grabaciones o entrevistas."
+        }
+      ]
+    },
+    {
+      "herramientaId": "fireflies-ai",
+      "nombre": "Fireflies.ai",
+      "categoria": "asistentes-ia",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "ahorrar-tiempo"
+      ],
+      "evidencia": [
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 0,
+          "texto": "Pérdida de tiempo en la redacción manual de minutas de reunión"
+        }
+      ]
+    },
+    {
+      "herramientaId": "gamma",
+      "nombre": "Gamma",
+      "categoria": "asistentes-ia",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "ahorrar-tiempo"
+      ],
+      "evidencia": [
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 0,
+          "texto": "Inversión excesiva de tiempo en diseñar y maquetar diapositivas desde cero."
+        }
+      ]
+    },
+    {
+      "herramientaId": "ganttpro",
+      "nombre": "GanttPRO",
+      "categoria": "gestion-proyectos",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "organizar-empresa"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 0,
+          "texto": "Diagramas de Gantt interactivos con función de arrastrar y soltar (drag and drop)."
+        },
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 0,
+          "texto": "Falta de visibilidad sobre los plazos, hitos y dependencias de un proyecto."
+        }
+      ]
+    },
+    {
+      "herramientaId": "grammarly",
+      "nombre": "Grammarly",
+      "categoria": "asistentes-ia",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "ahorrar-tiempo"
+      ],
+      "evidencia": [
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 1,
+          "texto": "Falta de claridad, concisión y fluidez en correos electrónicos y documentos"
+        }
+      ]
+    },
+    {
+      "herramientaId": "hive",
+      "nombre": "Hive",
+      "categoria": "gestion-proyectos",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "organizar-empresa"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 0,
+          "texto": "Múltiples vistas de proyecto (Diagrama de Gantt, Tablero Kanban, Calendario, Tabla y Resumen)."
+        },
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 0,
+          "texto": "Falta de visibilidad unificada sobre el estado de proyectos y tareas multifuncionales."
+        }
+      ]
+    },
+    {
+      "herramientaId": "honeybook",
+      "nombre": "HoneyBook",
+      "categoria": "plataformas-todo-en-uno",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "organizar-empresa",
+        "conseguir-clientes"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 0,
+          "texto": "Smart Files: archivos interactivos que combinan propuesta, contrato, factura y pago."
+        },
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 0,
+          "texto": "Fragmentación de herramientas administrativas para enviar presupuestos, cobrar y firmar contratos."
+        }
+      ]
+    },
+    {
+      "herramientaId": "insightly",
+      "nombre": "Insightly",
+      "categoria": "crm",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "conseguir-clientes",
+        "organizar-empresa"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 0,
+          "texto": "Gestión de contactos y oportunidades de venta (Pipeline Management)"
+        },
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 1,
+          "texto": "Gestión de proyectos integrada con hitos, tareas y entregables"
+        }
+      ]
+    },
+    {
+      "herramientaId": "jasper",
+      "nombre": "Jasper",
+      "categoria": "asistentes-ia",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "ahorrar-tiempo",
+        "conseguir-clientes"
+      ],
+      "evidencia": [
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 0,
+          "texto": "Lentitud en la generación y escalado de contenido para campañas de marketing"
+        },
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 2,
+          "texto": "Bloqueo creativo al redactar copys publicitarios, correos y artículos de blog"
+        }
+      ]
+    },
+    {
+      "herramientaId": "kartra",
+      "nombre": "Kartra",
+      "categoria": "plataformas-todo-en-uno",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "conseguir-clientes"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 0,
+          "texto": "Creador de páginas web y landing pages con editor drag-and-drop"
+        },
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 0,
+          "texto": "La fragmentación de herramientas de marketing (pagar y conectar hosting de vídeo, creador de páginas, email marketing y pasarela de pago por separado)."
+        }
+      ]
+    },
+    {
+      "herramientaId": "less-annoying-crm",
+      "nombre": "Less Annoying CRM",
+      "categoria": "crm",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "conseguir-clientes"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 1,
+          "texto": "Pipeline y seguimiento de oportunidades de venta"
+        }
+      ]
+    },
+    {
+      "herramientaId": "nifty",
+      "nombre": "Nifty",
+      "categoria": "gestion-proyectos",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "organizar-empresa"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 1,
+          "texto": "Vistas flexibles de proyectos (Kanban, Lista, Diagrama de Gantt, Calendario, Swimlanes)"
+        },
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 1,
+          "texto": "Falta de visibilidad sobre si los proyectos están cumpliendo los plazos e hitos clave."
+        }
+      ]
+    },
+    {
+      "herramientaId": "nimble",
+      "nombre": "Nimble",
+      "categoria": "crm",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "conseguir-clientes"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 2,
+          "texto": "Gestión de pipeline de ventas y embudos visuales"
+        }
+      ]
+    },
+    {
+      "herramientaId": "nocrm-io",
+      "nombre": "noCRM.io",
+      "categoria": "crm",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "conseguir-clientes"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 0,
+          "texto": "Gestión de leads basada en la 'siguiente acción' (Por hacer / En espera)."
+        }
+      ]
+    },
+    {
+      "herramientaId": "nutshell",
+      "nombre": "Nutshell",
+      "categoria": "crm",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "conseguir-clientes"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 1,
+          "texto": "Pipeline de ventas visual e interactivo"
+        }
+      ]
+    },
+    {
+      "herramientaId": "paymo",
+      "nombre": "Paymo",
+      "categoria": "gestion-proyectos",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "organizar-empresa"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 1,
+          "texto": "Gestión de tareas con vistas de Gantt, Kanban, lista y calendario"
+        },
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 3,
+          "texto": "Facturación integrada y creación de presupuestos a partir del tiempo registrado"
+        }
+      ]
+    },
+    {
+      "herramientaId": "productive-io",
+      "nombre": "Productive",
+      "categoria": "gestion-proyectos",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "organizar-empresa",
+        "conseguir-clientes"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 0,
+          "texto": "Gestión de proyectos y tareas con vistas Kanban, Listas y Gantt"
+        },
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 5,
+          "texto": "CRM para agencias y flujo de ventas"
+        }
+      ]
+    },
+    {
+      "herramientaId": "reclaim-ai",
+      "nombre": "Reclaim.ai",
+      "categoria": "asistentes-ia",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "ahorrar-tiempo"
+      ],
+      "evidencia": [
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 1,
+          "texto": "Falta de tiempo continuo para trabajo concentrado (Focus Time)"
+        },
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 2,
+          "texto": "Sobrecarga de reuniones y falta de flexibilidad para reprogramarlas"
+        }
+      ]
+    },
+    {
+      "herramientaId": "salesflare",
+      "nombre": "Salesflare",
+      "categoria": "crm",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "conseguir-clientes"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 4,
+          "texto": "Gestión visual del embudo de ventas (pipelines drag-and-drop)"
+        }
+      ]
+    },
+    {
+      "herramientaId": "salesmate",
+      "nombre": "Salesmate",
+      "categoria": "crm",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "conseguir-clientes"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 0,
+          "texto": "Gestión de tuberías (pipelines) y tratos de venta interactivos"
+        }
+      ]
+    },
+    {
+      "herramientaId": "scoro",
+      "nombre": "Scoro",
+      "categoria": "gestion-proyectos",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "organizar-empresa",
+        "conseguir-clientes"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 0,
+          "texto": "Gestión de proyectos con diagramas de Gantt, tableros Kanban y dependencias"
+        },
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 1,
+          "texto": "CRM integrado para gestión de prospectos, cotizaciones y pipelines de ventas"
+        }
+      ]
+    },
+    {
+      "herramientaId": "smartsheet",
+      "nombre": "Smartsheet",
+      "categoria": "gestion-proyectos",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "organizar-empresa"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 0,
+          "texto": "Múltiples vistas de proyectos: Cuadrícula, Gantt, Tarjetas (Kanban) y Calendario."
+        },
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 2,
+          "texto": "Limitación de las hojas de cálculo tradicionales para colaborar en tiempo real y automatizar flujos de trabajo."
+        }
+      ]
+    },
+    {
+      "herramientaId": "streak",
+      "nombre": "Streak",
+      "categoria": "crm",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "conseguir-clientes"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 0,
+          "texto": "CRM nativo e incrustado directamente en la interfaz web de Gmail."
+        }
+      ]
+    },
+    {
+      "herramientaId": "synthesia",
+      "nombre": "Synthesia",
+      "categoria": "asistentes-ia",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "ahorrar-tiempo"
+      ],
+      "evidencia": [
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 0,
+          "texto": "Altos costes y tiempos prolongados en la producción de video tradicional (grabación, alquiler de estudio, edición y actores)."
+        }
+      ]
+    },
+    {
+      "herramientaId": "teamgantt",
+      "nombre": "TeamGantt",
+      "categoria": "gestion-proyectos",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "organizar-empresa"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 0,
+          "texto": "Diagramas de Gantt interactivos por arrastrar y soltar"
+        },
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 0,
+          "texto": "Falta de visibilidad sobre los cronogramas y fechas límite de los proyectos."
+        }
+      ]
+    },
+    {
+      "herramientaId": "teamwork-com",
+      "nombre": "Teamwork.com",
+      "categoria": "gestion-proyectos",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "organizar-empresa"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 0,
+          "texto": "Gestión de tareas, subtareas e hitos con dependencias."
+        }
+      ]
+    },
+    {
+      "herramientaId": "vtiger-crm",
+      "nombre": "Vtiger CRM",
+      "categoria": "crm",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "conseguir-clientes",
+        "atencion-cliente"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 0,
+          "texto": "Gestión de contactos, cuentas y oportunidades de venta (Pipeline de ventas)"
+        },
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 1,
+          "texto": "Mesa de ayuda (Help Desk), tickets de soporte y gestión de SLA"
+        }
+      ]
+    },
+    {
+      "herramientaId": "wrike",
+      "nombre": "Wrike",
+      "categoria": "gestion-proyectos",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "organizar-empresa"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 0,
+          "texto": "Diagramas de Gantt interactivos y cronogramas de proyectos"
+        },
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 0,
+          "texto": "Falta de visibilidad sobre el estado real de múltiples proyectos en paralelo"
+        }
+      ]
+    },
+    {
+      "herramientaId": "zenkit",
+      "nombre": "Zenkit",
+      "categoria": "gestion-proyectos",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "organizar-empresa"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 4,
+          "texto": "Gestión de tareas, asignaciones y fechas de vencimiento"
+        }
+      ]
+    },
+    {
+      "herramientaId": "zoho-crm",
+      "nombre": "Zoho CRM",
+      "categoria": "crm",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "conseguir-clientes"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 0,
+          "texto": "Gestión de prospectos, contactos, cuentas y oportunidades"
+        }
+      ]
+    },
+    {
+      "herramientaId": "zoho-projects",
+      "nombre": "Zoho Projects",
+      "categoria": "gestion-proyectos",
+      "objetivosAntes": [],
+      "objetivosDespues": [
+        "organizar-empresa"
+      ],
+      "evidencia": [
+        {
+          "campo": "funcionesPrincipales",
+          "indice": 0,
+          "texto": "Diagramas de Gantt interactivos con dependencias de tareas de 4 tipos"
+        },
+        {
+          "campo": "problemasQueResuelve",
+          "indice": 0,
+          "texto": "Desorganización en la asignación de tareas y seguimiento de plazos en proyectos de equipo."
+        }
+      ]
+    }
+  ],
+  "pendientes": [
+    {
+      "herramientaId": "krisp",
+      "nombre": "Krisp",
+      "motivo": "Su función central es cancelar ruido y eco en llamadas: mejora la calidad del audio, no ahorra horas de trabajo ni capta clientes. Sus funciones de transcripción y resumen son secundarias. Ninguno de los 5 objetivos actuales describe su propósito principal sin forzarlo."
+    }
+  ],
+  "retiradas": [
+    {
+      "herramientaId": "systeme-io",
+      "nombre": "Systeme.io",
+      "objetivoRetirado": "automatizar-tareas",
+      "motivo": "El objetivo se define como 'elimina trabajo manual conectando tus herramientas'. Su ficha registra como inconveniente central: 'Pocas integraciones nativas directas fuera de pasarelas de pago, dependiendo de Zapier para otras herramientas'. Declara 6 integraciones, el mínimo del catálogo entre las suites con este objetivo."
+    }
+  ]
+}

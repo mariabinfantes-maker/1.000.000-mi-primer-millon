@@ -91,3 +91,87 @@ export function cubreCategoria(
 export function esCategoriaPublica(categoria: Categoria): boolean {
   return (categoria.estado ?? "publica") === "publica";
 }
+
+/**
+ * ─────────────────────────────────────────────────────────────────────
+ * Eje fino: subtipos dentro de una categoría
+ * ─────────────────────────────────────────────────────────────────────
+ *
+ * Una categoría agrupa herramientas por FUNCIÓN. Normalmente eso basta:
+ * quince CRM son quince alternativas reales entre sí, y compararlos tiene
+ * sentido.
+ *
+ * "Asistentes de IA y productividad" no funciona así. Ahí conviven un
+ * corrector de textos, un generador de vídeo con avatares, un transcriptor
+ * de reuniones y un planificador de agenda. No son alternativas: nadie duda
+ * entre Grammarly y Synthesia. Compararlos no es difícil, es que no
+ * significa nada — y el 2026-08-27 se midió lo que costaba: Grammarly ganaba
+ * el 100% de los 120 perfiles de esa categoría, de modo que quien buscaba
+ * generar vídeo recibía un corrector ortográfico.
+ *
+ * Los subtipos son el eje que faltaba. No cambian la navegación ni añaden
+ * páginas: solo le dicen al motor qué se puede comparar con qué.
+ */
+export const SUBTIPOS_POR_CATEGORIA: Record<string, { id: string; nombre: string }[]> = {
+  "asistentes-ia": [
+    { id: "escritura", nombre: "Escritura y contenido" },
+    { id: "video", nombre: "Vídeo y audio" },
+    { id: "reuniones-transcripcion", nombre: "Reuniones y transcripción" },
+    { id: "agenda-planificacion", nombre: "Agenda y planificación" },
+    { id: "presentaciones", nombre: "Presentaciones y documentos" },
+    { id: "espacio-trabajo", nombre: "Espacio de trabajo" },
+  ],
+};
+
+/** Mínimo de alternativas reales para que un subtipo permita una comparación con sentido. */
+export const MINIMO_POR_SUBTIPO = 3;
+
+/** ¿Esta categoría distingue subtipos? La mayoría no lo necesita. */
+export function categoriaTieneSubtipos(categoriaId: string): boolean {
+  return (SUBTIPOS_POR_CATEGORIA[categoriaId]?.length ?? 0) > 0;
+}
+
+/** Todos los subtipos que cubre una herramienta: el principal primero. */
+export function subtiposDe(
+  herramienta: Pick<Herramienta, "subtipoId" | "subtiposSecundarios">
+): string[] {
+  const todos = [herramienta.subtipoId, ...(herramienta.subtiposSecundarios ?? [])];
+  return todos.filter((id): id is string => Boolean(id));
+}
+
+/** ¿Compite esta herramienta dentro de ese subtipo, como principal o como secundario? */
+export function cubreSubtipo(
+  herramienta: Pick<Herramienta, "subtipoId" | "subtiposSecundarios">,
+  subtipoId: string
+): boolean {
+  return subtiposDe(herramienta).includes(subtipoId);
+}
+
+/**
+ * ¿Son dos herramientas comparables entre sí?
+ *
+ * Lo son si comparten alguna categoría Y —cuando esa categoría distingue
+ * subtipos— algún subtipo. Dos herramientas de categorías distintas no se
+ * comparan nunca: el motor ya las evalúa por rutas separadas.
+ *
+ * Una herramienta SIN subtipo declarado dentro de una categoría que sí los
+ * distingue se considera comparable con todas las de esa categoría: es un
+ * dato que falta, y negarle la comparación la dejaría invisible. Curator
+ * avisa de esas fichas para que se completen.
+ */
+export function sonComparables(
+  a: Pick<Herramienta, "categoriaId" | "categoriasSecundarias" | "subtipoId" | "subtiposSecundarios">,
+  b: Pick<Herramienta, "categoriaId" | "categoriasSecundarias" | "subtipoId" | "subtiposSecundarios">
+): boolean {
+  const categoriasCompartidas = categoriasDe(a).filter((id) => categoriasDe(b).includes(id));
+  if (categoriasCompartidas.length === 0) return false;
+
+  const conSubtipos = categoriasCompartidas.filter((id) => categoriaTieneSubtipos(id));
+  if (conSubtipos.length === 0) return true;
+  if (conSubtipos.length < categoriasCompartidas.length) return true;
+
+  const subA = subtiposDe(a);
+  const subB = subtiposDe(b);
+  if (subA.length === 0 || subB.length === 0) return true;
+  return subA.some((id) => subB.includes(id));
+}

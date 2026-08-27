@@ -20,6 +20,7 @@ const CAMPOS_GESTIONADOS_POR_ATLAS = new Set<keyof Herramienta>([
   "fechaAltaEnAtlas",
   "fechaUltimaRevision",
   "problemasIds",
+  "objetivoPendienteDeInvestigacion",
 ]);
 
 /**
@@ -47,6 +48,10 @@ const CAMPOS_OPCIONALES = new Set<keyof Herramienta>([
   // falta si el borrador no lo trae.
   "categoriasSecundarias",
   "disponibilidadGeografica",
+  // Solo aplican en las categorías que distinguen subtipos (hoy, únicamente
+  // "asistentes-ia"). Exigirlos a un CRM sería pedir un dato que no existe.
+  "subtipoId",
+  "subtiposSecundarios",
 ]);
 
 export const DESCRIPCION_CAMPOS: Record<keyof Herramienta, string> = {
@@ -58,6 +63,12 @@ export const DESCRIPCION_CAMPOS: Record<keyof Herramienta, string> = {
   categoriaId: "Categoría FUNCIONAL principal: qué hace la herramienta. No la uses para indicar que es una suite — eso es `tipoProducto`.",
   categoriasSecundarias:
     "Otras categorías funcionales que cubre DE VERDAD, respaldadas por sus funciones principales. Déjalo vacío si solo hace una cosa: añadir categorías para aparecer en más sitios es justo lo que Curator detecta y rechaza.",
+  subtipoId:
+    "Subtipo dentro de la categoría, cuando esa categoría lo distinga (hoy solo \"asistentes-ia\"): con qué herramientas es DE VERDAD alternativa. Un corrector de textos y un generador de vídeo comparten categoría pero no compiten entre sí.",
+  subtiposSecundarios:
+    "Otros subtipos que cubre de verdad, con la misma exigencia de evidencia que `categoriasSecundarias`. Déjalo vacío salvo que sus funciones principales lo respalden.",
+  objetivoPendienteDeInvestigacion:
+    "Lo marca Atlas, no lo investigues: señala que ningún objetivo del marco actual describe su función central. Si encuentras uno que sí encaje, indícalo en `problemasIds`.",
   tipoProducto:
     '"suite" si cubre varias funciones bajo un mismo producto y una misma base de datos (declara también `modulosIncluidos`), o "especializada" si resuelve una función a fondo. Es un eje independiente de la categoría.',
   descripcion: "Descripción objetiva de qué es y qué hace, en 2-3 frases.",

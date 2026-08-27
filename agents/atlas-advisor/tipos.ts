@@ -69,6 +69,13 @@ export type RespuestasUsuario = {
    * señales indirectas (ver `todoEnUnoVsEspecializada.ts`), nunca al azar.
    */
   preferenciaSuite?: "todo_en_uno" | "especializada";
+  /**
+   * Subtipo dentro de la categoría, cuando el usuario lo haya concretado
+   * ("quiero transcribir reuniones", no "quiero algo de IA"). Hoy ninguna
+   * pregunta del cuestionario lo recoge todavía: mientras siga vacío, el
+   * motor no compara entre subtipos y ofrece lo mejor de cada uno.
+   */
+  subtipoId?: string;
   /** Descripción libre de la situación del usuario, contrastada contra casosNoRecomendados de cada herramienta. */
   notasAdicionales?: string;
 };

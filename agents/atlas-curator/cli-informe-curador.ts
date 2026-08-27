@@ -51,6 +51,7 @@ function main() {
       `${datos.huecosEditoriales.length} hueco(s) editorial(es) · ` +
       `${datos.desactualizadasSegunMantenimiento} ficha(s) sin revisar (según Mantenimiento)`
   );
+  console.log(`  ${datos.integridad.length} hallazgo(s) de integridad del catálogo`);
   console.log("Ábrelo con doble clic en tu navegador para revisarlo.");
 }
 

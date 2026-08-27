@@ -10,6 +10,7 @@ import {
   type TareaInvestigacion,
   type TareaInvestigacionFicha,
 } from "./cobertura";
+import { auditarIntegridad, type HallazgoIntegridad } from "./integridad";
 import { detectarIncoherenciasEnCatalogo, type AvisoCoherencia } from "./coherencia";
 import { detectarProblemasDeValidezEnCatalogo, type AvisoValidez } from "./validez";
 import { detectarHerramientasDesactualizadas } from "@/agents/atlas-mantenimiento/frescura";
@@ -38,6 +39,8 @@ export type DatosInformeCurator = {
   colaInvestigacionFichas: TareaInvestigacionFicha[];
   validez: AvisoValidez[];
   coherencia: AvisoCoherencia[];
+  /** Integridad del catálogo entero: huecos que solo se ven mirando el conjunto, no ficha a ficha. */
+  integridad: HallazgoIntegridad[];
   /**
    * Vigencia. NO la calcula Curator: se la pide a Atlas Mantenimiento, que
    * es su dueño (`frescura.ts`, umbral de 180 días). Aquí solo se enseña
@@ -65,6 +68,7 @@ export function construirDatosInforme(
     colaInvestigacionFichas: construirColaInvestigacionDeFichas(herramientas, categorias),
     validez: detectarProblemasDeValidezEnCatalogo(herramientas),
     coherencia: detectarIncoherenciasEnCatalogo(herramientas, categorias),
+    integridad: auditarIntegridad(herramientas, problemas),
     desactualizadasSegunMantenimiento: detectarHerramientasDesactualizadas(herramientas, new Date().toISOString().slice(0, 10)).length,
   };
 }
@@ -272,6 +276,39 @@ function seccionCoherencia(avisos: AvisoCoherencia[]): string {
     </section>`;
 }
 
+const TITULOS_INTEGRIDAD: Record<HallazgoIntegridad["tipo"], string> = {
+  sin_objetivo: "Sin objetivo asignado",
+  objetivo_contradictorio: "Objetivo que contradice sus propios inconvenientes",
+  categorias_secundarias_desiguales: "Categorías secundarias aplicadas de forma desigual",
+  subtipo_sin_declarar: "Subtipo sin declarar",
+  objetivo_sin_competencia: "Objetivo sin alternativas suficientes",
+  subtipo_sin_competencia: "Subtipo sin alternativas suficientes",
+};
+
+function seccionIntegridad(hallazgos: HallazgoIntegridad[]): string {
+  if (hallazgos.length === 0) {
+    return `
+    <section class="bloque">
+      <h2>Integridad del catálogo</h2>
+      <p class="vacio">Nada que revisar — todo el catálogo tiene objetivo, los subtipos están declarados y las suites compiten con el mismo criterio.</p>
+    </section>`;
+  }
+  return `
+    <section class="bloque">
+      <h2>Integridad del catálogo</h2>
+      <p>Huecos que solo se ven mirando el catálogo entero, no ficha a ficha: es como el 2026-08-27 se descubrió que dos tercios de las herramientas no tenían objetivo y eran invisibles en la puerta que viene activa por defecto.</p>
+      <table>
+        <thead><tr><th>Tipo</th><th>Herramienta</th><th>Detalle</th></tr></thead>
+        <tbody>${hallazgos
+          .map(
+            (h) =>
+              `<tr><td>${escaparHtml(TITULOS_INTEGRIDAD[h.tipo])}</td><td>${escaparHtml(h.herramientaId ?? "—")}</td><td>${escaparHtml(h.motivo)}</td></tr>`
+          )
+          .join("")}</tbody>
+      </table>
+    </section>`;
+}
+
 function seccionVigencia(desactualizadas: number): string {
   return `
     <section class="bloque">
@@ -338,6 +375,7 @@ export function generarInformeCuratorHtml(datos: DatosInformeCurator): string {
     seccionColaInvestigacion(datos.colaInvestigacion) +
     seccionColaFichas(datos.colaInvestigacionFichas) +
     seccionCoherencia(datos.coherencia) +
+    seccionIntegridad(datos.integridad) +
     seccionValidez(datos.validez) +
     seccionEquilibrio("Equilibrio de categorías", datos.categorias) +
     seccionEquilibrio("Equilibrio de objetivos (problemas)", datos.problemas) +
