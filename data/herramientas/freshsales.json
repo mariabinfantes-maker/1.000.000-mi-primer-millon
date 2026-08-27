@@ -154,5 +154,6 @@
     "asistente_ia",
     "email_marketing",
     "embudos_de_venta"
-  ]
+  ],
+  "tipoProducto": "suite"
 }

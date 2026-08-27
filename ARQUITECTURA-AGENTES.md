@@ -219,28 +219,51 @@ también, explícitamente, a Atlas Revenue.
 
 ## 7. Atlas Curator
 
-- **Estado:** Parcialmente implementado — Capa 1 completa; por diseño,
-  nunca actúa por su cuenta (detecta y avisa, la acción siempre es humana),
-  así que no hay una "Capa 2" pendiente en el mismo sentido que otros
-  agentes: su alcance actual ya es el alcance previsto para este agente.
+- **Estado:** Implementado (ampliado el 2026-08-27 — ver "Taxonomía de dos
+  ejes y evaluación por rutas separadas" en `ATLAS.md`). Por diseño nunca
+  actúa por su cuenta: detecta, explica y propone; la acción es siempre
+  humana.
 - **Carpeta:** `agents/atlas-curator/`
-- **Responsabilidad:** gobierna la calidad estructural del catálogo a
-  escala — casi-duplicados antes de promoción, equilibrio de taxonomía
-  (categorías huérfanas o sobreconcentradas), completitud editorial
-  relativa entre fichas de la misma categoría.
+- **Responsabilidad:** gobierna la calidad **estructural** del catálogo a
+  escala. Cuatro frentes:
+  - casi-duplicados antes de promoción (`duplicados.ts`);
+  - equilibrio de taxonomía (`equilibrio.ts`) y **cobertura** de categorías
+    —vacías, insuficientes, preparadas, sobrerrepresentadas y ausentes del
+    marco mínimo— con el mínimo de alternativas configurable
+    (`cobertura.ts`);
+  - **validez de los valores**, no solo su presencia, distinguiendo un dato
+    inválido de un dato que falta por investigar (`validez.ts`);
+  - **coherencia de clasificación**: que lo que una ficha declara ser se
+    corresponda con lo que sus propios datos respaldan (`coherencia.ts`).
+    Es el contrapeso de la taxonomía de dos ejes: como declarar más
+    categorías da más visibilidad, alguien tiene que comprobar que la
+    reclamación esté respaldada.
 - **Entradas:** una `HerramientaPropuesta` candidata + el catálogo activo
-  (duplicados); el catálogo completo con categorías/problemas (equilibrio y
-  completitud).
-- **Salidas:** avisos de duplicado (bloqueantes en promoción); avisos de
-  desequilibrio o hueco editorial (informativos, en informe HTML).
+  (duplicados); el catálogo completo con **todas** las categorías, públicas
+  y pendientes, para el resto.
+- **Salidas:** avisos de duplicado (bloqueantes en promoción); informe HTML
+  con cobertura, coherencia, validez, equilibrio y huecos editoriales; y dos
+  **colas de investigación para Researcher** — por categoría (qué falta y
+  cuánto) y por ficha (qué dato falta en cuál, con las comprobaciones
+  concretas que dan la tarea por terminada). Todo lo demás es informativo:
+  Curator nunca escribe en el catálogo.
 - **Activación:** mixta — la detección de duplicados corre automáticamente
-  dentro de `promover.ts` (Researcher); equilibrio y completitud, solo vía
+  dentro de `promover.ts` (Researcher); el resto, solo vía
   `npm run informe-curador` (humano).
 - **Relaciones:**
-  - → **Atlas Researcher**: única comprobación bloqueante que Curator
-    aporta al flujo de promoción.
-  - Ninguna relación con Advisor (evalúa el catálogo tal cual está,
-    Curator decide qué entra, nunca cómo se puntúa).
+  - → **Atlas Researcher**: única comprobación bloqueante que Curator aporta
+    al flujo de promoción, y destinatario de las dos colas de investigación.
+    Curator dice QUÉ falta; Researcher decide qué herramienta concreta
+    investigar y con qué evidencia. Curator nunca nombra candidatas:
+    proponerlas sin investigarlas sería inventarlas.
+  - → **Atlas Mantenimiento**: Curator le PIDE la vigencia
+    (`detectarHerramientasDesactualizadas`) y la muestra en su informe, pero
+    no la recalcula. Dos umbrales de frescura serían dos verdades el día que
+    uno cambie.
+  - Ninguna relación con Advisor: Curator gobierna qué entra y en qué estado
+    está el catálogo, nunca cómo se puntúa.
+  - Ninguna relación con Affiliate Manager: cero referencias a afiliación en
+    todo el agente, comprobado por prueba.
 
 ---
 

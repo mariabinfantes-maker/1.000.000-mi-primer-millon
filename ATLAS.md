@@ -1018,3 +1018,197 @@ los lotes de Researcher) y decidir explícitamente el momento de activar el
 interruptor, ya que a partir de ese momento cada cuestionario completado
 supone una llamada real a la IA. Mientras tanto, Atlas sigue recomendando
 con la Capa 1 determinista, sin coste.
+
+## Taxonomía de dos ejes y evaluación por rutas separadas
+
+**Registrada:** 2026-08-27. **Estado: en la rama `claude/curator-taxonomia-rutas`, NI FUSIONADA NI DESPLEGADA.** Producción sigue en `9ad216e`+`24adc8c` sin ninguno de estos cambios.
+
+Nace de una auditoría de solo lectura que encontró dos fallos de fondo: la
+taxonomía mezclaba dos preguntas en un solo campo, y las plataformas todo en
+uno competían contra las herramientas especializadas bajo la misma vara.
+
+### Los dos ejes
+
+`categoriaId` respondía a la vez a "¿qué hace?" y "¿es una suite?". Eso
+obligaba a mentir en una de las dos: monday.com estaba archivada como
+"plataformas todo en uno" y por tanto desaparecía de Gestión de proyectos,
+que es donde la busca quien la busca.
+
+Desde ahora son ejes independientes, en `data/taxonomia.ts`:
+
+- **`categoriaId` + `categoriasSecundarias`** — qué hace la herramienta.
+- **`tipoProducto`** (`"suite"` | `"especializada"`) — qué tipo de producto es.
+
+Ambos campos son opcionales en el esquema por compatibilidad con las fichas
+anteriores: cuando falta `tipoProducto`, `esSuite()` lo deduce de la categoría
+histórica y Curator avisa de que se está deduciendo.
+
+### Las 15 categorías: 4 públicas, 11 internas
+
+`MARCO_CATEGORIAS_MINIMO` declara las 15 categorías que Molnip debe cubrir
+para ser un comparador honesto de software para pymes. Es la lista de lo que
+DEBERÍA haber, no de lo que hay — y por eso Curator puede detectar una
+categoría ausente, algo imposible mirando solo el catálogo.
+
+- **Públicas (4):** Plataformas todo en uno · CRM y ventas · Gestión de
+  proyectos · IA y productividad.
+- **Internas (11):** Facturación y contabilidad · Reservas y citas · Atención
+  al cliente · Comercio electrónico · Automatización e integraciones ·
+  Marketing y email · Recursos humanos · Inventario y operaciones · Creación
+  web y hosting · Firma electrónica y gestión documental · Software sectorial.
+
+Una categoría nueva nace con `estado: "pendiente"`: existe para que Curator la
+mida y Researcher sepa qué investigar, pero **no tiene página, ni sitemap, ni
+puerta de cuestionario**, y `/categoria/<id>` devuelve 404. Solo pasa a
+pública cuando alcanza el mínimo de 3 alternativas verificadas — y ese paso lo
+PROPONE Curator y lo DECIDE una persona; nunca ocurre solo. Publicar una
+categoría con una herramienta no es un comparador, es un anuncio.
+
+### Migración: 56 fichas, sin pérdidas
+
+`npm run migrar-taxonomia` (`scripts/migrar-taxonomia.ts`), idempotente y con
+recuento antes/después impreso:
+
+```
+ANTES    56 fichas · 0 con tipoProducto · 16 en plataformas-todo-en-uno
+DESPUÉS  56 fichas · 56 con tipoProducto · 15 suites · 41 especializadas
+         identificadores perdidos: ninguno
+```
+
+### Reclasificaciones, justificadas con los datos de cada ficha
+
+- **Pipedrive → CRM especializado.** Su propia descripción la define como
+  "plataforma CRM enfocada en la gestión visual del embudo de ventas", sus 5
+  funciones principales son todas comerciales y declara un único objetivo. No
+  era una plataforma todo en uno.
+- **monday.com → Gestión de proyectos, `tipoProducto: "suite"`**, con
+  "plataformas todo en uno" y "crm" como secundarias. Se describe como Work OS
+  para procesos y proyectos; sus funciones centrales son tableros,
+  Kanban/Gantt y automatizaciones. Su amplitud real (6 módulos) sí la hace
+  suite, pero su función principal es la gestión de proyectos.
+
+### Criterios distintos y normalizados por ruta
+
+`criterioTipoSuite` se retiró: restaba hasta 8 puntos a cualquier herramienta
+especializada cuando el perfil apuntaba a suite — la castigaba por lo que ES,
+no por lo bien que resolvía el problema.
+
+En su lugar, `agents/atlas-advisor/criteriosRuta.ts` define dos conjuntos:
+
+- **Suite** — cobertura útil (solo los módulos que el usuario pidió), calidad
+  conjunta, integración nativa, facilidad de administración, coste frente a
+  contratar varias, escalabilidad, riesgo de dependencia (siempre resta) y
+  relevancia al competir fuera de su categoría principal.
+- **Especializada** — profundidad frente a sus iguales, calidad en la tarea,
+  adaptación al sector, funciones avanzadas, integraciones con terceros,
+  facilidad de uso, precio frente al valor y superioridad frente al módulo
+  equivalente de una suite.
+
+Los criterios comunes se suman en crudo (son idénticos para las dos rutas y
+por tanto comparables). Los de ruta se normalizan con `normalizarRuta()`:
+**−1..+1 centrado en cero**, dividiendo por el máximo de la ruta cuando suman
+y por su mínimo cuando restan. Centrar en cero es lo que garantiza que una
+herramienta neutra valga exactamente lo mismo siendo suite que siendo
+especializada.
+
+Cuando el usuario elige ruta, solo compiten candidatas de ese tipo. Cuando no
+elige, compiten las dos y el motor devuelve `comparativaDeRutas` explicando el
+beneficio Y el sacrificio de cada enfoque, en vez de penalizar uno.
+
+### Tres sesgos encontrados al auditar monday.com
+
+Descomponer su puntuación en las tres categorías donde aparece destapó tres
+ventajas que no venían del mérito. Las tres correcciones son generales; no hay
+ninguna excepción escrita para monday.com:
+
+1. **`coberturaUtil` regalaba sus 14 puntos por "cubrir 1 de 1".** Al navegar
+   por una categoría concreta solo hay una necesidad, así que cualquier suite
+   que declarase ese módulo se llevaba el máximo del criterio por la mínima
+   amplitud posible, justo cuando centralizar no aporta nada. Ahora exige
+   consolidar al menos 2 necesidades, el mismo umbral que ya pedían
+   `costeTotalFrenteAVarias` y `riesgoDependencia`.
+2. **La normalización 0..1 repartía el rango entero.** Como las dos rutas
+   tienen rangos asimétricos distintos (suite −50/+62, especializada −36/+80),
+   una herramienta neutra valía 0,446 siendo suite y 0,310 siendo
+   especializada: unos 5 puntos regalados por la forma del rango. Se detectó
+   comparando monday.com y Asana, que tienen puntuaciones idénticas y aun así
+   terminaban separadas por 3,4 puntos.
+3. **`11 - nivelTecnicoRequerido`** convertía un 5 neutro en 6, medio punto de
+   regalo a toda suite. Ahora es `10 - x`.
+
+Resultado: monday.com pasa de ganar por 7,67 a ganar por 0,56 frente a Asana
+en gestión de proyectos, y por 0,77 frente a Less Annoying CRM en CRM. **Sigue
+ganando las tres, y debe seguir haciéndolo**: lo que queda son sus
+puntuaciones reales de calidad, fiabilidad, facilidad y escalabilidad, y en
+CRM además paga −2 por declarar menos funciones que los especialistas
+nativos. Molnip no empeora una recomendación para repartir visibilidad.
+
+### Ampliación de Curator
+
+Se amplió el agente existente; no se creó otro. Sigue sin poder cambiar el
+catálogo: lo único que escribe es su informe, y la detección de duplicados
+sigue bloqueando la promoción.
+
+- **`cobertura.ts`** — categorías vacías, insuficientes, preparadas (mínimo
+  configurable de 3 alternativas), sobrerrepresentadas y ausentes del marco.
+  Además dos colas de investigación para Researcher: por categoría (qué falta
+  y cuánto) y por ficha (qué dato falta en cuál, con las comprobaciones
+  concretas que dan la tarea por terminada).
+- **`validez.ts`** — comprueba que los valores SIRVAN, no solo que existan.
+  Distingue "inválido" (hay dato y no vale) de "pendiente" (falta y es
+  opcional): la diferencia entre no saber algo y fingir saberlo.
+- **`coherencia.ts`** — el contrapeso de la taxonomía nueva: como más
+  categorías significan más visibilidad, comprueba que lo declarado se
+  corresponda con lo que la propia ficha demuestra.
+
+La vigencia NO se duplica: Curator se la pide a Atlas Mantenimiento, que es su
+dueño (`frescura.ts`, umbral de 180 días). Dos umbrales serían dos verdades el
+día que uno cambie.
+
+### Deuda registrada y medible
+
+`npm run informe-curador` al cierre del sprint:
+
+```
+categorías: 4 preparada(s) · 0 insuficiente(s) · 11 vacía(s) · 0 sobrerrepresentada(s) · 0 ausente(s)
+1 incoherencia(s) de clasificación · 0 valor(es) inválido(s) · 66 dato(s) pendiente(s) de investigar
+cola de Researcher: 11 categoría(s) · 67 tarea(s) de ficha (57 de prioridad alta)
+```
+
+- **Disponibilidad geográfica: las 56 fichas.** El campo
+  `disponibilidadGeografica` se añadió al esquema y ninguna ficha lo tiene
+  investigado. Es opcional a propósito: bloquear ahora todas las fichas
+  públicas por un campo que antes no existía sería peor que la deuda. Cada
+  ficha genera una tarea de **prioridad alta** con cinco comprobaciones fijas:
+  disponibilidad en España, idioma español, facturación desde España o la UE,
+  tratamiento de datos y documentación de RGPD, y limitaciones geográficas
+  conocidas. No se rellena por inferencia.
+- **Pipedrive: contradicción registrada, clasificación intacta.** Declara 5
+  módulos y sus 5 funciones principales son exclusivamente comerciales. Queda
+  como tarea de prioridad alta en la cola de Researcher. **Sigue clasificado
+  como CRM especializado hasta obtener evidencia nueva**; no se han tocado sus
+  módulos.
+- **33 herramientas para las 11 categorías internas.** Tres por categoría, el
+  mínimo para que comparar signifique algo. Es el trabajo real que queda para
+  que Molnip cubra el mercado que dice cubrir.
+
+### Decisiones de producto pendientes
+
+- **monday.com en tres categorías.** Demostrado que gana por encaje real tras
+  las tres correcciones, así que no se ha impuesto ningún límite de categorías
+  secundarias — hacerlo habría empeorado la recomendación para repartir
+  visibilidad. Queda como algo a vigilar si algún día se firma su afiliación,
+  porque concentra visibilidad en un solo producto aunque el motor no sepa
+  nada de afiliación.
+- **Cuándo publicar cada categoría interna**, según vayan alcanzando el
+  mínimo. Curator lo propone; la decisión es humana.
+- **Si el mínimo de 3 alternativas debe subir** cuando crezca el catálogo. El
+  umbral es configurable justo por eso.
+
+### Verificación
+
+663 pruebas en 81 ficheros antes del sprint; el sprint añade las suyas.
+TypeScript, ESLint y build de producción limpios. Sin cambios en: portada,
+resto de la web pública, Affiliate Manager, las 51 estrategias de afiliación,
+Neon, Upstash, seguridad administrativa, historial, ni el piloto de las cinco
+afiliaciones. Growth, Assistant, Orchestrator y Revenue siguen sin construir.
