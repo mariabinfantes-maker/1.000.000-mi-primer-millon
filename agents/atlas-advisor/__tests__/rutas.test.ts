@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { evaluarHerramienta, recomendarHerramientas } from "../motor";
+import { evaluarHerramienta, normalizarRuta, recomendarHerramientas } from "../motor";
 import { CRITERIOS_ESPECIALIZADA, CRITERIOS_SUITE, modulosQueNecesita, rangoDeRuta } from "../criteriosRuta";
 import { construirHerramienta } from "./fixtures";
 import type { RespuestasUsuario } from "../tipos";
@@ -130,7 +130,7 @@ describe("equidad entre las dos rutas", () => {
     ]);
 
     for (const evaluada of [suite, especializada]) {
-      expect(evaluada.puntuacionRutaNormalizada).toBeGreaterThanOrEqual(0);
+      expect(evaluada.puntuacionRutaNormalizada).toBeGreaterThanOrEqual(-1);
       expect(evaluada.puntuacionRutaNormalizada).toBeLessThanOrEqual(1);
     }
   });
@@ -275,7 +275,7 @@ describe("rangos declarados de cada criterio de ruta", () => {
     for (const herramienta of catalogo) {
       for (const respuestas of perfiles) {
         const evaluada = evaluarHerramienta(herramienta, respuestas, catalogo);
-        expect(evaluada.puntuacionRutaNormalizada).toBeGreaterThanOrEqual(0);
+        expect(evaluada.puntuacionRutaNormalizada).toBeGreaterThanOrEqual(-1);
         expect(evaluada.puntuacionRutaNormalizada).toBeLessThanOrEqual(1);
       }
     }
@@ -284,5 +284,155 @@ describe("rangos declarados de cada criterio de ruta", () => {
   it("el rango total de una ruta nunca es cero: si no, no habría nada que normalizar", () => {
     expect(rangoDeRuta(CRITERIOS_SUITE).max).toBeGreaterThan(rangoDeRuta(CRITERIOS_SUITE).min);
     expect(rangoDeRuta(CRITERIOS_ESPECIALIZADA).max).toBeGreaterThan(rangoDeRuta(CRITERIOS_ESPECIALIZADA).min);
+  });
+});
+
+describe("una categoría secundaria no da ventaja automática", () => {
+  /**
+   * El caso que motivó estas pruebas: monday.com aparecía la primera en
+   * las tres categorías que declara, y había que demostrar si ganaba por
+   * mérito o por figurar en la lista.
+   *
+   * La respuesta fue las dos cosas, y se corrigieron los dos agujeros que
+   * la producían — sin escribir ninguna excepción para monday.com:
+   *  - `coberturaUtil` regalaba sus 14 puntos por "cubrir 1 de 1" al
+   *    navegar por una categoría concreta, que es justo cuando centralizar
+   *    no aporta nada;
+   *  - la normalización repartía el rango entero entre 0 y 1, y como las
+   *    dos rutas tienen rangos distintos, una herramienta NEUTRA valía más
+   *    siendo suite que siendo especializada.
+   */
+  const suiteAmplia = construirHerramienta({
+    id: "suite-amplia",
+    nombre: "Suite Amplia",
+    categoriaId: "gestion-proyectos",
+    tipoProducto: "suite",
+    categoriasSecundarias: ["crm"],
+    modulosIncluidos: ["crm", "gestion_proyectos", "asistente_ia", "atencion_cliente"],
+    funcionesPrincipales: ["Tableros", "Automatizaciones", "Formularios"],
+  });
+
+  const crmNativo = construirHerramienta({
+    id: "crm-nativo",
+    nombre: "CRM Nativo",
+    categoriaId: "crm",
+    tipoProducto: "especializada",
+    funcionesPrincipales: ["Embudo", "Contactos", "Informes", "Previsión", "Automatización comercial"],
+  });
+  const otroCrmNativo = construirHerramienta({
+    ...crmNativo,
+    id: "crm-nativo-2",
+    nombre: "CRM Nativo 2",
+  });
+
+  const catalogo = [suiteAmplia, crmNativo, otroCrmNativo];
+
+  it("declarar una categoría secundaria no otorga puntos de cobertura por sí solo", () => {
+    // Al navegar por "crm" solo hay UNA necesidad, así que no hay nada que
+    // consolidar y la amplitud no puntúa.
+    const evaluada = evaluarHerramienta(suiteAmplia, { categoriaId: "crm" }, catalogo);
+    const cobertura = evaluada.detalles.find((d) => d.criterio === "coberturaUtil")!;
+    expect(cobertura.puntos).toBe(0);
+  });
+
+  it("una suite más superficial que los nativos de esa categoría pierde puntos al entrar en ella", () => {
+    const enCategoriaAjena = evaluarHerramienta(suiteAmplia, { categoriaId: "crm" }, catalogo);
+    const relevancia = enCategoriaAjena.detalles.find((d) => d.criterio === "relevanciaEnCategoriaAjena")!;
+    expect(relevancia.puntos).toBeLessThan(0);
+  });
+
+  it("en su categoría PRINCIPAL no se le exige ese peaje: está en su sitio", () => {
+    const enSuCategoria = evaluarHerramienta(suiteAmplia, { categoriaId: "gestion-proyectos" }, catalogo);
+    const relevancia = enSuCategoria.detalles.find((d) => d.criterio === "relevanciaEnCategoriaAjena")!;
+    expect(relevancia.puntos).toBe(0);
+  });
+
+  it("una suite CON tanta profundidad como los nativos puede ganar en una categoría secundaria", () => {
+    // Molnip no debe empeorar una recomendación para repartir visibilidad:
+    // si los datos la respaldan, la suite gana.
+    const suiteProfunda = construirHerramienta({
+      ...suiteAmplia,
+      id: "suite-profunda",
+      nombre: "Suite Profunda",
+      funcionesPrincipales: ["Embudo", "Contactos", "Informes", "Previsión", "Automatización", "Segmentación"],
+      puntuaciones: { ...suiteAmplia.puntuaciones, calidad: 10, fiabilidad: 10, escalabilidad: 10 },
+    });
+    const conProfunda = [suiteProfunda, crmNativo, otroCrmNativo];
+    const { todas } = recomendarHerramientas({ categoriaId: "crm" }, conProfunda);
+
+    expect(todas[0].herramienta.id).toBe("suite-profunda");
+    expect(
+      evaluarHerramienta(suiteProfunda, { categoriaId: "crm" }, conProfunda).detalles.find(
+        (d) => d.criterio === "relevanciaEnCategoriaAjena"
+      )!.puntos
+    ).toBe(0);
+  });
+
+  it("cubrir una sola necesidad nunca puntúa como consolidación, sea cual sea la suite", () => {
+    for (const categoriaId of ["crm", "gestion-proyectos"]) {
+      const cobertura = evaluarHerramienta(suiteAmplia, { categoriaId }, catalogo).detalles.find(
+        (d) => d.criterio === "coberturaUtil"
+      )!;
+      expect(cobertura.puntos, `categoría ${categoriaId}`).toBe(0);
+    }
+  });
+
+  it("con VARIAS necesidades reales sí puntúa: ahí centralizar significa algo", () => {
+    const cobertura = evaluarHerramienta(
+      suiteAmplia,
+      { problemaIdsCandidatos: ["organizar-empresa"] },
+      catalogo
+    ).detalles.find((d) => d.criterio === "coberturaUtil")!;
+    // "organizar-empresa" necesita gestion_proyectos + crm, y las cubre las dos.
+    expect(cobertura.puntos).toBeGreaterThan(0);
+  });
+});
+
+describe("normalización centrada en cero", () => {
+  it("una herramienta neutra vale exactamente lo mismo en las dos rutas", () => {
+    // Sin esto, el rango asimétrico de cada ruta regalaba ventaja a la
+    // suite: 0,446 frente a 0,310 para dos herramientas igual de neutras.
+    const neutra = {
+      facilidadDeUso: 5,
+      calidad: 5,
+      fiabilidad: 5,
+      atencionAlCliente: 5,
+      escalabilidad: 5,
+      nivelTecnicoRequerido: 5,
+      facilidadImplementacion: 5,
+    } as const;
+
+    const suiteNeutra = construirHerramienta({
+      id: "s-neutra",
+      nombre: "S",
+      categoriaId: "plataformas-todo-en-uno",
+      tipoProducto: "suite",
+      modulosIncluidos: ["crm", "email_marketing", "facturacion"],
+      puntuaciones: { ...neutra },
+    });
+    const especializadaNeutra = construirHerramienta({
+      id: "e-neutra",
+      nombre: "E",
+      categoriaId: "crm",
+      tipoProducto: "especializada",
+      puntuaciones: { ...neutra },
+    });
+
+    const catalogo = [suiteNeutra, especializadaNeutra];
+    const s = evaluarHerramienta(suiteNeutra, {}, catalogo);
+    const e = evaluarHerramienta(especializadaNeutra, {}, catalogo);
+
+    expect(s.puntuacionRutaNormalizada).toBe(0);
+    expect(e.puntuacionRutaNormalizada).toBe(0);
+    expect(s.puntuacionTotal).toBe(e.puntuacionTotal);
+  });
+
+  it("normalizarRuta mantiene el cero y respeta los topes de cada lado", () => {
+    const rango = { min: -50, max: 62 };
+    expect(normalizarRuta(0, rango)).toBe(0);
+    expect(normalizarRuta(62, rango)).toBe(1);
+    expect(normalizarRuta(-50, rango)).toBe(-1);
+    expect(normalizarRuta(31, rango)).toBeCloseTo(0.5);
+    expect(normalizarRuta(-25, rango)).toBeCloseTo(-0.5);
   });
 });

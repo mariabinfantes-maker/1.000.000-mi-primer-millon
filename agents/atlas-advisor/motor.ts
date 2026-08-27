@@ -15,13 +15,38 @@ const CANTIDAD_POR_DEFECTO = 3;
 
 /**
  * Cuánto puede aportar como máximo la parte específica de ruta, una vez
- * normalizada a 0..1. Es el mismo techo para las dos rutas a propósito:
+ * normalizada. Es el mismo techo para las dos rutas a propósito:
  * ahí está la equidad. Da igual que la ruta suite tenga 7 criterios y la
  * especializada 8, o que sus rangos internos sean distintos — ninguna
  * puede aportar más que la otra por su forma, solo por lo bien que
  * responde a su propia pregunta.
  */
 export const ESCALA_RUTA = 40;
+
+/**
+ * Lleva los puntos de una ruta a −1..+1 CENTRADO EN CERO: se divide por el
+ * máximo de la ruta cuando suman y por su mínimo cuando restan.
+ *
+ * La forma obvia — repartir el rango entero entre 0 y 1 — parecía justa y
+ * no lo era. Las dos rutas tienen rangos asimétricos distintos (la suite
+ * llega a −50/+62, la especializada a −36/+80), así que una herramienta
+ * NEUTRA, que no suma ni resta en ningún criterio, caía en 0,446 siendo
+ * suite y en 0,310 siendo especializada: 5 puntos de ventaja regalados por
+ * la forma del rango, no por el mérito. Se detectó comparando monday.com y
+ * Asana, que tienen exactamente las mismas puntuaciones y aun así
+ * terminaban separadas por 3,4 puntos.
+ *
+ * Centrando en cero, una herramienta neutra vale 0 en las dos rutas, el
+ * techo de cada una vale +1 y el suelo −1. Cada ruta mide desviación
+ * respecto de lo neutro dentro de su propia escala, y ninguna arranca por
+ * delante.
+ */
+export function normalizarRuta(puntos: number, rango: { min: number; max: number }): number {
+  if (puntos === 0) return 0;
+  if (puntos > 0) return rango.max === 0 ? 0 : Math.min(puntos / rango.max, 1);
+  return rango.min === 0 ? 0 : -Math.min(puntos / rango.min, 1);
+}
+
 /** Nº máximo de motivos puntuados que entran en el párrafo de explicación (el resto sigue disponible en `razones`). */
 const MOTIVOS_EN_EXPLICACION = 2;
 
@@ -74,8 +99,9 @@ function generarExplicacion(herramienta: Herramienta, razones: string[]): string
  * La puntuación final tiene dos partes que nunca se mezclan en crudo:
  *  - los criterios comunes, idénticos para cualquier herramienta y por
  *    tanto directamente comparables;
- *  - los criterios de ruta, normalizados a 0..1 dentro del rango teórico
- *    de SU ruta y luego llevados a la misma escala (`ESCALA_RUTA`).
+ *  - los criterios de ruta, normalizados a −1..+1 y centrados en cero
+ *    dentro del rango teórico de SU ruta (ver `normalizarRuta`) y luego
+ *    llevados a la misma escala (`ESCALA_RUTA`).
  *
  * `catalogo` es el conjunto de candidatas contra el que se compara: los
  * criterios comparativos (profundidad frente a sus iguales, superioridad
@@ -94,9 +120,7 @@ export function evaluarHerramienta(
   const detallesRuta = criteriosRuta.map((criterio) => criterio.evaluar(herramienta, contexto));
   const puntosRuta = detallesRuta.reduce((total, detalle) => total + detalle.puntos, 0);
 
-  const rango = rangoDeRuta(criteriosRuta);
-  const amplitud = rango.max - rango.min;
-  const puntuacionRutaNormalizada = amplitud === 0 ? 0 : (puntosRuta - rango.min) / amplitud;
+  const puntuacionRutaNormalizada = normalizarRuta(puntosRuta, rangoDeRuta(criteriosRuta));
 
   const detalles = [...detallesComunes, ...detallesRuta];
   const puntuacionTotal = puntuacionComun + puntuacionRutaNormalizada * ESCALA_RUTA;

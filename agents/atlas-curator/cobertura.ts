@@ -1,5 +1,7 @@
 import type { Categoria, Herramienta } from "@/data/esquema";
 import { MARCO_CATEGORIAS_MINIMO, cubreCategoria, esCategoriaPublica } from "@/data/taxonomia";
+import { detectarIncoherenciasEnCatalogo } from "./coherencia";
+import { detectarProblemasDeValidezEnCatalogo } from "./validez";
 
 /**
  * Cobertura del catálogo — Capa 2 de Atlas Curator: determinista, sin IA,
@@ -185,6 +187,26 @@ export type TareaInvestigacion = {
 };
 
 /**
+ * Tarea de investigación sobre una FICHA concreta, no sobre una categoría.
+ * Sale de lo que ya detectan `validez.ts` (datos que faltan) y
+ * `coherencia.ts` (contradicciones internas), y las convierte en trabajo
+ * priorizado y contable en vez de en un listado que se lee y se olvida.
+ *
+ * Curator no investiga ni rellena nada: solo dice qué hay que averiguar,
+ * de qué ficha, y qué preguntas concretas hay que responder.
+ */
+export type TareaInvestigacionFicha = {
+  herramientaId: string;
+  campo: string;
+  prioridad: PrioridadInvestigacion;
+  motivo: string;
+  /** Qué hay que comprobar exactamente. Sin esto, "investigar la disponibilidad" es una tarea que nadie sabe cuándo está terminada. */
+  comprobaciones: string[];
+};
+
+export type PrioridadInvestigacion = "alta" | "media";
+
+/**
  * Cola de investigación para Atlas Researcher: qué categorías necesitan
  * herramientas y cuántas, ordenadas por lo cerca que están de poder
  * publicarse — terminar una categoría que ya tiene dos herramientas aporta
@@ -220,5 +242,77 @@ export function construirColaInvestigacion(
 
   return [...desdeDeclaradas, ...desdeAusentes].sort(
     (a, b) => a.herramientasQueFaltan - b.herramientasQueFaltan || a.nombre.localeCompare(b.nombre, "es")
+  );
+}
+
+
+/**
+ * Qué hay que comprobar, como mínimo, para dar por investigada la
+ * disponibilidad geográfica de una herramienta. Se declara aquí y no en el
+ * texto de un aviso para que la tarea tenga un criterio de terminación
+ * comprobable: sin esta lista, "investigar dónde está disponible" es una
+ * tarea que nadie sabe cuándo está hecha.
+ */
+export const COMPROBACIONES_DISPONIBILIDAD_GEOGRAFICA = [
+  "¿Se puede contratar y usar desde España?",
+  "¿Tiene interfaz y soporte en español?",
+  "¿Factura desde España o desde la UE, y admite medios de pago españoles?",
+  "¿Dónde trata los datos y qué documentación de RGPD publica (DPA, cláusulas tipo)?",
+  "¿Tiene limitaciones geográficas conocidas (funciones, precios o pagos por país)?",
+];
+
+/**
+ * Cola de investigación a nivel de FICHA: datos que faltan y
+ * contradicciones internas, priorizados.
+ *
+ * "alta" para lo que afecta a una decisión de compra o tiene consecuencias
+ * legales (disponibilidad geográfica, contradicciones de clasificación);
+ * "media" para lo que mejora la ficha sin bloquear nada.
+ *
+ * Igual que la cola de categorías, no nombra ninguna herramienta candidata
+ * ni propone ningún valor: solo señala qué hay que averiguar.
+ */
+export function construirColaInvestigacionDeFichas(
+  herramientas: Herramienta[],
+  categorias: Categoria[]
+): TareaInvestigacionFicha[] {
+  const tareas: TareaInvestigacionFicha[] = [];
+
+  for (const aviso of detectarProblemasDeValidezEnCatalogo(herramientas)) {
+    const esGeografia = aviso.campo === "disponibilidadGeografica";
+    // Un valor inválido es un error de datos y va antes que un dato que
+    // simplemente falta — salvo la disponibilidad geográfica, que aunque
+    // "solo falte" condiciona si la herramienta le sirve a quien la lee.
+    const prioridad: PrioridadInvestigacion =
+      aviso.gravedad === "invalido" || esGeografia ? "alta" : "media";
+
+    tareas.push({
+      herramientaId: aviso.herramientaId,
+      campo: aviso.campo,
+      prioridad,
+      motivo: aviso.mensaje,
+      comprobaciones: esGeografia ? COMPROBACIONES_DISPONIBILIDAD_GEOGRAFICA : [],
+    });
+  }
+
+  for (const aviso of detectarIncoherenciasEnCatalogo(herramientas, categorias)) {
+    tareas.push({
+      herramientaId: aviso.herramientaId,
+      campo: "clasificacion",
+      prioridad: "alta",
+      motivo: aviso.motivo,
+      comprobaciones: [
+        "¿Qué funciones respaldan cada módulo declarado en `modulosIncluidos`?",
+        "¿Debe corregirse la lista de módulos, el `tipoProducto`, o ninguno de los dos?",
+      ],
+    });
+  }
+
+  const orden: Record<PrioridadInvestigacion, number> = { alta: 0, media: 1 };
+  return tareas.sort(
+    (a, b) =>
+      orden[a.prioridad] - orden[b.prioridad] ||
+      a.herramientaId.localeCompare(b.herramientaId, "es") ||
+      a.campo.localeCompare(b.campo, "es")
   );
 }

@@ -2,7 +2,14 @@ import type { Categoria, Herramienta, Problema } from "@/data/esquema";
 import { escaparHtml } from "@/agents/compartido/html";
 import { detectarHuecosEditoriales, type AvisoCompletitud } from "./completitud";
 import { detectarEquilibrioCategorias, detectarEquilibrioProblemas, type AvisoEquilibrio } from "./equilibrio";
-import { construirColaInvestigacion, evaluarCobertura, type InformeCobertura, type TareaInvestigacion } from "./cobertura";
+import {
+  construirColaInvestigacion,
+  construirColaInvestigacionDeFichas,
+  evaluarCobertura,
+  type InformeCobertura,
+  type TareaInvestigacion,
+  type TareaInvestigacionFicha,
+} from "./cobertura";
 import { detectarIncoherenciasEnCatalogo, type AvisoCoherencia } from "./coherencia";
 import { detectarProblemasDeValidezEnCatalogo, type AvisoValidez } from "./validez";
 import { detectarHerramientasDesactualizadas } from "@/agents/atlas-mantenimiento/frescura";
@@ -27,6 +34,8 @@ export type DatosInformeCurator = {
   huecosEditoriales: AvisoCompletitud[];
   cobertura: InformeCobertura;
   colaInvestigacion: TareaInvestigacion[];
+  /** Tareas a nivel de FICHA: datos que faltan y contradicciones internas, priorizados. */
+  colaInvestigacionFichas: TareaInvestigacionFicha[];
   validez: AvisoValidez[];
   coherencia: AvisoCoherencia[];
   /**
@@ -53,6 +62,7 @@ export function construirDatosInforme(
     huecosEditoriales: detectarHuecosEditoriales(herramientas),
     cobertura,
     colaInvestigacion: construirColaInvestigacion(cobertura),
+    colaInvestigacionFichas: construirColaInvestigacionDeFichas(herramientas, categorias),
     validez: detectarProblemasDeValidezEnCatalogo(herramientas),
     coherencia: detectarIncoherenciasEnCatalogo(herramientas, categorias),
     desactualizadasSegunMantenimiento: detectarHerramientasDesactualizadas(herramientas, new Date().toISOString().slice(0, 10)).length,
@@ -275,6 +285,50 @@ function seccionVigencia(desactualizadas: number): string {
     </section>`;
 }
 
+
+function seccionColaFichas(tareas: TareaInvestigacionFicha[]): string {
+  if (tareas.length === 0) {
+    return `
+    <section class="bloque">
+      <h2>Investigación pendiente por ficha</h2>
+      <p class="vacio">Nada pendiente — ninguna ficha tiene datos que falten ni contradicciones internas.</p>
+    </section>`;
+  }
+
+  const porPrioridad = (prioridad: TareaInvestigacionFicha["prioridad"]) =>
+    tareas.filter((t) => t.prioridad === prioridad);
+
+  const tabla = (titulo: string, lista: TareaInvestigacionFicha[], explicacion: string) =>
+    lista.length === 0
+      ? ""
+      : `<h3>${escaparHtml(titulo)} (${lista.length})</h3>
+      <p>${escaparHtml(explicacion)}</p>
+      <table>
+        <thead><tr><th>Herramienta</th><th>Qué falta</th><th>Detalle</th></tr></thead>
+        <tbody>${lista
+          .map(
+            (t) => `<tr>
+              <td>${escaparHtml(t.herramientaId)}</td>
+              <td>${escaparHtml(t.campo)}</td>
+              <td>${escaparHtml(t.motivo)}${
+                t.comprobaciones.length === 0
+                  ? ""
+                  : `<ul>${t.comprobaciones.map((c) => `<li>${escaparHtml(c)}</li>`).join("")}</ul>`
+              }</td>
+            </tr>`
+          )
+          .join("")}</tbody>
+      </table>`;
+
+  return `
+    <section class="bloque">
+      <h2>Investigación pendiente por ficha</h2>
+      <p>Trabajo contable para Researcher. Curator no investiga ni rellena nada: dice qué hay que averiguar y qué preguntas concretas hay que responder para darlo por hecho.</p>
+      ${tabla("Prioridad alta", porPrioridad("alta"), "Afecta a una decisión de compra o tiene consecuencias legales.")}
+      ${tabla("Prioridad media", porPrioridad("media"), "Mejora la ficha, pero no bloquea nada.")}
+    </section>`;
+}
+
 /** Genera el informe HTML autocontenido (sin dependencias externas) del gobierno de calidad del catálogo. */
 export function generarInformeCuratorHtml(datos: DatosInformeCurator): string {
   const fecha = new Date().toISOString().slice(0, 10);
@@ -282,6 +336,7 @@ export function generarInformeCuratorHtml(datos: DatosInformeCurator): string {
   const cuerpo =
     seccionCobertura(datos.cobertura) +
     seccionColaInvestigacion(datos.colaInvestigacion) +
+    seccionColaFichas(datos.colaInvestigacionFichas) +
     seccionCoherencia(datos.coherencia) +
     seccionValidez(datos.validez) +
     seccionEquilibrio("Equilibrio de categorías", datos.categorias) +

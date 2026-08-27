@@ -64,7 +64,7 @@ describe("valores inválidos: hay dato y no sirve", () => {
 
   it("una puntuación fuera de la escala 1-10 es un error, no un dato que falta", () => {
     const avisos = detectarProblemasDeValidez(
-      fichaSana({ puntuaciones: { ...fichaSana().puntuaciones, facilidadImplementacion: 42 } })
+      fichaSana({ puntuaciones: { ...fichaSana().puntuaciones, facilidadImplementacion: 42 as never } })
     );
     expect(avisos).toContainEqual(
       expect.objectContaining({ campo: "puntuaciones.facilidadImplementacion", gravedad: "invalido" })
@@ -93,7 +93,7 @@ describe("pendiente de investigar: no hay dato y no se inventa", () => {
 
 describe("recorrido del catálogo", () => {
   it("no revisa las fichas retiradas: nadie las ve", () => {
-    const retirada = fichaSana({ id: "retirada", estado: "retirado", precioInicial: "Consultar" });
+    const retirada = fichaSana({ id: "retirada", estado: "descontinuado", precioInicial: "Consultar" });
     expect(detectarProblemasDeValidezEnCatalogo([retirada])).toEqual([]);
   });
 });

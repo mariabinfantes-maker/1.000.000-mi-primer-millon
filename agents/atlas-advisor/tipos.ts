@@ -106,7 +106,7 @@ export type HerramientaEvaluada = {
   tipoProducto: TipoProducto;
   /** Puntos de los criterios COMUNES a las dos rutas. Directamente comparable entre cualquier par de herramientas. */
   puntuacionComun: number;
-  /** Resultado de los criterios propios de su ruta, llevado a 0..1 dentro del rango teórico de ESA ruta. Es lo que permite comparar una suite con una especializada sin sumar peras y manzanas. */
+  /** Resultado de los criterios propios de su ruta, llevado a −1..+1 y CENTRADO EN CERO dentro del rango teórico de ESA ruta (ver `normalizarRuta` en `motor.ts`). Es lo que permite comparar una suite con una especializada sin sumar peras y manzanas, y sin que ninguna de las dos arranque por delante. */
   puntuacionRutaNormalizada: number;
 };
 

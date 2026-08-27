@@ -41,8 +41,13 @@ function main() {
       `${datos.validez.filter((a) => a.gravedad === "invalido").length} valor(es) inválido(s) · ` +
       `${datos.validez.filter((a) => a.gravedad === "pendiente").length} dato(s) pendiente(s) de investigar`
   );
+  const alta = datos.colaInvestigacionFichas.filter((t) => t.prioridad === "alta").length;
   console.log(
-    `  ${datos.colaInvestigacion.length} tarea(s) en la cola de Researcher · ` +
+    `  cola de Researcher: ${datos.colaInvestigacion.length} categoría(s) · ` +
+      `${datos.colaInvestigacionFichas.length} tarea(s) de ficha (${alta} de prioridad alta)`
+  );
+  console.log(
+    `  ` +
       `${datos.huecosEditoriales.length} hueco(s) editorial(es) · ` +
       `${datos.desactualizadasSegunMantenimiento} ficha(s) sin revisar (según Mantenimiento)`
   );

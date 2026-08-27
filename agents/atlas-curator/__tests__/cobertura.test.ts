@@ -1,7 +1,13 @@
 import { describe, expect, it } from "vitest";
 import type { Categoria, Herramienta } from "@/data/esquema";
 import { construirHerramienta } from "@/agents/atlas-advisor/__tests__/fixtures";
-import { MINIMO_ALTERNATIVAS_POR_DEFECTO, construirColaInvestigacion, evaluarCobertura } from "../cobertura";
+import {
+  COMPROBACIONES_DISPONIBILIDAD_GEOGRAFICA,
+  MINIMO_ALTERNATIVAS_POR_DEFECTO,
+  construirColaInvestigacion,
+  construirColaInvestigacionDeFichas,
+  evaluarCobertura,
+} from "../cobertura";
 
 /**
  * Cobertura de categorías. La pregunta que faltaba: no "¿está repartido el
@@ -71,7 +77,7 @@ describe("evaluarCobertura", () => {
 
   it("no cuenta las herramientas retiradas: nadie las ve", () => {
     const activas = herramientasEn("crm", 2);
-    const retirada = construirHerramienta({ id: "retirada", nombre: "Retirada", categoriaId: "crm", estado: "retirado" });
+    const retirada = construirHerramienta({ id: "retirada", nombre: "Retirada", categoriaId: "crm", estado: "descontinuado" });
     const informe = evaluarCobertura([categoria("crm")], [...activas, retirada]);
     expect(informe.categorias[0].numeroHerramientas).toBe(2);
   });
@@ -171,5 +177,102 @@ describe("cola de investigación para Researcher", () => {
     const cola = construirColaInvestigacion(evaluarCobertura(todas, herramientas));
     // Las 11 categorías del marco que no están declaradas siguen faltando.
     expect(cola.every((t) => t.motivo.includes("ni siquiera está declarada"))).toBe(true);
+  });
+});
+
+describe("cola de investigación por ficha", () => {
+  const categorias = [
+    categoria("crm"),
+    categoria("plataformas-todo-en-uno"),
+    categoria("gestion-proyectos"),
+  ];
+
+  /** Ficha completa salvo por lo que cada test quite. */
+  function fichaCompleta(overrides: Partial<Herramienta> = {}): Herramienta {
+    return construirHerramienta({
+      id: "completa",
+      nombre: "Completa",
+      categoriaId: "crm",
+      tipoProducto: "especializada",
+      funcionesPrincipales: ["Una", "Dos", "Tres"],
+      integraciones: ["Zapier"],
+      idiomasDisponibles: ["español"],
+      disponibleEnEspanol: true,
+      disponibilidadGeografica: ["ES"],
+      modulosIncluidos: ["crm"],
+      puntuaciones: {
+        facilidadDeUso: 7,
+        calidad: 7,
+        fiabilidad: 7,
+        atencionAlCliente: 7,
+        escalabilidad: 7,
+        nivelTecnicoRequerido: 4,
+        facilidadImplementacion: 7,
+      },
+      ...overrides,
+    });
+  }
+
+  it("una ficha completa no genera ninguna tarea", () => {
+    expect(construirColaInvestigacionDeFichas([fichaCompleta()], categorias)).toEqual([]);
+  });
+
+  it("la disponibilidad geográfica sin investigar es de prioridad ALTA aunque el campo sea opcional", () => {
+    // No bloquea la ficha (sigue siendo válida y pública), pero condiciona
+    // si la herramienta le sirve de verdad a una pyme española.
+    const sinGeo = fichaCompleta({ disponibilidadGeografica: undefined });
+    const tarea = construirColaInvestigacionDeFichas([sinGeo], categorias).find(
+      (t) => t.campo === "disponibilidadGeografica"
+    )!;
+    expect(tarea.prioridad).toBe("alta");
+  });
+
+  it("la tarea geográfica trae las comprobaciones concretas: España, español, facturación, RGPD y límites", () => {
+    const sinGeo = fichaCompleta({ disponibilidadGeografica: undefined });
+    const tarea = construirColaInvestigacionDeFichas([sinGeo], categorias).find(
+      (t) => t.campo === "disponibilidadGeografica"
+    )!;
+    expect(tarea.comprobaciones).toEqual(COMPROBACIONES_DISPONIBILIDAD_GEOGRAFICA);
+    const texto = tarea.comprobaciones.join(" ");
+    for (const esperado of ["España", "español", "Factura", "RGPD", "limitaciones"]) {
+      expect(texto).toContain(esperado);
+    }
+  });
+
+  it("una contradicción de clasificación entra en la cola con prioridad alta, sin corregir la ficha", () => {
+    // El caso real de Pipedrive: declara 5 módulos y sus funciones son
+    // todas comerciales. Curator lo registra; no toca los datos.
+    const contradictoria = fichaCompleta({
+      id: "contradictoria",
+      tipoProducto: "especializada",
+      modulosIncluidos: ["crm", "gestion_proyectos", "asistente_ia", "email_marketing"],
+    });
+    const tarea = construirColaInvestigacionDeFichas([contradictoria], categorias).find(
+      (t) => t.campo === "clasificacion"
+    )!;
+    expect(tarea.prioridad).toBe("alta");
+    expect(tarea.comprobaciones.length).toBeGreaterThan(0);
+    // La ficha sigue exactamente igual: Curator no reclasifica nada.
+    expect(contradictoria.tipoProducto).toBe("especializada");
+    expect(contradictoria.modulosIncluidos).toHaveLength(4);
+  });
+
+  it("lo prioritario va primero", () => {
+    const floja = fichaCompleta({
+      disponibilidadGeografica: undefined,
+      disponibleEnEspanol: undefined,
+    });
+    const cola = construirColaInvestigacionDeFichas([floja], categorias);
+    expect(cola[0].prioridad).toBe("alta");
+    expect(cola[cola.length - 1].prioridad).toBe("media");
+  });
+
+  it("no propone ningún valor: solo dice qué hay que averiguar", () => {
+    const sinGeo = fichaCompleta({ disponibilidadGeografica: undefined });
+    for (const tarea of construirColaInvestigacionDeFichas([sinGeo], categorias)) {
+      expect(Object.keys(tarea).sort()).toEqual(
+        ["campo", "comprobaciones", "herramientaId", "motivo", "prioridad"].sort()
+      );
+    }
   });
 });

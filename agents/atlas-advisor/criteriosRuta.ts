@@ -1,5 +1,5 @@
 import type { Herramienta, ModuloSuite } from "@/data/esquema";
-import { esSuite } from "@/data/taxonomia";
+import { cubreCategoria, esSuite } from "@/data/taxonomia";
 import type { DetalleCriterio, RespuestasUsuario } from "./tipos";
 import { contieneTexto } from "./utilidades";
 
@@ -84,10 +84,32 @@ export function modulosQueNecesita(respuestas: RespuestasUsuario): ModuloSuite[]
 // ───────────────────────── RUTA SUITE ─────────────────────────
 
 /**
+ * Mínimo de necesidades distintas para que centralizar signifique algo.
+ * Cubrir UNA sola no es consolidación: no hay nada que unir, y la
+ * plataforma está compitiendo de hecho como una herramienta más de esa
+ * categoría. Es el mismo umbral que ya exigían `costeTotalFrenteAVarias` y
+ * `riesgoDependencia` — los tres miden la misma idea desde ángulos
+ * distintos y tienen que activarse a la vez.
+ */
+export const MINIMO_NECESIDADES_PARA_CONSOLIDAR = 2;
+
+/**
  * Cobertura ÚTIL: cuántas de las necesidades declaradas por el usuario
- * cubre esta plataforma. No cuenta módulos totales a propósito — una
- * suite con diez módulos de los que el usuario necesita uno no vale más
- * que otra con dos que cubren ese mismo uno.
+ * cubre esta plataforma en un solo producto.
+ *
+ * Dos condiciones, y ninguna es opcional:
+ *  - solo cuentan los módulos que responden a algo que el usuario ha
+ *    pedido — una suite con diez módulos de los que necesita uno no vale
+ *    más que otra con dos que cubren ese mismo uno;
+ *  - tiene que consolidar AL MENOS DOS necesidades.
+ *
+ * La segunda condición faltaba, y era un agujero real: al navegar por una
+ * categoría concreta `modulosQueNecesita` devuelve un único módulo, así
+ * que cualquier suite que lo declarase se llevaba los 14 puntos enteros
+ * por "cubrir 1 de 1" — el máximo del criterio por la mínima amplitud
+ * posible, justo en la situación en la que centralizar no aporta nada.
+ * Ahí una plataforma tiene que ganarse el sitio por calidad, como
+ * cualquier otra.
  */
 const coberturaUtil: CriterioRuta = {
   min: 0,
@@ -102,8 +124,6 @@ const coberturaUtil: CriterioRuta = {
     }
 
     const cubiertos = necesarios.filter((modulo) => incluidos.has(modulo));
-    const proporcion = cubiertos.length / necesarios.length;
-    const puntos = Math.round(proporcion * 14);
 
     if (cubiertos.length === 0) {
       return {
@@ -113,6 +133,13 @@ const coberturaUtil: CriterioRuta = {
         explicacion: "No incluye ningún módulo para lo que nos has pedido, aunque cubra otras áreas.",
       };
     }
+
+    // Cubre algo, pero no hay nada que consolidar: sin puntos por amplitud.
+    if (cubiertos.length < MINIMO_NECESIDADES_PARA_CONSOLIDAR) {
+      return nada("coberturaUtil", etiqueta);
+    }
+
+    const puntos = Math.round((cubiertos.length / necesarios.length) * 14);
 
     return {
       criterio: "coberturaUtil",
@@ -177,8 +204,11 @@ const facilidadAdministracion: CriterioRuta = {
   max: 10,
   evaluar: (herramienta) => {
     const facilidad = herramienta.puntuaciones.facilidadImplementacion ?? herramienta.puntuaciones.facilidadDeUso;
-    // `nivelTecnicoRequerido` es inverso: 10 = necesita equipo técnico.
-    const exigencia = 11 - herramienta.puntuaciones.nivelTecnicoRequerido;
+    // `nivelTecnicoRequerido` es inverso: 10 = necesita equipo técnico. Se
+    // invierte con `10 - x`, no con `11 - x`: el punto neutro de la escala
+    // es 5, y `11 - 5` daba 6 — medio punto de regalo a TODA suite por un
+    // detalle aritmético. Lo detectó la prueba de la herramienta neutra.
+    const exigencia = 10 - herramienta.puntuaciones.nivelTecnicoRequerido;
     const puntos = desdePuntuacion((facilidad + exigencia) / 2, 10);
     return {
       criterio: "facilidadAdministracion",
@@ -270,6 +300,60 @@ const riesgoDependencia: CriterioRuta = {
   },
 };
 
+/**
+ * Relevancia demostrada al competir FUERA de su categoría principal.
+ *
+ * Es el espejo exacto de `superioridadFrenteAlModulo` en la ruta
+ * especializada, y existe por el mismo motivo: si a una especializada se
+ * le exige demostrar que supera al módulo de una suite, a una suite hay
+ * que exigirle lo mismo cuando entra en la categoría de las
+ * especializadas. Sin este criterio, declarar una categoría secundaria era
+ * una forma gratuita de aparecer en más sitios.
+ *
+ * No penaliza por ser suite ni por tener categorías secundarias: penaliza
+ * ser MÁS SUPERFICIAL que los nativos de esa categoría, medido con el
+ * único dato comparable que existe hoy, las funciones que la propia ficha
+ * declara. Una suite con tanta o más profundidad que los especialistas de
+ * esa categoría no pierde nada — puede y debe seguir ganando ahí.
+ *
+ * En su categoría principal no se aplica: ahí no está reclamando un sitio
+ * extra, está en el suyo.
+ */
+const relevanciaEnCategoriaAjena: CriterioRuta = {
+  min: -10,
+  max: 0,
+  evaluar: (herramienta, { respuestas, catalogo }) => {
+    const etiqueta = "Profundidad en esta categoría";
+    const categoriaId = respuestas.categoriaId;
+
+    // Sin una categoría concreta que evaluar, no hay reclamación que comprobar.
+    if (!categoriaId) return nada("relevanciaEnCategoriaAjena", etiqueta);
+    // Su categoría principal: está en su sitio.
+    if (herramienta.categoriaId === categoriaId) return nada("relevanciaEnCategoriaAjena", etiqueta);
+    if (!cubreCategoria(herramienta, categoriaId)) return nada("relevanciaEnCategoriaAjena", etiqueta);
+
+    // Los nativos: especializadas cuya categoría PRINCIPAL es esta.
+    const nativos = catalogo.filter((h) => !esSuite(h) && h.categoriaId === categoriaId);
+    if (nativos.length < 2) return nada("relevanciaEnCategoriaAjena", etiqueta);
+
+    const media = nativos.reduce((total, h) => total + h.funcionesPrincipales.length, 0) / nativos.length;
+    if (media === 0 || herramienta.funcionesPrincipales.length >= media) {
+      return nada("relevanciaEnCategoriaAjena", etiqueta);
+    }
+
+    const deficit = (media - herramienta.funcionesPrincipales.length) / media;
+    const puntos = -Math.min(Math.round(deficit * 10), 10);
+
+    return {
+      criterio: "relevanciaEnCategoriaAjena",
+      etiqueta,
+      puntos,
+      explicacion:
+        "Es una plataforma amplia, pero en esta categoría concreta declara menos funciones que las herramientas especializadas en ella.",
+    };
+  },
+};
+
 export const CRITERIOS_SUITE: CriterioRuta[] = [
   coberturaUtil,
   calidadConjunta,
@@ -278,6 +362,7 @@ export const CRITERIOS_SUITE: CriterioRuta[] = [
   costeTotalFrenteAVarias,
   escalabilidadSuite,
   riesgoDependencia,
+  relevanciaEnCategoriaAjena,
 ];
 
 // ────────────────────── RUTA ESPECIALIZADA ──────────────────────

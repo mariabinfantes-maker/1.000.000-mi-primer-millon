@@ -42,6 +42,7 @@ describe("generarInformeCuratorHtml", () => {
       huecosEditoriales: [],
       cobertura: { categorias: [], ausentes: [], listasParaPublicar: [], publicadasSinRespaldo: [] },
       colaInvestigacion: [],
+      colaInvestigacionFichas: [],
       validez: [],
       coherencia: [],
       desactualizadasSegunMantenimiento: 0,
