@@ -1,5 +1,4 @@
 import { getCategoria, getHerramienta, getProblema } from "@/data/repositorio";
-import { tipoProductoDe } from "@/data/taxonomia";
 import type { HerramientaEvaluada } from "@/agents/atlas-advisor";
 import type { OrigenDiagnostico } from "@/lib/origenDiagnostico";
 import { leerTokenResultado, type PayloadTokenResultado } from "@/lib/resultadoToken";
@@ -45,13 +44,6 @@ export function resolverResultadoCompartido(token: string): ResultadoCompartido 
       razones: [],
       explicacion: item.explicacion,
       tieneAdvertencia: item.advertencia,
-      // El enlace compartido guarda el resultado, no cómo se calculó: el
-      // desglose por criterios no cabe en un token y no hace falta para
-      // volver a mostrar la recomendación. La ruta sí se recupera de la
-      // ficha, que es su fuente real.
-      tipoProducto: tipoProductoDe(herramienta),
-      puntuacionComun: item.puntuacion,
-      puntuacionRutaNormalizada: 0,
     });
   }
   if (top.length === 0) return null;

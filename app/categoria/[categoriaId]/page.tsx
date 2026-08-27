@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { ClipboardList } from "lucide-react";
 import { getCategoria, getCategorias, getHerramientasPorCategoria } from "@/data/repositorio";
-import { esCategoriaPublica } from "@/data/taxonomia";
 import { aVistaDeTarjetaGenerica, ordenarPorPuntuacionAtlas } from "@/lib/vistaRecomendacion";
 import { metadataCategoria } from "@/agents/atlas-generador-contenido/metadatos";
 import EnlaceAtras from "@/components/ui/EnlaceAtras";
@@ -22,8 +21,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { categoriaId } = await params;
   const categoria = getCategoria(categoriaId);
-  // Una categoría todavía "pendiente" existe para Curator, no para el público.
-  return categoria && esCategoriaPublica(categoria) ? metadataCategoria(categoria) : {};
+  return categoria ? metadataCategoria(categoria) : {};
 }
 
 /**
@@ -45,9 +43,7 @@ export default async function LandingCategoriaPage({
   const { categoriaId } = await params;
   const categoria = getCategoria(categoriaId);
 
-  // Una categoría todavía "pendiente" existe solo para el catálogo interno
-  // y para Curator: nunca debe tener página pública ni puerta de cuestionario.
-  if (!categoria || !esCategoriaPublica(categoria)) notFound();
+  if (!categoria) notFound();
 
   const herramientas = ordenarPorPuntuacionAtlas(getHerramientasPorCategoria(categoriaId));
   const vistas = herramientas.map((herramienta, indice) => aVistaDeTarjetaGenerica(herramienta, indice + 1));

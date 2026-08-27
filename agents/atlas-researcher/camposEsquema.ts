@@ -39,14 +39,6 @@ const CAMPOS_OPCIONALES = new Set<keyof Herramienta>([
   "reputacion",
   "analisisAtlas",
   "modulosIncluidos",
-  // Opcionales de verdad: la inmensa mayoría de herramientas tiene una
-  // sola categoría real, y la disponibilidad geográfica se marca como
-  // pendiente de investigar (Curator) en vez de inventarse.
-  // `tipoProducto` NO está aquí a propósito: toda herramienta nueva debe
-  // clasificarse como suite o especializada, y el informe debe echarlo en
-  // falta si el borrador no lo trae.
-  "categoriasSecundarias",
-  "disponibilidadGeografica",
 ]);
 
 export const DESCRIPCION_CAMPOS: Record<keyof Herramienta, string> = {
@@ -55,11 +47,7 @@ export const DESCRIPCION_CAMPOS: Record<keyof Herramienta, string> = {
   paginaOficial: "URL de la web oficial.",
   urlPrecios: "URL de la página de precios, si es distinta de la web oficial.",
   logoUrl: "URL del logo (lo añade Atlas, no lo investigues).",
-  categoriaId: "Categoría FUNCIONAL principal: qué hace la herramienta. No la uses para indicar que es una suite — eso es `tipoProducto`.",
-  categoriasSecundarias:
-    "Otras categorías funcionales que cubre DE VERDAD, respaldadas por sus funciones principales. Déjalo vacío si solo hace una cosa: añadir categorías para aparecer en más sitios es justo lo que Curator detecta y rechaza.",
-  tipoProducto:
-    '"suite" si cubre varias funciones bajo un mismo producto y una misma base de datos (declara también `modulosIncluidos`), o "especializada" si resuelve una función a fondo. Es un eje independiente de la categoría.',
+  categoriaId: "Categoría a la que pertenece dentro de Atlas.",
   descripcion: "Descripción objetiva de qué es y qué hace, en 2-3 frases.",
   informacionEmpresa:
     "Objeto con: anioFundacion (número, año de fundación de la empresa fabricante); " +
@@ -91,8 +79,6 @@ export const DESCRIPCION_CAMPOS: Record<keyof Herramienta, string> = {
   tienePlanGratuito: "true/false: si existe un plan gratuito real, no solo una prueba de tiempo limitado.",
   precioRecomendadoPymes:
     'Plan concreto recomendado para una pyme típica (no siempre es el plan más barato), en texto libre, ej. "Plan Professional a 45€/usuario/mes".',
-  disponibilidadGeografica:
-    'Dónde se puede CONTRATAR y usar de verdad (no dónde está la empresa). Códigos ISO de dos letras en mayúsculas, o "GLOBAL" si no hay restricción. Si no lo puedes verificar, déjalo sin poner: Curator lo marcará como pendiente de investigación.',
   idiomasDisponibles: "Lista de idiomas en los que está disponible la interfaz.",
   disponibleEnEspanol: "true/false: si la interfaz está disponible en español.",
   tieneAppMovil: "true/false: si existe una app móvil oficial (iOS/Android), no solo una web adaptada a móvil.",

@@ -3,7 +3,7 @@
   "paginaOficial": "https://monday.com",
   "urlPrecios": "https://monday.com/pricing",
   "logoUrl": "",
-  "categoriaId": "gestion-proyectos",
+  "categoriaId": "plataformas-todo-en-uno",
   "descripcion": "monday.com es un sistema operativo de trabajo (Work OS) en la nube que permite a los equipos crear, ejecutar y automatizar sus procesos y proyectos en una plataforma altamente visual. Ofrece módulos especializados para gestión de proyectos (Work Management), CRM de ventas y desarrollo de software.",
   "informacionEmpresa": {
     "anioFundacion": 2012,
@@ -161,10 +161,5 @@
     "atencion_cliente",
     "embudos_de_venta",
     "recursos_humanos"
-  ],
-  "tipoProducto": "suite",
-  "categoriasSecundarias": [
-    "plataformas-todo-en-uno",
-    "crm"
   ]
 }

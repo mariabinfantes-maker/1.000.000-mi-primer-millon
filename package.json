@@ -27,8 +27,7 @@
     "copia-seguridad-afiliacion": "tsx scripts/copia-seguridad-afiliacion.ts",
     "verificar-neon": "tsx scripts/verificar-neon.ts",
     "generar-secreto-admin": "tsx lib/admin/cli-generar-secreto-admin.ts",
-    "verificar-despliegue": "tsx scripts/verificar-despliegue.ts",
-    "migrar-taxonomia": "tsx scripts/migrar-taxonomia.ts"
+    "verificar-despliegue": "tsx scripts/verificar-despliegue.ts"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.2",

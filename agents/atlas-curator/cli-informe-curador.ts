@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { getProblemas, getTodasLasCategorias, getTodasLasHerramientas } from "@/data/repositorio";
+import { getCategorias, getProblemas, getTodasLasHerramientas } from "@/data/repositorio";
 import { construirDatosInforme, generarInformeCuratorHtml } from "./informe";
 
 /**
@@ -16,9 +16,7 @@ import { construirDatosInforme, generarInformeCuratorHtml } from "./informe";
 const DIR_INFORMES = path.join(process.cwd(), "data", "informes-curador");
 
 function main() {
-  // TODAS, no solo las públicas: medir la cobertura de una categoría
-  // interna es justo la razón por la que existe el estado "pendiente".
-  const categorias = getTodasLasCategorias();
+  const categorias = getCategorias();
   const problemas = getProblemas();
   const herramientas = getTodasLasHerramientas();
 
@@ -30,26 +28,9 @@ function main() {
   fs.writeFileSync(rutaInforme, generarInformeCuratorHtml(datos), "utf-8");
 
   console.log(`✓ Informe generado: ${rutaInforme}`);
-  const { cobertura } = datos;
-  const cuenta = (estado: string) => cobertura.categorias.filter((c) => c.estado === estado).length;
   console.log(
-    `  categorías: ${cuenta("preparada")} preparada(s) · ${cuenta("insuficiente")} insuficiente(s) · ` +
-      `${cuenta("vacia")} vacía(s) · ${cuenta("sobrerrepresentada")} sobrerrepresentada(s) · ${cobertura.ausentes.length} ausente(s)`
-  );
-  console.log(
-    `  ${datos.coherencia.length} incoherencia(s) de clasificación · ` +
-      `${datos.validez.filter((a) => a.gravedad === "invalido").length} valor(es) inválido(s) · ` +
-      `${datos.validez.filter((a) => a.gravedad === "pendiente").length} dato(s) pendiente(s) de investigar`
-  );
-  const alta = datos.colaInvestigacionFichas.filter((t) => t.prioridad === "alta").length;
-  console.log(
-    `  cola de Researcher: ${datos.colaInvestigacion.length} categoría(s) · ` +
-      `${datos.colaInvestigacionFichas.length} tarea(s) de ficha (${alta} de prioridad alta)`
-  );
-  console.log(
-    `  ` +
-      `${datos.huecosEditoriales.length} hueco(s) editorial(es) · ` +
-      `${datos.desactualizadasSegunMantenimiento} ficha(s) sin revisar (según Mantenimiento)`
+    `  ${datos.categorias.length} aviso(s) de categorías · ${datos.problemas.length} aviso(s) de objetivos · ` +
+      `${datos.huecosEditoriales.length} hueco(s) editorial(es)`
   );
   console.log("Ábrelo con doble clic en tu navegador para revisarlo.");
 }

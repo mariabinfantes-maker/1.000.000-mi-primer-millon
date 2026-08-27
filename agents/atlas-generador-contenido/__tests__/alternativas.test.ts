@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 import { getAlternativas } from "../alternativas";
-import { cubreCategoria } from "@/data/taxonomia";
 import { getHerramienta } from "@/data/repositorio";
 import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
 
@@ -13,11 +12,7 @@ describe("getAlternativas", () => {
 
     expect(alternativas.length).toBeGreaterThan(0);
     expect(alternativas.every((h) => h.id !== "hubspot")).toBe(true);
-    // Una alternativa es una herramienta que CUBRE la misma categoría, no
-    // necesariamente una cuya categoría PRINCIPAL coincida: monday.com es
-    // una plataforma todo en uno legítima aunque su función principal sea
-    // la gestión de proyectos (ver `data/taxonomia.ts`).
-    expect(alternativas.every((h) => cubreCategoria(h, hubspot.categoriaId))).toBe(true);
+    expect(alternativas.every((h) => h.categoriaId === hubspot.categoriaId)).toBe(true);
   });
 
   it("ordena por Puntuación Atlas descendente", () => {

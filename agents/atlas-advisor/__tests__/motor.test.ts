@@ -256,20 +256,9 @@ describe("recomendarHerramientas", () => {
     });
   });
 
-  describe("señales indirectas de tipo de producto, sin elección explícita", () => {
-    const suiteTodoEnUno = construirHerramienta({
-      id: "suite-1",
-      nombre: "Suite 1",
-      categoriaId: "plataformas-todo-en-uno",
-      tipoProducto: "suite",
-      modulosIncluidos: ["crm", "email_marketing", "facturacion"],
-    });
-    const crmEspecializado = construirHerramienta({
-      id: "crm-1",
-      nombre: "CRM 1",
-      categoriaId: "crm",
-      tipoProducto: "especializada",
-    });
+  describe("criterioTipoSuite (señales indirectas, sin elección explícita)", () => {
+    const suiteTodoEnUno = construirHerramienta({ id: "suite-1", nombre: "Suite 1", categoriaId: "plataformas-todo-en-uno" });
+    const crmEspecializado = construirHerramienta({ id: "crm-1", nombre: "CRM 1", categoriaId: "crm" });
 
     it("no filtra el catálogo por señales indirectas: ambos tipos siguen evaluándose", () => {
       const respuestas: RespuestasUsuario = { tamanoEmpresa: "1-10", presupuesto: "ajustado", nivelTecnicoEquipo: "ninguno" };
@@ -277,37 +266,44 @@ describe("recomendarHerramientas", () => {
       expect(resultado.todas).toHaveLength(2);
     });
 
-    it("las señales indirectas ya no restan puntos a nadie: solo redactan la comparación", () => {
-      // Antes, este perfil (equipo pequeño, presupuesto ajustado, sin
-      // capacidad técnica) hacía perder 8 puntos a toda especializada por
-      // el mero hecho de no ser una suite. Ahora orienta el texto, y la
-      // decisión sigue siendo del usuario.
+    it("puntúa mejor la suite todo en uno cuando las señales indirectas la favorecen", () => {
       const respuestas: RespuestasUsuario = { tamanoEmpresa: "1-10", presupuesto: "ajustado", nivelTecnicoEquipo: "ninguno" };
-      const evaluadaCrm = evaluarHerramienta(crmEspecializado, respuestas, [suiteTodoEnUno, crmEspecializado]);
+      const evaluadaSuite = evaluarHerramienta(suiteTodoEnUno, respuestas);
+      const evaluadaCrm = evaluarHerramienta(crmEspecializado, respuestas);
 
-      expect(evaluadaCrm.detalles.find((d) => d.criterio === "tipoSuite")).toBeUndefined();
+      const detalleSuite = evaluadaSuite.detalles.find((d) => d.criterio === "tipoSuite")!;
+      const detalleCrm = evaluadaCrm.detalles.find((d) => d.criterio === "tipoSuite")!;
 
-      const { comparativaDeRutas } = recomendarHerramientas(respuestas, [suiteTodoEnUno, crmEspecializado]);
-      expect(comparativaDeRutas?.beneficioDeCentralizar).toContain("centralizar te encajaría mejor");
+      expect(detalleSuite.puntos).toBeGreaterThan(0);
+      expect(detalleCrm.puntos).toBeLessThan(0);
     });
 
-    it("con el perfil contrario, la comparación matiza hacia la especializada", () => {
+    it("puntúa mejor la herramienta especializada cuando las señales indirectas la favorecen", () => {
       const respuestas: RespuestasUsuario = { tamanoEmpresa: "200+", presupuesto: "alto", nivelTecnicoEquipo: "avanzado" };
-      const { comparativaDeRutas } = recomendarHerramientas(respuestas, [suiteTodoEnUno, crmEspecializado]);
-      expect(comparativaDeRutas?.beneficioDeEspecializar).toContain("especializar te encajaría mejor");
+      const evaluadaSuite = evaluarHerramienta(suiteTodoEnUno, respuestas);
+      const evaluadaCrm = evaluarHerramienta(crmEspecializado, respuestas);
+
+      const detalleSuite = evaluadaSuite.detalles.find((d) => d.criterio === "tipoSuite")!;
+      const detalleCrm = evaluadaCrm.detalles.find((d) => d.criterio === "tipoSuite")!;
+
+      expect(detalleSuite.puntos).toBeLessThan(0);
+      expect(detalleCrm.puntos).toBeGreaterThan(0);
     });
 
-    it("cuando las señales se cancelan, no se inclina hacia ningún lado", () => {
+    it("no puntúa nada cuando las señales indirectas se cancelan entre sí", () => {
       const respuestas: RespuestasUsuario = { tamanoEmpresa: "1-10", presupuesto: "alto" };
-      const { comparativaDeRutas } = recomendarHerramientas(respuestas, [suiteTodoEnUno, crmEspecializado]);
-      expect(comparativaDeRutas?.beneficioDeCentralizar).not.toContain("te encajaría mejor");
-      expect(comparativaDeRutas?.beneficioDeEspecializar).not.toContain("te encajaría mejor");
+      const evaluada = evaluarHerramienta(suiteTodoEnUno, respuestas);
+      const detalle = evaluada.detalles.find((d) => d.criterio === "tipoSuite")!;
+      expect(detalle.puntos).toBe(0);
+      expect(detalle.explicacion).toBe("");
     });
 
-    it("si ya hubo elección explícita, no se devuelve comparación: sería repetir una pregunta ya respondida", () => {
-      const respuestas: RespuestasUsuario = { categoriaId: "plataformas-todo-en-uno", tamanoEmpresa: "1-10" };
-      const resultado = recomendarHerramientas(respuestas, [suiteTodoEnUno, crmEspecializado]);
-      expect(resultado.comparativaDeRutas).toBeUndefined();
+    it("no puntúa nada cuando ya hubo elección explícita (categoriaId o preferenciaSuite), para no ser redundante", () => {
+      const respuestas: RespuestasUsuario = { categoriaId: "plataformas-todo-en-uno", tamanoEmpresa: "1-10", presupuesto: "ajustado", nivelTecnicoEquipo: "ninguno" };
+      const evaluada = evaluarHerramienta(suiteTodoEnUno, respuestas);
+      const detalle = evaluada.detalles.find((d) => d.criterio === "tipoSuite")!;
+      expect(detalle.puntos).toBe(0);
+      expect(detalle.explicacion).toBe("");
     });
   });
 });

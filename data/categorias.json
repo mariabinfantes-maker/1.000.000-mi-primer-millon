@@ -2,91 +2,21 @@
   {
     "id": "plataformas-todo-en-uno",
     "nombre": "Plataformas todo en uno",
-    "descripcion": "Suites que combinan CRM, marketing, ventas, operaciones y otras áreas de la empresa en un único producto, en lugar de herramientas independientes por función.",
-    "estado": "publica"
+    "descripcion": "Suites que combinan CRM, marketing, ventas, operaciones y otras áreas de la empresa en un único producto, en lugar de herramientas independientes por función."
   },
   {
     "id": "crm",
     "nombre": "CRM y ventas",
-    "descripcion": "Herramientas especializadas en organizar contactos, oportunidades y el pipeline de ventas, sin el resto de módulos de una suite todo en uno.",
-    "estado": "publica"
+    "descripcion": "Herramientas especializadas en organizar contactos, oportunidades y el pipeline de ventas, sin el resto de módulos de una suite todo en uno."
   },
   {
     "id": "gestion-proyectos",
     "nombre": "Gestión de proyectos",
-    "descripcion": "Planifica, asigna y sigue el avance de tareas y proyectos en equipo.",
-    "estado": "publica"
+    "descripcion": "Planifica, asigna y sigue el avance de tareas y proyectos en equipo."
   },
   {
     "id": "asistentes-ia",
     "nombre": "Asistentes de IA y productividad",
-    "descripcion": "Herramientas de inteligencia artificial que generan contenido, resumen información o automatizan tareas de productividad del día a día.",
-    "estado": "publica"
-  },
-  {
-    "id": "facturacion-contabilidad",
-    "nombre": "Facturación y contabilidad",
-    "descripcion": "Programas para emitir facturas, llevar la contabilidad, controlar gastos y cumplir con las obligaciones fiscales de la empresa.",
-    "estado": "pendiente"
-  },
-  {
-    "id": "reservas-citas",
-    "nombre": "Reservas y citas",
-    "descripcion": "Herramientas para que los clientes reserven cita online, con recordatorios automáticos, agenda compartida y cobro anticipado.",
-    "estado": "pendiente"
-  },
-  {
-    "id": "atencion-cliente",
-    "nombre": "Atención al cliente",
-    "descripcion": "Sistemas de tickets, chat en directo y bases de conocimiento para responder a los clientes con orden y sin perder conversaciones.",
-    "estado": "pendiente"
-  },
-  {
-    "id": "comercio-electronico",
-    "nombre": "Comercio electrónico",
-    "descripcion": "Plataformas para vender online: catálogo, carrito, pasarela de pago, envíos y gestión de pedidos.",
-    "estado": "pendiente"
-  },
-  {
-    "id": "automatizacion-integraciones",
-    "nombre": "Automatización e integraciones",
-    "descripcion": "Herramientas que conectan entre sí los programas que ya usas y ejecutan tareas repetitivas sin intervención manual.",
-    "estado": "pendiente"
-  },
-  {
-    "id": "marketing-email",
-    "nombre": "Marketing y email",
-    "descripcion": "Envío de campañas por correo, automatizaciones de captación, segmentación de contactos y medición de resultados.",
-    "estado": "pendiente"
-  },
-  {
-    "id": "recursos-humanos",
-    "nombre": "Recursos humanos",
-    "descripcion": "Gestión de personas: fichajes, vacaciones, nóminas, contratación y documentación laboral.",
-    "estado": "pendiente"
-  },
-  {
-    "id": "inventario-operaciones",
-    "nombre": "Inventario y operaciones",
-    "descripcion": "Control de existencias, almacén, compras, proveedores y operaciones del día a día.",
-    "estado": "pendiente"
-  },
-  {
-    "id": "creacion-web-hosting",
-    "nombre": "Creación web y hosting",
-    "descripcion": "Constructores de páginas web, alojamiento y dominios para tener presencia online sin depender de un desarrollador.",
-    "estado": "pendiente"
-  },
-  {
-    "id": "firma-gestion-documental",
-    "nombre": "Firma electrónica y gestión documental",
-    "descripcion": "Firma de documentos con validez legal, almacenamiento organizado y control de versiones y accesos.",
-    "estado": "pendiente"
-  },
-  {
-    "id": "software-sectorial",
-    "nombre": "Software sectorial",
-    "descripcion": "Programas diseñados para un sector concreto (hostelería, clínicas, talleres, despachos) en lugar de para cualquier empresa.",
-    "estado": "pendiente"
+    "descripcion": "Herramientas de inteligencia artificial que generan contenido, resumen información o automatizan tareas de productividad del día a día."
   }
 ]
