@@ -1298,3 +1298,93 @@ de este sprint pulsaba un botón. Se verificó que las páginas respondían 200,
 que el sitemap era correcto y que las categorías internas daban 404, pero no
 que la interfaz siguiera siendo interactiva. Un fallo de hidratación del
 cliente no aparece en un `curl`, ni en una captura, ni en el build.
+
+---
+
+## Incidente del 2026-08-27: causa encontrada y resuelta
+
+La pregunta que quedó abierta arriba —por qué una web que pasaba todas las
+comprobaciones se comportó de otra forma en el sitio publicado— tiene
+respuesta, y no era el sprint.
+
+### Causa real: el navegador se quedaba con el HTML de un despliegue anterior
+
+Next servía el HTML prerenderizado con `Cache-Control: s-maxage=31536000` y
+**sin `max-age`**. Esa cabecera le dice al CDN cuánto guardar, pero no le dice
+nada al navegador; ante ese silencio, el navegador aplica su propia caché
+heurística y se queda el HTML durante horas.
+
+Los archivos de JavaScript llevan un hash en el nombre, que cambia en cada
+despliegue. Así que el HTML viejo pedía archivos que ya no existían en el
+servidor. Y como los enlaces de Next (`<Link>`) interceptan la pulsación para
+navegar por el cliente, el resultado era exactamente lo descrito: **la página
+se pinta entera y perfecta, y ningún enlace lleva a ninguna parte, sin un solo
+error visible.**
+
+Eso explica también los dos detalles que parecían contradecirse:
+
+- **"solo abrió de manera incógnito"** — la ventana de incógnito no tenía HTML
+  guardado, así que pedía el actual y funcionaba.
+- **"estos son inertes"** (las tarjetas de "Por qué Molnip" y "Así decide
+  Molnip") — esas siete tarjetas nunca fueron pulsables. Se elevaban al pasar
+  el ratón, así que parecían botones rotos. Dos síntomas distintos que se
+  solapaban.
+
+**El sprint de la PR #32 no tuvo nada que ver.** Se comprobó construyendo las
+dos versiones —con y sin el sprint— y recorriendo ambas con un navegador real:
+se comportaban igual.
+
+### Qué se corrigió
+
+| | |
+|---|---|
+| **Causa de raíz** | `next.config.ts` devuelve ahora `public, max-age=0, must-revalidate` en todo lo que no sea `/_next/static` ni `/_next/image`. El HTML revalida siempre y responde `304` gracias al ETag, así que no cuesta ancho de banda. Los archivos con hash siguen siendo `immutable`, como exige la documentación de Next (`headers.md`: "It cannot be overridden"). Medido: HTML `max-age=0, must-revalidate` → segunda petición `304`; chunk `max-age=31536000, immutable` |
+| **Red de seguridad** | `lib/recuperacionDeVersion.ts` (lógica pura) + `components/RecuperacionDeVersion.tsx` (enlace con el navegador). Recarga **una sola vez por sesión** ante un fallo confirmado de carga de JavaScript propio. Nunca ante errores de API, validación, red o del propio código. Sin memoria en `sessionStorage` no recarga: antes un aviso que un bucle. No borra nada, así que lo escrito por la persona sobrevive. Si la recarga no lo resuelve, aparece un aviso con botón para actualizar a mano. Solo registra un texto fijo, sin URL ni datos de nadie |
+| **Señales falsas** | Las siete tarjetas informativas de la portada ya no se elevan ni cambian de sombra o borde al pasar el ratón. Contenido y estructura intactos |
+
+### Pruebas: la lección aplicada
+
+La lección del apartado anterior era que ninguna comprobación pulsaba un botón.
+Ahora sí:
+
+| | |
+|---|---|
+| Unitarias | 696 en verde (82 archivos), 19 de ellas nuevas sobre el detector de versión y la regla de una sola recarga |
+| TypeScript | Sin errores |
+| ESLint | Sin avisos |
+| Build de producción | Correcto |
+| **E2E con navegador real** | **21 en verde** — `e2e/portada.spec.ts`, ejecutadas por Playwright contra el build de producción, no contra `next dev` |
+
+Lo que cubren las 21 pruebas E2E: el botón principal de la portada; los cinco
+cuestionarios y su destino real; las tres puertas de entrada y que cambian lo
+que ofrecen; el avance del cuestionario; que las siete tarjetas informativas no
+contienen enlaces ni fingen serlo; la recuperación ante un módulo y ante un
+`<script>` que ya no existen —con el navegador fallando de verdad, no con
+errores inventados—; que no hay bucle de recargas; que un error normal jamás
+recarga; que los datos escritos sobreviven a la recarga; y el recorrido completo
+en un contexto limpio, sin nada guardado.
+
+**Cada prueba se comprobó al revés antes de darla por buena.** Reintroducir la
+elevación en las tarjetas hace fallar exactamente las cuatro afectadas y deja
+pasar las otras tres; desmontar el componente de recuperación hace fallar las
+tres pruebas que lo cubren. Una prueba que no puede fallar no prueba nada — y
+tres de las que se escribieron durante el diagnóstico daban falsos negativos
+por buscar los elementos mal (las tres puertas son `role="tab"`, no
+`role="button"`; Next monta su propio `role="alert"` invisible; y las tarjetas
+se mueven al entrar en pantalla por la animación de scroll, no por el ratón).
+
+### Configuración del runner
+
+`@playwright/test` con el Chromium ya instalado en el entorno
+(`playwright.config.ts`, `executablePath`), `npm run e2e` (build + pruebas) y
+`npm run e2e:solo` (solo pruebas). Las pruebas de `e2e/` quedan excluidas de
+vitest, que comparte extensión pero no motor.
+
+### Registro del despliegue
+
+| | |
+|---|---|
+| Commit de las tres correcciones | `87ad5ac` |
+| Commit que restaura el sprint | `7b55234` |
+| Rama de trabajo | `claude/recuperacion-cache` |
+| Rama de producción | `claude/claude-md-docs-plkwnq` (por defecto del repositorio; no existe `main`) |
