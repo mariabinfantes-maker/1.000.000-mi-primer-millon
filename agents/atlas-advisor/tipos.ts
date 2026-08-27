@@ -1,4 +1,4 @@
-import type { CurvaDeAprendizaje, Herramienta } from "@/data/esquema";
+import type { CurvaDeAprendizaje, Herramienta, TipoProducto } from "@/data/esquema";
 import type { RangoEmpleados } from "@/lib/cuestionario";
 
 /**
@@ -102,6 +102,12 @@ export type HerramientaEvaluada = {
   explicacion: string;
   /** true si alguno de los casosNoRecomendados de la herramienta coincide con el perfil del usuario. */
   tieneAdvertencia: boolean;
+  /** Por qué ruta se ha evaluado. Dos herramientas de rutas distintas NO comparten criterios: ver `criteriosRuta.ts`. */
+  tipoProducto: TipoProducto;
+  /** Puntos de los criterios COMUNES a las dos rutas. Directamente comparable entre cualquier par de herramientas. */
+  puntuacionComun: number;
+  /** Resultado de los criterios propios de su ruta, llevado a −1..+1 y CENTRADO EN CERO dentro del rango teórico de ESA ruta (ver `normalizarRuta` en `motor.ts`). Es lo que permite comparar una suite con una especializada sin sumar peras y manzanas, y sin que ninguna de las dos arranque por delante. */
+  puntuacionRutaNormalizada: number;
 };
 
 export type ResultadoRecomendacion = {
@@ -109,6 +115,22 @@ export type ResultadoRecomendacion = {
   top: HerramientaEvaluada[];
   /** El catálogo evaluado completo, ya ordenado. Pensado para depuración, paneles internos o una futura API que quiera devolver más de 3 resultados. */
   todas: HerramientaEvaluada[];
+  /**
+   * Solo cuando el usuario NO eligió ruta: la mejor de cada tipo y qué gana
+   * y qué sacrifica con cada enfoque. Es la comparación honesta que
+   * sustituye a la penalización de 8 puntos que antes recibía cualquier
+   * especializada por no ser una suite.
+   */
+  comparativaDeRutas?: ComparativaDeRutas;
+};
+
+export type ComparativaDeRutas = {
+  mejorSuite?: HerramientaEvaluada;
+  mejorEspecializada?: HerramientaEvaluada;
+  /** Frase que explica el beneficio y el sacrificio de centralizar, lista para mostrarse. */
+  beneficioDeCentralizar: string;
+  /** Lo mismo para la ruta contraria. */
+  beneficioDeEspecializar: string;
 };
 
 /** Función que puntúa una herramienta para un perfil de usuario. Añadir un criterio nuevo es añadir una función que cumpla esta firma. */

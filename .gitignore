@@ -53,3 +53,8 @@ next-env.d.ts
 # Copias de seguridad de la estrategia de afiliación descargadas de Neon:
 # artefactos locales con datos internos, nunca se suben al repositorio.
 /copias-seguridad-afiliacion/
+
+# Resultados de las pruebas con navegador (trazas, capturas): son de una
+# ejecución concreta, no del proyecto.
+/test-results/
+/playwright-report/

@@ -36,7 +36,17 @@ describe("generarInformeCuratorHtml", () => {
   });
 
   it("muestra un mensaje explícito de 'nada que revisar' cuando no hay avisos, en vez de una tabla vacía", () => {
-    const html = generarInformeCuratorHtml({ categorias: [], problemas: [], huecosEditoriales: [] });
+    const html = generarInformeCuratorHtml({
+      categorias: [],
+      problemas: [],
+      huecosEditoriales: [],
+      cobertura: { categorias: [], ausentes: [], listasParaPublicar: [], publicadasSinRespaldo: [] },
+      colaInvestigacion: [],
+      colaInvestigacionFichas: [],
+      validez: [],
+      coherencia: [],
+      desactualizadasSegunMantenimiento: 0,
+    });
 
     expect(html).toContain("Nada que revisar");
   });

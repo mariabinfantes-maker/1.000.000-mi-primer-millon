@@ -241,6 +241,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Estas tarjetas y las de "Confianza" son TEXTO, no enlaces: no
+          llevan a ningún sitio. Por eso no se elevan ni proyectan sombra al
+          pasar el ratón — ese gesto es el lenguaje universal de "esto se
+          puede pulsar", y tenerlo en algo inerte hace que la web parezca
+          rota. Pasó de verdad el 2026-08-27: la propietaria las pulsó una
+          tras otra y concluyó, con razón, que ningún botón funcionaba.
+          Si algún día llevan a alguna parte, que vuelva la animación. */}
       {/* Así decide Molnip — deliberadamente sin exponer la arquitectura
           interna de agentes (Researcher/Evaluador/Recomendador): de cara al
           usuario público solo importa qué gana con la recomendación, no
@@ -263,7 +270,7 @@ export default function Home() {
           <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-3">
             {DECISION_MOLNIP.map((punto, i) => (
               <RevelarAlScroll key={punto.titulo} retrasoMs={i * 100}>
-                <div className="flex h-full flex-col items-center gap-3 rounded-2xl border border-slate-200/80 bg-white p-6 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-black/[0.02] transition hover:-translate-y-1 hover:shadow-premium">
+                <div className="flex h-full flex-col items-center gap-3 rounded-2xl border border-slate-200/80 bg-white p-6 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-black/[0.02]">
                   <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-50 to-brand-100 text-brand-600 ring-1 ring-brand-100">
                     <punto.icono className="h-6 w-6" aria-hidden="true" />
                   </span>
@@ -291,8 +298,8 @@ export default function Home() {
           <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {SENALES_DE_CONFIANZA.map((señal, i) => (
               <RevelarAlScroll key={señal.titulo} retrasoMs={i * 100}>
-                <div className="group h-full rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-black/[0.02] transition hover:-translate-y-1 hover:border-brand-300 hover:shadow-premium">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-brand-100 text-brand-600 ring-1 ring-brand-100 transition group-hover:scale-105">
+                <div className="h-full rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-black/[0.02]">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-brand-100 text-brand-600 ring-1 ring-brand-100">
                     <señal.icono className="h-5 w-5" aria-hidden="true" />
                   </div>
                   <h3 className="mt-4 text-base font-semibold text-slate-900">

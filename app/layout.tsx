@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, IBM_Plex_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 import ChromePublico from "@/components/ChromePublico";
+import RecuperacionDeVersion from "@/components/RecuperacionDeVersion";
 import { DESCRIPCION_ATLAS, TITULO_ATLAS } from "@/agents/atlas-generador-contenido/metadatos";
 import { URL_BASE } from "@/lib/urlBase";
 
@@ -71,6 +72,9 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col bg-slate-50 text-slate-900">
         <ChromePublico>{children}</ChromePublico>
+        {/* No pinta nada mientras todo va bien: solo vigila que el navegador
+            no se haya quedado con una versión antigua de la web. */}
+        <RecuperacionDeVersion />
       </body>
     </html>
   );
