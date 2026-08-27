@@ -143,5 +143,13 @@
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-21",
   "fechaUltimaRevision": "2026-08-21",
-  "tipoProducto": "suite"
+  "tipoProducto": "suite",
+  "problemasIds": [
+    "organizar-empresa",
+    "conseguir-clientes"
+  ],
+  "categoriasSecundarias": [
+    "crm",
+    "gestion-proyectos"
+  ]
 }

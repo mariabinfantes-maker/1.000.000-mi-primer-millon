@@ -34,7 +34,12 @@ export function analizarSlugComparacion(slug: string): { idA: string; idB: strin
 
 /** Todas las parejas del catálogo real que merece la pena pre-generar: dos herramientas de la misma categoría, nunca entre categorías distintas. */
 export function generarParesComparacion(): { idA: string; idB: string; slug: string }[] {
-  const pares: { idA: string; idB: string; slug: string }[] = [];
+  // Se indexa por slug, no se acumula sin más: desde que una herramienta
+  // puede cubrir varias categorías (`categoriasSecundarias`), dos suites que
+  // compartan dos categorías —CRM y todo en uno, por ejemplo— generarían la
+  // MISMA pareja dos veces. Y cada pareja es una URL: duplicarla sería
+  // publicar dos veces la misma página de comparación.
+  const porSlug = new Map<string, { idA: string; idB: string; slug: string }>();
 
   for (const categoria of getCategorias()) {
     const herramientas = getHerramientasPorCategoria(categoria.id);
@@ -42,12 +47,13 @@ export function generarParesComparacion(): { idA: string; idB: string; slug: str
       for (let j = i + 1; j < herramientas.length; j++) {
         const idA = herramientas[i].id;
         const idB = herramientas[j].id;
-        pares.push({ idA, idB, slug: slugComparacion(idA, idB) });
+        const slug = slugComparacion(idA, idB);
+        if (!porSlug.has(slug)) porSlug.set(slug, { idA, idB, slug });
       }
     }
   }
 
-  return pares;
+  return [...porSlug.values()];
 }
 
 export type ComparacionEvaluada = {

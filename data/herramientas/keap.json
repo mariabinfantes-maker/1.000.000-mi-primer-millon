@@ -144,5 +144,8 @@
     "embudos_de_venta",
     "comercio_electronico"
   ],
-  "tipoProducto": "suite"
+  "tipoProducto": "suite",
+  "categoriasSecundarias": [
+    "crm"
+  ]
 }

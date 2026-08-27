@@ -289,6 +289,22 @@ export type Herramienta = {
    */
   categoriasSecundarias?: string[];
   /**
+   * Añadido: eje FINO dentro de la categoría. Existe porque
+   * "Asistentes de IA y productividad" mete en la misma bolsa un corrector
+   * de textos, un generador de vídeo, un transcriptor de reuniones y un
+   * planificador de agenda — productos que no se sustituyen entre sí. El
+   * 2026-08-27 se midió el efecto: Grammarly ganaba el 100% de los perfiles
+   * de esa categoría, así que quien buscaba generar vídeo con IA recibía un
+   * corrector ortográfico.
+   *
+   * El motor solo compara herramientas del mismo subtipo (ver
+   * `agents/atlas-advisor/motor.ts`). Opcional: la mayoría de categorías
+   * agrupan productos que sí son alternativas reales y no lo necesitan.
+   */
+  subtipoId?: string;
+  /** Subtipos ADICIONALES que la herramienta cubre de verdad, con la misma exigencia de evidencia que `categoriasSecundarias`. */
+  subtiposSecundarios?: string[];
+  /**
    * Añadido: eje independiente de la categoría funcional. Una suite y una
    * especializada se evalúan con reglas distintas (ver
    * `agents/atlas-advisor/criteriosSuite.ts` y `criteriosEspecializada.ts`),
@@ -312,6 +328,20 @@ export type Herramienta = {
    * romperlas; se va completando herramienta a herramienta.
    */
   problemasIds?: string[];
+  /**
+   * Añadido: marca explícita de que esta herramienta NO tiene objetivo
+   * asignado a propósito, porque ninguno de los objetivos del marco actual
+   * describe su función central sin forzarla — no por descuido.
+   *
+   * Existe porque el silencio es indistinguible del olvido: el 2026-08-27
+   * se descubrió que 38 de 56 fichas no tenían objetivo, y como la puerta
+   * "por objetivo" filtra de forma estricta, ese 68% del catálogo era
+   * invisible para quien entraba por ahí. Sin este campo no había forma de
+   * medir la diferencia entre "aún no investigado" y "no encaja".
+   *
+   * Quien lo tenga a `true` debe estar en la cola de Researcher.
+   */
+  objetivoPendienteDeInvestigacion?: boolean;
   /** Añadido: ejemplos concretos de uso real, más fáciles de reconocer para el usuario que "problemas" en abstracto. */
   casosDeUso: string[];
 

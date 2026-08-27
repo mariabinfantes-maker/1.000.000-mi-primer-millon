@@ -397,3 +397,71 @@ cambios de código y de interfaz pública, y pediste explícitamente no
 modificar la lógica funcional ni la web en este sprint. Quedan registradas
 aquí para que no se pierdan, a la espera de que decidas si entran en un
 sprint futuro.
+
+---
+
+## Curator — Capa 3: integridad del catálogo (2026-08-27)
+
+`agents/atlas-curator/integridad.ts`
+
+Las capas anteriores de Curator miran **una ficha a la vez**: si está completa,
+si lo que declara ser se corresponde con lo que demuestra, si sus valores son
+válidos. Esta mira **el catálogo entero**, porque hay huecos que ficha a ficha
+son invisibles.
+
+Los tres que la originaron, todos reales:
+
+- 38 de 56 fichas sin objetivo. Cada una, por separado, era válida: el campo es
+  opcional. Solo mirando el conjunto —y sabiendo que la puerta "por objetivo"
+  filtra de forma estricta— se ve que dos tercios del catálogo eran invisibles.
+- Una única herramienta usando categorías secundarias. Su ficha era impecable.
+  El problema era la comparación con las otras catorce suites.
+- Una categoría entera mezclando productos no sustituibles. Ninguna ficha
+  estaba mal; la categoría sí.
+
+### Qué detecta
+
+| Función | Detecta |
+|---|---|
+| `detectarSinObjetivo` | Fichas sin objetivo y sin marca explícita de pendiente |
+| `detectarObjetivosContradictorios` | Objetivo incompatible con una limitación central, por **reglas curadas** |
+| `detectarCategoriasSecundariasDesiguales` | Suites comparables con criterios distintos |
+| `detectarObjetivosSinCompetencia` | Objetivos por debajo del mínimo de alternativas |
+| `detectarSubtiposIncompletos` | Fichas sin subtipo declarar y subtipos sin competencia |
+| `detectarConcentracion` | Una herramienta que gana más del 90% de un ámbito |
+
+**`REGLAS_INCOMPATIBILIDAD` se cura a mano, y es deliberado.** La detección
+automática por coincidencia de palabras que se probó marcaba "el CRM es menos
+potente que el de HubSpot" como incompatible con "conseguir clientes". Un falso
+positivo aquí empuja a retirar un objetivo que estaba bien, así que hay una
+prueba que fija ese caso concreto como negativo.
+
+`detectarConcentracion` **avisa y no toca nada**. Cuando una herramienta gana
+casi todo un ámbito, la señal no es que sea buenísima: es que los criterios no
+distinguen ahí dentro. Corregirlo automáticamente repartiendo visibilidad sería
+empeorar una recomendación a propósito, que es justo lo contrario de para qué
+existe Molnip.
+
+### Eje de subtipos
+
+`data/taxonomia.ts` — `SUBTIPOS_POR_CATEGORIA`, `sonComparables()`.
+
+Una categoría agrupa por función; normalmente eso basta, porque quince CRM son
+quince alternativas reales. "Asistentes de IA" no funciona así: un corrector de
+textos y un generador de vídeo comparten categoría y no compiten. El subtipo es
+el eje fino que decide **qué se puede comparar con qué**.
+
+El motor (`repartirEntreSubtipos`) lo aplica así: si la persona ha concretado
+qué busca, filtra; si no, devuelve lo mejor de cada clase. No es un reparto de
+visibilidad ni un tope artificial — nadie pierde puntos y el orden sigue siendo
+el de sus fichas. Es que la pregunta que se respondía antes ("¿es mejor
+Grammarly o Synthesia?") no era una pregunta.
+
+### Límite conocido
+
+Los subtipos evitan la comparación absurda, pero **no resuelven la
+concentración**: dentro de subtipos con 3 y 4 alternativas, una sigue ganando
+el 100% de los perfiles. El cuestionario pregunta tamaño de empresa y
+presupuesto, y ninguna de esas dos cosas decide si necesitas Grammarly o
+Jasper. Falta una pregunta que distinga, y añadirla es una decisión de
+producto, no de datos.

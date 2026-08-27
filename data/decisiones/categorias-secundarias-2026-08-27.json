@@ -1,0 +1,271 @@
+{
+  "fecha": "2026-08-27",
+  "criterio": "Solo herramientas con tipoProducto='suite'. (1) Toda suite cuya categoría principal no sea 'plataformas-todo-en-uno' la declara como secundaria: es donde se la busca. (2) Además, declara una categoría pública si incluye su módulo Y alguna de sus funciones principales sustancia esa capacidad. No se otorgan categorías secundarias por módulos de categorías internas (aún no publicables) ni por el módulo 'asistente_ia' (un asistente incrustado en una suite no es alternativa de una herramienta de IA especializada).",
+  "suites": [
+    {
+      "herramientaId": "activecampaign",
+      "nombre": "ActiveCampaign",
+      "categoriaPrincipal": "plataformas-todo-en-uno",
+      "antes": [],
+      "despues": [
+        "crm"
+      ],
+      "modulos": [
+        "crm",
+        "asistente_ia",
+        "email_marketing",
+        "embudos_de_venta"
+      ]
+    },
+    {
+      "herramientaId": "agiled",
+      "nombre": "Agiled",
+      "categoriaPrincipal": "plataformas-todo-en-uno",
+      "antes": [],
+      "despues": [
+        "crm",
+        "gestion-proyectos"
+      ],
+      "modulos": [
+        "crm",
+        "gestion_proyectos",
+        "facturacion",
+        "atencion_cliente",
+        "recursos_humanos"
+      ]
+    },
+    {
+      "herramientaId": "bitrix24",
+      "nombre": "Bitrix24",
+      "categoriaPrincipal": "plataformas-todo-en-uno",
+      "antes": [],
+      "despues": [
+        "crm",
+        "gestion-proyectos"
+      ],
+      "modulos": [
+        "crm",
+        "gestion_proyectos",
+        "asistente_ia",
+        "facturacion",
+        "email_marketing",
+        "atencion_cliente",
+        "embudos_de_venta",
+        "comercio_electronico",
+        "creador_de_sitios_web",
+        "recursos_humanos"
+      ]
+    },
+    {
+      "herramientaId": "clickfunnels",
+      "nombre": "ClickFunnels",
+      "categoriaPrincipal": "plataformas-todo-en-uno",
+      "antes": [],
+      "despues": [],
+      "modulos": [
+        "crm",
+        "asistente_ia",
+        "email_marketing",
+        "embudos_de_venta",
+        "comercio_electronico",
+        "creador_de_sitios_web"
+      ]
+    },
+    {
+      "herramientaId": "engagebay",
+      "nombre": "EngageBay",
+      "categoriaPrincipal": "plataformas-todo-en-uno",
+      "antes": [],
+      "despues": [
+        "crm"
+      ],
+      "modulos": [
+        "crm",
+        "email_marketing",
+        "atencion_cliente",
+        "embudos_de_venta",
+        "asistente_ia"
+      ]
+    },
+    {
+      "herramientaId": "freshsales",
+      "nombre": "Freshsales",
+      "categoriaPrincipal": "plataformas-todo-en-uno",
+      "antes": [],
+      "despues": [
+        "crm"
+      ],
+      "modulos": [
+        "crm",
+        "asistente_ia",
+        "email_marketing",
+        "embudos_de_venta"
+      ]
+    },
+    {
+      "herramientaId": "gohighlevel",
+      "nombre": "GoHighLevel",
+      "categoriaPrincipal": "plataformas-todo-en-uno",
+      "antes": [],
+      "despues": [
+        "crm"
+      ],
+      "modulos": [
+        "crm",
+        "asistente_ia",
+        "facturacion",
+        "email_marketing",
+        "atencion_cliente",
+        "embudos_de_venta",
+        "comercio_electronico",
+        "creador_de_sitios_web"
+      ]
+    },
+    {
+      "herramientaId": "honeybook",
+      "nombre": "HoneyBook",
+      "categoriaPrincipal": "plataformas-todo-en-uno",
+      "antes": [],
+      "despues": [],
+      "modulos": [
+        "crm",
+        "facturacion",
+        "gestion_proyectos",
+        "embudos_de_venta",
+        "asistente_ia"
+      ]
+    },
+    {
+      "herramientaId": "hubspot",
+      "nombre": "HubSpot",
+      "categoriaPrincipal": "plataformas-todo-en-uno",
+      "antes": [],
+      "despues": [
+        "crm"
+      ],
+      "modulos": [
+        "crm",
+        "asistente_ia",
+        "facturacion",
+        "email_marketing",
+        "atencion_cliente",
+        "embudos_de_venta",
+        "comercio_electronico",
+        "creador_de_sitios_web"
+      ]
+    },
+    {
+      "herramientaId": "kartra",
+      "nombre": "Kartra",
+      "categoriaPrincipal": "plataformas-todo-en-uno",
+      "antes": [],
+      "despues": [],
+      "modulos": [
+        "crm",
+        "email_marketing",
+        "embudos_de_venta",
+        "comercio_electronico",
+        "creador_de_sitios_web",
+        "atencion_cliente"
+      ]
+    },
+    {
+      "herramientaId": "keap",
+      "nombre": "Keap",
+      "categoriaPrincipal": "plataformas-todo-en-uno",
+      "antes": [],
+      "despues": [
+        "crm"
+      ],
+      "modulos": [
+        "crm",
+        "asistente_ia",
+        "facturacion",
+        "email_marketing",
+        "embudos_de_venta",
+        "comercio_electronico"
+      ]
+    },
+    {
+      "herramientaId": "monday-com",
+      "nombre": "monday.com",
+      "categoriaPrincipal": "gestion-proyectos",
+      "antes": [
+        "crm",
+        "plataformas-todo-en-uno"
+      ],
+      "despues": [
+        "crm",
+        "plataformas-todo-en-uno"
+      ],
+      "modulos": [
+        "crm",
+        "gestion_proyectos",
+        "asistente_ia",
+        "atencion_cliente",
+        "embudos_de_venta",
+        "recursos_humanos"
+      ]
+    },
+    {
+      "herramientaId": "odoo",
+      "nombre": "Odoo",
+      "categoriaPrincipal": "plataformas-todo-en-uno",
+      "antes": [],
+      "despues": [
+        "crm",
+        "gestion-proyectos"
+      ],
+      "modulos": [
+        "crm",
+        "gestion_proyectos",
+        "asistente_ia",
+        "facturacion",
+        "email_marketing",
+        "atencion_cliente",
+        "embudos_de_venta",
+        "comercio_electronico",
+        "creador_de_sitios_web",
+        "recursos_humanos"
+      ]
+    },
+    {
+      "herramientaId": "systeme-io",
+      "nombre": "Systeme.io",
+      "categoriaPrincipal": "plataformas-todo-en-uno",
+      "antes": [],
+      "despues": [
+        "crm"
+      ],
+      "modulos": [
+        "crm",
+        "email_marketing",
+        "embudos_de_venta",
+        "comercio_electronico",
+        "creador_de_sitios_web"
+      ]
+    },
+    {
+      "herramientaId": "zoho-one",
+      "nombre": "Zoho One",
+      "categoriaPrincipal": "plataformas-todo-en-uno",
+      "antes": [],
+      "despues": [
+        "crm",
+        "gestion-proyectos"
+      ],
+      "modulos": [
+        "crm",
+        "gestion_proyectos",
+        "asistente_ia",
+        "facturacion",
+        "email_marketing",
+        "atencion_cliente",
+        "embudos_de_venta",
+        "comercio_electronico",
+        "creador_de_sitios_web",
+        "recursos_humanos"
+      ]
+    }
+  ]
+}

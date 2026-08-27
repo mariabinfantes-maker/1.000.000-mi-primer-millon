@@ -139,8 +139,7 @@
   "fechaAltaEnAtlas": "2026-08-03",
   "fechaUltimaRevision": "2026-08-05",
   "problemasIds": [
-    "conseguir-clientes",
-    "automatizar-tareas"
+    "conseguir-clientes"
   ],
   "modulosIncluidos": [
     "crm",
@@ -149,5 +148,8 @@
     "comercio_electronico",
     "creador_de_sitios_web"
   ],
-  "tipoProducto": "suite"
+  "tipoProducto": "suite",
+  "categoriasSecundarias": [
+    "crm"
+  ]
 }

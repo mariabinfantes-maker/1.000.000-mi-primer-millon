@@ -112,5 +112,9 @@
     "creador_de_sitios_web",
     "recursos_humanos"
   ],
-  "tipoProducto": "suite"
+  "tipoProducto": "suite",
+  "categoriasSecundarias": [
+    "crm",
+    "gestion-proyectos"
+  ]
 }
