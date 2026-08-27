@@ -1021,7 +1021,7 @@ con la Capa 1 determinista, sin coste.
 
 ## Taxonomía de dos ejes y evaluación por rutas separadas
 
-**Registrada:** 2026-08-27. **Fusionada y desplegada el 2026-08-27** — ver "Despliegue del sprint" al final de esta sección.
+**Registrada:** 2026-08-27. **Fusionada, desplegada y REVERTIDA el mismo día** — ver "Despliegue del sprint" y "Reversión" al final de esta sección.
 
 Nace de una auditoría de solo lectura que encontró dos fallos de fondo: la
 taxonomía mezclaba dos preguntas en un solo campo, y las plataformas todo en
@@ -1270,3 +1270,31 @@ Curator (`npm run informe-curador`) y son contables:
    corregir los tres sesgos, y por eso no se le ha impuesto ningún límite de
    categorías secundarias. Queda como algo a vigilar si algún día se firma su
    afiliación.
+
+### Reversión del despliegue
+
+**El 2026-08-27, poco después del despliegue, la propietaria informó de que en
+molnip.com "ningún botón funciona, no se abre nada".** Fallo crítico en
+producción.
+
+Siguiendo la condición acordada para este despliegue —revertir y explicar, no
+improvisar arreglos sobre producción— se revirtió **únicamente** el merge del
+sprint:
+
+| | |
+|---|---|
+| Commit de reversión | `b5aef54` — revert de `0892a3d` |
+| Alcance | Solo el código. Se conservó a propósito este registro en `ATLAS.md`, para no perder la historia de lo ocurrido |
+| Comprobado tras revertir | El código queda byte a byte idéntico a `24adc8c`; build de producción y TypeScript limpios |
+
+El sprint **no está perdido**: sigue íntegro en la rama
+`claude/curator-taxonomia-rutas` y en la PR #32. Lo que falta es entender por
+qué algo que pasaba 677 pruebas, TypeScript, ESLint y build —y que se verificó
+página a página sobre un build de producción local— se comportó de otra forma
+en el sitio publicado.
+
+**Lección para el próximo intento:** ninguna de las comprobaciones automáticas
+de este sprint pulsaba un botón. Se verificó que las páginas respondían 200,
+que el sitemap era correcto y que las categorías internas daban 404, pero no
+que la interfaz siguiera siendo interactiva. Un fallo de hidratación del
+cliente no aparece en un `curl`, ni en una captura, ni en el build.
