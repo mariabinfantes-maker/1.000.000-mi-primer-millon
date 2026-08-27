@@ -1,6 +1,7 @@
 import type { Herramienta } from "@/data/esquema";
 import { categoriaTieneSubtipos, cubreCategoria, cubreSubtipo, subtiposDe, esSuite, tipoProductoDe } from "@/data/taxonomia";
 import { CRITERIOS } from "./criterios";
+import { filtrarPorNecesidad, preguntaParaAmbito } from "./preguntasDiferenciacion";
 import { criteriosDeRuta, rangoDeRuta } from "./criteriosRuta";
 import { compararTodoEnUnoVsEspecializada } from "./todoEnUnoVsEspecializada";
 import type {
@@ -180,7 +181,14 @@ function seleccionarCandidatas(herramientas: Herramienta[], respuestas: Respuest
     // Si la persona ha concretado qué tipo de herramienta busca, lo demás
     // no son alternativas suyas: se filtran, no se puntúan peor.
     const delSubtipo = deLaCategoria.filter((herramienta) => cubreSubtipo(herramienta, respuestas.subtipoId!));
-    return delSubtipo.length > 0 ? delSubtipo : deLaCategoria;
+    const base = delSubtipo.length > 0 ? delSubtipo : deLaCategoria;
+
+    // Y si además ha contestado a la pregunta de diferenciación de ese
+    // subtipo, se filtra por la capacidad que pidió. Igual que el filtro
+    // anterior: acota el conjunto comparable, no reordena ni puntúa.
+    const pregunta = preguntaParaAmbito(respuestas.categoriaId, respuestas.subtipoId);
+    if (!pregunta || !respuestas.necesidadDelSubtipo) return base;
+    return filtrarPorNecesidad(base, pregunta, respuestas.necesidadDelSubtipo).candidatas;
   }
 
   let universo = herramientas;
