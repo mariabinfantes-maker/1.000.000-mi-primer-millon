@@ -1811,3 +1811,36 @@ batería completa, 53 de 53 cada vez.
   catálogo por necesidad.
 - El piloto de afiliación y el alta de Systeme.io siguen **pausados e
   intactos** por decisión de la propietaria: 51 estrategias, sin tocar.
+
+### Despliegue de las preguntas de reuniones y CRM
+
+| | |
+|---|---|
+| Rama | `claude/preguntas-adaptativas-3` — commit `2ef02a6` |
+| Fusión a producción | `1dea126` sobre `claude/claude-md-docs-plkwnq` |
+| Pruebas sobre la fusión | 730 unitarias · TypeScript · ESLint · build · 53 E2E (escritorio y móvil) |
+
+Comprobado sobre el build desplegado:
+
+| Comprobación | Resultado |
+|---|---|
+| Pregunta de CRM | Aparece en `/categoria/crm/cuestionario`, sin necesitar parámetro |
+| Pregunta de reuniones | Aparece con `?subtipo=reuniones-transcripcion` |
+| Pregunta de escritura | Sigue apareciendo con `?subtipo=escritura` |
+| Dónde **no** aparece ninguna | Gestión de proyectos, plataformas todo en uno, asistentes-ia sin subtipo, subtipo vídeo, las puertas por objetivo y texto libre — **0 de 7** |
+| Escritorio y móvil | Las 53 pruebas E2E corren en ambos proyectos |
+| Resto de la web | Portada, Sobre, blog, legales, sitemap, robots, fichas y landings: 200 |
+| Categorías internas | 404 las cuatro comprobadas |
+| Panel de administración | 307 (sigue protegido) |
+
+**Elementos protegidos: diff completamente vacío** frente al despliegue
+anterior en portada, cabecera, componentes de interfaz, imágenes, Affiliate
+Manager, las 51 estrategias de afiliación, las 56 fichas, categorías,
+objetivos, seguridad, Upstash, esquema de base de datos y API de
+administración. El historial conserva sus 40 registros y Systeme.io sigue en
+`no_solicitado`: **el piloto de afiliación no se ha tocado.**
+
+Lo único modificado: los dos archivos de documentación, el módulo de preguntas,
+el motor, y sus pruebas.
+
+**Sprint cerrado, sin anomalías.**
