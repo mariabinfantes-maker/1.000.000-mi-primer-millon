@@ -24,12 +24,27 @@ export default defineConfig({
   },
   projects: [
     {
-      name: "chromium",
+      name: "escritorio",
       use: {
         ...devices["Desktop Chrome"],
         // El navegador ya viene instalado en el entorno; no se descarga otro.
         launchOptions: { executablePath: process.env.RUTA_CHROMIUM ?? "/opt/pw-browsers/chromium" },
       },
+    },
+    {
+      // El fallo del 2026-08-27 se vio también en un Android, y las pruebas
+      // de aquel día solo miraban a un escritorio. Aquí hay pantalla
+      // estrecha y dedo de verdad, que es donde el diseño se apila y las
+      // cosas se van fuera de la vista.
+      name: "movil",
+      use: {
+        ...devices["Pixel 5"],
+        launchOptions: { executablePath: process.env.RUTA_CHROMIUM ?? "/opt/pw-browsers/chromium" },
+      },
+      // En una pantalla táctil no existe "pasar el ratón por encima": el
+      // navegador ni siquiera aplica esos estilos. Esa comprobación solo
+      // tiene sentido en escritorio.
+      grepInvert: /@raton/,
     },
   ],
   webServer: {

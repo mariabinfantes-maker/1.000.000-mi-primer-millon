@@ -65,6 +65,46 @@ export default function SelectorEntrada({
     categoria: null,
     libre: null,
   });
+  const panelRef = useRef<HTMLDivElement>(null);
+  const esLaPrimeraVez = useRef(true);
+  // Cuenta cada activación, no solo los cambios: tocar la puerta que ya está
+  // activa también tiene que enseñarte lo que abre. Si no, quien toca
+  // "Empezar por objetivo" —que viene activa de fábrica— no ve moverse nada
+  // y concluye, con razón, que la tarjeta no funciona.
+  const [activaciones, setActivaciones] = useState(0);
+
+  function activar(puerta: Puerta) {
+    setPuertaActiva(puerta);
+    setActivaciones((n) => n + 1);
+  }
+
+  // En una pantalla ancha las tres puertas van en fila y lo que abren cae
+  // justo debajo, a la vista. En un móvil van apiladas, así que el contenido
+  // queda por debajo de las tres tarjetas: se toca una puerta y, desde donde
+  // está mirando la persona, no pasa nada.
+  //
+  // Pasó de verdad el 2026-08-27: "esas tres tarjetas no están desplegando
+  // nada". No estaban rotas — estaban fuera de la pantalla.
+  //
+  // Así que, al cambiar de puerta, se trae el contenido a la vista. Solo si
+  // hace falta: si ya se ve, no se mueve nada, para no dar un salto molesto
+  // a quien lo tenía delante.
+  useEffect(() => {
+    if (esLaPrimeraVez.current) {
+      esLaPrimeraVez.current = false;
+      return;
+    }
+    const panel = panelRef.current;
+    if (!panel) return;
+
+    const caja = panel.getBoundingClientRect();
+    const alturaVisible = Math.max(0, Math.min(caja.bottom, window.innerHeight) - Math.max(caja.top, 0));
+    const suficiente = Math.min(caja.height, window.innerHeight * 0.6);
+    if (alturaVisible >= suficiente) return;
+
+    const sinAnimacion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    panel.scrollIntoView({ block: "start", behavior: sinAnimacion ? "auto" : "smooth" });
+  }, [puertaActiva, activaciones]);
 
   // Patrón ARIA de tabs con activación automática: las flechas mueven el
   // foco Y seleccionan a la vez (como las pestañas nativas del navegador),
@@ -86,7 +126,7 @@ export default function SelectorEntrada({
     if (siguiente === null) return;
     evento.preventDefault();
     const puerta = PUERTAS[siguiente];
-    setPuertaActiva(puerta.id);
+    activar(puerta.id);
     botonesRef.current[puerta.id]?.focus();
   }
 
@@ -124,7 +164,7 @@ export default function SelectorEntrada({
                 aria-selected={activa}
                 aria-controls={`puerta-panel-${puerta.id}`}
                 tabIndex={activa ? 0 : -1}
-                onClick={() => setPuertaActiva(puerta.id)}
+                onClick={() => activar(puerta.id)}
                 onKeyDown={(evento) => alPulsarTecla(evento, indice)}
                 className={`mt-1 inline-flex items-center justify-center gap-1.5 rounded-xl px-4 py-2.5 text-sm font-semibold transition ${
                   activa
@@ -141,11 +181,14 @@ export default function SelectorEntrada({
       </div>
 
       <div
+        ref={panelRef}
         role="tabpanel"
         id={`puerta-panel-${puertaActiva}`}
         aria-labelledby={`puerta-tab-${puertaActiva}`}
         tabIndex={0}
-        className="mt-8"
+        // `scroll-mt-24` deja hueco para la cabecera pegada arriba: sin eso,
+        // el contenido se colocaría justo debajo de ella y quedaría tapado.
+        className="mt-8 scroll-mt-24"
       >
         {puertaActiva === "objetivo" && <PanelObjetivo problemas={problemas} />}
         {puertaActiva === "categoria" && <PanelCategoria categorias={categorias} />}
