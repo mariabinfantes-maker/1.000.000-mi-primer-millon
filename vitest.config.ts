@@ -1,5 +1,5 @@
 import path from "node:path";
-import { defineConfig } from "vitest/config";
+import { configDefaults, defineConfig } from "vitest/config";
 
 export default defineConfig({
   resolve: {
@@ -9,6 +9,9 @@ export default defineConfig({
   },
   test: {
     environment: "node",
+    // Las pruebas de `e2e/` las ejecuta Playwright con un navegador de
+    // verdad, no vitest: comparten la extensión `.spec.ts` pero no el motor.
+    exclude: [...configDefaults.exclude, "e2e/**"],
     globalSetup: "./vitest.global-setup.postgres.ts",
     // Varios archivos de test comparten el mismo Postgres local temporal
     // (un solo proceso para toda la ejecución, ver vitest.global-setup.postgres.ts)

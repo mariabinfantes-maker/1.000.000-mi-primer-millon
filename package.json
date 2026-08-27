@@ -9,6 +9,8 @@
     "lint": "eslint",
     "verificar-datos": "tsx data/verificar.ts",
     "test": "vitest run",
+    "e2e": "next build && playwright test",
+    "e2e:solo": "playwright test",
     "investigar-herramienta": "tsx agents/atlas-researcher/cli.ts",
     "investigar-lote": "tsx agents/atlas-researcher/cli-lote.ts",
     "promover-borrador": "tsx agents/atlas-researcher/cli-promover.ts",
@@ -38,6 +40,7 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/pg": "^8.23.1",
