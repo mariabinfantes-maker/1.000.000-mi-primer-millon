@@ -1388,3 +1388,88 @@ vitest, que comparte extensión pero no motor.
 | Commit que restaura el sprint | `7b55234` |
 | Rama de trabajo | `claude/recuperacion-cache` |
 | Rama de producción | `claude/claude-md-docs-plkwnq` (por defecto del repositorio; no existe `main`) |
+
+---
+
+## Corrección al registro anterior: la causa real era otra
+
+El apartado de arriba da por cerrada la investigación del 2026-08-27 con la
+caché de HTML como causa. **Eso fue precipitado.** La corrección de la caché
+es correcta y sigue en pie, pero no era lo que la propietaria estaba viendo.
+
+Tras desplegarla, siguió informando: **"en el móvil aún no funciona"**. Y
+después, la frase que resolvió el caso: **"esas tres tarjetas, empezar por
+objetivo, explorar por categoría, son las que no están desplegando nada"**.
+
+### La causa real
+
+Las tres puertas de entrada de "¿Cómo quieres empezar?" no son enlaces: son
+pestañas que cambian el contenido de debajo. En una pantalla ancha van en fila
+y ese contenido cae justo debajo, a la vista. **En un móvil se apilan**, así
+que lo que se abre queda por debajo de las tres tarjetas, fuera de donde la
+persona está mirando. Se toca, y desde su punto de vista no pasa nada.
+
+Medido en un móvil de 393 px: al tocar "Explorar por categoría" solo se veía
+el **27%** de lo que se abría; desde la tercera tarjeta, nada. En escritorio,
+el 81%.
+
+Y había un segundo motivo, más simple todavía: **"Empezar por objetivo" viene
+activa de fábrica.** Tocarla no cambiaba de pestaña, así que no movía nada en
+absoluto.
+
+### La corrección
+
+En `components/ui/SelectorEntrada.tsx`:
+
+- Al activar una puerta, su contenido **se trae a la vista**, con `scroll-mt-24`
+  para no quedar tapado por la cabecera pegada. Solo si hace falta: si ya se
+  ve, no se mueve nada. Respeta `prefers-reduced-motion`.
+- Se cuenta **cada activación**, no solo los cambios, para que tocar la puerta
+  que ya está activa también enseñe lo que abre.
+
+Diseño, textos y estructura de las tarjetas, intactos.
+
+### Por qué ninguna prueba lo vio, otra vez
+
+La prueba de aquel día comprobaba que los enlaces ofrecidos **cambiaran**. Y
+cambiaban. Salía en verde mientras la persona no veía absolutamente nada.
+
+**Comprobar el DOM no es comprobar la pantalla.** La prueba nueva mide lo que
+importa —que el contenido esté de verdad dentro del viewport— y se verificó al
+revés: sin la corrección falla en dos de las tres puertas, exactamente lo que
+se veía en el móvil.
+
+Se añade además **el móvil como entorno de pruebas propio** (Pixel 5, pantalla
+estrecha y táctil). Ese era el hueco: todas las pruebas anteriores miraban a
+un escritorio de 1280 px, donde el diseño no se apila y el fallo no existe.
+Las comprobaciones de "pasar el ratón" quedan solo en escritorio, porque en una
+pantalla táctil el navegador ni siquiera aplica esos estilos.
+
+### Lecciones, más allá de esta corrección
+
+1. **Una prueba en verde no es una persona satisfecha.** Dos veces seguidas
+   hubo baterías completas en verde sobre una web que la propietaria no podía
+   usar. Ambas veces la prueba medía algo cierto pero irrelevante.
+2. **Diagnosticar con seguridad antes de tener la prueba cuesta caro.** La
+   causa de la caché se presentó como cerrada midiendo un servidor local, no
+   molnip.com, al que este entorno no tiene acceso. Era una hipótesis razonable
+   presentada como conclusión.
+3. **Quien usa el producto describe el síntoma mejor que cualquier
+   diagnóstico.** "Esas tres tarjetas no están desplegando nada" acotó en una
+   frase lo que varias horas de hipótesis no habían acotado.
+4. **Lo que en escritorio es una fila, en móvil es una columna.** Cualquier
+   patrón donde el control y su efecto están separados verticalmente necesita
+   comprobarse en pantalla estrecha.
+
+### Registro del despliegue
+
+| | |
+|---|---|
+| Corrección de la caché, recuperación de versión y tarjetas | `87ad5ac` |
+| Restauración del sprint de la PR #32 | `7b55234` |
+| Fusión a producción | `f9338cf` |
+| Puertas de entrada visibles en móvil | `cc7135f` |
+| Fusión a producción | `1550c3e` |
+| Rama de producción | `claude/claude-md-docs-plkwnq` |
+| Pruebas | 696 unitarias, TypeScript, ESLint, build y 41 E2E (escritorio y móvil) |
+| **Resultado en producción** | **Confirmado por la propietaria el 2026-08-27: funciona en el móvil.** |
