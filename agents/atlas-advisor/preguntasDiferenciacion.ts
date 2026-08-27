@@ -53,10 +53,11 @@ export type OpcionDiferenciacion = {
 };
 
 export type PreguntaDiferenciacion = {
-  /** Ámbito donde aplica: "<categoriaId>/<subtipoId>". Fuera de él, la pregunta no existe. */
+  /** Ámbito donde aplica: "<categoriaId>" o "<categoriaId>/<subtipoId>". Fuera de él, la pregunta no existe. */
   ambito: string;
   categoriaId: string;
-  subtipoId: string;
+  /** Cuando falta, la pregunta cubre la categoría entera — es el caso de las categorías sin subtipos, como CRM. */
+  subtipoId?: string;
   enunciado: string;
   opciones: OpcionDiferenciacion[];
 };
@@ -91,6 +92,76 @@ export const PREGUNTAS_DIFERENCIACION: PreguntaDiferenciacion[] = [
       },
     ],
   },
+  {
+    ambito: "asistentes-ia/reuniones-transcripcion",
+    categoriaId: "asistentes-ia",
+    subtipoId: "reuniones-transcripcion",
+    enunciado: "¿Qué te falta en tus reuniones?",
+    opciones: [
+      {
+        id: "que-se-oiga-bien",
+        etiqueta: "Que se oiga bien, sin ruido de fondo",
+        descripcion: "Obras, teclado, oficina abierta o una conexión regular.",
+        // Solo lo declara quien trabaja la calidad del audio, no la transcripción.
+        senal: /cancelaci[óo]n de (ruido|eco)|ruido ambiental|inteligibilidad|localizaci[óo]n de acentos/i,
+      },
+      {
+        id: "que-asista-por-mi",
+        etiqueta: "Que se una y tome notas aunque yo no pueda ir",
+        descripcion: "Reuniones a la vez, o a las que no llegas.",
+        // Solo lo declara quien manda un bot a la reunión en tu lugar.
+        senal: /bot autom[áa]tico para unirse|reuniones simult[áa]neas|capturas de pantalla de presentaciones/i,
+      },
+      {
+        id: "analizar-y-volcar",
+        etiqueta: "Analizar cómo hablamos y volcarlo a mis herramientas",
+        descripcion: "Tiempo de intervención de cada uno, temas, y que llegue al CRM.",
+        // Solo lo declara quien mide la conversación y la sincroniza fuera.
+        senal: /tiempo de intervenci[óo]n|m[ée]tricas de hablantes|an[áa]lisis de conversaci[óo]n|sincronizaci[óo]n automatizada con crm/i,
+      },
+      {
+        id: "editar-y-publicar",
+        etiqueta: "Editar la grabación y publicarla",
+        descripcion: "Quitar muletillas, poner subtítulos y dejarla presentable.",
+        // Solo lo declara quien edita el material después.
+        senal: /edici[óo]n de v[íi]deo y audio|eliminaci[óo]n autom[áa]tica de muletillas|subt[íi]tulos autom[áa]ticos|clonaci[óo]n de voz/i,
+      },
+    ],
+  },
+  {
+    ambito: "crm",
+    categoriaId: "crm",
+    enunciado: "¿Qué es lo que más te va a ayudar de un CRM?",
+    opciones: [
+      {
+        id: "dentro-del-correo",
+        etiqueta: "Que viva dentro de mi correo, donde ya trabajo",
+        descripcion: "Gmail o Outlook, sin tener que abrir otra pestaña.",
+        senal: /nativ[ao] e (invisible|interactiva) con (gmail|google workspace)|incrustado directamente en la interfaz web de gmail|integraci[óo]n (directa |nativa )?.{0,24}(gmail|outlook)|bandeja de entrada de gmail|sincronizaci[óo]n de calendario y contactos con/i,
+      },
+      {
+        id: "captura-sola",
+        etiqueta: "Que rellene los datos solo, sin que yo los meta",
+        descripcion: "Que capture contactos e historial sin tecleo manual.",
+        senal: /captura y actualizaci[óo]n autom[áa]tica|enriquecimiento autom[áa]tico de perfiles|entrada manual de datos|introducci[óo]n manual de datos/i,
+      },
+      {
+        id: "sin-funciones-de-sobra",
+        etiqueta: "Que sea sencillo, sin funciones que no voy a usar",
+        descripcion: "Para equipos que no quieren un CRM enorme.",
+        // Señal estricta a propósito: buscar "sencillo" a secas cazaba
+        // "módulo sencillo de RRHH" y "proyectos simples", que no dicen nada
+        // sobre lo sencillo que es el CRM.
+        senal: /complejidad excesiva|exceso de funciones no utilizadas|interfaz extremadamente sencilla|baja adopci[óo]n del software/i,
+      },
+      {
+        id: "llamar-desde-dentro",
+        etiqueta: "Poder llamar y mandar SMS desde el propio CRM",
+        descripcion: "Sin cambiar de aplicación para telefonear.",
+        senal: /telefon[íi]a voip integrada|marcador telef[óo]nico integrado|telefon[íi]a integrando llamadas voip/i,
+      },
+    ],
+  },
 ];
 
 /**
@@ -106,8 +177,10 @@ export function preguntaParaAmbito(
   categoriaId: string | undefined,
   subtipoId: string | undefined
 ): PreguntaDiferenciacion | undefined {
-  if (!categoriaId || !subtipoId) return undefined;
-  return PREGUNTAS_DIFERENCIACION.find((p) => p.categoriaId === categoriaId && p.subtipoId === subtipoId);
+  if (!categoriaId) return undefined;
+  return PREGUNTAS_DIFERENCIACION.find(
+    (p) => p.categoriaId === categoriaId && (p.subtipoId ?? undefined) === (subtipoId ?? undefined)
+  );
 }
 
 /**

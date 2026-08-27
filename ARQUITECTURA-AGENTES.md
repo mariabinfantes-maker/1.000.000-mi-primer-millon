@@ -494,3 +494,21 @@ avisa de que la pregunta sobra. Preguntar de más también cuesta.
 **Si nadie declara la capacidad**, se conserva el conjunto completo y se
 devuelve un aviso. Antes enseñar de más que dejar a una persona sin
 recomendación por una necesidad que el catálogo todavía no sabe atender.
+
+### Ámbitos con y sin subtipo
+
+Una pregunta de diferenciación se declara sobre un **ámbito**, que puede ser un
+subtipo (`asistentes-ia/escritura`) o una categoría entera (`crm`, que no tiene
+subtipos). `preguntaParaAmbito` empareja categoría y subtipo, tratando la
+ausencia de subtipo como un valor más.
+
+Esa distinción escondía un fallo: el motor salía antes de aplicar el filtro
+cuando no había subtipo, de modo que en los ámbitos de categoría entera la
+respuesta no hacía nada. Lo cazó la prueba que exige que la ganadora de cada
+respuesta sea la que ya iba primera **entre las que declaran esa capacidad**:
+ganaba una que no la declaraba.
+
+**Un ámbito solo recibe pregunta si la concentración medida la justifica.**
+Gestión de proyectos está al 75% y se quedó fuera: sus candidatas sí son
+alternativas reales entre sí, y añadirle una pregunta habría sido inventar una
+necesidad para justificar el trabajo.
