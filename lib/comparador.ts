@@ -43,6 +43,27 @@ export const EXPLICACION_CRITERIO: Record<string, string> = {
   idioma: "Si está disponible en el idioma que necesitas.",
   casosNoRecomendados: "Si tu situación coincide con algún caso en el que esta herramienta no es la mejor opción.",
   metodologia: "Qué tan contrastada está la valoración: solo editorial o también con datos de uso reales.",
+  nivelTecnicoRecomendado: "Si el nivel técnico que pide encaja con el de tu equipo.",
+  tipoNegocioIdeal: "Si el tipo de negocio para el que está pensada se parece al tuyo.",
+
+  // Ruta "plataforma todo en uno".
+  coberturaUtil: "Cuántas de las áreas que nos has pedido cubre en un solo producto.",
+  calidadConjunta: "Si además de cubrir mucho, sus módulos están bien hechos.",
+  integracionNativa: "Si sus módulos comparten datos de verdad o son piezas pegadas.",
+  facilidadAdministracion: "Si una sola persona puede llevar la plataforma entera.",
+  costeTotalFrenteAVarias: "Cuánto ahorras frente a contratar varias herramientas por separado.",
+  escalabilidadSuite: "Si aguanta el crecimiento sin obligarte a cambiar de plataforma.",
+  riesgoDependencia: "Cuánto ata tu negocio a un único proveedor.",
+
+  // Ruta "herramienta especializada".
+  profundidadFuncional: "Cuánto llega a fondo en su especialidad frente a sus alternativas directas.",
+  calidadEnLaTarea: "Qué tan bien hace aquello para lo que está pensada.",
+  adaptacionAlSector: "Si está pensada específicamente para empresas como la tuya.",
+  funcionesAvanzadas: "Si puedes llevarla más allá de lo que trae de serie.",
+  integracionesConTerceros: "Si se conecta bien con el resto de tus herramientas.",
+  facilidadEnSuEspecialidad: "Qué tan cómoda resulta en el día a día.",
+  precioFrenteAlValor: "Si puedes probarla a fondo antes de pagar.",
+  superioridadFrenteAlModulo: "Si hace esta función mejor que el módulo de una plataforma todo en uno.",
 };
 
 export function construirComparativa(evaluadas: HerramientaEvaluada[]): FilaComparativa[] {
@@ -93,7 +114,21 @@ export function construirComparativa(evaluadas: HerramientaEvaluada[]): FilaComp
     });
   }
 
-  const idsCriterios = evaluadas[0].detalles.map((detalle) => detalle.criterio);
+  // Solo se comparan los criterios que TODAS las herramientas comparten.
+  // Una suite y una especializada se evalúan con criterios distintos a
+  // propósito (ver `agents/atlas-advisor/criteriosRuta.ts`): enfrentarlas
+  // en un criterio que solo una de las dos tiene daría siempre 0 puntos a
+  // la otra y leería como una derrota, cuando en realidad es que esa
+  // pregunta no se le hace. En una comparación entre herramientas del
+  // mismo tipo, la intersección son todos sus criterios y no se pierde
+  // nada.
+  const idsComunes = evaluadas
+    .map((evaluada) => new Set(evaluada.detalles.map((detalle) => detalle.criterio)))
+    .reduce((interseccion, ids) => new Set([...interseccion].filter((id) => ids.has(id))));
+
+  const idsCriterios = evaluadas[0].detalles
+    .map((detalle) => detalle.criterio)
+    .filter((id) => idsComunes.has(id));
 
   for (const criterioId of idsCriterios) {
     const porHerramienta = evaluadas.map((evaluada) => ({

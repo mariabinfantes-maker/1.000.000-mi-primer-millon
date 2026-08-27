@@ -47,6 +47,24 @@ export type EstadoHerramienta = "activo" | "descontinuado" | "en_revision";
  * no tiene una categoría propia, así queda representado el dato aunque el
  * catálogo aún no tenga una categoría dedicada para monetizarlo.
  */
+/**
+ * Añadido: condición de producto, eje independiente de la categoría
+ * funcional (`Herramienta.categoriaId`).
+ *
+ *  - "suite": cubre de verdad varias funciones bajo un mismo producto y
+ *    una misma base de datos. Se evalúa por integración, centralización,
+ *    cobertura ÚTIL, calidad conjunta de sus módulos, administración,
+ *    coste total y dependencia de un solo proveedor.
+ *  - "especializada": resuelve una función a fondo. Se evalúa por
+ *    profundidad, calidad en esa tarea, encaje sectorial, integraciones
+ *    con terceros y ventaja frente al módulo equivalente de una suite.
+ *
+ * Declararse "suite" NO es gratis: Curator comprueba que haya módulos
+ * reales detrás (`modulosIncluidos`) y avisa de quien reclama amplitud
+ * que no tiene.
+ */
+export type TipoProducto = "suite" | "especializada";
+
 export type ModuloSuite =
   | "crm"
   | "gestion_proyectos"
@@ -70,10 +88,25 @@ export type ModuloSuite =
  */
 export type CurvaDeAprendizaje = "muy_facil" | "facil" | "media" | "dificil";
 
+/**
+ * Añadido: una categoría nueva no se publica el día que se declara. Nace
+ * "pendiente" (existe para el catálogo interno, para que Curator la mida y
+ * para que Researcher sepa qué investigar) y solo pasa a "publica" cuando
+ * de verdad tiene alternativas suficientes que ofrecer — publicar una
+ * categoría con una sola herramienta no es un comparador, es un anuncio.
+ * El paso de "pendiente" a "publica" lo propone Curator y lo decide una
+ * persona; nunca ocurre solo.
+ *
+ * Opcional a propósito: las cuatro categorías históricas no lo declaraban,
+ * y `undefined` se trata como "publica" para no romperlas.
+ */
+export type EstadoCategoria = "publica" | "pendiente";
+
 export type Categoria = {
   id: string;
   nombre: string;
   descripcion: string;
+  estado?: EstadoCategoria;
 };
 
 /**
@@ -237,8 +270,36 @@ export type Herramienta = {
   /** Añadido: para cuando exista comparador visual; vacío por ahora, no bloquea nada. */
   logoUrl?: string;
 
-  /** Referencia a Categoria.id. Un único valor por ahora — la primera categoría es "plataformas-todo-en-uno". */
+  /**
+   * Categoría funcional PRINCIPAL (referencia a `Categoria.id`): qué hace
+   * esta herramienta, no de qué tipo de producto es. Son dos ejes
+   * distintos y mezclarlos fue el error de la taxonomía original: había
+   * que clasificar una herramienta como "plataformas-todo-en-uno" —
+   * perdiendo su función real — para reconocer que era una suite. Desde
+   * ahora la condición de suite vive en `tipoProducto`.
+   */
   categoriaId: string;
+  /**
+   * Añadido: categorías funcionales ADICIONALES que la herramienta cubre
+   * de verdad. Existe para que una suite pueda aparecer donde
+   * legítimamente compite sin tener que falsear su categoría principal —
+   * y para que ninguna herramienta se declare "todo en uno" solo para
+   * salir en más sitios. Opcional: la inmensa mayoría del catálogo tiene
+   * una única categoría real.
+   */
+  categoriasSecundarias?: string[];
+  /**
+   * Añadido: eje independiente de la categoría funcional. Una suite y una
+   * especializada se evalúan con reglas distintas (ver
+   * `agents/atlas-advisor/criteriosSuite.ts` y `criteriosEspecializada.ts`),
+   * así que el motor necesita saberlo sin deducirlo de `categoriaId`.
+   *
+   * Opcional por compatibilidad con las fichas anteriores a este campo:
+   * cuando falta, `esSuite()` lo deduce de la categoría histórica
+   * "plataformas-todo-en-uno". Declararlo siempre es lo correcto — Curator
+   * avisa de las fichas que aún no lo hacen.
+   */
+  tipoProducto?: TipoProducto;
 
   descripcion: string;
   problemasQueResuelve: string[];
@@ -304,6 +365,20 @@ export type Herramienta = {
   tienePlanGratuito: boolean;
   /** Añadido: no siempre el precio de entrada (`precioInicial`) es el plan que de verdad le conviene a una pyme — a veces hace falta un plan intermedio para desbloquear lo esencial. Texto libre, ej. "Plan Professional a 45€/usuario/mes". */
   precioRecomendadoPymes?: string;
+
+  /**
+   * Añadido: dónde se puede CONTRATAR y usar de verdad la herramienta —
+   * no dónde está la empresa fabricante (eso es `informacionEmpresa.pais`).
+   * Importa porque Molnip recomienda a pymes españolas: una herramienta
+   * excelente que no factura en la UE, no cumple el RGPD o no acepta
+   * pagos desde España no le sirve a quien la lee.
+   *
+   * Códigos ISO 3166-1 alfa-2 en mayúsculas ("ES", "MX"), o el valor
+   * "GLOBAL" cuando no hay restricción territorial. Opcional porque
+   * ninguna ficha del catálogo actual lo tiene investigado todavía:
+   * Curator lo reporta como pendiente de investigación, nunca lo inventa.
+   */
+  disponibilidadGeografica?: string[];
 
   idiomasDisponibles: string[];
   /** Añadido: derivado de `idiomasDisponibles`, pero como booleano explícito — ese array a veces es texto ambiguo (ej. "más de 40 idiomas"), y comprobar "¿hay español?" a mano no es fiable. */

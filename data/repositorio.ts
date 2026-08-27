@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { Categoria, Herramienta, Post, Problema } from "./esquema";
+import { cubreCategoria, esCategoriaPublica } from "./taxonomia";
+import { RANGOS_EMPLEADOS } from "@/lib/cuestionario";
 
 /**
  * Capa de acceso a la base de conocimiento de Atlas.
@@ -23,6 +25,9 @@ const DIR_HERRAMIENTAS = path.join(DIR_DATOS, "herramientas");
 const DIR_POSTS = path.join(DIR_DATOS, "posts");
 const RUTA_CATEGORIAS = path.join(DIR_DATOS, "categorias.json");
 const RUTA_PROBLEMAS = path.join(DIR_DATOS, "problemas.json");
+
+/** Tramos de tamaño de empresa que el cuestionario puede llegar a enviar. Cualquier otro valor en una ficha es un dato muerto. */
+const RANGOS_EMPLEADOS_VALIDOS = new Set<string>(RANGOS_EMPLEADOS.map((r) => r.valor));
 
 const CAMPOS_TEXTO_OBLIGATORIOS: (keyof Herramienta)[] = [
   "id",
@@ -129,6 +134,54 @@ export function validarHerramienta(datos: unknown, nombreArchivo: string): Herra
   // el rango equivocado, sigue mereciendo la pena detectarlo aquí.
   errorNumeroEnRango(errores, 'puntuaciones.facilidadImplementacion', puntuaciones?.facilidadImplementacion, 1, 10);
   errorBooleanoSiPresente(errores, "disponibleEnEspanol", h.disponibleEnEspanol);
+
+  // `segmentosIdeales` es obligatorio y ya se comprueba arriba que sea un
+  // array no vacío — pero no que sus valores existan. Un tramo inventado
+  // ("2-10") no rompe nada: simplemente nunca coincide con la respuesta
+  // del cuestionario, así que la herramienta pierde puntos en silencio y
+  // nadie se entera. Los tramos válidos son los de `RANGOS_EMPLEADOS`.
+  if (Array.isArray(h.segmentosIdeales)) {
+    const invalidos = (h.segmentosIdeales as unknown[]).filter(
+      (valor) => typeof valor !== "string" || !RANGOS_EMPLEADOS_VALIDOS.has(valor)
+    );
+    if (invalidos.length > 0) {
+      errores.push(
+        `"segmentosIdeales" contiene tramos que no existen: ${invalidos.map((v) => JSON.stringify(v)).join(", ")}. ` +
+          `Los válidos son: ${[...RANGOS_EMPLEADOS_VALIDOS].join(", ")}`
+      );
+    }
+  }
+
+  if (h.tipoProducto !== undefined && h.tipoProducto !== "suite" && h.tipoProducto !== "especializada") {
+    errores.push('"tipoProducto" debe ser "suite" o "especializada"');
+  }
+
+  if (h.categoriasSecundarias !== undefined) {
+    if (!Array.isArray(h.categoriasSecundarias)) {
+      errores.push('"categoriasSecundarias" debe ser un array de ids de categoría');
+    } else {
+      if ((h.categoriasSecundarias as unknown[]).some((id) => typeof id !== "string" || id.trim() === "")) {
+        errores.push('"categoriasSecundarias" solo puede contener ids de categoría no vacíos');
+      }
+      if ((h.categoriasSecundarias as unknown[]).includes(h.categoriaId)) {
+        errores.push('"categoriasSecundarias" no puede repetir la categoría principal');
+      }
+    }
+  }
+
+  if (h.disponibilidadGeografica !== undefined) {
+    if (!Array.isArray(h.disponibilidadGeografica) || (h.disponibilidadGeografica as unknown[]).length === 0) {
+      errores.push('"disponibilidadGeografica" debe ser un array no vacío');
+    } else {
+      const malFormados = (h.disponibilidadGeografica as unknown[]).filter(
+        (valor) => typeof valor !== "string" || !/^([A-Z]{2}|GLOBAL)$/.test(valor)
+      );
+      if (malFormados.length > 0) {
+        errores.push('"disponibilidadGeografica" usa códigos ISO de dos letras en mayúsculas, o "GLOBAL"');
+      }
+    }
+  }
+
   errorBooleanoSiPresente(errores, "tieneAppMovil", h.tieneAppMovil);
   errorBooleanoSiPresente(errores, "tieneApiPublica", h.tieneApiPublica);
 
@@ -266,8 +319,14 @@ export function getHerramienta(id: string): Herramienta | undefined {
   return getHerramientas().find((h) => h.id === id);
 }
 
+/**
+ * Herramientas de una categoría, contando también las que la declaran como
+ * SECUNDARIA (`categoriasSecundarias`). Antes solo miraba la principal, y
+ * eso obligaba a falsear la categoría de una herramienta para que
+ * apareciera donde legítimamente compite — ver `data/taxonomia.ts`.
+ */
 export function getHerramientasPorCategoria(categoriaId: string): Herramienta[] {
-  return getHerramientas().filter((h) => h.categoriaId === categoriaId);
+  return getHerramientas().filter((h) => cubreCategoria(h, categoriaId));
 }
 
 /** Herramientas cuyo `problemasIds` incluye `problemaId` — nunca inventa una coincidencia por texto, solo la referencia editorial explícita. Usada por la landing SEO de cada objetivo y, desde el motor de recomendación, para prefiltrar el catálogo en las puertas "por objetivo" y "Cuéntanoslo" (ver `agents/atlas-advisor/motor.ts`). */
@@ -277,15 +336,34 @@ export function getHerramientasPorProblema(problemaId: string): Herramienta[] {
 
 let cacheCategorias: Categoria[] | null = null;
 
-export function getCategorias(): Categoria[] {
+/**
+ * TODAS las categorías declaradas, incluidas las que todavía están
+ * "pendiente" — las que existen para que Curator las mida y Researcher
+ * sepa qué investigar, pero que aún no tienen alternativas suficientes
+ * para enseñárselas a nadie.
+ *
+ * Para cualquier cosa que vea un visitante, usa `getCategorias()`.
+ */
+export function getTodasLasCategorias(): Categoria[] {
   if (cacheCategorias) return cacheCategorias;
   const contenido = fs.readFileSync(RUTA_CATEGORIAS, "utf-8");
   cacheCategorias = JSON.parse(contenido) as Categoria[];
   return cacheCategorias;
 }
 
+/**
+ * Categorías PÚBLICAS: las únicas que se enseñan en la web, se generan
+ * como página, entran en el sitemap o se ofrecen como puerta del
+ * cuestionario. Una categoría recién declarada no aparece aquí hasta que
+ * una persona decide publicarla — ver `EstadoCategoria` en `esquema.ts`.
+ */
+export function getCategorias(): Categoria[] {
+  return getTodasLasCategorias().filter(esCategoriaPublica);
+}
+
+/** Busca entre TODAS las categorías, públicas o no — quien necesite restringirse a las públicas debe comprobar `esCategoriaPublica`. */
 export function getCategoria(id: string): Categoria | undefined {
-  return getCategorias().find((c) => c.id === id);
+  return getTodasLasCategorias().find((c) => c.id === id);
 }
 
 let cacheProblemas: Problema[] | null = null;

@@ -3,7 +3,7 @@ import path from "node:path";
 import type { Pool } from "pg";
 import type { Herramienta } from "@/data/esquema";
 import type { AffiliateData, CuentaAfiliado, EstrategiaAfiliacion } from "@/data/esquemaInterno";
-import { getCategorias, getTodasLasHerramientas, validarHerramienta } from "@/data/repositorio";
+import { getTodasLasCategorias, getTodasLasHerramientas, validarHerramienta } from "@/data/repositorio";
 import { getEstrategiaAfiliacion, guardarEstrategiaAfiliacion } from "@/data/repositorioEstrategiaAfiliacion";
 import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
 import { detectarCasiDuplicados } from "@/agents/atlas-curator/duplicados";
@@ -115,7 +115,7 @@ export async function promoverBorrador(id: string, opciones: OpcionesPromocion =
   let anulacionDuplicadoAplicada: string | null = null;
 
   if (herramienta) {
-    const idsCategorias = new Set(getCategorias().map((c) => c.id));
+    const idsCategorias = new Set(getTodasLasCategorias().map((c) => c.id));
     if (!idsCategorias.has(herramienta.categoriaId)) {
       errores.push(`"${id}" referencia una categoría inexistente: "${herramienta.categoriaId}".`);
     }
