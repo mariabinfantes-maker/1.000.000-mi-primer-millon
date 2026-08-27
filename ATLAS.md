@@ -1741,3 +1741,73 @@ inventado, en CRM, ni en ninguna de las puertas por objetivo o de texto libre.
 El resto de la web responde igual y las categorías internas siguen en 404.
 
 **Piloto cerrado. No queda trabajo pendiente de este sprint.**
+
+---
+
+## Preguntas adaptativas en reuniones y CRM (2026-08-27)
+
+Extensión del principio validado en escritura. **Auditados los tres ámbitos
+antes de escribir código**, con este resultado:
+
+| Ámbito | Herramientas | Concentración | ¿Cumple el umbral? |
+|---|---|---|---|
+| asistentes-ia / reuniones-transcripción | 4 | **100%** (Fireflies.ai) | Sí |
+| CRM | 27 | **95%** (Zoho CRM) | Sí |
+| Gestión de proyectos | 19 | **75%** (Asana) | **No** |
+
+**Gestión de proyectos se queda fuera**, y a propósito. No llega al 90%, y sus
+candidatas sí son sustituibles entre sí: un gestor generalista y uno
+especializado en Gantt compiten por el mismo trabajo, a diferencia de un
+corrector de textos y un generador de vídeo. Añadirle una pregunta habría sido
+inventarle una necesidad al usuario para justificar el trabajo.
+
+### Resultado medido
+
+| Ámbito | Concentración | Ganadoras distintas |
+|---|---|---|
+| escritura | 100% → **33%** | 1 → 3 |
+| reuniones y transcripción | 100% → **25%** | 1 → 4 |
+| **CRM** | 95% → **23%** | 2 → **7** |
+
+CRM es el mejor caso de los tres: **cada respuesta deja 2 o 3 finalistas
+reales**, así que hay comparación de verdad — no como en escritura, donde cada
+respuesta deja una sola herramienta.
+
+| Respuesta en CRM | Finalistas |
+|---|---|
+| Que viva dentro de mi correo | Capsule CRM 88% · Copper 13% |
+| Que rellene los datos solo | Salesflare 75% · Copper 25% |
+| Sencillo, sin funciones de sobra | noCRM.io 60% · Less Annoying CRM 40% |
+| Llamar y mandar SMS desde el CRM | Agile CRM 60% · Salesmate 40% |
+
+### Dos errores propios que la auditoría destapó
+
+**Un eje construido sobre falsos positivos.** La primera versión del eje
+"sencillo para empezar" buscaba las palabras "sencillo" o "simple" y cazaba a
+Agiled por *"módulo sencillo de RRHH"* y a Capsule CRM por *"proyectos
+simples"* — nada que ver con lo sencillo que sea el CRM. La medición que salió
+de ahí era basura. La señal definitiva exige una afirmación de posicionamiento
+("complejidad excesiva", "exceso de funciones no utilizadas", "interfaz
+extremadamente sencilla"), y deja dos herramientas que sí lo declaran.
+Lección: **verificar el texto que activa cada señal, uno a uno, antes de medir
+nada con ella.**
+
+**Un fallo real en el motor.** `seleccionarCandidatas` salía antes de aplicar
+el filtro de necesidad cuando no había subtipo, así que en CRM —una categoría
+sin subtipos— la respuesta no hacía absolutamente nada. Lo detectó la prueba de
+"ninguna ganadora es promocionada": ganaba una herramienta que ni siquiera
+declaraba la capacidad pedida. Corregido.
+
+**Y una prueba intermitente.** La de "tocar una puerta enseña lo que abre"
+esperaba un tiempo fijo a que terminara el desplazamiento suave, y fallaba bajo
+carga. Ahora sondea hasta que llega. Comprobado: tres pasadas seguidas de la
+batería completa, 53 de 53 cada vez.
+
+### Trabajo pendiente
+
+- **Gestión de proyectos**: sin pregunta, por decisión medida. Si algún día su
+  concentración sube del 90%, la garantía de concentración avisará.
+- **Escritura**: sigue dando una sola candidata por respuesta. Hace falta más
+  catálogo por necesidad.
+- El piloto de afiliación y el alta de Systeme.io siguen **pausados e
+  intactos** por decisión de la propietaria: 51 estrategias, sin tocar.

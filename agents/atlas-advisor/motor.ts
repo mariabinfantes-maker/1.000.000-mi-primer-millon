@@ -177,15 +177,23 @@ export function evaluarHerramienta(
 function seleccionarCandidatas(herramientas: Herramienta[], respuestas: RespuestasUsuario): Herramienta[] {
   if (respuestas.categoriaId) {
     const deLaCategoria = herramientas.filter((herramienta) => cubreCategoria(herramienta, respuestas.categoriaId!));
-    if (!respuestas.subtipoId) return deLaCategoria;
     // Si la persona ha concretado qué tipo de herramienta busca, lo demás
     // no son alternativas suyas: se filtran, no se puntúan peor.
-    const delSubtipo = deLaCategoria.filter((herramienta) => cubreSubtipo(herramienta, respuestas.subtipoId!));
-    const base = delSubtipo.length > 0 ? delSubtipo : deLaCategoria;
+    let base = deLaCategoria;
+    if (respuestas.subtipoId) {
+      const delSubtipo = deLaCategoria.filter((herramienta) => cubreSubtipo(herramienta, respuestas.subtipoId!));
+      if (delSubtipo.length > 0) base = delSubtipo;
+    }
 
     // Y si además ha contestado a la pregunta de diferenciación de ese
-    // subtipo, se filtra por la capacidad que pidió. Igual que el filtro
+    // ámbito, se filtra por la capacidad que pidió. Igual que el filtro
     // anterior: acota el conjunto comparable, no reordena ni puntúa.
+    //
+    // Ojo: hay ámbitos SIN subtipo — una categoría entera, como CRM. Antes
+    // se salía aquí en cuanto faltaba el subtipo, así que en esos ámbitos la
+    // respuesta no hacía absolutamente nada. Lo detectó la prueba de "ninguna
+    // ganadora es promocionada": salía ganando una herramienta que ni
+    // siquiera declaraba la capacidad pedida.
     const pregunta = preguntaParaAmbito(respuestas.categoriaId, respuestas.subtipoId);
     if (!pregunta || !respuestas.necesidadDelSubtipo) return base;
     return filtrarPorNecesidad(base, pregunta, respuestas.necesidadDelSubtipo).candidatas;

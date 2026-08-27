@@ -8,7 +8,7 @@ import {
   filtrarPorNecesidad,
   preguntaParaAmbito,
 } from "../preguntasDiferenciacion";
-import { cubreSubtipo } from "@/data/taxonomia";
+import { cubreCategoria, cubreSubtipo } from "@/data/taxonomia";
 import type { RespuestasUsuario } from "../tipos";
 
 /**
@@ -27,28 +27,42 @@ const escritura = herramientas.filter((h) => cubreSubtipo(h, "escritura"));
 
 const AMBITO = { categoriaId: "asistentes-ia", subtipoId: "escritura" } as const;
 
+/** Las candidatas de un ámbito: su subtipo si lo tiene, o la categoría entera. */
+function candidatasDe(p: (typeof PREGUNTAS_DIFERENCIACION)[number]) {
+  return p.subtipoId
+    ? herramientas.filter((h) => cubreSubtipo(h, p.subtipoId!))
+    : herramientas.filter((h) => cubreCategoria(h, p.categoriaId));
+}
+const baseDe = (p: (typeof PREGUNTAS_DIFERENCIACION)[number]): RespuestasUsuario => ({
+  categoriaId: p.categoriaId,
+  subtipoId: p.subtipoId,
+});
+
 describe("la pregunta solo existe donde se declaró", () => {
   it("aparece en el subtipo escritura", () => {
     expect(preguntaParaAmbito("asistentes-ia", "escritura")).toBeDefined();
   });
 
   it("NO aparece en ningún otro ámbito del catálogo", () => {
+    // Los ámbitos SIN pregunta declarada: gestión de proyectos se queda fuera
+    // a propósito (75% de concentración, por debajo del umbral del 90%).
     const otros: [string, string | undefined][] = [
       ["asistentes-ia", "video"],
-      ["asistentes-ia", "reuniones-transcripcion"],
+      ["asistentes-ia", "agenda-planificacion"],
+      ["asistentes-ia", "presentaciones"],
       ["asistentes-ia", undefined],
-      ["crm", undefined],
       ["gestion-proyectos", undefined],
       ["plataformas-todo-en-uno", undefined],
+      ["crm", "escritura"],
     ];
     for (const [categoriaId, subtipoId] of otros) {
       expect(preguntaParaAmbito(categoriaId, subtipoId), `${categoriaId}/${subtipoId}`).toBeUndefined();
     }
   });
 
-  it("añade exactamente una pregunta, no dos", () => {
-    expect(pregunta.opciones).toHaveLength(3);
-    expect(PREGUNTAS_DIFERENCIACION).toHaveLength(1);
+  it("cada ámbito tiene como mucho UNA pregunta", () => {
+    const ambitos = PREGUNTAS_DIFERENCIACION.map((p) => p.ambito);
+    expect(new Set(ambitos).size).toBe(ambitos.length);
   });
 });
 
@@ -60,20 +74,46 @@ describe("cada respuesta filtra por una capacidad declarada, no por un nombre", 
     }
   });
 
-  it("cada opción la cubre al menos una ficha, por su propio texto", () => {
-    for (const { opcionId, herramientaIds } of cobertaraDeOpciones(escritura, pregunta)) {
-      expect(herramientaIds.length, `nadie declara "${opcionId}"`).toBeGreaterThan(0);
+  it("cada opción de CADA ámbito la cubre al menos una ficha, por su propio texto", () => {
+    for (const p of PREGUNTAS_DIFERENCIACION)
+      for (const { opcionId, herramientaIds } of cobertaraDeOpciones(candidatasDe(p), p))
+        expect(herramientaIds.length, `nadie declara "${opcionId}" en ${p.ambito}`).toBeGreaterThan(0);
+  });
+
+  it("las opciones de cada ámbito seleccionan conjuntos distintos: ninguna es decorado", () => {
+    for (const p of PREGUNTAS_DIFERENCIACION) {
+      const conjuntos = cobertaraDeOpciones(candidatasDe(p), p).map((c) => c.herramientaIds.join("|"));
+      expect(new Set(conjuntos).size, p.ambito).toBe(conjuntos.length);
     }
   });
 
-  it("las tres opciones seleccionan conjuntos distintos: ninguna es decorado", () => {
-    const conjuntos = cobertaraDeOpciones(escritura, pregunta).map((c) => c.herramientaIds.join("|"));
-    expect(new Set(conjuntos).size).toBe(conjuntos.length);
+  it("cada respuesta CAMBIA de verdad el conjunto de candidatas", () => {
+    for (const p of PREGUNTAS_DIFERENCIACION) {
+      const todas = candidatasDe(p);
+      for (const opcion of p.opciones) {
+        const filtradas = filtrarPorNecesidad(todas, p, opcion.id);
+        expect(filtradas.seAplico, `${p.ambito}/${opcion.id} no se aplica`).toBe(true);
+        expect(filtradas.candidatas.length, `${p.ambito}/${opcion.id} no reduce nada`).toBeLessThan(todas.length);
+      }
+    }
   });
 });
 
 describe("las tres pueden ganar cuando el perfil encaja de verdad", () => {
   const base: RespuestasUsuario = { ...AMBITO, tamanoEmpresa: "11-50", presupuesto: "medio" };
+
+  it("en cada ámbito, ninguna ganadora es promocionada", () => {
+    for (const p of PREGUNTAS_DIFERENCIACION) {
+      const ranking = recomendarHerramientas(baseDe(p), herramientas).todas.map((e) => e.herramienta.id);
+      const cobertura = cobertaraDeOpciones(candidatasDe(p), p);
+      for (const opcion of p.opciones) {
+        const declaran = cobertura.find((c) => c.opcionId === opcion.id)!.herramientaIds;
+        const esperada = ranking.find((id) => declaran.includes(id));
+        const { top } = recomendarHerramientas({ ...baseDe(p), necesidadDelSubtipo: opcion.id }, herramientas, { cantidad: 1 });
+        expect(top[0]?.herramienta.id, `${p.ambito}/${opcion.id} promociona a alguien`).toBe(esperada);
+      }
+    }
+  });
 
   it("cada respuesta produce una ganadora distinta", () => {
     const ganadoras = pregunta.opciones.map((opcion) => {

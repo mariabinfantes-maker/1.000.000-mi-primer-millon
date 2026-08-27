@@ -113,24 +113,24 @@ test.describe("tocar una puerta enseña lo que abre", () => {
       await page.waitForTimeout(500);
       if (isMobile) await pestana.tap();
       else await pestana.click();
-      // El desplazamiento es suave: hay que dejarlo llegar.
-      await page.waitForTimeout(1500);
+      // El desplazamiento es suave, y con varias pruebas a la vez puede
+      // tardar más de lo que dure cualquier espera fija: se sondea hasta que
+      // llegue en vez de esperar a ojo. Una prueba intermitente no vale.
+      const medir = () =>
+        page.evaluate(() => {
+          const panel = document.querySelector('[role="tabpanel"]');
+          if (!panel) return null;
+          const caja = panel.getBoundingClientRect();
+          const alto = Math.max(0, Math.min(caja.bottom, window.innerHeight) - Math.max(caja.top, 0));
+          return Math.round(alto - Math.min(caja.height, window.innerHeight * 0.6));
+        });
 
-      const visible = await page.evaluate(() => {
-        const panel = document.querySelector('[role="tabpanel"]');
-        if (!panel) return null;
-        const caja = panel.getBoundingClientRect();
-        return {
-          alto: Math.max(0, Math.min(caja.bottom, window.innerHeight) - Math.max(caja.top, 0)),
-          deberia: Math.min(caja.height, window.innerHeight * 0.6),
-        };
-      });
-
-      expect(visible).not.toBeNull();
-      expect(
-        visible!.alto,
-        `se toca "${nombre}" y lo que abre queda fuera de la pantalla: desde un móvil parece que no hace nada`
-      ).toBeGreaterThanOrEqual(Math.floor(visible!.deberia));
+      await expect
+        .poll(medir, {
+          timeout: 10_000,
+          message: `se toca "${nombre}" y lo que abre queda fuera de la pantalla: desde un móvil parece que no hace nada`,
+        })
+        .toBeGreaterThanOrEqual(0);
     });
   }
 });
@@ -329,6 +329,23 @@ test.describe("contexto limpio, sin nada guardado", () => {
 });
 
 
+test.describe("preguntas de diferenciación por ámbito", () => {
+  test("CRM tiene la suya, sin necesitar parámetro", async ({ page }) => {
+    await page.goto("/categoria/crm/cuestionario");
+    await expect(page.getByText(/¿Qué es lo que más te va a ayudar de un CRM\?/i)).toBeVisible();
+  });
+
+  test("reuniones tiene la suya, con su subtipo", async ({ page }) => {
+    await page.goto("/categoria/asistentes-ia/cuestionario?subtipo=reuniones-transcripcion");
+    await expect(page.getByText(/¿Qué te falta en tus reuniones\?/i)).toBeVisible();
+  });
+
+  test("gestión de proyectos NO tiene pregunta: su concentración no la justifica", async ({ page }) => {
+    await page.goto("/categoria/gestion-proyectos/cuestionario");
+    await expect(page.getByText(/Pregunta 1 de 4/i)).toBeVisible();
+  });
+});
+
 test.describe("piloto: pregunta de diferenciación del subtipo escritura", () => {
   /**
    * La pregunta solo existe en un ámbito y llega por parámetro de la
@@ -349,8 +366,8 @@ test.describe("piloto: pregunta de diferenciación del subtipo escritura", () =>
       "/categoria/asistentes-ia/cuestionario",
       "/categoria/asistentes-ia/cuestionario?subtipo=video",
       "/categoria/asistentes-ia/cuestionario?subtipo=inventado",
-      "/categoria/crm/cuestionario?subtipo=escritura",
       "/problema/ahorrar-tiempo/cuestionario",
+      "/categoria/gestion-proyectos/cuestionario",
     ]) {
       await page.goto(url);
       await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
