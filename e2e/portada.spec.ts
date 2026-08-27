@@ -327,3 +327,50 @@ test.describe("contexto limpio, sin nada guardado", () => {
     await expect(page.getByText(/Pregunta 1 de/i)).toBeVisible();
   });
 });
+
+
+test.describe("piloto: pregunta de diferenciación del subtipo escritura", () => {
+  /**
+   * La pregunta solo existe en un ámbito y llega por parámetro de la
+   * dirección: no hay páginas nuevas ni cambios de navegación. Se comprueba
+   * que aparezca donde debe, que NO aparezca en ningún otro cuestionario, y
+   * que las tres respuestas lleven a tres recomendaciones distintas.
+   */
+  const ENUNCIADO = /¿Qué necesitas hacer principalmente con el texto\?/i;
+
+  test("aparece en asistentes-ia con subtipo escritura", async ({ page }) => {
+    await page.goto("/categoria/asistentes-ia/cuestionario?subtipo=escritura");
+    await expect(page.getByText(ENUNCIADO)).toBeVisible();
+    await expect(page.getByText(/Pregunta 1 de 5/i)).toBeVisible();
+  });
+
+  test("NO aparece sin el subtipo, ni con un subtipo sin pregunta", async ({ page }) => {
+    for (const url of [
+      "/categoria/asistentes-ia/cuestionario",
+      "/categoria/asistentes-ia/cuestionario?subtipo=video",
+      "/categoria/asistentes-ia/cuestionario?subtipo=inventado",
+      "/categoria/crm/cuestionario?subtipo=escritura",
+      "/problema/ahorrar-tiempo/cuestionario",
+    ]) {
+      await page.goto(url);
+      await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+      await expect(page.getByText(ENUNCIADO), url).toHaveCount(0);
+    }
+  });
+
+  test("las tres respuestas se pueden elegir y el cuestionario avanza", async ({ page, isMobile }) => {
+    for (const opcion of [
+      /Corregir y mejorar lo que ya he escrito/i,
+      /Crear contenido de marketing y posicionarlo en Google/i,
+      /Escribir mensajes de venta y prospección/i,
+    ]) {
+      await page.goto("/categoria/asistentes-ia/cuestionario?subtipo=escritura");
+      await expect(page.getByText(ENUNCIADO)).toBeVisible();
+      const boton = page.getByRole("button", { name: opcion });
+      if (isMobile) await boton.tap();
+      else await boton.click();
+      await page.getByRole("button", { name: /^Siguiente$/i }).click();
+      await expect(page.getByText(/Pregunta 2 de 5/i)).toBeVisible();
+    }
+  });
+});

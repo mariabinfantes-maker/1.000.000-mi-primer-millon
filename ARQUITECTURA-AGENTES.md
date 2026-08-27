@@ -465,3 +465,32 @@ el 100% de los perfiles. El cuestionario pregunta tamaño de empresa y
 presupuesto, y ninguna de esas dos cosas decide si necesitas Grammarly o
 Jasper. Falta una pregunta que distinga, y añadirla es una decisión de
 producto, no de datos.
+
+---
+
+## Advisor — preguntas adaptativas de diferenciación
+
+`agents/atlas-advisor/preguntasDiferenciacion.ts`
+
+Tercer filtro del motor, después de categoría y subtipo, y con la misma
+naturaleza: **acota el conjunto comparable, no puntúa**. Existe porque hay
+ámbitos donde ninguna pregunta del cuestionario distingue — dentro del subtipo
+escritura el orden estaba congelado en los 120 perfiles.
+
+Cada opción declara una **capacidad**, expresada como señal contrastada contra
+el texto ya investigado de la ficha (`funcionesPrincipales`,
+`problemasQueResuelve`, `casosDeUso`, `ventajas`). No hay identificadores de
+herramienta en el módulo, y una prueba lo garantiza recorriendo el catálogo
+entero. Si una ficha gana o pierde una capacidad, el filtro la sigue sin tocar
+este archivo.
+
+**Dónde aplica y dónde no.** `preguntaParaAmbito(categoriaId, subtipoId)`
+devuelve la pregunta solo para el ámbito declarado. Que ese ámbito lo merezca
+—concentración por encima del 90%— lo comprueba una prueba, no una condición en
+caliente: calcularlo en cada petición costaría recorrer el catálogo para dar
+siempre la misma respuesta, y si algún día deja de estar concentrado, la prueba
+avisa de que la pregunta sobra. Preguntar de más también cuesta.
+
+**Si nadie declara la capacidad**, se conserva el conjunto completo y se
+devuelve un aviso. Antes enseñar de más que dejar a una persona sin
+recomendación por una necesidad que el catálogo todavía no sabe atender.

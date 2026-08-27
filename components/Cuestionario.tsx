@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { preguntaParaAmbito } from "@/agents/atlas-advisor/preguntasDiferenciacion";
 import Image from "next/image";
 import { ArrowLeft, Check } from "lucide-react";
 import { RANGOS_EMPLEADOS, type RangoEmpleados } from "@/lib/cuestionario";
@@ -31,16 +32,33 @@ const OPCIONES_PREFERENCIA_SUITE: { valor: PreferenciaSuite; etiqueta: string; d
   },
 ];
 
-export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) {
+export default function Cuestionario({
+  origen,
+  subtipoId,
+}: {
+  origen: OrigenDiagnostico;
+  /** Subtipo dentro de la categoría, ya validado por la página. Solo lo usan los ámbitos con pregunta de diferenciación. */
+  subtipoId?: string;
+}) {
   const router = useRouter();
 
   // La pregunta de preferencia de suite solo tiene sentido si el usuario todavía no
   // fijó una categoría concreta al entrar (puerta "por categoría") — si ya la fijó,
   // no hay nada que preguntar: esa elección ya manda en el motor de recomendación.
+  // Piloto de preguntas adaptativas. El subtipo lo valida y lo pasa la página
+  // servidora desde el parámetro de la dirección (ver la nota de la
+  // documentación de Next sobre `searchParams` en Server Components): así no
+  // hace falta ni `useSearchParams` ni una frontera de Suspense, y el
+  // componente sigue siendo el mismo para las tres puertas de entrada.
+  const preguntaSubtipo = preguntaParaAmbito(origen.categoriaIdPrefill, subtipoId);
+  const [necesidadDelSubtipo, setNecesidadDelSubtipo] = useState<string | null>(null);
+
   const mostrarPreguntaSuite = !origen.categoriaIdPrefill;
-  const TOTAL_PREGUNTAS = mostrarPreguntaSuite ? 5 : 4;
+  const mostrarPreguntaSubtipo = Boolean(preguntaSubtipo);
+  const TOTAL_PREGUNTAS = (mostrarPreguntaSuite ? 5 : 4) + (mostrarPreguntaSubtipo ? 1 : 0);
   const PASO_SUITE = 0;
-  const PASO_SECTOR = mostrarPreguntaSuite ? 1 : 0;
+  const PASO_NECESIDAD = mostrarPreguntaSuite ? 1 : 0;
+  const PASO_SECTOR = (mostrarPreguntaSuite ? 1 : 0) + (mostrarPreguntaSubtipo ? 1 : 0);
   const PASO_EMPLEADOS = PASO_SECTOR + 1;
   const PASO_PROBLEMA = PASO_EMPLEADOS + 1;
   const PASO_HERRAMIENTA = PASO_PROBLEMA + 1;
@@ -59,6 +77,7 @@ export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) 
 
   const puedeAvanzar =
     (mostrarPreguntaSuite && paso === PASO_SUITE && preferenciaSuite !== null) ||
+    (mostrarPreguntaSubtipo && paso === PASO_NECESIDAD && necesidadDelSubtipo !== null) ||
     (paso === PASO_SECTOR && sector.trim().length > 0) ||
     (paso === PASO_EMPLEADOS && empleados !== null) ||
     (paso === PASO_PROBLEMA && mayorProblema.trim().length > 0) ||
@@ -99,6 +118,8 @@ export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) 
       industria: sector.trim(),
       tamanoEmpresa: empleados as RangoEmpleados,
       notasAdicionales,
+      subtipoId,
+      necesidadDelSubtipo: necesidadDelSubtipo ?? undefined,
     };
 
     const intervalo = setInterval(() => {
@@ -186,6 +207,39 @@ export default function Cuestionario({ origen }: { origen: OrigenDiagnostico }) 
         </div>
 
         <div className="relative">
+        {mostrarPreguntaSubtipo && paso === PASO_NECESIDAD && preguntaSubtipo && (
+          <fieldset>
+            <legend className="font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+              {preguntaSubtipo.enunciado}
+            </legend>
+            <div className="mt-5 flex flex-col gap-3">
+              {preguntaSubtipo.opciones.map((opcion) => {
+                const seleccionado = necesidadDelSubtipo === opcion.id;
+                return (
+                  <button
+                    key={opcion.id}
+                    type="button"
+                    onClick={() => setNecesidadDelSubtipo(opcion.id)}
+                    className={`flex items-start justify-between gap-3 rounded-xl border px-4 py-3.5 text-left transition-all ${
+                      seleccionado
+                        ? "border-brand-600 bg-brand-50 shadow-premium ring-1 ring-brand-100"
+                        : "border-slate-200 bg-white hover:border-brand-300 hover:bg-brand-50/40"
+                    }`}
+                  >
+                    <span>
+                      <span className={`block text-sm font-semibold ${seleccionado ? "text-brand-700" : "text-slate-700"}`}>
+                        {opcion.etiqueta}
+                      </span>
+                      <span className="mt-0.5 block text-sm text-slate-500">{opcion.descripcion}</span>
+                    </span>
+                    {seleccionado && <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" aria-hidden="true" />}
+                  </button>
+                );
+              })}
+            </div>
+          </fieldset>
+        )}
+
         {mostrarPreguntaSuite && paso === PASO_SUITE && (
           <fieldset>
             <legend className="font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">

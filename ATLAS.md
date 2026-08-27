@@ -1642,3 +1642,85 @@ desplegó, no contra el dominio: este entorno no tiene salida a internet. La
 confirmación sobre molnip.com corresponde a la propietaria.
 
 **Sprint cerrado.**
+
+---
+
+## Piloto de preguntas adaptativas — subtipo "escritura" (2026-08-27)
+
+Primer intento de resolver el hueco que dejó abierto el sprint de integridad:
+los subtipos evitaban la comparación absurda, pero no la concentración.
+
+### La redacción original no diferenciaba, y se cambió antes de implementarla
+
+Las opciones aprobadas al principio eran "crear contenido de marketing desde
+cero" y "producir mucho contenido con voz de marca consistente". Al contrastar
+contra las fichas, **las tres herramientas declaraban ambas cosas**:
+
+| Opción original | Grammarly | Jasper | Copy.ai |
+|---|---|---|---|
+| Corregir lo ya escrito | ✅ | ❌ | ❌ |
+| Crear contenido de marketing | ⚠️ lo declara en `casosDeUso` | ✅ | ✅ |
+| Voz de marca consistente | ⚠️ "guías de estilo de la marca" | ✅ | ✅ |
+
+Las dos últimas dejaban el mismo conjunto, así que daban la misma respuesta y
+**Jasper no podía ganar con ninguna**. Se paró antes de escribir código y se
+buscó qué declara UNA SOLA de las tres:
+
+- solo Jasper: Surfer SEO, "optimizar para motores de búsqueda a gran escala";
+- solo Copy.ai: prospección B2B, Infobase, "más de 25 idiomas", localización;
+- solo Grammarly: corrección, reescritura, detección de plagio.
+
+### Resultado medido, con los mismos perfiles válidos
+
+| | Antes | Después |
+|---|---|---|
+| Concentración de la 1ª recomendación | **100%** | **33%** |
+| Ganadoras distintas | 1 | **3** |
+| Preguntas añadidas | — | **1**, solo en `asistentes-ia/escritura` |
+| Recorridos afectados | — | **1 de 9** puertas públicas |
+| Respuestas sin efecto sobre las candidatas | — | **0 de 3** |
+
+Por respuesta: "corregir" → Grammarly · "marketing y SEO" → Jasper · "ventas y
+varios idiomas" → Copy.ai. Cada una en el 100% de sus 120 perfiles.
+
+### Por qué no es un reparto de visibilidad
+
+Dos pruebas lo fijan. La primera exige que la ganadora de cada respuesta sea
+**exactamente la que ya iba más arriba en el ranking sin filtrar** entre las
+que declaran esa capacidad. La segunda, que el orden relativo de las
+supervivientes no cambie. Rotar ganadores habría sido trivial; estas dos
+pruebas lo impiden.
+
+En el módulo **no aparece ni un solo identificador de herramienta** — hay una
+prueba que recorre las 56 y comprueba que ninguna se nombra. Cada opción
+declara una capacidad y se queda con las fichas que la declaran por sí mismas.
+
+### Una aclaración sobre las puntuaciones
+
+Filtrar cambia la puntuación absoluta de una ficha (Grammarly: 31 sin filtro,
+30 en su categoría, 31 en su subtipo, 29 con la necesidad). **Eso ya pasaba
+antes de este piloto**: varios criterios son relativos a las competidoras, así
+que al estrecharse el conjunto se recalculan. Lo que no puede cambiar —y las
+pruebas lo comprueban— es quién gana y en qué orden.
+
+### Limitación importante que destapa el piloto
+
+**Cada respuesta deja una sola candidata.** Quien conteste "corregir" recibe
+Grammarly y nada con lo que compararla. No es un fallo del filtro: es que el
+catálogo tiene exactamente tres herramientas de escritura y cada una cubre una
+necesidad distinta.
+
+Dicho de otro modo, el piloto ha convertido un problema invisible (una gana
+siempre) en uno visible y medible (falta catálogo por necesidad). Va a
+Researcher: hacen falta más alternativas por cada necesidad antes de que la
+pregunta ofrezca una comparación de verdad y no solo un acierto.
+
+### Trabajo pendiente
+
+- Más herramientas de escritura por necesidad, para que la respuesta ofrezca
+  alternativas comparables.
+- El subtipo solo se alcanza por parámetro de la dirección
+  (`?subtipo=escritura`): no hay navegación de subtipos, por decisión previa
+  de no tocar el flujo público.
+- Los ámbitos de reuniones, CRM y gestión de proyectos siguen concentrados y
+  sin pregunta. No se han tocado.

@@ -76,6 +76,12 @@ export type RespuestasUsuario = {
    * motor no compara entre subtipos y ofrece lo mejor de cada uno.
    */
   subtipoId?: string;
+  /**
+   * Respuesta a la pregunta adaptativa de diferenciación del subtipo, cuando
+   * ese ámbito la tiene (ver `preguntasDiferenciacion.ts`). Filtra por una
+   * capacidad declarada en las fichas; no da ni quita puntos a nadie.
+   */
+  necesidadDelSubtipo?: string;
   /** Descripción libre de la situación del usuario, contrastada contra casosNoRecomendados de cada herramienta. */
   notasAdicionales?: string;
 };

@@ -4,6 +4,7 @@ import { getCategoria, getCategorias } from "@/data/repositorio";
 import { esCategoriaPublica } from "@/data/taxonomia";
 import type { OrigenDiagnostico } from "@/lib/origenDiagnostico";
 import { metadataFlujo } from "@/agents/atlas-generador-contenido/metadatos";
+import { preguntaParaAmbito } from "@/agents/atlas-advisor/preguntasDiferenciacion";
 import Cuestionario from "@/components/Cuestionario";
 
 export function generateStaticParams() {
@@ -23,10 +24,13 @@ export async function generateMetadata({
 
 export default async function CuestionarioCategoriaPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ categoriaId: string }>;
+  searchParams: Promise<{ subtipo?: string }>;
 }) {
   const { categoriaId } = await params;
+  const { subtipo } = await searchParams;
   const categoria = getCategoria(categoriaId);
 
   // Una categoría todavía "pendiente" existe solo para el catálogo interno
@@ -42,5 +46,10 @@ export default async function CuestionarioCategoriaPage({
     rutaBase: `/categoria/${categoria.id}`,
   };
 
-  return <Cuestionario origen={origen} />;
+  // El subtipo llega por parámetro y solo se acepta si ese ámbito tiene una
+  // pregunta de diferenciación declarada: cualquier otro valor se ignora en
+  // silencio, así que nadie puede colar un filtro por la dirección.
+  const subtipoValido = preguntaParaAmbito(categoria.id, subtipo) ? subtipo : undefined;
+
+  return <Cuestionario origen={origen} subtipoId={subtipoValido} />;
 }
