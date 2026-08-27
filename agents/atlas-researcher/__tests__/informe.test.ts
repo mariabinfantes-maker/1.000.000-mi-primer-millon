@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { construirSeccionInforme, generarInformeHtml } from "../informe";
 
 const datosCompletos = {
+  tipoProducto: "suite",
   nombre: "HubSpot",
   paginaOficial: "https://hubspot.com",
   categoriaId: "plataformas-todo-en-uno",

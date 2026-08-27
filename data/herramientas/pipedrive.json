@@ -2,7 +2,7 @@
   "nombre": "Pipedrive",
   "paginaOficial": "https://www.pipedrive.com",
   "urlPrecios": "https://www.pipedrive.com/es/pricing",
-  "categoriaId": "plataformas-todo-en-uno",
+  "categoriaId": "crm",
   "descripcion": "Pipedrive es una plataforma CRM enfocada en la gestión visual del embudo de ventas y la productividad comercial. Ayuda a los equipos a organizar sus prospectos, dar seguimiento a tratos en tiempo real y automatizar tareas repetitivas para acelerar el ciclo de venta.",
   "informacionEmpresa": {
     "anioFundacion": 2010,
@@ -144,5 +144,6 @@
     "asistente_ia",
     "email_marketing",
     "embudos_de_venta"
-  ]
+  ],
+  "tipoProducto": "especializada"
 }

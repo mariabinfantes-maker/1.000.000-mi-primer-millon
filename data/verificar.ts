@@ -8,11 +8,11 @@
  */
 import { detectarCuentasActivasSinEnlace } from "@/agents/atlas-affiliate-manager/consistencia";
 import { getAffiliateData } from "./repositorioAfiliados";
-import { getCategorias, getTodasLasHerramientas } from "./repositorio";
+import { getTodasLasCategorias, getTodasLasHerramientas } from "./repositorio";
 import { getTodasLasEstrategiasAfiliacion } from "./repositorioEstrategiaAfiliacion";
 
 async function main() {
-  const categorias = getCategorias();
+  const categorias = getTodasLasCategorias();
   const idsCategorias = new Set(categorias.map((c) => c.id));
   console.log(`Categorías: ${categorias.length}`);
 

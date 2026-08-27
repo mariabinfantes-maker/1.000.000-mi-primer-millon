@@ -1,9 +1,27 @@
 import type { Herramienta } from "@/data/esquema";
+import { cubreCategoria, esSuite, tipoProductoDe } from "@/data/taxonomia";
 import { CRITERIOS } from "./criterios";
-import type { DetalleCriterio, HerramientaEvaluada, ResultadoRecomendacion, RespuestasUsuario } from "./tipos";
+import { criteriosDeRuta, rangoDeRuta } from "./criteriosRuta";
+import { compararTodoEnUnoVsEspecializada } from "./todoEnUnoVsEspecializada";
+import type {
+  ComparativaDeRutas,
+  DetalleCriterio,
+  HerramientaEvaluada,
+  ResultadoRecomendacion,
+  RespuestasUsuario,
+} from "./tipos";
 
-const CATEGORIA_TODO_EN_UNO = "plataformas-todo-en-uno";
 const CANTIDAD_POR_DEFECTO = 3;
+
+/**
+ * Cuánto puede aportar como máximo la parte específica de ruta, una vez
+ * normalizada a 0..1. Es el mismo techo para las dos rutas a propósito:
+ * ahí está la equidad. Da igual que la ruta suite tenga 7 criterios y la
+ * especializada 8, o que sus rangos internos sean distintos — ninguna
+ * puede aportar más que la otra por su forma, solo por lo bien que
+ * responde a su propia pregunta.
+ */
+export const ESCALA_RUTA = 40;
 /** Nº máximo de motivos puntuados que entran en el párrafo de explicación (el resto sigue disponible en `razones`). */
 const MOTIVOS_EN_EXPLICACION = 2;
 
@@ -49,10 +67,39 @@ function generarExplicacion(herramienta: Herramienta, razones: string[]): string
   return `Por qué te recomendamos ${herramienta.nombre}: ${motivos} ${encaje}`;
 }
 
-/** Aplica todos los criterios a una única herramienta y consolida el resultado. */
-export function evaluarHerramienta(herramienta: Herramienta, respuestas: RespuestasUsuario): HerramientaEvaluada {
-  const detalles = CRITERIOS.map((criterio) => criterio(herramienta, respuestas));
-  const puntuacionTotal = detalles.reduce((total, detalle) => total + detalle.puntos, 0);
+/**
+ * Aplica a una herramienta los criterios COMUNES más los propios de su
+ * ruta, y consolida el resultado.
+ *
+ * La puntuación final tiene dos partes que nunca se mezclan en crudo:
+ *  - los criterios comunes, idénticos para cualquier herramienta y por
+ *    tanto directamente comparables;
+ *  - los criterios de ruta, normalizados a 0..1 dentro del rango teórico
+ *    de SU ruta y luego llevados a la misma escala (`ESCALA_RUTA`).
+ *
+ * `catalogo` es el conjunto de candidatas contra el que se compara: los
+ * criterios comparativos (profundidad frente a sus iguales, superioridad
+ * frente al módulo de una suite) no tienen sentido sin él.
+ */
+export function evaluarHerramienta(
+  herramienta: Herramienta,
+  respuestas: RespuestasUsuario,
+  catalogo: Herramienta[] = [herramienta]
+): HerramientaEvaluada {
+  const detallesComunes = CRITERIOS.map((criterio) => criterio(herramienta, respuestas));
+  const puntuacionComun = detallesComunes.reduce((total, detalle) => total + detalle.puntos, 0);
+
+  const criteriosRuta = criteriosDeRuta(herramienta);
+  const contexto = { respuestas, catalogo };
+  const detallesRuta = criteriosRuta.map((criterio) => criterio.evaluar(herramienta, contexto));
+  const puntosRuta = detallesRuta.reduce((total, detalle) => total + detalle.puntos, 0);
+
+  const rango = rangoDeRuta(criteriosRuta);
+  const amplitud = rango.max - rango.min;
+  const puntuacionRutaNormalizada = amplitud === 0 ? 0 : (puntosRuta - rango.min) / amplitud;
+
+  const detalles = [...detallesComunes, ...detallesRuta];
+  const puntuacionTotal = puntuacionComun + puntuacionRutaNormalizada * ESCALA_RUTA;
 
   const razones = detalles
     .filter((detalle) => detalle.explicacion !== "")
@@ -68,6 +115,9 @@ export function evaluarHerramienta(herramienta: Herramienta, respuestas: Respues
     razones,
     explicacion: generarExplicacion(herramienta, razones),
     tieneAdvertencia,
+    tipoProducto: tipoProductoDe(herramienta),
+    puntuacionComun,
+    puntuacionRutaNormalizada,
   };
 }
 
@@ -101,15 +151,13 @@ export function evaluarHerramienta(herramienta: Herramienta, respuestas: Respues
  */
 function seleccionarCandidatas(herramientas: Herramienta[], respuestas: RespuestasUsuario): Herramienta[] {
   if (respuestas.categoriaId) {
-    return herramientas.filter((herramienta) => herramienta.categoriaId === respuestas.categoriaId);
+    return herramientas.filter((herramienta) => cubreCategoria(herramienta, respuestas.categoriaId!));
   }
 
   let universo = herramientas;
   if (respuestas.preferenciaSuite) {
-    const filtradasPorSuite =
-      respuestas.preferenciaSuite === "todo_en_uno"
-        ? herramientas.filter((herramienta) => herramienta.categoriaId === CATEGORIA_TODO_EN_UNO)
-        : herramientas.filter((herramienta) => herramienta.categoriaId !== CATEGORIA_TODO_EN_UNO);
+    const quiereSuite = respuestas.preferenciaSuite === "todo_en_uno";
+    const filtradasPorSuite = herramientas.filter((herramienta) => esSuite(herramienta) === quiereSuite);
     if (filtradasPorSuite.length > 0) universo = filtradasPorSuite;
   }
 
@@ -144,7 +192,7 @@ export function recomendarHerramientas(
   const candidatas = seleccionarCandidatas(herramientas, respuestas);
 
   const evaluadas = candidatas
-    .map((herramienta) => evaluarHerramienta(herramienta, respuestas))
+    .map((herramienta) => evaluarHerramienta(herramienta, respuestas, candidatas))
     .sort(
       (a, b) =>
         b.puntuacionTotal - a.puntuacionTotal ||
@@ -152,8 +200,53 @@ export function recomendarHerramientas(
         b.herramienta.puntuaciones.fiabilidad - a.herramienta.puntuaciones.fiabilidad
     );
 
+  // La comparativa solo tiene sentido cuando el usuario NO ha elegido
+  // ruta: si ya dijo qué quiere, `seleccionarCandidatas` filtró y aquí
+  // solo compiten candidatas de ese tipo, así que enfrentarlas sería
+  // devolverle una pregunta que ya respondió.
+  const eligioRuta = Boolean(respuestas.categoriaId || respuestas.preferenciaSuite);
+
   return {
     top: evaluadas.slice(0, cantidad),
     todas: evaluadas,
+    ...(eligioRuta ? {} : { comparativaDeRutas: compararRutas(evaluadas, respuestas) }),
+  };
+}
+
+/**
+ * Enfrenta la mejor suite con la mejor especializada y redacta qué gana y
+ * qué sacrifica quien elija cada camino.
+ *
+ * Las señales indirectas de `todoEnUnoVsEspecializada.ts` se usan aquí
+ * para matizar el texto — no para restar puntos a nadie. Es la diferencia
+ * entre orientar y castigar: antes, un perfil que apuntaba a suite hacía
+ * perder 8 puntos a toda especializada; ahora hace que el texto diga por
+ * qué centralizar le encajaría, dejando la decisión donde debe estar.
+ */
+function compararRutas(evaluadas: HerramientaEvaluada[], respuestas: RespuestasUsuario): ComparativaDeRutas {
+  const mejorSuite = evaluadas.find((e) => e.tipoProducto === "suite");
+  const mejorEspecializada = evaluadas.find((e) => e.tipoProducto === "especializada");
+  const senal = compararTodoEnUnoVsEspecializada(respuestas);
+
+  const centralizar =
+    "Con una plataforma todo en uno tienes una sola suscripción, un solo sitio donde están tus datos y nada que conectar por fuera. " +
+    "A cambio, cada área concreta suele quedarse por detrás de una herramienta dedicada, y todo tu negocio pasa a depender de un único proveedor.";
+
+  const especializar =
+    "Con una herramienta especializada tienes lo mejor que existe para esa función concreta y puedes cambiarla sin tocar el resto. " +
+    "A cambio, pagas varias suscripciones y tienes que mantener las conexiones entre ellas.";
+
+  const matiz =
+    senal.recomendacion === "todo_en_uno"
+      ? " Por lo que nos has contado, centralizar te encajaría mejor."
+      : senal.recomendacion === "especializada"
+        ? " Por lo que nos has contado, especializar te encajaría mejor."
+        : "";
+
+  return {
+    mejorSuite,
+    mejorEspecializada,
+    beneficioDeCentralizar: centralizar + (senal.recomendacion === "todo_en_uno" ? matiz : ""),
+    beneficioDeEspecializar: especializar + (senal.recomendacion === "especializada" ? matiz : ""),
   };
 }

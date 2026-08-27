@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getCategoria, getCategorias } from "@/data/repositorio";
+import { esCategoriaPublica } from "@/data/taxonomia";
 import type { OrigenDiagnostico } from "@/lib/origenDiagnostico";
 import { metadataFlujo } from "@/agents/atlas-generador-contenido/metadatos";
 import Cuestionario from "@/components/Cuestionario";
@@ -28,7 +29,9 @@ export default async function CuestionarioCategoriaPage({
   const { categoriaId } = await params;
   const categoria = getCategoria(categoriaId);
 
-  if (!categoria) notFound();
+  // Una categoría todavía "pendiente" existe solo para el catálogo interno
+  // y para Curator: nunca debe tener página pública ni puerta de cuestionario.
+  if (!categoria || !esCategoriaPublica(categoria)) notFound();
 
   const origen: OrigenDiagnostico = {
     tipo: "categoria",
