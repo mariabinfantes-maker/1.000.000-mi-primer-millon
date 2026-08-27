@@ -1021,7 +1021,7 @@ con la Capa 1 determinista, sin coste.
 
 ## Taxonomía de dos ejes y evaluación por rutas separadas
 
-**Registrada:** 2026-08-27. **Estado: en la rama `claude/curator-taxonomia-rutas`, NI FUSIONADA NI DESPLEGADA.** Producción sigue en `9ad216e`+`24adc8c` sin ninguno de estos cambios.
+**Registrada:** 2026-08-27. **Fusionada y desplegada el 2026-08-27** — ver "Despliegue del sprint" al final de esta sección.
 
 Nace de una auditoría de solo lectura que encontró dos fallos de fondo: la
 taxonomía mezclaba dos preguntas en un solo campo, y las plataformas todo en
@@ -1212,3 +1212,61 @@ TypeScript, ESLint y build de producción limpios. Sin cambios en: portada,
 resto de la web pública, Affiliate Manager, las 51 estrategias de afiliación,
 Neon, Upstash, seguridad administrativa, historial, ni el piloto de las cinco
 afiliaciones. Growth, Assistant, Orchestrator y Revenue siguen sin construir.
+
+### Despliegue del sprint
+
+**Autorizado expresamente por la propietaria el 2026-08-27.**
+
+| | |
+|---|---|
+| Rama fusionada | `claude/curator-taxonomia-rutas` |
+| Rama real de producción | **`claude/claude-md-docs-plkwnq`** — es la rama por defecto del repositorio, y Vercel despliega producción desde ella. No existe `main`, `master` ni `production`, y el repositorio no tiene `vercel.json` que fije otra. |
+| Pull request | **#32** |
+| Commit de fusión | **`0892a3d`** (producción venía de `24adc8c`) |
+| Fecha | 2026-08-27 |
+| Alcance del diff | 89 ficheros, +3.589 / −188 |
+
+**Pruebas ejecutadas justo antes de fusionar**, todas correctas:
+
+- 677 pruebas en 81 ficheros
+- TypeScript sin errores
+- ESLint sin avisos
+- Build de producción sin errores
+- Las 11 categorías internas devuelven 404 tanto en `/categoria/<id>` como en `/categoria/<id>/cuestionario`
+- El sitemap contiene exactamente las 4 categorías públicas
+
+Comprobado además, por `git diff` contra producción, que el sprint no toca
+ninguno de los elementos protegidos: portada y sus imágenes, resto de la web
+pública, Affiliate Manager, las 51 estrategias de afiliación, Neon, Upstash,
+seguridad administrativa e historial.
+
+**Verificación en producción: pendiente de ejecutar por la propietaria.** El
+entorno desde el que se desarrolla no tiene acceso de red a molnip.com (ni por
+`curl`, ni por proxy, ni por descarga de páginas), así que las comprobaciones
+sobre el sitio ya publicado — portada intacta, las cuatro categorías públicas,
+ninguna interna accesible ni indexable, diagnóstico, criterios separados,
+Affiliate Manager, Neon, Upstash y registros de Vercel — las hace una persona
+con un navegador. Este apartado se actualizará con el resultado real; **no se
+da por verificado nada que no se haya comprobado.**
+
+### Tareas que continúan pendientes tras el despliegue
+
+Ninguna se resuelve con datos inventados; todas están registradas en la cola de
+Curator (`npm run informe-curador`) y son contables:
+
+1. **Pipedrive** — contradicción entre sus 5 módulos declarados y sus funciones
+   exclusivamente comerciales. Prioridad alta. Sigue clasificado como CRM
+   especializado hasta obtener evidencia nueva.
+2. **56 comprobaciones de disponibilidad geográfica** — una por ficha,
+   prioridad alta, cada una con las cinco preguntas que la dan por terminada:
+   disponibilidad en España, idioma español, facturación desde España o la UE,
+   tratamiento de datos y documentación de RGPD, y limitaciones geográficas
+   conocidas.
+3. **33 herramientas** para las 11 categorías internas (3 por categoría, el
+   mínimo para que comparar signifique algo). Ninguna se publica hasta
+   alcanzarlo.
+4. **Vigilancia de la concentración de monday.com** — encabeza las tres
+   categorías donde aparece. Está demostrado que gana por encaje real tras
+   corregir los tres sesgos, y por eso no se le ha impuesto ningún límite de
+   categorías secundarias. Queda como algo a vigilar si algún día se firma su
+   afiliación.
