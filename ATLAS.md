@@ -1724,3 +1724,20 @@ pregunta ofrezca una comparación de verdad y no solo un acierto.
   de no tocar el flujo público.
 - Los ámbitos de reuniones, CRM y gestión de proyectos siguen concentrados y
   sin pregunta. No se han tocado.
+
+### Despliegue del piloto de escritura
+
+| | |
+|---|---|
+| Rama | `claude/pregunta-escritura` — commit `fea9a94` |
+| Fusión a producción | `7253a28` sobre `claude/claude-md-docs-plkwnq` |
+| Probado por la propietaria | En Preview, antes de fusionar: las tres opciones funcionan |
+| Pruebas sobre la fusión | 728 unitarias · TypeScript · ESLint · build · 47 E2E (escritorio y móvil) |
+
+Comprobado sobre el build desplegado: la pregunta aparece únicamente en
+`/categoria/asistentes-ia/cuestionario?subtipo=escritura`, y **no** aparece en
+ese mismo cuestionario sin el parámetro, con el subtipo vídeo, con un subtipo
+inventado, en CRM, ni en ninguna de las puertas por objetivo o de texto libre.
+El resto de la web responde igual y las categorías internas siguen en 404.
+
+**Piloto cerrado. No queda trabajo pendiente de este sprint.**
