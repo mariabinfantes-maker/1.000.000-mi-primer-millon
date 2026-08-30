@@ -1844,3 +1844,50 @@ Lo único modificado: los dos archivos de documentación, el módulo de pregunta
 el motor, y sus pruebas.
 
 **Sprint cerrado, sin anomalías.**
+
+---
+
+## Requisito previo a ampliar la afiliación (anotado el 2026-08-29)
+
+**Decisión de la propietaria:** Systeme.io se registra a mano, como parte del
+piloto de cinco. Pero **antes de ampliar la afiliación a muchas herramientas**,
+Affiliate Manager tiene que poder:
+
+1. **Importar enlaces en bloque**, no uno a uno desde el panel.
+2. **Validarlos** en el mismo paso: que respondan y que apunten a donde deben.
+3. **Asociarlos automáticamente con su herramienta**, sin emparejar a mano.
+4. **Dejarlos pendientes de aprobación** — nunca activos por el hecho de
+   importarse. Ningún enlace debe generar tráfico real sin que una persona lo
+   haya aprobado.
+
+**No implementado. No ampliar la afiliación hasta que exista.**
+
+### Qué hay ya construido, para no rehacerlo
+
+| Pieza | Estado |
+|---|---|
+| `POST /api/admin/afiliacion/importar` | Existe. Importa un array de `EstrategiaAfiliacion` con el mismo formato que exporta `/exportar`; una fila inválida no aborta las demás |
+| `POST /api/admin/afiliacion/verificar-enlaces` | Existe. Comprueba todos los enlaces guardados y persiste el resultado en cada cuenta |
+| Botón de importar y de comprobar enlaces en el panel | Existen |
+
+### Qué falta de verdad
+
+- **La importación acepta el estado que venga en el archivo.** Hoy nada impide
+  importar una cuenta ya marcada como `activo`, y eso encendería tráfico real
+  sin que nadie lo apruebe. Ese es el hueco de seguridad del punto 4.
+- **No valida en el momento de importar**: importar y comprobar son dos pasos
+  separados que hay que lanzar a mano.
+- **No asocia por sí sola**: el archivo tiene que traer ya el `herramientaId`
+  correcto de cada fila.
+- **No existe una bandeja de "importados, pendientes de aprobar"** donde
+  revisarlos en bloque antes de encender ninguno.
+
+### Contexto de por qué se anota aquí
+
+Al intentar registrar el enlace de Systeme.io se descubrió que los JSON de
+`data/estrategia-afiliados/` **ya no son la fuente de nada**: desde la
+migración a Neon son una copia de respaldo de aquella migración, y la
+aplicación lee y escribe en Postgres. Editarlos no cambia producción, y además
+habría metido un enlace de afiliado real en el historial de Git para siempre.
+El camino bueno es el panel, que registra cada cambio en el historial con el
+usuario que lo hizo.
