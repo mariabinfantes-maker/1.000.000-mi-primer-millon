@@ -56,6 +56,18 @@ export default function CookiesPage() {
           exige la normativa.
         </p>
       </SeccionLegal>
+
+      <SeccionLegal titulo="Medición de clics sin cookies">
+        <p>
+          Cuando pulsas &quot;Ir al proveedor&quot;, Molnip registra qué herramienta pulsaste, desde
+          qué pantalla o recorrido llegaste, si el enlace era de afiliación y la fecha.{" "}
+          <span className="font-semibold text-slate-700">Esa medición no utiliza cookies</span> ni
+          ninguna otra tecnología de almacenamiento en tu dispositivo, y no guarda tu dirección IP
+          ni identificadores de sesión. No se puede asociar a una persona ni relacionar dos clics
+          entre sí. Se explica con detalle en nuestra{" "}
+          <a href="/privacidad" className="font-semibold text-brand-700 underline">política de privacidad</a>.
+        </p>
+      </SeccionLegal>
     </DocumentoLegal>
   );
 }

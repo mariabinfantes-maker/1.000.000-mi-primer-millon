@@ -1,3 +1,4 @@
+import { normalizarRutaOrigen } from "@/agents/atlas-revenue/rutaOrigen";
 import type { EventoClic, OrigenClic, TipoEnlaceClic } from "./proveedorAnalitica";
 
 const TIPOS_ENLACE_VALIDOS: TipoEnlaceClic[] = ["afiliado", "oficial"];
@@ -8,6 +9,7 @@ export type CuerpoClic = {
   categoriaId?: unknown;
   tipoEnlace?: unknown;
   origen?: unknown;
+  rutaOrigen?: unknown;
 };
 
 export type ResultadoValidacionClic = { ok: true; evento: EventoClic } | { ok: false; error: string };
@@ -44,6 +46,10 @@ export function validarClic(cuerpo: CuerpoClic): ResultadoValidacionClic {
       categoriaId: cuerpo.categoriaId,
       tipoEnlace: cuerpo.tipoEnlace as TipoEnlaceClic,
       origen,
+      // Misma tolerancia que `origen`: una etiqueta de recorrido inválida se
+      // descarta en silencio en vez de rechazar la petición. Perder la
+      // etiqueta es un dato menos; perder el clic entero es peor.
+      rutaOrigen: normalizarRutaOrigen(cuerpo.rutaOrigen),
     },
   };
 }

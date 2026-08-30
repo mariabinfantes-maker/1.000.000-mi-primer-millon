@@ -1891,3 +1891,100 @@ aplicación lee y escribe en Postgres. Editarlos no cambia producción, y ademá
 habría metido un enlace de afiliado real en el historial de Git para siempre.
 El camino bueno es el panel, que registra cada cambio en el historial con el
 usuario que lo hizo.
+
+---
+
+## Atlas Revenue — medición mínima y anónima (2026-08-29)
+
+Undécimo agente, construido primero porque era el único que desbloqueaba la
+monetización: el circuito del dinero estaba roto por la mitad.
+
+```
+usuario pulsa "Ir al proveedor" → /api/clic → proveedorConsola → console.log
+                                                                      ↑ y ahí moría
+```
+
+No había tabla de clics. Con las altas de afiliación en marcha, cada visita era
+un dato perdido para siempre y el piloto de cinco herramientas no podía
+responder a su propia pregunta.
+
+### Lo que guarda, y lo que no
+
+`clics_salientes`: herramienta, categoría, tipo de enlace (afiliado u oficial),
+pantalla de origen, **ruta de origen** y fecha. **Nada más.**
+
+Sin IP, sin cookie, sin identificador de sesión, sin user-agent, sin referer.
+No es una promesa de no usarlos: el dato no entra, así que no hay nada que
+reidentificar ni con qué enlazar dos clics. Una prueba lee
+`information_schema` y **compara la lista de columnas contra una escrita a
+mano**: añadir una columna rompe la prueba y obliga a justificarla.
+
+`ingresos_afiliacion`: lo que la propietaria anota de los paneles. Céntimos
+enteros —el dinero no va en coma flotante— y append-only por trigger de base de
+datos, igual que el historial de afiliación: una reversión por reembolso resta
+sin borrar el asiento original.
+
+### Un hueco que destapó una prueba
+
+La etiqueta de recorrido es el único texto libre que llega del navegador hasta
+la tabla, así que se validaba con un formato cerrado (`categoria:crm`). **Una
+prueba demostró que no bastaba:** una cadena de 32 caracteres hexadecimales
+—exactamente la pinta de un identificador de sesión— encajaba perfectamente en
+ese formato.
+
+Un filtro de forma solo puede decir "esto parece un slug"; no puede decir "esto
+no es un identificador". La comprobación de verdad es **contra el catálogo**:
+solo se guarda la etiqueta si su identificador existe como objetivo, categoría
+o subtipo real. Nada inventado entra, por bien formado que venga.
+
+### Independencia del ranking, comprobada sobre el código
+
+Cuatro pruebas recorren los archivos del agente y exigen que no importe nada de
+Advisor ni de Affiliate Manager, que no escriba en las tablas de afiliación y
+que no mencione comisiones ni puntuaciones. La arquitectura ya lo decía
+—*"Revenue solo lee estos datos, nunca los modifica ni decide sobre ellos"*—;
+ahora se rompe solo si alguien cruza la línea.
+
+Una de esas pruebas hubo que afinarla: saltaba porque el repositorio menciona
+"las comisiones se revierten por reembolsos" **en un comentario**. Un
+comprobador que no distinga el código de la prosa obliga a escribir peor los
+comentarios para que pasen las pruebas, que es justo al revés de lo que
+interesa. Ahora los ignora.
+
+### El enlace de afiliada, intacto
+
+Ocho pruebas fijan que la URL llega al navegador carácter por carácter: `?sa=`,
+la ruta larga con hash de Systeme.io, varios parámetros con su orden, un
+fragmento `#`, mayúsculas, y un parámetro ya codificado que re-codificar
+rompería. Es el punto donde un error cuesta dinero **sin dar ninguna señal**:
+la web seguiría perfecta y la comisión se perdería en silencio hasta cuadrar
+cuentas meses después.
+
+### Política de privacidad y de cookies
+
+Actualizadas en el mismo cambio, como exigía el propio comentario del archivo.
+Antes decían que Molnip no tiene analítica, y eso dejaba de ser cierto.
+
+Se describe con exactitud qué se registra —herramienta, recorrido, tipo de
+enlace y fecha— y se afirma con claridad que **no hay cookies, ni IP, ni
+identificadores de sesión, ni nada que permita identificar o seguir a una
+persona**. Siguiendo la indicación de la propietaria, **no se invoca ninguna
+base jurídica del artículo 6.1**: hacerlo presupondría que se tratan datos
+personales, y aquí no los hay. Se añade una nota de que el documento deberá
+recibir revisión profesional antes de cualquier ampliación relevante del
+seguimiento.
+
+### Un detalle técnico que costó el build
+
+El formulario del panel es un componente de cliente y necesitaba la lista de
+estados. Importarla del repositorio arrastraba `pg` —y con él `dns`, `net`,
+`tls`— al paquete del navegador. Por eso el vocabulario vive en `tipos.ts`, sin
+dependencias de servidor: los dos lados comparten una definición sin compartir
+dependencias.
+
+### Pendiente
+
+- Ninguna pantalla pasa todavía `ruta` desde el resultado del cuestionario: las
+  landings de categoría y objetivo sí, la pantalla de recomendación aún no.
+- La importación y validación de enlaces en bloque sigue sin construir (ver el
+  apartado anterior).

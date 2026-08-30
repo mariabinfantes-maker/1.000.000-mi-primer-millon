@@ -7,6 +7,7 @@ import { getEstrategiaAfiliacion } from "@/data/repositorioEstrategiaAfiliacion"
 import { elegirEnlaceAfiliado, SEGMENTO_GLOBAL } from "@/agents/atlas-affiliate-manager/seleccionarEnlace";
 import { metadataFlujo } from "@/agents/atlas-generador-contenido/metadatos";
 import type { OrigenClic } from "@/lib/analitica/proveedorAnalitica";
+import { normalizarRutaOrigen } from "@/agents/atlas-revenue/rutaOrigen";
 import EnlaceAtras from "@/components/ui/EnlaceAtras";
 import BotonIrAlProveedor from "@/components/ui/BotonIrAlProveedor";
 
@@ -55,10 +56,10 @@ export default async function IrAlProveedorPage({
   searchParams,
 }: {
   params: Promise<{ herramientaId: string }>;
-  searchParams: Promise<{ origen?: string }>;
+  searchParams: Promise<{ origen?: string; ruta?: string }>;
 }) {
   const { herramientaId } = await params;
-  const { origen } = await searchParams;
+  const { origen, ruta } = await searchParams;
   const herramienta = getHerramienta(herramientaId);
 
   if (!herramienta) notFound();
@@ -104,6 +105,10 @@ export default async function IrAlProveedorPage({
               categoriaId: herramienta.categoriaId,
               tipoEnlace: enlaceAfiliado ? "afiliado" : "oficial",
               origen: leerOrigen(origen),
+              // Atlas Revenue: de qué recorrido venía. `normalizarRutaOrigen`
+              // solo acepta el vocabulario cerrado, así que un valor
+              // inventado en la dirección se descarta en vez de guardarse.
+              rutaOrigen: normalizarRutaOrigen(ruta),
             }}
           />
         </div>
