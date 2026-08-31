@@ -5,10 +5,21 @@ import type { CuentaAfiliado, EstrategiaAfiliacion } from "@/data/esquemaInterno
 import { verificarPeticionAdmin } from "@/lib/admin/verificarPeticion";
 
 /**
- * Importa un array de `EstrategiaAfiliacion` (mismo formato que exporta
- * `/api/admin/afiliacion/exportar`) — validación estructural mínima mismo
- * espíritu que `lote.ts`: una fila inválida no aborta las demás, se
- * reporta y se sigue con el resto.
+ * REEMPLAZO COMPLETO desde el JSON de exportación.
+ *
+ * Esta ruta no fusiona: sustituye la estrategia entera de cada herramienta
+ * por la del archivo. Un archivo parcial, o uno al que le falte una cuenta,
+ * borra lo que no venga en él — cuentas, enlaces y todo. Con la importación
+ * en bloque ya construida, esto pasa a ser la excepción y no el camino
+ * normal, así que exige una marca explícita: sin `reemplazar: true` en el
+ * cuerpo, se rechaza.
+ *
+ * No es una precaución teórica. El botón que llamaba aquí estaba junto a
+ * «Exportar JSON» en el panel, sin ninguna advertencia, y bastaba con
+ * escoger el archivo equivocado para perder enlaces sin un solo aviso.
+ *
+ * Para añadir o corregir datos, `/importar-lote`, que fusiona campo a campo
+ * y enseña antes lo que va a hacer.
  */
 
 type ResultadoFila = { fila: number; herramientaId?: string; ok: boolean; error?: string };
@@ -43,12 +54,32 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "El archivo no es JSON válido." }, { status: 400 });
   }
 
-  if (!Array.isArray(cuerpo)) {
+  // Se admiten las dos formas: el array pelado de siempre, o un objeto que
+  // lo envuelve junto a la confirmación. La confirmación es obligatoria.
+  const envoltorio = !Array.isArray(cuerpo) && typeof cuerpo === "object" && cuerpo !== null
+    ? (cuerpo as { estrategias?: unknown; reemplazar?: unknown })
+    : undefined;
+  const estrategias = envoltorio ? envoltorio.estrategias : cuerpo;
+  const confirmado = envoltorio?.reemplazar === true;
+
+  if (!Array.isArray(estrategias)) {
     return NextResponse.json({ error: "El JSON importado debe ser un array de estrategias." }, { status: 400 });
   }
 
+  if (!confirmado) {
+    return NextResponse.json(
+      {
+        error:
+          "Esta importación REEMPLAZA la estrategia completa de cada herramienta y borra lo que no venga en el archivo. " +
+          "Si es lo que quieres, confírmalo marcando la casilla de reemplazo. Para añadir o corregir datos sin perder nada, usa la importación en bloque.",
+        requiereConfirmacion: true,
+      },
+      { status: 400 }
+    );
+  }
+
   const resultados: ResultadoFila[] = [];
-  for (const [indice, item] of cuerpo.entries()) {
+  for (const [indice, item] of estrategias.entries()) {
     const fila = indice + 1;
     if (!validarEstrategia(item)) {
       const herramientaId = typeof (item as Record<string, unknown>)?.herramientaId === "string"
@@ -63,7 +94,10 @@ export async function POST(request: Request) {
       continue;
     }
     try {
-      await guardarEstrategiaAfiliacion(item, { usuario: verificacion.usuario, motivo: "Importación desde JSON" });
+      await guardarEstrategiaAfiliacion(item, {
+        usuario: verificacion.usuario,
+        motivo: "Reemplazo completo desde JSON",
+      });
       resultados.push({ fila, herramientaId: item.herramientaId, ok: true });
     } catch (error) {
       resultados.push({
