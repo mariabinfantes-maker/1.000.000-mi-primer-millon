@@ -8,6 +8,7 @@ import {
   aEntradaLote,
   SINONIMOS,
   PLANTILLA_CSV,
+  EJEMPLOS_COLUMNA,
   type CampoLote,
   type Emparejamiento,
 } from "@/agents/atlas-affiliate-manager/importacion/columnas";
@@ -49,6 +50,7 @@ type ResultadoAplicar = {
   fallidas: number;
   activacionesAplicadas: number;
   activacionesPendientes: number;
+  activacionesBloqueadas: number;
   resultados: { fila: number; id: string; ok: boolean; error?: string }[];
 };
 
@@ -75,6 +77,7 @@ export default function PanelImportacion() {
   const [avisosArchivo, setAvisosArchivo] = useState<string[]>([]);
   const [emparejamiento, setEmparejamiento] = useState<Emparejamiento>({});
   const [resumen, setResumen] = useState<ResumenPrevisualizacion | null>(null);
+  const [enlacesPorComprobar, setEnlacesPorComprobar] = useState(0);
   const [resultado, setResultado] = useState<ResultadoAplicar | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [cargando, setCargando] = useState(false);
@@ -122,20 +125,32 @@ export default function PanelImportacion() {
     setEmparejamiento(proponerEmparejamiento(cabeceras).emparejamiento);
   }
 
-  async function previsualizar() {
+  async function previsualizar(comprobarEnlaces = false) {
     setCargando(true);
     setError(null);
     setResultado(null);
-    const r = await llamar<{ resumen: ResumenPrevisualizacion }>({ modo: "previsualizar", entradas });
+    const r = await llamar<{ resumen: ResumenPrevisualizacion; enlacesPorComprobar: number }>({
+      modo: "previsualizar",
+      entradas,
+      comprobarEnlaces,
+    });
     if (!r.ok) setError(r.error ?? "No se ha podido previsualizar.");
-    else setResumen(r.datos!.resumen);
+    else {
+      setResumen(r.datos!.resumen);
+      setEnlacesPorComprobar(r.datos!.enlacesPorComprobar ?? 0);
+    }
     setCargando(false);
   }
 
   async function aplicar(incluirActivaciones: boolean) {
     setCargando(true);
     setError(null);
-    const r = await llamar<ResultadoAplicar>({ modo: "aplicar", entradas, incluirActivaciones });
+    const r = await llamar<ResultadoAplicar>({
+      modo: "aplicar",
+      entradas,
+      incluirActivaciones,
+      comprobarEnlaces: resumen?.enlacesComprobados ?? false,
+    });
     if (!r.ok) setError(r.error ?? "No se ha podido aplicar.");
     else {
       setResultado(r.datos!);
@@ -208,6 +223,34 @@ export default function PanelImportacion() {
           )}
         </div>
 
+        <details className="mt-4 rounded-xl border border-slate-200 bg-slate-50/60 p-4">
+          <summary className="cursor-pointer text-sm font-semibold text-slate-700">Qué va en cada columna</summary>
+          <div className="mt-3 overflow-x-auto">
+            <table className="w-full min-w-[34rem] text-left text-sm">
+              <thead className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                <tr>
+                  <th className="py-1 pr-4">Columna</th>
+                  <th className="py-1 pr-4">Ejemplo</th>
+                  <th className="py-1">Nota</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200/70">
+                {EJEMPLOS_COLUMNA.map((c) => (
+                  <tr key={c.campo}>
+                    <td className="py-1.5 pr-4 font-mono text-xs text-slate-800">{c.campo}</td>
+                    <td className="py-1.5 pr-4 text-slate-600">{c.ejemplo}</td>
+                    <td className="py-1.5 text-slate-500">{c.nota ?? ""}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-3 text-xs text-slate-500">
+            La plantilla trae solo el id de ejemplo y el resto vacío a propósito: así puedes previsualizarla
+            sin que proponga ningún cambio. Una casilla vacía nunca borra lo que ya había.
+          </p>
+        </details>
+
         {avisosArchivo.length > 0 && (
           <ul className="mt-3 space-y-1 rounded-xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900">
             {avisosArchivo.map((aviso) => (
@@ -254,7 +297,7 @@ export default function PanelImportacion() {
 
           <button
             type="button"
-            onClick={previsualizar}
+            onClick={() => previsualizar(false)}
             disabled={cargando || !emparejamiento.id}
             className="mt-5 rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand-700 disabled:opacity-50"
           >
@@ -297,6 +340,35 @@ export default function PanelImportacion() {
             )}
           </div>
 
+          {enlacesPorComprobar > 0 && (
+            <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50/60 px-4 py-3">
+              {resumen.enlacesComprobados ? (
+                <p className="text-sm text-slate-700">
+                  Enlaces comprobados.
+                  {resumen.activacionesBloqueadas > 0 && (
+                    <span className="ml-1 font-semibold text-amber-800">
+                      {resumen.activacionesBloqueadas} no se activarán porque su enlace no responde.
+                    </span>
+                  )}
+                </p>
+              ) : (
+                <div className="flex flex-wrap items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => previsualizar(true)}
+                    disabled={cargando}
+                    className="rounded-xl bg-white px-3 py-1.5 text-sm font-semibold text-slate-700 ring-1 ring-slate-200 transition hover:bg-slate-50 disabled:opacity-50"
+                  >
+                    {cargando ? "Comprobando…" : `Comprobar los ${enlacesPorComprobar} enlace(s) nuevos`}
+                  </button>
+                  <span className="text-sm text-slate-500">
+                    Molnip pedirá esas direcciones para ver si responden. No descarga las páginas.
+                  </span>
+                </div>
+              )}
+            </div>
+          )}
+
           {resumen.bloqueo && (
             <p role="alert" className="mt-4 rounded-xl border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-800">
               {resumen.bloqueo}
@@ -330,22 +402,47 @@ export default function PanelImportacion() {
                           activa
                         </span>
                       )}
+                      {fila.activacionBloqueada && (
+                        <span className="ml-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-900">
+                          no se activará
+                        </span>
+                      )}
                     </td>
                     <td className="px-3 py-2 text-slate-600">
                       {fila.errores.length > 0 ? (
                         <span className="text-red-700">{fila.errores.join(" ")}</span>
-                      ) : fila.cambios.length === 0 ? (
-                        "—"
                       ) : (
-                        <ul className="space-y-0.5">
-                          {fila.cambios.map((cambio) => (
-                            <li key={cambio.campo}>
-                              <span className="font-semibold">{cambio.campo}:</span>{" "}
-                              <span className="text-slate-400 line-through">{cambio.antes ?? "vacío"}</span>{" "}
-                              → <span>{cambio.despues}</span>
-                            </li>
-                          ))}
-                        </ul>
+                        <>
+                          {fila.cambios.length === 0 ? (
+                            "—"
+                          ) : (
+                            <ul className="space-y-0.5">
+                              {fila.cambios.map((cambio) => (
+                                <li key={cambio.campo}>
+                                  <span className="font-semibold">{cambio.campo}:</span>{" "}
+                                  <span className="text-slate-400 line-through">{cambio.antes ?? "vacío"}</span>{" "}
+                                  → <span>{cambio.despues}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                          {fila.avisos.length > 0 && (
+                            <ul className="mt-1 space-y-0.5">
+                              {fila.avisos.map((aviso) => (
+                                <li
+                                  key={aviso}
+                                  className={
+                                    /no responde|no se activará/i.test(aviso)
+                                      ? "text-amber-800"
+                                      : "text-emerald-700"
+                                  }
+                                >
+                                  {aviso}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </>
                       )}
                     </td>
                   </tr>
@@ -417,6 +514,14 @@ export default function PanelImportacion() {
             )}
             {resultado.activacionesAplicadas > 0 && (
               <> · {resultado.activacionesAplicadas} activada(s)</>
+            )}
+            {resultado.activacionesBloqueadas > 0 && (
+              <>
+                {" · "}
+                <span className="text-amber-800">
+                  {resultado.activacionesBloqueadas} no activada(s) porque su enlace no responde
+                </span>
+              </>
             )}
             {resultado.activacionesPendientes > 0 && (
               <>

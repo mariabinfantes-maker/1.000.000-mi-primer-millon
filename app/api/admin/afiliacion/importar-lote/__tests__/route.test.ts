@@ -1,4 +1,5 @@
-import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it } from "vitest";
+import { createServer, type Server } from "node:http";
 import { POST as importarLote } from "../route";
 import { POST as reemplazar } from "../../importar/route";
 import { generarTokenSesion } from "@/lib/admin/sesion";
@@ -13,6 +14,32 @@ import type { EstrategiaAfiliacion } from "@/data/esquemaInterno";
  */
 
 const envOriginal = { ...process.env };
+
+/**
+ * Un proveedor de mentira, en local: responde bien en /vivo y 404 en /roto.
+ * Hace falta uno de verdad porque activar una cuenta ahora exige que el
+ * enlace responda, y este entorno no tiene salida a internet.
+ */
+let servidor: Server;
+let baseProveedor: string;
+
+beforeAll(async () => {
+  servidor = createServer((peticion, respuesta) => {
+    if (peticion.url?.startsWith("/vivo")) {
+      respuesta.writeHead(200).end("ok");
+    } else {
+      respuesta.writeHead(404).end("no");
+    }
+  });
+  await new Promise<void>((listo) => servidor.listen(0, "127.0.0.1", listo));
+  const direccion = servidor.address();
+  const puerto = typeof direccion === "object" && direccion ? direccion.port : 0;
+  baseProveedor = `http://127.0.0.1:${puerto}`;
+});
+
+afterAll(async () => {
+  await new Promise<void>((listo) => servidor.close(() => listo()));
+});
 
 function peticion(url: string, body: unknown): Request {
   const sesion = generarTokenSesion("admin-test");
@@ -54,6 +81,9 @@ function estrategia(id: string, cuenta: Record<string, unknown> = {}): Estrategi
 describe.skipIf(!postgresDisponible())("POST /api/admin/afiliacion/importar-lote", () => {
   beforeEach(async () => {
     process.env.MOLNIP_E2E = "true";
+    // Necesario para que la comprobación acepte 127.0.0.1. Solo funciona
+    // fuera de producción: hay una prueba que lo comprueba.
+    process.env.MOLNIP_PERMITIR_RED_LOCAL = "true";
     await limpiarTablasDePrueba();
   });
   afterEach(() => {
@@ -96,17 +126,85 @@ describe.skipIf(!postgresDisponible())("POST /api/admin/afiliacion/importar-lote
     expect((await getEstrategiaAfiliacion("asana"))?.cuentas[0].comision).toBe("40 %");
   });
 
-  it("con la confirmación aparte, la activación sí se aplica", async () => {
-    const entradas = [{ id: "monday-com", estado: "activo", enlace: "https://monday.com/?ref=molnip" }];
+  it("con la confirmación aparte y el enlace vivo, la activación sí se aplica", async () => {
+    const enlace = `${baseProveedor}/vivo?ref=molnip`;
     const datos = await (
-      await importarLote(peticion(URL_LOTE, { modo: "aplicar", entradas, incluirActivaciones: true }))
+      await importarLote(
+        peticion(URL_LOTE, {
+          modo: "aplicar",
+          entradas: [{ id: "monday-com", estado: "activo", enlace }],
+          incluirActivaciones: true,
+        })
+      )
     ).json();
 
     expect(datos.aplicadas).toBe(1);
     expect(datos.activacionesAplicadas).toBe(1);
     const guardada = await getEstrategiaAfiliacion("monday-com");
     expect(guardada?.cuentas[0].estado).toBe("activo");
-    expect(guardada?.cuentas[0].enlaces[0].url).toBe("https://monday.com/?ref=molnip");
+    expect(guardada?.cuentas[0].enlaces[0].url).toBe(enlace);
+  });
+
+  it("si el enlace NO responde, se importan los demás datos pero NO se activa", async () => {
+    const enlace = `${baseProveedor}/roto?ref=molnip`;
+    const datos = await (
+      await importarLote(
+        peticion(URL_LOTE, {
+          modo: "aplicar",
+          entradas: [{ id: "monday-com", estado: "activo", enlace, comision: "25 % recurrente" }],
+          incluirActivaciones: true,
+        })
+      )
+    ).json();
+
+    expect(datos.activacionesBloqueadas).toBe(1);
+    expect(datos.activacionesAplicadas).toBe(0);
+
+    const guardada = await getEstrategiaAfiliacion("monday-com");
+    // Los demás datos SÍ entran.
+    expect(guardada?.cuentas[0].comision).toBe("25 % recurrente");
+    expect(guardada?.cuentas[0].enlaces[0].url).toBe(enlace);
+    // Pero la cuenta no queda activa.
+    expect(guardada?.cuentas[0].estado).not.toBe("activo");
+  });
+
+  it("activar SIEMPRE comprueba el enlace, aunque no se pida la comprobación", async () => {
+    // Si dependiera de una bandera del cliente, omitirla bastaría para
+    // activar un enlace que no lleva a ninguna parte.
+    const datos = await (
+      await importarLote(
+        peticion(URL_LOTE, {
+          modo: "aplicar",
+          entradas: [{ id: "monday-com", estado: "activo", enlace: `${baseProveedor}/roto` }],
+          incluirActivaciones: true,
+          comprobarEnlaces: false,
+        })
+      )
+    ).json();
+
+    expect(datos.activacionesBloqueadas).toBe(1);
+    expect((await getEstrategiaAfiliacion("monday-com"))?.cuentas[0].estado).not.toBe("activo");
+  });
+
+  it("la vista previa avisa de si el enlace responde, cuando se pide", async () => {
+    const datos = await (
+      await importarLote(
+        peticion(URL_LOTE, {
+          modo: "previsualizar",
+          entradas: [
+            { id: "asana", enlace: `${baseProveedor}/vivo` },
+            { id: "clickup", enlace: `${baseProveedor}/roto` },
+          ],
+          comprobarEnlaces: true,
+        })
+      )
+    ).json();
+
+    expect(datos.resumen.enlacesComprobados).toBe(true);
+    expect(datos.resumen.filas[0].avisos.join(" ")).toMatch(/el enlace responde/i);
+    expect(datos.resumen.filas[1].avisos.join(" ")).toMatch(/NO responde/i);
+    // Y sigue sin escribir nada.
+    expect(await getEstrategiaAfiliacion("asana")).toBeUndefined();
   });
 
   it("no toca una cuenta que ya está ACTIVA", async () => {

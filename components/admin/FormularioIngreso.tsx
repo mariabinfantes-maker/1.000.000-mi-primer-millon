@@ -2,6 +2,14 @@
 
 import { useState } from "react";
 import { ESTADOS_INGRESO } from "@/agents/atlas-revenue/tipos";
+import { COOKIE_CSRF } from "@/lib/admin/cookies";
+
+/** La cookie CSRF no es httpOnly a propósito: el navegador tiene que poder devolverla en la cabecera. */
+function leerCookie(nombre: string): string | undefined {
+  if (typeof document === "undefined") return undefined;
+  const encaje = document.cookie.match(new RegExp(`(?:^|; )${nombre}=([^;]*)`));
+  return encaje ? decodeURIComponent(encaje[1]) : undefined;
+}
 
 /**
  * Anotar a mano lo que dice un panel de afiliación.
@@ -32,9 +40,10 @@ export default function FormularioIngreso({
     setEnviando(true);
     setMensaje(null);
     try {
+      const csrf = leerCookie(COOKIE_CSRF);
       const respuesta = await fetch("/api/admin/ingresos", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", ...(csrf ? { "x-csrf-token": csrf } : {}) },
         body: JSON.stringify({
           herramientaId: datos.get("herramientaId"),
           periodo: datos.get("periodo"),
