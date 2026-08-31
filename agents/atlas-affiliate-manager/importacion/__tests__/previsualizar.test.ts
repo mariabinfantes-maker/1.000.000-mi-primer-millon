@@ -20,8 +20,8 @@ function estrategia(id: string, cuenta: Partial<EstrategiaAfiliacion["cuentas"][
 
 function contexto(overrides: Partial<ContextoPrevisualizacion> = {}): ContextoPrevisualizacion {
   return {
-    idsValidos: new Set(["systeme-io", "notion", "grammarly"]),
-    nombres: { "systeme-io": "Systeme.io", notion: "Notion", grammarly: "Grammarly" },
+    idsValidos: new Set(["systeme-io", "notion", "grammarly", "monday-com"]),
+    nombres: { "systeme-io": "Systeme.io", notion: "Notion", grammarly: "Grammarly", "monday-com": "monday.com" },
     existentes: new Map([["notion", estrategia("notion")]]),
     ...overrides,
   };
@@ -38,7 +38,7 @@ describe("previsualizarLote", () => {
   it("distingue crear, cambiar y sin cambios", () => {
     const existentes = new Map([
       ["notion", estrategia("notion")],
-      ["systeme-io", estrategia("systeme-io")],
+      ["monday-com", estrategia("monday-com")],
     ]);
     const r = previsualizarLote(
       [
@@ -46,8 +46,8 @@ describe("previsualizarLote", () => {
         { id: "grammarly", comision: "20 %" },
         // notion sí la tiene, y la comisión es distinta.
         { id: "notion", comision: "40 %" },
-        // systeme-io ya tiene exactamente esa plataforma: nada que cambiar.
-        { id: "systeme-io", plataforma: "Programa propio" },
+        // monday-com ya tiene exactamente esa plataforma: nada que cambiar.
+        { id: "monday-com", plataforma: "Programa propio" },
       ],
       contexto({ existentes })
     );
@@ -110,11 +110,8 @@ describe("previsualizarLote", () => {
     expect(r.filas.every((f) => f.veredicto !== "error")).toBe(true);
   });
 
-  it("protege las herramientas intocables", () => {
-    const r = previsualizarLote(
-      [{ id: "systeme-io", enlace: "https://otro.test/?sa=x" }],
-      contexto({ intocables: new Set(["systeme-io"]) })
-    );
+  it("protege Systeme.io por nombre", () => {
+    const r = previsualizarLote([{ id: "systeme-io", enlace: "https://otro.test/?sa=x" }], contexto());
     expect(r.filas[0].veredicto).toBe("error");
     expect(r.filas[0].errores.join(" ")).toMatch(/protegida/i);
   });

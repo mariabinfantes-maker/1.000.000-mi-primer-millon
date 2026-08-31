@@ -2,6 +2,7 @@ import type { EstrategiaAfiliacion, CuentaAfiliado } from "@/data/esquemaInterno
 import { esEstadoAfiliacionValido } from "../estrategiaAfiliacion";
 import { resolverCuentaId } from "./resolverCuenta";
 import { enlaceEsUsable } from "../reglasEnlace";
+import { comprobarProteccion } from "./protegidas";
 import type { EntradaLoteEstrategia } from "../lote";
 
 /**
@@ -74,8 +75,8 @@ export type ContextoPrevisualizacion = {
   nombres: Readonly<Record<string, string>>;
   /** Lo que hay guardado hoy, por herramienta. */
   existentes: ReadonlyMap<string, EstrategiaAfiliacion>;
-  /** Herramientas que esta importación no puede tocar bajo ninguna circunstancia. */
-  intocables?: ReadonlySet<string>;
+  /** Si es false, se saltan las protecciones (solo para pruebas). Por defecto, activas. */
+  aplicarProtecciones?: boolean;
 };
 
 function cuentaDe(estrategia: EstrategiaAfiliacion | undefined, cuentaId: string): CuentaAfiliado | undefined {
@@ -113,10 +114,6 @@ export function previsualizarLote(
       errores.push(`«${id}» no existe en el catálogo.`);
     }
 
-    if (contexto.intocables?.has(id)) {
-      errores.push(`«${id}» está protegida y no se puede cambiar desde una importación.`);
-    }
-
     const clave = `${id}::${cuentaId}`;
     if (vistas.has(clave)) {
       // Sin esto, la segunda fila pisaría a la primera sin que nadie lo viera.
@@ -134,6 +131,11 @@ export function previsualizarLote(
 
     const existente = contexto.existentes.get(id);
     const cuenta = cuentaDe(existente, cuentaId);
+
+    if (contexto.aplicarProtecciones !== false) {
+      const proteccion = comprobarProteccion(id, cuenta, { enlace: entrada.enlace, estado: entrada.estado });
+      if (proteccion) errores.push(proteccion.motivo);
+    }
     const enlaceActual = enlaceGlobalDe(cuenta, segmento);
     const enlaceFinal = entrada.enlace ?? enlaceActual;
     const estadoFinal = entrada.estado ?? cuenta?.estado ?? "no_solicitado";
