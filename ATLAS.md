@@ -606,6 +606,14 @@ candidatas, solo se reportan de forma transparente.
 
 ### Atlas Revenue: recuperado como agente 11 de la arquitectura
 
+> **Superada el 2026-08-31: Atlas Revenue está construido y desplegado.** Lo
+> que sigue es el razonamiento de por qué se descartó primero y se recuperó
+> después; se conserva porque explica los límites que el agente tiene hoy. El
+> alcance real construido está al final de este documento, en «Atlas Revenue:
+> medición mínima y privada». La condición de disparo que se lee abajo —una
+> segunda fuente de ingresos— resultó no ser la correcta: lo que hizo falta
+> primero no fue cruzar fuentes, sino saber si la única que hay funciona.
+
 **Registrada:** 2026-08-18 · **Actualizada:** 2026-08-25 — decisión oficial
 del proyecto: Atlas Revenue deja de estar descartado y se recupera como
 agente futuro (agente 11 de 11, ver `ARQUITECTURA-AGENTES.md`), con una
@@ -1982,9 +1990,74 @@ estados. Importarla del repositorio arrastraba `pg` —y con él `dns`, `net`,
 dependencias de servidor: los dos lados comparten una definición sin compartir
 dependencias.
 
+### La etiqueta de recorrido, completada
+
+`ruta_origen` llegaba vacía justo en la pantalla que más importa para el
+piloto. Las cuatro salidas hacia el proveedor la llevan ya: pantalla final de
+recomendaciones, comparador, ficha y tabla comparativa.
+
+El recorrido `libre` no guarda nunca lo que la persona escribió. Se registra
+siempre como `libre:texto-libre`. Saber que alguien vino por la puerta de texto
+libre es información de producto; saber qué escribió sería exactamente lo que
+esta medición promete no hacer.
+
+Lo que se guarda se valida contra el catálogo real antes de escribirlo
+(`identificadoresDelCatalogo()`). Sin esa comprobación, la columna aceptaba
+cualquier cadena con el formato correcto — una prueba demostró que 32
+caracteres hexadecimales, la forma de un identificador de sesión, pasaban el
+filtro. El formato no basta: tiene que ser un objetivo, una categoría o un
+subtipo que exista.
+
+### Dos fallos que solo aparecieron al usarlo de verdad
+
+**El formulario de ingresos guardaba bien y decía que no.** Tras un alta
+correcta mostraba `Cannot read properties of null (reading 'reset')`:
+`currentTarget` vale null tras el primer `await`, y el error caía en el `catch`
+del guardado. El fallo estaba solo en el camino bueno, que es justo el que las
+pruebas de error no recorren. Lo grave no era el mensaje: quien lo viera daría
+el apunte por fallido y lo repetiría, sobre una tabla que no admite
+modificaciones ni borrados. El duplicado se queda para siempre.
+
+La prueba que lo impide recorre el árbol de sintaxis de los componentes en vez
+de buscar texto, porque hay que distinguir el `await` de la propia función del
+de una función anidada, y eso una expresión regular no lo sabe hacer.
+
+**El aprovisionamiento verificaba dos tablas de cuatro.** La lista de tablas a
+comprobar estaba escrita a mano y se había quedado vieja al añadir las de
+Revenue, así que daba por bueno un aprovisionamiento a medias. Ahora lo que se
+espera se deduce de las propias sentencias del esquema
+(`data/db/verificarEsquema.ts`): una lista escrita a mano se queda vieja, una
+deducida no puede. Y se comprueban tres cosas, porque las tres pueden faltar
+por separado: la tabla, sus columnas y el trigger que la protege. Que exista
+`historial_cambios_afiliacion` no dice nada sobre si sigue siendo de
+solo-inserción.
+
+### El aprovisionamiento, dentro de una transacción
+
+Encontrado al revisar el script antes de ejecutarlo contra Neon. Dos triggers
+se recrean en cada pasada, y recrear es primero `DROP` y después `CREATE`. Sin
+transacción, un corte de red contra Neon justo entre esas dos sentencias
+dejaría `historial_cambios_afiliacion` —una tabla que ya está en producción y
+con datos— aceptando `UPDATE` y `DELETE`. El aviso habría salido por consola
+como un error de aprovisionamiento cualquiera, sin mencionar que además la
+tabla había quedado desprotegida.
+
+En Postgres el DDL es transaccional, así que basta con envolverlo: o queda todo
+aplicado, o no queda nada. Hay control negativo: una prueba reproduce el
+comportamiento anterior y confirma que sí dejaba la tabla desprotegida.
+
+Verificado además de forma empírica sobre una base con datos: dos pasadas
+seguidas, y el resumen md5 de todas las filas idéntico antes y después.
+
+**La variable que necesita el script es `POSTGRES_URL_NON_POOLING`**, no
+`DATABASE_URL` — el aprovisionamiento tiene que ir por la conexión directa, no
+por el pooler.
+
 ### Pendiente
 
-- Ninguna pantalla pasa todavía `ruta` desde el resultado del cuestionario: las
-  landings de categoría y objetivo sí, la pantalla de recomendación aún no.
 - La importación y validación de enlaces en bloque sigue sin construir (ver el
   apartado anterior).
+- La tasa de conversión de la tabla puede superar el 100 %: las conversiones que
+  comunica un programa no corresponden al mismo periodo que los clics medidos.
+  Se ha decidido no acotarla — una cifra imposible ahí es señal de que algo se
+  apuntó mal, y ocultarla sería peor que enseñarla.
