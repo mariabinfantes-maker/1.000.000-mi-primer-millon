@@ -1,5 +1,6 @@
 import type { ClicsPorPantalla, ClicsPorRuta } from "@/agents/atlas-revenue/tipos";
 import FormularioIngreso from "./FormularioIngreso";
+import AvisoEsquema from "./AvisoEsquema";
 import { formatearImporte, proporcionDeClicsPerdidos, type FilaRevenue, type ResumenRevenue } from "@/agents/atlas-revenue/informe";
 
 /**
@@ -49,12 +50,7 @@ export default function PanelIngresos({
         </p>
       </div>
 
-      {sinConexion && (
-        <p role="alert" className="rounded-xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900">
-          No se ha podido consultar la base de datos. Los datos siguen guardados; es esta pantalla
-          la que no ha podido leerlos.
-        </p>
-      )}
+      {sinConexion && <AvisoEsquema />}
 
       {resumen && (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">

@@ -2158,3 +2158,34 @@ que corregir — se comprobó antes de tocarlo.
 
 El enlace elegido para el piloto es el universal del correo de bienvenida, con
 forma `https://systeme.io/?sa=…`, no el `/tr/…` de una campaña concreta.
+
+### Aprovisionar el esquema desde el panel
+
+Añadido porque administrar Molnip no debería exigir abrir un terminal ni
+conocer la cadena de conexión de Neon para crear unas tablas que la propia
+aplicación ya sabe describir.
+
+Cuando la pantalla de Ingresos no puede leer la base de datos, en vez de un
+aviso que solo dice que algo va mal, aparece una tarjeta que va a mirar qué
+falta —tablas, columnas y triggers, por separado— y ofrece crearlo. Enseña lo
+que falta antes de dejar aplicar: nadie debería pulsar un botón que toca la
+base de datos sin ver antes qué va a hacer.
+
+`/api/admin/esquema` ejecuta las mismas `SENTENCIAS_ESQUEMA` que el script de
+línea de órdenes, dentro de una transacción y con la misma verificación
+posterior. El script sigue existiendo; son dos puertas a la misma habitación.
+
+Verificado sobre una base en el estado anterior al sprint —solo las dos tablas
+viejas, con datos dentro— con navegador real:
+
+- listó exactamente lo que faltaba: las dos tablas nuevas y los dos triggers;
+- al crearlo, las cuatro tablas quedaron presentes;
+- el resumen md5 de todas las filas anteriores, idéntico antes y después;
+- los triggers protegen de verdad: `UPDATE` y `DELETE` sobre el historial se
+  rechazan con su mensaje;
+- una segunda pulsación no cambia nada.
+
+Detalle que solo se ve haciendo la prueba así: la base de partida no tenía el
+trigger `historial_solo_insertar`, y el aprovisionamiento lo añadió. Es decir,
+aprovisionar no solo crea lo que falta de Revenue: repone la protección de una
+tabla que ya estaba en producción.
