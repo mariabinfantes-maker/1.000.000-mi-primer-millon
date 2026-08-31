@@ -2189,3 +2189,68 @@ Detalle que solo se ve haciendo la prueba así: la base de partida no tenía el
 trigger `historial_solo_insertar`, y el aprovisionamiento lo añadió. Es decir,
 aprovisionar no solo crea lo que falta de Revenue: repone la protección de una
 tabla que ya estaba en producción.
+
+## Cierre de Atlas Revenue: el primer clic real (2026-08-31)
+
+Fusionado con squash en `claude/claude-md-docs-plkwnq` como commit `d55dc58`,
+autorizado expresamente por la propietaria. Un solo commit en el historial
+principal, con el árbol idéntico al de la rama comprobado antes de publicar.
+
+### El aprovisionamiento, hecho desde el panel
+
+Este entorno de desarrollo no tiene salida de red ni credenciales de Neon, así
+que el aprovisionamiento no pudo ejecutarlo Atlas. Por eso se construyó la
+tarjeta de esquema en la pantalla de Ingresos: la propietaria pulsó
+«Comprobar el esquema» y «Crear lo que falta», sin abrir un terminal.
+
+Resultado en Neon, leído del propio panel:
+
+    clics_salientes · 7 columnas
+    estrategias_afiliacion · 3 columnas
+    historial_cambios_afiliacion · 8 columnas
+    ingresos_afiliacion · 11 columnas
+    → «El esquema está completo»
+
+Las siete columnas de `clics_salientes` son la prueba en producción de que no
+hay columna de IP, ni de cookie, ni de sesión. La garantía de privacidad no es
+una promesa del documento: es que las columnas no existen.
+
+### Systeme.io, primera afiliación activa
+
+Dada de alta por la propietaria desde el flujo nuevo, sin que Atlas tocara su
+enlace ni sus estados:
+
+- enlace universal `https://systeme.io/?sa=…` (no el `/tr/…` de campaña);
+- comisión **60 % vitalicia**, corrigiendo el «40 % a 50 %» que traía
+  investigado;
+- atribución **Permanente — sin caducidad**, corrigiendo el «365 días»;
+- comprobación del enlace en verde el 31/8/2026 a las 11:30:56;
+- estado **Activa**, con próxima acción «Ninguna — cuenta activa y con enlace».
+
+### El primer clic
+
+Recorrido completo hecho a mano en producción: ficha pública → «Ir al
+proveedor» → pantalla intermedia, que mostró el aviso de enlace de afiliada →
+systeme.io.
+
+    CLICS SALIENTES     1   · 1 herramienta(s)
+    POR ENLACE PROPIO   1   · Pueden generar comisión
+    SIN ENLACE PROPIO   0
+    Systeme.io · clics 1 · con enlace propio 1
+
+Un detalle que conviene recordar para no confundirlo con un fallo: al llegar a
+Systeme.io la barra de direcciones muestra `systeme.io/es`, sin el `?sa=`.
+Systeme.io anota la atribución y redirige a su página localizada. El parámetro
+no se pierde: se consume.
+
+Con esto queda comprobado en producción lo que el sprint venía a construir: el
+panel Gestionar, el enlace universal, la comisión, la atribución permanente, el
+paso de Aprobada a Activa, la comprobación del enlace, la redirección íntegra y
+el registro del clic con su recorrido.
+
+### Pendiente menor
+
+La rama `claude/atlas-revenue` no pudo borrarse desde este entorno: el remoto
+corta la conexión en la operación de borrado, aunque los envíos normales
+funcionan. Su contenido está íntegro en producción —árbol idéntico
+comprobado—, así que borrarla es cosmético y puede hacerse desde GitHub.
