@@ -5,6 +5,7 @@ import { COOKIE_CSRF } from "@/lib/admin/cookies";
 import type { FilaPanelAfiliacion } from "@/agents/atlas-affiliate-manager/panelDatos";
 import type { EstadoPanel } from "@/agents/atlas-affiliate-manager/proximaAccion";
 import { enlaceEsUsable, puedeActivarse } from "@/agents/atlas-affiliate-manager/reglasEnlace";
+import { SUGERENCIAS_ATRIBUCION, esAtribucionPermanente } from "@/agents/atlas-affiliate-manager/duracionAtribucion";
 
 /**
  * Panel interno de Affiliate Manager — la única superficie visual sobre
@@ -339,7 +340,23 @@ function FilaAfiliacion({ fila, onGestionar }: { fila: FilaPanelAfiliacion; onGe
       <td className="px-4 py-3 tabular-nums text-slate-700">{fila.prioridad ?? "—"}</td>
       <td className="px-4 py-3 text-slate-600">
         {fila.comision ?? "—"}
-        {fila.duracionCookie ? ` · ${fila.duracionCookie}` : ""}
+        {fila.duracionCookie ? (
+          <>
+            {" · "}
+            {esAtribucionPermanente(fila.duracionCookie) ? (
+              // Entre "90 días" y algo que no caduca hay una diferencia de
+              // negocio grande, y leyendo texto libre a toda velocidad se pasa
+              // por alto.
+              <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-semibold text-emerald-700">
+                {fila.duracionCookie}
+              </span>
+            ) : (
+              fila.duracionCookie
+            )}
+          </>
+        ) : (
+          ""
+        )}
       </td>
       <td className="px-4 py-3">
         {/* El estado se lee aquí y se cambia en «Gestionar». Antes era un
@@ -544,16 +561,44 @@ function ModalGestion({
             </div>
             <div>
               <label htmlFor="duracion-cookie" className={etiqueta}>
-                Duración de la cookie
+                Duración de la cookie o atribución
               </label>
+              {/* Sigue siendo texto libre —cada programa lo dice a su manera—
+                  pero con sugerencias, y la permanencia la primera: hasta
+                  ahora el campo se llamaba solo "duración de la cookie" y
+                  empujaba a inventarse un número de días para programas cuya
+                  atribución no caduca nunca. */}
               <input
                 id="duracion-cookie"
                 type="text"
+                list="sugerencias-atribucion"
                 value={duracionCookie}
                 onChange={(e) => setDuracionCookie(e.target.value)}
-                placeholder="30 días"
+                placeholder="30 días · Permanente — sin caducidad"
                 className={campo}
               />
+              <datalist id="sugerencias-atribucion">
+                {SUGERENCIAS_ATRIBUCION.map((valor) => (
+                  <option key={valor} value={valor} />
+                ))}
+              </datalist>
+              <div className="mt-1.5 flex flex-wrap gap-1.5">
+                {SUGERENCIAS_ATRIBUCION.slice(0, 3).map((valor) => (
+                  <button
+                    key={valor}
+                    type="button"
+                    onClick={() => setDuracionCookie(valor)}
+                    className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 transition hover:bg-slate-200"
+                  >
+                    {valor}
+                  </button>
+                ))}
+              </div>
+              {esAtribucionPermanente(duracionCookie) && (
+                <p className="mt-1.5 text-xs text-emerald-700">
+                  Atribución sin caducidad: la venta se te sigue atribuyendo sin límite de tiempo.
+                </p>
+              )}
             </div>
           </div>
 

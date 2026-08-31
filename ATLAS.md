@@ -2126,3 +2126,35 @@ dentro de la pantalla en los dos sin desplazar nada, el modal cabe, el aviso
 del enlace mal pegado bloquea el guardado, «Activa» aparece deshabilitada y
 etiquetada «necesita enlace» mientras no lo haya, y al guardar el enlace llega
 íntegro a la base de datos con la comisión y la cookie. 803 pruebas en verde.
+
+### La duración de la atribución podía ser mentira
+
+Al dar de alta Systeme.io, la ficha decía «365 días» y el correo oficial del
+programa dice atribución permanente: se ancla al correo del lead registrado y
+no caduca nunca.
+
+La causa no fue un descuido al investigar. La descripción del campo que se le
+pasa a Researcher decía literalmente *«Duración de la cookie de seguimiento
+(ej. "30 días", "90 días")»*: pedía la respuesta en días y solo en días, así
+que la permanencia no se podía ni expresar. Un campo que solo admite una forma
+de respuesta acaba produciendo respuestas falsas con la forma correcta.
+
+Corregido en los dos extremos:
+
+- La descripción del campo admite ahora explícitamente la permanencia y
+  advierte de no inventarse un número de días para que encaje.
+- El campo del panel se llama «Duración de la cookie o atribución» —no todos
+  los programas usan cookie— y ofrece sugerencias con la permanencia la
+  primera, además de seguir siendo texto libre.
+- `duracionAtribucion.ts` fija una redacción canónica para que no convivan
+  cinco maneras de decir lo mismo, y reconoce la permanencia escrita de
+  cualquier forma (con o sin tildes) para destacarla en la tabla: entre «90
+  días» y algo que no caduca hay una diferencia de negocio grande que leyendo
+  texto libre a toda velocidad se pasa por alto. Con control negativo: «no
+  permanente» no cuenta como permanente.
+
+Nada interpretaba ese campo como un número, así que no había ningún cálculo
+que corregir — se comprobó antes de tocarlo.
+
+El enlace elegido para el piloto es el universal del correo de bienvenida, con
+forma `https://systeme.io/?sa=…`, no el `/tr/…` de una campaña concreta.

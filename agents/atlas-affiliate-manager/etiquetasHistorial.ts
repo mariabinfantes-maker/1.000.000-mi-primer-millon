@@ -16,7 +16,7 @@ const NOMBRES_DE_CAMPO: Record<string, string> = {
   fechaSolicitud: "Fecha de solicitud",
   fechaAprobacion: "Fecha de aprobación",
   comision: "Comisión",
-  duracionCookie: "Duración de la cookie",
+  duracionCookie: "Duración de la cookie o atribución",
   metodoPago: "Método de pago",
   frecuenciaPago: "Frecuencia de pago",
   observaciones: "Observaciones",
