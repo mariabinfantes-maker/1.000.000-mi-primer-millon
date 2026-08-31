@@ -6,7 +6,13 @@ import {
   guardarEstrategiaAfiliacion,
 } from "@/data/repositorioEstrategiaAfiliacion";
 import { aplicarLoteEstrategia, type EntradaLoteEstrategia } from "@/agents/atlas-affiliate-manager/lote";
-import { previsualizarLote, filasAAplicar } from "@/agents/atlas-affiliate-manager/importacion/previsualizar";
+import {
+  previsualizarLote,
+  filasAAplicar,
+  filasSinActivar,
+  incorporarComprobacionDeEnlaces,
+} from "@/agents/atlas-affiliate-manager/importacion/previsualizar";
+import { comprobarEnlaces } from "@/agents/atlas-affiliate-manager/importacion/comprobarEnlaces";
 import { fijarCuentas } from "@/agents/atlas-affiliate-manager/importacion/resolverCuenta";
 import { verificarPeticionAdmin } from "@/lib/admin/verificarPeticion";
 
@@ -28,6 +34,7 @@ type Cuerpo = {
   entradas?: unknown;
   modo?: unknown;
   incluirActivaciones?: unknown;
+  comprobarEnlaces?: unknown;
 };
 
 export async function POST(request: Request) {
@@ -70,14 +77,29 @@ export async function POST(request: Request) {
   // hablen exactamente de la misma cuenta.
   const entradas = fijarCuentas(cuerpo.entradas as EntradaLoteEstrategia[], existentes);
 
-  const resumen = previsualizarLote(entradas, {
-    idsValidos,
-    nombres,
-    existentes,
-  });
+  const resumen = previsualizarLote(entradas, { idsValidos, nombres, existentes });
+
+  // Comprobar enlaces es el único paso que sale a la red, así que es
+  // opcional y explícito. Solo se comprueban los enlaces NUEVOS de filas que
+  // no traen ya un error: pedirle una dirección a un proveedor para después
+  // descartar la fila sería molestarle para nada.
+  const aComprobar = resumen.filas
+    .filter((f) => f.veredicto !== "error" && f.enlaceNuevo)
+    .map((f) => f.enlaceNuevo!);
+
+  // Al APLICAR CON ACTIVACIONES se comprueba siempre, pida el cliente lo que
+  // pida. Si dependiera de una bandera, bastaría omitirla —por descuido o a
+  // propósito— para activar un enlace que no lleva a ninguna parte, y la
+  // promesa de que eso no puede pasar dejaría de ser una promesa.
+  const hayQueComprobar =
+    aComprobar.length > 0 && (cuerpo.comprobarEnlaces === true || (modo === "aplicar" && incluirActivaciones));
+
+  if (hayQueComprobar) {
+    incorporarComprobacionDeEnlaces(resumen, await comprobarEnlaces(aComprobar));
+  }
 
   if (modo === "previsualizar") {
-    return NextResponse.json({ ok: true, resumen });
+    return NextResponse.json({ ok: true, resumen, enlacesPorComprobar: aComprobar.length });
   }
 
   if (resumen.bloqueo) {
@@ -89,7 +111,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "No hay ninguna fila que aplicar." }, { status: 400 });
   }
 
-  const seleccionadas = entradas.filter((_, indice) => aAplicar.has(indice + 1));
+  // A las filas cuyo enlace no responde se les retira el paso a "activo".
+  // El resto de sus datos se importa igual: un proveedor caído un momento no
+  // es motivo para tirar la comisión y las notas de un archivo entero.
+  const sinActivar = filasSinActivar(resumen);
+  const seleccionadas = entradas
+    .map((entrada, indice) =>
+      sinActivar.has(indice + 1) && entrada.estado === "activo" ? { ...entrada, estado: undefined } : entrada
+    )
+    .filter((_, indice) => aAplicar.has(indice + 1));
   const hoy = new Date().toISOString().slice(0, 10);
 
   const resultados = await aplicarLoteEstrategia(
@@ -111,5 +141,6 @@ export async function POST(request: Request) {
     resultados,
     activacionesAplicadas: incluirActivaciones ? resumen.activaciones : 0,
     activacionesPendientes: incluirActivaciones ? 0 : resumen.activaciones,
+    activacionesBloqueadas: resumen.activacionesBloqueadas,
   });
 }

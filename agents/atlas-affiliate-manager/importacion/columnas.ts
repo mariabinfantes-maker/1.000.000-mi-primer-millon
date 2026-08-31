@@ -86,8 +86,45 @@ export function aEntradaLote(
   return entrada as EntradaLoteEstrategia;
 }
 
-/** Encabezados de la plantilla que se ofrece para descargar. */
+/**
+ * Identificador real usado en la fila de ejemplo de la plantilla.
+ *
+ * Tiene que existir en el catálogo: con uno inventado, previsualizar la
+ * plantilla recién descargada salía en rojo, y estrenar la función con un
+ * error enseña a desconfiar de una pantalla que precisamente tiene que dar
+ * confianza. Hay una prueba que falla si este id desaparece del catálogo.
+ */
+export const ID_EJEMPLO_PLANTILLA = "asana";
+
+/**
+ * La plantilla que se descarga.
+ *
+ * La fila de ejemplo lleva un id real y TODO LO DEMÁS VACÍO, a propósito. Una
+ * casilla vacía no cambia nada, así que la vista previa dice «Sin cambios» y
+ * no hay nada que aplicar: se puede previsualizar cien veces sin tocar un
+ * dato.
+ *
+ * La alternativa —id real con valores de ejemplo rellenos— habría sido peor
+ * que el error que venía a corregir: la plantilla propondría escribir
+ * «Programa de ejemplo» y una dirección inventada sobre una herramienta de
+ * verdad, y bastaría un clic de más. Los valores de ejemplo se enseñan en la
+ * pantalla, donde no pueden aplicarse.
+ */
 export const PLANTILLA_CSV = [
   "id,cuenta,estado,plataforma,nombrePrograma,comision,cookie,enlace,segmento,notas",
-  "ejemplo-herramienta,principal,aprobado,Programa propio,Programa de ejemplo,30 % recurrente,90 días,https://ejemplo.test/?ref=molnip,global,",
+  `${ID_EJEMPLO_PLANTILLA},,,,,,,,,`,
 ].join("\n");
+
+/** Qué se espera en cada columna. Se enseña en pantalla, no en el archivo. */
+export const EJEMPLOS_COLUMNA: { campo: string; ejemplo: string; nota?: string }[] = [
+  { campo: "id", ejemplo: "asana", nota: "Obligatorio. El identificador de Molnip, el de la dirección de la ficha." },
+  { campo: "cuenta", ejemplo: "principal", nota: "Solo si la herramienta tiene varias cuentas." },
+  { campo: "estado", ejemplo: "aprobado", nota: "no_solicitado, pendiente, aprobado, rechazado o activo." },
+  { campo: "plataforma", ejemplo: "PartnerStack" },
+  { campo: "nombrePrograma", ejemplo: "Asana Affiliate Program" },
+  { campo: "comision", ejemplo: "30 % recurrente durante 12 meses" },
+  { campo: "cookie", ejemplo: "90 días", nota: "O «Permanente — sin caducidad» si no caduca." },
+  { campo: "enlace", ejemplo: "https://proveedor.com/?ref=molnip", nota: "Entero, empezando por https://" },
+  { campo: "segmento", ejemplo: "global" },
+  { campo: "notas", ejemplo: "Lo que quieras recordar" },
+];

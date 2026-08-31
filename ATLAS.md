@@ -2419,3 +2419,93 @@ que se puede probar sin red.
 
 Sigue pendiente desde antes de estos dos sprints. Sin un prompt de referencia
 fijado, cada imagen nueva se parece a la anterior solo por casualidad.
+
+## Plantilla sin errores y comprobación de enlaces en la vista previa (2026-08-31)
+
+Las dos primeras tareas del sprint anterior. «Molnip Visual v1» sigue sin
+empezar.
+
+### La plantilla
+
+El arreglo obvio —cambiar el id inventado por uno real— habría sido peor que
+el problema. La fila de ejemplo llevaba valores rellenos: «Programa de
+ejemplo», «30 % recurrente», una dirección inventada. Con un id real, la
+plantilla habría pasado de dar un error inofensivo a **proponer escribir todo
+eso sobre una herramienta de verdad**, con el botón de aplicar encendido. El
+error protegía.
+
+La fila de ejemplo lleva ahora un id real **y todo lo demás vacío**. Como una
+casilla vacía no cambia nada, previsualizar la plantilla dice «Sin cambios» y
+no hay nada que aplicar: se puede abrir cien veces sin tocar un dato. Los
+valores de ejemplo se enseñan en la propia pantalla, en una tabla desplegable
+donde no pueden aplicarse.
+
+Con una prueba que falla si ese id desaparece del catálogo, para que no vuelva
+a romperse en silencio el día que se retire esa herramienta.
+
+### La comprobación de enlaces
+
+Ocurre en el paso de vista previa, sobre los enlaces nuevos de las filas que
+no traen ya un error —pedirle una dirección a un proveedor para después
+descartar la fila sería molestarle para nada—. Botón aparte y explícito,
+porque es lo único de toda la importación que sale a la red.
+
+La regla: un enlace que no responde **avisa pero no bloquea**. La fila se
+importa con su comisión, sus notas y su enlace; lo único que se le retira es
+el paso a «activo». Un proveedor puede estar caído un momento o rechazar
+peticiones automáticas, y eso no justifica tirar el resto de un archivo. Pero
+sí justifica no poner en circulación un enlace que hoy no lleva a ninguna
+parte.
+
+**Activar comprueba siempre, pida el cliente lo que pida.** Si dependiera de
+una bandera de la petición, omitirla —por descuido o a propósito— bastaría
+para activar un enlace roto, y la promesa dejaría de serlo.
+
+### Protecciones de la salida a la red
+
+Comprobar enlaces significa que el servidor pide direcciones que alguien
+escribió en un archivo. Sin restricciones eso es un SSRF: se le puede pedir
+que hable con la propia máquina, con la red interna del alojamiento, o con el
+servicio de metadatos que en las nubes públicas responde en 169.254.169.254 y
+entrega credenciales.
+
+- Solo http y https.
+- Se rechazan `localhost`, `.local`, `.internal`, `metadata.google.internal`,
+  los nombres sin punto y las direcciones con usuario y contraseña.
+- Se rechazan bucle local, redes privadas, CGNAT, enlace local (incluidos los
+  metadatos), locales únicas IPv6, multidifusión y rangos reservados — y las
+  IPv4 disfrazadas de IPv6 como `::ffff:169.254.169.254`.
+- Cuando el destino es un nombre, se comprueban **todas** las direcciones a
+  las que resuelve: basta una interna para rechazarlo.
+- Las redirecciones se siguen a mano y **cada salto se vuelve a comprobar**:
+  un servidor legítimo puede redirigir a una dirección interna, y esa segunda
+  petición la haría el servidor igual.
+- Máximo 3 redirecciones, 8 segundos para toda la cadena, 6 peticiones en
+  paralelo, y no se descarga el cuerpo: HEAD primero, y si hay que caer a GET
+  se corta la lectura.
+
+**Límite conocido, escrito en el código en vez de disimulado:** entre resolver
+el nombre y conectar, el DNS podría devolver otra dirección (*DNS rebinding*).
+Cerrarlo exige conectar a la IP ya validada con la cabecera Host puesta a
+mano, algo que `fetch` no permite. No se cierra. La función la usa solo el
+panel, detrás de sesión.
+
+### Verificación, y lo que NO se pudo verificar
+
+906 pruebas unitarias en 101 ficheros y 53 de navegador. 21 pruebas solo del
+filtro de destinos y 12 del comprobador, con controles negativos.
+
+Las pruebas de la API levantan un servidor HTTP de verdad y comprueban el
+recorrido completo: enlace vivo → se activa; enlace roto → se importan los
+demás datos y NO se activa; y activar comprueba aunque se pida lo contrario.
+
+Con navegador real, en escritorio y móvil, quedó comprobado que la plantilla
+previsualiza limpia con el botón de aplicar desactivado, que aparece el botón
+de comprobar enlaces, y que las filas con enlace caído se marcan «no se
+activará», desaparece el botón de activación y no se escribe nada.
+
+Lo que **no** se pudo ver en el navegador es el estado verde de «el enlace
+responde»: este entorno no tiene salida a internet, y al apuntar a un servidor
+local la propia protección lo rechaza —correctamente— porque la compilación de
+producción no admite direcciones locales. Ese camino queda cubierto por las
+pruebas de la API, no por una captura.

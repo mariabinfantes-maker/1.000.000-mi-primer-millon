@@ -30,13 +30,26 @@ export type FilaPrevisualizada = {
   nombre?: string;
   veredicto: Veredicto;
   errores: string[];
+  /** Cosas que conviene saber pero que NO impiden importar la fila. */
+  avisos: string[];
   cambios: CambioCampo[];
   /** La fila deja la cuenta en "activo" y antes no lo estaba. */
   activa: boolean;
+  /**
+   * La fila pedía activar, pero su enlace no responde. Se importa igual con
+   * sus demás datos; lo único que se le quita es el paso a "activo".
+   */
+  activacionBloqueada?: boolean;
+  /** Enlace nuevo que trae la fila, para poder comprobarlo. */
+  enlaceNuevo?: string;
 };
 
 export type ResumenPrevisualizacion = {
   filas: FilaPrevisualizada[];
+  /** Cuántas filas pedían activar y no pueden porque su enlace no responde. */
+  activacionesBloqueadas: number;
+  /** Si se llegó a comprobar los enlaces en esta pasada. */
+  enlacesComprobados: boolean;
   total: number;
   creara: number;
   cambiara: number;
@@ -122,6 +135,7 @@ export function previsualizarLote(
     const numero = indice + 1;
     const id = (entrada.id ?? "").trim();
     const errores: string[] = [];
+    const avisos: string[] = [];
     const cambios: CambioCampo[] = [];
     const clase: ClaseError[] = [];
 
@@ -131,7 +145,7 @@ export function previsualizarLote(
     const segmento = entrada.segmento?.trim() || "global";
 
     if (!id) {
-      filas.push({ fila: numero, id: "", cuentaId, veredicto: "error", errores: ["Falta la columna «id»."], cambios: [], activa: false });
+      filas.push({ fila: numero, id: "", cuentaId, veredicto: "error", errores: ["Falta la columna «id»."], avisos: [], cambios: [], activa: false });
       clases.push(["estructural"]);
       continue;
     }
@@ -205,8 +219,10 @@ export function previsualizarLote(
       nombre: contexto.nombres[id],
       veredicto,
       errores,
+      avisos,
       cambios,
       activa: veredicto === "error" ? false : activa,
+      enlaceNuevo: entrada.enlace !== undefined && entrada.enlace !== enlaceActual ? entrada.enlace : undefined,
     });
     clases.push(clase);
   }
@@ -217,6 +233,8 @@ export function previsualizarLote(
 
   const resumen: ResumenPrevisualizacion = {
     filas,
+    activacionesBloqueadas: 0,
+    enlacesComprobados: false,
     total: filas.length,
     creara: filas.filter((f) => f.veredicto === "creara").length,
     cambiara: filas.filter((f) => f.veredicto === "cambiara").length,
@@ -241,4 +259,72 @@ export function filasAAplicar(resumen: ResumenPrevisualizacion, incluirActivacio
     .filter((f) => f.veredicto !== "error" && f.veredicto !== "sin_cambios")
     .filter((f) => (f.activa ? incluirActivaciones : true))
     .map((f) => f.fila);
+}
+
+/**
+ * Añade a la vista previa el resultado de comprobar los enlaces nuevos.
+ *
+ * Se aplica DESPUÉS de calcular el resumen, sobre el mismo objeto, porque
+ * comprobar enlaces es lo único de todo esto que sale a la red y conviene
+ * que se vea que es un paso aparte y opcional.
+ *
+ * La regla que pidió la propietaria, tal cual: un enlace que no responde
+ * **avisa pero no bloquea** —la fila se importa con sus demás datos— y
+ * **nunca puede activarse**. Un proveedor puede estar caído un momento o
+ * rechazar peticiones automáticas; eso no es motivo para tirar la comisión,
+ * la fecha de solicitud y las notas de un archivo entero. Pero sí lo es para
+ * no poner en circulación un enlace que hoy no lleva a ninguna parte.
+ */
+export function incorporarComprobacionDeEnlaces(
+  resumen: ResumenPrevisualizacion,
+  resultados: ReadonlyMap<string, { ok: boolean; estadoHttp?: number; motivo?: string; destinoFinal?: string }>
+): ResumenPrevisualizacion {
+  let bloqueadas = 0;
+
+  for (const fila of resumen.filas) {
+    if (!fila.enlaceNuevo) continue;
+    const resultado = resultados.get(fila.enlaceNuevo);
+    if (!resultado) continue;
+
+    if (resultado.ok) {
+      fila.avisos.push(
+        resultado.destinoFinal
+          ? `El enlace responde (${resultado.estadoHttp}) y acaba en ${resultado.destinoFinal}.`
+          : `El enlace responde (${resultado.estadoHttp}).`
+      );
+      continue;
+    }
+
+    fila.avisos.push(`El enlace NO responde: ${resultado.motivo ?? "sin detalle"}`);
+
+    if (fila.activa) {
+      fila.activa = false;
+      fila.activacionBloqueada = true;
+      bloqueadas += 1;
+      fila.avisos.push("Se importarán los demás datos, pero NO se activará hasta que el enlace responda.");
+    }
+  }
+
+  resumen.enlacesComprobados = true;
+  resumen.activacionesBloqueadas = bloqueadas;
+  resumen.activaciones = resumen.filas.filter(
+    (f) => f.veredicto !== "error" && f.veredicto !== "sin_cambios" && f.activa
+  ).length;
+  resumen.aplicables =
+    resumen.filas.filter((f) => f.veredicto !== "error" && f.veredicto !== "sin_cambios").length -
+    resumen.activaciones;
+
+  return resumen;
+}
+
+/**
+ * Qué filas deben perder el paso a "activo" al aplicarse.
+ *
+ * Se devuelve aparte en vez de tocar las entradas aquí para que quien aplica
+ * decida explícitamente: quitarle el estado a una fila en silencio, dentro de
+ * la misma función que la valida, sería justo el tipo de magia que hace que
+ * después nadie entienda por qué una cuenta no se activó.
+ */
+export function filasSinActivar(resumen: ResumenPrevisualizacion): Set<number> {
+  return new Set(resumen.filas.filter((f) => f.activacionBloqueada).map((f) => f.fila));
 }
