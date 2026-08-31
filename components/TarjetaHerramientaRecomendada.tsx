@@ -147,7 +147,7 @@ export default function TarjetaHerramientaRecomendada({
           <ul className="mt-2 space-y-1.5">
             {ventajas.map((ventaja) => (
               <li key={ventaja} className="flex gap-1.5 text-sm text-slate-700">
-                <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-500" aria-hidden="true" />
+                <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-exito-500" aria-hidden="true" />
                 <span>{ventaja}</span>
               </li>
             ))}
@@ -167,7 +167,7 @@ export default function TarjetaHerramientaRecomendada({
       </div>
 
       {tieneAdvertencia && (
-        <p className="mt-4 flex items-start gap-1.5 text-xs text-amber-700">
+        <p className="mt-4 flex items-start gap-1.5 text-xs text-atencion-700">
           <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />
           Puede no encajar del todo con algún aspecto de tu situación. Revisa los detalles antes de decidir.
         </p>

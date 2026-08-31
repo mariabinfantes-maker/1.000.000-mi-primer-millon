@@ -16,7 +16,7 @@ export default function Tarjeta({ destacada = false, ganadora = false, className
 
   return (
     <div
-      className={`rounded-2xl border bg-white p-6 ring-1 ring-black/[0.02] transition ${estilo} ${className}`}
+      className={`rounded-2xl border bg-white p-6 ring-1 ring-contorno transition ${estilo} ${className}`}
       {...resto}
     >
       {children}

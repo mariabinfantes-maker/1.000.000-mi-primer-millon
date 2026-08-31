@@ -37,6 +37,6 @@ export function SeccionLegal({ titulo, children }: { titulo: string; children: R
 /** Bloque de datos pendientes de rellenar por la usuaria — nunca se inventa una identidad legal. */
 export function DatoPendiente({ children }: { children: ReactNode }) {
   return (
-    <span className="rounded bg-amber-100 px-1.5 py-0.5 font-mono text-[13px] text-amber-800">{children}</span>
+    <span className="rounded bg-atencion-100 px-1.5 py-0.5 font-mono text-[13px] text-atencion-800">{children}</span>
   );
 }

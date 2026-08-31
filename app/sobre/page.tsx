@@ -68,7 +68,7 @@ export default function SobrePage() {
         <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {CRITERIOS.map((criterio, i) => (
             <RevelarAlScroll key={criterio.titulo} retrasoMs={i * 60}>
-              <div className="h-full rounded-2xl border border-slate-200/80 bg-white p-5 ring-1 ring-black/[0.02]">
+              <div className="h-full rounded-2xl border border-slate-200/80 bg-white p-5 ring-1 ring-contorno">
                 <h3 className="text-sm font-semibold text-slate-900">{criterio.titulo}</h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-slate-500">{criterio.descripcion}</p>
               </div>
@@ -99,7 +99,7 @@ export default function SobrePage() {
 
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
           <RevelarAlScroll>
-            <div className="flex h-full flex-col gap-3 rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-black/[0.02]">
+            <div className="flex h-full flex-col gap-3 rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-contorno">
               <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-brand-100 text-brand-600 ring-1 ring-brand-100">
                 <Scale className="h-5 w-5" aria-hidden="true" />
               </span>
@@ -114,7 +114,7 @@ export default function SobrePage() {
           </RevelarAlScroll>
 
           <RevelarAlScroll retrasoMs={80}>
-            <div className="flex h-full flex-col gap-3 rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-black/[0.02]">
+            <div className="flex h-full flex-col gap-3 rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-contorno">
               <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-brand-100 text-brand-600 ring-1 ring-brand-100">
                 <Ban className="h-5 w-5" aria-hidden="true" />
               </span>
@@ -128,7 +128,7 @@ export default function SobrePage() {
           </RevelarAlScroll>
 
           <RevelarAlScroll retrasoMs={160}>
-            <div className="flex h-full flex-col gap-3 rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-black/[0.02]">
+            <div className="flex h-full flex-col gap-3 rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-contorno">
               <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-brand-100 text-brand-600 ring-1 ring-brand-100">
                 <ShieldCheck className="h-5 w-5" aria-hidden="true" />
               </span>
@@ -146,7 +146,7 @@ export default function SobrePage() {
           </RevelarAlScroll>
 
           <RevelarAlScroll retrasoMs={240}>
-            <div className="flex h-full flex-col gap-3 rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-black/[0.02]">
+            <div className="flex h-full flex-col gap-3 rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-contorno">
               <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-brand-100 text-brand-600 ring-1 ring-brand-100">
                 <GitBranch className="h-5 w-5" aria-hidden="true" />
               </span>

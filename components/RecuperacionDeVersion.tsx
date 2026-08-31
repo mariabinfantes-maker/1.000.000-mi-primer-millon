@@ -89,17 +89,17 @@ export default function RecuperacionDeVersion() {
   return (
     <div
       role="alert"
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-amber-300 bg-amber-50 px-4 py-3 shadow-premium-lg sm:px-6"
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-atencion-300 bg-atencion-50 px-4 py-3 shadow-premium-lg sm:px-6"
     >
       <div className="mx-auto flex max-w-4xl flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm leading-relaxed text-amber-900">
+        <p className="text-sm leading-relaxed text-atencion-900">
           Tu navegador tiene guardada una versión antigua de Molnip y algunos enlaces pueden no funcionar.
           Actualiza la página para cargar la última versión.
         </p>
         <button
           type="button"
           onClick={() => window.location.reload()}
-          className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-amber-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-amber-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+          className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-atencion-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-atencion-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-atencion-400"
         >
           <RefreshCw className="h-4 w-4" aria-hidden="true" />
           Actualizar la página

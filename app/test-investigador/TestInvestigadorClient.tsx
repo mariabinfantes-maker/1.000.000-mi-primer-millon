@@ -88,7 +88,7 @@ export default function TestInvestigadorClient() {
 
           {propuesta.advertencias.length > 0 && (
             <div>
-              <h2 className="text-xs font-semibold uppercase tracking-wide text-amber-600">Advertencias</h2>
+              <h2 className="text-xs font-semibold uppercase tracking-wide text-atencion-600">Advertencias</h2>
               <ul className="mt-1 list-inside list-disc text-sm text-slate-700">
                 {propuesta.advertencias.map((a) => (
                   <li key={a}>{a}</li>

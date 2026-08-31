@@ -141,7 +141,7 @@ export default function SelectorEntrada({
               className={`relative flex h-full flex-col gap-3 rounded-2xl border bg-white p-6 ring-1 transition ${
                 activa
                   ? "border-brand-300 shadow-premium ring-brand-100"
-                  : "border-slate-200/80 shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-black/[0.02]"
+                  : "border-slate-200/80 shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-contorno"
               }`}
             >
               {puerta.etiqueta && (
@@ -205,7 +205,7 @@ function PanelObjetivo({ problemas }: { problemas: ProblemaResumen[] }) {
         <Link
           key={problema.id}
           href={`/problema/${problema.id}/cuestionario`}
-          className="group relative flex items-start gap-4 rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-black/[0.02] transition hover:-translate-y-1 hover:border-brand-300 hover:shadow-premium-lg"
+          className="group relative flex items-start gap-4 rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-contorno transition hover:-translate-y-1 hover:border-brand-300 hover:shadow-premium-lg"
         >
           <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-brand-100 text-brand-600 ring-1 ring-brand-100 transition group-hover:scale-105 group-hover:bg-brand-600 group-hover:text-white group-hover:ring-brand-600">
             <IconoProblema problemaId={problema.id} />
@@ -235,7 +235,7 @@ function PanelCategoria({ categorias }: { categorias: CategoriaResumen[] }) {
         <Link
           key={categoria.id}
           href={`/categoria/${categoria.id}/cuestionario`}
-          className="group relative flex items-start gap-4 rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-black/[0.02] transition hover:-translate-y-1 hover:border-brand-300 hover:shadow-premium-lg"
+          className="group relative flex items-start gap-4 rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-contorno transition hover:-translate-y-1 hover:border-brand-300 hover:shadow-premium-lg"
         >
           <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-brand-100 text-brand-600 ring-1 ring-brand-100 transition group-hover:scale-105 group-hover:bg-brand-600 group-hover:text-white group-hover:ring-brand-600">
             <LayoutGrid className="h-6 w-6" aria-hidden="true" />
@@ -283,7 +283,7 @@ function PanelTextoLibre() {
 
   return (
     <form
-      className="rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-black/[0.02]"
+      className="rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-contorno"
       onSubmit={(e) => {
         e.preventDefault();
         enviar();

@@ -103,7 +103,7 @@ export default async function FichaHerramientaPage({
           </div>
 
           {puntuacion && (
-            <div className="flex shrink-0 flex-col items-center gap-1.5 rounded-2xl bg-white/70 px-5 py-4 shadow-sm ring-1 ring-black/[0.03] backdrop-blur">
+            <div className="flex shrink-0 flex-col items-center gap-1.5 rounded-2xl bg-white/70 px-5 py-4 shadow-sm ring-1 ring-contorno backdrop-blur">
               <AnilloPuntuacion puntuacion={puntuacion.puntuacion} tamano="grande" />
               <span className="text-xs font-medium text-slate-400">Puntuación Molnip</span>
             </div>
@@ -150,7 +150,7 @@ export default async function FichaHerramientaPage({
           <ul className="space-y-2.5">
             {herramienta.casosNoRecomendados.map((caso) => (
               <li key={caso} className="flex items-start gap-2 text-sm leading-relaxed text-slate-700">
-                <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-500" aria-hidden="true" />
+                <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-atencion-500" aria-hidden="true" />
                 <span>{caso}</span>
               </li>
             ))}
@@ -190,7 +190,7 @@ export default async function FichaHerramientaPage({
             <ul className="mt-2 space-y-1.5">
               {herramienta.ventajas.map((ventaja) => (
                 <li key={ventaja} className="flex gap-1.5 text-sm text-slate-700">
-                  <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-500" aria-hidden="true" />
+                  <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-exito-500" aria-hidden="true" />
                   <span>{ventaja}</span>
                 </li>
               ))}
@@ -327,7 +327,7 @@ function Seccion({
   return (
     <section
       className={`rounded-2xl border p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04)] ${
-        tono === "exito" ? "border-emerald-200/80 bg-emerald-50/40" : "border-slate-200/80 bg-white"
+        tono === "exito" ? "border-exito-200/80 bg-exito-50/40" : "border-slate-200/80 bg-white"
       } ${className}`}
     >
       <h2 className="text-sm font-semibold text-slate-900">{titulo}</h2>

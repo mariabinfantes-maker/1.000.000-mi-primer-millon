@@ -78,7 +78,7 @@ export default function FormularioIngreso({
   const etiqueta = "block text-xs font-semibold uppercase tracking-wide text-slate-500";
 
   return (
-    <form onSubmit={enviar} className="rounded-2xl border border-slate-200/80 bg-white p-5 ring-1 ring-black/[0.02]">
+    <form onSubmit={enviar} className="rounded-2xl border border-slate-200/80 bg-white p-5 ring-1 ring-contorno">
       <h2 className="font-display text-lg font-bold text-slate-900">Anotar ingresos</h2>
       <p className="mt-1 text-sm text-slate-600">
         Lo que te comunique el panel de cada programa. Queda registrado con tu usuario y no se puede
@@ -133,7 +133,7 @@ export default function FormularioIngreso({
       </div>
 
       {mensaje && (
-        <p role="alert" className={`mt-4 rounded-xl px-3 py-2 text-sm ${mensaje.tipo === "ok" ? "bg-emerald-50 text-emerald-800" : "bg-red-50 text-red-700"}`}>
+        <p role="alert" className={`mt-4 rounded-xl px-3 py-2 text-sm ${mensaje.tipo === "ok" ? "bg-exito-50 text-exito-800" : "bg-error-50 text-error-700"}`}>
           {mensaje.texto}
         </p>
       )}

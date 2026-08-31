@@ -58,7 +58,7 @@ export default function BotonIrAlProveedor({
         if (evento) registrarClic(evento);
       }}
       className={`inline-flex items-center justify-center gap-1.5 rounded-xl px-8 py-3.5 text-base font-semibold text-white shadow-premium transition ${
-        confirmado ? "bg-emerald-600 hover:bg-emerald-600" : "bg-brand-600 hover:bg-brand-700 hover:shadow-premium-lg"
+        confirmado ? "bg-exito-600 hover:bg-exito-600" : "bg-brand-600 hover:bg-brand-700 hover:shadow-premium-lg"
       }`}
     >
       {confirmado ? (

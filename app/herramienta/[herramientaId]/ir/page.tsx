@@ -78,7 +78,7 @@ export default async function IrAlProveedorPage({
     <div className="mx-auto max-w-lg px-4 py-16 sm:px-6 sm:py-24">
       <EnlaceAtras href={`/herramienta/${herramienta.id}`}>Volver a la ficha</EnlaceAtras>
 
-      <div className="relative mt-6 flex flex-col items-center overflow-hidden rounded-3xl border border-slate-200/80 bg-white px-6 py-12 text-center shadow-premium-lg ring-1 ring-black/[0.02] sm:px-10">
+      <div className="relative mt-6 flex flex-col items-center overflow-hidden rounded-3xl border border-slate-200/80 bg-white px-6 py-12 text-center shadow-premium-lg ring-1 ring-contorno sm:px-10">
         <div className="fondo-puntos pointer-events-none absolute inset-0" aria-hidden="true" />
 
         <div className="relative h-16 w-16 overflow-hidden rounded-2xl shadow-premium">

@@ -15,7 +15,7 @@ import { formatearImporte, proporcionDeClicsPerdidos, type FilaRevenue, type Res
 
 function Cifra({ etiqueta, valor, matiz }: { etiqueta: string; valor: string; matiz?: string }) {
   return (
-    <div className="rounded-2xl border border-slate-200/80 bg-white p-5 ring-1 ring-black/[0.02]">
+    <div className="rounded-2xl border border-slate-200/80 bg-white p-5 ring-1 ring-contorno">
       <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{etiqueta}</p>
       <p className="mt-1 font-display text-2xl font-bold text-slate-900">{valor}</p>
       {matiz && <p className="mt-1 text-sm text-slate-500">{matiz}</p>}
@@ -71,7 +71,7 @@ export default function PanelIngresos({
           &quot;Ir al proveedor&quot;.
         </p>
       ) : (
-        <div className="overflow-x-auto rounded-2xl border border-slate-200/80 ring-1 ring-black/[0.02]">
+        <div className="overflow-x-auto rounded-2xl border border-slate-200/80 ring-1 ring-contorno">
           <table className="w-full min-w-[46rem] text-left text-sm">
             <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wide text-slate-500">
               <tr>
@@ -90,7 +90,7 @@ export default function PanelIngresos({
                   <td className="px-4 py-3 font-semibold text-slate-800">{nombres[f.herramientaId] ?? f.herramientaId}</td>
                   <td className="px-4 py-3 tabular-nums">{f.clics}</td>
                   <td className="px-4 py-3 tabular-nums">{f.clicsPorAfiliado}</td>
-                  <td className="px-4 py-3 tabular-nums text-amber-700">{f.clicsPerdidos}</td>
+                  <td className="px-4 py-3 tabular-nums text-atencion-700">{f.clicsPerdidos}</td>
                   <td className="px-4 py-3 tabular-nums">{f.conversiones}</td>
                   <td className="px-4 py-3 tabular-nums">{formatearImporte(f.importeCentimos, f.moneda)}</td>
                   <td className="px-4 py-3 tabular-nums text-slate-500">
