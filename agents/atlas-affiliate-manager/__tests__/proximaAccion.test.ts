@@ -34,8 +34,12 @@ describe("calcularEstadoPanel", () => {
     expect(calcularEstadoPanel(cuenta({ estado: "aprobado" }), "2026-08-25")).toBe("aprobada");
   });
 
-  it("activo → aprobada", () => {
-    expect(calcularEstadoPanel(cuenta({ estado: "activo" }), "2026-08-25")).toBe("aprobada");
+  it("activo → activa, y aprobado → aprobada: son estados distintos", () => {
+    // Antes los dos se mostraban como "aprobada". Esa fusión ocultaba lo
+    // único que decide si se cobra: `seleccionarEnlace.ts` solo usa los
+    // enlaces de las cuentas en "activo".
+    expect(calcularEstadoPanel(cuenta({ estado: "activo" }), "2026-08-25")).toBe("activa");
+    expect(calcularEstadoPanel(cuenta({ estado: "aprobado" }), "2026-08-25")).toBe("aprobada");
   });
 
   it("rechazado → rechazada", () => {
@@ -64,7 +68,21 @@ describe("calcularProximaAccion", () => {
 
   it("aprobada sin enlace → guardar el enlace", () => {
     expect(calcularProximaAccion(cuenta({ estado: "aprobado", enlaces: [] }), "2026-08-25")).toBe(
-      "Guardar el enlace de afiliado conseguido"
+      "Guardar el enlace de afiliada conseguido"
+    );
+  });
+
+  it("aprobada CON enlace todavía no cobra: la próxima acción es activarla", () => {
+    const accion = calcularProximaAccion(
+      cuenta({ estado: "aprobado", enlaces: [{ segmento: "global", url: "https://ejemplo.test" }] }),
+      "2026-08-25"
+    );
+    expect(accion).toBe("Activar la cuenta — hasta entonces el enlace no se usa");
+  });
+
+  it("activa sin enlace se señala como el problema que es", () => {
+    expect(calcularProximaAccion(cuenta({ estado: "activo", enlaces: [] }), "2026-08-25")).toBe(
+      "Activa SIN enlace: no puede generar comisión"
     );
   });
 

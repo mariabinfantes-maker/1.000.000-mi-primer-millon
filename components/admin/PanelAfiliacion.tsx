@@ -1,9 +1,10 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { COOKIE_CSRF } from "@/lib/admin/cookies";
 import type { FilaPanelAfiliacion } from "@/agents/atlas-affiliate-manager/panelDatos";
 import type { EstadoPanel } from "@/agents/atlas-affiliate-manager/proximaAccion";
+import { enlaceEsUsable, puedeActivarse } from "@/agents/atlas-affiliate-manager/reglasEnlace";
 
 /**
  * Panel interno de Affiliate Manager — la única superficie visual sobre
@@ -18,15 +19,28 @@ const ETIQUETA_ESTADO: Record<EstadoPanel, string> = {
   preparada: "Preparada",
   enviada: "Enviada",
   aprobada: "Aprobada",
+  activa: "Activa",
   rechazada: "Rechazada",
   seguimiento: "Seguimiento",
+};
+
+/** Qué significa cada estado, en la propia pantalla. "Aprobada" y "Activa" se parecen demasiado como para dejarlo a la intuición. */
+const AYUDA_ESTADO: Record<EstadoPanel, string> = {
+  pendiente: "Todavía no se ha solicitado el programa.",
+  preparada: "Hay borrador de solicitud, falta enviarlo.",
+  enviada: "Solicitud enviada, esperando respuesta.",
+  aprobada: "Programa aprobado. El enlace AÚN NO se usa: hay que activarla.",
+  activa: "En uso. Los botones «Ir al proveedor» ya llevan tu enlace.",
+  rechazada: "El programa no la ha aceptado.",
+  seguimiento: "Enviada hace tiempo y sin respuesta.",
 };
 
 const COLOR_ESTADO: Record<EstadoPanel, string> = {
   pendiente: "bg-slate-100 text-slate-700",
   preparada: "bg-sky-100 text-sky-700",
   enviada: "bg-amber-100 text-amber-700",
-  aprobada: "bg-emerald-100 text-emerald-700",
+  aprobada: "bg-lime-100 text-lime-800",
+  activa: "bg-emerald-100 text-emerald-700",
   rechazada: "bg-red-100 text-red-700",
   seguimiento: "bg-orange-100 text-orange-700",
 };
@@ -39,6 +53,7 @@ const ESTADOS_AFILIACION_DESTINO: Record<EstadoPanel, string> = {
   preparada: "no_solicitado",
   enviada: "pendiente",
   aprobada: "aprobado",
+  activa: "activo",
   rechazada: "rechazado",
   seguimiento: "pendiente",
 };
@@ -67,18 +82,25 @@ function claveFila(fila: FilaPanelAfiliacion): string {
 export default function PanelAfiliacion({ filasIniciales }: { filasIniciales: FilaPanelAfiliacion[] }) {
   const [filas, setFilas] = useState(filasIniciales);
   const [filtro, setFiltro] = useState<EstadoPanel | "todas">("todas");
-  const [expandida, setExpandida] = useState<string | null>(null);
+  // Qué herramienta se está gestionando. Antes esto era una fila que se
+  // desplegaba dentro de la tabla; el despliegue vivía en la última de nueve
+  // columnas de una tabla de 1100px de ancho mínimo, así que en el móvil —y
+  // en cualquier pantalla estrecha— quedaba fuera de la vista y había que
+  // descubrir que la tabla se desplaza en horizontal. La propietaria no lo
+  // encontró, y con razón.
+  const [gestionando, setGestionando] = useState<string | null>(null);
   const [cargando, setCargando] = useState(false);
   const [mensaje, setMensaje] = useState<string | null>(null);
   const inputImportarRef = useRef<HTMLInputElement>(null);
 
   const contadores = useMemo(() => {
-    const base: Record<EstadoPanel, number> = { pendiente: 0, preparada: 0, enviada: 0, aprobada: 0, rechazada: 0, seguimiento: 0 };
+    const base: Record<EstadoPanel, number> = { pendiente: 0, preparada: 0, enviada: 0, aprobada: 0, activa: 0, rechazada: 0, seguimiento: 0 };
     for (const fila of filas) base[fila.estadoPanel] += 1;
     return base;
   }, [filas]);
 
   const filasFiltradas = filtro === "todas" ? filas : filas.filter((f) => f.estadoPanel === filtro);
+  const filaGestionada = filas.find((f) => f.herramientaId === gestionando);
 
   async function refrescar() {
     const resultado = await llamarApi<{ filas: FilaPanelAfiliacion[] }>("/api/admin/afiliacion");
@@ -126,11 +148,25 @@ export default function PanelAfiliacion({ filasIniciales }: { filasIniciales: Fi
     setCargando(false);
   }
 
-  async function comprobarEnlaces() {
+  async function comprobarEnlaces(herramientaId?: string) {
     setCargando(true);
     setMensaje(null);
-    const resultado = await llamarApi("/api/admin/afiliacion/verificar-enlaces", { method: "POST" });
-    if (!resultado.ok) setMensaje(resultado.error ?? "No se pudieron comprobar los enlaces.");
+    const resultado = await llamarApi<{ resultados: { ok: boolean; estadoHttp?: number; error?: string }[] }>(
+      "/api/admin/afiliacion/verificar-enlaces",
+      { method: "POST", body: JSON.stringify(herramientaId ? { herramientaId } : {}) }
+    );
+    if (!resultado.ok) {
+      setMensaje(resultado.error ?? "No se pudieron comprobar los enlaces.");
+    } else if (herramientaId) {
+      const uno = resultado.datos?.resultados?.[0];
+      setMensaje(
+        !uno
+          ? "No hay ningún enlace guardado que comprobar."
+          : uno.ok
+            ? `El enlace responde correctamente (HTTP ${uno.estadoHttp}).`
+            : `El enlace NO responde: ${uno.error ?? `HTTP ${uno.estadoHttp}`}.`
+      );
+    }
     await refrescar();
     setCargando(false);
   }
@@ -198,7 +234,7 @@ export default function PanelAfiliacion({ filasIniciales }: { filasIniciales: Fi
         <div className="ml-auto flex items-center gap-2">
           <button
             type="button"
-            onClick={comprobarEnlaces}
+            onClick={() => comprobarEnlaces()}
             disabled={cargando}
             className="rounded-xl bg-white px-3 py-1.5 text-sm font-semibold text-slate-700 ring-1 ring-slate-200 transition hover:bg-slate-50 disabled:opacity-50"
           >
@@ -255,23 +291,17 @@ export default function PanelAfiliacion({ filasIniciales }: { filasIniciales: Fi
               // El `key` de React puede ser el más específico (incluye
               // cuentaId, cambia si una fila "sin cuenta" pasa a tener una
               // cuenta real — remonta el componente, sin problema). El
-              // estado "expandida" en cambio se sigue por herramientaId a
-              // secas: si se rastreara por la misma clave que cambia al
-              // crear la primera cuenta, el panel se cerraría solo justo
-              // al guardar el primer campo — se detectó guardando
-              // requisitos por primera vez en una fila sin cuenta todavía.
+              // modal en cambio se sigue por herramientaId a secas: si se
+              // rastreara por la misma clave que cambia al crear la primera
+              // cuenta, se cerraría solo justo al guardar el primer campo —
+              // se detectó guardando requisitos por primera vez en una fila
+              // sin cuenta todavía.
               const clave = claveFila(fila);
-              const abierta = expandida === fila.herramientaId;
               return (
                 <FilaAfiliacion
                   key={clave}
                   fila={fila}
-                  abierta={abierta}
-                  onToggle={() => setExpandida(abierta ? null : fila.herramientaId)}
-                  onActualizar={(cambios) => actualizarFila(fila, cambios)}
-                  onGenerarRequisitos={() => generarRequisitos(fila)}
-                  onGenerarBorrador={() => generarBorrador(fila)}
-                  cargando={cargando}
+                  onGestionar={() => setGestionando(fila.herramientaId)}
                 />
               );
             })}
@@ -285,108 +315,283 @@ export default function PanelAfiliacion({ filasIniciales }: { filasIniciales: Fi
           </tbody>
         </table>
       </div>
+
+      {filaGestionada && (
+        <ModalGestion
+          fila={filaGestionada}
+          cargando={cargando}
+          onCerrar={() => setGestionando(null)}
+          onGuardar={(cambios) => actualizarFila(filaGestionada, cambios)}
+          onComprobarEnlace={() => comprobarEnlaces(filaGestionada.herramientaId)}
+          onGenerarRequisitos={() => generarRequisitos(filaGestionada)}
+          onGenerarBorrador={() => generarBorrador(filaGestionada)}
+        />
+      )}
     </div>
   );
 }
 
-function FilaAfiliacion({
+function FilaAfiliacion({ fila, onGestionar }: { fila: FilaPanelAfiliacion; onGestionar: () => void }) {
+  return (
+    <tr className="border-b border-slate-100 hover:bg-slate-50/60">
+      <td className="px-4 py-3 font-medium text-slate-900">{fila.nombreHerramienta}</td>
+      <td className="px-4 py-3 text-slate-600">{fila.programaEncontrado ?? "—"}</td>
+      <td className="px-4 py-3 tabular-nums text-slate-700">{fila.prioridad ?? "—"}</td>
+      <td className="px-4 py-3 text-slate-600">
+        {fila.comision ?? "—"}
+        {fila.duracionCookie ? ` · ${fila.duracionCookie}` : ""}
+      </td>
+      <td className="px-4 py-3">
+        {/* El estado se lee aquí y se cambia en «Gestionar». Antes era un
+            desplegable suelto en la fila, y era lo único que se podía pulsar:
+            invitaba a cambiar el estado cuando lo que se buscaba era editar
+            la ficha. Un cambio de estado accidental es justo lo que no debe
+            pasar en esta tabla. */}
+        <span
+          title={AYUDA_ESTADO[fila.estadoPanel]}
+          className={`inline-block rounded-full px-2.5 py-1 text-xs font-semibold ${COLOR_ESTADO[fila.estadoPanel]}`}
+        >
+          {ETIQUETA_ESTADO[fila.estadoPanel]}
+        </span>
+      </td>
+      <td className="px-4 py-3 text-slate-600">
+        {fila.proximaAccion}
+        {fila.diasEstancada !== null && <span className="ml-1 text-orange-600">({fila.diasEstancada}d)</span>}
+      </td>
+      <td className="px-4 py-3 text-slate-600">
+        {fila.enlace ? (
+          <span className="inline-flex items-center gap-1">
+            {fila.enlaceComprobacionOk === false ? (
+              <span title="El último chequeo falló" className="text-red-600">●</span>
+            ) : fila.enlaceComprobacionOk === true ? (
+              <span title="El último chequeo respondió bien" className="text-emerald-600">●</span>
+            ) : null}
+            Guardado
+          </span>
+        ) : (
+          "—"
+        )}
+      </td>
+      <td className="px-4 py-3 text-slate-500">
+        {fila.enlaceUltimaComprobacion ? new Date(fila.enlaceUltimaComprobacion).toLocaleString("es-ES") : "—"}
+      </td>
+      {/* Columna pegada al borde derecho: la tabla tiene nueve columnas y
+          1100px de ancho mínimo, así que sin `sticky` este botón se va fuera
+          de la pantalla en cuanto la ventana es más estrecha —que es lo que
+          pasaba en el móvil— y hay que adivinar que la tabla se desplaza. */}
+      <td className="sticky right-0 bg-white px-4 py-3 text-right shadow-[-8px_0_8px_-8px_rgba(0,0,0,0.15)]">
+        <button
+          type="button"
+          onClick={onGestionar}
+          className="rounded-xl bg-brand-600 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-brand-700"
+        >
+          Gestionar
+        </button>
+      </td>
+    </tr>
+  );
+}
+
+/**
+ * Gestión completa de una afiliación: el enlace, sus condiciones y su estado,
+ * en una sola pantalla con un botón de guardar de verdad.
+ *
+ * Se guarda al pulsar, no al salir de cada campo. Antes cada campo se
+ * guardaba en su `onBlur`: si escribías el enlace y cerrabas sin tocar nada
+ * más, no se guardaba nada y tampoco se decía. Para el dato del que depende
+ * cobrar, eso no vale.
+ */
+function ModalGestion({
   fila,
-  abierta,
-  onToggle,
-  onActualizar,
+  cargando,
+  onCerrar,
+  onGuardar,
+  onComprobarEnlace,
   onGenerarRequisitos,
   onGenerarBorrador,
-  cargando,
 }: {
   fila: FilaPanelAfiliacion;
-  abierta: boolean;
-  onToggle: () => void;
-  onActualizar: (cambios: Record<string, unknown>) => void;
+  cargando: boolean;
+  onCerrar: () => void;
+  onGuardar: (cambios: Record<string, unknown>) => Promise<void>;
+  onComprobarEnlace: () => Promise<void>;
   onGenerarRequisitos: () => void;
   onGenerarBorrador: () => void;
-  cargando: boolean;
 }) {
-  const [enlaceLocal, setEnlaceLocal] = useState(fila.enlace ?? "");
-  const [requisitosLocal, setRequisitosLocal] = useState(fila.requisitosPrograma ?? "");
-  const [borradorLocal, setBorradorLocal] = useState(fila.borradorSolicitud ?? "");
-  const [copiado, setCopiado] = useState(false);
+  const [enlace, setEnlace] = useState(fila.enlace ?? "");
+  const [comision, setComision] = useState(fila.comision ?? "");
+  const [duracionCookie, setDuracionCookie] = useState(fila.duracionCookie ?? "");
+  const [requisitos, setRequisitos] = useState(fila.requisitosPrograma ?? "");
+  const [borrador, setBorrador] = useState(fila.borradorSolicitud ?? "");
+  const [estado, setEstado] = useState<EstadoPanel>(fila.estadoPanel);
+  const [guardado, setGuardado] = useState(false);
 
-  async function copiarBorrador() {
-    if (!fila.borradorSolicitud) return;
-    try {
-      await navigator.clipboard.writeText(fila.borradorSolicitud);
-      setCopiado(true);
-      setTimeout(() => setCopiado(false), 2000);
-    } catch {
-      setCopiado(false);
+  // Una cuenta activa sin enlace no puede generar comisión: es la misma regla
+  // que ya vigila `consistencia.ts`. Aquí se impide antes de crearla, en vez
+  // de detectarla después.
+  const enlaceLimpio = enlace.trim();
+  const puedeActivar = puedeActivarse(enlace);
+  const activarBloqueado = estado === "activa" && !puedeActivar;
+  const enlaceMalFormado = enlaceLimpio.length > 0 && !enlaceEsUsable(enlace);
+
+  useEffect(() => {
+    function alPulsarEscape(evento: KeyboardEvent) {
+      if (evento.key === "Escape") onCerrar();
     }
+    document.addEventListener("keydown", alPulsarEscape);
+    return () => document.removeEventListener("keydown", alPulsarEscape);
+  }, [onCerrar]);
+
+  async function guardar() {
+    if (activarBloqueado || enlaceMalFormado) return;
+    setGuardado(false);
+    await onGuardar({
+      enlaceUrl: enlace.trim() || undefined,
+      segmentoEnlace: enlace.trim() ? "global" : undefined,
+      comision: comision.trim() || undefined,
+      duracionCookie: duracionCookie.trim() || undefined,
+      requisitosPrograma: requisitos.trim() || undefined,
+      borradorSolicitud: borrador.trim() || undefined,
+      estado: ESTADOS_AFILIACION_DESTINO[estado],
+    });
+    setGuardado(true);
   }
 
-  return (
-    <>
-      <tr className="border-b border-slate-100 hover:bg-slate-50/60">
-        <td className="px-4 py-3 font-medium text-slate-900">{fila.nombreHerramienta}</td>
-        <td className="px-4 py-3 text-slate-600">{fila.programaEncontrado ?? "—"}</td>
-        <td className="px-4 py-3 tabular-nums text-slate-700">{fila.prioridad ?? "—"}</td>
-        <td className="px-4 py-3 text-slate-600">
-          {fila.comision ?? "—"}
-          {fila.duracionCookie ? ` · ${fila.duracionCookie}` : ""}
-        </td>
-        <td className="px-4 py-3">
-          <select
-            value={fila.estadoPanel}
-            disabled={cargando}
-            onChange={(e) => onActualizar({ estado: ESTADOS_AFILIACION_DESTINO[e.target.value as EstadoPanel] })}
-            className={`rounded-full border-0 px-2.5 py-1 text-xs font-semibold ${COLOR_ESTADO[fila.estadoPanel]}`}
-          >
-            {(Object.keys(ETIQUETA_ESTADO) as EstadoPanel[]).map((estado) => (
-              <option key={estado} value={estado}>
-                {ETIQUETA_ESTADO[estado]}
-              </option>
-            ))}
-          </select>
-        </td>
-        <td className="px-4 py-3 text-slate-600">
-          {fila.proximaAccion}
-          {fila.diasEstancada !== null && (
-            <span className="ml-1 text-orange-600">({fila.diasEstancada}d)</span>
-          )}
-        </td>
-        <td className="px-4 py-3 text-slate-600">
-          {fila.enlace ? (
-            <span className="inline-flex items-center gap-1">
-              {fila.enlaceComprobacionOk === false ? (
-                <span title="El último chequeo falló" className="text-red-600">
-                  ●
-                </span>
-              ) : fila.enlaceComprobacionOk === true ? (
-                <span title="El último chequeo respondió bien" className="text-emerald-600">
-                  ●
-                </span>
-              ) : null}
-              Guardado
-            </span>
-          ) : (
-            "—"
-          )}
-        </td>
-        <td className="px-4 py-3 text-slate-500">
-          {fila.enlaceUltimaComprobacion ? new Date(fila.enlaceUltimaComprobacion).toLocaleString("es-ES") : "—"}
-        </td>
-        <td className="px-4 py-3 text-right">
-          <button type="button" onClick={onToggle} className="text-sm font-semibold text-brand-600 hover:text-brand-800">
-            {abierta ? "Cerrar" : "Detalle"}
-          </button>
-        </td>
-      </tr>
+  const campo =
+    "mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200";
+  const etiqueta = "block text-xs font-semibold uppercase tracking-wide text-slate-500";
 
-      {abierta && (
-        <tr className="border-b border-slate-100 bg-slate-50/60">
-          <td colSpan={9} className="px-4 py-4">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Gestionar la afiliación de ${fila.nombreHerramienta}`}
+      className="fixed inset-0 z-50 flex items-end justify-center bg-slate-900/40 p-0 sm:items-center sm:p-6"
+      onMouseDown={(e) => e.target === e.currentTarget && onCerrar()}
+    >
+      <div className="max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-t-3xl bg-white p-5 shadow-xl sm:rounded-3xl sm:p-6">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h2 className="font-display text-xl font-bold text-slate-900">{fila.nombreHerramienta}</h2>
+            <p className="mt-0.5 text-sm text-slate-500">{fila.programaEncontrado ?? "Programa sin identificar"}</p>
+          </div>
+          <button
+            type="button"
+            onClick={onCerrar}
+            aria-label="Cerrar"
+            className="rounded-xl px-3 py-1.5 text-sm font-semibold text-slate-500 transition hover:bg-slate-100 hover:text-slate-700"
+          >
+            Cerrar
+          </button>
+        </div>
+
+        <div className="mt-5 space-y-5">
+          <div>
+            <label htmlFor="enlace-afiliada" className={etiqueta}>
+              Enlace de afiliada
+            </label>
+            <p className="mt-0.5 text-xs text-slate-500">
+              Pégalo entero, tal cual te lo da el programa. No se recorta ni se reescribe nada.
+            </p>
+            <input
+              id="enlace-afiliada"
+              type="text"
+              value={enlace}
+              onChange={(e) => setEnlace(e.target.value)}
+              placeholder="https://..."
+              className={`${campo} font-mono`}
+            />
+            {enlaceMalFormado && (
+              <p role="alert" className="mt-2 rounded-xl border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900">
+                Esto no parece una dirección completa. Tiene que empezar por{" "}
+                <code className="font-mono font-semibold">https://</code> — al pegar enlaces largos es fácil
+                dejarse las primeras letras, y un enlace así se guardaría sin dar ningún error y sin llevar
+                a ninguna parte.
+              </p>
+            )}
+            <div className="mt-2 flex flex-wrap items-center gap-3">
+              <button
+                type="button"
+                onClick={onComprobarEnlace}
+                disabled={cargando || !fila.enlace}
+                className="rounded-xl bg-white px-3 py-1.5 text-sm font-semibold text-slate-700 ring-1 ring-slate-200 transition hover:bg-slate-50 disabled:opacity-50"
+              >
+                Comprobar este enlace
+              </button>
+              {!fila.enlace && <span className="text-xs text-slate-500">Guarda el enlace antes de poder comprobarlo.</span>}
+              {fila.enlaceUltimaComprobacion && (
+                <span className="text-xs text-slate-500">
+                  Última comprobación: {new Date(fila.enlaceUltimaComprobacion).toLocaleString("es-ES")}
+                  {fila.enlaceComprobacionOk === false ? " · falló" : fila.enlaceComprobacionOk ? " · correcta" : ""}
+                </span>
+              )}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div>
+              <label htmlFor="comision" className={etiqueta}>
+                Comisión
+              </label>
+              <input
+                id="comision"
+                type="text"
+                value={comision}
+                onChange={(e) => setComision(e.target.value)}
+                placeholder="60 % recurrente vitalicio"
+                className={campo}
+              />
+            </div>
+            <div>
+              <label htmlFor="duracion-cookie" className={etiqueta}>
+                Duración de la cookie
+              </label>
+              <input
+                id="duracion-cookie"
+                type="text"
+                value={duracionCookie}
+                onChange={(e) => setDuracionCookie(e.target.value)}
+                placeholder="30 días"
+                className={campo}
+              />
+            </div>
+          </div>
+
+          <div>
+            <label htmlFor="estado-afiliacion" className={etiqueta}>
+              Estado
+            </label>
+            <select
+              id="estado-afiliacion"
+              value={estado}
+              onChange={(e) => setEstado(e.target.value as EstadoPanel)}
+              className={campo}
+            >
+              {(Object.keys(ETIQUETA_ESTADO) as EstadoPanel[]).map((valor) => (
+                <option key={valor} value={valor} disabled={valor === "activa" && !puedeActivar}>
+                  {ETIQUETA_ESTADO[valor]}
+                  {valor === "activa" && !puedeActivar ? " — necesita enlace" : ""}
+                </option>
+              ))}
+            </select>
+            <p className="mt-1 text-xs text-slate-500">{AYUDA_ESTADO[estado]}</p>
+            {activarBloqueado && (
+              <p role="alert" className="mt-2 rounded-xl border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900">
+                Para activarla hace falta un enlace: una cuenta activa sin enlace no puede generar comisión.
+              </p>
+            )}
+          </div>
+
+          <details className="rounded-2xl border border-slate-200 bg-slate-50/60 p-4">
+            <summary className="cursor-pointer text-sm font-semibold text-slate-700">
+              Requisitos y borrador de solicitud
+            </summary>
+            <div className="mt-4 space-y-4">
               <div>
                 <div className="flex items-center justify-between">
-                  <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500">Requisitos del programa</label>
+                  <label htmlFor="requisitos" className={etiqueta}>
+                    Requisitos del programa
+                  </label>
                   <button
                     type="button"
                     disabled={cargando}
@@ -397,59 +602,64 @@ function FilaAfiliacion({
                   </button>
                 </div>
                 <textarea
+                  id="requisitos"
                   rows={3}
-                  value={requisitosLocal}
-                  onChange={(e) => setRequisitosLocal(e.target.value)}
-                  onBlur={() => requisitosLocal !== (fila.requisitosPrograma ?? "") && onActualizar({ requisitosPrograma: requisitosLocal })}
+                  value={requisitos}
+                  onChange={(e) => setRequisitos(e.target.value)}
                   placeholder="Sin investigar todavía."
-                  className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+                  className={campo}
                 />
               </div>
-
               <div>
                 <div className="flex items-center justify-between">
-                  <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500">Borrador de solicitud</label>
-                  <div className="flex items-center gap-3">
-                    {fila.borradorSolicitud && (
-                      <button type="button" onClick={copiarBorrador} className="text-xs font-semibold text-brand-600 hover:text-brand-800">
-                        {copiado ? "Copiado" : "Copiar"}
-                      </button>
-                    )}
-                    <button
-                      type="button"
-                      disabled={cargando}
-                      onClick={onGenerarBorrador}
-                      className="text-xs font-semibold text-brand-600 hover:text-brand-800 disabled:opacity-50"
-                    >
-                      Redactar con IA
-                    </button>
-                  </div>
+                  <label htmlFor="borrador" className={etiqueta}>
+                    Borrador de solicitud
+                  </label>
+                  <button
+                    type="button"
+                    disabled={cargando}
+                    onClick={onGenerarBorrador}
+                    className="text-xs font-semibold text-brand-600 hover:text-brand-800 disabled:opacity-50"
+                  >
+                    Redactar con IA
+                  </button>
                 </div>
                 <textarea
+                  id="borrador"
                   rows={3}
-                  value={borradorLocal}
-                  onChange={(e) => setBorradorLocal(e.target.value)}
-                  onBlur={() => borradorLocal !== (fila.borradorSolicitud ?? "") && onActualizar({ borradorSolicitud: borradorLocal })}
+                  value={borrador}
+                  onChange={(e) => setBorrador(e.target.value)}
                   placeholder="Sin generar todavía."
-                  className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold uppercase tracking-wide text-slate-500">Enlace de afiliado aprobado</label>
-                <input
-                  type="text"
-                  value={enlaceLocal}
-                  onChange={(e) => setEnlaceLocal(e.target.value)}
-                  onBlur={() => enlaceLocal !== (fila.enlace ?? "") && onActualizar({ enlaceUrl: enlaceLocal, segmentoEnlace: "global" })}
-                  placeholder="https://..."
-                  className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+                  className={campo}
                 />
               </div>
             </div>
-          </td>
-        </tr>
-      )}
-    </>
+          </details>
+        </div>
+
+        <div className="mt-6 flex flex-wrap items-center gap-3 border-t border-slate-200 pt-5">
+          <button
+            type="button"
+            onClick={guardar}
+            disabled={cargando || activarBloqueado || enlaceMalFormado}
+            className="rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand-700 disabled:opacity-50"
+          >
+            {cargando ? "Guardando…" : "Guardar cambios"}
+          </button>
+          <button
+            type="button"
+            onClick={onCerrar}
+            className="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-slate-700 ring-1 ring-slate-200 transition hover:bg-slate-50"
+          >
+            Cancelar
+          </button>
+          {guardado && !cargando && (
+            <span role="status" className="text-sm font-semibold text-emerald-700">
+              Cambios guardados.
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }

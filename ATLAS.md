@@ -2061,3 +2061,68 @@ por el pooler.
   comunica un programa no corresponden al mismo periodo que los clics medidos.
   Se ha decidido no acotarla — una cifra imposible ahí es señal de que algo se
   apuntó mal, y ocultarla sería peor que enseñarla.
+
+
+## Affiliate Manager: gestionar el enlace, y el estado que faltaba (2026-08-31)
+
+Detectado por la propietaria usando el panel en producción para dar de alta
+su enlace de Systeme.io. Su descripción era exacta: al pulsar en la fila solo
+aparecía un selector de estados, no había ningún sitio donde pegar el enlace,
+y no existía «Activo».
+
+### Lo que había
+
+El campo del enlace **sí existía**, detrás de un botón llamado «Detalle» en la
+última de nueve columnas de una tabla con 1100px de ancho mínimo. En una
+ventana más estrecha —el móvil siempre— esa columna cae fuera de la pantalla,
+y hay que descubrir por tu cuenta que la tabla se desplaza en horizontal. Lo
+único visible y pulsable de la fila era el selector de estados, así que
+invitaba a cambiar el estado justo cuando lo que se buscaba era editar. Un
+cambio de estado accidental es exactamente lo que no debe pasar en esa tabla,
+y pasó.
+
+### El fallo de fondo, que era peor
+
+`seleccionarEnlace.ts` solo usa los enlaces de las cuentas en estado
+`activo`. El panel traducía `aprobado` y `activo` al mismo estado de lectura,
+«Aprobada», y no ofrecía ninguna forma de llegar a `activo`. Es decir: se
+podía aprobar una afiliación, guardar su enlace, verlo todo correcto en la
+tabla — y la web seguía enviando a la URL oficial del proveedor, sin comisión,
+sin ninguna señal de que algo faltara.
+
+«Activa» es ahora un estado propio del panel, con su color, su recuento y su
+explicación. Y la próxima acción de una cuenta aprobada con enlace ya no dice
+«Ninguna»: dice «Activar la cuenta — hasta entonces el enlace no se usa».
+
+### El flujo nuevo
+
+Cada fila lleva un botón **Gestionar**, en una columna pegada al borde derecho
+para que no se pierda por estrecha que sea la pantalla. Abre una pantalla de
+gestión con el enlace, la comisión, la duración de la cookie y el estado, y
+**un botón de guardar de verdad**.
+
+Antes cada campo se guardaba en su `onBlur`. Si pegabas el enlace y cerrabas
+sin tocar nada más, no se guardaba y tampoco se decía. Para el dato del que
+depende cobrar, eso no vale.
+
+Dos reglas impiden guardar algo que no funcionaría, en `reglasEnlace.ts` para
+que se puedan probar y para que valgan igual si mañana los enlaces entran por
+importación en bloque:
+
+- **No se puede activar sin enlace.** Es la misma regla que `consistencia.ts`
+  detecta a posteriori; aquí se impide antes de crear el problema.
+- **No se puede guardar un enlace pegado a medias.** `ps://systeme.io/...` en
+  vez de `https://systeme.io/...` se guardaba sin protestar, no llevaba a
+  ninguna parte y no pagaba nada, y no había forma de notarlo mirando la
+  tabla. Visto de verdad al pegar un enlace largo en producción.
+
+«Comprobar este enlace» comprueba solo el de esa herramienta, sin lanzar una
+ronda contra los servidores de los 51 programas.
+
+### Verificación
+
+Con navegador real en escritorio (1440px) y móvil (Pixel 5): el botón queda
+dentro de la pantalla en los dos sin desplazar nada, el modal cabe, el aviso
+del enlace mal pegado bloquea el guardado, «Activa» aparece deshabilitada y
+etiquetada «necesita enlace» mientras no lo haya, y al guardar el enlace llega
+íntegro a la base de datos con la comisión y la cookie. 803 pruebas en verde.

@@ -14,7 +14,14 @@ export async function POST(request: Request) {
   const verificacion = verificarPeticionAdmin(request);
   if (!verificacion.ok) return NextResponse.json({ error: verificacion.motivo }, { status: 401 });
 
-  const estrategias = await getTodasLasEstrategiasAfiliacion();
+  // Con `herramientaId` se comprueba una sola: hace falta para poder
+  // comprobar el enlace recién pegado sin lanzar una ronda contra los
+  // servidores de los 51 programas.
+  const cuerpo = (await request.json().catch(() => ({}))) as { herramientaId?: unknown };
+  const soloUna = typeof cuerpo.herramientaId === "string" ? cuerpo.herramientaId : undefined;
+
+  const todas = await getTodasLasEstrategiasAfiliacion();
+  const estrategias = soloUna ? todas.filter((e) => e.herramientaId === soloUna) : todas;
   const resultados = await verificarEnlacesActivos(estrategias);
   const hoy = new Date().toISOString().slice(0, 10);
   const ahoraIso = new Date().toISOString();
