@@ -77,3 +77,23 @@ export function construirIdentificadoresValidos(entradas: {
 }): ReadonlySet<string> {
   return new Set([...entradas.objetivos, ...entradas.categorias, ...entradas.subtipos]);
 }
+
+/**
+ * Traduce el origen del diagnóstico a etiqueta de recorrido.
+ *
+ * Los tres tipos de `OrigenDiagnostico` —"objetivo", "categoria", "libre"— se
+ * llaman igual que los de aquí, así que la traducción es directa. Se declara
+ * de todos modos, en vez de construir la cadena a mano en cada pantalla, para
+ * que exista un único sitio donde mirar si algún día dejan de coincidir.
+ *
+ * `libre` no tiene identificador propio: la puerta de texto libre es una sola,
+ * y guardar lo que la persona escribió sería exactamente lo que esta medición
+ * promete no hacer.
+ */
+export function rutaDesdeOrigenDiagnostico(origen: {
+  tipo: "objetivo" | "categoria" | "libre";
+  id: string;
+}): RutaOrigen | undefined {
+  if (origen.tipo === "libre") return construirRutaOrigen("libre", "texto-libre");
+  return normalizarRutaOrigen(construirRutaOrigen(origen.tipo, origen.id));
+}

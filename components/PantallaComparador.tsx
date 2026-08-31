@@ -14,7 +14,16 @@ const EVALUADOR = getAgente("evaluador");
  * libremente de todo el catálogo, que es justo lo que convertía al
  * comparador anterior (`/problema/[id]/[categoriaId]`) en un directorio.
  */
-export default function PantallaComparador({ token, top }: { token: string; top: HerramientaEvaluada[] }) {
+export default function PantallaComparador({
+  token,
+  top,
+  rutaOrigen,
+}: {
+  token: string;
+  top: HerramientaEvaluada[];
+  /** Atlas Revenue: de qué recorrido salió la recomendación que se está comparando. */
+  rutaOrigen?: string;
+}) {
   return (
     <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-16">
       <EnlaceAtras href={`/resultado/${token}`}>Volver a tus opciones</EnlaceAtras>
@@ -46,7 +55,7 @@ export default function PantallaComparador({ token, top }: { token: string; top:
       </div>
 
       <div className="mt-8">
-        <TablaComparativa evaluadas={top} />
+        <TablaComparativa evaluadas={top} rutaOrigen={rutaOrigen} />
       </div>
     </div>
   );

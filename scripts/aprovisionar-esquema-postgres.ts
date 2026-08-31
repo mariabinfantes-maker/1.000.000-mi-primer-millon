@@ -18,7 +18,8 @@ async function main() {
 
   const { rows } = await pool.query(
     `SELECT table_name FROM information_schema.tables
-     WHERE table_schema = 'public' AND table_name IN ('estrategias_afiliacion', 'historial_cambios_afiliacion')
+     WHERE table_schema = 'public'
+       AND table_name IN ('estrategias_afiliacion', 'historial_cambios_afiliacion', 'clics_salientes', 'ingresos_afiliacion')
      ORDER BY table_name`
   );
   console.log("Tablas presentes:", rows.map((f: { table_name: string }) => f.table_name).join(", "));

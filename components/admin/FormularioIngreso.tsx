@@ -21,7 +21,11 @@ export default function FormularioIngreso({
 
   async function enviar(evento: React.FormEvent<HTMLFormElement>) {
     evento.preventDefault();
-    const datos = new FormData(evento.currentTarget);
+    // `currentTarget` solo es válido mientras dura el despacho del evento:
+    // tras el primer `await` vale null. Se guarda aquí la referencia al
+    // formulario porque más abajo hay que vaciarlo, ya con la petición hecha.
+    const formulario = evento.currentTarget;
+    const datos = new FormData(formulario);
     const euros = Number(datos.get("euros") ?? 0);
     const centimos = Number(datos.get("centimos") ?? 0);
 
@@ -45,7 +49,15 @@ export default function FormularioIngreso({
       const cuerpo = await respuesta.json().catch(() => ({}));
       if (!respuesta.ok) throw new Error(cuerpo.error ?? "No se ha podido guardar.");
       setMensaje({ tipo: "ok", texto: "Apunte guardado. Recarga para verlo en la tabla." });
-      evento.currentTarget.reset();
+      // Vaciar el formulario es una comodidad, no parte de guardar. Si algo
+      // fallara aquí no puede acabar mostrándose como error: el apunte ya
+      // está escrito y la tabla no admite modificaciones, así que quien lo
+      // creyera fallido volvería a enviarlo y quedaría duplicado.
+      try {
+        formulario.reset();
+      } catch {
+        /* sin consecuencias: el apunte ya está guardado */
+      }
     } catch (error) {
       setMensaje({ tipo: "error", texto: error instanceof Error ? error.message : "No se ha podido guardar." });
     } finally {

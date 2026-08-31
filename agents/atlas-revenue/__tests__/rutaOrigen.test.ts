@@ -5,6 +5,7 @@ import {
   esRutaConocida,
   normalizarRutaOrigen,
   partirRutaOrigen,
+  rutaDesdeOrigenDiagnostico,
   LARGO_MAXIMO_RUTA,
 } from "../rutaOrigen";
 
@@ -91,5 +92,24 @@ describe("la forma no basta: hay que existir en el catálogo", () => {
   it("rechaza cualquier identificador inventado, por bien formado que venga", () => {
     for (const r of ["categoria:no-existe", "objetivo:inventado", "subtipo:cualquiera", "libre:otra-cosa"])
       expect(esRutaConocida(r, validos), r).toBe(false);
+  });
+});
+
+describe("traduce el origen del diagnóstico", () => {
+  it("las tres puertas de entrada", () => {
+    expect(rutaDesdeOrigenDiagnostico({ tipo: "objetivo", id: "conseguir-clientes" })).toBe("objetivo:conseguir-clientes");
+    expect(rutaDesdeOrigenDiagnostico({ tipo: "categoria", id: "crm" })).toBe("categoria:crm");
+  });
+
+  it("la puerta de texto libre NO guarda lo que la persona escribió", () => {
+    // Es la puerta donde alguien puede contar su situación con sus palabras.
+    // Guardar ese texto sería exactamente lo que esta medición promete no
+    // hacer, así que la etiqueta es fija: solo dice por dónde entró.
+    expect(rutaDesdeOrigenDiagnostico({ tipo: "libre", id: "tengo una tienda de ropa" })).toBe("libre:texto-libre");
+    expect(rutaDesdeOrigenDiagnostico({ tipo: "libre", id: "maria@ejemplo.com" })).toBe("libre:texto-libre");
+  });
+
+  it("un identificador que no encaja no produce etiqueta", () => {
+    expect(rutaDesdeOrigenDiagnostico({ tipo: "categoria", id: "CRM con espacios y símbolos!" })).toBeUndefined();
   });
 });

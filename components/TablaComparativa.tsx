@@ -14,7 +14,14 @@ import Boton from "@/components/ui/Boton";
  * ya calculadas por Evaluador, nunca vuelve a puntuar nada — igual que
  * `construirComparativa`, del que es la vista.
  */
-export default function TablaComparativa({ evaluadas }: { evaluadas: HerramientaEvaluada[] }) {
+export default function TablaComparativa({
+  evaluadas,
+  rutaOrigen,
+}: {
+  evaluadas: HerramientaEvaluada[];
+  /** Atlas Revenue: de qué recorrido venía quien llegó a comparar. */
+  rutaOrigen?: string;
+}) {
   const filas = construirComparativa(evaluadas);
   // La comparativa por sí sola ya distingue una mejor encajada (fila a fila,
   // "gana X"); el CTA principal sigue el mismo criterio a nivel de conjunto
@@ -36,7 +43,7 @@ export default function TablaComparativa({ evaluadas }: { evaluadas: Herramienta
               {puntuacion && <AnilloPuntuacion puntuacion={puntuacion.puntuacion} />}
               <span className="font-display text-sm font-bold text-slate-900">{evaluada.herramienta.nombre}</span>
               <Boton
-                href={`/herramienta/${evaluada.herramienta.id}/ir?origen=comparar`}
+                href={`/herramienta/${evaluada.herramienta.id}/ir?origen=comparar${rutaOrigen ? `&ruta=${encodeURIComponent(rutaOrigen)}` : ""}`}
                 variante={esMejorEncaje ? "primario" : "secundario"}
                 className="mt-1 w-full"
               >

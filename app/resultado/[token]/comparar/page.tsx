@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { resolverResultadoCompartido } from "@/lib/resultadoCompartido";
+import { rutaDesdeOrigenDiagnostico } from "@/agents/atlas-revenue/rutaOrigen";
 import PantallaComparador from "@/components/PantallaComparador";
 import Boton from "@/components/ui/Boton";
 
@@ -36,5 +37,5 @@ export default async function ResultadoComparadorPage({ params }: { params: Prom
     );
   }
 
-  return <PantallaComparador token={token} top={resultado.top} />;
+  return <PantallaComparador token={token} top={resultado.top} rutaOrigen={rutaDesdeOrigenDiagnostico(resultado.origen)} />;
 }
