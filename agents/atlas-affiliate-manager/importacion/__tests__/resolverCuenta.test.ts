@@ -44,8 +44,8 @@ describe("resolverCuentaId", () => {
 
 describe("fijarCuentas", () => {
   it("deja la cuenta escrita en la entrada, para que previa y aplicación coincidan", () => {
-    const existentes = new Map([["notion", conCuentas({ id: "principal" })]]);
-    const [entrada] = fijarCuentas([{ id: "notion", plataforma: "PartnerStack" }], existentes);
+    const existentes = new Map([["asana", conCuentas({ id: "principal" })]]);
+    const [entrada] = fijarCuentas([{ id: "asana", plataforma: "PartnerStack" }], existentes);
     expect(entrada.cuenta).toBe("principal");
   });
 });

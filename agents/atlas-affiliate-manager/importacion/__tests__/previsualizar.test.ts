@@ -20,32 +20,32 @@ function estrategia(id: string, cuenta: Partial<EstrategiaAfiliacion["cuentas"][
 
 function contexto(overrides: Partial<ContextoPrevisualizacion> = {}): ContextoPrevisualizacion {
   return {
-    idsValidos: new Set(["systeme-io", "notion", "grammarly", "monday-com"]),
-    nombres: { "systeme-io": "Systeme.io", notion: "Notion", grammarly: "Grammarly", "monday-com": "monday.com" },
-    existentes: new Map([["notion", estrategia("notion")]]),
+    idsValidos: new Set(["systeme-io", "asana", "grammarly", "monday-com"]),
+    nombres: { "systeme-io": "Systeme.io", asana: "Asana", grammarly: "Grammarly", "monday-com": "monday.com" },
+    existentes: new Map([["asana", estrategia("asana")]]),
     ...overrides,
   };
 }
 
 describe("previsualizarLote", () => {
   it("no escribe nada: solo describe", () => {
-    const existentes = new Map([["notion", estrategia("notion")]]);
+    const existentes = new Map([["asana", estrategia("asana")]]);
     const antes = JSON.stringify([...existentes]);
-    previsualizarLote([{ id: "notion", comision: "40 %" }], contexto({ existentes }));
+    previsualizarLote([{ id: "asana", comision: "40 %" }], contexto({ existentes }));
     expect(JSON.stringify([...existentes])).toBe(antes);
   });
 
   it("distingue crear, cambiar y sin cambios", () => {
     const existentes = new Map([
-      ["notion", estrategia("notion")],
+      ["asana", estrategia("asana")],
       ["monday-com", estrategia("monday-com")],
     ]);
     const r = previsualizarLote(
       [
         // No hay estrategia guardada para grammarly: se creará.
         { id: "grammarly", comision: "20 %" },
-        // notion sí la tiene, y la comisión es distinta.
-        { id: "notion", comision: "40 %" },
+        // asana sí la tiene, y la comisión es distinta.
+        { id: "asana", comision: "40 %" },
         // monday-com ya tiene exactamente esa plataforma: nada que cambiar.
         { id: "monday-com", plataforma: "Programa propio" },
       ],
@@ -55,8 +55,8 @@ describe("previsualizarLote", () => {
   });
 
   it("enseña el antes y el después de cada campo", () => {
-    const existentes = new Map([["notion", estrategia("notion", { comision: "20 %" })]]);
-    const r = previsualizarLote([{ id: "notion", comision: "40 %" }], contexto({ existentes }));
+    const existentes = new Map([["asana", estrategia("asana", { comision: "20 %" })]]);
+    const r = previsualizarLote([{ id: "asana", comision: "40 %" }], contexto({ existentes }));
     expect(r.filas[0].cambios).toContainEqual({ campo: "Comisión", antes: "20 %", despues: "40 %" });
   });
 
@@ -67,19 +67,19 @@ describe("previsualizarLote", () => {
   });
 
   it("rechaza un enlace pegado a medias", () => {
-    const r = previsualizarLote([{ id: "notion", enlace: "ps://notion.so/?ref=x" }], contexto());
+    const r = previsualizarLote([{ id: "asana", enlace: "ps://asana.so/?ref=x" }], contexto());
     expect(r.filas[0].errores.join(" ")).toMatch(/empezar por https/i);
   });
 
   it("rechaza dejar en activo sin enlace", () => {
-    const r = previsualizarLote([{ id: "notion", estado: "activo" }], contexto());
+    const r = previsualizarLote([{ id: "asana", estado: "activo" }], contexto());
     expect(r.filas[0].veredicto).toBe("error");
     expect(r.filas[0].errores.join(" ")).toMatch(/sin enlace/i);
   });
 
   it("acepta activo si la misma fila trae el enlace", () => {
     const r = previsualizarLote(
-      [{ id: "notion", estado: "activo", enlace: "https://notion.so/?ref=molnip" }],
+      [{ id: "asana", estado: "activo", enlace: "https://asana.so/?ref=molnip" }],
       contexto()
     );
     expect(r.filas[0].veredicto).toBe("cambiara");
@@ -89,8 +89,8 @@ describe("previsualizarLote", () => {
   it("detecta filas repetidas para la misma cuenta", () => {
     const r = previsualizarLote(
       [
-        { id: "notion", comision: "40 %" },
-        { id: "notion", comision: "50 %" },
+        { id: "asana", comision: "40 %" },
+        { id: "asana", comision: "50 %" },
       ],
       contexto()
     );
@@ -102,8 +102,8 @@ describe("previsualizarLote", () => {
   it("una misma herramienta con dos cuentas distintas NO es repetida", () => {
     const r = previsualizarLote(
       [
-        { id: "notion", cuenta: "principal", comision: "40 %" },
-        { id: "notion", cuenta: "impact", comision: "50 %" },
+        { id: "asana", cuenta: "principal", comision: "40 %" },
+        { id: "asana", cuenta: "impact", comision: "50 %" },
       ],
       contexto()
     );
@@ -118,16 +118,30 @@ describe("previsualizarLote", () => {
 
   it("bloquea el archivo entero si falla más de la mitad de las filas", () => {
     const r = previsualizarLote(
-      [{ id: "no-existe-1" }, { id: "no-existe-2" }, { id: "notion", comision: "40 %" }],
+      [
+        { id: "no-existe-1" },
+        { id: "no-existe-2" },
+        { id: "no-existe-3" },
+        { id: "asana", comision: "40 %" },
+      ],
       contexto()
     );
     expect(r.bloqueo).toMatch(/columnas no están bien emparejadas/i);
     expect(filasAAplicar(r, true)).toEqual([]);
   });
 
+  it("NO usa ese umbral en archivos de una o dos filas", () => {
+    // Con una sola fila mala, "las columnas no están bien emparejadas" sería
+    // mentira: lo que hay es un problema concreto en esa fila, y el mensaje
+    // debe dejar verlo en vez de taparlo con una explicación equivocada.
+    const r = previsualizarLote([{ id: "no-existe" }], contexto());
+    expect(r.bloqueo).toBeUndefined();
+    expect(r.filas[0].errores.join(" ")).toMatch(/no existe en el catálogo/i);
+  });
+
   it("no bloquea cuando los fallos son minoría", () => {
     const r = previsualizarLote(
-      [{ id: "no-existe" }, { id: "notion", comision: "40 %" }, { id: "grammarly", comision: "10 %" }],
+      [{ id: "no-existe" }, { id: "asana", comision: "40 %" }, { id: "grammarly", comision: "10 %" }],
       contexto()
     );
     expect(r.bloqueo).toBeUndefined();
@@ -136,7 +150,7 @@ describe("previsualizarLote", () => {
 
 describe("las activaciones van aparte", () => {
   const entradas = [
-    { id: "notion", comision: "40 %" },
+    { id: "asana", comision: "40 %" },
     { id: "grammarly", estado: "activo", enlace: "https://grammarly.com/?ref=molnip" },
   ];
 
@@ -158,16 +172,50 @@ describe("las activaciones van aparte", () => {
 
   it("una cuenta que YA estaba activa y no cambia de estado no cuenta como activación", () => {
     const existentes = new Map([
-      ["notion", estrategia("notion", { estado: "activo", enlaces: [{ segmento: "global", url: "https://notion.so/?ref=x" }] })],
+      ["asana", estrategia("asana", { estado: "activo", enlaces: [{ segmento: "global", url: "https://asana.so/?ref=x" }] })],
     ]);
-    const r = previsualizarLote([{ id: "notion", comision: "40 %" }], contexto({ existentes }));
+    const r = previsualizarLote([{ id: "asana", comision: "40 %" }], contexto({ existentes }));
     expect(r.filas[0].activa).toBe(false);
     expect(r.activaciones).toBe(0);
   });
 
   it("una fila con error nunca se cuenta como activación", () => {
-    const r = previsualizarLote([{ id: "notion", estado: "activo" }], contexto());
+    const r = previsualizarLote([{ id: "asana", estado: "activo" }], contexto());
     expect(r.filas[0].activa).toBe(false);
     expect(r.activaciones).toBe(0);
+  });
+});
+
+describe("el bloqueo solo acusa a las columnas cuando de verdad lo parecen", () => {
+  it("una mayoría de errores por PROTECCIÓN no bloquea el archivo", () => {
+    // El caso real, visto con navegador: un CSV de cinco filas bien
+    // emparejado donde tres fallaban por protecciones correctas se bloqueaba
+    // acusando a las columnas. Las protecciones son negativas deliberadas del
+    // sistema y en un archivo normal habrá varias.
+    const existentes = new Map([
+      ["asana", estrategia("asana", { enlaces: [{ segmento: "global", url: "https://asana.com/?ref=viejo" }] })],
+      ["grammarly", estrategia("grammarly", { estado: "activo", enlaces: [{ segmento: "global", url: "https://g.test/?r=1" }] })],
+    ]);
+    const r = previsualizarLote(
+      [
+        { id: "systeme-io", comision: "1 %" },
+        { id: "asana", enlace: "https://otro.test/?ref=x" },
+        { id: "grammarly", enlace: "https://otro.test/?ref=y" },
+        { id: "monday-com", comision: "25 %" },
+      ],
+      contexto({ existentes })
+    );
+    expect(r.conError).toBe(3);
+    expect(r.bloqueo).toBeUndefined();
+    // Y la fila buena sigue siendo aplicable.
+    expect(filasAAplicar(r, false)).toEqual([4]);
+  });
+
+  it("una mayoría de ids que no existen SÍ bloquea, que es el síntoma real", () => {
+    const r = previsualizarLote(
+      [{ id: "25 % recurrente" }, { id: "https://x.test" }, { id: "90 días" }, { id: "asana", comision: "10 %" }],
+      contexto()
+    );
+    expect(r.bloqueo).toMatch(/no corresponde a ninguna herramienta/i);
   });
 });

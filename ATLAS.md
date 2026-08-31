@@ -2254,3 +2254,121 @@ La rama `claude/atlas-revenue` no pudo borrarse desde este entorno: el remoto
 corta la conexión en la operación de borrado, aunque los envíos normales
 funcionan. Su contenido está íntegro en producción —árbol idéntico
 comprobado—, así que borrarla es cosmético y puede hacerse desde GitHub.
+
+## Importación y validación de enlaces en bloque (2026-08-31)
+
+Construida sobre lo que ya existía en vez de rehacerlo: `lote.ts` ya fusionaba
+campo a campo, aislaba el fallo de cada fila y escribía en serie. Lo que no
+había era forma de llegar a ello desde el panel, ni de ver antes qué iba a
+pasar.
+
+### El botón que había era peligroso
+
+`/api/admin/afiliacion/importar` no fusiona: **reemplaza la estrategia entera**
+de cada herramienta. Un archivo parcial borraba cuentas y enlaces que no
+vinieran en él. Y estaba en el panel junto a «Exportar JSON», sin ninguna
+advertencia: bastaba escoger el archivo equivocado.
+
+Ahora exige una marca explícita de reemplazo. Sin ella, se rechaza y explica
+la diferencia.
+
+### El flujo
+
+Cinco pasos, y nada se escribe hasta el cuarto: elegir archivo, emparejar
+columnas, **ver qué va a pasar**, aplicar, resultado.
+
+La vista previa dice fila a fila el veredicto —se creará, cambiará, sin
+cambios, error— con el antes y el después de cada campo. Es lo que hace que
+esto se pueda usar sin miedo: toca los enlaces de los que depende cobrar, en
+muchas herramientas a la vez, y la tabla de estrategias no tiene papelera.
+
+### Las activaciones, aparte
+
+Decisión de la propietaria (opción 3 de tres presentadas). Las filas que dejan
+una cuenta en «activo» se cuentan y se listan en su propio bloque, con su
+propio botón. El botón principal aplica todo lo demás y deja las activaciones
+pendientes.
+
+La razón es que activar no es un cambio más: a partir de ese momento los
+botones «Ir al proveedor» de esas herramientas llevan el enlace de afiliada.
+Eso no debe colarse dentro de un «aplicar 40 cambios» que nadie lee entero.
+Coincide además con el requisito que la propia propietaria anotó el 2026-08-29:
+ningún enlace debe generar tráfico real sin que una persona lo haya aprobado.
+
+### Protección del piloto: por regla, no por lista de nombres
+
+Se pidió dejar fuera Systeme.io y las cinco afiliaciones del piloto. Lo obvio
+sería una lista de identificadores, pero ATLAS.md no las nombra y los JSON del
+repositorio son respaldos de la migración: los datos vivos están en Neon.
+Escribir cinco identificadores a ojo habría sido inventarse el dato justo en la
+pieza encargada de protegerlo.
+
+Se protege por lo que la cuenta **es**:
+
+- una cuenta **activa** no se toca desde una importación — es la que genera
+  tráfico real ahora mismo, y cambiarla desde un archivo puede cortar los
+  ingresos sin que nadie se entere hasta el siguiente cobro;
+- un **enlace ya guardado no se pisa** por otro distinto — añadir donde no
+  había es el objetivo, sustituir lo que alguien pegó y comprobó es otra cosa;
+- `systeme-io`, además, por nombre.
+
+Ninguna impide editar desde «Gestionar». Lo que se bloquea es el cambio masivo
+y a ciegas.
+
+### Tres cosas que aparecieron al probarlo de verdad
+
+**El identificador de cuenta se derivaba del nombre de la plataforma.** En una
+orden de terminal tiene sentido; en una hoja de cálculo, donde «plataforma» es
+una columna descriptiva casi siempre rellena, un archivo razonable habría
+creado una cuenta paralela nueva en cada herramienta, dejando los enlaces en
+cuentas recién inventadas. Ahora, si la herramienta ya tiene una sola cuenta,
+se actualiza esa; y la cuenta se fija antes de previsualizar y de aplicar, con
+la misma función, porque una vista previa que no describe lo que va a pasar es
+peor que no tenerla.
+
+**El bloqueo por «más de la mitad de las filas fallan» acusaba a las
+columnas.** Con navegador real, sobre un CSV de cinco filas perfectamente
+emparejado donde tres fallaban por protecciones correctas, el archivo se
+bloqueaba entero diciendo que las columnas estaban mal. Ahora solo cuentan
+para ese umbral los errores que de verdad apuntan a un emparejamiento
+equivocado: que falte el id o que no exista en el catálogo. Las protecciones
+son negativas deliberadas y en un archivo normal habrá varias.
+
+**Y ese mismo umbral no se aplica por debajo de cuatro filas**: en un archivo
+de una línea, un solo error ya supera la mitad, y explicar el problema con una
+causa equivocada es peor que no explicarlo.
+
+### El lector de CSV
+
+Escrito a mano. El problema no es analizar CSV —son treinta líneas— sino
+tolerar lo que sale de un Excel en español: punto y coma, BOM, finales de
+línea de Windows y encabezados con tildes. Una librería genérica resuelve lo
+primero y deja lo demás igual de roto.
+
+El delimitador se detecta contando fuera de comillas: una descripción
+entrecomillada con comas basta para que un archivo separado por punto y coma
+parezca separado por comas. Y una fila con distinto número de columnas que el
+encabezado se omite y se avisa, en vez de rellenar o recortar — adivinar ahí
+escribe el enlace de una herramienta en el campo de otra sin dar ningún error.
+
+### Verificación
+
+865 pruebas unitarias y 53 de navegador. El recorrido completo comprobado con
+navegador real en escritorio y móvil, contra Postgres real, con un CSV con BOM,
+punto y coma, tildes y finales de Windows, y con la base sembrada con
+Systeme.io activa y una cuenta con enlace ya guardado:
+
+    5 fila(s) · 2 se crearán · 0 cambiarán · 0 sin cambios · 3 con error
+      Asana        Se creará
+      ClickUp      Se creará · activa
+      Systeme.io   Error — protegida
+      monday.com   Error — ya tiene un enlace guardado
+      no-existe    Error — no existe en el catálogo
+
+    Botón principal  → «Aplicar 1 cambio(s)»
+      resultado: 1 aplicada · 1 activación sigue pendiente de confirmación
+      clickup: no creado · systeme-io y monday.com intactos
+
+    Botón de activación → «Aplicar los cambios y activar 1»
+      resultado: 2 aplicadas · 1 activada
+      clickup: activo · systeme-io y monday.com siguen intactos

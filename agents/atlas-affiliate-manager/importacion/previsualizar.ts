@@ -53,6 +53,29 @@ export type ResumenPrevisualizacion = {
 /** Por encima de esta proporción de filas con error, casi siempre son las columnas mal emparejadas. */
 export const UMBRAL_ABORTAR = 0.5;
 
+/**
+ * Por debajo de estas filas no se aplica el umbral. En un archivo de una o
+ * dos líneas, un solo error ya supera la mitad, y decir «las columnas no
+ * están bien emparejadas» sería mentir: lo más probable es que esa fila
+ * concreta tenga un problema concreto, y el mensaje debe dejar verlo.
+ */
+export const MINIMO_FILAS_PARA_ABORTAR = 4;
+
+/**
+ * Y solo cuentan para el umbral los errores que de verdad apuntan a un
+ * emparejamiento equivocado: que falte el id o que no exista en el catálogo.
+ * Es el síntoma clásico —la columna «id» trae en realidad comisiones o
+ * direcciones— y no se parece a nada más.
+ *
+ * Los demás errores no dicen nada sobre las columnas. Una cuenta protegida,
+ * un enlace que no se pisa o una fila repetida son negativas deliberadas del
+ * sistema, y en un archivo normal habrá varias. Contarlas hacía que un
+ * archivo perfectamente emparejado se bloqueara acusando a las columnas:
+ * detectado con navegador real sobre un CSV de cinco filas donde tres
+ * fallaban por protecciones correctas.
+ */
+type ClaseError = "estructural" | "otro";
+
 const CAMPOS_COMPARABLES: { campo: keyof EntradaLoteEstrategia; en: keyof CuentaAfiliado; etiqueta: string }[] = [
   { campo: "estado", en: "estado", etiqueta: "Estado" },
   { campo: "plataforma", en: "plataforma", etiqueta: "Plataforma" },
@@ -93,12 +116,14 @@ export function previsualizarLote(
 ): ResumenPrevisualizacion {
   const filas: FilaPrevisualizada[] = [];
   const vistas = new Set<string>();
+  const clases: ClaseError[][] = [];
 
   for (const [indice, entrada] of entradas.entries()) {
     const numero = indice + 1;
     const id = (entrada.id ?? "").trim();
     const errores: string[] = [];
     const cambios: CambioCampo[] = [];
+    const clase: ClaseError[] = [];
 
     // La misma resolución que usa el paso de aplicar: si difirieran, la
     // vista previa describiría algo distinto de lo que va a ocurrir.
@@ -107,26 +132,31 @@ export function previsualizarLote(
 
     if (!id) {
       filas.push({ fila: numero, id: "", cuentaId, veredicto: "error", errores: ["Falta la columna «id»."], cambios: [], activa: false });
+      clases.push(["estructural"]);
       continue;
     }
 
     if (!contexto.idsValidos.has(id)) {
       errores.push(`«${id}» no existe en el catálogo.`);
+      clase.push("estructural");
     }
 
     const clave = `${id}::${cuentaId}`;
     if (vistas.has(clave)) {
       // Sin esto, la segunda fila pisaría a la primera sin que nadie lo viera.
       errores.push(`Repetida: ya hay otra fila para «${id}» y la cuenta «${cuentaId}».`);
+      clase.push("otro");
     }
     vistas.add(clave);
 
     if (entrada.estado !== undefined && !esEstadoAfiliacionValido(entrada.estado)) {
       errores.push(`Estado no válido: «${entrada.estado}». Debe ser no_solicitado, pendiente, aprobado, rechazado o activo.`);
+      clase.push("estructural");
     }
 
     if (entrada.enlace !== undefined && !enlaceEsUsable(entrada.enlace)) {
       errores.push("El enlace no es una dirección completa; tiene que empezar por https://");
+      clase.push("otro");
     }
 
     const existente = contexto.existentes.get(id);
@@ -134,7 +164,10 @@ export function previsualizarLote(
 
     if (contexto.aplicarProtecciones !== false) {
       const proteccion = comprobarProteccion(id, cuenta, { enlace: entrada.enlace, estado: entrada.estado });
-      if (proteccion) errores.push(proteccion.motivo);
+      if (proteccion) {
+        errores.push(proteccion.motivo);
+        clase.push("otro");
+      }
     }
     const enlaceActual = enlaceGlobalDe(cuenta, segmento);
     const enlaceFinal = entrada.enlace ?? enlaceActual;
@@ -143,6 +176,7 @@ export function previsualizarLote(
     // La misma regla que el panel: activa sin enlace no puede cobrar.
     if (estadoFinal === "activo" && !enlaceFinal) {
       errores.push("No se puede dejar en «activo» sin enlace: una cuenta activa sin enlace no genera comisión.");
+      clase.push("otro");
     }
 
     for (const { campo, en, etiqueta } of CAMPOS_COMPARABLES) {
@@ -174,6 +208,7 @@ export function previsualizarLote(
       cambios,
       activa: veredicto === "error" ? false : activa,
     });
+    clases.push(clase);
   }
 
   const conError = filas.filter((f) => f.veredicto === "error").length;
@@ -191,8 +226,9 @@ export function previsualizarLote(
     activaciones,
   };
 
-  if (filas.length > 0 && conError / filas.length > UMBRAL_ABORTAR) {
-    resumen.bloqueo = `Fallan ${conError} de ${filas.length} filas. Casi siempre significa que las columnas no están bien emparejadas; revisa el paso anterior antes de aplicar nada.`;
+  const estructurales = clases.filter((c) => c.includes("estructural")).length;
+  if (filas.length >= MINIMO_FILAS_PARA_ABORTAR && estructurales / filas.length > UMBRAL_ABORTAR) {
+    resumen.bloqueo = `En ${estructurales} de ${filas.length} filas la columna «id» no corresponde a ninguna herramienta del catálogo. Casi siempre significa que las columnas no están bien emparejadas; revisa el paso anterior antes de aplicar nada.`;
   }
 
   return resumen;
