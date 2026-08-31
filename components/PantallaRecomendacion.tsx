@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ScanSearch, Scale, RefreshCw } from "lucide-react";
 import { aVistaDeTarjeta } from "@/lib/vistaRecomendacion";
 import type { OrigenDiagnostico } from "@/lib/origenDiagnostico";
+import { rutaDesdeOrigenDiagnostico } from "@/agents/atlas-revenue/rutaOrigen";
 import { getAgente } from "@/lib/agentes";
 import type { HerramientaEvaluada } from "@/agents/atlas-advisor";
 import EnlaceAtras from "@/components/ui/EnlaceAtras";
@@ -36,6 +37,11 @@ export default function PantallaRecomendacion({
   token: string;
   top: HerramientaEvaluada[];
 }) {
+  // Atlas Revenue: de qué recorrido salió esta recomendación. Es la fuente
+  // esencial del piloto — sin ella, los clics desde la pantalla final se
+  // registran sin saber qué camino los produjo.
+  const rutaOrigen = rutaDesdeOrigenDiagnostico(origen);
+
   const vistas = top.map((evaluada, indice) => aVistaDeTarjeta(evaluada, indice + 1));
 
   return (
@@ -108,7 +114,7 @@ export default function PantallaRecomendacion({
       <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
         {vistas.map((vista, indice) => (
           <div key={vista.nombre} className="animar-entrada" style={{ animationDelay: `${indice * 100}ms` }}>
-            <TarjetaHerramientaRecomendada {...vista} />
+            <TarjetaHerramientaRecomendada {...vista} rutaOrigen={rutaOrigen} />
           </div>
         ))}
       </div>

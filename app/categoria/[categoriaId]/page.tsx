@@ -9,6 +9,7 @@ import { metadataCategoria } from "@/agents/atlas-generador-contenido/metadatos"
 import EnlaceAtras from "@/components/ui/EnlaceAtras";
 import Boton from "@/components/ui/Boton";
 import EstadoVacio from "@/components/ui/EstadoVacio";
+import { construirRutaOrigen } from "@/agents/atlas-revenue/rutaOrigen";
 import TarjetaHerramientaRecomendada from "@/components/TarjetaHerramientaRecomendada";
 
 export function generateStaticParams() {
@@ -81,7 +82,7 @@ export default async function LandingCategoriaPage({
       {vistas.length > 0 ? (
         <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
           {vistas.map((vista) => (
-            <TarjetaHerramientaRecomendada key={vista.id} {...vista} />
+            <TarjetaHerramientaRecomendada key={vista.id} {...vista} rutaOrigen={construirRutaOrigen("categoria", categoria.id)} />
           ))}
         </div>
       ) : (

@@ -28,5 +28,7 @@ export function poolDePrueba(): Pool {
 /** TRUNCATE de ambas tablas entre pruebas — no pasa por el trigger append-only (no es un DELETE por fila), es limpieza de test, no una operación de la aplicación. */
 export async function limpiarTablasDePrueba(): Promise<void> {
   const p = poolDePrueba();
-  await p.query(`TRUNCATE TABLE historial_cambios_afiliacion, estrategias_afiliacion RESTART IDENTITY`);
+  await p.query(
+    `TRUNCATE TABLE historial_cambios_afiliacion, estrategias_afiliacion, clics_salientes, ingresos_afiliacion RESTART IDENTITY`
+  );
 }

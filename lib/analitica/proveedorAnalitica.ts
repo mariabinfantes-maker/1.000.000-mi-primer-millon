@@ -25,6 +25,14 @@ export type EventoClic = {
   categoriaId: string;
   tipoEnlace: TipoEnlaceClic;
   origen: OrigenClic;
+  /**
+   * Añadido con Atlas Revenue: de qué RECORRIDO venía el clic
+   * (`objetivo:conseguir-clientes`, `categoria:crm`, `subtipo:escritura`).
+   * `origen` dice la pantalla; esto dice el camino, que es lo que permite
+   * saber qué recorridos producen ingresos. Opcional: un clic sin etiqueta
+   * de recorrido se registra igual, con la etiqueta vacía.
+   */
+  rutaOrigen?: string;
 };
 
 export type ProveedorAnalitica = {

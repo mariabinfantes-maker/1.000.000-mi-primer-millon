@@ -23,7 +23,7 @@ describe("construirFilasPanel", () => {
 
     expect(filas).toHaveLength(1);
     expect(filas[0].cuentaId).toBe("partnerstack");
-    expect(filas[0].estadoPanel).toBe("aprobada");
+    expect(filas[0].estadoPanel).toBe("activa");
     expect(filas[0].enlace).toBe("https://x.com");
   });
 

@@ -512,3 +512,36 @@ ganaba una que no la declaraba.
 Gestión de proyectos está al 75% y se quedó fuera: sus candidatas sí son
 alternativas reales entre sí, y añadirle una pregunta habría sido inventar una
 necesidad para justificar el trabajo.
+
+---
+
+## 11. Atlas Revenue
+
+- **Estado:** Implementado (alcance mínimo, 2026-08-29).
+- **Carpeta:** `agents/atlas-revenue/`
+- **Responsabilidad:** medir. Persiste el clic saliente de forma agregada y
+  anónima, agrupa por herramienta, recorrido y pantalla, y guarda lo que la
+  propietaria anota de los paneles de afiliación.
+- **Activación:** pasiva. El clic entra por `/api/clic`; el informe se consulta
+  en `/admin/ingresos`.
+- **Relaciones:**
+  - ← **Affiliate Manager**: lee el tipo de enlace que se usó, nada más.
+    **Nunca escribe** en `estrategias_afiliacion` ni decide sobre el programa.
+  - **Ninguna con Advisor.** No importa ni un módulo suyo, no lee puntuaciones
+    y no puede influir en el ranking. Cuatro pruebas lo comprueban sobre el
+    código fuente del agente, no sobre su intención.
+- **Lo que nunca hará:** cruzar comisión con puntuación, favorecer una
+  herramienta por lo que paga, o guardar cualquier dato que permita reconocer
+  o seguir a una persona.
+
+### Por qué la privacidad es estructural y no una política
+
+La tabla `clics_salientes` tiene siete columnas y ninguna sirve para
+identificar a nadie. No hay una regla que diga "no guardes la IP": es que no
+existe la columna. Una prueba compara la lista real de columnas contra una
+escrita a mano, así que ampliarla exige pasar por esa prueba y justificarlo.
+
+La etiqueta de recorrido —el único texto libre que llega del navegador— se
+valida **contra el catálogo**, no contra un formato: una prueba demostró que
+32 caracteres hexadecimales, que es la forma de un identificador de sesión,
+encajaban sin problema en el formato de slug.

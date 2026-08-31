@@ -606,6 +606,14 @@ candidatas, solo se reportan de forma transparente.
 
 ### Atlas Revenue: recuperado como agente 11 de la arquitectura
 
+> **Superada el 2026-08-31: Atlas Revenue está construido y desplegado.** Lo
+> que sigue es el razonamiento de por qué se descartó primero y se recuperó
+> después; se conserva porque explica los límites que el agente tiene hoy. El
+> alcance real construido está al final de este documento, en «Atlas Revenue:
+> medición mínima y privada». La condición de disparo que se lee abajo —una
+> segunda fuente de ingresos— resultó no ser la correcta: lo que hizo falta
+> primero no fue cruzar fuentes, sino saber si la única que hay funciona.
+
 **Registrada:** 2026-08-18 · **Actualizada:** 2026-08-25 — decisión oficial
 del proyecto: Atlas Revenue deja de estar descartado y se recupera como
 agente futuro (agente 11 de 11, ver `ARQUITECTURA-AGENTES.md`), con una
@@ -1891,3 +1899,293 @@ aplicación lee y escribe en Postgres. Editarlos no cambia producción, y ademá
 habría metido un enlace de afiliado real en el historial de Git para siempre.
 El camino bueno es el panel, que registra cada cambio en el historial con el
 usuario que lo hizo.
+
+---
+
+## Atlas Revenue — medición mínima y anónima (2026-08-29)
+
+Undécimo agente, construido primero porque era el único que desbloqueaba la
+monetización: el circuito del dinero estaba roto por la mitad.
+
+```
+usuario pulsa "Ir al proveedor" → /api/clic → proveedorConsola → console.log
+                                                                      ↑ y ahí moría
+```
+
+No había tabla de clics. Con las altas de afiliación en marcha, cada visita era
+un dato perdido para siempre y el piloto de cinco herramientas no podía
+responder a su propia pregunta.
+
+### Lo que guarda, y lo que no
+
+`clics_salientes`: herramienta, categoría, tipo de enlace (afiliado u oficial),
+pantalla de origen, **ruta de origen** y fecha. **Nada más.**
+
+Sin IP, sin cookie, sin identificador de sesión, sin user-agent, sin referer.
+No es una promesa de no usarlos: el dato no entra, así que no hay nada que
+reidentificar ni con qué enlazar dos clics. Una prueba lee
+`information_schema` y **compara la lista de columnas contra una escrita a
+mano**: añadir una columna rompe la prueba y obliga a justificarla.
+
+`ingresos_afiliacion`: lo que la propietaria anota de los paneles. Céntimos
+enteros —el dinero no va en coma flotante— y append-only por trigger de base de
+datos, igual que el historial de afiliación: una reversión por reembolso resta
+sin borrar el asiento original.
+
+### Un hueco que destapó una prueba
+
+La etiqueta de recorrido es el único texto libre que llega del navegador hasta
+la tabla, así que se validaba con un formato cerrado (`categoria:crm`). **Una
+prueba demostró que no bastaba:** una cadena de 32 caracteres hexadecimales
+—exactamente la pinta de un identificador de sesión— encajaba perfectamente en
+ese formato.
+
+Un filtro de forma solo puede decir "esto parece un slug"; no puede decir "esto
+no es un identificador". La comprobación de verdad es **contra el catálogo**:
+solo se guarda la etiqueta si su identificador existe como objetivo, categoría
+o subtipo real. Nada inventado entra, por bien formado que venga.
+
+### Independencia del ranking, comprobada sobre el código
+
+Cuatro pruebas recorren los archivos del agente y exigen que no importe nada de
+Advisor ni de Affiliate Manager, que no escriba en las tablas de afiliación y
+que no mencione comisiones ni puntuaciones. La arquitectura ya lo decía
+—*"Revenue solo lee estos datos, nunca los modifica ni decide sobre ellos"*—;
+ahora se rompe solo si alguien cruza la línea.
+
+Una de esas pruebas hubo que afinarla: saltaba porque el repositorio menciona
+"las comisiones se revierten por reembolsos" **en un comentario**. Un
+comprobador que no distinga el código de la prosa obliga a escribir peor los
+comentarios para que pasen las pruebas, que es justo al revés de lo que
+interesa. Ahora los ignora.
+
+### El enlace de afiliada, intacto
+
+Ocho pruebas fijan que la URL llega al navegador carácter por carácter: `?sa=`,
+la ruta larga con hash de Systeme.io, varios parámetros con su orden, un
+fragmento `#`, mayúsculas, y un parámetro ya codificado que re-codificar
+rompería. Es el punto donde un error cuesta dinero **sin dar ninguna señal**:
+la web seguiría perfecta y la comisión se perdería en silencio hasta cuadrar
+cuentas meses después.
+
+### Política de privacidad y de cookies
+
+Actualizadas en el mismo cambio, como exigía el propio comentario del archivo.
+Antes decían que Molnip no tiene analítica, y eso dejaba de ser cierto.
+
+Se describe con exactitud qué se registra —herramienta, recorrido, tipo de
+enlace y fecha— y se afirma con claridad que **no hay cookies, ni IP, ni
+identificadores de sesión, ni nada que permita identificar o seguir a una
+persona**. Siguiendo la indicación de la propietaria, **no se invoca ninguna
+base jurídica del artículo 6.1**: hacerlo presupondría que se tratan datos
+personales, y aquí no los hay. Se añade una nota de que el documento deberá
+recibir revisión profesional antes de cualquier ampliación relevante del
+seguimiento.
+
+### Un detalle técnico que costó el build
+
+El formulario del panel es un componente de cliente y necesitaba la lista de
+estados. Importarla del repositorio arrastraba `pg` —y con él `dns`, `net`,
+`tls`— al paquete del navegador. Por eso el vocabulario vive en `tipos.ts`, sin
+dependencias de servidor: los dos lados comparten una definición sin compartir
+dependencias.
+
+### La etiqueta de recorrido, completada
+
+`ruta_origen` llegaba vacía justo en la pantalla que más importa para el
+piloto. Las cuatro salidas hacia el proveedor la llevan ya: pantalla final de
+recomendaciones, comparador, ficha y tabla comparativa.
+
+El recorrido `libre` no guarda nunca lo que la persona escribió. Se registra
+siempre como `libre:texto-libre`. Saber que alguien vino por la puerta de texto
+libre es información de producto; saber qué escribió sería exactamente lo que
+esta medición promete no hacer.
+
+Lo que se guarda se valida contra el catálogo real antes de escribirlo
+(`identificadoresDelCatalogo()`). Sin esa comprobación, la columna aceptaba
+cualquier cadena con el formato correcto — una prueba demostró que 32
+caracteres hexadecimales, la forma de un identificador de sesión, pasaban el
+filtro. El formato no basta: tiene que ser un objetivo, una categoría o un
+subtipo que exista.
+
+### Dos fallos que solo aparecieron al usarlo de verdad
+
+**El formulario de ingresos guardaba bien y decía que no.** Tras un alta
+correcta mostraba `Cannot read properties of null (reading 'reset')`:
+`currentTarget` vale null tras el primer `await`, y el error caía en el `catch`
+del guardado. El fallo estaba solo en el camino bueno, que es justo el que las
+pruebas de error no recorren. Lo grave no era el mensaje: quien lo viera daría
+el apunte por fallido y lo repetiría, sobre una tabla que no admite
+modificaciones ni borrados. El duplicado se queda para siempre.
+
+La prueba que lo impide recorre el árbol de sintaxis de los componentes en vez
+de buscar texto, porque hay que distinguir el `await` de la propia función del
+de una función anidada, y eso una expresión regular no lo sabe hacer.
+
+**El aprovisionamiento verificaba dos tablas de cuatro.** La lista de tablas a
+comprobar estaba escrita a mano y se había quedado vieja al añadir las de
+Revenue, así que daba por bueno un aprovisionamiento a medias. Ahora lo que se
+espera se deduce de las propias sentencias del esquema
+(`data/db/verificarEsquema.ts`): una lista escrita a mano se queda vieja, una
+deducida no puede. Y se comprueban tres cosas, porque las tres pueden faltar
+por separado: la tabla, sus columnas y el trigger que la protege. Que exista
+`historial_cambios_afiliacion` no dice nada sobre si sigue siendo de
+solo-inserción.
+
+### El aprovisionamiento, dentro de una transacción
+
+Encontrado al revisar el script antes de ejecutarlo contra Neon. Dos triggers
+se recrean en cada pasada, y recrear es primero `DROP` y después `CREATE`. Sin
+transacción, un corte de red contra Neon justo entre esas dos sentencias
+dejaría `historial_cambios_afiliacion` —una tabla que ya está en producción y
+con datos— aceptando `UPDATE` y `DELETE`. El aviso habría salido por consola
+como un error de aprovisionamiento cualquiera, sin mencionar que además la
+tabla había quedado desprotegida.
+
+En Postgres el DDL es transaccional, así que basta con envolverlo: o queda todo
+aplicado, o no queda nada. Hay control negativo: una prueba reproduce el
+comportamiento anterior y confirma que sí dejaba la tabla desprotegida.
+
+Verificado además de forma empírica sobre una base con datos: dos pasadas
+seguidas, y el resumen md5 de todas las filas idéntico antes y después.
+
+**La variable que necesita el script es `POSTGRES_URL_NON_POOLING`**, no
+`DATABASE_URL` — el aprovisionamiento tiene que ir por la conexión directa, no
+por el pooler.
+
+### Pendiente
+
+- La importación y validación de enlaces en bloque sigue sin construir (ver el
+  apartado anterior).
+- La tasa de conversión de la tabla puede superar el 100 %: las conversiones que
+  comunica un programa no corresponden al mismo periodo que los clics medidos.
+  Se ha decidido no acotarla — una cifra imposible ahí es señal de que algo se
+  apuntó mal, y ocultarla sería peor que enseñarla.
+
+
+## Affiliate Manager: gestionar el enlace, y el estado que faltaba (2026-08-31)
+
+Detectado por la propietaria usando el panel en producción para dar de alta
+su enlace de Systeme.io. Su descripción era exacta: al pulsar en la fila solo
+aparecía un selector de estados, no había ningún sitio donde pegar el enlace,
+y no existía «Activo».
+
+### Lo que había
+
+El campo del enlace **sí existía**, detrás de un botón llamado «Detalle» en la
+última de nueve columnas de una tabla con 1100px de ancho mínimo. En una
+ventana más estrecha —el móvil siempre— esa columna cae fuera de la pantalla,
+y hay que descubrir por tu cuenta que la tabla se desplaza en horizontal. Lo
+único visible y pulsable de la fila era el selector de estados, así que
+invitaba a cambiar el estado justo cuando lo que se buscaba era editar. Un
+cambio de estado accidental es exactamente lo que no debe pasar en esa tabla,
+y pasó.
+
+### El fallo de fondo, que era peor
+
+`seleccionarEnlace.ts` solo usa los enlaces de las cuentas en estado
+`activo`. El panel traducía `aprobado` y `activo` al mismo estado de lectura,
+«Aprobada», y no ofrecía ninguna forma de llegar a `activo`. Es decir: se
+podía aprobar una afiliación, guardar su enlace, verlo todo correcto en la
+tabla — y la web seguía enviando a la URL oficial del proveedor, sin comisión,
+sin ninguna señal de que algo faltara.
+
+«Activa» es ahora un estado propio del panel, con su color, su recuento y su
+explicación. Y la próxima acción de una cuenta aprobada con enlace ya no dice
+«Ninguna»: dice «Activar la cuenta — hasta entonces el enlace no se usa».
+
+### El flujo nuevo
+
+Cada fila lleva un botón **Gestionar**, en una columna pegada al borde derecho
+para que no se pierda por estrecha que sea la pantalla. Abre una pantalla de
+gestión con el enlace, la comisión, la duración de la cookie y el estado, y
+**un botón de guardar de verdad**.
+
+Antes cada campo se guardaba en su `onBlur`. Si pegabas el enlace y cerrabas
+sin tocar nada más, no se guardaba y tampoco se decía. Para el dato del que
+depende cobrar, eso no vale.
+
+Dos reglas impiden guardar algo que no funcionaría, en `reglasEnlace.ts` para
+que se puedan probar y para que valgan igual si mañana los enlaces entran por
+importación en bloque:
+
+- **No se puede activar sin enlace.** Es la misma regla que `consistencia.ts`
+  detecta a posteriori; aquí se impide antes de crear el problema.
+- **No se puede guardar un enlace pegado a medias.** `ps://systeme.io/...` en
+  vez de `https://systeme.io/...` se guardaba sin protestar, no llevaba a
+  ninguna parte y no pagaba nada, y no había forma de notarlo mirando la
+  tabla. Visto de verdad al pegar un enlace largo en producción.
+
+«Comprobar este enlace» comprueba solo el de esa herramienta, sin lanzar una
+ronda contra los servidores de los 51 programas.
+
+### Verificación
+
+Con navegador real en escritorio (1440px) y móvil (Pixel 5): el botón queda
+dentro de la pantalla en los dos sin desplazar nada, el modal cabe, el aviso
+del enlace mal pegado bloquea el guardado, «Activa» aparece deshabilitada y
+etiquetada «necesita enlace» mientras no lo haya, y al guardar el enlace llega
+íntegro a la base de datos con la comisión y la cookie. 803 pruebas en verde.
+
+### La duración de la atribución podía ser mentira
+
+Al dar de alta Systeme.io, la ficha decía «365 días» y el correo oficial del
+programa dice atribución permanente: se ancla al correo del lead registrado y
+no caduca nunca.
+
+La causa no fue un descuido al investigar. La descripción del campo que se le
+pasa a Researcher decía literalmente *«Duración de la cookie de seguimiento
+(ej. "30 días", "90 días")»*: pedía la respuesta en días y solo en días, así
+que la permanencia no se podía ni expresar. Un campo que solo admite una forma
+de respuesta acaba produciendo respuestas falsas con la forma correcta.
+
+Corregido en los dos extremos:
+
+- La descripción del campo admite ahora explícitamente la permanencia y
+  advierte de no inventarse un número de días para que encaje.
+- El campo del panel se llama «Duración de la cookie o atribución» —no todos
+  los programas usan cookie— y ofrece sugerencias con la permanencia la
+  primera, además de seguir siendo texto libre.
+- `duracionAtribucion.ts` fija una redacción canónica para que no convivan
+  cinco maneras de decir lo mismo, y reconoce la permanencia escrita de
+  cualquier forma (con o sin tildes) para destacarla en la tabla: entre «90
+  días» y algo que no caduca hay una diferencia de negocio grande que leyendo
+  texto libre a toda velocidad se pasa por alto. Con control negativo: «no
+  permanente» no cuenta como permanente.
+
+Nada interpretaba ese campo como un número, así que no había ningún cálculo
+que corregir — se comprobó antes de tocarlo.
+
+El enlace elegido para el piloto es el universal del correo de bienvenida, con
+forma `https://systeme.io/?sa=…`, no el `/tr/…` de una campaña concreta.
+
+### Aprovisionar el esquema desde el panel
+
+Añadido porque administrar Molnip no debería exigir abrir un terminal ni
+conocer la cadena de conexión de Neon para crear unas tablas que la propia
+aplicación ya sabe describir.
+
+Cuando la pantalla de Ingresos no puede leer la base de datos, en vez de un
+aviso que solo dice que algo va mal, aparece una tarjeta que va a mirar qué
+falta —tablas, columnas y triggers, por separado— y ofrece crearlo. Enseña lo
+que falta antes de dejar aplicar: nadie debería pulsar un botón que toca la
+base de datos sin ver antes qué va a hacer.
+
+`/api/admin/esquema` ejecuta las mismas `SENTENCIAS_ESQUEMA` que el script de
+línea de órdenes, dentro de una transacción y con la misma verificación
+posterior. El script sigue existiendo; son dos puertas a la misma habitación.
+
+Verificado sobre una base en el estado anterior al sprint —solo las dos tablas
+viejas, con datos dentro— con navegador real:
+
+- listó exactamente lo que faltaba: las dos tablas nuevas y los dos triggers;
+- al crearlo, las cuatro tablas quedaron presentes;
+- el resumen md5 de todas las filas anteriores, idéntico antes y después;
+- los triggers protegen de verdad: `UPDATE` y `DELETE` sobre el historial se
+  rechazan con su mensaje;
+- una segunda pulsación no cambia nada.
+
+Detalle que solo se ve haciendo la prueba así: la base de partida no tenía el
+trigger `historial_solo_insertar`, y el aprovisionamiento lo añadió. Es decir,
+aprovisionar no solo crea lo que falta de Revenue: repone la protección de una
+tabla que ya estaba en producción.

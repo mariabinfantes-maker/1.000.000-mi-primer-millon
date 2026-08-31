@@ -15,6 +15,8 @@ import InsigniaReputacion from "@/components/ui/InsigniaReputacion";
  * tocar el adaptador que produce estas props — nunca este componente.
  */
 export type TarjetaHerramientaRecomendadaProps = {
+  /** Atlas Revenue: de qué recorrido viene quien ve esta tarjeta (`categoria:crm`, `objetivo:conseguir-clientes`). Etiqueta el RECORRIDO, nunca a la persona. */
+  rutaOrigen?: string;
   /** Posición en el ranking (1, 2, 3...), para la etiqueta de la tarjeta destacada. */
   posicion: number;
   /** Slug estable de la herramienta, para enlazar a su ficha completa (P-04) y a la salida al proveedor (P-07). */
@@ -57,6 +59,7 @@ export default function TarjetaHerramientaRecomendada({
   inconvenientes,
   explicacionPersonalizada,
   integracionPrincipal,
+  rutaOrigen,
   tieneAdvertencia = false,
   casoDeUso,
   casosNoRecomendados,
@@ -217,7 +220,7 @@ export default function TarjetaHerramientaRecomendada({
       </Link>
 
       <Boton
-        href={`/herramienta/${id}/ir?origen=resultado`}
+        href={`/herramienta/${id}/ir?origen=resultado${rutaOrigen ? `&ruta=${encodeURIComponent(rutaOrigen)}` : ""}`}
         tamano="grande"
         variante={destacada ? "primario" : "secundario"}
         className="mt-3 w-full"

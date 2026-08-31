@@ -7,7 +7,7 @@ export const metadata: Metadata = metadataPrivacidad();
 /**
  * Política de privacidad (RGPD + LOPDGDD). Escrita para reflejar cómo
  * funciona Molnip hoy de verdad — sin cuentas de usuario, sin formularios
- * que recojan datos personales, sin analítica ni cookies (ver
+ * que recojan datos personales, con una medición de clics agregada y anónima, sin cookies (ver
  * app/cookies/page.tsx) — no una plantilla genérica que promete cosas que
  * el sitio no hace. Si eso cambia (se añade analítica, un formulario de
  * contacto, etc.), esta página debe actualizarse en el mismo cambio.
@@ -52,6 +52,19 @@ export default function PrivacidadPage() {
             forma automática registros técnicos de las peticiones (dirección IP, navegador, fecha
             y hora) con fines de seguridad y funcionamiento del servicio, durante un periodo
             limitado. Molnip no los utiliza para elaborar perfiles ni con fines publicitarios.
+          </li>
+          <li>
+            <span className="font-semibold text-slate-700">Clics hacia los proveedores.</span>{" "}
+            Cuando pulsas &quot;Ir al proveedor&quot;, registramos cuatro datos: qué herramienta
+            pulsaste, desde qué pantalla o recorrido llegaste, si el enlace era de afiliación o la
+            dirección oficial del proveedor, y la fecha. Nos sirve para saber qué recomendaciones
+            resultan útiles.{" "}
+            <span className="font-semibold text-slate-700">
+              No usamos cookies, no guardamos tu dirección IP, ni identificadores de sesión, ni
+              ningún dato que permita identificarte o seguirte
+            </span>{" "}
+            — ni entre páginas, ni entre visitas. Los registros no se pueden asociar a una persona
+            ni relacionar dos clics entre sí: son un recuento agregado por herramienta y recorrido.
           </li>
         </ul>
       </SeccionLegal>
@@ -106,6 +119,21 @@ export default function PrivacidadPage() {
           Si Molnip incorpora nuevas funcionalidades que impliquen tratar más datos personales
           (por ejemplo, cuentas de usuario, un boletín, o analítica), actualizaremos esta página
           antes de activarlas.
+        </p>
+      </SeccionLegal>
+
+      <SeccionLegal titulo="Revisión de este documento">
+        <p>
+          Este documento describe con exactitud cómo funciona Molnip hoy. La medición de clics
+          descrita arriba es agregada y anónima por construcción: no se recogen cookies, direcciones
+          IP ni identificadores, de modo que no hay datos que puedan referirse a una persona
+          identificada o identificable.
+        </p>
+        <p className="mt-3">
+          Si en el futuro se ampliara el seguimiento de forma relevante —por ejemplo, midiendo
+          recorridos individuales, incorporando herramientas de analítica de terceros o cualquier
+          identificador persistente—, este documento deberá revisarse por un profesional antes de
+          activar ese cambio.
         </p>
       </SeccionLegal>
     </DocumentoLegal>
