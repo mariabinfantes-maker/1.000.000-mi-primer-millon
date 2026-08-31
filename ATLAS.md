@@ -2372,3 +2372,50 @@ Systeme.io activa y una cuenta con enlace ya guardado:
     Botón de activación → «Aplicar los cambios y activar 1»
       resultado: 2 aplicadas · 1 activada
       clickup: activo · systeme-io y monday.com siguen intactos
+
+## Pendiente para el próximo sprint (anotado el 2026-08-31)
+
+Registrado a petición de la propietaria al cerrar el sprint de importación en
+bloque. **Nada de esto está empezado.**
+
+### 1. El identificador de ejemplo de la plantilla produce error
+
+`PLANTILLA_CSV`, en `agents/atlas-affiliate-manager/importacion/columnas.ts`,
+trae la fila de ejemplo con el id `ejemplo-herramienta`. Al previsualizar la
+plantilla tal cual descargada, esa fila sale en rojo:
+«ejemplo-herramienta» no existe en el catálogo.
+
+Es el comportamiento correcto —la validación hace su trabajo— pero convierte
+el primer contacto con la función en un error, y eso enseña a desconfiar de
+una pantalla que precisamente tiene que dar confianza. Comprobado así en
+producción el 2026-08-31.
+
+Arreglo: poner un id real del catálogo en la fila de ejemplo. Cambio de una
+línea. Conviene además una prueba que falle si el id de la plantilla deja de
+existir en el catálogo, porque si no volverá a pasar el día que se retire esa
+herramienta.
+
+### 2. Comprobar los enlaces dentro de la vista previa
+
+Hoy la importación valida la FORMA del enlace —que sea una dirección completa
+que empiece por https— pero no comprueba que responda. Eso se hace después y
+por separado, desde «Comprobar este enlace» en Gestionar, una herramienta cada
+vez.
+
+Con un archivo de treinta filas eso deja de ser práctico justo cuando más
+falta hace. La comprobación debería ocurrir en el paso de vista previa, con su
+resultado en la propia tabla, para poder decidir con esa información delante.
+
+Dos cosas a tener en cuenta al construirlo: comprobar treinta enlaces son
+treinta peticiones a servidores ajenos, así que hace falta paralelismo acotado
+y un tope de tiempo; y un enlace que no responde **no debe bloquear la
+importación**, solo avisar — puede estar caído un momento, o rechazar peticiones
+automáticas. Lo que sí debería impedir es activarlo.
+
+`verificarEnlaces.ts` ya tiene la lógica y acepta un `fetchImpl` inyectado, así
+que se puede probar sin red.
+
+### 3. Fijar el prompt de referencia oficial «Molnip Visual v1»
+
+Sigue pendiente desde antes de estos dos sprints. Sin un prompt de referencia
+fijado, cada imagen nueva se parece a la anterior solo por casualidad.
