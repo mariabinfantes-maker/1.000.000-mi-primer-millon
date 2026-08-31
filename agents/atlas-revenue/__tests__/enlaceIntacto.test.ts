@@ -33,8 +33,10 @@ describe("la URL de afiliada sale intacta", () => {
   const enlaces = [
     // El parámetro que preguntó la propietaria.
     "https://ejemplo.test/producto?sa=D_193928417_1234",
-    // La forma real del enlace de Systeme.io: ruta larga con hash.
-    "https://systeme.io/tr/2/161/14644721748/39837047/440451745f2121783ce1e23223975a55aebd0decf",
+    // Ruta larga con varios segmentos y un identificador hexadecimal, que
+    // es la forma que usan algunos programas. Identificadores inventados a
+    // propósito: el enlace real de la propietaria no se escribe aquí.
+    "https://proveedor.test/tr/00000/00000000000/00000000/0000000000000000000000000000000000000000",
     // Varios parámetros, orden incluido.
     "https://ejemplo.test/?sa=ABC&ref=molnip&utm_source=molnip&utm_medium=afiliado",
     // Fragmento, que algunos programas usan.
