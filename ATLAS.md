@@ -2591,12 +2591,17 @@ constante que sustituye a la de Tailwind entera, de `#faf9fc` a `#14121f`.
 
 ### Colores de estado, por significado (decisión de la propietaria)
 
-| Significado | Color |
-|---|---|
-| Éxito | `emerald` |
-| Atención | `amber` |
-| Error | `red` |
-| Información | `sky` |
+| Significado | Token | Valor |
+|---|---|---|
+| Éxito — algo salió bien, verificado o completado | `exito-*` | escala de `emerald` |
+| Atención — pide una decisión, pero nada está roto | `atencion-*` | escala de `amber` |
+| Error — algo falló o está bloqueado | `error-*` | escala de `red` |
+| Información — contexto neutro, sin juicio | `info-*` | escala de `sky` |
+
+Se escriben por su nombre (`bg-exito-50`, `text-error-700`), nunca por el de
+Tailwind. La escala completa 50-950 está declarada en `globals.css`, y cada
+línea lleva escrito de qué tono de Tailwind sale, para que el renombrado sea
+verificable y no haya que fiarse de la memoria de nadie.
 
 **No se añaden estados ni colores nuevos sin incorporarlos antes a este
 sistema.** Un quinto estado empieza por esta tabla, no por un componente.
@@ -2625,6 +2630,8 @@ Tres familias con un trabajo cada una:
   índigo. `shadow-premium` 26 usos, `shadow-premium-lg` 22.
 - **Receta única de tarjeta**: `rounded-2xl border border-slate-200/80
   bg-white`, 30 apariciones literalmente iguales.
+- El hilo que despega las superficies del fondo es `ring-1 ring-contorno`
+  (`--color-contorno`, negro al 2%). Nunca se escribe a mano.
 
 ## Botones
 
@@ -2688,23 +2695,74 @@ No se cruzan sin autorización expresa:
 Todo lo demás —tamaños concretos, huecos, disposiciones— es criterio dentro
 del sistema, no una decisión nueva.
 
-## Correcciones pendientes para que el código coincida del todo
+## Las cuatro correcciones — aplicadas el 2026-08-31
 
-Aprobadas como necesarias, **no aplicadas todavía**. Ninguna rompe nada hoy;
-todas son de la clase que se multiplica sin una referencia escrita.
+Autorizadas como sprint propio y pequeño, sin rediseñar pantallas ni tocar
+ninguna regla congelada.
 
-| # | Hallazgo | Alcance | Qué hacer |
+| # | Qué era | Qué es ahora | Cuánto se ve |
 |---|---|---|---|
-| 1 | `rounded-lg` suelto | 6 usos frente a 79 `rounded-xl` | Retirarlo del vocabulario y migrar esos seis |
-| 2 | El anillo copiado a mano | `ring-1 ring-black/[0.02]` 24 veces **y una con `[0.03]`** | Convertirlo en token; la variante desviada prueba que se copia sin mirar |
-| 3 | `shadow-xl` y `shadow-2xl` | 1 uso cada una | Sustituir por las de marca: son las dos únicas sombras sin índigo |
-| 4 | Colores de estado sin nombre | emerald/amber/red/sky escritos a pelo | Darles nombre según la tabla de significados de arriba |
+| 1 | `rounded-lg` en 6 controles, frente a 79 `rounded-xl` | `rounded-xl` | Radio de 8px a 12px en 6 elementos pequeños |
+| 2 | `ring-1 ring-black/[0.02]` copiado 26 veces, una de ellas desviada a `[0.03]` | `ring-1 ring-contorno` | Nada, salvo la copia desviada: pasa de 3% a 2% de negro |
+| 3 | `shadow-xl` en el modal «Gestionar» | `shadow-premium-lg` | El halo del modal deja de ser gris y pasa al índigo de marca |
+| 4 | emerald/amber/red/sky escritos a pelo en 118 sitios | `exito`/`atencion`/`error`/`info` | Nada: mismos valores exactos |
 
-Mientras no se apliquen, el código cumple la referencia en todo lo esencial y
-se desvía en estos cuatro detalles. Conviene hacerlas en un sprint propio y
-pequeño, con las pruebas que impidan la reincidencia — una que falle si
-aparece un radio fuera del vocabulario, y otra si aparece un color de estado
-sin nombre.
+**Rectificación sobre el punto 3.** La tabla anterior decía «`shadow-xl` y
+`shadow-2xl`, 1 uso cada una». Era un error de la auditoría: no existe ninguna
+`shadow-2xl` en el proyecto. Lo que hay es `drop-shadow-2xl` en la fotografía
+de la portada, que es un filtro sobre una imagen, no una sombra de caja, y ahí
+está bien puesto. No se ha tocado.
+
+### Cómo se comprobó que no cambió nada más
+
+Se levantaron las dos versiones a la vez —producción (`54a2998`) y la
+corregida— y se compararon en un navegador real, en escritorio (1280px) y en
+móvil (Pixel 5):
+
+- **5.442 elementos** comparados por estilo calculado en 14 pantallas más el
+  modal. Difieren 106, y todos por una de las cuatro correcciones: 18
+  elementos con el radio de 8px a 12px, 67 con el anillo (mismo color, otra
+  notación del navegador), 1 con el anillo desviado del 3% al 2%, 1 con la
+  sombra del modal. Ninguno más.
+- **32 capturas** comparadas píxel a píxel. 14 idénticas; el resto solo
+  cambia en las zonas de esas cuatro correcciones. Dos capturas de la misma
+  versión dan 0 píxeles de diferencia, así que el método no tiene ruido.
+- Cada línea modificada de los 27 componentes se reprodujo a partir de la
+  versión antigua aplicando solo los renombrados: **ninguna línea cambió por
+  otro motivo**.
+- 948 pruebas unitarias y 53 de navegador (escritorio y móvil) en verde.
+
+### Las dos pruebas que impiden la reincidencia
+
+`components/__tests__/vocabularioVisual.test.ts`:
+
+- **Radios**: falla si aparece un radio que no sea `xl`, `2xl`, `3xl` o
+  `full` (con cualquier lado).
+- **Colores**: falla si aparece un color con escala numérica que
+  `globals.css` no declare. No lleva lista de colores prohibidos: lee los que
+  el sistema declara. Para usar un color nuevo hay que empezar por definirlo,
+  que es justo el paso que obliga a decidir qué significa.
+
+### Seis desviaciones más, encontradas por las pruebas y NO aplicadas
+
+Las pruebas destaparon lo que la auditoría no vio: contó los `rounded-lg`
+pero no el `rounded` a secas, y contó emerald/amber/red/sky pero no rose,
+lime ni orange.
+
+| Dónde | Qué | Por qué no se ha tocado |
+|---|---|---|
+| `app/cookies/page.tsx`, `components/ui/DocumentoLegal.tsx` | `rounded` a secas (4px) en `<code>` en línea | Fuera de las cuatro correcciones autorizadas |
+| 5 sitios | `rose` donde el significado es error | `rose` no es el mismo tono que `red`: cambiarlo **sí** movería el color |
+| `components/admin/PanelAfiliacion.tsx` | `lime` para «aprobada», `orange` para «seguimiento» | Son dos estados del panel que la tabla de significados no contempla: hace falta decidir antes qué significan |
+
+Quedan listadas dentro de la propia prueba, con la lista cerrada: quitar una
+obliga a editar esa lista, y añadir una nueva hace fallar la prueba. Es decir,
+lo que ya se desvía no puede crecer.
+
+**Pendiente de decisión.** Los dos `rounded` son un renombrado sin
+consecuencias. Los colores no: `rose → error`, `lime → exito` y
+`orange → atencion` cambiarían el tono en pantalla, y «aprobada» y
+«seguimiento» necesitan primero un sitio en la tabla de significados.
 
 ## Dónde vive la referencia visual
 
