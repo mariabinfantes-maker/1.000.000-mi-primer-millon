@@ -2556,3 +2556,159 @@ administrativa**, sobre estas bases:
 Si algún día esta comprobación se ofrece fuera del panel —en una API pública,
 o disparada por datos que no haya escrito la administradora— **esta aceptación
 deja de valer** y hay que cerrarlo con un cliente HTTP que permita fijar la IP.
+
+---
+
+# MOLNIP VISUAL v1 — referencia oficial y obligatoria
+
+**Aprobada por la propietaria el 2026-08-31.** Auditada sobre el commit
+`54a2998`, leyendo `app/globals.css` y los 74 componentes del proyecto. No
+describe un rediseño: describe el sistema que ya existe en producción, y lo
+fija para que no se deshaga sin que nadie se dé cuenta.
+
+Toda pantalla nueva y todo cambio visual se ajusta a esto. Cuando un cambio
+contradiga una regla congelada, no es la regla la que ha envejecido: ese
+cambio necesita autorización explícita y una línea nueva aquí.
+
+Cada regla sale de contar el código, no de una preferencia. Los recuentos son
+la prueba de que ya se cumplen.
+
+## Color
+
+**Paleta de marca propia, no la de Tailwind.** Índigo-violeta con ancla en
+`--color-brand-600: #6e5fe4`, y una escala neutra («slate») con matiz violeta
+constante que sustituye a la de Tailwind entera, de `#faf9fc` a `#14121f`.
+
+- Fondo `slate-50`, tinta `slate-950`. Nunca blanco puro de página ni negro
+  puro de texto.
+- **Cero grises de Tailwind**: usos de `gray`/`zinc`/`neutral`/`stone` en 74
+  componentes: **0**.
+- **El dorado señala «la opción elegida»**, como mucho una vez por pantalla y
+  nunca decorativo. Comprobado: **9 usos en 5 ficheros** de todo el proyecto.
+- Color por agente: Researcher `#0d9488`, Evaluador `#b45309`, Recomendador
+  `#6e5fe4` — comparte el índigo de marca a propósito, porque de cara al
+  usuario es la voz de Molnip.
+
+### Colores de estado, por significado (decisión de la propietaria)
+
+| Significado | Color |
+|---|---|
+| Éxito | `emerald` |
+| Atención | `amber` |
+| Error | `red` |
+| Información | `sky` |
+
+**No se añaden estados ni colores nuevos sin incorporarlos antes a este
+sistema.** Un quinto estado empieza por esta tabla, no por un componente.
+
+## Tipografía
+
+Tres familias con un trabajo cada una:
+
+| Familia | Papel | Pesos |
+|---|---|---|
+| Bricolage Grotesque | Titulares y logotipo. **Nunca** párrafos ni interfaz | 600, 700, 800 |
+| Manrope | Todo lo demás: párrafos, botones, etiquetas, formularios | 400–800 |
+| IBM Plex Mono | Cifras alineadas, identificadores, enlaces | 500, 600 |
+
+- De `text-3xl` hacia arriba, **siempre** `font-display`. Titulares grandes sin
+  esa familia: **0 de 38**.
+- La interfaz vive en `text-sm` (178 usos) y las etiquetas en `text-xs` (75).
+  El cuerpo grande es la excepción.
+- Peso por defecto de la interfaz: `font-semibold` (150 usos).
+
+## Forma
+
+- Controles `rounded-xl`, superficies que agrupan `rounded-2xl`, píldoras y
+  avatares `rounded-full`.
+- Sombra de marca, no gris: doble capa —contacto más elevación— teñida de
+  índigo. `shadow-premium` 26 usos, `shadow-premium-lg` 22.
+- **Receta única de tarjeta**: `rounded-2xl border border-slate-200/80
+  bg-white`, 30 apariciones literalmente iguales.
+
+## Botones
+
+Tres variantes y dos tamaños, todos a través del componente `Boton`. No se
+componen a mano con clases sueltas.
+
+| Variante | Cuándo | Receta |
+|---|---|---|
+| Primario | La acción que hace avanzar. Una por pantalla | `bg-brand-600 · text-white · shadow-premium` |
+| Secundario | Alternativa legítima a la principal | `border-brand-200 · bg-white · text-brand-700` |
+| Fantasma | Navegación y salidas, sin peso visual | `text-brand-600 · hover:bg-brand-50` |
+
+Foco de teclado unificado en `globals.css` para `a`, `button`, `[role=tab]` y
+`[tabindex]`: anillo de marca con hueco del color del fondo.
+
+## Cabecera, medidas y responsive
+
+- Cabecera fija arriba, translúcida y desenfocada, con línea inferior
+  `slate-200/80`.
+- Contenido centrado en `max-w-5xl` con `px-4`, que pasa a `px-6` desde `sm`.
+  La prosa larga baja a `max-w-2xl`.
+- **Solo dos puntos de ruptura**: `sm` (640px) y `lg` (1024px). Comprobado:
+  `sm` 140 usos, `lg` 34, `md` **0**, `xl` **0**.
+- En móvil las etiquetas largas se acortan; no se recortan con puntos
+  suspensivos ni se dejan desbordar.
+- Toda tabla ancha se desplaza dentro de su contenedor. El cuerpo de la página
+  **nunca** se desplaza en horizontal.
+
+## Imágenes y movimiento
+
+- Cada imagen declara `width` y `height` explícitos; no se usa `fill`.
+  **17 de 17**. Sin medidas, el diseño salta al cargar.
+- Solo la imagen del primer pliegue lleva `priority`: **1 uso** en todo el
+  proyecto.
+- Tres animaciones y ninguna más: entrada en cascada, flotación suave y anillo
+  de puntuación. Curva común `cubic-bezier(.16,1,.3,1)`.
+- Con `prefers-reduced-motion` las tres se apagan. Una animación nueva entra
+  también en ese bloque.
+
+## Tema: solo claro (decisión de la propietaria)
+
+**Molnip tendrá únicamente tema claro en esta etapa.** La ausencia de modo
+oscuro es una decisión consciente, no un olvido.
+
+Estado comprobado: clases `dark:` en el proyecto **0**, y ninguna regla
+`prefers-color-scheme` en `globals.css`. Queda así registrado para que nadie
+lo tome por un descuido y lo «arregle» a medias: añadir modo oscuro obligaría
+a rehacer la escala neutra completa y sería un sprint entero, no un retoque.
+
+## Las cinco líneas congeladas
+
+No se cruzan sin autorización expresa:
+
+1. **La paleta**: el índigo propio, la neutra violeta y el dorado de «opción
+   elegida». Ningún color de marca nuevo.
+2. **Las tres familias tipográficas y sus papeles.** Display solo en titulares.
+3. **Los dos puntos de ruptura**, `sm` y `lg`.
+4. **Las tres variantes de botón**, todas a través del componente `Boton`.
+5. **La receta única de tarjeta** y el foco de teclado unificado.
+
+Todo lo demás —tamaños concretos, huecos, disposiciones— es criterio dentro
+del sistema, no una decisión nueva.
+
+## Correcciones pendientes para que el código coincida del todo
+
+Aprobadas como necesarias, **no aplicadas todavía**. Ninguna rompe nada hoy;
+todas son de la clase que se multiplica sin una referencia escrita.
+
+| # | Hallazgo | Alcance | Qué hacer |
+|---|---|---|---|
+| 1 | `rounded-lg` suelto | 6 usos frente a 79 `rounded-xl` | Retirarlo del vocabulario y migrar esos seis |
+| 2 | El anillo copiado a mano | `ring-1 ring-black/[0.02]` 24 veces **y una con `[0.03]`** | Convertirlo en token; la variante desviada prueba que se copia sin mirar |
+| 3 | `shadow-xl` y `shadow-2xl` | 1 uso cada una | Sustituir por las de marca: son las dos únicas sombras sin índigo |
+| 4 | Colores de estado sin nombre | emerald/amber/red/sky escritos a pelo | Darles nombre según la tabla de significados de arriba |
+
+Mientras no se apliquen, el código cumple la referencia en todo lo esencial y
+se desvía en estos cuatro detalles. Conviene hacerlas en un sprint propio y
+pequeño, con las pruebas que impidan la reincidencia — una que falle si
+aparece un radio fuera del vocabulario, y otra si aparece un color de estado
+sin nombre.
+
+## Dónde vive la referencia visual
+
+La versión ilustrada —con las rampas de color, los especímenes tipográficos y
+los botones reales— está publicada como página aparte y se construye con el
+propio sistema que documenta, de modo que si algo del sistema está mal, se ve
+en la propia página.
