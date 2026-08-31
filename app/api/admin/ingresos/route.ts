@@ -1,7 +1,5 @@
 import { NextResponse } from "next/server";
-import { cookies } from "next/headers";
-import { COOKIE_SESION } from "@/lib/admin/cookies";
-import { verificarTokenSesion } from "@/lib/admin/sesion";
+import { verificarPeticionAdmin } from "@/lib/admin/verificarPeticion";
 import { anotarIngreso, ESTADOS_INGRESO, type EstadoIngreso } from "@/agents/atlas-revenue/repositorio";
 import { validarAsientoIngreso } from "@/agents/atlas-revenue/validarIngreso";
 
@@ -12,11 +10,18 @@ import { validarAsientoIngreso } from "@/agents/atlas-revenue/validarIngreso";
  * programas, así que la cifra que entra aquí es la que la propietaria ha
  * leído en su panel. Por eso queda registrada con su usuario y en una tabla
  * append-only — corregirla crea un asiento nuevo, nunca reescribe el anterior.
+ *
+ * Usa `verificarPeticionAdmin` como el resto de /api/admin, y no solo la
+ * cookie de sesión: eso añade la comprobación del token CSRF. La cookie es
+ * `sameSite: "strict"`, así que una petición desde otro sitio no la llevaría
+ * y el agujero no era explotable — pero esta era la única ruta que dependía
+ * de una sola capa, y sobre una tabla que no admite correcciones. Detectado
+ * al revisar las protecciones antes de desplegar, con una prueba que recorre
+ * el directorio en vez de una lista escrita a mano.
  */
 export async function POST(request: Request) {
-  const cookieStore = await cookies();
-  const sesion = verificarTokenSesion(cookieStore.get(COOKIE_SESION)?.value);
-  if (!sesion) return NextResponse.json({ error: "Sesión no válida." }, { status: 401 });
+  const verificacion = verificarPeticionAdmin(request);
+  if (!verificacion.ok) return NextResponse.json({ error: verificacion.motivo }, { status: 401 });
 
   let cuerpo: unknown;
   try {
@@ -29,7 +34,7 @@ export async function POST(request: Request) {
   if (!validacion.ok) return NextResponse.json({ error: validacion.error }, { status: 400 });
 
   try {
-    await anotarIngreso(validacion.asiento, { usuario: sesion.usuario });
+    await anotarIngreso(validacion.asiento, { usuario: verificacion.usuario });
   } catch {
     return NextResponse.json({ error: "No se ha podido guardar el apunte." }, { status: 500 });
   }

@@ -2509,3 +2509,50 @@ responde»: este entorno no tiene salida a internet, y al apuntar a un servidor
 local la propia protección lo rechaza —correctamente— porque la compilación de
 producción no admite direcciones locales. Ese camino queda cubierto por las
 pruebas de la API, no por una captura.
+
+### Revisión de las protecciones antes de desplegar (2026-08-31)
+
+A petición de la propietaria, antes de autorizar el despliegue.
+
+**Dos barreras, confirmadas.** `proxy.ts` cubre `/admin/:path*` y
+`/api/admin/:path*`, y además cada manejador llama a `verificarPeticionAdmin`
+como primera instrucción — antes de leer el cuerpo o consultar nada, para no
+hacer trabajo por encargo de quien no se ha identificado. `verificarPeticionAdmin`
+comprueba la sesión firmada y, en POST/PUT/PATCH/DELETE, el token CSRF. La
+cookie de sesión es `httpOnly`, `secure` en producción y `sameSite: "strict"`.
+
+**Un agujero encontrado al revisarlo, y no en lo nuevo.** `/api/admin/ingresos`
+comprobaba la sesión pero **no el token CSRF**: era la única ruta que dependía
+de una sola capa, y escribe en una tabla que no admite correcciones. No era
+explotable —con `sameSite: "strict"` el navegador no manda la cookie desde
+otro sitio— pero eso deja la seguridad en manos del navegador, y el propio
+código dice que no hay que confiar en una sola capa. Igualada al resto.
+
+**Y el motivo por el que no se había visto:** la prueba de acceso directo
+llevaba una lista escrita a mano que cubría siete rutas de trece, mientras su
+comentario afirmaba cubrirlas todas. Ahora hay dos: la lista, ampliada a todas
+y con casos de sesión-sin-CSRF, y `toda-ruta-admin-protegida.test.ts`, que
+recorre el directorio y falla el día que se añade una ruta sin guarda, no el
+día que alguien se acuerde de mirarlo.
+
+### DNS rebinding: riesgo residual aceptado
+
+**Decisión de la propietaria, 2026-08-31.** La comprobación de enlaces valida
+el destino antes de cada petición y en cada redirección, pero entre resolver
+el nombre y abrir la conexión el DNS podría devolver otra dirección. Cerrarlo
+exige conectar a la IP ya validada con la cabecera Host puesta a mano, y
+`fetch` no lo permite.
+
+Se acepta como riesgo residual **para esta función exclusivamente
+administrativa**, sobre estas bases:
+
+- solo se alcanza con sesión de administradora válida y token CSRF;
+- quien puede llegar a ella ya puede editar enlaces y estados directamente,
+  así que no otorga capacidad nueva a nadie que no la tuviera;
+- lo que se obtendría es una petición ciega: la respuesta no se devuelve al
+  cliente, solo si respondió y con qué código;
+- el resto de defensas siguen en pie y cubren el caso corriente.
+
+Si algún día esta comprobación se ofrece fuera del panel —en una API pública,
+o disparada por datos que no haya escrito la administradora— **esta aceptación
+deja de valer** y hay que cerrarlo con un cliente HTTP que permita fijar la IP.
