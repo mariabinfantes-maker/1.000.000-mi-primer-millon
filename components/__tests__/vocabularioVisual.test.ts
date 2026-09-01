@@ -151,7 +151,7 @@ export function coloresNoDeclarados(texto: string, declarados: Set<string>): str
  * Visual v1 no había visto: contó los `rounded-lg` pero no el `rounded` a
  * secas, y contó emerald/amber/red/sky pero no rose, lime ni orange.
  *
- * Casi todas están resueltas, cada una por su significado y no en bloque:
+ * **Están todas resueltas**, cada una por su significado y ninguna en bloque:
  *
  * - `lime` y `orange` eran estados del proceso de afiliación («aprobada»,
  *   «seguimiento»): tienen token propio con nombre funcional y el mismo valor
@@ -159,24 +159,39 @@ export function coloresNoDeclarados(texto: string, declarados: Set<string>): str
  * - Los dos `rounded` a secas eran `<code>` en línea: ahora son
  *   `rounded-codigo`, dentro del vocabulario y con el mismo aspecto exacto.
  * - Tres de los cinco `rose` eran mensajes de error de verdad: pasan a
- *   `error`, lo que sí cambia el tono, con autorización expresa.
+ *   `error`.
+ * - Los otros dos eran la «X» decorativa de la lista «Desventajas», el par
+ *   del `Check` verde de «Ventajas». Pasa a `error-400`: mantiene su función,
+ *   su tamaño y su sitio, y solo cambia el tono.
  *
- * Queda uno, y no se toca sin decisión. La lista está cerrada: quitar una
- * entrada obliga a editar esta lista, y añadir una hace fallar la prueba. Es
- * decir, lo que todavía se desvía no puede crecer.
+ * Las dos listas quedan vacías, y así deben seguir. Ya no son una lista de
+ * excepciones toleradas: son la afirmación de que no hay ninguna. Cualquier
+ * radio o color fuera del sistema hace fallar la prueba, sin sitio donde
+ * apuntarlo para que pase.
  */
 const DESVIACIONES_RADIO_PENDIENTES: string[] = [];
 
-const DESVIACIONES_COLOR_PENDIENTES = [
-  // La «X» que marca cada línea de la lista "Desventajas", emparejada con el
-  // `Check` verde de "Ventajas". No es un error ni un botón de cerrar: es la
-  // mitad de un par ventaja/desventaja, y todavía no se ha decidido con qué
-  // token se escribe. Pendiente de la propietaria.
-  "app/herramienta/[herramientaId]/page.tsx: text-rose-400",
-  "components/TarjetaHerramientaRecomendada.tsx: text-rose-400",
-];
+const DESVIACIONES_COLOR_PENDIENTES: string[] = [];
 
 // --- Comprobaciones ---------------------------------------------------------
+
+describe("la lista de desviaciones está cerrada", () => {
+  /**
+   * Las dos listas de arriba nacieron como una tregua: dejaban pasar lo que
+   * ya se desviaba mientras se decidía qué hacer con cada caso. Esa tregua se
+   * acabó — no queda ninguna.
+   *
+   * Esta comprobación existe para que no se reabra por comodidad. Sin ella,
+   * la salida fácil ante un fallo de las pruebas de abajo sería añadir la
+   * clase nueva a la lista y seguir; con ella, esa salida también falla, y no
+   * queda más remedio que arreglar el color o el radio, o pedir permiso para
+   * cambiar el sistema.
+   */
+  it("no queda ninguna desviación tolerada, ni de radio ni de color", () => {
+    expect(DESVIACIONES_RADIO_PENDIENTES).toEqual([]);
+    expect(DESVIACIONES_COLOR_PENDIENTES).toEqual([]);
+  });
+});
 
 describe("vocabulario de radios (Molnip Visual v1)", () => {
   it("no aparecen radios fuera de xl / 2xl / 3xl / full", () => {

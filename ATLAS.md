@@ -2765,11 +2765,13 @@ Se levantaron las dos versiones a la vez —producción (`54a2998`) y la
 corregida— y se compararon en un navegador real, en escritorio (1280px) y en
 móvil (Pixel 5):
 
-- **5.442 elementos** comparados por estilo calculado en 14 pantallas más el
-  modal. Difieren 106, y todos por una de las cuatro correcciones: 18
-  elementos con el radio de 8px a 12px, 67 con el anillo (mismo color, otra
-  notación del navegador), 1 con el anillo desviado del 3% al 2%, 1 con la
-  sombra del modal. Ninguno más.
+- **5.434 elementos** comparados por estilo calculado en 14 pantallas más el
+  modal, en escritorio y en móvil. Difieren 274, y cada uno por una de las
+  correcciones: 183 son la «X» de «Desventajas» (solo `color`, y lo que
+  hereda de él en el SVG); 18, el radio de 8px a 12px; 67, el anillo (mismo
+  color, otra notación del navegador); 1, el anillo desviado del 3% al 2%; 1,
+  la sombra del modal. **Ninguna propiedad de tamaño ni de posición cambió en
+  ningún elemento.**
 - **32 capturas** comparadas píxel a píxel. 14 idénticas; el resto solo
   cambia en las zonas de esas cuatro correcciones. Dos capturas de la misma
   versión dan 0 píxeles de diferencia, así que el método no tiene ruido.
@@ -2795,40 +2797,37 @@ móvil (Pixel 5):
   módulo central, si un estado no tiene su par de tonos declarado, o si el
   módulo tiene un estado de más o de menos frente a los siete de la tabla.
 
-### Lo que las pruebas destaparon, y qué se hizo con cada cosa
+### Lo que las pruebas destaparon: cerrado del todo
 
 La auditoría contó los `rounded-lg` pero no el `rounded` a secas, y contó
 emerald/amber/red/sky pero no rose, lime ni orange. Cada hallazgo se resolvió
 **por su significado**, uno a uno, nunca en bloque.
 
-| Dónde | Qué era | Qué es | ¿Cambia el color? |
+| Dónde | Qué era | Qué es | ¿Cambia el tono? |
 |---|---|---|---|
-| `PanelAfiliacion.tsx` | `lime` para «aprobada», `orange` para «seguimiento» y para los días estancada | Tokens `estado-*` con nombre funcional | **No** |
-| `cookies`, `DocumentoLegal` | `rounded` a secas en `<code>` en línea | `rounded-codigo`, en el vocabulario | **No** |
-| `FormularioSuscripcion` | `rose-600` en el aviso de error | `error-600` | **Sí** — es un error de verdad |
-| `test-imagen`, `test-investigador` | `rose-50/700` en el mensaje de error | `error-50/700` | **Sí** — son errores de verdad |
-| `TarjetaHerramientaRecomendada`, ficha de herramienta | `rose-400` en la «X» de «Desventajas» | **Sin decidir** | — |
+| `PanelAfiliacion.tsx` | `lime` para «aprobada», `orange` para «seguimiento» y para los días estancada | Tokens `estado-*` con nombre funcional | No |
+| `cookies`, `DocumentoLegal` | `rounded` a secas en `<code>` en línea | `rounded-codigo`, en el vocabulario | No |
+| `FormularioSuscripcion` | `rose-600` en el aviso de error | `error-600` | Sí — es un error de verdad |
+| `test-imagen`, `test-investigador` | `rose-50/700` en el mensaje de error | `error-50/700` | Sí — son errores de verdad |
+| `TarjetaHerramientaRecomendada`, ficha de herramienta | `rose-400` en la «X» de «Desventajas» | `error-400` | Sí — `#ff637e` → `#ff6467` |
 
-#### La «X» de «Desventajas»: por qué sigue sin tocar
+**No queda ninguna desviación.** Las dos listas de excepciones de la prueba
+están vacías, y una comprobación nueva falla si alguien vuelve a llenarlas:
+ya no son un sitio donde apuntar una excepción para que las demás pruebas
+pasen, son la afirmación de que no hay ninguna.
 
-No es un botón de cerrar ni un error. Es un icono decorativo (`aria-hidden`)
-que marca cada línea de la lista **«Desventajas»**, emparejado con el `Check`
-verde que marca cada línea de **«Ventajas»**. Es la mitad de un par
-ventaja/desventaja.
+#### Sobre la «X» de «Desventajas»
 
-Eso deja tres salidas, y ninguna se toma sin decisión de la propietaria:
+Conviene dejar escrito qué es, porque su nombre engaña: **no es un botón de
+cerrar**. Es un icono decorativo (`aria-hidden`) que marca cada línea de la
+lista «Desventajas», emparejado con el `Check` verde que marca cada línea de
+«Ventajas». Es la mitad de un par ventaja/desventaja.
 
-1. **`error-400`** — unifica con el rojo del sistema. El tono cambia un poco
-   (`#ff637e` → `#ff6467`).
-2. **Un color neutro de interfaz** (`slate-400`) — coherente con «no es un
-   error», pero rompe el par con el verde de «Ventajas»: dejaría un lado
-   marcado con color y el otro no.
-3. **Token propio** con nombre funcional al valor de hoy — descartado: sería
-   crear un segundo rojo de marca, que es justo lo que no se quiere.
-
-Mientras no se decida, queda listada en la prueba con la lista cerrada: quitar
-una entrada obliga a editar esa lista, y añadir una nueva hace fallar la
-prueba. Lo que todavía se desvía no puede crecer.
+Se decidió unificarla con `error-400` en vez de apagarla a un gris neutro —
+que habría roto el par, dejando un lado marcado con color y el otro no— y en
+vez de darle un token propio con el valor de hoy, que habría sido crear un
+segundo rojo de marca. Cambia el tono: `#ff637e` → `#ff6467`. Se mantienen su
+función, su tamaño (`h-3.5 w-3.5`) y su sitio.
 
 ## Dónde vive la referencia visual
 

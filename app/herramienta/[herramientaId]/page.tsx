@@ -201,7 +201,7 @@ export default async function FichaHerramientaPage({
             <ul className="mt-2 space-y-1.5">
               {herramienta.inconvenientes.map((inconveniente) => (
                 <li key={inconveniente} className="flex gap-1.5 text-sm text-slate-700">
-                  <X className="mt-0.5 h-3.5 w-3.5 shrink-0 text-rose-400" aria-hidden="true" />
+                  <X className="mt-0.5 h-3.5 w-3.5 shrink-0 text-error-400" aria-hidden="true" />
                   <span>{inconveniente}</span>
                 </li>
               ))}
