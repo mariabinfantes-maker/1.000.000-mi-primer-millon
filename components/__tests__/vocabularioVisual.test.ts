@@ -330,3 +330,95 @@ describe("estados del proceso de afiliación (Molnip Visual v1)", () => {
     expect(estadosNoDeclarados('className="bg-estado-activa-fondo"', declarados)).toEqual([]);
   });
 });
+
+describe("ningún color literal en la web que ve el navegador", () => {
+  const css = readFileSync(join(RAIZ, "app", "globals.css"), "utf-8");
+  /** El CSS sin comentarios: lo que de verdad se aplica, sin lo que solo se explica. */
+  const cssEfectivo = css.replace(/\/\*[\s\S]*?\*\//g, "");
+  /** Todos los valores hexadecimales que el sistema declara. */
+  const valoresDelSistema = new Set(
+    [...cssEfectivo.matchAll(/--color-[a-z0-9-]+:\s*(#[0-9a-f]{6})/g)].map((m) => m[1].toLowerCase()),
+  );
+
+  const literales = (texto: string): string[] =>
+    [...new Set([...texto.matchAll(/#[0-9a-fA-F]{6}\b/g)].map((m) => m[0].toLowerCase()))];
+
+  /** El blanco y el negro puros no son colores de marca y no pueden virar. */
+  const NEUTROS = new Set(["#ffffff", "#000000"]);
+
+  /**
+   * Ficheros que NO pueden usar variables CSS, por cómo se dibujan:
+   * las imágenes de OpenGraph y los iconos los pinta Satori a un PNG en el
+   * servidor; `themeColor` de `layout.tsx` acaba en una etiqueta `<meta>`; y
+   * `global-error.tsx` tiene que poder pintarse aunque la hoja de estilos no
+   * haya cargado — es justo la pantalla que se ve cuando eso falla.
+   * En esos sí hay literales, y se comprueban con otra regla más abajo.
+   */
+  const SIN_VARIABLES_CSS =
+    /(opengraph-image|twitter-image|apple-icon|icon)\.tsx$|icon-512\/route\.tsx$|global-error\.tsx$|app\/layout\.tsx$/;
+
+  /**
+   * Esta es la prueba que existe por la portada.
+   *
+   * El degradado del hero llevaba tres colores escritos a mano, y el del
+   * medio —#4f46e5— era el ancla de marca RETIRADA: el índigo por defecto de
+   * Tailwind que Molnip dejó de usar el 2026-08-17. Como estaba escrito como
+   * texto y no como token, el cambio de paleta nunca le llegó, y la portada
+   * siguió mostrando el violeta viejo —más frío, más saturado y más oscuro—
+   * durante semanas sin que ninguna prueba lo notara.
+   *
+   * Mientras esto esté aquí no puede repetirse: un color nuevo hay que
+   * declararlo antes en `globals.css`, y entonces la siguiente revisión de la
+   * paleta sí le llega sola.
+   */
+  it("las páginas y componentes del navegador no escriben ningún color a mano", () => {
+    const culpables: string[] = [];
+    for (const ruta of ficheros([".tsx"])) {
+      if (SIN_VARIABLES_CSS.test(ruta)) continue;
+      const fuera = literales(readFileSync(ruta, "utf-8")).filter((h) => !NEUTROS.has(h));
+      if (fuera.length > 0) culpables.push(`${relative(RAIZ, ruta)}: ${fuera.join(", ")}`);
+    }
+    expect(culpables).toEqual([]);
+  });
+
+  it("el degradado del hero se construye solo con la rampa de marca", () => {
+    const bloque = cssEfectivo.slice(
+      cssEfectivo.indexOf(".degradado-hero"),
+      cssEfectivo.indexOf("}", cssEfectivo.indexOf(".degradado-hero")),
+    );
+    expect(bloque, "falta la clase .degradado-hero en globals.css").toContain("linear-gradient");
+    expect(literales(bloque), "el degradado tiene colores escritos a mano").toEqual([]);
+    const referencias = [...bloque.matchAll(/var\(--color-([a-z0-9-]+)\)/g)].map((m) => m[1]);
+    expect(referencias.length).toBeGreaterThan(0);
+    for (const ref of referencias) {
+      expect(ref, `el degradado usa --color-${ref}, que no es de la rampa de marca`).toMatch(/^brand-\d+$/);
+    }
+  });
+
+  it("la parada que domina la mancha es el ancla de marca vigente", () => {
+    const bloque = cssEfectivo.slice(
+      cssEfectivo.indexOf(".degradado-hero"),
+      cssEfectivo.indexOf("}", cssEfectivo.indexOf(".degradado-hero")),
+    );
+    expect(bloque).toMatch(/var\(--color-brand-600\)\s*46%/);
+    expect(valoresDelSistema.has("#6e5fe4"), "el ancla de marca ya no vale #6e5fe4").toBe(true);
+    // El índigo retirado no puede volver por ninguna vía (los comentarios sí
+    // pueden nombrarlo: para eso se mira el CSS sin comentarios).
+    expect(cssEfectivo.toLowerCase()).not.toContain("#4f46e5");
+  });
+
+  it("los ficheros que no pueden usar variables solo usan colores de la paleta", () => {
+    // Un único caso conocido, en la imagen que se comparte en redes sociales.
+    // Pendiente de decisión de la propietaria: no se toca sin permiso, pero
+    // queda escrito para que se vea.
+    const PENDIENTE = ["app/resultado/[token]/opengraph-image.tsx: #f4c15c"];
+    const culpables: string[] = [];
+    for (const ruta of ficheros([".tsx"])) {
+      if (!SIN_VARIABLES_CSS.test(ruta)) continue;
+      const fuera = literales(readFileSync(ruta, "utf-8"))
+        .filter((h) => !valoresDelSistema.has(h) && !NEUTROS.has(h));
+      if (fuera.length > 0) culpables.push(`${relative(RAIZ, ruta)}: ${fuera.join(", ")}`);
+    }
+    expect(culpables.sort()).toEqual([...PENDIENTE].sort());
+  });
+});
