@@ -173,6 +173,14 @@
   --color-contorno: color-mix(in oklab, #000 2%, transparent);
 
   /*
+   * Fondo cálido de la portada. Estaba escrito a pelo en `app/page.tsx`
+   * (`style={{ backgroundColor: "#fdfaf5" }}`). Mismo valor exacto, ahora con
+   * nombre y dentro del sistema. Es un crema, no el `slate-50` del resto de la
+   * web: la portada se apoya sobre un suelo más cálido a propósito.
+   */
+  --color-fondo-calido: #fdfaf5;
+
+  /*
    * Radio de las esquinas: vocabulario cerrado.
    *
    * Los controles llevan `rounded-xl`, las superficies que agrupan
@@ -249,6 +257,34 @@
   --color-estado-seguimiento-fondo: oklch(95.4% 0.038 75.164); /* = orange-100 */
   --color-estado-seguimiento-texto: oklch(55.3% 0.195 38.402); /* = orange-700 */
   --color-estado-seguimiento-nota: oklch(64.6% 0.222 41.116); /* = orange-600 */
+}
+
+/*
+ * Degradado de la forma orgánica del hero.
+ *
+ * Estaba escrito a pelo en `app/page.tsx` con tres códigos literales
+ * —#2e1f7a, #4f46e5 y #c9c2f7— que NO pertenecen a la paleta de Molnip. Eran
+ * los únicos tres colores de toda la web fuera del sistema.
+ *
+ * El del medio, #4f46e5, era el ancla de marca RETIRADA: el índigo por defecto
+ * de Tailwind que Molnip usó hasta el 2026-08-17, cuando `335554b` la cambió a
+ * #6e5fe4 («Sistema Prisma: índigo principal más luminoso, Variante B»). Como
+ * el hero fijó el color como texto en vez de usar el token, aquel cambio de
+ * paleta nunca le llegó y la portada se quedó con el violeta viejo, más
+ * oscuro y más saturado — el «azul eléctrico» que el propio commit que lo
+ * introdujo (`77f0cf4`, un WIP marcado «no desplegar todavía») ya nombraba
+ * así.
+ *
+ * Ahora se construye con la rampa de marca. Mismo ángulo, mismas posiciones
+ * de parada, misma forma: solo cambia de qué sale cada color.
+ */
+.degradado-hero {
+  background: linear-gradient(
+    150deg,
+    var(--color-brand-900) 0%,
+    var(--color-brand-600) 46%,
+    var(--color-brand-300) 100%
+  );
 }
 
 body {

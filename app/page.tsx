@@ -88,7 +88,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero — propuesta 1 (revisión en curso, ver ATLAS.md) */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: "#fdfaf5" }}>
+      <section className="relative overflow-hidden bg-fondo-calido">
         <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-4 pt-16 pb-20 sm:px-6 sm:pt-24 sm:pb-28 lg:grid-cols-[1.05fr_1fr] lg:gap-10">
           <div className="text-center lg:text-left">
             <div
@@ -139,14 +139,11 @@ export default function Home() {
             className="animar-entrada relative mx-auto h-80 w-full max-w-sm sm:h-96 lg:h-[583px] lg:max-w-none"
             style={{ animationDelay: "200ms" }}
           >
-            {/* Forma orgánica de marca, CSS puro (border-radius asimétrico), detrás del recorte de la persona — degradado violeta profundo → azul eléctrico → lavanda. */}
+            {/* Forma orgánica de marca, CSS puro (border-radius asimétrico), detrás del recorte de la persona. El degradado vive en `globals.css` (.degradado-hero) y sale de la rampa de marca. */}
             <div
               aria-hidden="true"
-              className="absolute top-1/2 left-1/2 h-[110%] w-[92%] -translate-x-1/2 -translate-y-1/2"
-              style={{
-                borderRadius: "63% 37% 41% 59% / 55% 45% 55% 45%",
-                background: "linear-gradient(150deg, #2e1f7a 0%, #4f46e5 46%, #c9c2f7 100%)",
-              }}
+              className="degradado-hero absolute top-1/2 left-1/2 h-[110%] w-[92%] -translate-x-1/2 -translate-y-1/2"
+              style={{ borderRadius: "63% 37% 41% 59% / 55% 45% 55% 45%" }}
             />
 
             {/* La persona se recorta con la MISMA silueta orgánica que la forma
