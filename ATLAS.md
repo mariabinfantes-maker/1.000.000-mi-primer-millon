@@ -2575,6 +2575,15 @@ la prueba de que ya se cumplen.
 
 ## Color
 
+> **La identidad de color de Molnip vive en `brand-guidelines.md`**, documento
+> oficial desde el 2026-09-01. Ahí está la paleta completa, el significado de
+> cada familia y las comprobaciones que la sostienen. Lo de aquí abajo es el
+> resumen; ante cualquier duda manda ese documento.
+
+**El color principal de Molnip es `#6E5FE4` y está congelado**: lo fijó la
+propietaria el 2026-09-01 y no se modifica sin su aprobación explícita. Una
+prueba falla si cambia.
+
 **Paleta de marca propia, no la de Tailwind.** Índigo-violeta con ancla en
 `--color-brand-600: #6e5fe4`, y una escala neutra («slate») con matiz violeta
 constante que sustituye a la de Tailwind entera, de `#faf9fc` a `#14121f`.
@@ -2730,8 +2739,10 @@ a rehacer la escala neutra completa y sería un sprint entero, no un retoque.
 
 No se cruzan sin autorización expresa:
 
-1. **La paleta**: el índigo propio, la neutra violeta y el dorado de «opción
-   elegida». Ningún color de marca nuevo.
+1. **La paleta**: el índigo propio —ancla `#6E5FE4`, **congelada**—, la neutra
+   violeta y el dorado de «opción elegida». Ningún color de marca nuevo, y el
+   principal no se cambia sin aprobación explícita de la propietaria
+   (`brand-guidelines.md`).
 2. **Las tres familias tipográficas y sus papeles.** Display solo en titulares.
 3. **Los dos puntos de ruptura**, `sm` y `lg`.
 4. **Las tres variantes de botón**, todas a través del componente `Boton`.

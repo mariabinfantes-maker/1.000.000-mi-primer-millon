@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { PALETA_MOLNIP } from "@/lib/marca/paleta";
 
 /**
  * Red de seguridad para un fallo en el propio layout raíz (fuente,
@@ -32,8 +33,8 @@ export default function GlobalError({
           alignItems: "center",
           justifyContent: "center",
           fontFamily: "ui-sans-serif, system-ui, sans-serif",
-          background: "#faf9fc",
-          color: "#14121f",
+          background: PALETA_MOLNIP.slate[50],
+          color: PALETA_MOLNIP.slate[950],
         }}
       >
         <div style={{ maxWidth: 420, padding: "0 24px", textAlign: "center" }}>
@@ -43,11 +44,11 @@ export default function GlobalError({
               height: 56,
               margin: "0 auto",
               borderRadius: 16,
-              background: "#6e5fe4",
+              background: PALETA_MOLNIP.brand[600],
             }}
           />
           <h1 style={{ marginTop: 24, fontSize: 22, fontWeight: 700 }}>Algo ha fallado</h1>
-          <p style={{ marginTop: 8, lineHeight: 1.6, color: "#605892" }}>
+          <p style={{ marginTop: 8, lineHeight: 1.6, color: PALETA_MOLNIP.slate[600] }}>
             No ha sido cosa tuya — ha ocurrido un error inesperado. Puedes intentarlo de nuevo o
             volver al inicio.
           </p>
@@ -63,7 +64,7 @@ export default function GlobalError({
                 fontSize: 14,
                 fontWeight: 600,
                 color: "#fff",
-                background: "#6e5fe4",
+                background: PALETA_MOLNIP.brand[600],
               }}
             >
               Reintentar
@@ -76,8 +77,8 @@ export default function GlobalError({
                 padding: "10px 20px",
                 fontSize: 14,
                 fontWeight: 600,
-                color: "#6e5fe4",
-                border: "1px solid #ddd9fa",
+                color: PALETA_MOLNIP.brand[600],
+                border: `1px solid ${PALETA_MOLNIP.brand[200]}`,
                 textDecoration: "none",
               }}
             >

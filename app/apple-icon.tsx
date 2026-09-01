@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { PALETA_MOLNIP } from "@/lib/marca/paleta";
 
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
@@ -16,17 +17,17 @@ export default function AppleIcon() {
         style={{
           width: 180,
           height: 180,
-          background: "#6e5fe4",
+          background: PALETA_MOLNIP.brand[600],
           display: "flex",
         }}
       >
         <svg width="180" height="180" viewBox="0 0 64 64">
-          <polygon points="36,26 32,8 52.78,20" fill="#c99a3d" />
-          <polygon points="36,26 52.78,20 52.78,44" fill="#ffffff" fillOpacity={0.85} />
-          <polygon points="36,26 52.78,44 32,56" fill="#ffffff" fillOpacity={0.55} />
-          <polygon points="36,26 32,56 11.22,44" fill="#ffffff" fillOpacity={0.3} />
-          <polygon points="36,26 11.22,44 11.22,20" fill="#ffffff" fillOpacity={0.55} />
-          <polygon points="36,26 11.22,20 32,8" fill="#ffffff" fillOpacity={0.85} />
+          <polygon points="36,26 32,8 52.78,20" fill={PALETA_MOLNIP.gold[500]} />
+          <polygon points="36,26 52.78,20 52.78,44" fill={PALETA_MOLNIP.blanco} fillOpacity={0.85} />
+          <polygon points="36,26 52.78,44 32,56" fill={PALETA_MOLNIP.blanco} fillOpacity={0.55} />
+          <polygon points="36,26 32,56 11.22,44" fill={PALETA_MOLNIP.blanco} fillOpacity={0.3} />
+          <polygon points="36,26 11.22,44 11.22,20" fill={PALETA_MOLNIP.blanco} fillOpacity={0.55} />
+          <polygon points="36,26 11.22,20 32,8" fill={PALETA_MOLNIP.blanco} fillOpacity={0.85} />
         </svg>
       </div>
     ),
