@@ -2589,22 +2589,62 @@ constante que sustituye a la de Tailwind entera, de `#faf9fc` a `#14121f`.
   `#6e5fe4` — comparte el índigo de marca a propósito, porque de cara al
   usuario es la voz de Molnip.
 
-### Colores de estado, por significado (decisión de la propietaria)
+### Dos familias de color con significado, y no se mezclan
 
-| Significado | Token | Valor |
+Molnip tiene **dos** vocabularios de color con significado, y confundirlos ya
+causó un error real: cuatro estados del proceso de afiliación estaban pintados
+con los colores de mensaje —«activa» de `exito`, «rechazada» de `error`— como
+si fueran lo mismo.
+
+No lo son. Un color de **mensaje** habla de lo que acaba de pasar en la
+pantalla y dura un instante. Un color de **estado del proceso** dice en qué
+punto está una afiliación y dura semanas. Si algún día el verde de «guardado»
+cambia, «activa» no tiene por qué cambiar con él.
+
+#### 1. Colores de mensaje (toda la web)
+
+| Significado | Token | Sale de |
 |---|---|---|
 | Éxito — algo salió bien, verificado o completado | `exito-*` | escala de `emerald` |
 | Atención — pide una decisión, pero nada está roto | `atencion-*` | escala de `amber` |
 | Error — algo falló o está bloqueado | `error-*` | escala de `red` |
 | Información — contexto neutro, sin juicio | `info-*` | escala de `sky` |
 
-Se escriben por su nombre (`bg-exito-50`, `text-error-700`), nunca por el de
-Tailwind. La escala completa 50-950 está declarada en `globals.css`, y cada
-línea lleva escrito de qué tono de Tailwind sale, para que el renombrado sea
-verificable y no haya que fiarse de la memoria de nadie.
+Escala completa 50-950 en `globals.css`. Se escriben por su nombre
+(`bg-exito-50`, `text-error-700`), nunca por el de Tailwind.
 
-**No se añaden estados ni colores nuevos sin incorporarlos antes a este
-sistema.** Un quinto estado empieza por esta tabla, no por un componente.
+#### 2. Colores de los estados del proceso de afiliación
+
+Nombre funcional, no técnico. Dos tonos por estado, con un trabajo cada uno:
+`fondo` para la píldora y `texto` para lo que va escrito dentro.
+
+| Estado | Qué significa | Tokens | Sale de |
+|---|---|---|---|
+| Pendiente | Todavía no se ha solicitado el programa | `estado-pendiente-fondo` · `-texto` | `slate-100` · `slate-700` |
+| Preparada | Hay borrador de solicitud, falta enviarlo | `estado-preparada-fondo` · `-texto` | `sky-100` · `sky-700` |
+| Enviada | Solicitud enviada, esperando respuesta | `estado-enviada-fondo` · `-texto` | `amber-100` · `amber-700` |
+| Aprobada | El programa la aceptó; el enlace **aún no se usa** | `estado-aprobada-fondo` · `-texto` | `lime-100` · `lime-800` |
+| Activa | En uso: «Ir al proveedor» ya lleva el enlace | `estado-activa-fondo` · `-texto` | `emerald-100` · `emerald-700` |
+| Rechazada | El programa no la ha aceptado | `estado-rechazada-fondo` · `-texto` | `red-100` · `red-700` |
+| Seguimiento | Enviada hace tiempo y sin respuesta | `estado-seguimiento-fondo` · `-texto` · `-nota` | `orange-100` · `orange-700` · `orange-600` |
+
+«Seguimiento» lleva un tercer tono, `-nota`, porque también se escribe suelto
+sobre fondo blanco (los días que lleva estancada, junto a la próxima acción),
+donde el tono de la píldora no tendría contraste suficiente.
+
+**Los siete viven en un solo sitio**: `components/admin/estadosAfiliacion.ts`,
+junto con su nombre y su explicación. Una prueba falla si un token `estado-*`
+aparece en cualquier otro fichero.
+
+#### La regla común
+
+**No se añade un color ni un estado nuevo sin incorporarlo antes a la tabla
+que le corresponda.** Un quinto mensaje empieza por la primera tabla; un
+octavo estado del proceso, por la segunda. Nunca por un componente.
+
+Cada token declarado lleva escrito de qué tono sale (`/* = amber-700 */`), y
+una prueba comprueba que sigue valiendo exactamente eso. Es lo que sostiene la
+promesa de que ponerle nombre a un color no cambió ningún color.
 
 ## Tipografía
 
@@ -2706,6 +2746,7 @@ ninguna regla congelada.
 | 2 | `ring-1 ring-black/[0.02]` copiado 26 veces, una de ellas desviada a `[0.03]` | `ring-1 ring-contorno` | Nada, salvo la copia desviada: pasa de 3% a 2% de negro |
 | 3 | `shadow-xl` en el modal «Gestionar» | `shadow-premium-lg` | El halo del modal deja de ser gris y pasa al índigo de marca |
 | 4 | emerald/amber/red/sky escritos a pelo en 118 sitios | `exito`/`atencion`/`error`/`info` | Nada: mismos valores exactos |
+| 4b | Los 7 estados del proceso, con clases sueltas y repartidas | `estado-*`, centralizados en un módulo | Nada: mismos valores exactos |
 
 **Rectificación sobre el punto 3.** La tabla anterior decía «`shadow-xl` y
 `shadow-2xl`, 1 uso cada una». Era un error de la auditoría: no existe ninguna
@@ -2742,27 +2783,31 @@ móvil (Pixel 5):
   `globals.css` no declare. No lleva lista de colores prohibidos: lee los que
   el sistema declara. Para usar un color nuevo hay que empezar por definirlo,
   que es justo el paso que obliga a decidir qué significa.
+- **Equivalencias**: cada token dice de qué tono sale; falla si el valor deja
+  de coincidir con ese tono. Es lo que impide que alguien cambie un color
+  «sin querer» al editar el sistema.
+- **Estados del proceso**: falla si un token `estado-*` aparece fuera del
+  módulo central, si un estado no tiene su par de tonos declarado, o si el
+  módulo tiene un estado de más o de menos frente a los siete de la tabla.
 
-### Seis desviaciones más, encontradas por las pruebas y NO aplicadas
+### Lo que las pruebas destaparon, y qué se hizo con cada cosa
 
-Las pruebas destaparon lo que la auditoría no vio: contó los `rounded-lg`
-pero no el `rounded` a secas, y contó emerald/amber/red/sky pero no rose,
-lime ni orange.
+La auditoría contó los `rounded-lg` pero no el `rounded` a secas, y contó
+emerald/amber/red/sky pero no rose, lime ni orange.
 
-| Dónde | Qué | Por qué no se ha tocado |
+| Dónde | Qué | Estado |
 |---|---|---|
-| `app/cookies/page.tsx`, `components/ui/DocumentoLegal.tsx` | `rounded` a secas (4px) en `<code>` en línea | Fuera de las cuatro correcciones autorizadas |
-| 5 sitios | `rose` donde el significado es error | `rose` no es el mismo tono que `red`: cambiarlo **sí** movería el color |
-| `components/admin/PanelAfiliacion.tsx` | `lime` para «aprobada», `orange` para «seguimiento» | Son dos estados del panel que la tabla de significados no contempla: hace falta decidir antes qué significan |
+| `components/admin/PanelAfiliacion.tsx` | `lime` para «aprobada», `orange` para «seguimiento» y para los días estancada | **Resuelto.** Eran estados del proceso: ahora tienen token con nombre funcional y el mismo valor de siempre |
+| `app/cookies/page.tsx`, `components/ui/DocumentoLegal.tsx` | `rounded` a secas (4px) en `<code>` en línea | Pendiente. Fuera de las correcciones autorizadas |
+| 5 sitios (2 páginas de prueba internas, el aviso de error de la suscripción y la «X» de los contras en 2 pantallas públicas) | `rose` donde el significado es error o carencia | Pendiente. `rose` **no** es el mismo tono que `red`: llamarlo `error` movería el color en pantalla |
 
-Quedan listadas dentro de la propia prueba, con la lista cerrada: quitar una
-obliga a editar esa lista, y añadir una nueva hace fallar la prueba. Es decir,
-lo que ya se desvía no puede crecer.
+Lo pendiente queda listado dentro de la propia prueba, con la lista cerrada:
+quitar una obliga a editar esa lista, y añadir una nueva hace fallar la
+prueba. Es decir, lo que ya se desvía no puede crecer.
 
 **Pendiente de decisión.** Los dos `rounded` son un renombrado sin
-consecuencias. Los colores no: `rose → error`, `lime → exito` y
-`orange → atencion` cambiarían el tono en pantalla, y «aprobada» y
-«seguimiento» necesitan primero un sitio en la tabla de significados.
+consecuencias. Los cinco `rose` no: o se aceptan como un segundo rojo con
+nombre propio, o se unifican con `error` asumiendo que el tono cambia.
 
 ## Dónde vive la referencia visual
 

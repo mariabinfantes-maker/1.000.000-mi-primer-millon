@@ -6,6 +6,12 @@ import type { FilaPanelAfiliacion } from "@/agents/atlas-affiliate-manager/panel
 import type { EstadoPanel } from "@/agents/atlas-affiliate-manager/proximaAccion";
 import { enlaceEsUsable, puedeActivarse } from "@/agents/atlas-affiliate-manager/reglasEnlace";
 import { SUGERENCIAS_ATRIBUCION, esAtribucionPermanente } from "@/agents/atlas-affiliate-manager/duracionAtribucion";
+import {
+  AYUDA_ESTADO,
+  COLOR_DIAS_ESTANCADA,
+  COLOR_ESTADO,
+  ETIQUETA_ESTADO,
+} from "./estadosAfiliacion";
 
 /**
  * Panel interno de Affiliate Manager — la única superficie visual sobre
@@ -14,37 +20,6 @@ import { SUGERENCIAS_ATRIBUCION, esAtribucionPermanente } from "@/agents/atlas-a
  * exactamente las mismas funciones puras que el CLI. El panel nunca
  * decide nada por su cuenta que el CLI no pudiera hacer también.
  */
-
-const ETIQUETA_ESTADO: Record<EstadoPanel, string> = {
-  pendiente: "Pendiente",
-  preparada: "Preparada",
-  enviada: "Enviada",
-  aprobada: "Aprobada",
-  activa: "Activa",
-  rechazada: "Rechazada",
-  seguimiento: "Seguimiento",
-};
-
-/** Qué significa cada estado, en la propia pantalla. "Aprobada" y "Activa" se parecen demasiado como para dejarlo a la intuición. */
-const AYUDA_ESTADO: Record<EstadoPanel, string> = {
-  pendiente: "Todavía no se ha solicitado el programa.",
-  preparada: "Hay borrador de solicitud, falta enviarlo.",
-  enviada: "Solicitud enviada, esperando respuesta.",
-  aprobada: "Programa aprobado. El enlace AÚN NO se usa: hay que activarla.",
-  activa: "En uso. Los botones «Ir al proveedor» ya llevan tu enlace.",
-  rechazada: "El programa no la ha aceptado.",
-  seguimiento: "Enviada hace tiempo y sin respuesta.",
-};
-
-const COLOR_ESTADO: Record<EstadoPanel, string> = {
-  pendiente: "bg-slate-100 text-slate-700",
-  preparada: "bg-info-100 text-info-700",
-  enviada: "bg-atencion-100 text-atencion-700",
-  aprobada: "bg-lime-100 text-lime-800",
-  activa: "bg-exito-100 text-exito-700",
-  rechazada: "bg-error-100 text-error-700",
-  seguimiento: "bg-orange-100 text-orange-700",
-};
 
 const ESTADOS_AFILIACION_DESTINO: Record<EstadoPanel, string> = {
   // A qué EstadoAfiliacion real (los 5 de producción) traduce elegir cada
@@ -373,7 +348,7 @@ function FilaAfiliacion({ fila, onGestionar }: { fila: FilaPanelAfiliacion; onGe
       </td>
       <td className="px-4 py-3 text-slate-600">
         {fila.proximaAccion}
-        {fila.diasEstancada !== null && <span className="ml-1 text-orange-600">({fila.diasEstancada}d)</span>}
+        {fila.diasEstancada !== null && <span className={`ml-1 ${COLOR_DIAS_ESTANCADA}`}>({fila.diasEstancada}d)</span>}
       </td>
       <td className="px-4 py-3 text-slate-600">
         {fila.enlace ? (

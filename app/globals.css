@@ -90,9 +90,15 @@
   --color-agente-recomendador-soft: #f5f3fe;
 
   /*
-   * Colores de estado, por significado (Molnip Visual v1, decisión de la
-   * propietaria del 2026-08-31). Antes se escribían a pelo como
-   * `emerald`/`amber`/`red`/`sky` en decenas de componentes, así que el
+   * ---------------------------------------------------------------------
+   * Colores de MENSAJE: éxito, atención, error e información.
+   * ---------------------------------------------------------------------
+   *
+   * Hablan de lo que acaba de pasar en la pantalla. Para los estados del
+   * proceso de afiliación hay un bloque aparte más abajo: son otra cosa.
+   *
+   * Decisión de la propietaria del 2026-08-31. Antes se escribían a pelo
+   * como `emerald`/`amber`/`red`/`sky` en decenas de componentes, así que el
    * significado solo vivía en la cabeza de quien escribía la clase y nada
    * impedía que apareciera un quinto color sin sentido definido.
    *
@@ -165,6 +171,66 @@
    * mirar. Ahora se escribe `ring-1 ring-contorno`.
    */
   --color-contorno: color-mix(in oklab, #000 2%, transparent);
+
+  /*
+   * ---------------------------------------------------------------------
+   * Colores de los ESTADOS DEL PROCESO DE AFILIACIÓN.
+   * ---------------------------------------------------------------------
+   *
+   * Distintos de los cuatro de arriba, y a propósito. Los de arriba son
+   * colores de MENSAJE: hablan de lo que acaba de pasar en la pantalla
+   * («guardado», «revisa esto», «ha fallado»). Estos son colores de ESTADO
+   * DE NEGOCIO: dicen en qué punto del proceso está una afiliación, y viven
+   * mientras ese estado dure.
+   *
+   * Se separan porque confundirlos ya causó un error: cuatro de estos siete
+   * estados estaban escritos con los tokens de mensaje —«activa» pintada de
+   * `exito`, «rechazada» de `error`— como si fueran lo mismo. No lo son: si
+   * algún día el verde de «guardado» cambia, «activa» no tiene por qué
+   * cambiar con él.
+   *
+   * Cada estado tiene dos tonos y un solo trabajo cada uno: `fondo` para la
+   * píldora y `texto` para lo que va escrito dentro. El valor es el que la
+   * propietaria ve hoy, sin tocar; el comentario dice de qué tono de la
+   * paleta sale, y una prueba comprueba que sigue coincidiendo.
+   *
+   * Un estado nuevo del proceso empieza aquí y en la tabla de ATLAS.md, no
+   * en un componente.
+   */
+
+  /* Pendiente — todavía no se ha solicitado el programa. */
+  --color-estado-pendiente-fondo: #f3f1f9; /* = slate-100 */
+  --color-estado-pendiente-texto: #4a4272; /* = slate-700 */
+
+  /* Preparada — hay borrador de solicitud, falta enviarlo. */
+  --color-estado-preparada-fondo: oklch(95.1% 0.026 236.824); /* = sky-100 */
+  --color-estado-preparada-texto: oklch(50% 0.134 242.749); /* = sky-700 */
+
+  /* Enviada — solicitud enviada, esperando respuesta. */
+  --color-estado-enviada-fondo: oklch(96.2% 0.059 95.617); /* = amber-100 */
+  --color-estado-enviada-texto: oklch(55.5% 0.163 48.998); /* = amber-700 */
+
+  /* Aprobada — el programa la aceptó; el enlace AÚN NO se usa. */
+  --color-estado-aprobada-fondo: oklch(96.7% 0.067 122.328); /* = lime-100 */
+  --color-estado-aprobada-texto: oklch(45.3% 0.124 130.933); /* = lime-800 */
+
+  /* Activa — en uso: los botones «Ir al proveedor» ya llevan el enlace. */
+  --color-estado-activa-fondo: oklch(95% 0.052 163.051); /* = emerald-100 */
+  --color-estado-activa-texto: oklch(50.8% 0.118 165.612); /* = emerald-700 */
+
+  /* Rechazada — el programa no la ha aceptado. */
+  --color-estado-rechazada-fondo: oklch(93.6% 0.032 17.717); /* = red-100 */
+  --color-estado-rechazada-texto: oklch(50.5% 0.213 27.518); /* = red-700 */
+
+  /*
+   * Seguimiento — enviada hace tiempo y sin respuesta. Lleva un tercer tono
+   * porque este estado también se escribe suelto sobre fondo blanco (los
+   * días que lleva estancada, junto a la próxima acción), donde el tono de
+   * la píldora no tendría contraste suficiente.
+   */
+  --color-estado-seguimiento-fondo: oklch(95.4% 0.038 75.164); /* = orange-100 */
+  --color-estado-seguimiento-texto: oklch(55.3% 0.195 38.402); /* = orange-700 */
+  --color-estado-seguimiento-nota: oklch(64.6% 0.222 41.116); /* = orange-600 */
 }
 
 body {
