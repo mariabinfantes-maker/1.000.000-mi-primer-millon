@@ -92,6 +92,14 @@ export default async function OpengraphImageResultado({ params }: { params: Prom
                     padding: "14px 28px",
                   }}
                 >
+                  {/*
+                    Este dorado NO es el de la paleta (`gold-500` #c99a3d). Se
+                    mantiene sin cambios por decisión de la propietaria del
+                    2026-09-01, pendiente de una futura revisión de branding
+                    de la imagen que se comparte en redes. Ver la sección 7 de
+                    `brand-guidelines.md`. No copiar este valor a ningún otro
+                    sitio: es el único color del proyecto fuera del sistema.
+                  */}
                   <div style={{ fontFamily: "Bricolage Grotesque", fontSize: 32, fontWeight: 800, color: "#f4c15c" }}>
                     {`${puntuacion}/100`}
                   </div>

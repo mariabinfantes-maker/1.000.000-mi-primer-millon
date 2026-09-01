@@ -181,11 +181,27 @@ o pedir permiso para cambiar el sistema.
 
 ---
 
-## 7. Lo que queda pendiente de decisión
+## 7. Pendiente de una futura revisión de branding
 
-| Dónde | Qué | Por qué no se ha tocado |
-|---|---|---|
-| `app/resultado/[token]/opengraph-image.tsx` | `#f4c15c`, un dorado fuera de paleta en la imagen que se ve al compartir un resultado en redes | Cambiarlo movería el color de esa imagen. Necesita decisión de la propietaria |
+### `#f4c15c` — el dorado de la imagen compartida
+
+En `app/resultado/[token]/opengraph-image.tsx` hay un dorado, `#f4c15c`, que
+**no pertenece a la paleta**. Se usa para la puntuación en la imagen que se ve
+al compartir un resultado en redes sociales. El dorado de marca es
+`gold-500` `#c99a3d`.
+
+**Decisión de la propietaria del 2026-09-01: se mantiene sin cambios por
+ahora.** Queda anotado para **una futura revisión de branding**, junto con el
+resto de la imagen compartida.
+
+No es un descuido ni una excepción tolerada por comodidad: es el único color
+de todo el proyecto fuera del sistema, está localizado en una línea, y la
+prueba `vocabularioVisual.test.ts` lo tiene escrito con nombre y apellidos. Si
+apareciera un segundo, la prueba fallaría.
+
+Cuando llegue esa revisión, las opciones son: unificarlo con `gold-500`
+—cambia el tono de esa imagen—, o incorporarlo a la paleta como un dorado
+propio con su significado. Ninguna se toma sin aprobación.
 
 ---
 

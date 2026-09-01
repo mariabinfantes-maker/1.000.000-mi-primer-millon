@@ -409,8 +409,10 @@ describe("ningún color literal en la web que ve el navegador", () => {
 
   it("los ficheros que no pueden usar variables solo usan colores de la paleta", () => {
     // Un único caso conocido, en la imagen que se comparte en redes sociales.
-    // Pendiente de decisión de la propietaria: no se toca sin permiso, pero
-    // queda escrito para que se vea.
+    // La propietaria decidió el 2026-09-01 mantenerlo sin cambios, pendiente
+    // de una futura revisión de branding (sección 7 de `brand-guidelines.md`).
+    // Está escrito aquí a propósito: si apareciera un segundo color fuera del
+    // sistema, esta comprobación fallaría.
     const PENDIENTE = ["app/resultado/[token]/opengraph-image.tsx: #f4c15c"];
     const culpables: string[] = [];
     for (const ruta of ficheros([".tsx"])) {
