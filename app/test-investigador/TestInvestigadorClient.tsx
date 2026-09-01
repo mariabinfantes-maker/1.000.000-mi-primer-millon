@@ -75,7 +75,7 @@ export default function TestInvestigadorClient() {
         </Boton>
       </form>
 
-      {error && <p className="mt-6 rounded-xl bg-rose-50 p-4 text-sm text-rose-700">{error}</p>}
+      {error && <p className="mt-6 rounded-xl bg-error-50 p-4 text-sm text-error-700">{error}</p>}
 
       {propuesta && (
         <div className="mt-6 space-y-4 rounded-2xl border border-slate-200 p-6 shadow-premium">

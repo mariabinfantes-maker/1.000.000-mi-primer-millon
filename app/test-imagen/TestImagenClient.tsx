@@ -88,7 +88,7 @@ export default function TestImagenClient() {
       </form>
 
       {error && (
-        <p className="mt-6 rounded-xl bg-rose-50 p-4 text-sm text-rose-700">{error}</p>
+        <p className="mt-6 rounded-xl bg-error-50 p-4 text-sm text-error-700">{error}</p>
       )}
 
       {imagenUrl && (

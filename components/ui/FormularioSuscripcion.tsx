@@ -157,7 +157,7 @@ export default function FormularioSuscripcion({ variante, categoriaId, problemaI
         </button>
       </form>
 
-      {estado === "error" && <p className="mt-2 text-xs font-medium text-rose-600">{mensajeError}</p>}
+      {estado === "error" && <p className="mt-2 text-xs font-medium text-error-600">{mensajeError}</p>}
     </div>
   );
 }

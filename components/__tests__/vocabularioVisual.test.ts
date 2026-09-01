@@ -38,7 +38,7 @@ function ficheros(extensiones = [".tsx"]): string[] {
 
 // --- Radios -----------------------------------------------------------------
 
-const RADIOS_PERMITIDOS = ["xl", "2xl", "3xl", "full"];
+const RADIOS_PERMITIDOS = ["xl", "2xl", "3xl", "full", "codigo"];
 const LADOS = ["", "t", "r", "b", "l", "s", "e", "tl", "tr", "br", "bl", "ss", "se", "es", "ee"];
 
 const VOCABULARIO_RADIOS = new Set(
@@ -151,29 +151,29 @@ export function coloresNoDeclarados(texto: string, declarados: Set<string>): str
  * Visual v1 no había visto: contó los `rounded-lg` pero no el `rounded` a
  * secas, y contó emerald/amber/red/sky pero no rose, lime ni orange.
  *
- * Las de `lime` y `orange` ya están resueltas: eran estados del proceso de
- * afiliación («aprobada», «seguimiento») y ahora tienen token propio con
- * nombre funcional, con el mismo valor de siempre.
+ * Casi todas están resueltas, cada una por su significado y no en bloque:
  *
- * Lo que queda no se toca. `rose` no es el mismo tono que `red`, así que
- * llamarlo `error` movería el color en pantalla; y los dos `rounded` a secas
- * están fuera de las correcciones autorizadas. Quedan escritas para que se
- * vean, con la lista cerrada: quitar una obliga a editar esta lista, y añadir
- * una hace fallar la prueba. Es decir, lo que ya se desvía no crece.
+ * - `lime` y `orange` eran estados del proceso de afiliación («aprobada»,
+ *   «seguimiento»): tienen token propio con nombre funcional y el mismo valor
+ *   de siempre.
+ * - Los dos `rounded` a secas eran `<code>` en línea: ahora son
+ *   `rounded-codigo`, dentro del vocabulario y con el mismo aspecto exacto.
+ * - Tres de los cinco `rose` eran mensajes de error de verdad: pasan a
+ *   `error`, lo que sí cambia el tono, con autorización expresa.
+ *
+ * Queda uno, y no se toca sin decisión. La lista está cerrada: quitar una
+ * entrada obliga a editar esta lista, y añadir una hace fallar la prueba. Es
+ * decir, lo que todavía se desvía no puede crecer.
  */
-const DESVIACIONES_RADIO_PENDIENTES = [
-  // `<code>` en línea dentro de texto legal: 4px en vez de 12px.
-  "app/cookies/page.tsx: rounded",
-  "components/ui/DocumentoLegal.tsx: rounded",
-];
+const DESVIACIONES_RADIO_PENDIENTES: string[] = [];
 
 const DESVIACIONES_COLOR_PENDIENTES = [
-  // `rose` donde el significado es error; no es el mismo tono que `red`.
+  // La «X» que marca cada línea de la lista "Desventajas", emparejada con el
+  // `Check` verde de "Ventajas". No es un error ni un botón de cerrar: es la
+  // mitad de un par ventaja/desventaja, y todavía no se ha decidido con qué
+  // token se escribe. Pendiente de la propietaria.
   "app/herramienta/[herramientaId]/page.tsx: text-rose-400",
-  "app/test-imagen/TestImagenClient.tsx: bg-rose-50, text-rose-700",
-  "app/test-investigador/TestInvestigadorClient.tsx: bg-rose-50, text-rose-700",
   "components/TarjetaHerramientaRecomendada.tsx: text-rose-400",
-  "components/ui/FormularioSuscripcion.tsx: text-rose-600",
 ];
 
 // --- Comprobaciones ---------------------------------------------------------
@@ -192,7 +192,7 @@ describe("vocabulario de radios (Molnip Visual v1)", () => {
     expect(radiosFueraDeVocabulario('className="rounded-lg px-3"')).toEqual(["rounded-lg"]);
     expect(radiosFueraDeVocabulario('className="rounded-md"')).toEqual(["rounded-md"]);
     expect(radiosFueraDeVocabulario('className="rounded border"')).toEqual(["rounded"]);
-    expect(radiosFueraDeVocabulario('className="rounded-2xl rounded-t-3xl rounded-r-xl"')).toEqual([]);
+    expect(radiosFueraDeVocabulario('className="rounded-2xl rounded-t-3xl rounded-r-xl rounded-codigo"')).toEqual([]);
   });
 });
 

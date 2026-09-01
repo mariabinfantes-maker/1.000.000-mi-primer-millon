@@ -2664,8 +2664,13 @@ Tres familias con un trabajo cada una:
 
 ## Forma
 
-- Controles `rounded-xl`, superficies que agrupan `rounded-2xl`, píldoras y
-  avatares `rounded-full`.
+- Controles `rounded-xl`, superficies que agrupan `rounded-2xl` y
+  `rounded-3xl`, píldoras y avatares `rounded-full`.
+- Una sola excepción, con nombre propio: **`rounded-codigo`** (4px) para los
+  `<code>` en línea dentro de un párrafo. Un chip de una línea con 12px de
+  radio se ve como una cápsula y rompe el renglón. Estaba escrito como
+  `rounded` a secas, sin nombre y sin regla; ahora es parte del vocabulario,
+  con el mismo aspecto exacto.
 - Sombra de marca, no gris: doble capa —contacto más elevación— teñida de
   índigo. `shadow-premium` 26 usos, `shadow-premium-lg` 22.
 - **Receta única de tarjeta**: `rounded-2xl border border-slate-200/80
@@ -2793,21 +2798,37 @@ móvil (Pixel 5):
 ### Lo que las pruebas destaparon, y qué se hizo con cada cosa
 
 La auditoría contó los `rounded-lg` pero no el `rounded` a secas, y contó
-emerald/amber/red/sky pero no rose, lime ni orange.
+emerald/amber/red/sky pero no rose, lime ni orange. Cada hallazgo se resolvió
+**por su significado**, uno a uno, nunca en bloque.
 
-| Dónde | Qué | Estado |
-|---|---|---|
-| `components/admin/PanelAfiliacion.tsx` | `lime` para «aprobada», `orange` para «seguimiento» y para los días estancada | **Resuelto.** Eran estados del proceso: ahora tienen token con nombre funcional y el mismo valor de siempre |
-| `app/cookies/page.tsx`, `components/ui/DocumentoLegal.tsx` | `rounded` a secas (4px) en `<code>` en línea | Pendiente. Fuera de las correcciones autorizadas |
-| 5 sitios (2 páginas de prueba internas, el aviso de error de la suscripción y la «X» de los contras en 2 pantallas públicas) | `rose` donde el significado es error o carencia | Pendiente. `rose` **no** es el mismo tono que `red`: llamarlo `error` movería el color en pantalla |
+| Dónde | Qué era | Qué es | ¿Cambia el color? |
+|---|---|---|---|
+| `PanelAfiliacion.tsx` | `lime` para «aprobada», `orange` para «seguimiento» y para los días estancada | Tokens `estado-*` con nombre funcional | **No** |
+| `cookies`, `DocumentoLegal` | `rounded` a secas en `<code>` en línea | `rounded-codigo`, en el vocabulario | **No** |
+| `FormularioSuscripcion` | `rose-600` en el aviso de error | `error-600` | **Sí** — es un error de verdad |
+| `test-imagen`, `test-investigador` | `rose-50/700` en el mensaje de error | `error-50/700` | **Sí** — son errores de verdad |
+| `TarjetaHerramientaRecomendada`, ficha de herramienta | `rose-400` en la «X» de «Desventajas» | **Sin decidir** | — |
 
-Lo pendiente queda listado dentro de la propia prueba, con la lista cerrada:
-quitar una obliga a editar esa lista, y añadir una nueva hace fallar la
-prueba. Es decir, lo que ya se desvía no puede crecer.
+#### La «X» de «Desventajas»: por qué sigue sin tocar
 
-**Pendiente de decisión.** Los dos `rounded` son un renombrado sin
-consecuencias. Los cinco `rose` no: o se aceptan como un segundo rojo con
-nombre propio, o se unifican con `error` asumiendo que el tono cambia.
+No es un botón de cerrar ni un error. Es un icono decorativo (`aria-hidden`)
+que marca cada línea de la lista **«Desventajas»**, emparejado con el `Check`
+verde que marca cada línea de **«Ventajas»**. Es la mitad de un par
+ventaja/desventaja.
+
+Eso deja tres salidas, y ninguna se toma sin decisión de la propietaria:
+
+1. **`error-400`** — unifica con el rojo del sistema. El tono cambia un poco
+   (`#ff637e` → `#ff6467`).
+2. **Un color neutro de interfaz** (`slate-400`) — coherente con «no es un
+   error», pero rompe el par con el verde de «Ventajas»: dejaría un lado
+   marcado con color y el otro no.
+3. **Token propio** con nombre funcional al valor de hoy — descartado: sería
+   crear un segundo rojo de marca, que es justo lo que no se quiere.
+
+Mientras no se decida, queda listada en la prueba con la lista cerrada: quitar
+una entrada obliga a editar esa lista, y añadir una nueva hace fallar la
+prueba. Lo que todavía se desvía no puede crecer.
 
 ## Dónde vive la referencia visual
 

@@ -173,6 +173,24 @@
   --color-contorno: color-mix(in oklab, #000 2%, transparent);
 
   /*
+   * Radio de las esquinas: vocabulario cerrado.
+   *
+   * Los controles llevan `rounded-xl`, las superficies que agrupan
+   * `rounded-2xl` y `rounded-3xl`, las píldoras y los avatares
+   * `rounded-full`. Ese es todo el vocabulario, salvo una excepción con
+   * nombre propio:
+   *
+   * `rounded-codigo` — 4px, para los `<code>` en línea dentro de un párrafo
+   * (los nombres técnicos que aparecen en cookies y en los documentos
+   * legales). Un chip que ocupa una sola línea de texto con 12px de radio se
+   * ve como una cápsula y rompe el renglón; 4px lo deja como lo que es, una
+   * palabra marcada. Estaba escrito como `rounded` a secas en dos sitios, sin
+   * nombre y sin regla; ahora es parte del vocabulario, con el mismo aspecto
+   * exacto de siempre.
+   */
+  --radius-codigo: 0.25rem; /* mismo valor que el `rounded` a secas que sustituye */
+
+  /*
    * ---------------------------------------------------------------------
    * Colores de los ESTADOS DEL PROCESO DE AFILIACIÓN.
    * ---------------------------------------------------------------------
