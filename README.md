@@ -19,6 +19,18 @@ En menos de 60 segundos un usuario puede:
 Inicio → Seleccionar problema → Seleccionar categoría → Comparar herramientas → Ir al proveedor
 ```
 
+## Identidad de marca
+
+El color principal de Molnip es **`#6E5FE4`** y está **congelado**: no se
+modifica sin aprobación explícita de la propietaria.
+
+La identidad visual completa —paleta, significado de cada color, tipografía,
+forma y las comprobaciones que lo sostienen— está en
+**[`brand-guidelines.md`](./brand-guidelines.md)**.
+
+Todos los colores son tokens de `app/globals.css`. Ningún componente escribe un
+color a mano; hay pruebas que fallan si alguien lo intenta.
+
 ## Stack
 
 - [Next.js](https://nextjs.org) (App Router)

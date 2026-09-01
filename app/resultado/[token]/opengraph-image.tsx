@@ -3,6 +3,7 @@ import { join } from "path";
 import { ImageResponse } from "next/og";
 import { resolverResultadoCompartido } from "@/lib/resultadoCompartido";
 import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
+import { PALETA_MOLNIP } from "@/lib/marca/paleta";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -34,21 +35,21 @@ export default async function OpengraphImageResultado({ params }: { params: Prom
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 72,
-          background: "linear-gradient(135deg, #1f1859 0%, #3f2fb7 55%, #6e5fe4 100%)",
+          background: `linear-gradient(135deg, ${PALETA_MOLNIP.brand[950]} 0%, ${PALETA_MOLNIP.brand[800]} 55%, ${PALETA_MOLNIP.brand[600]} 100%)`,
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <div style={{ display: "flex", width: 56, height: 56, borderRadius: 14, background: "#6e5fe4" }}>
+          <div style={{ display: "flex", width: 56, height: 56, borderRadius: 14, background: PALETA_MOLNIP.brand[600] }}>
             <svg width="56" height="56" viewBox="0 0 64 64">
-              <polygon points="36,26 32,8 52.78,20" fill="#c99a3d" />
-              <polygon points="36,26 52.78,20 52.78,44" fill="#ffffff" fillOpacity={0.85} />
-              <polygon points="36,26 52.78,44 32,56" fill="#ffffff" fillOpacity={0.55} />
-              <polygon points="36,26 32,56 11.22,44" fill="#ffffff" fillOpacity={0.3} />
-              <polygon points="36,26 11.22,44 11.22,20" fill="#ffffff" fillOpacity={0.55} />
-              <polygon points="36,26 11.22,20 32,8" fill="#ffffff" fillOpacity={0.85} />
+              <polygon points="36,26 32,8 52.78,20" fill={PALETA_MOLNIP.gold[500]} />
+              <polygon points="36,26 52.78,20 52.78,44" fill={PALETA_MOLNIP.blanco} fillOpacity={0.85} />
+              <polygon points="36,26 52.78,44 32,56" fill={PALETA_MOLNIP.blanco} fillOpacity={0.55} />
+              <polygon points="36,26 32,56 11.22,44" fill={PALETA_MOLNIP.blanco} fillOpacity={0.3} />
+              <polygon points="36,26 11.22,44 11.22,20" fill={PALETA_MOLNIP.blanco} fillOpacity={0.55} />
+              <polygon points="36,26 11.22,20 32,8" fill={PALETA_MOLNIP.blanco} fillOpacity={0.85} />
             </svg>
           </div>
-          <div style={{ fontFamily: "Bricolage Grotesque", fontSize: 34, fontWeight: 800, color: "#ffffff" }}>
+          <div style={{ fontFamily: "Bricolage Grotesque", fontSize: 34, fontWeight: 800, color: PALETA_MOLNIP.blanco }}>
             Molnip
           </div>
         </div>
@@ -73,7 +74,7 @@ export default async function OpengraphImageResultado({ params }: { params: Prom
                 fontFamily: "Bricolage Grotesque",
                 fontSize: 76,
                 fontWeight: 800,
-                color: "#ffffff",
+                color: PALETA_MOLNIP.blanco,
                 letterSpacing: -2,
               }}
             >
@@ -107,7 +108,7 @@ export default async function OpengraphImageResultado({ params }: { params: Prom
             </div>
           </div>
         ) : (
-          <div style={{ fontFamily: "Bricolage Grotesque", fontSize: 56, fontWeight: 800, color: "#ffffff" }}>
+          <div style={{ fontFamily: "Bricolage Grotesque", fontSize: 56, fontWeight: 800, color: PALETA_MOLNIP.blanco }}>
             El asesor que encuentra tu mejor herramienta
           </div>
         )}

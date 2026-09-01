@@ -5,6 +5,7 @@ import ChromePublico from "@/components/ChromePublico";
 import RecuperacionDeVersion from "@/components/RecuperacionDeVersion";
 import { DESCRIPCION_ATLAS, TITULO_ATLAS } from "@/agents/atlas-generador-contenido/metadatos";
 import { URL_BASE } from "@/lib/urlBase";
+import { PALETA_MOLNIP } from "@/lib/marca/paleta";
 
 /**
  * Sistema tipográfico de Molnip (ver la guía de Dirección de Arte, fase 0):
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
 // Tinta la barra de direcciones del navegador móvil con el índigo de marca
 // en vez de dejarla en blanco por defecto.
 export const viewport: Viewport = {
-  themeColor: "#6e5fe4",
+  themeColor: PALETA_MOLNIP.brand[600],
 };
 
 export default function RootLayout({

@@ -32,6 +32,20 @@
   --color-brand-300: #b5adf2;
   --color-brand-400: #a49aef;
   --color-brand-500: #8073e8;
+  /*
+   * ★ EL COLOR PRINCIPAL DE MOLNIP — CONGELADO ★
+   *
+   * Fijado por la propietaria el 2026-09-01. NO SE MODIFICA sin su
+   * aprobación explícita. Ver `brand-guidelines.md`.
+   *
+   * De aquí salen el botón principal, los enlaces, las etiquetas de marca,
+   * los antetítulos, el texto destacado de la portada y la mancha del hero:
+   * 59 usos en 24 ficheros. Cambiar este valor cambia la marca entera.
+   *
+   * Ya se perdió una vez: el hero lo escribió a mano como #4f46e5 (el ancla
+   * anterior) y se quedó con el violeta viejo semanas. Una prueba comprueba
+   * ahora que este valor sigue siendo exactamente #6e5fe4.
+   */
   --color-brand-600: #6e5fe4;
   --color-brand-700: #5849d0;
   --color-brand-800: #3f2fb7;
