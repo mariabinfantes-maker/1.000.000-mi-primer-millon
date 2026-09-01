@@ -32,7 +32,7 @@ export default function CookiesPage() {
       <SeccionLegal titulo="Lo único que guardamos: tu progreso, en tu propio navegador">
         <p>
           Cuando respondes al cuestionario, Molnip guarda tus respuestas temporalmente en el
-          almacenamiento local de tu navegador (<code className="rounded bg-slate-100 px-1 py-0.5 font-mono text-[13px]">sessionStorage</code>),
+          almacenamiento local de tu navegador (<code className="rounded-codigo bg-slate-100 px-1 py-0.5 font-mono text-[13px]">sessionStorage</code>),
           para poder mostrarte los resultados sin que tengas que repetir el cuestionario al
           navegar entre pantallas. Esta información:
         </p>

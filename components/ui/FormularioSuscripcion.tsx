@@ -60,7 +60,7 @@ export default function FormularioSuscripcion({ variante, categoriaId, problemaI
   const contenedor =
     variante === "pie-de-pagina"
       ? "mx-auto max-w-md rounded-3xl bg-gradient-to-br from-brand-50 to-white p-6 text-center ring-1 ring-brand-100/80 sm:p-8"
-      : "mx-auto max-w-md rounded-2xl border border-slate-200/80 bg-white p-6 text-center shadow-premium ring-1 ring-black/[0.02] sm:p-8";
+      : "mx-auto max-w-md rounded-2xl border border-slate-200/80 bg-white p-6 text-center shadow-premium ring-1 ring-contorno sm:p-8";
 
   async function enviar(e: React.FormEvent) {
     e.preventDefault();
@@ -100,7 +100,7 @@ export default function FormularioSuscripcion({ variante, categoriaId, problemaI
     return (
       <div className={contenedor}>
         <div className="flex flex-col items-center gap-2">
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-exito-100 text-exito-700">
             <Check className="h-5 w-5" aria-hidden="true" />
           </div>
           <p className="text-sm font-semibold text-slate-900">Listo, revisa tu bandeja de entrada.</p>
@@ -157,7 +157,7 @@ export default function FormularioSuscripcion({ variante, categoriaId, problemaI
         </button>
       </form>
 
-      {estado === "error" && <p className="mt-2 text-xs font-medium text-rose-600">{mensajeError}</p>}
+      {estado === "error" && <p className="mt-2 text-xs font-medium text-error-600">{mensajeError}</p>}
     </div>
   );
 }

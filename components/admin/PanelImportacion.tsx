@@ -57,10 +57,10 @@ type ResultadoAplicar = {
 const CAMPOS: CampoLote[] = Object.keys(SINONIMOS) as CampoLote[];
 
 const COLOR_VEREDICTO: Record<FilaPrevisualizada["veredicto"], string> = {
-  creara: "bg-sky-100 text-sky-800",
-  cambiara: "bg-amber-100 text-amber-900",
+  creara: "bg-info-100 text-info-800",
+  cambiara: "bg-atencion-100 text-atencion-900",
   sin_cambios: "bg-slate-100 text-slate-600",
-  error: "bg-red-100 text-red-800",
+  error: "bg-error-100 text-error-800",
 };
 
 const ETIQUETA_VEREDICTO: Record<FilaPrevisualizada["veredicto"], string> = {
@@ -252,7 +252,7 @@ export default function PanelImportacion() {
         </details>
 
         {avisosArchivo.length > 0 && (
-          <ul className="mt-3 space-y-1 rounded-xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+          <ul className="mt-3 space-y-1 rounded-xl border border-atencion-300 bg-atencion-50 px-4 py-3 text-sm text-atencion-900">
             {avisosArchivo.map((aviso) => (
               <li key={aviso}>{aviso}</li>
             ))}
@@ -272,7 +272,7 @@ export default function PanelImportacion() {
               <label key={campo} className="block">
                 <span className="block text-xs font-semibold uppercase tracking-wide text-slate-500">
                   {campo}
-                  {campo === "id" && <span className="ml-1 text-red-600">obligatorio</span>}
+                  {campo === "id" && <span className="ml-1 text-error-600">obligatorio</span>}
                 </span>
                 <select
                   value={emparejamiento[campo] ?? ""}
@@ -304,13 +304,13 @@ export default function PanelImportacion() {
             {cargando ? "Comprobando…" : "Ver qué va a pasar"}
           </button>
           {!emparejamiento.id && (
-            <p className="mt-2 text-sm text-amber-800">Empareja la columna «id» para poder continuar.</p>
+            <p className="mt-2 text-sm text-atencion-800">Empareja la columna «id» para poder continuar.</p>
           )}
         </section>
       )}
 
       {error && (
-        <p role="alert" className="rounded-xl border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-800">
+        <p role="alert" className="rounded-xl border border-error-300 bg-error-50 px-4 py-3 text-sm text-error-800">
           {error}
         </p>
       )}
@@ -324,17 +324,17 @@ export default function PanelImportacion() {
             <span className="rounded-full bg-slate-100 px-3 py-1 font-semibold text-slate-700 tabular-nums">
               {resumen.total} fila(s)
             </span>
-            <span className="rounded-full bg-sky-100 px-3 py-1 font-semibold text-sky-800 tabular-nums">
+            <span className="rounded-full bg-info-100 px-3 py-1 font-semibold text-info-800 tabular-nums">
               {resumen.creara} se crearán
             </span>
-            <span className="rounded-full bg-amber-100 px-3 py-1 font-semibold text-amber-900 tabular-nums">
+            <span className="rounded-full bg-atencion-100 px-3 py-1 font-semibold text-atencion-900 tabular-nums">
               {resumen.cambiara} cambiarán
             </span>
             <span className="rounded-full bg-slate-100 px-3 py-1 font-semibold text-slate-600 tabular-nums">
               {resumen.sinCambios} sin cambios
             </span>
             {resumen.conError > 0 && (
-              <span className="rounded-full bg-red-100 px-3 py-1 font-semibold text-red-800 tabular-nums">
+              <span className="rounded-full bg-error-100 px-3 py-1 font-semibold text-error-800 tabular-nums">
                 {resumen.conError} con error
               </span>
             )}
@@ -346,7 +346,7 @@ export default function PanelImportacion() {
                 <p className="text-sm text-slate-700">
                   Enlaces comprobados.
                   {resumen.activacionesBloqueadas > 0 && (
-                    <span className="ml-1 font-semibold text-amber-800">
+                    <span className="ml-1 font-semibold text-atencion-800">
                       {resumen.activacionesBloqueadas} no se activarán porque su enlace no responde.
                     </span>
                   )}
@@ -370,7 +370,7 @@ export default function PanelImportacion() {
           )}
 
           {resumen.bloqueo && (
-            <p role="alert" className="mt-4 rounded-xl border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-800">
+            <p role="alert" className="mt-4 rounded-xl border border-error-300 bg-error-50 px-4 py-3 text-sm text-error-800">
               {resumen.bloqueo}
             </p>
           )}
@@ -387,7 +387,7 @@ export default function PanelImportacion() {
               </thead>
               <tbody className="divide-y divide-slate-100">
                 {resumen.filas.map((fila) => (
-                  <tr key={fila.fila} className={fila.activa ? "bg-emerald-50/50" : undefined}>
+                  <tr key={fila.fila} className={fila.activa ? "bg-exito-50/50" : undefined}>
                     <td className="px-3 py-2 tabular-nums text-slate-500">{fila.fila}</td>
                     <td className="px-3 py-2 font-medium text-slate-800">
                       {fila.nombre ?? fila.id}
@@ -398,19 +398,19 @@ export default function PanelImportacion() {
                         {ETIQUETA_VEREDICTO[fila.veredicto]}
                       </span>
                       {fila.activa && (
-                        <span className="ml-1 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-800">
+                        <span className="ml-1 rounded-full bg-exito-100 px-2 py-0.5 text-xs font-semibold text-exito-800">
                           activa
                         </span>
                       )}
                       {fila.activacionBloqueada && (
-                        <span className="ml-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-900">
+                        <span className="ml-1 rounded-full bg-atencion-100 px-2 py-0.5 text-xs font-semibold text-atencion-900">
                           no se activará
                         </span>
                       )}
                     </td>
                     <td className="px-3 py-2 text-slate-600">
                       {fila.errores.length > 0 ? (
-                        <span className="text-red-700">{fila.errores.join(" ")}</span>
+                        <span className="text-error-700">{fila.errores.join(" ")}</span>
                       ) : (
                         <>
                           {fila.cambios.length === 0 ? (
@@ -433,8 +433,8 @@ export default function PanelImportacion() {
                                   key={aviso}
                                   className={
                                     /no responde|no se activará/i.test(aviso)
-                                      ? "text-amber-800"
-                                      : "text-emerald-700"
+                                      ? "text-atencion-800"
+                                      : "text-exito-700"
                                   }
                                 >
                                   {aviso}
@@ -469,16 +469,16 @@ export default function PanelImportacion() {
               </div>
 
               {conActivaciones && (
-                <div className="rounded-2xl border border-emerald-300 bg-emerald-50 p-4">
-                  <h3 className="font-display text-base font-bold text-emerald-900">
+                <div className="rounded-2xl border border-exito-300 bg-exito-50 p-4">
+                  <h3 className="font-display text-base font-bold text-exito-900">
                     {resumen.activaciones} activación(es), aparte
                   </h3>
-                  <p className="mt-1 text-sm text-emerald-900">
+                  <p className="mt-1 text-sm text-exito-900">
                     Activar cambia lo que hace la web pública: a partir de ese momento los botones «Ir al
                     proveedor» de esas herramientas llevan su enlace de afiliada. Por eso no van dentro del
                     botón de arriba.
                   </p>
-                  <ul className="mt-2 list-disc space-y-0.5 pl-5 text-sm text-emerald-900">
+                  <ul className="mt-2 list-disc space-y-0.5 pl-5 text-sm text-exito-900">
                     {resumen.filas
                       .filter((f) => f.activa)
                       .map((f) => (
@@ -489,7 +489,7 @@ export default function PanelImportacion() {
                     type="button"
                     onClick={() => aplicar(true)}
                     disabled={cargando}
-                    className="mt-3 rounded-xl bg-emerald-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-800 disabled:opacity-50"
+                    className="mt-3 rounded-xl bg-exito-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-exito-800 disabled:opacity-50"
                   >
                     Aplicar los cambios y activar {resumen.activaciones}
                   </button>
@@ -509,7 +509,7 @@ export default function PanelImportacion() {
             {resultado.fallidas > 0 && (
               <>
                 {" · "}
-                <strong className="tabular-nums text-red-700">{resultado.fallidas}</strong> fallida(s)
+                <strong className="tabular-nums text-error-700">{resultado.fallidas}</strong> fallida(s)
               </>
             )}
             {resultado.activacionesAplicadas > 0 && (
@@ -518,7 +518,7 @@ export default function PanelImportacion() {
             {resultado.activacionesBloqueadas > 0 && (
               <>
                 {" · "}
-                <span className="text-amber-800">
+                <span className="text-atencion-800">
                   {resultado.activacionesBloqueadas} no activada(s) porque su enlace no responde
                 </span>
               </>
@@ -526,7 +526,7 @@ export default function PanelImportacion() {
             {resultado.activacionesPendientes > 0 && (
               <>
                 {" · "}
-                <span className="text-emerald-800">
+                <span className="text-exito-800">
                   {resultado.activacionesPendientes} activación(es) siguen pendientes de tu confirmación
                 </span>
               </>
@@ -534,7 +534,7 @@ export default function PanelImportacion() {
           </p>
 
           {resultado.resultados.some((r) => !r.ok) && (
-            <ul className="mt-3 space-y-1 rounded-xl border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-800">
+            <ul className="mt-3 space-y-1 rounded-xl border border-error-300 bg-error-50 px-4 py-3 text-sm text-error-800">
               {resultado.resultados
                 .filter((r) => !r.ok)
                 .map((r) => (

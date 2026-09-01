@@ -58,9 +58,9 @@ export default function AvisoEsquema() {
   }
 
   return (
-    <div className="rounded-2xl border border-amber-300 bg-amber-50 p-5">
-      <h2 className="font-display text-lg font-bold text-amber-900">No se ha podido leer la base de datos</h2>
-      <p className="mt-1 text-sm text-amber-900">
+    <div className="rounded-2xl border border-atencion-300 bg-atencion-50 p-5">
+      <h2 className="font-display text-lg font-bold text-atencion-900">No se ha podido leer la base de datos</h2>
+      <p className="mt-1 text-sm text-atencion-900">
         Los datos que ya hubiera siguen guardados; es esta pantalla la que no ha podido leerlos. La causa
         más habitual es que falten las tablas de medición.
       </p>
@@ -68,13 +68,13 @@ export default function AvisoEsquema() {
       {problemas !== null && (
         <div className="mt-4 rounded-xl bg-white/70 p-4">
           {problemas.length === 0 ? (
-            <p className="text-sm font-semibold text-emerald-800">
+            <p className="text-sm font-semibold text-exito-800">
               El esquema está completo. Si esta pantalla sigue vacía, el problema es otro.
             </p>
           ) : (
             <>
-              <p className="text-sm font-semibold text-amber-900">Falta esto:</p>
-              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-amber-900">
+              <p className="text-sm font-semibold text-atencion-900">Falta esto:</p>
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-atencion-900">
                 {problemas.map((p) => (
                   <li key={p}>{p}</li>
                 ))}
@@ -98,7 +98,7 @@ export default function AvisoEsquema() {
       )}
 
       {error && (
-        <p role="alert" className="mt-4 rounded-xl border border-red-300 bg-red-50 px-3 py-2 text-sm text-red-800">
+        <p role="alert" className="mt-4 rounded-xl border border-error-300 bg-error-50 px-3 py-2 text-sm text-error-800">
           {error}
         </p>
       )}
@@ -125,13 +125,13 @@ export default function AvisoEsquema() {
         )}
 
         {hecho && problemas?.length === 0 && (
-          <span role="status" className="text-sm font-semibold text-emerald-700">
+          <span role="status" className="text-sm font-semibold text-exito-700">
             Listo. Recarga la página.
           </span>
         )}
       </div>
 
-      <p className="mt-3 text-xs text-amber-800">
+      <p className="mt-3 text-xs text-atencion-800">
         Solo crea lo que falta. No borra, no vacía y no reescribe ninguna fila, y se puede pulsar las veces
         que haga falta sin efecto añadido.
       </p>

@@ -174,13 +174,13 @@ export default function Home() {
               className="animar-flotar absolute right-0 bottom-[15%] flex items-center gap-2.5 rounded-2xl border border-slate-200/80 bg-white/95 px-4 py-3 shadow-premium-lg backdrop-blur sm:right-4"
               style={{ animationDelay: "1.2s" }}
             >
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-brand-500 to-brand-700 text-white">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 text-white">
                 <Sparkles className="h-4 w-4" aria-hidden="true" />
               </span>
               <div className="text-left">
                 <p className="text-xs font-medium text-slate-400">Recomendación de Molnip</p>
                 <p className="flex items-center gap-1 text-sm font-semibold text-slate-800">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" aria-hidden="true" />
+                  <CheckCircle2 className="h-3.5 w-3.5 text-exito-500" aria-hidden="true" />
                   Encaja con tu empresa
                 </p>
               </div>
@@ -270,7 +270,7 @@ export default function Home() {
           <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-3">
             {DECISION_MOLNIP.map((punto, i) => (
               <RevelarAlScroll key={punto.titulo} retrasoMs={i * 100}>
-                <div className="flex h-full flex-col items-center gap-3 rounded-2xl border border-slate-200/80 bg-white p-6 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-black/[0.02]">
+                <div className="flex h-full flex-col items-center gap-3 rounded-2xl border border-slate-200/80 bg-white p-6 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-contorno">
                   <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-50 to-brand-100 text-brand-600 ring-1 ring-brand-100">
                     <punto.icono className="h-6 w-6" aria-hidden="true" />
                   </span>
@@ -298,7 +298,7 @@ export default function Home() {
           <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {SENALES_DE_CONFIANZA.map((señal, i) => (
               <RevelarAlScroll key={señal.titulo} retrasoMs={i * 100}>
-                <div className="h-full rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-black/[0.02]">
+                <div className="h-full rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-contorno">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-brand-100 text-brand-600 ring-1 ring-brand-100">
                     <señal.icono className="h-5 w-5" aria-hidden="true" />
                   </div>

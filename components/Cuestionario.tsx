@@ -190,7 +190,7 @@ export default function Cuestionario({
       </p>
 
       <form
-        className="relative mt-8 overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-premium ring-1 ring-black/[0.02] sm:p-8"
+        className="relative mt-8 overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-premium ring-1 ring-contorno sm:p-8"
         onSubmit={(e) => {
           e.preventDefault();
           irAlSiguientePaso();
@@ -390,7 +390,7 @@ export default function Cuestionario({
             type="button"
             onClick={volverAtras}
             disabled={paso === 0}
-            className="-ml-2 flex items-center gap-1 rounded-lg px-2 py-1.5 text-sm font-medium text-slate-500 transition hover:bg-slate-100 hover:text-slate-700 disabled:invisible"
+            className="-ml-2 flex items-center gap-1 rounded-xl px-2 py-1.5 text-sm font-medium text-slate-500 transition hover:bg-slate-100 hover:text-slate-700 disabled:invisible"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
             Atrás

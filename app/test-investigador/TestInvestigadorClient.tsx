@@ -75,7 +75,7 @@ export default function TestInvestigadorClient() {
         </Boton>
       </form>
 
-      {error && <p className="mt-6 rounded-xl bg-rose-50 p-4 text-sm text-rose-700">{error}</p>}
+      {error && <p className="mt-6 rounded-xl bg-error-50 p-4 text-sm text-error-700">{error}</p>}
 
       {propuesta && (
         <div className="mt-6 space-y-4 rounded-2xl border border-slate-200 p-6 shadow-premium">
@@ -88,7 +88,7 @@ export default function TestInvestigadorClient() {
 
           {propuesta.advertencias.length > 0 && (
             <div>
-              <h2 className="text-xs font-semibold uppercase tracking-wide text-amber-600">Advertencias</h2>
+              <h2 className="text-xs font-semibold uppercase tracking-wide text-atencion-600">Advertencias</h2>
               <ul className="mt-1 list-inside list-disc text-sm text-slate-700">
                 {propuesta.advertencias.map((a) => (
                   <li key={a}>{a}</li>

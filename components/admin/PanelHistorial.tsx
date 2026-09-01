@@ -177,7 +177,7 @@ export default function PanelHistorial({ eventosIniciales, totalInicial, nombres
         <p
           role="status"
           className={`mt-4 rounded-xl px-4 py-3 text-sm ring-1 ${
-            mensaje.tipo === "ok" ? "bg-emerald-50 text-emerald-800 ring-emerald-200" : "bg-red-50 text-red-800 ring-red-200"
+            mensaje.tipo === "ok" ? "bg-exito-50 text-exito-800 ring-exito-200" : "bg-error-50 text-error-800 ring-error-200"
           }`}
         >
           {mensaje.texto}
@@ -282,7 +282,7 @@ function ApunteHistorial({
               type="button"
               onClick={onRestaurar}
               disabled={cargando}
-              className="rounded-lg bg-brand-600 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-brand-700 disabled:opacity-50"
+              className="rounded-xl bg-brand-600 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-brand-700 disabled:opacity-50"
             >
               {cargando ? "Restaurando…" : "Sí, restaurar"}
             </button>
@@ -290,7 +290,7 @@ function ApunteHistorial({
               type="button"
               onClick={onCancelar}
               disabled={cargando}
-              className="rounded-lg px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-100 disabled:opacity-50"
+              className="rounded-xl px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-100 disabled:opacity-50"
             >
               Cancelar
             </button>
@@ -300,7 +300,7 @@ function ApunteHistorial({
             type="button"
             onClick={onPedirConfirmacion}
             disabled={cargando}
-            className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold text-brand-700 transition hover:bg-brand-50 disabled:opacity-50"
+            className="inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-semibold text-brand-700 transition hover:bg-brand-50 disabled:opacity-50"
           >
             <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />
             Restaurar este valor
@@ -314,7 +314,7 @@ function ApunteHistorial({
 function ValorMostrado({ titulo, texto, tono }: { titulo: string; texto: string; tono: "antes" | "despues" }) {
   const vacio = texto === "(vacío)" || texto === "(ninguno)";
   return (
-    <div className={`rounded-xl px-3 py-2 ${tono === "antes" ? "bg-slate-50" : "bg-emerald-50/60"}`}>
+    <div className={`rounded-xl px-3 py-2 ${tono === "antes" ? "bg-slate-50" : "bg-exito-50/60"}`}>
       <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">{titulo}</p>
       <p className={`mt-0.5 whitespace-pre-wrap break-words text-sm ${vacio ? "italic text-slate-400" : "text-slate-800"}`}>{texto}</p>
     </div>

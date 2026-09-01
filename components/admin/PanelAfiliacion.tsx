@@ -6,6 +6,12 @@ import type { FilaPanelAfiliacion } from "@/agents/atlas-affiliate-manager/panel
 import type { EstadoPanel } from "@/agents/atlas-affiliate-manager/proximaAccion";
 import { enlaceEsUsable, puedeActivarse } from "@/agents/atlas-affiliate-manager/reglasEnlace";
 import { SUGERENCIAS_ATRIBUCION, esAtribucionPermanente } from "@/agents/atlas-affiliate-manager/duracionAtribucion";
+import {
+  AYUDA_ESTADO,
+  COLOR_DIAS_ESTANCADA,
+  COLOR_ESTADO,
+  ETIQUETA_ESTADO,
+} from "./estadosAfiliacion";
 
 /**
  * Panel interno de Affiliate Manager — la única superficie visual sobre
@@ -14,37 +20,6 @@ import { SUGERENCIAS_ATRIBUCION, esAtribucionPermanente } from "@/agents/atlas-a
  * exactamente las mismas funciones puras que el CLI. El panel nunca
  * decide nada por su cuenta que el CLI no pudiera hacer también.
  */
-
-const ETIQUETA_ESTADO: Record<EstadoPanel, string> = {
-  pendiente: "Pendiente",
-  preparada: "Preparada",
-  enviada: "Enviada",
-  aprobada: "Aprobada",
-  activa: "Activa",
-  rechazada: "Rechazada",
-  seguimiento: "Seguimiento",
-};
-
-/** Qué significa cada estado, en la propia pantalla. "Aprobada" y "Activa" se parecen demasiado como para dejarlo a la intuición. */
-const AYUDA_ESTADO: Record<EstadoPanel, string> = {
-  pendiente: "Todavía no se ha solicitado el programa.",
-  preparada: "Hay borrador de solicitud, falta enviarlo.",
-  enviada: "Solicitud enviada, esperando respuesta.",
-  aprobada: "Programa aprobado. El enlace AÚN NO se usa: hay que activarla.",
-  activa: "En uso. Los botones «Ir al proveedor» ya llevan tu enlace.",
-  rechazada: "El programa no la ha aceptado.",
-  seguimiento: "Enviada hace tiempo y sin respuesta.",
-};
-
-const COLOR_ESTADO: Record<EstadoPanel, string> = {
-  pendiente: "bg-slate-100 text-slate-700",
-  preparada: "bg-sky-100 text-sky-700",
-  enviada: "bg-amber-100 text-amber-700",
-  aprobada: "bg-lime-100 text-lime-800",
-  activa: "bg-emerald-100 text-emerald-700",
-  rechazada: "bg-red-100 text-red-700",
-  seguimiento: "bg-orange-100 text-orange-700",
-};
 
 const ESTADOS_AFILIACION_DESTINO: Record<EstadoPanel, string> = {
   // A qué EstadoAfiliacion real (los 5 de producción) traduce elegir cada
@@ -269,7 +244,7 @@ export default function PanelAfiliacion({ filasIniciales }: { filasIniciales: Fi
       </div>
 
       {mensaje && (
-        <p className="mt-3 rounded-xl bg-amber-50 px-4 py-2 text-sm text-amber-800 ring-1 ring-amber-200">{mensaje}</p>
+        <p className="mt-3 rounded-xl bg-atencion-50 px-4 py-2 text-sm text-atencion-800 ring-1 ring-atencion-200">{mensaje}</p>
       )}
 
       <div className="mt-4 overflow-x-auto rounded-2xl border border-slate-200 bg-white">
@@ -347,7 +322,7 @@ function FilaAfiliacion({ fila, onGestionar }: { fila: FilaPanelAfiliacion; onGe
               // Entre "90 días" y algo que no caduca hay una diferencia de
               // negocio grande, y leyendo texto libre a toda velocidad se pasa
               // por alto.
-              <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-semibold text-emerald-700">
+              <span className="rounded-full bg-exito-50 px-2 py-0.5 text-xs font-semibold text-exito-700">
                 {fila.duracionCookie}
               </span>
             ) : (
@@ -373,15 +348,15 @@ function FilaAfiliacion({ fila, onGestionar }: { fila: FilaPanelAfiliacion; onGe
       </td>
       <td className="px-4 py-3 text-slate-600">
         {fila.proximaAccion}
-        {fila.diasEstancada !== null && <span className="ml-1 text-orange-600">({fila.diasEstancada}d)</span>}
+        {fila.diasEstancada !== null && <span className={`ml-1 ${COLOR_DIAS_ESTANCADA}`}>({fila.diasEstancada}d)</span>}
       </td>
       <td className="px-4 py-3 text-slate-600">
         {fila.enlace ? (
           <span className="inline-flex items-center gap-1">
             {fila.enlaceComprobacionOk === false ? (
-              <span title="El último chequeo falló" className="text-red-600">●</span>
+              <span title="El último chequeo falló" className="text-error-600">●</span>
             ) : fila.enlaceComprobacionOk === true ? (
-              <span title="El último chequeo respondió bien" className="text-emerald-600">●</span>
+              <span title="El último chequeo respondió bien" className="text-exito-600">●</span>
             ) : null}
             Guardado
           </span>
@@ -486,7 +461,7 @@ function ModalGestion({
       className="fixed inset-0 z-50 flex items-end justify-center bg-slate-900/40 p-0 sm:items-center sm:p-6"
       onMouseDown={(e) => e.target === e.currentTarget && onCerrar()}
     >
-      <div className="max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-t-3xl bg-white p-5 shadow-xl sm:rounded-3xl sm:p-6">
+      <div className="max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-t-3xl bg-white p-5 shadow-premium-lg sm:rounded-3xl sm:p-6">
         <div className="flex items-start justify-between gap-4">
           <div>
             <h2 className="font-display text-xl font-bold text-slate-900">{fila.nombreHerramienta}</h2>
@@ -519,7 +494,7 @@ function ModalGestion({
               className={`${campo} font-mono`}
             />
             {enlaceMalFormado && (
-              <p role="alert" className="mt-2 rounded-xl border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900">
+              <p role="alert" className="mt-2 rounded-xl border border-atencion-300 bg-atencion-50 px-3 py-2 text-sm text-atencion-900">
                 Esto no parece una dirección completa. Tiene que empezar por{" "}
                 <code className="font-mono font-semibold">https://</code> — al pegar enlaces largos es fácil
                 dejarse las primeras letras, y un enlace así se guardaría sin dar ningún error y sin llevar
@@ -595,7 +570,7 @@ function ModalGestion({
                 ))}
               </div>
               {esAtribucionPermanente(duracionCookie) && (
-                <p className="mt-1.5 text-xs text-emerald-700">
+                <p className="mt-1.5 text-xs text-exito-700">
                   Atribución sin caducidad: la venta se te sigue atribuyendo sin límite de tiempo.
                 </p>
               )}
@@ -621,7 +596,7 @@ function ModalGestion({
             </select>
             <p className="mt-1 text-xs text-slate-500">{AYUDA_ESTADO[estado]}</p>
             {activarBloqueado && (
-              <p role="alert" className="mt-2 rounded-xl border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900">
+              <p role="alert" className="mt-2 rounded-xl border border-atencion-300 bg-atencion-50 px-3 py-2 text-sm text-atencion-900">
                 Para activarla hace falta un enlace: una cuenta activa sin enlace no puede generar comisión.
               </p>
             )}
@@ -699,7 +674,7 @@ function ModalGestion({
             Cancelar
           </button>
           {guardado && !cargando && (
-            <span role="status" className="text-sm font-semibold text-emerald-700">
+            <span role="status" className="text-sm font-semibold text-exito-700">
               Cambios guardados.
             </span>
           )}

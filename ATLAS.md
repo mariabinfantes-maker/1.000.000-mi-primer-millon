@@ -2556,3 +2556,282 @@ administrativa**, sobre estas bases:
 Si algún día esta comprobación se ofrece fuera del panel —en una API pública,
 o disparada por datos que no haya escrito la administradora— **esta aceptación
 deja de valer** y hay que cerrarlo con un cliente HTTP que permita fijar la IP.
+
+---
+
+# MOLNIP VISUAL v1 — referencia oficial y obligatoria
+
+**Aprobada por la propietaria el 2026-08-31.** Auditada sobre el commit
+`54a2998`, leyendo `app/globals.css` y los 74 componentes del proyecto. No
+describe un rediseño: describe el sistema que ya existe en producción, y lo
+fija para que no se deshaga sin que nadie se dé cuenta.
+
+Toda pantalla nueva y todo cambio visual se ajusta a esto. Cuando un cambio
+contradiga una regla congelada, no es la regla la que ha envejecido: ese
+cambio necesita autorización explícita y una línea nueva aquí.
+
+Cada regla sale de contar el código, no de una preferencia. Los recuentos son
+la prueba de que ya se cumplen.
+
+## Color
+
+**Paleta de marca propia, no la de Tailwind.** Índigo-violeta con ancla en
+`--color-brand-600: #6e5fe4`, y una escala neutra («slate») con matiz violeta
+constante que sustituye a la de Tailwind entera, de `#faf9fc` a `#14121f`.
+
+- Fondo `slate-50`, tinta `slate-950`. Nunca blanco puro de página ni negro
+  puro de texto.
+- **Cero grises de Tailwind**: usos de `gray`/`zinc`/`neutral`/`stone` en 74
+  componentes: **0**.
+- **El dorado señala «la opción elegida»**, como mucho una vez por pantalla y
+  nunca decorativo. Comprobado: **9 usos en 5 ficheros** de todo el proyecto.
+- Color por agente: Researcher `#0d9488`, Evaluador `#b45309`, Recomendador
+  `#6e5fe4` — comparte el índigo de marca a propósito, porque de cara al
+  usuario es la voz de Molnip.
+
+### Dos familias de color con significado, y no se mezclan
+
+Molnip tiene **dos** vocabularios de color con significado, y confundirlos ya
+causó un error real: cuatro estados del proceso de afiliación estaban pintados
+con los colores de mensaje —«activa» de `exito`, «rechazada» de `error`— como
+si fueran lo mismo.
+
+No lo son. Un color de **mensaje** habla de lo que acaba de pasar en la
+pantalla y dura un instante. Un color de **estado del proceso** dice en qué
+punto está una afiliación y dura semanas. Si algún día el verde de «guardado»
+cambia, «activa» no tiene por qué cambiar con él.
+
+#### 1. Colores de mensaje (toda la web)
+
+| Significado | Token | Sale de |
+|---|---|---|
+| Éxito — algo salió bien, verificado o completado | `exito-*` | escala de `emerald` |
+| Atención — pide una decisión, pero nada está roto | `atencion-*` | escala de `amber` |
+| Error — algo falló o está bloqueado | `error-*` | escala de `red` |
+| Información — contexto neutro, sin juicio | `info-*` | escala de `sky` |
+
+Escala completa 50-950 en `globals.css`. Se escriben por su nombre
+(`bg-exito-50`, `text-error-700`), nunca por el de Tailwind.
+
+#### 2. Colores de los estados del proceso de afiliación
+
+Nombre funcional, no técnico. Dos tonos por estado, con un trabajo cada uno:
+`fondo` para la píldora y `texto` para lo que va escrito dentro.
+
+| Estado | Qué significa | Tokens | Sale de |
+|---|---|---|---|
+| Pendiente | Todavía no se ha solicitado el programa | `estado-pendiente-fondo` · `-texto` | `slate-100` · `slate-700` |
+| Preparada | Hay borrador de solicitud, falta enviarlo | `estado-preparada-fondo` · `-texto` | `sky-100` · `sky-700` |
+| Enviada | Solicitud enviada, esperando respuesta | `estado-enviada-fondo` · `-texto` | `amber-100` · `amber-700` |
+| Aprobada | El programa la aceptó; el enlace **aún no se usa** | `estado-aprobada-fondo` · `-texto` | `lime-100` · `lime-800` |
+| Activa | En uso: «Ir al proveedor» ya lleva el enlace | `estado-activa-fondo` · `-texto` | `emerald-100` · `emerald-700` |
+| Rechazada | El programa no la ha aceptado | `estado-rechazada-fondo` · `-texto` | `red-100` · `red-700` |
+| Seguimiento | Enviada hace tiempo y sin respuesta | `estado-seguimiento-fondo` · `-texto` · `-nota` | `orange-100` · `orange-700` · `orange-600` |
+
+«Seguimiento» lleva un tercer tono, `-nota`, porque también se escribe suelto
+sobre fondo blanco (los días que lleva estancada, junto a la próxima acción),
+donde el tono de la píldora no tendría contraste suficiente.
+
+**Los siete viven en un solo sitio**: `components/admin/estadosAfiliacion.ts`,
+junto con su nombre y su explicación. Una prueba falla si un token `estado-*`
+aparece en cualquier otro fichero.
+
+#### La regla común
+
+**No se añade un color ni un estado nuevo sin incorporarlo antes a la tabla
+que le corresponda.** Un quinto mensaje empieza por la primera tabla; un
+octavo estado del proceso, por la segunda. Nunca por un componente.
+
+Cada token declarado lleva escrito de qué tono sale (`/* = amber-700 */`), y
+una prueba comprueba que sigue valiendo exactamente eso. Es lo que sostiene la
+promesa de que ponerle nombre a un color no cambió ningún color.
+
+## Tipografía
+
+Tres familias con un trabajo cada una:
+
+| Familia | Papel | Pesos |
+|---|---|---|
+| Bricolage Grotesque | Titulares y logotipo. **Nunca** párrafos ni interfaz | 600, 700, 800 |
+| Manrope | Todo lo demás: párrafos, botones, etiquetas, formularios | 400–800 |
+| IBM Plex Mono | Cifras alineadas, identificadores, enlaces | 500, 600 |
+
+- De `text-3xl` hacia arriba, **siempre** `font-display`. Titulares grandes sin
+  esa familia: **0 de 38**.
+- La interfaz vive en `text-sm` (178 usos) y las etiquetas en `text-xs` (75).
+  El cuerpo grande es la excepción.
+- Peso por defecto de la interfaz: `font-semibold` (150 usos).
+
+## Forma
+
+- Controles `rounded-xl`, superficies que agrupan `rounded-2xl` y
+  `rounded-3xl`, píldoras y avatares `rounded-full`.
+- Una sola excepción, con nombre propio: **`rounded-codigo`** (4px) para los
+  `<code>` en línea dentro de un párrafo. Un chip de una línea con 12px de
+  radio se ve como una cápsula y rompe el renglón. Estaba escrito como
+  `rounded` a secas, sin nombre y sin regla; ahora es parte del vocabulario,
+  con el mismo aspecto exacto.
+- Sombra de marca, no gris: doble capa —contacto más elevación— teñida de
+  índigo. `shadow-premium` 26 usos, `shadow-premium-lg` 22.
+- **Receta única de tarjeta**: `rounded-2xl border border-slate-200/80
+  bg-white`, 30 apariciones literalmente iguales.
+- El hilo que despega las superficies del fondo es `ring-1 ring-contorno`
+  (`--color-contorno`, negro al 2%). Nunca se escribe a mano.
+
+## Botones
+
+Tres variantes y dos tamaños, todos a través del componente `Boton`. No se
+componen a mano con clases sueltas.
+
+| Variante | Cuándo | Receta |
+|---|---|---|
+| Primario | La acción que hace avanzar. Una por pantalla | `bg-brand-600 · text-white · shadow-premium` |
+| Secundario | Alternativa legítima a la principal | `border-brand-200 · bg-white · text-brand-700` |
+| Fantasma | Navegación y salidas, sin peso visual | `text-brand-600 · hover:bg-brand-50` |
+
+Foco de teclado unificado en `globals.css` para `a`, `button`, `[role=tab]` y
+`[tabindex]`: anillo de marca con hueco del color del fondo.
+
+## Cabecera, medidas y responsive
+
+- Cabecera fija arriba, translúcida y desenfocada, con línea inferior
+  `slate-200/80`.
+- Contenido centrado en `max-w-5xl` con `px-4`, que pasa a `px-6` desde `sm`.
+  La prosa larga baja a `max-w-2xl`.
+- **Solo dos puntos de ruptura**: `sm` (640px) y `lg` (1024px). Comprobado:
+  `sm` 140 usos, `lg` 34, `md` **0**, `xl` **0**.
+- En móvil las etiquetas largas se acortan; no se recortan con puntos
+  suspensivos ni se dejan desbordar.
+- Toda tabla ancha se desplaza dentro de su contenedor. El cuerpo de la página
+  **nunca** se desplaza en horizontal.
+
+## Imágenes y movimiento
+
+- Cada imagen declara `width` y `height` explícitos; no se usa `fill`.
+  **17 de 17**. Sin medidas, el diseño salta al cargar.
+- Solo la imagen del primer pliegue lleva `priority`: **1 uso** en todo el
+  proyecto.
+- Tres animaciones y ninguna más: entrada en cascada, flotación suave y anillo
+  de puntuación. Curva común `cubic-bezier(.16,1,.3,1)`.
+- Con `prefers-reduced-motion` las tres se apagan. Una animación nueva entra
+  también en ese bloque.
+
+## Tema: solo claro (decisión de la propietaria)
+
+**Molnip tendrá únicamente tema claro en esta etapa.** La ausencia de modo
+oscuro es una decisión consciente, no un olvido.
+
+Estado comprobado: clases `dark:` en el proyecto **0**, y ninguna regla
+`prefers-color-scheme` en `globals.css`. Queda así registrado para que nadie
+lo tome por un descuido y lo «arregle» a medias: añadir modo oscuro obligaría
+a rehacer la escala neutra completa y sería un sprint entero, no un retoque.
+
+## Las cinco líneas congeladas
+
+No se cruzan sin autorización expresa:
+
+1. **La paleta**: el índigo propio, la neutra violeta y el dorado de «opción
+   elegida». Ningún color de marca nuevo.
+2. **Las tres familias tipográficas y sus papeles.** Display solo en titulares.
+3. **Los dos puntos de ruptura**, `sm` y `lg`.
+4. **Las tres variantes de botón**, todas a través del componente `Boton`.
+5. **La receta única de tarjeta** y el foco de teclado unificado.
+
+Todo lo demás —tamaños concretos, huecos, disposiciones— es criterio dentro
+del sistema, no una decisión nueva.
+
+## Las cuatro correcciones — aplicadas el 2026-08-31
+
+Autorizadas como sprint propio y pequeño, sin rediseñar pantallas ni tocar
+ninguna regla congelada.
+
+| # | Qué era | Qué es ahora | Cuánto se ve |
+|---|---|---|---|
+| 1 | `rounded-lg` en 6 controles, frente a 79 `rounded-xl` | `rounded-xl` | Radio de 8px a 12px en 6 elementos pequeños |
+| 2 | `ring-1 ring-black/[0.02]` copiado 26 veces, una de ellas desviada a `[0.03]` | `ring-1 ring-contorno` | Nada, salvo la copia desviada: pasa de 3% a 2% de negro |
+| 3 | `shadow-xl` en el modal «Gestionar» | `shadow-premium-lg` | El halo del modal deja de ser gris y pasa al índigo de marca |
+| 4 | emerald/amber/red/sky escritos a pelo en 118 sitios | `exito`/`atencion`/`error`/`info` | Nada: mismos valores exactos |
+| 4b | Los 7 estados del proceso, con clases sueltas y repartidas | `estado-*`, centralizados en un módulo | Nada: mismos valores exactos |
+
+**Rectificación sobre el punto 3.** La tabla anterior decía «`shadow-xl` y
+`shadow-2xl`, 1 uso cada una». Era un error de la auditoría: no existe ninguna
+`shadow-2xl` en el proyecto. Lo que hay es `drop-shadow-2xl` en la fotografía
+de la portada, que es un filtro sobre una imagen, no una sombra de caja, y ahí
+está bien puesto. No se ha tocado.
+
+### Cómo se comprobó que no cambió nada más
+
+Se levantaron las dos versiones a la vez —producción (`54a2998`) y la
+corregida— y se compararon en un navegador real, en escritorio (1280px) y en
+móvil (Pixel 5):
+
+- **5.434 elementos** comparados por estilo calculado en 14 pantallas más el
+  modal, en escritorio y en móvil. Difieren 274, y cada uno por una de las
+  correcciones: 183 son la «X» de «Desventajas» (solo `color`, y lo que
+  hereda de él en el SVG); 18, el radio de 8px a 12px; 67, el anillo (mismo
+  color, otra notación del navegador); 1, el anillo desviado del 3% al 2%; 1,
+  la sombra del modal. **Ninguna propiedad de tamaño ni de posición cambió en
+  ningún elemento.**
+- **32 capturas** comparadas píxel a píxel. 14 idénticas; el resto solo
+  cambia en las zonas de esas cuatro correcciones. Dos capturas de la misma
+  versión dan 0 píxeles de diferencia, así que el método no tiene ruido.
+- Cada línea modificada de los 27 componentes se reprodujo a partir de la
+  versión antigua aplicando solo los renombrados: **ninguna línea cambió por
+  otro motivo**.
+- 948 pruebas unitarias y 53 de navegador (escritorio y móvil) en verde.
+
+### Las dos pruebas que impiden la reincidencia
+
+`components/__tests__/vocabularioVisual.test.ts`:
+
+- **Radios**: falla si aparece un radio que no sea `xl`, `2xl`, `3xl` o
+  `full` (con cualquier lado).
+- **Colores**: falla si aparece un color con escala numérica que
+  `globals.css` no declare. No lleva lista de colores prohibidos: lee los que
+  el sistema declara. Para usar un color nuevo hay que empezar por definirlo,
+  que es justo el paso que obliga a decidir qué significa.
+- **Equivalencias**: cada token dice de qué tono sale; falla si el valor deja
+  de coincidir con ese tono. Es lo que impide que alguien cambie un color
+  «sin querer» al editar el sistema.
+- **Estados del proceso**: falla si un token `estado-*` aparece fuera del
+  módulo central, si un estado no tiene su par de tonos declarado, o si el
+  módulo tiene un estado de más o de menos frente a los siete de la tabla.
+
+### Lo que las pruebas destaparon: cerrado del todo
+
+La auditoría contó los `rounded-lg` pero no el `rounded` a secas, y contó
+emerald/amber/red/sky pero no rose, lime ni orange. Cada hallazgo se resolvió
+**por su significado**, uno a uno, nunca en bloque.
+
+| Dónde | Qué era | Qué es | ¿Cambia el tono? |
+|---|---|---|---|
+| `PanelAfiliacion.tsx` | `lime` para «aprobada», `orange` para «seguimiento» y para los días estancada | Tokens `estado-*` con nombre funcional | No |
+| `cookies`, `DocumentoLegal` | `rounded` a secas en `<code>` en línea | `rounded-codigo`, en el vocabulario | No |
+| `FormularioSuscripcion` | `rose-600` en el aviso de error | `error-600` | Sí — es un error de verdad |
+| `test-imagen`, `test-investigador` | `rose-50/700` en el mensaje de error | `error-50/700` | Sí — son errores de verdad |
+| `TarjetaHerramientaRecomendada`, ficha de herramienta | `rose-400` en la «X» de «Desventajas» | `error-400` | Sí — `#ff637e` → `#ff6467` |
+
+**No queda ninguna desviación.** Las dos listas de excepciones de la prueba
+están vacías, y una comprobación nueva falla si alguien vuelve a llenarlas:
+ya no son un sitio donde apuntar una excepción para que las demás pruebas
+pasen, son la afirmación de que no hay ninguna.
+
+#### Sobre la «X» de «Desventajas»
+
+Conviene dejar escrito qué es, porque su nombre engaña: **no es un botón de
+cerrar**. Es un icono decorativo (`aria-hidden`) que marca cada línea de la
+lista «Desventajas», emparejado con el `Check` verde que marca cada línea de
+«Ventajas». Es la mitad de un par ventaja/desventaja.
+
+Se decidió unificarla con `error-400` en vez de apagarla a un gris neutro —
+que habría roto el par, dejando un lado marcado con color y el otro no— y en
+vez de darle un token propio con el valor de hoy, que habría sido crear un
+segundo rojo de marca. Cambia el tono: `#ff637e` → `#ff6467`. Se mantienen su
+función, su tamaño (`h-3.5 w-3.5`) y su sitio.
+
+## Dónde vive la referencia visual
+
+La versión ilustrada —con las rampas de color, los especímenes tipográficos y
+los botones reales— está publicada como página aparte y se construye con el
+propio sistema que documenta, de modo que si algo del sistema está mal, se ve
+en la propia página.

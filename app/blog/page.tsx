@@ -44,7 +44,7 @@ export default function BlogIndexPage() {
             <Link
               key={post.id}
               href={`/blog/${post.id}`}
-              className="group rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-black/[0.02] transition hover:-translate-y-0.5 hover:shadow-premium"
+              className="group rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-contorno transition hover:-translate-y-0.5 hover:shadow-premium"
             >
               <p className="text-xs font-medium text-slate-400">{formatearFecha(post.fechaPublicacion)}</p>
               <h2 className="mt-1.5 font-display text-xl font-semibold text-slate-900 group-hover:text-brand-700">

@@ -39,7 +39,7 @@ export default function AtlasTrabajando({
 
   return (
     <div className="mx-auto max-w-xl px-4 py-16 sm:px-6 sm:py-24">
-      <div className="relative flex flex-col items-center overflow-hidden rounded-3xl border border-slate-200/80 bg-white px-6 py-12 text-center shadow-premium-lg ring-1 ring-black/[0.02] sm:px-10">
+      <div className="relative flex flex-col items-center overflow-hidden rounded-3xl border border-slate-200/80 bg-white px-6 py-12 text-center shadow-premium-lg ring-1 ring-contorno sm:px-10">
         <div className="fondo-puntos pointer-events-none absolute inset-0" aria-hidden="true" />
         <div className="pointer-events-none absolute -top-14 -right-14 h-52 w-52 opacity-[0.15]" aria-hidden="true">
           <Image

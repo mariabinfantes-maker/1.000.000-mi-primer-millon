@@ -31,7 +31,7 @@ export default function NavegacionAdmin() {
             key={seccion.href}
             href={seccion.href}
             aria-current={activa ? "page" : undefined}
-            className={`rounded-lg px-3 py-1.5 text-sm font-semibold transition ${
+            className={`rounded-xl px-3 py-1.5 text-sm font-semibold transition ${
               activa ? "bg-slate-100 text-slate-900" : "text-slate-500 hover:bg-slate-50 hover:text-slate-700"
             }`}
           >

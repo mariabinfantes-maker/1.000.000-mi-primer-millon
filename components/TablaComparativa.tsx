@@ -38,7 +38,7 @@ export default function TablaComparativa({
           return (
             <div
               key={evaluada.herramienta.id}
-              className="flex flex-col items-center gap-3 rounded-2xl border border-slate-200/80 bg-white p-4 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-black/[0.02]"
+              className="flex flex-col items-center gap-3 rounded-2xl border border-slate-200/80 bg-white p-4 text-center shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-contorno"
             >
               {puntuacion && <AnilloPuntuacion puntuacion={puntuacion.puntuacion} />}
               <span className="font-display text-sm font-bold text-slate-900">{evaluada.herramienta.nombre}</span>
@@ -56,7 +56,7 @@ export default function TablaComparativa({
       </div>
 
       {filas.length === 0 ? (
-        <p className="mt-10 rounded-2xl border border-slate-200/80 bg-white p-6 text-sm leading-relaxed text-slate-600 shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-black/[0.02]">
+        <p className="mt-10 rounded-2xl border border-slate-200/80 bg-white p-6 text-sm leading-relaxed text-slate-600 shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-contorno">
           Estas opciones están muy igualadas: no hay diferencias claras entre ellas en los criterios que
           evaluamos.
         </p>
@@ -65,7 +65,7 @@ export default function TablaComparativa({
           {filas.map((fila) => (
             <div
               key={fila.criterio}
-              className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-black/[0.02]"
+              className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-contorno"
             >
               <h3 className="text-sm font-semibold text-slate-900">{fila.etiqueta}</h3>
               <p className="mt-0.5 text-xs text-slate-500">{fila.explicacionCriterio}</p>

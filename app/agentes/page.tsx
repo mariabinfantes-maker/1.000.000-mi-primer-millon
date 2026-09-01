@@ -67,7 +67,7 @@ export default function AgentesPage() {
       <div className="mt-10 space-y-6">
         {AGENTES.map((agente, i) => (
           <RevelarAlScroll key={agente.id} retrasoMs={i * 100}>
-            <div className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-black/[0.02] sm:p-8">
+            <div className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04)] ring-1 ring-contorno sm:p-8">
               <div className="flex items-center gap-4">
                 <AvatarAgente id={agente.id} tamano="grande" />
                 <div>
@@ -79,10 +79,10 @@ export default function AgentesPage() {
               <p className="mt-4 text-sm leading-relaxed text-slate-700">{agente.queHace}</p>
 
               <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                <div className="flex items-start gap-2 rounded-xl bg-emerald-50/60 p-3">
-                  <Eye className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" aria-hidden="true" />
+                <div className="flex items-start gap-2 rounded-xl bg-exito-50/60 p-3">
+                  <Eye className="mt-0.5 h-4 w-4 shrink-0 text-exito-600" aria-hidden="true" />
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-emerald-700">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-exito-700">
                       Datos públicos
                     </p>
                     <p className="mt-0.5 text-sm text-slate-600">{agente.datosPublicos}</p>
