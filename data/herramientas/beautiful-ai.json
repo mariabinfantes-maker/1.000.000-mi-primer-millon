@@ -124,8 +124,12 @@
     ],
     "tipoNegocioIdeal": "Equipos comerciales y de dirección que presentan a menudo y no tienen diseñador",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 0,
-    "motivosPuntuacion": []
+    "puntuacion": 83,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 7.7/10.",
+      "G2: 4.7/5 (195 reseñas).",
+      "Capterra: 4.2/5 (85 reseñas)."
+    ]
   },
   "id": "beautiful-ai",
   "estado": "activo",

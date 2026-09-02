@@ -125,8 +125,15 @@
     ],
     "tipoNegocioIdeal": "Pymes y autónomos que producen material visual con frecuencia y trabajan en español",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 0,
-    "motivosPuntuacion": []
+    "puntuacion": 98,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.8/10.",
+      "G2: 4.7/5 (6833 reseñas).",
+      "Capterra: 4.7/5 (12977 reseñas).",
+      "Tiene plan gratuito.",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
   },
   "id": "canva",
   "estado": "activo",
