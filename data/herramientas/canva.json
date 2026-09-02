@@ -1,0 +1,135 @@
+{
+  "nombre": "Canva",
+  "paginaOficial": "https://www.canva.com",
+  "urlPrecios": "https://www.canva.com/pricing",
+  "logoUrl": "",
+  "categoriaId": "asistentes-ia",
+  "subtipoId": "presentaciones",
+  "tipoProducto": "especializada",
+  "problemasIds": [
+    "ahorrar-tiempo"
+  ],
+  "descripcion": "Canva es una plataforma de diseño en línea cuyo conjunto de funciones de inteligencia artificial, agrupado bajo el nombre Magic Studio, genera presentaciones completas a partir de una instrucción de texto: estructura, contenido, imágenes y diseño visual. Incluye además Magic Write para redacción, Dream Lab para generación de imágenes y traducción del contenido de un diseño a más de 100 idiomas conservando la maquetación.",
+  "informacionEmpresa": {
+    "anioFundacion": 2013,
+    "paisOrigen": "Australia",
+    "tamanoAproximado": "más de 4.000 empleados"
+  },
+  "problemasQueResuelve": [
+    "Necesidad de producir presentaciones y material gráfico con buen aspecto sin contratar diseño externo.",
+    "Tiempo perdido partiendo de una diapositiva en blanco cada vez que hay que presentar algo.",
+    "Adaptar el mismo material a varios idiomas o formatos sin rehacerlo desde cero."
+  ],
+  "casosDeUso": [
+    "Generar el primer borrador completo de una presentación comercial a partir de una instrucción de texto.",
+    "Mantener una plantilla de marca compartida para que todo el equipo produzca material coherente.",
+    "Traducir una presentación al inglés o al portugués conservando el diseño original.",
+    "Reutilizar el mismo contenido como presentación, documento y publicación para redes."
+  ],
+  "idealPara": "Pequeñas empresas y autónomos que necesitan producir presentaciones y material visual con frecuencia, en español, y sin conocimientos de diseño ni presupuesto para una agencia.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "Marketing y Agencias Creativas",
+    "Educación y Formación",
+    "Comercio y Retail",
+    "Servicios Profesionales",
+    "Startups"
+  ],
+  "noRecomendadaPara": "Equipos que necesiten un motor de maquetación que garantice por sí solo la coherencia visual, o control tipográfico de nivel profesional.",
+  "casosNoRecomendados": [
+    "Diseño editorial o de marca de nivel profesional, donde hace falta software especializado.",
+    "Equipos que quieran que el diseño se corrija solo al editar el contenido: eso es lo que hace Beautiful.ai con Smart Slides."
+  ],
+  "funcionesPrincipales": [
+    "Magic Design: presentación completa generada a partir de una instrucción de texto",
+    "Magic Write: redacción y reescritura de textos con IA",
+    "Dream Lab: generación de imágenes con IA",
+    "Traducción del contenido de un diseño a más de 100 idiomas manteniendo la maquetación",
+    "Kit de marca con logotipos, colores y tipografías bloqueados para el equipo",
+    "Exportación a PowerPoint, PDF, vídeo e imagen"
+  ],
+  "integraciones": [
+    "Google Drive",
+    "Dropbox",
+    "Slack",
+    "HubSpot",
+    "Mailchimp",
+    "PowerPoint",
+    "API Connect"
+  ],
+  "integracionesPrincipales": [
+    "Google Drive",
+    "Slack",
+    "PowerPoint",
+    "API Connect"
+  ],
+  "curvaDeAprendizaje": "muy_facil",
+  "precioInicial": "Gratis, con un número limitado de generaciones de IA al mes. El plan Pro se sitúa entre 15$ y 18$/mes según la fuente y la región consultada.",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": true,
+  "precioRecomendadoPymes": "Plan Pro (entre 15$ y 18$/mes según región) para uso individual, o Canva Teams (entre 20$ y 25$/usuario/mes) cuando hace falta kit de marca compartido. Conviene confirmar el precio vigente en canva.com/pricing antes de contratar, porque varía por región.",
+  "idiomasDisponibles": [
+    "Español",
+    "Inglés",
+    "Francés",
+    "Alemán",
+    "Italiano",
+    "Portugués",
+    "Y más de 90 idiomas adicionales"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 10,
+    "calidad": 9,
+    "fiabilidad": 9,
+    "atencionAlCliente": 7,
+    "escalabilidad": 8,
+    "nivelTecnicoRequerido": 1,
+    "facilidadImplementacion": 10
+  },
+  "metodologiaValoracion": "Puntuaciones calculadas a partir de las valoraciones verificadas en G2 (4,7/5 sobre 6.833 reseñas) y Capterra (4,7/5 sobre unas 12.977 reseñas), y del análisis de la documentación oficial de Magic Studio, precios e idiomas. La atención al cliente se puntúa por debajo del resto por tratarse de un producto masivo con soporte mayoritariamente autoservicio.",
+  "reputacion": {
+    "g2Puntuacion": 4.7,
+    "g2NumeroResenas": 6833,
+    "capterraPuntuacion": 4.7,
+    "capterraNumeroResenas": 12977
+  },
+  "ventajas": [
+    "Plan gratuito muy completo y disponibilidad total en español, incluida la interfaz.",
+    "Base de reseñas verificadas enorme (casi 20.000 entre G2 y Capterra): producto maduro y contrastado.",
+    "Cubre presentación, documento, vídeo e imagen en la misma herramienta, sin cambiar de aplicación.",
+    "Traduce el contenido de un diseño a más de 100 idiomas conservando la maquetación."
+  ],
+  "inconvenientes": [
+    "El precio del plan Pro varía por región y ha subido en los últimos años, así que conviene confirmarlo antes de contratar.",
+    "El plan gratuito limita las generaciones de IA a unas pocas al mes.",
+    "Al no imponer un sistema de maquetación, es posible producir presentaciones descuidadas si nadie cuida el criterio visual."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Gamma",
+      "Beautiful.ai",
+      "Pitch",
+      "Microsoft PowerPoint"
+    ],
+    "tipoNegocioIdeal": "Pymes y autónomos que producen material visual con frecuencia y trabajan en español",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 0,
+    "motivosPuntuacion": []
+  },
+  "id": "canva",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-02",
+  "fechaUltimaRevision": "2026-09-02"
+}

@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "HeyGen Affiliate Program",
+  "affiliatePlatform": "Por determinar",
+  "affiliateUrl": "https://www.heygen.com/affiliate",
+  "commission": "Comisión recurrente sobre las suscripciones referidas; las fuentes públicas consultadas difieren entre el 20%, el 25% y el 35%, con distintas duraciones.",
+  "cookieDuration": "Entre 30 y 60 días según la fuente consultada",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "medium",
+  "source": "https://www.heygen.com/affiliate",
+  "herramientaId": "heygen",
+  "lastAffiliateCheck": "2026-09-02"
+}

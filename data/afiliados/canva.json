@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Canva Affiliate Program (Empower Canvassador)",
+  "affiliatePlatform": "Impact",
+  "affiliateUrl": "https://www.canva.com/affiliates/",
+  "commission": "Pago único por suscripción de pago captada: aproximadamente entre 29,85$ y 36$ por una suscripción anual de Canva Pro, y en torno a 10$ por pago en los dos primeros ciclos de las mensuales. No se paga por altas en el plan gratuito.",
+  "cookieDuration": "30 días",
+  "approvalRequired": true,
+  "payoutMethod": "Impact (transferencia y PayPal)",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "medium",
+  "source": "https://www.canva.com/affiliates/",
+  "herramientaId": "canva",
+  "lastAffiliateCheck": "2026-09-02"
+}

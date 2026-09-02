@@ -398,5 +398,65 @@
     "estadoAfiliacion": "confirmada",
     "observaciones": "Auto-aprobado: cumple política delegada por el CEO (2026-08-21) — gate de calidad ok, afiliación confirmada confianza alta, sin avisos de Curator.",
     "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-02T06:44:57.415Z",
+    "herramientaId": "heygen",
+    "nombreHerramienta": "HeyGen",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 96,
+    "estadoAfiliacion": "pendiente_de_verificar",
+    "observaciones": "Aprobado por la propietaria el 2026-09-02 para cerrar el subtipo video de asistentes-ia, que devolvia solo 2 alternativas. Competidor directo ya identificado en la ficha de Synthesia.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-02T06:45:13.146Z",
+    "herramientaId": "todoist",
+    "nombreHerramienta": "Todoist",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 94,
+    "estadoAfiliacion": "pendiente_de_verificar",
+    "observaciones": "Aprobado por la propietaria el 2026-09-02 para cerrar el subtipo agenda-planificacion. Competidor directo ya identificado en la ficha de Motion. Se eligio frente a Clockwise (cerrado en abril de 2026) y frente a Sunsama y Morgen por su base de resenas verificadas muy superior.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-02T06:45:32.700Z",
+    "herramientaId": "beautiful-ai",
+    "nombreHerramienta": "Beautiful.ai",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 83,
+    "estadoAfiliacion": "pendiente_de_verificar",
+    "observaciones": "Aprobado por la propietaria el 2026-09-02 para cerrar el subtipo presentaciones. Competidor directo ya identificado en la ficha de Gamma. Aporta el enfoque complementario: automatiza el diseno en vez de generar el contenido.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-02T06:45:48.823Z",
+    "herramientaId": "canva",
+    "nombreHerramienta": "Canva",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 98,
+    "estadoAfiliacion": "pendiente_de_verificar",
+    "observaciones": "Aprobado por la propietaria el 2026-09-02 para cerrar el subtipo presentaciones. Elegida frente a Pitch por decision expresa de la propietaria: mas util, accesible y adecuada para una pyme espanola (plan gratuito e interfaz en espanol). Competidora directa ya identificada en la ficha de Gamma.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-02T06:46:05.668Z",
+    "herramientaId": "taskade",
+    "nombreHerramienta": "Taskade",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 92,
+    "estadoAfiliacion": "pendiente_de_verificar",
+    "observaciones": "Aprobado por la propietaria el 2026-09-02 para cerrar el subtipo espacio-trabajo. Aporta agentes de IA que ejecutan tareas y el coste de entrada mas bajo del subtipo. Se incorpora tras descartar Microsoft 365 Copilot y Coda por incumplir la regla obligatoria de programa de afiliados fiable.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-02T06:46:25.262Z",
+    "herramientaId": "clickup-brain",
+    "nombreHerramienta": "ClickUp Brain",
+    "resultado": "aceptada",
+    "puntuacionMolnip": 91,
+    "estadoAfiliacion": "pendiente_de_verificar",
+    "observaciones": "Aprobado por la propietaria el 2026-09-02 para cerrar el subtipo espacio-trabajo. La propietaria autoriza ademas la anulacion justificada del aviso de casi-duplicado con ClickUp: mismo proveedor y dominio, pero producto de IA diferenciado y de pago separado, siguiendo el criterio ya aplicado a otros productos distintos del mismo proveedor (Zoho CRM frente a Zoho One) y el precedente de Notion AI. Aviso de Curator anulado explícitamente: \"ClickUp Brain\" y \"ClickUp\" comparten el mismo dominio (clickup.com) en su página oficial. Justificación: Anulacion autorizada expresamente por la propietaria el 2026-09-02. ClickUp Brain comparte proveedor y dominio con ClickUp, pero se incorpora como producto de IA diferenciado: es un complemento de pago separado (9 dolares/usuario/mes sobre un plan de pago de ClickUp), con su propia pagina de producto y su propio ambito de uso. Mismo criterio ya aplicado a otros productos distintos del mismo proveedor (Zoho CRM frente a Zoho One) y mismo precedente que Notion AI, que tiene ficha propia sin que Notion este en el catalogo.",
+    "aprobacionCeo": true
   }
 ]

@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Beautiful.ai Affiliate Program",
+  "affiliatePlatform": "Por determinar",
+  "affiliateUrl": "https://www.beautiful.ai/affiliate-program-terms-of-service",
+  "commission": "Entre el 15% y el 30% según fuente y tipo de plan: 15% en suscripciones mensuales y hasta 20-30% en anuales.",
+  "cookieDuration": "Por determinar",
+  "approvalRequired": true,
+  "payoutMethod": "Por determinar",
+  "payoutFrequency": "Por determinar",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "medium",
+  "source": "https://www.beautiful.ai/affiliate-program-terms-of-service",
+  "herramientaId": "beautiful-ai",
+  "lastAffiliateCheck": "2026-09-02"
+}

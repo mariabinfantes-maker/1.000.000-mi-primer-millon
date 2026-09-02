@@ -114,7 +114,7 @@
     "competidoresDirectos": [
       "Reclaim.ai",
       "Sunsama",
-      "Clockwise",
+      "Morgen",
       "Todoist"
     ],
     "tipoNegocioIdeal": "Startups, agencias y profesionales independientes",
@@ -131,7 +131,7 @@
   "id": "motion",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-04",
-  "fechaUltimaRevision": "2026-08-05",
+  "fechaUltimaRevision": "2026-09-02",
   "problemasIds": [
     "ahorrar-tiempo"
   ],
