@@ -6,11 +6,12 @@ import { preguntaParaAmbito } from "@/agents/atlas-advisor/preguntasDiferenciaci
 import Image from "next/image";
 import { ArrowLeft, Check } from "lucide-react";
 import { RANGOS_EMPLEADOS, type RangoEmpleados } from "@/lib/cuestionario";
-import type { RespuestasUsuario } from "@/agents/atlas-advisor";
+import type { MotivoSinRecomendacion, RespuestasUsuario } from "@/agents/atlas-advisor";
 import { PREGUNTA_HERRAMIENTA_GENERICA, type OrigenDiagnostico } from "@/lib/origenDiagnostico";
 import IconoOrigen from "@/components/ui/IconoOrigen";
 import Boton from "@/components/ui/Boton";
 import AtlasTrabajando from "@/components/AtlasTrabajando";
+import SinRecomendacion from "@/components/SinRecomendacion";
 
 type PreferenciaSuite = "todo_en_uno" | "especializada" | "sin_preferencia";
 
@@ -74,6 +75,8 @@ export default function Cuestionario({
   const [analizando, setAnalizando] = useState(false);
   const [progreso, setProgreso] = useState(0);
   const [totalHerramientas, setTotalHerramientas] = useState<number | null>(null);
+  /** Cuando el motor decide no recomendar, esto sustituye a la navegación al resultado. */
+  const [sinRecomendacion, setSinRecomendacion] = useState<MotivoSinRecomendacion | null>(null);
 
   const puedeAvanzar =
     (mostrarPreguntaSuite && paso === PASO_SUITE && preferenciaSuite !== null) ||
@@ -133,11 +136,23 @@ export default function Cuestionario({
     })
       .then((respuesta) => {
         if (!respuesta.ok) throw new Error("La API de recomendaciones respondió con un error.");
-        return respuesta.json() as Promise<{ token: string; totalEvaluadas: number }>;
+        return respuesta.json() as Promise<{
+          token?: string;
+          totalEvaluadas?: number;
+          sinRecomendacion?: MotivoSinRecomendacion;
+        }>;
       })
-      .then(({ token, totalEvaluadas }) => {
+      .then(({ token, totalEvaluadas, sinRecomendacion }) => {
         setProgreso(100);
-        setTotalHerramientas(totalEvaluadas);
+        // El motor ha decidido no recomendar. No hay token ni página de
+        // resultado que visitar: se cuenta aquí mismo, sin navegar.
+        if (sinRecomendacion || !token) {
+          setTimeout(() => {
+            setSinRecomendacion(sinRecomendacion ?? { tipo: "necesidad_no_entendida" });
+          }, 400);
+          return;
+        }
+        setTotalHerramientas(totalEvaluadas ?? 0);
         setTimeout(() => {
           router.push(`/resultado/${token}`);
         }, 500);
@@ -157,6 +172,13 @@ export default function Cuestionario({
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [analizando]);
+
+  // Molnip ha decidido no recomendar: se cuenta en vez de enseñar
+  // cualquier cosa. Va antes que `analizando` porque este estado sustituye
+  // por completo a la pantalla de trabajo.
+  if (sinRecomendacion) {
+    return <SinRecomendacion motivo={sinRecomendacion} />;
+  }
 
   if (analizando) {
     return <AtlasTrabajando progreso={progreso} totalHerramientas={totalHerramientas} />;

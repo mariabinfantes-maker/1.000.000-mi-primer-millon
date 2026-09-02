@@ -75,6 +75,15 @@ export async function POST(request: Request) {
 
   const resultado = recomendarHerramientas(respuestas, getHerramientas());
 
+  // El motor puede decidir que no hay nada que recomendar — porque no se
+  // entendió la necesidad, o porque el catálogo no la cubre. En ese caso no
+  // se genera token ni página de resultado: se devuelve el motivo para que
+  // el cuestionario lo cuente tal cual. Es un 200, no un error: el sistema
+  // ha funcionado correctamente, la respuesta correcta es "no lo sé".
+  if (resultado.sinRecomendacion) {
+    return NextResponse.json({ sinRecomendacion: resultado.sinRecomendacion });
+  }
+
   let top: HerramientaEvaluada[] = resultado.top;
   if (IA_ACTIVA) {
     top = await personalizarRecomendaciones(resultado.top, respuestas, crearProveedorGemini());

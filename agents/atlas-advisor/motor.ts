@@ -8,6 +8,7 @@ import type {
   ComparativaDeRutas,
   DetalleCriterio,
   HerramientaEvaluada,
+  MotivoSinRecomendacion,
   ResultadoRecomendacion,
   RespuestasUsuario,
 } from "./tipos";
@@ -163,18 +164,33 @@ export function evaluarHerramienta(
  *     hay herramientas de ese tipo para su situación), se ignora en vez de
  *     devolver una lista vacía por una preferencia que no era la pregunta
  *     principal del usuario.
- *  3. `problemaIdsCandidatos` — más blando: puede venir de una elección
- *     explícita ("por objetivo", un solo id) o de una detección por texto
- *     libre ("Cuéntanoslo", posibles varios ids empatados) — así que si el
- *     catálogo no tiene ninguna herramienta con ese `problemasIds` todavía
- *     (hueco editorial, no elección del usuario), se ignora el filtro en
- *     vez de dejar al usuario sin recomendación.
+ *  3. `problemaIdsCandidatos` — puede venir de una elección explícita ("por
+ *     objetivo", un solo id) o de una detección por texto libre
+ *     ("Cuéntanoslo", posibles varios ids empatados). Sin `categoriaId`, es
+ *     lo ÚNICO que dice qué necesita la persona.
  *
  * Sin elección explícita de tipo de suite, `criterioTipoSuite` (en
  * `criterios.ts`) usa las mismas señales pero como PUNTUACIÓN, no como
  * filtro — ahí sí hay que "adivinar", así que no se excluye nada.
+ *
+ * ── Lo que esta función ya NO hace ─────────────────────────────────────
+ *
+ * Hasta el 2026-09-02 terminaba con `return universo`: sin categoría y sin
+ * objetivo, o con un objetivo que el catálogo no cubría, devolvía las 62
+ * herramientas "para no dejar al usuario sin recomendación". El coste real
+ * se midió con una frase corriente —"soy peluquera y estoy perdiendo
+ * citas"—: no se entendía nada, se puntuaban las 62, y ganaba Grammarly
+ * por encajar en tamaño, precio, facilidad e idioma. Ninguno de los siete
+ * criterios pregunta si la herramienta sirve para lo que se necesita, así
+ * que sin filtro previo la puntuación no protege de nada.
+ *
+ * Ahora devuelve `sinRecomendacion` y el motor se para. Preferir una
+ * respuesta mala a ninguna era la decisión equivocada: la respuesta mala
+ * se paga en confianza, y la confianza es el producto.
  */
-function seleccionarCandidatas(herramientas: Herramienta[], respuestas: RespuestasUsuario): Herramienta[] {
+type Seleccion = { candidatas: Herramienta[]; sinRecomendacion?: MotivoSinRecomendacion };
+
+function seleccionarCandidatas(herramientas: Herramienta[], respuestas: RespuestasUsuario): Seleccion {
   if (respuestas.categoriaId) {
     const deLaCategoria = herramientas.filter((herramienta) => cubreCategoria(herramienta, respuestas.categoriaId!));
     // Si la persona ha concretado qué tipo de herramienta busca, lo demás
@@ -195,8 +211,17 @@ function seleccionarCandidatas(herramientas: Herramienta[], respuestas: Respuest
     // ganadora es promocionada": salía ganando una herramienta que ni
     // siquiera declaraba la capacidad pedida.
     const pregunta = preguntaParaAmbito(respuestas.categoriaId, respuestas.subtipoId);
-    if (!pregunta || !respuestas.necesidadDelSubtipo) return base;
-    return filtrarPorNecesidad(base, pregunta, respuestas.necesidadDelSubtipo).candidatas;
+    if (!pregunta || !respuestas.necesidadDelSubtipo) return { candidatas: base };
+    return { candidatas: filtrarPorNecesidad(base, pregunta, respuestas.necesidadDelSubtipo).candidatas };
+  }
+
+  // Sin categoría elegida, el objetivo es lo ÚNICO que dice qué necesita la
+  // persona. Sin él no hay nada que comparar: `preferenciaSuite` describe
+  // una forma de comprar ("prefiero una sola herramienta"), no una
+  // necesidad, y por sí sola nunca justifica recomendar nada.
+  const objetivos = respuestas.problemaIdsCandidatos ?? [];
+  if (objetivos.length === 0) {
+    return { candidatas: [], sinRecomendacion: { tipo: "necesidad_no_entendida" } };
   }
 
   let universo = herramientas;
@@ -206,13 +231,14 @@ function seleccionarCandidatas(herramientas: Herramienta[], respuestas: Respuest
     if (filtradasPorSuite.length > 0) universo = filtradasPorSuite;
   }
 
-  if (respuestas.problemaIdsCandidatos && respuestas.problemaIdsCandidatos.length > 0) {
-    const idsObjetivo = new Set(respuestas.problemaIdsCandidatos);
-    const filtradas = universo.filter((herramienta) => herramienta.problemasIds?.some((id) => idsObjetivo.has(id)));
-    if (filtradas.length > 0) return filtradas;
-  }
+  const idsObjetivo = new Set(objetivos);
+  const filtradas = universo.filter((herramienta) => herramienta.problemasIds?.some((id) => idsObjetivo.has(id)));
+  if (filtradas.length > 0) return { candidatas: filtradas };
 
-  return universo;
+  // Objetivo entendido, catálogo sin nada que lo cubra. Antes esto también
+  // caía al catálogo entero, que es la peor respuesta posible: se había
+  // entendido a la persona y aun así se le ofrecía cualquier cosa.
+  return { candidatas: [], sinRecomendacion: { tipo: "sin_cobertura", objetivoIds: objetivos } };
 }
 
 /**
@@ -234,7 +260,13 @@ export function recomendarHerramientas(
 ): ResultadoRecomendacion {
   const cantidad = opciones.cantidad ?? CANTIDAD_POR_DEFECTO;
 
-  const candidatas = seleccionarCandidatas(herramientas, respuestas);
+  const seleccion = seleccionarCandidatas(herramientas, respuestas);
+  // El motor puede decir que no. Cuando lo dice, se sale aquí: no se puntúa
+  // nada, no se reparte nada y no se rellena nada.
+  if (seleccion.sinRecomendacion) {
+    return { top: [], todas: [], sinRecomendacion: seleccion.sinRecomendacion };
+  }
+  const candidatas = seleccion.candidatas;
 
   const evaluadas = candidatas
     .map((herramienta) => evaluarHerramienta(herramienta, respuestas, candidatas))

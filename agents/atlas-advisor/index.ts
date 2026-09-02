@@ -24,6 +24,7 @@ export type {
   Criterio,
   DetalleCriterio,
   HerramientaEvaluada,
+  MotivoSinRecomendacion,
   NivelPrioridad,
   NivelTecnicoEquipo,
   PresupuestoMensual,
