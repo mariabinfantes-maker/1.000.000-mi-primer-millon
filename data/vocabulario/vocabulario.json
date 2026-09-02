@@ -1,0 +1,1578 @@
+{
+  "version": "3.0.0",
+  "fecha": "2026-09-02",
+  "areas": [
+    {
+      "id": "A",
+      "nombre": "Conseguir y atender clientes"
+    },
+    {
+      "id": "B",
+      "nombre": "Hacer el trabajo"
+    },
+    {
+      "id": "C",
+      "nombre": "Mover producto"
+    },
+    {
+      "id": "D",
+      "nombre": "Administrar el negocio"
+    },
+    {
+      "id": "E",
+      "nombre": "Base tecnológica"
+    }
+  ],
+  "dominios": [
+    {
+      "id": "clientes",
+      "nombre": "Clientes y relación comercial",
+      "areaId": "A"
+    },
+    {
+      "id": "presupuestos",
+      "nombre": "Presupuestos, precios y contratos",
+      "areaId": "A"
+    },
+    {
+      "id": "citas",
+      "nombre": "Citas y reservas",
+      "areaId": "A"
+    },
+    {
+      "id": "marketing",
+      "nombre": "Marketing y captación",
+      "areaId": "A"
+    },
+    {
+      "id": "atencion",
+      "nombre": "Atención al cliente",
+      "areaId": "A"
+    },
+    {
+      "id": "comunicacion-interna",
+      "nombre": "Comunicación interna",
+      "areaId": "B"
+    },
+    {
+      "id": "trabajo",
+      "nombre": "Trabajo, proyectos y expedientes",
+      "areaId": "B"
+    },
+    {
+      "id": "documentos",
+      "nombre": "Documentos y conocimiento",
+      "areaId": "B"
+    },
+    {
+      "id": "contenido",
+      "nombre": "Contenido y creatividad",
+      "areaId": "B"
+    },
+    {
+      "id": "servicio-campo",
+      "nombre": "Operaciones de servicio y trabajo de campo",
+      "areaId": "B"
+    },
+    {
+      "id": "salud",
+      "nombre": "Salud y expediente clínico",
+      "areaId": "B"
+    },
+    {
+      "id": "formacion",
+      "nombre": "Formación y alumnado",
+      "areaId": "B"
+    },
+    {
+      "id": "inventario",
+      "nombre": "Inventario, compras y proveedores",
+      "areaId": "C"
+    },
+    {
+      "id": "produccion",
+      "nombre": "Producción y calidad",
+      "areaId": "C"
+    },
+    {
+      "id": "comercio",
+      "nombre": "Comercio, tienda y punto de venta",
+      "areaId": "C"
+    },
+    {
+      "id": "activos",
+      "nombre": "Activos, instalaciones y flota",
+      "areaId": "C"
+    },
+    {
+      "id": "facturacion",
+      "nombre": "Facturación, cobro y contabilidad",
+      "areaId": "D"
+    },
+    {
+      "id": "costes",
+      "nombre": "Costes, márgenes y planificación",
+      "areaId": "D"
+    },
+    {
+      "id": "personas",
+      "nombre": "Personas y equipo",
+      "areaId": "D"
+    },
+    {
+      "id": "presencia",
+      "nombre": "Presencia digital",
+      "areaId": "E"
+    },
+    {
+      "id": "automatizacion",
+      "nombre": "Automatización e integración",
+      "areaId": "E"
+    },
+    {
+      "id": "datos",
+      "nombre": "Datos y análisis",
+      "areaId": "E"
+    },
+    {
+      "id": "seguridad",
+      "nombre": "Seguridad y cumplimiento",
+      "areaId": "E"
+    }
+  ],
+  "capacidades": [
+    {
+      "id": "cap.customer_contact_records",
+      "etiqueta": "Fichas de cliente",
+      "definicion": "Guardar quién es cada cliente: datos de contacto, empresa, etiquetas y notas, en un sitio y no en la cabeza.",
+      "noEs": "No es el historial de lo que ha pasado con él (cap.customer_interaction_history) ni el seguimiento de una venta concreta (cap.sales_pipeline).",
+      "dominioId": "clientes",
+      "estado": "activa",
+      "origenBorrador": "crm.contact_management"
+    },
+    {
+      "id": "cap.customer_interaction_history",
+      "etiqueta": "Historial de trato con el cliente",
+      "definicion": "Ver todo lo ocurrido con un cliente en orden: llamadas, correos, visitas, compras, incidencias.",
+      "noEs": "No es la ficha del cliente, que es estática. Tampoco es una historia clínica (cap.clinical_record): esto es trato comercial, no datos de salud.",
+      "dominioId": "clientes",
+      "estado": "activa",
+      "origenBorrador": "crm.customer_history"
+    },
+    {
+      "id": "cap.sales_pipeline",
+      "etiqueta": "Embudo de ventas y oportunidades",
+      "definicion": "Seguir oportunidades de venta por etapas, con importe y probabilidad, para saber qué hay en marcha.",
+      "noEs": "No es prever cuánto se va a cerrar (cap.sales_forecasting) ni gestionar el trabajo posterior a la venta (cap.work_orders, cap.project_planning).",
+      "dominioId": "clientes",
+      "estado": "activa",
+      "origenBorrador": "crm.pipeline_management"
+    },
+    {
+      "id": "cap.lead_capture",
+      "etiqueta": "Captación de contactos interesados",
+      "definicion": "Recoger datos de alguien interesado desde un formulario, una web o una campaña, y que entren solos en el sistema.",
+      "noEs": "No es matricular ni inscribir a nadie (cap.student_enrollment): eso ya es un compromiso, no un interés.",
+      "dominioId": "clientes",
+      "estado": "activa",
+      "origenBorrador": "crm.lead_capture"
+    },
+    {
+      "id": "cap.sales_forecasting",
+      "etiqueta": "Previsión de ventas",
+      "definicion": "Estimar cuánto se va a cerrar en un periodo a partir del embudo, con escenarios.",
+      "noEs": "No es el informe de lo ya facturado (cap.financial_reporting) ni el presupuesto anual de la empresa (cap.budgeting_and_cash_forecast).",
+      "dominioId": "clientes",
+      "estado": "activa",
+      "origenBorrador": "crm.deal_forecasting"
+    },
+    {
+      "id": "cap.client_portal",
+      "etiqueta": "Portal para el cliente",
+      "definicion": "Un espacio autenticado donde el cliente ve y aporta lo suyo: documentos, facturas, estado de su encargo.",
+      "noEs": "No es una web pública (cap.website_builder) ni un canal de conversación (cap.shared_inbox). Lo distintivo es que el cliente entra y ve SUS datos.",
+      "dominioId": "clientes",
+      "estado": "activa",
+      "origenBorrador": "crm.client_portal"
+    },
+    {
+      "id": "cap.quotes_and_proposals",
+      "etiqueta": "Presupuestos y propuestas",
+      "definicion": "Preparar y enviar un presupuesto o propuesta a un cliente concreto, y saber si lo ha aceptado.",
+      "noEs": "No es fijar precios para todos por adelantado (cap.price_lists_and_rates) ni estructurarlo por partidas medidas (cap.bill_of_quantities).",
+      "dominioId": "presupuestos",
+      "estado": "activa",
+      "origenBorrador": "crm.quote_management"
+    },
+    {
+      "id": "cap.bill_of_quantities",
+      "etiqueta": "Presupuesto por partidas y mediciones",
+      "definicion": "Presupuestar por partidas con mediciones y precios unitarios, normalmente desde un banco de precios del sector.",
+      "noEs": "No es un presupuesto comercial en prosa (cap.quotes_and_proposals): aquí el dato es una estructura medible, y de ella salen luego las certificaciones.",
+      "dominioId": "presupuestos",
+      "estado": "activa",
+      "origenBorrador": "build.bill_of_quantities"
+    },
+    {
+      "id": "cap.price_lists_and_rates",
+      "etiqueta": "Tarifas y listas de precios",
+      "definicion": "Fijar el precio por adelantado y para todos: tarifas por temporada, por tipo de cliente, por canal o por volumen.",
+      "noEs": "No es el precio de una venta concreta (cap.quotes_and_proposals). Esto es la fuente del precio; aquello, su uso.",
+      "dominioId": "presupuestos",
+      "estado": "activa",
+      "origenBorrador": "commerce.pricing_rates"
+    },
+    {
+      "id": "cap.electronic_signature",
+      "etiqueta": "Firma electrónica de documentos",
+      "definicion": "Firmar un documento a distancia con validez, y saber quién firmó y cuándo.",
+      "noEs": "No es guardar el documento (cap.file_storage) ni vigilar su vencimiento (cap.contract_lifecycle). El nivel de firma exigido es una restricción (req.esignature_qualified), no otra capacidad.",
+      "dominioId": "presupuestos",
+      "estado": "activa",
+      "restriccionesTipicas": [
+        "req.esignature_qualified"
+      ],
+      "origenBorrador": "crm.contract_esign"
+    },
+    {
+      "id": "cap.contract_lifecycle",
+      "etiqueta": "Contratos vivos: vencimientos y renovaciones",
+      "definicion": "Saber qué contratos hay vivos, cuándo vencen, cuándo hay que preavisar y cómo se renuevan.",
+      "noEs": "No es firmarlos (cap.electronic_signature). Empieza donde aquella termina.",
+      "dominioId": "presupuestos",
+      "estado": "activa",
+      "origenBorrador": "legal.contract_lifecycle"
+    },
+    {
+      "id": "cap.online_self_service_booking",
+      "etiqueta": "Reserva online por la propia persona",
+      "definicion": "Que la persona coja hora o reserve sola, por internet, sin llamar y a cualquier hora.",
+      "noEs": "No es tener un calendario interno (cap.personal_calendar_planning) ni que lo apunte alguien del negocio. Lo distintivo es que reserva el cliente.",
+      "dominioId": "citas",
+      "estado": "activa",
+      "origenBorrador": "booking.online_self_service"
+    },
+    {
+      "id": "cap.per_resource_booking_calendar",
+      "etiqueta": "Agenda por profesional o recurso",
+      "definicion": "Agenda separada por profesional, sala, sillón o máquina, con sus horarios y sus servicios.",
+      "noEs": "No es la agenda personal de quien trabaja (cap.personal_calendar_planning) ni reservar recursos internos entre compañeros (cap.room_and_equipment_booking).",
+      "dominioId": "citas",
+      "estado": "activa",
+      "origenBorrador": "booking.calendar_per_staff"
+    },
+    {
+      "id": "cap.customer_appointment_reminders",
+      "etiqueta": "Recordatorios automáticos",
+      "definicion": "Avisar al cliente de su cita antes de que llegue, por el canal que sea, sin que nadie tenga que llamar.",
+      "noEs": "No es recordar una tarea a alguien del equipo (cap.task_management) ni avisar de una entrega (cap.shipping_and_tracking).",
+      "dominioId": "citas",
+      "estado": "activa",
+      "origenBorrador": "booking.reminders"
+    },
+    {
+      "id": "cap.booking_cancellation_and_rescheduling",
+      "etiqueta": "Cancelar y cambiar la cita",
+      "definicion": "Que la cita se pueda anular o mover, por el cliente o por el negocio, liberando el hueco.",
+      "noEs": "No es penalizar la ausencia (cap.no_show_and_deposits) ni replanificar automáticamente el trabajo propio (cap.automatic_rescheduling).",
+      "dominioId": "citas",
+      "estado": "activa",
+      "origenBorrador": "booking.cancellation_rescheduling"
+    },
+    {
+      "id": "cap.capacity_and_time_slots",
+      "etiqueta": "Aforo, turnos y franjas",
+      "definicion": "Controlar cuánta gente cabe y cuándo: mesas, turnos, franjas, plazas, aforo.",
+      "noEs": "No es la agenda de un profesional (cap.per_resource_booking_calendar): aquí lo que se reparte es capacidad, no el tiempo de una persona.",
+      "dominioId": "citas",
+      "estado": "activa",
+      "origenBorrador": "booking.capacity_slots"
+    },
+    {
+      "id": "cap.no_show_and_deposits",
+      "etiqueta": "Ausencias y depósitos",
+      "definicion": "Reducir las ausencias: señal previa, política de cancelación, penalización, aviso de reincidencia.",
+      "noEs": "No es cancelar bien (cap.booking_cancellation_and_rescheduling), que es lo contrario: aquí el cliente no avisa.",
+      "dominioId": "citas",
+      "estado": "activa",
+      "origenBorrador": "booking.no_show_management"
+    },
+    {
+      "id": "cap.room_and_equipment_booking",
+      "etiqueta": "Reserva de salas y equipos",
+      "definicion": "Reservar recursos compartidos dentro de la organización: salas, vehículos, equipos.",
+      "noEs": "No es que reserve un cliente (cap.online_self_service_booking): esto mira hacia dentro.",
+      "dominioId": "citas",
+      "estado": "activa",
+      "origenBorrador": "booking.resource_scheduling"
+    },
+    {
+      "id": "cap.booking_waitlist",
+      "etiqueta": "Lista de espera",
+      "definicion": "Apuntar a quien quería hueco y no lo había, y avisarle cuando se libera.",
+      "noEs": "No es la agenda ni la capacidad: es lo que ocurre cuando la capacidad se agota.",
+      "dominioId": "citas",
+      "estado": "activa",
+      "origenBorrador": "booking.waitlist"
+    },
+    {
+      "id": "cap.embeddable_booking_widget",
+      "etiqueta": "Insertar la reserva en tu propia web",
+      "definicion": "Que el sistema de reserva se pueda insertar en tu propia web, con tu aspecto y sin salir de tu dominio.",
+      "noEs": "No es reservar (cap.online_self_service_booking): es dónde ocurre la reserva. Sin motor detrás no reserva nada, por eso la requiere.",
+      "dominioId": "citas",
+      "estado": "activa",
+      "requiere": [
+        "cap.online_self_service_booking"
+      ],
+      "origenBorrador": "web.booking_widget"
+    },
+    {
+      "id": "cap.email_campaigns",
+      "etiqueta": "Campañas de correo",
+      "definicion": "Enviar un correo a una lista de gente, con segmentación, y ver quién lo abrió.",
+      "noEs": "No es escribir a un cliente concreto (cap.shared_inbox) ni encadenar envíos según lo que haga (cap.marketing_automation).",
+      "dominioId": "marketing",
+      "estado": "activa",
+      "origenBorrador": "marketing.email_campaigns"
+    },
+    {
+      "id": "cap.marketing_automation",
+      "etiqueta": "Automatización de marketing",
+      "definicion": "Encadenar acciones de marketing según el comportamiento: si abre esto, mándale aquello; si no compra, recuérdaselo.",
+      "noEs": "No es enviar una campaña puntual (cap.email_campaigns) ni automatizar procesos internos (cap.workflow_automation).",
+      "dominioId": "marketing",
+      "estado": "activa",
+      "origenBorrador": "marketing.marketing_automation"
+    },
+    {
+      "id": "cap.landing_pages",
+      "etiqueta": "Páginas de captación",
+      "definicion": "Crear páginas sueltas orientadas a que alguien deje sus datos o compre.",
+      "noEs": "No es hacer la web del negocio (cap.website_builder) ni recoger el dato (cap.lead_capture), aunque casi siempre vayan juntas.",
+      "dominioId": "marketing",
+      "estado": "activa",
+      "origenBorrador": "marketing.landing_pages"
+    },
+    {
+      "id": "cap.conversion_funnels",
+      "etiqueta": "Embudos de conversión",
+      "definicion": "Diseñar y medir el recorrido completo hasta la venta, paso a paso, viendo dónde se cae la gente.",
+      "noEs": "No es una página suelta (cap.landing_pages) ni el embudo comercial de un vendedor (cap.sales_pipeline), que sigue oportunidades con nombre y apellidos.",
+      "dominioId": "marketing",
+      "estado": "activa",
+      "origenBorrador": "marketing.funnels"
+    },
+    {
+      "id": "cap.social_publishing",
+      "etiqueta": "Publicar en redes sociales",
+      "definicion": "Programar y publicar en varias redes sociales desde un solo sitio, adaptando el formato.",
+      "noEs": "No es medir qué funcionó (cap.social_analytics): se separan porque en muchas herramientas publicar es gratis y medir se paga.",
+      "dominioId": "marketing",
+      "estado": "activa",
+      "origenBorrador": "marketing.social_scheduling"
+    },
+    {
+      "id": "cap.social_analytics",
+      "etiqueta": "Analítica de redes sociales",
+      "definicion": "Medir qué publicaciones funcionan, cómo crece la audiencia y a qué hora responde.",
+      "noEs": "No es publicar (cap.social_publishing). Existen herramientas que sólo miden, y por eso no depende de aquélla.",
+      "dominioId": "marketing",
+      "estado": "activa",
+      "origenBorrador": "marketing.social_scheduling"
+    },
+    {
+      "id": "cap.search_engine_optimization",
+      "etiqueta": "Posicionamiento en buscadores",
+      "definicion": "Trabajar para aparecer en buscadores: palabras clave, contenido, aspectos técnicos, seguimiento de posiciones.",
+      "noEs": "No es pagar por aparecer (cap.paid_ads_management) ni tener la ficha del negocio en directorios (cap.local_business_listings).",
+      "dominioId": "marketing",
+      "estado": "activa",
+      "origenBorrador": "marketing.seo_tools"
+    },
+    {
+      "id": "cap.paid_ads_management",
+      "etiqueta": "Campañas de publicidad de pago",
+      "definicion": "Crear, lanzar y controlar campañas de publicidad de pago y su gasto.",
+      "noEs": "No es el posicionamiento orgánico (cap.search_engine_optimization).",
+      "dominioId": "marketing",
+      "estado": "activa",
+      "origenBorrador": "marketing.ads_management"
+    },
+    {
+      "id": "cap.loyalty_programs",
+      "etiqueta": "Fidelización y puntos",
+      "definicion": "Premiar a quien repite: puntos, sellos, niveles, descuentos por recurrencia.",
+      "noEs": "No es un bono de sesiones prepagado (cap.prepaid_session_packages), que es un saldo comprado, no un premio ganado.",
+      "dominioId": "marketing",
+      "estado": "activa",
+      "origenBorrador": "marketing.loyalty_programs"
+    },
+    {
+      "id": "cap.shared_inbox",
+      "etiqueta": "Bandeja compartida",
+      "definicion": "Un buzón que ve todo el equipo, donde nada se queda sin responder porque estaba en el correo de alguien.",
+      "noEs": "No es un sistema de tickets (cap.support_ticketing): aquí no hay estados ni prioridades, hay conversaciones.",
+      "dominioId": "atencion",
+      "estado": "activa",
+      "origenBorrador": "support.shared_inbox"
+    },
+    {
+      "id": "cap.support_ticketing",
+      "etiqueta": "Tickets e incidencias",
+      "definicion": "Convertir cada petición en un ticket con estado, prioridad, responsable y tiempo de respuesta.",
+      "noEs": "No es un buzón compartido (cap.shared_inbox) ni un expediente de negocio (cap.case_file_management), que dura meses y tiene plazos legales.",
+      "dominioId": "atencion",
+      "estado": "activa",
+      "origenBorrador": "support.ticketing"
+    },
+    {
+      "id": "cap.website_live_chat",
+      "etiqueta": "Chat en la web",
+      "definicion": "Hablar en directo con quien está en la web en ese momento.",
+      "noEs": "No es un asistente automático (cap.support_chatbot) ni un canal de mensajería (cap.whatsapp_customer_channel).",
+      "dominioId": "atencion",
+      "estado": "activa",
+      "origenBorrador": "support.live_chat"
+    },
+    {
+      "id": "cap.whatsapp_customer_channel",
+      "etiqueta": "Atención por WhatsApp",
+      "definicion": "Atender por WhatsApp de forma ordenada, con varias personas y sin usar el móvil de nadie.",
+      "noEs": "No es el chat de la web (cap.website_live_chat) ni el chat interno del equipo (cap.team_messaging).",
+      "dominioId": "atencion",
+      "estado": "activa",
+      "origenBorrador": "support.whatsapp_channel"
+    },
+    {
+      "id": "cap.public_help_center",
+      "etiqueta": "Centro de ayuda público",
+      "definicion": "Publicar respuestas para que el cliente se resuelva solo: ayuda, preguntas frecuentes, guías.",
+      "noEs": "No es el conocimiento interno del equipo (cap.internal_knowledge_workspace): esto es público.",
+      "dominioId": "atencion",
+      "estado": "activa",
+      "origenBorrador": "support.knowledge_base"
+    },
+    {
+      "id": "cap.canned_responses",
+      "etiqueta": "Respuestas guardadas",
+      "definicion": "Guardar respuestas hechas y reutilizarlas para no reescribir lo mismo veinte veces.",
+      "noEs": "No es una plantilla de documento (cap.document_templates) ni un chatbot: aquí responde una persona, más rápido.",
+      "dominioId": "atencion",
+      "estado": "activa",
+      "origenBorrador": "support.canned_responses"
+    },
+    {
+      "id": "cap.support_chatbot",
+      "etiqueta": "Asistente automático de atencion",
+      "definicion": "Que un asistente automático responda lo repetitivo y derive lo demás a una persona.",
+      "noEs": "No es un agente que ejecuta tareas en otros sistemas (cap.ai_task_agents): éste conversa.",
+      "dominioId": "atencion",
+      "estado": "activa",
+      "origenBorrador": "support.chatbot"
+    },
+    {
+      "id": "cap.customer_satisfaction_surveys",
+      "etiqueta": "Encuestas de satisfacción",
+      "definicion": "Preguntar directamente al cliente qué le ha parecido, y poder comparar la respuesta en el tiempo.",
+      "noEs": "No son las reseñas públicas (cap.reviews_and_reputation): esto se pregunta en privado y lo lees tú.",
+      "dominioId": "atencion",
+      "estado": "activa",
+      "origenBorrador": "support.surveys_feedback"
+    },
+    {
+      "id": "cap.team_messaging",
+      "etiqueta": "Chat del equipo",
+      "definicion": "Hablar entre compañeros por canales o mensajes directos, con historial buscable.",
+      "noEs": "No es atender a clientes (cap.shared_inbox, cap.whatsapp_customer_channel): mira hacia dentro.",
+      "dominioId": "comunicacion-interna",
+      "estado": "activa",
+      "origenBorrador": "comms.team_messaging"
+    },
+    {
+      "id": "cap.video_meetings",
+      "etiqueta": "Videollamadas",
+      "definicion": "Celebrar reuniones por vídeo, con pantalla compartida y grabación.",
+      "noEs": "No es resumir lo hablado (cap.meeting_notes), que actúa sobre una reunión que ya ocurrió.",
+      "dominioId": "comunicacion-interna",
+      "estado": "activa",
+      "origenBorrador": "comms.video_meetings"
+    },
+    {
+      "id": "cap.task_management",
+      "etiqueta": "Tareas",
+      "definicion": "Anotar qué hay que hacer, quién lo hace y para cuándo, y saber qué queda pendiente.",
+      "noEs": "No es un encargo de un cliente sobre un bien (cap.work_orders) ni una orden de fabricación (cap.production_orders).",
+      "dominioId": "trabajo",
+      "estado": "activa",
+      "origenBorrador": "work.task_management"
+    },
+    {
+      "id": "cap.project_planning",
+      "etiqueta": "Proyectos e hitos",
+      "definicion": "Organizar un trabajo con principio y fin en fases e hitos, con responsables y fechas.",
+      "noEs": "No es un expediente (cap.case_file_management), que no tiene fecha de fin y sí plazos legales.",
+      "dominioId": "trabajo",
+      "estado": "activa",
+      "origenBorrador": "work.project_planning"
+    },
+    {
+      "id": "cap.gantt_and_dependencies",
+      "etiqueta": "Gantt y dependencias",
+      "definicion": "Ver el proyecto en el tiempo y encadenar tareas: esto no empieza hasta que aquello acaba.",
+      "noEs": "No es planificar el proyecto (cap.project_planning): es una forma concreta de verlo y de encadenarlo, y muchas herramientas planifican sin ofrecerla.",
+      "dominioId": "trabajo",
+      "estado": "activa",
+      "origenBorrador": "work.gantt_dependencies"
+    },
+    {
+      "id": "cap.kanban_boards",
+      "etiqueta": "Tableros kanban",
+      "definicion": "Mover el trabajo por columnas de estado para ver de un vistazo en qué punto está cada cosa.",
+      "noEs": "No es el diagrama temporal (cap.gantt_and_dependencies) ni la lista de tareas (cap.task_management).",
+      "dominioId": "trabajo",
+      "estado": "activa",
+      "origenBorrador": "work.kanban_boards"
+    },
+    {
+      "id": "cap.time_tracking",
+      "etiqueta": "Control de tiempo dedicado",
+      "definicion": "Registrar cuánto tiempo se dedica a cada cosa, por persona y por trabajo.",
+      "noEs": "No es fichar la jornada laboral (cap.time_and_attendance), que es una obligación legal con otra finalidad.",
+      "dominioId": "trabajo",
+      "estado": "activa",
+      "origenBorrador": "work.time_tracking"
+    },
+    {
+      "id": "cap.team_workload_planning",
+      "etiqueta": "Carga de trabajo del equipo",
+      "definicion": "Ver quién está saturado y quién libre, y repartir el trabajo en consecuencia.",
+      "noEs": "No es asignar técnicos a avisos en la calle (cap.technician_dispatch) ni cuadrar turnos (cap.shift_scheduling).",
+      "dominioId": "trabajo",
+      "estado": "activa",
+      "origenBorrador": "work.resource_capacity"
+    },
+    {
+      "id": "cap.personal_calendar_planning",
+      "etiqueta": "Calendario y planificación diaria",
+      "definicion": "Organizar el propio día: calendario, bloques de trabajo, reuniones.",
+      "noEs": "No es la agenda de citas con clientes (cap.per_resource_booking_calendar).",
+      "dominioId": "trabajo",
+      "estado": "activa",
+      "origenBorrador": "work.calendar_planning"
+    },
+    {
+      "id": "cap.automatic_rescheduling",
+      "etiqueta": "Replanificación automática",
+      "definicion": "Que la herramienta recoloque sola lo pendiente cuando algo se mueve o no cabe.",
+      "noEs": "No es cancelar o mover una cita con un cliente (cap.booking_cancellation_and_rescheduling).",
+      "dominioId": "trabajo",
+      "estado": "activa",
+      "origenBorrador": "work.auto_scheduling"
+    },
+    {
+      "id": "cap.case_file_management",
+      "etiqueta": "Expedientes y casos",
+      "definicion": "Llevar expedientes: casos, siniestros, solicitudes, con estados, plazos, partes implicadas y documentos.",
+      "noEs": "No es un proyecto (cap.project_planning) ni un ticket (cap.support_ticketing). Y no es una historia clínica (cap.clinical_record), que además guarda datos de salud.",
+      "dominioId": "trabajo",
+      "estado": "activa",
+      "origenBorrador": "work.case_management"
+    },
+    {
+      "id": "cap.collaborative_document_editing",
+      "etiqueta": "Edición a varias manos",
+      "definicion": "Escribir un documento entre varias personas a la vez, con comentarios.",
+      "noEs": "No es guardarlo (cap.file_storage) ni conservar sus versiones (cap.document_version_history).",
+      "dominioId": "documentos",
+      "estado": "activa",
+      "origenBorrador": "docs.collaborative_editing"
+    },
+    {
+      "id": "cap.internal_knowledge_workspace",
+      "etiqueta": "Espacio de conocimiento interno",
+      "definicion": "Un sitio donde vive el conocimiento del equipo: procedimientos, decisiones, cómo se hacen las cosas.",
+      "noEs": "No es el centro de ayuda del cliente (cap.public_help_center), que es público.",
+      "dominioId": "documentos",
+      "estado": "activa",
+      "origenBorrador": "docs.wiki_workspace"
+    },
+    {
+      "id": "cap.file_storage",
+      "etiqueta": "Archivos y carpetas",
+      "definicion": "Guardar archivos organizados y compartirlos con permisos.",
+      "noEs": "No es visualizar una imagen diagnóstica (cap.medical_imaging) ni conservar el historial de cambios (cap.document_version_history).",
+      "dominioId": "documentos",
+      "estado": "activa",
+      "origenBorrador": "docs.file_storage"
+    },
+    {
+      "id": "cap.document_templates",
+      "etiqueta": "Plantillas de documento",
+      "definicion": "Partir de plantillas para no redactar desde cero lo que siempre es igual.",
+      "noEs": "No son respuestas guardadas de atención (cap.canned_responses), que son fragmentos de conversación.",
+      "dominioId": "documentos",
+      "estado": "activa",
+      "origenBorrador": "docs.templates"
+    },
+    {
+      "id": "cap.workspace_wide_search",
+      "etiqueta": "Buscar en todo lo guardado",
+      "definicion": "Encontrar algo buscando en todo lo guardado a la vez, aunque no recuerdes dónde estaba.",
+      "noEs": "No es la búsqueda dentro de un documento ni un informe (cap.custom_reports).",
+      "dominioId": "documentos",
+      "estado": "activa",
+      "origenBorrador": "docs.search_across_workspace"
+    },
+    {
+      "id": "cap.document_version_history",
+      "etiqueta": "Versiones y cambios",
+      "definicion": "Ver cómo ha cambiado un documento y volver a una versión anterior.",
+      "noEs": "No es hacer copias de seguridad del sistema (cap.backup_and_recovery).",
+      "dominioId": "documentos",
+      "estado": "activa",
+      "origenBorrador": "docs.version_control"
+    },
+    {
+      "id": "cap.text_generation",
+      "etiqueta": "Redactar textos",
+      "definicion": "Redactar textos nuevos a partir de una indicación: anuncios, descripciones, correos, artículos.",
+      "noEs": "No es corregir un texto existente (cap.text_correction) ni traducirlo (cap.translation).",
+      "dominioId": "contenido",
+      "estado": "activa",
+      "origenBorrador": "content.text_generation"
+    },
+    {
+      "id": "cap.text_correction",
+      "etiqueta": "Corregir y pulir textos",
+      "definicion": "Revisar un texto ya escrito: ortografía, gramática, claridad y tono.",
+      "noEs": "No es escribirlo (cap.text_generation). Es la capacidad que Molnip recomendó por error a una peluquera que perdía citas.",
+      "dominioId": "contenido",
+      "estado": "activa",
+      "origenBorrador": "content.text_correction"
+    },
+    {
+      "id": "cap.translation",
+      "etiqueta": "Traducir",
+      "definicion": "Pasar un texto de un idioma a otro conservando el sentido.",
+      "noEs": "No es tener la interfaz en español, que es una restricción (req.language_es).",
+      "dominioId": "contenido",
+      "estado": "activa",
+      "origenBorrador": "content.translation"
+    },
+    {
+      "id": "cap.presentation_building",
+      "etiqueta": "Presentaciones",
+      "definicion": "Montar presentaciones con diseño coherente sin partir de una diapositiva en blanco.",
+      "noEs": "No es el diseño gráfico general (cap.graphic_design) ni el kit de marca (cap.brand_kit).",
+      "dominioId": "contenido",
+      "estado": "activa",
+      "origenBorrador": "content.presentation_building"
+    },
+    {
+      "id": "cap.graphic_design",
+      "etiqueta": "Diseño gráfico",
+      "definicion": "Crear piezas visuales: imágenes, carteles, publicaciones, materiales del negocio.",
+      "noEs": "No es montar presentaciones (cap.presentation_building) ni editar vídeo (cap.video_editing).",
+      "dominioId": "contenido",
+      "estado": "activa",
+      "origenBorrador": "content.graphic_design"
+    },
+    {
+      "id": "cap.video_editing",
+      "etiqueta": "Edición de vídeo",
+      "definicion": "Cortar, montar y ajustar vídeo hasta dejarlo publicable.",
+      "noEs": "No es generarlo desde cero con IA (cap.ai_video_generation) ni ponerle subtítulos (cap.subtitles).",
+      "dominioId": "contenido",
+      "estado": "activa",
+      "origenBorrador": "content.video_editing"
+    },
+    {
+      "id": "cap.ai_video_generation",
+      "etiqueta": "Generar vídeo con IA",
+      "definicion": "Producir vídeo sin grabar: avatares, voz sintética, escenas a partir de un guion.",
+      "noEs": "No es editar material grabado (cap.video_editing).",
+      "dominioId": "contenido",
+      "estado": "activa",
+      "origenBorrador": "content.video_generation"
+    },
+    {
+      "id": "cap.audio_editing",
+      "etiqueta": "Edición de audio y pódcast",
+      "definicion": "Montar y limpiar audio hasta dejar un pódcast o una pieza sonora publicable.",
+      "noEs": "No es transcribir (cap.audio_transcription) ni sólo quitar ruido (cap.audio_noise_removal), que es una parte.",
+      "dominioId": "contenido",
+      "estado": "activa",
+      "origenBorrador": "content.audio_editing"
+    },
+    {
+      "id": "cap.audio_transcription",
+      "etiqueta": "Transcribir audio",
+      "definicion": "Convertir voz en texto, identificando quién habla cuando se puede.",
+      "noEs": "No es resumir la reunión (cap.meeting_notes), que es el paso siguiente.",
+      "dominioId": "contenido",
+      "estado": "activa",
+      "origenBorrador": "content.audio_transcription"
+    },
+    {
+      "id": "cap.meeting_notes",
+      "etiqueta": "Actas y resúmenes de reunión",
+      "definicion": "Sacar de una reunión un resumen, los acuerdos y las tareas.",
+      "noEs": "No es celebrarla (cap.video_meetings) ni transcribirla literalmente (cap.audio_transcription).",
+      "dominioId": "contenido",
+      "estado": "activa",
+      "origenBorrador": "content.meeting_notes"
+    },
+    {
+      "id": "cap.audio_noise_removal",
+      "etiqueta": "Limpiar el sonido",
+      "definicion": "Quitar ruido de fondo y mejorar la voz, en directo o después.",
+      "noEs": "No es editar la pieza entera (cap.audio_editing).",
+      "dominioId": "contenido",
+      "estado": "activa",
+      "origenBorrador": "content.noise_removal"
+    },
+    {
+      "id": "cap.subtitles",
+      "etiqueta": "Subtítulos",
+      "definicion": "Generar y ajustar subtítulos, y traducirlos si hace falta.",
+      "noEs": "No es transcribir para leer (cap.audio_transcription): un subtítulo va sincronizado con la imagen.",
+      "dominioId": "contenido",
+      "estado": "activa",
+      "origenBorrador": "content.subtitles"
+    },
+    {
+      "id": "cap.brand_kit",
+      "etiqueta": "Kit de marca",
+      "definicion": "Fijar colores, tipografías, logotipo y plantillas para que todo salga con la misma cara.",
+      "noEs": "No es diseñar cada pieza (cap.graphic_design): esto es la norma que siguen todas.",
+      "dominioId": "contenido",
+      "estado": "activa",
+      "origenBorrador": "content.brand_kit"
+    },
+    {
+      "id": "cap.work_orders",
+      "etiqueta": "Órdenes de trabajo",
+      "definicion": "Llevar el encargo de un cliente de principio a fin: qué hay que hacer, sobre qué bien, con qué mano de obra y materiales, hasta la factura.",
+      "noEs": "No es una tarea interna (cap.task_management) ni una orden de fabricación (cap.production_orders), que produce para almacén y no para un cliente concreto.",
+      "dominioId": "servicio-campo",
+      "estado": "activa",
+      "origenBorrador": "ops.work_orders"
+    },
+    {
+      "id": "cap.technician_dispatch",
+      "etiqueta": "Asignar y despachar técnicos",
+      "definicion": "Decidir a quién se manda a cada aviso según zona, competencia, carga y disponibilidad.",
+      "noEs": "No es dar hora a quien viene (cap.per_resource_booking_calendar) ni cuadrar turnos (cap.shift_scheduling): aquí el trabajo sale a la calle.",
+      "dominioId": "servicio-campo",
+      "estado": "activa",
+      "origenBorrador": "ops.dispatch_scheduling"
+    },
+    {
+      "id": "cap.field_job_capture",
+      "etiqueta": "Parte en el móvil: fotos y firma",
+      "definicion": "Recoger en el sitio la prueba del trabajo hecho: fotos, firma del cliente, lecturas, materiales usados y tiempos.",
+      "noEs": "No es firmar un contrato a distancia (cap.electronic_signature) ni guardar archivos (cap.file_storage). Y no dice nada sobre la conexión: que funcione sin cobertura es una restricción (req.offline_capable), no parte de esta capacidad.",
+      "dominioId": "servicio-campo",
+      "estado": "activa",
+      "restriccionesTipicas": [
+        "req.offline_capable"
+      ],
+      "origenBorrador": "ops.mobile_job_capture"
+    },
+    {
+      "id": "cap.route_planning",
+      "etiqueta": "Planificación de rutas",
+      "definicion": "Ordenar las visitas del día para hacer menos kilómetros y llegar a tiempo.",
+      "noEs": "No es seguir el vehículo en marcha (cap.fleet_telematics) ni asignar quién va (cap.technician_dispatch).",
+      "dominioId": "servicio-campo",
+      "estado": "activa",
+      "origenBorrador": "ops.route_planning"
+    },
+    {
+      "id": "cap.serviced_asset_registry",
+      "etiqueta": "Historial por bien atendido del cliente",
+      "definicion": "Llevar ficha e historial del bien del cliente al que se da servicio: el vehículo, la caldera, el ascensor, la máquina.",
+      "noEs": "No es la ficha del cliente (cap.customer_contact_records) ni el mantenimiento de los activos propios (cap.own_asset_maintenance). El bien es del cliente.",
+      "dominioId": "servicio-campo",
+      "estado": "activa",
+      "origenBorrador": "ops.serviced_asset_registry"
+    },
+    {
+      "id": "cap.service_contracts_and_sla",
+      "etiqueta": "Contratos de mantenimiento y compromisos de respuesta",
+      "definicion": "Comprometer un servicio en el tiempo: visitas periódicas, cobertura, plazos de respuesta, y avisar cuando toca.",
+      "noEs": "No es cobrar una cuota (cap.recurring_billing). Uno es dinero; esto es obligación.",
+      "dominioId": "servicio-campo",
+      "estado": "activa",
+      "origenBorrador": "ops.service_contracts_sla"
+    },
+    {
+      "id": "cap.clinical_record",
+      "etiqueta": "Historia clínica",
+      "definicion": "Guardar la historia clínica del paciente: antecedentes, evolución, tratamientos, con acceso restringido y conservación legal.",
+      "noEs": "No es el historial comercial (cap.customer_interaction_history) ni un expediente genérico (cap.case_file_management). El odontograma es una vista de ésta, no otra capacidad.",
+      "dominioId": "salud",
+      "estado": "activa",
+      "restriccionesTipicas": [
+        "req.health_special_category"
+      ],
+      "origenBorrador": "care.clinical_record"
+    },
+    {
+      "id": "cap.medical_imaging",
+      "etiqueta": "Imagen médica",
+      "definicion": "Ver, medir y comparar imagen diagnóstica ligada al paciente.",
+      "noEs": "No es guardar un archivo (cap.file_storage): aquí la imagen se explora, no sólo se conserva.",
+      "dominioId": "salud",
+      "estado": "activa",
+      "origenBorrador": "care.medical_imaging"
+    },
+    {
+      "id": "cap.electronic_prescription",
+      "etiqueta": "Receta electrónica",
+      "definicion": "Emitir receta con validez, conectada al sistema oficial que corresponda.",
+      "noEs": "No es un documento con plantilla (cap.document_templates) ni una firma genérica (cap.electronic_signature).",
+      "dominioId": "salud",
+      "estado": "activa",
+      "origenBorrador": "care.eprescription"
+    },
+    {
+      "id": "cap.training_lms",
+      "etiqueta": "Impartir y seguir cursos",
+      "definicion": "Impartir y seguir cursos: contenidos, progreso, evaluaciones, certificados.",
+      "noEs": "No es matricular (cap.student_enrollment) ni llevar el expediente (cap.academic_record). Sirve igual para plantilla que para alumnado: cambia el público, no la función.",
+      "dominioId": "formacion",
+      "estado": "activa",
+      "origenBorrador": "hr.training_lms"
+    },
+    {
+      "id": "cap.student_enrollment",
+      "etiqueta": "Matrícula, inscripción y grupos",
+      "definicion": "Matricular e inscribir: grupos, plazas, requisitos, periodos, tutor asignado.",
+      "noEs": "No es captar a un interesado (cap.lead_capture), que todavía no se ha comprometido a nada.",
+      "dominioId": "formacion",
+      "estado": "activa",
+      "origenBorrador": "edu.enrollment"
+    },
+    {
+      "id": "cap.academic_record",
+      "etiqueta": "Notas, asistencia y expediente académico",
+      "definicion": "Llevar notas, asistencia, evolución y boletines del alumno.",
+      "noEs": "No es evaluar a la plantilla (cap.performance_reviews) ni impartir el curso (cap.training_lms).",
+      "dominioId": "formacion",
+      "estado": "activa",
+      "origenBorrador": "edu.academic_record"
+    },
+    {
+      "id": "cap.inventory_tracking",
+      "etiqueta": "Existencias",
+      "definicion": "Saber cuánto hay de cada cosa y que la cifra baje sola al vender o consumir.",
+      "noEs": "No es saber de qué lote es ni cuándo caduca (cap.lot_and_expiry_traceability) ni dónde está colocado (cap.warehouse_and_locations).",
+      "dominioId": "inventario",
+      "estado": "activa",
+      "origenBorrador": "ops.inventory_tracking"
+    },
+    {
+      "id": "cap.stock_reorder_alerts",
+      "etiqueta": "Avisos de reposición",
+      "definicion": "Avisar cuando algo baja del mínimo, antes de quedarse sin ello.",
+      "noEs": "No es contar existencias (cap.inventory_tracking) ni calcular necesidades a partir de la demanda futura (cap.material_requirements_planning).",
+      "dominioId": "inventario",
+      "estado": "activa",
+      "origenBorrador": "ops.stock_alerts"
+    },
+    {
+      "id": "cap.barcode_scanning",
+      "etiqueta": "Código de barras",
+      "definicion": "Trabajar leyendo códigos en lugar de teclear referencias.",
+      "noEs": "No es el inventario en sí: es la forma de moverlo sin equivocarse.",
+      "dominioId": "inventario",
+      "estado": "activa",
+      "origenBorrador": "ops.barcode_scanning"
+    },
+    {
+      "id": "cap.purchase_orders",
+      "etiqueta": "Compras y proveedores",
+      "definicion": "Pedir a proveedores y seguir el pedido hasta que llega y se recibe.",
+      "noEs": "No es el pedido que te hace un cliente (cap.order_management): aquí compras tú.",
+      "dominioId": "inventario",
+      "estado": "activa",
+      "origenBorrador": "ops.purchase_orders"
+    },
+    {
+      "id": "cap.warehouse_and_locations",
+      "etiqueta": "Almacén, ubicaciones y multi-tienda",
+      "definicion": "Saber dónde está físicamente cada cosa: almacenes, ubicaciones, tiendas y traspasos entre ellas.",
+      "noEs": "No es cuánto hay (cap.inventory_tracking): es dónde está.",
+      "dominioId": "inventario",
+      "estado": "activa",
+      "origenBorrador": "ops.warehouse_management"
+    },
+    {
+      "id": "cap.lot_and_expiry_traceability",
+      "etiqueta": "Lotes, caducidad y trazabilidad",
+      "definicion": "Saber de qué lote es cada unidad, hasta cuándo vale y a quién se le vendió, hacia delante y hacia atrás.",
+      "noEs": "No es contar existencias (cap.inventory_tracking). Suele venir impuesto por normativa alimentaria o sanitaria, no por comodidad.",
+      "dominioId": "inventario",
+      "estado": "activa",
+      "origenBorrador": "ops.lot_traceability"
+    },
+    {
+      "id": "cap.bill_of_materials",
+      "etiqueta": "Escandallo o lista de materiales",
+      "definicion": "Definir de qué se compone un producto y calcular su coste a partir de sus componentes.",
+      "noEs": "Es la misma función que el escandallo de una cocina: se representa una sola vez. No es lanzar la fabricación (cap.production_orders).",
+      "dominioId": "produccion",
+      "estado": "activa",
+      "origenBorrador": "ops.bill_of_materials"
+    },
+    {
+      "id": "cap.production_orders",
+      "etiqueta": "Órdenes de fabricación",
+      "definicion": "Lanzar y seguir órdenes de fabricación: qué se produce, con qué, cuándo y en qué estado va.",
+      "noEs": "No es una orden de trabajo (cap.work_orders), que repara un bien de un cliente. Aquí se transforma material en producto.",
+      "dominioId": "produccion",
+      "estado": "activa",
+      "origenBorrador": "ops.production_orders"
+    },
+    {
+      "id": "cap.material_requirements_planning",
+      "etiqueta": "Planificación de materiales (MRP)",
+      "definicion": "Calcular qué comprar y qué fabricar y cuándo, cruzando composición, existencias y demanda.",
+      "noEs": "No es una forma de hacer órdenes de fabricación: es el cálculo que las propone. Es la frontera real entre una aplicación de inventario y un ERP.",
+      "dominioId": "produccion",
+      "estado": "activa",
+      "requiere": [
+        "cap.bill_of_materials"
+      ],
+      "origenBorrador": "ops.material_planning"
+    },
+    {
+      "id": "cap.inspections_and_checklists",
+      "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+      "definicion": "Ejecutar listas de comprobación con evidencia, resultado y no conformidades cuando algo falla.",
+      "noEs": "No es una lista de tareas (cap.task_management): aquí lo que importa es dejar constancia de que se comprobó.",
+      "dominioId": "produccion",
+      "estado": "activa",
+      "origenBorrador": "ops.inspections_checklists"
+    },
+    {
+      "id": "cap.online_store",
+      "etiqueta": "Tienda online",
+      "definicion": "Vender por internet: escaparate, carrito y cobro.",
+      "noEs": "No es tener web (cap.website_builder) ni gestionar lo que pasa después del pedido (cap.order_management).",
+      "dominioId": "comercio",
+      "estado": "activa",
+      "origenBorrador": "commerce.online_store"
+    },
+    {
+      "id": "cap.point_of_sale",
+      "etiqueta": "TPV y caja",
+      "definicion": "Cobrar en mostrador, con caja, tiques y cierre diario.",
+      "noEs": "No es la tienda en línea (cap.online_store) ni cobrar una factura a distancia (cap.payment_collection).",
+      "dominioId": "comercio",
+      "estado": "activa",
+      "restriccionesTipicas": [
+        "req.offline_capable"
+      ],
+      "origenBorrador": "commerce.pos"
+    },
+    {
+      "id": "cap.offer_catalog",
+      "etiqueta": "Catálogo de lo que ofreces",
+      "definicion": "Mantener el catálogo de lo que ofreces —productos, servicios, inmuebles, cursos— con sus datos, fotos y variantes.",
+      "noEs": "No es el precio, que se fija aparte (cap.price_lists_and_rates), ni la carta de un restaurante con alérgenos y modificadores (cap.menu_management).",
+      "dominioId": "comercio",
+      "estado": "activa",
+      "origenBorrador": "commerce.product_catalog"
+    },
+    {
+      "id": "cap.order_management",
+      "etiqueta": "Pedidos y comandas",
+      "definicion": "Llevar el pedido de un cliente de principio a fin: confirmación, preparación, entrega, incidencias. Incluye la comanda de sala.",
+      "noEs": "No es el pedido a proveedor (cap.purchase_orders) ni la devolución (cap.returns_management), que va en sentido contrario.",
+      "dominioId": "comercio",
+      "estado": "activa",
+      "origenBorrador": "commerce.order_management"
+    },
+    {
+      "id": "cap.returns_management",
+      "etiqueta": "Devoluciones y cambios",
+      "definicion": "Gestionar devoluciones y cambios: autorización, recogida, reembolso y reposición de existencias.",
+      "noEs": "No es el pedido (cap.order_management): es el camino de vuelta, con su propio flujo.",
+      "dominioId": "comercio",
+      "estado": "activa",
+      "origenBorrador": "commerce.returns_management"
+    },
+    {
+      "id": "cap.shipping_and_tracking",
+      "etiqueta": "Envíos, transportistas y seguimiento",
+      "definicion": "Preparar envíos con transportistas, generar etiquetas y que el destinatario sepa dónde está su paquete.",
+      "noEs": "No es planificar rutas propias (cap.route_planning) ni probar la entrega en el sitio (cap.field_job_capture).",
+      "dominioId": "comercio",
+      "estado": "activa",
+      "origenBorrador": "commerce.shipping"
+    },
+    {
+      "id": "cap.external_channel_sync",
+      "etiqueta": "Sincronizar con portales y marketplaces",
+      "definicion": "Publicar y sincronizar disponibilidad, precio y datos con canales de terceros: marketplaces, portales de reserva, portales inmobiliarios.",
+      "noEs": "No es tener catálogo (cap.offer_catalog): es que el mismo catálogo viva en varios sitios sin duplicar trabajo.",
+      "dominioId": "comercio",
+      "estado": "activa",
+      "origenBorrador": "commerce.channel_sync"
+    },
+    {
+      "id": "cap.prepaid_session_packages",
+      "etiqueta": "Bonos y paquetes de sesiones",
+      "definicion": "Vender bonos y paquetes de sesiones prepagadas y llevar el saldo según se consumen.",
+      "noEs": "No es una cuota periódica (cap.recurring_billing) ni un programa de puntos (cap.loyalty_programs). Es un saldo comprado que se gasta.",
+      "dominioId": "comercio",
+      "estado": "activa",
+      "origenBorrador": "commerce.prepaid_packages"
+    },
+    {
+      "id": "cap.menu_management",
+      "etiqueta": "Carta, modificadores y alérgenos",
+      "definicion": "Mantener la carta: platos, modificadores, extras, alérgenos y precios distintos por turno o por canal.",
+      "noEs": "No es el catálogo de productos (cap.offer_catalog): una carta lleva obligaciones de información que un catálogo no tiene.",
+      "dominioId": "comercio",
+      "estado": "activa",
+      "origenBorrador": "hospo.menu_management"
+    },
+    {
+      "id": "cap.own_asset_maintenance",
+      "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+      "definicion": "Llevar inventario de los activos propios —máquinas, instalaciones, vehículos— y su mantenimiento preventivo y correctivo.",
+      "noEs": "No es el bien del cliente al que se da servicio (cap.serviced_asset_registry). Estos son tuyos.",
+      "dominioId": "activos",
+      "estado": "activa",
+      "origenBorrador": "ops.asset_maintenance"
+    },
+    {
+      "id": "cap.fleet_telematics",
+      "etiqueta": "Flota: localización, consumos y tacógrafo",
+      "definicion": "Leer el vehículo en marcha: posición, consumo, conducción, tacógrafo.",
+      "noEs": "No es planificar la ruta (cap.route_planning) ni el mantenimiento del vehículo (cap.own_asset_maintenance).",
+      "dominioId": "activos",
+      "estado": "activa",
+      "origenBorrador": "ops.fleet_telematics"
+    },
+    {
+      "id": "cap.invoicing",
+      "etiqueta": "Facturas",
+      "definicion": "Emitir facturas correctas y llevar su numeración y su estado.",
+      "noEs": "No es cobrarlas (cap.payment_collection) ni contabilizarlas (cap.accounting_ledger).",
+      "dominioId": "facturacion",
+      "estado": "activa",
+      "origenBorrador": "finance.invoicing"
+    },
+    {
+      "id": "cap.quote_to_invoice_conversion",
+      "etiqueta": "De presupuesto a factura",
+      "definicion": "Convertir un presupuesto aceptado en factura sin volver a teclearlo.",
+      "noEs": "No es hacer el presupuesto ni la factura: es el puente entre los dos, y exige tener ambos.",
+      "dominioId": "facturacion",
+      "estado": "activa",
+      "requiere": [
+        "cap.quotes_and_proposals",
+        "cap.invoicing"
+      ],
+      "origenBorrador": "finance.quotes_to_invoice"
+    },
+    {
+      "id": "cap.payment_collection",
+      "etiqueta": "Cobrar",
+      "definicion": "Cobrar: pasarela, enlace de pago, domiciliación, y saber qué está pagado y qué no.",
+      "noEs": "No es emitir la factura (cap.invoicing) ni cobrar en mostrador (cap.point_of_sale).",
+      "dominioId": "facturacion",
+      "estado": "activa",
+      "origenBorrador": "finance.payment_collection"
+    },
+    {
+      "id": "cap.recurring_billing",
+      "etiqueta": "Cuotas y facturación recurrente",
+      "definicion": "Cobrar de forma periódica: cuotas, suscripciones, igualas, con sus altas y bajas.",
+      "noEs": "No es un bono prepagado (cap.prepaid_session_packages) ni facturar por avance (cap.progress_and_milestone_billing).",
+      "dominioId": "facturacion",
+      "estado": "activa",
+      "origenBorrador": "finance.recurring_billing"
+    },
+    {
+      "id": "cap.progress_and_milestone_billing",
+      "etiqueta": "Facturar por avance, hitos u horas",
+      "definicion": "Facturar lo avanzado y no lo entregado: certificaciones de obra, hitos de proyecto, horas imputadas.",
+      "noEs": "No es la factura corriente (cap.invoicing), aunque termine en una. Facturar horas es una variante de ésta, no otra capacidad.",
+      "dominioId": "facturacion",
+      "estado": "activa",
+      "requiere": [
+        "cap.invoicing"
+      ],
+      "origenBorrador": "finance.progress_billing"
+    },
+    {
+      "id": "cap.insurer_billing",
+      "etiqueta": "Facturar a aseguradoras y mutuas",
+      "definicion": "Facturar a un tercero pagador —aseguradora, mutua, compañía— con su baremo y su procedimiento de reclamación.",
+      "noEs": "No es facturar al cliente (cap.invoicing): ni el destinatario ni el precio los decide quien recibió el servicio.",
+      "dominioId": "facturacion",
+      "estado": "activa",
+      "origenBorrador": "finance.third_party_billing"
+    },
+    {
+      "id": "cap.third_party_settlement",
+      "etiqueta": "Liquidar a propietarios y colaboradores",
+      "definicion": "Cobrar en nombre de otro y liquidarle lo suyo menos la comisión: propietarios, colaboradores, artistas.",
+      "noEs": "No es facturar a un tercero pagador (cap.insurer_billing), donde el dinero viene hacia ti. Aquí el dinero sale hacia otro.",
+      "dominioId": "facturacion",
+      "estado": "activa",
+      "origenBorrador": "finance.third_party_settlement"
+    },
+    {
+      "id": "cap.expense_tracking",
+      "etiqueta": "Gastos y tickets",
+      "definicion": "Registrar gastos y tiques, con justificante, y saber en qué se va el dinero.",
+      "noEs": "No es la contabilidad formal (cap.accounting_ledger) ni el coste de un trabajo concreto (cap.job_costing).",
+      "dominioId": "facturacion",
+      "estado": "activa",
+      "origenBorrador": "finance.expense_tracking"
+    },
+    {
+      "id": "cap.accounting_ledger",
+      "etiqueta": "Contabilidad",
+      "definicion": "Llevar la contabilidad: asientos, libros, balances, cierre.",
+      "noEs": "No es facturar (cap.invoicing) ni controlar gastos (cap.expense_tracking).",
+      "dominioId": "facturacion",
+      "estado": "activa",
+      "origenBorrador": "finance.accounting_ledger"
+    },
+    {
+      "id": "cap.tax_calculation_and_reporting",
+      "etiqueta": "Cálculo y declaración de impuestos",
+      "definicion": "Calcular impuestos y preparar sus declaraciones y libros registro.",
+      "noEs": "No es emitir factura conforme a la normativa de facturación electrónica (cap.regulated_einvoicing): son dos exigencias distintas y una herramienta puede cumplir sólo una.",
+      "dominioId": "facturacion",
+      "estado": "activa",
+      "origenBorrador": "finance.tax_compliance"
+    },
+    {
+      "id": "cap.regulated_einvoicing",
+      "etiqueta": "Factura electrónica obligatoria",
+      "definicion": "Emitir y remitir factura en el formato y con los requisitos que exige la normativa aplicable.",
+      "noEs": "No es calcular impuestos (cap.tax_calculation_and_reporting) ni facturar sin más (cap.invoicing). Es lo que decide si se puede facturar legalmente.",
+      "dominioId": "facturacion",
+      "estado": "activa",
+      "origenBorrador": "finance.tax_compliance"
+    },
+    {
+      "id": "cap.donations_and_fundraising",
+      "etiqueta": "Donaciones, campañas y certificados al donante",
+      "definicion": "Recibir donaciones puntuales y recurrentes, llevar campañas con objetivo y emitir al donante su certificado.",
+      "noEs": "No es cobrar (cap.payment_collection) ni una cuota de socio (cap.recurring_billing): lo distintivo es el donante y su certificado.",
+      "dominioId": "facturacion",
+      "estado": "activa",
+      "origenBorrador": "ngo.donations_fundraising"
+    },
+    {
+      "id": "cap.job_costing",
+      "etiqueta": "Coste y margen por trabajo, obra o subvención",
+      "definicion": "Saber cuánto ha costado y qué margen deja UN trabajo: esta obra, este encargo, esta subvención.",
+      "noEs": "No es el informe de la empresa entera (cap.financial_reporting) ni el control de gastos (cap.expense_tracking). Aquí el coste se imputa a algo concreto.",
+      "dominioId": "costes",
+      "estado": "activa",
+      "origenBorrador": "finance.job_costing"
+    },
+    {
+      "id": "cap.financial_reporting",
+      "etiqueta": "Informes económicos",
+      "definicion": "Ver cómo va el negocio: ingresos, gastos, márgenes, rentabilidad, comparativas.",
+      "noEs": "No es mirar hacia delante (cap.budgeting_and_cash_forecast) ni el detalle de un trabajo (cap.job_costing).",
+      "dominioId": "costes",
+      "estado": "activa",
+      "origenBorrador": "finance.financial_reporting"
+    },
+    {
+      "id": "cap.budgeting_and_cash_forecast",
+      "etiqueta": "Presupuesto anual y previsión de tesorería",
+      "definicion": "Presupuestar el año y prever la tesorería: qué va a entrar, qué va a salir y si se llega.",
+      "noEs": "No es el informe de lo ocurrido (cap.financial_reporting) ni la previsión de ventas del embudo (cap.sales_forecasting).",
+      "dominioId": "costes",
+      "estado": "activa",
+      "origenBorrador": "finance.budgeting_planning"
+    },
+    {
+      "id": "cap.recruiting",
+      "etiqueta": "Selección de personal",
+      "definicion": "Publicar ofertas, recibir candidaturas y seguir el proceso de selección.",
+      "noEs": "No es dar de alta a quien entra (cap.employee_onboarding).",
+      "dominioId": "personas",
+      "estado": "activa",
+      "origenBorrador": "hr.recruiting"
+    },
+    {
+      "id": "cap.employee_onboarding",
+      "etiqueta": "Incorporación",
+      "definicion": "Organizar la incorporación de alguien nuevo: documentación, accesos, formación inicial, primeros pasos.",
+      "noEs": "No es la selección (cap.recruiting) ni el alta de usuario en los sistemas (cap.user_provisioning), que es técnica.",
+      "dominioId": "personas",
+      "estado": "activa",
+      "origenBorrador": "hr.onboarding"
+    },
+    {
+      "id": "cap.payroll",
+      "etiqueta": "Nóminas",
+      "definicion": "Calcular y pagar nóminas con sus conceptos, retenciones y cotizaciones.",
+      "noEs": "No es la parte variable calculada sobre ventas (cap.commissions_and_tips) ni el control horario (cap.time_and_attendance).",
+      "dominioId": "personas",
+      "estado": "activa",
+      "origenBorrador": "hr.payroll"
+    },
+    {
+      "id": "cap.commissions_and_tips",
+      "etiqueta": "Comisiones y propinas",
+      "definicion": "Calcular la retribución variable a partir de lo vendido o lo prestado: comisión del profesional, reparto de propina.",
+      "noEs": "No es la nómina (cap.payroll): el dato de origen son las ventas, no el contrato.",
+      "dominioId": "personas",
+      "estado": "activa",
+      "origenBorrador": "hr.commission_tips"
+    },
+    {
+      "id": "cap.time_and_attendance",
+      "etiqueta": "Fichaje y control horario",
+      "definicion": "Registrar la jornada laboral: fichajes, presencia, horas extra.",
+      "noEs": "No es medir tiempo dedicado a un trabajo (cap.time_tracking), que sirve para facturar y no para cumplir.",
+      "dominioId": "personas",
+      "estado": "activa",
+      "origenBorrador": "hr.time_attendance"
+    },
+    {
+      "id": "cap.shift_scheduling",
+      "etiqueta": "Turnos y cuadrantes",
+      "definicion": "Cuadrar turnos y horarios del equipo, con cobertura, descansos y cambios.",
+      "noEs": "No es asignar avisos a técnicos en la calle (cap.technician_dispatch) ni repartir carga de proyectos (cap.team_workload_planning).",
+      "dominioId": "personas",
+      "estado": "activa",
+      "origenBorrador": "hr.shift_scheduling"
+    },
+    {
+      "id": "cap.leave_management",
+      "etiqueta": "Vacaciones y ausencias",
+      "definicion": "Gestionar vacaciones, ausencias y permisos, con solicitud, aprobación y saldo.",
+      "noEs": "No es el cuadrante (cap.shift_scheduling), aunque se afecten.",
+      "dominioId": "personas",
+      "estado": "activa",
+      "origenBorrador": "hr.leave_management"
+    },
+    {
+      "id": "cap.performance_reviews",
+      "etiqueta": "Desempeño y objetivos",
+      "definicion": "Evaluar el desempeño y hacer seguimiento de objetivos del equipo.",
+      "noEs": "No es el expediente académico de un alumno (cap.academic_record).",
+      "dominioId": "personas",
+      "estado": "activa",
+      "origenBorrador": "hr.performance_reviews"
+    },
+    {
+      "id": "cap.website_builder",
+      "etiqueta": "Crear la página web",
+      "definicion": "Construir y mantener el sitio web del negocio sin programar.",
+      "noEs": "No son páginas sueltas de captación (cap.landing_pages) ni la tienda (cap.online_store).",
+      "dominioId": "presencia",
+      "estado": "activa",
+      "origenBorrador": "web.site_builder"
+    },
+    {
+      "id": "cap.hosting_and_domain",
+      "etiqueta": "Alojamiento y dominio",
+      "definicion": "Alojar el sitio y gestionar su dominio y sus certificados.",
+      "noEs": "No es construirlo (cap.website_builder).",
+      "dominioId": "presencia",
+      "estado": "activa",
+      "origenBorrador": "web.hosting_domain"
+    },
+    {
+      "id": "cap.reviews_and_reputation",
+      "etiqueta": "Reseñas y reputación",
+      "definicion": "Pedir, recoger y responder reseñas públicas, y vigilar lo que se dice del negocio.",
+      "noEs": "No es preguntar en privado (cap.customer_satisfaction_surveys).",
+      "dominioId": "presencia",
+      "estado": "activa",
+      "origenBorrador": "web.reviews_reputation"
+    },
+    {
+      "id": "cap.local_business_listings",
+      "etiqueta": "Ficha de negocio en directorios",
+      "definicion": "Mantener la ficha del negocio en directorios y mapas: horarios, dirección, fotos, servicios.",
+      "noEs": "No es la web propia (cap.website_builder) ni las reseñas (cap.reviews_and_reputation), aunque convivan en el mismo sitio.",
+      "dominioId": "presencia",
+      "estado": "activa",
+      "origenBorrador": "web.local_listings"
+    },
+    {
+      "id": "cap.workflow_automation",
+      "etiqueta": "Automatizar tareas repetidas",
+      "definicion": "Encadenar acciones entre herramientas o dentro de una: si pasa esto, haz aquello. Incluye circuitos de aprobación.",
+      "noEs": "No es la automatización de marketing (cap.marketing_automation), que actúa sobre contactos y campañas.",
+      "dominioId": "automatizacion",
+      "estado": "activa",
+      "origenBorrador": "auto.workflow_automation"
+    },
+    {
+      "id": "cap.app_integrations",
+      "etiqueta": "Conectar con otras herramientas",
+      "definicion": "Conectar con otras herramientas mediante integraciones ya hechas.",
+      "noEs": "No es tener API abierta (cap.public_api), que exige programar.",
+      "dominioId": "automatizacion",
+      "estado": "activa",
+      "origenBorrador": "auto.app_integrations"
+    },
+    {
+      "id": "cap.public_api",
+      "etiqueta": "API abierta",
+      "definicion": "Ofrecer una interfaz de programación documentada para construir encima.",
+      "noEs": "No son las integraciones ya hechas (cap.app_integrations): esto lo usa quien programa.",
+      "dominioId": "automatizacion",
+      "estado": "activa",
+      "origenBorrador": "auto.public_api"
+    },
+    {
+      "id": "cap.webhooks",
+      "etiqueta": "Avisos automáticos a otros sistemas",
+      "definicion": "Avisar a otro sistema en el momento en que algo ocurre, sin que tenga que preguntar.",
+      "noEs": "No es la API (cap.public_api): aquí el aviso sale solo.",
+      "dominioId": "automatizacion",
+      "estado": "activa",
+      "origenBorrador": "auto.webhooks"
+    },
+    {
+      "id": "cap.ai_task_agents",
+      "etiqueta": "Agentes de IA que ejecutan tareas",
+      "definicion": "Que un agente ejecute tareas de varios pasos por su cuenta y con criterio.",
+      "noEs": "No es un chatbot de atención (cap.support_chatbot), que conversa, ni una automatización de reglas fijas (cap.workflow_automation).",
+      "dominioId": "automatizacion",
+      "estado": "activa",
+      "origenBorrador": "auto.ai_agents"
+    },
+    {
+      "id": "cap.dashboards",
+      "etiqueta": "Cuadros de mando",
+      "definicion": "Ver los indicadores del negocio en un panel, actualizados y a la vista.",
+      "noEs": "No es un informe a medida (cap.custom_reports): un panel se mira, un informe se pide.",
+      "dominioId": "datos",
+      "estado": "activa",
+      "origenBorrador": "data.dashboards"
+    },
+    {
+      "id": "cap.custom_reports",
+      "etiqueta": "Informes a medida",
+      "definicion": "Construir informes propios cruzando los datos que hagan falta.",
+      "noEs": "No es el panel (cap.dashboards) ni sacar los datos en bruto (cap.data_export).",
+      "dominioId": "datos",
+      "estado": "activa",
+      "origenBorrador": "data.custom_reports"
+    },
+    {
+      "id": "cap.data_export",
+      "etiqueta": "Exportar los datos",
+      "definicion": "Poder llevarse los propios datos en un formato utilizable.",
+      "noEs": "No es importar (cap.data_import_and_migration). Que se pueda salir es tan importante como que se pueda entrar.",
+      "dominioId": "datos",
+      "estado": "activa",
+      "origenBorrador": "data.data_export"
+    },
+    {
+      "id": "cap.data_import_and_migration",
+      "etiqueta": "Importar y migrar desde otra herramienta",
+      "definicion": "Traer los datos desde otra herramienta o desde una hoja de cálculo, sin teclearlos.",
+      "noEs": "No es exportar (cap.data_export). Para un negocio pequeño que ya lleva sus datos en otro sitio, esto decide si adopta la herramienta o no.",
+      "dominioId": "datos",
+      "estado": "activa",
+      "origenBorrador": "data.import_migration"
+    },
+    {
+      "id": "cap.predictive_analytics",
+      "etiqueta": "Analítica avanzada y predicción",
+      "definicion": "Analizar los datos para anticipar lo que va a pasar: demanda, abandono, tendencias.",
+      "noEs": "No es informar de lo ocurrido (cap.custom_reports) ni prever el cierre del embudo (cap.sales_forecasting).",
+      "dominioId": "datos",
+      "estado": "activa",
+      "origenBorrador": "data.forecasting_analytics"
+    },
+    {
+      "id": "cap.single_sign_on",
+      "etiqueta": "Inicio de sesión único",
+      "definicion": "Entrar con la cuenta corporativa sin contraseña propia de la herramienta.",
+      "noEs": "No es dar de alta y de baja usuarios automáticamente (cap.user_provisioning): son dos cosas distintas y casi siempre están en planes distintos.",
+      "dominioId": "seguridad",
+      "estado": "activa",
+      "origenBorrador": "sec.sso"
+    },
+    {
+      "id": "cap.user_provisioning",
+      "etiqueta": "Alta y baja automática de usuarios",
+      "definicion": "Crear, actualizar y desactivar usuarios automáticamente desde el directorio de la empresa.",
+      "noEs": "No es el inicio de sesión (cap.single_sign_on). Es lo que resuelve que una baja llegue a todos los sistemas.",
+      "dominioId": "seguridad",
+      "estado": "activa",
+      "origenBorrador": "sec.sso"
+    },
+    {
+      "id": "cap.roles_and_permissions",
+      "etiqueta": "Roles y permisos",
+      "definicion": "Definir quién ve y quién puede hacer qué, por perfiles.",
+      "noEs": "No es el inicio de sesión (cap.single_sign_on): una cosa es entrar y otra qué puedes tocar.",
+      "dominioId": "seguridad",
+      "estado": "activa",
+      "origenBorrador": "sec.roles_permissions"
+    },
+    {
+      "id": "cap.audit_log",
+      "etiqueta": "Registro de actividad",
+      "definicion": "Registrar quién hizo qué y cuándo, de forma consultable.",
+      "noEs": "No son los permisos (cap.roles_and_permissions): esto no impide, deja constancia.",
+      "dominioId": "seguridad",
+      "estado": "activa",
+      "origenBorrador": "sec.audit_log"
+    },
+    {
+      "id": "cap.privacy_compliance_tooling",
+      "etiqueta": "Herramientas de cumplimiento del RGPD",
+      "definicion": "Herramientas para cumplir con protección de datos: registro de tratamientos, gestión de derechos del interesado, contrato de encargado, consentimientos.",
+      "noEs": "No dice dónde se alojan los datos: eso es una restricción aparte (req.data_residency_eu) y NO se deduce de tratar datos sensibles.",
+      "dominioId": "seguridad",
+      "estado": "activa",
+      "origenBorrador": "sec.gdpr_eu_data"
+    },
+    {
+      "id": "cap.two_factor_authentication",
+      "etiqueta": "Doble factor",
+      "definicion": "Exigir un segundo factor además de la contraseña.",
+      "noEs": "No es el inicio de sesión único (cap.single_sign_on), aunque suelan ir juntos.",
+      "dominioId": "seguridad",
+      "estado": "activa",
+      "origenBorrador": "sec.two_factor"
+    },
+    {
+      "id": "cap.backup_and_recovery",
+      "etiqueta": "Copias de seguridad",
+      "definicion": "Hacer copias de seguridad y poder restaurar cuando algo se pierde.",
+      "noEs": "No es el historial de versiones de un documento (cap.document_version_history) ni la política de borrado (cap.data_retention_and_deletion).",
+      "dominioId": "seguridad",
+      "estado": "activa",
+      "origenBorrador": "sec.backup_recovery"
+    },
+    {
+      "id": "cap.data_retention_and_deletion",
+      "etiqueta": "Retención y borrado de datos",
+      "definicion": "Definir cuánto se guarda cada cosa y borrarla cuando toca, de forma demostrable.",
+      "noEs": "No es hacer copias (cap.backup_and_recovery), que es lo contrario: aquí se elimina a propósito.",
+      "dominioId": "seguridad",
+      "estado": "activa",
+      "origenBorrador": "sec.data_retention"
+    },
+    {
+      "id": "cap.third_party_document_control",
+      "etiqueta": "Documentación obligatoria de terceros con caducidades",
+      "definicion": "Custodiar documentación obligatoria de terceros con su fecha de caducidad y avisar antes de que venza: subcontratas, vehículos, titulaciones.",
+      "noEs": "No es guardar archivos (cap.file_storage): lo distintivo es la caducidad y el aviso.",
+      "dominioId": "seguridad",
+      "estado": "activa",
+      "origenBorrador": "compliance.document_control"
+    }
+  ],
+  "restricciones": [
+    {
+      "id": "req.offline_capable",
+      "etiqueta": "Funciona sin cobertura",
+      "tipo": "dura",
+      "definicion": "La herramienta tiene que seguir sirviendo cuando no hay conexión, y sincronizar después.",
+      "quienLaImpone": "Taller, obra, transporte, mercado y restaurante en servicio. Sin ella la herramienta no vale, por buena que sea.",
+      "terminosReservados": [
+        "sin cobertura",
+        "sin conexion",
+        "sin conexión",
+        "offline",
+        "funciona sin internet"
+      ]
+    },
+    {
+      "id": "req.data_residency_eu",
+      "etiqueta": "Datos alojados en la Unión Europea",
+      "tipo": "dura",
+      "definicion": "Los datos deben residir físicamente en la UE.",
+      "quienLaImpone": "Sólo quien tenga un contrato, un pliego o una norma sectorial que la exija expresamente. NO se deduce del sector ni del tipo de dato: cumplir el RGPD no obliga a alojar en Europa, y tratar datos de categoría especial tampoco. Hay que preguntarlo.",
+      "terminosReservados": [
+        "datos en la ue",
+        "residencia de datos",
+        "alojado en europa",
+        "alojamiento en la union europea"
+      ]
+    },
+    {
+      "id": "req.language_es",
+      "etiqueta": "En español",
+      "tipo": "dura",
+      "definicion": "Interfaz, ayuda y atención en español.",
+      "quienLaImpone": "Prácticamente todo el público de Molnip.",
+      "terminosReservados": [
+        "interfaz en español"
+      ]
+    },
+    {
+      "id": "req.esignature_qualified",
+      "etiqueta": "Firma electrónica cualificada",
+      "tipo": "dura",
+      "definicion": "La firma debe alcanzar el nivel cualificado, no basta con la simple.",
+      "quienLaImpone": "Procesos regulados que lo exijan. Es un nivel exigido a una capacidad que ya existe, no otra capacidad.",
+      "terminosReservados": [
+        "firma cualificada",
+        "firma electronica cualificada"
+      ]
+    },
+    {
+      "id": "req.health_special_category",
+      "etiqueta": "Datos de salud (categoría especial)",
+      "tipo": "dura",
+      "definicion": "Se tratan datos de categoría especial, lo que eleva las garantías exigidas: base jurídica, control de accesos, registro y conservación.",
+      "quienLaImpone": "Sanidad y quien trate estos datos. No dice nada sobre dónde se alojan: eso es req.data_residency_eu y es una exigencia distinta.",
+      "terminosReservados": [
+        "categoria especial",
+        "datos de salud"
+      ]
+    },
+    {
+      "id": "req.mobile_first",
+      "etiqueta": "Se usa desde el móvil",
+      "tipo": "blanda",
+      "definicion": "El trabajo real ocurre en el móvil, no delante de un ordenador.",
+      "quienLaImpone": "Oficios que trabajan de pie o en la calle. Importa mucho, pero no descalifica por sí sola.",
+      "terminosReservados": []
+    },
+    {
+      "id": "req.low_price",
+      "etiqueta": "Precio muy bajo o plan gratuito",
+      "tipo": "blanda",
+      "definicion": "El presupuesto disponible es mínimo.",
+      "quienLaImpone": "Autónomos, negocios de una persona y entidades sin ánimo de lucro.",
+      "terminosReservados": []
+    },
+    {
+      "id": "req.no_training_needed",
+      "etiqueta": "Sin curva de aprendizaje",
+      "tipo": "blanda",
+      "definicion": "Tiene que poder usarse sin formación previa ni implantación.",
+      "quienLaImpone": "Quien no tiene tiempo ni equipo técnico para implantar nada.",
+      "terminosReservados": []
+    }
+  ],
+  "justificacionesDeParecido": [
+    {
+      "par": [
+        "cap.third_party_settlement",
+        "cap.third_party_document_control"
+      ],
+      "diferencia": "La primera liquida DINERO a un tercero —propietario, colaborador— descontando comisión. La segunda custodia PAPELES de un tercero —subcontrata, conductor, profesional— con su fecha de caducidad. No se parecen en nada salvo en el nombre."
+    }
+  ]
+}
