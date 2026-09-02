@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "ClickUp Affiliate Program",
+  "affiliatePlatform": "Programa propio / FirstPromoter",
+  "affiliateUrl": "https://clickup.com/affiliates",
+  "commission": "Reutilizado del registro ya verificado de ClickUp: 20% de comisión recurrente durante 12 meses. Nota: una fuente pública de 2026 describe en su lugar un modelo de pago por alta escalonado por país gestionado con PartnerStack, así que la estructura vigente debe confirmarse antes de solicitar el programa.",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, Transferencia bancaria",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "medium",
+  "source": "https://clickup.com/affiliates",
+  "lastAffiliateCheck": "2026-09-02",
+  "herramientaId": "clickup-brain"
+}

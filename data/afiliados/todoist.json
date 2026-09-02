@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Todoist (Doist) Partner Program",
+  "affiliatePlatform": "PartnerStack",
+  "affiliateUrl": "https://market.partnerstack.com/program/doist",
+  "commission": "Hasta el 25% de comisión por venta.",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "PartnerStack (PayPal y transferencia)",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "medium",
+  "source": "https://www.todoist.com/help/articles/todoist-partner-programs-t8t2hZ0Z",
+  "herramientaId": "todoist",
+  "lastAffiliateCheck": "2026-09-02"
+}

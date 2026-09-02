@@ -1,0 +1,134 @@
+{
+  "nombre": "Beautiful.ai",
+  "paginaOficial": "https://www.beautiful.ai",
+  "urlPrecios": "https://www.beautiful.ai/pricing",
+  "logoUrl": "",
+  "categoriaId": "asistentes-ia",
+  "subtipoId": "presentaciones",
+  "tipoProducto": "especializada",
+  "problemasIds": [
+    "ahorrar-tiempo"
+  ],
+  "descripcion": "Beautiful.ai es un software de presentaciones que automatiza el diseño en lugar de generar el contenido. Su motor de maquetación Smart Slides reajusta espaciado, alineación, tipografía y jerarquía visual cada vez que se modifica una diapositiva, de forma que el resultado sigue siendo coherente sin que nadie tenga que cuadrar cajas a mano.",
+  "informacionEmpresa": {
+    "anioFundacion": 2015,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "101-250 empleados"
+  },
+  "problemasQueResuelve": [
+    "Horas perdidas alineando elementos y ajustando plantillas para que una presentación no parezca improvisada.",
+    "Presentaciones incoherentes entre miembros del equipo, cada uno con su propia versión de la plantilla corporativa.",
+    "Falta de criterio de diseño en equipos donde nadie tiene formación en diseño gráfico."
+  ],
+  "casosDeUso": [
+    "Propuestas comerciales y presentaciones de venta con identidad corporativa consistente.",
+    "Informes de resultados periódicos donde solo cambian los datos y no la estructura.",
+    "Plantillas de marca bloqueadas para que todo el equipo presente igual.",
+    "Presentaciones internas de proyecto sin dedicar tiempo a maquetar."
+  ],
+  "idealPara": "Equipos comerciales y de dirección que preparan presentaciones con frecuencia y necesitan que salgan bien sin depender de una persona de diseño.",
+  "segmentosIdeales": [
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "Servicios Profesionales",
+    "Marketing y Agencias Creativas",
+    "Tecnología y Software",
+    "Consultoría",
+    "Startups"
+  ],
+  "noRecomendadaPara": "Quien busque generar el contenido de la presentación desde cero con IA, o quien necesite un plan gratuito.",
+  "casosNoRecomendados": [
+    "Generar una presentación completa a partir de una sola instrucción de texto: eso lo hace mejor Gamma.",
+    "Empresas que necesiten trabajar sin conexión o desde el móvil, porque no hay aplicación móvil."
+  ],
+  "funcionesPrincipales": [
+    "Smart Slides: motor patentado de maquetación automática",
+    "Plantillas de marca bloqueadas para todo el equipo",
+    "Biblioteca de diapositivas compartida",
+    "Control de versiones y colaboración en tiempo real",
+    "Exportación a PowerPoint y PDF",
+    "Analítica de visualización de las presentaciones enviadas"
+  ],
+  "integraciones": [
+    "PowerPoint",
+    "Google Drive",
+    "Slack",
+    "Dropbox",
+    "Monday.com"
+  ],
+  "integracionesPrincipales": [
+    "PowerPoint",
+    "Google Drive",
+    "Slack"
+  ],
+  "curvaDeAprendizaje": "muy_facil",
+  "precioInicial": "Plan Pro desde 12$/mes con facturación anual. No hay plan gratuito.",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Plan Pro a 12$/mes facturado anualmente para uso individual; el plan Team sube a 40$/usuario/mes y solo compensa si se necesitan plantillas de marca bloqueadas y control de equipo.",
+  "idiomasDisponibles": [
+    "Inglés"
+  ],
+  "disponibleEnEspanol": false,
+  "tieneAppMovil": false,
+  "tieneApiPublica": false,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 8,
+    "fiabilidad": 8,
+    "atencionAlCliente": 5,
+    "escalabilidad": 7,
+    "nivelTecnicoRequerido": 2,
+    "facilidadImplementacion": 9
+  },
+  "metodologiaValoracion": "Puntuaciones calculadas a partir de las valoraciones verificadas en G2 (4,7/5 sobre 195 reseñas) y Capterra (4,2/5 sobre 85 reseñas), y del análisis de la documentación oficial de producto y precios. La atención al cliente se puntúa baja de forma deliberada: la nota de Trustpilot (2,9/5 sobre 236 reseñas) contrasta con la de G2 y las quejas se concentran en la capacidad de respuesta del soporte y en las prácticas de facturación.",
+  "reputacion": {
+    "g2Puntuacion": 4.7,
+    "g2NumeroResenas": 195,
+    "capterraPuntuacion": 4.2,
+    "capterraNumeroResenas": 85,
+    "otrasFuentes": [
+      {
+        "fuente": "Trustpilot",
+        "puntuacion": 2.9,
+        "numeroResenas": 236,
+        "enlace": "https://www.trustpilot.com/review/beautiful.ai"
+      }
+    ]
+  },
+  "ventajas": [
+    "El maquetado automático evita por completo el trabajo de alinear y cuadrar elementos.",
+    "Las plantillas de marca bloqueadas mantienen la coherencia visual en todo el equipo.",
+    "Exporta a PowerPoint, así que no obliga a abandonar el formato que ya usa la empresa.",
+    "Curva de aprendizaje muy corta para alguien sin formación en diseño."
+  ],
+  "inconvenientes": [
+    "No tiene plan gratuito, y el salto del plan Pro (12$/mes) al Team (40$/usuario/mes) es muy grande.",
+    "La interfaz solo está en inglés, sin versión en español.",
+    "No hay aplicación móvil y la API está todavía en acceso anticipado.",
+    "La nota de Trustpilot (2,9/5) señala fricción real en soporte y facturación, muy por debajo de su nota en G2."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Gamma",
+      "Canva",
+      "Pitch",
+      "Microsoft PowerPoint"
+    ],
+    "tipoNegocioIdeal": "Equipos comerciales y de dirección que presentan a menudo y no tienen diseñador",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 0,
+    "motivosPuntuacion": []
+  },
+  "id": "beautiful-ai",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-02",
+  "fechaUltimaRevision": "2026-09-02"
+}

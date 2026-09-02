@@ -1,0 +1,131 @@
+{
+  "nombre": "HeyGen",
+  "paginaOficial": "https://www.heygen.com",
+  "urlPrecios": "https://www.heygen.com/pricing",
+  "logoUrl": "",
+  "categoriaId": "asistentes-ia",
+  "subtipoId": "video",
+  "tipoProducto": "especializada",
+  "problemasIds": [
+    "ahorrar-tiempo"
+  ],
+  "descripcion": "HeyGen es una plataforma de generación de vídeo con inteligencia artificial que crea vídeos protagonizados por avatares digitales a partir de un guion escrito, sin cámara, estudio ni equipo de grabación. Su función más diferencial es la traducción de vídeo con sincronización labial, que permite reutilizar una misma grabación en más de 175 idiomas conservando la voz del hablante original.",
+  "informacionEmpresa": {
+    "anioFundacion": 2020,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "201-500 empleados"
+  },
+  "problemasQueResuelve": [
+    "Coste y tiempo elevados de producir vídeo corporativo con cámara, plató y edición para cada actualización de contenido.",
+    "Imposibilidad de mantener el material formativo o comercial actualizado cuando cambia el producto o el precio.",
+    "Barrera del idioma al vender o formar en varios mercados sin volver a grabar cada pieza."
+  ],
+  "casosDeUso": [
+    "Vídeos de formación interna y onboarding que se actualizan cambiando el texto del guion, sin volver a grabar.",
+    "Traducción de un vídeo comercial existente a español, inglés y portugués conservando la voz y la sincronización labial.",
+    "Mensajes de venta personalizados a escala para campañas de prospección.",
+    "Vídeos explicativos de producto para la web y para fichas de comercio electrónico."
+  ],
+  "idealPara": "Pequeñas y medianas empresas que necesitan producir vídeo corporativo, formativo o comercial de forma continua y en varios idiomas sin montar un equipo de producción audiovisual.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "Marketing y Agencias Creativas",
+    "Educación y Formación",
+    "Tecnología y Software",
+    "Comercio y Retail",
+    "Servicios Profesionales"
+  ],
+  "noRecomendadaPara": "Empresas que necesiten vídeo con imagen real de personas concretas, producción cinematográfica o edición fina de material grabado por ellas mismas.",
+  "casosNoRecomendados": [
+    "Producción audiovisual de marca donde la credibilidad depende de que aparezcan personas reales del equipo.",
+    "Edición avanzada de metraje propio: para eso encaja mejor una herramienta de edición como Descript."
+  ],
+  "funcionesPrincipales": [
+    "Generación de vídeo con avatares de IA a partir de un guion de texto",
+    "Traducción de vídeo a más de 175 idiomas con sincronización labial",
+    "Clonación de voz",
+    "Avatares personalizados de la propia persona (planes superiores)",
+    "Exportación en 1080p y 4K según plan",
+    "Vídeo interactivo y exportación SCORM para plataformas de formación"
+  ],
+  "integraciones": [
+    "Zapier",
+    "Canva",
+    "PowerPoint",
+    "Plataformas LMS",
+    "API propia"
+  ],
+  "integracionesPrincipales": [
+    "Zapier",
+    "API propia",
+    "Plataformas LMS"
+  ],
+  "curvaDeAprendizaje": "facil",
+  "precioInicial": "Gratis (3 vídeos al mes con marca de agua). Plan Creator desde 29$/mes.",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": true,
+  "precioRecomendadoPymes": "Plan Creator a 29$/mes: vídeos ilimitados con 200 créditos mensuales, clonación de voz y exportación en 1080p.",
+  "idiomasDisponibles": [
+    "Español",
+    "Inglés",
+    "Francés",
+    "Alemán",
+    "Italiano",
+    "Portugués",
+    "Japonés",
+    "Chino mandarín"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 9,
+    "fiabilidad": 8,
+    "atencionAlCliente": 6,
+    "escalabilidad": 8,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 9
+  },
+  "metodologiaValoracion": "Puntuaciones calculadas a partir de las valoraciones verificadas en G2 (4,8/5 sobre 1.924 reseñas) y del análisis de la documentación oficial de producto, precios e idiomas soportados. La nota de atención al cliente se rebaja de forma deliberada porque las reseñas en Trustpilot y BBB describen fricción recurrente en facturación y en tiempos de respuesta del soporte.",
+  "reputacion": {
+    "g2Puntuacion": 4.8,
+    "g2NumeroResenas": 1924
+  },
+  "ventajas": [
+    "Elimina por completo la necesidad de cámara, plató y edición para producir vídeo corporativo.",
+    "La traducción con sincronización labial permite reutilizar una misma pieza en 175+ idiomas, incluido el español de España y de Latinoamérica.",
+    "Plan gratuito real para probar el resultado antes de pagar nada.",
+    "API pública y app para iPhone, además del editor web."
+  ],
+  "inconvenientes": [
+    "El sistema de créditos limita el vídeo con avatares avanzados: los 200 créditos del plan Creator equivalen a unos 10 minutos al mes.",
+    "Reseñas recurrentes en Trustpilot y BBB sobre confusión en la facturación y lentitud del soporte.",
+    "El plan gratuito marca los vídeos con marca de agua, así que no sirve para uso comercial."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Synthesia",
+      "Elai.io",
+      "Colossyan",
+      "Hour One"
+    ],
+    "tipoNegocioIdeal": "Pymes y agencias que producen vídeo formativo o comercial de forma recurrente y en varios idiomas",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 0,
+    "motivosPuntuacion": []
+  },
+  "id": "heygen",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-02",
+  "fechaUltimaRevision": "2026-09-02"
+}

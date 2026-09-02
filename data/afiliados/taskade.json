@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Taskade Partnership Program",
+  "affiliatePlatform": "Programa propio (partners.taskade.com)",
+  "affiliateUrl": "https://partners.taskade.com/",
+  "commission": "Comisión recurrente de por vida sobre las suscripciones referidas. Las fuentes públicas consultadas difieren de forma importante: la entrada más reciente del blog oficial habla de un 20% vitalicio, mientras que el centro de ayuda y otros directorios citan hasta un 50%.",
+  "cookieDuration": "60 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "medium",
+  "source": "https://partners.taskade.com/",
+  "herramientaId": "taskade",
+  "lastAffiliateCheck": "2026-09-02"
+}

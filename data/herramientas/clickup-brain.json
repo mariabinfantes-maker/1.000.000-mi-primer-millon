@@ -1,0 +1,133 @@
+{
+  "nombre": "ClickUp Brain",
+  "paginaOficial": "https://clickup.com/ai",
+  "urlPrecios": "https://clickup.com/pricing",
+  "logoUrl": "",
+  "categoriaId": "asistentes-ia",
+  "subtipoId": "espacio-trabajo",
+  "tipoProducto": "especializada",
+  "problemasIds": [
+    "organizar-empresa",
+    "ahorrar-tiempo"
+  ],
+  "descripcion": "ClickUp Brain es la capa de inteligencia artificial de ClickUp, contratada aparte como complemento sobre cualquier plan de pago. Responde preguntas sobre el contenido del propio espacio de trabajo (tareas, documentos y comentarios), redacta y resume texto, genera tareas a partir de una descripción y permite consultar varios modelos de lenguaje desde la misma interfaz.",
+  "informacionEmpresa": {
+    "anioFundacion": 2017,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "501-1000 empleados"
+  },
+  "problemasQueResuelve": [
+    "Información dispersa entre tareas, documentos y comentarios que nadie consigue localizar cuando hace falta.",
+    "Tiempo dedicado a redactar actualizaciones de estado, resúmenes y documentación de proyecto a mano.",
+    "Necesidad de pagar por varias herramientas de IA distintas cuando el trabajo ya vive en un único gestor de proyectos."
+  ],
+  "casosDeUso": [
+    "Preguntar en lenguaje natural por el estado de un proyecto y obtener la respuesta a partir de las tareas reales.",
+    "Resumir hilos largos de comentarios y extraer los acuerdos y las tareas pendientes.",
+    "Generar la estructura de tareas de un proyecto nuevo a partir de una descripción en texto.",
+    "Redactar y reescribir documentación interna sin salir del espacio de trabajo."
+  ],
+  "idealPara": "Empresas que ya usan ClickUp como centro de trabajo y quieren añadir inteligencia artificial sobre su propia información sin migrar nada ni contratar otra herramienta.",
+  "segmentosIdeales": [
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "Tecnología y Software",
+    "Marketing y Agencias Creativas",
+    "Servicios Profesionales",
+    "Consultoría",
+    "Startups"
+  ],
+  "noRecomendadaPara": "Empresas que no usen ClickUp, o equipos pequeños con presupuesto ajustado, porque el complemento se cobra sobre todas las licencias de pago del espacio de trabajo.",
+  "casosNoRecomendados": [
+    "Organizaciones cuya documentación vive en Notion, Google Workspace o Microsoft 365 y no piensan migrarla.",
+    "Equipos que solo quieran IA para una o dos personas: el complemento se factura sobre cada licencia de pago del espacio."
+  ],
+  "funcionesPrincipales": [
+    "Preguntas y respuestas en lenguaje natural sobre tareas, documentos y comentarios del espacio de trabajo",
+    "Resumen automático de hilos de comentarios y de documentos",
+    "Generación de tareas y subtareas a partir de una descripción",
+    "Redacción y reescritura de texto con IA",
+    "Campos de IA que rellenan información derivada en las tareas",
+    "Acceso a varios modelos de lenguaje desde la misma interfaz"
+  ],
+  "integraciones": [
+    "Slack",
+    "Google Drive",
+    "GitHub",
+    "Zapier",
+    "Figma",
+    "Outlook"
+  ],
+  "integracionesPrincipales": [
+    "Slack",
+    "Google Drive",
+    "GitHub",
+    "Zapier"
+  ],
+  "curvaDeAprendizaje": "media",
+  "precioInicial": "Complemento de 9$/usuario/mes con facturación anual (18$/usuario/mes en mensual), sobre un plan de pago de ClickUp que empieza en 7$/usuario/mes.",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "9$/usuario/mes facturado anualmente, sumados al plan de ClickUp que ya se tenga. Importante: el complemento se cobra sobre TODAS las licencias de pago del espacio de trabajo, no solo sobre quienes vayan a usar la IA.",
+  "idiomasDisponibles": [
+    "Español",
+    "Inglés",
+    "Francés",
+    "Alemán",
+    "Portugués"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 8,
+    "calidad": 8,
+    "fiabilidad": 8,
+    "atencionAlCliente": 7,
+    "escalabilidad": 9,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 8
+  },
+  "metodologiaValoracion": "Puntuaciones calculadas a partir de las valoraciones verificadas en G2 (4,7/5 sobre 9.500 reseñas) y Capterra (4,7/5 sobre 4.000 reseñas) referidas a ClickUp y a sus funciones de IA —Brain no tiene ficha de reseñas propia por tratarse de un complemento—, y del análisis de la documentación oficial de producto y precios. Mismo criterio aplicado en la ficha de Notion AI.",
+  "reputacion": {
+    "g2Puntuacion": 4.7,
+    "g2NumeroResenas": 9500,
+    "capterraPuntuacion": 4.7,
+    "capterraNumeroResenas": 4000
+  },
+  "ventajas": [
+    "Trabaja sobre la información que la empresa ya tiene en ClickUp, sin migrar ni duplicar nada.",
+    "Respaldado por un producto muy contrastado: más de 13.500 reseñas verificadas entre G2 y Capterra.",
+    "Disponible en español y accesible desde web, escritorio y móvil.",
+    "Permite consultar distintos modelos de lenguaje sin salir de la herramienta."
+  ],
+  "inconvenientes": [
+    "Se factura sobre cada licencia de pago del espacio de trabajo, lo que puede duplicar la factura mensual de ClickUp.",
+    "No tiene plan gratuito: exige un plan de pago de ClickUp por debajo.",
+    "Su utilidad es nula fuera de ClickUp: no es una herramienta independiente.",
+    "La calidad de las respuestas depende de lo ordenada y actualizada que esté la información del espacio de trabajo."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Notion AI",
+      "Taskade",
+      "Coda",
+      "Microsoft 365 Copilot"
+    ],
+    "tipoNegocioIdeal": "Empresas que ya tienen ClickUp como centro de trabajo y quieren IA sobre su propia información",
+    "nivelTecnicoRecomendado": "intermedio",
+    "puntuacion": 0,
+    "motivosPuntuacion": []
+  },
+  "id": "clickup-brain",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-02",
+  "fechaUltimaRevision": "2026-09-02"
+}
