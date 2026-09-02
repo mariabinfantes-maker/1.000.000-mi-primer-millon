@@ -464,7 +464,7 @@
     },
     {
       "id": "cap.support_chatbot",
-      "etiqueta": "Asistente automático de atencion",
+      "etiqueta": "Asistente automático de atención",
       "definicion": "Que un asistente automático responda lo repetitivo y derive lo demás a una persona.",
       "noEs": "No es un agente que ejecuta tareas en otros sistemas (cap.ai_task_agents): éste conversa.",
       "dominioId": "atencion",
@@ -1499,7 +1499,7 @@
     {
       "id": "req.data_residency_eu",
       "etiqueta": "Datos alojados en la Unión Europea",
-      "tipo": "dura",
+      "tipo": "dura_condicional",
       "definicion": "Los datos deben residir físicamente en la UE.",
       "quienLaImpone": "Sólo quien tenga un contrato, un pliego o una norma sectorial que la exija expresamente. NO se deduce del sector ni del tipo de dato: cumplir el RGPD no obliga a alojar en Europa, y tratar datos de categoría especial tampoco. Hay que preguntarlo.",
       "terminosReservados": [
@@ -1507,7 +1507,8 @@
         "residencia de datos",
         "alojado en europa",
         "alojamiento en la union europea"
-      ]
+      ],
+      "condicionDeActivacion": "La persona, un contrato, un pliego de contratación o una norma sectorial concreta exigen expresamente que los datos residan en la UE. No se deduce del sector ni del tipo de dato: cumplir el RGPD no obliga a alojar en Europa, y tratar datos de categoría especial tampoco. Si nadie lo pide, esta restricción no filtra nada."
     },
     {
       "id": "req.language_es",
@@ -1522,13 +1523,14 @@
     {
       "id": "req.esignature_qualified",
       "etiqueta": "Firma electrónica cualificada",
-      "tipo": "dura",
+      "tipo": "dura_condicional",
       "definicion": "La firma debe alcanzar el nivel cualificado, no basta con la simple.",
       "quienLaImpone": "Procesos regulados que lo exijan. Es un nivel exigido a una capacidad que ya existe, no otra capacidad.",
       "terminosReservados": [
         "firma cualificada",
         "firma electronica cualificada"
-      ]
+      ],
+      "condicionDeActivacion": "El proceso exige expresamente firma cualificada y no basta la firma simple. Si nadie lo pide, esta restricción no filtra nada."
     },
     {
       "id": "req.health_special_category",

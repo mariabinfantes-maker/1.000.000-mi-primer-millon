@@ -42,14 +42,36 @@ describe("los identificadores del vocabulario", () => {
     expect(r.filter((id, i) => r.indexOf(id) !== i)).toEqual([]);
   });
 
-  it.each(ids)("regla 2 · «%s» se sostiene sin su dominio", (id) => {
-    const palabras = palabrasDe(id);
-    if (palabras.length > 1) return;
+  /**
+   * La regla 2 sólo tiene algo que decir sobre los nombres de UNA palabra: un
+   * nombre compuesto ya dice sobre qué actúa.
+   *
+   * La primera versión recorría los 146 identificadores y salía sin comprobar
+   * nada en los 139 compuestos. Vitest los contaba como pruebas pasadas, así
+   * que el recuento decía 146 y las aserciones reales eran 7. Ahora se recorren
+   * sólo los que la regla juzga, y una comprobación aparte garantiza que la
+   * regla no se queda sin casos.
+   */
+  const deUnaPalabra = ids.filter((id) => palabrasDe(id).length === 1);
+
+  it("regla 2 · hay nombres de una palabra que juzgar", () => {
+    expect(
+      deUnaPalabra.length,
+      "Si no queda ninguno, esta regla ya no comprueba nada y hay que revisarla."
+    ).toBeGreaterThan(0);
+  });
+
+  it.each(deUnaPalabra)("regla 2 · «%s» se sostiene sin su dominio", (id) => {
     expect(
       PALABRAS_AMBIGUAS_SOLAS,
       `"${id}" es una palabra suelta que no dice sobre qué actúa. ` +
         "Nombra el objeto: cap.customer_appointment_reminders, no cap.reminders."
-    ).not.toContain(palabras[0]);
+    ).not.toContain(palabrasDe(id)[0]);
+  });
+
+  it("regla 2 · rechaza un nombre ambiguo de una palabra", () => {
+    // Control del guardián: la regla tiene que morder, no sólo estar escrita.
+    expect(PALABRAS_AMBIGUAS_SOLAS).toContain(palabrasDe("cap.reminders")[0]);
   });
 
   it.each(ids)("regla 3 · «%s» tiene la forma correcta", (id) => {

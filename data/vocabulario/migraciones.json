@@ -1,5 +1,5 @@
 {
   "version": "3.0.0",
-  "nota": "Los identificadores se emiten por primera vez en la version 3.0.0. Antes de esa fecha el vocabulario era un borrador en revision y ninguno estaba en uso, asi que los cambios de nombre previos NO son migraciones: se conservan en `origenBorrador` de cada capacidad solo como trazabilidad. A partir de aqui, toda fusion, escision, reclasificacion o baja deja constancia en esta lista.",
+  "nota": "Los identificadores se emiten por primera vez en la versión 3.0.0. Antes de esa fecha el vocabulario era un borrador en revisión y ninguno estaba en uso, así que los cambios de nombre previos NO son migraciones: se conservan en `origenBorrador` de cada capacidad solo como trazabilidad. A partir de aquí, toda fusión, escisión, reclasificación o baja deja constancia en esta lista.",
   "migraciones": []
 }

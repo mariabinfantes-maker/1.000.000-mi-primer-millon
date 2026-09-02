@@ -102,24 +102,34 @@ export type Capacidad = {
 };
 
 /**
- * Dura o blanda, y la diferencia importa mucho.
+ * Cómo actúa una restricción. Son TRES valores, no dos, y el tercero existe
+ * para impedir un error concreto.
  *
- *  - DURA: excluye. Una herramienta que no la cumple no se recomienda, por
- *    buena que sea. Un fontanero en un sótano sin cobertura no puede usar
- *    algo que necesite conexión, y no hay puntuación que lo arregle.
+ *  - DURA: excluye siempre que la necesidad la traiga. Una herramienta que no
+ *    la cumple no se recomienda, por buena que sea. Un fontanero en un sótano
+ *    sin cobertura no puede usar algo que necesite conexión, y no hay
+ *    puntuación que lo arregle.
+ *  - DURA_CONDICIONAL: excluye igual de fuerte, pero SÓLO cuando se dispara la
+ *    condición escrita en `condicionDeActivacion`. Mientras no se dispare, no
+ *    filtra nada en absoluto.
  *  - BLANDA: puntúa. Importa, pero no descalifica.
  *
- * Hoy el motor sólo sabe sumar y restar puntos. Las restricciones duras
- * necesitan una fase de descarte previo que todavía no existe: va en F3.
+ * Por qué el tercer valor y no un booleano al lado: un booleano se puede
+ * ignorar. Un valor nuevo del tipo no, porque TypeScript obliga a tratarlo al
+ * hacer el `switch`. Y esto ya se equivocó una vez en el diseño —presentar
+ * «clínica» como causa automática de datos en la UE— y habría descartado
+ * herramientas perfectamente válidas para una consulta dental. Con `dura` a
+ * secas, un consumidor futuro repetiría el error leyendo sólo este campo.
+ *
+ * Hoy el motor sólo sabe sumar y restar puntos. El descarte previo llega en F3.
  */
-export type TipoRestriccion = "dura" | "blanda";
+export type TipoRestriccion = "dura" | "dura_condicional" | "blanda";
 
-export type Restriccion = {
+type RestriccionBase = {
   /** Identificador permanente. `req.` + nombre semántico. Mismas reglas que las capacidades. */
   id: string;
   etiqueta: string;
   definicion: string;
-  tipo: TipoRestriccion;
   /** Quién la impone de verdad. Sirve para no deducirla del sector cuando no toca. */
   quienLaImpone: string;
   /**
@@ -131,6 +141,43 @@ export type Restriccion = {
    * ahora de forma automática.
    */
   terminosReservados: string[];
+};
+
+/**
+ * La unión es discriminada a propósito: `condicionDeActivacion` es OBLIGATORIO
+ * cuando el tipo es `dura_condicional` y no se admite en los otros dos. Así el
+ * esquema impide construir una restricción condicional sin decir cuándo se
+ * activa, y impide tratar una condicional como si fuera universal.
+ */
+export type Restriccion = RestriccionBase &
+  (
+    | { tipo: "dura" | "blanda"; condicionDeActivacion?: never }
+    | {
+        tipo: "dura_condicional";
+        /** Qué tiene que ser cierto para que llegue a filtrar. Sin esto, no se activa nunca. */
+        condicionDeActivacion: string;
+      }
+  );
+
+/** Un cambio de identificador ya emitido. Sólo estos cuatro tipos existen. */
+export type TipoMigracion = "fusion" | "escision" | "reclasificacion" | "baja";
+
+export type Migracion = {
+  /** Identificador de origen. Tiene que estar entre los ya emitidos. */
+  de: string;
+  /** A dónde va. Vacío sólo en una baja sin sucesora. */
+  a: string[];
+  tipo: TipoMigracion;
+  /** ISO 8601, AAAA-MM-DD. */
+  fecha: string;
+  motivo: string;
+};
+
+export type RegistroDeMigraciones = {
+  /** Tiene que coincidir con la versión del vocabulario. */
+  version: string;
+  nota: string;
+  migraciones: Migracion[];
 };
 
 export type Vocabulario = {
