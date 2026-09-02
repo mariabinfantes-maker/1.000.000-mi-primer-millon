@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { ClipboardList } from "lucide-react";
 import { getCategoria, getCategorias, getHerramientasPorCategoria } from "@/data/repositorio";
-import { esCategoriaPublica } from "@/data/taxonomia";
+import { MINIMO_POR_SUBTIPO, cubreSubtipo, esCategoriaPublica } from "@/data/taxonomia";
+import { subtiposConContenido } from "@/agents/atlas-generador-contenido/contenidoSubtipos";
+import SelectorSubtipo from "@/components/SelectorSubtipo";
 import { aVistaDeTarjetaGenerica, ordenarPorPuntuacionAtlas } from "@/lib/vistaRecomendacion";
 import { metadataCategoria } from "@/agents/atlas-generador-contenido/metadatos";
 import EnlaceAtras from "@/components/ui/EnlaceAtras";
@@ -53,6 +55,18 @@ export default async function LandingCategoriaPage({
   const herramientas = ordenarPorPuntuacionAtlas(getHerramientasPorCategoria(categoriaId));
   const vistas = herramientas.map((herramienta, indice) => aVistaDeTarjetaGenerica(herramienta, indice + 1));
 
+  // Solo se ofrecen los subtipos que de verdad permiten comparar: con
+  // contenido editorial escrito y con al menos `MINIMO_POR_SUBTIPO`
+  // alternativas. Mandar a alguien a una pantalla con una sola herramienta
+  // sería justo lo contrario de lo que hace este selector.
+  const opcionesSubtipo = subtiposConContenido(categoriaId)
+    .map((subtipo) => ({
+      id: subtipo.id,
+      nombre: subtipo.nombre,
+      cuantas: herramientas.filter((herramienta) => cubreSubtipo(herramienta, subtipo.id)).length,
+    }))
+    .filter((subtipo) => subtipo.cuantas >= MINIMO_POR_SUBTIPO);
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
       <EnlaceAtras href="/">Volver al inicio</EnlaceAtras>
@@ -78,6 +92,8 @@ export default async function LandingCategoriaPage({
           Encuentra la que mejor encaja contigo
         </Boton>
       </div>
+
+      <SelectorSubtipo categoriaId={categoria.id} opciones={opcionesSubtipo} />
 
       {vistas.length > 0 ? (
         <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">

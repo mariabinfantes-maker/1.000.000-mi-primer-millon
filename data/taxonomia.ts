@@ -109,8 +109,16 @@ export function esCategoriaPublica(categoria: Categoria): boolean {
  * el 100% de los 120 perfiles de esa categoría, de modo que quien buscaba
  * generar vídeo recibía un corrector ortográfico.
  *
- * Los subtipos son el eje que faltaba. No cambian la navegación ni añaden
- * páginas: solo le dicen al motor qué se puede comparar con qué.
+ * Los subtipos son el eje que faltaba: le dicen al motor qué se puede
+ * comparar con qué.
+ *
+ * Nacieron siendo solo eso, invisibles para quien navega. Dejó de bastar el
+ * 2026-09-02: al medir el recorrido real se vio que quien entraba en la
+ * categoría recibía el muestrario de `repartirEntreSubtipos` —una
+ * herramienta de cada tipo— y se quedaba sin siguiente paso, porque no había
+ * ninguna forma de elegir un subtipo desde la interfaz. Desde entonces cada
+ * subtipo con alternativas suficientes tiene también su propia página
+ * (`/categoria/[id]/subtipo/[id]`) y entra en el selector de la categoría.
  */
 export const SUBTIPOS_POR_CATEGORIA: Record<string, { id: string; nombre: string }[]> = {
   "asistentes-ia": [
@@ -129,6 +137,23 @@ export const MINIMO_POR_SUBTIPO = 3;
 /** ¿Esta categoría distingue subtipos? La mayoría no lo necesita. */
 export function categoriaTieneSubtipos(categoriaId: string): boolean {
   return (SUBTIPOS_POR_CATEGORIA[categoriaId]?.length ?? 0) > 0;
+}
+
+/**
+ * El subtipo declarado de esa categoría, o `undefined` si no existe.
+ *
+ * Punto único de validación para todo lo que llegue de fuera —un parámetro
+ * en la dirección, sobre todo—: un subtipo solo es válido DENTRO de su
+ * categoría, así que comprobar que la cadena está en `SUBTIPOS_POR_CATEGORIA`
+ * global no bastaría. Devuelve el subtipo entero, no un booleano, porque
+ * quien valida casi siempre necesita después su nombre legible.
+ */
+export function subtipoDeCategoria(
+  categoriaId: string,
+  subtipoId: string | undefined
+): { id: string; nombre: string } | undefined {
+  if (!subtipoId) return undefined;
+  return SUBTIPOS_POR_CATEGORIA[categoriaId]?.find((subtipo) => subtipo.id === subtipoId);
 }
 
 /** Todos los subtipos que cubre una herramienta: el principal primero. */

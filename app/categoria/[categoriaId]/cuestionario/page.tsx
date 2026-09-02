@@ -1,10 +1,9 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getCategoria, getCategorias } from "@/data/repositorio";
-import { esCategoriaPublica } from "@/data/taxonomia";
+import { esCategoriaPublica, subtipoDeCategoria } from "@/data/taxonomia";
 import type { OrigenDiagnostico } from "@/lib/origenDiagnostico";
 import { metadataFlujo } from "@/agents/atlas-generador-contenido/metadatos";
-import { preguntaParaAmbito } from "@/agents/atlas-advisor/preguntasDiferenciacion";
 import Cuestionario from "@/components/Cuestionario";
 
 export function generateStaticParams() {
@@ -46,10 +45,20 @@ export default async function CuestionarioCategoriaPage({
     rutaBase: `/categoria/${categoria.id}`,
   };
 
-  // El subtipo llega por parámetro y solo se acepta si ese ámbito tiene una
-  // pregunta de diferenciación declarada: cualquier otro valor se ignora en
-  // silencio, así que nadie puede colar un filtro por la dirección.
-  const subtipoValido = preguntaParaAmbito(categoria.id, subtipo) ? subtipo : undefined;
+  // El subtipo llega por parámetro y se valida contra la TAXONOMÍA: tiene que
+  // ser un subtipo declarado de esta categoría concreta. Cualquier otro valor
+  // se ignora en silencio, así que nadie puede colar un filtro por la
+  // dirección ni provocar una lista vacía escribiendo cualquier cosa.
+  //
+  // Antes la condición era tener una pregunta de diferenciación declarada, y
+  // eso descartaba cuatro de los seis subtipos de "IA y productividad": el
+  // parámetro se tiraba y el motor recomendaba sobre la categoría entera.
+  // Tenía sentido mientras esos subtipos estaban incompletos —filtrar a dos
+  // herramientas no es comparar—, pero desde que los seis cumplen
+  // `MINIMO_POR_SUBTIPO` el cerrojo solo estorbaba. La pregunta de
+  // diferenciación sigue siendo opcional y se muestra si existe: es una
+  // pregunta de más, no el permiso para usar el subtipo.
+  const subtipoValido = subtipo && subtipoDeCategoria(categoria.id, subtipo) ? subtipo : undefined;
 
   return <Cuestionario origen={origen} subtipoId={subtipoValido} />;
 }
