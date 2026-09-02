@@ -121,8 +121,15 @@
     ],
     "tipoNegocioIdeal": "Equipos pequeños que quieren IA integrada en su espacio de trabajo con coste de entrada bajo",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 0,
-    "motivosPuntuacion": []
+    "puntuacion": 92,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 7.7/10.",
+      "G2: 4.7/5.",
+      "Capterra: 4.7/5.",
+      "Tiene plan gratuito.",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
   },
   "id": "taskade",
   "estado": "activo",

@@ -127,8 +127,15 @@
     ],
     "tipoNegocioIdeal": "Autónomos y equipos pequeños que necesitan orden diario sin complejidad",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 0,
-    "motivosPuntuacion": []
+    "puntuacion": 94,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.3/10.",
+      "G2: 4.5/5 (816 reseñas).",
+      "Capterra: 4.6/5 (2628 reseñas).",
+      "Tiene plan gratuito.",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
   },
   "id": "todoist",
   "estado": "activo",
