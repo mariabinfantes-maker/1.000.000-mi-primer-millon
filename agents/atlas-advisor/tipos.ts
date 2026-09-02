@@ -123,8 +123,30 @@ export type HerramientaEvaluada = {
   puntuacionRutaNormalizada: number;
 };
 
+/**
+ * Por qué el motor NO recomienda nada.
+ *
+ * Existe porque antes no existía: cuando no se entendía la necesidad,
+ * `seleccionarCandidatas` devolvía el catálogo entero «para no dejar al
+ * usuario sin recomendación». El 2026-09-02 se midió lo que costaba: a
+ * «soy peluquera y estoy perdiendo citas» le respondía Grammarly con un
+ * círculo que ponía 100. El motor no había entendido nada; simplemente
+ * puntuó las 62 herramientas y ganó la que mejor encaja en tamaño, precio,
+ * facilidad e idioma —ninguno de los cuales pregunta si sirve para algo.
+ *
+ * Preferir una respuesta mala a ninguna respuesta es la decisión
+ * equivocada: una recomendación falsa destruye la confianza que el resto
+ * del producto tarda meses en construir. Así que ahora el motor puede
+ * decir que no, y decir por qué.
+ */
+export type MotivoSinRecomendacion =
+  /** No se pudo determinar qué necesita la persona. No es un fallo suyo: es que no lo hemos entendido. */
+  | { tipo: "necesidad_no_entendida" }
+  /** Sí se entendió el objetivo, pero el catálogo no tiene ninguna herramienta que lo cubra. */
+  | { tipo: "sin_cobertura"; objetivoIds: string[] };
+
 export type ResultadoRecomendacion = {
-  /** Las 3 mejores herramientas (o menos, si el catálogo filtrado tiene menos de 3). */
+  /** Las 3 mejores herramientas (o menos, si el catálogo filtrado tiene menos de 3). Vacío cuando hay `sinRecomendacion`. */
   top: HerramientaEvaluada[];
   /** El catálogo evaluado completo, ya ordenado. Pensado para depuración, paneles internos o una futura API que quiera devolver más de 3 resultados. */
   todas: HerramientaEvaluada[];
@@ -135,6 +157,12 @@ export type ResultadoRecomendacion = {
    * especializada por no ser una suite.
    */
   comparativaDeRutas?: ComparativaDeRutas;
+  /**
+   * Presente solo cuando el motor decide NO recomendar. Cuando aparece,
+   * `top` y `todas` vienen vacíos: no hay un resultado peor, hay ausencia
+   * deliberada de resultado. Quien llama debe contarlo, nunca rellenarlo.
+   */
+  sinRecomendacion?: MotivoSinRecomendacion;
 };
 
 export type ComparativaDeRutas = {

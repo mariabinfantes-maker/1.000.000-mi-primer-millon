@@ -1,7 +1,27 @@
 import { describe, expect, it } from "vitest";
 import { evaluarHerramienta, recomendarHerramientas } from "../motor";
+import type { Herramienta } from "@/data/esquema";
 import type { RespuestasUsuario } from "../tipos";
 import { catalogoDePrueba, construirHerramienta, crmFacil, erpComplejo, generalistaMedio, nichoVertical } from "./fixtures";
+
+/**
+ * Desde el 2026-09-02 el motor exige saber QUÉ necesita la persona antes de
+ * puntuar nada: sin categoría ni objetivo devuelve `sinRecomendacion` en vez
+ * del catálogo entero (ver `sinRecomendacion.test.ts`).
+ *
+ * Estas pruebas miden la PUNTUACIÓN, no la puerta de entrada, así que
+ * declaran un objetivo para llegar hasta ella. No es un apaño para que
+ * pasen: es hacer explícita una condición previa que antes estaba implícita
+ * porque el motor no la exigía.
+ */
+const OBJETIVO = "organizar-empresa";
+const conNecesidad = (respuestas: RespuestasUsuario): RespuestasUsuario => ({
+  ...respuestas,
+  problemaIdsCandidatos: [OBJETIVO],
+});
+const conObjetivo = (herramientas: Herramienta[]): Herramienta[] =>
+  herramientas.map((h) => ({ ...h, problemasIds: [...(h.problemasIds ?? []), OBJETIVO] }));
+const catalogoConNecesidad = conObjetivo(catalogoDePrueba);
 
 describe("recomendarHerramientas", () => {
   it("recomienda la herramienta sencilla para una startup pequeña, sin equipo técnico y con presupuesto ajustado", () => {
@@ -14,7 +34,7 @@ describe("recomendarHerramientas", () => {
       toleranciaCurvaAprendizaje: "facil",
     };
 
-    const resultado = recomendarHerramientas(respuestas, catalogoDePrueba);
+    const resultado = recomendarHerramientas(conNecesidad(respuestas), catalogoConNecesidad);
 
     expect(resultado.top[0].herramienta.id).toBe("crm-facil");
     expect(resultado.top).toHaveLength(3);
@@ -33,7 +53,7 @@ describe("recomendarHerramientas", () => {
       prioridadFacilidadDeUso: "baja",
     };
 
-    const resultado = recomendarHerramientas(respuestas, catalogoDePrueba);
+    const resultado = recomendarHerramientas(conNecesidad(respuestas), catalogoConNecesidad);
 
     expect(resultado.top[0].herramienta.id).toBe("erp-complejo");
 
@@ -137,11 +157,24 @@ describe("recomendarHerramientas", () => {
     }
   });
 
-  it("sigue devolviendo un ranking completo y una explicación legible incluso sin ninguna respuesta", () => {
+  // Esta prueba afirmaba lo contrario hasta el 2026-09-02: "sigue devolviendo
+  // un ranking completo incluso sin ninguna respuesta". Ese era exactamente el
+  // fallo — sin ninguna respuesta no hay nada que recomendar, y devolver un
+  // top 3 igualmente es inventárselo.
+  it("sin ninguna respuesta no recomienda nada, y dice por qué", () => {
     const resultado = recomendarHerramientas({}, catalogoDePrueba);
 
+    expect(resultado.sinRecomendacion).toEqual({ tipo: "necesidad_no_entendida" });
+    expect(resultado.top).toHaveLength(0);
+    expect(resultado.todas).toHaveLength(0);
+  });
+
+  it("con la necesidad declarada sí devuelve un ranking completo y explicaciones legibles", () => {
+    const resultado = recomendarHerramientas(conNecesidad({}), catalogoConNecesidad);
+
+    expect(resultado.sinRecomendacion).toBeUndefined();
     expect(resultado.top).toHaveLength(3);
-    expect(resultado.todas).toHaveLength(catalogoDePrueba.length);
+    expect(resultado.todas).toHaveLength(catalogoConNecesidad.length);
     for (const evaluado of resultado.top) {
       expect(evaluado.explicacion.length).toBeGreaterThan(0);
     }
@@ -172,13 +205,21 @@ describe("recomendarHerramientas", () => {
     expect(resultado.todas.map((e) => e.herramienta.id).sort()).toEqual(["crm-facil", "erp-complejo"]);
   });
 
-  it("ignora problemaIdsCandidatos y evalúa el catálogo completo si ninguna herramienta lo tiene asignado (hueco editorial, no elección del usuario)", () => {
+  // También afirmaba lo contrario: "ignora problemaIdsCandidatos y evalúa el
+  // catálogo completo si ninguna herramienta lo tiene asignado". Era la peor
+  // de las dos variantes del fallo: sí se había entendido a la persona, y aun
+  // así se le ofrecía cualquier cosa. Ahora se admite el hueco.
+  it("si el objetivo se entiende pero el catálogo no lo cubre, lo admite en vez de ofrecer otra cosa", () => {
     const resultado = recomendarHerramientas(
       { problemaIdsCandidatos: ["objetivo-sin-herramientas-todavia"] },
       catalogoDePrueba
     );
 
-    expect(resultado.todas).toHaveLength(catalogoDePrueba.length);
+    expect(resultado.sinRecomendacion).toEqual({
+      tipo: "sin_cobertura",
+      objetivoIds: ["objetivo-sin-herramientas-todavia"],
+    });
+    expect(resultado.todas).toHaveLength(0);
   });
 
   it("da prioridad a categoriaId sobre problemaIdsCandidatos cuando llegan los dos a la vez", () => {
@@ -194,12 +235,12 @@ describe("recomendarHerramientas", () => {
   });
 
   it("respeta la opción `cantidad` para devolver un top distinto de 3", () => {
-    const resultado = recomendarHerramientas({}, catalogoDePrueba, { cantidad: 2 });
+    const resultado = recomendarHerramientas(conNecesidad({}), catalogoConNecesidad, { cantidad: 2 });
     expect(resultado.top).toHaveLength(2);
   });
 
   it("no lanza excepciones ni devuelve un catálogo vacío al evaluar un único candidato", () => {
-    const resultado = recomendarHerramientas({ tamanoEmpresa: "1-10" }, [crmFacil]);
+    const resultado = recomendarHerramientas(conNecesidad({ tamanoEmpresa: "1-10" }), conObjetivo([crmFacil]));
     expect(resultado.top).toHaveLength(1);
     expect(resultado.top[0].herramienta.id).toBe("crm-facil");
   });
@@ -210,12 +251,12 @@ describe("recomendarHerramientas", () => {
     const catalogoMixto = [suiteTodoEnUno, crmEspecializado];
 
     it('filtra solo a "plataformas-todo-en-uno" cuando el usuario elige explícitamente esa preferencia', () => {
-      const resultado = recomendarHerramientas({ preferenciaSuite: "todo_en_uno" }, catalogoMixto);
+      const resultado = recomendarHerramientas(conNecesidad({ preferenciaSuite: "todo_en_uno" }), conObjetivo(catalogoMixto));
       expect(resultado.todas.map((e) => e.herramienta.id)).toEqual(["suite-1"]);
     });
 
     it("excluye las suites todo en uno cuando el usuario elige explícitamente herramientas especializadas", () => {
-      const resultado = recomendarHerramientas({ preferenciaSuite: "especializada" }, catalogoMixto);
+      const resultado = recomendarHerramientas(conNecesidad({ preferenciaSuite: "especializada" }), conObjetivo(catalogoMixto));
       expect(resultado.todas.map((e) => e.herramienta.id)).toEqual(["crm-1"]);
     });
 
@@ -229,7 +270,7 @@ describe("recomendarHerramientas", () => {
 
     it("ignora preferenciaSuite si vacía el catálogo (hueco editorial, no elección real posible todavía)", () => {
       const soloEspecializadas = [crmEspecializado];
-      const resultado = recomendarHerramientas({ preferenciaSuite: "todo_en_uno" }, soloEspecializadas);
+      const resultado = recomendarHerramientas(conNecesidad({ preferenciaSuite: "todo_en_uno" }), conObjetivo(soloEspecializadas));
       expect(resultado.todas.map((e) => e.herramienta.id)).toEqual(["crm-1"]);
     });
 
@@ -273,7 +314,7 @@ describe("recomendarHerramientas", () => {
 
     it("no filtra el catálogo por señales indirectas: ambos tipos siguen evaluándose", () => {
       const respuestas: RespuestasUsuario = { tamanoEmpresa: "1-10", presupuesto: "ajustado", nivelTecnicoEquipo: "ninguno" };
-      const resultado = recomendarHerramientas(respuestas, [suiteTodoEnUno, crmEspecializado]);
+      const resultado = recomendarHerramientas(conNecesidad(respuestas), conObjetivo([suiteTodoEnUno, crmEspecializado]));
       expect(resultado.todas).toHaveLength(2);
     });
 
@@ -287,26 +328,26 @@ describe("recomendarHerramientas", () => {
 
       expect(evaluadaCrm.detalles.find((d) => d.criterio === "tipoSuite")).toBeUndefined();
 
-      const { comparativaDeRutas } = recomendarHerramientas(respuestas, [suiteTodoEnUno, crmEspecializado]);
+      const { comparativaDeRutas } = recomendarHerramientas(conNecesidad(respuestas), conObjetivo([suiteTodoEnUno, crmEspecializado]));
       expect(comparativaDeRutas?.beneficioDeCentralizar).toContain("centralizar te encajaría mejor");
     });
 
     it("con el perfil contrario, la comparación matiza hacia la especializada", () => {
       const respuestas: RespuestasUsuario = { tamanoEmpresa: "200+", presupuesto: "alto", nivelTecnicoEquipo: "avanzado" };
-      const { comparativaDeRutas } = recomendarHerramientas(respuestas, [suiteTodoEnUno, crmEspecializado]);
+      const { comparativaDeRutas } = recomendarHerramientas(conNecesidad(respuestas), conObjetivo([suiteTodoEnUno, crmEspecializado]));
       expect(comparativaDeRutas?.beneficioDeEspecializar).toContain("especializar te encajaría mejor");
     });
 
     it("cuando las señales se cancelan, no se inclina hacia ningún lado", () => {
       const respuestas: RespuestasUsuario = { tamanoEmpresa: "1-10", presupuesto: "alto" };
-      const { comparativaDeRutas } = recomendarHerramientas(respuestas, [suiteTodoEnUno, crmEspecializado]);
+      const { comparativaDeRutas } = recomendarHerramientas(conNecesidad(respuestas), conObjetivo([suiteTodoEnUno, crmEspecializado]));
       expect(comparativaDeRutas?.beneficioDeCentralizar).not.toContain("te encajaría mejor");
       expect(comparativaDeRutas?.beneficioDeEspecializar).not.toContain("te encajaría mejor");
     });
 
     it("si ya hubo elección explícita, no se devuelve comparación: sería repetir una pregunta ya respondida", () => {
       const respuestas: RespuestasUsuario = { categoriaId: "plataformas-todo-en-uno", tamanoEmpresa: "1-10" };
-      const resultado = recomendarHerramientas(respuestas, [suiteTodoEnUno, crmEspecializado]);
+      const resultado = recomendarHerramientas(conNecesidad(respuestas), conObjetivo([suiteTodoEnUno, crmEspecializado]));
       expect(resultado.comparativaDeRutas).toBeUndefined();
     });
   });
