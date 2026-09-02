@@ -49,3 +49,39 @@ export function construirDatosEstructuradosPost(post: Post): Record<string, unkn
     author: { "@type": "Organization", name: post.autor ?? "Molnip" },
   };
 }
+
+/**
+ * Datos estructurados (JSON-LD, schema.org/ItemList) de una página de
+ * subtipo: la lista ordenada de las herramientas que compiten dentro de él.
+ *
+ * `ItemList` y no `CollectionPage` porque lo que aporta valor aquí es
+ * precisamente el ORDEN: son las alternativas reales de ese subtipo,
+ * ordenadas por Puntuación Molnip. Cada elemento reutiliza el mismo
+ * `SoftwareApplication` que ya publica la ficha, para no describir la
+ * misma herramienta de dos formas distintas en dos páginas del sitio.
+ *
+ * Mismas exclusiones que el resto del fichero: ni `aggregateRating` ni
+ * `offers`. La posición en la lista es un juicio editorial de Molnip y se
+ * declara como tal (`position`), no como una valoración de usuarios.
+ */
+export function construirDatosEstructuradosSubtipo(
+  nombreSubtipo: string,
+  descripcion: string,
+  ruta: string,
+  herramientas: Herramienta[]
+): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: nombreSubtipo,
+    description: descripcion,
+    url: `${URL_BASE}${ruta}`,
+    numberOfItems: herramientas.length,
+    itemListOrder: "https://schema.org/ItemListOrderDescending",
+    itemListElement: herramientas.map((herramienta, indice) => ({
+      "@type": "ListItem",
+      position: indice + 1,
+      item: construirDatosEstructuradosHerramienta(herramienta),
+    })),
+  };
+}

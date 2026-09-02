@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { Categoria, Herramienta, Post, Problema } from "@/data/esquema";
 import { URL_BASE } from "@/lib/urlBase";
 import { slugComparacion } from "./comparaciones";
+import type { ContenidoSubtipo } from "./contenidoSubtipos";
 
 /**
  * Único punto de construcción de metadata pública de Atlas — título,
@@ -69,6 +70,20 @@ export function metadataCategoria(categoria: Categoria): Metadata {
   return construirMetadata(`${categoria.nombre}: comparativa y mejores opciones`, categoria.descripcion, {
     indexable: true,
     ruta: `/categoria/${categoria.id}`,
+  });
+}
+
+/**
+ * Landing de subtipo — contenido de valor, indexable.
+ *
+ * Título y descripción salen de `contenidoSubtipos.ts`, escritos a mano por
+ * subtipo, no de una plantilla sobre el nombre: seis descripciones idénticas
+ * cambiando dos palabras son seis páginas que Google trata como una sola.
+ */
+export function metadataSubtipo(categoriaId: string, subtipoId: string, contenido: ContenidoSubtipo): Metadata {
+  return construirMetadata(contenido.tituloSeo, contenido.descripcionSeo, {
+    indexable: true,
+    ruta: `/categoria/${categoriaId}/subtipo/${subtipoId}`,
   });
 }
 

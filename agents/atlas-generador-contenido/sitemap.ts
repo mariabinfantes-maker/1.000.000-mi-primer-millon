@@ -1,5 +1,6 @@
 import { getCategorias, getHerramientas, getPosts, getProblemas } from "@/data/repositorio";
 import { generarParesComparacion } from "./comparaciones";
+import { subtiposConContenido } from "./contenidoSubtipos";
 
 /**
  * Entradas del sitemap dinámico — solo rutas públicas indexables (ver
@@ -38,6 +39,15 @@ export function generarEntradasSitemap(): EntradaSitemap[] {
 
   for (const categoria of getCategorias()) {
     entradas.push({ ruta: `/categoria/${categoria.id}`, prioridad: 0.8 });
+
+    // Subtipos: solo los que tienen contenido editorial escrito. Prioridad
+    // igual a la de su categoría — no son una subpágina de relleno, son la
+    // consulta concreta ("herramientas para hacer presentaciones") que de
+    // verdad se busca, mientras que el nombre de la categoría es un término
+    // interno nuestro que nadie teclea.
+    for (const subtipo of subtiposConContenido(categoria.id)) {
+      entradas.push({ ruta: `/categoria/${categoria.id}/subtipo/${subtipo.id}`, prioridad: 0.8 });
+    }
   }
 
   for (const problema of getProblemas()) {
