@@ -104,9 +104,38 @@ export function paresCasiColisionantes(ids: string[]): [string, string][] {
   return pares;
 }
 
-/** Sin tildes y en minúsculas, para que «categoría» y «categoria» sean lo mismo. */
+/**
+ * Separadores que la vista ignora pero `includes` no.
+ *
+ * Espacios de cualquier clase, saltos de línea, tabuladores, el espacio duro,
+ * los de ancho cero, y los guiones y barras que sustituyen a un espacio
+ * («off-line», «sin-cobertura»).
+ */
+const SEPARADORES = /[\s\u00a0\u1680\u2000-\u200d\u202f\u205f\u2060\u3000\-\u2010-\u2015_/\\]+/g;
+
+/** Sin tildes, en minúsculas y con los espacios colapsados a uno solo. */
 export function normalizar(texto: string): string {
-  return texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  return texto
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(SEPARADORES, " ")
+    .trim();
+}
+
+/**
+ * Lo mismo, pero SIN separadores en absoluto. Es lo que se usa para cotejar
+ * términos.
+ *
+ * Existe porque colapsar a un espacio no basta: la revisión independiente
+ * encontró siete formas de apagar la guarda metiendo algo entre las palabras
+ * —doble espacio, salto de línea, tabulador, espacio duro, ancho cero, guion,
+ * «off-line»— y las dos primeras se producen tecleando, sin mala intención.
+ * Quitándolos todos, «sin  cobertura», «sin\ncobertura» y «sin-cobertura» son
+ * la misma cadena que «sin cobertura».
+ */
+export function compactar(texto: string): string {
+  return normalizar(texto).replace(/ /g, "");
 }
 
 /**
@@ -139,41 +168,66 @@ export function erroresDeMenciones(
 ): string[] {
   const errores: string[] = [];
   const declaradas = capacidad.mencionesDeclaradas ?? [];
-  const definicion = normalizar(sinIdentificadores(capacidad.definicion));
-  const noEs = normalizar(sinIdentificadores(capacidad.noEs));
-  const usadas = new Set<string>();
+  const definicion = compactar(sinIdentificadores(capacidad.definicion));
+  const noEs = compactar(sinIdentificadores(capacidad.noEs));
 
+  // 1 · Ninguna declaración puede repetir término. Antes se buscaba con `find`,
+  // que devuelve la primera y deja las siguientes sin comprobar: una segunda
+  // declaración del mismo término pasaba entera aunque apuntara a algo
+  // inexistente, ausente del texto o a la propia capacidad.
+  const vistos = new Map<string, number>();
+  for (const declarada of declaradas) {
+    const clave = compactar(declarada.termino);
+    vistos.set(clave, (vistos.get(clave) ?? 0) + 1);
+  }
+  for (const [clave, veces] of vistos) {
+    if (veces > 1) {
+      errores.push(
+        `declara ${veces} veces el término «${clave}»: sólo puede declararse una vez`
+      );
+    }
+  }
+
+  // 2 · TODA declaración se valida, esté donde esté en la lista.
+  for (const declarada of declaradas) {
+    const donde = `la mención de «${declarada.termino}»`;
+    if (!declarada.termino?.trim()) {
+      errores.push("hay una mención declarada sin término");
+    }
+    if (!identificadoresValidos.includes(declarada.remiteA)) {
+      errores.push(`${donde} remite a "${declarada.remiteA}", que no existe`);
+    }
+    if (declarada.remiteA === capacidad.id) {
+      errores.push(`${donde} no puede remitir a la propia capacidad`);
+    }
+    // El destino tiene que estar escrito en el texto: si no, la declaración
+    // dice una cosa y quien lee ve otra.
+    if (!capacidad.noEs.includes(declarada.remiteA)) {
+      errores.push(`${donde} remite a ${declarada.remiteA}, que no aparece en noEs`);
+    }
+  }
+
+  // 3 · Todo término reservado que aparezca tiene que estar declarado.
+  const usados = new Set<string>();
   for (const restriccion of restricciones) {
     for (const termino of restriccion.terminosReservados) {
-      const t = normalizar(termino);
+      const t = compactar(termino);
       if (definicion.includes(t)) {
         errores.push(`definicion usa «${termino}», que pertenece a ${restriccion.id}`);
       }
       if (!noEs.includes(t)) continue;
-      const declarada = declaradas.find((d) => normalizar(d.termino) === t);
-      if (!declarada) {
+      usados.add(t);
+      if (!declaradas.some((d) => compactar(d.termino) === t)) {
         errores.push(
           `noEs menciona «${termino}» (${restriccion.id}) sin declararlo en mencionesDeclaradas`
         );
-        continue;
-      }
-      usadas.add(normalizar(declarada.termino));
-      if (!identificadoresValidos.includes(declarada.remiteA)) {
-        errores.push(`la mención de «${termino}» remite a "${declarada.remiteA}", que no existe`);
-      }
-      if (declarada.remiteA === capacidad.id) {
-        errores.push(`la mención de «${termino}» no puede remitir a la propia capacidad`);
-      }
-      // El destino tiene que estar escrito en el texto: si no, la declaración
-      // dice una cosa y quien lee ve otra.
-      if (!capacidad.noEs.includes(declarada.remiteA)) {
-        errores.push(`la mención de «${termino}» remite a ${declarada.remiteA}, que no aparece en noEs`);
       }
     }
   }
 
+  // 4 · Y ninguna declaración puede sobrar.
   for (const declarada of declaradas) {
-    if (!usadas.has(normalizar(declarada.termino))) {
+    if (!usados.has(compactar(declarada.termino))) {
       errores.push(`declara la mención de «${declarada.termino}» y no la usa: bórrala`);
     }
   }
