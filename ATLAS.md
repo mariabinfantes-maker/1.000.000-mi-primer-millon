@@ -2556,6 +2556,238 @@ administrativa**, sobre estas bases:
 Si algún día esta comprobación se ofrece fuera del panel —en una API pública,
 o disparada por datos que no haya escrito la administradora— **esta aceptación
 deja de valer** y hay que cerrarlo con un cliente HTTP que permita fijar la IP.
+## El sprint de asistentes de IA y los subtipos navegables (2026-09-02)
+
+Cuatro de los seis subtipos de «IA y productividad» estaban por debajo de
+`MINIMO_POR_SUBTIPO = 3`, así que el motor devolvía menos de tres opciones.
+Presentaciones y espacio de trabajo devolvían **una sola herramienta**: eso no
+es una comparación, es un anuncio.
+
+Seis fichas nuevas, aprobadas una a una: HeyGen (96), Todoist (94), Canva (98),
+Beautiful.ai (83), Taskade (92) y ClickUp Brain (91). Cinco de las seis salieron
+de reutilizar herramientas que ya estaban en el catálogo en otra categoría, no
+de investigar de cero.
+
+Después, los subtipos dejaron de ser invisibles: un selector accesible en
+`/categoria/asistentes-ia` y **seis páginas indexables**, una por subtipo, con
+contenido editorial propio —eje de decisión, cómo elegir, error habitual— en vez
+de seis páginas iguales cambiando una palabra. El subtipo elegido viaja hasta el
+motor validado contra la taxonomía, no como texto libre en la URL.
+
+Commits `a86e774` y `9706786`.
+
+## Molnip aprende a decir que no (2026-09-02)
+
+**El fallo, encontrado por la propietaria probando en producción como una
+usuaria cualquiera:**
+
+> «Soy peluquera. Tengo entre 1 y 10 empleados. Estoy perdiendo citas.»
+> → **Grammarly, 100/100.** Después Canva y Reclaim.ai.
+
+Ninguna de las tres gestiona citas.
+
+La causa no era una puntuación mal calculada. Era que `seleccionarCandidatas`,
+cuando la detección determinista no entendía la frase, **devolvía el catálogo
+entero** «para no dejar al usuario sin recomendación». A partir de ahí el motor
+puntuaba las 62 herramientas por tamaño, precio, facilidad e idioma —criterios
+que nunca preguntan si la herramienta sirve para algo— y ganaba la que mejor
+encajaba en el perfil. Grammarly encaja perfectamente con una autónoma
+hispanohablante de presupuesto ajustado. Lo único que no hace es dar citas.
+
+Preferir una respuesta mala a ninguna respuesta era la decisión equivocada: una
+recomendación falsa destruye la confianza que el resto del producto tarda meses
+en construir.
+
+Ahora el motor puede decir que no, y decir por qué:
+
+| Motivo | Cuándo | Qué ve la persona |
+|---|---|---|
+| `necesidad_no_entendida` | No se pudo determinar qué necesita | «No he sabido entender qué necesitas» |
+| `sin_cobertura` | Se entendió el objetivo, pero el catálogo no lo cubre | «Todavía no tenemos herramientas para esto» |
+
+Dos decisiones de tono, deliberadas: **la culpa es nuestra, nunca de quien
+pregunta** —«no he sabido entender», no «no has escrito bien»—, y **nunca se
+queda en un callejón sin salida**: siempre hay camino hacia las categorías, que
+son la vía experta y sí funcionan.
+
+19 pruebas de regresión y 8 de extremo a extremo. Commit `a79b8e3`.
+
+## La puntuación guardada que contradecía a la mostrada (2026-09-02)
+
+Las seis fichas del sprint tenían `analisisAtlas.puntuacion: 0` y
+`motivosPuntuacion: []` guardados. El borrador se escribió con esos campos a
+cero esperando que la promoción los recalculara, y `promover.ts` no lo hace:
+calcula la puntuación para decidir si supera el umbral de calidad, pero copia la
+ficha tal cual.
+
+No llegó a verse desde fuera —la tarjeta recalcula al vuelo, así que se veía 98—
+ni afectó al orden de las recomendaciones: el motor sólo lee
+`nivelTecnicoRecomendado` y `tipoNegocioIdeal` de `analisisAtlas`, nunca la
+puntuación. **Pero un dato guardado que contradice al que se muestra es una
+trampa esperando a que alguien confíe en él.**
+
+61 pruebas que recorren todo el catálogo comparando lo guardado con lo
+recalculado. De paso quedó fijada una lista que no puede crecer en silencio:
+`bitrix24`, `gohighlevel`, `hubspot`, `odoo` y `zoho-one` **no tienen
+`analisisAtlas` en absoluto** — entraron sin pasar por un borrador de Researcher.
+Queda anotado como bloque independiente, sin corregir.
+
+Commit `029caa1`.
+
+## F1: el vocabulario de capacidades, en producción (2026-09-03)
+
+Molnip tenía dos conceptos para describir el mundo —categoría y problema— y
+**ninguno decía qué sabe hacer un programa**. Esa es la raíz del caso de la
+peluquera, no un error de puntuación.
+
+F1 añade el concepto que faltaba: la **capacidad**. Lo que un programa sabe
+hacer, estable en el tiempo, distinto de una necesidad («pierdo citas»), de un
+proceso («cómo doy hora») y de una restricción («en español»).
+
+**146 capacidades · 23 dominios · 5 áreas · 8 restricciones.** Cada capacidad
+con su definición y —lo que de verdad sostiene el vocabulario— con su frontera
+escrita: con qué se confunde y por qué no es eso.
+
+Decisiones que se materializaron aquí:
+
+- **Los identificadores no llevan el dominio dentro.** Un prefijo de dominio es
+  una jerarquía metida en un nombre permanente y antes o después miente: pasó
+  con `hr.training_lms`, que nació en «Personas y equipo» y hoy vive en
+  «Formación y alumnado». La ubicación va en `dominioId`, que sí puede cambiar.
+  El identificador es un nombre, no una dirección.
+- **Seis reglas de identificador comprobadas automáticamente**, no confiadas a
+  la buena intención de quien añada la siguiente capacidad.
+- **`requiere` entre capacidades**: un widget de reserva sin motor detrás no
+  reserva nada.
+- **Las restricciones salen de dentro de las capacidades.** Duras las que
+  excluyen, blandas las que puntúan, y **`dura_condicional`** para las que sólo
+  aplican cuando alguien las exige — `req.data_residency_eu` y
+  `req.esignature_qualified`.
+- **Las menciones de términos reservados se declaran, no se deducen.** Se
+  intentó deducirlas de la redacción y siempre quedaba una rendija; ahora una
+  capacidad que necesita nombrar un término ajeno declara cuál y a quién se lo
+  atribuye, y eso se revisa en el diff.
+
+**Nadie lo lee todavía.** El motor, las fichas y la interfaz siguen igual, y hay
+una prueba que falla el día que alguien lo importe sin querer. Que el motor
+filtre por capacidad es F3, y exige simular antes todas las rutas actuales.
+
+Tres revisiones —dos independientes— encontraron defectos reales en las guardas,
+todos corregidos antes de fusionar. Las dos condiciones que quedaban pendientes
+están escritas en **`data/vocabulario/CONDICIONES-PARA-F3.md`**.
+
+Commits `b118ea1`, `a0f0d35`, `5a8445c` y `cd45c01`. 276 pruebas.
+
+## De dónde salieron de verdad las 62 fichas (descubierto el 2026-09-03)
+
+Esto no estaba escrito en ninguna parte y explica dos meses de trabajo posterior.
+
+**Las 62 fichas del catálogo nunca se verificaron contra fuentes oficiales.** No
+es que la verificación se perdiera: **nunca se hizo.**
+
+Researcher las obtuvo pidiéndoselas a Gemini, en local, con llamadas reales
+(el límite de 5 peticiones por minuto del nivel gratuito se descubrió
+ejecutando el primer lote). Pero el adaptador de Gemini
+—`agents/compartido/proveedores/gemini.ts`— **envía únicamente `contents` y
+`generationConfig`**: no lleva `google_search`, ni grounding, ni `url_context`.
+
+**Gemini no abrió ninguna página. Escribió de memoria.**
+
+El prompt sí pedía `"fuentes": ["URL de cada fuente que hayas usado"]`, y el
+validador calcula la confianza a partir de **cuántas** URLs devuelve, no de
+comprobar ninguna. Y esas fuentes no llegaron al catálogo:
+
+```
+campos del esquema de ficha:  paginaOficial, urlPrecios, metodologiaValoracion...
+fichas con campo `fuentes`:   0 de 62
+```
+
+Frases como «agregación de miles de opiniones verificadas en plataformas como G2
+y Capterra» en `metodologiaValoracion` son **afirmaciones del modelo**, no citas
+rastreables.
+
+Dos consecuencias que conviene no olvidar:
+
+1. **Curator nunca validó nada contra una fuente externa.** Sus siete módulos son
+   deterministas y sin IA: comprueban que los datos encajen entre sí, no que sean
+   ciertos. Curator dice qué falta; nunca dice si lo que hay es verdad.
+2. **`paginaOficial` es una portada en muchas fichas** y no demuestra ninguna
+   función ni ningún precio. La URL que sirve como evidencia es `urlPrecios`.
+   Las 62 tienen ambas.
+
+Esto es exactamente lo que F2 viene a arreglar, y por eso F2 no puede apoyarse en
+el mecanismo que creó el problema.
+
+## Qué alcanza cada entorno (comprobado el 2026-09-03)
+
+Comprobado, no supuesto, porque condiciona qué se puede hacer desde dónde:
+
+| | Sesión remota en la nube | Local |
+|---|---|---|
+| Páginas de fabricantes (`pipedrive.com`, `asana.com`, …) | **Bloqueadas** — `connect_rejected`, 403 a CONNECT | Sin comprobar |
+| API de Gemini (`generativelanguage.googleapis.com`) | **Alcanzable** — responde Google, no el proxy | Sin comprobar |
+| Documentación de Google (`ai.google.dev`) | **Bloqueada** | Sin comprobar |
+| `GEMINI_API_KEY` | **Ausente** | Presente, según la propietaria |
+| Búsqueda web | Funciona, pero devuelve **fuentes secundarias** | — |
+
+`ATLAS.md` ya decía que la clave «hasta ahora solo se ha usado en local, para los
+lotes de Researcher». Sigue siendo cierto: **no está configurada en Vercel**, o
+al menos no hay forma de comprobarlo desde el repositorio.
+
+## F2: parada antes de verificar, y por qué (2026-09-03)
+
+F2 verifica las 62 herramientas contra el vocabulario de F1. **Está parada antes
+de verificar la primera**, por decisión consciente y no por un fallo.
+
+Lo que sí quedó hecho, en la rama `claude/atlas-advisor-mvp-4e854s` (commit
+`b097820`, **sin fusionar**):
+
+- **Las dos condiciones obligatorias de `CONDICIONES-PARA-F3.md`, cerradas.**
+  `normalizar` ya colapsa espacios —antes un doble espacio tecleado por descuido
+  apagaba la guarda de un término— y las declaraciones duplicadas se rechazan en
+  cualquier orden, validándose todas y no sólo la primera.
+- **El esquema de los registros de verificación**, con tres ideas que existen
+  para evitar errores ya cometidos: *no saber no es no tener* (`desconocido` es
+  un resultado legítimo); *la selección de capacidades plausibles se congela
+  antes* de verificar, con su criterio escrito, para que no se estreche donde la
+  evidencia incomoda; y *la afiliación no entra* — hay una prueba que comprueba
+  que este módulo no la importe.
+- **El plan de lotes**: 30 herramientas de rutas que hoy funcionan, 18
+  asistentes de IA, 14 suites. Las 62, cada una una sola vez.
+
+**Por qué se paró:** verificar exige páginas oficiales, y desde la sesión remota
+están bloqueadas. Lo único disponible es búsqueda web, que devuelve blogs y
+comparativas — y por regla explícita de la propietaria, **una fuente secundaria
+nunca da confianza alta**. Hacerlo igualmente produciría registros con fecha y
+URL que *parecerían* verificados sin serlo: exactamente el problema que F2
+existe para resolver.
+
+La vía que queda por probar es **URL Context de Gemini**: se le pasa la URL
+oficial que ya tenemos y la lee, con la descarga del lado de Google. Requiere la
+clave, que sólo existe en local. Prueba pendiente con Pipedrive.
+
+Una guarda de F1 hubo que ampliarla: la verificación necesita leer el vocabulario
+para comprobar que cada capacidad citada exista. La autorización se amplió sólo a
+`data/verificacion`, con la lista fijada por una prueba. Lo que ve la gente
+—motor, interfaz, fichas— sigue sin poder leerlo.
+
+## Esto es una sola sesión (anotado el 2026-09-03)
+
+Dato que conviene tener presente al leer los commits: **97 de los 98 commits
+firmados de Molnip llevan el mismo identificador de sesión.** Este proyecto no
+ha pasado por muchas manos — es prácticamente una única conversación abierta
+desde el 3 de julio.
+
+Lo que sí cambió fue el modelo: empezó **Claude Sonnet 5** (61 commits) y
+continuó **Claude Opus 5** (37). Por eso hay dos firmas distintas sin que haya
+dos proyectos.
+
+**Consecuencia práctica:** una sesión larga no recuerda su propio principio —lo
+antiguo se comprime en un resumen—, así que puede no reconocer trabajo que ella
+misma hizo semanas antes. Los commits y este documento no tienen ese problema, y
+por eso **valen más que la memoria de la sesión**. Mantener ATLAS.md al día no es
+burocracia: es lo único que sobrevive.
+
 
 ---
 
