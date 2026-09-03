@@ -2682,10 +2682,13 @@ Commits `b118ea1`, `a0f0d35`, `5a8445c` y `cd45c01`. 276 pruebas.
 
 Esto no estaba escrito en ninguna parte y explica dos meses de trabajo posterior.
 
-**Las 62 fichas del catálogo nunca se verificaron contra fuentes oficiales.** No
-es que la verificación se perdiera: **nunca se hizo.**
+**Las 62 fichas del catálogo no se verificaron contra fuentes primarias.** No
+es que esa verificación se perdiera: **nunca llegó a hacerse.**
 
-Conviene decirlo con cuidado, porque no significa que entraran sin control.
+Dicho así a secas se entiende mal, porque **sí pasaron una validación
+estructural, y era exigente**. Lo que faltó fue contrastar lo que dicen con la
+fuente que lo demuestra. Son dos cosas distintas y el resto de la sección
+separa una de otra.
 
 ### La puerta que sí existía, y era exigente
 

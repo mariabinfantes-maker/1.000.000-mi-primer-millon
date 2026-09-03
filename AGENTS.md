@@ -33,9 +33,11 @@ Cinco cosas que no vas a adivinar y que ya están decididas:
 1. **Son 11 agentes**, no los que tengan carpeta en `agents/`: tres están sin
    diseñar. Y **«Atlas Evaluador» es el nombre antiguo de «Atlas Advisor»**, no
    un agente aparte. Contar carpetas da 8 y es una cuenta equivocada.
-2. **Las 62 fichas del catálogo nunca se verificaron contra fuentes oficiales.**
-   Se generaron con un modelo sin navegación y las fuentes no se guardaron. El
-   filtro de entrada medía calidad, no veracidad.
+2. **Las 62 fichas del catálogo no se verificaron contra fuentes primarias**,
+   aunque sí pasaron una validación estructural exigente: puntuación mínima,
+   duplicados, afiliación, campos completos y aprobación de la propietaria. Se
+   generaron con un modelo sin navegación y las fuentes no se guardaron. El
+   filtro medía calidad, no veracidad.
 3. **El vocabulario de capacidades (F1) está en producción y no lo lee nadie
    todavía**, a propósito. Conectarlo al motor es F3 y tiene condiciones previas.
 4. **Nada se fusiona ni se despliega sin autorización explícita de la
