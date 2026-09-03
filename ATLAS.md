@@ -2685,13 +2685,39 @@ Esto no estaba escrito en ninguna parte y explica dos meses de trabajo posterior
 **Las 62 fichas del catálogo nunca se verificaron contra fuentes oficiales.** No
 es que la verificación se perdiera: **nunca se hizo.**
 
-Researcher las obtuvo pidiéndoselas a Gemini, en local, con llamadas reales
-(el límite de 5 peticiones por minuto del nivel gratuito se descubrió
-ejecutando el primer lote). Pero el adaptador de Gemini
+Conviene decirlo con cuidado, porque no significa que entraran sin control.
+
+### La puerta que sí existía, y era exigente
+
+Nada llegó al catálogo sin pasar por `promover.ts`, y ahí había cinco cerrojos:
+
+| | Comprobación | Qué exigía |
+|---|---|---|
+| 1 | `calcularPuntuacionAtlas()` | Puntuación Molnip **≥ 80/100** |
+| 2 | `detectarCasiDuplicados()` — **de Atlas Curator** | Que no fuera otra herramienta ya presente |
+| 3 | `tieneProgramaDeAfiliadosFiable()` | Programa activo y confianza no baja |
+| 4 | `evaluarCriteriosDeCalidad()` | Confianza, advertencias y campos completos |
+| 5 | **Aprobación explícita de la propietaria** | Informe leído y decisión firmada |
+
+Y no era un trámite. El historial guarda **46 decisiones: 44 aceptadas y 2
+bloqueadas por Curator** — Zoho CRM y Zoho Projects, por compartir dominio con
+Zoho One. Los dos bloqueos se levantaron después, pero **por decisión escrita de
+la propietaria** («Aprobada por el CEO tras revisión del informe completo del
+lote»), no por omisión. El mecanismo funcionó: detectó, avisó y esperó.
+
+Curator estaba dentro de esa puerta, aunque nunca usó IA: `promover.ts` importa
+`detectarCasiDuplicados` directamente de él.
+
+### Lo que esa puerta no podía comprobar
+
+Researcher obtuvo las fichas pidiéndoselas a Gemini, en local, con llamadas
+reales (el límite de 5 peticiones por minuto del nivel gratuito se descubrió
+ejecutando el primer lote). Pero el adaptador
 —`agents/compartido/proveedores/gemini.ts`— **envía únicamente `contents` y
 `generationConfig`**: no lleva `google_search`, ni grounding, ni `url_context`.
 
-**Gemini no abrió ninguna página. Escribió de memoria.**
+**Conectarse a la API de Gemini no es que Gemini navegue. Contestaba desde lo
+que sabía, no desde lo que leía.**
 
 El prompt sí pedía `"fuentes": ["URL de cada fuente que hayas usado"]`, y el
 validador calcula la confianza a partir de **cuántas** URLs devuelve, no de
@@ -2705,6 +2731,19 @@ fichas con campo `fuentes`:   0 de 62
 Frases como «agregación de miles de opiniones verificadas en plataformas como G2
 y Capterra» en `metodologiaValoracion` son **afirmaciones del modelo**, no citas
 rastreables.
+
+### La frase que lo resume
+
+> **El filtro medía calidad, no veracidad. Una invención coherente lo pasaba
+> entero.**
+
+Las cinco comprobaciones miran si la ficha está bien hecha: si puntúa alto, si no
+duplica, si tiene programa de afiliados, si no le faltan campos. **Ninguna puede
+distinguir una ficha bien redactada y cierta de una bien redactada y falsa.**
+
+No faltó rigor. Faltó una capacidad que el sistema nunca tuvo: **abrir la fuente
+y leerla.** Nadie lo echó en falta porque no había hueco donde se notara — al no
+guardarse las fuentes, no quedaba nada que revisar después.
 
 Dos consecuencias que conviene no olvidar:
 
