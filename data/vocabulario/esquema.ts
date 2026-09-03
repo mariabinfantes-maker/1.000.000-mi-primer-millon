@@ -59,6 +59,14 @@ export type EstadoCapacidad =
   | "obsoleta"
   | "reclasificada";
 
+/** Una mención autorizada de un término reservado dentro de `noEs`. */
+export type MencionDeclarada = {
+  /** El término tal y como aparece en el texto. */
+  termino: string;
+  /** A quién se le atribuye: la restricción donde vive, o la capacidad que sí lo tiene. Debe aparecer en el propio `noEs`. */
+  remiteA: string;
+};
+
 export type Capacidad = {
   /**
    * Identificador PERMANENTE. `cap.` + nombre semántico en inglés.
@@ -95,6 +103,22 @@ export type Capacidad = {
   requiere?: string[];
   /** Restricciones que suelen acompañar a esta capacidad. Orientativas: quien manda es la persona. */
   restriccionesTipicas?: string[];
+  /**
+   * Permiso explícito para nombrar un término que pertenece a una restricción.
+   *
+   * Trazar una frontera exige a veces nombrar lo que hay al otro lado: «no es
+   * una historia clínica, que guarda datos de salud». Pero decidir si una
+   * mención es una frontera legítima o una apropiación NO se puede deducir de
+   * cómo esté redactada la frase — se intentó, y dos construcciones con la
+   * negación desplazada seguían colándose:
+   *
+   *   «No es cap.point_of_sale y funciona offline»   ← se lo estaba quedando
+   *
+   * Así que el permiso deja de deducirse y pasa a declararse. Cada mención
+   * dice qué término usa y a quién se lo atribuye, y eso lo revisa una persona
+   * una vez, en el diff. Ninguna redacción puede concederse permiso a sí misma.
+   */
+  mencionesDeclaradas?: MencionDeclarada[];
   /** A dónde fue, cuando el estado no es `activa`. */
   sustituidaPor?: string[];
   /** Nombre que tuvo en los borradores previos a la emisión. Trazabilidad, no migración. */

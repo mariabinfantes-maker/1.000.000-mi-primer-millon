@@ -4,7 +4,7 @@ import {
   getDominios,
   getRestricciones,
   getVocabulario,
-  seApropiaDelTermino,
+  erroresDeMenciones,
 } from "../repositorio";
 
 /**
@@ -96,91 +96,177 @@ describe("la coherencia interna del vocabulario", () => {
     expect(rotas).toEqual([]);
   });
 
+  const identificadores = [...capacidades.map((c) => c.id), ...restricciones.map((r) => r.id)];
+
   it("ninguna capacidad se apropia de lo que es una restricción", () => {
-    const invasiones: string[] = [];
-    for (const capacidad of capacidades) {
-      for (const restriccion of restricciones) {
-        for (const termino of restriccion.terminosReservados) {
-          // La definición nunca puede mencionarlo: ahí describiría la
-          // restricción como si fuera parte de la función.
-          if (capacidad.definicion.toLowerCase().includes(termino.toLowerCase())) {
-            invasiones.push(`${capacidad.id}.definicion reclama «${termino}» (${restriccion.id})`);
-          }
-          if (seApropiaDelTermino(capacidad.noEs, termino, restriccion.id)) {
-            invasiones.push(`${capacidad.id}.noEs se apropia de «${termino}» (${restriccion.id})`);
-          }
-        }
-      }
-    }
+    const problemas = capacidades.flatMap((c) =>
+      erroresDeMenciones(c, restricciones, identificadores).map((e) => `${c.id}: ${e}`)
+    );
     expect(
-      invasiones,
+      problemas,
       "Un criterio no puede contar dos veces, como capacidad y como restricción. " +
-        "Si la capacidad lo nombra, tiene que ser para decir que vive fuera de ella."
+        "Si una capacidad necesita nombrarlo para trazar su frontera, tiene que declararlo."
     ).toEqual([]);
+  });
+
+  it("las cuatro fronteras legítimas están declaradas y siguen valiendo", () => {
+    const esperadas: Record<string, [string, string]> = {
+      "cap.field_job_capture": ["sin cobertura", "req.offline_capable"],
+      "cap.translation": ["interfaz en español", "req.language_es"],
+      "cap.customer_interaction_history": ["datos de salud", "cap.clinical_record"],
+      "cap.case_file_management": ["datos de salud", "cap.clinical_record"],
+    };
+    for (const [id, [termino, remiteA]] of Object.entries(esperadas)) {
+      const c = capacidades.find((x) => x.id === id);
+      expect(c?.mencionesDeclaradas, `${id} debería declarar «${termino}»`).toEqual([
+        { termino, remiteA },
+      ]);
+      expect(erroresDeMenciones(c!, restricciones, identificadores)).toEqual([]);
+    }
+  });
+
+  it("sólo esas cuatro declaran menciones", () => {
+    const conDeclaracion = capacidades.filter((c) => c.mencionesDeclaradas?.length).map((c) => c.id);
+    expect(conDeclaracion.sort()).toEqual([
+      "cap.case_file_management",
+      "cap.customer_interaction_history",
+      "cap.field_job_capture",
+      "cap.translation",
+    ]);
   });
 
   /**
    * Controles del guardián, no del dato.
    *
-   * La primera versión de esta comprobación admitía la mención si el texto
-   * citaba la restricción o CUALQUIER capacidad que la llevara declarada. La
-   * revisión independiente encontró la puerta trasera: bastaba nombrar de
-   * pasada al TPV para poder escribir «funciona offline» y pasar el control.
-   * Estos casos fijan lo que se admite y lo que no, para que nadie vuelva a
-   * abrirla al relajar la regla.
+   * La versión anterior deducía el permiso de la redacción, y dos frases con la
+   * negación desplazada seguían colándose. Ninguna regla léxica separaba «no es
+   * X, que tiene Y» de «no es X y tiene Y». Ahora el permiso se declara, así
+   * que ninguna redacción puede concedérselo a sí misma: estos casos lo fijan.
    */
   describe("el guardián de términos reservados", () => {
-    const OFF = "req.offline_capable";
+    const OFF = restricciones.filter((r) => r.id === "req.offline_capable");
+    const base = {
+      id: "cap.prueba",
+      etiqueta: "Prueba",
+      dominioId: "citas",
+      estado: "activa" as const,
+      definicion: "Hace algo inofensivo.",
+      noEs: "No es otra cosa.",
+    };
+    const cap = (cambios: Partial<typeof base> & { mencionesDeclaradas?: unknown }) =>
+      erroresDeMenciones({ ...base, ...cambios } as never, OFF, [
+        ...identificadores,
+        "cap.prueba",
+      ]);
 
-    it("admite la frontera canónica: nombrar la restricción", () => {
-      const texto =
-        "No es firmar un contrato a distancia (cap.electronic_signature). " +
-        "Que funcione sin cobertura es una restricción (req.offline_capable), no parte de esta capacidad.";
-      expect(seApropiaDelTermino(texto, "sin cobertura", OFF)).toBe(false);
+    it("acepta un texto que no menciona nada", () => {
+      expect(cap({})).toEqual([]);
     });
 
-    it("admite atribuir el término a otra capacidad, negándolo", () => {
-      // El caso real de cap.customer_interaction_history frente a la historia clínica.
-      const texto =
-        "No es la ficha del cliente, que es estática. " +
-        "Tampoco es una historia clínica (cap.clinical_record): esto es trato comercial, no datos de salud.";
-      expect(seApropiaDelTermino(texto, "datos de salud", "req.health_special_category")).toBe(false);
+    it("acepta la mención declarada correctamente", () => {
+      expect(
+        cap({
+          noEs: "Que funcione sin cobertura es una restricción (req.offline_capable), no parte de esta capacidad.",
+          mencionesDeclaradas: [{ termino: "sin cobertura", remiteA: "req.offline_capable" }],
+        })
+      ).toEqual([]);
     });
 
-    it("RECHAZA quedarse el término citando otra capacidad de pasada", () => {
-      // La puerta trasera exacta que encontró la revisión independiente.
-      const texto = "Funciona offline, a diferencia del TPV (cap.point_of_sale).";
-      expect(seApropiaDelTermino(texto, "offline", OFF)).toBe(true);
+    it("RECHAZA la mención sin declarar", () => {
+      expect(
+        cap({ noEs: "Que funcione sin cobertura es una restricción (req.offline_capable)." }).join()
+      ).toContain("sin declararlo");
     });
 
-    it("RECHAZA colar el término delante de la referencia, aunque haya negación", () => {
-      const texto = "No es como el TPV, pero funciona offline (cap.point_of_sale).";
-      expect(seApropiaDelTermino(texto, "offline", OFF)).toBe(true);
+    it("RECHAZA la negación desplegada, hueco 1 de la versión anterior", () => {
+      expect(cap({ noEs: "No es cap.point_of_sale y funciona offline" }).join()).toContain(
+        "sin declararlo"
+      );
     });
 
-    it("RECHAZA la negación puesta después del término", () => {
-      const texto = "Funciona offline, no como el TPV (cap.point_of_sale).";
-      expect(seApropiaDelTermino(texto, "offline", OFF)).toBe(true);
+    it("RECHAZA la negación lejana, hueco 2 de la versión anterior", () => {
+      expect(
+        cap({ noEs: "No es un CRM, es otra cosa (cap.point_of_sale) y funciona offline" }).join()
+      ).toContain("sin declararlo");
     });
 
-    it("RECHAZA reclamarlo sin citar nada", () => {
-      expect(seApropiaDelTermino("Funciona sin cobertura en el sótano.", "sin cobertura", OFF)).toBe(true);
+    it("RECHAZA nombrar de pasada una capacidad que sí la declara", () => {
+      expect(
+        cap({ noEs: "Funciona offline, a diferencia del TPV (cap.point_of_sale)." }).join()
+      ).toContain("sin declararlo");
     });
 
-    it("no se deja engañar por una frase vecina que sí remite", () => {
-      // La coartada de una frase no vale para la de al lado.
-      const texto =
-        "Que funcione sin conexión es una restricción (req.offline_capable). " +
-        "Además funciona sin cobertura estando en marcha.";
-      expect(seApropiaDelTermino(texto, "sin cobertura", OFF)).toBe(true);
+    it("ninguna redacción consigue permiso: sólo la declaración lo da", () => {
+      // Cuatro formas distintas de escribir la misma apropiación. Todas caen.
+      const redacciones = [
+        "Funciona offline.",
+        "No es nada raro: funciona offline.",
+        "Tampoco es cap.point_of_sale, y funciona offline.",
+        "A diferencia de otras (cap.point_of_sale), no falla y funciona offline.",
+      ];
+      for (const noEs of redacciones) {
+        expect(cap({ noEs }).join(), noEs).toContain("sin declararlo");
+      }
     });
 
-    it("una capacidad que declare la restricción no autoriza a las demás", () => {
-      // `cap.point_of_sale` lleva req.offline_capable en restriccionesTipicas.
-      // Eso no puede convertirse en licencia para nadie más.
-      const tpv = capacidades.find((c) => c.id === "cap.point_of_sale");
-      expect(tpv?.restriccionesTipicas).toContain("req.offline_capable");
-      expect(seApropiaDelTermino("Trabaja offline como cap.point_of_sale.", "offline", OFF)).toBe(true);
+    it("RECHAZA declarar el término en la definición, esté declarado o no", () => {
+      const e = cap({
+        definicion: "Recoge el parte y funciona sin cobertura.",
+        mencionesDeclaradas: [{ termino: "sin cobertura", remiteA: "req.offline_capable" }],
+      });
+      expect(e.join()).toContain("definicion usa «sin cobertura»");
+    });
+
+    it("RECHAZA una declaración que remite a algo inexistente", () => {
+      expect(
+        cap({
+          noEs: "Funciona sin cobertura, ver req.inventada.",
+          mencionesDeclaradas: [{ termino: "sin cobertura", remiteA: "req.inventada" }],
+        }).join()
+      ).toContain("no existe");
+    });
+
+    it("RECHAZA una declaración cuyo destino no aparece en el texto", () => {
+      expect(
+        cap({
+          noEs: "Funciona sin cobertura y ya está.",
+          mencionesDeclaradas: [{ termino: "sin cobertura", remiteA: "req.offline_capable" }],
+        }).join()
+      ).toContain("no aparece en noEs");
+    });
+
+    it("RECHAZA remitir a la propia capacidad", () => {
+      expect(
+        cap({
+          noEs: "Funciona sin cobertura, ver cap.prueba.",
+          mencionesDeclaradas: [{ termino: "sin cobertura", remiteA: "cap.prueba" }],
+        }).join()
+      ).toContain("no puede remitir a la propia capacidad");
+    });
+
+    it("RECHAZA una declaración que ya no se usa", () => {
+      expect(
+        cap({
+          noEs: "No es otra cosa.",
+          mencionesDeclaradas: [{ termino: "sin cobertura", remiteA: "req.offline_capable" }],
+        }).join()
+      ).toContain("no la usa");
+    });
+
+    it("no se acusa a sí misma por nombrar la restricción", () => {
+      // `req.offline_capable` contiene literalmente «offline»: sin quitar los
+      // identificadores, toda frontera bien escrita se delataría sola.
+      expect(cap({ noEs: "Ver la restricción req.offline_capable para esto." })).toEqual([]);
+    });
+
+    it("no se le escapa una mención escrita con otras tildes", () => {
+      const salud = restricciones.filter((r) => r.id === "req.health_special_category");
+      const e = erroresDeMenciones(
+        { ...base, noEs: "Guarda datos de categoría especial." } as never,
+        salud,
+        identificadores
+      );
+      expect(e.join()).toContain("sin declararlo");
     });
   });
 

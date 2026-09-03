@@ -1,6 +1,12 @@
 import { describe, expect, it } from "vitest";
 import type { Migracion } from "../esquema";
-import { erroresDeMigracion, getMigraciones, getRestricciones, getVocabulario } from "../repositorio";
+import {
+  erroresDeMigracion,
+  esFechaReal,
+  getMigraciones,
+  getRestricciones,
+  getVocabulario,
+} from "../repositorio";
 import IDENTIFICADORES_EMITIDOS from "./identificadoresEmitidos.json";
 
 /**
@@ -70,6 +76,19 @@ describe("el registro de migraciones", () => {
     ).toEqual([]);
   });
 
+  describe("la comprobación de fecha real", () => {
+    it.each(["2026-09-02", "2024-02-29", "2000-02-29", "2026-12-31"])("acepta %s", (f) => {
+      expect(esFechaReal(f)).toBe(true);
+    });
+
+    it.each(["2026-13-45", "2026-02-30", "2025-02-29", "1900-02-29", "2/9/2026", "2026-9-2", ""])(
+      "rechaza %s",
+      (f) => {
+        expect(esFechaReal(f)).toBe(false);
+      }
+    );
+  });
+
   /** Controles del validador: tiene que rechazar lo que está mal. */
   describe("el validador rechaza una migración mal formada", () => {
     const base: Migracion = {
@@ -134,6 +153,34 @@ describe("el registro de migraciones", () => {
 
     it("rechaza una fecha mal formada", () => {
       expect(errores({ fecha: "2/9/2026" }).join()).toContain("fecha inválida");
+    });
+
+    it("rechaza una fecha con formato correcto que no existe", () => {
+      // El formato solo no basta: "2026-13-45" pasa cualquier expresión regular
+      // razonable y no es ninguna fecha.
+      for (const fecha of ["2026-13-45", "2026-02-30", "2025-02-29", "2026-00-10", "2026-04-31"]) {
+        expect(errores({ fecha }).join(), fecha).toContain("fecha inválida");
+      }
+    });
+
+    it("acepta fechas reales, incluido un 29 de febrero bisiesto", () => {
+      for (const fecha of ["2026-09-02", "2024-02-29", "2026-12-31", "2026-01-01"]) {
+        expect(errores({ fecha }), fecha).toEqual([]);
+      }
+    });
+
+    it("rechaza destinos repetidos", () => {
+      // Escindir dos veces hacia el mismo sitio no es escindir: es una fusión
+      // mal escrita, y contaría el destino dos veces al repartir.
+      expect(
+        errores({ tipo: "escision", a: ["cap.payment_collection", "cap.payment_collection"] }).join()
+      ).toContain("destino repetido: cap.payment_collection");
+    });
+
+    it("una escisión a dos destinos distintos sigue valiendo", () => {
+      expect(errores({ tipo: "escision", a: ["cap.payment_collection", "cap.online_store"] })).toEqual(
+        []
+      );
     });
 
     it("rechaza una migración sin motivo", () => {

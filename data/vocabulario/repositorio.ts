@@ -104,67 +104,80 @@ export function paresCasiColisionantes(ids: string[]): [string, string][] {
   return pares;
 }
 
-/**
- * ¿Este texto se apropia de un término que pertenece a una restricción?
- *
- * En `definicion` la respuesta es siempre sí: ahí describiría la restricción
- * como si fuera parte de la función. En `noEs` es más sutil, porque `noEs` es
- * justo donde hay que trazar fronteras, y trazar una frontera legítima exige
- * poder nombrar el término.
- *
- * La primera versión de esta comprobación admitía la mención si el texto citaba
- * la restricción O CUALQUIER capacidad que la llevara declarada. Eso abría una
- * puerta trasera que encontró la revisión independiente: bastaba con nombrar de
- * pasada al TPV —que declara `req.offline_capable`— para poder escribir
- * «Funciona offline, a diferencia del TPV (cap.point_of_sale)» y pasar el
- * control. Peor aún, el conjunto de coartadas crecía solo cada vez que alguien
- * añadía una `restriccionesTipicas`.
- *
- * Ahora la mención se juzga FRASE A FRASE, y sólo se admite por dos vías:
- *
- *  a) la frase nombra la restricción misma — es la forma canónica de decir
- *     «esto vive fuera de mí»; o
- *  b) la frase nombra otra capacidad Y el término aparece DESPUÉS de esa
- *     mención Y hay una negación antes del término. Es decir: el término se le
- *     atribuye a lo que se acaba de nombrar, y se está negando, no afirmando.
- *
- * «Tampoco es una historia clínica (cap.clinical_record): esto es trato
- * comercial, no datos de salud» pasa. «Funciona offline, a diferencia del TPV
- * (cap.point_of_sale)» no pasa, porque el término va ANTES de la referencia:
- * se lo está quedando quien escribe, no atribuyéndoselo a otro.
- */
-
-/** Marcas de negación en español que valen para desmentir. */
-const NEGACIONES = /\b(no|ni|tampoco|nunca|jamas|jamás)\b/i;
-
-/** Corta por punto seguido, sin partir los identificadores (`cap.` no lleva espacio detrás). */
-export function frasesDe(texto: string): string[] {
-  return texto.split(/(?<=\.)\s+/).filter((f) => f.trim().length > 0);
+/** Sin tildes y en minúsculas, para que «categoría» y «categoria» sean lo mismo. */
+export function normalizar(texto: string): string {
+  return texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
-export function seApropiaDelTermino(
-  noEs: string,
-  termino: string,
-  restriccionId: string
-): boolean {
-  for (const frase of frasesDe(noEs)) {
-    const bajo = frase.toLowerCase();
-    const posTermino = bajo.indexOf(termino.toLowerCase());
-    if (posTermino === -1) continue;
+/**
+ * Quita los identificadores del texto antes de buscar términos.
+ *
+ * Sin esto, `req.offline_capable` contiene literalmente «offline» y cualquier
+ * frontera bien escrita se acusaría a sí misma.
+ */
+export function sinIdentificadores(texto: string): string {
+  return texto.replace(/\b(?:cap|req)\.[a-z0-9_]+/g, " ");
+}
 
-    // (a) la frase nombra la restricción: frontera canónica.
-    if (bajo.includes(restriccionId.toLowerCase())) continue;
+/**
+ * Qué está mal en cómo esta capacidad usa los términos reservados.
+ *
+ * La regla es corta: en `definicion` no puede aparecer ninguno, nunca. En
+ * `noEs` puede aparecer sólo si está DECLARADO, y la declaración tiene que
+ * apuntar a algo que exista y que además se nombre en el propio texto.
+ *
+ * La versión anterior intentaba deducir el permiso de la redacción —negaciones,
+ * orden de las palabras— y dos frases con la negación desplazada seguían
+ * pasando. Ninguna regla léxica separaba limpiamente «no es X, que tiene Y» de
+ * «no es X y tiene Y». Ahora no hay nada que deducir: o está declarado, o no
+ * vale, y la declaración se revisa en el diff como cualquier otro dato.
+ */
+export function erroresDeMenciones(
+  capacidad: Capacidad,
+  restricciones: readonly Restriccion[],
+  identificadoresValidos: readonly string[]
+): string[] {
+  const errores: string[] = [];
+  const declaradas = capacidad.mencionesDeclaradas ?? [];
+  const definicion = normalizar(sinIdentificadores(capacidad.definicion));
+  const noEs = normalizar(sinIdentificadores(capacidad.noEs));
+  const usadas = new Set<string>();
 
-    // (b) la frase se lo atribuye a otra capacidad, negándolo.
-    const referencias = [...frase.matchAll(/cap\.[a-z0-9_]+/g)];
-    const negacion = frase.search(NEGACIONES);
-    const atribuido = referencias.some((m) => m.index !== undefined && m.index < posTermino);
-    const negadoAntes = negacion !== -1 && negacion < posTermino;
-    if (atribuido && negadoAntes) continue;
-
-    return true;
+  for (const restriccion of restricciones) {
+    for (const termino of restriccion.terminosReservados) {
+      const t = normalizar(termino);
+      if (definicion.includes(t)) {
+        errores.push(`definicion usa «${termino}», que pertenece a ${restriccion.id}`);
+      }
+      if (!noEs.includes(t)) continue;
+      const declarada = declaradas.find((d) => normalizar(d.termino) === t);
+      if (!declarada) {
+        errores.push(
+          `noEs menciona «${termino}» (${restriccion.id}) sin declararlo en mencionesDeclaradas`
+        );
+        continue;
+      }
+      usadas.add(normalizar(declarada.termino));
+      if (!identificadoresValidos.includes(declarada.remiteA)) {
+        errores.push(`la mención de «${termino}» remite a "${declarada.remiteA}", que no existe`);
+      }
+      if (declarada.remiteA === capacidad.id) {
+        errores.push(`la mención de «${termino}» no puede remitir a la propia capacidad`);
+      }
+      // El destino tiene que estar escrito en el texto: si no, la declaración
+      // dice una cosa y quien lee ve otra.
+      if (!capacidad.noEs.includes(declarada.remiteA)) {
+        errores.push(`la mención de «${termino}» remite a ${declarada.remiteA}, que no aparece en noEs`);
+      }
+    }
   }
-  return false;
+
+  for (const declarada of declaradas) {
+    if (!usadas.has(normalizar(declarada.termino))) {
+      errores.push(`declara la mención de «${declarada.termino}» y no la usa: bórrala`);
+    }
+  }
+  return errores;
 }
 
 // ─────────────────────────────────────────────────────────────────────────
@@ -200,6 +213,20 @@ export function accedeAlVocabulario(codigo: string): boolean {
 // Validación de una migración. Ver `migraciones.test.ts`.
 // ─────────────────────────────────────────────────────────────────────────
 
+/**
+ * ¿Es una fecha que existe de verdad?
+ *
+ * El formato solo no basta: "2026-13-45" pasa cualquier expresión regular
+ * razonable y no es ninguna fecha. Se comprueba dando la vuelta —construir la
+ * fecha y ver si vuelve a escribirse igual—, que además descarta el 30 de
+ * febrero y acierta con los años bisiestos sin tener que saber cuáles son.
+ */
+export function esFechaReal(fecha: string): boolean {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(fecha)) return false;
+  const d = new Date(`${fecha}T00:00:00Z`);
+  return !Number.isNaN(d.getTime()) && d.toISOString().slice(0, 10) === fecha;
+}
+
 /** Cuántos destinos admite cada tipo de migración. */
 const DESTINOS: Record<TipoMigracion, (n: number) => boolean> = {
   fusion: (n) => n === 1,
@@ -229,7 +256,13 @@ export function erroresDeMigracion(
     if (!destinosValidos.includes(destino)) errores.push(`el destino "${destino}" no existe`);
     if (destino === m.de) errores.push(`"${m.de}" no puede migrar a sí mismo`);
   }
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(m.fecha)) errores.push(`fecha inválida: "${m.fecha}"`);
+  const repetidos = m.a.filter((d, i) => m.a.indexOf(d) !== i);
+  if (repetidos.length) {
+    // Una escisión hacia el mismo sitio dos veces no es una escisión: es una
+    // fusión mal escrita, y contaría el destino dos veces al repartir.
+    errores.push(`destino repetido: ${[...new Set(repetidos)].join(", ")}`);
+  }
+  if (!esFechaReal(m.fecha)) errores.push(`fecha inválida: "${m.fecha}"`);
   if (!m.motivo?.trim()) errores.push("una migración sin motivo no se puede revisar después");
   return errores;
 }

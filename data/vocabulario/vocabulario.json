@@ -157,7 +157,13 @@
       "noEs": "No es la ficha del cliente, que es estática. Tampoco es una historia clínica (cap.clinical_record): esto es trato comercial, no datos de salud.",
       "dominioId": "clientes",
       "estado": "activa",
-      "origenBorrador": "crm.customer_history"
+      "origenBorrador": "crm.customer_history",
+      "mencionesDeclaradas": [
+        {
+          "termino": "datos de salud",
+          "remiteA": "cap.clinical_record"
+        }
+      ]
     },
     {
       "id": "cap.sales_pipeline",
@@ -577,7 +583,13 @@
       "noEs": "No es un proyecto (cap.project_planning) ni un ticket (cap.support_ticketing). Y no es una historia clínica (cap.clinical_record), que además guarda datos de salud.",
       "dominioId": "trabajo",
       "estado": "activa",
-      "origenBorrador": "work.case_management"
+      "origenBorrador": "work.case_management",
+      "mencionesDeclaradas": [
+        {
+          "termino": "datos de salud",
+          "remiteA": "cap.clinical_record"
+        }
+      ]
     },
     {
       "id": "cap.collaborative_document_editing",
@@ -658,7 +670,13 @@
       "noEs": "No es tener la interfaz en español, que es una restricción (req.language_es).",
       "dominioId": "contenido",
       "estado": "activa",
-      "origenBorrador": "content.translation"
+      "origenBorrador": "content.translation",
+      "mencionesDeclaradas": [
+        {
+          "termino": "interfaz en español",
+          "remiteA": "req.language_es"
+        }
+      ]
     },
     {
       "id": "cap.presentation_building",
@@ -778,7 +796,13 @@
       "restriccionesTipicas": [
         "req.offline_capable"
       ],
-      "origenBorrador": "ops.mobile_job_capture"
+      "origenBorrador": "ops.mobile_job_capture",
+      "mencionesDeclaradas": [
+        {
+          "termino": "sin cobertura",
+          "remiteA": "req.offline_capable"
+        }
+      ]
     },
     {
       "id": "cap.route_planning",
