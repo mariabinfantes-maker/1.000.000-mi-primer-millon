@@ -14,3 +14,31 @@ tokens de `app/globals.css` (y `lib/marca/paleta.ts` para lo que no puede leer
 CSS). **No escribas ningún color a mano en una página o componente**: hay
 pruebas que lo impiden, y existen porque la portada ya se quedó semanas con un
 índigo viejo por escribirlo como texto en vez de usar el token.
+
+# La memoria de Molnip
+
+Este proyecto lleva meses en marcha y **su memoria no está en tu contexto: está
+escrita**. Léela antes de proponer nada — lo que no leas, lo repetirás.
+
+- **`ATLAS.md`** — 3.000 líneas en orden cronológico: decisiones, incidentes y
+  por qué cada cosa es como es. Lo más reciente va al final, justo antes del
+  bloque «MOLNIP VISUAL v1».
+- **`ARQUITECTURA-AGENTES.md`** — referencia canónica de los agentes. Manda
+  sobre la «Hoja de ruta» de ATLAS.md, que es registro histórico.
+- **`data/vocabulario/CONDICIONES-PARA-F3.md`** — lo que hay que cerrar antes de
+  conectar el vocabulario al motor.
+
+Cinco cosas que no vas a adivinar y que ya están decididas:
+
+1. **Son 11 agentes**, no los que tengan carpeta en `agents/`: tres están sin
+   diseñar. Y **«Atlas Evaluador» es el nombre antiguo de «Atlas Advisor»**, no
+   un agente aparte. Contar carpetas da 8 y es una cuenta equivocada.
+2. **Las 62 fichas del catálogo nunca se verificaron contra fuentes oficiales.**
+   Se generaron con un modelo sin navegación y las fuentes no se guardaron. El
+   filtro de entrada medía calidad, no veracidad.
+3. **El vocabulario de capacidades (F1) está en producción y no lo lee nadie
+   todavía**, a propósito. Conectarlo al motor es F3 y tiene condiciones previas.
+4. **Nada se fusiona ni se despliega sin autorización explícita de la
+   propietaria**, y no se abren sprints por iniciativa propia.
+5. **«Atlas» es el nombre técnico interno; «Molnip» es la marca pública.** Por
+   eso el código dice `atlas-advisor` y la web dice Molnip.
