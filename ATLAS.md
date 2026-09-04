@@ -101,7 +101,7 @@ todas medidas y anotadas en este documento:
 | Descubrir lo que no sabía que existía | **Diseñado, no construido** — es la relación actividad→necesidad del vocabulario |
 | Entrar sin saber qué buscar | **Parcial** — la puerta de texto libre existe, pero la interfaz sigue pidiendo elegir categoría y subtipo, que es lenguaje de producto |
 | La afiliación no altera el resultado | **Cumplido y protegido** — Advisor nunca ve datos de afiliación |
-| Sólida y premium | **Cumplido** — Molnip Visual v1 |
+| Sólida y premium | **Parcial** — la identidad visual está definida (Molnip Visual v1), pero todavía debe transmitir plenamente la escala y ambición de una gran tecnológica global |
 
 ### Una tensión que conviene tener presente
 
