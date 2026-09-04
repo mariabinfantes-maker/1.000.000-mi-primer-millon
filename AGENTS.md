@@ -40,15 +40,19 @@ Cuatro reglas que se derivan y que no se negocian:
 un tope. Si el catálogo no cubre una necesidad, Researcher busca alternativas
 **con o sin afiliación**.
 
-Una herramienta sin programa **no se descarta sola, pero tampoco se eleva por
-ser buena**: se presenta a la propietaria sólo si cubre una necesidad que el
-catálogo afiliado no cubre, o si demuestra con evidencia comparable una ventaja
-material para el cliente. **La fama, el tamaño, el marketing o tener más
-funciones no son esa ventaja.** Si una alternativa afiliada cubre la necesidad
+Una herramienta sin programa **no se descarta sola, pero tampoco se eleva sólo
+por parecer buena en general**: se presenta a la propietaria sólo si cubre una
+necesidad que el catálogo afiliado no cubre, o si demuestra con evidencia
+comparable una ventaja material para el cliente. **La fama, el tamaño, el
+marketing o tener más funciones no son esa ventaja.** Si una alternativa afiliada cubre la necesidad
 igual de bien, se mantiene la regla habitual. **Decide la propietaria.**
 
 La afiliación sigue siendo la vía habitual, pero nunca convierte lo incompatible
 en recomendable. Política provisional completa en `ATLAS.md`.
+
+**Estado:** esta política está **aprobada como criterio documental, pero la
+excepción todavía no está implementada**. El código actual sigue descartando
+automáticamente las herramientas sin un programa de afiliación fiable.
 
 Sólida, premium y con la escala de una gran tecnológica, pero humana y cercana.
 Sencilla para quien empieza, profunda para quien sabe más.
