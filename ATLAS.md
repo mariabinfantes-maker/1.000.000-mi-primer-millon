@@ -18,6 +18,100 @@ No es un directorio.
 
 Empieza preguntando al usuario qué quiere mejorar y le recomienda las mejores soluciones.
 
+## La visión de Molnip (dictada por la propietaria el 2026-09-03)
+
+Esta sección **manda sobre el resto del documento**. Cuando una decisión futura
+pueda ir en dos direcciones, se elige la que cumple esto. Y si algo de lo que ya
+existe la contradice, es lo existente lo que está pendiente de corregir, no la
+visión lo que hay que ajustar.
+
+Va primero en palabras de la propietaria, sin editar. Lo que viene después es
+lectura operativa y puede refinarse; el texto de arriba, no.
+
+### La visión, literal
+
+> Molnip no es un directorio ni un comparador de programas. Es un asesor
+> tecnológico cercano, capaz de ayudar tanto a una persona autónoma que solo
+> sabe explicar su problema con palabras sencillas como a una empresa que conoce
+> exactamente lo que necesita.
+>
+> La persona no debe saber qué software buscar. Puede decir «soy peluquera y
+> pierdo citas» o «estoy empezando a crear vídeos», y Molnip debe entender su
+> situación, descubrirle soluciones que quizá no sabía que existían y
+> explicárselas sin lenguaje técnico. Si no entiende o no tiene una solución
+> adecuada, debe decirlo y nunca recomendar por rellenar tres espacios.
+>
+> Las recomendaciones deben ser funcionalmente compatibles, verificadas con
+> fuentes reales y ordenadas por el encaje con la persona: tamaño, precio,
+> idioma, facilidad y necesidades. La afiliación nunca puede alterar el
+> resultado.
+>
+> Molnip debe sentirse como una gran empresa tecnológica: sólida, premium,
+> rigurosa y capaz de crecer en diferentes ramas, pero siempre humana y cercana.
+> Sencilla para quien empieza y profunda para quien sabe más.
+>
+> Su imagen y toda la experiencia deben transmitir la solidez, la escala y la
+> ambición de una gran empresa tecnológica global, sin perder nunca la cercanía
+> humana.
+
+### Las seis exigencias que se derivan de ella
+
+1. **La carga de entender es de Molnip, no de la persona.** «Soy peluquera y
+   pierdo citas» es una entrada válida y completa. Que alguien no conozca la
+   palabra «CRM» no es un problema suyo que deba resolver antes de entrar.
+2. **Descubrir, no sólo responder.** Enseñarle lo que no sabía que existía. Eso
+   obliga a saber qué necesita típicamente un oficio, no sólo a interpretar la
+   frase que escribió.
+3. **Explicar sin lenguaje técnico.** La explicación es parte de la
+   recomendación, no un adorno. Si sólo la entiende quien ya sabía, no ha
+   servido.
+4. **Decir que no es un resultado legítimo.** No entender, y no tener solución
+   adecuada, son respuestas válidas. **Tres es la consecuencia de que haya tres
+   buenas, nunca un objetivo.**
+5. **Compatibilidad funcional primero; encaje después.** Primero que sirva para
+   lo que necesita, verificado contra fuentes reales; después el orden por
+   tamaño, precio, idioma, facilidad y necesidades. Lo segundo sin lo primero es
+   exactamente lo que respondió Grammarly a una peluquera que perdía citas.
+6. **La afiliación no altera el resultado.** No «se procura que no influya»: no
+   puede.
+
+### Lo que esta visión descarta
+
+Se entiende mejor por lo que prohíbe:
+
+- Recomendar algo plausible cuando no se ha entendido la necesidad.
+- Rellenar hasta tres cuando sólo hay una que valga.
+- Afirmar una capacidad sin fuente que la sostenga.
+- Pedirle a la persona que hable nuestro idioma para poder ayudarla.
+- Que un programa suba porque paga mejor.
+- Ser sencillo a costa de volverse superficial, o riguroso a costa de volverse
+  frío.
+
+### Qué exige de lo que hoy existe
+
+La visión no describe el producto actual: describe el que debe ser. Estas son
+las distancias conocidas al 2026-09-03, y ninguna es un fallo oculto — están
+todas medidas y anotadas en este documento:
+
+| Exigencia | Estado hoy |
+|---|---|
+| Decir que no cuando no se entiende | **Cumplido** — Bloque 1, en producción |
+| Compatibilidad funcional antes que encaje | **Diseñado, no conectado** — el vocabulario (F1) está en producción y no lo lee nadie; conectarlo es F3 |
+| Verificadas con fuentes reales | **No cumplido** — las 62 fichas no se verificaron contra fuentes primarias. Es F2, hoy parada por falta de acceso a las fuentes |
+| Descubrir lo que no sabía que existía | **Diseñado, no construido** — es la relación actividad→necesidad del vocabulario |
+| Entrar sin saber qué buscar | **Parcial** — la puerta de texto libre existe, pero la interfaz sigue pidiendo elegir categoría y subtipo, que es lenguaje de producto |
+| La afiliación no altera el resultado | **Cumplido y protegido** — Advisor nunca ve datos de afiliación |
+| Sólida y premium | **Cumplido** — Molnip Visual v1 |
+
+### Una tensión que conviene tener presente
+
+«Sencilla al entrar» y «verificada con fuentes reales» tiran en direcciones
+opuestas en el tiempo: lo primero se nota enseguida, lo segundo cuesta meses y
+no se ve.
+
+**La visión da prioridad a no mentir.** Es preferible que Molnip diga «todavía no
+tenemos herramientas para esto» a que dé una respuesta bonita y falsa.
+
 ## Objetivo del MVP
 
 En menos de 60 segundos un usuario debe poder:

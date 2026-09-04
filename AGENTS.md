@@ -15,6 +15,30 @@ CSS). **No escribas ningún color a mano en una página o componente**: hay
 pruebas que lo impiden, y existen porque la portada ya se quedó semanas con un
 índigo viejo por escribirlo como texto en vez de usar el token.
 
+# La visión de Molnip
+
+Manda sobre todo lo demás. Está completa en `ATLAS.md`, sección «La visión de
+Molnip»; esto es lo mínimo para no proponer algo que la contradiga.
+
+**Molnip no es un directorio ni un comparador: es un asesor tecnológico
+cercano.** Tiene que ayudar igual a una autónoma que sólo sabe describir su
+problema —«soy peluquera y pierdo citas»— que a una empresa que sabe
+exactamente qué busca. **La carga de entender es de Molnip, no de la persona.**
+
+Cuatro reglas que se derivan y que no se negocian:
+
+- **Decir que no es un resultado válido.** Si no se entiende la necesidad, o el
+  catálogo no la cubre, se dice. **Tres recomendaciones es la consecuencia de
+  que haya tres buenas, nunca un objetivo que rellenar.**
+- **Primero que sirva, después que encaje.** La compatibilidad funcional
+  verificada va antes que el orden por tamaño, precio, idioma o facilidad.
+- **La afiliación nunca altera el resultado.**
+- **Sin lenguaje técnico.** Si la explicación sólo la entiende quien ya sabía,
+  no ha servido.
+
+Sólida, premium y con la escala de una gran tecnológica, pero humana y cercana.
+Sencilla para quien empieza, profunda para quien sabe más.
+
 # La memoria de Molnip
 
 Este proyecto lleva meses en marcha y **su memoria no está en tu contexto: está
