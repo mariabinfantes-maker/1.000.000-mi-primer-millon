@@ -156,20 +156,20 @@ problema porque esa solución no pagaba comisión.
 ### Herramientas sin afiliación
 
 **No se eleva cualquier herramienta a valoración.** Sólo se presenta cuando se
-cumple una de estas dos condiciones:
+cumpla **al menos una** de estas condiciones:
 
-1. **Cubre una necesidad que el catálogo afiliado no cubre.**
-2. **Demuestra, con evidencia comparable, una ventaja material para el cliente**
-   frente a las alternativas afiliadas.
+- **Cubre, con evidencia verificable, una necesidad que el catálogo afiliado no
+  cubre.**
+- **Aunque existan alternativas afiliadas, demuestra con evidencia comparable
+  una ventaja material para el cliente.**
 
-**Qué NO demuestra esa ventaja:** la fama, el tamaño de la empresa, el
-marketing, la cantidad total de funciones, ni una ficha más extensa. Nada de
-eso es evidencia de que sirva mejor a esta persona para esta necesidad.
+**La fama, el tamaño, el marketing, la cantidad total de funciones o una ficha
+más extensa no demuestran esa ventaja.**
 
-**Si existe una alternativa afiliada que cubre la necesidad igual de bien, se
-mantiene la regla habitual** y no se eleva nada.
+**Si una alternativa afiliada cubre la necesidad igual de bien, se mantiene la
+regla habitual y la herramienta sin afiliación no se eleva.**
 
-Cuando sí se cumple una de las dos condiciones, se presenta para valoración
+Cuando sí se cumple al menos una de ellas, se presenta para valoración
 acompañada de su utilidad, sus alternativas y las posibilidades de
 monetización. **La decisión de incorporarla es de la propietaria.** Ni
 Researcher ni Curator la toman por su cuenta.
