@@ -112,6 +112,75 @@ no se ve.
 **La visión da prioridad a no mentir.** Es preferible que Molnip diga «todavía no
 tenemos herramientas para esto» a que dé una respuesta bonita y falsa.
 
+## Política de catálogo y afiliación — PROVISIONAL (2026-09-03)
+
+**Provisional a propósito.** Se escribe mientras se termina de definir la
+visión monetaria, y se revisará cuando exista una segunda fuente de ingresos.
+Hasta entonces, manda esto.
+
+Resuelve una tensión real entre dos principios que hasta hoy convivían sin
+resolverse: *«el mejor encaje para su negocio tiene prioridad absoluta»* y
+*«toda herramienta incorporada debe tener un programa de afiliados fiable»*.
+Aplicadas a la vez, podían dejar a una persona sin la mejor solución para su
+problema porque esa solución no pagaba comisión.
+
+### El catálogo está vivo
+
+- **Debe crecer continuamente** según las necesidades reales de autónomos,
+  pequeñas empresas y otros negocios. No es una colección que se completa: es
+  un catálogo que sigue a la demanda.
+- **Las 62 herramientas actuales son sólo la base que verifica F2**, no el
+  límite presente ni futuro. Cualquier recuento que aparezca en este documento
+  describe un momento, nunca un tope.
+
+### Nunca un callejón sin salida
+
+- **Molnip nunca deja al cliente sin opciones ni lo conduce a un callejón sin
+  salida.**
+- Si el catálogo verificado **de ese momento** no cubre una necesidad,
+  **Researcher investiga alternativas nuevas, con o sin afiliación**.
+- La búsqueda **prioriza el beneficio real del cliente**, y sólo después
+  estudia una forma sostenible de beneficiar también a Molnip y al proveedor.
+  Ese orden no se invierte.
+
+### Qué se ofrece, y qué no
+
+- **Molnip nunca rellena tres puestos con herramientas incompatibles.**
+- Si existen **una o dos** herramientas válidas, ofrece esas y **explica
+  honestamente por qué no presenta tres**.
+- Si **no existe ninguna solución directa**, sigue buscando caminos útiles
+  **sin presentarlos falsamente como recomendaciones equivalentes**.
+
+### Herramientas sin afiliación
+
+- Una herramienta **sin afiliación que cubra un hueco real** no se descarta: se
+  **presenta para valoración**, acompañada de su utilidad, sus alternativas y
+  las posibilidades de monetización.
+- **La decisión de incorporarla es de la propietaria.** Ni Researcher ni Curator
+  la toman por su cuenta.
+
+### Qué se conserva de la regla anterior
+
+- **La afiliación habitual se mantiene** mientras se termina la visión
+  monetaria. Sigue siendo la vía normal de incorporación.
+- Pero **nunca convierte una herramienta incompatible en recomendación.** Que
+  pague comisión no la hace apta; que no pague no la hace inservible.
+
+### Qué cambia respecto a lo que había
+
+| | Antes | Ahora |
+|---|---|---|
+| Herramienta sin afiliación | Descartada automáticamente por Researcher | Se presenta a la propietaria para que decida |
+| Hueco en el catálogo | Se anotaba y se esperaba | Researcher investiga alternativas, con o sin afiliación |
+| Menos de tres opciones válidas | Se completaba con lo mejor disponible | Se ofrecen las que haya y se explica por qué no hay tres |
+| El catálogo | 62 herramientas, una cifra estable | Una base de partida que debe crecer |
+
+**Consecuencia técnica pendiente:** `tieneProgramaDeAfiliadosFiable()` en
+`agents/atlas-researcher/agente.ts` descarta hoy la herramienta sin más. Con
+esta política, ese descarte debería pasar a ser una **derivación a la
+propietaria**, no un rechazo. No se toca todavía: queda anotado como trabajo
+por autorizar, y esta política es documental hasta entonces.
+
 ## Objetivo del MVP
 
 En menos de 60 segundos un usuario debe poder:

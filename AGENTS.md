@@ -36,6 +36,13 @@ Cuatro reglas que se derivan y que no se negocian:
 - **Sin lenguaje técnico.** Si la explicación sólo la entiende quien ya sabía,
   no ha servido.
 
+**El catálogo está vivo.** Las 62 herramientas son la base que verifica F2, no
+un tope. Si el catálogo no cubre una necesidad, Researcher busca alternativas
+**con o sin afiliación**, y una herramienta útil sin programa **se presenta a la
+propietaria para que decida**, no se descarta sola. La afiliación sigue siendo la
+vía habitual, pero nunca convierte lo incompatible en recomendable. Política
+provisional completa en `ATLAS.md`.
+
 Sólida, premium y con la escala de una gran tecnológica, pero humana y cercana.
 Sencilla para quien empieza, profunda para quien sabe más.
 
