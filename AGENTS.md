@@ -38,10 +38,17 @@ Cuatro reglas que se derivan y que no se negocian:
 
 **El catálogo está vivo.** Las 62 herramientas son la base que verifica F2, no
 un tope. Si el catálogo no cubre una necesidad, Researcher busca alternativas
-**con o sin afiliación**, y una herramienta útil sin programa **se presenta a la
-propietaria para que decida**, no se descarta sola. La afiliación sigue siendo la
-vía habitual, pero nunca convierte lo incompatible en recomendable. Política
-provisional completa en `ATLAS.md`.
+**con o sin afiliación**.
+
+Una herramienta sin programa **no se descarta sola, pero tampoco se eleva por
+ser buena**: se presenta a la propietaria sólo si cubre una necesidad que el
+catálogo afiliado no cubre, o si demuestra con evidencia comparable una ventaja
+material para el cliente. **La fama, el tamaño, el marketing o tener más
+funciones no son esa ventaja.** Si una alternativa afiliada cubre la necesidad
+igual de bien, se mantiene la regla habitual. **Decide la propietaria.**
+
+La afiliación sigue siendo la vía habitual, pero nunca convierte lo incompatible
+en recomendable. Política provisional completa en `ATLAS.md`.
 
 Sólida, premium y con la escala de una gran tecnológica, pero humana y cercana.
 Sencilla para quien empieza, profunda para quien sabe más.

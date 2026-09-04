@@ -185,7 +185,7 @@ Researcher ni Curator la toman por su cuenta.
 
 | | Antes | Ahora |
 |---|---|---|
-| Herramienta sin afiliación | Descartada automáticamente por Researcher | Se presenta a la propietaria para que decida |
+| Herramienta sin afiliación | Descartada automáticamente por Researcher | Se presenta a la propietaria **sólo si cubre un hueco o demuestra ventaja material**; si no, se mantiene la regla habitual |
 | Hueco en el catálogo | Se anotaba y se esperaba | Researcher investiga alternativas, con o sin afiliación |
 | Menos de tres opciones válidas | Se completaba con lo mejor disponible | Se ofrecen las que haya y se explica por qué no hay tres |
 | El catálogo | 62 herramientas, una cifra estable | Una base de partida que debe crecer |
