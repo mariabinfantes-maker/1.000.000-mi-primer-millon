@@ -115,8 +115,10 @@ tenemos herramientas para esto» a que dé una respuesta bonita y falsa.
 ## Política de catálogo y afiliación — PROVISIONAL (2026-09-03)
 
 **Provisional a propósito.** Se escribe mientras se termina de definir la
-visión monetaria, y se revisará cuando exista una segunda fuente de ingresos.
-Hasta entonces, manda esto.
+visión monetaria, y **se revisará cuando terminemos de definir la visión
+monetaria o cuando la evidencia real demuestre que necesita cambiar**. No se
+condiciona la revisión a que exista ya una segunda fuente de ingresos. Hasta
+entonces, manda esto.
 
 Resuelve una tensión real entre dos principios que hasta hoy convivían sin
 resolverse: *«el mejor encaje para su negocio tiene prioridad absoluta»* y
@@ -153,11 +155,24 @@ problema porque esa solución no pagaba comisión.
 
 ### Herramientas sin afiliación
 
-- Una herramienta **sin afiliación que cubra un hueco real** no se descarta: se
-  **presenta para valoración**, acompañada de su utilidad, sus alternativas y
-  las posibilidades de monetización.
-- **La decisión de incorporarla es de la propietaria.** Ni Researcher ni Curator
-  la toman por su cuenta.
+**No se eleva cualquier herramienta a valoración.** Sólo se presenta cuando se
+cumple una de estas dos condiciones:
+
+1. **Cubre una necesidad que el catálogo afiliado no cubre.**
+2. **Demuestra, con evidencia comparable, una ventaja material para el cliente**
+   frente a las alternativas afiliadas.
+
+**Qué NO demuestra esa ventaja:** la fama, el tamaño de la empresa, el
+marketing, la cantidad total de funciones, ni una ficha más extensa. Nada de
+eso es evidencia de que sirva mejor a esta persona para esta necesidad.
+
+**Si existe una alternativa afiliada que cubre la necesidad igual de bien, se
+mantiene la regla habitual** y no se eleva nada.
+
+Cuando sí se cumple una de las dos condiciones, se presenta para valoración
+acompañada de su utilidad, sus alternativas y las posibilidades de
+monetización. **La decisión de incorporarla es de la propietaria.** Ni
+Researcher ni Curator la toman por su cuenta.
 
 ### Qué se conserva de la regla anterior
 
