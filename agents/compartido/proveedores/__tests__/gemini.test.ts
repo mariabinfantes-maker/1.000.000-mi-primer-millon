@@ -107,4 +107,146 @@ describe("crearProveedorGemini", () => {
       /no es un JSON válido/
     );
   });
+
+  /**
+   * Lo que sigue está calcado de una respuesta real de la API del 2026-09-07:
+   * dos llamadas, una a la página de precios de Pipedrive y otra a una
+   * dirección inventada del mismo dominio. Los nombres de campo y los valores
+   * de estado son los que devolvió Gemini, no los que suponíamos. Si Google
+   * los cambia, estas pruebas fallan y nos enteramos aquí y no en mitad de un
+   * lote de verificación.
+   */
+  describe("generarJsonLeyendoUrls", () => {
+    const conMetadatos = (texto: string, urlMetadata: unknown[]) =>
+      respuestaFetch({
+        candidates: [{ content: { parts: [{ text: texto }] } }, ].map((c) => ({
+          ...c,
+          urlContextMetadata: { urlMetadata },
+        })),
+      });
+
+    it("pide a Gemini la herramienta url_context", async () => {
+      vi.mocked(fetch).mockResolvedValue(respuestaConTexto("{}"));
+
+      await crearProveedorGemini().generarJsonLeyendoUrls("verifica", ["https://ejemplo.test/precios"]);
+
+      const cuerpo = JSON.parse(String(vi.mocked(fetch).mock.calls[0][1]?.body));
+      expect(cuerpo.tools).toEqual([{ url_context: {} }]);
+    });
+
+    it("no pide responseMimeType, que no se puede combinar con herramientas", async () => {
+      vi.mocked(fetch).mockResolvedValue(respuestaConTexto("{}"));
+
+      await crearProveedorGemini().generarJsonLeyendoUrls("verifica", ["https://ejemplo.test/precios"]);
+
+      const cuerpo = JSON.parse(String(vi.mocked(fetch).mock.calls[0][1]?.body));
+      expect(cuerpo.generationConfig.responseMimeType).toBeUndefined();
+    });
+
+    it("mete las direcciones en el texto, no dependan de cómo venga el prompt", async () => {
+      vi.mocked(fetch).mockResolvedValue(respuestaConTexto("{}"));
+
+      await crearProveedorGemini().generarJsonLeyendoUrls("verifica", [
+        "https://ejemplo.test/precios",
+        "https://ejemplo.test/funciones",
+      ]);
+
+      const cuerpo = JSON.parse(String(vi.mocked(fetch).mock.calls[0][1]?.body));
+      expect(cuerpo.contents[0].parts[0].text).toContain("https://ejemplo.test/precios");
+      expect(cuerpo.contents[0].parts[0].text).toContain("https://ejemplo.test/funciones");
+    });
+
+    it("marca como recuperada sólo la que Gemini dice que leyó", async () => {
+      vi.mocked(fetch).mockResolvedValue(
+        conMetadatos('{"ok":true}', [
+          {
+            retrievedUrl: "https://www.pipedrive.com/es/pricing",
+            urlRetrievalStatus: "URL_RETRIEVAL_STATUS_SUCCESS",
+          },
+          {
+            retrievedUrl: "https://www.pipedrive.com/es/precios-historicos-2019-archivo",
+            urlRetrievalStatus: "URL_RETRIEVAL_STATUS_ERROR",
+          },
+        ])
+      );
+
+      const r = await crearProveedorGemini().generarJsonLeyendoUrls("verifica", [
+        "https://www.pipedrive.com/es/pricing",
+        "https://www.pipedrive.com/es/precios-historicos-2019-archivo",
+      ]);
+
+      expect(r.datos).toEqual({ ok: true });
+      expect(r.urls).toEqual([
+        {
+          url: "https://www.pipedrive.com/es/pricing",
+          estado: "URL_RETRIEVAL_STATUS_SUCCESS",
+          recuperada: true,
+        },
+        {
+          url: "https://www.pipedrive.com/es/precios-historicos-2019-archivo",
+          estado: "URL_RETRIEVAL_STATUS_ERROR",
+          recuperada: false,
+        },
+      ]);
+    });
+
+    it("cualquier estado que no sea SUCCESS cuenta como no leída", async () => {
+      for (const estado of ["URL_RETRIEVAL_STATUS_ERROR", "URL_RETRIEVAL_STATUS_UNSAFE", "LO_QUE_SEA", ""]) {
+        vi.mocked(fetch).mockResolvedValue(
+          conMetadatos("{}", [{ retrievedUrl: "https://ejemplo.test/x", urlRetrievalStatus: estado }])
+        );
+        const r = await crearProveedorGemini().generarJsonLeyendoUrls("v", ["https://ejemplo.test/x"]);
+        expect(r.urls[0].recuperada, estado).toBe(false);
+      }
+    });
+
+    it("si Gemini no devuelve metadatos, la lista queda vacía y no se inventa nada", async () => {
+      vi.mocked(fetch).mockResolvedValue(respuestaConTexto("{}"));
+
+      const r = await crearProveedorGemini().generarJsonLeyendoUrls("v", ["https://ejemplo.test/x"]);
+
+      expect(r.urls).toEqual([]);
+    });
+
+    it("acepta el JSON envuelto en una valla de markdown", async () => {
+      vi.mocked(fetch).mockResolvedValue(respuestaConTexto('```json\n{"plan":"Lite"}\n```'));
+
+      const r = await crearProveedorGemini().generarJsonLeyendoUrls("v", ["https://ejemplo.test/x"]);
+
+      expect(r.datos).toEqual({ plan: "Lite" });
+    });
+
+    it("sin ninguna dirección, no llama a Gemini", async () => {
+      await expect(crearProveedorGemini().generarJsonLeyendoUrls("v", [])).rejects.toThrow(
+        /ninguna dirección/
+      );
+      expect(fetch).not.toHaveBeenCalled();
+    });
+
+    it("con más de veinte direcciones, no llama a Gemini", async () => {
+      const muchas = Array.from({ length: 21 }, (_, i) => `https://ejemplo.test/${i}`);
+
+      await expect(crearProveedorGemini().generarJsonLeyendoUrls("v", muchas)).rejects.toThrow(/20/);
+      expect(fetch).not.toHaveBeenCalled();
+    });
+
+    it("sin GEMINI_API_KEY, lanza sin llamar a fetch", async () => {
+      delete process.env.GEMINI_API_KEY;
+
+      await expect(
+        crearProveedorGemini().generarJsonLeyendoUrls("v", ["https://ejemplo.test/x"])
+      ).rejects.toThrow(/GEMINI_API_KEY/);
+      expect(fetch).not.toHaveBeenCalled();
+    });
+  });
+
+  it("generarJson sigue sin pedir herramientas", async () => {
+    vi.mocked(fetch).mockResolvedValue(respuestaConTexto("{}"));
+
+    await crearProveedorGemini().generarJson("prompt");
+
+    const cuerpo = JSON.parse(String(vi.mocked(fetch).mock.calls[0][1]?.body));
+    expect(cuerpo.tools).toBeUndefined();
+  });
+
 });

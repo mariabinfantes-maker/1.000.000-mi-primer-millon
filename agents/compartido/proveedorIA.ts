@@ -33,3 +33,51 @@ export class ErrorProveedorIA extends Error {
     this.name = "ErrorProveedorIA";
   }
 }
+
+/**
+ * Cómo le fue al proveedor con cada dirección que intentó leer.
+ *
+ * Es la mitad que faltaba para que F2 pueda verificar de verdad. Sin esto,
+ * una respuesta bien redactada y una invención suenan igual: el modelo conoce
+ * de memoria casi todas las herramientas del catálogo y puede describir su
+ * página de precios sin haberla abierto. Con esto, «lo leyó» y «no lo leyó»
+ * son dos hechos distintos y comprobables.
+ */
+export type RecuperacionUrl = {
+  /** La dirección tal y como la devuelve el proveedor, no la que se pidió. */
+  url: string;
+  /** El estado literal del proveedor, sin traducir ni normalizar. */
+  estado: string;
+  /** `true` sólo si el proveedor afirma explícitamente que la recuperó. */
+  recuperada: boolean;
+};
+
+export type RespuestaConFuentes = {
+  datos: unknown;
+  /** Vacío si el proveedor no intentó leer ninguna, o no lo dice. */
+  urls: RecuperacionUrl[];
+};
+
+/**
+ * Proveedor que además sabe leer páginas web antes de responder.
+ *
+ * Se añade como extensión y no se mete en `ProveedorIA` a propósito: los
+ * agentes que ya existen —Researcher, el prechequeo de afiliados, la
+ * clasificación de módulos— no necesitan leer nada y no deben cambiar por
+ * esto. Quien lo necesite, comprueba con `sabeLeerUrls` y si no, se apaña.
+ */
+export type ProveedorIAQueLee = ProveedorIA & {
+  /**
+   * Envía `prompt` pidiendo al modelo que lea `urls` antes de responder, y
+   * devuelve su respuesta junto con qué direcciones consiguió leer de verdad.
+   *
+   * Quien llame NO debe dar por buena ninguna afirmación cuya dirección no
+   * aparezca recuperada: sin eso, esto es exactamente el mismo error que llenó
+   * las 62 fichas de datos sin fuente.
+   */
+  generarJsonLeyendoUrls(prompt: string, urls: string[]): Promise<RespuestaConFuentes>;
+};
+
+export function sabeLeerUrls(proveedor: ProveedorIA): proveedor is ProveedorIAQueLee {
+  return typeof (proveedor as ProveedorIAQueLee).generarJsonLeyendoUrls === "function";
+}

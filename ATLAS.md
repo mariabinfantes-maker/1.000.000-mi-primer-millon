@@ -3009,6 +3009,89 @@ por eso **valen más que la memoria de la sesión**. Mantener ATLAS.md al día n
 burocracia: es lo único que sobrevive.
 
 
+## Gemini sí puede leer la fuente oficial (probado el 2026-09-07)
+
+La prueba que faltaba para desbloquear F2 se hizo de verdad, contra la API real,
+desde el ordenador de la propietaria. **Dos llamadas, dos resultados.**
+
+**Página real.** `https://www.pipedrive.com/es/pricing`, con la herramienta
+`url_context` activada. Estado devuelto: `URL_RETRIEVAL_STATUS_SUCCESS`.
+Respuesta: plan **Lite**, **US$14 por puesto/mes con facturación anual**, con
+tres citas literales de la página.
+
+**Página inexistente.** `https://www.pipedrive.com/es/precios-historicos-2019-archivo`,
+mismo dominio, misma pregunta. Estado: `URL_RETRIEVAL_STATUS_ERROR`. Respuesta:
+**`NO PUEDO LEERLA.`**
+
+La segunda es la que importa. Gemini conoce Pipedrive de sobra y podría haber
+rellenado de memoria un texto perfectamente creíble — que es exactamente cómo se
+generaron las 62 fichas. No lo hizo. Eso es la regla de la propietaria
+funcionando: «no está documentado» significa «no sabemos».
+
+**Lo que queda probado:** que `gemini-3.6-flash` acepta `url_context` —no había
+fuente oficial que lo confirmara— y que devuelve el estado de recuperación por
+URL, así que «lo leyó» y «no lo leyó» son dos hechos distintos y comprobables de
+forma automática.
+
+**Lo que no:** una sola herramienta, una sola página. No se midió latencia ni
+coste. Y no se comprobó de forma independiente que esas frases estén literalmente
+en la página: el entorno remoto no alcanza `pipedrive.com`.
+
+**El hallazgo que cambió el planteamiento:** quien descarga la página es el
+servidor de Google, no el nuestro. Que el entorno remoto tenga bloqueados los
+dominios de los fabricantes es irrelevante — el endpoint de Gemini sí es
+alcanzable desde él (devuelve el 403 propio de Google por falta de clave, no un
+bloqueo del proxy). Lo único que falta ahí es la clave.
+
+**La decisión de la propietaria:** camino 1, script local en PowerShell. No mete
+claves en el repositorio, no toca producción y da el resultado real. Las otras
+dos —clave en el entorno remoto, o endpoint en producción usando la clave que
+Vercel ya tiene— quedan anotadas por si algún día conviene.
+
+### El incidente de la clave
+
+Al cargar la clave en PowerShell se pegó en el orden equivocado y quedó
+**visible en pantalla en texto claro**. No hubo consecuencia conocida, pero la
+clave quedó expuesta y debe rotarse: eliminarla en AI Studio, crear otra y
+actualizar la variable en Vercel. **Pendiente.**
+
+La causa fue una instrucción mal ordenada, no un descuido de quien la ejecutó.
+El procedimiento corregido —cargar primero la línea, pegar la clave sólo cuando
+el aviso lo pide— está escrito en `data/verificacion/COMO-EJECUTAR.md`.
+
+## Lo que F2 tiene montado para el lote 1 (2026-09-07)
+
+En la rama `claude/atlas-advisor-mvp-4e854s`, **sin fusionar**:
+
+- **El adaptador de Gemini sabe leer páginas.** `generarJsonLeyendoUrls` se
+  añade como extensión (`ProveedorIAQueLee`) y no toca `generarJson`: Researcher,
+  el prechequeo de afiliados y la clasificación de módulos no cambian por esto.
+  Devuelve, junto a los datos, qué direcciones consiguió leer de verdad. Las
+  pruebas están calcadas de la respuesta real del 2026-09-07, con los nombres de
+  campo que devolvió Google y no los que suponíamos.
+- **La selección plausible del lote 1, congelada:** 30 herramientas, **765 pares
+  herramienta–capacidad**. El criterio es una regla escrita y aplicada igual a
+  las treinta —doce capacidades transversales más las de su categoría—, no una
+  elección caso a caso, precisamente para que no se estreche donde incomode.
+  Incluye a propósito **sondas que la herramienta probablemente no tenga**:
+  reserva por internet y recordatorios de cita en los CRM, órdenes de trabajo en
+  gestión de proyectos. Son las que el motor da hoy por buenas sin evidencia. Una
+  prueba falla si alguien las quita.
+- **El script `ejecutar-lote.ps1`**, que ejecuta la propietaria: 60 llamadas, dos
+  por herramienta, entre 15 y 25 minutos. Guarda las respuestas crudas sin
+  interpretarlas —convertirlas en registros es trabajo del repositorio, donde
+  están las reglas y las pruebas—, se puede parar y reanudar, y oculta la clave
+  incluso en los mensajes de error.
+
+Una comprobación del script surgió de probarlo: la definición de cada capacidad
+nombra a sus vecinas en el campo `noEs`, así que el prompt contiene
+identificadores que no se han preguntado. Si el modelo responde por ellos, esas
+respuestas **se apartan** en vez de colarse.
+
+**Pendiente:** que la propietaria ejecute el lote 1 y devuelva el archivo de
+salida. Hasta entonces F2 sigue sin un solo registro de verificación, y eso es
+correcto: no hay ninguno inventado.
+
 ---
 
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria

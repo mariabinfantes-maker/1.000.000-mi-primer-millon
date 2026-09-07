@@ -58,3 +58,7 @@ next-env.d.ts
 # ejecución concreta, no del proyecto.
 /test-results/
 /playwright-report/
+
+# Salida cruda de la verificación de F2: se genera en el ordenador de la
+# propietaria y se entrega aparte. No es fuente, es material de trabajo.
+data/verificacion/salida/
