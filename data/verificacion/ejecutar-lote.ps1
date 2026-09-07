@@ -34,6 +34,7 @@ param(
     [int] $PorLlamada = 13,
     [int] $PausaSegundos = 6,
     [int] $Reintentos = 3,
+    [int] $TiempoMaximoSegundos = 180,
     [string] $Modelo = "gemini-3.6-flash",
     [switch] $Rehacer
 )
@@ -106,7 +107,14 @@ function Invocar-Gemini([string] $prompt, [string[]] $urls) {
 
     for ($intento = 1; $intento -le $Reintentos; $intento++) {
         try {
-            return Invoke-RestMethod -Method Post -Uri $uri -ContentType "application/json; charset=utf-8" -Body $bytes
+            <#
+                Sin -TimeoutSec, si Google deja de responder el script espera
+                para siempre. Pasó: se quedó doce herramientas dentro, sin
+                error y sin avanzar, y sólo se notó mirando las horas de los
+                archivos. Con límite, la llamada falla, reintenta, y si no hay
+                manera se para diciéndolo.
+            #>
+            return Invoke-RestMethod -Method Post -Uri $uri -ContentType "application/json; charset=utf-8" -Body $bytes -TimeoutSec $TiempoMaximoSegundos
         } catch {
             $mensaje = $_.Exception.Message
             # La clave viaja en la URL: nunca se muestra el mensaje sin filtrar.
