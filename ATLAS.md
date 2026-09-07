@@ -18,6 +18,184 @@ No es un directorio.
 
 Empieza preguntando al usuario qué quiere mejorar y le recomienda las mejores soluciones.
 
+## La visión de Molnip (dictada por la propietaria el 2026-09-03)
+
+Esta sección **manda sobre el resto del documento**. Cuando una decisión futura
+pueda ir en dos direcciones, se elige la que cumple esto. Y si algo de lo que ya
+existe la contradice, es lo existente lo que está pendiente de corregir, no la
+visión lo que hay que ajustar.
+
+Va primero en palabras de la propietaria, sin editar. Lo que viene después es
+lectura operativa y puede refinarse; el texto de arriba, no.
+
+### La visión, literal
+
+> Molnip no es un directorio ni un comparador de programas. Es un asesor
+> tecnológico cercano, capaz de ayudar tanto a una persona autónoma que solo
+> sabe explicar su problema con palabras sencillas como a una empresa que conoce
+> exactamente lo que necesita.
+>
+> La persona no debe saber qué software buscar. Puede decir «soy peluquera y
+> pierdo citas» o «estoy empezando a crear vídeos», y Molnip debe entender su
+> situación, descubrirle soluciones que quizá no sabía que existían y
+> explicárselas sin lenguaje técnico. Si no entiende o no tiene una solución
+> adecuada, debe decirlo y nunca recomendar por rellenar tres espacios.
+>
+> Las recomendaciones deben ser funcionalmente compatibles, verificadas con
+> fuentes reales y ordenadas por el encaje con la persona: tamaño, precio,
+> idioma, facilidad y necesidades. La afiliación nunca puede alterar el
+> resultado.
+>
+> Molnip debe sentirse como una gran empresa tecnológica: sólida, premium,
+> rigurosa y capaz de crecer en diferentes ramas, pero siempre humana y cercana.
+> Sencilla para quien empieza y profunda para quien sabe más.
+>
+> Su imagen y toda la experiencia deben transmitir la solidez, la escala y la
+> ambición de una gran empresa tecnológica global, sin perder nunca la cercanía
+> humana.
+
+### Las seis exigencias que se derivan de ella
+
+1. **La carga de entender es de Molnip, no de la persona.** «Soy peluquera y
+   pierdo citas» es una entrada válida y completa. Que alguien no conozca la
+   palabra «CRM» no es un problema suyo que deba resolver antes de entrar.
+2. **Descubrir, no sólo responder.** Enseñarle lo que no sabía que existía. Eso
+   obliga a saber qué necesita típicamente un oficio, no sólo a interpretar la
+   frase que escribió.
+3. **Explicar sin lenguaje técnico.** La explicación es parte de la
+   recomendación, no un adorno. Si sólo la entiende quien ya sabía, no ha
+   servido.
+4. **Decir que no es un resultado legítimo.** No entender, y no tener solución
+   adecuada, son respuestas válidas. **Tres es la consecuencia de que haya tres
+   buenas, nunca un objetivo.**
+5. **Compatibilidad funcional primero; encaje después.** Primero que sirva para
+   lo que necesita, verificado contra fuentes reales; después el orden por
+   tamaño, precio, idioma, facilidad y necesidades. Lo segundo sin lo primero es
+   exactamente lo que respondió Grammarly a una peluquera que perdía citas.
+6. **La afiliación no altera el resultado.** No «se procura que no influya»: no
+   puede.
+
+### Lo que esta visión descarta
+
+Se entiende mejor por lo que prohíbe:
+
+- Recomendar algo plausible cuando no se ha entendido la necesidad.
+- Rellenar hasta tres cuando sólo hay una que valga.
+- Afirmar una capacidad sin fuente que la sostenga.
+- Pedirle a la persona que hable nuestro idioma para poder ayudarla.
+- Que un programa suba porque paga mejor.
+- Ser sencillo a costa de volverse superficial, o riguroso a costa de volverse
+  frío.
+
+### Qué exige de lo que hoy existe
+
+La visión no describe el producto actual: describe el que debe ser. Estas son
+las distancias conocidas al 2026-09-03, y ninguna es un fallo oculto — están
+todas medidas y anotadas en este documento:
+
+| Exigencia | Estado hoy |
+|---|---|
+| Decir que no cuando no se entiende | **Cumplido** — Bloque 1, en producción |
+| Compatibilidad funcional antes que encaje | **Diseñado, no conectado** — el vocabulario (F1) está en producción y no lo lee nadie; conectarlo es F3 |
+| Verificadas con fuentes reales | **No cumplido** — las 62 fichas no se verificaron contra fuentes primarias. Es F2, hoy parada por falta de acceso a las fuentes |
+| Descubrir lo que no sabía que existía | **Diseñado, no construido** — es la relación actividad→necesidad del vocabulario |
+| Entrar sin saber qué buscar | **Parcial** — la puerta de texto libre existe, pero la interfaz sigue pidiendo elegir categoría y subtipo, que es lenguaje de producto |
+| La afiliación no altera el resultado | **Cumplido y protegido** — Advisor nunca ve datos de afiliación |
+| Sólida y premium | **Parcial** — la identidad visual está definida (Molnip Visual v1), pero todavía debe transmitir plenamente la escala y ambición de una gran tecnológica global |
+
+### Una tensión que conviene tener presente
+
+«Sencilla al entrar» y «verificada con fuentes reales» tiran en direcciones
+opuestas en el tiempo: lo primero se nota enseguida, lo segundo cuesta meses y
+no se ve.
+
+**La visión da prioridad a no mentir.** Es preferible que Molnip diga «todavía no
+tenemos herramientas para esto» a que dé una respuesta bonita y falsa.
+
+## Política de catálogo y afiliación — PROVISIONAL (2026-09-03)
+
+**Provisional a propósito.** Se escribe mientras se termina de definir la
+visión monetaria, y **se revisará cuando terminemos de definir la visión
+monetaria o cuando la evidencia real demuestre que necesita cambiar**. No se
+condiciona la revisión a que exista ya una segunda fuente de ingresos. Hasta
+entonces, manda esto.
+
+Resuelve una tensión real entre dos principios que hasta hoy convivían sin
+resolverse: *«el mejor encaje para su negocio tiene prioridad absoluta»* y
+*«toda herramienta incorporada debe tener un programa de afiliados fiable»*.
+Aplicadas a la vez, podían dejar a una persona sin la mejor solución para su
+problema porque esa solución no pagaba comisión.
+
+### El catálogo está vivo
+
+- **Debe crecer continuamente** según las necesidades reales de autónomos,
+  pequeñas empresas y otros negocios. No es una colección que se completa: es
+  un catálogo que sigue a la demanda.
+- **Las 62 herramientas actuales son sólo la base que verifica F2**, no el
+  límite presente ni futuro. Cualquier recuento que aparezca en este documento
+  describe un momento, nunca un tope.
+
+### Nunca un callejón sin salida
+
+- **Molnip nunca deja al cliente sin opciones ni lo conduce a un callejón sin
+  salida.**
+- Si el catálogo verificado **de ese momento** no cubre una necesidad,
+  **Researcher investiga alternativas nuevas, con o sin afiliación**.
+- La búsqueda **prioriza el beneficio real del cliente**, y sólo después
+  estudia una forma sostenible de beneficiar también a Molnip y al proveedor.
+  Ese orden no se invierte.
+
+### Qué se ofrece, y qué no
+
+- **Molnip nunca rellena tres puestos con herramientas incompatibles.**
+- Si existen **una o dos** herramientas válidas, ofrece esas y **explica
+  honestamente por qué no presenta tres**.
+- Si **no existe ninguna solución directa**, sigue buscando caminos útiles
+  **sin presentarlos falsamente como recomendaciones equivalentes**.
+
+### Herramientas sin afiliación
+
+**No se eleva cualquier herramienta a valoración.** Sólo se presenta cuando se
+cumpla **al menos una** de estas condiciones:
+
+- **Cubre, con evidencia verificable, una necesidad que el catálogo afiliado no
+  cubre.**
+- **Aunque existan alternativas afiliadas, demuestra con evidencia comparable
+  una ventaja material para el cliente.**
+
+**La fama, el tamaño, el marketing, la cantidad total de funciones o una ficha
+más extensa no demuestran esa ventaja.**
+
+**Si una alternativa afiliada cubre la necesidad igual de bien, se mantiene la
+regla habitual y la herramienta sin afiliación no se eleva.**
+
+Cuando sí se cumple al menos una de ellas, se presenta para valoración
+acompañada de su utilidad, sus alternativas y las posibilidades de
+monetización. **La decisión de incorporarla es de la propietaria.** Ni
+Researcher ni Curator la toman por su cuenta.
+
+### Qué se conserva de la regla anterior
+
+- **La afiliación habitual se mantiene** mientras se termina la visión
+  monetaria. Sigue siendo la vía normal de incorporación.
+- Pero **nunca convierte una herramienta incompatible en recomendación.** Que
+  pague comisión no la hace apta; que no pague no la hace inservible.
+
+### Qué cambia respecto a lo que había
+
+| | Antes | Ahora |
+|---|---|---|
+| Herramienta sin afiliación | Descartada automáticamente por Researcher | Se presenta a la propietaria **sólo si cubre un hueco o demuestra ventaja material**; si no, se mantiene la regla habitual |
+| Hueco en el catálogo | Se anotaba y se esperaba | Researcher investiga alternativas, con o sin afiliación |
+| Menos de tres opciones válidas | Se completaba con lo mejor disponible | Se ofrecen las que haya y se explica por qué no hay tres |
+| El catálogo | 62 herramientas, una cifra estable | Una base de partida que debe crecer |
+
+**Consecuencia técnica pendiente:** `tieneProgramaDeAfiliadosFiable()` en
+`agents/atlas-researcher/agente.ts` descarta hoy la herramienta sin más. Con
+esta política, ese descarte debería pasar a ser una **derivación a la
+propietaria**, no un rechazo. No se toca todavía: queda anotado como trabajo
+por autorizar, y esta política es documental hasta entonces.
+
 ## Objetivo del MVP
 
 En menos de 60 segundos un usuario debe poder:
@@ -2556,6 +2734,280 @@ administrativa**, sobre estas bases:
 Si algún día esta comprobación se ofrece fuera del panel —en una API pública,
 o disparada por datos que no haya escrito la administradora— **esta aceptación
 deja de valer** y hay que cerrarlo con un cliente HTTP que permita fijar la IP.
+## El sprint de asistentes de IA y los subtipos navegables (2026-09-02)
+
+Cuatro de los seis subtipos de «IA y productividad» estaban por debajo de
+`MINIMO_POR_SUBTIPO = 3`, así que el motor devolvía menos de tres opciones.
+Presentaciones y espacio de trabajo devolvían **una sola herramienta**: eso no
+es una comparación, es un anuncio.
+
+Seis fichas nuevas, aprobadas una a una: HeyGen (96), Todoist (94), Canva (98),
+Beautiful.ai (83), Taskade (92) y ClickUp Brain (91). Cinco de las seis salieron
+de reutilizar herramientas que ya estaban en el catálogo en otra categoría, no
+de investigar de cero.
+
+Después, los subtipos dejaron de ser invisibles: un selector accesible en
+`/categoria/asistentes-ia` y **seis páginas indexables**, una por subtipo, con
+contenido editorial propio —eje de decisión, cómo elegir, error habitual— en vez
+de seis páginas iguales cambiando una palabra. El subtipo elegido viaja hasta el
+motor validado contra la taxonomía, no como texto libre en la URL.
+
+Commits `a86e774` y `9706786`.
+
+## Molnip aprende a decir que no (2026-09-02)
+
+**El fallo, encontrado por la propietaria probando en producción como una
+usuaria cualquiera:**
+
+> «Soy peluquera. Tengo entre 1 y 10 empleados. Estoy perdiendo citas.»
+> → **Grammarly, 100/100.** Después Canva y Reclaim.ai.
+
+Ninguna de las tres gestiona citas.
+
+La causa no era una puntuación mal calculada. Era que `seleccionarCandidatas`,
+cuando la detección determinista no entendía la frase, **devolvía el catálogo
+entero** «para no dejar al usuario sin recomendación». A partir de ahí el motor
+puntuaba las 62 herramientas por tamaño, precio, facilidad e idioma —criterios
+que nunca preguntan si la herramienta sirve para algo— y ganaba la que mejor
+encajaba en el perfil. Grammarly encaja perfectamente con una autónoma
+hispanohablante de presupuesto ajustado. Lo único que no hace es dar citas.
+
+Preferir una respuesta mala a ninguna respuesta era la decisión equivocada: una
+recomendación falsa destruye la confianza que el resto del producto tarda meses
+en construir.
+
+Ahora el motor puede decir que no, y decir por qué:
+
+| Motivo | Cuándo | Qué ve la persona |
+|---|---|---|
+| `necesidad_no_entendida` | No se pudo determinar qué necesita | «No he sabido entender qué necesitas» |
+| `sin_cobertura` | Se entendió el objetivo, pero el catálogo no lo cubre | «Todavía no tenemos herramientas para esto» |
+
+Dos decisiones de tono, deliberadas: **la culpa es nuestra, nunca de quien
+pregunta** —«no he sabido entender», no «no has escrito bien»—, y **nunca se
+queda en un callejón sin salida**: siempre hay camino hacia las categorías, que
+son la vía experta y sí funcionan.
+
+19 pruebas de regresión y 8 de extremo a extremo. Commit `a79b8e3`.
+
+## La puntuación guardada que contradecía a la mostrada (2026-09-02)
+
+Las seis fichas del sprint tenían `analisisAtlas.puntuacion: 0` y
+`motivosPuntuacion: []` guardados. El borrador se escribió con esos campos a
+cero esperando que la promoción los recalculara, y `promover.ts` no lo hace:
+calcula la puntuación para decidir si supera el umbral de calidad, pero copia la
+ficha tal cual.
+
+No llegó a verse desde fuera —la tarjeta recalcula al vuelo, así que se veía 98—
+ni afectó al orden de las recomendaciones: el motor sólo lee
+`nivelTecnicoRecomendado` y `tipoNegocioIdeal` de `analisisAtlas`, nunca la
+puntuación. **Pero un dato guardado que contradice al que se muestra es una
+trampa esperando a que alguien confíe en él.**
+
+61 pruebas que recorren todo el catálogo comparando lo guardado con lo
+recalculado. De paso quedó fijada una lista que no puede crecer en silencio:
+`bitrix24`, `gohighlevel`, `hubspot`, `odoo` y `zoho-one` **no tienen
+`analisisAtlas` en absoluto** — entraron sin pasar por un borrador de Researcher.
+Queda anotado como bloque independiente, sin corregir.
+
+Commit `029caa1`.
+
+## F1: el vocabulario de capacidades, en producción (2026-09-03)
+
+Molnip tenía dos conceptos para describir el mundo —categoría y problema— y
+**ninguno decía qué sabe hacer un programa**. Esa es la raíz del caso de la
+peluquera, no un error de puntuación.
+
+F1 añade el concepto que faltaba: la **capacidad**. Lo que un programa sabe
+hacer, estable en el tiempo, distinto de una necesidad («pierdo citas»), de un
+proceso («cómo doy hora») y de una restricción («en español»).
+
+**146 capacidades · 23 dominios · 5 áreas · 8 restricciones.** Cada capacidad
+con su definición y —lo que de verdad sostiene el vocabulario— con su frontera
+escrita: con qué se confunde y por qué no es eso.
+
+Decisiones que se materializaron aquí:
+
+- **Los identificadores no llevan el dominio dentro.** Un prefijo de dominio es
+  una jerarquía metida en un nombre permanente y antes o después miente: pasó
+  con `hr.training_lms`, que nació en «Personas y equipo» y hoy vive en
+  «Formación y alumnado». La ubicación va en `dominioId`, que sí puede cambiar.
+  El identificador es un nombre, no una dirección.
+- **Seis reglas de identificador comprobadas automáticamente**, no confiadas a
+  la buena intención de quien añada la siguiente capacidad.
+- **`requiere` entre capacidades**: un widget de reserva sin motor detrás no
+  reserva nada.
+- **Las restricciones salen de dentro de las capacidades.** Duras las que
+  excluyen, blandas las que puntúan, y **`dura_condicional`** para las que sólo
+  aplican cuando alguien las exige — `req.data_residency_eu` y
+  `req.esignature_qualified`.
+- **Las menciones de términos reservados se declaran, no se deducen.** Se
+  intentó deducirlas de la redacción y siempre quedaba una rendija; ahora una
+  capacidad que necesita nombrar un término ajeno declara cuál y a quién se lo
+  atribuye, y eso se revisa en el diff.
+
+**Nadie lo lee todavía.** El motor, las fichas y la interfaz siguen igual, y hay
+una prueba que falla el día que alguien lo importe sin querer. Que el motor
+filtre por capacidad es F3, y exige simular antes todas las rutas actuales.
+
+Tres revisiones —dos independientes— encontraron defectos reales en las guardas,
+todos corregidos antes de fusionar. Las dos condiciones que quedaban pendientes
+están escritas en **`data/vocabulario/CONDICIONES-PARA-F3.md`**.
+
+Commits `b118ea1`, `a0f0d35`, `5a8445c` y `cd45c01`. 276 pruebas.
+
+## De dónde salieron de verdad las 62 fichas (descubierto el 2026-09-03)
+
+Esto no estaba escrito en ninguna parte y explica dos meses de trabajo posterior.
+
+**Las 62 fichas del catálogo no se verificaron contra fuentes primarias.** No
+es que esa verificación se perdiera: **nunca llegó a hacerse.**
+
+Dicho así a secas se entiende mal, porque **sí pasaron una validación
+estructural, y era exigente**. Lo que faltó fue contrastar lo que dicen con la
+fuente que lo demuestra. Son dos cosas distintas y el resto de la sección
+separa una de otra.
+
+### La puerta que sí existía, y era exigente
+
+Nada llegó al catálogo sin pasar por `promover.ts`, y ahí había cinco cerrojos:
+
+| | Comprobación | Qué exigía |
+|---|---|---|
+| 1 | `calcularPuntuacionAtlas()` | Puntuación Molnip **≥ 80/100** |
+| 2 | `detectarCasiDuplicados()` — **de Atlas Curator** | Que no fuera otra herramienta ya presente |
+| 3 | `tieneProgramaDeAfiliadosFiable()` | Programa activo y confianza no baja |
+| 4 | `evaluarCriteriosDeCalidad()` | Confianza, advertencias y campos completos |
+| 5 | **Aprobación explícita de la propietaria** | Informe leído y decisión firmada |
+
+Y no era un trámite. El historial guarda **46 decisiones: 44 aceptadas y 2
+bloqueadas por Curator** — Zoho CRM y Zoho Projects, por compartir dominio con
+Zoho One. Los dos bloqueos se levantaron después, pero **por decisión escrita de
+la propietaria** («Aprobada por el CEO tras revisión del informe completo del
+lote»), no por omisión. El mecanismo funcionó: detectó, avisó y esperó.
+
+Curator estaba dentro de esa puerta, aunque nunca usó IA: `promover.ts` importa
+`detectarCasiDuplicados` directamente de él.
+
+### Lo que esa puerta no podía comprobar
+
+Researcher obtuvo las fichas pidiéndoselas a Gemini, en local, con llamadas
+reales (el límite de 5 peticiones por minuto del nivel gratuito se descubrió
+ejecutando el primer lote). Pero el adaptador
+—`agents/compartido/proveedores/gemini.ts`— **envía únicamente `contents` y
+`generationConfig`**: no lleva `google_search`, ni grounding, ni `url_context`.
+
+**Conectarse a la API de Gemini no es que Gemini navegue. Contestaba desde lo
+que sabía, no desde lo que leía.**
+
+El prompt sí pedía `"fuentes": ["URL de cada fuente que hayas usado"]`, y el
+validador calcula la confianza a partir de **cuántas** URLs devuelve, no de
+comprobar ninguna. Y esas fuentes no llegaron al catálogo:
+
+```
+campos del esquema de ficha:  paginaOficial, urlPrecios, metodologiaValoracion...
+fichas con campo `fuentes`:   0 de 62
+```
+
+Frases como «agregación de miles de opiniones verificadas en plataformas como G2
+y Capterra» en `metodologiaValoracion` son **afirmaciones del modelo**, no citas
+rastreables.
+
+### La frase que lo resume
+
+> **El filtro medía calidad, no veracidad. Una invención coherente lo pasaba
+> entero.**
+
+Las cinco comprobaciones miran si la ficha está bien hecha: si puntúa alto, si no
+duplica, si tiene programa de afiliados, si no le faltan campos. **Ninguna puede
+distinguir una ficha bien redactada y cierta de una bien redactada y falsa.**
+
+No faltó rigor. Faltó una capacidad que el sistema nunca tuvo: **abrir la fuente
+y leerla.** Nadie lo echó en falta porque no había hueco donde se notara — al no
+guardarse las fuentes, no quedaba nada que revisar después.
+
+Dos consecuencias que conviene no olvidar:
+
+1. **Curator nunca validó nada contra una fuente externa.** Sus siete módulos son
+   deterministas y sin IA: comprueban que los datos encajen entre sí, no que sean
+   ciertos. Curator dice qué falta; nunca dice si lo que hay es verdad.
+2. **`paginaOficial` es una portada en muchas fichas** y no demuestra ninguna
+   función ni ningún precio. La URL que sirve como evidencia es `urlPrecios`.
+   Las 62 tienen ambas.
+
+Esto es exactamente lo que F2 viene a arreglar, y por eso F2 no puede apoyarse en
+el mecanismo que creó el problema.
+
+## Qué alcanza cada entorno (comprobado el 2026-09-03)
+
+Comprobado, no supuesto, porque condiciona qué se puede hacer desde dónde:
+
+| | Sesión remota en la nube | Local |
+|---|---|---|
+| Páginas de fabricantes (`pipedrive.com`, `asana.com`, …) | **Bloqueadas** — `connect_rejected`, 403 a CONNECT | Sin comprobar |
+| API de Gemini (`generativelanguage.googleapis.com`) | **Alcanzable** — responde Google, no el proxy | Sin comprobar |
+| Documentación de Google (`ai.google.dev`) | **Bloqueada** | Sin comprobar |
+| `GEMINI_API_KEY` | **Ausente** | Presente, según la propietaria |
+| Búsqueda web | Funciona, pero devuelve **fuentes secundarias** | — |
+
+`ATLAS.md` ya decía que la clave «hasta ahora solo se ha usado en local, para los
+lotes de Researcher». Sigue siendo cierto: **no está configurada en Vercel**, o
+al menos no hay forma de comprobarlo desde el repositorio.
+
+## F2: parada antes de verificar, y por qué (2026-09-03)
+
+F2 verifica las 62 herramientas contra el vocabulario de F1. **Está parada antes
+de verificar la primera**, por decisión consciente y no por un fallo.
+
+Lo que sí quedó hecho, en la rama `claude/atlas-advisor-mvp-4e854s` (commit
+`b097820`, **sin fusionar**):
+
+- **Las dos condiciones obligatorias de `CONDICIONES-PARA-F3.md`, cerradas.**
+  `normalizar` ya colapsa espacios —antes un doble espacio tecleado por descuido
+  apagaba la guarda de un término— y las declaraciones duplicadas se rechazan en
+  cualquier orden, validándose todas y no sólo la primera.
+- **El esquema de los registros de verificación**, con tres ideas que existen
+  para evitar errores ya cometidos: *no saber no es no tener* (`desconocido` es
+  un resultado legítimo); *la selección de capacidades plausibles se congela
+  antes* de verificar, con su criterio escrito, para que no se estreche donde la
+  evidencia incomoda; y *la afiliación no entra* — hay una prueba que comprueba
+  que este módulo no la importe.
+- **El plan de lotes**: 30 herramientas de rutas que hoy funcionan, 18
+  asistentes de IA, 14 suites. Las 62, cada una una sola vez.
+
+**Por qué se paró:** verificar exige páginas oficiales, y desde la sesión remota
+están bloqueadas. Lo único disponible es búsqueda web, que devuelve blogs y
+comparativas — y por regla explícita de la propietaria, **una fuente secundaria
+nunca da confianza alta**. Hacerlo igualmente produciría registros con fecha y
+URL que *parecerían* verificados sin serlo: exactamente el problema que F2
+existe para resolver.
+
+La vía que queda por probar es **URL Context de Gemini**: se le pasa la URL
+oficial que ya tenemos y la lee, con la descarga del lado de Google. Requiere la
+clave, que sólo existe en local. Prueba pendiente con Pipedrive.
+
+Una guarda de F1 hubo que ampliarla: la verificación necesita leer el vocabulario
+para comprobar que cada capacidad citada exista. La autorización se amplió sólo a
+`data/verificacion`, con la lista fijada por una prueba. Lo que ve la gente
+—motor, interfaz, fichas— sigue sin poder leerlo.
+
+## Esto es una sola sesión (anotado el 2026-09-03)
+
+Dato que conviene tener presente al leer los commits: **97 de los 98 commits
+firmados de Molnip llevan el mismo identificador de sesión.** Este proyecto no
+ha pasado por muchas manos — es prácticamente una única conversación abierta
+desde el 3 de julio.
+
+Lo que sí cambió fue el modelo: empezó **Claude Sonnet 5** (61 commits) y
+continuó **Claude Opus 5** (37). Por eso hay dos firmas distintas sin que haya
+dos proyectos.
+
+**Consecuencia práctica:** una sesión larga no recuerda su propio principio —lo
+antiguo se comprime en un resumen—, así que puede no reconocer trabajo que ella
+misma hizo semanas antes. Los commits y este documento no tienen ese problema, y
+por eso **valen más que la memoria de la sesión**. Mantener ATLAS.md al día no es
+burocracia: es lo único que sobrevive.
+
 
 ---
 
