@@ -3195,8 +3195,10 @@ ningún sprint. Ninguna urge; todas se olvidan si no están escritas.
   herramientas sin programa de afiliación, y eso **contradice la política de
   catálogo aprobada**. Está declarado como no implementado en AGENTS.md, pero la
   contradicción sigue viva en el código.
-- **La clave de Gemini que quedó visible el 2026-09-07 hay que rotarla:**
-  eliminarla en AI Studio, crear otra y actualizarla en Vercel.
+- **La clave de Gemini que quedó visible el 2026-09-07 hay que borrarla** en AI
+  Studio. Era una clave de pruebas y **no está configurada en Vercel** (lo
+  confirmó la propietaria), así que borrarla no rompe nada ni exige
+  redesplegar.
 
 ---
 
