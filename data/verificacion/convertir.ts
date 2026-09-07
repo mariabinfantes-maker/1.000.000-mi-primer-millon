@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import type {
   Fuente,
   NivelConfianza,
@@ -9,9 +11,9 @@ import type {
 /**
  * De lo que contestó Gemini a lo que Molnip puede afirmar.
  *
- * El script `ejecutar-lote.ps1` no decide nada: guarda las respuestas tal cual.
- * Aquí es donde se decide, y por eso las reglas viven en el repositorio, con
- * pruebas, y no en un script suelto que nadie vuelve a leer.
+ * El script que ejecuta la propietaria no decide nada: guarda las respuestas
+ * tal cual. Aquí es donde se decide, y por eso las reglas viven en el
+ * repositorio, con pruebas, y no en un script suelto que nadie vuelve a leer.
  *
  * LA REGLA QUE LO GOBIERNA TODO: una afirmación sólo sobrevive si viene con una
  * cita literal Y de una dirección que el proveedor confirma haber descargado.
@@ -20,8 +22,8 @@ import type {
  * fuente es exactamente lo que llenó las 62 fichas de datos que nadie comprobó.
  *
  * Degradar no es tirar. Todo lo que se degrada queda en `descartes` con su
- * motivo, para que el informe pueda decir cuánto se perdió y por qué, en vez de
- * presentar sólo lo que salió bien.
+ * motivo y con la cita que se le dio, para que el informe pueda decir cuánto se
+ * perdió y por qué, en vez de presentar sólo lo que salió bien.
  */
 
 export type RespuestaCruda = {
@@ -35,12 +37,21 @@ export type RespuestaCruda = {
   nota?: string | null;
 };
 
+/** Una redirección resuelta con el cliente HTTP, no supuesta. */
+export type Redireccion = {
+  solicitada: string;
+  final: string;
+  /** Los códigos de la cadena, en orden: [301, 200]. */
+  codigos: number[];
+};
+
 export type SalidaHerramienta = {
   herramientaId: string;
   nombre?: string;
   fechaConsulta: string;
   urlsSolicitadas?: string[];
   urlsRecuperadas?: Array<{ url?: string; estado?: string; recuperada?: boolean }>;
+  redirecciones?: Redireccion[];
   capacidadesPedidas?: string[];
   respuestas?: RespuestaCruda[];
   sinRespuesta?: string[];
@@ -55,9 +66,33 @@ export type SalidaLote = {
   herramientas?: SalidaHerramienta[];
 };
 
+/**
+ * Qué papel tiene cada dirección de una herramienta.
+ *
+ * Decisión de la propietaria (2026-09-07): el plan puede sostenerse en la
+ * página de tarifas, en una tabla comparativa de planes o en documentación
+ * oficial que vincule expresamente capacidad y plan. Una portada NO.
+ */
+export type FuentesDeHerramienta = {
+  urlPrecios?: string;
+  /** Direcciones que son documentación oficial y pueden sostener un plan. */
+  documentacion?: string[];
+};
+
 export type Descarte = {
   herramientaId: string;
   capacidadId: string;
+  motivo: string;
+  /** Se conserva la cita para no perder la pista, aunque no sirva de prueba. */
+  cita?: string;
+  urlCitada?: string;
+};
+
+export type CitaRevisada = {
+  herramientaId: string;
+  capacidadId: string;
+  cita: string;
+  veredicto: "vale" | "no_vale";
   motivo: string;
 };
 
@@ -79,31 +114,27 @@ export type Conversion = {
 };
 
 /**
- * Una cita de tres palabras no demuestra nada, y sin embargo basta para que un
- * registro parezca fundado. El umbral es bajo a propósito —no es un juicio de
- * calidad—, pero corta el «Sí», el «Incluido» y el nombre del plan a secas.
+ * Longitud a partir de la cual una cita se da por explicada sola.
+ *
+ * NO es un mínimo automático: por debajo de esta raya la cita no se rechaza,
+ * se manda a revisión. La propietaria lo pidió así el 2026-09-07 y los datos le
+ * daban la razón — la regla de longitud que había antes rechazaba «SSO», «Audit
+ * logs» y «Kanban board», que no son ambiguas en absoluto, y aceptaba etiquetas
+ * genéricas más largas. La longitud sirve para decidir QUÉ SE MIRA, nunca qué
+ * se acepta.
  */
-const CITA_MINIMA = 15;
+const LONGITUD_QUE_SE_EXPLICA_SOLA = 30;
 
 const PROFUNDIDADES: Profundidad[] = ["nativa", "modulo", "integracion", "no_disponible"];
+
+/** Papeles de fuente que pueden situar una capacidad en un plan concreto. */
+const SOSTIENEN_UN_PLAN: TipoFuente[] = ["tarifa_oficial", "documentacion"];
 
 /** Meses de vigencia: lo que depende de un plan cambia antes que lo demás. */
 function proximaRevision(fechaConsulta: string, dependeDePlan: boolean): string {
   const d = new Date(`${fechaConsulta}T00:00:00Z`);
   d.setUTCMonth(d.getUTCMonth() + (dependeDePlan ? 6 : 12));
   return d.toISOString().slice(0, 10);
-}
-
-/**
- * Qué clase de fuente es la dirección.
- *
- * La página de tarifas es la única que puede sostener un plan mínimo, así que
- * se distingue. Una portada es `pagina_oficial`: de primera mano, sí, pero no
- * demuestra por sí sola en qué plan está una función.
- */
-function tipoDeFuente(url: string, urlPrecios?: string): TipoFuente {
-  if (urlPrecios && normalizarUrl(url) === normalizarUrl(urlPrecios)) return "tarifa_oficial";
-  return "pagina_oficial";
 }
 
 function dominio(u: string): string | null {
@@ -124,14 +155,11 @@ function mismoDominio(a: string, b: string): boolean {
  *
  * Gemini devuelve la dirección que descargó de verdad, y casi nunca coincide
  * carácter a carácter con la que se le pidió: sobra o falta la barra final,
- * está o no está el «www», el esquema cambia tras una redirección. Comparar en
- * crudo tiraba 88 afirmaciones bien fundadas en el primer lote — evidencia
- * buena, perdida por un detalle de escritura.
+ * está o no está el «www», el esquema cambia. Comparar en crudo tiraba 88
+ * afirmaciones bien fundadas en el primer lote.
  *
  * Lo que NO se toca es la ruta: «/pricing» y «/signup» son páginas distintas y
- * deben seguir sin coincidir. Citar una página que no se ha leído es
- * exactamente el error que este módulo existe para atrapar, y aflojar aquí lo
- * dejaría pasar.
+ * deben seguir sin coincidir. Para eso están las redirecciones resueltas.
  */
 export function normalizarUrl(u: string): string {
   try {
@@ -144,21 +172,28 @@ export function normalizarUrl(u: string): string {
   }
 }
 
-/**
- * Convierte la salida cruda de un lote en registros de verificación.
- *
- * `urlPreciosPorHerramienta` viene de las fichas: sirve para marcar cuál de las
- * direcciones es la tarifa oficial y para comprobar que la cita no venga de un
- * dominio ajeno.
- */
+export function getCitasRevisadas(): CitaRevisada[] {
+  const ruta = path.join(process.cwd(), "data", "verificacion", "citas-revisadas.json");
+  return fs.existsSync(ruta) ? JSON.parse(fs.readFileSync(ruta, "utf8")) : [];
+}
+
 export function convertirSalida(
   salida: SalidaLote,
-  urlPreciosPorHerramienta: Record<string, string | undefined> = {}
+  fuentesPorHerramienta: Record<string, FuentesDeHerramienta> = {},
+  citasRevisadas: CitaRevisada[] = []
 ): Conversion {
   const registros: RegistroVerificacion[] = [];
   const descartes: Descarte[] = [];
   let paresEsperados = 0;
   let sinRespuesta = 0;
+
+  const revisadaDe = (herramientaId: string, capacidadId: string, cita: string) =>
+    citasRevisadas.find(
+      (c) =>
+        c.herramientaId === herramientaId &&
+        c.capacidadId === capacidadId &&
+        c.cita.trim() === cita.trim()
+    );
 
   for (const h of salida.herramientas ?? []) {
     const pedidas = h.capacidadesPedidas ?? [];
@@ -173,20 +208,34 @@ export function convertirSalida(
     for (const u of h.urlsRecuperadas ?? []) {
       if (u.recuperada && u.url) leidas.set(normalizarUrl(u.url), u.url);
     }
-    const urlPrecios = urlPreciosPorHerramienta[h.herramientaId];
+
+    /**
+     * Redirecciones DEMOSTRADAS con el cliente HTTP, no supuestas.
+     *
+     * Sin esto, pedir «insightly.com/pricing/» y que Google leyera
+     * «insightly.com/pricing-plans/» hacía caer la afirmación aunque fuese la
+     * misma página. La propietaria autorizó aceptarlas sólo con la cadena
+     * resuelta delante: la equivalencia se demuestra, no se supone.
+     */
+    const destinoDe = new Map<string, string>();
+    for (const r of h.redirecciones ?? []) {
+      if (r.solicitada && r.final) destinoDe.set(normalizarUrl(r.solicitada), normalizarUrl(r.final));
+    }
+    const resolver = (url: string): string | undefined => {
+      const n = normalizarUrl(url);
+      return leidas.get(n) ?? leidas.get(destinoDe.get(n) ?? "");
+    };
+
+    const config = fuentesPorHerramienta[h.herramientaId] ?? {};
+    const documentacion = new Set((config.documentacion ?? []).map(normalizarUrl));
     const solicitadas = h.urlsSolicitadas ?? [];
 
-    const degradar = (capacidadId: string, motivo: string, nota: string) => {
-      descartes.push({ herramientaId: h.herramientaId, capacidadId, motivo });
-      registros.push({
-        herramientaId: h.herramientaId,
-        capacidadId,
-        estado: "desconocido",
-        fuentes: fuentesConsultadas(),
-        confianza: "baja",
-        proximaRevision: proximaRevision(h.fechaConsulta, false),
-        nota,
-      });
+    const tipoDeFuente = (url: string): TipoFuente => {
+      const n = normalizarUrl(url);
+      if (documentacion.has(n)) return "documentacion";
+      if (config.urlPrecios && n === normalizarUrl(config.urlPrecios)) return "tarifa_oficial";
+      if (config.urlPrecios && destinoDe.get(normalizarUrl(config.urlPrecios)) === n) return "tarifa_oficial";
+      return "pagina_oficial";
     };
 
     /**
@@ -195,15 +244,31 @@ export function convertirSalida(
      * existe para conservar.
      */
     const fuentesConsultadas = (): Fuente[] => {
-      const urls = solicitadas
-        .map((u) => leidas.get(normalizarUrl(u)))
-        .filter((u): u is string => Boolean(u));
+      const urls = solicitadas.map(resolver).filter((u): u is string => Boolean(u));
       const elegidas = urls.length ? urls : solicitadas.slice(0, 1);
-      return elegidas.map((url) => ({
-        tipo: tipoDeFuente(url, urlPrecios),
-        url,
-        fechaConsulta: h.fechaConsulta,
-      }));
+      return elegidas.map((url) => ({ tipo: tipoDeFuente(url), url, fechaConsulta: h.fechaConsulta }));
+    };
+
+    const degradar = (capacidadId: string, motivo: string, nota: string, pista?: Fuente, cita?: string) => {
+      descartes.push({
+        herramientaId: h.herramientaId,
+        capacidadId,
+        motivo,
+        // La cita se conserva venga suelta o dentro de la pista: es lo que la
+        // propietaria pidió guardar para no perder el rastro.
+        cita: (cita ?? pista?.cita)?.trim() || undefined,
+        urlCitada: pista?.url,
+      });
+      registros.push({
+        herramientaId: h.herramientaId,
+        capacidadId,
+        estado: "desconocido",
+        // La pista se conserva CON su cita: no prueba nada, pero no se pierde.
+        fuentes: pista ? [pista] : fuentesConsultadas(),
+        confianza: "baja",
+        proximaRevision: proximaRevision(h.fechaConsulta, false),
+        nota,
+      });
     };
 
     for (const capacidadId of pedidas) {
@@ -229,39 +294,52 @@ export function convertirSalida(
 
       const url = (r.urlFuente ?? "").trim();
       const cita = (r.cita ?? "").trim();
+      const urlLeida = url ? resolver(url) : undefined;
 
-      const urlLeida = url ? leidas.get(normalizarUrl(url)) : undefined;
       if (!urlLeida) {
         degradar(
           capacidadId,
           "la dirección citada no consta como leída",
-          `Se afirmó "${r.veredicto}" citando ${url || "ninguna dirección"}, que el proveedor no confirma haber descargado.`
+          `Se afirmó "${r.veredicto}" citando ${url || "ninguna dirección"}, sin que conste que se descargara ni que redirigiera a algo que sí se leyó.`,
+          undefined,
+          cita
         );
         continue;
       }
-      if (urlPrecios && !mismoDominio(url, urlPrecios)) {
+      if (config.urlPrecios && !mismoDominio(urlLeida, config.urlPrecios)) {
         degradar(
           capacidadId,
           "la cita viene de otro dominio",
-          `La dirección citada (${url}) no pertenece al dominio oficial de la herramienta.`
-        );
-        continue;
-      }
-      if (cita.length < CITA_MINIMA) {
-        degradar(
-          capacidadId,
-          "sin cita literal suficiente",
-          `Se afirmó "${r.veredicto}" sin una cita literal que lo sostenga por sí sola.`
+          `La dirección citada (${urlLeida}) no pertenece al dominio oficial de la herramienta.`,
+          undefined,
+          cita
         );
         continue;
       }
 
-      const fuente: Fuente = {
-        tipo: tipoDeFuente(urlLeida, urlPrecios),
-        url: urlLeida,
-        fechaConsulta: h.fechaConsulta,
-        cita,
-      };
+      const fuente: Fuente = { tipo: tipoDeFuente(urlLeida), url: urlLeida, fechaConsulta: h.fechaConsulta, cita };
+
+      if (!cita) {
+        degradar(capacidadId, "sin cita", `Se afirmó "${r.veredicto}" sin citar nada.`, undefined);
+        continue;
+      }
+      if (cita.length < LONGITUD_QUE_SE_EXPLICA_SOLA) {
+        const revisada = revisadaDe(h.herramientaId, capacidadId, cita);
+        if (!revisada) {
+          degradar(
+            capacidadId,
+            "cita breve sin revisar",
+            `La cita "${cita}" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía.`,
+            fuente
+          );
+          continue;
+        }
+        if (revisada.veredicto === "no_vale") {
+          degradar(capacidadId, "cita breve revisada y rechazada", revisada.motivo, fuente);
+          continue;
+        }
+      }
+
       const confianza: NivelConfianza = "alta";
 
       if (r.veredicto === "no") {
@@ -279,45 +357,60 @@ export function convertirSalida(
       }
 
       if (r.veredicto !== "si") {
-        degradar(capacidadId, "veredicto desconocido", `El modelo respondió "${r.veredicto}", que no es un veredicto válido.`);
+        degradar(
+          capacidadId,
+          "veredicto desconocido",
+          `El modelo respondió "${r.veredicto}", que no es un veredicto válido.`,
+          fuente
+        );
         continue;
       }
 
       const profundidad = PROFUNDIDADES.find((p) => p === r.profundidad && p !== "no_disponible");
       if (!profundidad) {
-        degradar(capacidadId, "sin profundidad válida", `Se afirmó que la tiene, pero "${r.profundidad ?? "nada"}" no dice cómo.`);
+        degradar(
+          capacidadId,
+          "sin profundidad válida",
+          `Se afirmó que la tiene, pero "${r.profundidad ?? "nada"}" no dice cómo.`,
+          fuente
+        );
         continue;
       }
       if (profundidad === "integracion" && !r.integraCon?.trim()) {
-        degradar(capacidadId, "integración sin decir con qué", "Se afirmó que es una integración sin decir con qué se integra.");
+        degradar(
+          capacidadId,
+          "integración sin decir con qué",
+          "Se afirmó que es una integración sin decir con qué se integra.",
+          fuente
+        );
         continue;
       }
 
       const planMinimo = (r.planMinimo ?? "").trim();
+      const laSostieneUnPlan = SOSTIENEN_UN_PLAN.includes(fuente.tipo);
+
       if (profundidad !== "integracion") {
         if (!planMinimo) {
           degradar(
             capacidadId,
             "sin plan mínimo",
-            "Se afirmó que la tiene, pero no en qué plan. Una función del plan caro no le sirve a quien busca el barato."
+            "Se afirmó que la tiene, pero no en qué plan. Una función del plan caro no le sirve a quien busca el barato.",
+            fuente
           );
           continue;
         }
         /**
-         * El plan sólo lo demuestra la página de tarifas.
-         *
-         * Decisión de la propietaria el 2026-09-07, con el lote 1 delante: 38
-         * de 144 planes venían de una portada. Un eslogan comercial —«Agile CRM
-         * es gratis para diez usuarios»— no dice en qué plan está una función
-         * concreta, y su regla exige el plan donde la capacidad existe DE
-         * VERDAD. Sin esto, el motor mandaría a alguien al plan barato a buscar
-         * algo que sólo está en el caro.
+         * El plan lo demuestra la tarifa o la documentación oficial, no la
+         * portada. Decisión de la propietaria con el lote 1 delante: 38 de 144
+         * planes venían de una portada, y un eslogan no dice en qué plan está
+         * una función concreta. La cita de la portada se conserva como pista.
          */
-        if (fuente.tipo !== "tarifa_oficial") {
+        if (!laSostieneUnPlan) {
           degradar(
             capacidadId,
-            "el plan no viene de la página de tarifas",
-            `Se sitúa en el plan "${planMinimo}" citando ${urlLeida}, que no es la página de tarifas oficial.`
+            "el plan no viene de una fuente que lo demuestre",
+            `Se sitúa en el plan "${planMinimo}" citando ${urlLeida}, que no es la tarifa oficial ni documentación que vincule capacidad y plan.`,
+            fuente
           );
           continue;
         }
@@ -328,17 +421,12 @@ export function convertirSalida(
         capacidadId,
         estado: "verificado",
         profundidad,
-        /**
-         * Una integración no necesita plan, pero si trae uno se le exige la
-         * misma prueba que a las demás: la tarifa oficial. Sin esto, la regla
-         * tenía una puerta lateral —bastaba responder «integracion» para que un
-         * plan sacado de la portada sobreviviera—, y una la cruzó.
-         */
-        planMinimo: planMinimo && fuente.tipo === "tarifa_oficial" ? planMinimo : undefined,
+        // Una integración tampoco conserva un plan que no venga demostrado.
+        planMinimo: planMinimo && laSostieneUnPlan ? planMinimo : undefined,
         integraCon: profundidad === "integracion" ? r.integraCon!.trim() : undefined,
         fuentes: [fuente],
         confianza,
-        proximaRevision: proximaRevision(h.fechaConsulta, Boolean(planMinimo)),
+        proximaRevision: proximaRevision(h.fechaConsulta, Boolean(planMinimo && laSostieneUnPlan)),
         nota: r.nota?.trim() || undefined,
       });
     }

@@ -150,3 +150,39 @@ export function capacidadIdsDelVocabulario(): string[] {
 export function versionDelVocabulario(): string {
   return getVocabulario().version;
 }
+
+/**
+ * Direcciones que sustituyen o completan a las de la ficha, sin tocarla.
+ *
+ * Las URLs del catálogo son datos de producto y no se cambian para arreglar una
+ * verificación: si `urlPrecios` de una herramienta lleva a otro sitio, eso es
+ * una incidencia del catálogo y la decide la propietaria. Aquí se declara,
+ * sólo para verificar, qué se pidió realmente y por qué — y qué direcciones son
+ * documentación oficial capaz de situar una capacidad en un plan.
+ */
+export type Sustitucion = {
+  herramientaId: string;
+  urlPrecios?: string;
+  documentacion?: string[];
+  /** Por qué. Sin motivo escrito, una sustitución es una trampa silenciosa. */
+  motivo: string;
+  fecha: string;
+};
+
+export function getSustituciones(): Sustitucion[] {
+  const ruta = path.join(DIR, "sustituciones.json");
+  return fs.existsSync(ruta) ? JSON.parse(fs.readFileSync(ruta, "utf8")) : [];
+}
+
+/** Qué está mal en una sustitución declarada. */
+export function erroresDeSustitucion(s: Sustitucion, herramientaIds: readonly string[]): string[] {
+  const e: string[] = [];
+  if (!herramientaIds.includes(s.herramientaId)) e.push(`${s.herramientaId}: la herramienta no existe`);
+  if (!s.motivo?.trim()) e.push(`${s.herramientaId}: sin motivo escrito`);
+  if (!esFecha(s.fecha)) e.push(`${s.herramientaId}: fecha inválida "${s.fecha}"`);
+  if (!s.urlPrecios && !s.documentacion?.length) e.push(`${s.herramientaId}: no sustituye ni añade nada`);
+  for (const u of [s.urlPrecios, ...(s.documentacion ?? [])].filter(Boolean) as string[]) {
+    if (!/^https?:\/\/\S+$/.test(u)) e.push(`${s.herramientaId}: URL inválida "${u}"`);
+  }
+  return e;
+}

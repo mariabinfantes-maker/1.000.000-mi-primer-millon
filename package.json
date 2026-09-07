@@ -32,7 +32,8 @@
     "generar-secreto-admin": "tsx lib/admin/cli-generar-secreto-admin.ts",
     "verificar-despliegue": "tsx scripts/verificar-despliegue.ts",
     "migrar-taxonomia": "tsx scripts/migrar-taxonomia.ts",
-    "convertir-verificacion": "tsx data/verificacion/cli-convertir.ts"
+    "convertir-verificacion": "tsx data/verificacion/cli-convertir.ts",
+    "repesca-verificacion": "tsx data/verificacion/cli-repesca.ts"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.2",

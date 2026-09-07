@@ -1,8 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { getTodasLasHerramientas } from "@/data/repositorio";
-import { convertirSalida, type SalidaLote } from "./convertir";
-import { capacidadIdsDelVocabulario, erroresDeRegistro } from "./repositorio";
+import { convertirSalida, getCitasRevisadas, type FuentesDeHerramienta, type SalidaLote } from "./convertir";
+import { capacidadIdsDelVocabulario, erroresDeRegistro, getSustituciones } from "./repositorio";
 
 /**
  * Convierte la salida cruda de un lote en registros de verificación.
@@ -26,10 +26,22 @@ if (!fs.existsSync(entrada)) {
 
 const salida = JSON.parse(fs.readFileSync(entrada, "utf8")) as SalidaLote;
 
-const urlPrecios: Record<string, string | undefined> = {};
-for (const h of getTodasLasHerramientas()) urlPrecios[h.id] = h.urlPrecios;
+/**
+ * El papel de cada dirección sale de la ficha. La documentación oficial que
+ * pueda sostener un plan se declara aparte, en `sustituciones.json`, para no
+ * tocar el catálogo.
+ */
+const fuentes: Record<string, FuentesDeHerramienta> = {};
+for (const h of getTodasLasHerramientas()) fuentes[h.id] = { urlPrecios: h.urlPrecios };
+for (const s of getSustituciones()) {
+  fuentes[s.herramientaId] = {
+    ...fuentes[s.herramientaId],
+    ...(s.urlPrecios ? { urlPrecios: s.urlPrecios } : {}),
+    ...(s.documentacion?.length ? { documentacion: s.documentacion } : {}),
+  };
+}
 
-const { registros, descartes, resumen } = convertirSalida(salida, urlPrecios);
+const { registros, descartes, resumen } = convertirSalida(salida, fuentes, getCitasRevisadas());
 
 const herramientaIds = getTodasLasHerramientas().map((h) => h.id);
 const capacidadIds = capacidadIdsDelVocabulario();

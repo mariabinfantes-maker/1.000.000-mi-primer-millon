@@ -1,0 +1,402 @@
+[
+  {
+    "herramientaId": "agile-crm",
+    "capacidadId": "cap.app_integrations",
+    "cita": "Plugins/Integrations",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.app_integrations",
+    "cita": "MS Teams integration",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "salesmate",
+    "capacidadId": "cap.audit_log",
+    "cita": "Audit logs",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.custom_reports",
+    "cita": "Build custom reports",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "salesmate",
+    "capacidadId": "cap.customer_contact_records",
+    "cita": "Contact, company management",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.dashboards",
+    "cita": "Dashboard view",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.dashboards",
+    "cita": "Shareable dashboard",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "close",
+    "capacidadId": "cap.data_export",
+    "cita": "Data import and export",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.data_import_and_migration",
+    "cita": "Import",
+    "veredicto": "no_vale",
+    "motivo": "«Import» a secas no dice desde dónde. La capacidad es traer los datos desde otra herramienta o una hoja de cálculo, no importar un archivo cualquiera.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.file_storage",
+    "cita": "Full file system",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "cita": "Task Dependencies",
+    "veredicto": "no_vale",
+    "motivo": "La capacidad es ver el proyecto en el tiempo Y encadenar tareas. «Task Dependencies» demuestra el encadenado, no la vista temporal.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "cita": "Gantt chart & dependencies",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "paymo",
+    "capacidadId": "cap.kanban_boards",
+    "cita": "Task Kanban View",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.kanban_boards",
+    "cita": "Kanban board",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "teamgantt",
+    "capacidadId": "cap.kanban_boards",
+    "cita": "Kanban view",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "agile-crm",
+    "capacidadId": "cap.lead_capture",
+    "cita": "Web-to-Lead",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.lead_capture",
+    "cita": "Web to Lead Forms",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.project_planning",
+    "cita": "Track milestones",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.public_api",
+    "cita": "API",
+    "veredicto": "no_vale",
+    "motivo": "«API» a secas no dice que sea pública ni documentada, y la capacidad exige «interfaz de programación documentada». Es la más discutible de las tres: en una tabla de planes, una fila «API» normalmente significa que el cliente la tiene. Se rechaza por prudencia, no por certeza.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "less-annoying-crm",
+    "capacidadId": "cap.public_api",
+    "cita": "API documentation",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.public_api",
+    "cita": "Open API",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.public_api",
+    "cita": "Developer API",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "paymo",
+    "capacidadId": "cap.public_api",
+    "cita": "Integrations & API Access",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.public_api",
+    "cita": "API access",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "salesmate",
+    "capacidadId": "cap.quotes_and_proposals",
+    "cita": "Product & quote management",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "agile-crm",
+    "capacidadId": "cap.roles_and_permissions",
+    "cita": "Access Controls (ACLs)",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.roles_and_permissions",
+    "cita": "Custom roles & rights",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.roles_and_permissions",
+    "cita": "Custom Roles & Permissions",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.sales_forecasting",
+    "cita": "Sales Forecasting",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "capsule-crm",
+    "capacidadId": "cap.sales_pipeline",
+    "cita": "1 Sales Pipeline",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "salesmate",
+    "capacidadId": "cap.sales_pipeline",
+    "cita": "Deal pipeline management",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.sales_pipeline",
+    "cita": "Customize Sales Stages",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Google SSO",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "salesmate",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "SSO",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Single sign-on",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Use Single Sign-On",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zoho-projects",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Single Sign-On (SSO)",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "paymo",
+    "capacidadId": "cap.task_management",
+    "cita": "Unlimited Tasks",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.task_management",
+    "cita": "Tasks & task lists",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.team_messaging",
+    "cita": "Team chat",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.team_workload_planning",
+    "cita": "Team Workloads",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Time Tracking & Reporting",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "paymo",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Unlimited Time Tracking",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Time tracker",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "teamgantt",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Time tracking",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Log time",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.two_factor_authentication",
+    "cita": "Two-Factor Authentication",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.two_factor_authentication",
+    "cita": "Multi-factor authentication",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.webhooks",
+    "cita": "Webhooks",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.workflow_automation",
+    "cita": "If/then conditional logic",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  }
+]

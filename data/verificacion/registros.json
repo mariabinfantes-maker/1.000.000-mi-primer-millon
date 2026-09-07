@@ -239,19 +239,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.agilecrm.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.agilecrm.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Close more deals with single-page contact management"
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"FREE\" citando https://www.agilecrm.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"FREE\" citando https://www.agilecrm.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "agile-crm",
@@ -279,39 +275,32 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.agilecrm.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.agilecrm.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Track stages and milestones of your deals to keep the sales process on track"
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"FREE\" citando https://www.agilecrm.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"FREE\" citando https://www.agilecrm.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "agile-crm",
     "capacidadId": "cap.lead_capture",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "FREE",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.agilecrm.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.agilecrm.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Web-to-Lead"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" sin una cita literal que lo sostenga por sí sola."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-07"
   },
   {
     "herramientaId": "agile-crm",
@@ -987,7 +976,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://capsulecrm.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://capsulecrm.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "capsule-crm",
@@ -1002,7 +991,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://capsulecrm.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://capsulecrm.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "capsule-crm",
@@ -1047,7 +1036,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://capsulecrm.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://capsulecrm.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "capsule-crm",
@@ -1092,7 +1081,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://capsulecrm.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://capsulecrm.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "capsule-crm",
@@ -1167,7 +1156,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://capsulecrm.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://capsulecrm.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "capsule-crm",
@@ -1197,7 +1186,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://capsulecrm.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://capsulecrm.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "capsule-crm",
@@ -1212,7 +1201,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://capsulecrm.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://capsulecrm.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "capsule-crm",
@@ -1227,7 +1216,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://capsulecrm.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://capsulecrm.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "capsule-crm",
@@ -1287,7 +1276,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://capsulecrm.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://capsulecrm.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "capsule-crm",
@@ -1892,19 +1881,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://close.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://close.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Close connects to your favorite sales, marketing, and support tools. Out of the box."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Solo\" citando https://close.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Solo\" citando https://close.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "close",
@@ -1912,19 +1897,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://close.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://close.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "REST API, webhooks, and MCP server. Everything you need to customize Close for the way your team works."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Solo\" citando https://close.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Solo\" citando https://close.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "close",
@@ -2760,19 +2741,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.copper.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.copper.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Assign tasks and follow-ups from a centralized task lists, or within projects."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Basic\" citando https://www.copper.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Basic\" citando https://www.copper.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "copper",
@@ -2879,17 +2856,13 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://ganttpro.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://ganttpro.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "API"
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" sin una cita literal que lo sostenga por sí sola."
+    "nota": "«API» a secas no dice que sea pública ni documentada, y la capacidad exige «interfaz de programación documentada». Es la más discutible de las tres: en una tabla de planes, una fila «API» normalmente significa que el cliente la tiene. Se rechaza por prudencia, no por certeza."
   },
   {
     "herramientaId": "ganttpro",
@@ -2914,22 +2887,19 @@
   {
     "herramientaId": "ganttpro",
     "capacidadId": "cap.dashboards",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Core",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://ganttpro.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://ganttpro.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Dashboard view"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" sin una cita literal que lo sostenga por sí sola."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-07"
   },
   {
     "herramientaId": "ganttpro",
@@ -2957,19 +2927,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://ganttpro.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://ganttpro.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Export your timeline even on a trial to the most popular formats like PDF, PNG, XLSX, and XML."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Core\" citando https://ganttpro.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Core\" citando https://ganttpro.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "ganttpro",
@@ -2979,17 +2945,13 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://ganttpro.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://ganttpro.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Import"
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" sin una cita literal que lo sostenga por sí sola."
+    "nota": "«Import» a secas no dice desde dónde. La capacidad es traer los datos desde otra herramienta o una hoja de cálculo, no importar un archivo cualquiera."
   },
   {
     "herramientaId": "ganttpro",
@@ -3068,19 +3030,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://ganttpro.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://ganttpro.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Plan and manage simple tasks and complex projects with professional Gantt chart software."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Core\" citando https://ganttpro.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Core\" citando https://ganttpro.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "ganttpro",
@@ -3088,19 +3046,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://ganttpro.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://ganttpro.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Add tasks, dates, resources, and watch the program automatically build a Gantt chart online."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Core\" citando https://ganttpro.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Core\" citando https://ganttpro.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "ganttpro",
@@ -3108,19 +3062,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://ganttpro.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://ganttpro.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Use the work breakdown structure and dependencies to know the order in which tasks should be completed."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Core\" citando https://ganttpro.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Core\" citando https://ganttpro.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "ganttpro",
@@ -3128,19 +3078,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://ganttpro.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://ganttpro.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "In GanttPRO, you can switch to a board view where each task is presented as a card in a relevant column."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Core\" citando https://ganttpro.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Core\" citando https://ganttpro.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "ganttpro",
@@ -3148,19 +3094,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://ganttpro.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://ganttpro.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Log the actual time you spend on tasks and milestones and, if needed, leave comments."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Business\" citando https://ganttpro.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Business\" citando https://ganttpro.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "ganttpro",
@@ -3168,19 +3110,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://ganttpro.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://ganttpro.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Check your team's workload and be sure whether someone in your company is underperforming or, vice versa, has too many tasks."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Business\" citando https://ganttpro.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Business\" citando https://ganttpro.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "ganttpro",
@@ -3348,14 +3286,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://hive.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://hive.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Build workflows inside Hive to automate repeatable tasks, connect your favorite tools, and keep every hand-off moving."
       }
     ],
     "confianza": "baja",
@@ -3368,14 +3302,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://hive.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://hive.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Integrates with all your other tools"
       }
     ],
     "confianza": "baja",
@@ -3430,12 +3360,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://hive.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://hive.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Create your own personal dashboard to report on project progress and trends."
       }
     ],
     "confianza": "baja",
@@ -3510,12 +3436,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://hive.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://hive.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Collaborate with clients or partners in Hive with external user permissions."
       }
     ],
     "confianza": "baja",
@@ -3875,7 +3797,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "insightly",
@@ -3890,7 +3812,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "insightly",
@@ -3905,7 +3827,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "insightly",
@@ -3920,7 +3842,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "insightly",
@@ -3935,7 +3857,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "insightly",
@@ -3950,7 +3872,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "insightly",
@@ -3980,7 +3902,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "insightly",
@@ -3995,7 +3917,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "insightly",
@@ -4010,7 +3932,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "insightly",
@@ -4040,7 +3962,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "insightly",
@@ -4055,7 +3977,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "insightly",
@@ -4070,7 +3992,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "insightly",
@@ -4085,7 +4007,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "insightly",
@@ -4100,7 +4022,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "insightly",
@@ -4130,7 +4052,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "insightly",
@@ -4145,7 +4067,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "insightly",
@@ -4155,7 +4077,8 @@
       {
         "tipo": "pagina_oficial",
         "url": "https://www.insightly.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Automate follow-ups and re-engagement based on prospect behaviors, email opens, form submissions, etc."
       }
     ],
     "confianza": "baja",
@@ -4190,7 +4113,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "insightly",
@@ -4260,14 +4183,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://lessannoyingcrm.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://lessannoyingcrm.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Less Annoying CRM works with all the tools you're already using to manage your business."
       }
     ],
     "confianza": "baja",
@@ -4282,12 +4201,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://lessannoyingcrm.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://lessannoyingcrm.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "API documentation"
       }
     ],
     "confianza": "baja",
@@ -4362,12 +4277,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://lessannoyingcrm.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://lessannoyingcrm.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "You can export everything at any time and we will never hold your data hostage."
       }
     ],
     "confianza": "baja",
@@ -4400,14 +4311,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://lessannoyingcrm.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://lessannoyingcrm.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Restrict or grant access however you'd like."
       }
     ],
     "confianza": "baja",
@@ -4482,12 +4389,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://lessannoyingcrm.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://lessannoyingcrm.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "✓Unlimited contacts and companies"
       }
     ],
     "confianza": "baja",
@@ -4500,14 +4403,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://lessannoyingcrm.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://lessannoyingcrm.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Create a clear timeline of interactions for each contact with automatically timestamped notes, and synced emails."
       }
     ],
     "confianza": "baja",
@@ -4660,14 +4559,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://lessannoyingcrm.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://lessannoyingcrm.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Every morning, Less Annoying CRM sends you an email with everything due that day. Stop maintaining a separate task list — your follow-ups live right next to the contacts they belong to."
       }
     ],
     "confianza": "baja",
@@ -5022,14 +4917,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://monday.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://monday.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Kanban board showing Sprint Management tasks in columns: Ready to start, In progress"
       }
     ],
     "confianza": "baja",
@@ -5231,19 +5122,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://niftypm.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://niftypm.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Turn status updates, handoffs, and reminders into if/then rules that run themeselves."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Pro\" citando https://niftypm.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Pro\" citando https://niftypm.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "nifty",
@@ -5265,22 +5152,19 @@
   {
     "herramientaId": "nifty",
     "capacidadId": "cap.public_api",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Business",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://niftypm.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://niftypm.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Open API"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" sin una cita literal que lo sostenga por sí sola."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-07"
   },
   {
     "herramientaId": "nifty",
@@ -5308,19 +5192,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://niftypm.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://niftypm.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Live dashboards across every project and team."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Pro\" citando https://niftypm.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Pro\" citando https://niftypm.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "nifty",
@@ -5368,14 +5248,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://niftypm.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://niftypm.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Switch from Asana, Jira, ClickUp, Trello, Basecamp, or Wrike without losing a task. Drag in a CSV or Excel file and pick up right where you left off."
       }
     ],
     "confianza": "baja",
@@ -5402,22 +5278,19 @@
   {
     "herramientaId": "nifty",
     "capacidadId": "cap.single_sign_on",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Free",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://niftypm.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://niftypm.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Google SSO"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" sin una cita literal que lo sostenga por sí sola."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-07"
   },
   {
     "herramientaId": "nifty",
@@ -5493,9 +5366,7 @@
   {
     "herramientaId": "nifty",
     "capacidadId": "cap.gantt_and_dependencies",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Free",
+    "estado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
@@ -5504,8 +5375,9 @@
         "cita": "Task Dependencies"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "La capacidad es ver el proyecto en el tiempo Y encadenar tareas. «Task Dependencies» demuestra el encadenado, no la vista temporal."
   },
   {
     "herramientaId": "nifty",
@@ -5513,14 +5385,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://niftypm.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://niftypm.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Flip between Kanban, List, Timeline, Calendar, and Swimlane views in one click."
       }
     ],
     "confianza": "baja",
@@ -5547,22 +5415,19 @@
   {
     "herramientaId": "nifty",
     "capacidadId": "cap.team_workload_planning",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Business",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://niftypm.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://niftypm.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Team Workloads"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" sin una cita literal que lo sostenga por sí sola."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-07"
   },
   {
     "herramientaId": "nifty",
@@ -5732,12 +5597,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.nimble.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.nimble.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Create trigger to increase efficiency when using Workflows such as creating an activity, sending a message, creating notes, sending mobile or browser notifications, or assigning a tag."
       }
     ],
     "confianza": "baja",
@@ -5752,12 +5613,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.nimble.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.nimble.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Extend the power of Nimble with over 100+ Integration Partners offering lead capture and analytics, email marketing support and more."
       }
     ],
     "confianza": "baja",
@@ -5772,12 +5629,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.nimble.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.nimble.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Create custom integrations that seamlessly interact with Nimble."
       }
     ],
     "confianza": "baja",
@@ -5812,12 +5665,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.nimble.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.nimble.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Each team member gets to completely customize their Today Page with widgets such as: Calendar, Events, Tasks, Email Tracking, Revenue Forecast, and many more."
       }
     ],
     "confianza": "baja",
@@ -5892,12 +5741,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.nimble.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.nimble.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Create permission groups and quickly set who on your team will have access to certain features."
       }
     ],
     "confianza": "baja",
@@ -6211,12 +6056,13 @@
       {
         "tipo": "pagina_oficial",
         "url": "https://www.nocrm.io/es",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Crea reglas dentro de noCRM para automatizar tareas repetidas, reducir el trabajo manual y evitar errores."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Dream\" citando https://www.nocrm.io/es, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Dream\" citando https://www.nocrm.io/es, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "nocrm-io",
@@ -6226,12 +6072,13 @@
       {
         "tipo": "pagina_oficial",
         "url": "https://www.nocrm.io/es",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Disfruta de integraciones nativas fluidas, mayores límites de API y soporte técnico para una conectividad avanzada."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Expert\" citando https://www.nocrm.io/es, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Expert\" citando https://www.nocrm.io/es, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "nocrm-io",
@@ -6241,12 +6088,13 @@
       {
         "tipo": "pagina_oficial",
         "url": "https://www.nocrm.io/es",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Usa la API abierta de noCRM para conectar tus sistemas y crear integraciones personalizadas."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Expert\" citando https://www.nocrm.io/es, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Expert\" citando https://www.nocrm.io/es, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "nocrm-io",
@@ -6256,7 +6104,8 @@
       {
         "tipo": "pagina_oficial",
         "url": "https://www.nocrm.io/es",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Crea automatizaciones personalizadas con webhooks o recibe alertas instantáneas por correo para eventos clave."
       }
     ],
     "confianza": "baja",
@@ -6316,7 +6165,8 @@
       {
         "tipo": "pagina_oficial",
         "url": "https://www.nocrm.io/es",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Importa leads en segundos desde Excel, CSV, correo electrónico, WhatsApp, LinkedIn o escaneos de tarjetas de visita."
       }
     ],
     "confianza": "baja",
@@ -6331,12 +6181,13 @@
       {
         "tipo": "pagina_oficial",
         "url": "https://www.nocrm.io/es",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Crea equipos para colaborar mejor y controla los permisos, exportaciones, sesiones y datos sensibles."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Dream\" citando https://www.nocrm.io/es, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Dream\" citando https://www.nocrm.io/es, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "nocrm-io",
@@ -6421,12 +6272,13 @@
       {
         "tipo": "pagina_oficial",
         "url": "https://www.nocrm.io/es",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Pipeline visual: Gestiona tus oportunidades con un pipeline intuitivo y fácil de usar que muestra con claridad cada etapa."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Starter\" citando https://www.nocrm.io/es, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Starter\" citando https://www.nocrm.io/es, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "nocrm-io",
@@ -6466,12 +6318,13 @@
       {
         "tipo": "pagina_oficial",
         "url": "https://www.nocrm.io/es",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Gestión de cotizaciones y facturas: Crea cotizaciones, anticipos, facturas y notas de crédito personalizadas en segundos. Supervisa su estado directamente desde tu panel de ventas."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Expert\" citando https://www.nocrm.io/es, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Expert\" citando https://www.nocrm.io/es, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "nocrm-io",
@@ -6511,7 +6364,8 @@
       {
         "tipo": "pagina_oficial",
         "url": "https://www.nocrm.io/es",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Colabora fácilmente con bandejas compartidas para gestionar conversaciones con leads y clientes."
       }
     ],
     "confianza": "baja",
@@ -6526,7 +6380,8 @@
       {
         "tipo": "pagina_oficial",
         "url": "https://www.nocrm.io/es",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Crea listas de tareas personalizadas, asigna tareas y mantén el control del traspaso al cliente."
       }
     ],
     "confianza": "baja",
@@ -6571,12 +6426,13 @@
       {
         "tipo": "pagina_oficial",
         "url": "https://www.nocrm.io/es",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Crea cotizaciones, anticipos, facturas y notas de crédito personalizadas en segundos. Supervisa su estado directamente desde tu panel de ventas."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Expert\" citando https://www.nocrm.io/es, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Expert\" citando https://www.nocrm.io/es, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "nutshell",
@@ -6606,12 +6462,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.nutshell.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.nutshell.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Connect to Google/Microsoft and over 5,000 Apps."
       }
     ],
     "confianza": "baja",
@@ -6626,17 +6478,13 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.nutshell.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.nutshell.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Developer API"
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" sin una cita literal que lo sostenga por sí sola."
+    "nota": "Se afirmó que la tiene, pero no en qué plan. Una función del plan caro no le sirve a quien busca el barato."
   },
   {
     "herramientaId": "nutshell",
@@ -6726,12 +6574,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.nutshell.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.nutshell.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "free support and data migration during your trial"
       }
     ],
     "confianza": "baja",
@@ -7104,19 +6948,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.paymoapp.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.paymoapp.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Extend the capabilities of Paymo with third-party integrations."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Plus\" citando https://www.paymoapp.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Plus\" citando https://www.paymoapp.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "paymo",
@@ -7243,12 +7083,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.paymoapp.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.paymoapp.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "A user (aka a seat) is a person in your company or from outside who's able to log in to your company account and uses all or some of the features of the app (depending on their administrative rights)."
       }
     ],
     "confianza": "baja",
@@ -7338,14 +7174,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.paymoapp.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.paymoapp.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Add milestones and get notified of all significant events in the project's lifetime."
       }
     ],
     "confianza": "baja",
@@ -7358,19 +7190,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.paymoapp.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.paymoapp.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Visualize work and task dependencies on a timeline and make adjustments easily."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Pro\" citando https://www.paymoapp.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Pro\" citando https://www.paymoapp.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "paymo",
@@ -7412,19 +7240,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.paymoapp.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.paymoapp.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "See at a glance who's available for work or who's overbooked."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Pro\" citando https://www.paymoapp.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Pro\" citando https://www.paymoapp.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "paymo",
@@ -7512,19 +7336,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.paymoapp.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.paymoapp.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Paymo helps you monitor every dollar in and out, giving you complete visibility into your project's profitability."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Plus\" citando https://www.paymoapp.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Plus\" citando https://www.paymoapp.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "paymo",
@@ -7532,19 +7352,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.paymoapp.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.paymoapp.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Use Paymo's online invoicing software for small businesses to convert unbilled time into professional-looking invoices."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Free\" citando https://www.paymoapp.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Free\" citando https://www.paymoapp.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "paymo",
@@ -7592,14 +7408,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.pipedrive.com/es/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.pipedrive.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Easily set up workflow automations for your team or choose from ready-made templates."
       }
     ],
     "confianza": "baja",
@@ -7612,14 +7424,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.pipedrive.com/es/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.pipedrive.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Pipedrive integrates with hundreds of tools and apps through the Pipedrive Marketplace, including Facebook, Zapier, Xero, Trello and Zoom."
       }
     ],
     "confianza": "baja",
@@ -7672,14 +7480,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.pipedrive.com/es/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.pipedrive.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Set goals and measure progress with visual reports and dashboards."
       }
     ],
     "confianza": "baja",
@@ -7732,14 +7536,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.pipedrive.com/es/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.pipedrive.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Import data from spreadsheets or other pipeline management software in just a few clicks."
       }
     ],
     "confianza": "baja",
@@ -7752,14 +7552,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.pipedrive.com/es/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.pipedrive.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Pipedrive offers granular permissions, allowing you to fine-tune who can view or modify your CRM data."
       }
     ],
     "confianza": "baja",
@@ -7832,14 +7628,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.pipedrive.com/es/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.pipedrive.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "A CRM for sales enables you and your reps to centralize contact information, track ongoing activities and boost customer retention."
       }
     ],
     "confianza": "baja",
@@ -7852,14 +7644,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.pipedrive.com/es/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.pipedrive.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Easily track sales conversations and tasks in one tool, giving your salespeople the context they need to follow up faster."
       }
     ],
     "confianza": "baja",
@@ -7872,14 +7660,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.pipedrive.com/es/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.pipedrive.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Pipedrive's kanban-style dashboard lets you visualize your sales funnel. Adjust your pipelines to your sales process and move deals along as they progress."
       }
     ],
     "confianza": "baja",
@@ -7894,12 +7678,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.pipedrive.com/es/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.pipedrive.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Complemento LeadBooster\n\nCaptura más prospectos"
       }
     ],
     "confianza": "baja",
@@ -7912,14 +7692,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.pipedrive.com/es/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.pipedrive.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Confidently predict earnings based on past performance, from recurring revenue to one-off deals. Gain a comprehensive view of predicted income, allowing for quick, tactical adjustments."
       }
     ],
     "confianza": "baja",
@@ -8032,14 +7808,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.pipedrive.com/es/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.pipedrive.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Share your availability with leads and let them book calls on their schedule."
       }
     ],
     "confianza": "baja",
@@ -8274,12 +8046,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://productive.io/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://productive.io/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Enable users to log into Productive with a single username and password from your SSO provider."
       }
     ],
     "confianza": "baja",
@@ -8294,12 +8062,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://productive.io/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://productive.io/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Add a second layer of protection with Two-Factor Authentication that uses your phone to generate codes to access your account."
       }
     ],
     "confianza": "baja",
@@ -8314,12 +8078,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://productive.io/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://productive.io/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Access a chronological list of all changes made in your organization."
       }
     ],
     "confianza": "baja",
@@ -8371,12 +8131,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://productive.io/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://productive.io/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Visualize task durations and dependencies over time using a classic Gantt chart view."
       }
     ],
     "confianza": "baja",
@@ -8391,12 +8147,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://productive.io/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://productive.io/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Visualize tasks using Kanban or list layouts to streamline collaboration and project workflows."
       }
     ],
     "confianza": "baja",
@@ -8857,14 +8609,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://salesflare.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://salesflare.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "See your whole sales pipeline in one easily controllable overview. Drag and drop your leads through it as you go."
       }
     ],
     "confianza": "baja",
@@ -8897,14 +8645,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://salesflare.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://salesflare.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Salesflare CRM's sales pipeline with revenue forecasting report"
       }
     ],
     "confianza": "baja",
@@ -9240,22 +8984,19 @@
   {
     "herramientaId": "salesmate",
     "capacidadId": "cap.single_sign_on",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Pro",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.salesmate.io/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.salesmate.io/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "SSO"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" sin una cita literal que lo sostenga por sí sola."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-07"
   },
   {
     "herramientaId": "salesmate",
@@ -9280,22 +9021,19 @@
   {
     "herramientaId": "salesmate",
     "capacidadId": "cap.audit_log",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Enterprise",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.salesmate.io/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.salesmate.io/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Audit logs"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" sin una cita literal que lo sostenga por sí sola."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-07"
   },
   {
     "herramientaId": "salesmate",
@@ -9731,22 +9469,19 @@
   {
     "herramientaId": "scoro",
     "capacidadId": "cap.single_sign_on",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Enterprise",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.scoro.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Single sign-on"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" sin una cita literal que lo sostenga por sí sola."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-07"
   },
   {
     "herramientaId": "scoro",
@@ -9793,12 +9528,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.scoro.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Tasks & task lists"
       }
     ],
     "confianza": "baja",
@@ -9813,12 +9544,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.scoro.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Plan projects and keep delivery on track."
       }
     ],
     "confianza": "baja",
@@ -9833,12 +9560,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.scoro.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Gantt chart & dependencies"
       }
     ],
     "confianza": "baja",
@@ -9853,37 +9576,30 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.scoro.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Kanban board"
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" sin una cita literal que lo sostenga por sí sola."
+    "nota": "Se afirmó que la tiene, pero no en qué plan. Una función del plan caro no le sirve a quien busca el barato."
   },
   {
     "herramientaId": "scoro",
     "capacidadId": "cap.time_tracking",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Time-billing",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.scoro.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Time tracker"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" sin una cita literal que lo sostenga por sí sola."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-07"
   },
   {
     "herramientaId": "scoro",
@@ -9988,14 +9704,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.scoro.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.scoro.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Scoro tracks budget burn and forecasts profitability in real time at role, service, and project level. Both internal and external costs are captured, giving you accurate insights into margins that many PSA tools can't match."
       }
     ],
     "confianza": "baja",
@@ -11075,14 +10787,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.teamgantt.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.teamgantt.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "TeamGantt integrates with tools like Slack, Trello, Procore, Google Calendar, Zapier, and more."
       }
     ],
     "confianza": "baja",
@@ -11095,14 +10803,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.teamgantt.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.teamgantt.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "You can also build your own connections using our public API."
       }
     ],
     "confianza": "baja",
@@ -11177,12 +10881,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.teamgantt.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.teamgantt.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Yes, you can export any chart in both CSV and PDF formats for your records."
       }
     ],
     "confianza": "baja",
@@ -11195,14 +10895,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.teamgantt.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.teamgantt.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Upload a CSV from Excel or Google Sheets, or import Microsoft Project (MPP) and Primavera P6 files to get started fast."
       }
     ],
     "confianza": "baja",
@@ -11217,12 +10913,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.teamgantt.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.teamgantt.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Collaborator Project control Limited editing rights. Task management Can view and update assigned tasks only."
       }
     ],
     "confianza": "baja",
@@ -11295,19 +10987,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.teamgantt.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.teamgantt.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Break down work, assign owners, and track progress across Gantt, board, list, or calendar views—all synced in real time."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"TeamGantt Personal\" citando https://www.teamgantt.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"TeamGantt Personal\" citando https://www.teamgantt.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "teamgantt",
@@ -11315,19 +11003,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.teamgantt.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.teamgantt.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Build Gantt charts fast with drag-and-drop tools. Set dependencies, add milestones, and use templates to plan new projects in minutes."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"TeamGantt Personal\" citando https://www.teamgantt.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"TeamGantt Personal\" citando https://www.teamgantt.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "teamgantt",
@@ -11335,19 +11019,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.teamgantt.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.teamgantt.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Map every task, resource, and dependency on a Gantt chart—right in your browser."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"TeamGantt Personal\" citando https://www.teamgantt.com/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"TeamGantt Personal\" citando https://www.teamgantt.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "teamgantt",
@@ -11357,17 +11037,13 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.teamgantt.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.teamgantt.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Kanban view"
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" sin una cita literal que lo sostenga por sí sola."
+    "nota": "Se afirmó que la tiene, pero no en qué plan. Una función del plan caro no le sirve a quien busca el barato."
   },
   {
     "herramientaId": "teamgantt",
@@ -11377,17 +11053,13 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.teamgantt.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.teamgantt.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Time tracking"
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" sin una cita literal que lo sostenga por sí sola."
+    "nota": "Se afirmó que la tiene, pero no en qué plan. Una función del plan caro no le sirve a quien busca el barato."
   },
   {
     "herramientaId": "teamgantt",
@@ -11395,14 +11067,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.teamgantt.com/pricing",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.teamgantt.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Get visibility into capacity and availability. Assign tasks confidently, and prevent burnout with built-in workload management tools."
       }
     ],
     "confianza": "baja",
@@ -11577,12 +11245,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.teamwork.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.teamwork.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "If/then conditional logic"
       }
     ],
     "confianza": "baja",
@@ -11595,14 +11259,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.teamwork.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.teamwork.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "150+ integrations across the tools you already use."
       }
     ],
     "confianza": "baja",
@@ -11612,22 +11272,19 @@
   {
     "herramientaId": "teamwork-com",
     "capacidadId": "cap.public_api",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Free",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.teamwork.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.teamwork.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "API access"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" sin una cita literal que lo sostenga por sí sola."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-07"
   },
   {
     "herramientaId": "teamwork-com",
@@ -11637,17 +11294,13 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.teamwork.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.teamwork.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Webhooks"
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" sin una cita literal que lo sostenga por sí sola."
+    "nota": "Se afirmó que la tiene, pero no en qué plan. Una función del plan caro no le sirve a quien busca el barato."
   },
   {
     "herramientaId": "teamwork-com",
@@ -11657,12 +11310,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.teamwork.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.teamwork.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "See project and client dashboards"
       }
     ],
     "confianza": "baja",
@@ -11677,12 +11326,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.teamwork.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.teamwork.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Build custom reports"
       }
     ],
     "confianza": "baja",
@@ -11717,12 +11362,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.teamwork.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.teamwork.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "If you're using Wrike, Asana, Basecamp, ClickUp, Trello, or Monday, you can import all projects with a click."
       }
     ],
     "confianza": "baja",
@@ -11877,22 +11518,19 @@
   {
     "herramientaId": "teamwork-com",
     "capacidadId": "cap.time_tracking",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Free",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.teamwork.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.teamwork.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Log time"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" sin una cita literal que lo sostenga por sí sola."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-07"
   },
   {
     "herramientaId": "teamwork-com",
@@ -11997,14 +11635,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.teamwork.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.teamwork.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "See real margin on every project, in real time."
       }
     ],
     "confianza": "baja",
@@ -12332,14 +11966,10 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.vtiger.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.vtiger.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "giving marketing, sales, and support a shared view of every interaction."
       }
     ],
     "confianza": "baja",
@@ -12405,12 +12035,8 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.vtiger.com/pricing/",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.vtiger.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "CPQ - Configure, Price and Quote"
       }
     ],
     "confianza": "baja",
@@ -12570,7 +12196,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.wrike.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.wrike.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "wrike",
@@ -12580,7 +12206,8 @@
       {
         "tipo": "pagina_oficial",
         "url": "https://www.wrike.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Connect the tools you love with 400+ integrations"
       }
     ],
     "confianza": "baja",
@@ -12630,7 +12257,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.wrike.com/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.wrike.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "wrike",
@@ -12685,7 +12312,8 @@
       {
         "tipo": "pagina_oficial",
         "url": "https://www.wrike.com/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "ISO 27001, SOC 2, SOC 3, GDPR. Wrike Lock and role-based access extend to every agent."
       }
     ],
     "confianza": "baja",
@@ -13230,7 +12858,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://zenkit.com/en/base/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://zenkit.com/en/base/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "zenkit",
@@ -13260,7 +12888,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://zenkit.com/en/base/pricing/, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://zenkit.com/en/base/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "zenkit",
@@ -13350,7 +12978,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.zoho.com/crm/pricing.html, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.zoho.com/crm/pricing.html, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "zoho-crm",
@@ -13365,7 +12993,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.zoho.com/crm/pricing.html, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.zoho.com/crm/pricing.html, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "zoho-crm",
@@ -13380,7 +13008,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.zoho.com/crm/pricing.html, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.zoho.com/crm/pricing.html, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "zoho-crm",
@@ -13440,7 +13068,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.zoho.com/crm/pricing.html, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.zoho.com/crm/pricing.html, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "zoho-crm",
@@ -13455,7 +13083,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.zoho.com/crm/pricing.html, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.zoho.com/crm/pricing.html, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "zoho-crm",
@@ -13530,7 +13158,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.zoho.com/crm/pricing.html, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.zoho.com/crm/pricing.html, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "zoho-crm",
@@ -13560,7 +13188,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.zoho.com/crm/pricing.html, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.zoho.com/crm/pricing.html, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "zoho-crm",
@@ -13575,7 +13203,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.zoho.com/crm/pricing.html, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.zoho.com/crm/pricing.html, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "zoho-crm",
@@ -13590,7 +13218,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.zoho.com/crm/pricing.html, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.zoho.com/crm/pricing.html, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "zoho-crm",
@@ -13605,7 +13233,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://www.zoho.com/crm/pricing.html, que el proveedor no confirma haber descargado."
+    "nota": "Se afirmó \"si\" citando https://www.zoho.com/crm/pricing.html, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "zoho-crm",
@@ -13718,19 +13346,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.zoho.com/projects/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Save time on routine tasks. Whether you have a simple process or a complex workflow, our online project management platform has a drag-and-drop interface that makes new automations easier to visualize and deploy."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Free\" citando https://www.zoho.com/projects/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Free\" citando https://www.zoho.com/projects/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "zoho-projects",
@@ -13738,19 +13362,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.zoho.com/projects/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Zoho Projects gives you the added advantage of several other Zoho apps and third party apps through seamless integrations."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Free\" citando https://www.zoho.com/projects/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Free\" citando https://www.zoho.com/projects/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "zoho-projects",
@@ -13798,19 +13418,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.zoho.com/projects/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Reporting and Analytics: Measure real-time performance, get visual dashboards and progress reports."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Enterprise\" citando https://www.zoho.com/projects/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Enterprise\" citando https://www.zoho.com/projects/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "zoho-projects",
@@ -13949,19 +13565,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.zoho.com/projects/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Task Management: Gantt charts, Task Lists, or Kanban boards can help prioritize tasks, organize work, and manage projects effectively."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Free\" citando https://www.zoho.com/projects/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Free\" citando https://www.zoho.com/projects/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "zoho-projects",
@@ -13989,19 +13601,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.zoho.com/projects/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Use Gantt charts to build your project plan and track your task schedule. Zoho Projects keeps you aware of your critical tasks and their dependencies, and immediately shows any deviations between your planned and actual progress."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Free\" citando https://www.zoho.com/projects/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Free\" citando https://www.zoho.com/projects/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "zoho-projects",
@@ -14009,19 +13617,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.zoho.com/projects/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Task Management: Gantt charts, Task Lists, or Kanban boards can help prioritize tasks, organize work, and manage projects effectively."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Free\" citando https://www.zoho.com/projects/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Free\" citando https://www.zoho.com/projects/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "zoho-projects",
@@ -14029,19 +13633,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.zoho.com/projects/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Log billable and non-billable hours with the Projects timesheet module. Record every minute of your hard work, either manually or with timers, and our built-in integration with Zoho Invoice will automatically generate invoices from your timesheets."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Premium\" citando https://www.zoho.com/projects/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Premium\" citando https://www.zoho.com/projects/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "zoho-projects",
@@ -14049,19 +13649,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
-        "fechaConsulta": "2026-09-07"
-      },
-      {
         "tipo": "pagina_oficial",
         "url": "https://www.zoho.com/projects/",
-        "fechaConsulta": "2026-09-07"
+        "fechaConsulta": "2026-09-07",
+        "cita": "Resource Management: Distribute workload effectively, prevent burnout and under utilization."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Premium\" citando https://www.zoho.com/projects/, que no es la página de tarifas oficial."
+    "nota": "Se sitúa en el plan \"Premium\" citando https://www.zoho.com/projects/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "zoho-projects",
@@ -14178,7 +13774,7 @@
       }
     ],
     "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "proximaRevision": "2027-09-07"
   },
   {
     "herramientaId": "zoho-projects",

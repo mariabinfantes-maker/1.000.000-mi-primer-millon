@@ -5,6 +5,8 @@ import {
   capacidadIdsDelVocabulario,
   erroresDeRegistro,
   erroresDeSeleccion,
+  erroresDeSustitucion,
+  getSustituciones,
   esFecha,
   getRegistros,
   getSelecciones,
@@ -231,5 +233,55 @@ describe("las selecciones de capacidades plausibles", () => {
 
   it("rechaza una fecha imposible", () => {
     expect(e({ fecha: "2026-02-30" })).toContain("fecha inválida");
+  });
+});
+
+/**
+ * Las direcciones del catálogo son datos de producto. Si la de una herramienta
+ * lleva a otro sitio, eso es una incidencia del catálogo y la decide la
+ * propietaria: no se arregla en silencio para que salga mejor una verificación.
+ * Por eso una sustitución sin motivo escrito no vale.
+ */
+describe("las sustituciones de direcciones", () => {
+  const herramientas = getTodasLasHerramientas().map((h) => h.id);
+  const valida = {
+    herramientaId: "insightly",
+    urlPrecios: "https://www.insightly.com/pricing-plans/",
+    motivo: "La dirección de la ficha redirige aquí, comprobado con la cadena HTTP.",
+    fecha: "2026-09-07",
+  };
+  const e = (cambios: Record<string, unknown>) =>
+    erroresDeSustitucion({ ...valida, ...cambios } as never, herramientas).join(" | ");
+
+  it("las que existan hoy son válidas", () => {
+    expect(getSustituciones().flatMap((s) => erroresDeSustitucion(s, herramientas))).toEqual([]);
+  });
+
+  it("acepta una sustitución bien hecha", () => {
+    expect(e({})).toBe("");
+  });
+
+  it("rechaza una herramienta que no existe", () => {
+    expect(e({ herramientaId: "inventada" })).toContain("la herramienta no existe");
+  });
+
+  it("rechaza una sustitución sin motivo escrito", () => {
+    expect(e({ motivo: "   " })).toContain("sin motivo escrito");
+  });
+
+  it("rechaza una fecha inventada", () => {
+    expect(e({ fecha: "2026-02-30" })).toContain("fecha inválida");
+  });
+
+  it("rechaza una sustitución que no sustituye nada", () => {
+    expect(e({ urlPrecios: undefined, documentacion: [] })).toContain("no sustituye ni añade nada");
+  });
+
+  it("rechaza una dirección que no es una dirección", () => {
+    expect(e({ urlPrecios: "insightly.com" })).toContain("URL inválida");
+  });
+
+  it("admite declarar documentación oficial", () => {
+    expect(e({ urlPrecios: undefined, documentacion: ["https://support.insightly.com/planes"] })).toBe("");
   });
 });

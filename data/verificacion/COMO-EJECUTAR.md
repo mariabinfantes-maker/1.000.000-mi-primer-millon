@@ -83,3 +83,58 @@ hace en el repositorio, donde hay pruebas que lo vigilan.
 ## Cuando ya no lo necesites
 
 Cierra la ventana de PowerShell. La clave desaparece con ella.
+
+---
+
+# La repesca
+
+Después de convertir la salida, hay pares que no se pudieron dar por buenos:
+respuestas que se cortaron a mitad, y capacidades afirmadas con cita buena pero
+sin decir en qué plan. La repesca vuelve a preguntar **sólo eso**.
+
+No se repiten las herramientas enteras. En el lote 1 eso significa **241 pares
+en vez de 765**.
+
+## Los tres pasos
+
+Con la misma ventana y la misma clave cargada:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File data\verificacion\repescar.ps1
+```
+
+Antes de preguntar nada, el script **resuelve las redirecciones** de todas las
+direcciones con el cliente HTTP y guarda la cadena —`/pricing/ → 301 →
+/pricing-plans/`—. Eso convierte una equivalencia supuesta en una demostrada,
+que es lo que hace falta para que esas citas cuenten. No gasta ni una llamada.
+
+Si sólo quieres eso, sin preguntar nada más:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File data\verificacion\repescar.ps1 -SoloRedirecciones
+```
+
+Al terminar vuelve a escribir `todo-lote1.json` con todo dentro, listo para
+enviar.
+
+## Si una dirección de una ficha lleva a otro sitio
+
+No se cambia la ficha. Las direcciones del catálogo son datos de producto y las
+decide la propietaria. Lo que se hace es declararlo en
+`data/verificacion/sustituciones.json`, con su motivo y su fecha, y sólo afecta
+a la verificación:
+
+```json
+[
+  {
+    "herramientaId": "insightly",
+    "urlPrecios": "https://www.insightly.com/pricing-plans/",
+    "motivo": "La dirección de la ficha redirige aquí, comprobado con la cadena HTTP.",
+    "fecha": "2026-09-07"
+  }
+]
+```
+
+Ahí mismo se declara qué direcciones son **documentación oficial**, que —junto a
+la página de tarifas— es lo único que puede situar una capacidad en un plan
+concreto. Una portada no.

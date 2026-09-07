@@ -256,7 +256,13 @@ foreach ($id in $loteElegido.herramientaIds) {
         $texto = Extraer-Texto $respuesta
 
         try {
-            $parseado = $texto | ConvertFrom-Json
+            <#
+                Sólo lo preguntado EN ESTE BLOQUE. Antes se filtraba al final
+                contra la lista entera de la herramienta, y eso dejaba que la
+                respuesta de un bloque pisara la de otro cuando el modelo
+                contestaba por una capacidad vecina nombrada en una frontera.
+            #>
+            $parseado = @($texto | ConvertFrom-Json | Where-Object { $trozo -contains $_.capacidadId })
             $respuestas += @($parseado)
             Write-Host "    bloque $($b + 1)/$bloques — $($trozo.Count) capacidades, $ms ms" -ForegroundColor DarkGray
         } catch {

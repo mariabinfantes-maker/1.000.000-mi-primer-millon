@@ -17,7 +17,7 @@ describe("convertir la salida cruda en registros", () => {
   const capacidades = capacidadIdsDelVocabulario();
   const PRECIOS = "https://www.pipedrive.com/es/pricing";
   const PORTADA = "https://www.pipedrive.com";
-  const urlPrecios = { pipedrive: PRECIOS };
+  const urlPrecios = { pipedrive: { urlPrecios: PRECIOS } };
 
   const salida = (respuesta: Record<string, unknown>, extra: Record<string, unknown> = {}): SalidaLote => ({
     herramientas: [
@@ -41,7 +41,7 @@ describe("convertir la salida cruda en registros", () => {
     profundidad: "nativa",
     planMinimo: "Lite",
     urlFuente: PRECIOS,
-    cita: "Gestiona tu embudo de ventas desde el plan Lite",
+    cita: "Gestiona tu embudo de ventas visual desde el plan Lite, con etapas propias",
   };
 
   const uno = (respuesta: Record<string, unknown>, extra: Record<string, unknown> = {}) =>
@@ -66,6 +66,7 @@ describe("convertir la salida cruda en registros", () => {
       { veredicto: "no", urlFuente: PRECIOS, cita: "Pipedrive no incluye facturación electrónica" },
       { veredicto: "no_documentado", nota: "Busqué en precios y portada y no aparece" },
       { ...buena, cita: "corta" },
+      { ...buena, cita: "" },
       { ...buena, urlFuente: PORTADA },
       { ...buena, planMinimo: null },
     ];
@@ -79,8 +80,8 @@ describe("convertir la salida cruda en registros", () => {
   describe("lo que degrada a desconocido", () => {
     const motivo = (respuesta: Record<string, unknown>) => uno(respuesta).descartes[0]?.motivo;
 
-    it("una cita demasiado corta para sostener nada", () => {
-      expect(motivo({ ...buena, cita: "Sí" })).toBe("sin cita literal suficiente");
+    it("una cita breve manda a revisión en vez de caer por corta", () => {
+      expect(motivo({ ...buena, cita: "Sí" })).toBe("cita breve sin revisar");
     });
 
     it("una dirección que el proveedor no confirma haber leído", () => {
@@ -303,7 +304,7 @@ describe("convertir la salida cruda en registros", () => {
         },
         urlPrecios
       );
-      expect(r.descartes[0].motivo).toBe("el plan no viene de la página de tarifas");
+      expect(r.descartes[0].motivo).toBe("el plan no viene de una fuente que lo demuestre");
       expect(r.registros[0].estado).toBe("desconocido");
       expect(r.registros[0].confianza).toBe("baja");
     });
@@ -382,6 +383,162 @@ describe("convertir la salida cruda en registros", () => {
       expect(descartes).toEqual([]);
       expect(registros[0].fuentes[0].tipo).toBe("tarifa_oficial");
       expect(registros[0].planMinimo).toBe("Lite");
+    });
+  });
+
+
+  /**
+   * Decisiones de la propietaria del 2026-09-07, con el lote 1 delante.
+   */
+  describe("las tres decisiones de la propietaria", () => {
+    const conTodo = (extra: Record<string, unknown>, respuesta: Record<string, unknown>, revisadas: any[] = []) =>
+      convertirSalida(
+        {
+          herramientas: [
+            {
+              herramientaId: "pipedrive",
+              fechaConsulta: "2026-09-07",
+              urlsSolicitadas: [PRECIOS, PORTADA],
+              urlsRecuperadas: [{ url: PORTADA, estado: "URL_RETRIEVAL_STATUS_SUCCESS", recuperada: true }],
+              capacidadesPedidas: ["cap.sales_pipeline"],
+              respuestas: [{ capacidadId: "cap.sales_pipeline", ...respuesta }],
+              ...extra,
+            },
+          ],
+        },
+        urlPrecios,
+        revisadas
+      );
+
+    describe("una redirección sólo cuenta si está demostrada", () => {
+      const FINAL = "https://www.pipedrive.com/es/pricing-plans";
+
+      it("sin cadena resuelta, la afirmación cae", () => {
+        const r = conTodo(
+          { urlsRecuperadas: [{ url: FINAL, estado: "URL_RETRIEVAL_STATUS_SUCCESS", recuperada: true }] },
+          buena
+        );
+        expect(r.descartes[0].motivo).toBe("la dirección citada no consta como leída");
+      });
+
+      it("con la cadena resuelta, la afirmación se sostiene y la fuente es la que se leyó", () => {
+        const r = conTodo(
+          {
+            urlsRecuperadas: [{ url: FINAL, estado: "URL_RETRIEVAL_STATUS_SUCCESS", recuperada: true }],
+            redirecciones: [{ solicitada: PRECIOS, final: FINAL, codigos: [301, 200] }],
+          },
+          buena
+        );
+        expect(r.descartes).toEqual([]);
+        expect(r.registros[0].fuentes[0].url).toBe(FINAL);
+        expect(r.registros[0].fuentes[0].tipo).toBe("tarifa_oficial");
+      });
+
+      it("una cadena que lleve a otra página no vale como coartada", () => {
+        const r = conTodo(
+          {
+            urlsRecuperadas: [{ url: PORTADA, estado: "URL_RETRIEVAL_STATUS_SUCCESS", recuperada: true }],
+            redirecciones: [{ solicitada: PRECIOS, final: "https://www.pipedrive.com/es/signup", codigos: [302, 200] }],
+          },
+          buena
+        );
+        expect(r.descartes[0].motivo).toBe("la dirección citada no consta como leída");
+      });
+    });
+
+    describe("la cita de la portada se conserva como pista", () => {
+      it("un plan apoyado en la portada se degrada pero no pierde la cita", () => {
+        const r = conTodo({}, {
+          ...buena,
+          urlFuente: PORTADA,
+          planMinimo: "FREE",
+          cita: "Cierra más tratos con la gestión de contactos en una sola página",
+        });
+        expect(r.descartes[0].motivo).toBe("el plan no viene de una fuente que lo demuestre");
+        expect(r.descartes[0].cita).toContain("Cierra más tratos");
+        expect(r.registros[0].estado).toBe("desconocido");
+        expect(r.registros[0].fuentes[0].cita).toContain("Cierra más tratos");
+        expect(r.registros[0].fuentes[0].url).toBe(PORTADA);
+      });
+
+      it("la documentación oficial sí puede sostener un plan", () => {
+        const DOCS = "https://www.pipedrive.com/es/docs/planes";
+        const r = convertirSalida(
+          {
+            herramientas: [
+              {
+                herramientaId: "pipedrive",
+                fechaConsulta: "2026-09-07",
+                urlsSolicitadas: [DOCS],
+                urlsRecuperadas: [{ url: DOCS, estado: "URL_RETRIEVAL_STATUS_SUCCESS", recuperada: true }],
+                capacidadesPedidas: ["cap.sales_pipeline"],
+                respuestas: [{ capacidadId: "cap.sales_pipeline", ...buena, urlFuente: DOCS }],
+              },
+            ],
+          },
+          { pipedrive: { urlPrecios: PRECIOS, documentacion: [DOCS] } }
+        );
+        expect(r.descartes).toEqual([]);
+        expect(r.registros[0].fuentes[0].tipo).toBe("documentacion");
+        expect(r.registros[0].planMinimo).toBe("Lite");
+      });
+    });
+
+    describe("las citas breves se revisan, no se miden", () => {
+      const breve = { ...buena, urlFuente: PRECIOS, cita: "SSO" };
+      const conPrecios = (respuesta: Record<string, unknown>, revisadas: any[] = []) =>
+        convertirSalida(
+          {
+            herramientas: [
+              {
+                herramientaId: "pipedrive",
+                fechaConsulta: "2026-09-07",
+                urlsSolicitadas: [PRECIOS],
+                urlsRecuperadas: [{ url: PRECIOS, estado: "URL_RETRIEVAL_STATUS_SUCCESS", recuperada: true }],
+                capacidadesPedidas: ["cap.sales_pipeline"],
+                respuestas: [{ capacidadId: "cap.sales_pipeline", ...respuesta }],
+              },
+            ],
+          },
+          urlPrecios,
+          revisadas
+        );
+
+      const revisada = (veredicto: "vale" | "no_vale") => [
+        {
+          herramientaId: "pipedrive",
+          capacidadId: "cap.sales_pipeline",
+          cita: "SSO",
+          veredicto,
+          motivo: "porque sí",
+        },
+      ];
+
+      it("una cita vacía cae siempre", () => {
+        expect(conPrecios({ ...buena, cita: "   " }).descartes[0].motivo).toBe("sin cita");
+      });
+
+      it("una cita breve sin revisar no pasa, pero tampoco se rechaza por corta", () => {
+        const r = conPrecios(breve);
+        expect(r.descartes[0].motivo).toBe("cita breve sin revisar");
+      });
+
+      it("una cita breve revisada y aceptada vale", () => {
+        const r = conPrecios(breve, revisada("vale"));
+        expect(r.descartes).toEqual([]);
+        expect(r.registros[0].estado).toBe("verificado");
+      });
+
+      it("una cita breve revisada y rechazada cae con el motivo escrito", () => {
+        const r = conPrecios(breve, revisada("no_vale"));
+        expect(r.descartes[0].motivo).toBe("cita breve revisada y rechazada");
+        expect(r.registros[0].nota).toBe("porque sí");
+      });
+
+      it("una cita larga no necesita revisión", () => {
+        const r = conPrecios(buena);
+        expect(r.descartes).toEqual([]);
+      });
     });
   });
 
