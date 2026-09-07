@@ -43,6 +43,13 @@ export type Redireccion = {
   final: string;
   /** Los códigos de la cadena, en orden: [301, 200]. */
   codigos: number[];
+  /**
+   * `false` cuando no se pudo comprobar —el servidor devolvió 403, o la
+   * petición ni siquiera llegó—. Sin esto, un bloqueo se guardaba como «final =
+   * solicitada», es decir, como si constara que NO redirige. Una cadena sin
+   * resolver no vale como prueba de nada.
+   */
+  resuelta?: boolean;
 };
 
 export type SalidaHerramienta = {
@@ -219,6 +226,7 @@ export function convertirSalida(
      */
     const destinoDe = new Map<string, string>();
     for (const r of h.redirecciones ?? []) {
+      if (r.resuelta === false) continue;
       if (r.solicitada && r.final) destinoDe.set(normalizarUrl(r.solicitada), normalizarUrl(r.final));
     }
     const resolver = (url: string): string | undefined => {

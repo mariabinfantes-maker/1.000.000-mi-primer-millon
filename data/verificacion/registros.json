@@ -2738,18 +2738,19 @@
   {
     "herramientaId": "copper",
     "capacidadId": "cap.task_management",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Basic",
     "fuentes": [
       {
-        "tipo": "pagina_oficial",
-        "url": "https://www.copper.com/",
+        "tipo": "tarifa_oficial",
+        "url": "https://www.copper.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "Assign tasks and follow-ups from a centralized task lists, or within projects."
+        "cita": "What's included: 2,500 contact limit Task automation Pipelines Project Management Contact enrichment"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-07",
-    "nota": "Se sitúa en el plan \"Basic\" citando https://www.copper.com/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-07"
   },
   {
     "herramientaId": "copper",
@@ -4077,13 +4078,12 @@
       {
         "tipo": "pagina_oficial",
         "url": "https://www.insightly.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Automate follow-ups and re-engagement based on prospect behaviors, email opens, form submissions, etc."
+        "fechaConsulta": "2026-09-07"
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó que la tiene, pero no en qué plan. Una función del plan caro no le sirve a quien busca el barato."
+    "nota": "Se afirmó \"si\" citando https://www.insightly.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "insightly",
@@ -6057,7 +6057,7 @@
         "tipo": "pagina_oficial",
         "url": "https://www.nocrm.io/es",
         "fechaConsulta": "2026-09-07",
-        "cita": "Crea reglas dentro de noCRM para automatizar tareas repetidas, reducir el trabajo manual y evitar errores."
+        "cita": "Dream\n\n39 US$/usuario/mes\n\nObtén control total, funcionalidades avanzadas y todo el poder para escalar tus ventas.\n\nPrueba gratis\n\nTodo lo incluido en Expert, más:\n\nIntegraciones Whatsapp & VoIP\n\nIntegración de correo electrónico\n\nGestión de equipos\n\nAutomatizaciones"
       }
     ],
     "confianza": "baja",

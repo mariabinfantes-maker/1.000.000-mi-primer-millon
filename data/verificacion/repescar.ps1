@@ -87,37 +87,79 @@ Write-Host ""
 # 1. Redirecciones, demostradas y no supuestas
 # --------------------------------------------------------------------------
 
+<#
+    Resolver una redirección de verdad, y decir cuándo no se ha podido.
+
+    La primera versión falló en los tres sitios donde podía fallar, y se vio con
+    los datos: seis servidores devolvieron 403 a la petición —bloquean lo que no
+    parece un navegador—, once fallaron sin respuesta, y las tres direcciones
+    que SÍ redirigen no se siguieron porque no se leyó la cabecera Location.
+
+    Peor que no resolverlas: un 403 se guardaba como «final = solicitada», o
+    sea, como si se hubiera comprobado que no redirige. Eso es afirmar algo que
+    no se sabe, que es exactamente lo que este módulo entero existe para evitar.
+    Ahora hay un campo `resuelta`, y sin él la cadena no vale como prueba.
+#>
+$AGENTE_NAVEGADOR = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+
+function Cabecera-Location($respuesta) {
+    if (-not $respuesta) { return $null }
+    try { $v = $respuesta.Headers["Location"]; if ($v) { return $v } } catch { }
+    try { $v = $respuesta.GetResponseHeader("Location"); if ($v) { return $v } } catch { }
+    return $null
+}
+
 function Resolver-Redireccion([string] $url) {
-    $codigos = @()
-    $actual  = $url
+    $codigos  = @()
+    $actual   = $url
+    $resuelta = $false
+
     for ($salto = 0; $salto -lt 10; $salto++) {
         $respuesta = $null
-        try {
-            $respuesta = Invoke-WebRequest -UseBasicParsing -Uri $actual -Method Head -MaximumRedirection 0 -TimeoutSec 30 -ErrorAction Stop
-        } catch {
-            $r = $_.Exception.Response
-            if ($r) {
-                $codigo = [int]$r.StatusCode
-                $codigos += $codigo
-                if ($codigo -ge 300 -and $codigo -lt 400) {
-                    $destino = $r.Headers["Location"]
-                    if (-not $destino) { break }
-                    $actual = (New-Object System.Uri ([Uri]$actual), $destino).AbsoluteUri
-                    continue
-                }
-            } else {
-                $codigos += -1
+        $fallo     = $null
+
+        # HEAD primero por ser barato; si el servidor no lo admite, GET.
+        foreach ($metodo in @("Head", "Get")) {
+            try {
+                $respuesta = Invoke-WebRequest -UseBasicParsing -Uri $actual -Method $metodo `
+                    -MaximumRedirection 0 -TimeoutSec 30 -UserAgent $AGENTE_NAVEGADOR -ErrorAction Stop
+                $fallo = $null
+                break
+            } catch {
+                $fallo = $_
+                $r = $fallo.Exception.Response
+                # Una redirección llega como excepción con -MaximumRedirection 0:
+                # es respuesta buena, no hace falta reintentar con GET.
+                if ($r -and [int]$r.StatusCode -ge 300 -and [int]$r.StatusCode -lt 400) { break }
             }
+        }
+
+        if ($respuesta) {
+            $codigos += [int]$respuesta.StatusCode
+            $resuelta = $true
             break
         }
-        $codigos += [int]$respuesta.StatusCode
+
+        $r = $fallo.Exception.Response
+        if (-not $r) { $codigos += -1; break }
+
+        $codigo = [int]$r.StatusCode
+        $codigos += $codigo
+        if ($codigo -ge 300 -and $codigo -lt 400) {
+            $destino = Cabecera-Location $r
+            if (-not $destino) { break }
+            $actual = (New-Object System.Uri ([Uri]$actual), $destino).AbsoluteUri
+            continue
+        }
         break
     }
-    return [pscustomobject]@{ solicitada = $url; final = $actual; codigos = $codigos }
+
+    return [pscustomobject]@{ solicitada = $url; final = $actual; codigos = $codigos; resuelta = $resuelta }
 }
 
 Write-Host "Resolviendo redirecciones..." -ForegroundColor White
 $conRedireccion = 0
+$sinResolver = 0
 foreach ($id in $loteElegido.herramientaIds) {
     $ruta = Join-Path $Salida "$id.json"
     if (-not (Test-Path -LiteralPath $ruta)) { continue }
@@ -127,7 +169,10 @@ foreach ($id in $loteElegido.herramientaIds) {
     foreach ($u in @($datos.urlsSolicitadas)) {
         $c = Resolver-Redireccion $u
         $cadenas += $c
-        if ($c.final -ne $c.solicitada) {
+        if (-not $c.resuelta) {
+            $sinResolver++
+            Write-Host ("  {0}: NO se pudo comprobar {1} [{2}]" -f $id, $c.solicitada, ($c.codigos -join ", ")) -ForegroundColor Yellow
+        } elseif ($c.final -ne $c.solicitada) {
             $conRedireccion++
             Write-Host ("  {0}: {1} -> {2} [{3}]" -f $id, $c.solicitada, $c.final, ($c.codigos -join ", ")) -ForegroundColor DarkGray
         }
@@ -136,7 +181,7 @@ foreach ($id in $loteElegido.herramientaIds) {
     $datos | Add-Member -NotePropertyName redirecciones -NotePropertyValue @($cadenas) -Force
     Escribir-Json $ruta $datos
 }
-Write-Host "  $conRedireccion dirección(es) redirigen a otra." -ForegroundColor Green
+Write-Host "  $conRedireccion redirigen · $sinResolver no se pudieron comprobar" -ForegroundColor Green
 Write-Host ""
 
 if ($SoloRedirecciones) {

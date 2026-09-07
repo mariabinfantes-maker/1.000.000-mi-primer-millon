@@ -262,13 +262,6 @@
     "motivo": "sin respuesta"
   },
   {
-    "herramientaId": "copper",
-    "capacidadId": "cap.task_management",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Assign tasks and follow-ups from a centralized task lists, or within projects.",
-    "urlCitada": "https://www.copper.com/"
-  },
-  {
     "herramientaId": "ganttpro",
     "capacidadId": "cap.public_api",
     "motivo": "cita breve revisada y rechazada",
@@ -503,9 +496,8 @@
   {
     "herramientaId": "insightly",
     "capacidadId": "cap.marketing_automation",
-    "motivo": "sin plan mínimo",
-    "cita": "Automate follow-ups and re-engagement based on prospect behaviors, email opens, form submissions, etc.",
-    "urlCitada": "https://www.insightly.com/"
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Email marketing automation"
   },
   {
     "herramientaId": "insightly",
@@ -643,7 +635,7 @@
     "herramientaId": "nocrm-io",
     "capacidadId": "cap.workflow_automation",
     "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Crea reglas dentro de noCRM para automatizar tareas repetidas, reducir el trabajo manual y evitar errores.",
+    "cita": "Dream\n\n39 US$/usuario/mes\n\nObtén control total, funcionalidades avanzadas y todo el poder para escalar tus ventas.\n\nPrueba gratis\n\nTodo lo incluido en Expert, más:\n\nIntegraciones Whatsapp & VoIP\n\nIntegración de correo electrónico\n\nGestión de equipos\n\nAutomatizaciones",
     "urlCitada": "https://www.nocrm.io/es"
   },
   {

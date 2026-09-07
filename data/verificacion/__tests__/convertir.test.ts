@@ -434,6 +434,23 @@ describe("convertir la salida cruda en registros", () => {
         expect(r.registros[0].fuentes[0].tipo).toBe("tarifa_oficial");
       });
 
+      /**
+       * Salió de los datos: seis servidores devolvieron 403 a la comprobación
+       * y la cadena se guardó como «final = solicitada», o sea, como si
+       * constara que no redirige. Afirmar eso es justo lo que no se puede
+       * hacer, así que una cadena sin resolver no vale para nada.
+       */
+      it("una cadena que no se pudo comprobar no sirve de prueba", () => {
+        const r = conTodo(
+          {
+            urlsRecuperadas: [{ url: FINAL, estado: "URL_RETRIEVAL_STATUS_SUCCESS", recuperada: true }],
+            redirecciones: [{ solicitada: PRECIOS, final: FINAL, codigos: [403], resuelta: false }],
+          },
+          buena
+        );
+        expect(r.descartes[0].motivo).toBe("la dirección citada no consta como leída");
+      });
+
       it("una cadena que lleve a otra página no vale como coartada", () => {
         const r = conTodo(
           {

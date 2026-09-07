@@ -3092,6 +3092,89 @@ respuestas **se apartan** en vez de colarse.
 salida. Hasta entonces F2 sigue sin un solo registro de verificación, y eso es
 correcto: no hay ninguno inventado.
 
+## El lote 1 de F2, ejecutado y a medias (2026-09-07)
+
+Las 30 herramientas del lote 1 pasaron por sus páginas oficiales: **78 llamadas,
+dos horas y cuarto del ordenador de la propietaria, 765 pares**. Todo en la rama
+`claude/atlas-advisor-mvp-4e854s`, **sin fusionar**.
+
+**El resultado hoy: 120 verificados de 765.** Los otros 645 son «desconocido», y
+362 de ellos son honestos —Gemini leyó las páginas y dijo que no aparece—; el
+resto los degradaron las reglas.
+
+**El hallazgo que justifica F2 entera.** De las 30 herramientas, **ninguna
+documenta reserva por internet**. Ninguna de las 15 de gestión de proyectos
+documenta órdenes de trabajo, y ninguno de los 15 CRM documenta recordatorios de
+cita. Son las tres sondas que se metieron a propósito en la selección congelada,
+y el motor recomienda hoy esas herramientas igualmente. La peluquera que dice
+«pierdo citas» recibe un CRM que, según su propia página oficial, no sabe coger
+una cita. **El catálogo no cubre la vertical de citas.**
+
+### Las cuatro decisiones de la propietaria, con el lote delante
+
+1. **Redirecciones.** Sólo cuentan si hay evidencia técnica de que la dirección
+   pedida llevó a la leída. No se aceptan retroactivamente.
+2. **Plan.** Lo sostiene la tarifa oficial o documentación que vincule capacidad
+   y plan. Una portada no. Su cita se conserva como pista, no como prueba.
+3. **Repesca.** Se repiten los pares necesarios, no las herramientas enteras:
+   241 en vez de 765.
+4. **Citas.** No hay mínimo automático de longitud. Por debajo de treinta
+   caracteres la cita va a revisión y sin veredicto escrito no pasa. Revisadas
+   las 50 del lote 1 en `citas-revisadas.json`: 47 valen, 3 no.
+
+La cuarta la pidió la propietaria y los datos le dieron la razón: la regla de
+longitud anterior **rechazaba «SSO», «Audit logs» y «Kanban board»**, que no son
+ambiguas, y aceptaba etiquetas genéricas más largas. Estaba invertida.
+
+### Lo que falló y sigue abierto
+
+**La repesca no funcionó.** Se ejecutó y aplicó tres cambios en 765 pares: los
+133 sin respuesta siguen siendo 133. No se sabe todavía por qué — falta ver la
+salida de pantalla.
+
+**La resolución local de redirecciones tampoco.** De 60 direcciones, 40
+respondieron 200, **seis devolvieron 403** —el servidor bloquea lo que no parece
+un navegador—, once fallaron, y las tres que sí redirigen no se siguieron porque
+no se leyó la cabecera `Location`. Cero redirecciones demostradas.
+
+Y guardaba el 403 como «final = solicitada», es decir, **como si constara que no
+redirige**. Afirmar eso es exactamente lo que este módulo existe para impedir.
+Corregido: ahora hay un campo `resuelta`, y una cadena sin resolver no vale como
+prueba.
+
+### Dos defectos propios, encontrados midiendo
+
+**Comparar direcciones en crudo tiraba evidencia buena.** El proveedor casi
+nunca devuelve la dirección que se le pidió —barra final, «www», esquema—, y eso
+descartaba 88 afirmaciones bien fundadas. Corregido normalizando, sin tocar la
+ruta: «/pricing» y «/signup» siguen siendo páginas distintas.
+
+**Una respuesta podía pisar a otra entre bloques.** La definición de cada
+capacidad nombra a sus vecinas para marcar la frontera, así que el prompt lleva
+identificadores que no se han preguntado. Se vio en el ensayo: 26 aplicadas para
+18 pedidas. **En la ejecución real no llegó a dispararse** —cero respuestas
+intrusas registradas—, pero la guarda queda en los dos scripts.
+
+## La clave de Gemini y el camino crítico (2026-09-07)
+
+Todo el lote 1 pasó por el ordenador de la propietaria: cargar la clave a mano,
+lanzar PowerShell, fotografiar la pantalla, copiar el archivo a Descargas y
+subirlo. Se perdieron horas en eso, y aparecieron tres fallos que sólo se ven en
+Windows: el archivo sin BOM que rompe los acentos, el here-string que no cierra
+con saltos de línea de Unix, y la llamada sin límite de espera que dejó el
+proceso colgado veinte minutos sin decir nada.
+
+**El endpoint de Gemini SÍ es alcanzable desde el entorno remoto** — devuelve el
+403 propio de Google por falta de clave, no un bloqueo del proxy. Y quien
+descarga las páginas es el servidor de Google, así que da igual que el proxy
+tenga bloqueados los dominios de los fabricantes.
+
+Lo único que falta ahí es la clave. La propietaria la configuró el 2026-09-07,
+pero **las variables de entorno se inyectan al arrancar la sesión**: hace falta
+una sesión nueva para que llegue. Con ella, F2 deja de depender de su ordenador
+y ella pasa de ejecutar a revisar. Es la palanca más grande que tiene el
+proyecto ahora mismo.
+
 ---
 
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
