@@ -190,4 +190,71 @@ describe("convertir la salida cruda en registros", () => {
     expect(resumen.verificados).toBe(1);
     expect(resumen.degradados).toBe(descartes.length);
   });
+
+  /**
+   * Estos casos no salieron de imaginar qué podría fallar: salieron del primer
+   * lote real. Comparando direcciones en crudo se tiraron 88 afirmaciones bien
+   * fundadas porque el proveedor devolvía la misma página con la barra final,
+   * sin «www» o tras una redirección.
+   */
+  describe("la misma página escrita de otra forma", () => {
+    const conLeidas = (leidas: string[], urlFuente: string) =>
+      convertirSalida(
+        {
+          herramientas: [
+            {
+              herramientaId: "pipedrive",
+              fechaConsulta: "2026-09-07",
+              urlsSolicitadas: [PRECIOS, PORTADA],
+              urlsRecuperadas: leidas.map((url) => ({
+                url,
+                estado: "URL_RETRIEVAL_STATUS_SUCCESS",
+                recuperada: true,
+              })),
+              capacidadesPedidas: ["cap.sales_pipeline"],
+              respuestas: [{ capacidadId: "cap.sales_pipeline", ...buena, urlFuente }],
+            },
+          ],
+        },
+        urlPrecios
+      );
+
+    it("acepta la barra final de más", () => {
+      const r = conLeidas([`${PRECIOS}/`], PRECIOS);
+      expect(r.descartes).toEqual([]);
+      expect(r.registros[0].estado).toBe("verificado");
+    });
+
+    it("acepta que falte o sobre el www", () => {
+      const r = conLeidas(["https://pipedrive.com/es/pricing"], PRECIOS);
+      expect(r.descartes).toEqual([]);
+    });
+
+    it("acepta el cambio de esquema tras una redirección", () => {
+      const r = conLeidas(["http://www.pipedrive.com/es/pricing"], PRECIOS);
+      expect(r.descartes).toEqual([]);
+    });
+
+    it("guarda la dirección que el proveedor dice haber leído, no la que citó el modelo", () => {
+      const real = "https://pipedrive.com/es/pricing/";
+      const r = conLeidas([real], PRECIOS);
+      expect(r.registros[0].fuentes[0].url).toBe(real);
+      expect(r.registros[0].fuentes[0].tipo).toBe("tarifa_oficial");
+    });
+
+    /**
+     * El caso que impide aflojar de más: en el lote real, capsule-crm citó
+     * «/pricing/» habiendo leído sólo «/» y «/signup/». Son páginas distintas.
+     */
+    it("sigue rechazando una ruta distinta del mismo dominio", () => {
+      const r = conLeidas(["https://capsulecrm.com/", "https://capsulecrm.com/signup/"], "https://capsulecrm.com/pricing/");
+      expect(r.descartes[0].motivo).toBe("la dirección citada no consta como leída");
+    });
+
+    it("una ruta más profunda no cuela como la de arriba", () => {
+      const r = conLeidas([PORTADA], "https://www.pipedrive.com/es/pricing");
+      expect(r.descartes[0].motivo).toBe("la dirección citada no consta como leída");
+    });
+  });
+
 });

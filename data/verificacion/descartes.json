@@ -1,0 +1,1287 @@
+[
+  {
+    "herramientaId": "agile-crm",
+    "capacidadId": "cap.lead_capture",
+    "motivo": "sin cita literal suficiente"
+  },
+  {
+    "herramientaId": "capsule-crm",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "capsule-crm",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "capsule-crm",
+    "capacidadId": "cap.dashboards",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "capsule-crm",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "capsule-crm",
+    "capacidadId": "cap.customer_contact_records",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "capsule-crm",
+    "capacidadId": "cap.sales_pipeline",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "capsule-crm",
+    "capacidadId": "cap.lead_capture",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "capsule-crm",
+    "capacidadId": "cap.sales_forecasting",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "capsule-crm",
+    "capacidadId": "cap.shared_inbox",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.webhooks",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.custom_reports",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.data_export",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.two_factor_authentication",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.audit_log",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.task_management",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.project_planning",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.kanban_boards",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.time_tracking",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.team_workload_planning",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.webhooks",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.custom_reports",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.data_export",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.two_factor_authentication",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.audit_log",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.customer_contact_records",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.customer_interaction_history",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.sales_pipeline",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.lead_capture",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.sales_forecasting",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.quotes_and_proposals",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin cita literal suficiente"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin cita literal suficiente"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin cita literal suficiente"
+  },
+  {
+    "herramientaId": "hive",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "hive",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "hive",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "hive",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "hive",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "hive",
+    "capacidadId": "cap.two_factor_authentication",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "hive",
+    "capacidadId": "cap.audit_log",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "hive",
+    "capacidadId": "cap.task_management",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "hive",
+    "capacidadId": "cap.project_planning",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "hive",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "hive",
+    "capacidadId": "cap.kanban_boards",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "hive",
+    "capacidadId": "cap.time_tracking",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "hive",
+    "capacidadId": "cap.team_workload_planning",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.public_api",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.webhooks",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.dashboards",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.custom_reports",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.audit_log",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.customer_contact_records",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.customer_interaction_history",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.sales_pipeline",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.lead_capture",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.quotes_and_proposals",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.email_campaigns",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.marketing_automation",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.task_management",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "less-annoying-crm",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "less-annoying-crm",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "less-annoying-crm",
+    "capacidadId": "cap.data_export",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "less-annoying-crm",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "less-annoying-crm",
+    "capacidadId": "cap.customer_contact_records",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "less-annoying-crm",
+    "capacidadId": "cap.customer_interaction_history",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "less-annoying-crm",
+    "capacidadId": "cap.task_management",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "monday-com",
+    "capacidadId": "cap.kanban_boards",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin cita literal suficiente"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "sin cita literal suficiente"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.kanban_boards",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.team_workload_planning",
+    "motivo": "sin cita literal suficiente"
+  },
+  {
+    "herramientaId": "nimble",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "nimble",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "nimble",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "nimble",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "nimble",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "nocrm-io",
+    "capacidadId": "cap.webhooks",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "nocrm-io",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "nocrm-io",
+    "capacidadId": "cap.shared_inbox",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "nocrm-io",
+    "capacidadId": "cap.task_management",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin cita literal suficiente"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.two_factor_authentication",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.audit_log",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.customer_contact_records",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.customer_interaction_history",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.sales_pipeline",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.lead_capture",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.sales_forecasting",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.quotes_and_proposals",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.email_campaigns",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.marketing_automation",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.shared_inbox",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.task_management",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.online_self_service_booking",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.customer_appointment_reminders",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.invoicing",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "paymo",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "paymo",
+    "capacidadId": "cap.project_planning",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "pipedrive",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "pipedrive",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "pipedrive",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "pipedrive",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "pipedrive",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "pipedrive",
+    "capacidadId": "cap.customer_contact_records",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "pipedrive",
+    "capacidadId": "cap.customer_interaction_history",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "pipedrive",
+    "capacidadId": "cap.sales_pipeline",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "pipedrive",
+    "capacidadId": "cap.lead_capture",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "pipedrive",
+    "capacidadId": "cap.sales_forecasting",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "pipedrive",
+    "capacidadId": "cap.online_self_service_booking",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.webhooks",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.custom_reports",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.data_export",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.two_factor_authentication",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.audit_log",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.kanban_boards",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "salesflare",
+    "capacidadId": "cap.sales_pipeline",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "salesflare",
+    "capacidadId": "cap.sales_forecasting",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "salesmate",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "sin cita literal suficiente"
+  },
+  {
+    "herramientaId": "salesmate",
+    "capacidadId": "cap.audit_log",
+    "motivo": "sin cita literal suficiente"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.webhooks",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.custom_reports",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.data_export",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "sin cita literal suficiente"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.task_management",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.project_planning",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.kanban_boards",
+    "motivo": "sin cita literal suficiente"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.time_tracking",
+    "motivo": "sin cita literal suficiente"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.job_costing",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "smartsheet",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "smartsheet",
+    "capacidadId": "cap.two_factor_authentication",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "smartsheet",
+    "capacidadId": "cap.audit_log",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "smartsheet",
+    "capacidadId": "cap.task_management",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "smartsheet",
+    "capacidadId": "cap.project_planning",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "smartsheet",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "smartsheet",
+    "capacidadId": "cap.kanban_boards",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "smartsheet",
+    "capacidadId": "cap.time_tracking",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "smartsheet",
+    "capacidadId": "cap.team_workload_planning",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "streak",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "streak",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "streak",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "streak",
+    "capacidadId": "cap.webhooks",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "streak",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "streak",
+    "capacidadId": "cap.custom_reports",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "streak",
+    "capacidadId": "cap.data_export",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "streak",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "streak",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "teamgantt",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "teamgantt",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "teamgantt",
+    "capacidadId": "cap.data_export",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "teamgantt",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "teamgantt",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "teamgantt",
+    "capacidadId": "cap.kanban_boards",
+    "motivo": "sin cita literal suficiente"
+  },
+  {
+    "herramientaId": "teamgantt",
+    "capacidadId": "cap.time_tracking",
+    "motivo": "sin cita literal suficiente"
+  },
+  {
+    "herramientaId": "teamgantt",
+    "capacidadId": "cap.team_workload_planning",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin cita literal suficiente"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.webhooks",
+    "motivo": "sin cita literal suficiente"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.custom_reports",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.time_tracking",
+    "motivo": "sin cita literal suficiente"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.job_costing",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.webhooks",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.custom_reports",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.data_export",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.customer_interaction_history",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.quotes_and_proposals",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.dashboards",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.two_factor_authentication",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.audit_log",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.task_management",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.project_planning",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.kanban_boards",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.time_tracking",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.team_workload_planning",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.webhooks",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.custom_reports",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.data_export",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.two_factor_authentication",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.audit_log",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.task_management",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.project_planning",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.kanban_boards",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.time_tracking",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.team_workload_planning",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.team_messaging",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.file_storage",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "zoho-crm",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "zoho-crm",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "zoho-crm",
+    "capacidadId": "cap.public_api",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "zoho-crm",
+    "capacidadId": "cap.data_export",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "zoho-crm",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "zoho-crm",
+    "capacidadId": "cap.customer_contact_records",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "zoho-crm",
+    "capacidadId": "cap.sales_pipeline",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "zoho-crm",
+    "capacidadId": "cap.lead_capture",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "zoho-crm",
+    "capacidadId": "cap.sales_forecasting",
+    "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "zoho-crm",
+    "capacidadId": "cap.quotes_and_proposals",
+    "motivo": "la dirección citada no consta como leída"
+  }
+]

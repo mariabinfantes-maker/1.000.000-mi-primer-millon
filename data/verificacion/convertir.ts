@@ -102,16 +102,45 @@ function proximaRevision(fechaConsulta: string, dependeDePlan: boolean): string 
  * demuestra por sí sola en qué plan está una función.
  */
 function tipoDeFuente(url: string, urlPrecios?: string): TipoFuente {
-  if (urlPrecios && url === urlPrecios) return "tarifa_oficial";
+  if (urlPrecios && normalizarUrl(url) === normalizarUrl(urlPrecios)) return "tarifa_oficial";
   return "pagina_oficial";
 }
 
-function mismoDominio(a: string, b: string): boolean {
+function dominio(u: string): string | null {
   try {
-    const limpio = (u: string) => new URL(u).hostname.replace(/^www\./, "").toLowerCase();
-    return limpio(a) === limpio(b);
+    return new URL(u).hostname.replace(/^www\./, "").toLowerCase();
   } catch {
-    return false;
+    return null;
+  }
+}
+
+function mismoDominio(a: string, b: string): boolean {
+  const x = dominio(a);
+  return x !== null && x === dominio(b);
+}
+
+/**
+ * La misma página escrita de otra forma sigue siendo la misma página.
+ *
+ * Gemini devuelve la dirección que descargó de verdad, y casi nunca coincide
+ * carácter a carácter con la que se le pidió: sobra o falta la barra final,
+ * está o no está el «www», el esquema cambia tras una redirección. Comparar en
+ * crudo tiraba 88 afirmaciones bien fundadas en el primer lote — evidencia
+ * buena, perdida por un detalle de escritura.
+ *
+ * Lo que NO se toca es la ruta: «/pricing» y «/signup» son páginas distintas y
+ * deben seguir sin coincidir. Citar una página que no se ha leído es
+ * exactamente el error que este módulo existe para atrapar, y aflojar aquí lo
+ * dejaría pasar.
+ */
+export function normalizarUrl(u: string): string {
+  try {
+    const url = new URL(u.trim());
+    const host = url.hostname.replace(/^www\./, "").toLowerCase();
+    const ruta = url.pathname.replace(/\/+$/, "");
+    return `${host}${ruta}${url.search}`;
+  } catch {
+    return u.trim().toLowerCase();
   }
 }
 
@@ -136,9 +165,14 @@ export function convertirSalida(
     paresEsperados += pedidas.length;
     sinRespuesta += (h.sinRespuesta ?? []).length;
 
-    const leidas = new Set(
-      (h.urlsRecuperadas ?? []).filter((u) => u.recuperada && u.url).map((u) => u.url as string)
-    );
+    /**
+     * Se guarda la dirección tal y como el proveedor dice haberla descargado,
+     * no la que escribió el modelo al citar: la evidencia es la que se leyó.
+     */
+    const leidas = new Map<string, string>();
+    for (const u of h.urlsRecuperadas ?? []) {
+      if (u.recuperada && u.url) leidas.set(normalizarUrl(u.url), u.url);
+    }
     const urlPrecios = urlPreciosPorHerramienta[h.herramientaId];
     const solicitadas = h.urlsSolicitadas ?? [];
 
@@ -161,7 +195,9 @@ export function convertirSalida(
      * existe para conservar.
      */
     const fuentesConsultadas = (): Fuente[] => {
-      const urls = solicitadas.filter((u) => leidas.has(u));
+      const urls = solicitadas
+        .map((u) => leidas.get(normalizarUrl(u)))
+        .filter((u): u is string => Boolean(u));
       const elegidas = urls.length ? urls : solicitadas.slice(0, 1);
       return elegidas.map((url) => ({
         tipo: tipoDeFuente(url, urlPrecios),
@@ -194,7 +230,8 @@ export function convertirSalida(
       const url = (r.urlFuente ?? "").trim();
       const cita = (r.cita ?? "").trim();
 
-      if (!url || !leidas.has(url)) {
+      const urlLeida = url ? leidas.get(normalizarUrl(url)) : undefined;
+      if (!urlLeida) {
         degradar(
           capacidadId,
           "la dirección citada no consta como leída",
@@ -219,7 +256,12 @@ export function convertirSalida(
         continue;
       }
 
-      const fuente: Fuente = { tipo: tipoDeFuente(url, urlPrecios), url, fechaConsulta: h.fechaConsulta, cita };
+      const fuente: Fuente = {
+        tipo: tipoDeFuente(urlLeida, urlPrecios),
+        url: urlLeida,
+        fechaConsulta: h.fechaConsulta,
+        cita,
+      };
       const confianza: NivelConfianza = "alta";
 
       if (r.veredicto === "no") {
