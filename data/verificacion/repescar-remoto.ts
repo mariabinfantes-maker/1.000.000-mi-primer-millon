@@ -1,0 +1,521 @@
+import fs from "node:fs";
+import { writeFile, unlink } from "node:fs/promises";
+import { execFile } from "node:child_process";
+import { tmpdir } from "node:os";
+import path from "node:path";
+import { getTodasLasHerramientas } from "@/data/repositorio";
+import { getCapacidades } from "@/data/vocabulario/repositorio";
+import type { Capacidad } from "@/data/vocabulario/esquema";
+import {
+  capacidadIdsDelVocabulario,
+  erroresDeRegistro,
+  erroresDeSustitucion,
+  getSustituciones,
+} from "./repositorio";
+import {
+  convertirSalida,
+  getCitasRevisadas,
+  type FuentesDeHerramienta,
+  type RespuestaCruda,
+  type SalidaHerramienta,
+  type SalidaLote,
+} from "./convertir";
+import type { RegistroVerificacion } from "./esquema";
+
+/**
+ * EJECUCIÓN ÚNICA Y NO PERMANENTE, lanzada por Claude desde su propio entorno,
+ * con la clave de Gemini inyectada por el proxy de red (no vive en este
+ * archivo ni en ninguna variable de entorno visible). Remata el lote 1:
+ * 133 pares sin respuesta, 106 de sólo-plan, 41 de redirección.
+ *
+ * No se deja en el repositorio como herramienta permanente: es un script de
+ * rescate para esta tarea concreta. Reutiliza convertirSalida (mismas reglas
+ * y pruebas que el pipeline oficial) para que el resultado sea indistinguible
+ * de haber pasado por convertir-verificacion.
+ */
+
+const DIR = path.join(process.cwd(), "data", "verificacion");
+const MODELO = "gemini-3.6-flash";
+const PAUSA_MS = 4000;
+const POR_LLAMADA = 5;
+const HOY = "2026-09-07";
+
+function leerJson<T>(ruta: string): T {
+  return JSON.parse(fs.readFileSync(ruta, "utf8"));
+}
+function escribirJson(ruta: string, obj: unknown) {
+  fs.writeFileSync(ruta, `${JSON.stringify(obj, null, 2)}\n`);
+}
+function sleep(ms: number) {
+  return new Promise((r) => setTimeout(r, ms));
+}
+
+type Descarte = {
+  herramientaId: string;
+  capacidadId: string;
+  motivo: string;
+  cita?: string;
+  urlCitada?: string;
+};
+
+/**
+ * Se usa curl y no fetch: el fetch nativo de Node no respeta HTTPS_PROXY del
+ * entorno (curl sí), y es justo el proxy quien inyecta la clave de Gemini
+ * hacia generativelanguage.googleapis.com. Comprobado con una llamada de
+ * prueba antes de lanzar el resto: fetch da 403 "unregistered caller", curl
+ * responde 200 con la clave inyectada.
+ */
+async function invocarGemini(prompt: string, urls: string[]): Promise<any> {
+  const texto = `${prompt}\n\nDirecciones que debes leer antes de responder:\n${urls.map((u) => `- ${u}`).join("\n")}`;
+  const cuerpo = {
+    contents: [{ parts: [{ text: texto }] }],
+    tools: [{ url_context: {} }],
+    generationConfig: { temperature: 0.1, maxOutputTokens: 8192 },
+  };
+  const uri = `https://generativelanguage.googleapis.com/v1beta/models/${MODELO}:generateContent`;
+
+  for (let intento = 1; intento <= 3; intento++) {
+    const tmp = path.join(tmpdir(), `gemini-${Date.now()}-${Math.random().toString(36).slice(2)}.json`);
+    try {
+      await writeFile(tmp, JSON.stringify(cuerpo), "utf8");
+      const stdout = await new Promise<string>((resolve, reject) => {
+        execFile(
+          "curl",
+          ["-sS", "-X", "POST", uri, "-H", "Content-Type: application/json; charset=utf-8", "--data", `@${tmp}`],
+          { maxBuffer: 1024 * 1024 * 20, timeout: 180_000 },
+          (err, stdout, stderr) => {
+            if (err) reject(new Error(`curl falló: ${err.message} ${stderr}`));
+            else resolve(stdout);
+          }
+        );
+      });
+      const parsed = JSON.parse(stdout);
+      if (parsed.error) throw new Error(`API error ${parsed.error.code}: ${parsed.error.message}`);
+      return parsed;
+    } catch (e) {
+      if (intento === 3) throw e;
+      const espera = 2 ** intento * 3000;
+      console.log(`      reintento ${intento} tras ${espera}ms (${(e as Error).message})`);
+      await sleep(espera);
+    } finally {
+      await unlink(tmp).catch(() => {});
+    }
+  }
+}
+
+/**
+ * El modelo a veces devuelve `integraCon` como array en vez de string (visto
+ * en el ensayo con clickup). erroresDeRegistro exige un string no vacío, así
+ * que se normaliza aquí en vez de dejar que reviente más adelante.
+ */
+function aTextoONull(v: unknown): string | null {
+  if (v === null || v === undefined) return null;
+  if (Array.isArray(v)) return v.length ? v.join(", ") : null;
+  if (typeof v === "string") return v.trim() || null;
+  return String(v);
+}
+
+function extraerTexto(respuesta: any): string {
+  const t = respuesta?.candidates?.[0]?.content?.parts?.[0]?.text;
+  if (!t) return "";
+  return t
+    .replace(/^\s*```(?:json)?\s*/, "")
+    .replace(/\s*```\s*$/, "")
+    .trim();
+}
+
+function extraerUrls(respuesta: any): Array<{ url?: string; estado?: string; recuperada?: boolean }> {
+  const metadatos = respuesta?.candidates?.[0]?.urlContextMetadata?.urlMetadata;
+  if (!metadatos) return [];
+  return metadatos.map((m: any) => ({
+    url: m.retrievedUrl,
+    estado: m.urlRetrievalStatus,
+    recuperada: m.urlRetrievalStatus === "URL_RETRIEVAL_STATUS_SUCCESS",
+  }));
+}
+
+function listaDeCapacidades(capacidades: Capacidad[]): string {
+  return capacidades
+    .map((c) => `- ${c.id} | ${c.etiqueta}: ${c.definicion}${c.noEs ? ` FRONTERA: ${c.noEs}` : ""}`)
+    .join("\n");
+}
+
+function promptCapacidad(nombre: string, capacidades: Capacidad[]): string {
+  return [
+    "Eres un verificador. Tu trabajo NO es describir la herramienta ni venderla: es",
+    "comprobar, leyendo únicamente las páginas oficiales que te doy, qué se puede",
+    "afirmar de ella con una frase de esas páginas delante.",
+    "",
+    `HERRAMIENTA: ${nombre}`,
+    "",
+    "REGLAS, y son innegociables:",
+    "1. Usa SOLO el contenido de las direcciones que te doy. No uses lo que sepas de",
+    "   antes sobre esta herramienta. Si no lo has leído en esas páginas, no lo sabes.",
+    '2. "no_documentado" es una respuesta correcta y frecuente. No es un hueco que',
+    '   rellenar. Prefiero cincuenta "no_documentado" honestos a una sola afirmación',
+    "   que no puedas sostener con una cita.",
+    '3. Para responder "si" necesitas copiar una cita LITERAL de la página, palabra',
+    "   por palabra, que lo demuestre por sí sola.",
+    "4. Que sea una herramienta famosa, grande o completa no prueba nada.",
+    "5. Respeta la FRONTERA de cada capacidad: si lo que has leído es la capacidad",
+    '   vecina y no ésta, responde "no_documentado".',
+    "6. Responde ÚNICAMENTE con un array JSON. Sin texto antes ni después.",
+    '7. Sé breve en "nota": la respuesta entera debe caber sin cortarse.',
+    "",
+    "CAPACIDADES A COMPROBAR:",
+    listaDeCapacidades(capacidades),
+    "",
+    "FORMATO DE CADA ELEMENTO DEL ARRAY:",
+    "{",
+    '  "capacidadId": "el identificador exacto de la lista",',
+    '  "veredicto": "si" | "no" | "no_documentado",',
+    '  "profundidad": "nativa" | "modulo" | "integracion" | null,',
+    '  "integraCon": "obligatorio si profundidad es integracion; si no, null",',
+    '  "planMinimo": "nombre exacto del plan más barato donde existe, tal y como lo escribe el fabricante; null si la página no lo dice",',
+    '  "urlFuente": "la dirección concreta de la que sacas la cita",',
+    '  "cita": "la frase literal, copiada tal cual de esa página",',
+    '  "nota": "breve: si es no_documentado, qué buscaste"',
+    "}",
+  ].join("\n");
+}
+
+/**
+ * Repesca de sólo-plan, adaptada a que aquí NO existe el todo-lote1.json
+ * original: el veredicto y la profundidad de la primera vuelta no se
+ * conservaron en ningún archivo del repositorio (registros.json sólo guarda
+ * un "desconocido" genérico para estos pares; la cita se conserva como
+ * pista). Así que, además del plan, hace falta que Gemini diga CÓMO la
+ * tiene (profundidad) para poder escribir un registro válido — pero NO se le
+ * pide que vuelva a juzgar SI la tiene: eso ya está dado por bueno con la
+ * cita ya guardada, que se le entrega como evidencia ya aceptada.
+ */
+function promptPlan(
+  nombre: string,
+  capacidades: Array<Capacidad & { citaPrevia?: string }>
+): string {
+  const lista = capacidades
+    .map((c) => {
+      const cita = c.citaPrevia ? ` — YA CONFIRMADA con esta cita de una verificación anterior: "${c.citaPrevia}"` : "";
+      return `- ${c.id} | ${c.etiqueta}: ${c.definicion}${c.noEs ? ` FRONTERA: ${c.noEs}` : ""}${cita}`;
+    })
+    .join("\n");
+  return [
+    "Ya está comprobado que la herramienta TIENE cada una de estas capacidades: no",
+    "vuelvas a juzgar SI la tiene, esa parte ya está resuelta con la cita que se te da.",
+    "",
+    `HERRAMIENTA: ${nombre}`,
+    "",
+    "Tu única tarea, leyendo SOLO las páginas oficiales que te doy, es decir DOS cosas",
+    "por cada capacidad:",
+    "",
+    "(a) CÓMO la tiene: profundidad = \"nativa\" (es el producto o parte central),",
+    '    "modulo" (existe dentro de una suite, a veces como módulo aparte) o',
+    '    "integracion" (sólo funciona conectando otra herramienta; si es así, di',
+    "    con cuál en integraCon).",
+    "(b) EN QUÉ PLAN está disponible, con el nombre exacto que usa el fabricante.",
+    "    La fuente tiene que ser la tabla de precios o documentación oficial que",
+    "    vincule expresamente capacidad y plan — una portada o un eslogan NO vale.",
+    "    Si las páginas no lo dicen, responde planMinimo null: es una respuesta",
+    "    correcta, y prefiero eso a un plan inventado.",
+    "",
+    "REGLAS:",
+    "1. Usa SOLO el contenido de las direcciones que te doy.",
+    "2. Copia una cita LITERAL de esa fuente que sostenga tu respuesta de (a) y (b).",
+    "3. Responde ÚNICAMENTE con un array JSON. Sin texto antes ni después.",
+    "",
+    "CAPACIDADES:",
+    lista,
+    "",
+    "FORMATO DE CADA ELEMENTO DEL ARRAY:",
+    "{",
+    '  "capacidadId": "el identificador exacto de la lista",',
+    '  "profundidad": "nativa" | "modulo" | "integracion",',
+    '  "integraCon": "obligatorio si profundidad es integracion; si no, null",',
+    '  "planMinimo": "nombre exacto del plan más barato que la incluye, o null",',
+    '  "urlFuente": "la dirección de la que sacas la cita",',
+    '  "cita": "la frase literal que sostiene profundidad y/o plan"',
+    "}",
+  ].join("\n");
+}
+
+async function procesarCapacidad(
+  herramientaId: string,
+  nombre: string,
+  urls: string[],
+  ids: string[],
+  capacidadPorId: Map<string, Capacidad>
+): Promise<SalidaHerramienta> {
+  const bloques = Math.ceil(ids.length / POR_LLAMADA);
+  const respuestas: RespuestaCruda[] = [];
+  const urlsVistas: Array<{ url?: string; estado?: string; recuperada?: boolean }> = [];
+
+  for (let b = 0; b < bloques; b++) {
+    const trozo = ids.slice(b * POR_LLAMADA, (b + 1) * POR_LLAMADA);
+    const caps = trozo.map((id) => capacidadPorId.get(id)!);
+    const prompt = promptCapacidad(nombre, caps);
+    const t0 = Date.now();
+    const resp = await invocarGemini(prompt, urls);
+    const ms = Date.now() - t0;
+    urlsVistas.push(...extraerUrls(resp));
+    const texto = extraerTexto(resp);
+    try {
+      const parseado = JSON.parse(texto) as RespuestaCruda[];
+      const filtrado = parseado
+        .filter((r) => trozo.includes(r.capacidadId ?? ""))
+        .map((r) => ({
+          ...r,
+          integraCon: aTextoONull(r.integraCon),
+          planMinimo: aTextoONull(r.planMinimo),
+          urlFuente: aTextoONull(r.urlFuente),
+          cita: aTextoONull(r.cita),
+          nota: aTextoONull(r.nota),
+        }));
+      respuestas.push(...filtrado);
+      console.log(`    bloque ${b + 1}/${bloques} — ${trozo.length} capacidades, ${ms}ms, ${filtrado.length} respondidas`);
+    } catch {
+      console.log(`    bloque ${b + 1}/${bloques} — respuesta no interpretable: ${texto.slice(0, 200)}`);
+    }
+    if (b < bloques - 1) await sleep(PAUSA_MS);
+  }
+
+  const porId = new Map<string, RespuestaCruda>();
+  for (const r of respuestas) if (r.capacidadId && ids.includes(r.capacidadId)) porId.set(r.capacidadId, r);
+  const sinRespuesta = ids.filter((id) => !porId.has(id));
+
+  return {
+    herramientaId,
+    nombre,
+    fechaConsulta: HOY,
+    urlsSolicitadas: urls,
+    urlsRecuperadas: urlsVistas,
+    capacidadesPedidas: ids,
+    respuestas: [...porId.values()],
+    sinRespuesta,
+  };
+}
+
+async function procesarPlan(
+  herramientaId: string,
+  nombre: string,
+  urls: string[],
+  ids: string[],
+  capacidadPorId: Map<string, Capacidad>,
+  citaPreviaDe: Map<string, string>
+): Promise<SalidaHerramienta> {
+  const bloques = Math.ceil(ids.length / POR_LLAMADA);
+  const respuestas: RespuestaCruda[] = [];
+  const urlsVistas: Array<{ url?: string; estado?: string; recuperada?: boolean }> = [];
+
+  for (let b = 0; b < bloques; b++) {
+    const trozo = ids.slice(b * POR_LLAMADA, (b + 1) * POR_LLAMADA);
+    const caps = trozo.map((id) => ({ ...capacidadPorId.get(id)!, citaPrevia: citaPreviaDe.get(id) }));
+    const prompt = promptPlan(nombre, caps);
+    const t0 = Date.now();
+    const resp = await invocarGemini(prompt, urls);
+    const ms = Date.now() - t0;
+    urlsVistas.push(...extraerUrls(resp));
+    const texto = extraerTexto(resp);
+    try {
+      const parseado = JSON.parse(texto) as Array<{
+        capacidadId?: string;
+        profundidad?: string | null;
+        integraCon?: string | null;
+        planMinimo?: string | null;
+        urlFuente?: string | null;
+        cita?: string | null;
+      }>;
+      const filtrado = parseado.filter((r) => trozo.includes(r.capacidadId ?? ""));
+      for (const r of filtrado) {
+        respuestas.push({
+          capacidadId: r.capacidadId,
+          veredicto: "si",
+          profundidad: aTextoONull(r.profundidad),
+          integraCon: aTextoONull(r.integraCon),
+          planMinimo: aTextoONull(r.planMinimo),
+          urlFuente: aTextoONull(r.urlFuente),
+          cita: aTextoONull(r.cita),
+          nota: null,
+        });
+      }
+      console.log(`    bloque ${b + 1}/${bloques} — ${trozo.length} capacidades, ${ms}ms, ${filtrado.length} respondidas`);
+    } catch {
+      console.log(`    bloque ${b + 1}/${bloques} — respuesta no interpretable: ${texto.slice(0, 200)}`);
+    }
+    if (b < bloques - 1) await sleep(PAUSA_MS);
+  }
+
+  const porId = new Map<string, RespuestaCruda>();
+  for (const r of respuestas) if (r.capacidadId && ids.includes(r.capacidadId)) porId.set(r.capacidadId, r);
+  const sinRespuesta = ids.filter((id) => !porId.has(id));
+
+  return {
+    herramientaId,
+    nombre,
+    fechaConsulta: HOY,
+    urlsSolicitadas: urls,
+    urlsRecuperadas: urlsVistas,
+    capacidadesPedidas: ids,
+    respuestas: [...porId.values()],
+    sinRespuesta,
+  };
+}
+
+async function main() {
+  const herramientas = getTodasLasHerramientas();
+  const herramientaPorId = new Map(herramientas.map((h) => [h.id, h]));
+  const capacidades = getCapacidades();
+  const capacidadPorId = new Map(capacidades.map((c) => [c.id, c]));
+  const sustituciones = getSustituciones();
+  const sustitucionPorId = new Map(sustituciones.map((s) => [s.herramientaId, s]));
+
+  const descartes = leerJson<Descarte[]>(path.join(DIR, "descartes.json"));
+  const bucketCapacidad = descartes.filter((d) => d.motivo === "sin respuesta");
+  const bucketPlan = descartes.filter(
+    (d) => d.motivo === "sin plan mínimo" || d.motivo === "el plan no viene de una fuente que lo demuestre"
+  );
+  const bucketRedireccion = descartes.filter((d) => d.motivo === "la dirección citada no consta como leída");
+
+  function agrupar(arr: Descarte[]): Map<string, string[]> {
+    const m = new Map<string, string[]>();
+    for (const d of arr) {
+      if (!m.has(d.herramientaId)) m.set(d.herramientaId, []);
+      if (!m.get(d.herramientaId)!.includes(d.capacidadId)) m.get(d.herramientaId)!.push(d.capacidadId);
+    }
+    return m;
+  }
+  function citaPorCapacidad(arr: Descarte[], herramientaId: string): Map<string, string> {
+    const m = new Map<string, string>();
+    for (const d of arr) if (d.herramientaId === herramientaId && d.cita) m.set(d.capacidadId, d.cita);
+    return m;
+  }
+
+  const gCap = agrupar(bucketCapacidad);
+  const gPlan = agrupar(bucketPlan);
+  const gRed = agrupar(bucketRedireccion);
+
+  function urlsDe(herramientaId: string): string[] {
+    const ficha = herramientaPorId.get(herramientaId)!;
+    const sust = sustitucionPorId.get(herramientaId);
+    const urlPrecios = sust?.urlPrecios ?? ficha.urlPrecios;
+    const urls = [urlPrecios, ficha.paginaOficial].filter((u): u is string => Boolean(u));
+    return [...new Set(urls)];
+  }
+
+  const salidas: SalidaHerramienta[] = [];
+  const resumenAplicadas: Record<string, number> = {};
+
+  // 1) Redirección: full re-ask con la URL final ya resuelta.
+  console.log("\n=== Bucket redirección (41 pares, 5 tools) ===");
+  for (const [id, ids] of gRed) {
+    const ficha = herramientaPorId.get(id)!;
+    console.log(`· ${ficha.nombre} (${id}) — ${ids.length} capacidades`);
+    const salida = await procesarCapacidad(id, ficha.nombre, urlsDe(id), ids, capacidadPorId);
+    salidas.push(salida);
+    resumenAplicadas[`redireccion:${id}`] = salida.respuestas?.length ?? 0;
+    await sleep(PAUSA_MS);
+  }
+
+  // 2) Capacidad entera: sin respuesta.
+  console.log("\n=== Bucket capacidad (133 pares) ===");
+  for (const [id, ids] of gCap) {
+    const ficha = herramientaPorId.get(id)!;
+    console.log(`· ${ficha.nombre} (${id}) — ${ids.length} capacidades`);
+    const salida = await procesarCapacidad(id, ficha.nombre, urlsDe(id), ids, capacidadPorId);
+    salidas.push(salida);
+    resumenAplicadas[`capacidad:${id}`] = salida.respuestas?.length ?? 0;
+    await sleep(PAUSA_MS);
+  }
+
+  // 3) Sólo plan.
+  console.log("\n=== Bucket plan (106 pares) ===");
+  for (const [id, ids] of gPlan) {
+    const ficha = herramientaPorId.get(id)!;
+    console.log(`· ${ficha.nombre} (${id}) — ${ids.length} capacidades`);
+    const citaPrevia = citaPorCapacidad(bucketPlan, id);
+    const salida = await procesarPlan(id, ficha.nombre, urlsDe(id), ids, capacidadPorId, citaPrevia);
+    salidas.push(salida);
+    resumenAplicadas[`plan:${id}`] = salida.respuestas?.length ?? 0;
+    await sleep(PAUSA_MS);
+  }
+
+  escribirJson(path.join(DIR, "_salida-repesca-remota.json"), {
+    fecha: HOY,
+    modelo: MODELO,
+    herramientas: salidas,
+  });
+
+  // --- Conversión: reutiliza las mismas reglas que convertir-verificacion ---
+  const fuentesPorHerramienta: Record<string, FuentesDeHerramienta> = {};
+  for (const h of herramientas) fuentesPorHerramienta[h.id] = { urlPrecios: h.urlPrecios };
+  for (const s of sustituciones) {
+    fuentesPorHerramienta[s.herramientaId] = {
+      ...fuentesPorHerramienta[s.herramientaId],
+      ...(s.urlPrecios ? { urlPrecios: s.urlPrecios } : {}),
+      ...(s.documentacion?.length ? { documentacion: s.documentacion } : {}),
+    };
+  }
+
+  const salidaLote: SalidaLote = {
+    lote: 1,
+    fecha: HOY,
+    modelo: MODELO,
+    herramientas: salidas,
+  };
+
+  const { registros: nuevosRegistros, descartes: nuevosDescartes, resumen } = convertirSalida(
+    salidaLote,
+    fuentesPorHerramienta,
+    getCitasRevisadas()
+  );
+
+  const herramientaIds = herramientas.map((h) => h.id);
+  const capacidadIds = capacidadIdsDelVocabulario();
+  const erroresValidacion = nuevosRegistros.flatMap((r) => erroresDeRegistro(r, herramientaIds, capacidadIds));
+  if (erroresValidacion.length) {
+    console.error(`${erroresValidacion.length} registro(s) nuevos no pasan el validador. No se escribe nada:`);
+    for (const e of erroresValidacion.slice(0, 30)) console.error(`  · ${e}`);
+    process.exit(1);
+  }
+
+  // --- Fusión: sustituir SOLO los pares tocados, conservar el resto intacto ---
+  const registrosViejos = leerJson<RegistroVerificacion[]>(path.join(DIR, "registros.json"));
+  const descartesViejos = leerJson<Descarte[]>(path.join(DIR, "descartes.json"));
+
+  const clavePar = (h: string, c: string) => `${h}::${c}`;
+  const paresPedidos = new Set(salidas.flatMap((s) => (s.capacidadesPedidas ?? []).map((c) => clavePar(s.herramientaId, c))));
+
+  const registrosFinal = [
+    ...registrosViejos.filter((r) => !paresPedidos.has(clavePar(r.herramientaId, r.capacidadId))),
+    ...nuevosRegistros,
+  ];
+  const descartesFinal = [
+    ...descartesViejos.filter((d) => !paresPedidos.has(clavePar(d.herramientaId, d.capacidadId))),
+    ...nuevosDescartes,
+  ];
+
+  const erroresFinal = registrosFinal.flatMap((r) => erroresDeRegistro(r, herramientaIds, capacidadIds));
+  if (erroresFinal.length) {
+    console.error(`${erroresFinal.length} registro(s) en el archivo fusionado no pasan el validador. No se escribe nada:`);
+    for (const e of erroresFinal.slice(0, 30)) console.error(`  · ${e}`);
+    process.exit(1);
+  }
+
+  escribirJson(path.join(DIR, "registros.json"), registrosFinal);
+  escribirJson(path.join(DIR, "descartes.json"), descartesFinal);
+
+  console.log("\n=== Resumen de la conversión de este run ===");
+  console.log(`Pares pedidos:      ${paresPedidos.size}`);
+  console.log(`Registros nuevos:   ${nuevosRegistros.length}`);
+  console.log(`  verificados:      ${resumen.verificados}`);
+  console.log(`  no disponibles:   ${resumen.noDisponibles}`);
+  console.log(`  desconocidos:     ${resumen.desconocidos}`);
+  console.log(`Degradados:         ${resumen.degradados}`);
+  console.log(`Sin respuesta:      ${resumen.sinRespuesta}`);
+  console.log(`\nregistros.json total: ${registrosFinal.length} (antes ${registrosViejos.length})`);
+  console.log(`descartes.json total: ${descartesFinal.length} (antes ${descartesViejos.length})`);
+}
+
+main().catch((e) => {
+  console.error("FALLO:", e);
+  process.exit(1);
+});

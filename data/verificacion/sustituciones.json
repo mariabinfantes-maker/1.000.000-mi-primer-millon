@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "herramientaId": "capsule-crm",
+    "urlPrecios": "https://capsulecrm.com/signup/",
+    "motivo": "La urlPrecios de la ficha (https://capsulecrm.com/pricing/) redirige aquí. Comprobado con el fetch de Gemini (url_context): retrievedUrl=https://capsulecrm.com/signup/, URL_RETRIEVAL_STATUS_SUCCESS. La URL de destino usa el path /signup/ pero el contenido es la página de precios: título \"Capsule CRM Pricing | Compare plans & start free | Capsule CRM\", encabezado \"Select a plan that suits you\".",
+    "fecha": "2026-09-07"
+  },
+  {
+    "herramientaId": "insightly",
+    "urlPrecios": "https://www.insightly.com/pricing-plans/",
+    "motivo": "La urlPrecios de la ficha (https://www.insightly.com/pricing/) redirige aquí. Comprobado con el fetch de Gemini (url_context): retrievedUrl=https://www.insightly.com/pricing-plans/, URL_RETRIEVAL_STATUS_SUCCESS.",
+    "fecha": "2026-09-07"
+  },
+  {
+    "herramientaId": "wrike",
+    "urlPrecios": "https://www.wrike.com/price/",
+    "motivo": "La urlPrecios de la ficha (https://www.wrike.com/pricing/) redirige aquí. Comprobado con el fetch de Gemini (url_context): retrievedUrl=https://www.wrike.com/price/, URL_RETRIEVAL_STATUS_SUCCESS.",
+    "fecha": "2026-09-07"
+  },
+  {
+    "herramientaId": "zenkit",
+    "urlPrecios": "https://zenkit.com/en/pricing/",
+    "motivo": "La urlPrecios de la ficha (https://zenkit.com/en/base/pricing/) redirige aquí. Comprobado con el fetch de Gemini (url_context): retrievedUrl=https://zenkit.com/en/pricing/, URL_RETRIEVAL_STATUS_SUCCESS.",
+    "fecha": "2026-09-07"
+  },
+  {
+    "herramientaId": "zoho-crm",
+    "urlPrecios": "https://www.zoho.com/en-us/crm/zohocrm-pricing.html",
+    "motivo": "La urlPrecios de la ficha (https://www.zoho.com/crm/pricing.html) redirige aquí. Comprobado con el fetch de Gemini (url_context): retrievedUrl=https://www.zoho.com/en-us/crm/zohocrm-pricing.html, URL_RETRIEVAL_STATUS_SUCCESS.",
+    "fecha": "2026-09-07"
+  }
+]
