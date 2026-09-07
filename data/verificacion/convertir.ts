@@ -294,13 +294,33 @@ export function convertirSalida(
       }
 
       const planMinimo = (r.planMinimo ?? "").trim();
-      if (profundidad !== "integracion" && !planMinimo) {
-        degradar(
-          capacidadId,
-          "sin plan mínimo",
-          "Se afirmó que la tiene, pero no en qué plan. Una función del plan caro no le sirve a quien busca el barato."
-        );
-        continue;
+      if (profundidad !== "integracion") {
+        if (!planMinimo) {
+          degradar(
+            capacidadId,
+            "sin plan mínimo",
+            "Se afirmó que la tiene, pero no en qué plan. Una función del plan caro no le sirve a quien busca el barato."
+          );
+          continue;
+        }
+        /**
+         * El plan sólo lo demuestra la página de tarifas.
+         *
+         * Decisión de la propietaria el 2026-09-07, con el lote 1 delante: 38
+         * de 144 planes venían de una portada. Un eslogan comercial —«Agile CRM
+         * es gratis para diez usuarios»— no dice en qué plan está una función
+         * concreta, y su regla exige el plan donde la capacidad existe DE
+         * VERDAD. Sin esto, el motor mandaría a alguien al plan barato a buscar
+         * algo que sólo está en el caro.
+         */
+        if (fuente.tipo !== "tarifa_oficial") {
+          degradar(
+            capacidadId,
+            "el plan no viene de la página de tarifas",
+            `Se sitúa en el plan "${planMinimo}" citando ${urlLeida}, que no es la página de tarifas oficial.`
+          );
+          continue;
+        }
       }
 
       registros.push({
@@ -308,7 +328,13 @@ export function convertirSalida(
         capacidadId,
         estado: "verificado",
         profundidad,
-        planMinimo: planMinimo || undefined,
+        /**
+         * Una integración no necesita plan, pero si trae uno se le exige la
+         * misma prueba que a las demás: la tarifa oficial. Sin esto, la regla
+         * tenía una puerta lateral —bastaba responder «integracion» para que un
+         * plan sacado de la portada sobreviviera—, y una la cruzó.
+         */
+        planMinimo: planMinimo && fuente.tipo === "tarifa_oficial" ? planMinimo : undefined,
         integraCon: profundidad === "integracion" ? r.integraCon!.trim() : undefined,
         fuentes: [fuente],
         confianza,

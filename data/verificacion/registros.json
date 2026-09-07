@@ -236,19 +236,22 @@
   {
     "herramientaId": "agile-crm",
     "capacidadId": "cap.customer_contact_records",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "FREE",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.agilecrm.com/pricing",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.agilecrm.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Close more deals with single-page contact management"
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"FREE\" citando https://www.agilecrm.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "agile-crm",
@@ -273,19 +276,22 @@
   {
     "herramientaId": "agile-crm",
     "capacidadId": "cap.sales_pipeline",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "FREE",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.agilecrm.com/pricing",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.agilecrm.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Track stages and milestones of your deals to keep the sales process on track"
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"FREE\" citando https://www.agilecrm.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "agile-crm",
@@ -1883,36 +1889,42 @@
   {
     "herramientaId": "close",
     "capacidadId": "cap.app_integrations",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Solo",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://close.com/pricing",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://close.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Close connects to your favorite sales, marketing, and support tools. Out of the box."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Solo\" citando https://close.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "close",
     "capacidadId": "cap.public_api",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Solo",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://close.com/pricing",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://close.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "REST API, webhooks, and MCP server. Everything you need to customize Close for the way your team works."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Solo\" citando https://close.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "close",
@@ -2745,19 +2757,22 @@
   {
     "herramientaId": "copper",
     "capacidadId": "cap.task_management",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Basic",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.copper.com/pricing",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.copper.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Assign tasks and follow-ups from a centralized task lists, or within projects."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Basic\" citando https://www.copper.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "copper",
@@ -2939,19 +2954,22 @@
   {
     "herramientaId": "ganttpro",
     "capacidadId": "cap.data_export",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Core",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://ganttpro.com/pricing/",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://ganttpro.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Export your timeline even on a trial to the most popular formats like PDF, PNG, XLSX, and XML."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Core\" citando https://ganttpro.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "ganttpro",
@@ -3047,109 +3065,122 @@
   {
     "herramientaId": "ganttpro",
     "capacidadId": "cap.task_management",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Core",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://ganttpro.com/pricing/",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://ganttpro.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Plan and manage simple tasks and complex projects with professional Gantt chart software."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Core\" citando https://ganttpro.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "ganttpro",
     "capacidadId": "cap.project_planning",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Core",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://ganttpro.com/pricing/",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://ganttpro.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Add tasks, dates, resources, and watch the program automatically build a Gantt chart online."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07",
-    "nota": "Permite organizar proyectos asignando tareas, fechas y recursos. Planificación básica e hitos incluidos desde el plan Core."
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Core\" citando https://ganttpro.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "ganttpro",
     "capacidadId": "cap.gantt_and_dependencies",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Core",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://ganttpro.com/pricing/",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://ganttpro.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Use the work breakdown structure and dependencies to know the order in which tasks should be completed."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07",
-    "nota": "Visualización temporal y gestión de dependencias entre tareas disponible desde el plan Core."
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Core\" citando https://ganttpro.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "ganttpro",
     "capacidadId": "cap.kanban_boards",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Core",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://ganttpro.com/pricing/",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://ganttpro.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "In GanttPRO, you can switch to a board view where each task is presented as a card in a relevant column."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07",
-    "nota": "Vista de tablero estilo Kanban para visualizar tareas por columnas disponible desde el plan Core."
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Core\" citando https://ganttpro.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "ganttpro",
     "capacidadId": "cap.time_tracking",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Business",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://ganttpro.com/pricing/",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://ganttpro.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Log the actual time you spend on tasks and milestones and, if needed, leave comments."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07",
-    "nota": "Permite registrar el tiempo dedicado a tareas e hitos. En la tabla de precios aparece incluido a partir del plan Business."
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Business\" citando https://ganttpro.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "ganttpro",
     "capacidadId": "cap.team_workload_planning",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Business",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://ganttpro.com/pricing/",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://ganttpro.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Check your team's workload and be sure whether someone in your company is underperforming or, vice versa, has too many tasks."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07",
-    "nota": "Visualización y gestión de la carga de trabajo del equipo. Incluido a partir del plan Business."
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Business\" citando https://ganttpro.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "ganttpro",
@@ -5197,19 +5228,22 @@
   {
     "herramientaId": "nifty",
     "capacidadId": "cap.workflow_automation",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Pro",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://niftypm.com/pricing/",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://niftypm.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Turn status updates, handoffs, and reminders into if/then rules that run themeselves."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Pro\" citando https://niftypm.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "nifty",
@@ -5271,19 +5305,22 @@
   {
     "herramientaId": "nifty",
     "capacidadId": "cap.dashboards",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Pro",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://niftypm.com/pricing/",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://niftypm.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Live dashboards across every project and team."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Pro\" citando https://niftypm.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "nifty",
@@ -6169,53 +6206,47 @@
   {
     "herramientaId": "nocrm-io",
     "capacidadId": "cap.workflow_automation",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Dream",
+    "estado": "desconocido",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
         "url": "https://www.nocrm.io/es",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Crea reglas dentro de noCRM para automatizar tareas repetidas, reducir el trabajo manual y evitar errores."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Dream\" citando https://www.nocrm.io/es, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "nocrm-io",
     "capacidadId": "cap.app_integrations",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Expert",
+    "estado": "desconocido",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
         "url": "https://www.nocrm.io/es",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Disfruta de integraciones nativas fluidas, mayores límites de API y soporte técnico para una conectividad avanzada."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Expert\" citando https://www.nocrm.io/es, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "nocrm-io",
     "capacidadId": "cap.public_api",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Expert",
+    "estado": "desconocido",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
         "url": "https://www.nocrm.io/es",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Usa la API abierta de noCRM para conectar tus sistemas y crear integraciones personalizadas."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Expert\" citando https://www.nocrm.io/es, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "nocrm-io",
@@ -6295,19 +6326,17 @@
   {
     "herramientaId": "nocrm-io",
     "capacidadId": "cap.roles_and_permissions",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Dream",
+    "estado": "desconocido",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
         "url": "https://www.nocrm.io/es",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Crea equipos para colaborar mejor y controla los permisos, exportaciones, sesiones y datos sensibles."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Dream\" citando https://www.nocrm.io/es, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "nocrm-io",
@@ -6387,19 +6416,17 @@
   {
     "herramientaId": "nocrm-io",
     "capacidadId": "cap.sales_pipeline",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Starter",
+    "estado": "desconocido",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
         "url": "https://www.nocrm.io/es",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Pipeline visual: Gestiona tus oportunidades con un pipeline intuitivo y fácil de usar que muestra con claridad cada etapa."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Starter\" citando https://www.nocrm.io/es, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "nocrm-io",
@@ -6434,19 +6461,17 @@
   {
     "herramientaId": "nocrm-io",
     "capacidadId": "cap.quotes_and_proposals",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Expert",
+    "estado": "desconocido",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
         "url": "https://www.nocrm.io/es",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Gestión de cotizaciones y facturas: Crea cotizaciones, anticipos, facturas y notas de crédito personalizadas en segundos. Supervisa su estado directamente desde tu panel de ventas."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Expert\" citando https://www.nocrm.io/es, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "nocrm-io",
@@ -6541,19 +6566,17 @@
   {
     "herramientaId": "nocrm-io",
     "capacidadId": "cap.invoicing",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Expert",
+    "estado": "desconocido",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
         "url": "https://www.nocrm.io/es",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Crea cotizaciones, anticipos, facturas y notas de crédito personalizadas en segundos. Supervisa su estado directamente desde tu panel de ventas."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Expert\" citando https://www.nocrm.io/es, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "nutshell",
@@ -7078,19 +7101,22 @@
   {
     "herramientaId": "paymo",
     "capacidadId": "cap.app_integrations",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Plus",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.paymoapp.com/pricing/",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.paymoapp.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Extend the capabilities of Paymo with third-party integrations."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Plus\" citando https://www.paymoapp.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "paymo",
@@ -7329,19 +7355,22 @@
   {
     "herramientaId": "paymo",
     "capacidadId": "cap.gantt_and_dependencies",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Pro",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.paymoapp.com/pricing/",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.paymoapp.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Visualize work and task dependencies on a timeline and make adjustments easily."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Pro\" citando https://www.paymoapp.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "paymo",
@@ -7380,19 +7409,22 @@
   {
     "herramientaId": "paymo",
     "capacidadId": "cap.team_workload_planning",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Pro",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.paymoapp.com/pricing/",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.paymoapp.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "See at a glance who's available for work or who's overbooked."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Pro\" citando https://www.paymoapp.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "paymo",
@@ -7477,38 +7509,42 @@
   {
     "herramientaId": "paymo",
     "capacidadId": "cap.job_costing",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Plus",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.paymoapp.com/pricing/",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.paymoapp.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Paymo helps you monitor every dollar in and out, giving you complete visibility into your project's profitability."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07",
-    "nota": "Permite medir el margen y rentabilidad específica a nivel de proyecto."
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Plus\" citando https://www.paymoapp.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "paymo",
     "capacidadId": "cap.invoicing",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Free",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.paymoapp.com/pricing/",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.paymoapp.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Use Paymo's online invoicing software for small businesses to convert unbilled time into professional-looking invoices."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07",
-    "nota": "Permite emitir facturas convirtiendo el tiempo trabajado no facturado."
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Free\" citando https://www.paymoapp.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "paymo",
@@ -11256,53 +11292,62 @@
   {
     "herramientaId": "teamgantt",
     "capacidadId": "cap.task_management",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "TeamGantt Personal",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.teamgantt.com/pricing",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.teamgantt.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Break down work, assign owners, and track progress across Gantt, board, list, or calendar views—all synced in real time."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"TeamGantt Personal\" citando https://www.teamgantt.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "teamgantt",
     "capacidadId": "cap.project_planning",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "TeamGantt Personal",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.teamgantt.com/pricing",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.teamgantt.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Build Gantt charts fast with drag-and-drop tools. Set dependencies, add milestones, and use templates to plan new projects in minutes."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"TeamGantt Personal\" citando https://www.teamgantt.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "teamgantt",
     "capacidadId": "cap.gantt_and_dependencies",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "TeamGantt Personal",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.teamgantt.com/pricing",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.teamgantt.com/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Map every task, resource, and dependency on a Gantt chart—right in your browser."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"TeamGantt Personal\" citando https://www.teamgantt.com/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "teamgantt",
@@ -13670,36 +13715,42 @@
   {
     "herramientaId": "zoho-projects",
     "capacidadId": "cap.workflow_automation",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Free",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.zoho.com/projects/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Save time on routine tasks. Whether you have a simple process or a complex workflow, our online project management platform has a drag-and-drop interface that makes new automations easier to visualize and deploy."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Free\" citando https://www.zoho.com/projects/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "zoho-projects",
     "capacidadId": "cap.app_integrations",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Free",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.zoho.com/projects/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Zoho Projects gives you the added advantage of several other Zoho apps and third party apps through seamless integrations."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Free\" citando https://www.zoho.com/projects/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "zoho-projects",
@@ -13744,19 +13795,22 @@
   {
     "herramientaId": "zoho-projects",
     "capacidadId": "cap.dashboards",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Enterprise",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.zoho.com/projects/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Reporting and Analytics: Measure real-time performance, get visual dashboards and progress reports."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Enterprise\" citando https://www.zoho.com/projects/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "zoho-projects",
@@ -13892,19 +13946,22 @@
   {
     "herramientaId": "zoho-projects",
     "capacidadId": "cap.task_management",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Free",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.zoho.com/projects/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Task Management: Gantt charts, Task Lists, or Kanban boards can help prioritize tasks, organize work, and manage projects effectively."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Free\" citando https://www.zoho.com/projects/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "zoho-projects",
@@ -13929,70 +13986,82 @@
   {
     "herramientaId": "zoho-projects",
     "capacidadId": "cap.gantt_and_dependencies",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Free",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.zoho.com/projects/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Use Gantt charts to build your project plan and track your task schedule. Zoho Projects keeps you aware of your critical tasks and their dependencies, and immediately shows any deviations between your planned and actual progress."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Free\" citando https://www.zoho.com/projects/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "zoho-projects",
     "capacidadId": "cap.kanban_boards",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Free",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.zoho.com/projects/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Task Management: Gantt charts, Task Lists, or Kanban boards can help prioritize tasks, organize work, and manage projects effectively."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Free\" citando https://www.zoho.com/projects/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "zoho-projects",
     "capacidadId": "cap.time_tracking",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Premium",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.zoho.com/projects/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Log billable and non-billable hours with the Projects timesheet module. Record every minute of your hard work, either manually or with timers, and our built-in integration with Zoho Invoice will automatically generate invoices from your timesheets."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Premium\" citando https://www.zoho.com/projects/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "zoho-projects",
     "capacidadId": "cap.team_workload_planning",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Premium",
+    "estado": "desconocido",
     "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
+        "fechaConsulta": "2026-09-07"
+      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.zoho.com/projects/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Resource Management: Distribute workload effectively, prevent burnout and under utilization."
+        "fechaConsulta": "2026-09-07"
       }
     ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Se sitúa en el plan \"Premium\" citando https://www.zoho.com/projects/, que no es la página de tarifas oficial."
   },
   {
     "herramientaId": "zoho-projects",
@@ -14099,7 +14168,6 @@
     "capacidadId": "cap.invoicing",
     "estado": "verificado",
     "profundidad": "integracion",
-    "planMinimo": "FREE",
     "integraCon": "Zoho Invoice",
     "fuentes": [
       {

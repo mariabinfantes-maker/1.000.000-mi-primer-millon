@@ -257,4 +257,132 @@ describe("convertir la salida cruda en registros", () => {
     });
   });
 
+
+  /**
+   * Decisión de la propietaria del 2026-09-07, con el lote 1 delante: 38 de
+   * 144 planes se apoyaban en una portada. Un eslogan no dice en qué plan está
+   * una función, y mandar a alguien al plan barato a buscar algo que sólo está
+   * en el caro es justo el daño que F2 existe para evitar.
+   */
+  describe("el plan sólo lo sostiene la página de tarifas", () => {
+    it("rechaza un plan apoyado en la portada", () => {
+      const { registros, descartes } = uno({
+        ...buena,
+        urlFuente: PORTADA,
+        planMinimo: "FREE",
+      });
+      // La portada de este caso no consta leída; se prueba con una que sí.
+      expect(registros[0].estado).toBe("desconocido");
+      expect(descartes).toHaveLength(1);
+    });
+
+    it("rechaza el plan cuando la portada sí se leyó pero no es la tarifa", () => {
+      const r = convertirSalida(
+        {
+          herramientas: [
+            {
+              herramientaId: "pipedrive",
+              fechaConsulta: "2026-09-07",
+              urlsSolicitadas: [PRECIOS, PORTADA],
+              urlsRecuperadas: [
+                { url: PRECIOS, estado: "URL_RETRIEVAL_STATUS_SUCCESS", recuperada: true },
+                { url: PORTADA, estado: "URL_RETRIEVAL_STATUS_SUCCESS", recuperada: true },
+              ],
+              capacidadesPedidas: ["cap.sales_pipeline"],
+              respuestas: [
+                {
+                  capacidadId: "cap.sales_pipeline",
+                  ...buena,
+                  urlFuente: PORTADA,
+                  planMinimo: "FREE",
+                  cita: "Cierra más tratos con la gestión de contactos en una sola página",
+                },
+              ],
+            },
+          ],
+        },
+        urlPrecios
+      );
+      expect(r.descartes[0].motivo).toBe("el plan no viene de la página de tarifas");
+      expect(r.registros[0].estado).toBe("desconocido");
+      expect(r.registros[0].confianza).toBe("baja");
+    });
+
+    it("una integración no necesita plan, así que la portada le vale", () => {
+      const r = convertirSalida(
+        {
+          herramientas: [
+            {
+              herramientaId: "pipedrive",
+              fechaConsulta: "2026-09-07",
+              urlsSolicitadas: [PRECIOS, PORTADA],
+              urlsRecuperadas: [
+                { url: PORTADA, estado: "URL_RETRIEVAL_STATUS_SUCCESS", recuperada: true },
+              ],
+              capacidadesPedidas: ["cap.sales_pipeline"],
+              respuestas: [
+                {
+                  capacidadId: "cap.sales_pipeline",
+                  veredicto: "si",
+                  profundidad: "integracion",
+                  integraCon: "Zapier",
+                  planMinimo: null,
+                  urlFuente: PORTADA,
+                  cita: "Conecta Pipedrive con más de 400 aplicaciones a través de Zapier",
+                },
+              ],
+            },
+          ],
+        },
+        urlPrecios
+      );
+      expect(r.descartes).toEqual([]);
+      expect(r.registros[0]).toMatchObject({ estado: "verificado", profundidad: "integracion" });
+    });
+
+    /**
+     * La puerta lateral: bastaba responder «integracion» para que un plan de la
+     * portada sobreviviera sin pasar por la tarifa. En el lote 1 la cruzó una,
+     * zoho-projects con cap.invoicing.
+     */
+    it("una integración tampoco conserva un plan sacado de la portada", () => {
+      const r = convertirSalida(
+        {
+          herramientas: [
+            {
+              herramientaId: "pipedrive",
+              fechaConsulta: "2026-09-07",
+              urlsSolicitadas: [PRECIOS, PORTADA],
+              urlsRecuperadas: [
+                { url: PORTADA, estado: "URL_RETRIEVAL_STATUS_SUCCESS", recuperada: true },
+              ],
+              capacidadesPedidas: ["cap.sales_pipeline"],
+              respuestas: [
+                {
+                  capacidadId: "cap.sales_pipeline",
+                  veredicto: "si",
+                  profundidad: "integracion",
+                  integraCon: "Zapier",
+                  planMinimo: "FREE",
+                  urlFuente: PORTADA,
+                  cita: "Conecta Pipedrive con más de 400 aplicaciones a través de Zapier",
+                },
+              ],
+            },
+          ],
+        },
+        urlPrecios
+      );
+      expect(r.registros[0].estado).toBe("verificado");
+      expect(r.registros[0].planMinimo).toBeUndefined();
+    });
+
+    it("la tarifa oficial sigue valiendo", () => {
+      const { registros, descartes } = uno(buena);
+      expect(descartes).toEqual([]);
+      expect(registros[0].fuentes[0].tipo).toBe("tarifa_oficial");
+      expect(registros[0].planMinimo).toBe("Lite");
+    });
+  });
+
 });

@@ -1,6 +1,16 @@
 [
   {
     "herramientaId": "agile-crm",
+    "capacidadId": "cap.customer_contact_records",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "agile-crm",
+    "capacidadId": "cap.sales_pipeline",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "agile-crm",
     "capacidadId": "cap.lead_capture",
     "motivo": "sin cita literal suficiente"
   },
@@ -140,6 +150,16 @@
     "motivo": "sin respuesta"
   },
   {
+    "herramientaId": "close",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "close",
+    "capacidadId": "cap.public_api",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
     "herramientaId": "copper",
     "capacidadId": "cap.workflow_automation",
     "motivo": "sin respuesta"
@@ -230,6 +250,11 @@
     "motivo": "sin respuesta"
   },
   {
+    "herramientaId": "copper",
+    "capacidadId": "cap.task_management",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
     "herramientaId": "ganttpro",
     "capacidadId": "cap.public_api",
     "motivo": "sin cita literal suficiente"
@@ -241,8 +266,43 @@
   },
   {
     "herramientaId": "ganttpro",
+    "capacidadId": "cap.data_export",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "ganttpro",
     "capacidadId": "cap.data_import_and_migration",
     "motivo": "sin cita literal suficiente"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.task_management",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.project_planning",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.kanban_boards",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.time_tracking",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.team_workload_planning",
+    "motivo": "el plan no viene de la página de tarifas"
   },
   {
     "herramientaId": "hive",
@@ -441,8 +501,18 @@
   },
   {
     "herramientaId": "nifty",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "nifty",
     "capacidadId": "cap.public_api",
     "motivo": "sin cita literal suficiente"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.dashboards",
+    "motivo": "el plan no viene de la página de tarifas"
   },
   {
     "herramientaId": "nifty",
@@ -491,6 +561,21 @@
   },
   {
     "herramientaId": "nocrm-io",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "nocrm-io",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "nocrm-io",
+    "capacidadId": "cap.public_api",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "nocrm-io",
     "capacidadId": "cap.webhooks",
     "motivo": "sin plan mínimo"
   },
@@ -501,6 +586,21 @@
   },
   {
     "herramientaId": "nocrm-io",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "nocrm-io",
+    "capacidadId": "cap.sales_pipeline",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "nocrm-io",
+    "capacidadId": "cap.quotes_and_proposals",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "nocrm-io",
     "capacidadId": "cap.shared_inbox",
     "motivo": "sin plan mínimo"
   },
@@ -508,6 +608,11 @@
     "herramientaId": "nocrm-io",
     "capacidadId": "cap.task_management",
     "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "nocrm-io",
+    "capacidadId": "cap.invoicing",
+    "motivo": "el plan no viene de la página de tarifas"
   },
   {
     "herramientaId": "nutshell",
@@ -606,6 +711,11 @@
   },
   {
     "herramientaId": "paymo",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "paymo",
     "capacidadId": "cap.roles_and_permissions",
     "motivo": "sin plan mínimo"
   },
@@ -613,6 +723,26 @@
     "herramientaId": "paymo",
     "capacidadId": "cap.project_planning",
     "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "paymo",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "paymo",
+    "capacidadId": "cap.team_workload_planning",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "paymo",
+    "capacidadId": "cap.job_costing",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "paymo",
+    "capacidadId": "cap.invoicing",
+    "motivo": "el plan no viene de la página de tarifas"
   },
   {
     "herramientaId": "pipedrive",
@@ -953,6 +1083,21 @@
     "herramientaId": "teamgantt",
     "capacidadId": "cap.roles_and_permissions",
     "motivo": "sin plan mínimo"
+  },
+  {
+    "herramientaId": "teamgantt",
+    "capacidadId": "cap.task_management",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "teamgantt",
+    "capacidadId": "cap.project_planning",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "teamgantt",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "motivo": "el plan no viene de la página de tarifas"
   },
   {
     "herramientaId": "teamgantt",
@@ -1283,5 +1428,45 @@
     "herramientaId": "zoho-crm",
     "capacidadId": "cap.quotes_and_proposals",
     "motivo": "la dirección citada no consta como leída"
+  },
+  {
+    "herramientaId": "zoho-projects",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "zoho-projects",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "zoho-projects",
+    "capacidadId": "cap.dashboards",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "zoho-projects",
+    "capacidadId": "cap.task_management",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "zoho-projects",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "zoho-projects",
+    "capacidadId": "cap.kanban_boards",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "zoho-projects",
+    "capacidadId": "cap.time_tracking",
+    "motivo": "el plan no viene de la página de tarifas"
+  },
+  {
+    "herramientaId": "zoho-projects",
+    "capacidadId": "cap.team_workload_planning",
+    "motivo": "el plan no viene de la página de tarifas"
   }
 ]
