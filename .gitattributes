@@ -1,0 +1,4 @@
+# Windows PowerShell 5.1 no lee bien un .ps1 sin BOM ni con saltos de
+# linea de Unix: rompe los acentos y no reconoce los bloques de texto.
+# Estos archivos se guardan con CRLF y BOM, y git no debe tocarlos.
+*.ps1 -text

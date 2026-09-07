@@ -1,4 +1,4 @@
-<#
+﻿<#
     Verificación de F2 contra fuentes oficiales — ejecución local.
 
     POR QUÉ ESTE SCRIPT EXISTE Y NO LO EJECUTA EL AGENTE
@@ -148,45 +148,52 @@ function Construir-Prompt($ficha, $capacidades) {
         "- $($c.id) | $($c.etiqueta): $($c.definicion)$no"
     }) -join "`n"
 
-    return @"
-Eres un verificador. Tu trabajo NO es describir la herramienta ni venderla: es
-comprobar, leyendo únicamente las páginas oficiales que te doy, qué se puede
-afirmar de ella con una frase de esas páginas delante.
-
-HERRAMIENTA: $($ficha.nombre)
-
-REGLAS, y son innegociables:
-1. Usa SOLO el contenido de las direcciones que te doy. No uses lo que sepas de
-   antes sobre esta herramienta. Si no lo has leído en esas páginas, no lo sabes.
-2. "no_documentado" es una respuesta correcta y frecuente. No es un hueco que
-   rellenar. Prefiero cincuenta "no_documentado" honestos a una sola afirmación
-   que no puedas sostener con una cita.
-3. Para responder "si" necesitas copiar una cita LITERAL de la página, palabra
-   por palabra, que lo demuestre por sí sola. Si tienes que razonar o deducir
-   para llegar de la cita a la afirmación, la respuesta es "no_documentado".
-4. Que sea una herramienta famosa, grande o completa no prueba nada.
-5. Respeta la FRONTERA de cada capacidad: si lo que has leído es la capacidad
-   vecina y no ésta, responde "no_documentado".
-6. Responde ÚNICAMENTE con un array JSON. Sin texto antes ni después.
-
-CAPACIDADES A COMPROBAR:
-$lista
-
-FORMATO DE CADA ELEMENTO DEL ARRAY:
-{
-  "capacidadId": "el identificador exacto de la lista",
-  "veredicto": "si" | "no" | "no_documentado",
-  "profundidad": "nativa" | "modulo" | "integracion" | null,
-  "integraCon": "obligatorio si profundidad es integracion; si no, null",
-  "planMinimo": "nombre exacto del plan más barato donde existe, tal y como lo escribe el fabricante; null si la página no lo dice",
-  "urlFuente": "la dirección concreta de la que sacas la cita",
-  "cita": "la frase literal, copiada tal cual de esa página",
-  "nota": "si es no_documentado, qué buscaste y qué encontraste en su lugar; si no, límites que cambien la decisión"
-}
-
-"no" significa que la página dice expresamente que NO lo hace. Si simplemente no
-aparece, eso es "no_documentado".
-"@
+    <#
+        El encargo se arma como lista de líneas y no como here-string: Windows
+        PowerShell 5.1 no reconoce el cierre de un here-string cuando el archivo
+        trae saltos de línea de Unix, y el script entero deja de analizarse. Lo
+        descubrimos con el archivo ya en el ordenador de la propietaria.
+    #>
+    $lineas = @(
+        'Eres un verificador. Tu trabajo NO es describir la herramienta ni venderla: es'
+        'comprobar, leyendo únicamente las páginas oficiales que te doy, qué se puede'
+        'afirmar de ella con una frase de esas páginas delante.'
+        ''
+        "HERRAMIENTA: $($ficha.nombre)"
+        ''
+        'REGLAS, y son innegociables:'
+        '1. Usa SOLO el contenido de las direcciones que te doy. No uses lo que sepas de'
+        '   antes sobre esta herramienta. Si no lo has leído en esas páginas, no lo sabes.'
+        '2. "no_documentado" es una respuesta correcta y frecuente. No es un hueco que'
+        '   rellenar. Prefiero cincuenta "no_documentado" honestos a una sola afirmación'
+        '   que no puedas sostener con una cita.'
+        '3. Para responder "si" necesitas copiar una cita LITERAL de la página, palabra'
+        '   por palabra, que lo demuestre por sí sola. Si tienes que razonar o deducir'
+        '   para llegar de la cita a la afirmación, la respuesta es "no_documentado".'
+        '4. Que sea una herramienta famosa, grande o completa no prueba nada.'
+        '5. Respeta la FRONTERA de cada capacidad: si lo que has leído es la capacidad'
+        '   vecina y no ésta, responde "no_documentado".'
+        '6. Responde ÚNICAMENTE con un array JSON. Sin texto antes ni después.'
+        ''
+        'CAPACIDADES A COMPROBAR:'
+        $lista
+        ''
+        'FORMATO DE CADA ELEMENTO DEL ARRAY:'
+        '{'
+        '  "capacidadId": "el identificador exacto de la lista",'
+        '  "veredicto": "si" | "no" | "no_documentado",'
+        '  "profundidad": "nativa" | "modulo" | "integracion" | null,'
+        '  "integraCon": "obligatorio si profundidad es integracion; si no, null",'
+        '  "planMinimo": "nombre exacto del plan más barato donde existe, tal y como lo escribe el fabricante; null si la página no lo dice",'
+        '  "urlFuente": "la dirección concreta de la que sacas la cita",'
+        '  "cita": "la frase literal, copiada tal cual de esa página",'
+        '  "nota": "si es no_documentado, qué buscaste y qué encontraste en su lugar; si no, límites que cambien la decisión"'
+        '}'
+        ''
+        '"no" significa que la página dice expresamente que NO lo hace. Si simplemente no'
+        'aparece, eso es "no_documentado".'
+    )
+    return ($lineas -join "`n")
 }
 
 # --------------------------------------------------------------------------
