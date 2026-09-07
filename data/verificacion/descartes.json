@@ -1,279 +1,10 @@
 [
   {
-    "herramientaId": "agile-crm",
-    "capacidadId": "cap.customer_contact_records",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Close more deals with single-page contact management",
-    "urlCitada": "https://www.agilecrm.com/"
-  },
-  {
-    "herramientaId": "agile-crm",
-    "capacidadId": "cap.sales_pipeline",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Track stages and milestones of your deals to keep the sales process on track",
-    "urlCitada": "https://www.agilecrm.com/"
-  },
-  {
-    "herramientaId": "capsule-crm",
-    "capacidadId": "cap.workflow_automation",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Define repeatable sales processes by configuring a series of tasks, email notifications or stage changes within pipeline/project boards"
-  },
-  {
-    "herramientaId": "capsule-crm",
-    "capacidadId": "cap.app_integrations",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Capsule supports 60+ integrations, and works with Zapier to fulfill additional functionality."
-  },
-  {
-    "herramientaId": "capsule-crm",
-    "capacidadId": "cap.dashboards",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Analyze CRM data for insights on conversions, task efficiency, pipeline, projects, and contact health."
-  },
-  {
-    "herramientaId": "capsule-crm",
-    "capacidadId": "cap.data_import_and_migration",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Capsule has many options for migrating data from spreadsheets into our CRM. You can import Contacts and Opportunities."
-  },
-  {
-    "herramientaId": "capsule-crm",
-    "capacidadId": "cap.customer_contact_records",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Contact Management Your customer details. In one place."
-  },
-  {
-    "herramientaId": "capsule-crm",
-    "capacidadId": "cap.sales_pipeline",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "1 Sales Pipeline"
-  },
-  {
-    "herramientaId": "capsule-crm",
-    "capacidadId": "cap.lead_capture",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Example of a lead capture forms and the ability to run marketing campaigns with Transpond"
-  },
-  {
-    "herramientaId": "capsule-crm",
-    "capacidadId": "cap.sales_forecasting",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Advanced Sales ReportingMore in depth reports so you can get visibility on your sales forecast, where you are losing the most sales and how active your team is."
-  },
-  {
-    "herramientaId": "capsule-crm",
-    "capacidadId": "cap.shared_inbox",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Connect a shared email inbox to enable multiple team members to respond from the same account e.g. sales@, support@, info@"
-  },
-  {
-    "herramientaId": "clickup",
-    "capacidadId": "cap.workflow_automation",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "clickup",
-    "capacidadId": "cap.app_integrations",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "clickup",
-    "capacidadId": "cap.public_api",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "clickup",
-    "capacidadId": "cap.webhooks",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "clickup",
-    "capacidadId": "cap.dashboards",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "clickup",
-    "capacidadId": "cap.custom_reports",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "clickup",
-    "capacidadId": "cap.data_export",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "clickup",
-    "capacidadId": "cap.data_import_and_migration",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "clickup",
-    "capacidadId": "cap.roles_and_permissions",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "clickup",
-    "capacidadId": "cap.single_sign_on",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "clickup",
-    "capacidadId": "cap.two_factor_authentication",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "clickup",
-    "capacidadId": "cap.audit_log",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "clickup",
-    "capacidadId": "cap.task_management",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "clickup",
-    "capacidadId": "cap.project_planning",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "clickup",
-    "capacidadId": "cap.gantt_and_dependencies",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "clickup",
-    "capacidadId": "cap.kanban_boards",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "clickup",
-    "capacidadId": "cap.time_tracking",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "clickup",
-    "capacidadId": "cap.team_workload_planning",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "close",
-    "capacidadId": "cap.app_integrations",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Close connects to your favorite sales, marketing, and support tools. Out of the box.",
-    "urlCitada": "https://close.com/"
-  },
-  {
-    "herramientaId": "close",
-    "capacidadId": "cap.public_api",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "REST API, webhooks, and MCP server. Everything you need to customize Close for the way your team works.",
-    "urlCitada": "https://close.com/"
-  },
-  {
-    "herramientaId": "copper",
-    "capacidadId": "cap.workflow_automation",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "copper",
-    "capacidadId": "cap.app_integrations",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "copper",
-    "capacidadId": "cap.public_api",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "copper",
-    "capacidadId": "cap.webhooks",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "copper",
-    "capacidadId": "cap.dashboards",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "copper",
-    "capacidadId": "cap.custom_reports",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "copper",
-    "capacidadId": "cap.data_export",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "copper",
-    "capacidadId": "cap.data_import_and_migration",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "copper",
-    "capacidadId": "cap.roles_and_permissions",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "copper",
-    "capacidadId": "cap.single_sign_on",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "copper",
-    "capacidadId": "cap.two_factor_authentication",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "copper",
-    "capacidadId": "cap.audit_log",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "copper",
-    "capacidadId": "cap.customer_contact_records",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "copper",
-    "capacidadId": "cap.customer_interaction_history",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "copper",
-    "capacidadId": "cap.sales_pipeline",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "copper",
-    "capacidadId": "cap.lead_capture",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "copper",
-    "capacidadId": "cap.sales_forecasting",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "copper",
-    "capacidadId": "cap.quotes_and_proposals",
-    "motivo": "sin respuesta"
-  },
-  {
     "herramientaId": "ganttpro",
     "capacidadId": "cap.public_api",
     "motivo": "cita breve revisada y rechazada",
     "cita": "API",
     "urlCitada": "https://ganttpro.com/pricing/"
-  },
-  {
-    "herramientaId": "ganttpro",
-    "capacidadId": "cap.data_export",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Export your timeline even on a trial to the most popular formats like PDF, PNG, XLSX, and XML.",
-    "urlCitada": "https://ganttpro.com/"
   },
   {
     "herramientaId": "ganttpro",
@@ -283,46 +14,367 @@
     "urlCitada": "https://ganttpro.com/pricing/"
   },
   {
-    "herramientaId": "ganttpro",
-    "capacidadId": "cap.task_management",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Plan and manage simple tasks and complex projects with professional Gantt chart software.",
-    "urlCitada": "https://ganttpro.com/"
-  },
-  {
-    "herramientaId": "ganttpro",
-    "capacidadId": "cap.project_planning",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Add tasks, dates, resources, and watch the program automatically build a Gantt chart online.",
-    "urlCitada": "https://ganttpro.com/"
-  },
-  {
-    "herramientaId": "ganttpro",
+    "herramientaId": "nifty",
     "capacidadId": "cap.gantt_and_dependencies",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Use the work breakdown structure and dependencies to know the order in which tasks should be completed.",
-    "urlCitada": "https://ganttpro.com/"
+    "motivo": "cita breve revisada y rechazada",
+    "cita": "Task Dependencies",
+    "urlCitada": "https://niftypm.com/pricing/"
   },
   {
-    "herramientaId": "ganttpro",
+    "herramientaId": "capsule-crm",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo",
+    "cita": "Connect to 100+ integrations",
+    "urlCitada": "https://capsulecrm.com/"
+  },
+  {
+    "herramientaId": "capsule-crm",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin plan mínimo",
+    "cita": "In the time it takes to say “Eureka”! You'll be able to import your contact data from another CRM (or that pesky spreadsheet).",
+    "urlCitada": "https://capsulecrm.com/"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.marketing_automation",
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "Automate follow-ups and re-engagement based on prospect behaviors, email opens, form submissions, etc.",
+    "urlCitada": "https://www.insightly.com/"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "sin plan mínimo",
+    "cita": "Eliminate manual work with custom rules.",
+    "urlCitada": "https://www.wrike.com/price/"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.project_planning",
+    "motivo": "sin plan mínimo",
+    "cita": "Get your team, department, and company running smoothly with the industry's best project management solution.",
+    "urlCitada": "https://clickup.com/"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "motivo": "cita breve revisada y rechazada",
+    "cita": "Unlimited Gantt Charts",
+    "urlCitada": "https://clickup.com/pricing"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin plan mínimo",
+    "cita": "Build apps that connect with Copper",
+    "urlCitada": "https://www.copper.com/pricing"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.data_export",
+    "motivo": "sin plan mínimo",
+    "cita": "Migrate or update existing records, or export data for in-depth reporting",
+    "urlCitada": "https://www.copper.com/pricing"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin plan mínimo",
+    "cita": "Migrate or update existing records, or export data for in-depth reporting",
+    "urlCitada": "https://www.copper.com/pricing"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin plan mínimo",
+    "cita": "Restrict access to records and reports",
+    "urlCitada": "https://www.copper.com/pricing"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.customer_interaction_history",
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "Log calls and SMS automatically so every interaction is tracked and accounts are always up to date.",
+    "urlCitada": "https://www.copper.com/"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.sales_pipeline",
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "Know where every lead is at in your sales process and move opportunities to the next stage. Sort by value, understand the win probability, and identify slipping deals.",
+    "urlCitada": "https://www.copper.com/"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.lead_capture",
+    "motivo": "sin plan mínimo",
+    "cita": "Use our contact form for website visitors, or scan business cards at events.",
+    "urlCitada": "https://www.copper.com/"
+  },
+  {
+    "herramientaId": "hive",
+    "capacidadId": "cap.task_management",
+    "motivo": "sin plan mínimo",
+    "cita": "Visualize, sort and filter projects and tasks in the way that works best for you — from flexible views to clear priorities.",
+    "urlCitada": "https://hive.com/"
+  },
+  {
+    "herramientaId": "hive",
     "capacidadId": "cap.kanban_boards",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "In GanttPRO, you can switch to a board view where each task is presented as a card in a relevant column.",
-    "urlCitada": "https://ganttpro.com/"
+    "motivo": "sin plan mínimo",
+    "cita": "Kanban view",
+    "urlCitada": "https://hive.com/"
   },
   {
-    "herramientaId": "ganttpro",
-    "capacidadId": "cap.time_tracking",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Log the actual time you spend on tasks and milestones and, if needed, leave comments.",
-    "urlCitada": "https://ganttpro.com/"
-  },
-  {
-    "herramientaId": "ganttpro",
+    "herramientaId": "hive",
     "capacidadId": "cap.team_workload_planning",
+    "motivo": "sin plan mínimo",
+    "cita": "Allocate resources by hour to specific projects. Add placeholders and teammates.",
+    "urlCitada": "https://hive.com/pricing"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.customer_contact_records",
     "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Check your team's workload and be sure whether someone in your company is underperforming or, vice versa, has too many tasks.",
-    "urlCitada": "https://ganttpro.com/"
+    "cita": "Store unlimited contacts and companies with custom fields and track interactions.",
+    "urlCitada": "https://www.nutshell.com/"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.customer_interaction_history",
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "Store unlimited contacts and companies with custom fields and track interactions.",
+    "urlCitada": "https://www.nutshell.com/"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.sales_pipeline",
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "Visualize your sales pipeline with drag-and-drop simplicity. Know exactly where each deal stands.",
+    "urlCitada": "https://www.nutshell.com/"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.lead_capture",
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "Text leads and build landing pages that capture and automatically track new contacts.",
+    "urlCitada": "https://www.nutshell.com/"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.quotes_and_proposals",
+    "motivo": "sin plan mínimo",
+    "cita": "Create, send, track, and get signatures on quotes, invoices and contracts in your CRM using your own templates.",
+    "urlCitada": "https://www.nutshell.com/"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.email_campaigns",
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "Create emails with our intuitive builder. Segment audiences, automate, and track engagement.",
+    "urlCitada": "https://www.nutshell.com/"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.shared_inbox",
+    "motivo": "sin plan mínimo",
+    "cita": "Unified inbox for chat, SMS, shared inbox & social messages",
+    "urlCitada": "https://www.nutshell.com/pricing"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.online_self_service_booking",
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "Engage visitors 24/7, qualify leads, capture details, and book meetings automatically with your AI chatbot.",
+    "urlCitada": "https://www.nutshell.com/"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.invoicing",
+    "motivo": "sin plan mínimo",
+    "cita": "Create, send, track, and get signatures on quotes, invoices and contracts in your CRM using your own templates.",
+    "urlCitada": "https://www.nutshell.com/"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo",
+    "cita": "Integrate with the rest of your business tools like Xero, JIRA, Slack, or QuickBooks.",
+    "urlCitada": "https://productive.io/"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin plan mínimo",
+    "cita": "Visualize key metrics in customizable dashboards.",
+    "urlCitada": "https://productive.io/pricing/"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin plan mínimo",
+    "cita": "Bulk import tasks via CSV, complete with field mapping for rapid task creation.",
+    "urlCitada": "https://productive.io/pricing/"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin plan mínimo",
+    "cita": "Create your own permission sets for teammates.",
+    "urlCitada": "https://productive.io/pricing/"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo",
+    "cita": "Connect your favorite apps and tools",
+    "urlCitada": "https://www.scoro.com/"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.public_api",
+    "motivo": "cita breve revisada y rechazada",
+    "cita": "API",
+    "urlCitada": "https://www.scoro.com/pricing/"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "Set up granular user permissions to ensure everyone sees only the information and features relevant to their role.",
+    "urlCitada": "https://www.scoro.com/"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "cita breve revisada y rechazada",
+    "cita": "Workflows",
+    "urlCitada": "https://www.vtiger.com/pricing/"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo",
+    "cita": "Vtiger integrates with over 500 apps including Mailchimp, Microsoft Outlook, Google, QuickBooks, Xero, Zapier, etc.",
+    "urlCitada": "https://www.vtiger.com/"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.data_export",
+    "motivo": "sin plan mínimo",
+    "cita": "Import & Export",
+    "urlCitada": "https://www.vtiger.com/pricing/"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "cita breve revisada y rechazada",
+    "cita": "Import & Export",
+    "urlCitada": "https://www.vtiger.com/pricing/"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.project_planning",
+    "motivo": "cita breve revisada y rechazada",
+    "cita": "Project & task management",
+    "urlCitada": "https://www.wrike.com/price/"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "motivo": "cita breve revisada y rechazada",
+    "cita": "Interactive Gantt charts",
+    "urlCitada": "https://www.wrike.com/price/"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.kanban_boards",
+    "motivo": "cita breve revisada y rechazada",
+    "cita": "Board view",
+    "urlCitada": "https://www.wrike.com/price/"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.time_tracking",
+    "motivo": "sin plan mínimo",
+    "cita": "Time tracking",
+    "urlCitada": "https://www.wrike.com/"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.team_workload_planning",
+    "motivo": "sin plan mínimo",
+    "cita": "Balance team workloads and capacity.",
+    "urlCitada": "https://www.wrike.com/price/"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Integrate Zenkit with 1500+ tools and your existing software in just a few clicks via Zapier."
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.public_api",
+    "motivo": "cita breve revisada y rechazada",
+    "cita": "API access",
+    "urlCitada": "https://zenkit.com/en/pricing/"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.dashboards",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Get over 100 ready-made reports in a real-time dashboard, that you can customize to see reports by project, team, members or any other combination."
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.custom_reports",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Get over 100 ready-made reports in a real-time dashboard, that you can customize to see reports by project, team, members or any other combination."
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.data_export",
+    "motivo": "sin plan mínimo",
+    "cita": "After the trial ends, and if no paid subscription is activated, access to the organization may be restricted, usually allowing data export only.",
+    "urlCitada": "https://zenkit.com/en/pricing/"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "With native imports from Trello, Asana or Microsoft To Do, CSV imports or even API, your work can be migrated in minutes."
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "By assigning roles, you can choose who sees only simple to-do lists and who has full access to advanced features."
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.task_management",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "You can make project timelines, schedule tasks, and easily prioritize which team members and resources are required where."
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.kanban_boards",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Whether you prefer agile methods, Kanban boards, Gantt charts, or simple task lists, Zenkit provides the flexibility and tools you need to achieve your goals efficiently and effectively."
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.team_workload_planning",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "With Zenkit resource management, it's easy to manage if someone's workload is too high or too low."
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.data_export",
+    "motivo": "cita breve revisada y rechazada",
+    "cita": "Export true true true true",
+    "urlCitada": "https://ganttpro.com/pricing/"
   },
   {
     "herramientaId": "hive",
@@ -351,159 +403,6 @@
     "motivo": "sin plan mínimo",
     "cita": "Collaborate with clients or partners in Hive with external user permissions.",
     "urlCitada": "https://hive.com/pricing"
-  },
-  {
-    "herramientaId": "hive",
-    "capacidadId": "cap.single_sign_on",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "hive",
-    "capacidadId": "cap.two_factor_authentication",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "hive",
-    "capacidadId": "cap.audit_log",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "hive",
-    "capacidadId": "cap.task_management",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "hive",
-    "capacidadId": "cap.project_planning",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "hive",
-    "capacidadId": "cap.gantt_and_dependencies",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "hive",
-    "capacidadId": "cap.kanban_boards",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "hive",
-    "capacidadId": "cap.time_tracking",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "hive",
-    "capacidadId": "cap.team_workload_planning",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "insightly",
-    "capacidadId": "cap.workflow_automation",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Help your teams work smarter, not harder, and eliminate manual work by automating activities in the CRM."
-  },
-  {
-    "herramientaId": "insightly",
-    "capacidadId": "cap.app_integrations",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Seamless integration between finance applications and Insightly."
-  },
-  {
-    "herramientaId": "insightly",
-    "capacidadId": "cap.public_api",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Access our REST API for seamless integration of all applications you use to run your business."
-  },
-  {
-    "herramientaId": "insightly",
-    "capacidadId": "cap.webhooks",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Simplify and facilitate automatic notifications between online accounts when a relevant trigger occurs."
-  },
-  {
-    "herramientaId": "insightly",
-    "capacidadId": "cap.dashboards",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Visualize your business growth in real-time with 40+ chart types and drag-and-drop layouts."
-  },
-  {
-    "herramientaId": "insightly",
-    "capacidadId": "cap.custom_reports",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Flexible reporting that conforms to your need for business insights."
-  },
-  {
-    "herramientaId": "insightly",
-    "capacidadId": "cap.data_import_and_migration",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Import prospect records into Insightly and easily communicate with your target market."
-  },
-  {
-    "herramientaId": "insightly",
-    "capacidadId": "cap.roles_and_permissions",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Give every role in your company the right level of access to data in the CRM."
-  },
-  {
-    "herramientaId": "insightly",
-    "capacidadId": "cap.single_sign_on",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "SAML provides a secure method of authenticating and authorizing users across your system, and SCIM provides an automated way of provisioning those users, making it easier for users to sign in."
-  },
-  {
-    "herramientaId": "insightly",
-    "capacidadId": "cap.audit_log",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Document all actions in the CRM for a detailed record of what was done, by whom, and when."
-  },
-  {
-    "herramientaId": "insightly",
-    "capacidadId": "cap.customer_contact_records",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "View the complete picture of every contact and org, including all history, communications, activities, and links."
-  },
-  {
-    "herramientaId": "insightly",
-    "capacidadId": "cap.customer_interaction_history",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "View the complete picture of every contact and org, including all history, communications, activities, and links."
-  },
-  {
-    "herramientaId": "insightly",
-    "capacidadId": "cap.sales_pipeline",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Drive sales velocity with control over your pipeline of opportunities."
-  },
-  {
-    "herramientaId": "insightly",
-    "capacidadId": "cap.lead_capture",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Easily capture leads from your web pages."
-  },
-  {
-    "herramientaId": "insightly",
-    "capacidadId": "cap.quotes_and_proposals",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Use products and pricebooks to keep a record of the prices of your goods and services, and use quotes to communicate an offer to your customers and document the deal."
-  },
-  {
-    "herramientaId": "insightly",
-    "capacidadId": "cap.email_campaigns",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Send custom, templated and tracked emails to targeted lists."
-  },
-  {
-    "herramientaId": "insightly",
-    "capacidadId": "cap.marketing_automation",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Email marketing automation"
-  },
-  {
-    "herramientaId": "insightly",
-    "capacidadId": "cap.task_management",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Assign unique task sequences and events to leads, opportunities, projects, and organizations, empowering teams to move faster and more efficiently."
   },
   {
     "herramientaId": "less-annoying-crm",
@@ -563,31 +462,10 @@
   },
   {
     "herramientaId": "nifty",
-    "capacidadId": "cap.workflow_automation",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Turn status updates, handoffs, and reminders into if/then rules that run themeselves.",
-    "urlCitada": "https://niftypm.com/"
-  },
-  {
-    "herramientaId": "nifty",
-    "capacidadId": "cap.dashboards",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Live dashboards across every project and team.",
-    "urlCitada": "https://niftypm.com/"
-  },
-  {
-    "herramientaId": "nifty",
     "capacidadId": "cap.data_import_and_migration",
     "motivo": "sin plan mínimo",
     "cita": "Switch from Asana, Jira, ClickUp, Trello, Basecamp, or Wrike without losing a task. Drag in a CSV or Excel file and pick up right where you left off.",
     "urlCitada": "https://niftypm.com/"
-  },
-  {
-    "herramientaId": "nifty",
-    "capacidadId": "cap.gantt_and_dependencies",
-    "motivo": "cita breve revisada y rechazada",
-    "cita": "Task Dependencies",
-    "urlCitada": "https://niftypm.com/pricing/"
   },
   {
     "herramientaId": "nifty",
@@ -635,7 +513,7 @@
     "herramientaId": "nocrm-io",
     "capacidadId": "cap.workflow_automation",
     "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Dream\n\n39 US$/usuario/mes\n\nObtén control total, funcionalidades avanzadas y todo el poder para escalar tus ventas.\n\nPrueba gratis\n\nTodo lo incluido en Expert, más:\n\nIntegraciones Whatsapp & VoIP\n\nIntegración de correo electrónico\n\nGestión de equipos\n\nAutomatizaciones",
+    "cita": "Crea reglas dentro de noCRM para automatizar tareas repetitivas, reducir el trabajo manual y evitar errores.",
     "urlCitada": "https://www.nocrm.io/es"
   },
   {
@@ -669,8 +547,8 @@
   {
     "herramientaId": "nocrm-io",
     "capacidadId": "cap.roles_and_permissions",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Crea equipos para colaborar mejor y controla los permisos, exportaciones, sesiones y datos sensibles.",
+    "motivo": "sin plan mínimo",
+    "cita": "Gestión de funciones y permisos: Crea equipos para colaborar mejor y controla los permisos, exportaciones, sesiones y datos sensibles.",
     "urlCitada": "https://www.nocrm.io/es"
   },
   {
@@ -691,28 +569,28 @@
     "herramientaId": "nocrm-io",
     "capacidadId": "cap.shared_inbox",
     "motivo": "sin plan mínimo",
-    "cita": "Colabora fácilmente con bandejas compartidas para gestionar conversaciones con leads y clientes.",
+    "cita": "Bandejas compartidas: Colabora fácilmente con bandejas compartidas para gestionar conversaciones con leads y clientes.",
     "urlCitada": "https://www.nocrm.io/es"
   },
   {
     "herramientaId": "nocrm-io",
     "capacidadId": "cap.task_management",
     "motivo": "sin plan mínimo",
-    "cita": "Crea listas de tareas personalizadas, asigna tareas y mantén el control del traspaso al cliente.",
+    "cita": "Gestión de tareas postventa: Crea listas de tareas personalizadas, asigna tareas y mantén el control del traspaso al cliente.",
     "urlCitada": "https://www.nocrm.io/es"
   },
   {
     "herramientaId": "nocrm-io",
     "capacidadId": "cap.invoicing",
     "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Crea cotizaciones, anticipos, facturas y notas de crédito personalizadas en segundos. Supervisa su estado directamente desde tu panel de ventas.",
+    "cita": "Crea cotizaciones, anticipos, facturas y notas de crédito personalizadas en segundos. Supervisa su estado directamente desde tu panel de ventas. [...] Expert [...] Todo lo incluido en Starter, más: [...] Cotizaciones y facturas",
     "urlCitada": "https://www.nocrm.io/es"
   },
   {
     "herramientaId": "nutshell",
     "capacidadId": "cap.app_integrations",
     "motivo": "sin plan mínimo",
-    "cita": "Connect to Google/Microsoft and over 5,000 Apps.",
+    "cita": "Integrations enhance your CRM experience, connecting your favorite tools to streamline workflows and help you close more deals.",
     "urlCitada": "https://www.nutshell.com/pricing"
   },
   {
@@ -720,101 +598,14 @@
     "capacidadId": "cap.public_api",
     "motivo": "sin plan mínimo",
     "cita": "Developer API",
-    "urlCitada": "https://www.nutshell.com/pricing"
+    "urlCitada": "https://www.nutshell.com/"
   },
   {
     "herramientaId": "nutshell",
     "capacidadId": "cap.data_import_and_migration",
     "motivo": "sin plan mínimo",
-    "cita": "free support and data migration during your trial",
+    "cita": "We're here to help you succeed with free support and data migration during your trial, plus free onboarding to get every customer off to a strong start.",
     "urlCitada": "https://www.nutshell.com/pricing"
-  },
-  {
-    "herramientaId": "nutshell",
-    "capacidadId": "cap.single_sign_on",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "nutshell",
-    "capacidadId": "cap.two_factor_authentication",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "nutshell",
-    "capacidadId": "cap.audit_log",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "nutshell",
-    "capacidadId": "cap.customer_contact_records",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "nutshell",
-    "capacidadId": "cap.customer_interaction_history",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "nutshell",
-    "capacidadId": "cap.sales_pipeline",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "nutshell",
-    "capacidadId": "cap.lead_capture",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "nutshell",
-    "capacidadId": "cap.sales_forecasting",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "nutshell",
-    "capacidadId": "cap.quotes_and_proposals",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "nutshell",
-    "capacidadId": "cap.email_campaigns",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "nutshell",
-    "capacidadId": "cap.marketing_automation",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "nutshell",
-    "capacidadId": "cap.shared_inbox",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "nutshell",
-    "capacidadId": "cap.task_management",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "nutshell",
-    "capacidadId": "cap.online_self_service_booking",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "nutshell",
-    "capacidadId": "cap.customer_appointment_reminders",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "nutshell",
-    "capacidadId": "cap.invoicing",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "paymo",
-    "capacidadId": "cap.app_integrations",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Extend the capabilities of Paymo with third-party integrations.",
-    "urlCitada": "https://www.paymoapp.com/"
   },
   {
     "herramientaId": "paymo",
@@ -822,41 +613,6 @@
     "motivo": "sin plan mínimo",
     "cita": "A user (aka a seat) is a person in your company or from outside who's able to log in to your company account and uses all or some of the features of the app (depending on their administrative rights).",
     "urlCitada": "https://www.paymoapp.com/pricing/"
-  },
-  {
-    "herramientaId": "paymo",
-    "capacidadId": "cap.project_planning",
-    "motivo": "sin plan mínimo",
-    "cita": "Add milestones and get notified of all significant events in the project's lifetime.",
-    "urlCitada": "https://www.paymoapp.com/"
-  },
-  {
-    "herramientaId": "paymo",
-    "capacidadId": "cap.gantt_and_dependencies",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Visualize work and task dependencies on a timeline and make adjustments easily.",
-    "urlCitada": "https://www.paymoapp.com/"
-  },
-  {
-    "herramientaId": "paymo",
-    "capacidadId": "cap.team_workload_planning",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "See at a glance who's available for work or who's overbooked.",
-    "urlCitada": "https://www.paymoapp.com/"
-  },
-  {
-    "herramientaId": "paymo",
-    "capacidadId": "cap.job_costing",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Paymo helps you monitor every dollar in and out, giving you complete visibility into your project's profitability.",
-    "urlCitada": "https://www.paymoapp.com/"
-  },
-  {
-    "herramientaId": "paymo",
-    "capacidadId": "cap.invoicing",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Use Paymo's online invoicing software for small businesses to convert unbilled time into professional-looking invoices.",
-    "urlCitada": "https://www.paymoapp.com/"
   },
   {
     "herramientaId": "pipedrive",
@@ -937,68 +693,9 @@
   },
   {
     "herramientaId": "productive-io",
-    "capacidadId": "cap.workflow_automation",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "productive-io",
-    "capacidadId": "cap.app_integrations",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "productive-io",
-    "capacidadId": "cap.public_api",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "productive-io",
-    "capacidadId": "cap.webhooks",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "productive-io",
-    "capacidadId": "cap.dashboards",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "productive-io",
-    "capacidadId": "cap.custom_reports",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "productive-io",
-    "capacidadId": "cap.data_export",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "productive-io",
-    "capacidadId": "cap.data_import_and_migration",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "productive-io",
-    "capacidadId": "cap.roles_and_permissions",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "productive-io",
-    "capacidadId": "cap.single_sign_on",
-    "motivo": "sin plan mínimo",
-    "cita": "Enable users to log into Productive with a single username and password from your SSO provider.",
-    "urlCitada": "https://productive.io/pricing/"
-  },
-  {
-    "herramientaId": "productive-io",
-    "capacidadId": "cap.two_factor_authentication",
-    "motivo": "sin plan mínimo",
-    "cita": "Add a second layer of protection with Two-Factor Authentication that uses your phone to generate codes to access your account.",
-    "urlCitada": "https://productive.io/pricing/"
-  },
-  {
-    "herramientaId": "productive-io",
     "capacidadId": "cap.audit_log",
     "motivo": "sin plan mínimo",
-    "cita": "Access a chronological list of all changes made in your organization.",
+    "cita": "Access a cronological list of all changes made in your organization.",
     "urlCitada": "https://productive.io/pricing/"
   },
   {
@@ -1026,81 +723,8 @@
     "herramientaId": "salesflare",
     "capacidadId": "cap.sales_forecasting",
     "motivo": "sin plan mínimo",
-    "cita": "Salesflare CRM's sales pipeline with revenue forecasting report",
+    "cita": "EXPECTED REVENUE VS GOAL 37k 75.4 37k ▲ +24.9% ▲ +11.3% EUR DAYS EUR €37k Won €40k Expected",
     "urlCitada": "https://salesflare.com/"
-  },
-  {
-    "herramientaId": "scoro",
-    "capacidadId": "cap.workflow_automation",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "scoro",
-    "capacidadId": "cap.app_integrations",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "scoro",
-    "capacidadId": "cap.public_api",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "scoro",
-    "capacidadId": "cap.webhooks",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "scoro",
-    "capacidadId": "cap.dashboards",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "scoro",
-    "capacidadId": "cap.custom_reports",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "scoro",
-    "capacidadId": "cap.data_export",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "scoro",
-    "capacidadId": "cap.data_import_and_migration",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "scoro",
-    "capacidadId": "cap.roles_and_permissions",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "scoro",
-    "capacidadId": "cap.task_management",
-    "motivo": "sin plan mínimo",
-    "cita": "Tasks & task lists",
-    "urlCitada": "https://www.scoro.com/pricing/"
-  },
-  {
-    "herramientaId": "scoro",
-    "capacidadId": "cap.project_planning",
-    "motivo": "sin plan mínimo",
-    "cita": "Plan projects and keep delivery on track.",
-    "urlCitada": "https://www.scoro.com/pricing/"
-  },
-  {
-    "herramientaId": "scoro",
-    "capacidadId": "cap.gantt_and_dependencies",
-    "motivo": "sin plan mínimo",
-    "cita": "Gantt chart & dependencies",
-    "urlCitada": "https://www.scoro.com/pricing/"
-  },
-  {
-    "herramientaId": "scoro",
-    "capacidadId": "cap.kanban_boards",
-    "motivo": "sin plan mínimo",
-    "cita": "Kanban board",
-    "urlCitada": "https://www.scoro.com/pricing/"
   },
   {
     "herramientaId": "scoro",
@@ -1108,96 +732,6 @@
     "motivo": "sin plan mínimo",
     "cita": "Scoro tracks budget burn and forecasts profitability in real time at role, service, and project level. Both internal and external costs are captured, giving you accurate insights into margins that many PSA tools can't match.",
     "urlCitada": "https://www.scoro.com/"
-  },
-  {
-    "herramientaId": "smartsheet",
-    "capacidadId": "cap.single_sign_on",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "smartsheet",
-    "capacidadId": "cap.two_factor_authentication",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "smartsheet",
-    "capacidadId": "cap.audit_log",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "smartsheet",
-    "capacidadId": "cap.task_management",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "smartsheet",
-    "capacidadId": "cap.project_planning",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "smartsheet",
-    "capacidadId": "cap.gantt_and_dependencies",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "smartsheet",
-    "capacidadId": "cap.kanban_boards",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "smartsheet",
-    "capacidadId": "cap.time_tracking",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "smartsheet",
-    "capacidadId": "cap.team_workload_planning",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "streak",
-    "capacidadId": "cap.workflow_automation",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "streak",
-    "capacidadId": "cap.app_integrations",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "streak",
-    "capacidadId": "cap.public_api",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "streak",
-    "capacidadId": "cap.webhooks",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "streak",
-    "capacidadId": "cap.dashboards",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "streak",
-    "capacidadId": "cap.custom_reports",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "streak",
-    "capacidadId": "cap.data_export",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "streak",
-    "capacidadId": "cap.data_import_and_migration",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "streak",
-    "capacidadId": "cap.roles_and_permissions",
-    "motivo": "sin respuesta"
   },
   {
     "herramientaId": "teamgantt",
@@ -1236,31 +770,10 @@
   },
   {
     "herramientaId": "teamgantt",
-    "capacidadId": "cap.task_management",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Break down work, assign owners, and track progress across Gantt, board, list, or calendar views—all synced in real time.",
-    "urlCitada": "https://www.teamgantt.com/"
-  },
-  {
-    "herramientaId": "teamgantt",
-    "capacidadId": "cap.project_planning",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Build Gantt charts fast with drag-and-drop tools. Set dependencies, add milestones, and use templates to plan new projects in minutes.",
-    "urlCitada": "https://www.teamgantt.com/"
-  },
-  {
-    "herramientaId": "teamgantt",
-    "capacidadId": "cap.gantt_and_dependencies",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Map every task, resource, and dependency on a Gantt chart—right in your browser.",
-    "urlCitada": "https://www.teamgantt.com/"
-  },
-  {
-    "herramientaId": "teamgantt",
     "capacidadId": "cap.kanban_boards",
     "motivo": "sin plan mínimo",
-    "cita": "Kanban view",
-    "urlCitada": "https://www.teamgantt.com/pricing"
+    "cita": "Break down work, assign owners, and track progress across Gantt, board, list, or calendar views—all synced in real time.",
+    "urlCitada": "https://www.teamgantt.com/"
   },
   {
     "herramientaId": "teamgantt",
@@ -1275,20 +788,6 @@
     "motivo": "sin plan mínimo",
     "cita": "Get visibility into capacity and availability. Assign tasks confidently, and prevent burnout with built-in workload management tools.",
     "urlCitada": "https://www.teamgantt.com/"
-  },
-  {
-    "herramientaId": "teamwork-com",
-    "capacidadId": "cap.workflow_automation",
-    "motivo": "sin plan mínimo",
-    "cita": "If/then conditional logic",
-    "urlCitada": "https://www.teamwork.com/pricing/"
-  },
-  {
-    "herramientaId": "teamwork-com",
-    "capacidadId": "cap.app_integrations",
-    "motivo": "sin plan mínimo",
-    "cita": "150+ integrations across the tools you already use.",
-    "urlCitada": "https://www.teamwork.com/"
   },
   {
     "herramientaId": "teamwork-com",
@@ -1319,62 +818,10 @@
     "urlCitada": "https://www.teamwork.com/pricing/"
   },
   {
-    "herramientaId": "teamwork-com",
-    "capacidadId": "cap.job_costing",
-    "motivo": "sin plan mínimo",
-    "cita": "See real margin on every project, in real time.",
-    "urlCitada": "https://www.teamwork.com/"
-  },
-  {
-    "herramientaId": "vtiger-crm",
-    "capacidadId": "cap.workflow_automation",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "vtiger-crm",
-    "capacidadId": "cap.app_integrations",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "vtiger-crm",
-    "capacidadId": "cap.public_api",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "vtiger-crm",
-    "capacidadId": "cap.webhooks",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "vtiger-crm",
-    "capacidadId": "cap.dashboards",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "vtiger-crm",
-    "capacidadId": "cap.custom_reports",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "vtiger-crm",
-    "capacidadId": "cap.data_export",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "vtiger-crm",
-    "capacidadId": "cap.data_import_and_migration",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "vtiger-crm",
-    "capacidadId": "cap.roles_and_permissions",
-    "motivo": "sin respuesta"
-  },
-  {
     "herramientaId": "vtiger-crm",
     "capacidadId": "cap.customer_interaction_history",
     "motivo": "sin plan mínimo",
-    "cita": "giving marketing, sales, and support a shared view of every interaction.",
+    "cita": "Vtiger's all-in-one CRM software brings every customer-facing team onto a single platform, giving marketing, sales, and support a shared view of every interaction.",
     "urlCitada": "https://www.vtiger.com/"
   },
   {
@@ -1386,291 +833,23 @@
   },
   {
     "herramientaId": "wrike",
-    "capacidadId": "cap.workflow_automation",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Eliminate manual work with custom rules."
-  },
-  {
-    "herramientaId": "wrike",
-    "capacidadId": "cap.app_integrations",
-    "motivo": "sin plan mínimo",
-    "cita": "Connect the tools you love with 400+ integrations",
-    "urlCitada": "https://www.wrike.com/"
-  },
-  {
-    "herramientaId": "wrike",
-    "capacidadId": "cap.dashboards",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Shareable dashboard"
-  },
-  {
-    "herramientaId": "wrike",
     "capacidadId": "cap.roles_and_permissions",
     "motivo": "sin plan mínimo",
-    "cita": "ISO 27001, SOC 2, SOC 3, GDPR. Wrike Lock and role-based access extend to every agent.",
-    "urlCitada": "https://www.wrike.com/"
+    "cita": "Full users have more default permissions enabled and can do more in Wrike.",
+    "urlCitada": "https://www.wrike.com/price/"
   },
   {
-    "herramientaId": "wrike",
-    "capacidadId": "cap.single_sign_on",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "wrike",
-    "capacidadId": "cap.two_factor_authentication",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "wrike",
-    "capacidadId": "cap.audit_log",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "wrike",
-    "capacidadId": "cap.task_management",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "wrike",
-    "capacidadId": "cap.project_planning",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "wrike",
+    "herramientaId": "zoho-projects",
     "capacidadId": "cap.gantt_and_dependencies",
-    "motivo": "sin respuesta"
+    "motivo": "cita breve revisada y rechazada",
+    "cita": "Gantt chart",
+    "urlCitada": "https://www.zoho.com/projects/zohoprojects-pricing.html"
   },
   {
-    "herramientaId": "wrike",
+    "herramientaId": "zoho-projects",
     "capacidadId": "cap.kanban_boards",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "wrike",
-    "capacidadId": "cap.time_tracking",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "wrike",
-    "capacidadId": "cap.team_workload_planning",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zenkit",
-    "capacidadId": "cap.workflow_automation",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zenkit",
-    "capacidadId": "cap.app_integrations",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zenkit",
-    "capacidadId": "cap.public_api",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zenkit",
-    "capacidadId": "cap.webhooks",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zenkit",
-    "capacidadId": "cap.dashboards",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zenkit",
-    "capacidadId": "cap.custom_reports",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zenkit",
-    "capacidadId": "cap.data_export",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zenkit",
-    "capacidadId": "cap.data_import_and_migration",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zenkit",
-    "capacidadId": "cap.roles_and_permissions",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zenkit",
-    "capacidadId": "cap.single_sign_on",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zenkit",
-    "capacidadId": "cap.two_factor_authentication",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zenkit",
-    "capacidadId": "cap.audit_log",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zenkit",
-    "capacidadId": "cap.task_management",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zenkit",
-    "capacidadId": "cap.project_planning",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zenkit",
-    "capacidadId": "cap.gantt_and_dependencies",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zenkit",
-    "capacidadId": "cap.kanban_boards",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zenkit",
-    "capacidadId": "cap.time_tracking",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zenkit",
-    "capacidadId": "cap.team_workload_planning",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zenkit",
-    "capacidadId": "cap.team_messaging",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Team chat"
-  },
-  {
-    "herramientaId": "zenkit",
-    "capacidadId": "cap.file_storage",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Full file system"
-  },
-  {
-    "herramientaId": "zoho-crm",
-    "capacidadId": "cap.workflow_automation",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Automate repetitive tasks with workflows."
-  },
-  {
-    "herramientaId": "zoho-crm",
-    "capacidadId": "cap.app_integrations",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Integrate popular video conferencing and collaboration tools with Zoho CRM."
-  },
-  {
-    "herramientaId": "zoho-crm",
-    "capacidadId": "cap.public_api",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Connect Zoho CRM to any app and perform actions with 5000 API calls/day."
-  },
-  {
-    "herramientaId": "zoho-crm",
-    "capacidadId": "cap.data_export",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Export data from Zoho CRM for up to 10 times for free."
-  },
-  {
-    "herramientaId": "zoho-crm",
-    "capacidadId": "cap.data_import_and_migration",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Import data from spreadsheets for free."
-  },
-  {
-    "herramientaId": "zoho-crm",
-    "capacidadId": "cap.customer_contact_records",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Contact managementManage all contacts important to your business in one place. No more scattered business cards."
-  },
-  {
-    "herramientaId": "zoho-crm",
-    "capacidadId": "cap.sales_pipeline",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Multiple sales pipelines Track multiple sales operations with different stages without any clutter."
-  },
-  {
-    "herramientaId": "zoho-crm",
-    "capacidadId": "cap.lead_capture",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Data capture via forms Generate leads from anywhere with built-in forms."
-  },
-  {
-    "herramientaId": "zoho-crm",
-    "capacidadId": "cap.sales_forecasting",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Sales forecasting Set your team for long-term success with achievable goals and keep track of business performance."
-  },
-  {
-    "herramientaId": "zoho-crm",
-    "capacidadId": "cap.quotes_and_proposals",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Configure, Price, Quote (CPQ) Match products to customer requirements and streamline quote management with built-in price rules."
-  },
-  {
-    "herramientaId": "zoho-projects",
-    "capacidadId": "cap.workflow_automation",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Save time on routine tasks. Whether you have a simple process or a complex workflow, our online project management platform has a drag-and-drop interface that makes new automations easier to visualize and deploy.",
-    "urlCitada": "https://www.zoho.com/projects/"
-  },
-  {
-    "herramientaId": "zoho-projects",
-    "capacidadId": "cap.app_integrations",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Zoho Projects gives you the added advantage of several other Zoho apps and third party apps through seamless integrations.",
-    "urlCitada": "https://www.zoho.com/projects/"
-  },
-  {
-    "herramientaId": "zoho-projects",
-    "capacidadId": "cap.dashboards",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Reporting and Analytics: Measure real-time performance, get visual dashboards and progress reports.",
-    "urlCitada": "https://www.zoho.com/projects/"
-  },
-  {
-    "herramientaId": "zoho-projects",
-    "capacidadId": "cap.task_management",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "motivo": "sin plan mínimo",
     "cita": "Task Management: Gantt charts, Task Lists, or Kanban boards can help prioritize tasks, organize work, and manage projects effectively.",
-    "urlCitada": "https://www.zoho.com/projects/"
-  },
-  {
-    "herramientaId": "zoho-projects",
-    "capacidadId": "cap.gantt_and_dependencies",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Use Gantt charts to build your project plan and track your task schedule. Zoho Projects keeps you aware of your critical tasks and their dependencies, and immediately shows any deviations between your planned and actual progress.",
-    "urlCitada": "https://www.zoho.com/projects/"
-  },
-  {
-    "herramientaId": "zoho-projects",
-    "capacidadId": "cap.kanban_boards",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Task Management: Gantt charts, Task Lists, or Kanban boards can help prioritize tasks, organize work, and manage projects effectively.",
-    "urlCitada": "https://www.zoho.com/projects/"
-  },
-  {
-    "herramientaId": "zoho-projects",
-    "capacidadId": "cap.time_tracking",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Log billable and non-billable hours with the Projects timesheet module. Record every minute of your hard work, either manually or with timers, and our built-in integration with Zoho Invoice will automatically generate invoices from your timesheets.",
-    "urlCitada": "https://www.zoho.com/projects/"
-  },
-  {
-    "herramientaId": "zoho-projects",
-    "capacidadId": "cap.team_workload_planning",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "Resource Management: Distribute workload effectively, prevent burnout and under utilization.",
     "urlCitada": "https://www.zoho.com/projects/"
   }
 ]

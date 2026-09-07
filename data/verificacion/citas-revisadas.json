@@ -398,5 +398,373 @@
     "veredicto": "vale",
     "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
     "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "capsule-crm",
+    "capacidadId": "cap.app_integrations",
+    "cita": "Connect to 100+ integrations",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.data_export",
+    "cita": "Custom Exporting",
+    "veredicto": "vale",
+    "motivo": "Nombra la exportación. A diferencia de importar, la capacidad no exige decir de dónde salen los datos: exige poder llevárselos.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.roles_and_permissions",
+    "cita": "Unlimited Custom Roles",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Google SSO",
+    "veredicto": "vale",
+    "motivo": "Nombra el inicio de sesión único y hasta el proveedor. No hay ambigüedad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.two_factor_authentication",
+    "cita": "Two-Factor Authentication",
+    "veredicto": "vale",
+    "motivo": "Es el nombre exacto de la capacidad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.audit_log",
+    "cita": "Audit Log",
+    "veredicto": "vale",
+    "motivo": "Mismo criterio que «Audit logs», ya aceptada en esta misma revisión.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.task_management",
+    "cita": "Unlimited Tasks",
+    "veredicto": "vale",
+    "motivo": "La capacidad es de una sola pieza —que haya tareas y se sepa qué queda pendiente— y una fila de cuota en la tabla de planes la demuestra.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "cita": "Unlimited Gantt Charts",
+    "veredicto": "no_vale",
+    "motivo": "La capacidad tiene dos mitades: ver el proyecto en el tiempo Y encadenar tareas. Esto demuestra la vista temporal, no el encadenado. Es el espejo exacto de «Task Dependencies», rechazada por demostrar sólo la otra mitad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.kanban_boards",
+    "cita": "Kanban Boards",
+    "veredicto": "vale",
+    "motivo": "Es el nombre exacto de la capacidad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Native Time Tracking",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.team_workload_planning",
+    "cita": "Portfolio Workload Management",
+    "veredicto": "vale",
+    "motivo": "Nombra la gestión de carga de trabajo, que es la capacidad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.workflow_automation",
+    "cita": "Workflow automation",
+    "veredicto": "vale",
+    "motivo": "Es el nombre exacto de la capacidad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Single sign-on (Okta)",
+    "veredicto": "vale",
+    "motivo": "Nombra el inicio de sesión único y el proveedor.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Enterprise SSO",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.audit_log",
+    "cita": "Audit log & changelog",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.workflow_automation",
+    "cita": "Triggers & actions",
+    "veredicto": "vale",
+    "motivo": "«Si pasa esto, haz aquello» es literalmente la definición de la capacidad, y «Triggers & actions» es su nombre en la tabla.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.public_api",
+    "cita": "API",
+    "veredicto": "no_vale",
+    "motivo": "Mismo caso exacto que ganttpro: «API» a secas no dice que sea pública ni documentada, y la capacidad exige «interfaz de programación documentada». Se rechaza por coherencia con ese precedente.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.dashboards",
+    "cita": "Customizable dashboards",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.data_export",
+    "cita": "Data import & export",
+    "veredicto": "vale",
+    "motivo": "Dice «Data ... export»: nombra el objeto y la dirección.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "streak",
+    "capacidadId": "cap.webhooks",
+    "cita": "Standard + Webhooks",
+    "veredicto": "vale",
+    "motivo": "Nombra los webhooks dentro de la tabla de planes. La cita parece un pegado de nombre de plan y fila, pero la fila que sostiene la capacidad está ahí.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.workflow_automation",
+    "cita": "Workflows",
+    "veredicto": "no_vale",
+    "motivo": "«Workflows» a secas no dice que encadene acciones —«si pasa esto, haz aquello»—, que es lo que define la capacidad. Es más débil que «Workflow automation» o «Triggers & actions», aceptadas aquí mismo. Se rechaza por prudencia, no por certeza.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.dashboards",
+    "cita": "Customizable dashboards",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.data_export",
+    "cita": "Import & Export",
+    "veredicto": "vale",
+    "motivo": "Nombra la exportación, que no exige decir a dónde.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.data_import_and_migration",
+    "cita": "Import & Export",
+    "veredicto": "no_vale",
+    "motivo": "Mismo defecto que «Import» en ganttpro: no dice desde dónde. La capacidad es traer los datos desde otra herramienta o una hoja de cálculo, no importar un archivo cualquiera.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.task_management",
+    "cita": "Essential task management",
+    "veredicto": "vale",
+    "motivo": "Nombra la gestión de tareas.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.project_planning",
+    "cita": "Project & task management",
+    "veredicto": "no_vale",
+    "motivo": "La capacidad exige fases e hitos, con responsables y fechas. «Project management» a secas no demuestra nada de eso: es la etiqueta genérica de la categoría entera. Se rechaza por prudencia.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.public_api",
+    "cita": "API access",
+    "veredicto": "no_vale",
+    "motivo": "Igual que «API» en ganttpro y scoro: «acceso a la API» no dice que sea pública ni documentada. Coherencia con ese precedente.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "SSO (SAML)",
+    "veredicto": "vale",
+    "motivo": "Nombra el inicio de sesión único y el protocolo.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.two_factor_authentication",
+    "cita": "2-Factor Authentication",
+    "veredicto": "vale",
+    "motivo": "Es el nombre exacto de la capacidad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.audit_log",
+    "cita": "Activity audit",
+    "veredicto": "vale",
+    "motivo": "Nombra el registro de actividad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "agile-crm",
+    "capacidadId": "cap.customer_contact_records",
+    "cita": "1,000 Contacts & Companies",
+    "veredicto": "vale",
+    "motivo": "Una fila de cuota que nombra contactos y empresas demuestra que el producto guarda fichas de cliente.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.data_export",
+    "cita": "Export true true true true",
+    "veredicto": "no_vale",
+    "motivo": "No es una frase literal legible: los «true» son las marcas por plan de una tabla comparativa mal recogida. Y «Export» suelto, sin objeto, no dice qué se exporta.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "paymo",
+    "capacidadId": "cap.app_integrations",
+    "cita": "Integrations & API Access",
+    "veredicto": "vale",
+    "motivo": "Nombra las integraciones.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.app_integrations",
+    "cita": "Standard integration",
+    "veredicto": "vale",
+    "motivo": "Nombra la integración dentro de la tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zoho-projects",
+    "capacidadId": "cap.dashboards",
+    "cita": "Portfolio Dashboard",
+    "veredicto": "vale",
+    "motivo": "Nombra el cuadro de mando.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zoho-projects",
+    "capacidadId": "cap.task_management",
+    "cita": "Task management",
+    "veredicto": "vale",
+    "motivo": "Es el nombre exacto de la capacidad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zoho-projects",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "cita": "Gantt chart",
+    "veredicto": "no_vale",
+    "motivo": "Mismo criterio que «Unlimited Gantt Charts» en clickup: demuestra la vista temporal, no el encadenado de tareas, y la capacidad exige las dos mitades.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zoho-projects",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Time Logs and Timesheets",
+    "veredicto": "vale",
+    "motivo": "Nombra el registro de tiempo dedicado.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zoho-projects",
+    "capacidadId": "cap.team_workload_planning",
+    "cita": "Workload Report",
+    "veredicto": "vale",
+    "motivo": "Nombra la carga de trabajo, que es lo que la capacidad pide ver.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "hive",
+    "capacidadId": "cap.kanban_boards",
+    "cita": "Kanban view",
+    "veredicto": "vale",
+    "motivo": "Nombra el kanban, que es la capacidad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "hive",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Time tracking",
+    "veredicto": "vale",
+    "motivo": "Es el nombre exacto de la capacidad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "cita": "Interactive Gantt charts",
+    "veredicto": "no_vale",
+    "motivo": "Mismo criterio que en clickup y zoho-projects: el Gantt demuestra la vista temporal, no el encadenado de tareas, y la capacidad exige las dos mitades.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.kanban_boards",
+    "cita": "Board view",
+    "veredicto": "no_vale",
+    "motivo": "«Board view» no dice que sea un tablero de columnas de estado; hay que saber de antemano que la vista de tablero de Wrike es kanban. Se rechaza por prudencia, no por certeza.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Time tracking",
+    "veredicto": "vale",
+    "motivo": "Es el nombre exacto de la capacidad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.workflow_automation",
+    "cita": "100 automations",
+    "veredicto": "vale",
+    "motivo": "La fila nombra las automatizaciones, que es la capacidad. A diferencia de «Workflows» a secas —rechazada en vtiger—, aquí sí aparece la palabra que define la capacidad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.app_integrations",
+    "cita": "Connect chat tools",
+    "veredicto": "vale",
+    "motivo": "Conectar con herramientas de chat es conectar con otras herramientas mediante integraciones ya hechas.",
+    "revisadoEl": "2026-09-07"
   }
 ]

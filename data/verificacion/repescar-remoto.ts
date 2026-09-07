@@ -23,21 +23,54 @@ import {
 import type { RegistroVerificacion } from "./esquema";
 
 /**
- * EJECUCIÓN ÚNICA Y NO PERMANENTE, lanzada por Claude desde su propio entorno,
- * con la clave de Gemini inyectada por el proxy de red (no vive en este
- * archivo ni en ninguna variable de entorno visible). Remata el lote 1:
- * 133 pares sin respuesta, 106 de sólo-plan, 41 de redirección.
+ * La repesca de F2 ejecutada desde el entorno remoto, sin PowerShell y sin
+ * pasar por el ordenador de la propietaria. La clave de Gemini la inyecta el
+ * proxy de red: no vive en este archivo, ni en el repositorio, ni en ninguna
+ * variable de entorno visible desde aquí.
  *
- * No se deja en el repositorio como herramienta permanente: es un script de
- * rescate para esta tarea concreta. Reutiliza convertirSalida (mismas reglas
- * y pruebas que el pipeline oficial) para que el resultado sea indistinguible
- * de haber pasado por convertir-verificacion.
+ * Con esto se remataron los 280 pares que dejó abiertos el lote 1 —133 sin
+ * respuesta, 106 de sólo-plan y 41 de redirección—, y queda como el camino
+ * para los lotes 2 y 3.
+ *
+ * NO DECIDE NADA. Reutiliza `convertirSalida` sin tocarla, así que el
+ * resultado pasa por las mismas reglas y las mismas pruebas que
+ * `convertir-verificacion`. Lo único que hace de más es fusionar sólo los
+ * pares preguntados, para no tirar la evidencia buena que ya estaba.
+ *
+ * DOS COSAS QUE APRENDIÓ A LA FUERZA, y por las que está escrito así:
+ *
+ *  - Un bloque que falla NO puede tumbar el lote. La primera versión murió
+ *    entera cuando un error transitorio del proxy agotó los tres reintentos, y
+ *    se llevó por delante lo ya hecho porque la fusión sólo ocurre al final.
+ *    Es el mismo agujero que tiene `repescar.ps1`, y la explicación más
+ *    probable de que aquella repesca aplicara 3 cambios de 765.
+ *  - Hay páginas cuya respuesta completa tarda más de lo que el proxy aguanta.
+ *    Para ésas el tamaño de bloque se baja por argumento; con teamwork.com no
+ *    hubo otra forma de traerla entera.
  */
 
 const DIR = path.join(process.cwd(), "data", "verificacion");
 const MODELO = "gemini-3.6-flash";
+
+/**
+ * completo    — pregunta los tres buckets desde cero (saltando lo que ya esté
+ *               en el checkpoint) y luego convierte y fusiona.
+ * rescatar    — no abre buckets nuevos: vuelve a preguntar SÓLO las capacidades
+ *               que quedaron en `sinRespuesta` dentro del checkpoint, que son
+ *               las que perdió un fallo transitorio del gateway.
+ * reconvertir — no llama a Gemini ni una vez: reconvierte el checkpoint que ya
+ *               existe. Es lo que hace falta cuando cambian las reglas de
+ *               conversión y no los datos — por ejemplo al revisar citas breves.
+ */
+const MODO = (process.argv[2] ?? "completo") as "completo" | "rescatar" | "reconvertir";
 const PAUSA_MS = 4000;
-const POR_LLAMADA = 5;
+/**
+ * Cinco por llamada es el tamaño que evitó los cortes de la primera vuelta.
+ * Se puede bajar por argumento: hay páginas —teamwork.com— cuya respuesta
+ * completa tarda tanto que el proxy corta la conexión antes de terminarla, y
+ * partirla en trozos más pequeños es lo único que la trae entera.
+ */
+const POR_LLAMADA = Number(process.argv[3] ?? 5);
 const HOY = "2026-09-07";
 
 function leerJson<T>(ruta: string): T {
@@ -441,16 +474,61 @@ async function main() {
     await sleep(PAUSA_MS);
   }
 
-  console.log("\n=== Bucket redirección (41 pares, 5 tools) ===");
-  for (const [id, ids] of gRed) await procesarConCheckpoint(`redireccion:${id}`, id, ids, "capacidad");
+  if (MODO === "completo") {
+    console.log("\n=== Bucket redirección (41 pares, 5 tools) ===");
+    for (const [id, ids] of gRed) await procesarConCheckpoint(`redireccion:${id}`, id, ids, "capacidad");
 
-  console.log("\n=== Bucket capacidad (133 pares) ===");
-  for (const [id, ids] of gCap) await procesarConCheckpoint(`capacidad:${id}`, id, ids, "capacidad");
+    console.log("\n=== Bucket capacidad (133 pares) ===");
+    for (const [id, ids] of gCap) await procesarConCheckpoint(`capacidad:${id}`, id, ids, "capacidad");
 
-  console.log("\n=== Bucket plan (106 pares) ===");
-  for (const [id, ids] of gPlan) {
-    const citaPrevia = citaPorCapacidad(bucketPlan, id);
-    await procesarConCheckpoint(`plan:${id}`, id, ids, "plan", citaPrevia);
+    console.log("\n=== Bucket plan (106 pares) ===");
+    for (const [id, ids] of gPlan) {
+      const citaPrevia = citaPorCapacidad(bucketPlan, id);
+      await procesarConCheckpoint(`plan:${id}`, id, ids, "plan", citaPrevia);
+    }
+  }
+
+  if (MODO === "rescatar") {
+    /**
+     * Las citas que sostenían estos pares están en el descartes de ANTES de la
+     * primera fusión: al fusionar, el par pasó a «sin respuesta» y su cita se
+     * fue con él. Se recupera de la copia para no volver a preguntar la
+     * capacidad entera de algo que ya estaba afirmado.
+     */
+    const rutaOriginales = path.join(DIR, "_descartes-originales.json");
+    const originales: Descarte[] = fs.existsSync(rutaOriginales)
+      ? leerJson<Descarte[]>(rutaOriginales)
+      : descartes;
+
+    console.log("\n=== Rescate de los pares que perdió un fallo del gateway ===");
+    for (const [clave, s] of Object.entries(checkpoint)) {
+      const pendientes = s.sinRespuesta ?? [];
+      if (!pendientes.length) continue;
+
+      const id = s.herramientaId;
+      const tipo: "capacidad" | "plan" = clave.startsWith("plan:") ? "plan" : "capacidad";
+      const ficha = herramientaPorId.get(id)!;
+      console.log(`· ${ficha.nombre} (${id}) — ${pendientes.length} pendientes [${tipo}]`);
+
+      const citaPrevia = citaPorCapacidad(originales, id);
+      const rescatada =
+        tipo === "capacidad"
+          ? await procesarCapacidad(id, ficha.nombre, urlsDe(id), pendientes, capacidadPorId)
+          : await procesarPlan(id, ficha.nombre, urlsDe(id), pendientes, capacidadPorId, citaPrevia);
+
+      // Fusionar, no reemplazar: lo que ya estaba respondido sigue valiendo.
+      const respuestas = [...(s.respuestas ?? []), ...(rescatada.respuestas ?? [])];
+      const respondidas = new Set(respuestas.map((r) => r.capacidadId));
+      checkpoint[clave] = {
+        ...s,
+        respuestas,
+        urlsRecuperadas: [...(s.urlsRecuperadas ?? []), ...(rescatada.urlsRecuperadas ?? [])],
+        sinRespuesta: (s.capacidadesPedidas ?? []).filter((c) => !respondidas.has(c)),
+      };
+      escribirJson(RUTA_CHECKPOINT, checkpoint);
+      console.log(`    recuperadas ${rescatada.respuestas?.length ?? 0} de ${pendientes.length}`);
+      await sleep(PAUSA_MS);
+    }
   }
 
   const salidas: SalidaHerramienta[] = Object.values(checkpoint);

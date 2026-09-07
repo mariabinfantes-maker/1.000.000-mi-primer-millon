@@ -3200,6 +3200,108 @@ ningún sprint. Ninguna urge; todas se olvidan si no están escritas.
   confirmó la propietaria), así que borrarla no rompe nada ni exige
   redesplegar.
 
+## El lote 1, rematado sin pasar por el ordenador de la propietaria (2026-09-07)
+
+La palanca de la que hablaba la entrada anterior ya está tirada: el proxy de red
+del entorno remoto inyecta la clave hacia `generativelanguage.googleapis.com`, y
+la sesión nueva la recibe. **F2 ha dejado de depender del ordenador de la
+propietaria.** Ella pasó de ejecutar a decidir, que era el objetivo.
+
+**El resultado: de 120 verificados a 247, de 765.** Los desconocidos bajan de
+645 a 518 y los descartes de 283 a 123. **Y no queda ni un solo par «sin
+respuesta»: eran 133.**
+
+De los 247 verificados, **243 se apoyan en la tarifa oficial** y 241 dicen en
+qué plan está la capacidad. La profundidad se reparte en 232 nativas, 8
+integraciones y 7 módulos.
+
+### Lo que cambió por cada regla de la propietaria
+
+| Regla | Antes | Después |
+|---|---|---|
+| 1. Redirección con evidencia técnica | 41 pares caídos | 8, y los 33 recuperados |
+| 2. El plan lo sostiene la tarifa, no la portada | 36 sin fuente que lo demuestre | 16 |
+| 3. Citas breves: a revisión, no a la basura | 50 revisadas | 96, con 46 nuevas |
+| 4. Cero «no disponible» es esperable | 0 | 0 |
+
+**Regla 1.** Las cinco herramientas cuya dirección de tarifas redirigía
+—Insightly, Zoho CRM, Capsule, Wrike y Zenkit— están declaradas en
+`sustituciones.json` con la dirección final y su motivo. La evidencia técnica
+es el `retrievedUrl` que devuelve el propio `url_context` de Gemini: quien
+descarga la página es el servidor de Google, así que resuelve la cadena que el
+cliente HTTP local no pudo. **Ninguna ficha del catálogo se ha tocado.**
+
+**Regla 3.** Las 46 citas breves nuevas se revisaron una a una con veredicto y
+motivo escritos: **36 valen y 10 no.** Los rechazos siguen los precedentes ya
+sentados: «API» a secas (scoro, zenkit) por el mismo motivo que ya se rechazó en
+ganttpro; «Import & Export» para importar (vtiger) por el mismo motivo que
+«Import»; y el Gantt (clickup, zoho-projects, wrike) porque la capacidad exige
+ver el proyecto en el tiempo **y** encadenar tareas, y el Gantt demuestra sólo
+la primera mitad — es el espejo exacto de «Task Dependencies», que ya se rechazó
+por demostrar sólo la segunda.
+
+**Regla 4.** Sigue habiendo cero registros «no disponible», y **las tres sondas
+siguen intactas**: ninguna de las 30 herramientas documenta reserva por
+internet (30 de 30 desconocido), ninguno de los 15 CRM documenta recordatorios
+de cita, y ninguna de las 15 de gestión de proyectos documenta órdenes de
+trabajo. Con 127 pares más verificados, el hallazgo que justifica F2 no se ha
+movido ni un punto. Y sigue significando lo que significaba: **no consta**, no
+«no lo tiene».
+
+### Por qué la repesca anterior aplicó 3 cambios de 765
+
+**No era el prompt.** Se comprobó de la única forma que vale: repitiendo los
+mismos 133 pares de «capacidad» que en PowerShell no aplicaron ni uno, con el
+mismo prompt, el mismo modelo y el mismo tamaño de bloque, pero llamando a la
+API desde el entorno remoto. **Respondieron los 133.**
+
+Lo que sí se reprodujo, y por accidente, fue el mecanismo: la primera versión
+del script remoto **murió entera** cuando un bloque agotó sus tres reintentos
+contra un error transitorio del proxy, y se llevó por delante el trabajo ya
+hecho de las herramientas anteriores, porque la fusión sólo ocurre al final.
+`repescar.ps1` tiene exactamente ese agujero: la llamada a Gemini está fuera del
+`try/catch` del bloque, así que un fallo que agote los reintentos aborta el
+`foreach` entero y las tareas siguientes no llegan a ejecutarse nunca. Con
+`$ErrorActionPreference = "Stop"` y sin reanudación, eso deja aplicado sólo lo
+de las primeras tareas — que es la forma que tenían los 3 cambios: los tres de
+tipo «plan», ninguno de «capacidad».
+
+**No está demostrado al cien por cien** —el mensaje de error de aquella ventana
+de PowerShell no lo tiene nadie—, pero es la única explicación que encaja con
+las tres cosas medidas a la vez: que la fusión sí escribía, que «capacidad» no
+aplicó nada, y que el total de respuestas no se movió.
+
+La corrección ya está en el arnés remoto: un bloque que falla queda en
+`sinRespuesta` y el proceso sigue, y hay un checkpoint por herramienta para no
+volver a pagar lo ya conseguido. Hicieron falta cinco pasadas de rescate para
+recuperar los últimos 18 pares, y la última sólo salió al partir el bloque de
+teamwork.com en trozos de dos: su respuesta completa tardaba más de lo que el
+proxy aguanta. **Si los lotes 2 y 3 se ejecutan con `repescar.ps1` sin arreglar
+ese `try/catch`, volverá a pasar.**
+
+### Dos cosas que quedan abiertas, y las decide la propietaria
+
+**1. `sustituciones.json` no sabe declarar una `paginaOficial`.** Puede sustituir
+`urlPrecios` y añadir `documentacion`, y nada más. Zenkit redirige
+`zenkit.com` → `zenkit.com/en/`, así que Gemini lee `/en/` y cita
+`zenkit.com`, y la afirmación cae por la regla 1 — correctamente, porque la
+equivalencia no está declarada en ninguna parte. **Cuesta 8 pares hoy** (los 8
+que siguen en «la dirección citada no consta como leída», todos de Zenkit).
+Zoho CRM tiene la misma redirección de portada y no cuesta nada sólo porque sus
+citas salieron de la tarifa. Coste futuro: los redirigidos por idioma
+(`/en/`, `/es/`) son comunes, y en los lotes 2 y 3 hay 32 herramientas más.
+Se podría pedir la dirección ya resuelta y callarse, pero eso rompe la promesa
+del propio archivo —«se declara qué se pidió realmente y por qué»—, así que no
+se ha hecho. **Recomendación: añadir `paginaOficial?` al tipo `Sustitucion`,
+con su validador y su prueba.** Es pequeño y no toca ninguna regla de
+conversión: `convertirSalida` no usa `paginaOficial` para nada, sólo decide qué
+dirección se pide.
+
+**2. Una dirección del catálogo ya no lleva a donde decía.** `nocrm-io` tiene
+`urlPrecios` = `nocrm.io/es/precios`, y hoy redirige a `nocrm.io/es`, que es la
+portada, no una tarifa. Es una incidencia del catálogo, no de la verificación, y
+las direcciones de las fichas las decide la propietaria.
+
 ---
 
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria

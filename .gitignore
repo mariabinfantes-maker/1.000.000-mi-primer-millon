@@ -68,3 +68,4 @@ data/verificacion/salida/
 # no una fuente que deba persistir en el repositorio.
 data/verificacion/_checkpoint-repesca-remota.json
 data/verificacion/_salida-repesca-remota.json
+data/verificacion/_descartes-originales.json
