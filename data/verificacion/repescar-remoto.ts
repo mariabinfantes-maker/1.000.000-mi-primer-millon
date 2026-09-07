@@ -254,11 +254,11 @@ async function procesarCapacidad(
     const caps = trozo.map((id) => capacidadPorId.get(id)!);
     const prompt = promptCapacidad(nombre, caps);
     const t0 = Date.now();
-    const resp = await invocarGemini(prompt, urls);
-    const ms = Date.now() - t0;
-    urlsVistas.push(...extraerUrls(resp));
-    const texto = extraerTexto(resp);
     try {
+      const resp = await invocarGemini(prompt, urls);
+      const ms = Date.now() - t0;
+      urlsVistas.push(...extraerUrls(resp));
+      const texto = extraerTexto(resp);
       const parseado = JSON.parse(texto) as RespuestaCruda[];
       const filtrado = parseado
         .filter((r) => trozo.includes(r.capacidadId ?? ""))
@@ -272,8 +272,15 @@ async function procesarCapacidad(
         }));
       respuestas.push(...filtrado);
       console.log(`    bloque ${b + 1}/${bloques} — ${trozo.length} capacidades, ${ms}ms, ${filtrado.length} respondidas`);
-    } catch {
-      console.log(`    bloque ${b + 1}/${bloques} — respuesta no interpretable: ${texto.slice(0, 200)}`);
+    } catch (e) {
+      /**
+       * Que un bloque falle (incluso tras los 3 reintentos de invocarGemini)
+       * NO puede tumbar el resto del lote: ésa fue, reproducida en vivo, la
+       * causa más probable de que la repesca original sólo aplicara 3 de 765
+       * cambios. Las capacidades de este bloque quedan en sinRespuesta —un
+       * resultado honesto, no un hueco tapado— y se repescan en otra pasada.
+       */
+      console.log(`    bloque ${b + 1}/${bloques} — FALLÓ, queda sin respuesta: ${(e as Error).message.slice(0, 200)}`);
     }
     if (b < bloques - 1) await sleep(PAUSA_MS);
   }
@@ -311,11 +318,11 @@ async function procesarPlan(
     const caps = trozo.map((id) => ({ ...capacidadPorId.get(id)!, citaPrevia: citaPreviaDe.get(id) }));
     const prompt = promptPlan(nombre, caps);
     const t0 = Date.now();
-    const resp = await invocarGemini(prompt, urls);
-    const ms = Date.now() - t0;
-    urlsVistas.push(...extraerUrls(resp));
-    const texto = extraerTexto(resp);
     try {
+      const resp = await invocarGemini(prompt, urls);
+      const ms = Date.now() - t0;
+      urlsVistas.push(...extraerUrls(resp));
+      const texto = extraerTexto(resp);
       const parseado = JSON.parse(texto) as Array<{
         capacidadId?: string;
         profundidad?: string | null;
@@ -338,8 +345,8 @@ async function procesarPlan(
         });
       }
       console.log(`    bloque ${b + 1}/${bloques} — ${trozo.length} capacidades, ${ms}ms, ${filtrado.length} respondidas`);
-    } catch {
-      console.log(`    bloque ${b + 1}/${bloques} — respuesta no interpretable: ${texto.slice(0, 200)}`);
+    } catch (e) {
+      console.log(`    bloque ${b + 1}/${bloques} — FALLÓ, queda sin respuesta: ${(e as Error).message.slice(0, 200)}`);
     }
     if (b < bloques - 1) await sleep(PAUSA_MS);
   }
@@ -401,42 +408,52 @@ async function main() {
     return [...new Set(urls)];
   }
 
-  const salidas: SalidaHerramienta[] = [];
-  const resumenAplicadas: Record<string, number> = {};
+  /**
+   * Checkpoint incremental: si el proceso muere a mitad (como ya pasó una
+   * vez, con exactamente este tipo de fallo), la siguiente ejecución
+   * retoma donde se quedó en vez de repetir —y volver a pagar— lo que ya
+   * está bien hecho.
+   */
+  const RUTA_CHECKPOINT = path.join(DIR, "_checkpoint-repesca-remota.json");
+  const checkpoint: Record<string, SalidaHerramienta> = fs.existsSync(RUTA_CHECKPOINT)
+    ? leerJson<Record<string, SalidaHerramienta>>(RUTA_CHECKPOINT)
+    : {};
 
-  // 1) Redirección: full re-ask con la URL final ya resuelta.
+  async function procesarConCheckpoint(
+    clave: string,
+    id: string,
+    ids: string[],
+    tipo: "capacidad" | "plan",
+    citaPrevia?: Map<string, string>
+  ): Promise<void> {
+    if (checkpoint[clave]) {
+      console.log(`· ${clave} — ya estaba en el checkpoint, se salta`);
+      return;
+    }
+    const ficha = herramientaPorId.get(id)!;
+    console.log(`· ${ficha.nombre} (${id}) — ${ids.length} capacidades [${tipo}]`);
+    const salida =
+      tipo === "capacidad"
+        ? await procesarCapacidad(id, ficha.nombre, urlsDe(id), ids, capacidadPorId)
+        : await procesarPlan(id, ficha.nombre, urlsDe(id), ids, capacidadPorId, citaPrevia!);
+    checkpoint[clave] = salida;
+    escribirJson(RUTA_CHECKPOINT, checkpoint);
+    await sleep(PAUSA_MS);
+  }
+
   console.log("\n=== Bucket redirección (41 pares, 5 tools) ===");
-  for (const [id, ids] of gRed) {
-    const ficha = herramientaPorId.get(id)!;
-    console.log(`· ${ficha.nombre} (${id}) — ${ids.length} capacidades`);
-    const salida = await procesarCapacidad(id, ficha.nombre, urlsDe(id), ids, capacidadPorId);
-    salidas.push(salida);
-    resumenAplicadas[`redireccion:${id}`] = salida.respuestas?.length ?? 0;
-    await sleep(PAUSA_MS);
-  }
+  for (const [id, ids] of gRed) await procesarConCheckpoint(`redireccion:${id}`, id, ids, "capacidad");
 
-  // 2) Capacidad entera: sin respuesta.
   console.log("\n=== Bucket capacidad (133 pares) ===");
-  for (const [id, ids] of gCap) {
-    const ficha = herramientaPorId.get(id)!;
-    console.log(`· ${ficha.nombre} (${id}) — ${ids.length} capacidades`);
-    const salida = await procesarCapacidad(id, ficha.nombre, urlsDe(id), ids, capacidadPorId);
-    salidas.push(salida);
-    resumenAplicadas[`capacidad:${id}`] = salida.respuestas?.length ?? 0;
-    await sleep(PAUSA_MS);
-  }
+  for (const [id, ids] of gCap) await procesarConCheckpoint(`capacidad:${id}`, id, ids, "capacidad");
 
-  // 3) Sólo plan.
   console.log("\n=== Bucket plan (106 pares) ===");
   for (const [id, ids] of gPlan) {
-    const ficha = herramientaPorId.get(id)!;
-    console.log(`· ${ficha.nombre} (${id}) — ${ids.length} capacidades`);
     const citaPrevia = citaPorCapacidad(bucketPlan, id);
-    const salida = await procesarPlan(id, ficha.nombre, urlsDe(id), ids, capacidadPorId, citaPrevia);
-    salidas.push(salida);
-    resumenAplicadas[`plan:${id}`] = salida.respuestas?.length ?? 0;
-    await sleep(PAUSA_MS);
+    await procesarConCheckpoint(`plan:${id}`, id, ids, "plan", citaPrevia);
   }
+
+  const salidas: SalidaHerramienta[] = Object.values(checkpoint);
 
   escribirJson(path.join(DIR, "_salida-repesca-remota.json"), {
     fecha: HOY,
