@@ -3175,6 +3175,29 @@ una sesión nueva para que llegue. Con ella, F2 deja de depender de su ordenador
 y ella pasa de ejecutar a revisar. Es la palanca más grande que tiene el
 proyecto ahora mismo.
 
+## Pendientes sueltos, para que no se pierdan (2026-09-07)
+
+Cosas pequeñas que se detectaron trabajando en otra cosa y que no entran en
+ningún sprint. Ninguna urge; todas se olvidan si no están escritas.
+
+- **`--color-agente-evaluador` es un nombre fósil.** El agente se llama Atlas
+  Advisor desde hace tiempo; el token CSS conserva el nombre viejo. Cambiarlo
+  toca `app/globals.css` y quien lo use, y **los colores están congelados**: no
+  se toca sin aprobación de la propietaria.
+- **`lib/agentes.ts` no está alineado con los 11 agentes** de
+  `ARQUITECTURA-AGENTES.md`, que es la referencia canónica.
+- **Copia pendiente: «La opción elegida» / «Mejor ajuste para ti».** Sprint de
+  redacción anotado y nunca abierto.
+- **Cinco fichas sin `analisisAtlas`:** bitrix24, gohighlevel, hubspot, odoo y
+  zoho-one. Son las mismas cinco sin facilidad de implementación.
+- **Los seis registros de afiliación en Neon** siguen sin crear.
+- **`tieneProgramaDeAfiliadosFiable()` sigue descartando** automáticamente las
+  herramientas sin programa de afiliación, y eso **contradice la política de
+  catálogo aprobada**. Está declarado como no implementado en AGENTS.md, pero la
+  contradicción sigue viva en el código.
+- **La clave de Gemini que quedó visible el 2026-09-07 hay que rotarla:**
+  eliminarla en AI Studio, crear otra y actualizarla en Vercel.
+
 ---
 
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
