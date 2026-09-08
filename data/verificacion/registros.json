@@ -9418,7 +9418,7 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Platform functionality is included by default and powers whichever core apps you choose. You can choose between Standard and Enterprise platform."
+        "cita": "Triggers & actions"
       }
     ],
     "confianza": "alta",
@@ -9492,7 +9492,7 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Platform functionality is included by default and powers whichever core apps you choose. You can choose between Standard and Enterprise platform. Customizable dashboards",
+        "cita": "Customizable dashboards",
         "rol": "capacidad"
       },
       {
@@ -9538,7 +9538,7 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Platform functionality is included by default and powers whichever core apps you choose. You can choose between Standard and Enterprise platform. [...] Data import & export",
+        "cita": "Data import & export",
         "rol": "capacidad"
       },
       {
@@ -9564,7 +9564,7 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Platform functionality is included by default and powers whichever core apps you choose. You can choose between Standard and Enterprise platform.",
+        "cita": "Yes, you can import your own contacts, products, images, invoices, receipts, and more.",
         "rol": "capacidad"
       },
       {
@@ -12802,7 +12802,7 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Platform functionality is included by default and powers whichever core apps you choose. You can choose between Standard and Enterprise platform."
+        "cita": "Multi-factor authentication"
       }
     ],
     "confianza": "alta",

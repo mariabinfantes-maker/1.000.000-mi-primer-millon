@@ -325,7 +325,7 @@
     "herramientaId": "scoro",
     "capacidadId": "cap.workflow_automation",
     "motivo": "sin plan mínimo",
-    "cita": "Platform functionality is included by default and powers whichever core apps you choose. You can choose between Standard and Enterprise platform.",
+    "cita": "Triggers & actions",
     "urlCitada": "https://www.scoro.com/pricing/"
   },
   {
@@ -1095,7 +1095,7 @@
     "herramientaId": "scoro",
     "capacidadId": "cap.two_factor_authentication",
     "motivo": "sin plan mínimo",
-    "cita": "Platform functionality is included by default and powers whichever core apps you choose. You can choose between Standard and Enterprise platform.",
+    "cita": "Multi-factor authentication",
     "urlCitada": "https://www.scoro.com/pricing/"
   },
   {
