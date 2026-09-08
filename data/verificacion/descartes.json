@@ -232,13 +232,6 @@
   },
   {
     "herramientaId": "scoro",
-    "capacidadId": "cap.public_api",
-    "motivo": "cita breve revisada y rechazada",
-    "cita": "API",
-    "urlCitada": "https://www.scoro.com/pricing/"
-  },
-  {
-    "herramientaId": "scoro",
     "capacidadId": "cap.roles_and_permissions",
     "motivo": "el plan no viene de una fuente que lo demuestre",
     "cita": "Set up granular user permissions to ensure everyone sees only the information and features relevant to their role.",

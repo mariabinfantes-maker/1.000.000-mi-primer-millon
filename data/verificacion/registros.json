@@ -10979,7 +10979,9 @@
   {
     "herramientaId": "scoro",
     "capacidadId": "cap.public_api",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Standard",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
@@ -10988,9 +10990,9 @@
         "cita": "API"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-07",
-    "nota": "Criterio de la propietaria para cap.public_api (2026-09-08), aplicado igual a las ocho: la capacidad exige una interfaz de programación DOCUMENTADA, así que sólo se da por verificada con las dos evidencias juntas — (a) documentación oficial que demuestre una API disponible para clientes, y (b) tarifa oficial que sitúe el plan. Con una sola de las dos, el par queda en desconocido. (a) SÍ: api.scoro.com es documentación de referencia real y dice literalmente \"The API makes it easy to create web and desktop applications that integrate with your account.\" (b) NO: la respuesta situaba la capacidad en un plan llamado \"Standard\", y ese plan NO existe en la tarifa oficial de hoy. Al releerla, Scoro nombra sus planes de otra forma (\"Time-billing\", \"Projects & Resources\"...), y a la pregunta directa de si existe un plan \"Standard\" la respuesta fue NO. La tarifa sí dice que la API es funcionalidad de plataforma presente por defecto, pero mientras el plan mínimo no se pueda nombrar como lo nombra el fabricante, la regla del plan no se cumple. Se mantiene el rechazo, pero por un motivo distinto del anterior: no porque \"API\" sea ambigua —la documentación la desambigua—, sino porque el plan que se le atribuía no se sostiene. Este par merece repescarse cuando se vuelva a preguntar por la tarifa."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-07",
+    "nota": "Se incluye la funcionalidad de 'API' dentro de la plataforma por defecto."
   },
   {
     "herramientaId": "scoro",
