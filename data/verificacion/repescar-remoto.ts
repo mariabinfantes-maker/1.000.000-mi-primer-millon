@@ -64,7 +64,7 @@ const MODELO = "gemini-3.6-flash";
  *               existe. Es lo que hace falta cuando cambian las reglas de
  *               conversión y no los datos — por ejemplo al revisar citas breves.
  */
-const MODO = (process.argv[2] ?? "completo") as "completo" | "rescatar" | "reconvertir" | "pares";
+const MODO = (process.argv[2] ?? "completo") as "completo" | "rescatar" | "reconvertir" | "pares" | "planes";
 const PAUSA_MS = 4000;
 /**
  * Cinco por llamada es el tamaño que evitó los cortes de la primera vuelta.
@@ -236,27 +236,34 @@ function promptPlan(
     })
     .join("\n");
   return [
-    "Ya está comprobado que la herramienta TIENE cada una de estas capacidades: no",
-    "vuelvas a juzgar SI la tiene, esa parte ya está resuelta con la cita que se te da.",
+    "Ya está comprobado que la herramienta TIENE cada una de estas capacidades. NO",
+    "vuelvas a juzgar si las tiene, y NO cambies esa parte: ya está resuelta.",
     "",
     `HERRAMIENTA: ${nombre}`,
     "",
-    "Tu única tarea, leyendo SOLO las páginas oficiales que te doy, es decir DOS cosas",
-    "por cada capacidad:",
+    "Tu ÚNICA tarea es decir EN QUÉ PLAN está cada capacidad, y demostrarlo.",
     "",
-    "(a) CÓMO la tiene: profundidad = \"nativa\" (es el producto o parte central),",
-    '    "modulo" (existe dentro de una suite, a veces como módulo aparte) o',
-    '    "integracion" (sólo funciona conectando otra herramienta; si es así, di',
-    "    con cuál en integraCon).",
-    "(b) EN QUÉ PLAN está disponible, con el nombre exacto que usa el fabricante.",
-    "    La fuente tiene que ser la tabla de precios o documentación oficial que",
-    "    vincule expresamente capacidad y plan — una portada o un eslogan NO vale.",
-    "    Si las páginas no lo dicen, responde planMinimo null: es una respuesta",
-    "    correcta, y prefiero eso a un plan inventado.",
+    "LO QUE CUENTA COMO DEMOSTRARLO, y no vale nada más:",
+    "  (a) La FILA de la tabla de precios más el ENCABEZADO DE LA COLUMNA donde",
+    "      está marcada. Cópialos juntos, por ejemplo: «Kanban boards — Business».",
+    "  (b) O una FRASE oficial que relacione expresamente esa capacidad con ese",
+    "      plan, por ejemplo: «Custom roles are available on the Enterprise plan».",
+    "",
+    "NO VALE, y esto es lo importante:",
+    "  · La fila sola, sin decir de qué columna es. «Kanban boards» no dice el plan.",
+    "  · «Incluido por defecto», «incluido en todos los planes» o parecidos, si no",
+    "    nombran el plan concreto.",
+    "  · Deducirlo de la posición, del precio o de lo que suelen hacer estas",
+    "    herramientas. Si hay que razonar para llegar del texto al plan, NO vale.",
+    "",
+    "SI NO PUEDES DEMOSTRARLO ASÍ, responde planMinimo null. Es una respuesta",
+    "CORRECTA y frecuente, y la prefiero mil veces a un plan que no puedas sostener.",
+    "No rellenes el hueco.",
     "",
     "REGLAS:",
     "1. Usa SOLO el contenido de las direcciones que te doy.",
-    "2. Copia una cita LITERAL de esa fuente que sostenga tu respuesta de (a) y (b).",
+    "2. La cita del plan va en planCita, y es literal. Si planMinimo es null,",
+    "   planCita explica brevemente qué miraste y por qué no se puede situar.",
     "3. Responde ÚNICAMENTE con un array JSON. Sin texto antes ni después.",
     "",
     "CAPACIDADES:",
@@ -265,11 +272,9 @@ function promptPlan(
     "FORMATO DE CADA ELEMENTO DEL ARRAY:",
     "{",
     '  "capacidadId": "el identificador exacto de la lista",',
-    '  "profundidad": "nativa" | "modulo" | "integracion",',
-    '  "integraCon": "obligatorio si profundidad es integracion; si no, null",',
     '  "planMinimo": "nombre exacto del plan más barato que la incluye, o null",',
-    '  "urlFuente": "la dirección de la que sacas la cita",',
-    '  "cita": "la frase literal que sostiene profundidad y/o plan"',
+    '  "planUrlFuente": "la dirección de la que sacas la cita del plan",',
+    '  "planCita": "fila + encabezado de columna, o la frase que liga capacidad y plan"',
     "}",
   ].join("\n");
 }
@@ -361,23 +366,22 @@ async function procesarPlan(
       const texto = extraerTexto(resp);
       const parseado = JSON.parse(texto) as Array<{
         capacidadId?: string;
-        profundidad?: string | null;
-        integraCon?: string | null;
         planMinimo?: string | null;
-        urlFuente?: string | null;
-        cita?: string | null;
+        planUrlFuente?: string | null;
+        planCita?: string | null;
       }>;
       const filtrado = parseado.filter((r) => trozo.includes(r.capacidadId ?? ""));
       for (const r of filtrado) {
+        /**
+         * SÓLO el plan. Ni veredicto, ni profundidad, ni la cita de la
+         * capacidad: eso ya estaba comprobado y volver a escribirlo sería
+         * tirar evidencia buena. Quien fusiona conserva lo anterior.
+         */
         respuestas.push({
           capacidadId: r.capacidadId,
-          veredicto: "si",
-          profundidad: aTextoONull(r.profundidad),
-          integraCon: aTextoONull(r.integraCon),
           planMinimo: aTextoONull(r.planMinimo),
-          urlFuente: aTextoONull(r.urlFuente),
-          cita: aTextoONull(r.cita),
-          nota: null,
+          planUrlFuente: aTextoONull(r.planUrlFuente),
+          planCita: aTextoONull(r.planCita),
         });
       }
       console.log(`    bloque ${b + 1}/${bloques} — ${trozo.length} capacidades, ${ms}ms, ${filtrado.length} respondidas`);
@@ -401,6 +405,77 @@ async function procesarPlan(
     respuestas: [...porId.values()],
     sinRespuesta,
   };
+}
+
+/** Los pares cuyo plan hay que volver a demostrar: los que hoy afirman uno. */
+function r241DesdeRegistros(): Array<{ herramientaId: string; capacidadId: string }> {
+  const registros = leerJson<RegistroVerificacion[]>(path.join(DIR, "registros.json"));
+  return registros
+    .filter((x) => x.estado === "verificado" && x.planMinimo)
+    .map((x) => ({ herramientaId: x.herramientaId, capacidadId: x.capacidadId }));
+}
+
+/** Dónde vive la respuesta cruda de este par dentro del checkpoint. */
+function claveDelPar(
+  checkpoint: Record<string, SalidaHerramienta>,
+  herramientaId: string,
+  capacidadId: string
+): string | undefined {
+  return Object.keys(checkpoint).find(
+    (k) =>
+      checkpoint[k].herramientaId === herramientaId &&
+      (checkpoint[k].respuestas ?? []).some((r) => r.capacidadId === capacidadId)
+  );
+}
+
+/** ¿Ya tiene este par su cita de plan, de una pasada anterior? */
+function yaRepescado(
+  checkpoint: Record<string, SalidaHerramienta>,
+  herramientaId: string,
+  capacidadId: string
+): boolean {
+  const clave = claveDelPar(checkpoint, herramientaId, capacidadId);
+  if (!clave) return false;
+  const r = (checkpoint[clave].respuestas ?? []).find((x) => x.capacidadId === capacidadId);
+  return r?.planCita !== undefined;
+}
+
+/**
+ * Muchos pares del lote 1 vienen de la primera vuelta de PowerShell, cuya
+ * salida cruda no se conserva. Su evidencia SÍ está, en el registro ya
+ * convertido: se siembra desde ahí para no perderla ni volver a preguntarla.
+ */
+function sembrarDesdeRegistro(
+  checkpoint: Record<string, SalidaHerramienta>,
+  herramientaId: string,
+  capacidadId: string
+): string | undefined {
+  const registros = leerJson<RegistroVerificacion[]>(path.join(DIR, "registros.json"));
+  const reg = registros.find((x) => x.herramientaId === herramientaId && x.capacidadId === capacidadId);
+  if (!reg || reg.estado !== "verificado") return undefined;
+  const fc = reg.fuentes.find((f) => f.rol === "capacidad") ?? reg.fuentes[0];
+
+  const clave = `par:${herramientaId}:${capacidadId}`;
+  checkpoint[clave] = {
+    herramientaId,
+    fechaConsulta: fc.fechaConsulta,
+    urlsSolicitadas: [fc.url],
+    urlsRecuperadas: [{ url: fc.url, estado: "URL_RETRIEVAL_STATUS_SUCCESS", recuperada: true }],
+    capacidadesPedidas: [capacidadId],
+    respuestas: [
+      {
+        capacidadId,
+        veredicto: "si",
+        profundidad: reg.profundidad ?? null,
+        integraCon: reg.integraCon ?? null,
+        urlFuente: fc.url,
+        cita: fc.cita ?? null,
+        nota: reg.nota ?? null,
+      },
+    ],
+    sinRespuesta: [],
+  };
+  return clave;
 }
 
 async function main() {
@@ -549,6 +624,63 @@ async function main() {
       } else {
         checkpoint[`par:${p.herramientaId}:${p.capacidadId}`] = salida;
         console.log(`    entrada nueva${nueva ? "" : " (sin respuesta)"}`);
+      }
+      escribirJson(RUTA_CHECKPOINT, checkpoint);
+      await sleep(PAUSA_MS);
+    }
+  }
+
+  if (MODO === "planes") {
+    /**
+     * SÓLO LOS PLANES, y sin volver a investigar ninguna capacidad.
+     *
+     * Se repescan los planes de los registros que hoy afirman uno. La
+     * evidencia de la capacidad —veredicto, profundidad, con qué se integra y
+     * su cita— se conserva intacta; lo único que se escribe encima es el plan
+     * y SU propia cita, que va en un campo aparte para no pisar la otra.
+     */
+    const objetivo = r241DesdeRegistros();
+    const porTool = new Map<string, string[]>();
+    for (const o of objetivo) {
+      if (!porTool.has(o.herramientaId)) porTool.set(o.herramientaId, []);
+      porTool.get(o.herramientaId)!.push(o.capacidadId);
+    }
+    console.log(`\n=== Repesca de planes: ${objetivo.length} pares en ${porTool.size} herramientas ===`);
+
+    for (const [id, ids] of porTool) {
+      const ficha = herramientaPorId.get(id)!;
+      const pendientes = ids.filter((c) => !yaRepescado(checkpoint, id, c));
+      if (!pendientes.length) {
+        console.log(`· ${ficha.nombre} (${id}) — ya estaban los ${ids.length}, se salta`);
+        continue;
+      }
+      console.log(`· ${ficha.nombre} (${id}) — ${pendientes.length} planes`);
+      const salida = await procesarPlan(id, ficha.nombre, urlsDe(id), pendientes, capacidadPorId, new Map());
+
+      for (const nueva of salida.respuestas ?? []) {
+        const cap = nueva.capacidadId!;
+        const clave = claveDelPar(checkpoint, id, cap) ?? sembrarDesdeRegistro(checkpoint, id, cap);
+        if (!clave) {
+          console.log(`    ! ${cap}: no hay respuesta previa que conservar, se salta`);
+          continue;
+        }
+        const s = checkpoint[clave];
+        const respuestas = (s.respuestas ?? []).map((vieja) =>
+          vieja.capacidadId === cap
+            ? {
+                // Se conserva TODO lo de la capacidad y se añade sólo el plan.
+                ...vieja,
+                planMinimo: nueva.planMinimo,
+                planUrlFuente: nueva.planUrlFuente,
+                planCita: nueva.planCita,
+              }
+            : vieja
+        );
+        checkpoint[clave] = {
+          ...s,
+          respuestas,
+          urlsRecuperadas: [...(s.urlsRecuperadas ?? []), ...(salida.urlsRecuperadas ?? [])],
+        };
       }
       escribirJson(RUTA_CHECKPOINT, checkpoint);
       await sleep(PAUSA_MS);

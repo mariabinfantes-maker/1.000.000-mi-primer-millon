@@ -33,6 +33,7 @@ describe("los registros de verificación", () => {
     estado: "verificado",
     profundidad: "nativa",
     planMinimo: "Lite",
+    planEstado: "verificado",
     fuentes: [
       { tipo: "pagina_oficial", url: "https://ejemplo.test/precios", fechaConsulta: "2026-09-03" },
     ],
@@ -109,12 +110,12 @@ describe("los registros de verificación", () => {
 
   describe("«no está documentado» no es «no disponible»", () => {
     it("un desconocido no puede llevar profundidad", () => {
-      expect(e({ estado: "desconocido", nota: "buscado en precios y ayuda" })).toContain(
+      expect(e({ estado: "desconocido", planMinimo: undefined, planEstado: undefined, nota: "buscado en precios y ayuda" })).toContain(
         "no puede llevar profundidad"
       );
     });
     it("un desconocido tiene que explicar qué se buscó", () => {
-      expect(e({ estado: "desconocido", profundidad: undefined, planMinimo: undefined })).toContain(
+      expect(e({ estado: "desconocido", profundidad: undefined, planMinimo: undefined, planEstado: undefined })).toContain(
         "tiene que explicar por qué"
       );
     });
@@ -124,13 +125,14 @@ describe("los registros de verificación", () => {
           estado: "desconocido",
           profundidad: undefined,
           planMinimo: undefined,
+          planEstado: undefined,
           nota: "No aparece ni en la página de producto ni en la tabla de precios; no hay evidencia de que exista ni de que falte.",
           confianza: "baja",
         })
       ).toBe("");
     });
     it("un descartado también tiene que motivarse", () => {
-      expect(e({ estado: "descartado", profundidad: undefined, planMinimo: undefined })).toContain(
+      expect(e({ estado: "descartado", profundidad: undefined, planMinimo: undefined, planEstado: undefined })).toContain(
         "tiene que explicar por qué"
       );
     });
@@ -141,25 +143,26 @@ describe("los registros de verificación", () => {
       expect(e({ profundidad: undefined })).toContain("verificado sin profundidad");
     });
     it("una integración tiene que decir con qué se integra", () => {
-      expect(e({ profundidad: "integracion", planMinimo: undefined })).toContain(
+      expect(e({ profundidad: "integracion", planMinimo: undefined, planEstado: undefined })).toContain(
         "tiene que decir con qué se integra"
       );
     });
     it("una integración bien declarada se acepta", () => {
-      expect(e({ profundidad: "integracion", planMinimo: undefined, integraCon: "Zapier" })).toBe("");
+      expect(e({ profundidad: "integracion", planMinimo: undefined, planEstado: undefined, integraCon: "Zapier" })).toBe("");
     });
-    it("nativa y módulo conservan el plan mínimo real", () => {
+    it("nativa y módulo tienen que decir qué saben del plan", () => {
       for (const profundidad of ["nativa", "modulo"] as const) {
-        expect(e({ profundidad, planMinimo: undefined }), profundidad).toContain(
-          "falta el plan mínimo real"
-        );
+        expect(
+          e({ profundidad, planMinimo: undefined, planEstado: undefined }),
+          profundidad
+        ).toContain("no dice si el plan está verificado o es desconocido");
       }
     });
     it("una función sólo del plan caro conserva ESE plan, no el más barato", () => {
       expect(e({ planMinimo: "Ultimate" })).toBe("");
     });
     it("no disponible no puede llevar plan", () => {
-      expect(e({ profundidad: "no_disponible", planMinimo: "Lite" })).toContain(
+      expect(e({ profundidad: "no_disponible", planMinimo: "Lite", planEstado: "verificado" })).toContain(
         "no disponible no puede tener plan"
       );
     });
@@ -177,7 +180,7 @@ describe("los registros de verificación", () => {
     });
     it("lo que no depende del plan admite 12", () => {
       expect(
-        e({ profundidad: "integracion", planMinimo: undefined, integraCon: "Zapier", proximaRevision: "2027-08-01" })
+        e({ profundidad: "integracion", planMinimo: undefined, planEstado: undefined, integraCon: "Zapier", proximaRevision: "2027-08-01" })
       ).toBe("");
     });
     it("esFecha descarta el 30 de febrero y acierta con los bisiestos", () => {

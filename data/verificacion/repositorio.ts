@@ -85,17 +85,32 @@ export function erroresDeRegistro(
     if (registro.profundidad === "integracion" && !registro.integraCon?.trim()) {
       e.push(`${donde}: una integración tiene que decir con qué se integra`);
     }
-    // Una función que sólo existe en un plan superior conserva ese plan.
+    /**
+     * LA CERTEZA DEL PLAN ES SUYA, NO DE LA CAPACIDAD.
+     *
+     * Una función que sólo existe en un plan superior conserva ese plan; pero
+     * no saber el plan ya no tumba la capacidad. Lo que sí se exige es que las
+     * dos cosas se digan por separado y que ninguna afirme de más.
+     */
     const necesitaPlan =
       registro.profundidad === "nativa" || registro.profundidad === "modulo";
-    if (necesitaPlan && !registro.planMinimo?.trim()) {
-      e.push(`${donde}: falta el plan mínimo real`);
+    if (necesitaPlan && !registro.planEstado) {
+      e.push(`${donde}: no dice si el plan está verificado o es desconocido`);
+    }
+    if (registro.planEstado === "verificado" && !registro.planMinimo?.trim()) {
+      e.push(`${donde}: el plan se da por verificado pero no dice cuál`);
+    }
+    // Nombrar un plan que no se ha demostrado es afirmarlo. No se hace.
+    if (registro.planEstado === "desconocido" && registro.planMinimo) {
+      e.push(`${donde}: el plan es desconocido y aun así nombra "${registro.planMinimo}"`);
     }
     if (registro.profundidad === "no_disponible" && registro.planMinimo) {
       e.push(`${donde}: no disponible no puede tener plan`);
     }
   } else {
     if (registro.profundidad) e.push(`${donde}: ${registro.estado} no puede llevar profundidad`);
+    if (registro.planEstado) e.push(`${donde}: ${registro.estado} no puede opinar sobre el plan`);
+    if (registro.planMinimo) e.push(`${donde}: ${registro.estado} no puede nombrar un plan`);
     if (!registro.nota?.trim()) e.push(`${donde}: ${registro.estado} tiene que explicar por qué`);
   }
 

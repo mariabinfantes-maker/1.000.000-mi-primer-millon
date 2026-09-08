@@ -125,8 +125,24 @@ export type RegistroVerificacion = {
    * le da el fabricante. Una función que sólo está en el plan de 300 € al mes
    * no le sirve a una peluquera, y hoy Molnip no distingue.
    * `null` cuando no hay plan porque la capacidad no está disponible.
+   *
+   * SÓLO puede llevar valor si `planEstado` es `verificado`. Un plan que no se
+   * ha demostrado no se nombra: nombrarlo sería afirmarlo.
    */
   planMinimo?: string | null;
+  /**
+   * Qué sabemos del plan, INDEPENDIENTEMENTE de lo que sepamos de la capacidad.
+   *
+   * Son dos certezas distintas y antes se trataban como una sola: si el plan no
+   * se demostraba, caía también la capacidad, aunque su evidencia fuera
+   * impecable. Se midió con el lote 1 delante: de 241 planes afirmados, sólo 23
+   * tenían una cita que nombrara el plan. Tratar eso como «no sabemos si la
+   * herramienta lo hace» era falso; lo que no sabíamos era el plan.
+   *
+   * `desconocido` NO convierte la capacidad en desconocida y NO permite
+   * nombrar ningún plan.
+   */
+  planEstado?: "verificado" | "desconocido";
   /** Al menos una. Sin fuente no hay registro. */
   fuentes: Fuente[];
   confianza: NivelConfianza;
