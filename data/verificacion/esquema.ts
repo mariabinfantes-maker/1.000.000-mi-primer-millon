@@ -82,6 +82,38 @@ export const FUENTES_DE_PRIMERA_MANO: TipoFuente[] = [
 
 export type NivelConfianza = "alta" | "media" | "baja";
 
+/**
+ * Qué demuestra esta fuente. Existe porque una sola dirección rara vez
+ * demuestra las dos cosas que hay que saber de una capacidad: que la
+ * herramienta la tiene, y en qué plan.
+ *
+ * El caso que lo obligó: la API de Teamwork. Que sea una API DOCUMENTADA lo
+ * demuestra su documentación; en qué plan está, sólo la tarifa. Guardar una y
+ * tirar la otra deja un registro que no se sostiene solo: un «verificado» de
+ * confianza alta apoyado en dos palabras de una tabla de precios.
+ *
+ * Sin `rol` la fuente hace las dos cosas a la vez, que es el caso corriente
+ * —una tabla de planes que nombra la capacidad y la sitúa— y sigue siendo
+ * válido.
+ */
+export type RolDeFuente =
+  /** Demuestra que la herramienta tiene la capacidad. */
+  | "capacidad"
+  /** Demuestra en qué plan está. */
+  | "plan"
+  /**
+   * Dónde se fue a buscar el plan sin llegar a demostrarlo.
+   *
+   * No prueba nada, y por eso no es `plan`: es la trazabilidad de dónde se
+   * miró. Sin ella, un registro con el plan desconocido no enseña siquiera qué
+   * tarifa se consultó ni cuándo, y el día que alguien quiera repescarlo tiene
+   * que volver a averiguarlo.
+   */
+  | "plan_consultado";
+
+/** Los únicos roles que existen. Uno inventado colaba como si no hubiera rol. */
+export const ROLES_DE_FUENTE: RolDeFuente[] = ["capacidad", "plan", "plan_consultado"];
+
 export type Fuente = {
   tipo: TipoFuente;
   /** Dirección exacta consultada. Una portada no sirve como fuente de una función concreta. */
@@ -90,6 +122,8 @@ export type Fuente = {
   fechaConsulta: string;
   /** Lo que decía, en sus palabras, cuando el matiz importa. */
   cita?: string;
+  /** Qué demuestra. Ausente cuando la misma dirección demuestra las dos cosas. */
+  rol?: RolDeFuente;
 };
 
 export type RegistroVerificacion = {
@@ -103,8 +137,24 @@ export type RegistroVerificacion = {
    * le da el fabricante. Una función que sólo está en el plan de 300 € al mes
    * no le sirve a una peluquera, y hoy Molnip no distingue.
    * `null` cuando no hay plan porque la capacidad no está disponible.
+   *
+   * SÓLO puede llevar valor si `planEstado` es `verificado`. Un plan que no se
+   * ha demostrado no se nombra: nombrarlo sería afirmarlo.
    */
   planMinimo?: string | null;
+  /**
+   * Qué sabemos del plan, INDEPENDIENTEMENTE de lo que sepamos de la capacidad.
+   *
+   * Son dos certezas distintas y antes se trataban como una sola: si el plan no
+   * se demostraba, caía también la capacidad, aunque su evidencia fuera
+   * impecable. Se midió con el lote 1 delante: de 241 planes afirmados, sólo 23
+   * tenían una cita que nombrara el plan. Tratar eso como «no sabemos si la
+   * herramienta lo hace» era falso; lo que no sabíamos era el plan.
+   *
+   * `desconocido` NO convierte la capacidad en desconocida y NO permite
+   * nombrar ningún plan.
+   */
+  planEstado?: "verificado" | "desconocido";
   /** Al menos una. Sin fuente no hay registro. */
   fuentes: Fuente[];
   confianza: NivelConfianza;

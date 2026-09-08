@@ -35,6 +35,13 @@ export type RespuestaCruda = {
   urlFuente?: string | null;
   cita?: string | null;
   nota?: string | null;
+  /**
+   * La evidencia DEL PLAN, aparte de la de la capacidad. La repesca de plan la
+   * trae —fila más encabezado de columna, o una frase que los relacione— y no
+   * puede pisar la cita que demostró la capacidad, que ya estaba comprobada.
+   */
+  planCita?: string | null;
+  planUrlFuente?: string | null;
 };
 
 /** Una redirección resuelta con el cliente HTTP, no supuesta. */
@@ -152,9 +159,19 @@ function dominio(u: string): string | null {
   }
 }
 
+/**
+ * ¿Las dos direcciones son del mismo fabricante?
+ *
+ * Cuenta el dominio Y sus subdominios: la documentación casi nunca vive en el
+ * dominio principal —`apidocs.teamwork.com`, `api.scoro.com`— y compararlo en
+ * plano rechazaba evidencia buena del propio fabricante. Lo que sigue fuera es
+ * un dominio ajeno, que es lo que esta comprobación existe para frenar.
+ */
 function mismoDominio(a: string, b: string): boolean {
   const x = dominio(a);
-  return x !== null && x === dominio(b);
+  const y = dominio(b);
+  if (x === null || y === null) return false;
+  return x === y || x.endsWith(`.${y}`) || y.endsWith(`.${x}`);
 }
 
 /**
@@ -184,10 +201,24 @@ export function getCitasRevisadas(): CitaRevisada[] {
   return fs.existsSync(ruta) ? JSON.parse(fs.readFileSync(ruta, "utf8")) : [];
 }
 
+/**
+ * Una dirección oficial que demuestra la capacidad, declarada aparte porque no
+ * sale de la misma página que el plan. Se pasa ya validada desde el repositorio.
+ */
+export type PruebaDeCapacidad = {
+  herramientaId: string;
+  capacidadId: string;
+  url: string;
+  tipo: TipoFuente;
+  cita: string;
+  fecha: string;
+};
+
 export function convertirSalida(
   salida: SalidaLote,
   fuentesPorHerramienta: Record<string, FuentesDeHerramienta> = {},
-  citasRevisadas: CitaRevisada[] = []
+  citasRevisadas: CitaRevisada[] = [],
+  pruebasDeCapacidad: PruebaDeCapacidad[] = []
 ): Conversion {
   const registros: RegistroVerificacion[] = [];
   const descartes: Descarte[] = [];
@@ -201,6 +232,9 @@ export function convertirSalida(
         c.capacidadId === capacidadId &&
         c.cita.trim() === cita.trim()
     );
+
+  const pruebaDe = (herramientaId: string, capacidadId: string) =>
+    pruebasDeCapacidad.find((p) => p.herramientaId === herramientaId && p.capacidadId === capacidadId);
 
   for (const h of salida.herramientas ?? []) {
     const pedidas = h.capacidadesPedidas ?? [];
@@ -394,47 +428,110 @@ export function convertirSalida(
         continue;
       }
 
+      /**
+       * EL PLAN SE DECIDE APARTE, Y NO ARRASTRA A LA CAPACIDAD.
+       *
+       * Antes, no poder demostrar el plan degradaba el par entero a
+       * «desconocido»: se perdía una capacidad con evidencia impecable por no
+       * saber en qué plan estaba. Eso decía algo falso —«no sabemos si lo
+       * hace»— cuando lo que no sabíamos era otra cosa.
+       *
+       * Ahora la capacidad se queda verificada y el plan se marca desconocido.
+       * Un plan desconocido NO nombra ningún plan: nombrarlo sería afirmarlo.
+       * El motivo se sigue anotando en los descartes, para poder contar cuánto
+       * plan falta y repescarlo.
+       */
       const planMinimo = (r.planMinimo ?? "").trim();
-      const laSostieneUnPlan = SOSTIENEN_UN_PLAN.includes(fuente.tipo);
+      const planCita = (r.planCita ?? "").trim();
+      const planUrl = (r.planUrlFuente ?? "").trim();
+      const fuentePlan: Fuente | undefined = planUrl
+        ? { tipo: tipoDeFuente(planUrl), url: planUrl, fechaConsulta: h.fechaConsulta, cita: planCita }
+        : undefined;
+      // Si la repesca de plan trajo su propia fuente, es ésa la que lo sostiene.
+      const laSostieneUnPlan = SOSTIENEN_UN_PLAN.includes((fuentePlan ?? fuente).tipo);
 
+      let planEstado: "verificado" | "desconocido" | undefined;
+      let motivoDelPlan: string | undefined;
       if (profundidad !== "integracion") {
         if (!planMinimo) {
-          degradar(
-            capacidadId,
-            "sin plan mínimo",
-            "Se afirmó que la tiene, pero no en qué plan. Una función del plan caro no le sirve a quien busca el barato.",
-            fuente
-          );
-          continue;
-        }
-        /**
-         * El plan lo demuestra la tarifa o la documentación oficial, no la
-         * portada. Decisión de la propietaria con el lote 1 delante: 38 de 144
-         * planes venían de una portada, y un eslogan no dice en qué plan está
-         * una función concreta. La cita de la portada se conserva como pista.
-         */
-        if (!laSostieneUnPlan) {
-          degradar(
-            capacidadId,
-            "el plan no viene de una fuente que lo demuestre",
-            `Se sitúa en el plan "${planMinimo}" citando ${urlLeida}, que no es la tarifa oficial ni documentación que vincule capacidad y plan.`,
-            fuente
-          );
-          continue;
+          planEstado = "desconocido";
+          motivoDelPlan = "sin plan mínimo";
+        } else if (!laSostieneUnPlan) {
+          planEstado = "desconocido";
+          motivoDelPlan = "el plan no viene de una fuente que lo demuestre";
+        } else {
+          planEstado = "verificado";
         }
       }
+
+      if (motivoDelPlan) {
+        descartes.push({
+          herramientaId: h.herramientaId,
+          capacidadId,
+          motivo: motivoDelPlan,
+          cita: cita || undefined,
+          urlCitada: urlLeida,
+        });
+      }
+
+      /**
+       * LAS DOS EVIDENCIAS, Y NINGUNA SE TIRA.
+       *
+       * Cuando hay una prueba de capacidad declarada aparte —la documentación
+       * del fabricante—, el registro guarda las dos direcciones con su papel:
+       * una demuestra que la capacidad existe y otra en qué plan está. Antes
+       * sólo cabía una, y el resultado era un «verificado» de confianza alta
+       * sostenido por dos palabras de una tabla de precios, con la
+       * documentación que lo justificaba fuera del registro.
+       *
+       * Sin prueba declarada no cambia nada: una sola fuente, sin `rol`, que
+       * es el caso corriente.
+       */
+      const prueba = pruebaDe(h.herramientaId, capacidadId);
+      const fuenteCapacidad: Fuente = prueba
+        ? { tipo: prueba.tipo, url: prueba.url, fechaConsulta: prueba.fecha, cita: prueba.cita, rol: "capacidad" }
+        : fuente;
+
+      /**
+       * La evidencia de la capacidad NO se pisa nunca con la del plan. Cuando
+       * la repesca de plan trae su propia cita, se guardan las dos con su
+       * papel; si no, queda la única que hay, sin `rol`, como siempre.
+       */
+      const planVerificado = planEstado === "verificado";
+
+      /**
+       * Cuando el plan NO se demuestra, se conserva igualmente dónde se fue a
+       * buscarlo y en qué fecha, con el papel `plan_consultado`. No afirma
+       * ningún plan —el registro no lleva `planMinimo`— pero deja el rastro:
+       * sin él, un plan desconocido ni siquiera enseñaba qué tarifa se miró.
+       */
+      const dondeSeMiroElPlan: Fuente | undefined =
+        !planVerificado && planEstado === "desconocido" && fuentePlan
+          ? { ...fuentePlan, cita: undefined, rol: "plan_consultado" }
+          : undefined;
+
+      const fuentes: Fuente[] = prueba
+        ? planVerificado
+          ? [fuenteCapacidad, { ...(fuentePlan ?? fuente), rol: "plan" }]
+          : [fuenteCapacidad, ...(dondeSeMiroElPlan ? [dondeSeMiroElPlan] : [])]
+        : planVerificado && fuentePlan
+          ? [{ ...fuente, rol: "capacidad" }, { ...fuentePlan, rol: "plan" }]
+          : dondeSeMiroElPlan
+            ? [{ ...fuente, rol: "capacidad" }, dondeSeMiroElPlan]
+            : [fuente];
 
       registros.push({
         herramientaId: h.herramientaId,
         capacidadId,
         estado: "verificado",
         profundidad,
-        // Una integración tampoco conserva un plan que no venga demostrado.
-        planMinimo: planMinimo && laSostieneUnPlan ? planMinimo : undefined,
+        // Un plan que no se ha demostrado no se nombra.
+        planMinimo: planVerificado ? planMinimo : undefined,
+        planEstado,
         integraCon: profundidad === "integracion" ? r.integraCon!.trim() : undefined,
-        fuentes: [fuente],
+        fuentes,
         confianza,
-        proximaRevision: proximaRevision(h.fechaConsulta, Boolean(planMinimo && laSostieneUnPlan)),
+        proximaRevision: proximaRevision(h.fechaConsulta, planVerificado),
         nota: r.nota?.trim() || undefined,
       });
     }

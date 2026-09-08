@@ -1,11 +1,14 @@
 import { describe, expect, it } from "vitest";
 import { getTodasLasHerramientas } from "@/data/repositorio";
+import { ROLES_DE_FUENTE } from "../esquema";
 import type { RegistroVerificacion, SeleccionPlausible } from "../esquema";
 import {
   capacidadIdsDelVocabulario,
   erroresDeRegistro,
   erroresDeSeleccion,
+  erroresDeFuenteDeCapacidad,
   erroresDeSustitucion,
+  getFuentesDeCapacidad,
   getSustituciones,
   esFecha,
   getRegistros,
@@ -31,6 +34,7 @@ describe("los registros de verificación", () => {
     estado: "verificado",
     profundidad: "nativa",
     planMinimo: "Lite",
+    planEstado: "verificado",
     fuentes: [
       { tipo: "pagina_oficial", url: "https://ejemplo.test/precios", fechaConsulta: "2026-09-03" },
     ],
@@ -107,12 +111,12 @@ describe("los registros de verificación", () => {
 
   describe("«no está documentado» no es «no disponible»", () => {
     it("un desconocido no puede llevar profundidad", () => {
-      expect(e({ estado: "desconocido", nota: "buscado en precios y ayuda" })).toContain(
+      expect(e({ estado: "desconocido", planMinimo: undefined, planEstado: undefined, nota: "buscado en precios y ayuda" })).toContain(
         "no puede llevar profundidad"
       );
     });
     it("un desconocido tiene que explicar qué se buscó", () => {
-      expect(e({ estado: "desconocido", profundidad: undefined, planMinimo: undefined })).toContain(
+      expect(e({ estado: "desconocido", profundidad: undefined, planMinimo: undefined, planEstado: undefined })).toContain(
         "tiene que explicar por qué"
       );
     });
@@ -122,13 +126,14 @@ describe("los registros de verificación", () => {
           estado: "desconocido",
           profundidad: undefined,
           planMinimo: undefined,
+          planEstado: undefined,
           nota: "No aparece ni en la página de producto ni en la tabla de precios; no hay evidencia de que exista ni de que falte.",
           confianza: "baja",
         })
       ).toBe("");
     });
     it("un descartado también tiene que motivarse", () => {
-      expect(e({ estado: "descartado", profundidad: undefined, planMinimo: undefined })).toContain(
+      expect(e({ estado: "descartado", profundidad: undefined, planMinimo: undefined, planEstado: undefined })).toContain(
         "tiene que explicar por qué"
       );
     });
@@ -139,25 +144,313 @@ describe("los registros de verificación", () => {
       expect(e({ profundidad: undefined })).toContain("verificado sin profundidad");
     });
     it("una integración tiene que decir con qué se integra", () => {
-      expect(e({ profundidad: "integracion", planMinimo: undefined })).toContain(
+      expect(e({ profundidad: "integracion", planMinimo: undefined, planEstado: undefined })).toContain(
         "tiene que decir con qué se integra"
       );
     });
     it("una integración bien declarada se acepta", () => {
-      expect(e({ profundidad: "integracion", planMinimo: undefined, integraCon: "Zapier" })).toBe("");
+      expect(e({ profundidad: "integracion", planMinimo: undefined, planEstado: undefined, integraCon: "Zapier" })).toBe("");
     });
-    it("nativa y módulo conservan el plan mínimo real", () => {
+    it("nativa y módulo tienen que decir qué saben del plan", () => {
       for (const profundidad of ["nativa", "modulo"] as const) {
-        expect(e({ profundidad, planMinimo: undefined }), profundidad).toContain(
-          "falta el plan mínimo real"
-        );
+        expect(
+          e({ profundidad, planMinimo: undefined, planEstado: undefined }),
+          profundidad
+        ).toContain("no dice si el plan está verificado o es desconocido");
       }
     });
     it("una función sólo del plan caro conserva ESE plan, no el más barato", () => {
       expect(e({ planMinimo: "Ultimate" })).toBe("");
     });
+
+    /**
+     * Son dos certezas distintas y antes iban pegadas: no poder demostrar el
+     * plan tumbaba también la capacidad, aunque su evidencia fuera impecable.
+     * Se midió con el lote 1 delante — de 241 planes afirmados, sólo 23 tenían
+     * una cita que nombrara el plan— y decir «no sabemos si lo hace» era falso:
+     * lo que no sabíamos era el plan.
+     */
+    describe("la certeza del plan es suya, no de la capacidad", () => {
+      it("una capacidad verificada con el plan sin demostrar es válida", () => {
+        expect(e({ planEstado: "desconocido", planMinimo: undefined })).toBe("");
+      });
+
+      it("y sigue siendo verificada: el plan desconocido no la arrastra", () => {
+        const r: RegistroVerificacion = { ...valido, planEstado: "desconocido", planMinimo: undefined };
+        expect(r.estado).toBe("verificado");
+        expect(erroresDeRegistro(r, herramientas, capacidades)).toEqual([]);
+      });
+
+      it("un plan desconocido NO puede nombrar ningún plan: nombrarlo sería afirmarlo", () => {
+        expect(e({ planEstado: "desconocido", planMinimo: "Business" })).toContain(
+          'el plan es desconocido y aun así nombra "Business"'
+        );
+      });
+
+      it("un plan verificado tiene que decir cuál", () => {
+        expect(e({ planEstado: "verificado", planMinimo: undefined })).toContain(
+          "el plan se da por verificado pero no dice cuál"
+        );
+      });
+
+      it("un desconocido no puede opinar sobre el plan", () => {
+        expect(
+          e({
+            estado: "desconocido",
+            profundidad: undefined,
+            planMinimo: undefined,
+            planEstado: "desconocido",
+            nota: "no aparece en las páginas consultadas",
+            confianza: "baja",
+          })
+        ).toContain("no puede opinar sobre el plan");
+      });
+
+      it("ni nombrar un plan", () => {
+        expect(
+          e({
+            estado: "desconocido",
+            profundidad: undefined,
+            planEstado: undefined,
+            planMinimo: "Business",
+            nota: "no aparece en las páginas consultadas",
+            confianza: "baja",
+          })
+        ).toContain("no puede nombrar un plan");
+      });
+
+      /**
+       * Los dos huecos que encontró la revisión independiente: el campo se
+       * validaba por su presencia, no por su contenido, y nadie cruzaba lo que
+       * decía el registro con lo que decían sus fuentes. Cada prueba reproduce
+       * el fallo tal cual se encontró.
+       */
+      describe("los dos huecos que dejó la primera versión", () => {
+        it("un planEstado que no es ninguno de los dos valores ya no cuela", () => {
+          expect(e({ planEstado: "masomenos" as never, planMinimo: undefined })).toContain(
+            'planEstado "masomenos" no es ni verificado ni desconocido'
+          );
+        });
+
+        it("un plan desconocido no puede arrastrar una fuente que diga demostrarlo", () => {
+          expect(
+            e({
+              planEstado: "desconocido",
+              planMinimo: undefined,
+              fuentes: [
+                { tipo: "tarifa_oficial", url: "https://a.test/precios", fechaConsulta: "2026-09-03", rol: "plan" },
+              ],
+            })
+          ).toContain("el plan es desconocido pero trae una fuente que dice demostrarlo");
+        });
+
+        it("no puede haber dos fuentes diciendo que demuestran el plan", () => {
+          const fuente = {
+            tipo: "tarifa_oficial" as const,
+            url: "https://a.test/precios",
+            fechaConsulta: "2026-09-03",
+            rol: "plan" as const,
+          };
+          expect(e({ fuentes: [fuente, { ...fuente }] })).toContain(
+            "2 fuentes dicen demostrar el plan, y sólo puede haber una"
+          );
+        });
+
+        it("pero una sola fuente sin rol sigue valiendo para las dos cosas", () => {
+          expect(
+            e({
+              fuentes: [{ tipo: "tarifa_oficial", url: "https://a.test/p", fechaConsulta: "2026-09-03" }],
+            })
+          ).toBe("");
+        });
+      });
+
+      /**
+       * Lo que encontró la auditoría del lote 1: tres reglas que se daban por
+       * puestas y no lo estaban. Las tres dejaban pasar un registro que afirma
+       * más de lo que su evidencia sostiene, que es justo lo que F2 existe
+       * para impedir.
+       */
+      describe("lo que encontró la auditoría", () => {
+        it("un plan verificado sin NINGUNA fuente que lo demuestre ya no cuela", () => {
+          expect(
+            e({
+              planEstado: "verificado",
+              planMinimo: "Growth",
+              fuentes: [
+                {
+                  tipo: "pagina_oficial",
+                  url: "https://a.test/producto",
+                  fechaConsulta: "2026-09-03",
+                  cita: "Automatiza tus flujos",
+                  rol: "capacidad",
+                },
+              ],
+            })
+          ).toContain("el plan se da por verificado y ninguna fuente lo demuestra");
+        });
+
+        it("y con su fuente de plan, el mismo registro se acepta", () => {
+          expect(
+            e({
+              planEstado: "verificado",
+              planMinimo: "Growth",
+              fuentes: [
+                {
+                  tipo: "pagina_oficial",
+                  url: "https://a.test/producto",
+                  fechaConsulta: "2026-09-03",
+                  cita: "Automatiza tus flujos",
+                  rol: "capacidad",
+                },
+                {
+                  tipo: "tarifa_oficial",
+                  url: "https://a.test/precios",
+                  fechaConsulta: "2026-09-03",
+                  cita: "Workflow Automations — Growth",
+                  rol: "plan",
+                },
+              ],
+            })
+          ).toBe("");
+        });
+
+        it("los planes verificados de hoy traen su fuente, ni cero ni dos", () => {
+          for (const r of getRegistros()) {
+            if (r.planEstado !== "verificado") continue;
+            const marcadas = (r.fuentes ?? []).filter((f) => f.rol === "plan");
+            const sinRol = (r.fuentes ?? []).filter((f) => !f.rol);
+            const demuestran = marcadas.length ? marcadas : sinRol;
+            expect(demuestran.length, `${r.herramientaId}/${r.capacidadId}`).toBe(1);
+          }
+        });
+
+        it("un rol que no existe se rechaza en vez de colar como «sin rol»", () => {
+          expect(
+            e({
+              fuentes: [
+                {
+                  tipo: "tarifa_oficial",
+                  url: "https://a.test/precios",
+                  fechaConsulta: "2026-09-03",
+                  rol: "plan_verificado" as never,
+                },
+              ],
+            })
+          ).toContain('rol de fuente "plan_verificado" desconocido');
+        });
+
+        it("los tres roles del esquema sí se aceptan", () => {
+          expect(ROLES_DE_FUENTE).toEqual(["capacidad", "plan", "plan_consultado"]);
+          expect(
+            e({
+              planEstado: "desconocido",
+              planMinimo: undefined,
+              fuentes: [
+                { tipo: "pagina_oficial", url: "https://a.test/p", fechaConsulta: "2026-09-03", cita: "x", rol: "capacidad" },
+                { tipo: "tarifa_oficial", url: "https://a.test/precios", fechaConsulta: "2026-09-03", rol: "plan_consultado" },
+              ],
+            })
+          ).toBe("");
+        });
+
+        /**
+         * `plan_consultado` es el rastro de dónde se miró, no una prueba. Con
+         * cita se lee como si demostrara el plan que precisamente no demostró.
+         */
+        it("«dónde se miró» no puede llevar cita", () => {
+          expect(
+            e({
+              planEstado: "desconocido",
+              planMinimo: undefined,
+              fuentes: [
+                { tipo: "pagina_oficial", url: "https://a.test/p", fechaConsulta: "2026-09-03", cita: "x", rol: "capacidad" },
+                {
+                  tipo: "tarifa_oficial",
+                  url: "https://a.test/precios",
+                  fechaConsulta: "2026-09-03",
+                  cita: "Plan Growth",
+                  rol: "plan_consultado",
+                },
+              ],
+            })
+          ).toContain("la fuente de dónde se consultó el plan no puede llevar cita");
+        });
+
+        it("y ninguno de los rastros que hay hoy la lleva", () => {
+          const rastros = getRegistros().flatMap((r) =>
+            (r.fuentes ?? [])
+              .filter((f) => f.rol === "plan_consultado")
+              .map((f) => ({ donde: `${r.herramientaId}/${r.capacidadId}`, cita: f.cita }))
+          );
+          // Hoy son 63. La cuenta exacta cambiará con el lote 2; que no sea
+          // cero es lo que impide que esta prueba pase sin mirar nada.
+          expect(rastros.length).toBeGreaterThan(0);
+          expect(rastros.filter((x) => x.cita !== undefined)).toEqual([]);
+        });
+      });
+
+      /**
+       * Que el plan no se demuestre no puede borrar el rastro de dónde se
+       * buscó: sin él, repescarlo obliga a averiguarlo otra vez.
+       */
+      describe("un plan desconocido conserva dónde se miró", () => {
+        const conRastro = (cambios: Record<string, unknown> = {}) =>
+          e({
+            planEstado: "desconocido",
+            planMinimo: undefined,
+            fuentes: [
+              { tipo: "pagina_oficial", url: "https://a.test/producto", fechaConsulta: "2026-09-03", cita: "x", rol: "capacidad" },
+              { tipo: "tarifa_oficial", url: "https://a.test/precios", fechaConsulta: "2026-09-03", rol: "plan_consultado" },
+            ],
+            ...cambios,
+          });
+
+        it("se acepta la fuente de dónde se consultó la tarifa", () => {
+          expect(conRastro()).toBe("");
+        });
+
+        it("pero sólo cuando el plan es desconocido", () => {
+          expect(
+            e({
+              planEstado: "verificado",
+              planMinimo: "Business",
+              fuentes: [
+                { tipo: "tarifa_oficial", url: "https://a.test/precios", fechaConsulta: "2026-09-03", rol: "plan" },
+                { tipo: "tarifa_oficial", url: "https://a.test/precios", fechaConsulta: "2026-09-03", rol: "plan_consultado" },
+              ],
+            })
+          ).toContain("sólo un plan desconocido puede llevar la fuente de dónde se consultó");
+        });
+
+        it("y en los datos de hoy no enseña ningún plan sin demostrar", () => {
+          for (const r of getRegistros()) {
+            const consultada = (r.fuentes ?? []).find((f) => f.rol === "plan_consultado");
+            if (!consultada) continue;
+            expect(r.planEstado, `${r.herramientaId}/${r.capacidadId}`).toBe("desconocido");
+            expect(r.planMinimo, `${r.herramientaId}/${r.capacidadId}`).toBeUndefined();
+            expect(consultada.url, `${r.herramientaId}/${r.capacidadId}`).toMatch(/^https?:\/\//);
+            expect(consultada.fechaConsulta, `${r.herramientaId}/${r.capacidadId}`).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+          }
+        });
+      });
+
+      it("los datos de hoy respetan la separación", () => {
+        const registros = getRegistros();
+        const fantasmas = registros.filter((r) => r.planEstado === "desconocido" && r.planMinimo);
+        expect(fantasmas.map((r) => `${r.herramientaId}/${r.capacidadId}`)).toEqual([]);
+
+        const mudos = registros.filter(
+          (r) =>
+            r.estado === "verificado" &&
+            (r.profundidad === "nativa" || r.profundidad === "modulo") &&
+            !r.planEstado
+        );
+        expect(mudos.map((r) => `${r.herramientaId}/${r.capacidadId}`)).toEqual([]);
+      });
+    });
     it("no disponible no puede llevar plan", () => {
-      expect(e({ profundidad: "no_disponible", planMinimo: "Lite" })).toContain(
+      expect(e({ profundidad: "no_disponible", planMinimo: "Lite", planEstado: "verificado" })).toContain(
         "no disponible no puede tener plan"
       );
     });
@@ -175,7 +468,7 @@ describe("los registros de verificación", () => {
     });
     it("lo que no depende del plan admite 12", () => {
       expect(
-        e({ profundidad: "integracion", planMinimo: undefined, integraCon: "Zapier", proximaRevision: "2027-08-01" })
+        e({ profundidad: "integracion", planMinimo: undefined, planEstado: undefined, integraCon: "Zapier", proximaRevision: "2027-08-01" })
       ).toBe("");
     });
     it("esFecha descarta el 30 de febrero y acierta con los bisiestos", () => {
@@ -283,5 +576,163 @@ describe("las sustituciones de direcciones", () => {
 
   it("admite declarar documentación oficial", () => {
     expect(e({ urlPrecios: undefined, documentacion: ["https://support.insightly.com/planes"] })).toBe("");
+  });
+
+  /**
+   * Cuando la portada de la ficha redirige, Gemini lee la dirección final y
+   * cita la que se le pidió, y la afirmación cae por la regla de
+   * redirecciones aunque la equivalencia sea real. Declararla aquí es lo que
+   * la convierte en comprobada — y por eso se guardan las DOS direcciones: la
+   * prueba de la equivalencia es el par, no la de destino sola.
+   */
+  describe("redirecciones de la portada", () => {
+    const conPortada = (paginaOficial: unknown) =>
+      e({ urlPrecios: undefined, paginaOficial });
+
+    it("acepta una portada redirigida bien declarada", () => {
+      expect(
+        conPortada({ solicitada: "https://zenkit.com", resuelta: "https://zenkit.com/en/" })
+      ).toBe("");
+    });
+
+    it("declarar sólo la portada ya es sustituir algo", () => {
+      expect(
+        conPortada({ solicitada: "https://zenkit.com", resuelta: "https://zenkit.com/en/" })
+      ).not.toContain("no sustituye ni añade nada");
+    });
+
+    it("rechaza que falte la dirección que se pidió", () => {
+      expect(conPortada({ solicitada: "", resuelta: "https://zenkit.com/en/" })).toContain(
+        "no dice qué dirección se pidió"
+      );
+    });
+
+    it("rechaza que falte la dirección a la que llevó", () => {
+      expect(conPortada({ solicitada: "https://zenkit.com", resuelta: "" })).toContain(
+        "no dice a dónde llevó"
+      );
+    });
+
+    it("rechaza direcciones que no son direcciones", () => {
+      expect(conPortada({ solicitada: "zenkit.com", resuelta: "https://zenkit.com/en/" })).toContain(
+        "URL inválida"
+      );
+    });
+
+    it("rechaza una redirección que no redirige: no habría nada que declarar", () => {
+      expect(
+        conPortada({ solicitada: "https://zenkit.com", resuelta: "https://zenkit.com" })
+      ).toContain("no redirige a ninguna parte");
+    });
+
+    it("y la misma página escrita de otra forma tampoco es una redirección", () => {
+      expect(
+        conPortada({ solicitada: "https://zenkit.com", resuelta: "https://www.zenkit.com/" })
+      ).toContain("no redirige a ninguna parte");
+    });
+  });
+});
+
+/**
+ * Una capacidad y su plan casi nunca se demuestran en la misma página. Estas
+ * fuentes declaran la mitad que la tarifa no puede dar: que la capacidad
+ * existe. Y como abren la puerta a direcciones que no son la ficha, la puerta
+ * tiene cerradura: el dominio del fabricante, sus subdominios, y nada más sin
+ * que él mismo lo enlace.
+ */
+describe("las fuentes que demuestran una capacidad", () => {
+  const herramientas = getTodasLasHerramientas();
+  const herramientaIds = herramientas.map((h) => h.id);
+  const capacidades = capacidadIdsDelVocabulario();
+  const dominioOficialDe = (id: string) => herramientas.find((h) => h.id === id)?.paginaOficial;
+
+  const valida = {
+    herramientaId: "teamwork-com",
+    capacidadId: "cap.public_api",
+    url: "https://apidocs.teamwork.com/",
+    tipo: "documentacion" as const,
+    cita: "Use our API to integrate Teamwork.com with the tools you love.",
+    motivo: "Documentación oficial del fabricante, en un subdominio suyo.",
+    fecha: "2026-09-08",
+  };
+  const e = (cambios: Record<string, unknown>) =>
+    erroresDeFuenteDeCapacidad(
+      { ...valida, ...cambios } as never,
+      herramientaIds,
+      capacidades,
+      dominioOficialDe
+    ).join(" | ");
+
+  it("las que existan hoy son válidas", () => {
+    expect(
+      getFuentesDeCapacidad().flatMap((f) =>
+        erroresDeFuenteDeCapacidad(f, herramientaIds, capacidades, dominioOficialDe)
+      )
+    ).toEqual([]);
+  });
+
+  it("acepta una fuente bien declarada en un subdominio del fabricante", () => {
+    expect(e({})).toBe("");
+  });
+
+  it("acepta también el dominio principal", () => {
+    expect(e({ url: "https://www.teamwork.com/algo" })).toBe("");
+  });
+
+  it("rechaza una herramienta o una capacidad inventadas", () => {
+    expect(e({ herramientaId: "inventada" })).toContain("la herramienta no existe");
+    expect(e({ capacidadId: "cap.inventada" })).toContain("la capacidad no existe");
+  });
+
+  it("exige cita: sin ella no hay prueba, sólo una dirección", () => {
+    expect(e({ cita: "   " })).toContain("sin cita que lo demuestre");
+  });
+
+  it("exige motivo escrito", () => {
+    expect(e({ motivo: "" })).toContain("sin motivo escrito");
+  });
+
+  describe("la regla de dominio", () => {
+    it("rechaza un dominio ajeno que no declara vinculación", () => {
+      expect(e({ url: "https://github.com/paymoapp/api" })).toContain(
+        "está fuera del dominio oficial y no declara vinculación"
+      );
+    });
+
+    it("lo acepta si el propio fabricante lo enlaza, y consta dónde lo dice", () => {
+      expect(
+        e({
+          url: "https://github.com/teamwork/api",
+          vinculacionOficial: {
+            url: "https://www.teamwork.com/developers",
+            cita: "Our open-source libraries live on GitHub.",
+          },
+        })
+      ).toBe("");
+    });
+
+    it("no vale una vinculación que no venga del fabricante", () => {
+      expect(
+        e({
+          url: "https://github.com/paymoapp/api",
+          vinculacionOficial: { url: "https://un-blog.example.com/x", cita: "lo dice un blog" },
+        })
+      ).toContain("la vinculación no viene de una página del fabricante");
+    });
+
+    it("no vale una vinculación sin decir dónde lo pone", () => {
+      expect(
+        e({
+          url: "https://github.com/teamwork/api",
+          vinculacionOficial: { url: "https://www.teamwork.com/developers", cita: "  " },
+        })
+      ).toContain("no dice dónde lo pone");
+    });
+
+    it("un dominio que sólo se le parece no cuela", () => {
+      expect(e({ url: "https://teamwork.com.malicioso.example/api" })).toContain(
+        "está fuera del dominio oficial"
+      );
+    });
   });
 });

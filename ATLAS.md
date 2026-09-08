@@ -3200,6 +3200,170 @@ ningún sprint. Ninguna urge; todas se olvidan si no están escritas.
   confirmó la propietaria), así que borrarla no rompe nada ni exige
   redesplegar.
 
+## El lote 1, rematado sin pasar por el ordenador de la propietaria (2026-09-07)
+
+La palanca de la que hablaba la entrada anterior ya está tirada: el proxy de red
+del entorno remoto inyecta la clave hacia `generativelanguage.googleapis.com`, y
+la sesión nueva la recibe. **F2 ha dejado de depender del ordenador de la
+propietaria.** Ella pasó de ejecutar a decidir, que era el objetivo.
+
+**El resultado: de 120 verificados a 248, de 765.** Los desconocidos bajan de
+645 a 517 y los descartes de 283 a 121. **Y no queda ni un solo par «sin
+respuesta»: eran 133.**
+
+De los 248 verificados, **243 se apoyan en la tarifa oficial** y 241 dicen en
+qué plan está la capacidad. La profundidad se reparte en 232 nativas, 9
+integraciones y 7 módulos.
+
+### Lo que cambió por cada regla de la propietaria
+
+| Regla | Antes | Después |
+|---|---|---|
+| 1. Redirección con evidencia técnica | 41 pares caídos | **0** |
+| 2. El plan lo sostiene la tarifa, no la portada | 36 sin fuente que lo demuestre | 18 |
+| 3. Citas breves: a revisión, no a la basura | 50 revisadas | 96, con 46 nuevas |
+| 4. Cero «no disponible» es esperable | 0 | 0 |
+
+La regla 2 sube de 16 a 18 al recuperar Zenkit, y eso es una buena señal, no
+una regresión: son pares que antes caían por la regla 1 sin llegar a que nadie
+mirara su plan, y ahora llegan y se quedan a las puertas por la razón correcta.
+
+**Regla 1.** Las cinco herramientas cuya dirección de tarifas redirigía
+—Insightly, Zoho CRM, Capsule, Wrike y Zenkit— están declaradas en
+`sustituciones.json` con la dirección final y su motivo. La evidencia técnica
+es el `retrievedUrl` que devuelve el propio `url_context` de Gemini: quien
+descarga la página es el servidor de Google, así que resuelve la cadena que el
+cliente HTTP local no pudo. **Ninguna ficha del catálogo se ha tocado.**
+
+**Regla 3.** Las 46 citas breves nuevas se revisaron una a una con veredicto y
+motivo escritos: **36 valen y 10 no.** Los rechazos siguen los precedentes ya
+sentados: «API» a secas (scoro, zenkit) por el mismo motivo que ya se rechazó en
+ganttpro; «Import & Export» para importar (vtiger) por el mismo motivo que
+«Import»; y el Gantt (clickup, zoho-projects, wrike) porque la capacidad exige
+ver el proyecto en el tiempo **y** encadenar tareas, y el Gantt demuestra sólo
+la primera mitad — es el espejo exacto de «Task Dependencies», que ya se rechazó
+por demostrar sólo la segunda.
+
+**Regla 4.** Sigue habiendo cero registros «no disponible», y **las tres sondas
+siguen intactas**: ninguna de las 30 herramientas documenta reserva por
+internet (30 de 30 desconocido), ninguno de los 15 CRM documenta recordatorios
+de cita, y ninguna de las 15 de gestión de proyectos documenta órdenes de
+trabajo. Con 127 pares más verificados, el hallazgo que justifica F2 no se ha
+movido ni un punto. Y sigue significando lo que significaba: **no consta**, no
+«no lo tiene».
+
+### Por qué la repesca anterior aplicó 3 cambios de 765
+
+**No era el prompt.** Se comprobó de la única forma que vale: repitiendo los
+mismos 133 pares de «capacidad» que en PowerShell no aplicaron ni uno, con el
+mismo prompt, el mismo modelo y el mismo tamaño de bloque, pero llamando a la
+API desde el entorno remoto. **Respondieron los 133.**
+
+Lo que sí se reprodujo, y por accidente, fue el mecanismo: la primera versión
+del script remoto **murió entera** cuando un bloque agotó sus tres reintentos
+contra un error transitorio del proxy, y se llevó por delante el trabajo ya
+hecho de las herramientas anteriores, porque la fusión sólo ocurre al final.
+`repescar.ps1` tiene exactamente ese agujero: la llamada a Gemini está fuera del
+`try/catch` del bloque, así que un fallo que agote los reintentos aborta el
+`foreach` entero y las tareas siguientes no llegan a ejecutarse nunca. Con
+`$ErrorActionPreference = "Stop"` y sin reanudación, eso deja aplicado sólo lo
+de las primeras tareas — que es la forma que tenían los 3 cambios: los tres de
+tipo «plan», ninguno de «capacidad».
+
+**No está demostrado al cien por cien** —el mensaje de error de aquella ventana
+de PowerShell no lo tiene nadie—, pero es la única explicación que encaja con
+las tres cosas medidas a la vez: que la fusión sí escribía, que «capacidad» no
+aplicó nada, y que el total de respuestas no se movió.
+
+La corrección ya está en el arnés remoto: un bloque que falla queda en
+`sinRespuesta` y el proceso sigue, y hay un checkpoint por herramienta para no
+volver a pagar lo ya conseguido. Hicieron falta cinco pasadas de rescate para
+recuperar los últimos 18 pares, y la última sólo salió al partir el bloque de
+teamwork.com en trozos de dos: su respuesta completa tardaba más de lo que el
+proxy aguanta. **Si los lotes 2 y 3 se ejecutan con `repescar.ps1` sin arreglar
+ese `try/catch`, volverá a pasar.**
+
+### Dos cosas que quedaban abiertas, resueltas el mismo día
+
+**1. `sustituciones.json` ya sabe declarar una `paginaOficial`.** Autorizado por
+la propietaria. El campo nuevo guarda **las dos** direcciones —`solicitada` y
+`resuelta`— y no una sola, porque la prueba de la equivalencia es el par: con
+sólo la de destino, quien lea esto dentro de seis meses no sabrá si la ficha
+sigue llevando ahí o si alguien la cambió por conveniencia. El validador exige
+las dos, exige que sean direcciones, y **rechaza una redirección que no
+redirige** —declarar que algo lleva a sí mismo deja escrito como comprobado
+algo que no se ha comprobado—. Siete pruebas nuevas lo fijan.
+
+Con Zenkit declarado (`zenkit.com` → `zenkit.com/en/`), **el motivo «la
+dirección citada no consta como leída» ha desaparecido: de 41 a 0.**
+
+Conviene ser exacto con lo que eso recuperó, porque no son 8 verificados: el
+fallo que desaparece es el **mecánico** —la cita ya resuelve contra la página
+que de verdad se leyó—, y lo que queda al descubierto es un límite **de fondo**.
+De los 8 pares, 1 quedó verificado (una integración, que no necesita plan), 1
+salió `no_documentado` al leer la tarifa, y **6 caen ahora por la regla 2**:
+su cita sale de la portada, y una portada no sitúa un plan. La regla 1 ya no
+tira evidencia buena; la regla 2 sigue haciendo su trabajo.
+
+**2. La dirección de precios de noCRM estaba muerta, y la propietaria autorizó
+cambiarla.** `urlPrecios` era `https://www.nocrm.io/es/precios` y hoy no se
+puede recuperar: tres intentos, `URL_RETRIEVAL_STATUS_ERROR` las tres veces. La
+que sí responde es `https://www.nocrm.io/es/pricing`, en español, con encabezado
+«Cierra más, administra menos» y su tabla de planes —Starter 13 US$, Expert
+26 US$, Dream 39 US$ por usuario y mes—.
+
+Cambiada la ficha, y **sólo esa línea**: una sustitución de una dirección por
+otra, sin tocar ni un precio, ni un nombre de plan, ni ningún otro campo. Es la
+primera vez que F2 modifica el catálogo, y conviene dejar escrito por qué se
+pudo: la decisión fue de la propietaria, con la evidencia delante y por
+autorización expresa para esa línea concreta.
+
+**No invalida ninguna evidencia ya recogida.** Se comprobó antes de tocar nada:
+los 25 registros de `nocrm-io` son los 25 «desconocido» y todos citan la
+portada, no la tarifa. Ninguno se apoyaba en la dirección vieja —no llegó a
+responder nunca—, así que el cambio no reescribe el pasado: cuenta hacia
+adelante, la próxima vez que se verifique esta herramienta.
+
+Queda anotado, **sin tocarlo**, que los datos de precio de esa ficha tampoco
+cuadran con esa página: la ficha dice «Desde 12€/usuario/mes» y un plan «Sales
+Experts» a 29€, y la página dice Starter/Expert/Dream y en dólares. Cambiar eso
+a partir de una sola lectura sería repetir el error que F2 existe para
+deshacer: son datos que necesitan su propia verificación, no un arreglo de paso.
+
+### `repescar.ps1`, arreglado y demostrado
+
+El agujero que explicaba los 3 cambios de 765 está cerrado, y con cuatro
+garantías que se probaron una a una en un banco de pruebas aislado, sin gastar
+ni una llamada real:
+
+1. **Aísla.** Un bloque que falla se queda en su bloque; una herramienta que
+   falla se queda en su herramienta. Probado forzando el fallo en la de en
+   medio: ALFA aplicó, BETA falló, **GAMMA se ejecutó igual**. Antes, BETA se
+   habría llevado a GAMMA por delante.
+2. **Conserva.** El archivo de cada herramienta se guarda **después de cada
+   bloque**, no al final. Tras el fallo de BETA, su evidencia previa seguía
+   intacta en disco.
+3. **Registra.** Todo fallo va a `salida\errores-repesca.json` con herramienta,
+   bloque, capacidades y mensaje, **con la clave oculta**.
+4. **Reanuda.** Volver a lanzar el mismo comando no repite lo respondido: en la
+   segunda pasada ALFA y GAMMA se saltaron y sólo se repreguntó BETA, **una
+   llamada en vez de tres**. En las tareas de tipo `plan` el criterio es tener
+   ya un plan escrito: probado con una herramienta donde una capacidad lo tenía
+   y otra no, se repreguntó sólo la que faltaba y la que ya lo tenía conservó
+   su plan y su cita.
+
+Se arregló además un defecto que destapó el propio registro de errores:
+`Escribir-Json` pasaba por la tubería, y una lista de **un** elemento se
+desenvolvía y se escribía como objeto suelto. Con un fallo salía `{...}` y con
+dos `[{...},{...}]`. Ahora usa `-InputObject` y siempre es una lista.
+
+**Lo que NO se ha tocado: `ejecutar-lote.ps1` tiene el mismo agujero** —la
+llamada a Gemini está fuera de todo `try`—, y es el script que abre el lote 2.
+Su daño es menor porque ya salta las herramientas hechas al relanzar, así que
+un fallo cuesta una herramienta y un relanzamiento a mano, no el lote entero.
+Aun así, mientras no se arregle, un fallo a mitad para la ejecución y hay que
+estar delante para verlo. **Decide la propietaria.**
+
 ---
 
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria

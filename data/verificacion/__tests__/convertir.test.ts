@@ -305,8 +305,14 @@ describe("convertir la salida cruda en registros", () => {
         urlPrecios
       );
       expect(r.descartes[0].motivo).toBe("el plan no viene de una fuente que lo demuestre");
-      expect(r.registros[0].estado).toBe("desconocido");
-      expect(r.registros[0].confianza).toBe("baja");
+      /**
+       * Cae el PLAN, no la capacidad. Antes se degradaba el par entero y se
+       * perdía una capacidad con evidencia buena por no saber en qué plan
+       * estaba; eso decía «no sabemos si lo hace», que era falso.
+       */
+      expect(r.registros[0].estado).toBe("verificado");
+      expect(r.registros[0].planEstado).toBe("desconocido");
+      expect(r.registros[0].planMinimo).toBeUndefined();
     });
 
     it("una integración no necesita plan, así que la portada le vale", () => {
@@ -473,7 +479,10 @@ describe("convertir la salida cruda en registros", () => {
         });
         expect(r.descartes[0].motivo).toBe("el plan no viene de una fuente que lo demuestre");
         expect(r.descartes[0].cita).toContain("Cierra más tratos");
-        expect(r.registros[0].estado).toBe("desconocido");
+        // El plan se queda sin demostrar; la capacidad y su cita, intactas.
+        expect(r.registros[0].estado).toBe("verificado");
+        expect(r.registros[0].planEstado).toBe("desconocido");
+        expect(r.registros[0].planMinimo).toBeUndefined();
         expect(r.registros[0].fuentes[0].cita).toContain("Cierra más tratos");
         expect(r.registros[0].fuentes[0].url).toBe(PORTADA);
       });

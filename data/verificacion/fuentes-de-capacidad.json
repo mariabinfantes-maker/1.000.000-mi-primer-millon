@@ -1,0 +1,29 @@
+[
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.public_api",
+    "url": "https://apidocs.teamwork.com/",
+    "tipo": "documentacion",
+    "cita": "Use our API to integrate Teamwork.com with the tools you love, and create customized, tailored processes that work exactly the way you need them to.",
+    "motivo": "Documentación oficial del fabricante, en un subdominio suyo. Demuestra la mitad de la capacidad que la tarifa no puede demostrar: que la API está documentada y pensada para que el cliente construya encima. El plan lo demuestra aparte la tarifa oficial, que es la otra fuente del registro.",
+    "fecha": "2026-09-08"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.public_api",
+    "url": "https://developers.niftypm.com/",
+    "tipo": "documentacion",
+    "cita": "The Nifty public REST API.",
+    "motivo": "Documentación oficial del fabricante, en un subdominio suyo, con endpoints y autenticación. Demuestra que la API es pública y documentada; el plan lo demuestra aparte la tarifa oficial.",
+    "fecha": "2026-09-08"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.public_api",
+    "url": "https://api.scoro.com/",
+    "tipo": "documentacion",
+    "cita": "The API makes it easy to create web and desktop applications that integrate with your account.",
+    "motivo": "Documentación oficial del fabricante, en un subdominio suyo. Es lo que desambigua la cita «API» de la tarifa: sin ella, tres caracteres en una tabla de planes no demuestran una interfaz documentada. El plan lo demuestra aparte la tarifa oficial.",
+    "fecha": "2026-09-08"
+  }
+]
