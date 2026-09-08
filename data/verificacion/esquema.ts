@@ -82,6 +82,26 @@ export const FUENTES_DE_PRIMERA_MANO: TipoFuente[] = [
 
 export type NivelConfianza = "alta" | "media" | "baja";
 
+/**
+ * Qué demuestra esta fuente. Existe porque una sola dirección rara vez
+ * demuestra las dos cosas que hay que saber de una capacidad: que la
+ * herramienta la tiene, y en qué plan.
+ *
+ * El caso que lo obligó: la API de Teamwork. Que sea una API DOCUMENTADA lo
+ * demuestra su documentación; en qué plan está, sólo la tarifa. Guardar una y
+ * tirar la otra deja un registro que no se sostiene solo: un «verificado» de
+ * confianza alta apoyado en dos palabras de una tabla de precios.
+ *
+ * Sin `rol` la fuente hace las dos cosas a la vez, que es el caso corriente
+ * —una tabla de planes que nombra la capacidad y la sitúa— y sigue siendo
+ * válido.
+ */
+export type RolDeFuente =
+  /** Demuestra que la herramienta tiene la capacidad. */
+  | "capacidad"
+  /** Demuestra en qué plan está. */
+  | "plan";
+
 export type Fuente = {
   tipo: TipoFuente;
   /** Dirección exacta consultada. Una portada no sirve como fuente de una función concreta. */
@@ -90,6 +110,8 @@ export type Fuente = {
   fechaConsulta: string;
   /** Lo que decía, en sus palabras, cuando el matiz importa. */
   cita?: string;
+  /** Qué demuestra. Ausente cuando la misma dirección demuestra las dos cosas. */
+  rol?: RolDeFuente;
 };
 
 export type RegistroVerificacion = {

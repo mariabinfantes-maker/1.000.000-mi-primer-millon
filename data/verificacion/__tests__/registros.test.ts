@@ -5,7 +5,9 @@ import {
   capacidadIdsDelVocabulario,
   erroresDeRegistro,
   erroresDeSeleccion,
+  erroresDeFuenteDeCapacidad,
   erroresDeSustitucion,
+  getFuentesDeCapacidad,
   getSustituciones,
   esFecha,
   getRegistros,
@@ -336,6 +338,110 @@ describe("las sustituciones de direcciones", () => {
       expect(
         conPortada({ solicitada: "https://zenkit.com", resuelta: "https://www.zenkit.com/" })
       ).toContain("no redirige a ninguna parte");
+    });
+  });
+});
+
+/**
+ * Una capacidad y su plan casi nunca se demuestran en la misma página. Estas
+ * fuentes declaran la mitad que la tarifa no puede dar: que la capacidad
+ * existe. Y como abren la puerta a direcciones que no son la ficha, la puerta
+ * tiene cerradura: el dominio del fabricante, sus subdominios, y nada más sin
+ * que él mismo lo enlace.
+ */
+describe("las fuentes que demuestran una capacidad", () => {
+  const herramientas = getTodasLasHerramientas();
+  const herramientaIds = herramientas.map((h) => h.id);
+  const capacidades = capacidadIdsDelVocabulario();
+  const dominioOficialDe = (id: string) => herramientas.find((h) => h.id === id)?.paginaOficial;
+
+  const valida = {
+    herramientaId: "teamwork-com",
+    capacidadId: "cap.public_api",
+    url: "https://apidocs.teamwork.com/",
+    tipo: "documentacion" as const,
+    cita: "Use our API to integrate Teamwork.com with the tools you love.",
+    motivo: "Documentación oficial del fabricante, en un subdominio suyo.",
+    fecha: "2026-09-08",
+  };
+  const e = (cambios: Record<string, unknown>) =>
+    erroresDeFuenteDeCapacidad(
+      { ...valida, ...cambios } as never,
+      herramientaIds,
+      capacidades,
+      dominioOficialDe
+    ).join(" | ");
+
+  it("las que existan hoy son válidas", () => {
+    expect(
+      getFuentesDeCapacidad().flatMap((f) =>
+        erroresDeFuenteDeCapacidad(f, herramientaIds, capacidades, dominioOficialDe)
+      )
+    ).toEqual([]);
+  });
+
+  it("acepta una fuente bien declarada en un subdominio del fabricante", () => {
+    expect(e({})).toBe("");
+  });
+
+  it("acepta también el dominio principal", () => {
+    expect(e({ url: "https://www.teamwork.com/algo" })).toBe("");
+  });
+
+  it("rechaza una herramienta o una capacidad inventadas", () => {
+    expect(e({ herramientaId: "inventada" })).toContain("la herramienta no existe");
+    expect(e({ capacidadId: "cap.inventada" })).toContain("la capacidad no existe");
+  });
+
+  it("exige cita: sin ella no hay prueba, sólo una dirección", () => {
+    expect(e({ cita: "   " })).toContain("sin cita que lo demuestre");
+  });
+
+  it("exige motivo escrito", () => {
+    expect(e({ motivo: "" })).toContain("sin motivo escrito");
+  });
+
+  describe("la regla de dominio", () => {
+    it("rechaza un dominio ajeno que no declara vinculación", () => {
+      expect(e({ url: "https://github.com/paymoapp/api" })).toContain(
+        "está fuera del dominio oficial y no declara vinculación"
+      );
+    });
+
+    it("lo acepta si el propio fabricante lo enlaza, y consta dónde lo dice", () => {
+      expect(
+        e({
+          url: "https://github.com/teamwork/api",
+          vinculacionOficial: {
+            url: "https://www.teamwork.com/developers",
+            cita: "Our open-source libraries live on GitHub.",
+          },
+        })
+      ).toBe("");
+    });
+
+    it("no vale una vinculación que no venga del fabricante", () => {
+      expect(
+        e({
+          url: "https://github.com/paymoapp/api",
+          vinculacionOficial: { url: "https://un-blog.example.com/x", cita: "lo dice un blog" },
+        })
+      ).toContain("la vinculación no viene de una página del fabricante");
+    });
+
+    it("no vale una vinculación sin decir dónde lo pone", () => {
+      expect(
+        e({
+          url: "https://github.com/teamwork/api",
+          vinculacionOficial: { url: "https://www.teamwork.com/developers", cita: "  " },
+        })
+      ).toContain("no dice dónde lo pone");
+    });
+
+    it("un dominio que sólo se le parece no cuela", () => {
+      expect(e({ url: "https://teamwork.com.malicioso.example/api" })).toContain(
+        "está fuera del dominio oficial"
+      );
     });
   });
 });

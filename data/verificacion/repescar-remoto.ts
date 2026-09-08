@@ -8,8 +8,10 @@ import { getCapacidades } from "@/data/vocabulario/repositorio";
 import type { Capacidad } from "@/data/vocabulario/esquema";
 import {
   capacidadIdsDelVocabulario,
+  erroresDeFuenteDeCapacidad,
   erroresDeRegistro,
   erroresDeSustitucion,
+  getFuentesDeCapacidad,
   getSustituciones,
 } from "./repositorio";
 import {
@@ -62,7 +64,7 @@ const MODELO = "gemini-3.6-flash";
  *               existe. Es lo que hace falta cuando cambian las reglas de
  *               conversión y no los datos — por ejemplo al revisar citas breves.
  */
-const MODO = (process.argv[2] ?? "completo") as "completo" | "rescatar" | "reconvertir";
+const MODO = (process.argv[2] ?? "completo") as "completo" | "rescatar" | "reconvertir" | "pares";
 const PAUSA_MS = 4000;
 /**
  * Cinco por llamada es el tamaño que evitó los cortes de la primera vuelta.
@@ -495,6 +497,39 @@ async function main() {
     }
   }
 
+  if (MODO === "pares") {
+    /**
+     * Pares sueltos, nombrados en un archivo. Hace falta cuando un par que
+     * viene de la primera vuelta tiene que volver a pasar por el conversor:
+     * `reconvertir` sólo regenera lo que está en el checkpoint, así que sin
+     * esto un cambio de reglas no llega nunca a esos registros.
+     */
+    const ruta = process.argv[3];
+    if (!ruta || !fs.existsSync(ruta)) throw new Error("falta el archivo con los pares a preguntar");
+    const pares = leerJson<Array<{ herramientaId: string; capacidadId: string }>>(ruta);
+
+    console.log(`\n=== Pares sueltos (${pares.length}) ===`);
+    for (const p of pares) {
+      const clave = `par:${p.herramientaId}:${p.capacidadId}`;
+      if (checkpoint[clave]) {
+        console.log(`· ${clave} — ya estaba, se salta`);
+        continue;
+      }
+      const ficha = herramientaPorId.get(p.herramientaId)!;
+      console.log(`· ${ficha.nombre} (${p.herramientaId}) — ${p.capacidadId}`);
+      const salida = await procesarCapacidad(
+        p.herramientaId,
+        ficha.nombre,
+        urlsDe(p.herramientaId),
+        [p.capacidadId],
+        capacidadPorId
+      );
+      checkpoint[clave] = salida;
+      escribirJson(RUTA_CHECKPOINT, checkpoint);
+      await sleep(PAUSA_MS);
+    }
+  }
+
   if (MODO === "rescatar") {
     /**
      * Las citas que sostenían estos pares están en el descartes de ANTES de la
@@ -564,14 +599,37 @@ async function main() {
     herramientas: salidas,
   };
 
+  const herramientaIds = herramientas.map((h) => h.id);
+  const capacidadIds = capacidadIdsDelVocabulario();
+
+  /**
+   * Las pruebas de capacidad se validan ANTES de convertir: una fuente de un
+   * dominio ajeno sin vinculación oficial no puede colarse en un registro.
+   */
+  const dominioOficialDe = (id: string) => herramientaPorId.get(id)?.paginaOficial;
+  const fuentesCapacidad = getFuentesDeCapacidad();
+  const erroresFuentes = fuentesCapacidad.flatMap((f) =>
+    erroresDeFuenteDeCapacidad(f, herramientaIds, capacidadIds, dominioOficialDe)
+  );
+  if (erroresFuentes.length) {
+    console.error(`${erroresFuentes.length} fuente(s) de capacidad no pasan el validador. No se escribe nada:`);
+    for (const e of erroresFuentes) console.error(`  · ${e}`);
+    process.exit(1);
+  }
+
   const { registros: nuevosRegistros, descartes: nuevosDescartes, resumen } = convertirSalida(
     salidaLote,
     fuentesPorHerramienta,
-    getCitasRevisadas()
+    getCitasRevisadas(),
+    fuentesCapacidad.map((f) => ({
+      herramientaId: f.herramientaId,
+      capacidadId: f.capacidadId,
+      url: f.url,
+      tipo: f.tipo,
+      cita: f.cita,
+      fecha: f.fecha,
+    }))
   );
-
-  const herramientaIds = herramientas.map((h) => h.id);
-  const capacidadIds = capacidadIdsDelVocabulario();
   const erroresValidacion = nuevosRegistros.flatMap((r) => erroresDeRegistro(r, herramientaIds, capacidadIds));
   if (erroresValidacion.length) {
     console.error(`${erroresValidacion.length} registro(s) nuevos no pasan el validador. No se escribe nada:`);

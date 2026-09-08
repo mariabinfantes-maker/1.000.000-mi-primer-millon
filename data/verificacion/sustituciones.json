@@ -32,37 +32,5 @@
     "urlPrecios": "https://www.zoho.com/en-us/crm/zohocrm-pricing.html",
     "motivo": "La urlPrecios de la ficha (https://www.zoho.com/crm/pricing.html) redirige aquí. Comprobado con el fetch de Gemini (url_context): retrievedUrl=https://www.zoho.com/en-us/crm/zohocrm-pricing.html, URL_RETRIEVAL_STATUS_SUCCESS.",
     "fecha": "2026-09-07"
-  },
-  {
-    "herramientaId": "teamwork-com",
-    "documentacion": [
-      "https://apidocs.teamwork.com/"
-    ],
-    "motivo": "Declarada como documentación oficial al aplicar el criterio de cap.public_api (2026-09-08): la capacidad exige una interfaz DOCUMENTADA, y ésta es la fuente que lo demuestra. Queda aquí para que la fuente sea legible por máquina y no sólo prosa en el motivo de la cita revisada. No cambia por sí sola ninguna clasificación: ningún registro cita esta dirección, porque el conversor sólo guarda una fuente por registro y la del par es la tarifa. Dice literalmente: \"Use our API to integrate Teamwork.com with the tools you love, and create customized, tailored processes that work exactly the way you need them to.\" Vive en un subdominio del fabricante.",
-    "fecha": "2026-09-08"
-  },
-  {
-    "herramientaId": "nifty",
-    "documentacion": [
-      "https://developers.niftypm.com/"
-    ],
-    "motivo": "Declarada como documentación oficial al aplicar el criterio de cap.public_api (2026-09-08): la capacidad exige una interfaz DOCUMENTADA, y ésta es la fuente que lo demuestra. Queda aquí para que la fuente sea legible por máquina y no sólo prosa en el motivo de la cita revisada. No cambia por sí sola ninguna clasificación: ningún registro cita esta dirección, porque el conversor sólo guarda una fuente por registro y la del par es la tarifa. Referencia con endpoints y autenticación; dice literalmente \"The Nifty public REST API.\" Vive en un subdominio del fabricante.",
-    "fecha": "2026-09-08"
-  },
-  {
-    "herramientaId": "paymo",
-    "documentacion": [
-      "https://github.com/paymoapp/api"
-    ],
-    "motivo": "Declarada como documentación oficial al aplicar el criterio de cap.public_api (2026-09-08): la capacidad exige una interfaz DOCUMENTADA, y ésta es la fuente que lo demuestra. Queda aquí para que la fuente sea legible por máquina y no sólo prosa en el motivo de la cita revisada. No cambia por sí sola ninguna clasificación: ningún registro cita esta dirección, porque el conversor sólo guarda una fuente por registro y la del par es la tarifa. Referencia con endpoints y autenticación; dice literalmente \"The API base URL is https://app.paymoapp.com/api/.\" OJO: vive en GitHub, bajo la organización del propio fabricante, no en su dominio web. Es oficial, pero conviene saber que está fuera del dominio.",
-    "fecha": "2026-09-08"
-  },
-  {
-    "herramientaId": "scoro",
-    "documentacion": [
-      "https://api.scoro.com/"
-    ],
-    "motivo": "Declarada como documentación oficial al aplicar el criterio de cap.public_api (2026-09-08): la capacidad exige una interfaz DOCUMENTADA, y ésta es la fuente que lo demuestra. Queda aquí para que la fuente sea legible por máquina y no sólo prosa en el motivo de la cita revisada. No cambia por sí sola ninguna clasificación: ningún registro cita esta dirección, porque el conversor sólo guarda una fuente por registro y la del par es la tarifa. Referencia real; dice literalmente \"The API makes it easy to create web and desktop applications that integrate with your account.\" Vive en un subdominio del fabricante.",
-    "fecha": "2026-09-08"
   }
 ]

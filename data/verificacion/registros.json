@@ -1932,22 +1932,6 @@
   },
   {
     "herramientaId": "ganttpro",
-    "capacidadId": "cap.public_api",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "tarifa_oficial",
-        "url": "https://ganttpro.com/pricing/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "API"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-07",
-    "nota": "«API» a secas no dice que sea pública ni documentada, y la capacidad exige «interfaz de programación documentada». Es la más discutible de las tres: en una tabla de planes, una fila «API» normalmente significa que el cliente la tiene. Se rechaza por prudencia, no por certeza."
-  },
-  {
-    "herramientaId": "ganttpro",
     "capacidadId": "cap.webhooks",
     "estado": "desconocido",
     "fuentes": [
@@ -3462,23 +3446,6 @@
   },
   {
     "herramientaId": "nifty",
-    "capacidadId": "cap.public_api",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Business",
-    "fuentes": [
-      {
-        "tipo": "tarifa_oficial",
-        "url": "https://niftypm.com/pricing/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Open API"
-      }
-    ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
-  },
-  {
-    "herramientaId": "nifty",
     "capacidadId": "cap.webhooks",
     "estado": "desconocido",
     "fuentes": [
@@ -4580,23 +4547,6 @@
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
     "nota": "Se buscó automatización de flujos de trabajo (disparador-acción/si pasa esto haz aquello). Se mencionan 'Automatic time tracking', 'Custom workflows' y 'recurring tasks', pero no la automatización encadenada de tareas ni circuitos de aprobación automatizados entre herramientas o acciones."
-  },
-  {
-    "herramientaId": "paymo",
-    "capacidadId": "cap.public_api",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Plus",
-    "fuentes": [
-      {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.paymoapp.com/pricing/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Integrations & API Access"
-      }
-    ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
   },
   {
     "herramientaId": "paymo",
@@ -7499,23 +7449,6 @@
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
     "nota": "No se documenta ninguna funcionalidad de reserva online autoservicio por parte de clientes."
-  },
-  {
-    "herramientaId": "teamwork-com",
-    "capacidadId": "cap.public_api",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Free",
-    "fuentes": [
-      {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.teamwork.com/pricing/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "API access"
-      }
-    ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
   },
   {
     "herramientaId": "teamwork-com",
@@ -10984,10 +10917,18 @@
     "planMinimo": "Standard",
     "fuentes": [
       {
+        "tipo": "documentacion",
+        "url": "https://api.scoro.com/",
+        "fechaConsulta": "2026-09-08",
+        "cita": "The API makes it easy to create web and desktop applications that integrate with your account.",
+        "rol": "capacidad"
+      },
+      {
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "API"
+        "cita": "API",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
@@ -13775,5 +13716,89 @@
     ],
     "confianza": "alta",
     "proximaRevision": "2027-03-07"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.public_api",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Free",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://apidocs.teamwork.com/",
+        "fechaConsulta": "2026-09-08",
+        "cita": "Use our API to integrate Teamwork.com with the tools you love, and create customized, tailored processes that work exactly the way you need them to.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.teamwork.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "cita": "API access",
+        "rol": "plan"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-03-07",
+    "nota": "Se documenta acceso a API desde el plan Free (150 requests/minute)."
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.public_api",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Business",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://developers.niftypm.com/",
+        "fechaConsulta": "2026-09-08",
+        "cita": "The Nifty public REST API.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://niftypm.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "cita": "API Build on the Nifty API",
+        "rol": "plan"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-03-07",
+    "nota": "Ofrece API para construir sobre Nifty (indicado como Open API desde el plan Business)."
+  },
+  {
+    "herramientaId": "paymo",
+    "capacidadId": "cap.public_api",
+    "estado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.paymoapp.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "cita": "Integrations & API Access"
+      }
+    ],
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Criterio de la propietaria para cap.public_api (2026-09-08): sólo se verifica con las dos evidencias juntas — (a) documentación oficial que demuestre una API disponible para clientes, y (b) tarifa oficial que sitúe el plan. (b) SÍ: la tarifa sitúa \"Integrations & API Access\" en el plan Plus. (a) NO SE PUEDE ACEPTAR: la única referencia de API encontrada es github.com/paymoapp/api, que está FUERA del dominio del fabricante. La regla nueva exige, para un dominio ajeno, una vinculación oficial explícita y verificable: una página del propio Paymo que enlace ahí. Se buscó en cuatro direcciones oficiales —paymoapp.com, paymoapp.com/api/ (404), help.paymoapp.com y paymoapp.com/developers/ (404)— y ninguna enlaza a esa organización de GitHub. Que la organización se llame \"paymoapp\" no demuestra de quién es: un nombre en GitHub lo puede registrar cualquiera. CAMBIA EL VEREDICTO ANTERIOR, que la daba por buena aceptando esa referencia con una advertencia escrita. Con la regla de dominio delante, una advertencia no sustituye a la prueba. Esto NO afirma que Paymo carezca de API: afirma que no se ha podido comprobar con el listón exigido."
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.public_api",
+    "estado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://ganttpro.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "cita": "API"
+      }
+    ],
+    "confianza": "baja",
+    "proximaRevision": "2027-09-07",
+    "nota": "Criterio de la propietaria para cap.public_api (2026-09-08), aplicado igual a las ocho: la capacidad exige una interfaz de programación DOCUMENTADA, así que sólo se da por verificada con las dos evidencias juntas — (a) documentación oficial que demuestre una API disponible para clientes, y (b) tarifa oficial que sitúe el plan. Con una sola de las dos, el par queda en desconocido. (a) NO: se intentaron tres direcciones del propio dominio —ganttpro.com/api/, support.ganttpro.com/en/articles/api y ganttpro.com/knowledge-base/api/— y ninguna se pudo recuperar. (b) SÍ: la tarifa incluye la fila \"API\" en el plan Business. Falta (a), luego la cita \"API\" —tres caracteres— se queda sin nada que la desambigüe y no basta. Esto NO afirma que la herramienta carezca de API: afirma que no se ha podido comprobar con el listón exigido."
   }
 ]

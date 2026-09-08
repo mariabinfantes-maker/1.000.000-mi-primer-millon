@@ -1,13 +1,6 @@
 [
   {
     "herramientaId": "ganttpro",
-    "capacidadId": "cap.public_api",
-    "motivo": "cita breve revisada y rechazada",
-    "cita": "API",
-    "urlCitada": "https://ganttpro.com/pricing/"
-  },
-  {
-    "herramientaId": "ganttpro",
     "capacidadId": "cap.data_import_and_migration",
     "motivo": "cita breve revisada y rechazada",
     "cita": "Import",
@@ -838,5 +831,19 @@
     "motivo": "sin plan mínimo",
     "cita": "Task Management: Gantt charts, Task Lists, or Kanban boards can help prioritize tasks, organize work, and manage projects effectively.",
     "urlCitada": "https://www.zoho.com/projects/"
+  },
+  {
+    "herramientaId": "paymo",
+    "capacidadId": "cap.public_api",
+    "motivo": "cita breve revisada y rechazada",
+    "cita": "Integrations & API Access",
+    "urlCitada": "https://www.paymoapp.com/pricing/"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.public_api",
+    "motivo": "cita breve revisada y rechazada",
+    "cita": "API",
+    "urlCitada": "https://ganttpro.com/pricing/"
   }
 ]

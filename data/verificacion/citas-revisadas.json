@@ -162,9 +162,9 @@
   {
     "herramientaId": "nifty",
     "capacidadId": "cap.public_api",
-    "cita": "Open API",
+    "cita": "API Build on the Nifty API",
     "veredicto": "vale",
-    "motivo": "Criterio de la propietaria para cap.public_api (2026-09-08), aplicado igual a las ocho: la capacidad exige una interfaz de programación DOCUMENTADA, así que sólo se da por verificada con las dos evidencias juntas — (a) documentación oficial que demuestre una API disponible para clientes, y (b) tarifa oficial que sitúe el plan. Con una sola de las dos, el par queda en desconocido. (a) SÍ: developers.niftypm.com es documentación de referencia real, con endpoints y autenticación, y dice literalmente \"The Nifty public REST API.\" (b) SÍ: la tarifa sitúa la fila \"Open API\" en el plan Business. Con las dos evidencias, \"Open API\" nombra una API que consta documentada y disponible. Sustituye al motivo de plantilla anterior, que llegaba a la misma conclusión sin haber comprobado la documentación.",
+    "motivo": "Criterio de la propietaria para cap.public_api (2026-09-08): sólo se verifica con las dos evidencias juntas — (a) documentación oficial que demuestre una API disponible para clientes, y (b) tarifa oficial que sitúe el plan. (a) SÍ: developers.niftypm.com es documentación de referencia real, en un subdominio del fabricante, y dice literalmente \"The Nifty public REST API.\" (b) SÍ: la tarifa sitúa la capacidad en el plan Business. La cita es \"API Build on the Nifty API\", que además de nombrar la API dice para qué sirve —construir encima—, que es literalmente lo que define la capacidad. NOTA SOBRE LA CITA: al repreguntar el par para que pasara por la estructura de dos evidencias, el modelo devolvió esta cita en vez de la anterior, \"Open API\", leyendo la misma página de tarifas. Se actualiza la entrada en vez de dejar la vieja huérfana, porque el veredicto y su razón son los mismos.",
     "revisadoEl": "2026-09-08"
   },
   {
@@ -179,8 +179,8 @@
     "herramientaId": "paymo",
     "capacidadId": "cap.public_api",
     "cita": "Integrations & API Access",
-    "veredicto": "vale",
-    "motivo": "Criterio de la propietaria para cap.public_api (2026-09-08), aplicado igual a las ocho: la capacidad exige una interfaz de programación DOCUMENTADA, así que sólo se da por verificada con las dos evidencias juntas — (a) documentación oficial que demuestre una API disponible para clientes, y (b) tarifa oficial que sitúe el plan. Con una sola de las dos, el par queda en desconocido. (a) SÍ: github.com/paymoapp/api es documentación de referencia con endpoints y autenticación, y dice literalmente \"The API base URL is https://app.paymoapp.com/api/.\" Se deja constancia de que vive en GitHub, bajo la organización del propio fabricante, y no en su dominio web. (b) SÍ: la tarifa sitúa \"Integrations & API Access\" en el plan Plus. Con las dos evidencias, la cita se sostiene. Sustituye al motivo de plantilla anterior.",
+    "veredicto": "no_vale",
+    "motivo": "Criterio de la propietaria para cap.public_api (2026-09-08): sólo se verifica con las dos evidencias juntas — (a) documentación oficial que demuestre una API disponible para clientes, y (b) tarifa oficial que sitúe el plan. (b) SÍ: la tarifa sitúa \"Integrations & API Access\" en el plan Plus. (a) NO SE PUEDE ACEPTAR: la única referencia de API encontrada es github.com/paymoapp/api, que está FUERA del dominio del fabricante. La regla nueva exige, para un dominio ajeno, una vinculación oficial explícita y verificable: una página del propio Paymo que enlace ahí. Se buscó en cuatro direcciones oficiales —paymoapp.com, paymoapp.com/api/ (404), help.paymoapp.com y paymoapp.com/developers/ (404)— y ninguna enlaza a esa organización de GitHub. Que la organización se llame \"paymoapp\" no demuestra de quién es: un nombre en GitHub lo puede registrar cualquiera. CAMBIA EL VEREDICTO ANTERIOR, que la daba por buena aceptando esa referencia con una advertencia escrita. Con la regla de dominio delante, una advertencia no sustituye a la prueba. Esto NO afirma que Paymo carezca de API: afirma que no se ha podido comprobar con el listón exigido.",
     "revisadoEl": "2026-09-08"
   },
   {

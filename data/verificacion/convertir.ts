@@ -152,9 +152,19 @@ function dominio(u: string): string | null {
   }
 }
 
+/**
+ * ¿Las dos direcciones son del mismo fabricante?
+ *
+ * Cuenta el dominio Y sus subdominios: la documentación casi nunca vive en el
+ * dominio principal —`apidocs.teamwork.com`, `api.scoro.com`— y compararlo en
+ * plano rechazaba evidencia buena del propio fabricante. Lo que sigue fuera es
+ * un dominio ajeno, que es lo que esta comprobación existe para frenar.
+ */
 function mismoDominio(a: string, b: string): boolean {
   const x = dominio(a);
-  return x !== null && x === dominio(b);
+  const y = dominio(b);
+  if (x === null || y === null) return false;
+  return x === y || x.endsWith(`.${y}`) || y.endsWith(`.${x}`);
 }
 
 /**
@@ -184,10 +194,24 @@ export function getCitasRevisadas(): CitaRevisada[] {
   return fs.existsSync(ruta) ? JSON.parse(fs.readFileSync(ruta, "utf8")) : [];
 }
 
+/**
+ * Una dirección oficial que demuestra la capacidad, declarada aparte porque no
+ * sale de la misma página que el plan. Se pasa ya validada desde el repositorio.
+ */
+export type PruebaDeCapacidad = {
+  herramientaId: string;
+  capacidadId: string;
+  url: string;
+  tipo: TipoFuente;
+  cita: string;
+  fecha: string;
+};
+
 export function convertirSalida(
   salida: SalidaLote,
   fuentesPorHerramienta: Record<string, FuentesDeHerramienta> = {},
-  citasRevisadas: CitaRevisada[] = []
+  citasRevisadas: CitaRevisada[] = [],
+  pruebasDeCapacidad: PruebaDeCapacidad[] = []
 ): Conversion {
   const registros: RegistroVerificacion[] = [];
   const descartes: Descarte[] = [];
@@ -201,6 +225,9 @@ export function convertirSalida(
         c.capacidadId === capacidadId &&
         c.cita.trim() === cita.trim()
     );
+
+  const pruebaDe = (herramientaId: string, capacidadId: string) =>
+    pruebasDeCapacidad.find((p) => p.herramientaId === herramientaId && p.capacidadId === capacidadId);
 
   for (const h of salida.herramientas ?? []) {
     const pedidas = h.capacidadesPedidas ?? [];
@@ -424,6 +451,27 @@ export function convertirSalida(
         }
       }
 
+      /**
+       * LAS DOS EVIDENCIAS, Y NINGUNA SE TIRA.
+       *
+       * Cuando hay una prueba de capacidad declarada aparte —la documentación
+       * del fabricante—, el registro guarda las dos direcciones con su papel:
+       * una demuestra que la capacidad existe y otra en qué plan está. Antes
+       * sólo cabía una, y el resultado era un «verificado» de confianza alta
+       * sostenido por dos palabras de una tabla de precios, con la
+       * documentación que lo justificaba fuera del registro.
+       *
+       * Sin prueba declarada no cambia nada: una sola fuente, sin `rol`, que
+       * es el caso corriente.
+       */
+      const prueba = pruebaDe(h.herramientaId, capacidadId);
+      const fuentes: Fuente[] = prueba
+        ? [
+            { tipo: prueba.tipo, url: prueba.url, fechaConsulta: prueba.fecha, cita: prueba.cita, rol: "capacidad" },
+            { ...fuente, rol: "plan" },
+          ]
+        : [fuente];
+
       registros.push({
         herramientaId: h.herramientaId,
         capacidadId,
@@ -432,7 +480,7 @@ export function convertirSalida(
         // Una integración tampoco conserva un plan que no venga demostrado.
         planMinimo: planMinimo && laSostieneUnPlan ? planMinimo : undefined,
         integraCon: profundidad === "integracion" ? r.integraCon!.trim() : undefined,
-        fuentes: [fuente],
+        fuentes,
         confianza,
         proximaRevision: proximaRevision(h.fechaConsulta, Boolean(planMinimo && laSostieneUnPlan)),
         nota: r.nota?.trim() || undefined,

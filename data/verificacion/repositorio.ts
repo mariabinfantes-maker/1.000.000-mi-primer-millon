@@ -3,7 +3,7 @@ import path from "node:path";
 import { getCapacidades, getVocabulario } from "@/data/vocabulario/repositorio";
 import { normalizarUrl } from "./convertir";
 import { FUENTES_DE_PRIMERA_MANO } from "./esquema";
-import type { PlanDeVerificacion, RegistroVerificacion, SeleccionPlausible } from "./esquema";
+import type { PlanDeVerificacion, RegistroVerificacion, SeleccionPlausible, TipoFuente } from "./esquema";
 
 /**
  * Acceso y validación de la verificación de F2.
@@ -195,6 +195,101 @@ export type Sustitucion = {
 export function getSustituciones(): Sustitucion[] {
   const ruta = path.join(DIR, "sustituciones.json");
   return fs.existsSync(ruta) ? JSON.parse(fs.readFileSync(ruta, "utf8")) : [];
+}
+
+/**
+ * Una dirección oficial que demuestra que la herramienta TIENE la capacidad.
+ *
+ * Vive aparte de `sustituciones.json` a propósito. Aquello declara que una
+ * dirección de la ficha lleva a otra —una redirección—, y esto declara una
+ * prueba de capacidad. Mezclarlos hacía que el archivo de redirecciones
+ * guardara cosas que no redirigen a ninguna parte.
+ */
+export type FuenteDeCapacidad = {
+  herramientaId: string;
+  capacidadId: string;
+  url: string;
+  /** Qué clase de fuente es. Decide si además puede sostener un plan. */
+  tipo: TipoFuente;
+  /** La frase literal que lo demuestra. Sin cita no hay prueba. */
+  cita: string;
+  /** Por qué se acepta. Sin motivo escrito, esto es una trampa silenciosa. */
+  motivo: string;
+  fecha: string;
+  /**
+   * Obligatoria cuando la dirección vive FUERA del dominio del fabricante.
+   * No basta con que parezca suya: hace falta que una página oficial de la
+   * herramienta enlace ahí expresamente, y se guarda dónde lo dice.
+   */
+  vinculacionOficial?: { url: string; cita: string };
+};
+
+export function getFuentesDeCapacidad(): FuenteDeCapacidad[] {
+  const ruta = path.join(DIR, "fuentes-de-capacidad.json");
+  return fs.existsSync(ruta) ? JSON.parse(fs.readFileSync(ruta, "utf8")) : [];
+}
+
+/** El dominio de una dirección, sin «www». */
+export function dominioDe(u: string): string | null {
+  try {
+    return new URL(u).hostname.replace(/^www\./, "").toLowerCase();
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * ¿Esta dirección es del fabricante?
+ *
+ * Sí para su dominio y para CUALQUIER SUBDOMINIO suyo: la documentación casi
+ * nunca vive en el dominio principal —`apidocs.teamwork.com`,
+ * `developers.niftypm.com`, `api.scoro.com`— y rechazarla por eso tiraba
+ * evidencia buena del propio fabricante.
+ *
+ * No para un dominio ajeno, por muy suyo que parezca. `github.com/loquesea`
+ * lo puede abrir cualquiera.
+ */
+export function esDelDominioOficial(url: string, urlOficial: string): boolean {
+  const host = dominioDe(url);
+  const oficial = dominioDe(urlOficial);
+  if (!host || !oficial) return false;
+  return host === oficial || host.endsWith(`.${oficial}`);
+}
+
+/** Qué está mal en una fuente de capacidad declarada. */
+export function erroresDeFuenteDeCapacidad(
+  f: FuenteDeCapacidad,
+  herramientaIds: readonly string[],
+  capacidadIds: readonly string[],
+  dominioOficialDe: (herramientaId: string) => string | undefined
+): string[] {
+  const e: string[] = [];
+  const donde = `${f.herramientaId}/${f.capacidadId}`;
+  if (!herramientaIds.includes(f.herramientaId)) e.push(`${donde}: la herramienta no existe`);
+  if (!capacidadIds.includes(f.capacidadId)) e.push(`${donde}: la capacidad no existe`);
+  if (!/^https?:\/\/\S+$/.test(f.url ?? "")) e.push(`${donde}: URL inválida "${f.url}"`);
+  if (!f.cita?.trim()) e.push(`${donde}: sin cita que lo demuestre`);
+  if (!f.motivo?.trim()) e.push(`${donde}: sin motivo escrito`);
+  if (!esFecha(f.fecha)) e.push(`${donde}: fecha inválida "${f.fecha}"`);
+
+  const oficial = dominioOficialDe(f.herramientaId);
+  if (oficial && f.url) {
+    if (!esDelDominioOficial(f.url, oficial)) {
+      // Un dominio ajeno sólo entra con una vinculación oficial, explícita y
+      // comprobable: una página DEL FABRICANTE que enlace ahí.
+      const v = f.vinculacionOficial;
+      if (!v) {
+        e.push(`${donde}: "${f.url}" está fuera del dominio oficial y no declara vinculación`);
+      } else {
+        if (!/^https?:\/\/\S+$/.test(v.url ?? "")) e.push(`${donde}: la vinculación tiene URL inválida`);
+        else if (!esDelDominioOficial(v.url, oficial)) {
+          e.push(`${donde}: la vinculación no viene de una página del fabricante`);
+        }
+        if (!v.cita?.trim()) e.push(`${donde}: la vinculación no dice dónde lo pone`);
+      }
+    }
+  }
+  return e;
 }
 
 /** Qué está mal en una sustitución declarada. */
