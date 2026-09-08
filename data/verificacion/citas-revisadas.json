@@ -148,40 +148,40 @@
     "capacidadId": "cap.public_api",
     "cita": "API",
     "veredicto": "no_vale",
-    "motivo": "«API» a secas no dice que sea pública ni documentada, y la capacidad exige «interfaz de programación documentada». Es la más discutible de las tres: en una tabla de planes, una fila «API» normalmente significa que el cliente la tiene. Se rechaza por prudencia, no por certeza.",
-    "revisadoEl": "2026-09-07"
+    "motivo": "Criterio de la propietaria para cap.public_api (2026-09-08), aplicado igual a las ocho: la capacidad exige una interfaz de programación DOCUMENTADA, así que sólo se da por verificada con las dos evidencias juntas — (a) documentación oficial que demuestre una API disponible para clientes, y (b) tarifa oficial que sitúe el plan. Con una sola de las dos, el par queda en desconocido. (a) NO: se intentaron tres direcciones del propio dominio —ganttpro.com/api/, support.ganttpro.com/en/articles/api y ganttpro.com/knowledge-base/api/— y ninguna se pudo recuperar. (b) SÍ: la tarifa incluye la fila \"API\" en el plan Business. Falta (a), luego la cita \"API\" —tres caracteres— se queda sin nada que la desambigüe y no basta. Esto NO afirma que la herramienta carezca de API: afirma que no se ha podido comprobar con el listón exigido.",
+    "revisadoEl": "2026-09-08"
   },
   {
     "herramientaId": "less-annoying-crm",
     "capacidadId": "cap.public_api",
     "cita": "API documentation",
-    "veredicto": "vale",
-    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
-    "revisadoEl": "2026-09-07"
+    "veredicto": "no_vale",
+    "motivo": "Criterio de la propietaria para cap.public_api (2026-09-08), aplicado igual a las ocho: la capacidad exige una interfaz de programación DOCUMENTADA, así que sólo se da por verificada con las dos evidencias juntas — (a) documentación oficial que demuestre una API disponible para clientes, y (b) tarifa oficial que sitúe el plan. Con una sola de las dos, el par queda en desconocido. (a) NO: de tres direcciones probadas, lessannoyingcrm.com/help/api y api.lessannoyingcrm.com no se recuperaron, y lessannoyingcrm.com/api devuelve una página de marketing, sin endpoints ni autenticación. (b) NO: al releer la tarifa oficial, la API no aparece en la tabla de planes. Sin ninguna de las dos evidencias, la cita \"API documentation\" no se sostiene. Sustituye al motivo de plantilla anterior, que daba la fila por buena sin haber comprobado ninguna de las dos cosas. Esto NO afirma que la herramienta carezca de API: afirma que no se ha podido comprobar con el listón exigido.",
+    "revisadoEl": "2026-09-08"
   },
   {
     "herramientaId": "nifty",
     "capacidadId": "cap.public_api",
     "cita": "Open API",
     "veredicto": "vale",
-    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
-    "revisadoEl": "2026-09-07"
+    "motivo": "Criterio de la propietaria para cap.public_api (2026-09-08), aplicado igual a las ocho: la capacidad exige una interfaz de programación DOCUMENTADA, así que sólo se da por verificada con las dos evidencias juntas — (a) documentación oficial que demuestre una API disponible para clientes, y (b) tarifa oficial que sitúe el plan. Con una sola de las dos, el par queda en desconocido. (a) SÍ: developers.niftypm.com es documentación de referencia real, con endpoints y autenticación, y dice literalmente \"The Nifty public REST API.\" (b) SÍ: la tarifa sitúa la fila \"Open API\" en el plan Business. Con las dos evidencias, \"Open API\" nombra una API que consta documentada y disponible. Sustituye al motivo de plantilla anterior, que llegaba a la misma conclusión sin haber comprobado la documentación.",
+    "revisadoEl": "2026-09-08"
   },
   {
     "herramientaId": "nutshell",
     "capacidadId": "cap.public_api",
     "cita": "Developer API",
-    "veredicto": "vale",
-    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
-    "revisadoEl": "2026-09-07"
+    "veredicto": "no_vale",
+    "motivo": "Criterio de la propietaria para cap.public_api (2026-09-08), aplicado igual a las ocho: la capacidad exige una interfaz de programación DOCUMENTADA, así que sólo se da por verificada con las dos evidencias juntas — (a) documentación oficial que demuestre una API disponible para clientes, y (b) tarifa oficial que sitúe el plan. Con una sola de las dos, el par queda en desconocido. (a) NO: developers.nutshell.com sí responde, pero es una portada de hub para desarrolladores; no contiene referencia de API —ni endpoints, ni autenticación, ni métodos—. (b) NO: la API no aparece en la tabla de planes de la tarifa oficial. Sin ninguna de las dos, la cita \"Developer API\" no se sostiene, y además la fuente del registro es la portada, que por la regla del plan tampoco podría situarlo. Sustituye al motivo de plantilla anterior, que hablaba de \"una tabla oficial de planes\" cuando la fuente real era la portada. Esto NO afirma que la herramienta carezca de API: afirma que no se ha podido comprobar con el listón exigido.",
+    "revisadoEl": "2026-09-08"
   },
   {
     "herramientaId": "paymo",
     "capacidadId": "cap.public_api",
     "cita": "Integrations & API Access",
     "veredicto": "vale",
-    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
-    "revisadoEl": "2026-09-07"
+    "motivo": "Criterio de la propietaria para cap.public_api (2026-09-08), aplicado igual a las ocho: la capacidad exige una interfaz de programación DOCUMENTADA, así que sólo se da por verificada con las dos evidencias juntas — (a) documentación oficial que demuestre una API disponible para clientes, y (b) tarifa oficial que sitúe el plan. Con una sola de las dos, el par queda en desconocido. (a) SÍ: github.com/paymoapp/api es documentación de referencia con endpoints y autenticación, y dice literalmente \"The API base URL is https://app.paymoapp.com/api/.\" Se deja constancia de que vive en GitHub, bajo la organización del propio fabricante, y no en su dominio web. (b) SÍ: la tarifa sitúa \"Integrations & API Access\" en el plan Plus. Con las dos evidencias, la cita se sostiene. Sustituye al motivo de plantilla anterior.",
+    "revisadoEl": "2026-09-08"
   },
   {
     "herramientaId": "teamwork-com",
@@ -532,8 +532,8 @@
     "capacidadId": "cap.public_api",
     "cita": "API",
     "veredicto": "no_vale",
-    "motivo": "Mismo caso exacto que ganttpro: «API» a secas no dice que sea pública ni documentada, y la capacidad exige «interfaz de programación documentada». Se rechaza por coherencia con ese precedente.",
-    "revisadoEl": "2026-09-07"
+    "motivo": "Criterio de la propietaria para cap.public_api (2026-09-08), aplicado igual a las ocho: la capacidad exige una interfaz de programación DOCUMENTADA, así que sólo se da por verificada con las dos evidencias juntas — (a) documentación oficial que demuestre una API disponible para clientes, y (b) tarifa oficial que sitúe el plan. Con una sola de las dos, el par queda en desconocido. (a) SÍ: api.scoro.com es documentación de referencia real y dice literalmente \"The API makes it easy to create web and desktop applications that integrate with your account.\" (b) NO: la respuesta situaba la capacidad en un plan llamado \"Standard\", y ese plan NO existe en la tarifa oficial de hoy. Al releerla, Scoro nombra sus planes de otra forma (\"Time-billing\", \"Projects & Resources\"...), y a la pregunta directa de si existe un plan \"Standard\" la respuesta fue NO. La tarifa sí dice que la API es funcionalidad de plataforma presente por defecto, pero mientras el plan mínimo no se pueda nombrar como lo nombra el fabricante, la regla del plan no se cumple. Se mantiene el rechazo, pero por un motivo distinto del anterior: no porque \"API\" sea ambigua —la documentación la desambigua—, sino porque el plan que se le atribuía no se sostiene. Este par merece repescarse cuando se vuelva a preguntar por la tarifa.",
+    "revisadoEl": "2026-09-08"
   },
   {
     "herramientaId": "scoro",

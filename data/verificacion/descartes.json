@@ -408,7 +408,7 @@
   {
     "herramientaId": "less-annoying-crm",
     "capacidadId": "cap.public_api",
-    "motivo": "sin plan mínimo",
+    "motivo": "cita breve revisada y rechazada",
     "cita": "API documentation",
     "urlCitada": "https://lessannoyingcrm.com/pricing"
   },
@@ -590,7 +590,7 @@
   {
     "herramientaId": "nutshell",
     "capacidadId": "cap.public_api",
-    "motivo": "sin plan mínimo",
+    "motivo": "cita breve revisada y rechazada",
     "cita": "Developer API",
     "urlCitada": "https://www.nutshell.com/"
   },
