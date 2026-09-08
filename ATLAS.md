@@ -3305,18 +3305,30 @@ salió `no_documentado` al leer la tarifa, y **6 caen ahora por la regla 2**:
 su cita sale de la portada, y una portada no sitúa un plan. La regla 1 ya no
 tira evidencia buena; la regla 2 sigue haciendo su trabajo.
 
-**2. La dirección de precios de noCRM está demostrada, y el cambio espera
-decisión.** `urlPrecios` de la ficha es `https://www.nocrm.io/es/precios`, y hoy
-no se puede recuperar: tres intentos, `URL_RETRIEVAL_STATUS_ERROR` las tres
-veces. La que sí responde es **`https://www.nocrm.io/es/pricing`**, en español,
-con encabezado «Cierra más, administra menos» y su tabla de planes —Starter
-13 US$, Expert 26 US$, Dream 39 US$ por usuario y mes—. **La ficha no se ha
-tocado: las direcciones del catálogo las decide la propietaria.**
+**2. La dirección de precios de noCRM estaba muerta, y la propietaria autorizó
+cambiarla.** `urlPrecios` era `https://www.nocrm.io/es/precios` y hoy no se
+puede recuperar: tres intentos, `URL_RETRIEVAL_STATUS_ERROR` las tres veces. La
+que sí responde es `https://www.nocrm.io/es/pricing`, en español, con encabezado
+«Cierra más, administra menos» y su tabla de planes —Starter 13 US$, Expert
+26 US$, Dream 39 US$ por usuario y mes—.
 
-De paso queda anotado, sin tocarlo, que los datos de precio de esa ficha
-tampoco cuadran con esa página: la ficha dice «Desde 12€/usuario/mes» y un
-plan «Sales Experts» a 29€, y la página dice Starter/Expert/Dream en dólares.
-Es exactamente el tipo de dato que F2 existe para descubrir.
+Cambiada la ficha, y **sólo esa línea**: una sustitución de una dirección por
+otra, sin tocar ni un precio, ni un nombre de plan, ni ningún otro campo. Es la
+primera vez que F2 modifica el catálogo, y conviene dejar escrito por qué se
+pudo: la decisión fue de la propietaria, con la evidencia delante y por
+autorización expresa para esa línea concreta.
+
+**No invalida ninguna evidencia ya recogida.** Se comprobó antes de tocar nada:
+los 25 registros de `nocrm-io` son los 25 «desconocido» y todos citan la
+portada, no la tarifa. Ninguno se apoyaba en la dirección vieja —no llegó a
+responder nunca—, así que el cambio no reescribe el pasado: cuenta hacia
+adelante, la próxima vez que se verifique esta herramienta.
+
+Queda anotado, **sin tocarlo**, que los datos de precio de esa ficha tampoco
+cuadran con esa página: la ficha dice «Desde 12€/usuario/mes» y un plan «Sales
+Experts» a 29€, y la página dice Starter/Expert/Dream y en dólares. Cambiar eso
+a partir de una sola lectura sería repetir el error que F2 existe para
+deshacer: son datos que necesitan su propia verificación, no un arreglo de paso.
 
 ### `repescar.ps1`, arreglado y demostrado
 
