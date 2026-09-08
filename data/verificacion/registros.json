@@ -11798,7 +11798,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Igual que «API» en ganttpro y scoro: «acceso a la API» no dice que sea pública ni documentada. Coherencia con ese precedente."
+    "nota": "Investigado con fuentes oficiales (2026-09-08) y NO se reúnen las dos evidencias exigidas. La tarifa sí sitúa el plan: \"API access\" aparece en el plan Business. Pero no se pudo obtener documentación oficial que demuestre una API documentada y disponible para clientes: se intentaron cuatro direcciones del propio dominio (base.zenkit.com/docs/api/overview/intro y .../authentication, zenkit.com/en/api, zenkit.com/en/base/api/). Las dos primeras responden, pero devuelven el armazón de la aplicación con el texto genérico \"A platform for collaboration and project management\", sin endpoints ni autenticación; las otras dos no se pudieron recuperar. ESTO NO AFIRMA QUE ZENKIT NO TENGA API: afirma que no lo hemos podido comprobar, y por eso el par queda en desconocido. Sustituye al motivo anterior, que invocaba el precedente de «API» a secas en ganttpro y scoro. Ese motivo era incorrecto: el precedente aplicable era teamwork-com, con esta misma cita literal y veredicto «vale». La asimetría con teamwork-com no está en la cita, que es idéntica, sino en la evidencia que la respalda: allí la documentación oficial se pudo leer y aquí no."
   },
   {
     "herramientaId": "zenkit",
