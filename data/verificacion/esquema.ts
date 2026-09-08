@@ -100,7 +100,16 @@ export type RolDeFuente =
   /** Demuestra que la herramienta tiene la capacidad. */
   | "capacidad"
   /** Demuestra en qué plan está. */
-  | "plan";
+  | "plan"
+  /**
+   * Dónde se fue a buscar el plan sin llegar a demostrarlo.
+   *
+   * No prueba nada, y por eso no es `plan`: es la trazabilidad de dónde se
+   * miró. Sin ella, un registro con el plan desconocido no enseña siquiera qué
+   * tarifa se consultó ni cuándo, y el día que alguien quiera repescarlo tiene
+   * que volver a averiguarlo.
+   */
+  | "plan_consultado";
 
 export type Fuente = {
   tipo: TipoFuente;

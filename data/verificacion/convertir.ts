@@ -498,13 +498,27 @@ export function convertirSalida(
        * papel; si no, queda la única que hay, sin `rol`, como siempre.
        */
       const planVerificado = planEstado === "verificado";
+
+      /**
+       * Cuando el plan NO se demuestra, se conserva igualmente dónde se fue a
+       * buscarlo y en qué fecha, con el papel `plan_consultado`. No afirma
+       * ningún plan —el registro no lleva `planMinimo`— pero deja el rastro:
+       * sin él, un plan desconocido ni siquiera enseñaba qué tarifa se miró.
+       */
+      const dondeSeMiroElPlan: Fuente | undefined =
+        !planVerificado && planEstado === "desconocido" && fuentePlan
+          ? { ...fuentePlan, cita: undefined, rol: "plan_consultado" }
+          : undefined;
+
       const fuentes: Fuente[] = prueba
         ? planVerificado
           ? [fuenteCapacidad, { ...(fuentePlan ?? fuente), rol: "plan" }]
-          : [fuenteCapacidad]
+          : [fuenteCapacidad, ...(dondeSeMiroElPlan ? [dondeSeMiroElPlan] : [])]
         : planVerificado && fuentePlan
           ? [{ ...fuente, rol: "capacidad" }, { ...fuentePlan, rol: "plan" }]
-          : [fuente];
+          : dondeSeMiroElPlan
+            ? [{ ...fuente, rol: "capacidad" }, dondeSeMiroElPlan]
+            : [fuente];
 
       registros.push({
         herramientaId: h.herramientaId,

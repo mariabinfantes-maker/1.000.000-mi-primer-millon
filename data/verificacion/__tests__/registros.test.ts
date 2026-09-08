@@ -218,6 +218,97 @@ describe("los registros de verificación", () => {
         ).toContain("no puede nombrar un plan");
       });
 
+      /**
+       * Los dos huecos que encontró la revisión independiente: el campo se
+       * validaba por su presencia, no por su contenido, y nadie cruzaba lo que
+       * decía el registro con lo que decían sus fuentes. Cada prueba reproduce
+       * el fallo tal cual se encontró.
+       */
+      describe("los dos huecos que dejó la primera versión", () => {
+        it("un planEstado que no es ninguno de los dos valores ya no cuela", () => {
+          expect(e({ planEstado: "masomenos" as never, planMinimo: undefined })).toContain(
+            'planEstado "masomenos" no es ni verificado ni desconocido'
+          );
+        });
+
+        it("un plan desconocido no puede arrastrar una fuente que diga demostrarlo", () => {
+          expect(
+            e({
+              planEstado: "desconocido",
+              planMinimo: undefined,
+              fuentes: [
+                { tipo: "tarifa_oficial", url: "https://a.test/precios", fechaConsulta: "2026-09-03", rol: "plan" },
+              ],
+            })
+          ).toContain("el plan es desconocido pero trae una fuente que dice demostrarlo");
+        });
+
+        it("no puede haber dos fuentes diciendo que demuestran el plan", () => {
+          const fuente = {
+            tipo: "tarifa_oficial" as const,
+            url: "https://a.test/precios",
+            fechaConsulta: "2026-09-03",
+            rol: "plan" as const,
+          };
+          expect(e({ fuentes: [fuente, { ...fuente }] })).toContain(
+            "2 fuentes dicen demostrar el plan, y sólo puede haber una"
+          );
+        });
+
+        it("pero una sola fuente sin rol sigue valiendo para las dos cosas", () => {
+          expect(
+            e({
+              fuentes: [{ tipo: "tarifa_oficial", url: "https://a.test/p", fechaConsulta: "2026-09-03" }],
+            })
+          ).toBe("");
+        });
+      });
+
+      /**
+       * Que el plan no se demuestre no puede borrar el rastro de dónde se
+       * buscó: sin él, repescarlo obliga a averiguarlo otra vez.
+       */
+      describe("un plan desconocido conserva dónde se miró", () => {
+        const conRastro = (cambios: Record<string, unknown> = {}) =>
+          e({
+            planEstado: "desconocido",
+            planMinimo: undefined,
+            fuentes: [
+              { tipo: "pagina_oficial", url: "https://a.test/producto", fechaConsulta: "2026-09-03", cita: "x", rol: "capacidad" },
+              { tipo: "tarifa_oficial", url: "https://a.test/precios", fechaConsulta: "2026-09-03", rol: "plan_consultado" },
+            ],
+            ...cambios,
+          });
+
+        it("se acepta la fuente de dónde se consultó la tarifa", () => {
+          expect(conRastro()).toBe("");
+        });
+
+        it("pero sólo cuando el plan es desconocido", () => {
+          expect(
+            e({
+              planEstado: "verificado",
+              planMinimo: "Business",
+              fuentes: [
+                { tipo: "tarifa_oficial", url: "https://a.test/precios", fechaConsulta: "2026-09-03", rol: "plan" },
+                { tipo: "tarifa_oficial", url: "https://a.test/precios", fechaConsulta: "2026-09-03", rol: "plan_consultado" },
+              ],
+            })
+          ).toContain("sólo un plan desconocido puede llevar la fuente de dónde se consultó");
+        });
+
+        it("y en los datos de hoy no enseña ningún plan sin demostrar", () => {
+          for (const r of getRegistros()) {
+            const consultada = (r.fuentes ?? []).find((f) => f.rol === "plan_consultado");
+            if (!consultada) continue;
+            expect(r.planEstado, `${r.herramientaId}/${r.capacidadId}`).toBe("desconocido");
+            expect(r.planMinimo, `${r.herramientaId}/${r.capacidadId}`).toBeUndefined();
+            expect(consultada.url, `${r.herramientaId}/${r.capacidadId}`).toMatch(/^https?:\/\//);
+            expect(consultada.fechaConsulta, `${r.herramientaId}/${r.capacidadId}`).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+          }
+        });
+      });
+
       it("los datos de hoy respetan la separación", () => {
         const registros = getRegistros();
         const fantasmas = registros.filter((r) => r.planEstado === "desconocido" && r.planMinimo);

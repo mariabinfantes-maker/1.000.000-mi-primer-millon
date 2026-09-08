@@ -97,8 +97,40 @@ export function erroresDeRegistro(
     if (necesitaPlan && !registro.planEstado) {
       e.push(`${donde}: no dice si el plan está verificado o es desconocido`);
     }
+    // Un valor que no es ninguno de los dos no dice nada, y colaba.
+    if (registro.planEstado && !["verificado", "desconocido"].includes(registro.planEstado)) {
+      e.push(`${donde}: planEstado "${registro.planEstado}" no es ni verificado ni desconocido`);
+    }
     if (registro.planEstado === "verificado" && !registro.planMinimo?.trim()) {
       e.push(`${donde}: el plan se da por verificado pero no dice cuál`);
+    }
+
+    /**
+     * El estado del plan y las fuentes tienen que contar lo mismo.
+     *
+     * Sin esto, un registro podía decir «el plan es desconocido» y arrastrar
+     * a la vez una fuente marcada como que lo demuestra. Una de las dos cosas
+     * era mentira, y ninguna prueba lo miraba.
+     */
+    const fuentesDePlan = (registro.fuentes ?? []).filter((f) => f.rol === "plan");
+    if (registro.planEstado === "desconocido" && fuentesDePlan.length) {
+      e.push(`${donde}: el plan es desconocido pero trae una fuente que dice demostrarlo`);
+    }
+    /**
+     * Más de una fuente diciendo que demuestra el plan es una contradicción:
+     * el plan lo demuestra una, o lo demuestra la única fuente sin `rol` —el
+     * caso corriente, una fila de la tarifa que nombra la capacidad y está en
+     * la columna de su plan—.
+     */
+    if (fuentesDePlan.length > 1) {
+      e.push(`${donde}: ${fuentesDePlan.length} fuentes dicen demostrar el plan, y sólo puede haber una`);
+    }
+    // «Dónde se miró» sólo tiene sentido cuando no se llegó a demostrar.
+    if (
+      registro.planEstado !== "desconocido" &&
+      (registro.fuentes ?? []).some((f) => f.rol === "plan_consultado")
+    ) {
+      e.push(`${donde}: sólo un plan desconocido puede llevar la fuente de dónde se consultó`);
     }
     // Nombrar un plan que no se ha demostrado es afirmarlo. No se hace.
     if (registro.planEstado === "desconocido" && registro.planMinimo) {

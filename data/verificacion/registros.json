@@ -7140,7 +7140,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://capsulecrm.com/signup/",
         "fechaConsulta": "2026-09-07",
-        "cita": "More in depth reports so you can get visibility on your sales forecast, where you are losing the most sales and how active your team is."
+        "cita": "More in depth reports so you can get visibility on your sales forecast, where you are losing the most sales and how active your team is.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://capsulecrm.com/signup/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -7212,7 +7219,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.insightly.com/pricing-plans/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Seamless integration between finance applications and Insightly."
+        "cita": "Seamless integration between finance applications and Insightly.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.insightly.com/pricing-plans/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -7230,7 +7244,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.insightly.com/pricing-plans/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Access our REST API for seamless integration of all applications you use to run your business."
+        "cita": "Access our REST API for seamless integration of all applications you use to run your business.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.insightly.com/pricing-plans/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -7248,7 +7269,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.insightly.com/pricing-plans/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Simplify and facilitate automatic notifications between online accounts when a relevant trigger occurs."
+        "cita": "Simplify and facilitate automatic notifications between online accounts when a relevant trigger occurs.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.insightly.com/pricing-plans/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -7320,7 +7348,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.insightly.com/pricing-plans/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Import prospect records into Insightly and easily communicate with your target market."
+        "cita": "Import prospect records into Insightly and easily communicate with your target market.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.insightly.com/pricing-plans/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -7446,7 +7481,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.insightly.com/pricing-plans/",
         "fechaConsulta": "2026-09-07",
-        "cita": "View the complete picture of every contact and org, including all history, communications, activities, and links."
+        "cita": "View the complete picture of every contact and org, including all history, communications, activities, and links.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.insightly.com/pricing-plans/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -8070,7 +8112,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://clickup.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "Unlimited Dashboards with Advanced Cards"
+        "cita": "Unlimited Dashboards with Advanced Cards",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://clickup.com/pricing",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -8108,7 +8157,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://clickup.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "Custom Exporting"
+        "cita": "Custom Exporting",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://clickup.com/pricing",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -8647,7 +8703,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.copper.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "Keep all your relationships in one place"
+        "cita": "Keep all your relationships in one place",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.copper.com/pricing",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -8840,7 +8903,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://hive.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "Best for light project management."
+        "cita": "Best for light project management.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://hive.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -8940,7 +9010,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.nutshell.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "Enterprise SSO"
+        "cita": "Enterprise SSO",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.nutshell.com/pricing",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -8978,7 +9055,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.nutshell.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "Audit log & changelog"
+        "cita": "Audit log & changelog",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.nutshell.com/pricing",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -9238,7 +9322,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://productive.io/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Describe a workflow in plain language and Productive configures the automation for you."
+        "cita": "Describe a workflow in plain language and Productive configures the automation for you.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://productive.io/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -9346,7 +9437,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://productive.io/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Build flexible, data-rich reports to track performance, analyze trends, and make informed decisions."
+        "cita": "Build flexible, data-rich reports to track performance, analyze trends, and make informed decisions.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://productive.io/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -9364,7 +9462,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://productive.io/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Export reports to PDF, CSV or XLS"
+        "cita": "Export reports to PDF, CSV or XLS",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://productive.io/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -9418,7 +9523,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Triggers & actions"
+        "cita": "Triggers & actions",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.scoro.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -9455,6 +9567,12 @@
         "fechaConsulta": "2026-09-08",
         "cita": "The API makes it easy to create web and desktop applications that integrate with your account.",
         "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.scoro.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -9681,7 +9799,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.smartsheet.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "Easily assign team members to tasks within your sheet."
+        "cita": "Easily assign team members to tasks within your sheet.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.smartsheet.com/pricing",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -9699,7 +9824,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.smartsheet.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "Automatically adjust dates for Duration (how long) and Predecessors (what must happen first) as values change."
+        "cita": "Automatically adjust dates for Duration (how long) and Predecessors (what must happen first) as values change.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.smartsheet.com/pricing",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -9898,7 +10030,7 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.streak.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "API Access — Pro+",
+        "cita": "Standard + Webhooks — Pro+ (la misma fila en el plan más barato, Pro, dice sólo «Standard»)",
         "rol": "plan"
       }
     ],
@@ -10146,7 +10278,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.vtiger.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Customizable Reports & Dashboards"
+        "cita": "Customizable Reports & Dashboards",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.vtiger.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -10567,7 +10706,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://zenkit.com/en/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "2-Factor Authentication"
+        "cita": "2-Factor Authentication",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://zenkit.com/en/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -10831,7 +10977,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://ganttpro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Core For smaller teams looking for clear task visualization and basic project management features."
+        "cita": "Core For smaller teams looking for clear task visualization and basic project management features.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://ganttpro.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -10848,7 +11001,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://ganttpro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Project Planning AI Gantt chart maker true true true true"
+        "cita": "Project Planning AI Gantt chart maker true true true true",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://ganttpro.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -11198,7 +11358,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://niftypm.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Reporting Live dashboards across every project"
+        "cita": "Reporting Live dashboards across every project",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://niftypm.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -11614,7 +11781,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.paymoapp.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Free includes: Unlimited Time Tracking Unlimited Invoices Clients (limited to 1) Projects (limited to 2)"
+        "cita": "Free includes: Unlimited Time Tracking Unlimited Invoices Clients (limited to 1) Projects (limited to 2)",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.paymoapp.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -11922,7 +12096,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://productive.io/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Enable users to log into Productive with a single username and password from your SSO provider."
+        "cita": "Enable users to log into Productive with a single username and password from your SSO provider.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://productive.io/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -11939,7 +12120,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://productive.io/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Included In All Plans ... Two-Factor Authentication Add an extra layer of security to your login process using 2FA."
+        "cita": "Included In All Plans ... Two-Factor Authentication Add an extra layer of security to your login process using 2FA.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://productive.io/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -12041,7 +12229,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Do Manage your team's tasks and day-to-day work. Tasks & task lists"
+        "cita": "Do Manage your team's tasks and day-to-day work. Tasks & task lists",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.scoro.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -12058,7 +12253,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Deliver Plan projects and keep delivery on track."
+        "cita": "Deliver Plan projects and keep delivery on track.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.scoro.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -12075,7 +12277,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Deliver Plan projects and keep delivery on track. Tasks & task lists Project templates Retainer management Gantt chart & dependencies"
+        "cita": "Deliver Plan projects and keep delivery on track. Tasks & task lists Project templates Retainer management Gantt chart & dependencies",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.scoro.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -12092,7 +12301,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Do Manage your team's tasks and day-to-day work. Tasks & task lists Subtasks Recurring tasks Task bundles Kanban board"
+        "cita": "Do Manage your team's tasks and day-to-day work. Tasks & task lists Subtasks Recurring tasks Task bundles Kanban board",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.scoro.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -12211,7 +12427,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.teamgantt.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "The TeamGantt Personal plan is free forever and includes 1 user, 1 project, 40 tasks, and basic Gantt chart features, including dependencies and drag-and-drop scheduling."
+        "cita": "The TeamGantt Personal plan is free forever and includes 1 user, 1 project, 40 tasks, and basic Gantt chart features, including dependencies and drag-and-drop scheduling.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.teamgantt.com/pricing",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -12228,7 +12451,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.teamgantt.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "The TeamGantt Personal plan is free forever and includes 1 user, 1 project, 40 tasks, and basic Gantt chart features, including dependencies and drag-and-drop scheduling."
+        "cita": "The TeamGantt Personal plan is free forever and includes 1 user, 1 project, 40 tasks, and basic Gantt chart features, including dependencies and drag-and-drop scheduling.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.teamgantt.com/pricing",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -12348,7 +12578,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.teamwork.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Connect chat tools"
+        "cita": "Connect chat tools",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.teamwork.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -12588,7 +12825,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
         "fechaConsulta": "2026-09-07",
-        "cita": "Portfolio Dashboard"
+        "cita": "Portfolio Dashboard",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -12802,7 +13046,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Multi-factor authentication"
+        "cita": "Multi-factor authentication",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.scoro.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -12975,7 +13226,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://asana.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "CSV and PDF export: Export your project data and reports in CSV or PDF format to share with stakeholders or analyze in other tools."
+        "cita": "CSV and PDF export: Export your project data and reports in CSV or PDF format to share with stakeholders or analyze in other tools.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://asana.com/pricing",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -12992,7 +13250,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://asana.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "View-only licenses: Include more people in projects at lower cost by giving some users visibility without editing permissions."
+        "cita": "View-only licenses: Include more people in projects at lower cost by giving some users visibility without editing permissions.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://asana.com/pricing",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -13400,7 +13665,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.copper.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "What's included: 2,500 contact limit Task automation Pipelines Project Management Contact enrichment"
+        "cita": "What's included: 2,500 contact limit Task automation Pipelines Project Management Contact enrichment",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.copper.com/pricing",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -13990,7 +14262,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.nimble.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Nimble builds live contact records in seconds enriching them with business and social details."
+        "cita": "Nimble builds live contact records in seconds enriching them with business and social details.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.nimble.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -14007,7 +14286,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.nimble.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Easily connect multiple email accounts to view the history of interactions with all your leads and customers inside of Nimble or in Nimble Prospector."
+        "cita": "Easily connect multiple email accounts to view the history of interactions with all your leads and customers inside of Nimble or in Nimble Prospector.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.nimble.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -14024,7 +14310,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.nimble.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Easily move your deals through the pipeline by simply dragging them to the next stage."
+        "cita": "Easily move your deals through the pipeline by simply dragging them to the next stage.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.nimble.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -14041,7 +14334,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.nimble.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Easily generate leads and capture important information about your inbound leads."
+        "cita": "Easily generate leads and capture important information about your inbound leads.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.nimble.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -14059,7 +14359,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.nimble.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Easily pull the info from deals into insightful visuals such as bar charts, donuts and tables that delivers results on conversion rate, deals won and lost over time, revenue forecast, and much more."
+        "cita": "Easily pull the info from deals into insightful visuals such as bar charts, donuts and tables that delivers results on conversion rate, deals won and lost over time, revenue forecast, and much more.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.nimble.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -14103,7 +14410,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.nimble.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Tailor emails based on recipient actions, from your own email address."
+        "cita": "Tailor emails based on recipient actions, from your own email address.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.nimble.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -14121,7 +14435,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.nimble.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Create notes and follow-up reminders that will send notifications directly to your Inbox and on your mobile device. Tasks can also be delegated to another team member."
+        "cita": "Create notes and follow-up reminders that will send notifications directly to your Inbox and on your mobile device. Tasks can also be delegated to another team member.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.nimble.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -14320,7 +14641,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://productive.io/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Create and send client invoices directly from Productive."
+        "cita": "Create and send client invoices directly from Productive.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://productive.io/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -14354,7 +14682,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://salesflare.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "Send personalized emails at scale from any mailbox connected to Salesflare, track the results in the dashboards, and follow up on the replies."
+        "cita": "Send personalized emails at scale from any mailbox connected to Salesflare, track the results in the dashboards, and follow up on the replies.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://salesflare.com/pricing",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -14449,7 +14784,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://salesflare.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "Salesflare will automatically gather contact and company info from emails, email signatures, social profiles, and more."
+        "cita": "Salesflare will automatically gather contact and company info from emails, email signatures, social profiles, and more.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://salesflare.com/pricing",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -14466,7 +14808,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://salesflare.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "It will also log your meetings and phone calls for you."
+        "cita": "It will also log your meetings and phone calls for you.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://salesflare.com/pricing",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -14510,7 +14859,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.salesmate.io/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "All in one app integrations at no extra cost!"
+        "cita": "All in one app integrations at no extra cost!",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.salesmate.io/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -14527,7 +14883,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.salesmate.io/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Access to publicly available RESTful APIs"
+        "cita": "Access to publicly available RESTful APIs",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.salesmate.io/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -14856,7 +15219,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.smartsheet.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "Quickly align stakeholders with role-based sharing for focused collaboration."
+        "cita": "Quickly align stakeholders with role-based sharing for focused collaboration.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.smartsheet.com/pricing",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -14977,7 +15347,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.teamwork.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Every plan includes secure, flexible access with role-based permissions"
+        "cita": "Every plan includes secure, flexible access with role-based permissions",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.teamwork.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -15020,7 +15397,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.teamwork.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Every plan includes secure, flexible access with role-based permissions, desktop and mobile apps, free expert training, US or EU data hosting, and built-in two-factor authentication and SOC 2 compliance"
+        "cita": "Every plan includes secure, flexible access with role-based permissions, desktop and mobile apps, free expert training, US or EU data hosting, and built-in two-factor authentication and SOC 2 compliance",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.teamwork.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -15037,7 +15421,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.teamwork.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Use task, list, board & Gantt, table views on projects"
+        "cita": "Use task, list, board & Gantt, table views on projects",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.teamwork.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -15054,7 +15445,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.teamwork.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Track milestones"
+        "cita": "Track milestones",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.teamwork.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -15331,7 +15729,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://asana.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "Projects help you organize related tasks into a single space with different views like lists, boards, or timelines so you can see the big picture."
+        "cita": "Projects help you organize related tasks into a single space with different views like lists, boards, or timelines so you can see the big picture.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://asana.com/pricing",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -15348,7 +15753,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://asana.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "Gantt charts show project tasks, dependencies, and milestones mapped on a timeline."
+        "cita": "Gantt charts show project tasks, dependencies, and milestones mapped on a timeline.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://asana.com/pricing",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -15365,7 +15777,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Single sign-on"
+        "cita": "Single sign-on",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.scoro.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -15382,7 +15801,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Time tracker"
+        "cita": "Time tracker",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.scoro.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -15399,7 +15825,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Plan capacity, balance workloads, and track utilization."
+        "cita": "Plan capacity, balance workloads, and track utilization.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.scoro.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -15416,7 +15849,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Handle every billing scenario and track payments."
+        "cita": "Handle every billing scenario and track payments.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.scoro.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
