@@ -10030,13 +10030,13 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.streak.com/pricing",
         "fechaConsulta": "2026-09-07",
-        "cita": "Standard + Webhooks — Pro+ (la misma fila en el plan más barato, Pro, dice sólo «Standard»)",
+        "cita": "Standard + Webhooks — Pro+",
         "rol": "plan"
       }
     ],
     "confianza": "alta",
     "proximaRevision": "2027-03-07",
-    "nota": "Funcionalidad de webhooks documentada dentro del acceso a la API a partir de Pro+."
+    "nota": "Funcionalidad de webhooks documentada dentro del acceso a la API a partir de Pro+. La misma fila de la tarifa dice sólo «Standard» en Pro, el plan más barato."
   },
   {
     "herramientaId": "streak",

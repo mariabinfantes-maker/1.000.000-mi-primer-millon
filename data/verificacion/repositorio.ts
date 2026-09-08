@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { getCapacidades, getVocabulario } from "@/data/vocabulario/repositorio";
 import { normalizarUrl } from "./convertir";
-import { FUENTES_DE_PRIMERA_MANO } from "./esquema";
+import { FUENTES_DE_PRIMERA_MANO, ROLES_DE_FUENTE } from "./esquema";
 import type { PlanDeVerificacion, RegistroVerificacion, SeleccionPlausible, TipoFuente } from "./esquema";
 
 /**
@@ -71,6 +71,21 @@ export function erroresDeRegistro(
   for (const f of registro.fuentes ?? []) {
     if (!/^https?:\/\/\S+$/.test(f.url ?? "")) e.push(`${donde}: URL inválida "${f.url}"`);
     if (!esFecha(f.fechaConsulta)) e.push(`${donde}: fechaConsulta inválida "${f.fechaConsulta}"`);
+    /**
+     * Un rol que no existe no decía nada y colaba: la fuente entraba como si
+     * no llevara rol, es decir, demostrando las dos cosas a la vez. Un
+     * «plan_verificado» mal escrito pasaba por fuente de plan y de capacidad.
+     */
+    if (f.rol !== undefined && !ROLES_DE_FUENTE.includes(f.rol)) {
+      e.push(`${donde}: rol de fuente "${f.rol}" desconocido`);
+    }
+    /**
+     * «Dónde se miró» es un rastro, no una prueba: si lleva cita se lee como
+     * si demostrara el plan, que es justo lo que no hizo.
+     */
+    if (f.rol === "plan_consultado" && f.cita !== undefined) {
+      e.push(`${donde}: la fuente de dónde se consultó el plan no puede llevar cita`);
+    }
   }
 
   // Una reseña o comparativa nunca sostiene confianza alta, por buena que sea.
@@ -117,13 +132,24 @@ export function erroresDeRegistro(
       e.push(`${donde}: el plan es desconocido pero trae una fuente que dice demostrarlo`);
     }
     /**
-     * Más de una fuente diciendo que demuestra el plan es una contradicción:
-     * el plan lo demuestra una, o lo demuestra la única fuente sin `rol` —el
-     * caso corriente, una fila de la tarifa que nombra la capacidad y está en
-     * la columna de su plan—.
+     * UN PLAN VERIFICADO SE APOYA EN EXACTAMENTE UNA FUENTE, NI MÁS NI MENOS.
+     *
+     * Lo demuestra la fuente marcada `plan`; y cuando ninguna declara rol, la
+     * fuente sin rol —el caso corriente, una fila de la tarifa que nombra la
+     * capacidad y está en la columna de su plan—.
+     *
+     * Impedir que hubiera dos no bastaba: cero también colaba. Un registro
+     * podía afirmar «plan Growth, verificado» llevando sólo una fuente marcada
+     * como de capacidad, sin nada que situara el plan, y ninguna regla lo
+     * miraba.
      */
+    const fuentesSinRol = (registro.fuentes ?? []).filter((f) => !f.rol);
+    const demuestranElPlan = fuentesDePlan.length ? fuentesDePlan : fuentesSinRol;
     if (fuentesDePlan.length > 1) {
       e.push(`${donde}: ${fuentesDePlan.length} fuentes dicen demostrar el plan, y sólo puede haber una`);
+    }
+    if (registro.planEstado === "verificado" && !demuestranElPlan.length) {
+      e.push(`${donde}: el plan se da por verificado y ninguna fuente lo demuestra`);
     }
     // «Dónde se miró» sólo tiene sentido cuando no se llegó a demostrar.
     if (

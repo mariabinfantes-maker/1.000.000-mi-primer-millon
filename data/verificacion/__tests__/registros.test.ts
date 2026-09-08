@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { getTodasLasHerramientas } from "@/data/repositorio";
+import { ROLES_DE_FUENTE } from "../esquema";
 import type { RegistroVerificacion, SeleccionPlausible } from "../esquema";
 import {
   capacidadIdsDelVocabulario,
@@ -261,6 +262,131 @@ describe("los registros de verificación", () => {
               fuentes: [{ tipo: "tarifa_oficial", url: "https://a.test/p", fechaConsulta: "2026-09-03" }],
             })
           ).toBe("");
+        });
+      });
+
+      /**
+       * Lo que encontró la auditoría del lote 1: tres reglas que se daban por
+       * puestas y no lo estaban. Las tres dejaban pasar un registro que afirma
+       * más de lo que su evidencia sostiene, que es justo lo que F2 existe
+       * para impedir.
+       */
+      describe("lo que encontró la auditoría", () => {
+        it("un plan verificado sin NINGUNA fuente que lo demuestre ya no cuela", () => {
+          expect(
+            e({
+              planEstado: "verificado",
+              planMinimo: "Growth",
+              fuentes: [
+                {
+                  tipo: "pagina_oficial",
+                  url: "https://a.test/producto",
+                  fechaConsulta: "2026-09-03",
+                  cita: "Automatiza tus flujos",
+                  rol: "capacidad",
+                },
+              ],
+            })
+          ).toContain("el plan se da por verificado y ninguna fuente lo demuestra");
+        });
+
+        it("y con su fuente de plan, el mismo registro se acepta", () => {
+          expect(
+            e({
+              planEstado: "verificado",
+              planMinimo: "Growth",
+              fuentes: [
+                {
+                  tipo: "pagina_oficial",
+                  url: "https://a.test/producto",
+                  fechaConsulta: "2026-09-03",
+                  cita: "Automatiza tus flujos",
+                  rol: "capacidad",
+                },
+                {
+                  tipo: "tarifa_oficial",
+                  url: "https://a.test/precios",
+                  fechaConsulta: "2026-09-03",
+                  cita: "Workflow Automations — Growth",
+                  rol: "plan",
+                },
+              ],
+            })
+          ).toBe("");
+        });
+
+        it("los planes verificados de hoy traen su fuente, ni cero ni dos", () => {
+          for (const r of getRegistros()) {
+            if (r.planEstado !== "verificado") continue;
+            const marcadas = (r.fuentes ?? []).filter((f) => f.rol === "plan");
+            const sinRol = (r.fuentes ?? []).filter((f) => !f.rol);
+            const demuestran = marcadas.length ? marcadas : sinRol;
+            expect(demuestran.length, `${r.herramientaId}/${r.capacidadId}`).toBe(1);
+          }
+        });
+
+        it("un rol que no existe se rechaza en vez de colar como «sin rol»", () => {
+          expect(
+            e({
+              fuentes: [
+                {
+                  tipo: "tarifa_oficial",
+                  url: "https://a.test/precios",
+                  fechaConsulta: "2026-09-03",
+                  rol: "plan_verificado" as never,
+                },
+              ],
+            })
+          ).toContain('rol de fuente "plan_verificado" desconocido');
+        });
+
+        it("los tres roles del esquema sí se aceptan", () => {
+          expect(ROLES_DE_FUENTE).toEqual(["capacidad", "plan", "plan_consultado"]);
+          expect(
+            e({
+              planEstado: "desconocido",
+              planMinimo: undefined,
+              fuentes: [
+                { tipo: "pagina_oficial", url: "https://a.test/p", fechaConsulta: "2026-09-03", cita: "x", rol: "capacidad" },
+                { tipo: "tarifa_oficial", url: "https://a.test/precios", fechaConsulta: "2026-09-03", rol: "plan_consultado" },
+              ],
+            })
+          ).toBe("");
+        });
+
+        /**
+         * `plan_consultado` es el rastro de dónde se miró, no una prueba. Con
+         * cita se lee como si demostrara el plan que precisamente no demostró.
+         */
+        it("«dónde se miró» no puede llevar cita", () => {
+          expect(
+            e({
+              planEstado: "desconocido",
+              planMinimo: undefined,
+              fuentes: [
+                { tipo: "pagina_oficial", url: "https://a.test/p", fechaConsulta: "2026-09-03", cita: "x", rol: "capacidad" },
+                {
+                  tipo: "tarifa_oficial",
+                  url: "https://a.test/precios",
+                  fechaConsulta: "2026-09-03",
+                  cita: "Plan Growth",
+                  rol: "plan_consultado",
+                },
+              ],
+            })
+          ).toContain("la fuente de dónde se consultó el plan no puede llevar cita");
+        });
+
+        it("y ninguno de los rastros que hay hoy la lleva", () => {
+          const rastros = getRegistros().flatMap((r) =>
+            (r.fuentes ?? [])
+              .filter((f) => f.rol === "plan_consultado")
+              .map((f) => ({ donde: `${r.herramientaId}/${r.capacidadId}`, cita: f.cita }))
+          );
+          // Hoy son 63. La cuenta exacta cambiará con el lote 2; que no sea
+          // cero es lo que impide que esta prueba pase sin mirar nada.
+          expect(rastros.length).toBeGreaterThan(0);
+          expect(rastros.filter((x) => x.cita !== undefined)).toEqual([]);
         });
       });
 

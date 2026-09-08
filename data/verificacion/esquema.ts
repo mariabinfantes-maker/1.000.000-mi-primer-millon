@@ -111,6 +111,9 @@ export type RolDeFuente =
    */
   | "plan_consultado";
 
+/** Los únicos roles que existen. Uno inventado colaba como si no hubiera rol. */
+export const ROLES_DE_FUENTE: RolDeFuente[] = ["capacidad", "plan", "plan_consultado"];
+
 export type Fuente = {
   tipo: TipoFuente;
   /** Dirección exacta consultada. Una portada no sirve como fuente de una función concreta. */
