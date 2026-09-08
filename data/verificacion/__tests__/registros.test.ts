@@ -161,6 +161,77 @@ describe("los registros de verificación", () => {
     it("una función sólo del plan caro conserva ESE plan, no el más barato", () => {
       expect(e({ planMinimo: "Ultimate" })).toBe("");
     });
+
+    /**
+     * Son dos certezas distintas y antes iban pegadas: no poder demostrar el
+     * plan tumbaba también la capacidad, aunque su evidencia fuera impecable.
+     * Se midió con el lote 1 delante — de 241 planes afirmados, sólo 23 tenían
+     * una cita que nombrara el plan— y decir «no sabemos si lo hace» era falso:
+     * lo que no sabíamos era el plan.
+     */
+    describe("la certeza del plan es suya, no de la capacidad", () => {
+      it("una capacidad verificada con el plan sin demostrar es válida", () => {
+        expect(e({ planEstado: "desconocido", planMinimo: undefined })).toBe("");
+      });
+
+      it("y sigue siendo verificada: el plan desconocido no la arrastra", () => {
+        const r: RegistroVerificacion = { ...valido, planEstado: "desconocido", planMinimo: undefined };
+        expect(r.estado).toBe("verificado");
+        expect(erroresDeRegistro(r, herramientas, capacidades)).toEqual([]);
+      });
+
+      it("un plan desconocido NO puede nombrar ningún plan: nombrarlo sería afirmarlo", () => {
+        expect(e({ planEstado: "desconocido", planMinimo: "Business" })).toContain(
+          'el plan es desconocido y aun así nombra "Business"'
+        );
+      });
+
+      it("un plan verificado tiene que decir cuál", () => {
+        expect(e({ planEstado: "verificado", planMinimo: undefined })).toContain(
+          "el plan se da por verificado pero no dice cuál"
+        );
+      });
+
+      it("un desconocido no puede opinar sobre el plan", () => {
+        expect(
+          e({
+            estado: "desconocido",
+            profundidad: undefined,
+            planMinimo: undefined,
+            planEstado: "desconocido",
+            nota: "no aparece en las páginas consultadas",
+            confianza: "baja",
+          })
+        ).toContain("no puede opinar sobre el plan");
+      });
+
+      it("ni nombrar un plan", () => {
+        expect(
+          e({
+            estado: "desconocido",
+            profundidad: undefined,
+            planEstado: undefined,
+            planMinimo: "Business",
+            nota: "no aparece en las páginas consultadas",
+            confianza: "baja",
+          })
+        ).toContain("no puede nombrar un plan");
+      });
+
+      it("los datos de hoy respetan la separación", () => {
+        const registros = getRegistros();
+        const fantasmas = registros.filter((r) => r.planEstado === "desconocido" && r.planMinimo);
+        expect(fantasmas.map((r) => `${r.herramientaId}/${r.capacidadId}`)).toEqual([]);
+
+        const mudos = registros.filter(
+          (r) =>
+            r.estado === "verificado" &&
+            (r.profundidad === "nativa" || r.profundidad === "modulo") &&
+            !r.planEstado
+        );
+        expect(mudos.map((r) => `${r.herramientaId}/${r.capacidadId}`)).toEqual([]);
+      });
+    });
     it("no disponible no puede llevar plan", () => {
       expect(e({ profundidad: "no_disponible", planMinimo: "Lite", planEstado: "verificado" })).toContain(
         "no disponible no puede tener plan"

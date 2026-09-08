@@ -28,6 +28,48 @@
     "urlCitada": "https://capsulecrm.com/"
   },
   {
+    "herramientaId": "capsule-crm",
+    "capacidadId": "cap.sales_forecasting",
+    "motivo": "sin plan mínimo",
+    "cita": "More in depth reports so you can get visibility on your sales forecast, where you are losing the most sales and how active your team is.",
+    "urlCitada": "https://capsulecrm.com/signup/"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo",
+    "cita": "Seamless integration between finance applications and Insightly.",
+    "urlCitada": "https://www.insightly.com/pricing-plans/"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin plan mínimo",
+    "cita": "Access our REST API for seamless integration of all applications you use to run your business.",
+    "urlCitada": "https://www.insightly.com/pricing-plans/"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.webhooks",
+    "motivo": "sin plan mínimo",
+    "cita": "Simplify and facilitate automatic notifications between online accounts when a relevant trigger occurs.",
+    "urlCitada": "https://www.insightly.com/pricing-plans/"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin plan mínimo",
+    "cita": "Import prospect records into Insightly and easily communicate with your target market.",
+    "urlCitada": "https://www.insightly.com/pricing-plans/"
+  },
+  {
+    "herramientaId": "insightly",
+    "capacidadId": "cap.customer_interaction_history",
+    "motivo": "sin plan mínimo",
+    "cita": "View the complete picture of every contact and org, including all history, communications, activities, and links.",
+    "urlCitada": "https://www.insightly.com/pricing-plans/"
+  },
+  {
     "herramientaId": "insightly",
     "capacidadId": "cap.marketing_automation",
     "motivo": "el plan no viene de una fuente que lo demuestre",
@@ -40,6 +82,20 @@
     "motivo": "sin plan mínimo",
     "cita": "Eliminate manual work with custom rules.",
     "urlCitada": "https://www.wrike.com/price/"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin plan mínimo",
+    "cita": "Unlimited Dashboards with Advanced Cards",
+    "urlCitada": "https://clickup.com/pricing"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.data_export",
+    "motivo": "sin plan mínimo",
+    "cita": "Custom Exporting",
+    "urlCitada": "https://clickup.com/pricing"
   },
   {
     "herramientaId": "clickup",
@@ -85,6 +141,13 @@
   },
   {
     "herramientaId": "copper",
+    "capacidadId": "cap.customer_contact_records",
+    "motivo": "sin plan mínimo",
+    "cita": "Keep all your relationships in one place",
+    "urlCitada": "https://www.copper.com/pricing"
+  },
+  {
+    "herramientaId": "copper",
     "capacidadId": "cap.customer_interaction_history",
     "motivo": "el plan no viene de una fuente que lo demuestre",
     "cita": "Log calls and SMS automatically so every interaction is tracked and accounts are always up to date.",
@@ -113,6 +176,13 @@
   },
   {
     "herramientaId": "hive",
+    "capacidadId": "cap.project_planning",
+    "motivo": "sin plan mínimo",
+    "cita": "Best for light project management.",
+    "urlCitada": "https://hive.com/pricing"
+  },
+  {
+    "herramientaId": "hive",
     "capacidadId": "cap.kanban_boards",
     "motivo": "sin plan mínimo",
     "cita": "Kanban view",
@@ -124,6 +194,20 @@
     "motivo": "sin plan mínimo",
     "cita": "Allocate resources by hour to specific projects. Add placeholders and teammates.",
     "urlCitada": "https://hive.com/pricing"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "sin plan mínimo",
+    "cita": "Enterprise SSO",
+    "urlCitada": "https://www.nutshell.com/pricing"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.audit_log",
+    "motivo": "sin plan mínimo",
+    "cita": "Audit log & changelog",
+    "urlCitada": "https://www.nutshell.com/pricing"
   },
   {
     "herramientaId": "nutshell",
@@ -190,6 +274,13 @@
   },
   {
     "herramientaId": "productive-io",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "sin plan mínimo",
+    "cita": "Describe a workflow in plain language and Productive configures the automation for you.",
+    "urlCitada": "https://productive.io/pricing/"
+  },
+  {
+    "herramientaId": "productive-io",
     "capacidadId": "cap.app_integrations",
     "motivo": "sin plan mínimo",
     "cita": "Integrate with the rest of your business tools like Xero, JIRA, Slack, or QuickBooks.",
@@ -200,6 +291,20 @@
     "capacidadId": "cap.dashboards",
     "motivo": "sin plan mínimo",
     "cita": "Visualize key metrics in customizable dashboards.",
+    "urlCitada": "https://productive.io/pricing/"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.custom_reports",
+    "motivo": "sin plan mínimo",
+    "cita": "Build flexible, data-rich reports to track performance, analyze trends, and make informed decisions.",
+    "urlCitada": "https://productive.io/pricing/"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.data_export",
+    "motivo": "sin plan mínimo",
+    "cita": "Export reports to PDF, CSV or XLS",
     "urlCitada": "https://productive.io/pricing/"
   },
   {
@@ -218,6 +323,13 @@
   },
   {
     "herramientaId": "scoro",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "sin plan mínimo",
+    "cita": "Platform functionality is included by default and powers whichever core apps you choose. You can choose between Standard and Enterprise platform.",
+    "urlCitada": "https://www.scoro.com/pricing/"
+  },
+  {
+    "herramientaId": "scoro",
     "capacidadId": "cap.app_integrations",
     "motivo": "sin plan mínimo",
     "cita": "Connect your favorite apps and tools",
@@ -225,10 +337,31 @@
   },
   {
     "herramientaId": "scoro",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin plan mínimo",
+    "cita": "Platform functionality is included by default and powers whichever core apps you choose. You can choose between Standard and Enterprise platform.",
+    "urlCitada": "https://www.scoro.com/pricing/"
+  },
+  {
+    "herramientaId": "scoro",
     "capacidadId": "cap.roles_and_permissions",
     "motivo": "el plan no viene de una fuente que lo demuestre",
     "cita": "Set up granular user permissions to ensure everyone sees only the information and features relevant to their role.",
     "urlCitada": "https://www.scoro.com/"
+  },
+  {
+    "herramientaId": "smartsheet",
+    "capacidadId": "cap.task_management",
+    "motivo": "sin plan mínimo",
+    "cita": "Easily assign team members to tasks within your sheet.",
+    "urlCitada": "https://www.smartsheet.com/pricing"
+  },
+  {
+    "herramientaId": "smartsheet",
+    "capacidadId": "cap.project_planning",
+    "motivo": "sin plan mínimo",
+    "cita": "Automatically adjust dates for Duration (how long) and Predecessors (what must happen first) as values change.",
+    "urlCitada": "https://www.smartsheet.com/pricing"
   },
   {
     "herramientaId": "vtiger-crm",
@@ -243,6 +376,13 @@
     "motivo": "sin plan mínimo",
     "cita": "Vtiger integrates with over 500 apps including Mailchimp, Microsoft Outlook, Google, QuickBooks, Xero, Zapier, etc.",
     "urlCitada": "https://www.vtiger.com/"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.custom_reports",
+    "motivo": "sin plan mínimo",
+    "cita": "Customizable Reports & Dashboards",
+    "urlCitada": "https://www.vtiger.com/pricing/"
   },
   {
     "herramientaId": "vtiger-crm",
@@ -330,6 +470,13 @@
   },
   {
     "herramientaId": "zenkit",
+    "capacidadId": "cap.two_factor_authentication",
+    "motivo": "sin plan mínimo",
+    "cita": "2-Factor Authentication",
+    "urlCitada": "https://zenkit.com/en/pricing/"
+  },
+  {
+    "herramientaId": "zenkit",
     "capacidadId": "cap.task_management",
     "motivo": "el plan no viene de una fuente que lo demuestre",
     "cita": "Whether you prefer agile methods, Kanban boards, Gantt charts, or simple task lists, Zenkit provides the flexibility and tools you need to achieve your goals efficiently and effectively.",
@@ -354,6 +501,20 @@
     "capacidadId": "cap.data_export",
     "motivo": "cita breve revisada y rechazada",
     "cita": "Export true true true true",
+    "urlCitada": "https://ganttpro.com/pricing/"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.task_management",
+    "motivo": "sin plan mínimo",
+    "cita": "Core For smaller teams looking for clear task visualization and basic project management features.",
+    "urlCitada": "https://ganttpro.com/pricing/"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.project_planning",
+    "motivo": "sin plan mínimo",
+    "cita": "Project Planning AI Gantt chart maker true true true true",
     "urlCitada": "https://ganttpro.com/pricing/"
   },
   {
@@ -439,6 +600,13 @@
     "motivo": "sin plan mínimo",
     "cita": "Kanban board showing Sprint Management tasks in columns: Ready to start, In progress",
     "urlCitada": "https://monday.com/"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin plan mínimo",
+    "cita": "Reporting Live dashboards across every project",
+    "urlCitada": "https://niftypm.com/pricing/"
   },
   {
     "herramientaId": "nifty",
@@ -595,6 +763,13 @@
     "urlCitada": "https://www.paymoapp.com/pricing/"
   },
   {
+    "herramientaId": "paymo",
+    "capacidadId": "cap.project_planning",
+    "motivo": "sin plan mínimo",
+    "cita": "Free includes: Unlimited Time Tracking Unlimited Invoices Clients (limited to 1) Projects (limited to 2)",
+    "urlCitada": "https://www.paymoapp.com/pricing/"
+  },
+  {
     "herramientaId": "pipedrive",
     "capacidadId": "cap.workflow_automation",
     "motivo": "sin plan mínimo",
@@ -673,6 +848,20 @@
   },
   {
     "herramientaId": "productive-io",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "sin plan mínimo",
+    "cita": "Enable users to log into Productive with a single username and password from your SSO provider.",
+    "urlCitada": "https://productive.io/pricing/"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.two_factor_authentication",
+    "motivo": "sin plan mínimo",
+    "cita": "Included In All Plans ... Two-Factor Authentication Add an extra layer of security to your login process using 2FA.",
+    "urlCitada": "https://productive.io/pricing/"
+  },
+  {
+    "herramientaId": "productive-io",
     "capacidadId": "cap.audit_log",
     "motivo": "sin plan mínimo",
     "cita": "Access a cronological list of all changes made in your organization.",
@@ -705,6 +894,34 @@
     "motivo": "sin plan mínimo",
     "cita": "EXPECTED REVENUE VS GOAL 37k 75.4 37k ▲ +24.9% ▲ +11.3% EUR DAYS EUR €37k Won €40k Expected",
     "urlCitada": "https://salesflare.com/"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.task_management",
+    "motivo": "sin plan mínimo",
+    "cita": "Do Manage your team's tasks and day-to-day work. Tasks & task lists",
+    "urlCitada": "https://www.scoro.com/pricing/"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.project_planning",
+    "motivo": "sin plan mínimo",
+    "cita": "Deliver Plan projects and keep delivery on track.",
+    "urlCitada": "https://www.scoro.com/pricing/"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "motivo": "sin plan mínimo",
+    "cita": "Deliver Plan projects and keep delivery on track. Tasks & task lists Project templates Retainer management Gantt chart & dependencies",
+    "urlCitada": "https://www.scoro.com/pricing/"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.kanban_boards",
+    "motivo": "sin plan mínimo",
+    "cita": "Do Manage your team's tasks and day-to-day work. Tasks & task lists Subtasks Recurring tasks Task bundles Kanban board",
+    "urlCitada": "https://www.scoro.com/pricing/"
   },
   {
     "herramientaId": "scoro",
@@ -750,6 +967,20 @@
   },
   {
     "herramientaId": "teamgantt",
+    "capacidadId": "cap.task_management",
+    "motivo": "sin plan mínimo",
+    "cita": "The TeamGantt Personal plan is free forever and includes 1 user, 1 project, 40 tasks, and basic Gantt chart features, including dependencies and drag-and-drop scheduling.",
+    "urlCitada": "https://www.teamgantt.com/pricing"
+  },
+  {
+    "herramientaId": "teamgantt",
+    "capacidadId": "cap.project_planning",
+    "motivo": "sin plan mínimo",
+    "cita": "The TeamGantt Personal plan is free forever and includes 1 user, 1 project, 40 tasks, and basic Gantt chart features, including dependencies and drag-and-drop scheduling.",
+    "urlCitada": "https://www.teamgantt.com/pricing"
+  },
+  {
+    "herramientaId": "teamgantt",
     "capacidadId": "cap.kanban_boards",
     "motivo": "sin plan mínimo",
     "cita": "Break down work, assign owners, and track progress across Gantt, board, list, or calendar views—all synced in real time.",
@@ -768,6 +999,13 @@
     "motivo": "sin plan mínimo",
     "cita": "Get visibility into capacity and availability. Assign tasks confidently, and prevent burnout with built-in workload management tools.",
     "urlCitada": "https://www.teamgantt.com/"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo",
+    "cita": "Connect chat tools",
+    "urlCitada": "https://www.teamwork.com/pricing/"
   },
   {
     "herramientaId": "teamwork-com",
@@ -820,6 +1058,13 @@
   },
   {
     "herramientaId": "zoho-projects",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin plan mínimo",
+    "cita": "Portfolio Dashboard",
+    "urlCitada": "https://www.zoho.com/projects/zohoprojects-pricing.html"
+  },
+  {
+    "herramientaId": "zoho-projects",
     "capacidadId": "cap.gantt_and_dependencies",
     "motivo": "cita breve revisada y rechazada",
     "cita": "Gantt chart",
@@ -845,5 +1090,201 @@
     "motivo": "cita breve revisada y rechazada",
     "cita": "API",
     "urlCitada": "https://ganttpro.com/pricing/"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.two_factor_authentication",
+    "motivo": "sin plan mínimo",
+    "cita": "Platform functionality is included by default and powers whichever core apps you choose. You can choose between Standard and Enterprise platform.",
+    "urlCitada": "https://www.scoro.com/pricing/"
+  },
+  {
+    "herramientaId": "asana",
+    "capacidadId": "cap.data_export",
+    "motivo": "sin plan mínimo",
+    "cita": "CSV and PDF export: Export your project data and reports in CSV or PDF format to share with stakeholders or analyze in other tools.",
+    "urlCitada": "https://asana.com/pricing"
+  },
+  {
+    "herramientaId": "asana",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin plan mínimo",
+    "cita": "View-only licenses: Include more people in projects at lower cost by giving some users visibility without editing permissions.",
+    "urlCitada": "https://asana.com/pricing"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.task_management",
+    "motivo": "sin plan mínimo",
+    "cita": "What's included: 2,500 contact limit Task automation Pipelines Project Management Contact enrichment",
+    "urlCitada": "https://www.copper.com/pricing"
+  },
+  {
+    "herramientaId": "nimble",
+    "capacidadId": "cap.customer_contact_records",
+    "motivo": "sin plan mínimo",
+    "cita": "Nimble builds live contact records in seconds enriching them with business and social details.",
+    "urlCitada": "https://www.nimble.com/pricing/"
+  },
+  {
+    "herramientaId": "nimble",
+    "capacidadId": "cap.customer_interaction_history",
+    "motivo": "sin plan mínimo",
+    "cita": "Easily connect multiple email accounts to view the history of interactions with all your leads and customers inside of Nimble or in Nimble Prospector.",
+    "urlCitada": "https://www.nimble.com/pricing/"
+  },
+  {
+    "herramientaId": "nimble",
+    "capacidadId": "cap.sales_pipeline",
+    "motivo": "sin plan mínimo",
+    "cita": "Easily move your deals through the pipeline by simply dragging them to the next stage.",
+    "urlCitada": "https://www.nimble.com/pricing/"
+  },
+  {
+    "herramientaId": "nimble",
+    "capacidadId": "cap.lead_capture",
+    "motivo": "sin plan mínimo",
+    "cita": "Easily generate leads and capture important information about your inbound leads.",
+    "urlCitada": "https://www.nimble.com/pricing/"
+  },
+  {
+    "herramientaId": "nimble",
+    "capacidadId": "cap.sales_forecasting",
+    "motivo": "sin plan mínimo",
+    "cita": "Easily pull the info from deals into insightful visuals such as bar charts, donuts and tables that delivers results on conversion rate, deals won and lost over time, revenue forecast, and much more.",
+    "urlCitada": "https://www.nimble.com/pricing/"
+  },
+  {
+    "herramientaId": "nimble",
+    "capacidadId": "cap.marketing_automation",
+    "motivo": "sin plan mínimo",
+    "cita": "Tailor emails based on recipient actions, from your own email address.",
+    "urlCitada": "https://www.nimble.com/pricing/"
+  },
+  {
+    "herramientaId": "nimble",
+    "capacidadId": "cap.task_management",
+    "motivo": "sin plan mínimo",
+    "cita": "Create notes and follow-up reminders that will send notifications directly to your Inbox and on your mobile device. Tasks can also be delegated to another team member.",
+    "urlCitada": "https://www.nimble.com/pricing/"
+  },
+  {
+    "herramientaId": "productive-io",
+    "capacidadId": "cap.invoicing",
+    "motivo": "sin plan mínimo",
+    "cita": "Create and send client invoices directly from Productive.",
+    "urlCitada": "https://productive.io/pricing/"
+  },
+  {
+    "herramientaId": "salesflare",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin plan mínimo",
+    "cita": "Send personalized emails at scale from any mailbox connected to Salesflare, track the results in the dashboards, and follow up on the replies.",
+    "urlCitada": "https://salesflare.com/pricing"
+  },
+  {
+    "herramientaId": "salesflare",
+    "capacidadId": "cap.customer_contact_records",
+    "motivo": "sin plan mínimo",
+    "cita": "Salesflare will automatically gather contact and company info from emails, email signatures, social profiles, and more.",
+    "urlCitada": "https://salesflare.com/pricing"
+  },
+  {
+    "herramientaId": "salesflare",
+    "capacidadId": "cap.customer_interaction_history",
+    "motivo": "sin plan mínimo",
+    "cita": "It will also log your meetings and phone calls for you.",
+    "urlCitada": "https://salesflare.com/pricing"
+  },
+  {
+    "herramientaId": "salesmate",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo",
+    "cita": "All in one app integrations at no extra cost!",
+    "urlCitada": "https://www.salesmate.io/pricing/"
+  },
+  {
+    "herramientaId": "salesmate",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin plan mínimo",
+    "cita": "Access to publicly available RESTful APIs",
+    "urlCitada": "https://www.salesmate.io/pricing/"
+  },
+  {
+    "herramientaId": "smartsheet",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin plan mínimo",
+    "cita": "Quickly align stakeholders with role-based sharing for focused collaboration.",
+    "urlCitada": "https://www.smartsheet.com/pricing"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin plan mínimo",
+    "cita": "Every plan includes secure, flexible access with role-based permissions",
+    "urlCitada": "https://www.teamwork.com/pricing/"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.two_factor_authentication",
+    "motivo": "sin plan mínimo",
+    "cita": "Every plan includes secure, flexible access with role-based permissions, desktop and mobile apps, free expert training, US or EU data hosting, and built-in two-factor authentication and SOC 2 compliance",
+    "urlCitada": "https://www.teamwork.com/pricing/"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.task_management",
+    "motivo": "sin plan mínimo",
+    "cita": "Use task, list, board & Gantt, table views on projects",
+    "urlCitada": "https://www.teamwork.com/pricing/"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.project_planning",
+    "motivo": "sin plan mínimo",
+    "cita": "Track milestones",
+    "urlCitada": "https://www.teamwork.com/pricing/"
+  },
+  {
+    "herramientaId": "asana",
+    "capacidadId": "cap.project_planning",
+    "motivo": "sin plan mínimo",
+    "cita": "Projects help you organize related tasks into a single space with different views like lists, boards, or timelines so you can see the big picture.",
+    "urlCitada": "https://asana.com/pricing"
+  },
+  {
+    "herramientaId": "asana",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "motivo": "sin plan mínimo",
+    "cita": "Gantt charts show project tasks, dependencies, and milestones mapped on a timeline.",
+    "urlCitada": "https://asana.com/pricing"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "sin plan mínimo",
+    "cita": "Single sign-on",
+    "urlCitada": "https://www.scoro.com/pricing/"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.time_tracking",
+    "motivo": "sin plan mínimo",
+    "cita": "Time tracker",
+    "urlCitada": "https://www.scoro.com/pricing/"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.team_workload_planning",
+    "motivo": "sin plan mínimo",
+    "cita": "Plan capacity, balance workloads, and track utilization.",
+    "urlCitada": "https://www.scoro.com/pricing/"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.invoicing",
+    "motivo": "sin plan mínimo",
+    "cita": "Handle every billing scenario and track payments.",
+    "urlCitada": "https://www.scoro.com/pricing/"
   }
 ]
