@@ -72,7 +72,8 @@ const PAUSA_MS = 4000;
  * completa tarda tanto que el proxy corta la conexión antes de terminarla, y
  * partirla en trozos más pequeños es lo único que la trae entera.
  */
-const POR_LLAMADA = Number(process.argv[3] ?? 5);
+const POR_LLAMADA =
+  Number(MODO === "pares" ? process.argv[4] : process.argv[3]) || 5;
 const HOY = "2026-09-07";
 
 function leerJson<T>(ruta: string): T {
@@ -506,25 +507,49 @@ async function main() {
      */
     const ruta = process.argv[3];
     if (!ruta || !fs.existsSync(ruta)) throw new Error("falta el archivo con los pares a preguntar");
-    const pares = leerJson<Array<{ herramientaId: string; capacidadId: string }>>(ruta);
+    const pares = leerJson<
+      Array<{ herramientaId: string; capacidadId: string; tipo?: "capacidad" | "plan"; citaPrevia?: string }>
+    >(ruta);
 
     console.log(`\n=== Pares sueltos (${pares.length}) ===`);
     for (const p of pares) {
-      const clave = `par:${p.herramientaId}:${p.capacidadId}`;
-      if (checkpoint[clave]) {
-        console.log(`· ${clave} — ya estaba, se salta`);
-        continue;
-      }
+      const tipo = p.tipo ?? "capacidad";
       const ficha = herramientaPorId.get(p.herramientaId)!;
-      console.log(`· ${ficha.nombre} (${p.herramientaId}) — ${p.capacidadId}`);
-      const salida = await procesarCapacidad(
-        p.herramientaId,
-        ficha.nombre,
-        urlsDe(p.herramientaId),
-        [p.capacidadId],
-        capacidadPorId
+
+      /**
+       * Si el par ya vive en otra entrada del checkpoint, se ACTUALIZA ahí en
+       * vez de crear una segunda: dos entradas con el mismo par producirían
+       * dos registros del mismo par al convertir.
+       */
+      const claveExistente = Object.keys(checkpoint).find((k) =>
+        checkpoint[k].herramientaId === p.herramientaId &&
+        (checkpoint[k].capacidadesPedidas ?? []).includes(p.capacidadId)
       );
-      checkpoint[clave] = salida;
+
+      console.log(`· ${ficha.nombre} (${p.herramientaId}) — ${p.capacidadId} [${tipo}]`);
+      const citaPrevia = new Map(p.citaPrevia ? [[p.capacidadId, p.citaPrevia]] : []);
+      const salida =
+        tipo === "plan"
+          ? await procesarPlan(p.herramientaId, ficha.nombre, urlsDe(p.herramientaId), [p.capacidadId], capacidadPorId, citaPrevia)
+          : await procesarCapacidad(p.herramientaId, ficha.nombre, urlsDe(p.herramientaId), [p.capacidadId], capacidadPorId);
+
+      const nueva = (salida.respuestas ?? [])[0];
+      if (claveExistente) {
+        const s = checkpoint[claveExistente];
+        const respuestas = (s.respuestas ?? []).filter((r) => r.capacidadId !== p.capacidadId);
+        if (nueva) respuestas.push(nueva);
+        const respondidas = new Set(respuestas.map((r) => r.capacidadId));
+        checkpoint[claveExistente] = {
+          ...s,
+          respuestas,
+          urlsRecuperadas: [...(s.urlsRecuperadas ?? []), ...(salida.urlsRecuperadas ?? [])],
+          sinRespuesta: (s.capacidadesPedidas ?? []).filter((c) => !respondidas.has(c)),
+        };
+        console.log(`    actualizado dentro de "${claveExistente}"${nueva ? "" : " (sin respuesta)"}`);
+      } else {
+        checkpoint[`par:${p.herramientaId}:${p.capacidadId}`] = salida;
+        console.log(`    entrada nueva${nueva ? "" : " (sin respuesta)"}`);
+      }
       escribirJson(RUTA_CHECKPOINT, checkpoint);
       await sleep(PAUSA_MS);
     }

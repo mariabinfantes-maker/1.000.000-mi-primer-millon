@@ -6314,23 +6314,6 @@
   },
   {
     "herramientaId": "scoro",
-    "capacidadId": "cap.two_factor_authentication",
-    "estado": "verificado",
-    "profundidad": "nativa",
-    "planMinimo": "Standard",
-    "fuentes": [
-      {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.scoro.com/pricing/",
-        "fechaConsulta": "2026-09-07",
-        "cita": "Multi-factor authentication"
-      }
-    ],
-    "confianza": "alta",
-    "proximaRevision": "2027-03-07"
-  },
-  {
-    "herramientaId": "scoro",
     "capacidadId": "cap.audit_log",
     "estado": "desconocido",
     "fuentes": [
@@ -10886,12 +10869,11 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Triggers & actions"
+        "cita": "Platform functionality is included by default and powers whichever core apps you choose. You can choose between Standard and Enterprise platform."
       }
     ],
     "confianza": "alta",
-    "proximaRevision": "2027-03-07",
-    "nota": "La plataforma incluye de forma nativa la funcionalidad 'Triggers & actions'."
+    "proximaRevision": "2027-03-07"
   },
   {
     "herramientaId": "scoro",
@@ -10927,13 +10909,12 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "API",
+        "cita": "Platform functionality is included by default and powers whichever core apps you choose. You can choose between Standard and Enterprise platform.",
         "rol": "plan"
       }
     ],
     "confianza": "alta",
-    "proximaRevision": "2027-03-07",
-    "nota": "Se incluye la funcionalidad de 'API' dentro de la plataforma por defecto."
+    "proximaRevision": "2027-03-07"
   },
   {
     "herramientaId": "scoro",
@@ -10966,12 +10947,11 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Customizable dashboards"
+        "cita": "Platform functionality is included by default and powers whichever core apps you choose. You can choose between Standard and Enterprise platform. Customizable dashboards"
       }
     ],
     "confianza": "alta",
-    "proximaRevision": "2027-03-07",
-    "nota": "Se incluye la capacidad de 'Customizable dashboards' dentro de las funciones de plataforma."
+    "proximaRevision": "2027-03-07"
   },
   {
     "herramientaId": "scoro",
@@ -11004,12 +10984,11 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Data import & export"
+        "cita": "Platform functionality is included by default and powers whichever core apps you choose. You can choose between Standard and Enterprise platform. [...] Data import & export"
       }
     ],
     "confianza": "alta",
-    "proximaRevision": "2027-03-07",
-    "nota": "Incluido por defecto dentro de las funcionalidades de la plataforma."
+    "proximaRevision": "2027-03-07"
   },
   {
     "herramientaId": "scoro",
@@ -11022,12 +11001,11 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.scoro.com/pricing/",
         "fechaConsulta": "2026-09-07",
-        "cita": "Yes, you can import your own contacts, products, images, invoices, receipts, and more."
+        "cita": "Platform functionality is included by default and powers whichever core apps you choose. You can choose between Standard and Enterprise platform."
       }
     ],
     "confianza": "alta",
-    "proximaRevision": "2027-03-07",
-    "nota": "Confirmado expresamente en la sección de preguntas frecuentes."
+    "proximaRevision": "2027-03-07"
   },
   {
     "herramientaId": "scoro",
@@ -13800,5 +13778,22 @@
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
     "nota": "Criterio de la propietaria para cap.public_api (2026-09-08), aplicado igual a las ocho: la capacidad exige una interfaz de programación DOCUMENTADA, así que sólo se da por verificada con las dos evidencias juntas — (a) documentación oficial que demuestre una API disponible para clientes, y (b) tarifa oficial que sitúe el plan. Con una sola de las dos, el par queda en desconocido. (a) NO: se intentaron tres direcciones del propio dominio —ganttpro.com/api/, support.ganttpro.com/en/articles/api y ganttpro.com/knowledge-base/api/— y ninguna se pudo recuperar. (b) SÍ: la tarifa incluye la fila \"API\" en el plan Business. Falta (a), luego la cita \"API\" —tres caracteres— se queda sin nada que la desambigüe y no basta. Esto NO afirma que la herramienta carezca de API: afirma que no se ha podido comprobar con el listón exigido."
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.two_factor_authentication",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Standard",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.scoro.com/pricing/",
+        "fechaConsulta": "2026-09-07",
+        "cita": "Platform functionality is included by default and powers whichever core apps you choose. You can choose between Standard and Enterprise platform."
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-03-07"
   }
 ]
