@@ -284,4 +284,58 @@ describe("las sustituciones de direcciones", () => {
   it("admite declarar documentación oficial", () => {
     expect(e({ urlPrecios: undefined, documentacion: ["https://support.insightly.com/planes"] })).toBe("");
   });
+
+  /**
+   * Cuando la portada de la ficha redirige, Gemini lee la dirección final y
+   * cita la que se le pidió, y la afirmación cae por la regla de
+   * redirecciones aunque la equivalencia sea real. Declararla aquí es lo que
+   * la convierte en comprobada — y por eso se guardan las DOS direcciones: la
+   * prueba de la equivalencia es el par, no la de destino sola.
+   */
+  describe("redirecciones de la portada", () => {
+    const conPortada = (paginaOficial: unknown) =>
+      e({ urlPrecios: undefined, paginaOficial });
+
+    it("acepta una portada redirigida bien declarada", () => {
+      expect(
+        conPortada({ solicitada: "https://zenkit.com", resuelta: "https://zenkit.com/en/" })
+      ).toBe("");
+    });
+
+    it("declarar sólo la portada ya es sustituir algo", () => {
+      expect(
+        conPortada({ solicitada: "https://zenkit.com", resuelta: "https://zenkit.com/en/" })
+      ).not.toContain("no sustituye ni añade nada");
+    });
+
+    it("rechaza que falte la dirección que se pidió", () => {
+      expect(conPortada({ solicitada: "", resuelta: "https://zenkit.com/en/" })).toContain(
+        "no dice qué dirección se pidió"
+      );
+    });
+
+    it("rechaza que falte la dirección a la que llevó", () => {
+      expect(conPortada({ solicitada: "https://zenkit.com", resuelta: "" })).toContain(
+        "no dice a dónde llevó"
+      );
+    });
+
+    it("rechaza direcciones que no son direcciones", () => {
+      expect(conPortada({ solicitada: "zenkit.com", resuelta: "https://zenkit.com/en/" })).toContain(
+        "URL inválida"
+      );
+    });
+
+    it("rechaza una redirección que no redirige: no habría nada que declarar", () => {
+      expect(
+        conPortada({ solicitada: "https://zenkit.com", resuelta: "https://zenkit.com" })
+      ).toContain("no redirige a ninguna parte");
+    });
+
+    it("y la misma página escrita de otra forma tampoco es una redirección", () => {
+      expect(
+        conPortada({ solicitada: "https://zenkit.com", resuelta: "https://www.zenkit.com/" })
+      ).toContain("no redirige a ninguna parte");
+    });
+  });
 });

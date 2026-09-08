@@ -433,11 +433,18 @@ async function main() {
   const gPlan = agrupar(bucketPlan);
   const gRed = agrupar(bucketRedireccion);
 
+  /**
+   * Qué direcciones se piden de verdad. Una sustitución declarada manda sobre
+   * la ficha —sólo para verificar, nunca tocando el catálogo—: si la de la
+   * ficha redirige, se pide la resuelta, porque si no Gemini lee una y cita
+   * otra y la afirmación cae por la regla de redirecciones.
+   */
   function urlsDe(herramientaId: string): string[] {
     const ficha = herramientaPorId.get(herramientaId)!;
     const sust = sustitucionPorId.get(herramientaId);
     const urlPrecios = sust?.urlPrecios ?? ficha.urlPrecios;
-    const urls = [urlPrecios, ficha.paginaOficial].filter((u): u is string => Boolean(u));
+    const paginaOficial = sust?.paginaOficial?.resuelta ?? ficha.paginaOficial;
+    const urls = [urlPrecios, paginaOficial].filter((u): u is string => Boolean(u));
     return [...new Set(urls)];
   }
 

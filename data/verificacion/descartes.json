@@ -309,12 +309,6 @@
   },
   {
     "herramientaId": "zenkit",
-    "capacidadId": "cap.app_integrations",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Integrate Zenkit with 1500+ tools and your existing software in just a few clicks via Zapier."
-  },
-  {
-    "herramientaId": "zenkit",
     "capacidadId": "cap.public_api",
     "motivo": "cita breve revisada y rechazada",
     "cita": "API access",
@@ -323,14 +317,9 @@
   {
     "herramientaId": "zenkit",
     "capacidadId": "cap.dashboards",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Get over 100 ready-made reports in a real-time dashboard, that you can customize to see reports by project, team, members or any other combination."
-  },
-  {
-    "herramientaId": "zenkit",
-    "capacidadId": "cap.custom_reports",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Get over 100 ready-made reports in a real-time dashboard, that you can customize to see reports by project, team, members or any other combination."
+    "motivo": "sin plan mínimo",
+    "cita": "Get over 100 ready-made reports in a real-time dashboard, that you can customize to see reports by project, team, members or any other combination.",
+    "urlCitada": "https://zenkit.com/en/"
   },
   {
     "herramientaId": "zenkit",
@@ -342,32 +331,37 @@
   {
     "herramientaId": "zenkit",
     "capacidadId": "cap.data_import_and_migration",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "With native imports from Trello, Asana or Microsoft To Do, CSV imports or even API, your work can be migrated in minutes."
+    "motivo": "sin plan mínimo",
+    "cita": "With native imports from Trello, Asana or Microsoft To Do, CSV imports or even API, your work can be migrated in minutes.",
+    "urlCitada": "https://zenkit.com/en/"
   },
   {
     "herramientaId": "zenkit",
     "capacidadId": "cap.roles_and_permissions",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "By assigning roles, you can choose who sees only simple to-do lists and who has full access to advanced features."
+    "motivo": "sin plan mínimo",
+    "cita": "By assigning roles, you can choose who sees only simple to-do lists and who has full access to advanced features.",
+    "urlCitada": "https://zenkit.com/en/"
   },
   {
     "herramientaId": "zenkit",
     "capacidadId": "cap.task_management",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "You can make project timelines, schedule tasks, and easily prioritize which team members and resources are required where."
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "Whether you prefer agile methods, Kanban boards, Gantt charts, or simple task lists, Zenkit provides the flexibility and tools you need to achieve your goals efficiently and effectively.",
+    "urlCitada": "https://zenkit.com/en/"
   },
   {
     "herramientaId": "zenkit",
     "capacidadId": "cap.kanban_boards",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Whether you prefer agile methods, Kanban boards, Gantt charts, or simple task lists, Zenkit provides the flexibility and tools you need to achieve your goals efficiently and effectively."
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "Whether you prefer agile methods, Kanban boards, Gantt charts, or simple task lists, Zenkit provides the flexibility and tools you need to achieve your goals efficiently and effectively.",
+    "urlCitada": "https://zenkit.com/en/"
   },
   {
     "herramientaId": "zenkit",
     "capacidadId": "cap.team_workload_planning",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "With Zenkit resource management, it's easy to manage if someone's workload is too high or too low."
+    "motivo": "sin plan mínimo",
+    "cita": "With Zenkit resource management, it's easy to manage if someone's workload is too high or too low.",
+    "urlCitada": "https://zenkit.com/en/"
   },
   {
     "herramientaId": "ganttpro",

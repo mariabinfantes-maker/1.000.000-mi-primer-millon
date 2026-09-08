@@ -20,7 +20,11 @@
   {
     "herramientaId": "zenkit",
     "urlPrecios": "https://zenkit.com/en/pricing/",
-    "motivo": "La urlPrecios de la ficha (https://zenkit.com/en/base/pricing/) redirige aquí. Comprobado con el fetch de Gemini (url_context): retrievedUrl=https://zenkit.com/en/pricing/, URL_RETRIEVAL_STATUS_SUCCESS.",
+    "paginaOficial": {
+      "solicitada": "https://zenkit.com",
+      "resuelta": "https://zenkit.com/en/"
+    },
+    "motivo": "Las dos direcciones de la ficha redirigen. urlPrecios (https://zenkit.com/en/base/pricing/) lleva a https://zenkit.com/en/pricing/, y paginaOficial (https://zenkit.com) lleva a https://zenkit.com/en/. Comprobado con el fetch de Gemini (url_context), que devuelve esos retrievedUrl con URL_RETRIEVAL_STATUS_SUCCESS al pedir las de la ficha. La de la portada costaba ocho pares: Gemini leía /en/ y citaba la de la ficha, y la afirmación caía por la regla de redirecciones.",
     "fecha": "2026-09-07"
   },
   {

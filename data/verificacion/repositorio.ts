@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { getCapacidades, getVocabulario } from "@/data/vocabulario/repositorio";
+import { normalizarUrl } from "./convertir";
 import { FUENTES_DE_PRIMERA_MANO } from "./esquema";
 import type { PlanDeVerificacion, RegistroVerificacion, SeleccionPlausible } from "./esquema";
 
@@ -160,9 +161,31 @@ export function versionDelVocabulario(): string {
  * sólo para verificar, qué se pidió realmente y por qué — y qué direcciones son
  * documentación oficial capaz de situar una capacidad en un plan.
  */
+/**
+ * Una redirección declarada: qué dirección se pidió y a cuál llevó de verdad.
+ *
+ * Se guardan LAS DOS a propósito. La prueba de la equivalencia es el par: con
+ * sólo la resuelta no se puede comprobar de dónde salía, y quien lea esto
+ * dentro de seis meses no sabrá si la dirección de la ficha sigue llevando
+ * ahí o si alguien la cambió por conveniencia.
+ */
+export type Redirigida = {
+  /** La dirección de la ficha, tal cual está en el catálogo. */
+  solicitada: string;
+  /** La que se leyó de verdad, con evidencia técnica escrita en el motivo. */
+  resuelta: string;
+};
+
 export type Sustitucion = {
   herramientaId: string;
   urlPrecios?: string;
+  /**
+   * La portada de la ficha redirige. Sin esto, Gemini lee la dirección final
+   * y cita la que se le pidió, y la afirmación cae por la regla de
+   * redirecciones aunque la equivalencia sea real — que es exactamente lo que
+   * pasó con los ocho pares de Zenkit.
+   */
+  paginaOficial?: Redirigida;
   documentacion?: string[];
   /** Por qué. Sin motivo escrito, una sustitución es una trampa silenciosa. */
   motivo: string;
@@ -180,9 +203,29 @@ export function erroresDeSustitucion(s: Sustitucion, herramientaIds: readonly st
   if (!herramientaIds.includes(s.herramientaId)) e.push(`${s.herramientaId}: la herramienta no existe`);
   if (!s.motivo?.trim()) e.push(`${s.herramientaId}: sin motivo escrito`);
   if (!esFecha(s.fecha)) e.push(`${s.herramientaId}: fecha inválida "${s.fecha}"`);
-  if (!s.urlPrecios && !s.documentacion?.length) e.push(`${s.herramientaId}: no sustituye ni añade nada`);
-  for (const u of [s.urlPrecios, ...(s.documentacion ?? [])].filter(Boolean) as string[]) {
+  if (!s.urlPrecios && !s.documentacion?.length && !s.paginaOficial) {
+    e.push(`${s.herramientaId}: no sustituye ni añade nada`);
+  }
+
+  const urls = [
+    s.urlPrecios,
+    ...(s.documentacion ?? []),
+    s.paginaOficial?.solicitada,
+    s.paginaOficial?.resuelta,
+  ].filter(Boolean) as string[];
+  for (const u of urls) {
     if (!/^https?:\/\/\S+$/.test(u)) e.push(`${s.herramientaId}: URL inválida "${u}"`);
+  }
+
+  if (s.paginaOficial) {
+    const { solicitada, resuelta } = s.paginaOficial;
+    if (!solicitada?.trim()) e.push(`${s.herramientaId}: la redirección no dice qué dirección se pidió`);
+    if (!resuelta?.trim()) e.push(`${s.herramientaId}: la redirección no dice a dónde llevó`);
+    // Declarar que algo redirige a sí mismo no declara nada, y deja escrito
+    // como comprobado algo que no se ha comprobado.
+    if (solicitada && resuelta && normalizarUrl(solicitada) === normalizarUrl(resuelta)) {
+      e.push(`${s.herramientaId}: la paginaOficial declarada no redirige a ninguna parte`);
+    }
   }
   return e;
 }

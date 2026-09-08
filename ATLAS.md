@@ -3207,22 +3207,26 @@ del entorno remoto inyecta la clave hacia `generativelanguage.googleapis.com`, y
 la sesión nueva la recibe. **F2 ha dejado de depender del ordenador de la
 propietaria.** Ella pasó de ejecutar a decidir, que era el objetivo.
 
-**El resultado: de 120 verificados a 247, de 765.** Los desconocidos bajan de
-645 a 518 y los descartes de 283 a 123. **Y no queda ni un solo par «sin
+**El resultado: de 120 verificados a 248, de 765.** Los desconocidos bajan de
+645 a 517 y los descartes de 283 a 121. **Y no queda ni un solo par «sin
 respuesta»: eran 133.**
 
-De los 247 verificados, **243 se apoyan en la tarifa oficial** y 241 dicen en
-qué plan está la capacidad. La profundidad se reparte en 232 nativas, 8
+De los 248 verificados, **243 se apoyan en la tarifa oficial** y 241 dicen en
+qué plan está la capacidad. La profundidad se reparte en 232 nativas, 9
 integraciones y 7 módulos.
 
 ### Lo que cambió por cada regla de la propietaria
 
 | Regla | Antes | Después |
 |---|---|---|
-| 1. Redirección con evidencia técnica | 41 pares caídos | 8, y los 33 recuperados |
-| 2. El plan lo sostiene la tarifa, no la portada | 36 sin fuente que lo demuestre | 16 |
+| 1. Redirección con evidencia técnica | 41 pares caídos | **0** |
+| 2. El plan lo sostiene la tarifa, no la portada | 36 sin fuente que lo demuestre | 18 |
 | 3. Citas breves: a revisión, no a la basura | 50 revisadas | 96, con 46 nuevas |
 | 4. Cero «no disponible» es esperable | 0 | 0 |
+
+La regla 2 sube de 16 a 18 al recuperar Zenkit, y eso es una buena señal, no
+una regresión: son pares que antes caían por la regla 1 sin llegar a que nadie
+mirara su plan, y ahora llegan y se quedan a las puertas por la razón correcta.
 
 **Regla 1.** Las cinco herramientas cuya dirección de tarifas redirigía
 —Insightly, Zoho CRM, Capsule, Wrike y Zenkit— están declaradas en
@@ -3279,28 +3283,74 @@ teamwork.com en trozos de dos: su respuesta completa tardaba más de lo que el
 proxy aguanta. **Si los lotes 2 y 3 se ejecutan con `repescar.ps1` sin arreglar
 ese `try/catch`, volverá a pasar.**
 
-### Dos cosas que quedan abiertas, y las decide la propietaria
+### Dos cosas que quedaban abiertas, resueltas el mismo día
 
-**1. `sustituciones.json` no sabe declarar una `paginaOficial`.** Puede sustituir
-`urlPrecios` y añadir `documentacion`, y nada más. Zenkit redirige
-`zenkit.com` → `zenkit.com/en/`, así que Gemini lee `/en/` y cita
-`zenkit.com`, y la afirmación cae por la regla 1 — correctamente, porque la
-equivalencia no está declarada en ninguna parte. **Cuesta 8 pares hoy** (los 8
-que siguen en «la dirección citada no consta como leída», todos de Zenkit).
-Zoho CRM tiene la misma redirección de portada y no cuesta nada sólo porque sus
-citas salieron de la tarifa. Coste futuro: los redirigidos por idioma
-(`/en/`, `/es/`) son comunes, y en los lotes 2 y 3 hay 32 herramientas más.
-Se podría pedir la dirección ya resuelta y callarse, pero eso rompe la promesa
-del propio archivo —«se declara qué se pidió realmente y por qué»—, así que no
-se ha hecho. **Recomendación: añadir `paginaOficial?` al tipo `Sustitucion`,
-con su validador y su prueba.** Es pequeño y no toca ninguna regla de
-conversión: `convertirSalida` no usa `paginaOficial` para nada, sólo decide qué
-dirección se pide.
+**1. `sustituciones.json` ya sabe declarar una `paginaOficial`.** Autorizado por
+la propietaria. El campo nuevo guarda **las dos** direcciones —`solicitada` y
+`resuelta`— y no una sola, porque la prueba de la equivalencia es el par: con
+sólo la de destino, quien lea esto dentro de seis meses no sabrá si la ficha
+sigue llevando ahí o si alguien la cambió por conveniencia. El validador exige
+las dos, exige que sean direcciones, y **rechaza una redirección que no
+redirige** —declarar que algo lleva a sí mismo deja escrito como comprobado
+algo que no se ha comprobado—. Siete pruebas nuevas lo fijan.
 
-**2. Una dirección del catálogo ya no lleva a donde decía.** `nocrm-io` tiene
-`urlPrecios` = `nocrm.io/es/precios`, y hoy redirige a `nocrm.io/es`, que es la
-portada, no una tarifa. Es una incidencia del catálogo, no de la verificación, y
-las direcciones de las fichas las decide la propietaria.
+Con Zenkit declarado (`zenkit.com` → `zenkit.com/en/`), **el motivo «la
+dirección citada no consta como leída» ha desaparecido: de 41 a 0.**
+
+Conviene ser exacto con lo que eso recuperó, porque no son 8 verificados: el
+fallo que desaparece es el **mecánico** —la cita ya resuelve contra la página
+que de verdad se leyó—, y lo que queda al descubierto es un límite **de fondo**.
+De los 8 pares, 1 quedó verificado (una integración, que no necesita plan), 1
+salió `no_documentado` al leer la tarifa, y **6 caen ahora por la regla 2**:
+su cita sale de la portada, y una portada no sitúa un plan. La regla 1 ya no
+tira evidencia buena; la regla 2 sigue haciendo su trabajo.
+
+**2. La dirección de precios de noCRM está demostrada, y el cambio espera
+decisión.** `urlPrecios` de la ficha es `https://www.nocrm.io/es/precios`, y hoy
+no se puede recuperar: tres intentos, `URL_RETRIEVAL_STATUS_ERROR` las tres
+veces. La que sí responde es **`https://www.nocrm.io/es/pricing`**, en español,
+con encabezado «Cierra más, administra menos» y su tabla de planes —Starter
+13 US$, Expert 26 US$, Dream 39 US$ por usuario y mes—. **La ficha no se ha
+tocado: las direcciones del catálogo las decide la propietaria.**
+
+De paso queda anotado, sin tocarlo, que los datos de precio de esa ficha
+tampoco cuadran con esa página: la ficha dice «Desde 12€/usuario/mes» y un
+plan «Sales Experts» a 29€, y la página dice Starter/Expert/Dream en dólares.
+Es exactamente el tipo de dato que F2 existe para descubrir.
+
+### `repescar.ps1`, arreglado y demostrado
+
+El agujero que explicaba los 3 cambios de 765 está cerrado, y con cuatro
+garantías que se probaron una a una en un banco de pruebas aislado, sin gastar
+ni una llamada real:
+
+1. **Aísla.** Un bloque que falla se queda en su bloque; una herramienta que
+   falla se queda en su herramienta. Probado forzando el fallo en la de en
+   medio: ALFA aplicó, BETA falló, **GAMMA se ejecutó igual**. Antes, BETA se
+   habría llevado a GAMMA por delante.
+2. **Conserva.** El archivo de cada herramienta se guarda **después de cada
+   bloque**, no al final. Tras el fallo de BETA, su evidencia previa seguía
+   intacta en disco.
+3. **Registra.** Todo fallo va a `salida\errores-repesca.json` con herramienta,
+   bloque, capacidades y mensaje, **con la clave oculta**.
+4. **Reanuda.** Volver a lanzar el mismo comando no repite lo respondido: en la
+   segunda pasada ALFA y GAMMA se saltaron y sólo se repreguntó BETA, **una
+   llamada en vez de tres**. En las tareas de tipo `plan` el criterio es tener
+   ya un plan escrito: probado con una herramienta donde una capacidad lo tenía
+   y otra no, se repreguntó sólo la que faltaba y la que ya lo tenía conservó
+   su plan y su cita.
+
+Se arregló además un defecto que destapó el propio registro de errores:
+`Escribir-Json` pasaba por la tubería, y una lista de **un** elemento se
+desenvolvía y se escribía como objeto suelto. Con un fallo salía `{...}` y con
+dos `[{...},{...}]`. Ahora usa `-InputObject` y siempre es una lista.
+
+**Lo que NO se ha tocado: `ejecutar-lote.ps1` tiene el mismo agujero** —la
+llamada a Gemini está fuera de todo `try`—, y es el script que abre el lote 2.
+Su daño es menor porque ya salta las herramientas hechas al relanzar, así que
+un fallo cuesta una herramienta y un relanzamiento a mano, no el lote entero.
+Aun así, mientras no se arregle, un fallo a mitad para la ejecución y hay que
+estar delante para verlo. **Decide la propietaria.**
 
 ---
 

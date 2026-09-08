@@ -11769,17 +11769,20 @@
   {
     "herramientaId": "zenkit",
     "capacidadId": "cap.app_integrations",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "integracion",
+    "integraCon": "Zapier",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://zenkit.com/en/pricing/",
-        "fechaConsulta": "2026-09-07"
+        "tipo": "pagina_oficial",
+        "url": "https://zenkit.com/en/",
+        "fechaConsulta": "2026-09-07",
+        "cita": "Integrate Zenkit with 1500+ tools and your existing software in just a few clicks via Zapier."
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://zenkit.com, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
+    "nota": "Integración con herramientas externas mediante Zapier."
   },
   {
     "herramientaId": "zenkit",
@@ -11818,14 +11821,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://zenkit.com/en/pricing/",
-        "fechaConsulta": "2026-09-07"
+        "tipo": "pagina_oficial",
+        "url": "https://zenkit.com/en/",
+        "fechaConsulta": "2026-09-07",
+        "cita": "Get over 100 ready-made reports in a real-time dashboard, that you can customize to see reports by project, team, members or any other combination."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://zenkit.com, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
+    "nota": "Se afirmó que la tiene, pero no en qué plan. Una función del plan caro no le sirve a quien busca el barato."
   },
   {
     "herramientaId": "zenkit",
@@ -11840,7 +11844,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://zenkit.com, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
+    "nota": "Buscado informe a medida / custom reports; solo se documentan informes predefinidos en dashboard."
   },
   {
     "herramientaId": "zenkit",
@@ -11864,14 +11868,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://zenkit.com/en/pricing/",
-        "fechaConsulta": "2026-09-07"
+        "tipo": "pagina_oficial",
+        "url": "https://zenkit.com/en/",
+        "fechaConsulta": "2026-09-07",
+        "cita": "With native imports from Trello, Asana or Microsoft To Do, CSV imports or even API, your work can be migrated in minutes."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://zenkit.com, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
+    "nota": "Se afirmó que la tiene, pero no en qué plan. Una función del plan caro no le sirve a quien busca el barato."
   },
   {
     "herramientaId": "zenkit",
@@ -11879,14 +11884,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://zenkit.com/en/pricing/",
-        "fechaConsulta": "2026-09-07"
+        "tipo": "pagina_oficial",
+        "url": "https://zenkit.com/en/",
+        "fechaConsulta": "2026-09-07",
+        "cita": "By assigning roles, you can choose who sees only simple to-do lists and who has full access to advanced features."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://zenkit.com, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
+    "nota": "Se afirmó que la tiene, pero no en qué plan. Una función del plan caro no le sirve a quien busca el barato."
   },
   {
     "herramientaId": "zenkit",
@@ -11948,14 +11954,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://zenkit.com/en/pricing/",
-        "fechaConsulta": "2026-09-07"
+        "tipo": "pagina_oficial",
+        "url": "https://zenkit.com/en/",
+        "fechaConsulta": "2026-09-07",
+        "cita": "Whether you prefer agile methods, Kanban boards, Gantt charts, or simple task lists, Zenkit provides the flexibility and tools you need to achieve your goals efficiently and effectively."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://zenkit.com, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
+    "nota": "Se sitúa en el plan \"Plus\" citando https://zenkit.com/en/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "zenkit",
@@ -11993,14 +12000,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://zenkit.com/en/pricing/",
-        "fechaConsulta": "2026-09-07"
+        "tipo": "pagina_oficial",
+        "url": "https://zenkit.com/en/",
+        "fechaConsulta": "2026-09-07",
+        "cita": "Whether you prefer agile methods, Kanban boards, Gantt charts, or simple task lists, Zenkit provides the flexibility and tools you need to achieve your goals efficiently and effectively."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://zenkit.com, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
+    "nota": "Se sitúa en el plan \"Plus\" citando https://zenkit.com/en/, que no es la tarifa oficial ni documentación que vincule capacidad y plan."
   },
   {
     "herramientaId": "zenkit",
@@ -12023,14 +12031,15 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
-        "url": "https://zenkit.com/en/pricing/",
-        "fechaConsulta": "2026-09-07"
+        "tipo": "pagina_oficial",
+        "url": "https://zenkit.com/en/",
+        "fechaConsulta": "2026-09-07",
+        "cita": "With Zenkit resource management, it's easy to manage if someone's workload is too high or too low."
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-07",
-    "nota": "Se afirmó \"si\" citando https://zenkit.com, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
+    "nota": "Se afirmó que la tiene, pero no en qué plan. Una función del plan caro no le sirve a quien busca el barato."
   },
   {
     "herramientaId": "agile-crm",

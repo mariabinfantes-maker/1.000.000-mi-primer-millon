@@ -59,7 +59,14 @@ function Leer-Json([string] $ruta) {
 }
 
 function Escribir-Json([string] $ruta, $objeto) {
-    $json = $objeto | ConvertTo-Json -Depth 20
+    <#
+        -InputObject y NO la tubería: al pasar por `|`, una lista de UN solo
+        elemento se desenvuelve y se escribe como objeto suelto en vez de como
+        lista. El registro de errores lo destapó — con un fallo salía `{...}` y
+        con dos `[{...},{...}]`, y quien lo leyera tendría que adivinar cuál de
+        las dos formas le toca.
+    #>
+    $json = ConvertTo-Json -InputObject $objeto -Depth 20
     $sinBom = New-Object System.Text.UTF8Encoding($false)
     [System.IO.File]::WriteAllText($ruta, $json, $sinBom)
 }
@@ -314,66 +321,93 @@ function Prompt-Plan($ficha, $capacidades) {
     return ($lineas -join "`n")
 }
 
+<#
+    NADA DE LO QUE SIGUE PUEDE TUMBAR EL LOTE ENTERO.
+
+    La versión anterior de este bucle tenía la llamada a Gemini fuera de todo
+    `try`, así que un fallo que agotara los tres reintentos abortaba el
+    `foreach` completo y las tareas siguientes no llegaban a ejecutarse nunca.
+    Con `$ErrorActionPreference = "Stop"` y sin reanudación, eso dejaba
+    aplicado sólo lo de las primeras tareas: es la explicación más probable de
+    que la repesca del lote 1 aplicara 3 cambios en 765 pares.
+
+    Ahora hay cuatro garantías, y cada una tapa una forma distinta de perder
+    trabajo:
+
+      1. AÍSLA. Un bloque que falla se queda en su bloque; una herramienta que
+         falla se queda en su herramienta. El resto del lote sigue.
+      2. CONSERVA. Se guarda el archivo de la herramienta DESPUÉS DE CADA
+         BLOQUE, no al final. Si el proceso muere, lo ya conseguido está en
+         disco.
+      3. REGISTRA. Todo fallo va a `errores-repesca.json` con qué herramienta,
+         qué bloque y qué capacidades, y con la clave oculta.
+      4. REANUDA. Volver a lanzar el mismo comando NO repite lo que ya está
+         respondido: sólo pregunta lo que sigue faltando.
+#>
+
 $llamadas = 0
 $comienzo = Get-Date
+$rutaErrores = Join-Path $Salida "errores-repesca.json"
+$script:errores = @()
 
-foreach ($tarea in $tareas) {
-    $id    = $tarea.herramientaId
-    $ruta  = Join-Path $Salida "$id.json"
-    $datos = Leer-Json $ruta
-    $ficha = Leer-Json (Join-Path $raiz "data\herramientas\$id.json")
-    $urls  = @($datos.urlsSolicitadas)
-
-    $ids     = @($tarea.capacidadIds)
-    $bloques = [math]::Ceiling($ids.Count / $PorLlamada)
-    Write-Host "· $($ficha.nombre) ($id) — $($tarea.tipo): $($ids.Count) en $bloques llamada(s)" -ForegroundColor White
-
-    $nuevas = @()
-    $urlsVistas = @()
-
-    for ($b = 0; $b -lt $bloques; $b++) {
-        $trozo = @($ids | Select-Object -Skip ($b * $PorLlamada) -First $PorLlamada)
-        $caps  = @($trozo | ForEach-Object { $capacidadPorId[$_] })
-
-        $prompt = if ($tarea.tipo -eq "plan") { Prompt-Plan $ficha $caps } else { Prompt-Capacidad $ficha $caps }
-
-        $t0 = Get-Date
-        $respuesta = Invocar-Gemini $prompt $urls
-        $llamadas++
-        $ms = [int]((Get-Date) - $t0).TotalMilliseconds
-
-        $urlsVistas += Extraer-Urls $respuesta
-        $texto = Extraer-Texto $respuesta
-        try {
-            <#
-                Sólo se queda lo que se preguntó EN ESTE BLOQUE. La definición de
-                cada capacidad nombra a sus vecinas para marcar la frontera, así
-                que el prompt lleva identificadores que no se han preguntado; sin
-                este filtro, la respuesta de un bloque podía pisar la de otro
-                —una respuesta dada sin tener delante la definición de esa
-                capacidad—. Se vio contando: 26 aplicadas para 18 pedidas.
-            #>
-            $nuevas += @($texto | ConvertFrom-Json | Where-Object { $trozo -contains $_.capacidadId })
-            Write-Host "    bloque $($b + 1)/$bloques — $($trozo.Count), $ms ms" -ForegroundColor DarkGray
-        } catch {
-            Write-Host "    bloque $($b + 1)/$bloques — respuesta no interpretable" -ForegroundColor Yellow
-        }
-
-        if ($b -lt $bloques - 1) { Start-Sleep -Seconds $PausaSegundos }
+function Ocultar-Clave([string] $texto) {
+    if ([string]::IsNullOrEmpty($texto)) { return "" }
+    if ($env:GEMINI_API_KEY) {
+        return ($texto -replace [regex]::Escape($env:GEMINI_API_KEY), "«clave oculta»")
     }
+    return $texto
+}
 
-    <#
-        Fusionar, no reemplazar. Una repesca de plan sólo toca el plan, la
-        dirección y la cita: la profundidad y el «con qué se integra» ya
-        estaban comprobados y volver a escribirlos sería tirar evidencia buena.
-    #>
+function Anotar-Error($herramientaId, $tipo, $bloque, $capacidadIds, $mensaje) {
+    $limpio = Ocultar-Clave ([string]$mensaje)
+    $script:errores += [pscustomobject]@{
+        fecha         = (Get-Date).ToString("s")
+        herramientaId = $herramientaId
+        tipo          = $tipo
+        bloque        = $bloque
+        capacidadIds  = @($capacidadIds)
+        mensaje       = $limpio
+    }
+    Escribir-Json $rutaErrores @($script:errores)
+    Write-Host "      fallo anotado: $limpio" -ForegroundColor Red
+}
+
+function Poner-Propiedad($objeto, [string] $nombre, $valor) {
+    $objeto | Add-Member -NotePropertyName $nombre -NotePropertyValue $valor -Force
+}
+
+<#
+    Qué sigue faltando de verdad. Es lo que hace que reanudar no vuelva a
+    pagar lo ya conseguido:
+      - `capacidad`: falta si no hay ninguna respuesta para esa capacidad.
+      - `plan`: falta si la respuesta que hay todavía no tiene plan escrito.
+#>
+function Falta-Todavia($datos, $tipo, [string] $capacidadId) {
+    $vieja = $null
+    foreach ($r in @($datos.respuestas)) {
+        if ($r.capacidadId -eq $capacidadId) { $vieja = $r; break }
+    }
+    if ($tipo -eq "plan") {
+        if ($vieja -and -not [string]::IsNullOrWhiteSpace([string]$vieja.planMinimo)) { return $false }
+        return $true
+    }
+    if ($vieja) { return $false }
+    return $true
+}
+
+<#
+    Fusionar, no reemplazar. Una repesca de plan sólo toca el plan, la
+    dirección y la cita: la profundidad y el «con qué se integra» ya estaban
+    comprobados y volver a escribirlos sería tirar evidencia buena.
+#>
+function Fusionar-Respuestas($datos, $tipo, $pedidasDelBloque, $nuevas) {
     $porId = @{}
     foreach ($r in @($datos.respuestas)) { if ($r.capacidadId) { $porId[$r.capacidadId] = $r } }
 
     $aplicadas = 0
     foreach ($n in $nuevas) {
-        if (-not $n.capacidadId -or ($ids -notcontains $n.capacidadId)) { continue }
-        if ($tarea.tipo -eq "plan") {
+        if (-not $n.capacidadId -or ($pedidasDelBloque -notcontains $n.capacidadId)) { continue }
+        if ($tipo -eq "plan") {
             $vieja = $porId[$n.capacidadId]
             if (-not $vieja) { continue }
             if ($null -eq $n.planMinimo -or [string]::IsNullOrWhiteSpace([string]$n.planMinimo)) { continue }
@@ -387,14 +421,104 @@ foreach ($tarea in $tareas) {
         }
     }
 
-    $datos.respuestas = @($porId.Values)
-    $pedidas = @($datos.capacidadesPedidas)
-    $datos.sinRespuesta = @($pedidas | Where-Object { -not $porId.ContainsKey($_) })
-    $datos | Add-Member -NotePropertyName urlsRecuperadas -NotePropertyValue @(@($datos.urlsRecuperadas) + $urlsVistas) -Force
-    $datos | Add-Member -NotePropertyName fechaConsulta -NotePropertyValue $hoy -Force
+    Poner-Propiedad $datos "respuestas" @($porId.Values)
+    $pedidasTotales = @($datos.capacidadesPedidas)
+    Poner-Propiedad $datos "sinRespuesta" @($pedidasTotales | Where-Object { -not $porId.ContainsKey($_) })
+    return $aplicadas
+}
 
-    Escribir-Json $ruta $datos
-    Write-Host "    $aplicadas de $($ids.Count) aplicada(s)" -ForegroundColor Green
+$tareasConFallo = 0
+$tareasSaltadas = 0
+
+foreach ($tarea in $tareas) {
+    $id = $tarea.herramientaId
+
+    try {
+        $ruta = Join-Path $Salida "$id.json"
+        if (-not (Test-Path -LiteralPath $ruta)) {
+            throw "no existe $ruta. Esa herramienta no se ha ejecutado todavía con ejecutar-lote.ps1."
+        }
+        $datos = Leer-Json $ruta
+        $ficha = Leer-Json (Join-Path $raiz "data\herramientas\$id.json")
+        $urls  = @($datos.urlsSolicitadas)
+
+        $todas = @($tarea.capacidadIds)
+        $ids   = @($todas | Where-Object { Falta-Todavia $datos $tarea.tipo $_ })
+        $hechas = $todas.Count - $ids.Count
+
+        if (-not $ids.Count) {
+            Write-Host "· $($ficha.nombre) ($id) — $($tarea.tipo): ya estaban las $($todas.Count), se salta" -ForegroundColor DarkGray
+            $tareasSaltadas++
+            continue
+        }
+
+        $bloques = [math]::Ceiling($ids.Count / $PorLlamada)
+        $pendiente = if ($hechas) { " ($hechas ya estaban)" } else { "" }
+        Write-Host "· $($ficha.nombre) ($id) — $($tarea.tipo): $($ids.Count) en $bloques llamada(s)$pendiente" -ForegroundColor White
+
+        $aplicadasTarea = 0
+        $bloquesConFallo = 0
+
+        for ($b = 0; $b -lt $bloques; $b++) {
+            $trozo = @($ids | Select-Object -Skip ($b * $PorLlamada) -First $PorLlamada)
+            $caps  = @($trozo | ForEach-Object { $capacidadPorId[$_] })
+            if ($caps -contains $null) {
+                Anotar-Error $id $tarea.tipo ($b + 1) $trozo "alguna capacidad del bloque no existe en el vocabulario"
+                $bloquesConFallo++
+                continue
+            }
+
+            $prompt = if ($tarea.tipo -eq "plan") { Prompt-Plan $ficha $caps } else { Prompt-Capacidad $ficha $caps }
+
+            try {
+                $t0 = Get-Date
+                $respuesta = Invocar-Gemini $prompt $urls
+                $llamadas++
+                $ms = [int]((Get-Date) - $t0).TotalMilliseconds
+
+                <#
+                    Sólo se queda lo que se preguntó EN ESTE BLOQUE. La
+                    definición de cada capacidad nombra a sus vecinas para
+                    marcar la frontera, así que el prompt lleva identificadores
+                    que no se han preguntado; sin este filtro, la respuesta de
+                    un bloque podía pisar la de otro. Se vio contando: 26
+                    aplicadas para 18 pedidas.
+                #>
+                $texto  = Extraer-Texto $respuesta
+                $nuevas = @($texto | ConvertFrom-Json | Where-Object { $trozo -contains $_.capacidadId })
+
+                $aplicadas = Fusionar-Respuestas $datos $tarea.tipo $trozo $nuevas
+                $aplicadasTarea += $aplicadas
+
+                # Guardar YA. Si el proceso muere en el bloque siguiente, esto
+                # está en disco y la próxima pasada no lo repite.
+                Poner-Propiedad $datos "urlsRecuperadas" @(@($datos.urlsRecuperadas) + (Extraer-Urls $respuesta))
+                Poner-Propiedad $datos "fechaConsulta" $hoy
+                Escribir-Json $ruta $datos
+
+                Write-Host "    bloque $($b + 1)/$bloques — $($trozo.Count), $ms ms, $aplicadas aplicada(s)" -ForegroundColor DarkGray
+            } catch {
+                # El bloque se pierde, la herramienta no. Sus capacidades se
+                # quedan sin responder y la siguiente pasada las reintenta.
+                Anotar-Error $id $tarea.tipo ($b + 1) $trozo $_.Exception.Message
+                $bloquesConFallo++
+            }
+
+            if ($b -lt $bloques - 1) { Start-Sleep -Seconds $PausaSegundos }
+        }
+
+        if ($bloquesConFallo) {
+            $tareasConFallo++
+            Write-Host "    $aplicadasTarea de $($ids.Count) aplicada(s) · $bloquesConFallo bloque(s) sin respuesta, quedan para la próxima pasada" -ForegroundColor Yellow
+        } else {
+            Write-Host "    $aplicadasTarea de $($ids.Count) aplicada(s)" -ForegroundColor Green
+        }
+    } catch {
+        # Una herramienta entera puede fallar —archivo que falta, ficha
+        # ilegible— sin llevarse por delante las demás.
+        Anotar-Error $id $tarea.tipo 0 @($tarea.capacidadIds) $_.Exception.Message
+        $tareasConFallo++
+    }
 
     Start-Sleep -Seconds $PausaSegundos
 }
@@ -417,6 +541,15 @@ Escribir-Json $juntos ([pscustomobject]@{
 $minutos = [math]::Round(((Get-Date) - $comienzo).TotalMinutes, 1)
 Write-Host ""
 Write-Host "Repesca terminada." -ForegroundColor Cyan
+Write-Host "  tareas ya completas:  $tareasSaltadas"
+Write-Host "  tareas con fallos:    $tareasConFallo"
+Write-Host "  fallos registrados:   $($script:errores.Count)"
+if ($script:errores.Count) {
+    Write-Host ""
+    Write-Host "  Quedan cosas sin responder. NO se ha perdido nada de lo conseguido." -ForegroundColor Yellow
+    Write-Host "  El detalle está en: $rutaErrores" -ForegroundColor Yellow
+    Write-Host "  Vuelve a lanzar EXACTAMENTE el mismo comando: sólo se preguntará lo que falta." -ForegroundColor Yellow
+}
 Write-Host "  llamadas a Gemini: $llamadas"
 Write-Host "  tiempo:            $minutos min"
 Write-Host ""
