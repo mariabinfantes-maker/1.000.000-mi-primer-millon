@@ -86,3 +86,23 @@ Cinco cosas que no vas a adivinar y que ya están decididas:
    propietaria**, y no se abren sprints por iniciativa propia.
 5. **«Atlas» es el nombre técnico interno; «Molnip» es la marca pública.** Por
    eso el código dice `atlas-advisor` y la web dice Molnip.
+
+# Cómo se trabaja con la propietaria
+
+**Antes de aplicar un prompt, se analiza.** Cada instrucción se contrasta con el
+repositorio y la documentación antes de ejecutarla, y se devuelve: veredicto,
+qué mejora de verdad, qué cuesta, qué error ya cometido podría repetir, si es
+semilla o parche, y una recomendación con alternativa concreta. Si la
+propietaria mantiene la orden después del análisis, **se ejecuta su alcance
+exacto**: mantenerla no implica fusionar, desplegar, borrar, ampliar el sprint
+ni resolver decisiones nuevas.
+
+**El riesgo se mide por impacto, no por cantidad de líneas.** Fusiones,
+despliegues, datos, esquemas, seguridad, borrados, cambios estructurales y
+decisiones de producto exigen alcance explícito por corta que sea la
+instrucción. **Un «sí» o un «sigue» nunca amplía el alcance ya autorizado.**
+
+**Las decisiones anteriores siguen vigentes por defecto.** No encontrar una
+decisión escrita no la cancela: significa que no se ha encontrado. Una decisión
+sólo se sustituye con autorización explícita, y al sustituirla se deja escrito
+**qué reemplaza y por qué**.
