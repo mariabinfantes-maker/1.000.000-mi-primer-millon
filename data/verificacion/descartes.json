@@ -1454,13 +1454,6 @@
   },
   {
     "herramientaId": "heygen",
-    "capacidadId": "cap.audit_log",
-    "motivo": "sin plan mínimo",
-    "cita": "Audit log",
-    "urlCitada": "https://www.heygen.com/pricing"
-  },
-  {
-    "herramientaId": "heygen",
     "capacidadId": "cap.ai_video_generation",
     "motivo": "el plan no viene de una fuente que lo demuestre",
     "cita": "Create complete videos from a script using Text to Video. Our generator handles end-to-end editing and produces videos with voiceovers, visuals, and avatars.",
@@ -1469,27 +1462,16 @@
   {
     "herramientaId": "heygen",
     "capacidadId": "cap.subtitles",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "heygen",
-    "capacidadId": "cap.audio_transcription",
-    "motivo": "sin respuesta"
+    "motivo": "sin plan mínimo",
+    "cita": "Turn podcasts, voiceovers, or any audio file into engaging video with AI avatars, subtitles, and animations.",
+    "urlCitada": "https://www.heygen.com/"
   },
   {
     "herramientaId": "heygen",
     "capacidadId": "cap.brand_kit",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "heygen",
-    "capacidadId": "cap.text_generation",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "heygen",
-    "capacidadId": "cap.ai_task_agents",
-    "motivo": "sin respuesta"
+    "motivo": "sin plan mínimo",
+    "cita": "Brand Kit, auto captions, and B-roll deliver finished videos without switching tools.",
+    "urlCitada": "https://www.heygen.com/"
   },
   {
     "herramientaId": "jasper",
@@ -1553,90 +1535,6 @@
     "motivo": "sin plan mínimo",
     "cita": "Motion creates meeting booking pages, shows your availability, and schedules meetings at ideal times that maximize your focus time.",
     "urlCitada": "https://www.usemotion.com/"
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.workflow_automation",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Automatically create pages and new blocks, set status, assignee, and property values, and more."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.app_integrations",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Send information from Notion to Slack, and vice versa. Or connect to Zapier to create automated workflows with the tools you rely on."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.public_api",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Build bespoke integrations to connect your Notion workspace to internal tools and workflows."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.webhooks",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Send real-time updates to your integrations when content changes in Notion."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.dashboards",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Bring charts, tables, and lists into one dashboard for a unified view of your work."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.data_export",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Export entire workspace as HTML, Markdown, & CSV"
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.roles_and_permissions",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Collaborate in Notion databases without giving access to the entire database. Limit access to rows where the collaborator is assigned."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.single_sign_on",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Manage employee access at scale with secure single sign-on."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.two_factor_authentication",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Enable an extra layer of account security with a second method of verification, also known as 2FA or MFA."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.audit_log",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Access a detailed log of security and safety-related activity for your workspace account to identify potential security issues, investigate suspicious behavior, or troubleshoot access."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.workspace_wide_search",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Find quick answers using info across your Notion workspace, and connected tools like Slack, Microsoft Teams, GitHub and more."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.document_version_history",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Restore your page to a previous version."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.ai_task_agents",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Completes complex, multi-step tasks using context from Notion, your connected apps, and the web."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.text_generation",
-    "motivo": "la dirección citada no consta como leída",
-    "cita": "Improve writing or generate drafts with AI blocks directly in your pages."
   },
   {
     "herramientaId": "otter-ai",
@@ -1714,5 +1612,68 @@
     "motivo": "cita breve revisada y rechazada",
     "cita": "1 week activity history",
     "urlCitada": "https://www.todoist.com/pricing"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin plan mínimo",
+    "cita": "Build bespoke integrations to connect your Notion workspace to internal tools and workflows.",
+    "urlCitada": "https://www.notion.com/pricing"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.webhooks",
+    "motivo": "sin plan mínimo",
+    "cita": "Send real-time updates to your integrations when content changes in Notion.",
+    "urlCitada": "https://www.notion.com/pricing"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin plan mínimo",
+    "cita": "Bring charts, tables, and lists into one dashboard for a unified view of your work.",
+    "urlCitada": "https://www.notion.com/pricing"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.data_export",
+    "motivo": "sin plan mínimo",
+    "cita": "Export entire workspace as HTML, Markdown, & CSV",
+    "urlCitada": "https://www.notion.com/pricing"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin plan mínimo",
+    "cita": "Create groups of people according to role or department to streamline page & teamspace permissions.",
+    "urlCitada": "https://www.notion.com/pricing"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.two_factor_authentication",
+    "motivo": "sin plan mínimo",
+    "cita": "Enable an extra layer of account security with a second method of verification, also known as 2FA or MFA.",
+    "urlCitada": "https://www.notion.com/pricing"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.workspace_wide_search",
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "Find quick answers using info across your Notion workspace, and connected tools like Slack, Microsoft Teams, GitHub and more.",
+    "urlCitada": "https://www.notion.com/pricing"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.ai_task_agents",
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "Does work for you. Completes complex, multi-step tasks using context from Notion, your connected apps, and the web.",
+    "urlCitada": "https://www.notion.com/pricing"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.text_generation",
+    "motivo": "sin plan mínimo",
+    "cita": "Improve writing or generate drafts with AI blocks directly in your pages.",
+    "urlCitada": "https://www.notion.com/product/ai"
   }
 ]

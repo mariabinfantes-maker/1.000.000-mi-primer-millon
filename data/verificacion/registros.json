@@ -19651,7 +19651,15 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.heygen.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Integrations with n8n, Make, Hubspot & Zapier"
+        "cita": "Integrations with n8n, Make, Hubspot & Zapier",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.heygen.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Integrations with n8n, Make, Hubspot & Zapier — Business",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
@@ -19669,7 +19677,14 @@
         "tipo": "pagina_oficial",
         "url": "https://www.heygen.com/",
         "fechaConsulta": "2026-09-09",
-        "cita": "HeyGen for Developers offers production-ready, scalable APIs, including Video Agent, Video Generation, Translation, and Lipsync models."
+        "cita": "HeyGen for Developers offers production-ready, scalable APIs, including Video Agent, Video Generation, Translation, and Lipsync models.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.heygen.com",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -19842,7 +19857,15 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.heygen.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Team Member MFA"
+        "cita": "Team Member MFA",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.heygen.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Team Member MFA — Enterprise",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
@@ -19854,17 +19877,26 @@
     "capacidadId": "cap.audit_log",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planEstado": "desconocido",
+    "planMinimo": "Enterprise",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.heygen.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Audit log"
+        "cita": "Audit log",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.heygen.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Audit log — Enterprise",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
-    "proximaRevision": "2027-09-09",
+    "proximaRevision": "2027-03-09",
     "nota": "Aparece listado en la tabla de comparación de planes bajo la categoría Privacy & Security, aunque no se especifica el plan exacto en el texto plano de la tabla."
   },
   {
@@ -19898,7 +19930,14 @@
         "tipo": "pagina_oficial",
         "url": "https://www.heygen.com/",
         "fechaConsulta": "2026-09-09",
-        "cita": "Create complete videos from a script using Text to Video. Our generator handles end-to-end editing and produces videos with voiceovers, visuals, and avatars."
+        "cita": "Create complete videos from a script using Text to Video. Our generator handles end-to-end editing and produces videos with voiceovers, visuals, and avatars.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.heygen.com",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -19928,22 +19967,27 @@
   {
     "herramientaId": "heygen",
     "capacidadId": "cap.subtitles",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
-      {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.heygen.com/pricing",
-        "fechaConsulta": "2026-09-09"
-      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.heygen.com/",
-        "fechaConsulta": "2026-09-09"
+        "fechaConsulta": "2026-09-09",
+        "cita": "Turn podcasts, voiceovers, or any audio file into engaging video with AI avatars, subtitles, and animations.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.heygen.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Ofrece generación de vídeos con subtítulos integrados a partir de audio."
   },
   {
     "herramientaId": "heygen",
@@ -19963,27 +20007,32 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Buscado convertir voz en texto; las páginas solo citan subir transcripciones existentes."
   },
   {
     "herramientaId": "heygen",
     "capacidadId": "cap.brand_kit",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
-      {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.heygen.com/pricing",
-        "fechaConsulta": "2026-09-09"
-      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.heygen.com/",
-        "fechaConsulta": "2026-09-09"
+        "fechaConsulta": "2026-09-09",
+        "cita": "Brand Kit, auto captions, and B-roll deliver finished videos without switching tools.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.heygen.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Cuenta con Brand Kit para mantener la identidad de marca en los vídeos."
   },
   {
     "herramientaId": "heygen",
@@ -20003,7 +20052,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Buscado redacción de textos nuevos; la herramienta genera vídeos basándose en guiones."
   },
   {
     "herramientaId": "heygen",
@@ -20023,7 +20072,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Buscado agentes autónomos para tareas multipaso; 'Video Agent' es creación de vídeo por prompt."
   },
   {
     "herramientaId": "heygen",
@@ -21501,336 +21550,6 @@
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
     "nota": "Buscado envío automático de recordatorios de citas a clientes antes de la reunión; no figura en las páginas analizadas."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.workflow_automation",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "Se afirmó \"si\" citando https://www.notion.so/pricing, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.app_integrations",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "Se afirmó \"si\" citando https://www.notion.so/pricing, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.public_api",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "Se afirmó \"si\" citando https://www.notion.so/pricing, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.webhooks",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "Se afirmó \"si\" citando https://www.notion.so/pricing, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.dashboards",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "Se afirmó \"si\" citando https://www.notion.so/pricing, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.custom_reports",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "Buscado informes a medida o generación de reportes personalizados con cruce de datos en ambas páginas."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.data_export",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "Se afirmó \"si\" citando https://www.notion.so/pricing, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.data_import_and_migration",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "Buscada importación o migración de datos desde herramientas externas en los textos indicados."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.roles_and_permissions",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "Se afirmó \"si\" citando https://www.notion.so/pricing, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.single_sign_on",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "Se afirmó \"si\" citando https://www.notion.so/pricing, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.two_factor_authentication",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "Se afirmó \"si\" citando https://www.notion.so/pricing, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.audit_log",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "Se afirmó \"si\" citando https://www.notion.so/pricing, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.internal_knowledge_workspace",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "Buscado repositorio o espacio central de conocimiento interno del equipo; no hay cita explícita que lo defina."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.collaborative_document_editing",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "Buscada edición simultánea de documentos a varias manos con comentarios; las páginas no detallan esta frontera."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.workspace_wide_search",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "Se afirmó \"si\" citando https://www.notion.so/pricing, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.document_version_history",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "Se afirmó \"si\" citando https://www.notion.so/pricing, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.file_storage",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "Solo se menciona subida de archivos (File uploads), sin definir un almacenamiento organizado con carpetas y permisos."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.task_management",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "Se mencional al pasar proyectos o tareas en bases de datos, pero sin la definición completa exigida por la capacidad."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.ai_task_agents",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "Se afirmó \"si\" citando https://www.notion.so/pricing, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.text_generation",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "Se afirmó \"si\" citando https://www.notion.so/product/ai, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.online_self_service_booking",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "No se menciona la reserva online de citas por parte de clientes; solo consta Notion Calendar para gestionar calendarios."
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.customer_appointment_reminders",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.notion.so/pricing",
-        "fechaConsulta": "2026-09-09"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "No se documenta el envío de recordatorios automáticos de citas dirigidos a clientes."
   },
   {
     "herramientaId": "otter-ai",
@@ -24220,5 +23939,488 @@
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
     "nota": "Buscado envío automático de recordatorios de citas a clientes, pero en las páginas proporcionadas solo se documentan recordatorios de tareas propias o de equipo."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.workflow_automation",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Plus",
+    "planEstado": "verificado",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Automatically create pages and new blocks, set status, assignee, and property values, and more."
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Permite crear automatizaciones de base de datos para ejecutar acciones automáticas."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.app_integrations",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Plus",
+    "planEstado": "verificado",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Connect to some tools like Slack & Google Drive"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Ofrece conexiones nativas con herramientas externas como Slack o Google Drive."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.public_api",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Build bespoke integrations to connect your Notion workspace to internal tools and workflows."
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-09",
+    "nota": "Dispone de API pública documentada para desarrollo a medida."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.webhooks",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Send real-time updates to your integrations when content changes in Notion."
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-09",
+    "nota": "Permite el envío automático de avisos en tiempo real al cambiar contenido."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.dashboards",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Bring charts, tables, and lists into one dashboard for a unified view of your work."
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-09",
+    "nota": "Permite agrupar gráficos, tablas y listas en un cuadro de mando unificado."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.custom_reports",
+    "estado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.notion.com/product/ai",
+        "fechaConsulta": "2026-09-09"
+      }
+    ],
+    "confianza": "baja",
+    "proximaRevision": "2027-09-09",
+    "nota": "Buscado en ambas páginas; solo se contemplan dashboards o la generación de informes mediante IA (Research mode), no la creación propia de informes cruzando datos."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.data_export",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Export entire workspace as HTML, Markdown, & CSV",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-09",
+    "nota": "Permite exportar todo el espacio de trabajo en formatos estándar."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.data_import_and_migration",
+    "estado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.notion.com/product/ai",
+        "fechaConsulta": "2026-09-09"
+      }
+    ],
+    "confianza": "baja",
+    "proximaRevision": "2027-09-09",
+    "nota": "Buscado en el texto de ambas páginas; no se menciona la importación ni migración desde otras herramientas."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.roles_and_permissions",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Create groups of people according to role or department to streamline page & teamspace permissions.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-09",
+    "nota": "Permite definir grupos de usuarios por rol o departamento para gestionar sus permisos de acceso."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.single_sign_on",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Business",
+    "planEstado": "verificado",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Manage employee access at scale with secure single sign-on.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Manage employee access at scale with secure single sign-on. — Business",
+        "rol": "plan"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Ofrece acceso corporativo unificado mediante SAML SSO."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.two_factor_authentication",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Enable an extra layer of account security with a second method of verification, also known as 2FA or MFA.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-09",
+    "nota": "Documentado como verificación en dos pasos (2FA/MFA)."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.audit_log",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Enterprise",
+    "planEstado": "verificado",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Access a detailed log of security and safety-related activity for your workspace account to identify potential security issues, investigate suspicious behavior, or troubleshoot access.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Access a detailed log of security and safety-related activity for your workspace account to identify potential security issues, investigate suspicious behavior, or troubleshoot access. — Enterprise",
+        "rol": "plan"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Registro detallado de actividad disponible en el plan Enterprise."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.internal_knowledge_workspace",
+    "estado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.notion.com/product/ai",
+        "fechaConsulta": "2026-09-09"
+      }
+    ],
+    "confianza": "baja",
+    "proximaRevision": "2027-09-09",
+    "nota": "Buscado en pricing y product/ai; no se describe explícitamente la estructura de espacio de conocimiento interno."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.collaborative_document_editing",
+    "estado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.notion.com/product/ai",
+        "fechaConsulta": "2026-09-09"
+      }
+    ],
+    "confianza": "baja",
+    "proximaRevision": "2027-09-09",
+    "nota": "Buscado en las páginas facilitadas; solo se citan bloques colaborativos sin detallar la edición simultánea ni comentarios."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.workspace_wide_search",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Find quick answers using info across your Notion workspace, and connected tools like Slack, Microsoft Teams, GitHub and more.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.notion.com/product/ai",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-09",
+    "nota": "Búsqueda en todo el espacio de trabajo con Enterprise Search."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.document_version_history",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Free",
+    "planEstado": "verificado",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Restore your page to a previous version.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Restore your page to a previous version. Page history — Free",
+        "rol": "plan"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Documentado como 'Page history' desde el plan Free (7 días de historial)."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.file_storage",
+    "estado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.notion.com/product/ai",
+        "fechaConsulta": "2026-09-09"
+      }
+    ],
+    "confianza": "baja",
+    "proximaRevision": "2027-09-09",
+    "nota": "Se menciona la carga de archivos ('File uploads'), pero no la organización y gestión de archivos y carpetas con permisos explícitos."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.task_management",
+    "estado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.notion.com/product/ai",
+        "fechaConsulta": "2026-09-09"
+      }
+    ],
+    "confianza": "baja",
+    "proximaRevision": "2027-09-09",
+    "nota": "Buscado 'projects or tasks' y 'subtasks', pero no figura la definición completa de asignación de responsables y fechas límite."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.ai_task_agents",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Does work for you. Completes complex, multi-step tasks using context from Notion, your connected apps, and the web.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.notion.com/product/ai",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-09",
+    "nota": "Notion Agent ejecuta tareas complejas de múltiples pasos autónomamente."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.text_generation",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.notion.com/product/ai",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Improve writing or generate drafts with AI blocks directly in your pages.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.notion.com/product/ai",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-09",
+    "nota": "Permite generar borradores de texto mediante bloques de IA en las páginas (con prueba gratuita en el plan Free)."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.online_self_service_booking",
+    "estado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.notion.com/product/ai",
+        "fechaConsulta": "2026-09-09"
+      }
+    ],
+    "confianza": "baja",
+    "proximaRevision": "2027-09-09",
+    "nota": "Buscado autoservicio de reserva de citas online por parte del cliente en las páginas proporcionadas."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.customer_appointment_reminders",
+    "estado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.notion.com/pricing",
+        "fechaConsulta": "2026-09-09"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.notion.com/product/ai",
+        "fechaConsulta": "2026-09-09"
+      }
+    ],
+    "confianza": "baja",
+    "proximaRevision": "2027-09-09",
+    "nota": "Buscado recordatorios automáticos de citas enviados a clientes en las páginas proporcionadas."
   }
 ]
