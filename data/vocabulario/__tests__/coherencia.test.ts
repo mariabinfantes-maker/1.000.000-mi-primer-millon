@@ -4,7 +4,9 @@ import {
   getDominios,
   getRestricciones,
   getVocabulario,
+  compactar,
   erroresDeMenciones,
+  normalizar,
 } from "../repositorio";
 
 /**
@@ -257,6 +259,122 @@ describe("la coherencia interna del vocabulario", () => {
       // `req.offline_capable` contiene literalmente «offline»: sin quitar los
       // identificadores, toda frontera bien escrita se delataría sola.
       expect(cap({ noEs: "Ver la restricción req.offline_capable para esto." })).toEqual([]);
+    });
+
+    /**
+     * Condición A de `CONDICIONES-PARA-F3.md`. Los siete casos son los que
+     * encontró la revisión independiente sobre la versión anterior, más otros
+     * que salen del mismo agujero. Los dos primeros no son ataques: se
+     * escriben solos al teclear.
+     */
+    describe("las variaciones de espacios no apagan la guarda", () => {
+      const VARIANTES: [string, string][] = [
+        ["doble espacio", "funciona sin  cobertura."],
+        ["salto de línea", "funciona sin\ncobertura."],
+        ["tabulador", "funciona sin\tcobertura."],
+        ["espacio duro", "funciona sin\u00a0cobertura."],
+        ["guion", "funciona sin-cobertura."],
+        ["espacio de ancho cero", "funciona sin\u200bcobertura."],
+        ["triple espacio y salto", "funciona sin \n  cobertura."],
+        ["guion largo", "funciona sin\u2014cobertura."],
+        ["barra baja", "funciona sin_cobertura."],
+        ["espacio fino", "funciona sin\u202fcobertura."],
+        ["MAYÚSCULAS con doble espacio", "FUNCIONA SIN  COBERTURA."],
+        ["con tilde intrusa y salto", "fúnciona sin\ncobértura."],
+      ];
+
+      it.each(VARIANTES)("detecta «sin cobertura» escrito con %s", (_n, noEs) => {
+        expect(cap({ noEs }).join()).toContain("sin declararlo");
+      });
+
+      it("el séptimo caso: «off-line» es «offline»", () => {
+        expect(cap({ noEs: "funciona off-line." }).join()).toContain("sin declararlo");
+      });
+
+      it("también en la definición, donde nunca se admite", () => {
+        expect(cap({ definicion: "Recoge el parte y funciona sin  cobertura." }).join()).toContain(
+          "definicion usa"
+        );
+      });
+
+      it("y una declaración con el término espaciado distinto sigue casando", () => {
+        expect(
+          cap({
+            noEs: "Que funcione sin  cobertura es una restricción (req.offline_capable).",
+            mencionesDeclaradas: [{ termino: "sin cobertura", remiteA: "req.offline_capable" }],
+          })
+        ).toEqual([]);
+      });
+
+      it("normalizar colapsa, compactar elimina", () => {
+        expect(normalizar("sin  \n\tcobertura")).toBe("sin cobertura");
+        expect(compactar("sin  \n\tcobertura")).toBe("sincobertura");
+        expect(compactar("off-line")).toBe("offline");
+      });
+
+      it("no inventa coincidencias donde no las hay", () => {
+        expect(cap({ noEs: "No es un servicio de mensajería sin costes añadidos." })).toEqual([]);
+      });
+    });
+
+    /** Condición B de `CONDICIONES-PARA-F3.md`. */
+    describe("las declaraciones duplicadas se rechazan en cualquier orden", () => {
+      const noEs = "Funciona sin cobertura, ver req.offline_capable.";
+      const buena = { termino: "sin cobertura", remiteA: "req.offline_capable" };
+      const inexistente = { termino: "sin cobertura", remiteA: "req.no_existe" };
+      const propia = { termino: "sin cobertura", remiteA: "cap.prueba" };
+
+      it("RECHAZA la duplicada detrás de una válida", () => {
+        // Éste es el caso exacto que pasaba antes: `find` devolvía la primera.
+        const e = cap({ noEs, mencionesDeclaradas: [buena, inexistente] }).join();
+        expect(e).toContain("declara 2 veces");
+        expect(e).toContain('remite a "req.no_existe", que no existe');
+      });
+
+      it("RECHAZA la duplicada delante de la válida, mismo resultado", () => {
+        const e = cap({ noEs, mencionesDeclaradas: [inexistente, buena] }).join();
+        expect(e).toContain("declara 2 veces");
+        expect(e).toContain('remite a "req.no_existe", que no existe');
+      });
+
+      it("RECHAZA tres duplicadas y señala TODOS los defectos, no sólo el primero", () => {
+        const e = cap({ noEs, mencionesDeclaradas: [buena, inexistente, propia] }).join();
+        expect(e).toContain("declara 3 veces");
+        expect(e).toContain("que no existe");
+        expect(e).toContain("no puede remitir a la propia capacidad");
+        expect(e).toContain("no aparece en noEs");
+      });
+
+      it("RECHAZA duplicadas que sólo difieren en mayúsculas o espacios", () => {
+        for (const gemela of [
+          { termino: "SIN COBERTURA", remiteA: "req.offline_capable" },
+          { termino: "sin  cobertura", remiteA: "req.offline_capable" },
+          { termino: "sin-cobertura", remiteA: "req.offline_capable" },
+        ]) {
+          expect(cap({ noEs, mencionesDeclaradas: [buena, gemela] }).join(), gemela.termino).toContain(
+            "declara 2 veces"
+          );
+        }
+      });
+
+      it("ninguna declaración queda sin validar por su posición", () => {
+        // Cuatro declaraciones, la última rota: tiene que salir igualmente.
+        const e = cap({
+          noEs: "Funciona sin cobertura y en español, ver req.offline_capable.",
+          mencionesDeclaradas: [buena, { termino: "interfaz en español", remiteA: "req.no_existe_2" }],
+        }).join();
+        expect(e).toContain("req.no_existe_2");
+      });
+
+      it("una sola declaración correcta sigue valiendo", () => {
+        expect(cap({ noEs, mencionesDeclaradas: [buena] })).toEqual([]);
+      });
+
+      it("rechaza una declaración sin término", () => {
+        expect(
+          cap({ noEs, mencionesDeclaradas: [buena, { termino: "  ", remiteA: "req.offline_capable" }] }).join()
+        ).toContain("sin término");
+      });
     });
 
     it("no se le escapa una mención escrita con otras tildes", () => {

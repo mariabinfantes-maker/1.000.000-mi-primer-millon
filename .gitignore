@@ -58,3 +58,17 @@ next-env.d.ts
 # ejecución concreta, no del proyecto.
 /test-results/
 /playwright-report/
+
+# Salida cruda de la verificación de F2: se genera en el ordenador de la
+# propietaria y se entrega aparte. No es fuente, es material de trabajo.
+data/verificacion/salida/
+
+# Checkpoint y salida cruda de repescar-remoto.ts (ejecución de rescate del
+# lote 1 desde el entorno de Claude): material de trabajo de una sola vez,
+# no una fuente que deba persistir en el repositorio.
+data/verificacion/_checkpoint-repesca-remota.json
+data/verificacion/_salida-repesca-remota.json
+data/verificacion/_descartes-originales.json
+# Lo mismo para cada lote que se abra con el modo `lote`, que guarda aparte.
+data/verificacion/_checkpoint-lote-*.json
+data/verificacion/_salida-lote-*.json

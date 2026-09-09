@@ -1,0 +1,1378 @@
+[
+  {
+    "herramientaId": "agile-crm",
+    "capacidadId": "cap.app_integrations",
+    "cita": "Plugins/Integrations",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.app_integrations",
+    "cita": "MS Teams integration",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "salesmate",
+    "capacidadId": "cap.audit_log",
+    "cita": "Audit logs",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.custom_reports",
+    "cita": "Build custom reports",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "salesmate",
+    "capacidadId": "cap.customer_contact_records",
+    "cita": "Contact, company management",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.dashboards",
+    "cita": "Dashboard view",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.dashboards",
+    "cita": "Shareable dashboard",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "close",
+    "capacidadId": "cap.data_export",
+    "cita": "Data import and export",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.data_import_and_migration",
+    "cita": "Import",
+    "veredicto": "no_vale",
+    "motivo": "«Import» a secas no dice desde dónde. La capacidad es traer los datos desde otra herramienta o una hoja de cálculo, no importar un archivo cualquiera.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.file_storage",
+    "cita": "Full file system",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "cita": "Task Dependencies",
+    "veredicto": "no_vale",
+    "motivo": "La capacidad es ver el proyecto en el tiempo Y encadenar tareas. «Task Dependencies» demuestra el encadenado, no la vista temporal.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "cita": "Gantt chart & dependencies",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "paymo",
+    "capacidadId": "cap.kanban_boards",
+    "cita": "Task Kanban View",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.kanban_boards",
+    "cita": "Kanban board",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "teamgantt",
+    "capacidadId": "cap.kanban_boards",
+    "cita": "Kanban view",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "agile-crm",
+    "capacidadId": "cap.lead_capture",
+    "cita": "Web-to-Lead",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.lead_capture",
+    "cita": "Web to Lead Forms",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.project_planning",
+    "cita": "Track milestones",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.public_api",
+    "cita": "API",
+    "veredicto": "no_vale",
+    "motivo": "Criterio de la propietaria para cap.public_api (2026-09-08), aplicado igual a las ocho: la capacidad exige una interfaz de programación DOCUMENTADA, así que sólo se da por verificada con las dos evidencias juntas — (a) documentación oficial que demuestre una API disponible para clientes, y (b) tarifa oficial que sitúe el plan. Con una sola de las dos, el par queda en desconocido. (a) NO: se intentaron tres direcciones del propio dominio —ganttpro.com/api/, support.ganttpro.com/en/articles/api y ganttpro.com/knowledge-base/api/— y ninguna se pudo recuperar. (b) SÍ: la tarifa incluye la fila \"API\" en el plan Business. Falta (a), luego la cita \"API\" —tres caracteres— se queda sin nada que la desambigüe y no basta. Esto NO afirma que la herramienta carezca de API: afirma que no se ha podido comprobar con el listón exigido.",
+    "revisadoEl": "2026-09-08"
+  },
+  {
+    "herramientaId": "less-annoying-crm",
+    "capacidadId": "cap.public_api",
+    "cita": "API documentation",
+    "veredicto": "no_vale",
+    "motivo": "Criterio de la propietaria para cap.public_api (2026-09-08), aplicado igual a las ocho: la capacidad exige una interfaz de programación DOCUMENTADA, así que sólo se da por verificada con las dos evidencias juntas — (a) documentación oficial que demuestre una API disponible para clientes, y (b) tarifa oficial que sitúe el plan. Con una sola de las dos, el par queda en desconocido. (a) NO: de tres direcciones probadas, lessannoyingcrm.com/help/api y api.lessannoyingcrm.com no se recuperaron, y lessannoyingcrm.com/api devuelve una página de marketing, sin endpoints ni autenticación. (b) NO: al releer la tarifa oficial, la API no aparece en la tabla de planes. Sin ninguna de las dos evidencias, la cita \"API documentation\" no se sostiene. Sustituye al motivo de plantilla anterior, que daba la fila por buena sin haber comprobado ninguna de las dos cosas. Esto NO afirma que la herramienta carezca de API: afirma que no se ha podido comprobar con el listón exigido.",
+    "revisadoEl": "2026-09-08"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.public_api",
+    "cita": "API Build on the Nifty API",
+    "veredicto": "vale",
+    "motivo": "Criterio de la propietaria para cap.public_api (2026-09-08): sólo se verifica con las dos evidencias juntas — (a) documentación oficial que demuestre una API disponible para clientes, y (b) tarifa oficial que sitúe el plan. (a) SÍ: developers.niftypm.com es documentación de referencia real, en un subdominio del fabricante, y dice literalmente \"The Nifty public REST API.\" (b) SÍ: la tarifa sitúa la capacidad en el plan Business. La cita es \"API Build on the Nifty API\", que además de nombrar la API dice para qué sirve —construir encima—, que es literalmente lo que define la capacidad. NOTA SOBRE LA CITA: al repreguntar el par para que pasara por la estructura de dos evidencias, el modelo devolvió esta cita en vez de la anterior, \"Open API\", leyendo la misma página de tarifas. Se actualiza la entrada en vez de dejar la vieja huérfana, porque el veredicto y su razón son los mismos.",
+    "revisadoEl": "2026-09-08"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.public_api",
+    "cita": "Developer API",
+    "veredicto": "no_vale",
+    "motivo": "Criterio de la propietaria para cap.public_api (2026-09-08), aplicado igual a las ocho: la capacidad exige una interfaz de programación DOCUMENTADA, así que sólo se da por verificada con las dos evidencias juntas — (a) documentación oficial que demuestre una API disponible para clientes, y (b) tarifa oficial que sitúe el plan. Con una sola de las dos, el par queda en desconocido. (a) NO: developers.nutshell.com sí responde, pero es una portada de hub para desarrolladores; no contiene referencia de API —ni endpoints, ni autenticación, ni métodos—. (b) NO: la API no aparece en la tabla de planes de la tarifa oficial. Sin ninguna de las dos, la cita \"Developer API\" no se sostiene, y además la fuente del registro es la portada, que por la regla del plan tampoco podría situarlo. Sustituye al motivo de plantilla anterior, que hablaba de \"una tabla oficial de planes\" cuando la fuente real era la portada. Esto NO afirma que la herramienta carezca de API: afirma que no se ha podido comprobar con el listón exigido.",
+    "revisadoEl": "2026-09-08"
+  },
+  {
+    "herramientaId": "paymo",
+    "capacidadId": "cap.public_api",
+    "cita": "Integrations & API Access",
+    "veredicto": "no_vale",
+    "motivo": "Criterio de la propietaria para cap.public_api (2026-09-08): sólo se verifica con las dos evidencias juntas — (a) documentación oficial que demuestre una API disponible para clientes, y (b) tarifa oficial que sitúe el plan. (b) SÍ: la tarifa sitúa \"Integrations & API Access\" en el plan Plus. (a) NO SE PUEDE ACEPTAR: la única referencia de API encontrada es github.com/paymoapp/api, que está FUERA del dominio del fabricante. La regla nueva exige, para un dominio ajeno, una vinculación oficial explícita y verificable: una página del propio Paymo que enlace ahí. Se buscó en cuatro direcciones oficiales —paymoapp.com, paymoapp.com/api/ (404), help.paymoapp.com y paymoapp.com/developers/ (404)— y ninguna enlaza a esa organización de GitHub. Que la organización se llame \"paymoapp\" no demuestra de quién es: un nombre en GitHub lo puede registrar cualquiera. CAMBIA EL VEREDICTO ANTERIOR, que la daba por buena aceptando esa referencia con una advertencia escrita. Con la regla de dominio delante, una advertencia no sustituye a la prueba. Esto NO afirma que Paymo carezca de API: afirma que no se ha podido comprobar con el listón exigido.",
+    "revisadoEl": "2026-09-08"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.public_api",
+    "cita": "API access",
+    "veredicto": "vale",
+    "motivo": "Investigado con fuentes oficiales (2026-09-08). La documentación oficial https://apidocs.teamwork.com/ demuestra una API documentada y destinada a que el cliente construya encima: \"Use our API to integrate Teamwork.com with the tools you love, and create customized, tailored processes that work exactly the way you need them to.\" Y la tarifa oficial sitúa el plan: la fila \"API access\" da un límite por plan (Free: 150 requests/minute), luego la capacidad existe ya en el plan más barato. Con las dos evidencias delante, la fila de la tarifa deja de ser ambigua: nombra una API que consta documentada y disponible para clientes.",
+    "revisadoEl": "2026-09-08"
+  },
+  {
+    "herramientaId": "salesmate",
+    "capacidadId": "cap.quotes_and_proposals",
+    "cita": "Product & quote management",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "agile-crm",
+    "capacidadId": "cap.roles_and_permissions",
+    "cita": "Access Controls (ACLs)",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.roles_and_permissions",
+    "cita": "Custom roles & rights",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.roles_and_permissions",
+    "cita": "Custom Roles & Permissions",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.sales_forecasting",
+    "cita": "Sales Forecasting",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "capsule-crm",
+    "capacidadId": "cap.sales_pipeline",
+    "cita": "1 Sales Pipeline",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "salesmate",
+    "capacidadId": "cap.sales_pipeline",
+    "cita": "Deal pipeline management",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.sales_pipeline",
+    "cita": "Customize Sales Stages",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Google SSO",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "salesmate",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "SSO",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Single sign-on",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Use Single Sign-On",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zoho-projects",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Single Sign-On (SSO)",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "paymo",
+    "capacidadId": "cap.task_management",
+    "cita": "Unlimited Tasks",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.task_management",
+    "cita": "Tasks & task lists",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.team_messaging",
+    "cita": "Team chat",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.team_workload_planning",
+    "cita": "Team Workloads",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Time Tracking & Reporting",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "paymo",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Unlimited Time Tracking",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Time tracker",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "teamgantt",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Time tracking",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Log time",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "nifty",
+    "capacidadId": "cap.two_factor_authentication",
+    "cita": "Two-Factor Authentication",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.two_factor_authentication",
+    "cita": "Multi-factor authentication",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.webhooks",
+    "cita": "Webhooks",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.workflow_automation",
+    "cita": "If/then conditional logic",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "capsule-crm",
+    "capacidadId": "cap.app_integrations",
+    "cita": "Connect to 100+ integrations",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.data_export",
+    "cita": "Custom Exporting",
+    "veredicto": "vale",
+    "motivo": "Nombra la exportación. A diferencia de importar, la capacidad no exige decir de dónde salen los datos: exige poder llevárselos.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.roles_and_permissions",
+    "cita": "Unlimited Custom Roles",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Google SSO",
+    "veredicto": "vale",
+    "motivo": "Nombra el inicio de sesión único y hasta el proveedor. No hay ambigüedad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.two_factor_authentication",
+    "cita": "Two-Factor Authentication",
+    "veredicto": "vale",
+    "motivo": "Es el nombre exacto de la capacidad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.audit_log",
+    "cita": "Audit Log",
+    "veredicto": "vale",
+    "motivo": "Mismo criterio que «Audit logs», ya aceptada en esta misma revisión.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.task_management",
+    "cita": "Unlimited Tasks",
+    "veredicto": "vale",
+    "motivo": "La capacidad es de una sola pieza —que haya tareas y se sepa qué queda pendiente— y una fila de cuota en la tabla de planes la demuestra.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "cita": "Unlimited Gantt Charts",
+    "veredicto": "no_vale",
+    "motivo": "La capacidad tiene dos mitades: ver el proyecto en el tiempo Y encadenar tareas. Esto demuestra la vista temporal, no el encadenado. Es el espejo exacto de «Task Dependencies», rechazada por demostrar sólo la otra mitad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.kanban_boards",
+    "cita": "Kanban Boards",
+    "veredicto": "vale",
+    "motivo": "Es el nombre exacto de la capacidad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Native Time Tracking",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "clickup",
+    "capacidadId": "cap.team_workload_planning",
+    "cita": "Portfolio Workload Management",
+    "veredicto": "vale",
+    "motivo": "Nombra la gestión de carga de trabajo, que es la capacidad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.workflow_automation",
+    "cita": "Workflow automation",
+    "veredicto": "vale",
+    "motivo": "Es el nombre exacto de la capacidad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "copper",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Single sign-on (Okta)",
+    "veredicto": "vale",
+    "motivo": "Nombra el inicio de sesión único y el proveedor.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Enterprise SSO",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "nutshell",
+    "capacidadId": "cap.audit_log",
+    "cita": "Audit log & changelog",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.workflow_automation",
+    "cita": "Triggers & actions",
+    "veredicto": "vale",
+    "motivo": "«Si pasa esto, haz aquello» es literalmente la definición de la capacidad, y «Triggers & actions» es su nombre en la tabla.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.public_api",
+    "cita": "API",
+    "veredicto": "vale",
+    "motivo": "Criterio de la propietaria para cap.public_api (2026-09-08), aplicado igual a las ocho: la capacidad exige una interfaz de programación DOCUMENTADA, así que sólo se da por verificada con las dos evidencias juntas — (a) documentación oficial que demuestre una API disponible para clientes, y (b) tarifa oficial que sitúe el plan. (a) SÍ: api.scoro.com es documentación de referencia real y dice literalmente \"The API makes it easy to create web and desktop applications that integrate with your account.\" (b) SÍ: la tarifa incluye la fila \"API\" como funcionalidad de plataforma, y el plan \"Standard\" que le atribuye la respuesta es un nivel real: Scoro vende por dos ejes a la vez —paquetes (\"Time-billing\", \"Projects & Resources\") y niveles de plataforma—, y la página dice literalmente \"You can choose between Standard and Enterprise platform.\" CAMBIA EL VEREDICTO ANTERIOR, que rechazaba \"API\" por ambigua invocando el precedente de ganttpro. Con la documentación delante, la ambigüedad desaparece, igual que en teamwork-com. CORRIGE ADEMÁS UN ERROR PROPIO: una versión intermedia de este motivo llegó a afirmar que el plan \"Standard\" NO existía en la tarifa. Era falso. Salió de preguntar sólo por los nombres de los paquetes, que no incluyen \"Standard\", y dar por hecho que no había otro eje. Comprobado tres veces con pregunta directa por los niveles, las tres afirmativas. Queda escrito para que no se repita: la revisión independiente lo destapó al ver que otros cinco registros de scoro afirman ese mismo plan.",
+    "revisadoEl": "2026-09-08"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.dashboards",
+    "cita": "Customizable dashboards",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "scoro",
+    "capacidadId": "cap.data_export",
+    "cita": "Data import & export",
+    "veredicto": "vale",
+    "motivo": "Dice «Data ... export»: nombra el objeto y la dirección.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "streak",
+    "capacidadId": "cap.webhooks",
+    "cita": "Standard + Webhooks",
+    "veredicto": "vale",
+    "motivo": "Nombra los webhooks dentro de la tabla de planes. La cita parece un pegado de nombre de plan y fila, pero la fila que sostiene la capacidad está ahí.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.workflow_automation",
+    "cita": "Workflows",
+    "veredicto": "no_vale",
+    "motivo": "«Workflows» a secas no dice que encadene acciones —«si pasa esto, haz aquello»—, que es lo que define la capacidad. Es más débil que «Workflow automation» o «Triggers & actions», aceptadas aquí mismo. Se rechaza por prudencia, no por certeza.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.dashboards",
+    "cita": "Customizable dashboards",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad dentro de una tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.data_export",
+    "cita": "Import & Export",
+    "veredicto": "vale",
+    "motivo": "Nombra la exportación, que no exige decir a dónde.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "capacidadId": "cap.data_import_and_migration",
+    "cita": "Import & Export",
+    "veredicto": "no_vale",
+    "motivo": "Mismo defecto que «Import» en ganttpro: no dice desde dónde. La capacidad es traer los datos desde otra herramienta o una hoja de cálculo, no importar un archivo cualquiera.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.task_management",
+    "cita": "Essential task management",
+    "veredicto": "vale",
+    "motivo": "Nombra la gestión de tareas.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.project_planning",
+    "cita": "Project & task management",
+    "veredicto": "no_vale",
+    "motivo": "La capacidad exige fases e hitos, con responsables y fechas. «Project management» a secas no demuestra nada de eso: es la etiqueta genérica de la categoría entera. Se rechaza por prudencia.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.public_api",
+    "cita": "API access",
+    "veredicto": "no_vale",
+    "motivo": "Investigado con fuentes oficiales (2026-09-08) y NO se reúnen las dos evidencias exigidas. La tarifa sí sitúa el plan: \"API access\" aparece en el plan Business. Pero no se pudo obtener documentación oficial que demuestre una API documentada y disponible para clientes: se intentaron cuatro direcciones del propio dominio (base.zenkit.com/docs/api/overview/intro y .../authentication, zenkit.com/en/api, zenkit.com/en/base/api/). Las dos primeras responden, pero devuelven el armazón de la aplicación con el texto genérico \"A platform for collaboration and project management\", sin endpoints ni autenticación; las otras dos no se pudieron recuperar. ESTO NO AFIRMA QUE ZENKIT NO TENGA API: afirma que no lo hemos podido comprobar, y por eso el par queda en desconocido. Sustituye al motivo anterior, que invocaba el precedente de «API» a secas en ganttpro y scoro. Ese motivo era incorrecto: el precedente aplicable era teamwork-com, con esta misma cita literal y veredicto «vale». La asimetría con teamwork-com no está en la cita, que es idéntica, sino en la evidencia que la respalda: allí la documentación oficial se pudo leer y aquí no.",
+    "revisadoEl": "2026-09-08"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "SSO (SAML)",
+    "veredicto": "vale",
+    "motivo": "Nombra el inicio de sesión único y el protocolo.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.two_factor_authentication",
+    "cita": "2-Factor Authentication",
+    "veredicto": "vale",
+    "motivo": "Es el nombre exacto de la capacidad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zenkit",
+    "capacidadId": "cap.audit_log",
+    "cita": "Activity audit",
+    "veredicto": "vale",
+    "motivo": "Nombra el registro de actividad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "agile-crm",
+    "capacidadId": "cap.customer_contact_records",
+    "cita": "1,000 Contacts & Companies",
+    "veredicto": "vale",
+    "motivo": "Una fila de cuota que nombra contactos y empresas demuestra que el producto guarda fichas de cliente.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "ganttpro",
+    "capacidadId": "cap.data_export",
+    "cita": "Export true true true true",
+    "veredicto": "no_vale",
+    "motivo": "No es una frase literal legible: los «true» son las marcas por plan de una tabla comparativa mal recogida. Y «Export» suelto, sin objeto, no dice qué se exporta.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "paymo",
+    "capacidadId": "cap.app_integrations",
+    "cita": "Integrations & API Access",
+    "veredicto": "vale",
+    "motivo": "Nombra las integraciones.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.app_integrations",
+    "cita": "Standard integration",
+    "veredicto": "vale",
+    "motivo": "Nombra la integración dentro de la tabla oficial de planes.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zoho-projects",
+    "capacidadId": "cap.dashboards",
+    "cita": "Portfolio Dashboard",
+    "veredicto": "vale",
+    "motivo": "Nombra el cuadro de mando.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zoho-projects",
+    "capacidadId": "cap.task_management",
+    "cita": "Task management",
+    "veredicto": "vale",
+    "motivo": "Es el nombre exacto de la capacidad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zoho-projects",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "cita": "Gantt chart",
+    "veredicto": "no_vale",
+    "motivo": "Mismo criterio que «Unlimited Gantt Charts» en clickup: demuestra la vista temporal, no el encadenado de tareas, y la capacidad exige las dos mitades.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zoho-projects",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Time Logs and Timesheets",
+    "veredicto": "vale",
+    "motivo": "Nombra el registro de tiempo dedicado.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "zoho-projects",
+    "capacidadId": "cap.team_workload_planning",
+    "cita": "Workload Report",
+    "veredicto": "vale",
+    "motivo": "Nombra la carga de trabajo, que es lo que la capacidad pide ver.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "hive",
+    "capacidadId": "cap.kanban_boards",
+    "cita": "Kanban view",
+    "veredicto": "vale",
+    "motivo": "Nombra el kanban, que es la capacidad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "hive",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Time tracking",
+    "veredicto": "vale",
+    "motivo": "Es el nombre exacto de la capacidad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.gantt_and_dependencies",
+    "cita": "Interactive Gantt charts",
+    "veredicto": "no_vale",
+    "motivo": "Mismo criterio que en clickup y zoho-projects: el Gantt demuestra la vista temporal, no el encadenado de tareas, y la capacidad exige las dos mitades.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.kanban_boards",
+    "cita": "Board view",
+    "veredicto": "no_vale",
+    "motivo": "«Board view» no dice que sea un tablero de columnas de estado; hay que saber de antemano que la vista de tablero de Wrike es kanban. Se rechaza por prudencia, no por certeza.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "wrike",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Time tracking",
+    "veredicto": "vale",
+    "motivo": "Es el nombre exacto de la capacidad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.workflow_automation",
+    "cita": "100 automations",
+    "veredicto": "vale",
+    "motivo": "La fila nombra las automatizaciones, que es la capacidad. A diferencia de «Workflows» a secas —rechazada en vtiger—, aquí sí aparece la palabra que define la capacidad.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "capacidadId": "cap.app_integrations",
+    "cita": "Connect chat tools",
+    "veredicto": "vale",
+    "motivo": "Conectar con herramientas de chat es conectar con otras herramientas mediante integraciones ya hechas.",
+    "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "beautiful-ai",
+    "capacidadId": "cap.app_integrations",
+    "cita": "Connect your favorite tools",
+    "veredicto": "vale",
+    "motivo": "Dice que se conecta con otras herramientas, que es la capacidad entera.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "beautiful-ai",
+    "capacidadId": "cap.roles_and_permissions",
+    "cita": "Manage who can view & edit",
+    "veredicto": "vale",
+    "motivo": "«Quién puede ver y editar» es literalmente definir quién ve y quién hace qué.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "beautiful-ai",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Secure single sign-on (SSO)",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "beautiful-ai",
+    "capacidadId": "cap.audit_log",
+    "cita": "Audit & change-logs",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "beautiful-ai",
+    "capacidadId": "cap.text_generation",
+    "cita": "AI writing assistant",
+    "veredicto": "no_vale",
+    "motivo": "«Asistente de escritura con IA» no distingue redactar de corregir, que son dos capacidades distintas del vocabulario. Ambigua: no se interpreta.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "canva",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "SSO and SCIM provisioning",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "canva",
+    "capacidadId": "cap.brand_kit",
+    "cita": "1 Brand Kit (3 colors only)",
+    "veredicto": "vale",
+    "motivo": "Nombra el kit de marca y hasta su límite en ese plan.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "canva",
+    "capacidadId": "cap.document_templates",
+    "cita": "1.6M+ templates to start fast",
+    "veredicto": "vale",
+    "motivo": "Nombra plantillas de las que partir, que es la capacidad; de qué tipo sea el documento no forma parte de la definición.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "canva",
+    "capacidadId": "cap.collaborative_document_editing",
+    "cita": "Real-time collaboration",
+    "veredicto": "vale",
+    "motivo": "«Colaboración en tiempo real» es trabajar varias personas a la vez sobre lo mismo.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.app_integrations",
+    "cita": "50+ Native Integrations",
+    "veredicto": "vale",
+    "motivo": "Nombra integraciones nativas y cuántas.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.public_api",
+    "cita": "API Calls 100/minute",
+    "veredicto": "vale",
+    "motivo": "Un límite de llamadas a la API en la tarifa demuestra que la API existe y está a disposición del cliente.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.data_export",
+    "cita": "Custom Exporting",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.roles_and_permissions",
+    "cita": "Unlimited Custom Roles",
+    "veredicto": "vale",
+    "motivo": "«Roles personalizados ilimitados» es definir perfiles, que es la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Google SSO",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.two_factor_authentication",
+    "cita": "Two-Factor Authentication",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.audit_log",
+    "cita": "Audit Log",
+    "veredicto": "vale",
+    "motivo": "Mismo criterio que «Audit logs» en el lote 1, que se aceptó.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.collaborative_document_editing",
+    "cita": "Collaborative Docs",
+    "veredicto": "vale",
+    "motivo": "«Documentos colaborativos» nombra la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.file_storage",
+    "cita": "60MB Storage",
+    "veredicto": "vale",
+    "motivo": "Un límite de almacenamiento en la tarifa demuestra que guarda archivos.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.task_management",
+    "cita": "Unlimited Tasks",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.text_generation",
+    "cita": "Unlimited AI writing",
+    "veredicto": "no_vale",
+    "motivo": "«Escritura con IA» no distingue redactar de corregir. Mismo criterio que Beautiful.ai: ambigua, no se interpreta.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "fireflies-ai",
+    "capacidadId": "cap.public_api",
+    "cita": "API access",
+    "veredicto": "vale",
+    "motivo": "Mismo criterio que «API Access» en el lote 1, que se aceptó.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "fireflies-ai",
+    "capacidadId": "cap.roles_and_permissions",
+    "cita": "Super admin role",
+    "veredicto": "no_vale",
+    "motivo": "Nombra UN rol que viene de fábrica, no que se puedan definir perfiles y permisos. Ambigua: no se interpreta.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "fireflies-ai",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "SSO + SCIM",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "fireflies-ai",
+    "capacidadId": "cap.audit_log",
+    "cita": "Audit Logs (API)",
+    "veredicto": "vale",
+    "motivo": "Nombra el registro de actividad; que se consulte por API no lo desmiente.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "gamma",
+    "capacidadId": "cap.public_api",
+    "cita": "API access",
+    "veredicto": "vale",
+    "motivo": "Mismo criterio que «API Access» en el lote 1.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "gamma",
+    "capacidadId": "cap.data_import_and_migration",
+    "cita": "Import from PDF & PPTX",
+    "veredicto": "vale",
+    "motivo": "Importar desde PDF y PPTX es traer datos desde fuera sin teclearlos.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "gamma",
+    "capacidadId": "cap.brand_kit",
+    "cita": "Custom branding & fonts",
+    "veredicto": "vale",
+    "motivo": "Marca y tipografías propias es lo que define el kit de marca.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "grammarly",
+    "capacidadId": "cap.app_integrations",
+    "cita": "Grammarly for Google Docs",
+    "veredicto": "vale",
+    "motivo": "Nombra una integración concreta con otra herramienta.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "grammarly",
+    "capacidadId": "cap.roles_and_permissions",
+    "cita": "Custom roles and permissions",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "heygen",
+    "capacidadId": "cap.two_factor_authentication",
+    "cita": "Team Member MFA",
+    "veredicto": "vale",
+    "motivo": "MFA es exigir un segundo factor, que es la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "heygen",
+    "capacidadId": "cap.audit_log",
+    "cita": "Audit log",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "krisp",
+    "capacidadId": "cap.public_api",
+    "cita": "API Integration",
+    "veredicto": "no_vale",
+    "motivo": "«Integración por API» no dice si Krisp OFRECE una API o si consume la de otro. Ambigua: no se interpreta.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "krisp",
+    "capacidadId": "cap.roles_and_permissions",
+    "cita": "Super admin role",
+    "veredicto": "no_vale",
+    "motivo": "Nombra UN rol de fábrica, no que se puedan definir perfiles. Mismo criterio que Fireflies.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "krisp",
+    "capacidadId": "cap.two_factor_authentication",
+    "cita": "MFA",
+    "veredicto": "vale",
+    "motivo": "MFA nombra la capacidad; mismo criterio que «SSO» en el lote 1, que se aceptó.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "krisp",
+    "capacidadId": "cap.audio_transcription",
+    "cita": "Unlimited Transcription",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "krisp",
+    "capacidadId": "cap.audio_noise_removal",
+    "cita": "Unlimited Noise Cancellation",
+    "veredicto": "vale",
+    "motivo": "«Cancelación de ruido» es quitar ruido de fondo, que es la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "motion",
+    "capacidadId": "cap.roles_and_permissions",
+    "cita": "Permissions & Access Control",
+    "veredicto": "vale",
+    "motivo": "«Permisos y control de acceso» nombra la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "motion",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Time Tracking",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "otter-ai",
+    "capacidadId": "cap.public_api",
+    "cita": "Otter API & Webhooks",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "otter-ai",
+    "capacidadId": "cap.webhooks",
+    "cita": "Otter API & Webhooks",
+    "veredicto": "vale",
+    "motivo": "La misma frase nombra las dos cosas, y los webhooks son una de ellas.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "otter-ai",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Single Sign-On (SSO)",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "otter-ai",
+    "capacidadId": "cap.two_factor_authentication",
+    "cita": "2-factor authentication",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "otter-ai",
+    "capacidadId": "cap.audit_log",
+    "cita": "Activity logs",
+    "veredicto": "vale",
+    "motivo": "«Registros de actividad» es el nombre de la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "otter-ai",
+    "capacidadId": "cap.audio_transcription",
+    "cita": "Live transcription",
+    "veredicto": "vale",
+    "motivo": "Transcripción en directo es convertir voz en texto.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "todoist",
+    "capacidadId": "cap.public_api",
+    "cita": "Developer API",
+    "veredicto": "vale",
+    "motivo": "«API para desarrolladores» nombra una API a disposición de quien construya encima.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "todoist",
+    "capacidadId": "cap.audit_log",
+    "cita": "1 week activity history",
+    "veredicto": "no_vale",
+    "motivo": "Dice cuánto tiempo se guarda un historial, no que registre quién hizo qué. Ambigua: no se interpreta.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "heygen",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "SAML/ SSO",
+    "veredicto": "vale",
+    "motivo": "Nombra la capacidad sin ambigüedad, y además el protocolo con el que se hace. Mismo criterio que «SSO» en el lote 1 y que las otras cinco citas de SSO del lote 2.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.custom_reports",
+    "cita": "Custom reporting Add-on",
+    "veredicto": "vale",
+    "motivo": "Nombra los informes a medida; que se venda como complemento afecta al plan, no a que exista.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Single Sign-On (SSO)",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.customer_contact_records",
+    "cita": "Contact profiles",
+    "veredicto": "vale",
+    "motivo": "«Perfiles de contacto» es guardar quién es cada cliente.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.sales_pipeline",
+    "cita": "Pipeline management",
+    "veredicto": "vale",
+    "motivo": "«Gestión de embudo» nombra la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.text_generation",
+    "cita": "AI content generation",
+    "veredicto": "vale",
+    "motivo": "Dice «generación» de contenido, que es redactar y no corregir. Se distingue de los «AI writing» del lote 2, que se rechazaron por no separar una cosa de la otra.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.landing_pages",
+    "cita": "Landing pages",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "agiled",
+    "capacidadId": "cap.data_export",
+    "cita": "Export your data anytime.",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "agiled",
+    "capacidadId": "cap.customer_contact_records",
+    "cita": "500 contacts & 250 accounts",
+    "veredicto": "vale",
+    "motivo": "Un límite declarado en la tarifa demuestra que la función existe: no se pone tope a lo que no hay.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.customer_contact_records",
+    "cita": "Basic CRM (deals, contacts)",
+    "veredicto": "vale",
+    "motivo": "Nombra el CRM con contactos, que es guardar quién es cada cliente.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.sales_pipeline",
+    "cita": "Sales pipelines",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Task time tracking",
+    "veredicto": "vale",
+    "motivo": "«Control de tiempo por tarea» es registrar cuánto se dedica a cada cosa.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.time_and_attendance",
+    "cita": "Employee hours tracking",
+    "veredicto": "vale",
+    "motivo": "«Control de horas del empleado» es registrar la jornada, que es la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickfunnels",
+    "capacidadId": "cap.app_integrations",
+    "cita": "3rd Party Integrations",
+    "veredicto": "vale",
+    "motivo": "«Integraciones con terceros» nombra la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickfunnels",
+    "capacidadId": "cap.public_api",
+    "cita": "Webhooks/Full API Access",
+    "veredicto": "vale",
+    "motivo": "La misma frase nombra las dos cosas, y el acceso completo a la API es una de ellas.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickfunnels",
+    "capacidadId": "cap.webhooks",
+    "cita": "Webhooks/Full API Access",
+    "veredicto": "vale",
+    "motivo": "La misma frase nombra las dos cosas, y los webhooks son una de ellas.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickfunnels",
+    "capacidadId": "cap.sales_pipeline",
+    "cita": "CRM Pipelines",
+    "veredicto": "vale",
+    "motivo": "«Embudos del CRM» nombra la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "engagebay",
+    "capacidadId": "cap.customer_contact_records",
+    "cita": "Organize contacts with ease",
+    "veredicto": "vale",
+    "motivo": "Dice que la herramienta organiza los contactos, que es el núcleo de la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.public_api",
+    "cita": "Basic API Access",
+    "veredicto": "vale",
+    "motivo": "Mismo criterio que «API Access» en los lotes 1 y 2.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.dashboards",
+    "cita": "Custom Dashboards & Reporting",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.sales_pipeline",
+    "cita": "Sales Pipelines",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.website_builder",
+    "cita": "Website & Funnel Builder",
+    "veredicto": "vale",
+    "motivo": "La misma frase nombra dos cosas, y el constructor de webs es una de ellas.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.online_self_service_booking",
+    "cita": "Booking Calendars",
+    "veredicto": "no_vale",
+    "motivo": "«Calendarios de reserva» no dice QUIÉN reserva, y eso es lo distintivo de esta capacidad: su propio noEs separa el calendario interno de que reserve el cliente. Ambigua: no se interpreta.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.customer_appointment_reminders",
+    "cita": "Appointment Reminders",
+    "veredicto": "vale",
+    "motivo": "«Recordatorios de cita» es el nombre de la capacidad, y su noEs sólo excluye recordar tareas al equipo, que no es esto.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "hubspot",
+    "capacidadId": "cap.landing_pages",
+    "cita": "Free Landing Page Builder",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "hubspot",
+    "capacidadId": "cap.website_builder",
+    "cita": "Free Website Builder",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "hubspot",
+    "capacidadId": "cap.online_self_service_booking",
+    "cita": "Free Meeting Scheduler App",
+    "veredicto": "no_vale",
+    "motivo": "Nombra un producto —una aplicación para agendar reuniones—, no el mecanismo: no dice que un tercero coja hueco solo. Ambigua: no se interpreta.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "kartra",
+    "capacidadId": "cap.email_campaigns",
+    "cita": "Broadcasts and newsletters",
+    "veredicto": "vale",
+    "motivo": "«Envíos masivos y boletines» es enviar un correo a una lista.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "systeme-io",
+    "capacidadId": "cap.public_api",
+    "cita": "API requests per minute",
+    "veredicto": "vale",
+    "motivo": "Un límite de peticiones por minuto demuestra que la API existe. Mismo criterio que «API Calls 100/minute» en el lote 2.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "systeme-io",
+    "capacidadId": "cap.website_builder",
+    "cita": "Website builder",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  }
+]

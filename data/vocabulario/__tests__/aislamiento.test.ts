@@ -25,8 +25,19 @@ describe("el aislamiento del vocabulario", () => {
   const raiz = process.cwd();
   const DIRECTORIOS_IGNORADOS = new Set(["node_modules", ".next", ".git", "dist", "coverage"]);
   const EXTENSIONES = /\.(ts|tsx|js|jsx|mjs|cjs)$/;
-  /** Único lugar del repositorio autorizado a tocar el vocabulario. */
-  const PROPIO = path.join("data", "vocabulario");
+  /**
+   * Los únicos lugares autorizados a tocar el vocabulario.
+   *
+   * `data/vocabulario` es el propio módulo. `data/verificacion` se añadió al
+   * empezar F2, porque un registro de verificación apunta a una capacidad y
+   * validar que esa capacidad exista obliga a leer el vocabulario; sin eso, F2
+   * podría escribir registros contra identificadores inventados.
+   *
+   * La intención de la guarda no cambia: lo que no puede leerlo es lo que ve la
+   * gente. El motor, la interfaz y las fichas siguen fuera, y que lo lean sigue
+   * siendo F3, con simulación previa de todas las rutas actuales.
+   */
+  const AUTORIZADOS = [path.join("data", "vocabulario"), path.join("data", "verificacion")];
 
   function archivosDeCodigo(dir: string, acumulado: string[] = []): string[] {
     for (const entrada of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -34,7 +45,7 @@ describe("el aislamiento del vocabulario", () => {
       const relativa = path.relative(raiz, completa);
       // Se compara la RUTA, no el nombre: antes, cualquier carpeta llamada
       // "vocabulario" quedaba excluida estuviera donde estuviera.
-      if (relativa === PROPIO || relativa.startsWith(PROPIO + path.sep)) continue;
+      if (AUTORIZADOS.some((a) => relativa === a || relativa.startsWith(a + path.sep))) continue;
       if (DIRECTORIOS_IGNORADOS.has(entrada.name) || entrada.name.startsWith(".")) continue;
       if (entrada.isDirectory()) archivosDeCodigo(completa, acumulado);
       else if (EXTENSIONES.test(entrada.name)) acumulado.push(completa);
@@ -43,6 +54,12 @@ describe("el aislamiento del vocabulario", () => {
   }
 
   const archivos = archivosDeCodigo(raiz);
+
+  it("la lista de autorizados es exactamente ésta", () => {
+    // Fijada a propósito: ampliarla tiene que ser una decisión, no un descuido.
+    // Cada nombre de aquí es alguien que puede leer el vocabulario.
+    expect(AUTORIZADOS).toEqual([path.join("data", "vocabulario"), path.join("data", "verificacion")]);
+  });
 
   it("hay código que revisar", () => {
     // Si el recorrido se rompiera, la prueba pasaría revisando cero archivos.

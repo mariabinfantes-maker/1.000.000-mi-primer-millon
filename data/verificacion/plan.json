@@ -1,0 +1,90 @@
+{
+  "version": "1.0.0",
+  "fecha": "2026-09-03",
+  "versionVocabulario": "3.0.0",
+  "lotes": [
+    {
+      "numero": 1,
+      "nombre": "Rutas que hoy funcionan",
+      "herramientaIds": [
+        "agile-crm",
+        "asana",
+        "capsule-crm",
+        "clickup",
+        "close",
+        "copper",
+        "ganttpro",
+        "hive",
+        "insightly",
+        "less-annoying-crm",
+        "monday-com",
+        "nifty",
+        "nimble",
+        "nocrm-io",
+        "nutshell",
+        "paymo",
+        "pipedrive",
+        "productive-io",
+        "salesflare",
+        "salesmate",
+        "scoro",
+        "smartsheet",
+        "streak",
+        "teamgantt",
+        "teamwork-com",
+        "vtiger-crm",
+        "wrike",
+        "zenkit",
+        "zoho-crm",
+        "zoho-projects"
+      ],
+      "motivo": "CRM y gestión de proyectos son los dos recorridos que hoy devuelven tres recomendaciones válidas. Verificarlos primero permite comparar el antes y el después: si la verificación no cambia nada aquí, el método no rinde y conviene saberlo habiendo gastado poco."
+    },
+    {
+      "numero": 2,
+      "nombre": "Los seis subtipos de asistentes de IA",
+      "herramientaIds": [
+        "beautiful-ai",
+        "canva",
+        "clickup-brain",
+        "copy-ai",
+        "descript",
+        "fireflies-ai",
+        "gamma",
+        "grammarly",
+        "heygen",
+        "jasper",
+        "krisp",
+        "motion",
+        "notion-ai",
+        "otter-ai",
+        "reclaim-ai",
+        "synthesia",
+        "taskade",
+        "todoist"
+      ],
+      "motivo": "Son las fichas más recientes y mejor documentadas, las seis del sprint de septiembre incluidas. Sirven para calibrar cuánto cuesta un registro bien hecho con evidencia de primera mano. Aquí viven también las herramientas de contenido —escritura, vídeo, presentaciones, transcripción—, que no se separan a un lote propio para no partir los subtipos."
+    },
+    {
+      "numero": 3,
+      "nombre": "El resto del catálogo, con las suites grandes",
+      "herramientaIds": [
+        "activecampaign",
+        "agiled",
+        "bitrix24",
+        "clickfunnels",
+        "engagebay",
+        "freshsales",
+        "gohighlevel",
+        "honeybook",
+        "hubspot",
+        "kartra",
+        "keap",
+        "odoo",
+        "systeme-io",
+        "zoho-one"
+      ],
+      "motivo": "Las suites son las más lentas de verificar: muchas capacidades plausibles y casi todas por módulo o por plan. Van al final para que el método esté rodado cuando lleguen."
+    }
+  ]
+}

@@ -3009,6 +3009,590 @@ por eso **valen más que la memoria de la sesión**. Mantener ATLAS.md al día n
 burocracia: es lo único que sobrevive.
 
 
+## Gemini sí puede leer la fuente oficial (probado el 2026-09-07)
+
+La prueba que faltaba para desbloquear F2 se hizo de verdad, contra la API real,
+desde el ordenador de la propietaria. **Dos llamadas, dos resultados.**
+
+**Página real.** `https://www.pipedrive.com/es/pricing`, con la herramienta
+`url_context` activada. Estado devuelto: `URL_RETRIEVAL_STATUS_SUCCESS`.
+Respuesta: plan **Lite**, **US$14 por puesto/mes con facturación anual**, con
+tres citas literales de la página.
+
+**Página inexistente.** `https://www.pipedrive.com/es/precios-historicos-2019-archivo`,
+mismo dominio, misma pregunta. Estado: `URL_RETRIEVAL_STATUS_ERROR`. Respuesta:
+**`NO PUEDO LEERLA.`**
+
+La segunda es la que importa. Gemini conoce Pipedrive de sobra y podría haber
+rellenado de memoria un texto perfectamente creíble — que es exactamente cómo se
+generaron las 62 fichas. No lo hizo. Eso es la regla de la propietaria
+funcionando: «no está documentado» significa «no sabemos».
+
+**Lo que queda probado:** que `gemini-3.6-flash` acepta `url_context` —no había
+fuente oficial que lo confirmara— y que devuelve el estado de recuperación por
+URL, así que «lo leyó» y «no lo leyó» son dos hechos distintos y comprobables de
+forma automática.
+
+**Lo que no:** una sola herramienta, una sola página. No se midió latencia ni
+coste. Y no se comprobó de forma independiente que esas frases estén literalmente
+en la página: el entorno remoto no alcanza `pipedrive.com`.
+
+**El hallazgo que cambió el planteamiento:** quien descarga la página es el
+servidor de Google, no el nuestro. Que el entorno remoto tenga bloqueados los
+dominios de los fabricantes es irrelevante — el endpoint de Gemini sí es
+alcanzable desde él (devuelve el 403 propio de Google por falta de clave, no un
+bloqueo del proxy). Lo único que falta ahí es la clave.
+
+**La decisión de la propietaria:** camino 1, script local en PowerShell. No mete
+claves en el repositorio, no toca producción y da el resultado real. Las otras
+dos —clave en el entorno remoto, o endpoint en producción usando la clave que
+Vercel ya tiene— quedan anotadas por si algún día conviene.
+
+### El incidente de la clave
+
+Al cargar la clave en PowerShell se pegó en el orden equivocado y quedó
+**visible en pantalla en texto claro**. No hubo consecuencia conocida, pero la
+clave quedó expuesta y debe rotarse: eliminarla en AI Studio, crear otra y
+actualizar la variable en Vercel. **Pendiente.**
+
+La causa fue una instrucción mal ordenada, no un descuido de quien la ejecutó.
+El procedimiento corregido —cargar primero la línea, pegar la clave sólo cuando
+el aviso lo pide— está escrito en `data/verificacion/COMO-EJECUTAR.md`.
+
+## Lo que F2 tiene montado para el lote 1 (2026-09-07)
+
+En la rama `claude/atlas-advisor-mvp-4e854s`, **sin fusionar**:
+
+- **El adaptador de Gemini sabe leer páginas.** `generarJsonLeyendoUrls` se
+  añade como extensión (`ProveedorIAQueLee`) y no toca `generarJson`: Researcher,
+  el prechequeo de afiliados y la clasificación de módulos no cambian por esto.
+  Devuelve, junto a los datos, qué direcciones consiguió leer de verdad. Las
+  pruebas están calcadas de la respuesta real del 2026-09-07, con los nombres de
+  campo que devolvió Google y no los que suponíamos.
+- **La selección plausible del lote 1, congelada:** 30 herramientas, **765 pares
+  herramienta–capacidad**. El criterio es una regla escrita y aplicada igual a
+  las treinta —doce capacidades transversales más las de su categoría—, no una
+  elección caso a caso, precisamente para que no se estreche donde incomode.
+  Incluye a propósito **sondas que la herramienta probablemente no tenga**:
+  reserva por internet y recordatorios de cita en los CRM, órdenes de trabajo en
+  gestión de proyectos. Son las que el motor da hoy por buenas sin evidencia. Una
+  prueba falla si alguien las quita.
+- **El script `ejecutar-lote.ps1`**, que ejecuta la propietaria: 60 llamadas, dos
+  por herramienta, entre 15 y 25 minutos. Guarda las respuestas crudas sin
+  interpretarlas —convertirlas en registros es trabajo del repositorio, donde
+  están las reglas y las pruebas—, se puede parar y reanudar, y oculta la clave
+  incluso en los mensajes de error.
+
+Una comprobación del script surgió de probarlo: la definición de cada capacidad
+nombra a sus vecinas en el campo `noEs`, así que el prompt contiene
+identificadores que no se han preguntado. Si el modelo responde por ellos, esas
+respuestas **se apartan** en vez de colarse.
+
+**Pendiente:** que la propietaria ejecute el lote 1 y devuelva el archivo de
+salida. Hasta entonces F2 sigue sin un solo registro de verificación, y eso es
+correcto: no hay ninguno inventado.
+
+## El lote 1 de F2, ejecutado y a medias (2026-09-07)
+
+Las 30 herramientas del lote 1 pasaron por sus páginas oficiales: **78 llamadas,
+dos horas y cuarto del ordenador de la propietaria, 765 pares**. Todo en la rama
+`claude/atlas-advisor-mvp-4e854s`, **sin fusionar**.
+
+**El resultado hoy: 120 verificados de 765.** Los otros 645 son «desconocido», y
+362 de ellos son honestos —Gemini leyó las páginas y dijo que no aparece—; el
+resto los degradaron las reglas.
+
+**El hallazgo que justifica F2 entera.** De las 30 herramientas, **ninguna
+documenta reserva por internet**. Ninguna de las 15 de gestión de proyectos
+documenta órdenes de trabajo, y ninguno de los 15 CRM documenta recordatorios de
+cita. Son las tres sondas que se metieron a propósito en la selección congelada,
+y el motor recomienda hoy esas herramientas igualmente. La peluquera que dice
+«pierdo citas» recibe un CRM que, según su propia página oficial, no sabe coger
+una cita. **El catálogo no cubre la vertical de citas.**
+
+### Las cuatro decisiones de la propietaria, con el lote delante
+
+1. **Redirecciones.** Sólo cuentan si hay evidencia técnica de que la dirección
+   pedida llevó a la leída. No se aceptan retroactivamente.
+2. **Plan.** Lo sostiene la tarifa oficial o documentación que vincule capacidad
+   y plan. Una portada no. Su cita se conserva como pista, no como prueba.
+3. **Repesca.** Se repiten los pares necesarios, no las herramientas enteras:
+   241 en vez de 765.
+4. **Citas.** No hay mínimo automático de longitud. Por debajo de treinta
+   caracteres la cita va a revisión y sin veredicto escrito no pasa. Revisadas
+   las 50 del lote 1 en `citas-revisadas.json`: 47 valen, 3 no.
+
+La cuarta la pidió la propietaria y los datos le dieron la razón: la regla de
+longitud anterior **rechazaba «SSO», «Audit logs» y «Kanban board»**, que no son
+ambiguas, y aceptaba etiquetas genéricas más largas. Estaba invertida.
+
+### Lo que falló y sigue abierto
+
+**La repesca no funcionó.** Se ejecutó y aplicó tres cambios en 765 pares: los
+133 sin respuesta siguen siendo 133. No se sabe todavía por qué — falta ver la
+salida de pantalla.
+
+**La resolución local de redirecciones tampoco.** De 60 direcciones, 40
+respondieron 200, **seis devolvieron 403** —el servidor bloquea lo que no parece
+un navegador—, once fallaron, y las tres que sí redirigen no se siguieron porque
+no se leyó la cabecera `Location`. Cero redirecciones demostradas.
+
+Y guardaba el 403 como «final = solicitada», es decir, **como si constara que no
+redirige**. Afirmar eso es exactamente lo que este módulo existe para impedir.
+Corregido: ahora hay un campo `resuelta`, y una cadena sin resolver no vale como
+prueba.
+
+### Dos defectos propios, encontrados midiendo
+
+**Comparar direcciones en crudo tiraba evidencia buena.** El proveedor casi
+nunca devuelve la dirección que se le pidió —barra final, «www», esquema—, y eso
+descartaba 88 afirmaciones bien fundadas. Corregido normalizando, sin tocar la
+ruta: «/pricing» y «/signup» siguen siendo páginas distintas.
+
+**Una respuesta podía pisar a otra entre bloques.** La definición de cada
+capacidad nombra a sus vecinas para marcar la frontera, así que el prompt lleva
+identificadores que no se han preguntado. Se vio en el ensayo: 26 aplicadas para
+18 pedidas. **En la ejecución real no llegó a dispararse** —cero respuestas
+intrusas registradas—, pero la guarda queda en los dos scripts.
+
+## La clave de Gemini y el camino crítico (2026-09-07)
+
+Todo el lote 1 pasó por el ordenador de la propietaria: cargar la clave a mano,
+lanzar PowerShell, fotografiar la pantalla, copiar el archivo a Descargas y
+subirlo. Se perdieron horas en eso, y aparecieron tres fallos que sólo se ven en
+Windows: el archivo sin BOM que rompe los acentos, el here-string que no cierra
+con saltos de línea de Unix, y la llamada sin límite de espera que dejó el
+proceso colgado veinte minutos sin decir nada.
+
+**El endpoint de Gemini SÍ es alcanzable desde el entorno remoto** — devuelve el
+403 propio de Google por falta de clave, no un bloqueo del proxy. Y quien
+descarga las páginas es el servidor de Google, así que da igual que el proxy
+tenga bloqueados los dominios de los fabricantes.
+
+Lo único que falta ahí es la clave. La propietaria la configuró el 2026-09-07,
+pero **las variables de entorno se inyectan al arrancar la sesión**: hace falta
+una sesión nueva para que llegue. Con ella, F2 deja de depender de su ordenador
+y ella pasa de ejecutar a revisar. Es la palanca más grande que tiene el
+proyecto ahora mismo.
+
+## Pendientes sueltos, para que no se pierdan (2026-09-07)
+
+Cosas pequeñas que se detectaron trabajando en otra cosa y que no entran en
+ningún sprint. Ninguna urge; todas se olvidan si no están escritas.
+
+- **`--color-agente-evaluador` es un nombre fósil.** El agente se llama Atlas
+  Advisor desde hace tiempo; el token CSS conserva el nombre viejo. Cambiarlo
+  toca `app/globals.css` y quien lo use, y **los colores están congelados**: no
+  se toca sin aprobación de la propietaria.
+- **`lib/agentes.ts` no está alineado con los 11 agentes** de
+  `ARQUITECTURA-AGENTES.md`, que es la referencia canónica.
+- **Copia pendiente: «La opción elegida» / «Mejor ajuste para ti».** Sprint de
+  redacción anotado y nunca abierto.
+- **Cinco fichas sin `analisisAtlas`:** bitrix24, gohighlevel, hubspot, odoo y
+  zoho-one. Son las mismas cinco sin facilidad de implementación.
+- **Los seis registros de afiliación en Neon** siguen sin crear.
+- **`tieneProgramaDeAfiliadosFiable()` sigue descartando** automáticamente las
+  herramientas sin programa de afiliación, y eso **contradice la política de
+  catálogo aprobada**. Está declarado como no implementado en AGENTS.md, pero la
+  contradicción sigue viva en el código.
+- **La clave de Gemini que quedó visible el 2026-09-07 hay que borrarla** en AI
+  Studio. Era una clave de pruebas y **no está configurada en Vercel** (lo
+  confirmó la propietaria), así que borrarla no rompe nada ni exige
+  redesplegar.
+
+## El lote 1, rematado sin pasar por el ordenador de la propietaria (2026-09-07)
+
+La palanca de la que hablaba la entrada anterior ya está tirada: el proxy de red
+del entorno remoto inyecta la clave hacia `generativelanguage.googleapis.com`, y
+la sesión nueva la recibe. **F2 ha dejado de depender del ordenador de la
+propietaria.** Ella pasó de ejecutar a decidir, que era el objetivo.
+
+**El resultado: de 120 verificados a 248, de 765.** Los desconocidos bajan de
+645 a 517 y los descartes de 283 a 121. **Y no queda ni un solo par «sin
+respuesta»: eran 133.**
+
+De los 248 verificados, **243 se apoyan en la tarifa oficial** y 241 dicen en
+qué plan está la capacidad. La profundidad se reparte en 232 nativas, 9
+integraciones y 7 módulos.
+
+### Lo que cambió por cada regla de la propietaria
+
+| Regla | Antes | Después |
+|---|---|---|
+| 1. Redirección con evidencia técnica | 41 pares caídos | **0** |
+| 2. El plan lo sostiene la tarifa, no la portada | 36 sin fuente que lo demuestre | 18 |
+| 3. Citas breves: a revisión, no a la basura | 50 revisadas | 96, con 46 nuevas |
+| 4. Cero «no disponible» es esperable | 0 | 0 |
+
+La regla 2 sube de 16 a 18 al recuperar Zenkit, y eso es una buena señal, no
+una regresión: son pares que antes caían por la regla 1 sin llegar a que nadie
+mirara su plan, y ahora llegan y se quedan a las puertas por la razón correcta.
+
+**Regla 1.** Las cinco herramientas cuya dirección de tarifas redirigía
+—Insightly, Zoho CRM, Capsule, Wrike y Zenkit— están declaradas en
+`sustituciones.json` con la dirección final y su motivo. La evidencia técnica
+es el `retrievedUrl` que devuelve el propio `url_context` de Gemini: quien
+descarga la página es el servidor de Google, así que resuelve la cadena que el
+cliente HTTP local no pudo. **Ninguna ficha del catálogo se ha tocado.**
+
+**Regla 3.** Las 46 citas breves nuevas se revisaron una a una con veredicto y
+motivo escritos: **36 valen y 10 no.** Los rechazos siguen los precedentes ya
+sentados: «API» a secas (scoro, zenkit) por el mismo motivo que ya se rechazó en
+ganttpro; «Import & Export» para importar (vtiger) por el mismo motivo que
+«Import»; y el Gantt (clickup, zoho-projects, wrike) porque la capacidad exige
+ver el proyecto en el tiempo **y** encadenar tareas, y el Gantt demuestra sólo
+la primera mitad — es el espejo exacto de «Task Dependencies», que ya se rechazó
+por demostrar sólo la segunda.
+
+**Regla 4.** Sigue habiendo cero registros «no disponible», y **las tres sondas
+siguen intactas**: ninguna de las 30 herramientas documenta reserva por
+internet (30 de 30 desconocido), ninguno de los 15 CRM documenta recordatorios
+de cita, y ninguna de las 15 de gestión de proyectos documenta órdenes de
+trabajo. Con 127 pares más verificados, el hallazgo que justifica F2 no se ha
+movido ni un punto. Y sigue significando lo que significaba: **no consta**, no
+«no lo tiene».
+
+### Por qué la repesca anterior aplicó 3 cambios de 765
+
+**No era el prompt.** Se comprobó de la única forma que vale: repitiendo los
+mismos 133 pares de «capacidad» que en PowerShell no aplicaron ni uno, con el
+mismo prompt, el mismo modelo y el mismo tamaño de bloque, pero llamando a la
+API desde el entorno remoto. **Respondieron los 133.**
+
+Lo que sí se reprodujo, y por accidente, fue el mecanismo: la primera versión
+del script remoto **murió entera** cuando un bloque agotó sus tres reintentos
+contra un error transitorio del proxy, y se llevó por delante el trabajo ya
+hecho de las herramientas anteriores, porque la fusión sólo ocurre al final.
+`repescar.ps1` tiene exactamente ese agujero: la llamada a Gemini está fuera del
+`try/catch` del bloque, así que un fallo que agote los reintentos aborta el
+`foreach` entero y las tareas siguientes no llegan a ejecutarse nunca. Con
+`$ErrorActionPreference = "Stop"` y sin reanudación, eso deja aplicado sólo lo
+de las primeras tareas — que es la forma que tenían los 3 cambios: los tres de
+tipo «plan», ninguno de «capacidad».
+
+**No está demostrado al cien por cien** —el mensaje de error de aquella ventana
+de PowerShell no lo tiene nadie—, pero es la única explicación que encaja con
+las tres cosas medidas a la vez: que la fusión sí escribía, que «capacidad» no
+aplicó nada, y que el total de respuestas no se movió.
+
+La corrección ya está en el arnés remoto: un bloque que falla queda en
+`sinRespuesta` y el proceso sigue, y hay un checkpoint por herramienta para no
+volver a pagar lo ya conseguido. Hicieron falta cinco pasadas de rescate para
+recuperar los últimos 18 pares, y la última sólo salió al partir el bloque de
+teamwork.com en trozos de dos: su respuesta completa tardaba más de lo que el
+proxy aguanta. **Si los lotes 2 y 3 se ejecutan con `repescar.ps1` sin arreglar
+ese `try/catch`, volverá a pasar.**
+
+### Dos cosas que quedaban abiertas, resueltas el mismo día
+
+**1. `sustituciones.json` ya sabe declarar una `paginaOficial`.** Autorizado por
+la propietaria. El campo nuevo guarda **las dos** direcciones —`solicitada` y
+`resuelta`— y no una sola, porque la prueba de la equivalencia es el par: con
+sólo la de destino, quien lea esto dentro de seis meses no sabrá si la ficha
+sigue llevando ahí o si alguien la cambió por conveniencia. El validador exige
+las dos, exige que sean direcciones, y **rechaza una redirección que no
+redirige** —declarar que algo lleva a sí mismo deja escrito como comprobado
+algo que no se ha comprobado—. Siete pruebas nuevas lo fijan.
+
+Con Zenkit declarado (`zenkit.com` → `zenkit.com/en/`), **el motivo «la
+dirección citada no consta como leída» ha desaparecido: de 41 a 0.**
+
+Conviene ser exacto con lo que eso recuperó, porque no son 8 verificados: el
+fallo que desaparece es el **mecánico** —la cita ya resuelve contra la página
+que de verdad se leyó—, y lo que queda al descubierto es un límite **de fondo**.
+De los 8 pares, 1 quedó verificado (una integración, que no necesita plan), 1
+salió `no_documentado` al leer la tarifa, y **6 caen ahora por la regla 2**:
+su cita sale de la portada, y una portada no sitúa un plan. La regla 1 ya no
+tira evidencia buena; la regla 2 sigue haciendo su trabajo.
+
+**2. La dirección de precios de noCRM estaba muerta, y la propietaria autorizó
+cambiarla.** `urlPrecios` era `https://www.nocrm.io/es/precios` y hoy no se
+puede recuperar: tres intentos, `URL_RETRIEVAL_STATUS_ERROR` las tres veces. La
+que sí responde es `https://www.nocrm.io/es/pricing`, en español, con encabezado
+«Cierra más, administra menos» y su tabla de planes —Starter 13 US$, Expert
+26 US$, Dream 39 US$ por usuario y mes—.
+
+Cambiada la ficha, y **sólo esa línea**: una sustitución de una dirección por
+otra, sin tocar ni un precio, ni un nombre de plan, ni ningún otro campo. Es la
+primera vez que F2 modifica el catálogo, y conviene dejar escrito por qué se
+pudo: la decisión fue de la propietaria, con la evidencia delante y por
+autorización expresa para esa línea concreta.
+
+**No invalida ninguna evidencia ya recogida.** Se comprobó antes de tocar nada:
+los 25 registros de `nocrm-io` son los 25 «desconocido» y todos citan la
+portada, no la tarifa. Ninguno se apoyaba en la dirección vieja —no llegó a
+responder nunca—, así que el cambio no reescribe el pasado: cuenta hacia
+adelante, la próxima vez que se verifique esta herramienta.
+
+Queda anotado, **sin tocarlo**, que los datos de precio de esa ficha tampoco
+cuadran con esa página: la ficha dice «Desde 12€/usuario/mes» y un plan «Sales
+Experts» a 29€, y la página dice Starter/Expert/Dream y en dólares. Cambiar eso
+a partir de una sola lectura sería repetir el error que F2 existe para
+deshacer: son datos que necesitan su propia verificación, no un arreglo de paso.
+
+### `repescar.ps1`, arreglado y demostrado
+
+El agujero que explicaba los 3 cambios de 765 está cerrado, y con cuatro
+garantías que se probaron una a una en un banco de pruebas aislado, sin gastar
+ni una llamada real:
+
+1. **Aísla.** Un bloque que falla se queda en su bloque; una herramienta que
+   falla se queda en su herramienta. Probado forzando el fallo en la de en
+   medio: ALFA aplicó, BETA falló, **GAMMA se ejecutó igual**. Antes, BETA se
+   habría llevado a GAMMA por delante.
+2. **Conserva.** El archivo de cada herramienta se guarda **después de cada
+   bloque**, no al final. Tras el fallo de BETA, su evidencia previa seguía
+   intacta en disco.
+3. **Registra.** Todo fallo va a `salida\errores-repesca.json` con herramienta,
+   bloque, capacidades y mensaje, **con la clave oculta**.
+4. **Reanuda.** Volver a lanzar el mismo comando no repite lo respondido: en la
+   segunda pasada ALFA y GAMMA se saltaron y sólo se repreguntó BETA, **una
+   llamada en vez de tres**. En las tareas de tipo `plan` el criterio es tener
+   ya un plan escrito: probado con una herramienta donde una capacidad lo tenía
+   y otra no, se repreguntó sólo la que faltaba y la que ya lo tenía conservó
+   su plan y su cita.
+
+Se arregló además un defecto que destapó el propio registro de errores:
+`Escribir-Json` pasaba por la tubería, y una lista de **un** elemento se
+desenvolvía y se escribía como objeto suelto. Con un fallo salía `{...}` y con
+dos `[{...},{...}]`. Ahora usa `-InputObject` y siempre es una lista.
+
+**Lo que NO se ha tocado: `ejecutar-lote.ps1` tiene el mismo agujero** —la
+llamada a Gemini está fuera de todo `try`—, y es el script que abre el lote 2.
+Su daño es menor porque ya salta las herramientas hechas al relanzar, así que
+un fallo cuesta una herramienta y un relanzamiento a mano, no el lote entero.
+Aun así, mientras no se arregle, un fallo a mitad para la ejecución y hay que
+estar delante para verlo. **Decide la propietaria.**
+
+## La simulación piloto del Lote 1 (2026-09-09)
+
+Sobre `285223a`, sin una sola llamada y sin tocar nada: se ejecutó el motor real
+con seis rutas del Lote 1 —la categoría CRM, sus cuatro respuestas de
+diferenciación y la categoría de gestión de proyectos— por los 120 perfiles del
+generador tipado. **720 ejecuciones.**
+
+La regla contrafactual la definió la sesión, no el proyecto, y sin ella el
+número no significa nada. Para cada ruta, la sesión asignó dos capacidades
+mínimas. C1b excluye una herramienta únicamente cuando una de esas capacidades
+formaba parte de su selección congelada y, después de investigarla, no quedó
+"verificado". Si esa capacidad nunca se investigó para esa herramienta, el
+piloto no la juzga y la herramienta permanece elegible. Así se evita convertir
+una pregunta que nunca se hizo en evidencia negativa.
+
+**222 de 720 ejecuciones cambian el trío**, y el reparto importa más que el
+total:
+
+| Ruta | Cambios | Causa |
+|---|---|---|
+| CRM | 6/120 | `less-annoying-crm` con el embudo en `desconocido` |
+| CRM + «dentro del correo» | 0/120 | — |
+| CRM + «captura sola» | 0/120 | — |
+| CRM + «sencillo» | 120/120 | las dos únicas fichas que el filtro selecciona no están verificadas; al quedarse sin ninguna, el motor **ensancha en silencio** a toda la categoría |
+| CRM + «llamar desde dentro» | 0/120 | — |
+| Gestión de proyectos | 96/120 | `cap.project_planning` en `desconocido` en cinco de quince |
+
+**Cero cambios** con la regla que sólo excluye la ausencia demostrada, porque no
+hay ni un registro `no_disponible` en los 765: **todo lo que cambia procede de
+un `desconocido`, nunca de una ausencia demostrada.** Ninguna ruta se quedó sin
+recomendación.
+
+**Lo que el piloto NO dice.** No dice que el resultado nuevo sea mejor: eso no
+se ha medido con gente. No dice que Zoho Projects o Wrike no planifiquen
+proyectos, sino que no lo sabemos. No cubre las puertas por objetivo ni de texto
+libre, ni las otras trece categorías. Y depende de esa definición de «qué exige
+cada ruta» hecha por la sesión.
+
+**Cuatro requisitos que deja escritos para F3:**
+
+1. **Correspondencia explícita ruta–capacidad.** Hoy ninguna ruta declara qué
+   capacidad exige; hay que decidirlo antes de filtrar por evidencia.
+2. **Trato honesto del `desconocido`.** Puede dejar fuera por «el silencio no es
+   permiso», pero nunca afirmar que la herramienta no lo tiene.
+3. **Prohibir el ensanchamiento silencioso.** Cuando ninguna ficha declara lo
+   que la persona pidió, hoy se conserva la categoría entera y su respuesta deja
+   de aplicarse sin que nadie lo vea.
+4. **Resolver las cuatro opciones de la pregunta de CRM** —vivir dentro del
+   correo, capturar los datos solo, ser sencillo, telefonía integrada—, que **no
+   tienen equivalente en el vocabulario de 146 capacidades**. Resolverlas no
+   presupone ampliar el vocabulario: habrá que decidir expresamente si cada
+   opción corresponde a una capacidad, una preferencia, un atributo o una regla
+   de selección.
+
+**Lo que este punto de control NO cambia.** El Lote 1 sigue cerrado en
+`285223a` y sus 765 registros no se tocan. **El piloto no cancela ni acota F2**,
+y el siguiente paso sigue siendo preparar la selección plausible del Lote 2. Y
+el hueco del catálogo en reserva y recordatorios de cita es **una decisión de
+catálogo aparte**: no fue la causa del caso de la peluquera, que fueron la
+necesidad no entendida y el `return universo`, corregidos el 2026-09-02 en
+`a79b8e3`.
+
+**F4 no está localizada.** No aparece en ningún archivo del repositorio. Queda
+anotada como definición que falta, **no como decisión cancelada**.
+
+## El lote 2, cerrado (2026-09-09)
+
+Las 18 herramientas de los seis subtipos de asistentes de IA, **384 pares
+preguntados a sus páginas oficiales en 189 llamadas**. Commit `b8bcd52`.
+
+**168 capacidades verificadas de 384.** Y el reparto del resto importa tanto
+como esa cifra:
+
+| | Pares |
+|---|---|
+| Capacidad verificada + plan verificado | 119 |
+| **Capacidad verificada + plan desconocido** | **47** |
+| Capacidad verificada, sin opinar del plan (integraciones) | 2 |
+| Capacidad desconocida | 216 |
+| **Negativos demostrados** | **0** |
+
+De los 216 desconocidos, **207 son honestos** —se leyó la página oficial y la
+capacidad no aparece— y **9 los degradó una regla**: 6 por cita breve revisada
+y rechazada, 3 por dirección citada que no consta como leída. **Ni un solo par
+se quedó sin preguntar.**
+
+Los 765 registros del lote 1 se comprobaron uno a uno contra `a281171` después
+de cada vuelta: **cero cambiados, cero desaparecidos**. `registros.json` pasa
+de 765 a 1.149.
+
+### Lo que enseñó el puente
+
+Las dos capacidades del puente se preguntaron a las dieciocho aunque no fueran
+su especialidad, y ahí está su valor: **redactar textos sale verificado en 10 de
+18, y agentes de IA que ejecutan tareas en 6 de 18.** Doce de estas herramientas
+anuncian inteligencia artificial y no documentan agentes que hagan tareas por su
+cuenta. Con una selección hecha subtipo a subtipo esa pregunta no se habría
+hecho nunca.
+
+### Las sondas de citas: verificadas, y aun así no cubren a la peluquera
+
+Las dos sondas incómodas volvieron casi vacías —reserva online 2 de 18,
+recordatorios de cita 1 de 18—, pero los tres registros que sí salieron
+merecen quedar explicados, porque son el caso límite de esta vertical.
+
+**Motion y Reclaim.ai se quedan verificados**, y es correcto: cumplen la
+definición congelada. Reclaim demuestra además su plan con fila y columna.
+
+- Motion: «Motion creates meeting booking pages, shows your availability, and
+  schedules meetings at ideal times that maximize your focus time.»
+- Reclaim, reserva: «Share your availability for meetings with Scheduling Links
+  that offer smart priority settings to book the right meetings sooner.»
+- Reclaim, recordatorios: «Send email reminders to attendees ahead of meetings
+  booked via Scheduling Links.»
+
+**Pero esa evidencia demuestra reserva y recordatorio básicos de REUNIONES, no
+cobertura de la vertical de citas de un negocio de servicios.** Las tres citas
+hablan de *meetings* y de *attendees*; ninguna nombra a un cliente ni a una cita
+de negocio. Los recordatorios sólo cubren reuniones reservadas por esos mismos
+enlaces, y por correo. **Esta evidencia no demuestra agenda por profesional o
+recurso, franjas de servicios, gestión de ausencias ni otras funciones propias
+de un negocio de servicios. F2 no obtuvo negativos demostrados**, así que no se
+afirma que no las tengan: se afirma que esto no lo demuestra.
+
+La causa es identificable: el `noEs` de estas dos capacidades separa «reserva el
+cliente» de «lo apunta el negocio», pero **no separa reunión de trabajo de cita
+de servicio**, y por esa rendija entran los tres registros. **Queda anotado, no
+resuelto**: tocar el vocabulario es F1 y lo decide la propietaria.
+
+Y no cambia el hallazgo del lote 1: **el catálogo sigue sin cubrir la vertical
+de citas**. Con los dos lotes, 48 de las 62 fichas están medidas contra ella.
+
+### Notion AI: una migración de dominio disfrazada de herramienta sin funciones
+
+Notion AI salió **0 de 22** y no porque no hiciera nada: sus 22 respuestas
+citaban `notion.so` sin que constara que esa dirección se hubiera descargado, y
+caían enteras por la regla de redirecciones. La evidencia estaba en el propio
+lector: se pidió `notion.so` y se leyó **`notion.com`**, catorce descargas, las
+catorce con `URL_RETRIEVAL_STATUS_SUCCESS`. Declarada la equivalencia en
+`sustituciones.json` —sin tocar la ficha, que es dato de producto— y
+repreguntada, **pasa de 0 a 14 de 22**.
+
+### Lo que costó en llamadas
+
+**189 llamadas para 384 pares en 18 herramientas**, repescas incluidas: algo
+menos de once por herramienta. Es el único dato de coste demostrado —el gasto
+en euros no se midió, así que no se anota—, y es el que hay para dimensionar el
+lote 3, que son catorce suites con bastantes más capacidades cada una.
+
+### Tres correcciones a los informes de esta sesión
+
+1. **«Degradados» no es «capacidades perdidas».** El resumen del arnés cuenta
+   entradas de `descartes.json`, y ahí conviven dos cosas distintas: las
+   capacidades que sí cayeron y las anotaciones de un plan que no se demostró
+   sobre una capacidad **que sigue verificada**. Se informó de 66 y de 115
+   capacidades degradadas cuando eran 34 y 28. La cifra buena hoy es **9**.
+2. **Los cinco pares que quedaron sin respuesta eran de HeyGen, no de
+   Synthesia.** Los de Synthesia se habían recuperado en la vuelta anterior.
+3. **Se autorizó repescar 27 pares y cambiaron 32 registros.** Los 27 son los
+   repreguntados; los otros 5 los tocó la pasada de plan, que recorre todas las
+   capacidades afirmadas cuyo plan no se preguntó nunca. Comprobado uno a uno:
+   **ninguna cita de capacidad quedó pisada por la del plan**, y sólo uno
+   —`heygen/cap.audit_log`— cambió de resultado, ganando su plan.
+
+### El límite que dejó abiertos doce pares del lote 3 (2026-09-09)
+
+Doce pares quedan `desconocidos` por una razón que no es la herramienta: el
+modelo citó la dirección que se le PIDIÓ y lo que el proveedor descargó fue
+otra, así que la afirmación cae por la regla de redirecciones. Seis de
+EngageBay, cuatro de Kartra y dos de HubSpot.
+
+Las dos primeras redirecciones están demostradas con la evidencia del propio
+lector y declaradas en `sustituciones.json` —EngageBay pidió `/pricing` y
+descargó `/pricing/all-in-one`; Kartra pidió `www.kartra.com/pricing/` y
+descargó `kartra.com/plans-and-pricing/`—, así que **las próximas vueltas
+preguntarán bien**. Pero una sustitución no rescata lo ya contestado: esas
+respuestas siguen citando la dirección vieja.
+
+**Se repreguntaron las 53 capacidades de esas dos herramientas y el resultado
+se descartó entero, por decisión de la propietaria.** Recuperaba los diez
+pares, pero **tumbaba cuatro capacidades que estaban verificadas** —tres de
+EngageBay y una de Kartra—, y tres de las cuatro citaban la PORTADA, que la
+sustitución no cambia: no era otra fuente leyéndose mejor, era el mismo texto
+juzgado con más exigencia en otra llamada. Cambiar cuatro verificadas por diez
+recuperadas no compensa cuando la diferencia es variabilidad entre llamadas y
+no evidencia nueva. El estado del lote 3 se conserva tal cual quedó en
+`1c05c2d`.
+
+**Los dos de HubSpot no se pueden arreglar sin tocar el arnés, y no se toca.**
+Son `cap.dashboards` y `cap.custom_reports`. Se pidió `/pricing/` y se descargó
+`/pricing/marketing`: declarar eso como sustitución fijaría la tarifa de
+HubSpot en la de un solo producto y dejaría fuera ventas y servicio. Y la
+fuente correcta no se puede pedir: **el arnés pide dos direcciones por
+herramienta —precios y oficial—, las mismas para todas sus capacidades**, y el
+campo `documentacion` de `sustituciones.json` sólo sirve para clasificar el
+tipo de fuente, no para pedirla. Queda anotado como límite conocido del
+mecanismo, no como resultado sobre HubSpot.
+
+
+## La revisión global de F2, cerrada (2026-09-09)
+
+Una revisión independiente comparó la rama de F2 con producción (`baf0f6b`) y
+encontró **un único bloqueante**: doce registros daban el plan por verificado
+con una cita que hablaba de la función y no nombraba el plan. El nombre
+—«Free», «Enterprise», «Creator», «Plus»— venía del modelo, no de la página.
+Eran cinco de Descript, cuatro de Synthesia, dos de Notion AI y uno de
+Otter.ai.
+
+**Las doce capacidades siguen verificadas**: su evidencia era buena y no se
+tocó ni una cita. Lo que no estaba demostrado era el plan, así que sólo el plan
+se movió: `planEstado: "desconocido"` y fuera el nombre. Es la misma separación
+de certezas que ya regía desde el lote 1, aplicada donde se había colado.
+
+Para que no vuelva a pasar, **el validador exige ahora que la cita de un plan
+verificado nombre ese plan**, comparando por palabras enteras para que «Free»
+no quede demostrado dentro de «freelance». Lo protegen **seis pruebas nuevas**,
+la última de las cuales recorre los registros reales.
+
+La comprobación independiente posterior identificó los doce por su cuenta,
+confirmó **cero casos restantes** y que **las 659 capacidades verificadas
+siguen intactas**, y verificó que las pruebas caen si se quita la regla.
+
+**Deuda anotada:** `convertir.ts` todavía no aplica esta regla al generar, así
+que sigue produciendo esos planes. No puede reintroducirlos en silencio —el
+único punto que escribe `registros.json` valida antes y aborta sin escribir
+nada—, pero significa que **los lotes 2 y 3 no son reconvertibles mientras el
+conversor no lleve la regla**. Es deuda previa a cualquier reconversión futura,
+no un bloqueo de F3.
+
 ---
 
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria

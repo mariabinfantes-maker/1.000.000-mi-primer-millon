@@ -1,0 +1,441 @@
+[
+  {
+    "herramientaId": "agile-crm",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.customer_contact_records",
+      "cap.sales_pipeline"
+    ]
+  },
+  {
+    "herramientaId": "clickup",
+    "tipo": "capacidad",
+    "capacidadIds": [
+      "cap.app_integrations",
+      "cap.audit_log",
+      "cap.custom_reports",
+      "cap.dashboards",
+      "cap.data_export",
+      "cap.data_import_and_migration",
+      "cap.gantt_and_dependencies",
+      "cap.kanban_boards",
+      "cap.project_planning",
+      "cap.public_api",
+      "cap.roles_and_permissions",
+      "cap.single_sign_on",
+      "cap.task_management",
+      "cap.team_workload_planning",
+      "cap.time_tracking",
+      "cap.two_factor_authentication",
+      "cap.webhooks",
+      "cap.workflow_automation"
+    ]
+  },
+  {
+    "herramientaId": "close",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.app_integrations",
+      "cap.public_api"
+    ]
+  },
+  {
+    "herramientaId": "copper",
+    "tipo": "capacidad",
+    "capacidadIds": [
+      "cap.app_integrations",
+      "cap.audit_log",
+      "cap.custom_reports",
+      "cap.customer_contact_records",
+      "cap.customer_interaction_history",
+      "cap.dashboards",
+      "cap.data_export",
+      "cap.data_import_and_migration",
+      "cap.lead_capture",
+      "cap.public_api",
+      "cap.quotes_and_proposals",
+      "cap.roles_and_permissions",
+      "cap.sales_forecasting",
+      "cap.sales_pipeline",
+      "cap.single_sign_on",
+      "cap.two_factor_authentication",
+      "cap.webhooks",
+      "cap.workflow_automation"
+    ]
+  },
+  {
+    "herramientaId": "copper",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.task_management"
+    ]
+  },
+  {
+    "herramientaId": "ganttpro",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.data_export",
+      "cap.gantt_and_dependencies",
+      "cap.kanban_boards",
+      "cap.project_planning",
+      "cap.task_management",
+      "cap.team_workload_planning",
+      "cap.time_tracking"
+    ]
+  },
+  {
+    "herramientaId": "hive",
+    "tipo": "capacidad",
+    "capacidadIds": [
+      "cap.audit_log",
+      "cap.gantt_and_dependencies",
+      "cap.kanban_boards",
+      "cap.project_planning",
+      "cap.single_sign_on",
+      "cap.task_management",
+      "cap.team_workload_planning",
+      "cap.time_tracking",
+      "cap.two_factor_authentication"
+    ]
+  },
+  {
+    "herramientaId": "hive",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.app_integrations",
+      "cap.dashboards",
+      "cap.roles_and_permissions",
+      "cap.workflow_automation"
+    ]
+  },
+  {
+    "herramientaId": "insightly",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.marketing_automation"
+    ]
+  },
+  {
+    "herramientaId": "less-annoying-crm",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.app_integrations",
+      "cap.customer_contact_records",
+      "cap.customer_interaction_history",
+      "cap.data_export",
+      "cap.public_api",
+      "cap.roles_and_permissions",
+      "cap.task_management"
+    ]
+  },
+  {
+    "herramientaId": "monday-com",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.kanban_boards"
+    ]
+  },
+  {
+    "herramientaId": "nifty",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.dashboards",
+      "cap.data_import_and_migration",
+      "cap.kanban_boards",
+      "cap.workflow_automation"
+    ]
+  },
+  {
+    "herramientaId": "nimble",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.app_integrations",
+      "cap.dashboards",
+      "cap.public_api",
+      "cap.roles_and_permissions",
+      "cap.workflow_automation"
+    ]
+  },
+  {
+    "herramientaId": "nocrm-io",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.app_integrations",
+      "cap.data_import_and_migration",
+      "cap.invoicing",
+      "cap.public_api",
+      "cap.quotes_and_proposals",
+      "cap.roles_and_permissions",
+      "cap.sales_pipeline",
+      "cap.shared_inbox",
+      "cap.task_management",
+      "cap.webhooks",
+      "cap.workflow_automation"
+    ]
+  },
+  {
+    "herramientaId": "nutshell",
+    "tipo": "capacidad",
+    "capacidadIds": [
+      "cap.audit_log",
+      "cap.customer_appointment_reminders",
+      "cap.customer_contact_records",
+      "cap.customer_interaction_history",
+      "cap.email_campaigns",
+      "cap.invoicing",
+      "cap.lead_capture",
+      "cap.marketing_automation",
+      "cap.online_self_service_booking",
+      "cap.quotes_and_proposals",
+      "cap.sales_forecasting",
+      "cap.sales_pipeline",
+      "cap.shared_inbox",
+      "cap.single_sign_on",
+      "cap.task_management",
+      "cap.two_factor_authentication"
+    ]
+  },
+  {
+    "herramientaId": "nutshell",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.app_integrations",
+      "cap.data_import_and_migration",
+      "cap.public_api"
+    ]
+  },
+  {
+    "herramientaId": "paymo",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.app_integrations",
+      "cap.gantt_and_dependencies",
+      "cap.invoicing",
+      "cap.job_costing",
+      "cap.project_planning",
+      "cap.roles_and_permissions",
+      "cap.team_workload_planning"
+    ]
+  },
+  {
+    "herramientaId": "pipedrive",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.app_integrations",
+      "cap.customer_contact_records",
+      "cap.customer_interaction_history",
+      "cap.dashboards",
+      "cap.data_import_and_migration",
+      "cap.lead_capture",
+      "cap.online_self_service_booking",
+      "cap.roles_and_permissions",
+      "cap.sales_forecasting",
+      "cap.sales_pipeline",
+      "cap.workflow_automation"
+    ]
+  },
+  {
+    "herramientaId": "productive-io",
+    "tipo": "capacidad",
+    "capacidadIds": [
+      "cap.app_integrations",
+      "cap.custom_reports",
+      "cap.dashboards",
+      "cap.data_export",
+      "cap.data_import_and_migration",
+      "cap.public_api",
+      "cap.roles_and_permissions",
+      "cap.webhooks",
+      "cap.workflow_automation"
+    ]
+  },
+  {
+    "herramientaId": "productive-io",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.audit_log",
+      "cap.gantt_and_dependencies",
+      "cap.kanban_boards",
+      "cap.single_sign_on",
+      "cap.two_factor_authentication"
+    ]
+  },
+  {
+    "herramientaId": "salesflare",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.sales_forecasting",
+      "cap.sales_pipeline"
+    ]
+  },
+  {
+    "herramientaId": "scoro",
+    "tipo": "capacidad",
+    "capacidadIds": [
+      "cap.app_integrations",
+      "cap.custom_reports",
+      "cap.dashboards",
+      "cap.data_export",
+      "cap.data_import_and_migration",
+      "cap.public_api",
+      "cap.roles_and_permissions",
+      "cap.webhooks",
+      "cap.workflow_automation"
+    ]
+  },
+  {
+    "herramientaId": "scoro",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.gantt_and_dependencies",
+      "cap.job_costing",
+      "cap.kanban_boards",
+      "cap.project_planning",
+      "cap.task_management"
+    ]
+  },
+  {
+    "herramientaId": "smartsheet",
+    "tipo": "capacidad",
+    "capacidadIds": [
+      "cap.audit_log",
+      "cap.gantt_and_dependencies",
+      "cap.kanban_boards",
+      "cap.project_planning",
+      "cap.single_sign_on",
+      "cap.task_management",
+      "cap.team_workload_planning",
+      "cap.time_tracking",
+      "cap.two_factor_authentication"
+    ]
+  },
+  {
+    "herramientaId": "streak",
+    "tipo": "capacidad",
+    "capacidadIds": [
+      "cap.app_integrations",
+      "cap.custom_reports",
+      "cap.dashboards",
+      "cap.data_export",
+      "cap.data_import_and_migration",
+      "cap.public_api",
+      "cap.roles_and_permissions",
+      "cap.webhooks",
+      "cap.workflow_automation"
+    ]
+  },
+  {
+    "herramientaId": "teamgantt",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.app_integrations",
+      "cap.data_export",
+      "cap.data_import_and_migration",
+      "cap.gantt_and_dependencies",
+      "cap.kanban_boards",
+      "cap.project_planning",
+      "cap.public_api",
+      "cap.roles_and_permissions",
+      "cap.task_management",
+      "cap.team_workload_planning",
+      "cap.time_tracking"
+    ]
+  },
+  {
+    "herramientaId": "teamwork-com",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.app_integrations",
+      "cap.custom_reports",
+      "cap.dashboards",
+      "cap.data_import_and_migration",
+      "cap.job_costing",
+      "cap.webhooks",
+      "cap.workflow_automation"
+    ]
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "tipo": "capacidad",
+    "capacidadIds": [
+      "cap.app_integrations",
+      "cap.custom_reports",
+      "cap.dashboards",
+      "cap.data_export",
+      "cap.data_import_and_migration",
+      "cap.public_api",
+      "cap.roles_and_permissions",
+      "cap.webhooks",
+      "cap.workflow_automation"
+    ]
+  },
+  {
+    "herramientaId": "vtiger-crm",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.customer_interaction_history",
+      "cap.quotes_and_proposals"
+    ]
+  },
+  {
+    "herramientaId": "wrike",
+    "tipo": "capacidad",
+    "capacidadIds": [
+      "cap.audit_log",
+      "cap.gantt_and_dependencies",
+      "cap.kanban_boards",
+      "cap.project_planning",
+      "cap.single_sign_on",
+      "cap.task_management",
+      "cap.team_workload_planning",
+      "cap.time_tracking",
+      "cap.two_factor_authentication"
+    ]
+  },
+  {
+    "herramientaId": "wrike",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.app_integrations",
+      "cap.roles_and_permissions"
+    ]
+  },
+  {
+    "herramientaId": "zenkit",
+    "tipo": "capacidad",
+    "capacidadIds": [
+      "cap.app_integrations",
+      "cap.audit_log",
+      "cap.custom_reports",
+      "cap.dashboards",
+      "cap.data_export",
+      "cap.data_import_and_migration",
+      "cap.gantt_and_dependencies",
+      "cap.kanban_boards",
+      "cap.project_planning",
+      "cap.public_api",
+      "cap.roles_and_permissions",
+      "cap.single_sign_on",
+      "cap.task_management",
+      "cap.team_workload_planning",
+      "cap.time_tracking",
+      "cap.two_factor_authentication",
+      "cap.webhooks",
+      "cap.workflow_automation"
+    ]
+  },
+  {
+    "herramientaId": "zoho-projects",
+    "tipo": "plan",
+    "capacidadIds": [
+      "cap.app_integrations",
+      "cap.dashboards",
+      "cap.gantt_and_dependencies",
+      "cap.kanban_boards",
+      "cap.task_management",
+      "cap.team_workload_planning",
+      "cap.time_tracking",
+      "cap.workflow_automation"
+    ]
+  }
+]

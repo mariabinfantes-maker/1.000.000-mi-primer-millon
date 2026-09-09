@@ -1,0 +1,58 @@
+[
+  {
+    "herramientaId": "capsule-crm",
+    "urlPrecios": "https://capsulecrm.com/signup/",
+    "motivo": "La urlPrecios de la ficha (https://capsulecrm.com/pricing/) redirige aquí. Comprobado con el fetch de Gemini (url_context): retrievedUrl=https://capsulecrm.com/signup/, URL_RETRIEVAL_STATUS_SUCCESS. La URL de destino usa el path /signup/ pero el contenido es la página de precios: título \"Capsule CRM Pricing | Compare plans & start free | Capsule CRM\", encabezado \"Select a plan that suits you\".",
+    "fecha": "2026-09-07"
+  },
+  {
+    "herramientaId": "insightly",
+    "urlPrecios": "https://www.insightly.com/pricing-plans/",
+    "motivo": "La urlPrecios de la ficha (https://www.insightly.com/pricing/) redirige aquí. Comprobado con el fetch de Gemini (url_context): retrievedUrl=https://www.insightly.com/pricing-plans/, URL_RETRIEVAL_STATUS_SUCCESS.",
+    "fecha": "2026-09-07"
+  },
+  {
+    "herramientaId": "wrike",
+    "urlPrecios": "https://www.wrike.com/price/",
+    "motivo": "La urlPrecios de la ficha (https://www.wrike.com/pricing/) redirige aquí. Comprobado con el fetch de Gemini (url_context): retrievedUrl=https://www.wrike.com/price/, URL_RETRIEVAL_STATUS_SUCCESS.",
+    "fecha": "2026-09-07"
+  },
+  {
+    "herramientaId": "zenkit",
+    "urlPrecios": "https://zenkit.com/en/pricing/",
+    "paginaOficial": {
+      "solicitada": "https://zenkit.com",
+      "resuelta": "https://zenkit.com/en/"
+    },
+    "motivo": "Las dos direcciones de la ficha redirigen. urlPrecios (https://zenkit.com/en/base/pricing/) lleva a https://zenkit.com/en/pricing/, y paginaOficial (https://zenkit.com) lleva a https://zenkit.com/en/. Comprobado con el fetch de Gemini (url_context), que devuelve esos retrievedUrl con URL_RETRIEVAL_STATUS_SUCCESS al pedir las de la ficha. La de la portada costaba ocho pares: Gemini leía /en/ y citaba la de la ficha, y la afirmación caía por la regla de redirecciones.",
+    "fecha": "2026-09-07"
+  },
+  {
+    "herramientaId": "zoho-crm",
+    "urlPrecios": "https://www.zoho.com/en-us/crm/zohocrm-pricing.html",
+    "motivo": "La urlPrecios de la ficha (https://www.zoho.com/crm/pricing.html) redirige aquí. Comprobado con el fetch de Gemini (url_context): retrievedUrl=https://www.zoho.com/en-us/crm/zohocrm-pricing.html, URL_RETRIEVAL_STATUS_SUCCESS.",
+    "fecha": "2026-09-07"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "urlPrecios": "https://www.notion.com/pricing",
+    "paginaOficial": {
+      "solicitada": "https://www.notion.so/product/ai",
+      "resuelta": "https://www.notion.com/product/ai"
+    },
+    "motivo": "Notion ha migrado de notion.so a notion.com. Evidencia técnica del propio lector: en las siete llamadas del lote 2 se pidieron https://www.notion.so/pricing y https://www.notion.so/product/ai, y las catorce descargas que devolvió el proveedor fueron https://www.notion.com/pricing y https://www.notion.com/product/ai, las catorce con URL_RETRIEVAL_STATUS_SUCCESS. Se declara aquí, sólo para verificar; la ficha del catálogo no se toca, porque una URL del catálogo es dato de producto y lo decide la propietaria.",
+    "fecha": "2026-09-09"
+  },
+  {
+    "herramientaId": "engagebay",
+    "urlPrecios": "https://www.engagebay.com/pricing/all-in-one",
+    "motivo": "Se pidió https://www.engagebay.com/pricing y el proveedor devolvió, en las seis descargas de la vuelta de capacidad, https://www.engagebay.com/pricing/all-in-one con URL_RETRIEVAL_STATUS_SUCCESS. El modelo citó la dirección pedida y no la leída, y por eso cayeron seis pares por la regla de redirecciones. Se declara sólo para verificar; la ficha no se toca.",
+    "fecha": "2026-09-09"
+  },
+  {
+    "herramientaId": "kartra",
+    "urlPrecios": "https://kartra.com/plans-and-pricing/",
+    "motivo": "Se pidió https://www.kartra.com/pricing/ y el proveedor devolvió https://kartra.com/plans-and-pricing/ con URL_RETRIEVAL_STATUS_SUCCESS: cambian el subdominio y la ruta. El modelo citó la pedida, y cuatro pares cayeron por la regla de redirecciones. Se declara sólo para verificar; la ficha no se toca.",
+    "fecha": "2026-09-09"
+  }
+]
