@@ -1310,6 +1310,13 @@
   },
   {
     "herramientaId": "clickup-brain",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo",
+    "cita": "50+ Native Integrations",
+    "urlCitada": "https://clickup.com/pricing"
+  },
+  {
+    "herramientaId": "clickup-brain",
     "capacidadId": "cap.ai_task_agents",
     "motivo": "sin plan mínimo",
     "cita": "ClickUp Certified Agents Built, tested, and verified by ClickUp's AI experts. The only agents that power complex workflows, with complete context across your tools and teams.",
@@ -1447,13 +1454,6 @@
   },
   {
     "herramientaId": "heygen",
-    "capacidadId": "cap.single_sign_on",
-    "motivo": "cita breve sin revisar",
-    "cita": "SAML/ SSO",
-    "urlCitada": "https://www.heygen.com/pricing"
-  },
-  {
-    "herramientaId": "heygen",
     "capacidadId": "cap.audit_log",
     "motivo": "sin plan mínimo",
     "cita": "Audit log",
@@ -1496,6 +1496,20 @@
     "capacidadId": "cap.audit_log",
     "motivo": "sin plan mínimo",
     "cita": "Role-based access controls and an in-app AI audit log are also included, so admins can govern who has access and how the platform is used across their team.",
+    "urlCitada": "https://www.jasper.ai/pricing"
+  },
+  {
+    "herramientaId": "jasper",
+    "capacidadId": "cap.text_generation",
+    "motivo": "sin plan mínimo",
+    "cita": "On the text side, Jasper handles the full range of marketing content: articles, emails, ads, social posts, and more.",
+    "urlCitada": "https://www.jasper.ai/pricing"
+  },
+  {
+    "herramientaId": "jasper",
+    "capacidadId": "cap.text_correction",
+    "motivo": "sin plan mínimo",
+    "cita": "Highlight text and with 1-click you can improve your writing, change the tone, adjust the length, or repurpose for a different channel.",
     "urlCitada": "https://www.jasper.ai/pricing"
   },
   {
@@ -1647,28 +1661,10 @@
   },
   {
     "herramientaId": "synthesia",
-    "capacidadId": "cap.custom_reports",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "synthesia",
-    "capacidadId": "cap.data_export",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "synthesia",
     "capacidadId": "cap.data_import_and_migration",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "synthesia",
-    "capacidadId": "cap.roles_and_permissions",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "synthesia",
-    "capacidadId": "cap.single_sign_on",
-    "motivo": "sin respuesta"
+    "motivo": "sin plan mínimo",
+    "cita": "Create hundreds of personalized videos in minutes — pick a template, upload your .csv or .xlsx file, and hit \"Generate.\"",
+    "urlCitada": "https://www.synthesia.io/pricing"
   },
   {
     "herramientaId": "synthesia",
@@ -1693,8 +1689,15 @@
   },
   {
     "herramientaId": "taskade",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin plan mínimo",
+    "cita": "Share workspaces, assign roles, set permissions, and monitor usage across your organization.",
+    "urlCitada": "https://www.taskade.com/pricing"
+  },
+  {
+    "herramientaId": "taskade",
     "capacidadId": "cap.task_management",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "motivo": "sin plan mínimo",
     "cita": "See tasks, owners, and progress.",
     "urlCitada": "https://www.taskade.com/"
   },

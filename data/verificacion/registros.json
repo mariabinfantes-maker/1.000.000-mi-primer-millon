@@ -16902,7 +16902,15 @@
         "tipo": "tarifa_oficial",
         "url": "https://clickup.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "5 Active Rules, 100 Automation executions, Multiple Actions & Conditions"
+        "cita": "5 Active Rules, 100 Automation executions, Multiple Actions & Conditions",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://clickup.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Automations: 5 Active Rules, 100 Automation executions, Multiple Actions & Conditions — Free Forever",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
@@ -16914,18 +16922,24 @@
     "capacidadId": "cap.app_integrations",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Free Forever",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://clickup.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "50+ Native Integrations"
+        "cita": "50+ Native Integrations",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://clickup.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
-    "proximaRevision": "2027-03-09",
+    "proximaRevision": "2027-09-09",
     "nota": "Ofrece más de 50 integraciones nativas ya construidas."
   },
   {
@@ -16940,7 +16954,15 @@
         "tipo": "tarifa_oficial",
         "url": "https://clickup.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "API Calls 100/minute"
+        "cita": "API Calls 100/minute",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://clickup.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "API Calls: 100/minute — Free Forever",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
@@ -16959,7 +16981,15 @@
         "tipo": "tarifa_oficial",
         "url": "https://clickup.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Webhooks & Automation Integrations"
+        "cita": "Webhooks & Automation Integrations",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://clickup.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Webhooks & Automation Integrations — Business",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
@@ -16978,7 +17008,15 @@
         "tipo": "tarifa_oficial",
         "url": "https://clickup.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Unlimited Dashboards with Advanced Cards"
+        "cita": "Unlimited Dashboards with Advanced Cards",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://clickup.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Unlimited Dashboards with Advanced Cards — Business",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
@@ -19768,18 +19806,29 @@
   {
     "herramientaId": "heygen",
     "capacidadId": "cap.single_sign_on",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Business",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.heygen.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "SAML/ SSO"
+        "cita": "SAML/ SSO",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.heygen.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "SAML/ SSO — Business",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"SAML/ SSO\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Soporte SAML/SSO desde el plan Business."
   },
   {
     "herramientaId": "heygen",
@@ -20293,36 +20342,48 @@
     "capacidadId": "cap.text_generation",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Pro",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.jasper.ai/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "On the text side, Jasper handles the full range of marketing content: articles, emails, ads, social posts, and more."
+        "cita": "On the text side, Jasper handles the full range of marketing content: articles, emails, ads, social posts, and more.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.jasper.ai/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
-    "proximaRevision": "2027-03-09"
+    "proximaRevision": "2027-09-09"
   },
   {
     "herramientaId": "jasper",
     "capacidadId": "cap.text_correction",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Pro",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.jasper.ai/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Highlight text and with 1-click you can improve your writing, change the tone, adjust the length, or repurpose for a different channel."
+        "cita": "Highlight text and with 1-click you can improve your writing, change the tone, adjust the length, or repurpose for a different channel.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.jasper.ai/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
-    "proximaRevision": "2027-03-09"
+    "proximaRevision": "2027-09-09"
   },
   {
     "herramientaId": "jasper",
@@ -20336,7 +20397,15 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.jasper.ai/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Agents for complex marketing workflows, including GEO, translations, and deep research"
+        "cita": "Agents for complex marketing workflows, including GEO, translations, and deep research",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.jasper.ai/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Agents for complex marketing workflows, including GEO, translations, and deep research — Business",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
@@ -20353,7 +20422,14 @@
         "tipo": "pagina_oficial",
         "url": "https://www.jasper.ai/",
         "fechaConsulta": "2026-09-09",
-        "cita": "Create content that ranks, drives traffic & strengthens authority at scale."
+        "cita": "Create content that ranks, drives traffic & strengthens authority at scale.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.jasper.ai/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -20412,7 +20488,15 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.jasper.ai/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Agents for core marketing workflows"
+        "cita": "Agents for core marketing workflows",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.jasper.ai/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Agents for core marketing workflows — Pro",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
@@ -21424,7 +21508,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -21439,7 +21523,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -21454,7 +21538,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -21469,7 +21553,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -21484,7 +21568,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -21499,7 +21583,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -21514,7 +21598,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -21529,7 +21613,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -21544,7 +21628,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -21559,7 +21643,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -21574,7 +21658,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -21589,7 +21673,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -21604,7 +21688,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -21619,7 +21703,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -21634,7 +21718,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -21649,7 +21733,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -21664,7 +21748,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -21679,7 +21763,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -21694,7 +21778,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -21709,7 +21793,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -21724,7 +21808,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -21739,7 +21823,7 @@
     "estado": "desconocido",
     "fuentes": [
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.notion.so/pricing",
         "fechaConsulta": "2026-09-09"
       }
@@ -22853,47 +22937,57 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Buscado informes a medida o personalizados; solo se mencionan analíticas estándar."
   },
   {
     "herramientaId": "synthesia",
     "capacidadId": "cap.data_export",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Enterprise",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.synthesia.io/pricing",
-        "fechaConsulta": "2026-09-09"
+        "fechaConsulta": "2026-09-09",
+        "cita": "Export your content as a SCORM package and easily upload it into your LMS.",
+        "rol": "capacidad"
       },
       {
-        "tipo": "pagina_oficial",
-        "url": "https://www.synthesia.io/",
-        "fechaConsulta": "2026-09-09"
+        "tipo": "tarifa_oficial",
+        "url": "https://www.synthesia.io/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "SCORM export — Enterprise",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09"
   },
   {
     "herramientaId": "synthesia",
     "capacidadId": "cap.data_import_and_migration",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.synthesia.io/pricing",
-        "fechaConsulta": "2026-09-09"
+        "fechaConsulta": "2026-09-09",
+        "cita": "Create hundreds of personalized videos in minutes — pick a template, upload your .csv or .xlsx file, and hit \"Generate.\"",
+        "rol": "capacidad"
       },
       {
-        "tipo": "pagina_oficial",
-        "url": "https://www.synthesia.io/",
-        "fechaConsulta": "2026-09-09"
+        "tipo": "tarifa_oficial",
+        "url": "https://www.synthesia.io/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "confianza": "alta",
+    "proximaRevision": "2027-09-09"
   },
   {
     "herramientaId": "synthesia",
@@ -22913,27 +23007,33 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Buscado gestión de roles y permisos por perfil; solo se mencionan tipos de asiento como editor o guest."
   },
   {
     "herramientaId": "synthesia",
     "capacidadId": "cap.single_sign_on",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Enterprise",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.synthesia.io/pricing",
-        "fechaConsulta": "2026-09-09"
+        "fechaConsulta": "2026-09-09",
+        "cita": "Get a fast and secure login for everyone on your team.",
+        "rol": "capacidad"
       },
       {
-        "tipo": "pagina_oficial",
-        "url": "https://www.synthesia.io/",
-        "fechaConsulta": "2026-09-09"
+        "tipo": "tarifa_oficial",
+        "url": "https://www.synthesia.io/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "SAML/SSO — Enterprise",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09"
   },
   {
     "herramientaId": "synthesia",
@@ -23366,18 +23466,24 @@
     "capacidadId": "cap.roles_and_permissions",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Business",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.taskade.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Share workspaces, assign roles, set permissions, and monitor usage across your organization."
+        "cita": "Share workspaces, assign roles, set permissions, and monitor usage across your organization.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.taskade.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
-    "proximaRevision": "2027-03-09",
+    "proximaRevision": "2027-09-09",
     "nota": "Ofrece controles de administración para asignar roles y permisos."
   },
   {
@@ -23392,7 +23498,15 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.taskade.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Single sign-on with SAML 2.0, included from Business up. Integrate Okta, Azure AD, or Google Workspace — one login for your entire organization, centrally managed."
+        "cita": "Single sign-on with SAML 2.0, included from Business up. Integrate Okta, Azure AD, or Google Workspace — one login for your entire organization, centrally managed.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.taskade.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Single sign-on with SAML 2.0, included from Business up.",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
@@ -23451,7 +23565,15 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.taskade.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Upload PDFs, docs, spreadsheets, images, and URLs. Your AI agents access the same knowledge your team does — search, reference, and act on files automatically."
+        "cita": "Upload PDFs, docs, spreadsheets, images, and URLs. Your AI agents access the same knowledge your team does — search, reference, and act on files automatically.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.taskade.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "AI knowledge base — Free",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
@@ -23549,7 +23671,14 @@
         "tipo": "pagina_oficial",
         "url": "https://www.taskade.com/",
         "fechaConsulta": "2026-09-09",
-        "cita": "See tasks, owners, and progress."
+        "cita": "See tasks, owners, and progress.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.taskade.com",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -23568,7 +23697,15 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.taskade.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Agents that plan, execute, and iterate independently. They break goals into tasks, use their built-in tools, and run multi-step operations end-to-end — no hand-holding required."
+        "cita": "Agents that plan, execute, and iterate independently. They break goals into tasks, use their built-in tools, and run multi-step operations end-to-end — no hand-holding required.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.taskade.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Autonomous agents — Max",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
