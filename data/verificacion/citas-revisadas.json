@@ -766,5 +766,373 @@
     "veredicto": "vale",
     "motivo": "Conectar con herramientas de chat es conectar con otras herramientas mediante integraciones ya hechas.",
     "revisadoEl": "2026-09-07"
+  },
+  {
+    "herramientaId": "beautiful-ai",
+    "capacidadId": "cap.app_integrations",
+    "cita": "Connect your favorite tools",
+    "veredicto": "vale",
+    "motivo": "Dice que se conecta con otras herramientas, que es la capacidad entera.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "beautiful-ai",
+    "capacidadId": "cap.roles_and_permissions",
+    "cita": "Manage who can view & edit",
+    "veredicto": "vale",
+    "motivo": "«Quién puede ver y editar» es literalmente definir quién ve y quién hace qué.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "beautiful-ai",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Secure single sign-on (SSO)",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "beautiful-ai",
+    "capacidadId": "cap.audit_log",
+    "cita": "Audit & change-logs",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "beautiful-ai",
+    "capacidadId": "cap.text_generation",
+    "cita": "AI writing assistant",
+    "veredicto": "no_vale",
+    "motivo": "«Asistente de escritura con IA» no distingue redactar de corregir, que son dos capacidades distintas del vocabulario. Ambigua: no se interpreta.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "canva",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "SSO and SCIM provisioning",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "canva",
+    "capacidadId": "cap.brand_kit",
+    "cita": "1 Brand Kit (3 colors only)",
+    "veredicto": "vale",
+    "motivo": "Nombra el kit de marca y hasta su límite en ese plan.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "canva",
+    "capacidadId": "cap.document_templates",
+    "cita": "1.6M+ templates to start fast",
+    "veredicto": "vale",
+    "motivo": "Nombra plantillas de las que partir, que es la capacidad; de qué tipo sea el documento no forma parte de la definición.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "canva",
+    "capacidadId": "cap.collaborative_document_editing",
+    "cita": "Real-time collaboration",
+    "veredicto": "vale",
+    "motivo": "«Colaboración en tiempo real» es trabajar varias personas a la vez sobre lo mismo.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.app_integrations",
+    "cita": "50+ Native Integrations",
+    "veredicto": "vale",
+    "motivo": "Nombra integraciones nativas y cuántas.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.public_api",
+    "cita": "API Calls 100/minute",
+    "veredicto": "vale",
+    "motivo": "Un límite de llamadas a la API en la tarifa demuestra que la API existe y está a disposición del cliente.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.data_export",
+    "cita": "Custom Exporting",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.roles_and_permissions",
+    "cita": "Unlimited Custom Roles",
+    "veredicto": "vale",
+    "motivo": "«Roles personalizados ilimitados» es definir perfiles, que es la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Google SSO",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.two_factor_authentication",
+    "cita": "Two-Factor Authentication",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.audit_log",
+    "cita": "Audit Log",
+    "veredicto": "vale",
+    "motivo": "Mismo criterio que «Audit logs» en el lote 1, que se aceptó.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.collaborative_document_editing",
+    "cita": "Collaborative Docs",
+    "veredicto": "vale",
+    "motivo": "«Documentos colaborativos» nombra la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.file_storage",
+    "cita": "60MB Storage",
+    "veredicto": "vale",
+    "motivo": "Un límite de almacenamiento en la tarifa demuestra que guarda archivos.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.task_management",
+    "cita": "Unlimited Tasks",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.text_generation",
+    "cita": "Unlimited AI writing",
+    "veredicto": "no_vale",
+    "motivo": "«Escritura con IA» no distingue redactar de corregir. Mismo criterio que Beautiful.ai: ambigua, no se interpreta.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "fireflies-ai",
+    "capacidadId": "cap.public_api",
+    "cita": "API access",
+    "veredicto": "vale",
+    "motivo": "Mismo criterio que «API Access» en el lote 1, que se aceptó.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "fireflies-ai",
+    "capacidadId": "cap.roles_and_permissions",
+    "cita": "Super admin role",
+    "veredicto": "no_vale",
+    "motivo": "Nombra UN rol que viene de fábrica, no que se puedan definir perfiles y permisos. Ambigua: no se interpreta.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "fireflies-ai",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "SSO + SCIM",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "fireflies-ai",
+    "capacidadId": "cap.audit_log",
+    "cita": "Audit Logs (API)",
+    "veredicto": "vale",
+    "motivo": "Nombra el registro de actividad; que se consulte por API no lo desmiente.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "gamma",
+    "capacidadId": "cap.public_api",
+    "cita": "API access",
+    "veredicto": "vale",
+    "motivo": "Mismo criterio que «API Access» en el lote 1.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "gamma",
+    "capacidadId": "cap.data_import_and_migration",
+    "cita": "Import from PDF & PPTX",
+    "veredicto": "vale",
+    "motivo": "Importar desde PDF y PPTX es traer datos desde fuera sin teclearlos.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "gamma",
+    "capacidadId": "cap.brand_kit",
+    "cita": "Custom branding & fonts",
+    "veredicto": "vale",
+    "motivo": "Marca y tipografías propias es lo que define el kit de marca.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "grammarly",
+    "capacidadId": "cap.app_integrations",
+    "cita": "Grammarly for Google Docs",
+    "veredicto": "vale",
+    "motivo": "Nombra una integración concreta con otra herramienta.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "grammarly",
+    "capacidadId": "cap.roles_and_permissions",
+    "cita": "Custom roles and permissions",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "heygen",
+    "capacidadId": "cap.two_factor_authentication",
+    "cita": "Team Member MFA",
+    "veredicto": "vale",
+    "motivo": "MFA es exigir un segundo factor, que es la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "heygen",
+    "capacidadId": "cap.audit_log",
+    "cita": "Audit log",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "krisp",
+    "capacidadId": "cap.public_api",
+    "cita": "API Integration",
+    "veredicto": "no_vale",
+    "motivo": "«Integración por API» no dice si Krisp OFRECE una API o si consume la de otro. Ambigua: no se interpreta.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "krisp",
+    "capacidadId": "cap.roles_and_permissions",
+    "cita": "Super admin role",
+    "veredicto": "no_vale",
+    "motivo": "Nombra UN rol de fábrica, no que se puedan definir perfiles. Mismo criterio que Fireflies.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "krisp",
+    "capacidadId": "cap.two_factor_authentication",
+    "cita": "MFA",
+    "veredicto": "vale",
+    "motivo": "MFA nombra la capacidad; mismo criterio que «SSO» en el lote 1, que se aceptó.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "krisp",
+    "capacidadId": "cap.audio_transcription",
+    "cita": "Unlimited Transcription",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "krisp",
+    "capacidadId": "cap.audio_noise_removal",
+    "cita": "Unlimited Noise Cancellation",
+    "veredicto": "vale",
+    "motivo": "«Cancelación de ruido» es quitar ruido de fondo, que es la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "motion",
+    "capacidadId": "cap.roles_and_permissions",
+    "cita": "Permissions & Access Control",
+    "veredicto": "vale",
+    "motivo": "«Permisos y control de acceso» nombra la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "motion",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Time Tracking",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "otter-ai",
+    "capacidadId": "cap.public_api",
+    "cita": "Otter API & Webhooks",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "otter-ai",
+    "capacidadId": "cap.webhooks",
+    "cita": "Otter API & Webhooks",
+    "veredicto": "vale",
+    "motivo": "La misma frase nombra las dos cosas, y los webhooks son una de ellas.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "otter-ai",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Single Sign-On (SSO)",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "otter-ai",
+    "capacidadId": "cap.two_factor_authentication",
+    "cita": "2-factor authentication",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "otter-ai",
+    "capacidadId": "cap.audit_log",
+    "cita": "Activity logs",
+    "veredicto": "vale",
+    "motivo": "«Registros de actividad» es el nombre de la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "otter-ai",
+    "capacidadId": "cap.audio_transcription",
+    "cita": "Live transcription",
+    "veredicto": "vale",
+    "motivo": "Transcripción en directo es convertir voz en texto.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "todoist",
+    "capacidadId": "cap.public_api",
+    "cita": "Developer API",
+    "veredicto": "vale",
+    "motivo": "«API para desarrolladores» nombra una API a disposición de quien construya encima.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "todoist",
+    "capacidadId": "cap.audit_log",
+    "cita": "1 week activity history",
+    "veredicto": "no_vale",
+    "motivo": "Dice cuánto tiempo se guarda un historial, no que registre quién hizo qué. Ambigua: no se interpreta.",
+    "revisadoEl": "2026-09-09"
   }
 ]
