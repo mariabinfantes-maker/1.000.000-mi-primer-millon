@@ -1972,13 +1972,6 @@
   },
   {
     "herramientaId": "engagebay",
-    "capacidadId": "cap.app_integrations",
-    "motivo": "sin plan mínimo",
-    "cita": "Easily integrate EngageBay with the tools you already love.",
-    "urlCitada": "https://www.engagebay.com/"
-  },
-  {
-    "herramientaId": "engagebay",
     "capacidadId": "cap.public_api",
     "motivo": "la dirección citada no consta como leída",
     "cita": "API"
@@ -2123,6 +2116,20 @@
     "capacidadId": "cap.app_integrations",
     "motivo": "sin plan mínimo",
     "cita": "Connect HoneyBook and thousands of apps and workflows.",
+    "urlCitada": "https://www.honeybook.com/pricing"
+  },
+  {
+    "herramientaId": "honeybook",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin plan mínimo",
+    "cita": "Add or import expenses to keep your books up to date.",
+    "urlCitada": "https://www.honeybook.com/pricing"
+  },
+  {
+    "herramientaId": "honeybook",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin plan mínimo",
+    "cita": "Control what team members can see and do in HoneyBook.",
     "urlCitada": "https://www.honeybook.com/pricing"
   },
   {

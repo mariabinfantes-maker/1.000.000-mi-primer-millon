@@ -26855,17 +26855,26 @@
     "capacidadId": "cap.app_integrations",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planEstado": "desconocido",
+    "planMinimo": "Free",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
         "url": "https://www.engagebay.com/",
         "fechaConsulta": "2026-09-09",
-        "cita": "Easily integrate EngageBay with the tools you already love."
+        "cita": "Easily integrate EngageBay with the tools you already love.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.engagebay.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Integrations — Free",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
-    "proximaRevision": "2027-09-09",
+    "proximaRevision": "2027-03-09",
     "nota": "Ofrece integraciones directas con herramientas de terceros."
   },
   {
@@ -26954,7 +26963,14 @@
         "tipo": "pagina_oficial",
         "url": "https://www.engagebay.com/",
         "fechaConsulta": "2026-09-09",
-        "cita": "You can import existing contacts from HubSpot, Salesforce, or a CSV file in minutes."
+        "cita": "You can import existing contacts from HubSpot, Salesforce, or a CSV file in minutes.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.engagebay.com/",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -28264,7 +28280,15 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.honeybook.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Automate repetitive tasks and workflows."
+        "cita": "Automate repetitive tasks and workflows.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.honeybook.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Automations — Essentials",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
@@ -28282,7 +28306,14 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.honeybook.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Connect HoneyBook and thousands of apps and workflows."
+        "cita": "Connect HoneyBook and thousands of apps and workflows.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.honeybook.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -28394,18 +28425,24 @@
     "capacidadId": "cap.data_import_and_migration",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Starter",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.honeybook.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Add or import expenses to keep your books up to date."
+        "cita": "Add or import expenses to keep your books up to date.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.honeybook.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
-    "proximaRevision": "2027-03-09",
+    "proximaRevision": "2027-09-09",
     "nota": "Documenta explícitamente la importación de gastos."
   },
   {
@@ -28413,18 +28450,24 @@
     "capacidadId": "cap.roles_and_permissions",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Essentials",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.honeybook.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Control what team members can see and do in HoneyBook."
+        "cita": "Control what team members can see and do in HoneyBook.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.honeybook.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
-    "proximaRevision": "2027-03-09",
+    "proximaRevision": "2027-09-09",
     "nota": "Permite definir y controlar lo que ven y hacen los miembros del equipo."
   },
   {
@@ -28499,7 +28542,15 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.honeybook.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Keep clients and projects organized under one roof."
+        "cita": "Keep clients and projects organized under one roof.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.honeybook.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Unlimited clients and projects — Starter",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
