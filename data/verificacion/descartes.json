@@ -1290,135 +1290,23 @@
   {
     "herramientaId": "beautiful-ai",
     "capacidadId": "cap.app_integrations",
-    "motivo": "cita breve sin revisar",
+    "motivo": "sin plan mínimo",
     "cita": "Connect your favorite tools",
     "urlCitada": "https://www.beautiful.ai/"
   },
   {
     "herramientaId": "beautiful-ai",
-    "capacidadId": "cap.roles_and_permissions",
-    "motivo": "cita breve sin revisar",
-    "cita": "Manage who can view & edit",
-    "urlCitada": "https://www.beautiful.ai/pricing"
-  },
-  {
-    "herramientaId": "beautiful-ai",
-    "capacidadId": "cap.single_sign_on",
-    "motivo": "cita breve sin revisar",
-    "cita": "Secure single sign-on (SSO)",
-    "urlCitada": "https://www.beautiful.ai/pricing"
-  },
-  {
-    "herramientaId": "beautiful-ai",
-    "capacidadId": "cap.audit_log",
-    "motivo": "cita breve sin revisar",
-    "cita": "Audit & change-logs",
-    "urlCitada": "https://www.beautiful.ai/pricing"
-  },
-  {
-    "herramientaId": "beautiful-ai",
     "capacidadId": "cap.text_generation",
-    "motivo": "cita breve sin revisar",
+    "motivo": "cita breve revisada y rechazada",
     "cita": "AI writing assistant",
     "urlCitada": "https://www.beautiful.ai/pricing"
   },
   {
     "herramientaId": "canva",
-    "capacidadId": "cap.single_sign_on",
-    "motivo": "cita breve sin revisar",
-    "cita": "SSO and SCIM provisioning",
-    "urlCitada": "https://www.canva.com/pricing/"
-  },
-  {
-    "herramientaId": "canva",
-    "capacidadId": "cap.brand_kit",
-    "motivo": "cita breve sin revisar",
-    "cita": "1 Brand Kit (3 colors only)",
-    "urlCitada": "https://www.canva.com/pricing/"
-  },
-  {
-    "herramientaId": "canva",
-    "capacidadId": "cap.document_templates",
-    "motivo": "cita breve sin revisar",
-    "cita": "1.6M+ templates to start fast",
-    "urlCitada": "https://www.canva.com/pricing/"
-  },
-  {
-    "herramientaId": "canva",
     "capacidadId": "cap.collaborative_document_editing",
-    "motivo": "cita breve sin revisar",
+    "motivo": "sin plan mínimo",
     "cita": "Real-time collaboration",
     "urlCitada": "https://www.canva.com/pricing/"
-  },
-  {
-    "herramientaId": "clickup-brain",
-    "capacidadId": "cap.app_integrations",
-    "motivo": "cita breve sin revisar",
-    "cita": "50+ Native Integrations",
-    "urlCitada": "https://clickup.com/pricing"
-  },
-  {
-    "herramientaId": "clickup-brain",
-    "capacidadId": "cap.public_api",
-    "motivo": "cita breve sin revisar",
-    "cita": "API Calls 100/minute",
-    "urlCitada": "https://clickup.com/pricing"
-  },
-  {
-    "herramientaId": "clickup-brain",
-    "capacidadId": "cap.data_export",
-    "motivo": "cita breve sin revisar",
-    "cita": "Custom Exporting",
-    "urlCitada": "https://clickup.com/pricing"
-  },
-  {
-    "herramientaId": "clickup-brain",
-    "capacidadId": "cap.roles_and_permissions",
-    "motivo": "cita breve sin revisar",
-    "cita": "Unlimited Custom Roles",
-    "urlCitada": "https://clickup.com/pricing"
-  },
-  {
-    "herramientaId": "clickup-brain",
-    "capacidadId": "cap.single_sign_on",
-    "motivo": "cita breve sin revisar",
-    "cita": "Google SSO",
-    "urlCitada": "https://clickup.com/pricing"
-  },
-  {
-    "herramientaId": "clickup-brain",
-    "capacidadId": "cap.two_factor_authentication",
-    "motivo": "cita breve sin revisar",
-    "cita": "Two-Factor Authentication",
-    "urlCitada": "https://clickup.com/pricing"
-  },
-  {
-    "herramientaId": "clickup-brain",
-    "capacidadId": "cap.audit_log",
-    "motivo": "cita breve sin revisar",
-    "cita": "Audit Log",
-    "urlCitada": "https://clickup.com/pricing"
-  },
-  {
-    "herramientaId": "clickup-brain",
-    "capacidadId": "cap.collaborative_document_editing",
-    "motivo": "cita breve sin revisar",
-    "cita": "Collaborative Docs",
-    "urlCitada": "https://clickup.com/pricing"
-  },
-  {
-    "herramientaId": "clickup-brain",
-    "capacidadId": "cap.file_storage",
-    "motivo": "cita breve sin revisar",
-    "cita": "60MB Storage",
-    "urlCitada": "https://clickup.com/pricing"
-  },
-  {
-    "herramientaId": "clickup-brain",
-    "capacidadId": "cap.task_management",
-    "motivo": "cita breve sin revisar",
-    "cita": "Unlimited Tasks",
-    "urlCitada": "https://clickup.com/pricing"
   },
   {
     "herramientaId": "clickup-brain",
@@ -1430,7 +1318,7 @@
   {
     "herramientaId": "clickup-brain",
     "capacidadId": "cap.text_generation",
-    "motivo": "cita breve sin revisar",
+    "motivo": "cita breve revisada y rechazada",
     "cita": "Unlimited AI writing",
     "urlCitada": "https://clickup.com/pricing"
   },
@@ -1503,30 +1391,9 @@
   },
   {
     "herramientaId": "fireflies-ai",
-    "capacidadId": "cap.public_api",
-    "motivo": "cita breve sin revisar",
-    "cita": "API access",
-    "urlCitada": "https://fireflies.ai/pricing"
-  },
-  {
-    "herramientaId": "fireflies-ai",
     "capacidadId": "cap.roles_and_permissions",
-    "motivo": "cita breve sin revisar",
+    "motivo": "cita breve revisada y rechazada",
     "cita": "Super admin role",
-    "urlCitada": "https://fireflies.ai/pricing"
-  },
-  {
-    "herramientaId": "fireflies-ai",
-    "capacidadId": "cap.single_sign_on",
-    "motivo": "cita breve sin revisar",
-    "cita": "SSO + SCIM",
-    "urlCitada": "https://fireflies.ai/pricing"
-  },
-  {
-    "herramientaId": "fireflies-ai",
-    "capacidadId": "cap.audit_log",
-    "motivo": "cita breve sin revisar",
-    "cita": "Audit Logs (API)",
     "urlCitada": "https://fireflies.ai/pricing"
   },
   {
@@ -1545,31 +1412,10 @@
   },
   {
     "herramientaId": "gamma",
-    "capacidadId": "cap.public_api",
-    "motivo": "cita breve sin revisar",
-    "cita": "API access",
-    "urlCitada": "https://gamma.app/pricing"
-  },
-  {
-    "herramientaId": "gamma",
-    "capacidadId": "cap.data_import_and_migration",
-    "motivo": "cita breve sin revisar",
-    "cita": "Import from PDF & PPTX",
-    "urlCitada": "https://gamma.app/pricing"
-  },
-  {
-    "herramientaId": "gamma",
     "capacidadId": "cap.graphic_design",
     "motivo": "sin plan mínimo",
     "cita": "Create and edit custom, on-brand graphics — from infographics to illustrations — with our AI design agent.",
     "urlCitada": "https://gamma.app/"
-  },
-  {
-    "herramientaId": "gamma",
-    "capacidadId": "cap.brand_kit",
-    "motivo": "cita breve sin revisar",
-    "cita": "Custom branding & fonts",
-    "urlCitada": "https://gamma.app/pricing"
   },
   {
     "herramientaId": "gamma",
@@ -1593,20 +1439,6 @@
     "urlCitada": "https://gamma.app/"
   },
   {
-    "herramientaId": "grammarly",
-    "capacidadId": "cap.app_integrations",
-    "motivo": "cita breve sin revisar",
-    "cita": "Grammarly for Google Docs",
-    "urlCitada": "https://www.grammarly.com/"
-  },
-  {
-    "herramientaId": "grammarly",
-    "capacidadId": "cap.roles_and_permissions",
-    "motivo": "cita breve sin revisar",
-    "cita": "Custom roles and permissions",
-    "urlCitada": "https://www.grammarly.com/plans"
-  },
-  {
     "herramientaId": "heygen",
     "capacidadId": "cap.public_api",
     "motivo": "sin plan mínimo",
@@ -1615,40 +1447,15 @@
   },
   {
     "herramientaId": "heygen",
-    "capacidadId": "cap.custom_reports",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "heygen",
-    "capacidadId": "cap.data_export",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "heygen",
-    "capacidadId": "cap.data_import_and_migration",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "heygen",
-    "capacidadId": "cap.roles_and_permissions",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "heygen",
     "capacidadId": "cap.single_sign_on",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "heygen",
-    "capacidadId": "cap.two_factor_authentication",
     "motivo": "cita breve sin revisar",
-    "cita": "Team Member MFA",
+    "cita": "SAML/ SSO",
     "urlCitada": "https://www.heygen.com/pricing"
   },
   {
     "herramientaId": "heygen",
     "capacidadId": "cap.audit_log",
-    "motivo": "cita breve sin revisar",
+    "motivo": "sin plan mínimo",
     "cita": "Audit log",
     "urlCitada": "https://www.heygen.com/pricing"
   },
@@ -1701,36 +1508,15 @@
   {
     "herramientaId": "krisp",
     "capacidadId": "cap.public_api",
-    "motivo": "cita breve sin revisar",
+    "motivo": "cita breve revisada y rechazada",
     "cita": "API Integration",
     "urlCitada": "https://krisp.ai/pricing/"
   },
   {
     "herramientaId": "krisp",
     "capacidadId": "cap.roles_and_permissions",
-    "motivo": "cita breve sin revisar",
+    "motivo": "cita breve revisada y rechazada",
     "cita": "Super admin role",
-    "urlCitada": "https://krisp.ai/pricing/"
-  },
-  {
-    "herramientaId": "krisp",
-    "capacidadId": "cap.two_factor_authentication",
-    "motivo": "cita breve sin revisar",
-    "cita": "MFA",
-    "urlCitada": "https://krisp.ai/pricing/"
-  },
-  {
-    "herramientaId": "krisp",
-    "capacidadId": "cap.audio_transcription",
-    "motivo": "cita breve sin revisar",
-    "cita": "Unlimited Transcription",
-    "urlCitada": "https://krisp.ai/pricing/"
-  },
-  {
-    "herramientaId": "krisp",
-    "capacidadId": "cap.audio_noise_removal",
-    "motivo": "cita breve sin revisar",
-    "cita": "Unlimited Noise Cancellation",
     "urlCitada": "https://krisp.ai/pricing/"
   },
   {
@@ -1742,24 +1528,10 @@
   },
   {
     "herramientaId": "motion",
-    "capacidadId": "cap.roles_and_permissions",
-    "motivo": "cita breve sin revisar",
-    "cita": "Permissions & Access Control",
-    "urlCitada": "https://www.usemotion.com/pricing"
-  },
-  {
-    "herramientaId": "motion",
     "capacidadId": "cap.automatic_rescheduling",
     "motivo": "sin plan mínimo",
     "cita": "Automatically re-plan your day whenever anything changes",
     "urlCitada": "https://www.usemotion.com/"
-  },
-  {
-    "herramientaId": "motion",
-    "capacidadId": "cap.time_tracking",
-    "motivo": "cita breve sin revisar",
-    "cita": "Time Tracking",
-    "urlCitada": "https://www.usemotion.com/pricing"
   },
   {
     "herramientaId": "motion",
@@ -1800,78 +1572,57 @@
   },
   {
     "herramientaId": "notion-ai",
-    "capacidadId": "cap.custom_reports",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "notion-ai",
     "capacidadId": "cap.data_export",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.data_import_and_migration",
-    "motivo": "sin respuesta"
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Export entire workspace as HTML, Markdown, & CSV"
   },
   {
     "herramientaId": "notion-ai",
     "capacidadId": "cap.roles_and_permissions",
-    "motivo": "sin respuesta"
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Collaborate in Notion databases without giving access to the entire database. Limit access to rows where the collaborator is assigned."
   },
   {
     "herramientaId": "notion-ai",
     "capacidadId": "cap.single_sign_on",
-    "motivo": "sin respuesta"
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Manage employee access at scale with secure single sign-on."
   },
   {
     "herramientaId": "notion-ai",
     "capacidadId": "cap.two_factor_authentication",
-    "motivo": "sin respuesta"
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Enable an extra layer of account security with a second method of verification, also known as 2FA or MFA."
   },
   {
     "herramientaId": "notion-ai",
     "capacidadId": "cap.audit_log",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.internal_knowledge_workspace",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.collaborative_document_editing",
-    "motivo": "sin respuesta"
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Access a detailed log of security and safety-related activity for your workspace account to identify potential security issues, investigate suspicious behavior, or troubleshoot access."
   },
   {
     "herramientaId": "notion-ai",
     "capacidadId": "cap.workspace_wide_search",
-    "motivo": "sin respuesta"
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Find quick answers using info across your Notion workspace, and connected tools like Slack, Microsoft Teams, GitHub and more."
   },
   {
     "herramientaId": "notion-ai",
     "capacidadId": "cap.document_version_history",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.file_storage",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "notion-ai",
-    "capacidadId": "cap.task_management",
-    "motivo": "sin respuesta"
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Restore your page to a previous version."
   },
   {
     "herramientaId": "notion-ai",
     "capacidadId": "cap.ai_task_agents",
-    "motivo": "sin respuesta"
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Completes complex, multi-step tasks using context from Notion, your connected apps, and the web."
   },
   {
     "herramientaId": "notion-ai",
     "capacidadId": "cap.text_generation",
-    "motivo": "sin respuesta"
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Improve writing or generate drafts with AI blocks directly in your pages."
   },
   {
     "herramientaId": "otter-ai",
@@ -1882,51 +1633,9 @@
   },
   {
     "herramientaId": "otter-ai",
-    "capacidadId": "cap.public_api",
-    "motivo": "cita breve sin revisar",
-    "cita": "Otter API & Webhooks",
-    "urlCitada": "https://otter.ai/pricing"
-  },
-  {
-    "herramientaId": "otter-ai",
-    "capacidadId": "cap.webhooks",
-    "motivo": "cita breve sin revisar",
-    "cita": "Otter API & Webhooks",
-    "urlCitada": "https://otter.ai/pricing"
-  },
-  {
-    "herramientaId": "otter-ai",
     "capacidadId": "cap.roles_and_permissions",
     "motivo": "sin plan mínimo",
     "cita": "Recording control and sharing permissions",
-    "urlCitada": "https://otter.ai/pricing"
-  },
-  {
-    "herramientaId": "otter-ai",
-    "capacidadId": "cap.single_sign_on",
-    "motivo": "cita breve sin revisar",
-    "cita": "Single Sign-On (SSO)",
-    "urlCitada": "https://otter.ai/pricing"
-  },
-  {
-    "herramientaId": "otter-ai",
-    "capacidadId": "cap.two_factor_authentication",
-    "motivo": "cita breve sin revisar",
-    "cita": "2-factor authentication",
-    "urlCitada": "https://otter.ai/pricing"
-  },
-  {
-    "herramientaId": "otter-ai",
-    "capacidadId": "cap.audit_log",
-    "motivo": "cita breve sin revisar",
-    "cita": "Activity logs",
-    "urlCitada": "https://otter.ai/pricing"
-  },
-  {
-    "herramientaId": "otter-ai",
-    "capacidadId": "cap.audio_transcription",
-    "motivo": "cita breve sin revisar",
-    "cita": "Live transcription",
     "urlCitada": "https://otter.ai/pricing"
   },
   {
@@ -1971,46 +1680,35 @@
   {
     "herramientaId": "taskade",
     "capacidadId": "cap.dashboards",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "motivo": "sin plan mínimo",
     "cita": "KPI trackers that update in real time. The numbers find you, not the other way around.",
     "urlCitada": "https://www.taskade.com/"
   },
   {
     "herramientaId": "taskade",
-    "capacidadId": "cap.document_version_history",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "taskade",
-    "capacidadId": "cap.file_storage",
-    "motivo": "sin respuesta"
+    "capacidadId": "cap.data_export",
+    "motivo": "sin plan mínimo",
+    "cita": "Everything you build is yours to keep, export, and use commercially.",
+    "urlCitada": "https://www.taskade.com/pricing"
   },
   {
     "herramientaId": "taskade",
     "capacidadId": "cap.task_management",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "taskade",
-    "capacidadId": "cap.ai_task_agents",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "taskade",
-    "capacidadId": "cap.text_generation",
-    "motivo": "sin respuesta"
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "See tasks, owners, and progress.",
+    "urlCitada": "https://www.taskade.com/"
   },
   {
     "herramientaId": "todoist",
     "capacidadId": "cap.public_api",
-    "motivo": "cita breve sin revisar",
+    "motivo": "sin plan mínimo",
     "cita": "Developer API",
     "urlCitada": "https://www.todoist.com/pricing"
   },
   {
     "herramientaId": "todoist",
     "capacidadId": "cap.audit_log",
-    "motivo": "cita breve sin revisar",
+    "motivo": "cita breve revisada y rechazada",
     "cita": "1 week activity history",
     "urlCitada": "https://www.todoist.com/pricing"
   }

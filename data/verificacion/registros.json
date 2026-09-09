@@ -15964,18 +15964,27 @@
   {
     "herramientaId": "beautiful-ai",
     "capacidadId": "cap.app_integrations",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
         "url": "https://www.beautiful.ai/",
         "fechaConsulta": "2026-09-09",
-        "cita": "Connect your favorite tools"
+        "cita": "Connect your favorite tools",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.beautiful.ai/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Connect your favorite tools\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Ofrece sección de integraciones para conectar otras herramientas."
   },
   {
     "herramientaId": "beautiful-ai",
@@ -16114,34 +16123,56 @@
   {
     "herramientaId": "beautiful-ai",
     "capacidadId": "cap.roles_and_permissions",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Team",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.beautiful.ai/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Manage who can view & edit"
+        "cita": "Manage who can view & edit",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.beautiful.ai/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Manage who can view & edit — Team",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Manage who can view & edit\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Permisos de edición y visualización documentados desde el plan Teams."
   },
   {
     "herramientaId": "beautiful-ai",
     "capacidadId": "cap.single_sign_on",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Enterprise",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.beautiful.ai/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Secure single sign-on (SSO)"
+        "cita": "Secure single sign-on (SSO)",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.beautiful.ai/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Secure single sign-on (SSO) — Enterprise",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Secure single sign-on (SSO)\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "SSO documentado exclusivamente para el plan Enterprise."
   },
   {
     "herramientaId": "beautiful-ai",
@@ -16166,18 +16197,29 @@
   {
     "herramientaId": "beautiful-ai",
     "capacidadId": "cap.audit_log",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Enterprise",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.beautiful.ai/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Audit & change-logs"
+        "cita": "Audit & change-logs",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.beautiful.ai/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Audit & change-logs — Enterprise",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Audit & change-logs\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Registro de auditoría documentado en las características del plan Enterprise."
   },
   {
     "herramientaId": "beautiful-ai",
@@ -16321,7 +16363,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"AI writing assistant\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "«Asistente de escritura con IA» no distingue redactar de corregir, que son dos capacidades distintas del vocabulario. Ambigua: no se interpreta."
   },
   {
     "herramientaId": "beautiful-ai",
@@ -16571,18 +16613,29 @@
   {
     "herramientaId": "canva",
     "capacidadId": "cap.single_sign_on",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Enterprise",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.canva.com/pricing/",
         "fechaConsulta": "2026-09-09",
-        "cita": "SSO and SCIM provisioning"
+        "cita": "SSO and SCIM provisioning",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.canva.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "SSO and SCIM provisioning — Enterprise",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"SSO and SCIM provisioning\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Soporta inicio de sesión único (SSO) en el plan Enterprise."
   },
   {
     "herramientaId": "canva",
@@ -16681,50 +16734,81 @@
   {
     "herramientaId": "canva",
     "capacidadId": "cap.brand_kit",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Free",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.canva.com/pricing/",
         "fechaConsulta": "2026-09-09",
-        "cita": "1 Brand Kit (3 colors only)"
+        "cita": "1 Brand Kit (3 colors only)",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.canva.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "1 Brand Kit (3 colors only) — Free",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"1 Brand Kit (3 colors only)\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Incluye opción de Brand Kit desde la modalidad Free."
   },
   {
     "herramientaId": "canva",
     "capacidadId": "cap.document_templates",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Free",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.canva.com/pricing/",
         "fechaConsulta": "2026-09-09",
-        "cita": "1.6M+ templates to start fast"
+        "cita": "1.6M+ templates to start fast",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.canva.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "1.6M+ templates to start fast — Free",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"1.6M+ templates to start fast\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Ofrece plantillas para iniciar diseños rápidamente."
   },
   {
     "herramientaId": "canva",
     "capacidadId": "cap.collaborative_document_editing",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.canva.com/pricing/",
         "fechaConsulta": "2026-09-09",
-        "cita": "Real-time collaboration"
+        "cita": "Real-time collaboration",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.canva.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Real-time collaboration\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Incluye colaboración en tiempo real."
   },
   {
     "herramientaId": "canva",
@@ -16828,7 +16912,10 @@
   {
     "herramientaId": "clickup-brain",
     "capacidadId": "cap.app_integrations",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Free Forever",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
@@ -16837,14 +16924,17 @@
         "cita": "50+ Native Integrations"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"50+ Native Integrations\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Ofrece más de 50 integraciones nativas ya construidas."
   },
   {
     "herramientaId": "clickup-brain",
     "capacidadId": "cap.public_api",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Free Forever",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
@@ -16853,9 +16943,9 @@
         "cita": "API Calls 100/minute"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"API Calls 100/minute\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Dispone de acceso a API con un límite de llamadas por minuto según el plan."
   },
   {
     "herramientaId": "clickup-brain",
@@ -16913,18 +17003,29 @@
   {
     "herramientaId": "clickup-brain",
     "capacidadId": "cap.data_export",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Business",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://clickup.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Custom Exporting"
+        "cita": "Custom Exporting",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://clickup.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Custom Exporting — Business",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Custom Exporting\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Se incluye la exportación personalizada de datos."
   },
   {
     "herramientaId": "clickup-brain",
@@ -16944,66 +17045,110 @@
   {
     "herramientaId": "clickup-brain",
     "capacidadId": "cap.roles_and_permissions",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Enterprise",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://clickup.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Unlimited Custom Roles"
+        "cita": "Unlimited Custom Roles",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://clickup.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Unlimited Custom Roles — Enterprise",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Unlimited Custom Roles\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Permite definir roles personalizados de forma ilimitada."
   },
   {
     "herramientaId": "clickup-brain",
     "capacidadId": "cap.single_sign_on",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Business",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://clickup.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Google SSO"
+        "cita": "Google SSO",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://clickup.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Google SSO — Business",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Google SSO\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Ofrece autenticación mediante Google SSO a partir del plan Business."
   },
   {
     "herramientaId": "clickup-brain",
     "capacidadId": "cap.two_factor_authentication",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Free Forever",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://clickup.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Two-Factor Authentication"
+        "cita": "Two-Factor Authentication",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://clickup.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Two-Factor Authentication — Free Forever",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Two-Factor Authentication\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Incluido en las características clave del plan Free Forever."
   },
   {
     "herramientaId": "clickup-brain",
     "capacidadId": "cap.audit_log",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Enterprise",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://clickup.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Audit Log"
+        "cita": "Audit Log",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://clickup.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Audit Log — Enterprise",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Audit Log\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Incluido en las características del plan Enterprise."
   },
   {
     "herramientaId": "clickup-brain",
@@ -17023,18 +17168,29 @@
   {
     "herramientaId": "clickup-brain",
     "capacidadId": "cap.collaborative_document_editing",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Free Forever",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://clickup.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Collaborative Docs"
+        "cita": "Collaborative Docs",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://clickup.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Collaborative Docs — Free Forever",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Collaborative Docs\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Incluido en las características clave del plan Free Forever."
   },
   {
     "herramientaId": "clickup-brain",
@@ -17069,34 +17225,56 @@
   {
     "herramientaId": "clickup-brain",
     "capacidadId": "cap.file_storage",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Free Forever",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://clickup.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "60MB Storage"
+        "cita": "60MB Storage",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://clickup.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "60MB Storage — Free Forever",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"60MB Storage\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Almacenamiento de archivos incluido desde el plan gratuito."
   },
   {
     "herramientaId": "clickup-brain",
     "capacidadId": "cap.task_management",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Free Forever",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://clickup.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Unlimited Tasks"
+        "cita": "Unlimited Tasks",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://clickup.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Unlimited Tasks — Free Forever",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Unlimited Tasks\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Gestión de tareas disponible en la plataforma."
   },
   {
     "herramientaId": "clickup-brain",
@@ -17137,7 +17315,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Unlimited AI writing\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "«Escritura con IA» no distingue redactar de corregir. Mismo criterio que Beautiful.ai: ambigua, no se interpreta."
   },
   {
     "herramientaId": "clickup-brain",
@@ -18071,18 +18249,29 @@
   {
     "herramientaId": "fireflies-ai",
     "capacidadId": "cap.public_api",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Free",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://fireflies.ai/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "API access"
+        "cita": "API access",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://fireflies.ai/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "API access — Free",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"API access\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Incluye acceso a API desde el plan gratuito."
   },
   {
     "herramientaId": "fireflies-ai",
@@ -18205,23 +18394,34 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Super admin role\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Nombra UN rol que viene de fábrica, no que se puedan definir perfiles y permisos. Ambigua: no se interpreta."
   },
   {
     "herramientaId": "fireflies-ai",
     "capacidadId": "cap.single_sign_on",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Enterprise",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://fireflies.ai/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "SSO + SCIM"
+        "cita": "SSO + SCIM",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://fireflies.ai/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "SSO + SCIM — Enterprise",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"SSO + SCIM\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Soporta autenticación mediante SSO en el plan Enterprise."
   },
   {
     "herramientaId": "fireflies-ai",
@@ -18246,18 +18446,29 @@
   {
     "herramientaId": "fireflies-ai",
     "capacidadId": "cap.audit_log",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Enterprise",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://fireflies.ai/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Audit Logs (API)"
+        "cita": "Audit Logs (API)",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://fireflies.ai/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Audit Logs (API) — Enterprise",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Audit Logs (API)\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Se ofrece registro de actividad vía API en el plan Enterprise."
   },
   {
     "herramientaId": "fireflies-ai",
@@ -18499,18 +18710,29 @@
   {
     "herramientaId": "gamma",
     "capacidadId": "cap.public_api",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Pro",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://gamma.app/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "API access"
+        "cita": "API access",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://gamma.app/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "API access — Pro",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"API access\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Ofrece acceso a API dentro de las funcionalidades del plan Pro."
   },
   {
     "herramientaId": "gamma",
@@ -18602,18 +18824,29 @@
   {
     "herramientaId": "gamma",
     "capacidadId": "cap.data_import_and_migration",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Free",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://gamma.app/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Import from PDF & PPTX"
+        "cita": "Import from PDF & PPTX",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://gamma.app/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Import from PDF & PPTX — Free",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Import from PDF & PPTX\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Importación nativa desde archivos PDF y PPTX."
   },
   {
     "herramientaId": "gamma",
@@ -18750,18 +18983,29 @@
   {
     "herramientaId": "gamma",
     "capacidadId": "cap.brand_kit",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Pro",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://gamma.app/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Custom branding & fonts"
+        "cita": "Custom branding & fonts",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://gamma.app/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Custom branding & fonts — Pro",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Custom branding & fonts\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Permite definir tipografías y marca personalizada."
   },
   {
     "herramientaId": "gamma",
@@ -18921,7 +19165,9 @@
   {
     "herramientaId": "grammarly",
     "capacidadId": "cap.app_integrations",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "integracion",
+    "integraCon": "Google Docs",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
@@ -18930,9 +19176,9 @@
         "cita": "Grammarly for Google Docs"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Grammarly for Google Docs\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Ofrece integración preconstruida para Google Docs."
   },
   {
     "herramientaId": "grammarly",
@@ -19057,18 +19303,29 @@
   {
     "herramientaId": "grammarly",
     "capacidadId": "cap.roles_and_permissions",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Enterprise",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.grammarly.com/plans",
         "fechaConsulta": "2026-09-09",
-        "cita": "Custom roles and permissions"
+        "cita": "Custom roles and permissions",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.grammarly.com/plans",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Custom roles and permissions — Enterprise",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Custom roles and permissions\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Característica incluida dentro de las opciones del plan Enterprise."
   },
   {
     "herramientaId": "grammarly",
@@ -19439,7 +19696,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Buscado en el sitio; no se documenta la creación de informes a medida."
   },
   {
     "herramientaId": "heygen",
@@ -19459,7 +19716,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Se menciona exportación de vídeo y SCORM Export, pero no la exportación de datos en bruto del sistema."
   },
   {
     "herramientaId": "heygen",
@@ -19479,27 +19736,34 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Se documenta importación de PowerPoint y PDF para generar vídeo, pero no la importación/migración de datos de negocio o hojas de cálculo."
   },
   {
     "herramientaId": "heygen",
     "capacidadId": "cap.roles_and_permissions",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Enterprise",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.heygen.com/pricing",
-        "fechaConsulta": "2026-09-09"
+        "fechaConsulta": "2026-09-09",
+        "cita": "Centrally manage roles and access",
+        "rol": "capacidad"
       },
       {
-        "tipo": "pagina_oficial",
-        "url": "https://www.heygen.com/",
-        "fechaConsulta": "2026-09-09"
+        "tipo": "tarifa_oficial",
+        "url": "https://www.heygen.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Centrally manage roles and access — Enterprise",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Gestión centralizada de roles y acceso en el plan Enterprise."
   },
   {
     "herramientaId": "heygen",
@@ -19509,22 +19773,21 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.heygen.com/pricing",
-        "fechaConsulta": "2026-09-09"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.heygen.com/",
-        "fechaConsulta": "2026-09-09"
+        "fechaConsulta": "2026-09-09",
+        "cita": "SAML/ SSO"
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "La cita \"SAML/ SSO\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
   },
   {
     "herramientaId": "heygen",
     "capacidadId": "cap.two_factor_authentication",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Enterprise",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
@@ -19533,14 +19796,16 @@
         "cita": "Team Member MFA"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Team Member MFA\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Incluido en las características de Enterprise y reflejado en la tabla de Privacy & Security como Multi-factor authentication (MFA) / Team Member 2FA Enforcement."
   },
   {
     "herramientaId": "heygen",
     "capacidadId": "cap.audit_log",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
@@ -19549,9 +19814,9 @@
         "cita": "Audit log"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Audit log\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Aparece listado en la tabla de comparación de planes bajo la categoría Privacy & Security, aunque no se especifica el plan exacto en el texto plano de la tabla."
   },
   {
     "herramientaId": "heygen",
@@ -20255,7 +20520,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"API Integration\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "«Integración por API» no dice si Krisp OFRECE una API o si consume la de otro. Ambigua: no se interpreta."
   },
   {
     "herramientaId": "krisp",
@@ -20385,7 +20650,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Super admin role\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Nombra UN rol de fábrica, no que se puedan definir perfiles. Mismo criterio que Fireflies."
   },
   {
     "herramientaId": "krisp",
@@ -20417,18 +20682,29 @@
   {
     "herramientaId": "krisp",
     "capacidadId": "cap.two_factor_authentication",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Core",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://krisp.ai/pricing/",
         "fechaConsulta": "2026-09-09",
-        "cita": "MFA"
+        "cita": "MFA",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://krisp.ai/pricing/",
+        "fechaConsulta": "2026-09-09",
+        "cita": "MFA — Core",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"MFA\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Aparece como MFA bajo la sección de controles de administración."
   },
   {
     "herramientaId": "krisp",
@@ -20453,18 +20729,29 @@
   {
     "herramientaId": "krisp",
     "capacidadId": "cap.audio_transcription",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Core",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://krisp.ai/pricing/",
         "fechaConsulta": "2026-09-09",
-        "cita": "Unlimited Transcription"
+        "cita": "Unlimited Transcription",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://krisp.ai/pricing/",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Transcription & Audio Recording — Core",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Unlimited Transcription\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Transcripción ilimitada documentada en la oferta del producto."
   },
   {
     "herramientaId": "krisp",
@@ -20496,18 +20783,29 @@
   {
     "herramientaId": "krisp",
     "capacidadId": "cap.audio_noise_removal",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Core",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://krisp.ai/pricing/",
         "fechaConsulta": "2026-09-09",
-        "cita": "Unlimited Noise Cancellation"
+        "cita": "Unlimited Noise Cancellation",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://krisp.ai/pricing/",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Noise Cancellation — Core",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Unlimited Noise Cancellation\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Ofrece cancelación de ruido ilimitada."
   },
   {
     "herramientaId": "krisp",
@@ -20811,18 +21109,29 @@
   {
     "herramientaId": "motion",
     "capacidadId": "cap.roles_and_permissions",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Business AI",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.usemotion.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Permissions & Access Control"
+        "cita": "Permissions & Access Control",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.usemotion.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Permissions & Access Control — Business AI",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Permissions & Access Control\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Listado como funcionalidad incluida en el plan Business AI."
   },
   {
     "herramientaId": "motion",
@@ -20993,18 +21302,29 @@
   {
     "herramientaId": "motion",
     "capacidadId": "cap.time_tracking",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Business AI",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.usemotion.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Time Tracking"
+        "cita": "Time Tracking",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.usemotion.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Time Tracking — Business AI",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Time Tracking\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Funcionalidad nativa listada en la comparativa de planes."
   },
   {
     "herramientaId": "motion",
@@ -21186,7 +21506,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Buscado informes a medida o generación de reportes personalizados con cruce de datos en ambas páginas."
   },
   {
     "herramientaId": "notion-ai",
@@ -21201,7 +21521,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Se afirmó \"si\" citando https://www.notion.so/pricing, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "notion-ai",
@@ -21216,7 +21536,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Buscada importación o migración de datos desde herramientas externas en los textos indicados."
   },
   {
     "herramientaId": "notion-ai",
@@ -21231,7 +21551,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Se afirmó \"si\" citando https://www.notion.so/pricing, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "notion-ai",
@@ -21246,7 +21566,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Se afirmó \"si\" citando https://www.notion.so/pricing, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "notion-ai",
@@ -21261,7 +21581,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Se afirmó \"si\" citando https://www.notion.so/pricing, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "notion-ai",
@@ -21276,7 +21596,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Se afirmó \"si\" citando https://www.notion.so/pricing, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "notion-ai",
@@ -21291,7 +21611,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Buscado repositorio o espacio central de conocimiento interno del equipo; no hay cita explícita que lo defina."
   },
   {
     "herramientaId": "notion-ai",
@@ -21306,7 +21626,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Buscada edición simultánea de documentos a varias manos con comentarios; las páginas no detallan esta frontera."
   },
   {
     "herramientaId": "notion-ai",
@@ -21321,7 +21641,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Se afirmó \"si\" citando https://www.notion.so/pricing, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "notion-ai",
@@ -21336,7 +21656,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Se afirmó \"si\" citando https://www.notion.so/pricing, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "notion-ai",
@@ -21351,7 +21671,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Solo se menciona subida de archivos (File uploads), sin definir un almacenamiento organizado con carpetas y permisos."
   },
   {
     "herramientaId": "notion-ai",
@@ -21366,7 +21686,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Se mencional al pasar proyectos o tareas en bases de datos, pero sin la definición completa exigida por la capacidad."
   },
   {
     "herramientaId": "notion-ai",
@@ -21381,7 +21701,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Se afirmó \"si\" citando https://www.notion.so/pricing, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "notion-ai",
@@ -21396,7 +21716,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Se afirmó \"si\" citando https://www.notion.so/product/ai, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "notion-ai",
@@ -21476,34 +21796,56 @@
   {
     "herramientaId": "otter-ai",
     "capacidadId": "cap.public_api",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Enterprise",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://otter.ai/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Otter API & Webhooks"
+        "cita": "Otter API & Webhooks",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://otter.ai/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Otter API & Webhooks — Enterprise",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Otter API & Webhooks\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Ofrece API propia para programación en el plan Enterprise."
   },
   {
     "herramientaId": "otter-ai",
     "capacidadId": "cap.webhooks",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Enterprise",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://otter.ai/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Otter API & Webhooks"
+        "cita": "Otter API & Webhooks",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://otter.ai/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Otter API & Webhooks — Enterprise",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Otter API & Webhooks\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Soporta webhooks para avisos automáticos a otros sistemas en el plan Enterprise."
   },
   {
     "herramientaId": "otter-ai",
@@ -21627,66 +21969,110 @@
   {
     "herramientaId": "otter-ai",
     "capacidadId": "cap.single_sign_on",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Enterprise",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://otter.ai/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Single Sign-On (SSO)"
+        "cita": "Single Sign-On (SSO)",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://otter.ai/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Single Sign-On (SSO) — Enterprise",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Single Sign-On (SSO)\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Soporta inicio de sesión único SSO."
   },
   {
     "herramientaId": "otter-ai",
     "capacidadId": "cap.two_factor_authentication",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Basic",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://otter.ai/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "2-factor authentication"
+        "cita": "2-factor authentication",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://otter.ai/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "2-factor authentication — Basic",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"2-factor authentication\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Disponible desde el plan gratuito Basic mediante aplicación de autenticación."
   },
   {
     "herramientaId": "otter-ai",
     "capacidadId": "cap.audit_log",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Business",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://otter.ai/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Activity logs"
+        "cita": "Activity logs",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://otter.ai/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Enhanced admin features: activity logs, usage analytics, and more",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Activity logs\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Se incluye entre las funciones de administración a partir del plan Business."
   },
   {
     "herramientaId": "otter-ai",
     "capacidadId": "cap.audio_transcription",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Basic",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://otter.ai/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Live transcription"
+        "cita": "Live transcription",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://otter.ai/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Live transcription — Basic",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Live transcription\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Soporta transcripción en vivo e identificación de hablante desde el plan gratuito."
   },
   {
     "herramientaId": "otter-ai",
@@ -22796,7 +23182,15 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.taskade.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Build multi-step workflows with branching, looping, and scheduling. Connect agents, projects, and 100+ integrations into always-on pipelines that run 24/7 in the background."
+        "cita": "Build multi-step workflows with branching, looping, and scheduling. Connect agents, projects, and 100+ integrations into always-on pipelines that run 24/7 in the background.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.taskade.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "AI Automations — Free",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
@@ -22808,14 +23202,22 @@
     "capacidadId": "cap.app_integrations",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Free",
+    "planMinimo": "Pro",
     "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.taskade.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Seamlessly integrate with Slack, Gmail, Google Workspace, Microsoft 365, HubSpot, Salesforce, Stripe, GitHub, and 100+ other tools."
+        "cita": "Seamlessly integrate with Slack, Gmail, Google Workspace, Microsoft 365, HubSpot, Salesforce, Stripe, GitHub, and 100+ other tools.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.taskade.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Connect 100+ integrations — Pro",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
@@ -22834,7 +23236,15 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.taskade.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Full REST API, webhooks, and HTTP request actions. Build custom integrations, pipe data into automations, and connect Taskade to any proprietary system programmatically."
+        "cita": "Full REST API, webhooks, and HTTP request actions. Build custom integrations, pipe data into automations, and connect Taskade to any proprietary system programmatically.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.taskade.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "API access — Business",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
@@ -22872,7 +23282,14 @@
         "tipo": "pagina_oficial",
         "url": "https://www.taskade.com/",
         "fechaConsulta": "2026-09-09",
-        "cita": "KPI trackers that update in real time. The numbers find you, not the other way around."
+        "cita": "KPI trackers that update in real time. The numbers find you, not the other way around.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.taskade.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -22904,18 +23321,24 @@
     "capacidadId": "cap.data_export",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Free",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.taskade.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Everything you build is yours to keep, export, and use commercially."
+        "cita": "Everything you build is yours to keep, export, and use commercially.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.taskade.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
-    "proximaRevision": "2027-03-09",
+    "proximaRevision": "2027-09-09",
     "nota": "Se especifica que todo lo creado por el usuario se puede exportar."
   },
   {
@@ -23093,7 +23516,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Buscado historial de versiones de documentos y restauración de cambios anteriores; no se menciona en las páginas leídas."
   },
   {
     "herramientaId": "taskade",
@@ -23113,47 +23536,44 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Se documenta almacenamiento compartido para base de conocimiento de IA, pero no la gestión y organización de archivos con permisos específicos."
   },
   {
     "herramientaId": "taskade",
     "capacidadId": "cap.task_management",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
-      {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.taskade.com/pricing",
-        "fechaConsulta": "2026-09-09"
-      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.taskade.com/",
-        "fechaConsulta": "2026-09-09"
+        "fechaConsulta": "2026-09-09",
+        "cita": "See tasks, owners, and progress."
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Documentado en los paneles e instrumentos de gestión de tareas."
   },
   {
     "herramientaId": "taskade",
     "capacidadId": "cap.ai_task_agents",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Max",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.taskade.com/pricing",
-        "fechaConsulta": "2026-09-09"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.taskade.com/",
-        "fechaConsulta": "2026-09-09"
+        "fechaConsulta": "2026-09-09",
+        "cita": "Agents that plan, execute, and iterate independently. They break goals into tasks, use their built-in tools, and run multi-step operations end-to-end — no hand-holding required."
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Documentado como 'Autonomous agents' en la comparativa de características."
   },
   {
     "herramientaId": "taskade",
@@ -23173,7 +23593,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Buscado redactar textos (anuncios, correos, artículos) mediante indicaciones; solo se menciona el uso de modelos para 'writing' sin detallar esta capacidad específica."
   },
   {
     "herramientaId": "taskade",
@@ -23247,7 +23667,15 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.todoist.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Connect Todoist with 90+ calendar, communication, automation, and voice assistant tools."
+        "cita": "Connect Todoist with 90+ calendar, communication, automation, and voice assistant tools.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.todoist.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Integrate email, calendar, and more — Beginner",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
@@ -23257,18 +23685,27 @@
   {
     "herramientaId": "todoist",
     "capacidadId": "cap.public_api",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.todoist.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Developer API"
+        "cita": "Developer API",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.todoist.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Developer API\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Se documenta la existencia de una API para desarrolladores en el sitio oficial."
   },
   {
     "herramientaId": "todoist",
@@ -23382,7 +23819,15 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.todoist.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Control who is an admin or a member on a team. Only admins can manage team settings and prevent members from taking certain actions, like inviting external collaborators as guests to team projects."
+        "cita": "Control who is an admin or a member on a team. Only admins can manage team settings and prevent members from taking certain actions, like inviting external collaborators as guests to team projects.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.todoist.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Team roles & permissions — Business",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
@@ -23443,7 +23888,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"1 week activity history\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Dice cuánto tiempo se guarda un historial, no que registre quién hizo qué. Ambigua: no se interpreta."
   },
   {
     "herramientaId": "todoist",
@@ -23457,7 +23902,15 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.todoist.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Visualize and plan your tasks and personal projects in a calendar layout."
+        "cita": "Visualize and plan your tasks and personal projects in a calendar layout.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.todoist.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Calendar layout — Pro",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
@@ -23496,7 +23949,15 @@
         "tipo": "tarifa_oficial",
         "url": "https://www.todoist.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Assign tasks to a friend, family member, or teammate so everyone knows who's responsible for what."
+        "cita": "Assign tasks to a friend, family member, or teammate so everyone knows who's responsible for what.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.todoist.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Assigned tasks — Beginner",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
