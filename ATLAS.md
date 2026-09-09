@@ -3364,6 +3364,71 @@ un fallo cuesta una herramienta y un relanzamiento a mano, no el lote entero.
 Aun así, mientras no se arregle, un fallo a mitad para la ejecución y hay que
 estar delante para verlo. **Decide la propietaria.**
 
+## La simulación piloto del Lote 1 (2026-09-09)
+
+Sobre `285223a`, sin una sola llamada y sin tocar nada: se ejecutó el motor real
+con seis rutas del Lote 1 —la categoría CRM, sus cuatro respuestas de
+diferenciación y la categoría de gestión de proyectos— por los 120 perfiles del
+generador tipado. **720 ejecuciones.**
+
+La regla contrafactual la definió la sesión, no el proyecto, y sin ella el
+número no significa nada. Para cada ruta, la sesión asignó dos capacidades
+mínimas. C1b excluye una herramienta únicamente cuando una de esas capacidades
+formaba parte de su selección congelada y, después de investigarla, no quedó
+"verificado". Si esa capacidad nunca se investigó para esa herramienta, el
+piloto no la juzga y la herramienta permanece elegible. Así se evita convertir
+una pregunta que nunca se hizo en evidencia negativa.
+
+**222 de 720 ejecuciones cambian el trío**, y el reparto importa más que el
+total:
+
+| Ruta | Cambios | Causa |
+|---|---|---|
+| CRM | 6/120 | `less-annoying-crm` con el embudo en `desconocido` |
+| CRM + «dentro del correo» | 0/120 | — |
+| CRM + «captura sola» | 0/120 | — |
+| CRM + «sencillo» | 120/120 | las dos únicas fichas que el filtro selecciona no están verificadas; al quedarse sin ninguna, el motor **ensancha en silencio** a toda la categoría |
+| CRM + «llamar desde dentro» | 0/120 | — |
+| Gestión de proyectos | 96/120 | `cap.project_planning` en `desconocido` en cinco de quince |
+
+**Cero cambios** con la regla que sólo excluye la ausencia demostrada, porque no
+hay ni un registro `no_disponible` en los 765: **todo lo que cambia procede de
+un `desconocido`, nunca de una ausencia demostrada.** Ninguna ruta se quedó sin
+recomendación.
+
+**Lo que el piloto NO dice.** No dice que el resultado nuevo sea mejor: eso no
+se ha medido con gente. No dice que Zoho Projects o Wrike no planifiquen
+proyectos, sino que no lo sabemos. No cubre las puertas por objetivo ni de texto
+libre, ni las otras trece categorías. Y depende de esa definición de «qué exige
+cada ruta» hecha por la sesión.
+
+**Cuatro requisitos que deja escritos para F3:**
+
+1. **Correspondencia explícita ruta–capacidad.** Hoy ninguna ruta declara qué
+   capacidad exige; hay que decidirlo antes de filtrar por evidencia.
+2. **Trato honesto del `desconocido`.** Puede dejar fuera por «el silencio no es
+   permiso», pero nunca afirmar que la herramienta no lo tiene.
+3. **Prohibir el ensanchamiento silencioso.** Cuando ninguna ficha declara lo
+   que la persona pidió, hoy se conserva la categoría entera y su respuesta deja
+   de aplicarse sin que nadie lo vea.
+4. **Resolver las cuatro opciones de la pregunta de CRM** —vivir dentro del
+   correo, capturar los datos solo, ser sencillo, telefonía integrada—, que **no
+   tienen equivalente en el vocabulario de 146 capacidades**. Resolverlas no
+   presupone ampliar el vocabulario: habrá que decidir expresamente si cada
+   opción corresponde a una capacidad, una preferencia, un atributo o una regla
+   de selección.
+
+**Lo que este punto de control NO cambia.** El Lote 1 sigue cerrado en
+`285223a` y sus 765 registros no se tocan. **El piloto no cancela ni acota F2**,
+y el siguiente paso sigue siendo preparar la selección plausible del Lote 2. Y
+el hueco del catálogo en reserva y recordatorios de cita es **una decisión de
+catálogo aparte**: no fue la causa del caso de la peluquera, que fueron la
+necesidad no entendida y el `return universo`, corregidos el 2026-09-02 en
+`a79b8e3`.
+
+**F4 no está localizada.** No aparece en ningún archivo del repositorio. Queda
+anotada como definición que falta, **no como decisión cancelada**.
+
 ---
 
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
