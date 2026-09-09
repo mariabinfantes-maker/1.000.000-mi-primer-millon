@@ -3528,6 +3528,40 @@ lote 3, que son catorce suites con bastantes más capacidades cada una.
    **ninguna cita de capacidad quedó pisada por la del plan**, y sólo uno
    —`heygen/cap.audit_log`— cambió de resultado, ganando su plan.
 
+### El límite que dejó abiertos doce pares del lote 3 (2026-09-09)
+
+Doce pares quedan `desconocidos` por una razón que no es la herramienta: el
+modelo citó la dirección que se le PIDIÓ y lo que el proveedor descargó fue
+otra, así que la afirmación cae por la regla de redirecciones. Seis de
+EngageBay, cuatro de Kartra y dos de HubSpot.
+
+Las dos primeras redirecciones están demostradas con la evidencia del propio
+lector y declaradas en `sustituciones.json` —EngageBay pidió `/pricing` y
+descargó `/pricing/all-in-one`; Kartra pidió `www.kartra.com/pricing/` y
+descargó `kartra.com/plans-and-pricing/`—, así que **las próximas vueltas
+preguntarán bien**. Pero una sustitución no rescata lo ya contestado: esas
+respuestas siguen citando la dirección vieja.
+
+**Se repreguntaron las 53 capacidades de esas dos herramientas y el resultado
+se descartó entero, por decisión de la propietaria.** Recuperaba los diez
+pares, pero **tumbaba cuatro capacidades que estaban verificadas** —tres de
+EngageBay y una de Kartra—, y tres de las cuatro citaban la PORTADA, que la
+sustitución no cambia: no era otra fuente leyéndose mejor, era el mismo texto
+juzgado con más exigencia en otra llamada. Cambiar cuatro verificadas por diez
+recuperadas no compensa cuando la diferencia es variabilidad entre llamadas y
+no evidencia nueva. El estado del lote 3 se conserva tal cual quedó en
+`1c05c2d`.
+
+**Los dos de HubSpot no se pueden arreglar sin tocar el arnés, y no se toca.**
+Son `cap.dashboards` y `cap.custom_reports`. Se pidió `/pricing/` y se descargó
+`/pricing/marketing`: declarar eso como sustitución fijaría la tarifa de
+HubSpot en la de un solo producto y dejaría fuera ventas y servicio. Y la
+fuente correcta no se puede pedir: **el arnés pide dos direcciones por
+herramienta —precios y oficial—, las mismas para todas sus capacidades**, y el
+campo `documentacion` de `sustituciones.json` sólo sirve para clasificar el
+tipo de fuente, no para pedirla. Queda anotado como límite conocido del
+mecanismo, no como resultado sobre HubSpot.
+
 ---
 
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
