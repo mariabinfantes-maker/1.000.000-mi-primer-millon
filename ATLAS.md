@@ -3483,9 +3483,10 @@ definición congelada. Reclaim demuestra además su plan con fila y columna.
 cobertura de la vertical de citas de un negocio de servicios.** Las tres citas
 hablan de *meetings* y de *attendees*; ninguna nombra a un cliente ni a una cita
 de negocio. Los recordatorios sólo cubren reuniones reservadas por esos mismos
-enlaces, y por correo. **Una peluquería no queda cubierta por esto**: no hay
-agenda por profesional ni por sillón, ni franjas, ni aviso por el canal del
-cliente, ni gestión de ausencias.
+enlaces, y por correo. **Esta evidencia no demuestra agenda por profesional o
+recurso, franjas de servicios, gestión de ausencias ni otras funciones propias
+de un negocio de servicios. F2 no obtuvo negativos demostrados**, así que no se
+afirma que no las tengan: se afirma que esto no lo demuestra.
 
 La causa es identificable: el `noEs` de estas dos capacidades separa «reserva el
 cliente» de «lo apunta el negocio», pero **no separa reunión de trabajo de cita
@@ -3505,13 +3506,12 @@ catorce con `URL_RETRIEVAL_STATUS_SUCCESS`. Declarada la equivalencia en
 `sustituciones.json` —sin tocar la ficha, que es dato de producto— y
 repreguntada, **pasa de 0 a 14 de 22**.
 
-### Lo que costó, que conviene saber antes del lote 3
+### Lo que costó en llamadas
 
-El lote 2 **agotó el crédito de Gemini dos veces y topó una tercera con el tope
-de gasto mensual del proyecto**. Se paró cada vez en vez de dejarlo correr en
-vacío, y el checkpoint por lote evitó pagar dos veces lo ya contestado. El lote
-3 son catorce suites con muchas más capacidades cada una: **conviene mirar el
-gasto antes de comprometerse con él**.
+**189 llamadas para 384 pares en 18 herramientas**, repescas incluidas: algo
+menos de once por herramienta. Es el único dato de coste demostrado —el gasto
+en euros no se midió, así que no se anota—, y es el que hay para dimensionar el
+lote 3, que son catorce suites con bastantes más capacidades cada una.
 
 ### Tres correcciones a los informes de esta sesión
 
