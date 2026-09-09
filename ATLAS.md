@@ -3429,6 +3429,105 @@ necesidad no entendida y el `return universo`, corregidos el 2026-09-02 en
 **F4 no está localizada.** No aparece en ningún archivo del repositorio. Queda
 anotada como definición que falta, **no como decisión cancelada**.
 
+## El lote 2, cerrado (2026-09-09)
+
+Las 18 herramientas de los seis subtipos de asistentes de IA, **384 pares
+preguntados a sus páginas oficiales en 189 llamadas**. Commit `b8bcd52`.
+
+**168 capacidades verificadas de 384.** Y el reparto del resto importa tanto
+como esa cifra:
+
+| | Pares |
+|---|---|
+| Capacidad verificada + plan verificado | 119 |
+| **Capacidad verificada + plan desconocido** | **47** |
+| Capacidad verificada, sin opinar del plan (integraciones) | 2 |
+| Capacidad desconocida | 216 |
+| **Negativos demostrados** | **0** |
+
+De los 216 desconocidos, **207 son honestos** —se leyó la página oficial y la
+capacidad no aparece— y **9 los degradó una regla**: 6 por cita breve revisada
+y rechazada, 3 por dirección citada que no consta como leída. **Ni un solo par
+se quedó sin preguntar.**
+
+Los 765 registros del lote 1 se comprobaron uno a uno contra `a281171` después
+de cada vuelta: **cero cambiados, cero desaparecidos**. `registros.json` pasa
+de 765 a 1.149.
+
+### Lo que enseñó el puente
+
+Las dos capacidades del puente se preguntaron a las dieciocho aunque no fueran
+su especialidad, y ahí está su valor: **redactar textos sale verificado en 10 de
+18, y agentes de IA que ejecutan tareas en 6 de 18.** Doce de estas herramientas
+anuncian inteligencia artificial y no documentan agentes que hagan tareas por su
+cuenta. Con una selección hecha subtipo a subtipo esa pregunta no se habría
+hecho nunca.
+
+### Las sondas de citas: verificadas, y aun así no cubren a la peluquera
+
+Las dos sondas incómodas volvieron casi vacías —reserva online 2 de 18,
+recordatorios de cita 1 de 18—, pero los tres registros que sí salieron
+merecen quedar explicados, porque son el caso límite de esta vertical.
+
+**Motion y Reclaim.ai se quedan verificados**, y es correcto: cumplen la
+definición congelada. Reclaim demuestra además su plan con fila y columna.
+
+- Motion: «Motion creates meeting booking pages, shows your availability, and
+  schedules meetings at ideal times that maximize your focus time.»
+- Reclaim, reserva: «Share your availability for meetings with Scheduling Links
+  that offer smart priority settings to book the right meetings sooner.»
+- Reclaim, recordatorios: «Send email reminders to attendees ahead of meetings
+  booked via Scheduling Links.»
+
+**Pero esa evidencia demuestra reserva y recordatorio básicos de REUNIONES, no
+cobertura de la vertical de citas de un negocio de servicios.** Las tres citas
+hablan de *meetings* y de *attendees*; ninguna nombra a un cliente ni a una cita
+de negocio. Los recordatorios sólo cubren reuniones reservadas por esos mismos
+enlaces, y por correo. **Una peluquería no queda cubierta por esto**: no hay
+agenda por profesional ni por sillón, ni franjas, ni aviso por el canal del
+cliente, ni gestión de ausencias.
+
+La causa es identificable: el `noEs` de estas dos capacidades separa «reserva el
+cliente» de «lo apunta el negocio», pero **no separa reunión de trabajo de cita
+de servicio**, y por esa rendija entran los tres registros. **Queda anotado, no
+resuelto**: tocar el vocabulario es F1 y lo decide la propietaria.
+
+Y no cambia el hallazgo del lote 1: **el catálogo sigue sin cubrir la vertical
+de citas**. Con los dos lotes, 48 de las 62 fichas están medidas contra ella.
+
+### Notion AI: una migración de dominio disfrazada de herramienta sin funciones
+
+Notion AI salió **0 de 22** y no porque no hiciera nada: sus 22 respuestas
+citaban `notion.so` sin que constara que esa dirección se hubiera descargado, y
+caían enteras por la regla de redirecciones. La evidencia estaba en el propio
+lector: se pidió `notion.so` y se leyó **`notion.com`**, catorce descargas, las
+catorce con `URL_RETRIEVAL_STATUS_SUCCESS`. Declarada la equivalencia en
+`sustituciones.json` —sin tocar la ficha, que es dato de producto— y
+repreguntada, **pasa de 0 a 14 de 22**.
+
+### Lo que costó, que conviene saber antes del lote 3
+
+El lote 2 **agotó el crédito de Gemini dos veces y topó una tercera con el tope
+de gasto mensual del proyecto**. Se paró cada vez en vez de dejarlo correr en
+vacío, y el checkpoint por lote evitó pagar dos veces lo ya contestado. El lote
+3 son catorce suites con muchas más capacidades cada una: **conviene mirar el
+gasto antes de comprometerse con él**.
+
+### Tres correcciones a los informes de esta sesión
+
+1. **«Degradados» no es «capacidades perdidas».** El resumen del arnés cuenta
+   entradas de `descartes.json`, y ahí conviven dos cosas distintas: las
+   capacidades que sí cayeron y las anotaciones de un plan que no se demostró
+   sobre una capacidad **que sigue verificada**. Se informó de 66 y de 115
+   capacidades degradadas cuando eran 34 y 28. La cifra buena hoy es **9**.
+2. **Los cinco pares que quedaron sin respuesta eran de HeyGen, no de
+   Synthesia.** Los de Synthesia se habían recuperado en la vuelta anterior.
+3. **Se autorizó repescar 27 pares y cambiaron 32 registros.** Los 27 son los
+   repreguntados; los otros 5 los tocó la pasada de plan, que recorre todas las
+   capacidades afirmadas cuyo plan no se preguntó nunca. Comprobado uno a uno:
+   **ninguna cita de capacidad quedó pisada por la del plan**, y sólo uno
+   —`heygen/cap.audit_log`— cambió de resultado, ganando su plan.
+
 ---
 
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
