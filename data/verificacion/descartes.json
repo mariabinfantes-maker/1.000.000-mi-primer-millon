@@ -1713,28 +1713,24 @@
   },
   {
     "herramientaId": "activecampaign",
-    "capacidadId": "cap.lead_capture",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "activecampaign",
     "capacidadId": "cap.text_generation",
-    "motivo": "sin respuesta"
+    "motivo": "cita breve sin revisar",
+    "cita": "AI content generation",
+    "urlCitada": "https://www.activecampaign.com/pricing"
   },
   {
     "herramientaId": "activecampaign",
     "capacidadId": "cap.ai_task_agents",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "activecampaign",
-    "capacidadId": "cap.email_campaigns",
-    "motivo": "sin respuesta"
+    "motivo": "sin plan mínimo",
+    "cita": "Run recurring tasks completely autonomously, with minimal setup.",
+    "urlCitada": "https://www.activecampaign.com/"
   },
   {
     "herramientaId": "activecampaign",
     "capacidadId": "cap.marketing_automation",
-    "motivo": "sin respuesta"
+    "motivo": "sin plan mínimo",
+    "cita": "Multi-step marketing automation",
+    "urlCitada": "https://www.activecampaign.com/pricing"
   },
   {
     "herramientaId": "activecampaign",
@@ -1745,23 +1741,9 @@
   },
   {
     "herramientaId": "agiled",
-    "capacidadId": "cap.workflow_automation",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "When a deal closes, spin up a project. When an invoice is overdue, send a reminder. Build visual automation flows that keep your business running — even when you're not at the keyboard.",
-    "urlCitada": "https://agiled.app/"
-  },
-  {
-    "herramientaId": "agiled",
     "capacidadId": "cap.app_integrations",
     "motivo": "sin plan mínimo",
     "cita": "Agiled integrates with over 100 tools including Stripe, Google Calendar, Zoom, Slack, QuickBooks, Zapier, and many more.",
-    "urlCitada": "https://agiled.app/"
-  },
-  {
-    "herramientaId": "agiled",
-    "capacidadId": "cap.public_api",
-    "motivo": "el plan no viene de una fuente que lo demuestre",
-    "cita": "You can also use our API and webhooks for custom integrations.",
     "urlCitada": "https://agiled.app/"
   },
   {

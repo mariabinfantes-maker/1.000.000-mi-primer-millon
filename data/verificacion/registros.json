@@ -24730,7 +24730,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Se mencionan formularios y landing pages, pero no se describe explícitamente la captura directa de datos de leads."
   },
   {
     "herramientaId": "activecampaign",
@@ -24740,77 +24740,90 @@
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.activecampaign.com/pricing",
-        "fechaConsulta": "2026-09-09"
-      },
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://www.activecampaign.com/",
-        "fechaConsulta": "2026-09-09"
+        "fechaConsulta": "2026-09-09",
+        "cita": "AI content generation"
       }
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "La cita \"AI content generation\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
   },
   {
     "herramientaId": "activecampaign",
     "capacidadId": "cap.ai_task_agents",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
-      {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.activecampaign.com/pricing",
-        "fechaConsulta": "2026-09-09"
-      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.activecampaign.com/",
-        "fechaConsulta": "2026-09-09"
+        "fechaConsulta": "2026-09-09",
+        "cita": "Run recurring tasks completely autonomously, with minimal setup.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.activecampaign.com",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Active Intelligence ejecuta tareas recurrentes de forma completamente autónoma."
   },
   {
     "herramientaId": "activecampaign",
     "capacidadId": "cap.email_campaigns",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Starter",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.activecampaign.com/pricing",
-        "fechaConsulta": "2026-09-09"
+        "fechaConsulta": "2026-09-09",
+        "cita": "Get started with personalized email marketing campaigns.",
+        "rol": "capacidad"
       },
       {
-        "tipo": "pagina_oficial",
-        "url": "https://www.activecampaign.com/",
-        "fechaConsulta": "2026-09-09"
+        "tipo": "tarifa_oficial",
+        "url": "https://www.activecampaign.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Get started with personalized email marketing campaigns. — Starter",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Creación y gestión de campañas de email marketing personalizadas."
   },
   {
     "herramientaId": "activecampaign",
     "capacidadId": "cap.marketing_automation",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.activecampaign.com/pricing",
-        "fechaConsulta": "2026-09-09"
+        "fechaConsulta": "2026-09-09",
+        "cita": "Multi-step marketing automation",
+        "rol": "capacidad"
       },
       {
-        "tipo": "pagina_oficial",
-        "url": "https://www.activecampaign.com/",
-        "fechaConsulta": "2026-09-09"
+        "tipo": "tarifa_oficial",
+        "url": "https://www.activecampaign.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Automatización de marketing multipaso integrada."
   },
   {
     "herramientaId": "activecampaign",
@@ -24893,17 +24906,26 @@
     "capacidadId": "cap.workflow_automation",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planEstado": "desconocido",
+    "planMinimo": "Pro",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
         "url": "https://agiled.app/",
         "fechaConsulta": "2026-09-09",
-        "cita": "When a deal closes, spin up a project. When an invoice is overdue, send a reminder. Build visual automation flows that keep your business running — even when you're not at the keyboard."
+        "cita": "When a deal closes, spin up a project. When an invoice is overdue, send a reminder. Build visual automation flows that keep your business running — even when you're not at the keyboard.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://agiled.app/pricing/",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Workflows, API, email, tickets, and reports — Pro",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
-    "proximaRevision": "2027-09-09",
+    "proximaRevision": "2027-03-09",
     "nota": "Permite crear automatizaciones basadas en eventos entre módulos."
   },
   {
@@ -24917,7 +24939,14 @@
         "tipo": "pagina_oficial",
         "url": "https://agiled.app/",
         "fechaConsulta": "2026-09-09",
-        "cita": "Agiled integrates with over 100 tools including Stripe, Google Calendar, Zoom, Slack, QuickBooks, Zapier, and many more."
+        "cita": "Agiled integrates with over 100 tools including Stripe, Google Calendar, Zoom, Slack, QuickBooks, Zapier, and many more.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://agiled.app/pricing/",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -24929,17 +24958,26 @@
     "capacidadId": "cap.public_api",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planEstado": "desconocido",
+    "planMinimo": "Pro",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
         "url": "https://agiled.app/",
         "fechaConsulta": "2026-09-09",
-        "cita": "You can also use our API and webhooks for custom integrations."
+        "cita": "You can also use our API and webhooks for custom integrations.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://agiled.app/pricing/",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Workflows, API, email, tickets, and reports — Pro",
+        "rol": "plan"
       }
     ],
     "confianza": "alta",
-    "proximaRevision": "2027-09-09",
+    "proximaRevision": "2027-03-09",
     "nota": "Ofrece API propia para integraciones personalizadas."
   },
   {
@@ -24953,7 +24991,14 @@
         "tipo": "pagina_oficial",
         "url": "https://agiled.app/",
         "fechaConsulta": "2026-09-09",
-        "cita": "You can also use our API and webhooks for custom integrations."
+        "cita": "You can also use our API and webhooks for custom integrations.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://agiled.app/pricing/",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
