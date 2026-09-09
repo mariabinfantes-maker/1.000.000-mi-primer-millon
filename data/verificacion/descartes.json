@@ -1286,5 +1286,732 @@
     "motivo": "sin plan mínimo",
     "cita": "Handle every billing scenario and track payments.",
     "urlCitada": "https://www.scoro.com/pricing/"
+  },
+  {
+    "herramientaId": "beautiful-ai",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "cita breve sin revisar",
+    "cita": "Connect your favorite tools",
+    "urlCitada": "https://www.beautiful.ai/"
+  },
+  {
+    "herramientaId": "beautiful-ai",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "cita breve sin revisar",
+    "cita": "Manage who can view & edit",
+    "urlCitada": "https://www.beautiful.ai/pricing"
+  },
+  {
+    "herramientaId": "beautiful-ai",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "cita breve sin revisar",
+    "cita": "Secure single sign-on (SSO)",
+    "urlCitada": "https://www.beautiful.ai/pricing"
+  },
+  {
+    "herramientaId": "beautiful-ai",
+    "capacidadId": "cap.audit_log",
+    "motivo": "cita breve sin revisar",
+    "cita": "Audit & change-logs",
+    "urlCitada": "https://www.beautiful.ai/pricing"
+  },
+  {
+    "herramientaId": "beautiful-ai",
+    "capacidadId": "cap.text_generation",
+    "motivo": "cita breve sin revisar",
+    "cita": "AI writing assistant",
+    "urlCitada": "https://www.beautiful.ai/pricing"
+  },
+  {
+    "herramientaId": "canva",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "cita breve sin revisar",
+    "cita": "SSO and SCIM provisioning",
+    "urlCitada": "https://www.canva.com/pricing/"
+  },
+  {
+    "herramientaId": "canva",
+    "capacidadId": "cap.brand_kit",
+    "motivo": "cita breve sin revisar",
+    "cita": "1 Brand Kit (3 colors only)",
+    "urlCitada": "https://www.canva.com/pricing/"
+  },
+  {
+    "herramientaId": "canva",
+    "capacidadId": "cap.document_templates",
+    "motivo": "cita breve sin revisar",
+    "cita": "1.6M+ templates to start fast",
+    "urlCitada": "https://www.canva.com/pricing/"
+  },
+  {
+    "herramientaId": "canva",
+    "capacidadId": "cap.collaborative_document_editing",
+    "motivo": "cita breve sin revisar",
+    "cita": "Real-time collaboration",
+    "urlCitada": "https://www.canva.com/pricing/"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "cita breve sin revisar",
+    "cita": "50+ Native Integrations",
+    "urlCitada": "https://clickup.com/pricing"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.public_api",
+    "motivo": "cita breve sin revisar",
+    "cita": "API Calls 100/minute",
+    "urlCitada": "https://clickup.com/pricing"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.data_export",
+    "motivo": "cita breve sin revisar",
+    "cita": "Custom Exporting",
+    "urlCitada": "https://clickup.com/pricing"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "cita breve sin revisar",
+    "cita": "Unlimited Custom Roles",
+    "urlCitada": "https://clickup.com/pricing"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "cita breve sin revisar",
+    "cita": "Google SSO",
+    "urlCitada": "https://clickup.com/pricing"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.two_factor_authentication",
+    "motivo": "cita breve sin revisar",
+    "cita": "Two-Factor Authentication",
+    "urlCitada": "https://clickup.com/pricing"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.audit_log",
+    "motivo": "cita breve sin revisar",
+    "cita": "Audit Log",
+    "urlCitada": "https://clickup.com/pricing"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.collaborative_document_editing",
+    "motivo": "cita breve sin revisar",
+    "cita": "Collaborative Docs",
+    "urlCitada": "https://clickup.com/pricing"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.file_storage",
+    "motivo": "cita breve sin revisar",
+    "cita": "60MB Storage",
+    "urlCitada": "https://clickup.com/pricing"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.task_management",
+    "motivo": "cita breve sin revisar",
+    "cita": "Unlimited Tasks",
+    "urlCitada": "https://clickup.com/pricing"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.ai_task_agents",
+    "motivo": "sin plan mínimo",
+    "cita": "ClickUp Certified Agents Built, tested, and verified by ClickUp's AI experts. The only agents that power complex workflows, with complete context across your tools and teams.",
+    "urlCitada": "https://clickup.com/pricing"
+  },
+  {
+    "herramientaId": "clickup-brain",
+    "capacidadId": "cap.text_generation",
+    "motivo": "cita breve sin revisar",
+    "cita": "Unlimited AI writing",
+    "urlCitada": "https://clickup.com/pricing"
+  },
+  {
+    "herramientaId": "copy-ai",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "A Workflow is a set of AI-powered actions that are stitched together to codify a process or best practices (eg. create account plan, write SEO article). Copy.ai makes it easy to create customizable, intelligent workflows that combine research, content generation, and tool integrations."
+  },
+  {
+    "herramientaId": "copy-ai",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "20+ Tech Integrations & API Access"
+  },
+  {
+    "herramientaId": "copy-ai",
+    "capacidadId": "cap.public_api",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "API Access & Bulk Workflow Runs"
+  },
+  {
+    "herramientaId": "copy-ai",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "sin plan mínimo",
+    "cita": "Security logos: AICPA SOC 2, GDPR, SSO",
+    "urlCitada": "https://www.copy.ai/"
+  },
+  {
+    "herramientaId": "copy-ai",
+    "capacidadId": "cap.translation",
+    "motivo": "sin plan mínimo",
+    "cita": "Produce native speaker level translations for any language. All in real-time, for a fraction of the cost of translation agencies.",
+    "urlCitada": "https://www.copy.ai/"
+  },
+  {
+    "herramientaId": "copy-ai",
+    "capacidadId": "cap.search_engine_optimization",
+    "motivo": "sin plan mínimo",
+    "cita": "Power your content engine with AI — SEO, thought leadership, use cases, social, and more.",
+    "urlCitada": "https://www.copy.ai/"
+  },
+  {
+    "herramientaId": "copy-ai",
+    "capacidadId": "cap.ai_task_agents",
+    "motivo": "sin plan mínimo",
+    "cita": "Automate targeted tasks by combining AI decision-making with proper guardrails.",
+    "urlCitada": "https://www.copy.ai/"
+  },
+  {
+    "herramientaId": "descript",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin plan mínimo",
+    "cita": "Edit video through code, or from inside your AI assistant",
+    "urlCitada": "https://www.descript.com/"
+  },
+  {
+    "herramientaId": "descript",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin plan mínimo",
+    "cita": "Drag in video, audio, or a recording from a Zoom call; Descript's AI transcribes it so you can start editing right away.",
+    "urlCitada": "https://www.descript.com/"
+  },
+  {
+    "herramientaId": "descript",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin plan mínimo",
+    "cita": "plus admin controls for users, permissions, and separate drives.",
+    "urlCitada": "https://www.descript.com/"
+  },
+  {
+    "herramientaId": "fireflies-ai",
+    "capacidadId": "cap.public_api",
+    "motivo": "cita breve sin revisar",
+    "cita": "API access",
+    "urlCitada": "https://fireflies.ai/pricing"
+  },
+  {
+    "herramientaId": "fireflies-ai",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "cita breve sin revisar",
+    "cita": "Super admin role",
+    "urlCitada": "https://fireflies.ai/pricing"
+  },
+  {
+    "herramientaId": "fireflies-ai",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "cita breve sin revisar",
+    "cita": "SSO + SCIM",
+    "urlCitada": "https://fireflies.ai/pricing"
+  },
+  {
+    "herramientaId": "fireflies-ai",
+    "capacidadId": "cap.audit_log",
+    "motivo": "cita breve sin revisar",
+    "cita": "Audit Logs (API)",
+    "urlCitada": "https://fireflies.ai/pricing"
+  },
+  {
+    "herramientaId": "fireflies-ai",
+    "capacidadId": "cap.audio_transcription",
+    "motivo": "sin plan mínimo",
+    "cita": "Fireflies identifies different speakers in meetings and audio files.",
+    "urlCitada": "https://fireflies.ai/"
+  },
+  {
+    "herramientaId": "fireflies-ai",
+    "capacidadId": "cap.meeting_notes",
+    "motivo": "sin plan mínimo",
+    "cita": "Get detailed notes, action items, and customized summaries instantly after every meeting.",
+    "urlCitada": "https://fireflies.ai/"
+  },
+  {
+    "herramientaId": "gamma",
+    "capacidadId": "cap.public_api",
+    "motivo": "cita breve sin revisar",
+    "cita": "API access",
+    "urlCitada": "https://gamma.app/pricing"
+  },
+  {
+    "herramientaId": "gamma",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "cita breve sin revisar",
+    "cita": "Import from PDF & PPTX",
+    "urlCitada": "https://gamma.app/pricing"
+  },
+  {
+    "herramientaId": "gamma",
+    "capacidadId": "cap.graphic_design",
+    "motivo": "sin plan mínimo",
+    "cita": "Create and edit custom, on-brand graphics — from infographics to illustrations — with our AI design agent.",
+    "urlCitada": "https://gamma.app/"
+  },
+  {
+    "herramientaId": "gamma",
+    "capacidadId": "cap.brand_kit",
+    "motivo": "cita breve sin revisar",
+    "cita": "Custom branding & fonts",
+    "urlCitada": "https://gamma.app/pricing"
+  },
+  {
+    "herramientaId": "gamma",
+    "capacidadId": "cap.document_templates",
+    "motivo": "sin plan mínimo",
+    "cita": "Start from scratch, import what you've got, or start with a template — and you'll have something credible and ready in minutes, not hours.",
+    "urlCitada": "https://gamma.app/"
+  },
+  {
+    "herramientaId": "gamma",
+    "capacidadId": "cap.collaborative_document_editing",
+    "motivo": "sin plan mínimo",
+    "cita": "Collaborate real-time with your team",
+    "urlCitada": "https://gamma.app/"
+  },
+  {
+    "herramientaId": "gamma",
+    "capacidadId": "cap.text_generation",
+    "motivo": "sin plan mínimo",
+    "cita": "Gamma turns a prompt, an outline, or an existing document into full presentations, with copy, layout, images, and charts already in place.",
+    "urlCitada": "https://gamma.app/"
+  },
+  {
+    "herramientaId": "grammarly",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "cita breve sin revisar",
+    "cita": "Grammarly for Google Docs",
+    "urlCitada": "https://www.grammarly.com/"
+  },
+  {
+    "herramientaId": "grammarly",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "cita breve sin revisar",
+    "cita": "Custom roles and permissions",
+    "urlCitada": "https://www.grammarly.com/plans"
+  },
+  {
+    "herramientaId": "heygen",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin plan mínimo",
+    "cita": "HeyGen for Developers offers production-ready, scalable APIs, including Video Agent, Video Generation, Translation, and Lipsync models.",
+    "urlCitada": "https://www.heygen.com/"
+  },
+  {
+    "herramientaId": "heygen",
+    "capacidadId": "cap.custom_reports",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "heygen",
+    "capacidadId": "cap.data_export",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "heygen",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "heygen",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "heygen",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "heygen",
+    "capacidadId": "cap.two_factor_authentication",
+    "motivo": "cita breve sin revisar",
+    "cita": "Team Member MFA",
+    "urlCitada": "https://www.heygen.com/pricing"
+  },
+  {
+    "herramientaId": "heygen",
+    "capacidadId": "cap.audit_log",
+    "motivo": "cita breve sin revisar",
+    "cita": "Audit log",
+    "urlCitada": "https://www.heygen.com/pricing"
+  },
+  {
+    "herramientaId": "heygen",
+    "capacidadId": "cap.ai_video_generation",
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "Create complete videos from a script using Text to Video. Our generator handles end-to-end editing and produces videos with voiceovers, visuals, and avatars.",
+    "urlCitada": "https://www.heygen.com/"
+  },
+  {
+    "herramientaId": "heygen",
+    "capacidadId": "cap.subtitles",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "heygen",
+    "capacidadId": "cap.audio_transcription",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "heygen",
+    "capacidadId": "cap.brand_kit",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "heygen",
+    "capacidadId": "cap.text_generation",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "heygen",
+    "capacidadId": "cap.ai_task_agents",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "jasper",
+    "capacidadId": "cap.audit_log",
+    "motivo": "sin plan mínimo",
+    "cita": "Role-based access controls and an in-app AI audit log are also included, so admins can govern who has access and how the platform is used across their team.",
+    "urlCitada": "https://www.jasper.ai/pricing"
+  },
+  {
+    "herramientaId": "jasper",
+    "capacidadId": "cap.search_engine_optimization",
+    "motivo": "sin plan mínimo",
+    "cita": "Create content that ranks, drives traffic & strengthens authority at scale.",
+    "urlCitada": "https://www.jasper.ai/"
+  },
+  {
+    "herramientaId": "krisp",
+    "capacidadId": "cap.public_api",
+    "motivo": "cita breve sin revisar",
+    "cita": "API Integration",
+    "urlCitada": "https://krisp.ai/pricing/"
+  },
+  {
+    "herramientaId": "krisp",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "cita breve sin revisar",
+    "cita": "Super admin role",
+    "urlCitada": "https://krisp.ai/pricing/"
+  },
+  {
+    "herramientaId": "krisp",
+    "capacidadId": "cap.two_factor_authentication",
+    "motivo": "cita breve sin revisar",
+    "cita": "MFA",
+    "urlCitada": "https://krisp.ai/pricing/"
+  },
+  {
+    "herramientaId": "krisp",
+    "capacidadId": "cap.audio_transcription",
+    "motivo": "cita breve sin revisar",
+    "cita": "Unlimited Transcription",
+    "urlCitada": "https://krisp.ai/pricing/"
+  },
+  {
+    "herramientaId": "krisp",
+    "capacidadId": "cap.audio_noise_removal",
+    "motivo": "cita breve sin revisar",
+    "cita": "Unlimited Noise Cancellation",
+    "urlCitada": "https://krisp.ai/pricing/"
+  },
+  {
+    "herramientaId": "motion",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin plan mínimo",
+    "cita": "Robust API and clear documentation to connect with all your internal or external systems",
+    "urlCitada": "https://www.usemotion.com/"
+  },
+  {
+    "herramientaId": "motion",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "cita breve sin revisar",
+    "cita": "Permissions & Access Control",
+    "urlCitada": "https://www.usemotion.com/pricing"
+  },
+  {
+    "herramientaId": "motion",
+    "capacidadId": "cap.automatic_rescheduling",
+    "motivo": "sin plan mínimo",
+    "cita": "Automatically re-plan your day whenever anything changes",
+    "urlCitada": "https://www.usemotion.com/"
+  },
+  {
+    "herramientaId": "motion",
+    "capacidadId": "cap.time_tracking",
+    "motivo": "cita breve sin revisar",
+    "cita": "Time Tracking",
+    "urlCitada": "https://www.usemotion.com/pricing"
+  },
+  {
+    "herramientaId": "motion",
+    "capacidadId": "cap.online_self_service_booking",
+    "motivo": "sin plan mínimo",
+    "cita": "Motion creates meeting booking pages, shows your availability, and schedules meetings at ideal times that maximize your focus time.",
+    "urlCitada": "https://www.usemotion.com/"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Automatically create pages and new blocks, set status, assignee, and property values, and more."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Send information from Notion to Slack, and vice versa. Or connect to Zapier to create automated workflows with the tools you rely on."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.public_api",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Build bespoke integrations to connect your Notion workspace to internal tools and workflows."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.webhooks",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Send real-time updates to your integrations when content changes in Notion."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.dashboards",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Bring charts, tables, and lists into one dashboard for a unified view of your work."
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.custom_reports",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.data_export",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.two_factor_authentication",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.audit_log",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.internal_knowledge_workspace",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.collaborative_document_editing",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.workspace_wide_search",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.document_version_history",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.file_storage",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.task_management",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.ai_task_agents",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "capacidadId": "cap.text_generation",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "otter-ai",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "Basic Integrations (Zoom, Google Meet, Teams, Slack)",
+    "urlCitada": "https://otter.ai/pricing"
+  },
+  {
+    "herramientaId": "otter-ai",
+    "capacidadId": "cap.public_api",
+    "motivo": "cita breve sin revisar",
+    "cita": "Otter API & Webhooks",
+    "urlCitada": "https://otter.ai/pricing"
+  },
+  {
+    "herramientaId": "otter-ai",
+    "capacidadId": "cap.webhooks",
+    "motivo": "cita breve sin revisar",
+    "cita": "Otter API & Webhooks",
+    "urlCitada": "https://otter.ai/pricing"
+  },
+  {
+    "herramientaId": "otter-ai",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin plan mínimo",
+    "cita": "Recording control and sharing permissions",
+    "urlCitada": "https://otter.ai/pricing"
+  },
+  {
+    "herramientaId": "otter-ai",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "cita breve sin revisar",
+    "cita": "Single Sign-On (SSO)",
+    "urlCitada": "https://otter.ai/pricing"
+  },
+  {
+    "herramientaId": "otter-ai",
+    "capacidadId": "cap.two_factor_authentication",
+    "motivo": "cita breve sin revisar",
+    "cita": "2-factor authentication",
+    "urlCitada": "https://otter.ai/pricing"
+  },
+  {
+    "herramientaId": "otter-ai",
+    "capacidadId": "cap.audit_log",
+    "motivo": "cita breve sin revisar",
+    "cita": "Activity logs",
+    "urlCitada": "https://otter.ai/pricing"
+  },
+  {
+    "herramientaId": "otter-ai",
+    "capacidadId": "cap.audio_transcription",
+    "motivo": "cita breve sin revisar",
+    "cita": "Live transcription",
+    "urlCitada": "https://otter.ai/pricing"
+  },
+  {
+    "herramientaId": "otter-ai",
+    "capacidadId": "cap.ai_task_agents",
+    "motivo": "sin plan mínimo",
+    "cita": "Sit back and relax while our SDR Agent instantly engages prospects on your site with real-time, personalized video calls that deliver tailored demos for every visitor.",
+    "urlCitada": "https://otter.ai"
+  },
+  {
+    "herramientaId": "synthesia",
+    "capacidadId": "cap.custom_reports",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "synthesia",
+    "capacidadId": "cap.data_export",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "synthesia",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "synthesia",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "synthesia",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "synthesia",
+    "capacidadId": "cap.subtitles",
+    "motivo": "sin plan mínimo",
+    "cita": "Automatically add closed captions to your videos.",
+    "urlCitada": "https://www.synthesia.io/pricing"
+  },
+  {
+    "herramientaId": "taskade",
+    "capacidadId": "cap.dashboards",
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "KPI trackers that update in real time. The numbers find you, not the other way around.",
+    "urlCitada": "https://www.taskade.com/"
+  },
+  {
+    "herramientaId": "taskade",
+    "capacidadId": "cap.document_version_history",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "taskade",
+    "capacidadId": "cap.file_storage",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "taskade",
+    "capacidadId": "cap.task_management",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "taskade",
+    "capacidadId": "cap.ai_task_agents",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "taskade",
+    "capacidadId": "cap.text_generation",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "todoist",
+    "capacidadId": "cap.public_api",
+    "motivo": "cita breve sin revisar",
+    "cita": "Developer API",
+    "urlCitada": "https://www.todoist.com/pricing"
+  },
+  {
+    "herramientaId": "todoist",
+    "capacidadId": "cap.audit_log",
+    "motivo": "cita breve sin revisar",
+    "cita": "1 week activity history",
+    "urlCitada": "https://www.todoist.com/pricing"
   }
 ]
