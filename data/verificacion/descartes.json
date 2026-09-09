@@ -1675,5 +1675,893 @@
     "motivo": "sin plan mínimo",
     "cita": "Improve writing or generate drafts with AI blocks directly in your pages.",
     "urlCitada": "https://www.notion.com/product/ai"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo",
+    "cita": "Integrate and connect over 1,000 apps",
+    "urlCitada": "https://www.activecampaign.com/pricing"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.custom_reports",
+    "motivo": "cita breve sin revisar",
+    "cita": "Custom reporting Add-on",
+    "urlCitada": "https://www.activecampaign.com/pricing"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "cita breve sin revisar",
+    "cita": "Single Sign-On (SSO)",
+    "urlCitada": "https://www.activecampaign.com/pricing"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.customer_contact_records",
+    "motivo": "cita breve sin revisar",
+    "cita": "Contact profiles",
+    "urlCitada": "https://www.activecampaign.com/pricing"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.sales_pipeline",
+    "motivo": "cita breve sin revisar",
+    "cita": "Pipeline management",
+    "urlCitada": "https://www.activecampaign.com/pricing"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.lead_capture",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.text_generation",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.ai_task_agents",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.email_campaigns",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.marketing_automation",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.landing_pages",
+    "motivo": "cita breve sin revisar",
+    "cita": "Landing pages",
+    "urlCitada": "https://www.activecampaign.com/pricing"
+  },
+  {
+    "herramientaId": "agiled",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "When a deal closes, spin up a project. When an invoice is overdue, send a reminder. Build visual automation flows that keep your business running — even when you're not at the keyboard.",
+    "urlCitada": "https://agiled.app/"
+  },
+  {
+    "herramientaId": "agiled",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo",
+    "cita": "Agiled integrates with over 100 tools including Stripe, Google Calendar, Zoom, Slack, QuickBooks, Zapier, and many more.",
+    "urlCitada": "https://agiled.app/"
+  },
+  {
+    "herramientaId": "agiled",
+    "capacidadId": "cap.public_api",
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "You can also use our API and webhooks for custom integrations.",
+    "urlCitada": "https://agiled.app/"
+  },
+  {
+    "herramientaId": "agiled",
+    "capacidadId": "cap.webhooks",
+    "motivo": "sin plan mínimo",
+    "cita": "You can also use our API and webhooks for custom integrations.",
+    "urlCitada": "https://agiled.app/"
+  },
+  {
+    "herramientaId": "agiled",
+    "capacidadId": "cap.data_export",
+    "motivo": "cita breve sin revisar",
+    "cita": "Export your data anytime.",
+    "urlCitada": "https://agiled.app/"
+  },
+  {
+    "herramientaId": "agiled",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin plan mínimo",
+    "cita": "Our team helps you import your contacts, deals, projects, and invoices — no data left behind.",
+    "urlCitada": "https://agiled.app/"
+  },
+  {
+    "herramientaId": "agiled",
+    "capacidadId": "cap.customer_contact_records",
+    "motivo": "cita breve sin revisar",
+    "cita": "500 contacts & 250 accounts",
+    "urlCitada": "https://agiled.app/pricing"
+  },
+  {
+    "herramientaId": "agiled",
+    "capacidadId": "cap.customer_interaction_history",
+    "motivo": "sin plan mínimo",
+    "cita": "Every interaction lives on a single timeline.",
+    "urlCitada": "https://agiled.app/"
+  },
+  {
+    "herramientaId": "agiled",
+    "capacidadId": "cap.client_portal",
+    "motivo": "sin plan mínimo",
+    "cita": "A fully branded portal where clients view project progress, pay invoices, sign documents, and submit tickets.",
+    "urlCitada": "https://agiled.app/"
+  },
+  {
+    "herramientaId": "agiled",
+    "capacidadId": "cap.time_and_attendance",
+    "motivo": "sin plan mínimo",
+    "cita": "Keep employee records, track attendance, handle leave requests, and manage salary records in the same platform where your projects and clients live.",
+    "urlCitada": "https://agiled.app/"
+  },
+  {
+    "herramientaId": "agiled",
+    "capacidadId": "cap.online_self_service_booking",
+    "motivo": "sin plan mínimo",
+    "cita": "Share a branded booking link and let clients pick a time that works.",
+    "urlCitada": "https://agiled.app/"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "sin plan mínimo",
+    "cita": "Streamline operations with requests, approvals, expense reports, RPA, workflow automation",
+    "urlCitada": "https://www.bitrix24.com/"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo",
+    "cita": "Integrated with all your favorite services and apps",
+    "urlCitada": "https://www.bitrix24.com/"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin plan mínimo",
+    "cita": "Connect your tasks to other services via API integration for advanced task automation",
+    "urlCitada": "https://www.bitrix24.com/prices/"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin plan mínimo",
+    "cita": "Analyze sales funnel, employee performance, Sales Intelligence, BI Builder dashboards",
+    "urlCitada": "https://www.bitrix24.com/"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin plan mínimo",
+    "cita": "Easy to migrate your data from other systems",
+    "urlCitada": "https://www.bitrix24.com/"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin plan mínimo",
+    "cita": "Sales management Manage leads, deals, contacts, pipelines, access permissions & roles",
+    "urlCitada": "https://www.bitrix24.com/"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.customer_contact_records",
+    "motivo": "cita breve sin revisar",
+    "cita": "Basic CRM (deals, contacts)",
+    "urlCitada": "https://www.bitrix24.com/prices/"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.sales_pipeline",
+    "motivo": "cita breve sin revisar",
+    "cita": "Sales pipelines",
+    "urlCitada": "https://www.bitrix24.com/prices/"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.lead_capture",
+    "motivo": "sin plan mínimo",
+    "cita": "Website forms Capture leads with custom order forms, registration & feedback forms, and forms with conditional fields",
+    "urlCitada": "https://www.bitrix24.com/prices/"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.project_planning",
+    "motivo": "sin plan mínimo",
+    "cita": "Project management Use projects, workgroups, project planning, roles, access permissions",
+    "urlCitada": "https://www.bitrix24.com/prices/"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.time_tracking",
+    "motivo": "cita breve sin revisar",
+    "cita": "Task time tracking",
+    "urlCitada": "https://www.bitrix24.com/prices/"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.text_generation",
+    "motivo": "sin plan mínimo",
+    "cita": "CoPilot in Chat Unlimited source of ideas, AI-generated texts, brainstorming, and more",
+    "urlCitada": "https://www.bitrix24.com/prices/"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.ai_task_agents",
+    "motivo": "sin plan mínimo",
+    "cita": "Create an autonomous AI teammate that learns and gets tasks done",
+    "urlCitada": "https://www.bitrix24.com/"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.landing_pages",
+    "motivo": "sin plan mínimo",
+    "cita": "Landing pages Generate leads with capture forms, automated funnels and Google Analytics integration",
+    "urlCitada": "https://www.bitrix24.com/prices/"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.online_store",
+    "motivo": "sin plan mínimo",
+    "cita": "Online store Maximize ecommerce with inventory management, order processing, delivery and online payments",
+    "urlCitada": "https://www.bitrix24.com/prices/"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.website_builder",
+    "motivo": "sin plan mínimo",
+    "cita": "Website builder Use our free CMS, templates, hosting, AI-generated images and texts to create awesome sites",
+    "urlCitada": "https://www.bitrix24.com/prices/"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.time_and_attendance",
+    "motivo": "cita breve sin revisar",
+    "cita": "Employee hours tracking",
+    "urlCitada": "https://www.bitrix24.com/prices/"
+  },
+  {
+    "herramientaId": "clickfunnels",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "cita breve sin revisar",
+    "cita": "3rd Party Integrations",
+    "urlCitada": "https://www.clickfunnels.com/pricing"
+  },
+  {
+    "herramientaId": "clickfunnels",
+    "capacidadId": "cap.public_api",
+    "motivo": "cita breve sin revisar",
+    "cita": "Webhooks/Full API Access",
+    "urlCitada": "https://www.clickfunnels.com/pricing"
+  },
+  {
+    "herramientaId": "clickfunnels",
+    "capacidadId": "cap.webhooks",
+    "motivo": "cita breve sin revisar",
+    "cita": "Webhooks/Full API Access",
+    "urlCitada": "https://www.clickfunnels.com/pricing"
+  },
+  {
+    "herramientaId": "clickfunnels",
+    "capacidadId": "cap.sales_pipeline",
+    "motivo": "cita breve sin revisar",
+    "cita": "CRM Pipelines",
+    "urlCitada": "https://www.clickfunnels.com/pricing"
+  },
+  {
+    "herramientaId": "clickfunnels",
+    "capacidadId": "cap.lead_capture",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickfunnels",
+    "capacidadId": "cap.text_generation",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickfunnels",
+    "capacidadId": "cap.ai_task_agents",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickfunnels",
+    "capacidadId": "cap.email_campaigns",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickfunnels",
+    "capacidadId": "cap.marketing_automation",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "clickfunnels",
+    "capacidadId": "cap.payment_collection",
+    "motivo": "sin plan mínimo",
+    "cita": "Get a powerful and reliable payment process solution.",
+    "urlCitada": "https://www.clickfunnels.com/"
+  },
+  {
+    "herramientaId": "engagebay",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo",
+    "cita": "Easily integrate EngageBay with the tools you already love.",
+    "urlCitada": "https://www.engagebay.com/"
+  },
+  {
+    "herramientaId": "engagebay",
+    "capacidadId": "cap.public_api",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "API"
+  },
+  {
+    "herramientaId": "engagebay",
+    "capacidadId": "cap.dashboards",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Reporting Dashboard"
+  },
+  {
+    "herramientaId": "engagebay",
+    "capacidadId": "cap.custom_reports",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Custom Reporting"
+  },
+  {
+    "herramientaId": "engagebay",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin plan mínimo",
+    "cita": "You can import existing contacts from HubSpot, Salesforce, or a CSV file in minutes.",
+    "urlCitada": "https://www.engagebay.com/"
+  },
+  {
+    "herramientaId": "engagebay",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Role Management"
+  },
+  {
+    "herramientaId": "engagebay",
+    "capacidadId": "cap.single_sign_on",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "SSO"
+  },
+  {
+    "herramientaId": "engagebay",
+    "capacidadId": "cap.customer_contact_records",
+    "motivo": "cita breve sin revisar",
+    "cita": "Organize contacts with ease",
+    "urlCitada": "https://www.engagebay.com/"
+  },
+  {
+    "herramientaId": "engagebay",
+    "capacidadId": "cap.customer_interaction_history",
+    "motivo": "sin plan mínimo",
+    "cita": "Track every interaction automatically",
+    "urlCitada": "https://www.engagebay.com/"
+  },
+  {
+    "herramientaId": "engagebay",
+    "capacidadId": "cap.sales_pipeline",
+    "motivo": "sin plan mínimo",
+    "cita": "EngageBay includes over 30 features across marketing, sales, and support: email marketing, marketing automation, CRM, contact management, lead scoring, sales pipelines, appointment scheduling, email templates, web forms, landing pages, live chat, helpdesk ticketing, deal management, and an AI chatbot.",
+    "urlCitada": "https://www.engagebay.com/"
+  },
+  {
+    "herramientaId": "engagebay",
+    "capacidadId": "cap.landing_pages",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Landing Pages"
+  },
+  {
+    "herramientaId": "engagebay",
+    "capacidadId": "cap.customer_appointment_reminders",
+    "motivo": "sin plan mínimo",
+    "cita": "Instant confirmations and reminders",
+    "urlCitada": "https://www.engagebay.com/"
+  },
+  {
+    "herramientaId": "freshsales",
+    "capacidadId": "cap.lead_capture",
+    "motivo": "sin plan mínimo",
+    "cita": "Freshsales helps you run smart sales campaigns to generate more leads, then capture, qualify, route, and track them with the power of Freddy AI.",
+    "urlCitada": "https://www.freshworks.com/crm/sales/"
+  },
+  {
+    "herramientaId": "freshsales",
+    "capacidadId": "cap.text_generation",
+    "motivo": "sin plan mínimo",
+    "cita": "Freddy AI makes work smarter and easier, helping you around the clock: highlighting the best leads and deals, offering insights, and even writing emails.",
+    "urlCitada": "https://www.freshworks.com/crm/sales/"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo",
+    "cita": "HighLevel is built to integrate into the tools you're already using.",
+    "urlCitada": "https://www.gohighlevel.com/pricing"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.public_api",
+    "motivo": "cita breve sin revisar",
+    "cita": "Basic API Access",
+    "urlCitada": "https://www.gohighlevel.com/pricing"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.dashboards",
+    "motivo": "cita breve sin revisar",
+    "cita": "Custom Dashboards & Reporting",
+    "urlCitada": "https://www.gohighlevel.com/pricing"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.sales_pipeline",
+    "motivo": "cita breve sin revisar",
+    "cita": "Sales Pipelines",
+    "urlCitada": "https://www.gohighlevel.com/"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.lead_capture",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.text_generation",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.ai_task_agents",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.invoicing",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.payment_collection",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.landing_pages",
+    "motivo": "sin plan mínimo",
+    "cita": "Websites, Funnels & Landing Pages",
+    "urlCitada": "https://www.gohighlevel.com/"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.website_builder",
+    "motivo": "cita breve sin revisar",
+    "cita": "Website & Funnel Builder",
+    "urlCitada": "https://www.gohighlevel.com/pricing"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.online_self_service_booking",
+    "motivo": "cita breve sin revisar",
+    "cita": "Booking Calendars",
+    "urlCitada": "https://www.gohighlevel.com/pricing"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.customer_appointment_reminders",
+    "motivo": "cita breve sin revisar",
+    "cita": "Appointment Reminders",
+    "urlCitada": "https://www.gohighlevel.com/"
+  },
+  {
+    "herramientaId": "honeybook",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo",
+    "cita": "Connect HoneyBook and thousands of apps and workflows.",
+    "urlCitada": "https://www.honeybook.com/pricing"
+  },
+  {
+    "herramientaId": "hubspot",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo",
+    "cita": "Works with the tools you already use. 2,000+ integrations.",
+    "urlCitada": "https://www.hubspot.com/"
+  },
+  {
+    "herramientaId": "hubspot",
+    "capacidadId": "cap.dashboards",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Reporting dashboard"
+  },
+  {
+    "herramientaId": "hubspot",
+    "capacidadId": "cap.custom_reports",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Up to 100 custom reports and 10 million events per custom reporting query"
+  },
+  {
+    "herramientaId": "hubspot",
+    "capacidadId": "cap.customer_contact_records",
+    "motivo": "sin plan mínimo",
+    "cita": "All your customer data in one place. Keep your data clean, connected, and actionable.",
+    "urlCitada": "https://www.hubspot.com/"
+  },
+  {
+    "herramientaId": "hubspot",
+    "capacidadId": "cap.sales_pipeline",
+    "motivo": "sin plan mínimo",
+    "cita": "Generate quality leads and close deals, faster. Automate prospecting, manage pipeline, and accelerate revenue growth.",
+    "urlCitada": "https://www.hubspot.com/"
+  },
+  {
+    "herramientaId": "hubspot",
+    "capacidadId": "cap.lead_capture",
+    "motivo": "sin plan mínimo",
+    "cita": "Convert visitors into contacts for your database.",
+    "urlCitada": "https://www.hubspot.com/"
+  },
+  {
+    "herramientaId": "hubspot",
+    "capacidadId": "cap.text_generation",
+    "motivo": "sin plan mínimo",
+    "cita": "Easily craft content for your audience, with help from AI.",
+    "urlCitada": "https://www.hubspot.com/"
+  },
+  {
+    "herramientaId": "hubspot",
+    "capacidadId": "cap.ai_task_agents",
+    "motivo": "sin plan mínimo",
+    "cita": "Spot buying signals, source contacts, and launch personalized outreach — instantly.",
+    "urlCitada": "https://www.hubspot.com/"
+  },
+  {
+    "herramientaId": "hubspot",
+    "capacidadId": "cap.payment_collection",
+    "motivo": "sin plan mínimo",
+    "cita": "Send quotes, collect payments, and manage subscriptions.",
+    "urlCitada": "https://www.hubspot.com/"
+  },
+  {
+    "herramientaId": "hubspot",
+    "capacidadId": "cap.landing_pages",
+    "motivo": "cita breve sin revisar",
+    "cita": "Free Landing Page Builder",
+    "urlCitada": "https://www.hubspot.com/"
+  },
+  {
+    "herramientaId": "hubspot",
+    "capacidadId": "cap.website_builder",
+    "motivo": "cita breve sin revisar",
+    "cita": "Free Website Builder",
+    "urlCitada": "https://www.hubspot.com/"
+  },
+  {
+    "herramientaId": "hubspot",
+    "capacidadId": "cap.online_self_service_booking",
+    "motivo": "cita breve sin revisar",
+    "cita": "Free Meeting Scheduler App",
+    "urlCitada": "https://www.hubspot.com/"
+  },
+  {
+    "herramientaId": "kartra",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "kartra",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "kartra",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "kartra",
+    "capacidadId": "cap.webhooks",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "kartra",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "kartra",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Stay in control of your content with access controlled member logins."
+  },
+  {
+    "herramientaId": "kartra",
+    "capacidadId": "cap.lead_capture",
+    "motivo": "sin plan mínimo",
+    "cita": "Capture leads & grow your business",
+    "urlCitada": "https://kartra.com/"
+  },
+  {
+    "herramientaId": "kartra",
+    "capacidadId": "cap.email_campaigns",
+    "motivo": "cita breve sin revisar",
+    "cita": "Broadcasts and newsletters",
+    "urlCitada": "https://kartra.com/"
+  },
+  {
+    "herramientaId": "kartra",
+    "capacidadId": "cap.marketing_automation",
+    "motivo": "sin plan mínimo",
+    "cita": "Behavior-based triggers and segmentation",
+    "urlCitada": "https://kartra.com/"
+  },
+  {
+    "herramientaId": "kartra",
+    "capacidadId": "cap.conversion_funnels",
+    "motivo": "sin plan mínimo",
+    "cita": "Built-in analytics and real-time funnel tracking",
+    "urlCitada": "https://kartra.com/"
+  },
+  {
+    "herramientaId": "kartra",
+    "capacidadId": "cap.landing_pages",
+    "motivo": "sin plan mínimo",
+    "cita": "Landing pages, exit intents, and informative pop-ups",
+    "urlCitada": "https://kartra.com/"
+  },
+  {
+    "herramientaId": "kartra",
+    "capacidadId": "cap.payment_collection",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Collect online payments through a range of payment processors with mobile-friendly checkouts."
+  },
+  {
+    "herramientaId": "kartra",
+    "capacidadId": "cap.website_builder",
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "Use your unique website address to create a professional online site."
+  },
+  {
+    "herramientaId": "keap",
+    "capacidadId": "cap.workflow_automation",
+    "motivo": "sin plan mínimo",
+    "cita": "By automating manual, repetitive tasks across all your workflows, business automation frees you up to focus on other aspects of your business.",
+    "urlCitada": "https://keap.com/"
+  },
+  {
+    "herramientaId": "keap",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo",
+    "cita": "Connect your other software tools to Keap so you can manage everything in one place",
+    "urlCitada": "https://keap.com/pricing"
+  },
+  {
+    "herramientaId": "keap",
+    "capacidadId": "cap.public_api",
+    "motivo": "sin plan mínimo",
+    "cita": "Create custom connections to Keap via open API endpoints",
+    "urlCitada": "https://keap.com/pricing"
+  },
+  {
+    "herramientaId": "keap",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin plan mínimo",
+    "cita": "Personalize your dashboard to see relevant information and deliver vital data to your team",
+    "urlCitada": "https://keap.com/pricing"
+  },
+  {
+    "herramientaId": "keap",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin plan mínimo",
+    "cita": "Achieve quick and lasting value by starting off with strategy consulting, data import, migration, and done-for-you services.",
+    "urlCitada": "https://keap.com/pricing"
+  },
+  {
+    "herramientaId": "keap",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin plan mínimo",
+    "cita": "Custom user roles, groups & permissions: Determine the level of permission for users and their interaction with various records",
+    "urlCitada": "https://keap.com/pricing"
+  },
+  {
+    "herramientaId": "keap",
+    "capacidadId": "cap.customer_contact_records",
+    "motivo": "sin plan mínimo",
+    "cita": "Keap lets you store critical information, including your contact's phone number, email, address, as well as meeting histories, payments, invoices, conversations, emails and notes.",
+    "urlCitada": "https://keap.com/pricing"
+  },
+  {
+    "herramientaId": "keap",
+    "capacidadId": "cap.customer_interaction_history",
+    "motivo": "sin plan mínimo",
+    "cita": "House all your client activity, data, and communications in one easily accessible place",
+    "urlCitada": "https://keap.com/pricing"
+  },
+  {
+    "herramientaId": "keap",
+    "capacidadId": "cap.sales_pipeline",
+    "motivo": "sin plan mínimo",
+    "cita": "Visually track deals as they move through stages of the sales process",
+    "urlCitada": "https://keap.com/pricing"
+  },
+  {
+    "herramientaId": "keap",
+    "capacidadId": "cap.lead_capture",
+    "motivo": "sin plan mínimo",
+    "cita": "Capture contact information in forms and landing pages, and automate next steps to convert prospects and upsell current customers",
+    "urlCitada": "https://keap.com/pricing"
+  },
+  {
+    "herramientaId": "keap",
+    "capacidadId": "cap.text_generation",
+    "motivo": "sin plan mínimo",
+    "cita": "Compose emails quickly and easily with the help of AI.",
+    "urlCitada": "https://keap.com/pricing"
+  },
+  {
+    "herramientaId": "keap",
+    "capacidadId": "cap.invoicing",
+    "motivo": "sin plan mínimo",
+    "cita": "Send one-time or recurring invoices that sync with your payment and accounting tools",
+    "urlCitada": "https://keap.com/pricing"
+  },
+  {
+    "herramientaId": "keap",
+    "capacidadId": "cap.payment_collection",
+    "motivo": "sin plan mínimo",
+    "cita": "Accept payments from processors such as PayPal, Stripe and Eway",
+    "urlCitada": "https://keap.com/pricing"
+  },
+  {
+    "herramientaId": "keap",
+    "capacidadId": "cap.email_campaigns",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "keap",
+    "capacidadId": "cap.marketing_automation",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "keap",
+    "capacidadId": "cap.conversion_funnels",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "keap",
+    "capacidadId": "cap.landing_pages",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "keap",
+    "capacidadId": "cap.online_store",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "keap",
+    "capacidadId": "cap.online_self_service_booking",
+    "motivo": "sin plan mínimo",
+    "cita": "Send an online booking link with available times on your calendar, synced with your Gmail or Outlook calendar",
+    "urlCitada": "https://keap.com/pricing"
+  },
+  {
+    "herramientaId": "odoo",
+    "capacidadId": "cap.data_export",
+    "motivo": "sin plan mínimo",
+    "cita": "When using Odoo Online, you can download a backup of your database at any time through the control center. You own your data!",
+    "urlCitada": "https://www.odoo.com/pricing"
+  },
+  {
+    "herramientaId": "odoo",
+    "capacidadId": "cap.client_portal",
+    "motivo": "sin plan mínimo",
+    "cita": "Customers and suppliers who have access to their invoices on the portal",
+    "urlCitada": "https://www.odoo.com/pricing"
+  },
+  {
+    "herramientaId": "systeme-io",
+    "capacidadId": "cap.public_api",
+    "motivo": "cita breve sin revisar",
+    "cita": "API requests per minute",
+    "urlCitada": "https://systeme.io/pricing"
+  },
+  {
+    "herramientaId": "systeme-io",
+    "capacidadId": "cap.website_builder",
+    "motivo": "cita breve sin revisar",
+    "cita": "Website builder",
+    "urlCitada": "https://systeme.io/pricing"
+  },
+  {
+    "herramientaId": "zoho-one",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "sin plan mínimo",
+    "cita": "Connect and interoperate within your existing third-party apps, or discover new ones for enhanced functionalities.",
+    "urlCitada": "https://www.zoho.com/one/"
+  },
+  {
+    "herramientaId": "zoho-one",
+    "capacidadId": "cap.dashboards",
+    "motivo": "sin plan mínimo",
+    "cita": "personalized dashboards give you a bird's-eye view of all your work",
+    "urlCitada": "https://www.zoho.com/one/"
+  },
+  {
+    "herramientaId": "zoho-one",
+    "capacidadId": "cap.data_import_and_migration",
+    "motivo": "sin plan mínimo",
+    "cita": "Seamlessly transfer your existing data to CRM, Books, People, and other vital apps.",
+    "urlCitada": "https://www.zoho.com/one/"
+  },
+  {
+    "herramientaId": "zoho-one",
+    "capacidadId": "cap.roles_and_permissions",
+    "motivo": "sin plan mínimo",
+    "cita": "Assign roles and grant app and device permissions with ease.",
+    "urlCitada": "https://www.zoho.com/one/"
+  },
+  {
+    "herramientaId": "zoho-one",
+    "capacidadId": "cap.marketing_automation",
+    "motivo": "sin plan mínimo",
+    "cita": "Set up marketing automation through email workflows, autoresponders, and more.",
+    "urlCitada": "https://www.zoho.com/one/"
+  },
+  {
+    "herramientaId": "zoho-one",
+    "capacidadId": "cap.shared_inbox",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zoho-one",
+    "capacidadId": "cap.client_portal",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zoho-one",
+    "capacidadId": "cap.conversion_funnels",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zoho-one",
+    "capacidadId": "cap.landing_pages",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zoho-one",
+    "capacidadId": "cap.online_store",
+    "motivo": "sin respuesta"
+  },
+  {
+    "herramientaId": "zoho-one",
+    "capacidadId": "cap.website_builder",
+    "motivo": "sin plan mínimo",
+    "cita": "Make your website the face of your business, and sell in combination with other tools like CRM, Desk, and Campaigns.",
+    "urlCitada": "https://www.zoho.com/one/"
+  },
+  {
+    "herramientaId": "zoho-one",
+    "capacidadId": "cap.time_and_attendance",
+    "motivo": "sin plan mínimo",
+    "cita": "Create policies, track time and attendance, and archive performance reviews.",
+    "urlCitada": "https://www.zoho.com/one/"
   }
 ]
