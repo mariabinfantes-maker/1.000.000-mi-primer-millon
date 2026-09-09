@@ -176,23 +176,35 @@ describe("«no consta» no es «no lo tiene»", () => {
   });
 
   /**
-   * Cinco notas de F2 sí afirman una ausencia —cuatro hablan de que no hay una
-   * cita literal, pero la de Beautiful.ai dice directamente que la herramienta
-   * «no incluye» recordatorios de cita—. `describir()` NO publica la nota, y
-   * esta prueba existe para que quien la publique algún día tenga que pasar
-   * antes por aquí y verlo.
+   * Estas cuatro notas hablan de que no hay una cita literal en la página —lo
+   * que es cierto y no dice nada de la herramienta—, así que se quedan como
+   * están. La quinta, la de Beautiful.ai, sí afirmaba una ausencia («no incluye
+   * funcionalidad de recordatorios automáticos de citas») y la propietaria la
+   * corrigió el 2026-09-09 para que hable de la evidencia y no del producto.
+   *
+   * `describir()` NO publica las notas. Esta prueba existe para que quien las
+   * publique algún día tenga que pasar antes por aquí y verlas.
    */
-  it("las notas de F2 no salen por aquí: cinco de ellas afirman una ausencia", () => {
+  it("las notas de F2 no salen por aquí, y cuatro de ellas afirman una ausencia", () => {
     const conNota = getRegistros().filter((r) => r.nota && afirmaAusencia(r.nota));
     expect(conNota.map((r) => `${r.herramientaId}/${r.capacidadId}`)).toEqual([
       "clickup/cap.file_storage",
       "salesmate/cap.marketing_automation",
       "wrike/cap.invoicing",
-      "beautiful-ai/cap.customer_appointment_reminders",
       "grammarly/cap.online_self_service_booking",
     ]);
     for (const r of conNota) {
       expect(describir(evidenciaDeRegistro(r.herramientaId, r.capacidadId, r), r.capacidadId)).not.toContain(r.nota!);
     }
+  });
+
+  it("y la de Beautiful.ai ya habla de la evidencia, no del producto", () => {
+    const r = getRegistros().find(
+      (x) => x.herramientaId === "beautiful-ai" && x.capacidadId === "cap.customer_appointment_reminders"
+    );
+    expect(r?.nota).toBe(
+      "Buscado en las páginas de producto y precios; la evidencia consultada no demuestra recordatorios automáticos de citas."
+    );
+    expect(afirmaAusencia(r!.nota!)).toBe(false);
   });
 });
