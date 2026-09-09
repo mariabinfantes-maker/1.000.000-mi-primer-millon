@@ -24531,18 +24531,29 @@
   {
     "herramientaId": "activecampaign",
     "capacidadId": "cap.custom_reports",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "modulo",
+    "planMinimo": "Enterprise",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.activecampaign.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Custom reporting Add-on"
+        "cita": "Custom reporting Add-on",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.activecampaign.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Custom reporting Add-on — Enterprise",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Custom reporting Add-on\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Disponible como módulo add-on a partir del plan Plus e incluido en Enterprise."
   },
   {
     "herramientaId": "activecampaign",
@@ -24607,18 +24618,29 @@
   {
     "herramientaId": "activecampaign",
     "capacidadId": "cap.single_sign_on",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Enterprise",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.activecampaign.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Single Sign-On (SSO)"
+        "cita": "Single Sign-On (SSO)",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.activecampaign.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Single Sign-On (SSO) — Enterprise",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Single Sign-On (SSO)\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Característica nativa incluida en el plan Enterprise."
   },
   {
     "herramientaId": "activecampaign",
@@ -24663,18 +24685,27 @@
   {
     "herramientaId": "activecampaign",
     "capacidadId": "cap.customer_contact_records",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.activecampaign.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Contact profiles"
+        "cita": "Contact profiles",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.activecampaign.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Contact profiles\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Incluye perfiles de contacto, campos personalizados y etiquetas en el CRM."
   },
   {
     "herramientaId": "activecampaign",
@@ -24699,18 +24730,27 @@
   {
     "herramientaId": "activecampaign",
     "capacidadId": "cap.sales_pipeline",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "modulo",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.activecampaign.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Pipeline management"
+        "cita": "Pipeline management",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.activecampaign.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Pipeline management\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Gestión de embudos disponible mediante el complemento Pipelines enhanced CRM Add-on."
   },
   {
     "herramientaId": "activecampaign",
@@ -24735,18 +24775,27 @@
   {
     "herramientaId": "activecampaign",
     "capacidadId": "cap.text_generation",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.activecampaign.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "AI content generation"
+        "cita": "AI content generation",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.activecampaign.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"AI content generation\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Funcionalidad de generación de contenido mediante IA incluida en la plataforma."
   },
   {
     "herramientaId": "activecampaign",
@@ -24848,18 +24897,29 @@
   {
     "herramientaId": "activecampaign",
     "capacidadId": "cap.landing_pages",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Plus",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.activecampaign.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Landing pages"
+        "cita": "Landing pages",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.activecampaign.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Landing pages — Plus",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Landing pages\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Incluido como funcionalidad nativa a partir del plan Plus."
   },
   {
     "herramientaId": "activecampaign",
@@ -25048,18 +25108,27 @@
   {
     "herramientaId": "agiled",
     "capacidadId": "cap.data_export",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
         "url": "https://agiled.app/",
         "fechaConsulta": "2026-09-09",
-        "cita": "Export your data anytime."
+        "cita": "Export your data anytime.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://agiled.app/",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Export your data anytime.\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Se confirma expresamente la capacidad de exportar los datos en cualquier momento."
   },
   {
     "herramientaId": "agiled",
@@ -25169,18 +25238,29 @@
   {
     "herramientaId": "agiled",
     "capacidadId": "cap.customer_contact_records",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Starter",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://agiled.app/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "500 contacts & 250 accounts"
+        "cita": "500 contacts & 250 accounts",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://agiled.app/pricing/",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Contacts — Starter",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"500 contacts & 250 accounts\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Permite almacenar contactos y cuentas de cliente desde el plan inicial."
   },
   {
     "herramientaId": "agiled",
@@ -25784,18 +25864,29 @@
   {
     "herramientaId": "bitrix24",
     "capacidadId": "cap.customer_contact_records",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Free",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.bitrix24.com/prices/",
         "fechaConsulta": "2026-09-09",
-        "cita": "Basic CRM (deals, contacts)"
+        "cita": "Basic CRM (deals, contacts)",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.bitrix24.com/prices/",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Basic CRM (deals, contacts) — Free",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Basic CRM (deals, contacts)\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Se incluye la gestión de contactos dentro de las funciones clave del CRM."
   },
   {
     "herramientaId": "bitrix24",
@@ -25820,18 +25911,29 @@
   {
     "herramientaId": "bitrix24",
     "capacidadId": "cap.sales_pipeline",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Basic",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.bitrix24.com/prices/",
         "fechaConsulta": "2026-09-09",
-        "cita": "Sales pipelines"
+        "cita": "Sales pipelines",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.bitrix24.com/prices/",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Sales pipelines — Basic",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Sales pipelines\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Aparece listado explícitamente a partir del plan Basic."
   },
   {
     "herramientaId": "bitrix24",
@@ -25913,18 +26015,29 @@
   {
     "herramientaId": "bitrix24",
     "capacidadId": "cap.time_tracking",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Professional",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.bitrix24.com/prices/",
         "fechaConsulta": "2026-09-09",
-        "cita": "Task time tracking"
+        "cita": "Task time tracking",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.bitrix24.com/prices/",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Task time tracking — Professional",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Task time tracking\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Seguimiento y control de tiempo dedicado a tareas."
   },
   {
     "herramientaId": "bitrix24",
@@ -26215,18 +26328,29 @@
   {
     "herramientaId": "bitrix24",
     "capacidadId": "cap.time_and_attendance",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Professional",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.bitrix24.com/prices/",
         "fechaConsulta": "2026-09-09",
-        "cita": "Employee hours tracking"
+        "cita": "Employee hours tracking",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.bitrix24.com/prices/",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Employee hours tracking — Professional",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Employee hours tracking\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Registro y control de la jornada laboral de los empleados."
   },
   {
     "herramientaId": "bitrix24",
@@ -26291,50 +26415,81 @@
   {
     "herramientaId": "clickfunnels",
     "capacidadId": "cap.app_integrations",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.clickfunnels.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "3rd Party Integrations"
+        "cita": "3rd Party Integrations",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.clickfunnels.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"3rd Party Integrations\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Integraciones con terceros disponibles en la tabla de características de los planes."
   },
   {
     "herramientaId": "clickfunnels",
     "capacidadId": "cap.public_api",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Scale",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.clickfunnels.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Webhooks/Full API Access"
+        "cita": "Webhooks/Full API Access",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.clickfunnels.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Webhooks/Full API Access — Scale",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Webhooks/Full API Access\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Acceso completo a la API documentado a partir del plan Scale."
   },
   {
     "herramientaId": "clickfunnels",
     "capacidadId": "cap.webhooks",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Scale",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.clickfunnels.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Webhooks/Full API Access"
+        "cita": "Webhooks/Full API Access",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.clickfunnels.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Webhooks/Full API Access — Scale",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Webhooks/Full API Access\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Webhooks incluidos a partir del plan Scale."
   },
   {
     "herramientaId": "clickfunnels",
@@ -26539,18 +26694,29 @@
   {
     "herramientaId": "clickfunnels",
     "capacidadId": "cap.sales_pipeline",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Launch",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.clickfunnels.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "CRM Pipelines"
+        "cita": "CRM Pipelines",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.clickfunnels.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "CRM Pipelines — Launch",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"CRM Pipelines\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Incluido en la tabla comparativa de funciones de la página de precios."
   },
   {
     "herramientaId": "clickfunnels",
@@ -26855,8 +27021,7 @@
     "capacidadId": "cap.app_integrations",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Free",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
@@ -26866,15 +27031,14 @@
         "rol": "capacidad"
       },
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.engagebay.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Integrations — Free",
-        "rol": "plan"
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
-    "proximaRevision": "2027-03-09",
+    "proximaRevision": "2027-09-09",
     "nota": "Ofrece integraciones directas con herramientas de terceros."
   },
   {
@@ -27040,18 +27204,27 @@
   {
     "herramientaId": "engagebay",
     "capacidadId": "cap.customer_contact_records",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
         "url": "https://www.engagebay.com/",
         "fechaConsulta": "2026-09-09",
-        "cita": "Organize contacts with ease"
+        "cita": "Organize contacts with ease",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.engagebay.com/",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Organize contacts with ease\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Gestión y organización de contactos integrada en el CRM."
   },
   {
     "herramientaId": "engagebay",
@@ -27108,8 +27281,7 @@
     "capacidadId": "cap.lead_capture",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Free",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
@@ -27119,15 +27291,14 @@
         "rol": "capacidad"
       },
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.engagebay.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Lead Grabbers — Free",
-        "rol": "plan"
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
-    "proximaRevision": "2027-03-09",
+    "proximaRevision": "2027-09-09",
     "nota": "Documenta la captación de leads hacia el CRM."
   },
   {
@@ -27255,8 +27426,7 @@
     "capacidadId": "cap.online_self_service_booking",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Free",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
@@ -27266,15 +27436,14 @@
         "rol": "capacidad"
       },
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.engagebay.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Appointment scheduling — FREE",
-        "rol": "plan"
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
-    "proximaRevision": "2027-03-09",
+    "proximaRevision": "2027-09-09",
     "nota": "Herramienta de reserva y programación de citas integrada."
   },
   {
@@ -27292,7 +27461,7 @@
         "rol": "capacidad"
       },
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.engagebay.com/pricing",
         "fechaConsulta": "2026-09-09",
         "rol": "plan_consultado"
@@ -27730,18 +27899,29 @@
   {
     "herramientaId": "gohighlevel",
     "capacidadId": "cap.public_api",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Unlimited",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.gohighlevel.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Basic API Access"
+        "cita": "Basic API Access",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.gohighlevel.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Basic API Access — Unlimited",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Basic API Access\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Aparece explícitamente a partir del plan Unlimited como 'Basic API Access'."
   },
   {
     "herramientaId": "gohighlevel",
@@ -27766,18 +27946,27 @@
   {
     "herramientaId": "gohighlevel",
     "capacidadId": "cap.dashboards",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.gohighlevel.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Custom Dashboards & Reporting"
+        "cita": "Custom Dashboards & Reporting",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.gohighlevel.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Custom Dashboards & Reporting\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Incluido en las 'Core features', disponibles desde el plan Starter."
   },
   {
     "herramientaId": "gohighlevel",
@@ -27962,18 +28151,27 @@
   {
     "herramientaId": "gohighlevel",
     "capacidadId": "cap.sales_pipeline",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
         "url": "https://www.gohighlevel.com/",
         "fechaConsulta": "2026-09-09",
-        "cita": "Sales Pipelines"
+        "cita": "Sales Pipelines",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.gohighlevel.com/",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Sales Pipelines\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Figura expresamente entre las funciones de la plataforma; incluido como Core feature desde el plan Starter."
   },
   {
     "herramientaId": "gohighlevel",
@@ -28223,18 +28421,27 @@
   {
     "herramientaId": "gohighlevel",
     "capacidadId": "cap.website_builder",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://www.gohighlevel.com/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Website & Funnel Builder"
+        "cita": "Website & Funnel Builder",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.gohighlevel.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Website & Funnel Builder\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Listado como característica principal incluida en el plan Starter."
   },
   {
     "herramientaId": "gohighlevel",
@@ -28250,23 +28457,32 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Booking Calendars\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "«Calendarios de reserva» no dice QUIÉN reserva, y eso es lo distintivo de esta capacidad: su propio noEs separa el calendario interno de que reserve el cliente. Ambigua: no se interpreta."
   },
   {
     "herramientaId": "gohighlevel",
     "capacidadId": "cap.customer_appointment_reminders",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
         "url": "https://www.gohighlevel.com/",
         "fechaConsulta": "2026-09-09",
-        "cita": "Appointment Reminders"
+        "cita": "Appointment Reminders",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.gohighlevel.com/",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Appointment Reminders\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Listado en las herramientas de seguimiento y conversión."
   },
   {
     "herramientaId": "honeybook",
@@ -29341,18 +29557,27 @@
   {
     "herramientaId": "hubspot",
     "capacidadId": "cap.landing_pages",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
         "url": "https://www.hubspot.com/",
         "fechaConsulta": "2026-09-09",
-        "cita": "Free Landing Page Builder"
+        "cita": "Free Landing Page Builder",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.hubspot.com/",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Free Landing Page Builder\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Ofrece creador de páginas de destino accesible desde la versión gratuita."
   },
   {
     "herramientaId": "hubspot",
@@ -29372,18 +29597,27 @@
   {
     "herramientaId": "hubspot",
     "capacidadId": "cap.website_builder",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
         "url": "https://www.hubspot.com/",
         "fechaConsulta": "2026-09-09",
-        "cita": "Free Website Builder"
+        "cita": "Free Website Builder",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.hubspot.com/pricing/",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Free Website Builder\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Incluye herramienta gratuita para la creación de sitios web."
   },
   {
     "herramientaId": "hubspot",
@@ -29399,7 +29633,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Free Meeting Scheduler App\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Nombra un producto —una aplicación para agendar reuniones—, no el mecanismo: no dice que un tercero coja hueco solo. Ambigua: no se interpreta."
   },
   {
     "herramientaId": "hubspot",
@@ -29646,34 +29880,52 @@
     "capacidadId": "cap.lead_capture",
     "estado": "verificado",
     "profundidad": "nativa",
+    "planMinimo": "Essentials",
+    "planEstado": "verificado",
+    "fuentes": [
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://kartra.com/",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Capture leads & grow your business",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://kartra.com/plans-and-pricing/",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Lead capture — Essentials",
+        "rol": "plan"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Generador de formularios nativo para captar contactos."
+  },
+  {
+    "herramientaId": "kartra",
+    "capacidadId": "cap.email_campaigns",
+    "estado": "verificado",
+    "profundidad": "nativa",
     "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "pagina_oficial",
         "url": "https://kartra.com/",
         "fechaConsulta": "2026-09-09",
-        "cita": "Capture leads & grow your business"
+        "cita": "Broadcasts and newsletters",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.kartra.com/pricing/",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "Generador de formularios nativo para captar contactos."
-  },
-  {
-    "herramientaId": "kartra",
-    "capacidadId": "cap.email_campaigns",
-    "estado": "desconocido",
-    "fuentes": [
-      {
-        "tipo": "pagina_oficial",
-        "url": "https://kartra.com/",
-        "fechaConsulta": "2026-09-09",
-        "cita": "Broadcasts and newsletters"
-      }
-    ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Broadcasts and newsletters\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "nota": "Sistema de email marketing para boletines y envíos masivos."
   },
   {
     "herramientaId": "kartra",
@@ -29690,7 +29942,7 @@
         "rol": "capacidad"
       },
       {
-        "tipo": "tarifa_oficial",
+        "tipo": "pagina_oficial",
         "url": "https://www.kartra.com/pricing/",
         "fechaConsulta": "2026-09-09",
         "rol": "plan_consultado"
@@ -31232,18 +31484,29 @@
   {
     "herramientaId": "systeme-io",
     "capacidadId": "cap.public_api",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Free",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://systeme.io/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "API requests per minute"
+        "cita": "API requests per minute",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://systeme.io/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "API requests per minute — Free",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"API requests per minute\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Dispone de acceso a API con límite de peticiones por minuto desde el plan Free."
   },
   {
     "herramientaId": "systeme-io",
@@ -31626,18 +31889,29 @@
   {
     "herramientaId": "systeme-io",
     "capacidadId": "cap.website_builder",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Free",
+    "planEstado": "verificado",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://systeme.io/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Website builder"
+        "cita": "Website builder",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://systeme.io/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Websites — Free",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "La cita \"Website builder\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Incluye constructor de páginas web desde el plan gratuito."
   },
   {
     "herramientaId": "systeme-io",

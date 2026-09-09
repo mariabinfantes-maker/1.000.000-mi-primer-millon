@@ -42,5 +42,17 @@
     },
     "motivo": "Notion ha migrado de notion.so a notion.com. Evidencia técnica del propio lector: en las siete llamadas del lote 2 se pidieron https://www.notion.so/pricing y https://www.notion.so/product/ai, y las catorce descargas que devolvió el proveedor fueron https://www.notion.com/pricing y https://www.notion.com/product/ai, las catorce con URL_RETRIEVAL_STATUS_SUCCESS. Se declara aquí, sólo para verificar; la ficha del catálogo no se toca, porque una URL del catálogo es dato de producto y lo decide la propietaria.",
     "fecha": "2026-09-09"
+  },
+  {
+    "herramientaId": "engagebay",
+    "urlPrecios": "https://www.engagebay.com/pricing/all-in-one",
+    "motivo": "Se pidió https://www.engagebay.com/pricing y el proveedor devolvió, en las seis descargas de la vuelta de capacidad, https://www.engagebay.com/pricing/all-in-one con URL_RETRIEVAL_STATUS_SUCCESS. El modelo citó la dirección pedida y no la leída, y por eso cayeron seis pares por la regla de redirecciones. Se declara sólo para verificar; la ficha no se toca.",
+    "fecha": "2026-09-09"
+  },
+  {
+    "herramientaId": "kartra",
+    "urlPrecios": "https://kartra.com/plans-and-pricing/",
+    "motivo": "Se pidió https://www.kartra.com/pricing/ y el proveedor devolvió https://kartra.com/plans-and-pricing/ con URL_RETRIEVAL_STATUS_SUCCESS: cambian el subdominio y la ruta. El modelo citó la pedida, y cuatro pares cayeron por la regla de redirecciones. Se declara sólo para verificar; la ficha no se toca.",
+    "fecha": "2026-09-09"
   }
 ]

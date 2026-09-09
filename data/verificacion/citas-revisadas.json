@@ -1142,5 +1142,237 @@
     "veredicto": "vale",
     "motivo": "Nombra la capacidad sin ambigüedad, y además el protocolo con el que se hace. Mismo criterio que «SSO» en el lote 1 y que las otras cinco citas de SSO del lote 2.",
     "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.custom_reports",
+    "cita": "Custom reporting Add-on",
+    "veredicto": "vale",
+    "motivo": "Nombra los informes a medida; que se venda como complemento afecta al plan, no a que exista.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "Single Sign-On (SSO)",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.customer_contact_records",
+    "cita": "Contact profiles",
+    "veredicto": "vale",
+    "motivo": "«Perfiles de contacto» es guardar quién es cada cliente.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.sales_pipeline",
+    "cita": "Pipeline management",
+    "veredicto": "vale",
+    "motivo": "«Gestión de embudo» nombra la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.text_generation",
+    "cita": "AI content generation",
+    "veredicto": "vale",
+    "motivo": "Dice «generación» de contenido, que es redactar y no corregir. Se distingue de los «AI writing» del lote 2, que se rechazaron por no separar una cosa de la otra.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "activecampaign",
+    "capacidadId": "cap.landing_pages",
+    "cita": "Landing pages",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "agiled",
+    "capacidadId": "cap.data_export",
+    "cita": "Export your data anytime.",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "agiled",
+    "capacidadId": "cap.customer_contact_records",
+    "cita": "500 contacts & 250 accounts",
+    "veredicto": "vale",
+    "motivo": "Un límite declarado en la tarifa demuestra que la función existe: no se pone tope a lo que no hay.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.customer_contact_records",
+    "cita": "Basic CRM (deals, contacts)",
+    "veredicto": "vale",
+    "motivo": "Nombra el CRM con contactos, que es guardar quién es cada cliente.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.sales_pipeline",
+    "cita": "Sales pipelines",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.time_tracking",
+    "cita": "Task time tracking",
+    "veredicto": "vale",
+    "motivo": "«Control de tiempo por tarea» es registrar cuánto se dedica a cada cosa.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "bitrix24",
+    "capacidadId": "cap.time_and_attendance",
+    "cita": "Employee hours tracking",
+    "veredicto": "vale",
+    "motivo": "«Control de horas del empleado» es registrar la jornada, que es la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickfunnels",
+    "capacidadId": "cap.app_integrations",
+    "cita": "3rd Party Integrations",
+    "veredicto": "vale",
+    "motivo": "«Integraciones con terceros» nombra la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickfunnels",
+    "capacidadId": "cap.public_api",
+    "cita": "Webhooks/Full API Access",
+    "veredicto": "vale",
+    "motivo": "La misma frase nombra las dos cosas, y el acceso completo a la API es una de ellas.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickfunnels",
+    "capacidadId": "cap.webhooks",
+    "cita": "Webhooks/Full API Access",
+    "veredicto": "vale",
+    "motivo": "La misma frase nombra las dos cosas, y los webhooks son una de ellas.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "clickfunnels",
+    "capacidadId": "cap.sales_pipeline",
+    "cita": "CRM Pipelines",
+    "veredicto": "vale",
+    "motivo": "«Embudos del CRM» nombra la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "engagebay",
+    "capacidadId": "cap.customer_contact_records",
+    "cita": "Organize contacts with ease",
+    "veredicto": "vale",
+    "motivo": "Dice que la herramienta organiza los contactos, que es el núcleo de la capacidad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.public_api",
+    "cita": "Basic API Access",
+    "veredicto": "vale",
+    "motivo": "Mismo criterio que «API Access» en los lotes 1 y 2.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.dashboards",
+    "cita": "Custom Dashboards & Reporting",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.sales_pipeline",
+    "cita": "Sales Pipelines",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.website_builder",
+    "cita": "Website & Funnel Builder",
+    "veredicto": "vale",
+    "motivo": "La misma frase nombra dos cosas, y el constructor de webs es una de ellas.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.online_self_service_booking",
+    "cita": "Booking Calendars",
+    "veredicto": "no_vale",
+    "motivo": "«Calendarios de reserva» no dice QUIÉN reserva, y eso es lo distintivo de esta capacidad: su propio noEs separa el calendario interno de que reserve el cliente. Ambigua: no se interpreta.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "gohighlevel",
+    "capacidadId": "cap.customer_appointment_reminders",
+    "cita": "Appointment Reminders",
+    "veredicto": "vale",
+    "motivo": "«Recordatorios de cita» es el nombre de la capacidad, y su noEs sólo excluye recordar tareas al equipo, que no es esto.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "hubspot",
+    "capacidadId": "cap.landing_pages",
+    "cita": "Free Landing Page Builder",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "hubspot",
+    "capacidadId": "cap.website_builder",
+    "cita": "Free Website Builder",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "hubspot",
+    "capacidadId": "cap.online_self_service_booking",
+    "cita": "Free Meeting Scheduler App",
+    "veredicto": "no_vale",
+    "motivo": "Nombra un producto —una aplicación para agendar reuniones—, no el mecanismo: no dice que un tercero coja hueco solo. Ambigua: no se interpreta.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "kartra",
+    "capacidadId": "cap.email_campaigns",
+    "cita": "Broadcasts and newsletters",
+    "veredicto": "vale",
+    "motivo": "«Envíos masivos y boletines» es enviar un correo a una lista.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "systeme-io",
+    "capacidadId": "cap.public_api",
+    "cita": "API requests per minute",
+    "veredicto": "vale",
+    "motivo": "Un límite de peticiones por minuto demuestra que la API existe. Mismo criterio que «API Calls 100/minute» en el lote 2.",
+    "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "systeme-io",
+    "capacidadId": "cap.website_builder",
+    "cita": "Website builder",
+    "veredicto": "vale",
+    "motivo": "La cita nombra la capacidad sin ambigüedad.",
+    "revisadoEl": "2026-09-09"
   }
 ]

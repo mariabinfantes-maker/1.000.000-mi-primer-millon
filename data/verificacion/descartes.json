@@ -1685,36 +1685,22 @@
   },
   {
     "herramientaId": "activecampaign",
-    "capacidadId": "cap.custom_reports",
-    "motivo": "cita breve sin revisar",
-    "cita": "Custom reporting Add-on",
-    "urlCitada": "https://www.activecampaign.com/pricing"
-  },
-  {
-    "herramientaId": "activecampaign",
-    "capacidadId": "cap.single_sign_on",
-    "motivo": "cita breve sin revisar",
-    "cita": "Single Sign-On (SSO)",
-    "urlCitada": "https://www.activecampaign.com/pricing"
-  },
-  {
-    "herramientaId": "activecampaign",
     "capacidadId": "cap.customer_contact_records",
-    "motivo": "cita breve sin revisar",
+    "motivo": "sin plan mínimo",
     "cita": "Contact profiles",
     "urlCitada": "https://www.activecampaign.com/pricing"
   },
   {
     "herramientaId": "activecampaign",
     "capacidadId": "cap.sales_pipeline",
-    "motivo": "cita breve sin revisar",
+    "motivo": "sin plan mínimo",
     "cita": "Pipeline management",
     "urlCitada": "https://www.activecampaign.com/pricing"
   },
   {
     "herramientaId": "activecampaign",
     "capacidadId": "cap.text_generation",
-    "motivo": "cita breve sin revisar",
+    "motivo": "sin plan mínimo",
     "cita": "AI content generation",
     "urlCitada": "https://www.activecampaign.com/pricing"
   },
@@ -1730,13 +1716,6 @@
     "capacidadId": "cap.marketing_automation",
     "motivo": "sin plan mínimo",
     "cita": "Multi-step marketing automation",
-    "urlCitada": "https://www.activecampaign.com/pricing"
-  },
-  {
-    "herramientaId": "activecampaign",
-    "capacidadId": "cap.landing_pages",
-    "motivo": "cita breve sin revisar",
-    "cita": "Landing pages",
     "urlCitada": "https://www.activecampaign.com/pricing"
   },
   {
@@ -1756,7 +1735,7 @@
   {
     "herramientaId": "agiled",
     "capacidadId": "cap.data_export",
-    "motivo": "cita breve sin revisar",
+    "motivo": "sin plan mínimo",
     "cita": "Export your data anytime.",
     "urlCitada": "https://agiled.app/"
   },
@@ -1766,13 +1745,6 @@
     "motivo": "sin plan mínimo",
     "cita": "Our team helps you import your contacts, deals, projects, and invoices — no data left behind.",
     "urlCitada": "https://agiled.app/"
-  },
-  {
-    "herramientaId": "agiled",
-    "capacidadId": "cap.customer_contact_records",
-    "motivo": "cita breve sin revisar",
-    "cita": "500 contacts & 250 accounts",
-    "urlCitada": "https://agiled.app/pricing"
   },
   {
     "herramientaId": "agiled",
@@ -1846,20 +1818,6 @@
   },
   {
     "herramientaId": "bitrix24",
-    "capacidadId": "cap.customer_contact_records",
-    "motivo": "cita breve sin revisar",
-    "cita": "Basic CRM (deals, contacts)",
-    "urlCitada": "https://www.bitrix24.com/prices/"
-  },
-  {
-    "herramientaId": "bitrix24",
-    "capacidadId": "cap.sales_pipeline",
-    "motivo": "cita breve sin revisar",
-    "cita": "Sales pipelines",
-    "urlCitada": "https://www.bitrix24.com/prices/"
-  },
-  {
-    "herramientaId": "bitrix24",
     "capacidadId": "cap.lead_capture",
     "motivo": "sin plan mínimo",
     "cita": "Website forms Capture leads with custom order forms, registration & feedback forms, and forms with conditional fields",
@@ -1870,13 +1828,6 @@
     "capacidadId": "cap.project_planning",
     "motivo": "sin plan mínimo",
     "cita": "Project management Use projects, workgroups, project planning, roles, access permissions",
-    "urlCitada": "https://www.bitrix24.com/prices/"
-  },
-  {
-    "herramientaId": "bitrix24",
-    "capacidadId": "cap.time_tracking",
-    "motivo": "cita breve sin revisar",
-    "cita": "Task time tracking",
     "urlCitada": "https://www.bitrix24.com/prices/"
   },
   {
@@ -1915,38 +1866,10 @@
     "urlCitada": "https://www.bitrix24.com/prices/"
   },
   {
-    "herramientaId": "bitrix24",
-    "capacidadId": "cap.time_and_attendance",
-    "motivo": "cita breve sin revisar",
-    "cita": "Employee hours tracking",
-    "urlCitada": "https://www.bitrix24.com/prices/"
-  },
-  {
     "herramientaId": "clickfunnels",
     "capacidadId": "cap.app_integrations",
-    "motivo": "cita breve sin revisar",
+    "motivo": "sin plan mínimo",
     "cita": "3rd Party Integrations",
-    "urlCitada": "https://www.clickfunnels.com/pricing"
-  },
-  {
-    "herramientaId": "clickfunnels",
-    "capacidadId": "cap.public_api",
-    "motivo": "cita breve sin revisar",
-    "cita": "Webhooks/Full API Access",
-    "urlCitada": "https://www.clickfunnels.com/pricing"
-  },
-  {
-    "herramientaId": "clickfunnels",
-    "capacidadId": "cap.webhooks",
-    "motivo": "cita breve sin revisar",
-    "cita": "Webhooks/Full API Access",
-    "urlCitada": "https://www.clickfunnels.com/pricing"
-  },
-  {
-    "herramientaId": "clickfunnels",
-    "capacidadId": "cap.sales_pipeline",
-    "motivo": "cita breve sin revisar",
-    "cita": "CRM Pipelines",
     "urlCitada": "https://www.clickfunnels.com/pricing"
   },
   {
@@ -1969,6 +1892,13 @@
     "motivo": "sin plan mínimo",
     "cita": "Get a powerful and reliable payment process solution.",
     "urlCitada": "https://www.clickfunnels.com/"
+  },
+  {
+    "herramientaId": "engagebay",
+    "capacidadId": "cap.app_integrations",
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "Easily integrate EngageBay with the tools you already love.",
+    "urlCitada": "https://www.engagebay.com/"
   },
   {
     "herramientaId": "engagebay",
@@ -2010,7 +1940,7 @@
   {
     "herramientaId": "engagebay",
     "capacidadId": "cap.customer_contact_records",
-    "motivo": "cita breve sin revisar",
+    "motivo": "sin plan mínimo",
     "cita": "Organize contacts with ease",
     "urlCitada": "https://www.engagebay.com/"
   },
@@ -2030,9 +1960,23 @@
   },
   {
     "herramientaId": "engagebay",
+    "capacidadId": "cap.lead_capture",
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "Capture leads, automate marketing, and manage customer relationships in one powerful CRM with built-in AI platform",
+    "urlCitada": "https://www.engagebay.com/"
+  },
+  {
+    "herramientaId": "engagebay",
     "capacidadId": "cap.landing_pages",
     "motivo": "la dirección citada no consta como leída",
     "cita": "Landing Pages"
+  },
+  {
+    "herramientaId": "engagebay",
+    "capacidadId": "cap.online_self_service_booking",
+    "motivo": "el plan no viene de una fuente que lo demuestre",
+    "cita": "EngageBay's scheduling tool lets you book meetings effortlessly, saving time for both you and your clients.",
+    "urlCitada": "https://www.engagebay.com/"
   },
   {
     "herramientaId": "engagebay",
@@ -2064,22 +2008,15 @@
   },
   {
     "herramientaId": "gohighlevel",
-    "capacidadId": "cap.public_api",
-    "motivo": "cita breve sin revisar",
-    "cita": "Basic API Access",
-    "urlCitada": "https://www.gohighlevel.com/pricing"
-  },
-  {
-    "herramientaId": "gohighlevel",
     "capacidadId": "cap.dashboards",
-    "motivo": "cita breve sin revisar",
+    "motivo": "sin plan mínimo",
     "cita": "Custom Dashboards & Reporting",
     "urlCitada": "https://www.gohighlevel.com/pricing"
   },
   {
     "herramientaId": "gohighlevel",
     "capacidadId": "cap.sales_pipeline",
-    "motivo": "cita breve sin revisar",
+    "motivo": "sin plan mínimo",
     "cita": "Sales Pipelines",
     "urlCitada": "https://www.gohighlevel.com/"
   },
@@ -2093,21 +2030,21 @@
   {
     "herramientaId": "gohighlevel",
     "capacidadId": "cap.website_builder",
-    "motivo": "cita breve sin revisar",
+    "motivo": "sin plan mínimo",
     "cita": "Website & Funnel Builder",
     "urlCitada": "https://www.gohighlevel.com/pricing"
   },
   {
     "herramientaId": "gohighlevel",
     "capacidadId": "cap.online_self_service_booking",
-    "motivo": "cita breve sin revisar",
+    "motivo": "cita breve revisada y rechazada",
     "cita": "Booking Calendars",
     "urlCitada": "https://www.gohighlevel.com/pricing"
   },
   {
     "herramientaId": "gohighlevel",
     "capacidadId": "cap.customer_appointment_reminders",
-    "motivo": "cita breve sin revisar",
+    "motivo": "sin plan mínimo",
     "cita": "Appointment Reminders",
     "urlCitada": "https://www.gohighlevel.com/"
   },
@@ -2196,21 +2133,21 @@
   {
     "herramientaId": "hubspot",
     "capacidadId": "cap.landing_pages",
-    "motivo": "cita breve sin revisar",
+    "motivo": "sin plan mínimo",
     "cita": "Free Landing Page Builder",
     "urlCitada": "https://www.hubspot.com/"
   },
   {
     "herramientaId": "hubspot",
     "capacidadId": "cap.website_builder",
-    "motivo": "cita breve sin revisar",
+    "motivo": "sin plan mínimo",
     "cita": "Free Website Builder",
     "urlCitada": "https://www.hubspot.com/"
   },
   {
     "herramientaId": "hubspot",
     "capacidadId": "cap.online_self_service_booking",
-    "motivo": "cita breve sin revisar",
+    "motivo": "cita breve revisada y rechazada",
     "cita": "Free Meeting Scheduler App",
     "urlCitada": "https://www.hubspot.com/"
   },
@@ -2228,15 +2165,8 @@
   },
   {
     "herramientaId": "kartra",
-    "capacidadId": "cap.lead_capture",
-    "motivo": "sin plan mínimo",
-    "cita": "Capture leads & grow your business",
-    "urlCitada": "https://kartra.com/"
-  },
-  {
-    "herramientaId": "kartra",
     "capacidadId": "cap.email_campaigns",
-    "motivo": "cita breve sin revisar",
+    "motivo": "sin plan mínimo",
     "cita": "Broadcasts and newsletters",
     "urlCitada": "https://kartra.com/"
   },
@@ -2405,20 +2335,6 @@
     "motivo": "sin plan mínimo",
     "cita": "Customers and suppliers who have access to their invoices on the portal",
     "urlCitada": "https://www.odoo.com/pricing"
-  },
-  {
-    "herramientaId": "systeme-io",
-    "capacidadId": "cap.public_api",
-    "motivo": "cita breve sin revisar",
-    "cita": "API requests per minute",
-    "urlCitada": "https://systeme.io/pricing"
-  },
-  {
-    "herramientaId": "systeme-io",
-    "capacidadId": "cap.website_builder",
-    "motivo": "cita breve sin revisar",
-    "cita": "Website builder",
-    "urlCitada": "https://systeme.io/pricing"
   },
   {
     "herramientaId": "zoho-one",
