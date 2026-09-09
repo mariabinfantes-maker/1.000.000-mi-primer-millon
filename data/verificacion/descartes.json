@@ -2216,28 +2216,9 @@
   },
   {
     "herramientaId": "kartra",
-    "capacidadId": "cap.workflow_automation",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "kartra",
-    "capacidadId": "cap.app_integrations",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "kartra",
     "capacidadId": "cap.public_api",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "kartra",
-    "capacidadId": "cap.webhooks",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "kartra",
-    "capacidadId": "cap.dashboards",
-    "motivo": "sin respuesta"
+    "motivo": "la dirección citada no consta como leída",
+    "cita": "API access"
   },
   {
     "herramientaId": "kartra",

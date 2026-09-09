@@ -29429,7 +29429,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Buscado automatización de tareas/procesos internos o circuitos de aprobación; en el sitio solo se documenta la automatización de marketing sobre contactos y campañas."
   },
   {
     "herramientaId": "kartra",
@@ -29444,7 +29444,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Buscado integraciones preconstruidas con otras herramientas; las páginas facilitadas solo mencionan de forma genérica 'Integrations & APIs' sin detallar integraciones listas para usar."
   },
   {
     "herramientaId": "kartra",
@@ -29459,7 +29459,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Se afirmó \"si\" citando https://www.kartra.com/pricing/, sin que conste que se descargara ni que redirigiera a algo que sí se leyó."
   },
   {
     "herramientaId": "kartra",
@@ -29474,7 +29474,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Buscado 'webhooks' y avisos automáticos en tiempo real en las URL proporcionadas sin encontrar mención."
   },
   {
     "herramientaId": "kartra",
@@ -29489,7 +29489,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Buscado cuadro de mando o panel de indicadores de negocio general; solo se mencionan analíticas de embudo y la gestión desde un panel general."
   },
   {
     "herramientaId": "kartra",
@@ -29686,7 +29686,14 @@
         "tipo": "pagina_oficial",
         "url": "https://kartra.com/",
         "fechaConsulta": "2026-09-09",
-        "cita": "Behavior-based triggers and segmentation"
+        "cita": "Behavior-based triggers and segmentation",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.kartra.com/pricing/",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
@@ -29704,7 +29711,14 @@
         "tipo": "pagina_oficial",
         "url": "https://kartra.com/",
         "fechaConsulta": "2026-09-09",
-        "cita": "Built-in analytics and real-time funnel tracking"
+        "cita": "Built-in analytics and real-time funnel tracking",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.kartra.com",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
