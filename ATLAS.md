@@ -3562,6 +3562,37 @@ campo `documentacion` de `sustituciones.json` sólo sirve para clasificar el
 tipo de fuente, no para pedirla. Queda anotado como límite conocido del
 mecanismo, no como resultado sobre HubSpot.
 
+
+## La revisión global de F2, cerrada (2026-09-09)
+
+Una revisión independiente comparó la rama de F2 con producción (`baf0f6b`) y
+encontró **un único bloqueante**: doce registros daban el plan por verificado
+con una cita que hablaba de la función y no nombraba el plan. El nombre
+—«Free», «Enterprise», «Creator», «Plus»— venía del modelo, no de la página.
+Eran cinco de Descript, cuatro de Synthesia, dos de Notion AI y uno de
+Otter.ai.
+
+**Las doce capacidades siguen verificadas**: su evidencia era buena y no se
+tocó ni una cita. Lo que no estaba demostrado era el plan, así que sólo el plan
+se movió: `planEstado: "desconocido"` y fuera el nombre. Es la misma separación
+de certezas que ya regía desde el lote 1, aplicada donde se había colado.
+
+Para que no vuelva a pasar, **el validador exige ahora que la cita de un plan
+verificado nombre ese plan**, comparando por palabras enteras para que «Free»
+no quede demostrado dentro de «freelance». Lo protegen **seis pruebas nuevas**,
+la última de las cuales recorre los registros reales.
+
+La comprobación independiente posterior identificó los doce por su cuenta,
+confirmó **cero casos restantes** y que **las 659 capacidades verificadas
+siguen intactas**, y verificó que las pruebas caen si se quita la regla.
+
+**Deuda anotada:** `convertir.ts` todavía no aplica esta regla al generar, así
+que sigue produciendo esos planes. No puede reintroducirlos en silencio —el
+único punto que escribe `registros.json` valida antes y aborta sin escribir
+nada—, pero significa que **los lotes 2 y 3 no son reconvertibles mientras el
+conversor no lleve la regla**. Es deuda previa a cualquier reconversión futura,
+no un bloqueo de F3.
+
 ---
 
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
