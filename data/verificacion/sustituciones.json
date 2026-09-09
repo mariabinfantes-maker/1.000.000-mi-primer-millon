@@ -32,5 +32,15 @@
     "urlPrecios": "https://www.zoho.com/en-us/crm/zohocrm-pricing.html",
     "motivo": "La urlPrecios de la ficha (https://www.zoho.com/crm/pricing.html) redirige aquí. Comprobado con el fetch de Gemini (url_context): retrievedUrl=https://www.zoho.com/en-us/crm/zohocrm-pricing.html, URL_RETRIEVAL_STATUS_SUCCESS.",
     "fecha": "2026-09-07"
+  },
+  {
+    "herramientaId": "notion-ai",
+    "urlPrecios": "https://www.notion.com/pricing",
+    "paginaOficial": {
+      "solicitada": "https://www.notion.so/product/ai",
+      "resuelta": "https://www.notion.com/product/ai"
+    },
+    "motivo": "Notion ha migrado de notion.so a notion.com. Evidencia técnica del propio lector: en las siete llamadas del lote 2 se pidieron https://www.notion.so/pricing y https://www.notion.so/product/ai, y las catorce descargas que devolvió el proveedor fueron https://www.notion.com/pricing y https://www.notion.com/product/ai, las catorce con URL_RETRIEVAL_STATUS_SUCCESS. Se declara aquí, sólo para verificar; la ficha del catálogo no se toca, porque una URL del catálogo es dato de producto y lo decide la propietaria.",
+    "fecha": "2026-09-09"
   }
 ]

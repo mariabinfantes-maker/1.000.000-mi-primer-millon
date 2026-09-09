@@ -1134,5 +1134,13 @@
     "veredicto": "no_vale",
     "motivo": "Dice cuánto tiempo se guarda un historial, no que registre quién hizo qué. Ambigua: no se interpreta.",
     "revisadoEl": "2026-09-09"
+  },
+  {
+    "herramientaId": "heygen",
+    "capacidadId": "cap.single_sign_on",
+    "cita": "SAML/ SSO",
+    "veredicto": "vale",
+    "motivo": "Nombra la capacidad sin ambigüedad, y además el protocolo con el que se hace. Mismo criterio que «SSO» en el lote 1 y que las otras cinco citas de SSO del lote 2.",
+    "revisadoEl": "2026-09-09"
   }
 ]
