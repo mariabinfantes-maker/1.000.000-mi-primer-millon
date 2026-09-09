@@ -10,6 +10,7 @@ import {
   erroresDeSustitucion,
   getFuentesDeCapacidad,
   getSustituciones,
+  citaNombraElPlan,
   esFecha,
   getRegistros,
   getSelecciones,
@@ -36,7 +37,13 @@ describe("los registros de verificación", () => {
     planMinimo: "Lite",
     planEstado: "verificado",
     fuentes: [
-      { tipo: "pagina_oficial", url: "https://ejemplo.test/precios", fechaConsulta: "2026-09-03" },
+      {
+        tipo: "pagina_oficial",
+        url: "https://ejemplo.test/precios",
+        fechaConsulta: "2026-09-03",
+        // La cita nombra el plan: sin eso, el plan no queda demostrado.
+        cita: "Embudo de ventas — Lite",
+      },
     ],
     confianza: "alta",
     proximaRevision: "2027-02-01",
@@ -94,7 +101,7 @@ describe("los registros de verificación", () => {
         e({
           confianza: "media",
           fuentes: [
-            { tipo: "fuente_secundaria", url: "https://blog.test/x", fechaConsulta: "2026-09-03" },
+            { tipo: "fuente_secundaria", url: "https://blog.test/x", fechaConsulta: "2026-09-03", cita: "Embudo de ventas — Lite" },
           ],
         })
       ).toBe("");
@@ -102,7 +109,9 @@ describe("los registros de verificación", () => {
     it("las cuatro fuentes de primera mano sí valen para confianza alta", () => {
       for (const tipo of ["pagina_oficial", "documentacion", "tarifa_oficial", "prueba_directa"] as const) {
         expect(
-          e({ fuentes: [{ tipo, url: "https://a.test/b", fechaConsulta: "2026-09-03" }] }),
+          e({
+            fuentes: [{ tipo, url: "https://a.test/b", fechaConsulta: "2026-09-03", cita: "Embudo de ventas — Lite" }],
+          }),
           tipo
         ).toBe("");
       }
@@ -160,7 +169,19 @@ describe("los registros de verificación", () => {
       }
     });
     it("una función sólo del plan caro conserva ESE plan, no el más barato", () => {
-      expect(e({ planMinimo: "Ultimate" })).toBe("");
+      expect(
+        e({
+          planMinimo: "Ultimate",
+          fuentes: [
+            {
+              tipo: "tarifa_oficial",
+              url: "https://ejemplo.test/precios",
+              fechaConsulta: "2026-09-03",
+              cita: "Embudo de ventas — Ultimate",
+            },
+          ],
+        })
+      ).toBe("");
     });
 
     /**
@@ -259,7 +280,9 @@ describe("los registros de verificación", () => {
         it("pero una sola fuente sin rol sigue valiendo para las dos cosas", () => {
           expect(
             e({
-              fuentes: [{ tipo: "tarifa_oficial", url: "https://a.test/p", fechaConsulta: "2026-09-03" }],
+              fuentes: [
+                { tipo: "tarifa_oficial", url: "https://a.test/p", fechaConsulta: "2026-09-03", cita: "Embudo de ventas — Lite" },
+              ],
             })
           ).toBe("");
         });
@@ -432,6 +455,65 @@ describe("los registros de verificación", () => {
             expect(consultada.url, `${r.herramientaId}/${r.capacidadId}`).toMatch(/^https?:\/\//);
             expect(consultada.fechaConsulta, `${r.herramientaId}/${r.capacidadId}`).toMatch(/^\d{4}-\d{2}-\d{2}$/);
           }
+        });
+      });
+
+      /**
+       * La revisión global del 9 de septiembre encontró doce registros que
+       * daban un plan por verificado con una cita que no lo nombraba: la
+       * evidencia hablaba de la función, no del plan. El nombre salía del
+       * modelo, no de la página. Afirmar «Free» o «Enterprise» sin que la cita
+       * lo diga es exactamente el error que F2 existe para impedir, así que
+       * ahora lo para el validador.
+       */
+      describe("un plan verificado se nombra en su propia cita", () => {
+        const conCita = (cita: string, plan = "Business") =>
+          e({
+            planEstado: "verificado",
+            planMinimo: plan,
+            fuentes: [
+              { tipo: "pagina_oficial", url: "https://a.test/producto", fechaConsulta: "2026-09-03", cita: "Graba y transcribe", rol: "capacidad" },
+              { tipo: "tarifa_oficial", url: "https://a.test/precios", fechaConsulta: "2026-09-03", cita, rol: "plan" },
+            ],
+          });
+
+        it("rechaza una cita que habla de la función pero no del plan", () => {
+          expect(conCita("Registro de auditoría disponible para tu equipo")).toContain(
+            'la cita que dice demostrar el plan no nombra "Business"'
+          );
+        });
+
+        it("acepta la que sí lo nombra", () => {
+          expect(conCita("Registro de auditoría — plan Business")).toBe("");
+        });
+
+        it("no le vale que el nombre aparezca dentro de otra palabra", () => {
+          expect(conCita("Pensado para freelance", "Free")).toContain(
+            'la cita que dice demostrar el plan no nombra "Free"'
+          );
+          expect(conCita("Incluido en el plan Free", "Free")).toBe("");
+        });
+
+        it("compara sin distinguir mayúsculas, tildes ni signos", () => {
+          expect(citaNombraElPlan("Incluido en el plan BUSINESS.", "Business")).toBe(true);
+          expect(citaNombraElPlan("Disponible en Básico", "basico")).toBe(true);
+          expect(citaNombraElPlan("Incluido en Business Plus", "Business Plus")).toBe(true);
+        });
+
+        it("una cita vacía no demuestra nada", () => {
+          expect(citaNombraElPlan(undefined, "Business")).toBe(false);
+          expect(citaNombraElPlan("", "Business")).toBe(false);
+        });
+
+        it("y en los datos de hoy ningún plan verificado se queda sin nombrar", () => {
+          const sinNombrar = getRegistros().filter((r) => {
+            if (r.planEstado !== "verificado" || !r.planMinimo) return false;
+            const fuentes = r.fuentes ?? [];
+            const dePlan = fuentes.filter((f) => f.rol === "plan");
+            const demuestran = dePlan.length ? dePlan : fuentes.filter((f) => !f.rol);
+            return !demuestran.some((f) => citaNombraElPlan(f.cita, r.planMinimo!));
+          });
+          expect(sinNombrar.map((r) => `${r.herramientaId}/${r.capacidadId}`)).toEqual([]);
         });
       });
 

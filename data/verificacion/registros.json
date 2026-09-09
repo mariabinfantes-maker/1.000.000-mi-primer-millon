@@ -18006,8 +18006,7 @@
     "capacidadId": "cap.audit_log",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Enterprise",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
@@ -18018,15 +18017,14 @@
     ],
     "confianza": "alta",
     "proximaRevision": "2027-03-09",
-    "nota": "mencionado explícitamente en el plan Enterprise"
+    "nota": "Registro de actividad mencionado en la tarifa oficial. El plan mínimo no quedó demostrado."
   },
   {
     "herramientaId": "descript",
     "capacidadId": "cap.video_editing",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Free",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
@@ -18037,15 +18035,14 @@
     ],
     "confianza": "alta",
     "proximaRevision": "2027-03-09",
-    "nota": "función principal disponible desde la versión gratuita"
+    "nota": "Edición de vídeo como función principal del producto. El plan mínimo no quedó demostrado."
   },
   {
     "herramientaId": "descript",
     "capacidadId": "cap.ai_video_generation",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Free",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
@@ -18056,15 +18053,14 @@
     ],
     "confianza": "alta",
     "proximaRevision": "2027-03-09",
-    "nota": "función de generación de vídeo con IA incluida con límites en el plan Free"
+    "nota": "Generación de vídeo con IA, con límites de uso. El plan mínimo no quedó demostrado."
   },
   {
     "herramientaId": "descript",
     "capacidadId": "cap.audio_editing",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Free",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
@@ -18075,15 +18071,14 @@
     ],
     "confianza": "alta",
     "proximaRevision": "2027-03-09",
-    "nota": "edición de audio multipista disponible desde el plan Free"
+    "nota": "Edición de audio multipista. El plan mínimo no quedó demostrado."
   },
   {
     "herramientaId": "descript",
     "capacidadId": "cap.subtitles",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Free",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
@@ -21828,8 +21823,7 @@
     "capacidadId": "cap.audit_log",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Business",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
@@ -21842,13 +21836,12 @@
         "tipo": "tarifa_oficial",
         "url": "https://otter.ai/pricing",
         "fechaConsulta": "2026-09-09",
-        "cita": "Enhanced admin features: activity logs, usage analytics, and more",
-        "rol": "plan"
+        "rol": "plan_consultado"
       }
     ],
     "confianza": "alta",
     "proximaRevision": "2027-03-09",
-    "nota": "Se incluye entre las funciones de administración a partir del plan Business."
+    "nota": "Se incluye entre las funciones de administración. El plan mínimo no quedó demostrado."
   },
   {
     "herramientaId": "otter-ai",
@@ -22584,8 +22577,7 @@
     "capacidadId": "cap.public_api",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Creator",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
@@ -22596,7 +22588,7 @@
     ],
     "confianza": "alta",
     "proximaRevision": "2027-03-09",
-    "nota": "Ofrece API propia para automatizar la creación de vídeos desde el plan Creator."
+    "nota": "Ofrece API propia para automatizar la creación de vídeos. El plan mínimo no quedó demostrado."
   },
   {
     "herramientaId": "synthesia",
@@ -22819,8 +22811,7 @@
     "capacidadId": "cap.ai_video_generation",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Basic",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
@@ -22896,8 +22887,7 @@
     "capacidadId": "cap.brand_kit",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Enterprise",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
@@ -22915,8 +22905,7 @@
     "capacidadId": "cap.text_generation",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Starter",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
@@ -23945,8 +23934,7 @@
     "capacidadId": "cap.workflow_automation",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Plus",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
@@ -23964,8 +23952,7 @@
     "capacidadId": "cap.app_integrations",
     "estado": "verificado",
     "profundidad": "nativa",
-    "planMinimo": "Plus",
-    "planEstado": "verificado",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",

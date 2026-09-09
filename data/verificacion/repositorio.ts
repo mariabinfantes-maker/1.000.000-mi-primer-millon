@@ -49,6 +49,28 @@ function mesesEntre(desde: string, hasta: string): number {
   return (b.getUTCFullYear() - a.getUTCFullYear()) * 12 + (b.getUTCMonth() - a.getUTCMonth());
 }
 
+/** Texto comparable: sin mayúsculas, sin tildes y sin signos. */
+function normalizarTexto(t: string): string {
+  return t
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+/**
+ * ¿La cita nombra el plan que el registro afirma?
+ *
+ * Se compara por palabras enteras: si no, «Free» valdría dentro de
+ * «freelance» y el plan quedaría demostrado por una coincidencia de letras.
+ */
+export function citaNombraElPlan(cita: string | undefined, plan: string): boolean {
+  const p = normalizarTexto(plan);
+  if (!p) return false;
+  return new RegExp(`(^| )${p.replace(/ /g, " ")}( |$)`).test(normalizarTexto(cita ?? ""));
+}
+
 /**
  * Qué está mal en un registro de verificación.
  *
@@ -150,6 +172,21 @@ export function erroresDeRegistro(
     }
     if (registro.planEstado === "verificado" && !demuestranElPlan.length) {
       e.push(`${donde}: el plan se da por verificado y ninguna fuente lo demuestra`);
+    }
+    /**
+     * QUE EXISTA LA FUENTE NO BASTA: SU CITA TIENE QUE NOMBRAR EL PLAN.
+     *
+     * Sin esto, doce registros del lote 2 afirmaban un plan —cuatro de ellos
+     * «Free»— apoyados en un eslogan que no lo nombraba, y el nombre del plan
+     * vivía sólo en la `nota`, que es texto libre sin valor probatorio. Lo que
+     * demuestra un plan es la fila y el encabezado de su columna, y eso se ve
+     * en la cita o no está.
+     */
+    if (registro.planEstado === "verificado" && registro.planMinimo && demuestranElPlan.length) {
+      const loNombra = demuestranElPlan.some((f) => citaNombraElPlan(f.cita, registro.planMinimo!));
+      if (!loNombra) {
+        e.push(`${donde}: la cita que dice demostrar el plan no nombra "${registro.planMinimo}"`);
+      }
     }
     // «Dónde se miró» sólo tiene sentido cuando no se llegó a demostrar.
     if (
