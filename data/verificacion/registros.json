@@ -26510,22 +26510,29 @@
   {
     "herramientaId": "clickfunnels",
     "capacidadId": "cap.lead_capture",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "Launch",
+    "planEstado": "verificado",
     "fuentes": [
-      {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.clickfunnels.com/pricing",
-        "fechaConsulta": "2026-09-09"
-      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.clickfunnels.com/",
-        "fechaConsulta": "2026-09-09"
+        "fechaConsulta": "2026-09-09",
+        "cita": "Landing Pages, Lead magnets, Opt-in Forms, Surveys, Blogs, Content Pages, Websites, FunnelHubs",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.clickfunnels.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "cita": "Landing Pages — Launch",
+        "rol": "plan"
       }
     ],
-    "confianza": "baja",
-    "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "confianza": "alta",
+    "proximaRevision": "2027-03-09",
+    "nota": "Permite la captación de prospectos mediante formularios de suscripción (Opt-in Forms) y páginas de aterrizaje."
   },
   {
     "herramientaId": "clickfunnels",
@@ -26545,7 +26552,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Se mencionan herramientas de IA (AI Tools), pero no se detalla explícitamente la redacción o generación de textos a partir de indicaciones."
   },
   {
     "herramientaId": "clickfunnels",
@@ -26565,47 +26572,57 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "No se documentan agentes de IA con autonomía para realizar tareas de múltiples pasos."
   },
   {
     "herramientaId": "clickfunnels",
     "capacidadId": "cap.email_campaigns",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
-      {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.clickfunnels.com/pricing",
-        "fechaConsulta": "2026-09-09"
-      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.clickfunnels.com/",
-        "fechaConsulta": "2026-09-09"
+        "fechaConsulta": "2026-09-09",
+        "cita": "Email Sequences, Email Broadcasting",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.clickfunnels.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Incluye funcionalidad para el envío masivo o difusión de correos (Email Broadcasting)."
   },
   {
     "herramientaId": "clickfunnels",
     "capacidadId": "cap.marketing_automation",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
-      {
-        "tipo": "tarifa_oficial",
-        "url": "https://www.clickfunnels.com/pricing",
-        "fechaConsulta": "2026-09-09"
-      },
       {
         "tipo": "pagina_oficial",
         "url": "https://www.clickfunnels.com/",
-        "fechaConsulta": "2026-09-09"
+        "fechaConsulta": "2026-09-09",
+        "cita": "Create powerful workflows to automate your marketing.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.clickfunnels.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Permite crear flujos de trabajo para automatizar acciones de marketing."
   },
   {
     "herramientaId": "clickfunnels",
@@ -27915,7 +27932,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Se mencionan formularios y captación de leads, pero no se detalla la recepción automática de datos en el sistema."
   },
   {
     "herramientaId": "gohighlevel",
@@ -27935,7 +27952,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Aparece la etiqueta 'Content AI', pero no se explica la redacción de textos a partir de indicaciones."
   },
   {
     "herramientaId": "gohighlevel",
@@ -27955,7 +27972,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Se menciona 'AI Employee', pero no se describe la ejecución autónoma de tareas de varios pasos."
   },
   {
     "herramientaId": "gohighlevel",
@@ -27975,7 +27992,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Solo se lista la palabra 'Invoicing' sin explicar la gestión de numeración, emisión o estado."
   },
   {
     "herramientaId": "gohighlevel",
@@ -27995,7 +28012,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Se citan proveedores de pago y 'Text-2-Pay', pero no se explica el control de pagos recibidos o pendientes."
   },
   {
     "herramientaId": "gohighlevel",
@@ -30196,42 +30213,52 @@
   {
     "herramientaId": "keap",
     "capacidadId": "cap.email_campaigns",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://keap.com/pricing",
-        "fechaConsulta": "2026-09-09"
+        "fechaConsulta": "2026-09-09",
+        "cita": "Send broadcast and 1:1 emails, as well as trigger automated emails based on contact activity.",
+        "rol": "capacidad"
       },
       {
-        "tipo": "pagina_oficial",
-        "url": "https://keap.com/",
-        "fechaConsulta": "2026-09-09"
+        "tipo": "tarifa_oficial",
+        "url": "https://keap.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Permite el envío de correos masivos (broadcasts) a listas de contactos."
   },
   {
     "herramientaId": "keap",
     "capacidadId": "cap.marketing_automation",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://keap.com/pricing",
-        "fechaConsulta": "2026-09-09"
+        "fechaConsulta": "2026-09-09",
+        "cita": "When you pair the best CRM for small businesses with the power of automation, you can create campaigns that are tailored to the interests and actions of your contacts.",
+        "rol": "capacidad"
       },
       {
-        "tipo": "pagina_oficial",
-        "url": "https://keap.com/",
-        "fechaConsulta": "2026-09-09"
+        "tipo": "tarifa_oficial",
+        "url": "https://keap.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Permite crear automatizaciones de marketing basadas en las acciones e intereses de los contactos."
   },
   {
     "herramientaId": "keap",
@@ -30251,27 +30278,32 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Menciona 'Multi-page sales funnels' para conectar landing pages, pero no el análisis y medición paso a paso de caídas en el embudo."
   },
   {
     "herramientaId": "keap",
     "capacidadId": "cap.landing_pages",
-    "estado": "desconocido",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
     "fuentes": [
       {
         "tipo": "tarifa_oficial",
         "url": "https://keap.com/pricing",
-        "fechaConsulta": "2026-09-09"
+        "fechaConsulta": "2026-09-09",
+        "cita": "Wow your clients with modern and branded landing pages",
+        "rol": "capacidad"
       },
       {
-        "tipo": "pagina_oficial",
-        "url": "https://keap.com/",
-        "fechaConsulta": "2026-09-09"
+        "tipo": "tarifa_oficial",
+        "url": "https://keap.com/pricing",
+        "fechaConsulta": "2026-09-09",
+        "rol": "plan_consultado"
       }
     ],
-    "confianza": "baja",
+    "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Permite crear páginas de captación para recopilar datos de contacto."
   },
   {
     "herramientaId": "keap",
@@ -30291,7 +30323,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Documenta 'Checkout forms' y pasarelas de pago, pero no un escaparate ni tienda online completa."
   },
   {
     "herramientaId": "keap",
@@ -31975,7 +32007,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "No se describe la funcionalidad de bandeja compartida en las páginas leídas."
   },
   {
     "herramientaId": "zoho-one",
@@ -31990,7 +32022,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "No se documenta un portal autenticado para clientes en las páginas leídas."
   },
   {
     "herramientaId": "zoho-one",
@@ -32005,7 +32037,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "No se menciónan embudos de conversión para medir el recorrido paso a paso."
   },
   {
     "herramientaId": "zoho-one",
@@ -32020,7 +32052,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "No se documenta la creación de páginas de captación específicas."
   },
   {
     "herramientaId": "zoho-one",
@@ -32035,7 +32067,7 @@
     ],
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
-    "nota": "El modelo no llegó a responder por esta capacidad."
+    "nota": "Se menciona 'sell online' y Commerce, pero no se especifican escaparate, carrito ni cobro."
   },
   {
     "herramientaId": "zoho-one",

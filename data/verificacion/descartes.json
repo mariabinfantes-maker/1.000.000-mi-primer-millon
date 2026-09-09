@@ -1969,28 +1969,17 @@
   },
   {
     "herramientaId": "clickfunnels",
-    "capacidadId": "cap.lead_capture",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "clickfunnels",
-    "capacidadId": "cap.text_generation",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "clickfunnels",
-    "capacidadId": "cap.ai_task_agents",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "clickfunnels",
     "capacidadId": "cap.email_campaigns",
-    "motivo": "sin respuesta"
+    "motivo": "sin plan mínimo",
+    "cita": "Email Sequences, Email Broadcasting",
+    "urlCitada": "https://www.clickfunnels.com/"
   },
   {
     "herramientaId": "clickfunnels",
     "capacidadId": "cap.marketing_automation",
-    "motivo": "sin respuesta"
+    "motivo": "sin plan mínimo",
+    "cita": "Create powerful workflows to automate your marketing.",
+    "urlCitada": "https://www.clickfunnels.com/"
   },
   {
     "herramientaId": "clickfunnels",
@@ -2118,31 +2107,6 @@
     "motivo": "cita breve sin revisar",
     "cita": "Sales Pipelines",
     "urlCitada": "https://www.gohighlevel.com/"
-  },
-  {
-    "herramientaId": "gohighlevel",
-    "capacidadId": "cap.lead_capture",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "gohighlevel",
-    "capacidadId": "cap.text_generation",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "gohighlevel",
-    "capacidadId": "cap.ai_task_agents",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "gohighlevel",
-    "capacidadId": "cap.invoicing",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "gohighlevel",
-    "capacidadId": "cap.payment_collection",
-    "motivo": "sin respuesta"
   },
   {
     "herramientaId": "gohighlevel",
@@ -2433,27 +2397,23 @@
   {
     "herramientaId": "keap",
     "capacidadId": "cap.email_campaigns",
-    "motivo": "sin respuesta"
+    "motivo": "sin plan mínimo",
+    "cita": "Send broadcast and 1:1 emails, as well as trigger automated emails based on contact activity.",
+    "urlCitada": "https://keap.com/pricing"
   },
   {
     "herramientaId": "keap",
     "capacidadId": "cap.marketing_automation",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "keap",
-    "capacidadId": "cap.conversion_funnels",
-    "motivo": "sin respuesta"
+    "motivo": "sin plan mínimo",
+    "cita": "When you pair the best CRM for small businesses with the power of automation, you can create campaigns that are tailored to the interests and actions of your contacts.",
+    "urlCitada": "https://keap.com/pricing"
   },
   {
     "herramientaId": "keap",
     "capacidadId": "cap.landing_pages",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "keap",
-    "capacidadId": "cap.online_store",
-    "motivo": "sin respuesta"
+    "motivo": "sin plan mínimo",
+    "cita": "Wow your clients with modern and branded landing pages",
+    "urlCitada": "https://keap.com/pricing"
   },
   {
     "herramientaId": "keap",
@@ -2524,31 +2484,6 @@
     "motivo": "sin plan mínimo",
     "cita": "Set up marketing automation through email workflows, autoresponders, and more.",
     "urlCitada": "https://www.zoho.com/one/"
-  },
-  {
-    "herramientaId": "zoho-one",
-    "capacidadId": "cap.shared_inbox",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zoho-one",
-    "capacidadId": "cap.client_portal",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zoho-one",
-    "capacidadId": "cap.conversion_funnels",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zoho-one",
-    "capacidadId": "cap.landing_pages",
-    "motivo": "sin respuesta"
-  },
-  {
-    "herramientaId": "zoho-one",
-    "capacidadId": "cap.online_store",
-    "motivo": "sin respuesta"
   },
   {
     "herramientaId": "zoho-one",
