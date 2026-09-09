@@ -69,3 +69,6 @@ data/verificacion/salida/
 data/verificacion/_checkpoint-repesca-remota.json
 data/verificacion/_salida-repesca-remota.json
 data/verificacion/_descartes-originales.json
+# Lo mismo para cada lote que se abra con el modo `lote`, que guarda aparte.
+data/verificacion/_checkpoint-lote-*.json
+data/verificacion/_salida-lote-*.json

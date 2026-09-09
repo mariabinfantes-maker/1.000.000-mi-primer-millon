@@ -12,6 +12,8 @@ import {
   erroresDeRegistro,
   erroresDeSustitucion,
   getFuentesDeCapacidad,
+  getPlan,
+  getSelecciones,
   getSustituciones,
 } from "./repositorio";
 import {
@@ -22,6 +24,14 @@ import {
   type SalidaHerramienta,
   type SalidaLote,
 } from "./convertir";
+import {
+  capacidadesPendientes,
+  claveDeLote,
+  planesPendientes,
+  rutaCheckpointDeLote,
+  rutaSalidaDeLote,
+  trabajoDelLote,
+} from "./lotes";
 import type { RegistroVerificacion } from "./esquema";
 
 /**
@@ -63,8 +73,26 @@ const MODELO = "gemini-3.6-flash";
  * reconvertir — no llama a Gemini ni una vez: reconvierte el checkpoint que ya
  *               existe. Es lo que hace falta cuando cambian las reglas de
  *               conversión y no los datos — por ejemplo al revisar citas breves.
+ * lote        — ABRE UN LOTE ENTERO desde su selección congelada, que es lo que
+ *               los cinco modos anteriores no sabían hacer: todos partían de
+ *               los descartes del lote 1. Va a un checkpoint propio del lote, y
+ *               reanudar sólo repite lo que no tiene respuesta.
+ *
+ *                   npx tsx …/repescar-remoto.ts lote <numero> [porLlamada] [AAAA-MM-DD]
  */
-const MODO = (process.argv[2] ?? "completo") as "completo" | "rescatar" | "reconvertir" | "pares" | "planes";
+const MODO = (process.argv[2] ?? "completo") as
+  | "completo"
+  | "rescatar"
+  | "reconvertir"
+  | "pares"
+  | "planes"
+  | "lote";
+
+/** Qué lote se trabaja. Los cinco modos antiguos son, y siguen siendo, del 1. */
+const LOTE = MODO === "lote" ? Number(process.argv[3]) : 1;
+if (MODO === "lote" && ![1, 2, 3].includes(LOTE)) {
+  throw new Error(`El lote tiene que ser 1, 2 o 3, y llegó "${process.argv[3]}".`);
+}
 const PAUSA_MS = 4000;
 /**
  * Cinco por llamada es el tamaño que evitó los cortes de la primera vuelta.
@@ -73,8 +101,16 @@ const PAUSA_MS = 4000;
  * partirla en trozos más pequeños es lo único que la trae entera.
  */
 const POR_LLAMADA =
-  Number(MODO === "pares" ? process.argv[4] : process.argv[3]) || 5;
-const HOY = "2026-09-07";
+  Number(MODO === "pares" || MODO === "lote" ? process.argv[4] : process.argv[3]) || 5;
+/**
+ * La fecha de consulta. Los modos antiguos conservan la del lote 1 —sus
+ * registros ya están escritos con ella y no se reescriben—; un lote nuevo se
+ * fecha el día en que se pregunta, que es lo que significa `fechaConsulta`.
+ */
+const HOY =
+  MODO === "lote"
+    ? (process.argv[5] ?? new Date().toISOString().slice(0, 10))
+    : "2026-09-07";
 
 function leerJson<T>(ruta: string): T {
   return JSON.parse(fs.readFileSync(ruta, "utf8"));
@@ -532,7 +568,7 @@ async function main() {
    * retoma donde se quedó en vez de repetir —y volver a pagar— lo que ya
    * está bien hecho.
    */
-  const RUTA_CHECKPOINT = path.join(DIR, "_checkpoint-repesca-remota.json");
+  const RUTA_CHECKPOINT = rutaCheckpointDeLote(DIR, LOTE);
   const checkpoint: Record<string, SalidaHerramienta> = fs.existsSync(RUTA_CHECKPOINT)
     ? leerJson<Record<string, SalidaHerramienta>>(RUTA_CHECKPOINT)
     : {};
@@ -687,6 +723,84 @@ async function main() {
     }
   }
 
+  if (MODO === "lote") {
+    /**
+     * ABRIR UN LOTE ENTERO, desde su selección congelada y no desde descartes.
+     *
+     * Dos pasadas por herramienta, como en el lote 1: primero la capacidad y
+     * después, sólo de lo que salió afirmado, el plan. El plan se FUSIONA en la
+     * misma entrada del checkpoint en vez de crear otra, porque dos entradas
+     * del mismo par producirían dos registros del mismo par al convertir.
+     */
+    const trabajo = trabajoDelLote(getPlan(), getSelecciones(), LOTE);
+    const totalPares = trabajo.reduce((n, t) => n + t.capacidadIds.length, 0);
+    console.log(`\n=== Lote ${LOTE}: ${trabajo.length} herramientas, ${totalPares} pares · fecha ${HOY} ===`);
+    console.log(`Checkpoint: ${path.basename(RUTA_CHECKPOINT)}`);
+
+    console.log(`\n--- Capacidad ---`);
+    for (const t of trabajo) {
+      const ficha = herramientaPorId.get(t.herramientaId);
+      if (!ficha) throw new Error(`${t.herramientaId} está en el lote ${LOTE} y no en el catálogo.`);
+      const clave = claveDeLote(LOTE, "capacidad", t.herramientaId);
+      const pendientes = capacidadesPendientes(t.capacidadIds, checkpoint[clave]);
+      if (!pendientes.length) {
+        console.log(`· ${ficha.nombre} (${t.herramientaId}) — ya contestadas las ${t.capacidadIds.length}, se salta`);
+        continue;
+      }
+      console.log(`· ${ficha.nombre} (${t.herramientaId}) — ${pendientes.length} capacidades`);
+      const salida = await procesarCapacidad(
+        t.herramientaId,
+        ficha.nombre,
+        urlsDe(t.herramientaId),
+        pendientes,
+        capacidadPorId
+      );
+      const previa = checkpoint[clave];
+      checkpoint[clave] = {
+        ...(previa ?? salida),
+        ...salida,
+        // Lo ya contestado en una vuelta anterior NO se tira al reanudar.
+        respuestas: [...(previa?.respuestas ?? []), ...(salida.respuestas ?? [])],
+        urlsRecuperadas: [...(previa?.urlsRecuperadas ?? []), ...(salida.urlsRecuperadas ?? [])],
+        capacidadesPedidas: t.capacidadIds,
+      };
+      escribirJson(RUTA_CHECKPOINT, checkpoint);
+      await sleep(PAUSA_MS);
+    }
+
+    console.log(`\n--- Plan de lo afirmado ---`);
+    for (const t of trabajo) {
+      const clave = claveDeLote(LOTE, "capacidad", t.herramientaId);
+      const { capacidadIds: pendientes, citaPrevia } = planesPendientes(checkpoint[clave]);
+      if (!pendientes.length) continue;
+      const ficha = herramientaPorId.get(t.herramientaId)!;
+      console.log(`· ${ficha.nombre} (${t.herramientaId}) — ${pendientes.length} planes`);
+      const salida = await procesarPlan(
+        t.herramientaId,
+        ficha.nombre,
+        urlsDe(t.herramientaId),
+        pendientes,
+        capacidadPorId,
+        citaPrevia
+      );
+      const s = checkpoint[clave];
+      const respuestas = (s.respuestas ?? []).map((vieja) => {
+        const nueva = (salida.respuestas ?? []).find((x) => x.capacidadId === vieja.capacidadId);
+        // Se conserva TODO lo de la capacidad y se añade sólo el plan.
+        return nueva
+          ? { ...vieja, planMinimo: nueva.planMinimo, planUrlFuente: nueva.planUrlFuente, planCita: nueva.planCita }
+          : vieja;
+      });
+      checkpoint[clave] = {
+        ...s,
+        respuestas,
+        urlsRecuperadas: [...(s.urlsRecuperadas ?? []), ...(salida.urlsRecuperadas ?? [])],
+      };
+      escribirJson(RUTA_CHECKPOINT, checkpoint);
+      await sleep(PAUSA_MS);
+    }
+  }
+
   if (MODO === "rescatar") {
     /**
      * Las citas que sostenían estos pares están en el descartes de ANTES de la
@@ -732,7 +846,7 @@ async function main() {
 
   const salidas: SalidaHerramienta[] = Object.values(checkpoint);
 
-  escribirJson(path.join(DIR, "_salida-repesca-remota.json"), {
+  escribirJson(rutaSalidaDeLote(DIR, LOTE), {
     fecha: HOY,
     modelo: MODELO,
     herramientas: salidas,
@@ -750,7 +864,7 @@ async function main() {
   }
 
   const salidaLote: SalidaLote = {
-    lote: 1,
+    lote: LOTE,
     fecha: HOY,
     modelo: MODELO,
     herramientas: salidas,
