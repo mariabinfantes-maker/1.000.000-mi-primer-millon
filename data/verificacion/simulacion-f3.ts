@@ -1,0 +1,101 @@
+import { getTodasLasHerramientas } from "@/data/repositorio";
+import { recomendarHerramientas } from "@/agents/atlas-advisor/motor";
+import { perfilesDePrueba } from "@/agents/atlas-advisor/__tests__/perfiles";
+import type { RespuestasUsuario } from "@/agents/atlas-advisor/tipos";
+import type { Herramienta } from "@/data/esquema";
+import { getPuertoDeEvidencia } from "./consulta";
+import { RUTAS_CONGELADAS, cumpleLaRuta, type FilaDeRuta } from "./rutas";
+
+/**
+ * La simulación de F3 — bloque 4, ANTES de conectar nada.
+ *
+ * Corre el motor REAL, sin tocarlo, dos veces por perfil: una con el catálogo
+ * tal cual está hoy en producción, y otra con las herramientas que no cumplen
+ * su fila ya apartadas. La diferencia entre los dos tríos es lo que costaría
+ * conectar la tabla.
+ *
+ * Se ejecuta así, y no hace ni una llamada a ninguna API ni escribe nada:
+ *
+ *     npx tsx data/verificacion/simulacion-f3.ts
+ *
+ * ── Por qué el filtro va FUERA del motor ────────────────────────────────
+ *
+ * Porque el motor no está conectado y no debe estarlo todavía. Apartar las
+ * candidatas antes de llamarlo produce el mismo resultado que la puerta que
+ * instalará el bloque 5 —filtrar antes de puntuar— sin escribir esa puerta.
+ * Si el número no gusta, se cambia la tabla y no hay código que deshacer.
+ *
+ * ── Lo que esta simulación NO dice ──────────────────────────────────────
+ *
+ * No dice que el resultado nuevo sea mejor: eso no se ha medido con gente. No
+ * dice que las herramientas apartadas no sirvan, sino que no lo han
+ * demostrado. Y sólo cubre las rutas con fila congelada: CRM y las suites
+ * siguen pendientes, así que aquí no aparecen.
+ */
+
+const SUITES = "plataformas-todo-en-uno";
+
+/** Las candidatas que la fila gobierna. Las suites compiten en las categorías especializadas. */
+function universoDe(fila: FilaDeRuta, catalogo: Herramienta[]): Herramienta[] {
+  return catalogo.filter((h) =>
+    fila.subtipoId
+      ? h.categoriaId === fila.categoriaId && h.subtipoId === fila.subtipoId
+      : h.categoriaId === fila.categoriaId || h.categoriaId === SUITES
+  );
+}
+
+function tríoDe(respuestas: RespuestasUsuario, catalogo: Herramienta[]): string[] {
+  return recomendarHerramientas(respuestas, catalogo).top.map((e) => e.herramienta.id);
+}
+
+function main(): void {
+  const catalogo = getTodasLasHerramientas();
+  const puerto = getPuertoDeEvidencia();
+  const loDemuestra = (h: string, c: string) => puerto.estadoDe(h, c).estado === "verificado";
+
+  let ejecuciones = 0;
+  let cambian = 0;
+
+  console.log(`Simulación de F3 · ${RUTAS_CONGELADAS.length} rutas con fila congelada · catálogo de ${catalogo.length}\n`);
+
+  for (const fila of RUTAS_CONGELADAS) {
+    const universo = universoDe(fila, catalogo);
+    const apartadas = universo.filter((h) => !cumpleLaRuta(fila, h.id, loDemuestra));
+    const apartadasIds = new Set(apartadas.map((h) => h.id));
+    const catalogoFiltrado = catalogo.filter((h) => !apartadasIds.has(h.id));
+
+    const base: RespuestasUsuario = { categoriaId: fila.categoriaId, subtipoId: fila.subtipoId };
+    const perfiles = perfilesDePrueba(base);
+
+    let cambiosDeRuta = 0;
+    const entran = new Map<string, number>();
+    const salen = new Map<string, number>();
+
+    for (const perfil of perfiles) {
+      const antes = tríoDe(perfil, catalogo);
+      const despues = tríoDe(perfil, catalogoFiltrado);
+      ejecuciones++;
+      if (antes.join(">") === despues.join(">")) continue;
+      cambiosDeRuta++;
+      for (const id of despues) if (!antes.includes(id)) entran.set(id, (entran.get(id) ?? 0) + 1);
+      for (const id of antes) if (!despues.includes(id)) salen.set(id, (salen.get(id) ?? 0) + 1);
+    }
+    cambian += cambiosDeRuta;
+
+    const orden = (m: Map<string, number>) =>
+      [...m.entries()].sort((a, b) => b[1] - a[1]).map(([id, n]) => `${id} (${n})`).join(", ") || "—";
+
+    console.log(`${fila.ambito}`);
+    console.log(`  exige alguna de: ${fila.exigeAlgunaDe.join(", ")}`);
+    console.log(`  universo ${universo.length} · pasan ${universo.length - apartadas.length} · apartadas ${apartadas.length}`);
+    if (apartadas.length) console.log(`  apartadas: ${apartadas.map((h) => h.id).sort().join(", ")}`);
+    console.log(`  perfiles que cambian el trío: ${cambiosDeRuta}/${perfiles.length}`);
+    console.log(`  entran: ${orden(entran)}`);
+    console.log(`  salen:  ${orden(salen)}\n`);
+  }
+
+  console.log(`TOTAL: ${cambian} de ${ejecuciones} ejecuciones cambian el trío.`);
+  console.log("Ninguna herramienta apartada ha demostrado que no sirva: no lo ha demostrado, que es distinto.");
+}
+
+main();
