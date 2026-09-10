@@ -48,6 +48,19 @@ function tríoDe(respuestas: RespuestasUsuario, catalogo: Herramienta[]): string
   return recomendarHerramientas(respuestas, catalogo).top.map((e) => e.herramienta.id);
 }
 
+/**
+ * Las que el motor evalúa DE VERDAD en esa ruta.
+ *
+ * No coincide con el universo de la fila y conviene no confundirlos: la fila
+ * mira la categoría más todas las suites, pero el motor sólo admite la suite
+ * que declara cubrir esa categoría. En gestión de proyectos son 19, no 29. Una
+ * herramienta apartada por la fila que el motor nunca iba a considerar no
+ * cambia nada, y decir «apartadas 11» sin esto haría creer que sí.
+ */
+function candidatasDelMotor(respuestas: RespuestasUsuario, catalogo: Herramienta[]): string[] {
+  return recomendarHerramientas(respuestas, catalogo).todas.map((e) => e.herramienta.id);
+}
+
 function main(): void {
   const catalogo = getTodasLasHerramientas();
   const puerto = getPuertoDeEvidencia();
@@ -85,10 +98,15 @@ function main(): void {
     const orden = (m: Map<string, number>) =>
       [...m.entries()].sort((a, b) => b[1] - a[1]).map(([id, n]) => `${id} (${n})`).join(", ") || "—";
 
+    const candidatas = candidatasDelMotor(perfiles[0], catalogo);
+    const apartadasQueCompetian = apartadas.filter((h) => candidatas.includes(h.id));
+
     console.log(`${fila.ambito}`);
     console.log(`  exige alguna de: ${fila.exigeAlgunaDe.join(", ")}`);
-    console.log(`  universo ${universo.length} · pasan ${universo.length - apartadas.length} · apartadas ${apartadas.length}`);
-    if (apartadas.length) console.log(`  apartadas: ${apartadas.map((h) => h.id).sort().join(", ")}`);
+    console.log(`  universo de la fila ${universo.length} · pasan ${universo.length - apartadas.length} · apartadas ${apartadas.length}`);
+    console.log(`  el motor evalúa ${candidatas.length}, de las que la fila aparta ${apartadasQueCompetian.length}`);
+    if (apartadasQueCompetian.length)
+      console.log(`  apartadas que sí competían: ${apartadasQueCompetian.map((h) => h.id).sort().join(", ")}`);
     console.log(`  perfiles que cambian el trío: ${cambiosDeRuta}/${perfiles.length}`);
     console.log(`  entran: ${orden(entran)}`);
     console.log(`  salen:  ${orden(salen)}\n`);

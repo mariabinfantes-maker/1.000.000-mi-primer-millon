@@ -134,7 +134,7 @@ describe("qué deja fuera cada fila hoy", () => {
   }
 
   it.each([
-    ["gestion-proyectos", 29, 17],
+    ["gestion-proyectos", 29, 18],
     ["asistentes-ia/espacio-trabajo", 3, 3],
     ["asistentes-ia/escritura", 3, 3],
     ["asistentes-ia/reuniones-transcripcion", 3, 3],
