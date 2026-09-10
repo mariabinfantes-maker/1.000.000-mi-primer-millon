@@ -116,12 +116,35 @@ describe("sobre los 1.544 registros reales", () => {
     expect(getPuertoDeEvidencia()).toBe(puerto);
   });
 
+  /**
+   * Los TRES estados, no dos.
+   *
+   * Este mapeo decía antes «verificado → demostrada, lo demás → no consta», que
+   * es exactamente la lectura que causó el bloqueante del 2026-09-10. Pasaba
+   * porque hoy no hay ni un `no_disponible`, y habría fallado en cuanto entrara
+   * el primero —señalando como discrepancia el comportamiento correcto—. Una
+   * prueba que le pone una trampa a quien traiga el primer «no» es peor que no
+   * tenerla.
+   */
+  const esperado = (r: RegistroVerificacion) =>
+    r.estado !== "verificado" ? "no_consta" : r.profundidad === "no_disponible" ? "ausencia_demostrada" : "demostrada";
+
   it("responde lo mismo que dice cada registro, uno a uno", () => {
-    const discrepan = registros.filter((r) => {
-      const e = puerto.estadoDe(r.herramientaId, r.capacidadId);
-      return e.estado !== (r.estado === "verificado" ? "demostrada" : "no_consta");
-    });
+    const discrepan = registros.filter(
+      (r) => puerto.estadoDe(r.herramientaId, r.capacidadId).estado !== esperado(r)
+    );
     expect(discrepan.map((r) => `${r.herramientaId}/${r.capacidadId}`)).toEqual([]);
+  });
+
+  it("y el mapeo contempla el estado que hoy no tiene ningún registro", () => {
+    const ausente = registro("beautiful-ai", "cap.project_planning", { profundidad: "no_disponible" });
+    expect(esperado(ausente)).toBe("ausencia_demostrada");
+    expect(crearPuertoDeEvidencia([ausente]).estadoDe("beautiful-ai", "cap.project_planning").estado).toBe(
+      esperado(ausente)
+    );
+    // Y los otros dos siguen donde estaban.
+    expect(esperado(registro("a", "cap.b"))).toBe("demostrada");
+    expect(esperado(registro("a", "cap.b", { estado: "desconocido", profundidad: undefined }))).toBe("no_consta");
   });
 
   it("las cuentas cuadran con lo que cerró F2", () => {

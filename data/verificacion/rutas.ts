@@ -52,7 +52,9 @@ export const RUTAS_CONGELADAS: FilaDeRuta[] = [
     ambito: "gestion-proyectos",
     categoriaId: "gestion-proyectos",
     exigeAlgunaDe: ["cap.project_planning", "cap.task_management", "cap.gantt_and_dependencies"],
-    necesidad: "planificar el trabajo del equipo: proyectos, tareas o fechas",
+    // Sin dos puntos dentro: la frase se inserta detrás de «Lo que buscabas:»
+    // y de «no ha podido confirmar esto:», y encadenaba dos veces el signo.
+    necesidad: "planificar el trabajo del equipo, sus tareas y sus fechas",
     motivo:
       "Quien busca gestión de proyectos quiere planificar o repartir trabajo. Exigir planificación Y tareas a la vez dejaría 12 de 29 candidatas; con una basta y quedan 17. El Gantt se añadió el 2026-09-10 al verlo en la simulación: monday.com tiene «gantt_and_dependencies», «kanban_boards» y «team_workload_planning» verificadas y quedaba fuera por dos nombres que no le preguntaron así. La fila medía la evidencia, no el producto. Ninguna de las once que siguen fuera ha demostrado que no planifique: no lo sabemos.",
   },

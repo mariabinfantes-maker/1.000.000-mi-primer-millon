@@ -12,6 +12,9 @@ import { ShieldQuestion } from "lucide-react";
  *
  *  - **Decir que las herramientas no lo tienen.** F2 hizo 1.544 comprobaciones
  *    y no obtuvo ni una ausencia demostrada. No sabemos que no lo hagan.
+ *  - **Prometer que sí lo hacen.** El aviso también se enseñaría si algún día
+ *    hubiera evidencia de que NO lo hacen, así que la frase tiene que ser
+ *    verdad en los tres estados: sólo dice que no se puede confirmar.
  *  - **Afirmar que se revisaron todas sus páginas.** Puede tratarse de una
  *    herramienta que todavía no se ha comprobado; decir que se miró sería
  *    inventarse el trabajo hecho.
@@ -44,8 +47,8 @@ export default function AvisoSinVerificar({ necesidad }: { necesidad: string }) 
       </p>
 
       <p className="mt-3 leading-relaxed text-slate-600">
-        Eso no significa que no lo hagan. Significa que no he podido confirmarlo, y prefiero
-        decírtelo antes que darte por buena una recomendación que no lo es.
+        Con la información comprobada que tenemos, no puedo darte esa necesidad por confirmada.
+        Prefiero decírtelo antes que darte por buena una recomendación que no lo es.
       </p>
     </section>
   );

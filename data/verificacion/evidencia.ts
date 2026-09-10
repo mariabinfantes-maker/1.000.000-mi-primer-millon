@@ -59,8 +59,10 @@ export function evidenciaDeRegistro(
    * de la que sabemos con certeza que no sirve era la que la puerta promovía.
    *
    * Y tampoco es «no consta»: eso perdería la diferencia entre saber que no
-   * está y no saberlo. Se conserva como estado propio, con su fuente y su
-   * fecha, aunque hoy nada lo enseñe.
+   * está y no saberlo. Se conserva como estado propio, con su profundidad, su
+   * confianza y su nota, aunque hoy nada lo enseñe. La fuente y la fecha que
+   * lo sostienen NO viajan aquí: se quedan en el registro, que es donde vive
+   * la evidencia.
    */
   if (registro.profundidad === "no_disponible") {
     return {

@@ -139,7 +139,7 @@ describe("el plan no entra en la puerta", () => {
    * módulo de una suite— y comparan contra las candidatas, no contra el
    * catálogo entero. Medido sobre los datos reales: la puntuación se mueve
    * como mucho 0,5 puntos en gestión de proyectos, y el orden relativo de las
-   * supervivientes no cambia en ninguna de las 2.160 combinaciones.
+   * supervivientes no cambia en ninguna de las 3.120 combinaciones.
    */
   it("la puerta no toca la puntuación cuando el conjunto de comparables no cambia", () => {
     const catalogo = [proyectos("a"), proyectos("b")];

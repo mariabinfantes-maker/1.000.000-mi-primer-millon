@@ -141,7 +141,17 @@ export type PuertaDeEvidencia = {
     categoriaId: string,
     subtipoId?: string
   ): { ambito: string; necesidad: string; exigeAlgunaDe: string[] } | undefined;
-  /** `true` SÓLO si F2 lo verificó. Un «no consta» devuelve `false` y no significa que no lo haga. */
+  /**
+   * `true` SÓLO si F2 lo verificó Y su profundidad no es `no_disponible`. Son
+   * tres estados, y este booleano los reparte en dos: uno pasa y los otros no.
+   *
+   * Un `false` puede significar tres cosas distintas —no consta porque no
+   * quedó claro, no consta porque nunca se preguntó, o hay evidencia de que NO
+   * lo hace— y desde aquí no se distinguen a propósito: al motor sólo le toca
+   * saber quién compite. Quien necesite la diferencia pregunta al puerto.
+   *
+   * Ninguno de los tres autoriza a decir que la herramienta no lo tiene.
+   */
   loDemuestra(herramientaId: string, capacidadId: string): boolean;
 };
 

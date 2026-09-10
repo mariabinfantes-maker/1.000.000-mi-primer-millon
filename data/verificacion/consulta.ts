@@ -96,9 +96,13 @@ export function getPuertoDeEvidencia(): PuertoDeEvidencia {
  * motor no importa nada de aquí: recibe este objeto por parámetro desde la
  * ruta de API, y con eso `data/verificacion` sigue teniendo un solo lector.
  *
- * `loDemuestra` devuelve `true` sólo con un `verificado`. Un «no consta» —se
- * preguntara o no— devuelve `false`, y eso NO significa que la herramienta no
- * lo haga: significa que no lo ha demostrado.
+ * `loDemuestra` devuelve `true` sólo con un `demostrada`: verificado Y con la
+ * profundidad distinta de `no_disponible`. Devuelven `false` los otros dos
+ * estados —«no consta», se preguntara o no, y «ausencia demostrada»— y el
+ * motor no los distingue porque para decidir quién compite pesan igual.
+ *
+ * Cuidado con leer ese `false` como una negación: en dos de los tres casos
+ * significa que no lo ha demostrado, no que no lo haga.
  */
 export function getPuertaDeEvidencia() {
   const puerto = getPuertoDeEvidencia();

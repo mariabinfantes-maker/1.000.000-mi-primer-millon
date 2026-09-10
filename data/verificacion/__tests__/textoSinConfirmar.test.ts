@@ -46,8 +46,17 @@ describe("el aviso de «no lo he podido confirmar»", () => {
     expect(AVISO).toContain("{necesidad}");
   });
 
-  it("deja claro que podrían hacerlo igualmente", () => {
-    expect(AVISO).toContain("Eso no significa que no lo hagan");
+  /**
+   * La frase tiene que ser verdad en los TRES estados.
+   *
+   * Antes decía «Eso no significa que no lo hagan», que es cierto para un «no
+   * consta» y falso si algún día hay evidencia de que NO lo hacen —y el aviso
+   * se enseñaría igual en ese caso—. Ahora sólo afirma lo que sabemos: que no
+   * se puede confirmar.
+   */
+  it("no promete lo contrario de lo que dice: la frase vale en los tres estados", () => {
+    expect(AVISO).toContain("no puedo darte esa necesidad por confirmada");
+    expect(AVISO).not.toContain("Eso no significa que no lo hagan");
   });
 
   /**
