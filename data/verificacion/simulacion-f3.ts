@@ -3,7 +3,7 @@ import { recomendarHerramientas } from "@/agents/atlas-advisor/motor";
 import { perfilesDePrueba } from "@/agents/atlas-advisor/__tests__/perfiles";
 import type { RespuestasUsuario } from "@/agents/atlas-advisor/tipos";
 import type { Herramienta } from "@/data/esquema";
-import { getPuertoDeEvidencia } from "./consulta";
+import { getPuertaDeEvidencia, getPuertoDeEvidencia } from "./consulta";
 import { RUTAS_CONGELADAS, cumpleLaRuta, type FilaDeRuta } from "./rutas";
 
 /**
@@ -18,12 +18,13 @@ import { RUTAS_CONGELADAS, cumpleLaRuta, type FilaDeRuta } from "./rutas";
  *
  *     npx tsx data/verificacion/simulacion-f3.ts
  *
- * ── Por qué el filtro va FUERA del motor ────────────────────────────────
+ * ── Qué compara exactamente ─────────────────────────────────────────────
  *
- * Porque el motor no está conectado y no debe estarlo todavía. Apartar las
- * candidatas antes de llamarlo produce el mismo resultado que la puerta que
- * instalará el bloque 5 —filtrar antes de puntuar— sin escribir esa puerta.
- * Si el número no gusta, se cambia la tabla y no hay código que deshacer.
+ * Desde el bloque 5 la puerta vive dentro del motor, así que aquí se mide lo
+ * de verdad: la misma llamada, con y sin `evidencia`. Antes de conectar, esto
+ * apartaba las candidatas por fuera para imitar la puerta sin escribirla; el
+ * número que salía era el mismo, y esa continuidad es la que demuestra que
+ * conectar no cambió la lógica.
  *
  * ── Lo que esta simulación NO dice ──────────────────────────────────────
  *
@@ -44,8 +45,12 @@ function universoDe(fila: FilaDeRuta, catalogo: Herramienta[]): Herramienta[] {
   );
 }
 
-function tríoDe(respuestas: RespuestasUsuario, catalogo: Herramienta[]): string[] {
-  return recomendarHerramientas(respuestas, catalogo).top.map((e) => e.herramienta.id);
+const PUERTA = getPuertaDeEvidencia();
+
+/** El trío que devuelve el motor, con la puerta puesta o sin ella. */
+function tríoDe(respuestas: RespuestasUsuario, catalogo: Herramienta[], conPuerta: boolean): string[] {
+  const opciones = conPuerta ? { evidencia: PUERTA } : {};
+  return recomendarHerramientas(respuestas, catalogo, opciones).top.map((e) => e.herramienta.id);
 }
 
 /**
@@ -74,9 +79,6 @@ function main(): void {
   for (const fila of RUTAS_CONGELADAS) {
     const universo = universoDe(fila, catalogo);
     const apartadas = universo.filter((h) => !cumpleLaRuta(fila, h.id, loDemuestra));
-    const apartadasIds = new Set(apartadas.map((h) => h.id));
-    const catalogoFiltrado = catalogo.filter((h) => !apartadasIds.has(h.id));
-
     const base: RespuestasUsuario = { categoriaId: fila.categoriaId, subtipoId: fila.subtipoId };
     const perfiles = perfilesDePrueba(base);
 
@@ -85,8 +87,8 @@ function main(): void {
     const salen = new Map<string, number>();
 
     for (const perfil of perfiles) {
-      const antes = tríoDe(perfil, catalogo);
-      const despues = tríoDe(perfil, catalogoFiltrado);
+      const antes = tríoDe(perfil, catalogo, false);
+      const despues = tríoDe(perfil, catalogo, true);
       ejecuciones++;
       if (antes.join(">") === despues.join(">")) continue;
       cambiosDeRuta++;

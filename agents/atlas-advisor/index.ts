@@ -28,6 +28,7 @@ export type {
   NivelPrioridad,
   NivelTecnicoEquipo,
   PresupuestoMensual,
+  PuertaDeEvidencia,
   ResultadoRecomendacion,
   RespuestasUsuario,
 } from "./tipos";

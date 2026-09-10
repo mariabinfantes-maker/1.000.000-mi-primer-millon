@@ -48,12 +48,21 @@ describe("la afiliación no puede intervenir en la puntuación", () => {
     );
   });
 
-  it("ningún criterio, de ninguna de las dos rutas, menciona la afiliación en su código", () => {
+  /**
+   * La lista de archivos se recorre, no se escribe a mano.
+   *
+   * Antes eran cuatro nombres fijos, y un módulo nuevo no entraba solo. Lo
+   * destapó F3: el archivo que decide qué herramientas superan la puerta de
+   * evidencia habría sido justo el único sin vigilar.
+   */
+  it("ningún módulo del motor menciona la afiliación en su código", () => {
     const prohibido = /afilia|comision|comisión|enlaceAfiliado|EstrategiaAfiliacion/i;
-    const archivos = ["criterios.ts", "criteriosRuta.ts", "motor.ts", "todoEnUnoVsEspecializada.ts"];
+    const dir = path.join(process.cwd(), "agents", "atlas-advisor");
+    const archivos = readdirSync(dir).filter((f) => f.endsWith(".ts"));
+    expect(archivos.length, "si aquí no hay módulos, esta prueba no vigila nada").toBeGreaterThan(5);
 
     for (const archivo of archivos) {
-      const contenido = readFileSync(path.join(process.cwd(), "agents", "atlas-advisor", archivo), "utf-8");
+      const contenido = readFileSync(path.join(dir, archivo), "utf-8");
       // Se permiten menciones en comentarios que documentan justo esta
       // separación; lo que no puede haber es código que la lea.
       const lineasDeCodigo = contenido
@@ -73,6 +82,29 @@ describe("la afiliación no puede intervenir en la puntuación", () => {
         `${archivo} importa datos de afiliación`
       ).toEqual([]);
     }
+  });
+
+  /**
+   * F3 añade un sitio nuevo por donde el dinero podría entrar: la puerta de
+   * evidencia decide QUIÉN compite, que es más poderoso que decidir en qué
+   * orden. Aquí se comprueba que no puede mirar la afiliación aunque quisiera.
+   */
+  it("la puerta de evidencia no puede ver la afiliación: sólo recibe dos identificadores", () => {
+    const vistos: string[][] = [];
+    const puerta = {
+      filaDe: () => ({ ambito: "crm", exigeAlgunaDe: ["cap.x"] }),
+      loDemuestra: (herramientaId: string, capacidadId: string) => {
+        vistos.push([herramientaId, capacidadId]);
+        return true;
+      },
+    };
+    const rica = {
+      ...construirHerramienta({ id: "rica", nombre: "Rica", categoriaId: "crm", tipoProducto: "especializada" }),
+      comision: "80% recurrente",
+      enlaceAfiliado: "https://ejemplo.test/ref",
+    };
+    recomendarHerramientas({ categoriaId: "crm" }, [rica], { evidencia: puerta });
+    expect(vistos).toEqual([["rica", "cap.x"]]);
   });
 
   it("el conjunto de criterios no incluye ninguno relacionado con ingresos", () => {

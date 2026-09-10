@@ -2,6 +2,7 @@ import type { RegistroVerificacion } from "./esquema";
 import { evidenciaDeRegistro } from "./evidencia";
 import type { EvidenciaDeCapacidad, PuertoDeEvidencia } from "./puerto";
 import { getRegistros } from "./repositorio";
+import { filaDeRuta } from "./rutas";
 
 /**
  * El índice de la verificación — F3, bloque 1.
@@ -83,4 +84,28 @@ export function getPuertoDeEvidencia(): PuertoDeEvidencia {
   if (cachePuerto) return cachePuerto;
   cachePuerto = crearPuertoDeEvidencia(getRegistros());
   return cachePuerto;
+}
+
+/**
+ * La verificación con la forma exacta que el motor pide — F3, bloque 5.
+ *
+ * Es el ÚNICO punto por el que la verificación entra en la aplicación. El
+ * motor no importa nada de aquí: recibe este objeto por parámetro desde la
+ * ruta de API, y con eso `data/verificacion` sigue teniendo un solo lector.
+ *
+ * `loDemuestra` devuelve `true` sólo con un `verificado`. Un «no consta» —se
+ * preguntara o no— devuelve `false`, y eso NO significa que la herramienta no
+ * lo haga: significa que no lo ha demostrado.
+ */
+export function getPuertaDeEvidencia() {
+  const puerto = getPuertoDeEvidencia();
+  return {
+    filaDe(categoriaId: string, subtipoId?: string) {
+      const fila = filaDeRuta(categoriaId, subtipoId);
+      return fila ? { ambito: fila.ambito, exigeAlgunaDe: fila.exigeAlgunaDe } : undefined;
+    },
+    loDemuestra(herramientaId: string, capacidadId: string): boolean {
+      return puerto.estadoDe(herramientaId, capacidadId).estado === "verificado";
+    },
+  };
 }

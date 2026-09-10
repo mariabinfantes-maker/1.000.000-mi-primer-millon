@@ -124,6 +124,25 @@ export type HerramientaEvaluada = {
 };
 
 /**
+ * Cómo el motor pregunta por la evidencia de F2 — F3, bloque 5.
+ *
+ * Es una FORMA, no un módulo: el motor no importa nada de `data/verificacion`
+ * y sigue sin saber que ese directorio existe. Quien llama le pasa un objeto
+ * con estos dos métodos —hoy lo construye la ruta de API— y las pruebas le
+ * pasan uno de mentira. Sin él, el motor se comporta exactamente como antes
+ * de F3.
+ *
+ * `filaDe` devuelve `undefined` en los ámbitos sin fila congelada: CRM y las
+ * plataformas todo en uno siguen pendientes de decisión, y un ámbito sin fila
+ * no filtra nada. Es a propósito — una regla inventada sería peor que ninguna.
+ */
+export type PuertaDeEvidencia = {
+  filaDe(categoriaId: string, subtipoId?: string): { ambito: string; exigeAlgunaDe: string[] } | undefined;
+  /** `true` SÓLO si F2 lo verificó. Un «no consta» devuelve `false` y no significa que no lo haga. */
+  loDemuestra(herramientaId: string, capacidadId: string): boolean;
+};
+
+/**
  * Por qué el motor NO recomienda nada.
  *
  * Existe porque antes no existía: cuando no se entendía la necesidad,
@@ -163,6 +182,17 @@ export type ResultadoRecomendacion = {
    * deliberada de resultado. Quien llama debe contarlo, nunca rellenarlo.
    */
   sinRecomendacion?: MotivoSinRecomendacion;
+  /**
+   * La puerta de evidencia habría dejado el ámbito sin ninguna candidata, así
+   * que NO se aplicó y aquí queda dicho cuál era y qué pedía.
+   *
+   * Con las siete filas congeladas hoy esto no ocurre en ninguna ruta, y hay
+   * una prueba que lo comprueba. Existe porque el día que ocurra, quedarse
+   * callado sería justo lo que la propietaria prohibió: ensanchar en silencio.
+   * Convertirlo en algo que la persona lee es el bloque 6, y necesita su texto
+   * en la interfaz; hasta entonces esto es un dato, no un mensaje.
+   */
+  evidenciaInsuficiente?: { ambito: string; exigeAlgunaDe: string[] };
 };
 
 export type ComparativaDeRutas = {
