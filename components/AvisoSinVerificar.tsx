@@ -40,7 +40,7 @@ export default function AvisoSinVerificar({ necesidad }: { necesidad: string }) 
       </h2>
 
       <p className="mt-4 leading-relaxed text-slate-600">
-        Buscabas <strong className="font-semibold text-slate-900">{necesidad}</strong>.
+        Lo que buscabas: <strong className="font-semibold text-slate-900">{necesidad}</strong>.
       </p>
 
       <p className="mt-3 leading-relaxed text-slate-600">

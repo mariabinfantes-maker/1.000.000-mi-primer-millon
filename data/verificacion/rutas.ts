@@ -12,7 +12,7 @@
  * ── Cómo se lee una fila ────────────────────────────────────────────────
  *
  * `exigeAlgunaDe` es siempre «alguna de éstas», también cuando lleva una sola.
- * Un único mecanismo para las seis filas: dos formas de exigir serían dos
+ * Un único mecanismo para las siete filas: dos formas de exigir serían dos
  * formas de equivocarse.
  *
  * Y lo que NO significa que una herramienta no pase la fila: no significa que
@@ -41,7 +41,7 @@ export type FilaDeRuta = {
 };
 
 /**
- * Las seis filas aprobadas por la propietaria el 2026-09-09.
+ * Las siete filas aprobadas por la propietaria el 2026-09-09.
  *
  * Sólo cubren categorías con herramientas: el catálogo tiene fichas en 4 de
  * las 15 categorías, así que una fila para «reservas y citas» sería una regla

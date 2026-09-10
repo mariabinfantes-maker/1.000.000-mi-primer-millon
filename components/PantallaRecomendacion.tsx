@@ -91,7 +91,7 @@ export default function PantallaRecomendacion({
                   Estas son las mejores opciones según todo lo demás que me has contado: tamaño de tu
                   empresa, presupuesto y facilidad de uso. Tómalas como un punto de partida, no como
                   respuesta a lo que preguntabas. Antes de contratar ninguna, comprueba tú mismo en su
-                  página si hace{" "}
+                  página lo siguiente:{" "}
                   <strong className="font-semibold text-slate-900">{sinConfirmar.necesidad}</strong>.
                 </>
               ) : vistas.length === 1 ? (
@@ -123,7 +123,7 @@ export default function PantallaRecomendacion({
               titulo={sinConfirmar ? "Alternativas sin confirmar de Molnip" : "Mi recomendación de Molnip"}
               texto={
                 sinConfirmar
-                  ? `Molnip no ha podido confirmar ${sinConfirmar.necesidad}. Estas son las mejores opciones de la categoría, sin esa necesidad comprobada.`
+                  ? `Molnip no ha podido confirmar esto: ${sinConfirmar.necesidad}. Estas son las mejores opciones de la categoría, sin esa necesidad comprobada.`
                   : `Molnip me recomienda ${vistas[0]?.nombre ?? "estas herramientas"} para mi empresa.`
               }
             />

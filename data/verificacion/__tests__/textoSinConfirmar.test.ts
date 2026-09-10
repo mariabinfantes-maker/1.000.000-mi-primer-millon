@@ -42,7 +42,7 @@ describe("el aviso de «no lo he podido confirmar»", () => {
   });
 
   it("nombra la necesidad que no se pudo confirmar", () => {
-    expect(AVISO).toContain("Buscabas <strong");
+    expect(AVISO).toContain("Lo que buscabas: <strong");
     expect(AVISO).toContain("{necesidad}");
   });
 

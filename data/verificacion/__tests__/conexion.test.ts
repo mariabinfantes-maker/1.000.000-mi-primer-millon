@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getTodasLasHerramientas } from "@/data/repositorio";
+import { getProblemas, getTodasLasCategorias, getTodasLasHerramientas } from "@/data/repositorio";
 import { recomendarHerramientas } from "@/agents/atlas-advisor/motor";
 import { perfilesDePrueba } from "@/agents/atlas-advisor/__tests__/perfiles";
 import { getPuertaDeEvidencia } from "../consulta";
@@ -18,21 +18,49 @@ describe("el motor con la verificación puesta", () => {
   const evidencia = getPuertaDeEvidencia();
 
   /**
-   * El número que autorizó conectar. Si algún día deja de ser cero, conectar
-   * habrá pasado a cambiar lo que se recomienda, y eso es una decisión de la
-   * propietaria, no un efecto secundario de un cambio de datos.
+   * La regresión COMPLETA, y completa quiere decir todas las puertas de
+   * entrada: las 15 categorías, los 6 subtipos y los 5 objetivos, por los 120
+   * perfiles de cada uno. 3.120 combinaciones.
+   *
+   * Antes esta prueba recorría sólo las 7 rutas con fila —840— mientras su
+   * comentario hablaba de 2.160. Lo señaló la revisión independiente: el
+   * comentario prometía una cobertura que el cuerpo no ejecutaba, que es peor
+   * que no prometer nada.
+   *
+   * Si algún día deja de ser cero, conectar habrá pasado a cambiar lo que se
+   * recomienda, y eso es una decisión de la propietaria, no un efecto
+   * secundario de un cambio de datos.
    */
-  it("no cambia ni uno de los 840 resultados de la simulación", () => {
+  it("no cambia ni uno de los 3.120 resultados: todas las categorías, subtipos y objetivos", () => {
+    // Las 15 DECLARADAS, no las 4 públicas ni las 4 que hoy tienen fichas: una
+    // categoría vacía también es un camino por el que se puede llegar, y ahí
+    // el motor tiene que seguir diciendo lo mismo que antes de F3.
+    const categorias = getTodasLasCategorias().map((c) => c.id).sort();
+    const subtipos = [...new Set(catalogo.filter((h) => h.subtipoId).map((h) => `${h.categoriaId}/${h.subtipoId}`))].sort();
+    const objetivos = getProblemas().map((p) => p.id).sort();
+    expect(categorias.length).toBe(15);
+    expect(subtipos.length).toBe(6);
+    expect(objetivos.length).toBe(5);
+
+    const ambitos = [
+      ...categorias.map((categoriaId) => ({ categoriaId })),
+      ...subtipos.map((s) => ({ categoriaId: s.split("/")[0], subtipoId: s.split("/")[1] })),
+      ...objetivos.map((id) => ({ problemaIdsCandidatos: [id] })),
+    ];
+
     const distintos: string[] = [];
-    for (const fila of RUTAS_CONGELADAS) {
-      const perfiles = perfilesDePrueba({ categoriaId: fila.categoriaId, subtipoId: fila.subtipoId });
-      expect(perfiles.length).toBe(120);
-      for (const perfil of perfiles) {
+    let combinaciones = 0;
+    for (const ambito of ambitos) {
+      for (const perfil of perfilesDePrueba(ambito)) {
+        combinaciones++;
         const sin = recomendarHerramientas(perfil, catalogo).top.map((e) => e.herramienta.id);
         const con = recomendarHerramientas(perfil, catalogo, { evidencia }).top.map((e) => e.herramienta.id);
-        if (sin.join(">") !== con.join(">")) distintos.push(`${fila.ambito}: ${sin.join(">")} → ${con.join(">")}`);
+        if (sin.join(">") !== con.join(">")) {
+          distintos.push(`${JSON.stringify(ambito)}: ${sin.join(">")} → ${con.join(">")}`);
+        }
       }
     }
+    expect(combinaciones).toBe(3120);
     expect(distintos).toEqual([]);
   });
 
@@ -49,10 +77,6 @@ describe("el motor con la verificación puesta", () => {
   });
 
   /**
-   * La regresión completa: 2.160 combinaciones —las 15 categorías, los 9
-   * subtipos y los 5 objetivos, por 120 perfiles cada uno—. El trío no cambia
-   * en ninguna.
-   *
    * Lo que SÍ se mueve, y conviene tenerlo escrito: en gestión de proyectos la
    * puntuación de las supervivientes baja hasta 0,5 puntos, porque varios
    * criterios son comparativos y el conjunto contra el que se comparan se ha

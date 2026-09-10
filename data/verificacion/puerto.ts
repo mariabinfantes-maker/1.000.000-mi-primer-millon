@@ -15,14 +15,28 @@ import type { NivelConfianza, Profundidad } from "./esquema";
  */
 
 /**
- * Lo único que el motor puede preguntar sobre una capacidad.
+ * Lo único que el motor puede preguntar sobre una capacidad. Son TRES estados.
  *
- * Son DOS estados, no tres, y esa reducción es la decisión importante: F2 no
- * obtuvo ni una sola ausencia demostrada en 1.544 comprobaciones, así que
- * «lo hace» y «no nos consta» agotan lo que sabemos. No existe «no lo hace»
- * porque no existe el dato que lo sostendría.
+ * La primera versión eran dos —«lo hace» y «no nos consta»— razonando que F2
+ * no había obtenido ni una ausencia demostrada en 1.544 comprobaciones. Era
+ * cierto sobre los datos y falso sobre el esquema: `estado: "verificado"` en
+ * F2 no significa «lo hace», significa «tenemos evidencia», y la dirección la
+ * lleva `profundidad`. Con `no_disponible` hay evidencia de que NO lo hace, y
+ * la revisión independiente del 2026-09-10 demostró que aquella lectura la
+ * daba por buena: la herramienta de la que SÍ sabemos que no sirve era la
+ * única que la puerta debía apartar con certeza, y era justo la que promovía.
+ *
+ * `ausencia_demostrada` NO se colapsa en `no_consta`. Perderíamos la
+ * diferencia entre saber que no está y no saberlo, que es la distinción sobre
+ * la que se sostiene F2 entera —en las dos direcciones, no sólo en una.
  */
-export type EstadoDeEvidencia = "verificado" | "no_consta";
+export type EstadoDeEvidencia =
+  /** Verificado y disponible. Lo ÚNICO que supera la puerta. */
+  | "demostrada"
+  /** Verificado y NO disponible: hay evidencia de que no lo hace. */
+  | "ausencia_demostrada"
+  /** Se preguntó y no quedó claro, se descartó, o nunca se preguntó. */
+  | "no_consta";
 
 /**
  * De dónde sale un «no consta». No cambia la decisión —los dos casos pesan
@@ -32,6 +46,9 @@ export type EstadoDeEvidencia = "verificado" | "no_consta";
  *  - `sin_registro`  → nunca se preguntó (7.508 de los 9.052 posibles).
  */
 export type OrigenDelEstado = "verificado" | "desconocido" | "sin_registro";
+
+/** Los tres estados, para recorrerlos sin escribirlos a mano. */
+export const ESTADOS_DE_EVIDENCIA: EstadoDeEvidencia[] = ["demostrada", "ausencia_demostrada", "no_consta"];
 
 /**
  * Qué sabemos del plan. Es una certeza SEPARADA de la de la capacidad y no
@@ -80,7 +97,10 @@ export type EvidenciaDeCapacidad = {
 export type PuertoDeEvidencia = {
   /** Nunca devuelve `undefined`: un par que no existe es un `no_consta` con origen `sin_registro`. */
   estadoDe(herramientaId: string, capacidadId: string): EvidenciaDeCapacidad;
-  /** Qué sabe hacer esta herramienta, demostrado. Ordenado y estable. */
+  /**
+   * Qué sabe hacer esta herramienta, demostrado. Ordenado y estable.
+   * Sólo `demostrada`: una ausencia demostrada no es algo que sepa hacer.
+   */
   capacidadesVerificadasDe(herramientaId: string): string[];
   /**
    * Qué herramientas demuestran esta capacidad. Vacío significa «ninguna lo

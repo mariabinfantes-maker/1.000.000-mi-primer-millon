@@ -52,9 +52,31 @@ export function evidenciaDeRegistro(
     return { ...base, estado: "no_consta", origen: "desconocido", plan: { certeza: "no_procede" } };
   }
 
+  /**
+   * Verificado con `no_disponible` es evidencia de que NO lo hace, y en F2 va
+   * marcado en la profundidad, no en el estado. Tratarlo como capacidad
+   * demostrada era el bloqueante que encontró la revisión: la única herramienta
+   * de la que sabemos con certeza que no sirve era la que la puerta promovía.
+   *
+   * Y tampoco es «no consta»: eso perdería la diferencia entre saber que no
+   * está y no saberlo. Se conserva como estado propio, con su fuente y su
+   * fecha, aunque hoy nada lo enseñe.
+   */
+  if (registro.profundidad === "no_disponible") {
+    return {
+      ...base,
+      estado: "ausencia_demostrada",
+      origen: "verificado",
+      plan: { certeza: "no_procede" },
+      profundidad: "no_disponible",
+      ...(registro.confianza ? { confianza: registro.confianza } : {}),
+      ...(registro.nota ? { nota: registro.nota } : {}),
+    };
+  }
+
   return {
     ...base,
-    estado: "verificado",
+    estado: "demostrada",
     origen: "verificado",
     plan: planDe(registro),
     ...(registro.profundidad ? { profundidad: registro.profundidad } : {}),
@@ -73,7 +95,7 @@ export function evidenciaDeRegistro(
  * tratar eso como «no sabemos si lo hace» era falso—.
  */
 export function esElegible(evidencia: EvidenciaDeCapacidad): boolean {
-  return evidencia.estado === "verificado";
+  return evidencia.estado === "demostrada";
 }
 
 /**
@@ -133,7 +155,18 @@ export function afirmaAusencia(texto: string): boolean {
 export function describir(evidencia: EvidenciaDeCapacidad, etiqueta?: string): string {
   const que = etiqueta?.trim() || evidencia.capacidadId;
 
-  if (evidencia.estado !== "verificado") {
+  /**
+   * La ausencia demostrada NO se afirma en voz alta en este cambio: el dato se
+   * conserva dentro, pero decirle a alguien «esta herramienta no lo hace» es
+   * una afirmación pública que la propietaria no ha autorizado todavía. Así
+   * que aquí sólo se dice lo que sí se puede decir: que no se lo damos por
+   * hecho.
+   */
+  if (evidencia.estado === "ausencia_demostrada") {
+    return `${que}: esto no te lo puedo confirmar.`;
+  }
+
+  if (evidencia.estado !== "demostrada") {
     return evidencia.origen === "desconocido"
       ? `${que}: no nos consta. Lo hemos buscado en su página oficial y no ha quedado demostrado; podría hacerlo igualmente.`
       : `${que}: no nos consta. Todavía está sin comprobar.`;

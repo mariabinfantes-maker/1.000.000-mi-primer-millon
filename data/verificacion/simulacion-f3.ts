@@ -69,7 +69,7 @@ function candidatasDelMotor(respuestas: RespuestasUsuario, catalogo: Herramienta
 function main(): void {
   const catalogo = getTodasLasHerramientas();
   const puerto = getPuertoDeEvidencia();
-  const loDemuestra = (h: string, c: string) => puerto.estadoDe(h, c).estado === "verificado";
+  const loDemuestra = (h: string, c: string) => puerto.estadoDe(h, c).estado === "demostrada";
 
   let ejecuciones = 0;
   let cambian = 0;

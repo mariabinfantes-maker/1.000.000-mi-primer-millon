@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ token: st
    */
   const titulo = resultado.sinConfirmar ? "Alternativas sin confirmar" : `Tu recomendación: ${mejor}`;
   const descripcion = resultado.sinConfirmar
-    ? `Molnip no ha podido confirmar ${resultado.sinConfirmar.necesidad}. Estas son las mejores opciones de la categoría, sin esa necesidad comprobada.`
+    ? `Molnip no ha podido confirmar esto: ${resultado.sinConfirmar.necesidad}. Estas son las mejores opciones de la categoría, sin esa necesidad comprobada.`
     : resultado.top.length > 1
       ? `Molnip recomienda ${mejor} y ${resultado.top.length - 1} opción más para tu empresa.`
       : `Molnip recomienda ${mejor} para tu empresa.`;

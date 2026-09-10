@@ -49,7 +49,10 @@ export function crearPuertoDeEvidencia(registros: RegistroVerificacion[]): Puert
     }
     porPar.set(k, registro);
 
-    if (registro.estado !== "verificado") continue;
+    // Sólo lo demostrado entra en los índices. Un `no_disponible` está
+    // verificado y no es algo que la herramienta sepa hacer: indexarlo aquí
+    // sería decir lo contrario de lo que la evidencia dice.
+    if (registro.estado !== "verificado" || registro.profundidad === "no_disponible") continue;
     const suyas = verificadasPorHerramienta.get(registro.herramientaId) ?? [];
     suyas.push(registro.capacidadId);
     verificadasPorHerramienta.set(registro.herramientaId, suyas);
@@ -107,7 +110,7 @@ export function getPuertaDeEvidencia() {
         : undefined;
     },
     loDemuestra(herramientaId: string, capacidadId: string): boolean {
-      return puerto.estadoDe(herramientaId, capacidadId).estado === "verificado";
+      return puerto.estadoDe(herramientaId, capacidadId).estado === "demostrada";
     },
   };
 }

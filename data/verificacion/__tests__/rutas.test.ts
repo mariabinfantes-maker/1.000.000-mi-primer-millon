@@ -16,7 +16,7 @@ describe("la tabla ruta→capacidad", () => {
   const capacidades = capacidadIdsDelVocabulario();
   const herramientas = getTodasLasHerramientas();
 
-  it("son las seis filas aprobadas, ni una más", () => {
+  it("son las siete filas aprobadas, ni una más", () => {
     expect(RUTAS_CONGELADAS.map((f) => f.ambito)).toEqual([
       "gestion-proyectos",
       "asistentes-ia/espacio-trabajo",
@@ -122,7 +122,7 @@ describe("qué deja fuera cada fila hoy", () => {
   const puerto = getPuertoDeEvidencia();
   const herramientas = getTodasLasHerramientas();
   const SUITES = "plataformas-todo-en-uno";
-  const loDemuestra = (h: string, c: string) => puerto.estadoDe(h, c).estado === "verificado";
+  const loDemuestra = (h: string, c: string) => puerto.estadoDe(h, c).estado === "demostrada";
 
   /** Las suites compiten en las categorías especializadas, así que entran en el universo. */
   function universo(f: { categoriaId: string; subtipoId?: string }) {

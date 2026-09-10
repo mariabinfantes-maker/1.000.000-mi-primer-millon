@@ -29,7 +29,7 @@ const de = (cambios: Partial<RegistroVerificacion> = {}) =>
 describe("qué se puede afirmar de un par", () => {
   it("una capacidad verificada se afirma, con su plan y su profundidad", () => {
     expect(de()).toMatchObject({
-      estado: "verificado",
+      estado: "demostrada",
       origen: "verificado",
       plan: { certeza: "verificado", nombre: "Lite" },
       profundidad: "nativa",
@@ -70,7 +70,7 @@ describe("qué se puede afirmar de un par", () => {
 describe("el plan nunca decide", () => {
   it("una capacidad verificada con el plan desconocido SIGUE siendo elegible", () => {
     const e = de({ planEstado: "desconocido", planMinimo: undefined });
-    expect(e.estado).toBe("verificado");
+    expect(e.estado).toBe("demostrada");
     expect(esElegible(e)).toBe(true);
     expect(e.plan.certeza).toBe("desconocido");
   });

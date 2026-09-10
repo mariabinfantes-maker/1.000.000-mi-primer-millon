@@ -3607,13 +3607,29 @@ métodos —`filaDe` y `loDemuestra`— y no importa nada de `data/verificacion`
 construye la ruta de API, que es el **único** lector de la verificación en toda
 la aplicación. Sin ese objeto, el motor se comporta exactamente como antes.
 
-**Dos estados, no tres.** «Verificado» y «no nos consta». No existe «no lo
-hace» porque **F2 no obtuvo ni una ausencia demostrada en 1.544
-comprobaciones**. Se conserva si el «no consta» viene de una comprobación que
-no quedó clara (885) o de un par que nunca se preguntó (7.508 de los 9.052
-posibles): pesan igual para decidir, y cambian qué haría falta para resolverlo.
-**El plan nunca decide**: una capacidad verificada con el plan sin demostrar
-sigue siendo elegible, y su nombre no se escribe.
+**Tres estados.** «Demostrada», «ausencia demostrada» y «no nos consta». Sólo
+la primera supera la puerta.
+
+La primera versión eran dos, razonando que F2 no obtuvo ni una ausencia
+demostrada en 1.544 comprobaciones. Era cierto sobre los datos y **falso sobre
+el esquema**: en F2, `estado: "verificado"` no significa «lo hace», significa
+«tenemos evidencia», y la dirección la lleva `profundidad`. Con `no_disponible`
+hay evidencia de que NO lo hace. La revisión independiente demostró que aquella
+lectura lo daba por capacidad demostrada: **la herramienta de la que sí sabemos
+que no sirve era la única que la puerta debía apartar con certeza, y era justo
+la que promovía**, descrita además como comprobada. Hoy no puede pasar —hay
+cero registros `no_disponible`— pero el conversor los produce en cuanto el
+modelo responda «no», y el validador no los rechaza.
+
+`ausencia_demostrada` **no se colapsa en «no consta»**: perderíamos la
+diferencia entre saber que no está y no saberlo. El dato se conserva dentro;
+afirmarlo en voz alta es otra decisión, y no está tomada.
+
+El «no consta» sigue distinguiendo si se preguntó y no quedó claro (885) o si
+nunca se preguntó (7.508 de los 9.052 posibles): pesan igual para decidir, y
+cambian qué haría falta para resolverlo. **El plan nunca decide**: una
+capacidad verificada con el plan sin demostrar sigue siendo elegible, y su
+nombre no se escribe.
 
 **Siete filas congeladas**, aprobadas por la propietaria. Gestión de proyectos
 —planificación, tareas **o** Gantt— y los seis subtipos de asistentes de IA.
@@ -3639,14 +3655,23 @@ coinciden se conservan las dos, también en el enlace. El aviso viaja en el
 token como campo opcional: **los enlaces guardados antes de F3 siguen
 funcionando**.
 
-**Qué cambia para quien usa Molnip hoy: nada.** Se compararon las 2.160
-combinaciones —15 categorías, 9 subtipos y 5 objetivos, por 120 perfiles— entre
-producción y la rama. **El trío no cambia en ninguna.** Sin la puerta, el
-resultado es idéntico bit a bit. Con ella, en gestión de proyectos la
-puntuación de las supervivientes baja hasta 0,5 puntos, porque varios criterios
-son comparativos y el conjunto contra el que se comparan se ha hecho más
-pequeño; el orden relativo no cambia. F3 no arregla nada que hoy esté roto:
-instala la red antes de que haga falta.
+**Qué cambia para quien usa Molnip hoy: la recomendación no, un número sí.** Se
+compararon las **3.120 combinaciones** —las 15 categorías declaradas, los 6
+subtipos y los 5 objetivos, por 120 perfiles cada uno— entre producción y la
+rama. **El trío no cambia en ninguna.** Sin la puerta, el resultado es idéntico
+bit a bit.
+
+Lo que sí se ve: **la pantalla de espera dice «Evaluamos N herramientas», y en
+gestión de proyectos pasa de 19 a 17**, porque Odoo y Zoho One dejan de
+evaluarse al no haber demostrado ninguna de las tres capacidades de la fila. Es
+más honesto que antes —el motor evalúa 17 de verdad— pero es un cambio visible
+y no debe contarse como «ningún cambio observable».
+
+Y en esa misma ruta la puntuación de las supervivientes baja hasta 0,5 puntos,
+porque varios criterios son comparativos y el conjunto contra el que se
+comparan se ha hecho más pequeño; el orden relativo no cambia.
+
+F3 no arregla nada que hoy esté roto: instala la red antes de que haga falta.
 
 **El aislamiento cambia de promesa**, no desaparece: de «nadie lee la
 verificación» a «la lee un solo sitio, y está escrito quién y por qué».

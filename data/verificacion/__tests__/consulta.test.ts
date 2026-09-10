@@ -43,7 +43,7 @@ describe("el índice de la verificación", () => {
   const puerto = crearPuertoDeEvidencia(MUESTRA);
 
   it("responde a un par que existe", () => {
-    expect(puerto.estadoDe("pipedrive", "cap.sales_pipeline").estado).toBe("verificado");
+    expect(puerto.estadoDe("pipedrive", "cap.sales_pipeline").estado).toBe("demostrada");
   });
 
   /**
@@ -119,14 +119,14 @@ describe("sobre los 1.544 registros reales", () => {
   it("responde lo mismo que dice cada registro, uno a uno", () => {
     const discrepan = registros.filter((r) => {
       const e = puerto.estadoDe(r.herramientaId, r.capacidadId);
-      return e.estado !== (r.estado === "verificado" ? "verificado" : "no_consta");
+      return e.estado !== (r.estado === "verificado" ? "demostrada" : "no_consta");
     });
     expect(discrepan.map((r) => `${r.herramientaId}/${r.capacidadId}`)).toEqual([]);
   });
 
   it("las cuentas cuadran con lo que cerró F2", () => {
     expect(registros.length).toBe(1544);
-    const verificados = registros.filter((r) => puerto.estadoDe(r.herramientaId, r.capacidadId).estado === "verificado");
+    const verificados = registros.filter((r) => puerto.estadoDe(r.herramientaId, r.capacidadId).estado === "demostrada");
     expect(verificados.length).toBe(659);
   });
 
