@@ -3694,6 +3694,173 @@ ni un dato verificado de ninguna de las cinco, y el cuestionario no pregunta
 ninguna—, la correspondencia de CRM y de las suites, y la imagen que se ve al
 compartir el enlace, que sigue diciendo «Tu recomendación».
 
+
+## F4: definición oficial — piloto vertical profundo de belleza con citas (2026-09-10)
+
+**Aprobada por la propietaria el 2026-09-10.** Es la definición, no la
+ejecución: **ninguna etapa está hecha** y ninguna puede empezar sin
+autorización expresa.
+
+**Nombre.** Se llama **F4**, de la serie F1–F2–F3. No confundir con la «Fase 4:
+Blog SEO» de la numeración del lanzamiento, completada el 2026-08-21 y sin
+relación con ésta. Antes de escribirla, se buscó una definición previa de F4 en
+los 186 commits de todas las ramas: **no existía ninguna**, ni en texto vivo ni
+en texto borrado.
+
+### Qué es, y qué no
+
+F4 lleva a Molnip de saber preguntar a **saber responder en una vertical
+completa**: peluquería, barbería, uñas y estética, de una profesional sola a un
+centro de dos a cinco.
+
+**No cambia el público ni sustituye nada.** Las cuatro categorías cubiertas
+siguen igual y siguen atendiendo a autónomos y a empresas: un autónomo que
+busca un CRM ya está atendido hoy. F4 **añade** cobertura donde no la hay.
+
+Quedan **fuera**: sanidad, veterinaria, servicios a domicilio, restauración,
+aforos, academias y grupos.
+
+### Por qué esta vertical y no otra
+
+Se compararon ocho candidatas. **Ninguna gana por encaje de vocabulario**: las
+146 capacidades de F1 cubren las ocho sin que falte una sola, comprobado id a
+id. Donde se diferencian es en trabajo y en riesgo, y la belleza gana por
+**menor riesgo regulatorio** —no arrastra `req.health_special_category`, que es
+una restricción dura sin un solo dato verificado— y por negocios pequeños y
+fragmentados con un problema frecuente.
+
+**La afiliación no decidió la elección** y se investiga al final, sobre un
+conjunto ya elegido por compatibilidad.
+
+**Lo que no se pudo comprobar:** el proxy de la sesión bloqueó todo el egreso
+web —INE, prensa sectorial, webs de fabricantes—, así que **la comparación
+comercial no está verificada** y no sostiene la decisión. La sostiene el
+análisis del repositorio y el criterio de la propietaria.
+
+### La bisagra
+
+`cap.per_resource_booking_calendar` —«agenda separada por profesional, sala,
+sillón o máquina»— es lo que separa a la profesional sola del centro. **F2 no
+se la preguntó nunca a nadie.**
+
+### Cinco capacidades esenciales comunes
+
+Sin ellas no es una herramienta de esta vertical, se trabaje sola o en equipo:
+
+`cap.online_self_service_booking` · `cap.customer_appointment_reminders` ·
+`cap.booking_cancellation_and_rescheduling` · `cap.customer_contact_records` ·
+`cap.offer_catalog`
+
+**Dos de las cinco no tienen ni un dato en F2.**
+
+### Ocho capacidades condicionales
+
+Cada una atada a una respuesta, no al sector: `per_resource_booking_calendar`
+(varias con agenda propia) · `payment_collection` (cobro online) ·
+`point_of_sale` (cobro en mostrador) · `no_show_and_deposits` (protección ante
+ausencias) · `prepaid_session_packages` (bonos) · `commissions_and_tips`
+(retribución variable) · `embeddable_booking_widget` (web propia) ·
+`inventory_tracking` (vende producto).
+
+**Tres cosas que son independientes y no pueden mezclarse:** la forma de cobro,
+los bonos y la protección ante ausencias. **Cobrar antes no es exigir
+depósito.**
+
+`stock_reorder_alerts` es **complementaria**, no exigencia: llevar existencias
+y que te avisen cuando bajan del mínimo son dos cosas distintas.
+
+### Seis preguntas, y una adaptativa
+
+Ninguna activa lo que activa otra: (1) ¿sola o varias con agenda propia?, (2)
+¿quieres cobrar desde la herramienta —**online, en mostrador, ambos o
+ninguno**—?, (3) ¿pedir señal o penalizar ausencias?, (4) ¿vendes bonos?, (5)
+¿tienes web propia?, (6) ¿vendes producto? Y sólo si la 1 fue «varias»:
+¿pagáis comisión o repartís propinas?
+
+**«Ninguno» tiene que ser una respuesta válida en la 2**: quien cobra en
+efectivo no necesita que el software cobre, y descartarle herramientas por eso
+sería inventarle una necesidad. **Ninguna pregunta el oficio**: una barbería y
+un centro de uñas que respondan igual necesitan lo mismo.
+
+### Restricciones
+
+Aplican `req.language_es` (dura) y, como blandas altas, `req.mobile_first`,
+`req.low_price` y `req.no_training_needed`. `req.data_residency_eu` sólo si un
+contrato lo exige. **No aplican** `req.health_special_category`,
+`req.offline_capable` ni `req.esignature_qualified`.
+
+**`req.language_es` hay que verificarla en las herramientas que entren**, aunque
+no sea una restricción nueva: es dura, y una herramienta que no esté en español
+no vale para este público por buena que sea.
+
+### El hueco de vocabulario: sin decidir, a propósito
+
+Se anota dónde guarda un salón **la ficha técnica del servicio** —el tinte, la
+proporción, el tiempo—. Ninguna capacidad cercana encaja por su propio `noEs`:
+`customer_interaction_history` es trato comercial, `clinical_record` es salud
+—y traería la restricción que esta vertical evita—, `serviced_asset_registry`
+es un bien del cliente. **Eso no demuestra que falte.** Se decide en la etapa 4,
+después de observar herramientas reales, no antes.
+
+### Seis perfiles de simulación
+
+Peluquera sola sin web ni cobro por la herramienta · peluquera sola con web y
+cobro online · salón de 3 con comisión · barbería de 2 con señal y cobro en
+mostrador · uñas con bonos y sin cobro · estética de 4 con cobro por ambos
+canales y venta de producto. Cruzados con los 120 perfiles del generador
+tipado: **720 ejecuciones**.
+
+### Nueve etapas, nueve autorizaciones
+
+1. El mapa *(aprobado)* · 2. **Investigación y preselección, solo lectura** ·
+3. **Comparación de candidatas y aprobación en bloque de las fichas** ·
+4. Decisión sobre el hueco de vocabulario · 5. Creación del catálogo ·
+6. Verificación F2 · 7. Preguntas en el cuestionario · 8. Fila congelada y
+**simulación antes de conectar** · 9. Publicar la categoría, conectar y
+documentar.
+
+**Ninguna ficha entra sola**: la etapa 3 presenta una comparación y la
+propietaria aprueba el conjunto. **La etapa 2 está bloqueada** mientras el
+entorno no permita salir a la web.
+
+### Condición obligatoria antes de publicar la categoría
+
+Hoy `reservas-citas` devuelve **`top: 0 · todas: 0 · sin ningún motivo`**: la
+ruta de API generaría un enlace vacío y la página diría «Este enlace no es
+válido», cuando lo cierto es que no hay catálogo. **No es alcanzable ahora**
+—la categoría está en estado `pendiente` y sólo cuatro son públicas—, pero **la
+etapa 9 no puede fusionarse sin resolverlo**: publicar una categoría cuyo
+camino acaba en «enlace no válido» sería lo contrario de decir que no.
+
+### Criterio de terminado
+
+F4 está terminada cuando, todo a la vez:
+
+1. Las 5 esenciales están **demostradas positivamente** en las herramientas
+   elegibles —`estado: "demostrada"` del puerto de F3—. **Una ausencia
+   demostrada no cuenta**: `verificado` en F2 significa «tenemos evidencia», no
+   «lo hace», y confundirlo fue el bloqueante que encontró la revisión de F3.
+2. `req.language_es` está verificada para todas las fichas nuevas.
+3. Cada condicional tiene evidencia en al menos una ficha; la que no la tenga
+   en ninguna se documenta como hueco de catálogo.
+4. El hueco de vocabulario está resuelto por escrito tras observar herramientas.
+5. Las 6 preguntas y la adaptativa están en el cuestionario y **cada una cambia
+   el resultado de al menos un perfil**; la que no lo haga, se retira. La 2 debe
+   cambiarlo en al menos tres de sus cuatro respuestas.
+6. Los 6 perfiles reciben recomendación real o un «no lo sé» que nombra la
+   necesidad. **Cero respuestas mudas y cero enlaces no válidos.**
+7. **El perfil 1 —la peluquera sola— recibe recomendación verificada.** Es el
+   único criterio que por sí solo declara F4 fallida.
+8. Los perfiles 1 y 3 no coinciden en primera opción, ni 4 y 5, salvo que una
+   herramienta demuestre servir a ambos casos.
+9. **Las 3.120 combinaciones actuales no cambian ni una.** Las de
+   `reservas-citas` sí cambiarán —hoy devuelven vacío— y eso es el objetivo, no
+   una regresión: se documentan aparte con su antes y su después.
+10. La fila está congelada y simulada antes de conectar.
+11. El defecto del resultado vacío está resuelto.
+12. Suite verde, `tsc --noEmit` limpio, lint sin problemas nuevos, build verde.
+13. `ATLAS.md` documentado y autorización expresa para fusionar.
+
 ---
 
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
