@@ -193,7 +193,7 @@ export function evaluarHerramienta(
 type Seleccion = {
   candidatas: Herramienta[];
   sinRecomendacion?: MotivoSinRecomendacion;
-  necesidadSinConfirmar?: NecesidadSinConfirmar;
+  necesidadesSinConfirmar?: NecesidadSinConfirmar[];
 };
 
 /**
@@ -229,12 +229,14 @@ function aplicarPuerta(
   if (demuestran.length === 0) {
     return {
       candidatas,
-      necesidadSinConfirmar: {
-        causa: "capacidad_sin_evidencia",
-        ambito: fila.ambito,
-        necesidad: fila.necesidad,
-        exigeAlgunaDe: fila.exigeAlgunaDe,
-      },
+      necesidadesSinConfirmar: [
+        {
+          causa: "capacidad_sin_evidencia",
+          ambito: fila.ambito,
+          necesidad: fila.necesidad,
+          exigeAlgunaDe: fila.exigeAlgunaDe,
+        },
+      ],
     };
   }
   return { candidatas: demuestran };
@@ -272,7 +274,7 @@ function seleccionarCandidatas(
 
     const pregunta = preguntaParaAmbito(respuestas.categoriaId, respuestas.subtipoId);
     if (!pregunta || !respuestas.necesidadDelSubtipo) {
-      return { candidatas: base, necesidadSinConfirmar: trasLaPuerta.necesidadSinConfirmar };
+      return { candidatas: base, necesidadesSinConfirmar: trasLaPuerta.necesidadesSinConfirmar };
     }
 
     /**
@@ -299,11 +301,17 @@ function seleccionarCandidatas(
             opcionId: opcion.id,
           };
 
+    /**
+     * Las dos pueden fallar a la vez, y entonces se conservan las dos. Manda la
+     * de la puerta —sin evidencia de lo que la ruta entera exige, la opción
+     * concreta es lo de menos— pero quedarse sólo con ella perdería para
+     * siempre que además faltaba catálogo para esa opción, que es otro problema
+     * con otro arreglo.
+     */
+    const causas = [...(trasLaPuerta.necesidadesSinConfirmar ?? []), ...(sinCandidatas ? [sinCandidatas] : [])];
     return {
       candidatas: filtrada.candidatas,
-      // La puerta corre antes, así que si las dos fallaran manda la suya: sin
-      // evidencia de lo que la ruta exige, la opción concreta es lo de menos.
-      necesidadSinConfirmar: trasLaPuerta.necesidadSinConfirmar ?? sinCandidatas,
+      necesidadesSinConfirmar: causas.length ? causas : undefined,
     };
   }
 
@@ -379,7 +387,9 @@ export function recomendarHerramientas(
     top: repartirEntreSubtipos(evaluadas, cantidad, respuestas),
     todas: evaluadas,
     ...(eligioRuta ? {} : { comparativaDeRutas: compararRutas(evaluadas, respuestas) }),
-    ...(seleccion.necesidadSinConfirmar ? { necesidadSinConfirmar: seleccion.necesidadSinConfirmar } : {}),
+    ...(seleccion.necesidadesSinConfirmar?.length
+      ? { necesidadesSinConfirmar: seleccion.necesidadesSinConfirmar }
+      : {}),
   };
 }
 

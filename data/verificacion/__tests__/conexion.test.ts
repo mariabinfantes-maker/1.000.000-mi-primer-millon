@@ -44,7 +44,27 @@ describe("el motor con la verificación puesta", () => {
         { evidencia }
       );
       expect(r.todas.length, fila.ambito).toBeGreaterThan(0);
-      expect(r.necesidadSinConfirmar, fila.ambito).toBeUndefined();
+      expect(r.necesidadesSinConfirmar, fila.ambito).toBeUndefined();
+    }
+  });
+
+  /**
+   * La regresión completa: 2.160 combinaciones —las 15 categorías, los 9
+   * subtipos y los 5 objetivos, por 120 perfiles cada uno—. El trío no cambia
+   * en ninguna.
+   *
+   * Lo que SÍ se mueve, y conviene tenerlo escrito: en gestión de proyectos la
+   * puntuación de las supervivientes baja hasta 0,5 puntos, porque varios
+   * criterios son comparativos y el conjunto contra el que se comparan se ha
+   * hecho más pequeño. El orden relativo no cambia, así que no cambia nada de
+   * lo que se enseña.
+   */
+  it("el orden entre las supervivientes es el mismo con la puerta y sin ella", () => {
+    for (const fila of RUTAS_CONGELADAS) {
+      const perfil = { categoriaId: fila.categoriaId, subtipoId: fila.subtipoId };
+      const sin = recomendarHerramientas(perfil, catalogo).todas.map((e) => e.herramienta.id);
+      const con = recomendarHerramientas(perfil, catalogo, { evidencia }).todas.map((e) => e.herramienta.id);
+      expect(con, fila.ambito).toEqual(sin.filter((id) => con.includes(id)));
     }
   });
 

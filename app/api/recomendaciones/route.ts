@@ -110,12 +110,16 @@ export async function POST(request: Request) {
     })),
     generadoEn: new Date().toISOString(),
     /**
-     * Si no se pudo confirmar lo que la persona pidió, viaja con el enlace.
-     * Sólo el texto: la causa interna —falta de evidencia o falta de
-     * catálogo— se queda aquí, porque no cambia lo que se enseña.
+     * Si no se pudo confirmar lo que la persona pidió, viaja con el enlace —y
+     * viajan TODAS las causas, no sólo la que se enseña: la interfaz prioriza
+     * la falta de evidencia, pero la otra no puede perderse por el camino.
      */
-    ...(resultado.necesidadSinConfirmar
-      ? { sinConfirmar: { necesidad: resultado.necesidadSinConfirmar.necesidad } }
+    ...(resultado.necesidadesSinConfirmar?.length
+      ? {
+          sinConfirmar: {
+            causas: resultado.necesidadesSinConfirmar.map((n) => ({ causa: n.causa, necesidad: n.necesidad })),
+          },
+        }
       : {}),
   });
 

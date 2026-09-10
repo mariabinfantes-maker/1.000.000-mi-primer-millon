@@ -97,17 +97,19 @@ describe("«no consta» no se lee como ausencia", () => {
     const catalogo = [proyectos("a"), proyectos("b")];
     const r = recomendarHerramientas(perfil, catalogo, { evidencia: puertaDe([]) });
     expect(ids(r)).toEqual(["a", "b"]);
-    expect(r.necesidadSinConfirmar).toEqual({
-      causa: "capacidad_sin_evidencia",
-      ambito: "gestion-proyectos",
-      necesidad: "planificar el trabajo",
-      exigeAlgunaDe: ["cap.x"],
-    });
+    expect(r.necesidadesSinConfirmar).toEqual([
+      {
+        causa: "capacidad_sin_evidencia",
+        ambito: "gestion-proyectos",
+        necesidad: "planificar el trabajo",
+        exigeAlgunaDe: ["cap.x"],
+      },
+    ]);
   });
 
   it("y cuando sí se aplica, no se marca nada", () => {
     const r = recomendarHerramientas(perfil, [proyectos("a")], { evidencia: puertaDe(["a"]) });
-    expect(r.necesidadSinConfirmar).toBeUndefined();
+    expect(r.necesidadesSinConfirmar).toBeUndefined();
   });
 });
 
@@ -130,12 +132,29 @@ describe("el plan no entra en la puerta", () => {
     expect(conPuerta.todas.map((e) => e.puntuacionTotal)).toEqual(sinPuerta.todas.map((e) => e.puntuacionTotal));
   });
 
-  it("la puerta no reparte puntos: quien pasa conserva su puntuación exacta", () => {
+  /**
+   * La puerta no reparte ni quita puntos. Lo que sí puede mover una puntuación
+   * es que el conjunto de comparables se haga más pequeño: varios criterios
+   * son COMPARATIVOS —profundidad frente a sus iguales, superioridad frente al
+   * módulo de una suite— y comparan contra las candidatas, no contra el
+   * catálogo entero. Medido sobre los datos reales: la puntuación se mueve
+   * como mucho 0,5 puntos en gestión de proyectos, y el orden relativo de las
+   * supervivientes no cambia en ninguna de las 2.160 combinaciones.
+   */
+  it("la puerta no toca la puntuación cuando el conjunto de comparables no cambia", () => {
     const catalogo = [proyectos("a"), proyectos("b")];
-    const conPuerta = recomendarHerramientas(perfil, catalogo, { evidencia: puertaDe(["a"]) });
+    const conPuerta = recomendarHerramientas(perfil, catalogo, { evidencia: puertaDe(["a", "b"]) });
     const sinPuerta = recomendarHerramientas(perfil, catalogo);
-    const suya = sinPuerta.todas.find((e) => e.herramienta.id === "a")!.puntuacionTotal;
-    expect(conPuerta.todas[0].puntuacionTotal).toBe(suya);
+    expect(conPuerta.todas.map((e) => e.puntuacionTotal)).toEqual(sinPuerta.todas.map((e) => e.puntuacionTotal));
+  });
+
+  it("y cuando aparta a alguien, no altera el orden entre las que quedan", () => {
+    const catalogo = [proyectos("a"), proyectos("b"), proyectos("c")];
+    const sinPuerta = recomendarHerramientas(perfil, catalogo).todas.map((e) => e.herramienta.id);
+    const conPuerta = recomendarHerramientas(perfil, catalogo, { evidencia: puertaDe(["a", "c"]) }).todas.map(
+      (e) => e.herramienta.id
+    );
+    expect(conPuerta).toEqual(sinPuerta.filter((id) => id !== "b"));
   });
 });
 
@@ -172,7 +191,7 @@ describe("los ámbitos pendientes no pasan por ninguna regla", () => {
     const catalogo = [crm("a"), crm("b")];
     const r = recomendarHerramientas({ categoriaId: "crm" }, catalogo, { evidencia: puertaDe([]) });
     expect(ids(r)).toEqual(["a", "b"]);
-    expect(r.necesidadSinConfirmar).toBeUndefined();
+    expect(r.necesidadesSinConfirmar).toBeUndefined();
   });
 
   it("y tampoco se aplica cuando la persona no eligió categoría", () => {
@@ -195,12 +214,14 @@ describe("los ámbitos pendientes no pasan por ninguna regla", () => {
 describe("por qué no se pudo confirmar", () => {
   it("falta de evidencia: la capacidad que la ruta exige, sin demostrar por nadie", () => {
     const r = recomendarHerramientas(perfil, [proyectos("a")], { evidencia: puertaDe([]) });
-    expect(r.necesidadSinConfirmar).toEqual({
-      causa: "capacidad_sin_evidencia",
-      ambito: "gestion-proyectos",
-      necesidad: "planificar el trabajo",
-      exigeAlgunaDe: ["cap.x"],
-    });
+    expect(r.necesidadesSinConfirmar).toEqual([
+      {
+        causa: "capacidad_sin_evidencia",
+        ambito: "gestion-proyectos",
+        necesidad: "planificar el trabajo",
+        exigeAlgunaDe: ["cap.x"],
+      },
+    ]);
   });
 
   /**
@@ -223,12 +244,14 @@ describe("por qué no se pudo confirmar", () => {
       { categoriaId: "crm", necesidadDelSubtipo: "llamar-desde-dentro" },
       [sinNadaQueEncaje]
     );
-    expect(r.necesidadSinConfirmar).toEqual({
-      causa: "opcion_sin_candidatas",
-      ambito: "crm",
-      necesidad: "poder llamar y mandar SMS desde el propio CRM",
-      opcionId: "llamar-desde-dentro",
-    });
+    expect(r.necesidadesSinConfirmar).toEqual([
+      {
+        causa: "opcion_sin_candidatas",
+        ambito: "crm",
+        necesidad: "poder llamar y mandar SMS desde el propio CRM",
+        opcionId: "llamar-desde-dentro",
+      },
+    ]);
     // Y no se queda sin nada que enseñar: conserva el conjunto.
     expect(r.todas.map((e) => e.herramienta.id)).toEqual(["crm-pelado"]);
   });
@@ -245,14 +268,14 @@ describe("por qué no se pudo confirmar", () => {
       { categoriaId: "crm", necesidadDelSubtipo: "llamar-desde-dentro" },
       [encaja]
     );
-    expect(r.necesidadSinConfirmar).toBeUndefined();
+    expect(r.necesidadesSinConfirmar).toBeUndefined();
   });
 
   /**
    * La puerta corre antes. Si las dos fallaran, manda la suya: sin evidencia de
    * lo que la ruta entera exige, la opción concreta es lo de menos.
    */
-  it("si fallan las dos, manda la falta de evidencia", () => {
+  it("si fallan las dos, manda la falta de evidencia Y se conservan las dos", () => {
     const puerta = {
       filaDe: () => ({ ambito: "crm", necesidad: "llevar tus clientes", exigeAlgunaDe: ["cap.x"] }),
       loDemuestra: () => false,
@@ -272,11 +295,17 @@ describe("por qué no se pudo confirmar", () => {
       [pelado],
       { evidencia: puerta }
     );
-    expect(r.necesidadSinConfirmar?.causa).toBe("capacidad_sin_evidencia");
+    expect(r.necesidadesSinConfirmar?.map((n) => n.causa)).toEqual([
+      "capacidad_sin_evidencia",
+      "opcion_sin_candidatas",
+    ]);
+    // La segunda conserva su propio detalle: es otro problema con otro arreglo.
+    const segunda = r.necesidadesSinConfirmar![1];
+    expect(segunda.causa === "opcion_sin_candidatas" && segunda.opcionId).toBe("llamar-desde-dentro");
   });
 
   it("la necesidad se enseña en palabras de una persona, sin identificadores", () => {
     const r = recomendarHerramientas(perfil, [proyectos("a")], { evidencia: puertaDe([]) });
-    expect(r.necesidadSinConfirmar?.necesidad).not.toMatch(/cap\.|_/);
+    expect(r.necesidadesSinConfirmar?.[0].necesidad).not.toMatch(/cap\.|_/);
   });
 });

@@ -66,9 +66,27 @@ describe("la necesidad sin confirmar en el token", () => {
   };
 
   it("va y vuelve intacta", () => {
-    const necesidad = "planificar el trabajo del equipo: proyectos, tareas o fechas";
-    const token = generarTokenResultado({ ...base, sinConfirmar: { necesidad } });
-    expect(leerTokenResultado(token)?.sinConfirmar).toEqual({ necesidad });
+    const causas = [
+      { causa: "capacidad_sin_evidencia" as const, necesidad: "planificar el trabajo del equipo" },
+    ];
+    const token = generarTokenResultado({ ...base, sinConfirmar: { causas } });
+    expect(leerTokenResultado(token)?.sinConfirmar).toEqual({ causas });
+  });
+
+  /**
+   * Las dos causas pueden coincidir. La interfaz enseña la primera, pero la
+   * segunda tiene que sobrevivir al viaje: si se pierde al guardar el enlace,
+   * se pierde para siempre, y es otro problema con otro arreglo.
+   */
+  it("con las dos causas, las dos vuelven y en el mismo orden", () => {
+    const causas = [
+      { causa: "capacidad_sin_evidencia" as const, necesidad: "llevar tus clientes" },
+      { causa: "opcion_sin_candidatas" as const, necesidad: "poder llamar desde el propio CRM" },
+    ];
+    const leido = leerTokenResultado(generarTokenResultado({ ...base, sinConfirmar: { causas } }));
+    expect(leido?.sinConfirmar?.causas).toEqual(causas);
+    expect(leido?.sinConfirmar?.causas[0].causa).toBe("capacidad_sin_evidencia");
+    expect(leido?.sinConfirmar?.causas).toHaveLength(2);
   });
 
   it("cuando no la hay, no aparece", () => {
@@ -95,7 +113,10 @@ describe("la necesidad sin confirmar en el token", () => {
    * cambiar un byte de verdad.
    */
   it("y sigue firmado: tocar el aviso invalida el enlace", () => {
-    const token = generarTokenResultado({ ...base, sinConfirmar: { necesidad: "redactar textos" } });
+    const token = generarTokenResultado({
+      ...base,
+      sinConfirmar: { causas: [{ causa: "capacidad_sin_evidencia", necesidad: "redactar textos" }] },
+    });
     const [datos, firma] = token.split(".");
     const alterado = datos.slice(0, -1) + (datos.at(-1) === "A" ? "B" : "A");
     expect(alterado).not.toBe(datos);

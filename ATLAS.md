@@ -3593,6 +3593,82 @@ nada—, pero significa que **los lotes 2 y 3 no son reconvertibles mientras el
 conversor no lleve la regla**. Es deuda previa a cualquier reconversión futura,
 no un bloqueo de F3.
 
+
+## F3: el motor ya lee lo que F2 verificó (2026-09-10)
+
+Desde `94b3542`, en la rama `claude/f3-bloques-1-2`. **Sin fusionar.**
+
+El motor recomendaba sin preguntarse si la herramienta hace lo que la persona
+pide. Ahora se lo pregunta: se queda con las que lo han **demostrado**, antes de
+puntuar nada.
+
+**Cómo entra, sin que el motor sepa de F2.** El motor recibe un objeto con dos
+métodos —`filaDe` y `loDemuestra`— y no importa nada de `data/verificacion`. Lo
+construye la ruta de API, que es el **único** lector de la verificación en toda
+la aplicación. Sin ese objeto, el motor se comporta exactamente como antes.
+
+**Dos estados, no tres.** «Verificado» y «no nos consta». No existe «no lo
+hace» porque **F2 no obtuvo ni una ausencia demostrada en 1.544
+comprobaciones**. Se conserva si el «no consta» viene de una comprobación que
+no quedó clara (885) o de un par que nunca se preguntó (7.508 de los 9.052
+posibles): pesan igual para decidir, y cambian qué haría falta para resolverlo.
+**El plan nunca decide**: una capacidad verificada con el plan sin demostrar
+sigue siendo elegible, y su nombre no se escribe.
+
+**Siete filas congeladas**, aprobadas por la propietaria. Gestión de proyectos
+—planificación, tareas **o** Gantt— y los seis subtipos de asistentes de IA.
+El Gantt se añadió al ver la simulación: monday.com quedaba fuera con
+`gantt_and_dependencies`, `kanban_boards` y `team_workload_planning`
+verificadas, porque la fila preguntaba por dos nombres que a ella no le
+preguntaron así. **La fila medía la evidencia, no el producto.**
+
+**CRM y las plataformas todo en uno siguen pendientes**, escritas como tales y
+con una prueba que impide que se cuelen como resueltas. Las cuatro opciones de
+CRM no tienen equivalente en el vocabulario y las suites necesitan una pregunta
+que el cuestionario todavía no hace. Una regla inventada haría más daño que
+ninguna.
+
+**Cuando no se puede confirmar, se dice.** Si nadie demuestra lo que la ruta
+pide, o si ninguna ficha encaja con la opción elegida, Molnip no ensancha en
+silencio: enseña las mejores de la categoría en un bloque aparte, titulado
+«sin esa necesidad comprobada», con un aviso que nombra la necesidad y deja
+escrito que **podrían hacerlo igualmente**. La franja de confianza desaparece
+en ese estado. Las dos causas se enseñan igual y se guardan distintas —falta
+evidencia, o falta catálogo— porque son dos problemas con dos arreglos, y si
+coinciden se conservan las dos, también en el enlace. El aviso viaja en el
+token como campo opcional: **los enlaces guardados antes de F3 siguen
+funcionando**.
+
+**Qué cambia para quien usa Molnip hoy: nada.** Se compararon las 2.160
+combinaciones —15 categorías, 9 subtipos y 5 objetivos, por 120 perfiles— entre
+producción y la rama. **El trío no cambia en ninguna.** Sin la puerta, el
+resultado es idéntico bit a bit. Con ella, en gestión de proyectos la
+puntuación de las supervivientes baja hasta 0,5 puntos, porque varios criterios
+son comparativos y el conjunto contra el que se comparan se ha hecho más
+pequeño; el orden relativo no cambia. F3 no arregla nada que hoy esté roto:
+instala la red antes de que haga falta.
+
+**El aislamiento cambia de promesa**, no desaparece: de «nadie lee la
+verificación» a «la lee un solo sitio, y está escrito quién y por qué».
+
+**Dos guardas estaban peor de lo que parecían.** La de afiliación recorría una
+lista de cuatro archivos escrita a mano, así que un módulo nuevo no entraba
+solo —y el que decide quién compite habría sido justo el único sin vigilar—;
+ahora recorre el directorio. Y la de aislamiento cazaba prosa: señalaba
+`tipos.ts` por explicar en un comentario que el motor NO importa la
+verificación. Ahora mira código, igual que su hermana.
+
+**Una nota de F2, corregida.** La de `beautiful-ai/cap.customer_appointment_reminders`
+decía que la herramienta «no incluye» recordatorios de cita. Ahora dice que la
+evidencia consultada no lo demuestra. Las otras cuatro que el detector señala
+hablan de que no hay una cita literal en la página, que es cierto y no dice
+nada de la herramienta.
+
+**Lo que queda fuera de F3 y sigue pendiente:** las restricciones duras —no hay
+ni un dato verificado de ninguna de las cinco, y el cuestionario no pregunta
+ninguna—, la correspondencia de CRM y de las suites, y la imagen que se ve al
+compartir el enlace, que sigue diciendo «Tu recomendación».
+
 ---
 
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria

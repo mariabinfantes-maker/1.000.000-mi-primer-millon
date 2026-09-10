@@ -176,6 +176,8 @@ export type MotivoSinRecomendacion =
  * problemas con dos arreglos distintos. Fundirlas en un motivo único ahorraría
  * diez líneas y perdería justo el dato que sirve.
  */
+export type CausaSinConfirmar = "capacidad_sin_evidencia" | "opcion_sin_candidatas";
+
 export type NecesidadSinConfirmar = {
   /** «<categoriaId>» o «<categoriaId>/<subtipoId>». */
   ambito: string;
@@ -221,9 +223,15 @@ export type ResultadoRecomendacion = {
    * prohibió. Nunca autoriza a decir que no la tienen — sólo que no lo hemos
    * podido confirmar.
    *
+   * Pueden coincidir las dos causas, y entonces vienen las dos. La primera es
+   * la que manda para el mensaje —sin evidencia de lo que la ruta entera
+   * exige, la opción concreta es lo de menos— pero la segunda NO se tira:
+   * saber que además faltaba catálogo para esa opción es un dato distinto, con
+   * un arreglo distinto, y se pierde para siempre si no se guarda aquí.
+   *
    * Hoy no ocurre en ninguna ruta, y hay pruebas que lo comprueban.
    */
-  necesidadSinConfirmar?: NecesidadSinConfirmar;
+  necesidadesSinConfirmar?: NecesidadSinConfirmar[];
 };
 
 export type ComparativaDeRutas = {
