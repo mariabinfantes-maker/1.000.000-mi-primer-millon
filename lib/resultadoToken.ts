@@ -1,6 +1,7 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 import { deflateRawSync, inflateRawSync } from "node:zlib";
 import type { TipoOrigenDiagnostico } from "@/lib/origenDiagnostico";
+import type { CausaSinConfirmar } from "@/agents/atlas-advisor";
 
 /**
  * Persistencia de resultados sin base de datos: todo el estado necesario
@@ -32,6 +33,25 @@ export type PayloadTokenResultado = {
   origenTipo: TipoOrigenDiagnostico;
   origenId: string;
   items: ItemTokenResultado[];
+  /**
+   * La necesidad que no se pudo confirmar, cuando la hubo. Sin esto, un enlace
+   * abierto mañana enseñaría las mismas herramientas como si respondieran a lo
+   * que la persona pidió, y el aviso se habría perdido por el camino.
+   *
+   * Es OPCIONAL dentro de `v: 1` a propósito: los enlaces generados antes de
+   * F3 no lo llevan y siguen siendo válidos. Subir la versión los habría
+   * invalidado todos para añadir un campo que la mayoría no necesita.
+   *
+   * Viajan TODAS las causas, no sólo la que se enseña. Pueden fallar las dos a
+   * la vez —falta evidencia de la capacidad Y ninguna ficha encaja con la
+   * opción— y la interfaz enseña la primera, pero perder la segunda al guardar
+   * el enlace sería perderla para siempre: son dos problemas con dos arreglos
+   * distintos. Son dos cadenas cortas por causa; la URL lo aguanta.
+   *
+   * Los identificadores internos (qué capacidades exigía la fila) sí se quedan
+   * en el servidor: se deducen del ámbito y engordarían cada enlace.
+   */
+  sinConfirmar?: { causas: { causa: CausaSinConfirmar; necesidad: string }[] };
   /** ISO 8601 — momento en que Atlas calculó esta recomendación, para mostrarlo al recuperar un enlace antiguo. */
   generadoEn: string;
 };

@@ -9,6 +9,8 @@ import type {
   DetalleCriterio,
   HerramientaEvaluada,
   MotivoSinRecomendacion,
+  NecesidadSinConfirmar,
+  PuertaDeEvidencia,
   ResultadoRecomendacion,
   RespuestasUsuario,
 } from "./tipos";
@@ -188,9 +190,63 @@ export function evaluarHerramienta(
  * respuesta mala a ninguna era la decisión equivocada: la respuesta mala
  * se paga en confianza, y la confianza es el producto.
  */
-type Seleccion = { candidatas: Herramienta[]; sinRecomendacion?: MotivoSinRecomendacion };
+type Seleccion = {
+  candidatas: Herramienta[];
+  sinRecomendacion?: MotivoSinRecomendacion;
+  necesidadesSinConfirmar?: NecesidadSinConfirmar[];
+};
 
-function seleccionarCandidatas(herramientas: Herramienta[], respuestas: RespuestasUsuario): Seleccion {
+/**
+ * La puerta de evidencia: se queda con las que han DEMOSTRADO lo que su ruta
+ * pide — F3, bloque 5.
+ *
+ * Corre antes de puntuar, no después: puntuar primero y descartar luego sería
+ * ordenar herramientas que no sirven. Y sólo actúa donde hay fila congelada;
+ * en CRM y en las plataformas todo en uno no hay ninguna, así que no toca
+ * nada. Eso no es un olvido: son ámbitos pendientes de decidir, y una regla
+ * inventada haría más daño que no tener regla.
+ *
+ * Lo que aparta NO es «no lo hace»: es «no lo ha demostrado». F2 hizo 1.544
+ * comprobaciones y no obtuvo ni una sola ausencia demostrada.
+ *
+ * Si la fila dejara el ámbito sin ninguna candidata, no se aplica y se dice
+ * cuál era: dejar a la persona sin nada, o callarse y enseñarle la categoría
+ * entera como si nada, son las dos formas de equivocarse aquí. Con las filas
+ * de hoy no ocurre en ninguna ruta.
+ */
+function aplicarPuerta(
+  candidatas: Herramienta[],
+  respuestas: RespuestasUsuario,
+  puerta: PuertaDeEvidencia | undefined
+): Seleccion {
+  if (!puerta || !respuestas.categoriaId) return { candidatas };
+  const fila = puerta.filaDe(respuestas.categoriaId, respuestas.subtipoId);
+  if (!fila) return { candidatas };
+
+  const demuestran = candidatas.filter((h) =>
+    fila.exigeAlgunaDe.some((capacidadId) => puerta.loDemuestra(h.id, capacidadId))
+  );
+  if (demuestran.length === 0) {
+    return {
+      candidatas,
+      necesidadesSinConfirmar: [
+        {
+          causa: "capacidad_sin_evidencia",
+          ambito: fila.ambito,
+          necesidad: fila.necesidad,
+          exigeAlgunaDe: fila.exigeAlgunaDe,
+        },
+      ],
+    };
+  }
+  return { candidatas: demuestran };
+}
+
+function seleccionarCandidatas(
+  herramientas: Herramienta[],
+  respuestas: RespuestasUsuario,
+  puerta?: PuertaDeEvidencia
+): Seleccion {
   if (respuestas.categoriaId) {
     const deLaCategoria = herramientas.filter((herramienta) => cubreCategoria(herramienta, respuestas.categoriaId!));
     // Si la persona ha concretado qué tipo de herramienta busca, lo demás
@@ -210,9 +266,53 @@ function seleccionarCandidatas(herramientas: Herramienta[], respuestas: Respuest
     // respuesta no hacía absolutamente nada. Lo detectó la prueba de "ninguna
     // ganadora es promocionada": salía ganando una herramienta que ni
     // siquiera declaraba la capacidad pedida.
+    // La puerta de evidencia va aquí: después de acotar el conjunto comparable
+    // por lo que la persona eligió, y ANTES de la pregunta de diferenciación y
+    // de cualquier puntuación.
+    const trasLaPuerta = aplicarPuerta(base, respuestas, puerta);
+    base = trasLaPuerta.candidatas;
+
     const pregunta = preguntaParaAmbito(respuestas.categoriaId, respuestas.subtipoId);
-    if (!pregunta || !respuestas.necesidadDelSubtipo) return { candidatas: base };
-    return { candidatas: filtrarPorNecesidad(base, pregunta, respuestas.necesidadDelSubtipo).candidatas };
+    if (!pregunta || !respuestas.necesidadDelSubtipo) {
+      return { candidatas: base, necesidadesSinConfirmar: trasLaPuerta.necesidadesSinConfirmar };
+    }
+
+    /**
+     * El aviso de `filtrarPorNecesidad` ya no se tira.
+     *
+     * Cuando ninguna ficha del ámbito encaja con la opción elegida, conserva el
+     * conjunto entero para no dejar a nadie sin nada — y hasta ahora eso
+     * ocurría en silencio: la respuesta de la persona dejaba de aplicarse y
+     * nadie se enteraba. Ahora sale por el mismo sitio que la puerta, con su
+     * propia causa: aquí lo que falta es catálogo, no evidencia.
+     */
+    const filtrada = filtrarPorNecesidad(base, pregunta, respuestas.necesidadDelSubtipo);
+    const opcion = pregunta.opciones.find((o) => o.id === respuestas.necesidadDelSubtipo);
+    const sinCandidatas: NecesidadSinConfirmar | undefined =
+      filtrada.seAplico || !opcion
+        ? undefined
+        : {
+            causa: "opcion_sin_candidatas",
+            ambito: pregunta.ambito,
+            // La etiqueta empieza en mayúscula («Que rellene los datos solo»)
+            // y aquí va dentro de una frase: «Buscabas que rellene los datos
+            // solo». Las necesidades de las filas ya vienen escritas así.
+            necesidad: opcion.etiqueta.charAt(0).toLowerCase() + opcion.etiqueta.slice(1),
+            opcionId: opcion.id,
+          };
+
+    /**
+     * Las dos pueden fallar a la vez, y entonces se conservan las dos. Manda la
+     * de la puerta —sin evidencia de lo que la ruta entera exige, la opción
+     * concreta es lo de menos— pero quedarse sólo con ella perdería para
+     * siempre que además faltaba catálogo para esa opción, que es otro problema
+     * con otro arreglo.
+     */
+    const causas = [...(trasLaPuerta.necesidadesSinConfirmar ?? []), ...(sinCandidatas ? [sinCandidatas] : [])];
+    return {
+      candidatas: filtrada.candidatas,
+      necesidadesSinConfirmar: causas.length ? causas : undefined,
+    };
   }
 
   // Sin categoría elegida, el objetivo es lo ÚNICO que dice qué necesita la
@@ -256,11 +356,11 @@ function seleccionarCandidatas(herramientas: Herramienta[], respuestas: Respuest
 export function recomendarHerramientas(
   respuestas: RespuestasUsuario,
   herramientas: Herramienta[],
-  opciones: { cantidad?: number } = {}
+  opciones: { cantidad?: number; evidencia?: PuertaDeEvidencia } = {}
 ): ResultadoRecomendacion {
   const cantidad = opciones.cantidad ?? CANTIDAD_POR_DEFECTO;
 
-  const seleccion = seleccionarCandidatas(herramientas, respuestas);
+  const seleccion = seleccionarCandidatas(herramientas, respuestas, opciones.evidencia);
   // El motor puede decir que no. Cuando lo dice, se sale aquí: no se puntúa
   // nada, no se reparte nada y no se rellena nada.
   if (seleccion.sinRecomendacion) {
@@ -287,6 +387,9 @@ export function recomendarHerramientas(
     top: repartirEntreSubtipos(evaluadas, cantidad, respuestas),
     todas: evaluadas,
     ...(eligioRuta ? {} : { comparativaDeRutas: compararRutas(evaluadas, respuestas) }),
+    ...(seleccion.necesidadesSinConfirmar?.length
+      ? { necesidadesSinConfirmar: seleccion.necesidadesSinConfirmar }
+      : {}),
   };
 }
 

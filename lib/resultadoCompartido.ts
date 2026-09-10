@@ -1,6 +1,6 @@
 import { getCategoria, getHerramienta, getProblema } from "@/data/repositorio";
 import { tipoProductoDe } from "@/data/taxonomia";
-import type { HerramientaEvaluada } from "@/agents/atlas-advisor";
+import type { CausaSinConfirmar, HerramientaEvaluada } from "@/agents/atlas-advisor";
 import type { OrigenDiagnostico } from "@/lib/origenDiagnostico";
 import { leerTokenResultado, type PayloadTokenResultado } from "@/lib/resultadoToken";
 
@@ -17,6 +17,13 @@ export type ResultadoCompartido = {
   origen: OrigenDiagnostico;
   top: HerramientaEvaluada[];
   generadoEn: string;
+  /**
+   * Presente cuando estas herramientas NO están confirmadas para lo que la
+   * persona pidió. `necesidad` es la que se enseña —la primera causa, que
+   * manda—; `causas` las conserva todas, porque saber que además faltaba
+   * catálogo es un dato distinto que no debe perderse.
+   */
+  sinConfirmar?: { necesidad: string; causas: { causa: CausaSinConfirmar; necesidad: string }[] };
 };
 
 /**
@@ -56,7 +63,19 @@ export function resolverResultadoCompartido(token: string): ResultadoCompartido 
   }
   if (top.length === 0) return null;
 
-  return { origen, top, generadoEn: payload.generadoEn };
+  return {
+    origen,
+    top,
+    generadoEn: payload.generadoEn,
+    ...(payload.sinConfirmar?.causas.length
+      ? {
+          sinConfirmar: {
+            necesidad: payload.sinConfirmar.causas[0].necesidad,
+            causas: payload.sinConfirmar.causas,
+          },
+        }
+      : {}),
+  };
 }
 
 function construirOrigen(payload: PayloadTokenResultado): OrigenDiagnostico | null {

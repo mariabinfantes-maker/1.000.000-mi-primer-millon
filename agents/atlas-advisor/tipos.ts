@@ -124,6 +124,38 @@ export type HerramientaEvaluada = {
 };
 
 /**
+ * Cómo el motor pregunta por la evidencia de F2 — F3, bloque 5.
+ *
+ * Es una FORMA, no un módulo: el motor no importa nada de `data/verificacion`
+ * y sigue sin saber que ese directorio existe. Quien llama le pasa un objeto
+ * con estos dos métodos —hoy lo construye la ruta de API— y las pruebas le
+ * pasan uno de mentira. Sin él, el motor se comporta exactamente como antes
+ * de F3.
+ *
+ * `filaDe` devuelve `undefined` en los ámbitos sin fila congelada: CRM y las
+ * plataformas todo en uno siguen pendientes de decisión, y un ámbito sin fila
+ * no filtra nada. Es a propósito — una regla inventada sería peor que ninguna.
+ */
+export type PuertaDeEvidencia = {
+  filaDe(
+    categoriaId: string,
+    subtipoId?: string
+  ): { ambito: string; necesidad: string; exigeAlgunaDe: string[] } | undefined;
+  /**
+   * `true` SÓLO si F2 lo verificó Y su profundidad no es `no_disponible`. Son
+   * tres estados, y este booleano los reparte en dos: uno pasa y los otros no.
+   *
+   * Un `false` puede significar tres cosas distintas —no consta porque no
+   * quedó claro, no consta porque nunca se preguntó, o hay evidencia de que NO
+   * lo hace— y desde aquí no se distinguen a propósito: al motor sólo le toca
+   * saber quién compite. Quien necesite la diferencia pregunta al puerto.
+   *
+   * Ninguno de los tres autoriza a decir que la herramienta no lo tiene.
+   */
+  loDemuestra(herramientaId: string, capacidadId: string): boolean;
+};
+
+/**
  * Por qué el motor NO recomienda nada.
  *
  * Existe porque antes no existía: cuando no se entendía la necesidad,
@@ -145,6 +177,35 @@ export type MotivoSinRecomendacion =
   /** Sí se entendió el objetivo, pero el catálogo no tiene ninguna herramienta que lo cubra. */
   | { tipo: "sin_cobertura"; objetivoIds: string[] };
 
+/**
+ * Por qué no se pudo comprobar lo que la persona pidió.
+ *
+ * Las dos causas se enseñan igual —la persona no tiene por qué saber de dónde
+ * viene— pero se guardan distintas a propósito: después hace falta saber si lo
+ * que faltó fue evidencia de una capacidad o cobertura del catálogo, y son dos
+ * problemas con dos arreglos distintos. Fundirlas en un motivo único ahorraría
+ * diez líneas y perdería justo el dato que sirve.
+ */
+export type CausaSinConfirmar = "capacidad_sin_evidencia" | "opcion_sin_candidatas";
+
+export type NecesidadSinConfirmar = {
+  /** «<categoriaId>» o «<categoriaId>/<subtipoId>». */
+  ambito: string;
+  /** La necesidad en palabras de una persona. Es lo que se enseña. */
+  necesidad: string;
+} & (
+  | {
+      /** Ninguna candidata ha DEMOSTRADO la capacidad que su ruta exige. Falta evidencia, no producto. */
+      causa: "capacidad_sin_evidencia";
+      exigeAlgunaDe: string[];
+    }
+  | {
+      /** Ninguna ficha del ámbito encaja con la opción que eligió. Falta catálogo para esa necesidad. */
+      causa: "opcion_sin_candidatas";
+      opcionId: string;
+    }
+);
+
 export type ResultadoRecomendacion = {
   /** Las 3 mejores herramientas (o menos, si el catálogo filtrado tiene menos de 3). Vacío cuando hay `sinRecomendacion`. */
   top: HerramientaEvaluada[];
@@ -163,6 +224,24 @@ export type ResultadoRecomendacion = {
    * deliberada de resultado. Quien llama debe contarlo, nunca rellenarlo.
    */
   sinRecomendacion?: MotivoSinRecomendacion;
+  /**
+   * Algo que la persona pidió no se pudo comprobar, así que el filtro NO se
+   * aplicó y las candidatas que se devuelven no responden a esa necesidad.
+   *
+   * Quien lo reciba está obligado a contarlo: enseñar estas herramientas como
+   * si respondieran a lo que preguntó es exactamente lo que la propietaria
+   * prohibió. Nunca autoriza a decir que no la tienen — sólo que no lo hemos
+   * podido confirmar.
+   *
+   * Pueden coincidir las dos causas, y entonces vienen las dos. La primera es
+   * la que manda para el mensaje —sin evidencia de lo que la ruta entera
+   * exige, la opción concreta es lo de menos— pero la segunda NO se tira:
+   * saber que además faltaba catálogo para esa opción es un dato distinto, con
+   * un arreglo distinto, y se pierde para siempre si no se guarda aquí.
+   *
+   * Hoy no ocurre en ninguna ruta, y hay pruebas que lo comprueban.
+   */
+  necesidadesSinConfirmar?: NecesidadSinConfirmar[];
 };
 
 export type ComparativaDeRutas = {

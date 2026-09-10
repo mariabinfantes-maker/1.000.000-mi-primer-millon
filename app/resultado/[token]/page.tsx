@@ -25,9 +25,17 @@ export async function generateMetadata({ params }: { params: Promise<{ token: st
   }
 
   const mejor = resultado.top[0].herramienta.nombre;
-  const titulo = `Tu recomendación: ${mejor}`;
-  const descripcion =
-    resultado.top.length > 1
+
+  /**
+   * Cuando no se pudo confirmar lo que la persona pidió, el título NO puede
+   * decir «Tu recomendación»: sería exactamente lo que la pantalla se pasa
+   * explicando que no es. Es lo primero que se ve en la pestaña y lo único que
+   * se lee cuando alguien comparte el enlace.
+   */
+  const titulo = resultado.sinConfirmar ? "Alternativas sin confirmar" : `Tu recomendación: ${mejor}`;
+  const descripcion = resultado.sinConfirmar
+    ? `Molnip no ha podido confirmar esto: ${resultado.sinConfirmar.necesidad}. Estas son las mejores opciones de la categoría, sin esa necesidad comprobada.`
+    : resultado.top.length > 1
       ? `Molnip recomienda ${mejor} y ${resultado.top.length - 1} opción más para tu empresa.`
       : `Molnip recomienda ${mejor} para tu empresa.`;
 
@@ -61,5 +69,12 @@ export default async function ResultadoPage({ params }: { params: Promise<{ toke
     );
   }
 
-  return <PantallaRecomendacion origen={resultado.origen} token={token} top={resultado.top} />;
+  return (
+    <PantallaRecomendacion
+      origen={resultado.origen}
+      token={token}
+      top={resultado.top}
+      sinConfirmar={resultado.sinConfirmar}
+    />
+  );
 }

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getHerramientas, getProblemas } from "@/data/repositorio";
+import { getPuertaDeEvidencia } from "@/data/verificacion/consulta";
 import {
   detectarProblemasPorTexto,
   recomendarHerramientas,
@@ -73,7 +74,16 @@ export async function POST(request: Request) {
     }
   }
 
-  const resultado = recomendarHerramientas(respuestas, getHerramientas());
+  /**
+   * F3: el motor recibe aquí la verificación de F2, y éste es el único sitio
+   * de la aplicación que la lee. Con ella se queda con las herramientas que
+   * han DEMOSTRADO lo que pide la ruta, antes de puntuar nada. En los ámbitos
+   * sin fila congelada —CRM y las plataformas todo en uno, pendientes de
+   * decisión— no aparta a nadie.
+   */
+  const resultado = recomendarHerramientas(respuestas, getHerramientas(), {
+    evidencia: getPuertaDeEvidencia(),
+  });
 
   // El motor puede decidir que no hay nada que recomendar — porque no se
   // entendió la necesidad, o porque el catálogo no la cubre. En ese caso no
@@ -99,6 +109,18 @@ export async function POST(request: Request) {
       advertencia: evaluada.tieneAdvertencia,
     })),
     generadoEn: new Date().toISOString(),
+    /**
+     * Si no se pudo confirmar lo que la persona pidió, viaja con el enlace —y
+     * viajan TODAS las causas, no sólo la que se enseña: la interfaz prioriza
+     * la falta de evidencia, pero la otra no puede perderse por el camino.
+     */
+    ...(resultado.necesidadesSinConfirmar?.length
+      ? {
+          sinConfirmar: {
+            causas: resultado.necesidadesSinConfirmar.map((n) => ({ causa: n.causa, necesidad: n.necesidad })),
+          },
+        }
+      : {}),
   });
 
   // `totalEvaluadas` es real (el tamaño del catálogo filtrado que puntuó el

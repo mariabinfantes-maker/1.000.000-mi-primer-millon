@@ -21,13 +21,16 @@ export { CRITERIOS } from "./criterios";
 export { detectarProblemasPorTexto } from "./deteccionProblema";
 export { compararTodoEnUnoVsEspecializada } from "./todoEnUnoVsEspecializada";
 export type {
+  CausaSinConfirmar,
   Criterio,
   DetalleCriterio,
   HerramientaEvaluada,
   MotivoSinRecomendacion,
+  NecesidadSinConfirmar,
   NivelPrioridad,
   NivelTecnicoEquipo,
   PresupuestoMensual,
+  PuertaDeEvidencia,
   ResultadoRecomendacion,
   RespuestasUsuario,
 } from "./tipos";
