@@ -17,6 +17,8 @@ export type ResultadoCompartido = {
   origen: OrigenDiagnostico;
   top: HerramientaEvaluada[];
   generadoEn: string;
+  /** Presente cuando estas herramientas NO están confirmadas para lo que la persona pidió. */
+  sinConfirmar?: { necesidad: string };
 };
 
 /**
@@ -56,7 +58,12 @@ export function resolverResultadoCompartido(token: string): ResultadoCompartido 
   }
   if (top.length === 0) return null;
 
-  return { origen, top, generadoEn: payload.generadoEn };
+  return {
+    origen,
+    top,
+    generadoEn: payload.generadoEn,
+    ...(payload.sinConfirmar ? { sinConfirmar: payload.sinConfirmar } : {}),
+  };
 }
 
 function construirOrigen(payload: PayloadTokenResultado): OrigenDiagnostico | null {

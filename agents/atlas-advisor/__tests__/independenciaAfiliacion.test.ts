@@ -92,7 +92,7 @@ describe("la afiliación no puede intervenir en la puntuación", () => {
   it("la puerta de evidencia no puede ver la afiliación: sólo recibe dos identificadores", () => {
     const vistos: string[][] = [];
     const puerta = {
-      filaDe: () => ({ ambito: "crm", exigeAlgunaDe: ["cap.x"] }),
+      filaDe: () => ({ ambito: "crm", necesidad: "llevar tus clientes", exigeAlgunaDe: ["cap.x"] }),
       loDemuestra: (herramientaId: string, capacidadId: string) => {
         vistos.push([herramientaId, capacidadId]);
         return true;

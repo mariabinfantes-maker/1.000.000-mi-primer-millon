@@ -9,6 +9,7 @@ import type {
   DetalleCriterio,
   HerramientaEvaluada,
   MotivoSinRecomendacion,
+  NecesidadSinConfirmar,
   PuertaDeEvidencia,
   ResultadoRecomendacion,
   RespuestasUsuario,
@@ -192,7 +193,7 @@ export function evaluarHerramienta(
 type Seleccion = {
   candidatas: Herramienta[];
   sinRecomendacion?: MotivoSinRecomendacion;
-  evidenciaInsuficiente?: { ambito: string; exigeAlgunaDe: string[] };
+  necesidadSinConfirmar?: NecesidadSinConfirmar;
 };
 
 /**
@@ -226,7 +227,15 @@ function aplicarPuerta(
     fila.exigeAlgunaDe.some((capacidadId) => puerta.loDemuestra(h.id, capacidadId))
   );
   if (demuestran.length === 0) {
-    return { candidatas, evidenciaInsuficiente: { ambito: fila.ambito, exigeAlgunaDe: fila.exigeAlgunaDe } };
+    return {
+      candidatas,
+      necesidadSinConfirmar: {
+        causa: "capacidad_sin_evidencia",
+        ambito: fila.ambito,
+        necesidad: fila.necesidad,
+        exigeAlgunaDe: fila.exigeAlgunaDe,
+      },
+    };
   }
   return { candidatas: demuestran };
 }
@@ -263,11 +272,38 @@ function seleccionarCandidatas(
 
     const pregunta = preguntaParaAmbito(respuestas.categoriaId, respuestas.subtipoId);
     if (!pregunta || !respuestas.necesidadDelSubtipo) {
-      return { candidatas: base, evidenciaInsuficiente: trasLaPuerta.evidenciaInsuficiente };
+      return { candidatas: base, necesidadSinConfirmar: trasLaPuerta.necesidadSinConfirmar };
     }
+
+    /**
+     * El aviso de `filtrarPorNecesidad` ya no se tira.
+     *
+     * Cuando ninguna ficha del ámbito encaja con la opción elegida, conserva el
+     * conjunto entero para no dejar a nadie sin nada — y hasta ahora eso
+     * ocurría en silencio: la respuesta de la persona dejaba de aplicarse y
+     * nadie se enteraba. Ahora sale por el mismo sitio que la puerta, con su
+     * propia causa: aquí lo que falta es catálogo, no evidencia.
+     */
+    const filtrada = filtrarPorNecesidad(base, pregunta, respuestas.necesidadDelSubtipo);
+    const opcion = pregunta.opciones.find((o) => o.id === respuestas.necesidadDelSubtipo);
+    const sinCandidatas: NecesidadSinConfirmar | undefined =
+      filtrada.seAplico || !opcion
+        ? undefined
+        : {
+            causa: "opcion_sin_candidatas",
+            ambito: pregunta.ambito,
+            // La etiqueta empieza en mayúscula («Que rellene los datos solo»)
+            // y aquí va dentro de una frase: «Buscabas que rellene los datos
+            // solo». Las necesidades de las filas ya vienen escritas así.
+            necesidad: opcion.etiqueta.charAt(0).toLowerCase() + opcion.etiqueta.slice(1),
+            opcionId: opcion.id,
+          };
+
     return {
-      candidatas: filtrarPorNecesidad(base, pregunta, respuestas.necesidadDelSubtipo).candidatas,
-      evidenciaInsuficiente: trasLaPuerta.evidenciaInsuficiente,
+      candidatas: filtrada.candidatas,
+      // La puerta corre antes, así que si las dos fallaran manda la suya: sin
+      // evidencia de lo que la ruta exige, la opción concreta es lo de menos.
+      necesidadSinConfirmar: trasLaPuerta.necesidadSinConfirmar ?? sinCandidatas,
     };
   }
 
@@ -343,7 +379,7 @@ export function recomendarHerramientas(
     top: repartirEntreSubtipos(evaluadas, cantidad, respuestas),
     todas: evaluadas,
     ...(eligioRuta ? {} : { comparativaDeRutas: compararRutas(evaluadas, respuestas) }),
-    ...(seleccion.evidenciaInsuficiente ? { evidenciaInsuficiente: seleccion.evidenciaInsuficiente } : {}),
+    ...(seleccion.necesidadSinConfirmar ? { necesidadSinConfirmar: seleccion.necesidadSinConfirmar } : {}),
   };
 }
 

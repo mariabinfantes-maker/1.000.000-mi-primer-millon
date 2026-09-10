@@ -20,7 +20,7 @@ const proyectos = (id: string) =>
 function puertaDe(demuestran: string[], exigeAlgunaDe = ["cap.x"]): PuertaDeEvidencia {
   return {
     filaDe: (categoriaId) =>
-      categoriaId === "gestion-proyectos" ? { ambito: "gestion-proyectos", exigeAlgunaDe } : undefined,
+      categoriaId === "gestion-proyectos" ? { ambito: "gestion-proyectos", necesidad: "planificar el trabajo", exigeAlgunaDe } : undefined,
     loDemuestra: (herramientaId, capacidadId) =>
       demuestran.includes(herramientaId) && exigeAlgunaDe.includes(capacidadId),
   };
@@ -42,7 +42,7 @@ describe("sólo una capacidad verificada supera la puerta", () => {
 
   it("basta con demostrar UNA de las capacidades que pide la fila", () => {
     const puerta: PuertaDeEvidencia = {
-      filaDe: () => ({ ambito: "gestion-proyectos", exigeAlgunaDe: ["cap.a", "cap.b"] }),
+      filaDe: () => ({ ambito: "gestion-proyectos", necesidad: "planificar el trabajo", exigeAlgunaDe: ["cap.a", "cap.b"] }),
       loDemuestra: (h, c) => (h === "demuestra" ? c === "cap.b" : false),
     };
     expect(ids(recomendarHerramientas(perfil, catalogo, { evidencia: puerta }))).toEqual(["demuestra"]);
@@ -97,12 +97,17 @@ describe("«no consta» no se lee como ausencia", () => {
     const catalogo = [proyectos("a"), proyectos("b")];
     const r = recomendarHerramientas(perfil, catalogo, { evidencia: puertaDe([]) });
     expect(ids(r)).toEqual(["a", "b"]);
-    expect(r.evidenciaInsuficiente).toEqual({ ambito: "gestion-proyectos", exigeAlgunaDe: ["cap.x"] });
+    expect(r.necesidadSinConfirmar).toEqual({
+      causa: "capacidad_sin_evidencia",
+      ambito: "gestion-proyectos",
+      necesidad: "planificar el trabajo",
+      exigeAlgunaDe: ["cap.x"],
+    });
   });
 
   it("y cuando sí se aplica, no se marca nada", () => {
     const r = recomendarHerramientas(perfil, [proyectos("a")], { evidencia: puertaDe(["a"]) });
-    expect(r.evidenciaInsuficiente).toBeUndefined();
+    expect(r.necesidadSinConfirmar).toBeUndefined();
   });
 });
 
@@ -167,7 +172,7 @@ describe("los ámbitos pendientes no pasan por ninguna regla", () => {
     const catalogo = [crm("a"), crm("b")];
     const r = recomendarHerramientas({ categoriaId: "crm" }, catalogo, { evidencia: puertaDe([]) });
     expect(ids(r)).toEqual(["a", "b"]);
-    expect(r.evidenciaInsuficiente).toBeUndefined();
+    expect(r.necesidadSinConfirmar).toBeUndefined();
   });
 
   it("y tampoco se aplica cuando la persona no eligió categoría", () => {
@@ -176,5 +181,102 @@ describe("los ámbitos pendientes no pasan por ninguna regla", () => {
       evidencia: puertaDe([]),
     });
     expect(ids(r)).toEqual(["a", "b"]);
+  });
+});
+
+/**
+ * Las dos causas se enseñan igual y se guardan distintas — F3, bloque 6.
+ *
+ * Fundirlas en un motivo único ahorraría código y perdería el dato que sirve:
+ * que falte evidencia de una capacidad se arregla comprobándola, y que ninguna
+ * ficha encaje con una opción se arregla ampliando el catálogo. Son dos
+ * problemas y dos arreglos.
+ */
+describe("por qué no se pudo confirmar", () => {
+  it("falta de evidencia: la capacidad que la ruta exige, sin demostrar por nadie", () => {
+    const r = recomendarHerramientas(perfil, [proyectos("a")], { evidencia: puertaDe([]) });
+    expect(r.necesidadSinConfirmar).toEqual({
+      causa: "capacidad_sin_evidencia",
+      ambito: "gestion-proyectos",
+      necesidad: "planificar el trabajo",
+      exigeAlgunaDe: ["cap.x"],
+    });
+  });
+
+  /**
+   * El aviso que `filtrarPorNecesidad` lleva devolviendo desde siempre y que el
+   * motor tiraba a la basura: la respuesta de la persona dejaba de aplicarse
+   * sin que nadie se enterara.
+   */
+  it("falta de catálogo: ninguna ficha encaja con la opción elegida", () => {
+    const sinNadaQueEncaje = construirHerramienta({
+      id: "crm-pelado",
+      nombre: "CRM Pelado",
+      categoriaId: "crm",
+      tipoProducto: "especializada",
+      funcionesPrincipales: ["Nada que se parezca a lo que pide la opción"],
+      problemasQueResuelve: [],
+      casosDeUso: [],
+      ventajas: [],
+    });
+    const r = recomendarHerramientas(
+      { categoriaId: "crm", necesidadDelSubtipo: "llamar-desde-dentro" },
+      [sinNadaQueEncaje]
+    );
+    expect(r.necesidadSinConfirmar).toEqual({
+      causa: "opcion_sin_candidatas",
+      ambito: "crm",
+      necesidad: "poder llamar y mandar SMS desde el propio CRM",
+      opcionId: "llamar-desde-dentro",
+    });
+    // Y no se queda sin nada que enseñar: conserva el conjunto.
+    expect(r.todas.map((e) => e.herramienta.id)).toEqual(["crm-pelado"]);
+  });
+
+  it("cuando la opción sí encaja, no se marca nada", () => {
+    const encaja = construirHerramienta({
+      id: "crm-con-telefono",
+      nombre: "CRM con teléfono",
+      categoriaId: "crm",
+      tipoProducto: "especializada",
+      funcionesPrincipales: ["Telefonía VoIP integrada"],
+    });
+    const r = recomendarHerramientas(
+      { categoriaId: "crm", necesidadDelSubtipo: "llamar-desde-dentro" },
+      [encaja]
+    );
+    expect(r.necesidadSinConfirmar).toBeUndefined();
+  });
+
+  /**
+   * La puerta corre antes. Si las dos fallaran, manda la suya: sin evidencia de
+   * lo que la ruta entera exige, la opción concreta es lo de menos.
+   */
+  it("si fallan las dos, manda la falta de evidencia", () => {
+    const puerta = {
+      filaDe: () => ({ ambito: "crm", necesidad: "llevar tus clientes", exigeAlgunaDe: ["cap.x"] }),
+      loDemuestra: () => false,
+    };
+    const pelado = construirHerramienta({
+      id: "pelado",
+      nombre: "Pelado",
+      categoriaId: "crm",
+      tipoProducto: "especializada",
+      funcionesPrincipales: ["Nada"],
+      problemasQueResuelve: [],
+      casosDeUso: [],
+      ventajas: [],
+    });
+    const r = recomendarHerramientas(
+      { categoriaId: "crm", necesidadDelSubtipo: "llamar-desde-dentro" },
+      [pelado],
+      { evidencia: puerta }
+    );
+    expect(r.necesidadSinConfirmar?.causa).toBe("capacidad_sin_evidencia");
+  });
+
+  it("la necesidad se enseña en palabras de una persona, sin identificadores", () => {
+    const r = recomendarHerramientas(perfil, [proyectos("a")], { evidencia: puertaDe([]) });
+    expect(r.necesidadSinConfirmar?.necesidad).not.toMatch(/cap\.|_/);
   });
 });

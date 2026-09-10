@@ -137,7 +137,10 @@ export type HerramientaEvaluada = {
  * no filtra nada. Es a propósito — una regla inventada sería peor que ninguna.
  */
 export type PuertaDeEvidencia = {
-  filaDe(categoriaId: string, subtipoId?: string): { ambito: string; exigeAlgunaDe: string[] } | undefined;
+  filaDe(
+    categoriaId: string,
+    subtipoId?: string
+  ): { ambito: string; necesidad: string; exigeAlgunaDe: string[] } | undefined;
   /** `true` SÓLO si F2 lo verificó. Un «no consta» devuelve `false` y no significa que no lo haga. */
   loDemuestra(herramientaId: string, capacidadId: string): boolean;
 };
@@ -164,6 +167,33 @@ export type MotivoSinRecomendacion =
   /** Sí se entendió el objetivo, pero el catálogo no tiene ninguna herramienta que lo cubra. */
   | { tipo: "sin_cobertura"; objetivoIds: string[] };
 
+/**
+ * Por qué no se pudo comprobar lo que la persona pidió.
+ *
+ * Las dos causas se enseñan igual —la persona no tiene por qué saber de dónde
+ * viene— pero se guardan distintas a propósito: después hace falta saber si lo
+ * que faltó fue evidencia de una capacidad o cobertura del catálogo, y son dos
+ * problemas con dos arreglos distintos. Fundirlas en un motivo único ahorraría
+ * diez líneas y perdería justo el dato que sirve.
+ */
+export type NecesidadSinConfirmar = {
+  /** «<categoriaId>» o «<categoriaId>/<subtipoId>». */
+  ambito: string;
+  /** La necesidad en palabras de una persona. Es lo que se enseña. */
+  necesidad: string;
+} & (
+  | {
+      /** Ninguna candidata ha DEMOSTRADO la capacidad que su ruta exige. Falta evidencia, no producto. */
+      causa: "capacidad_sin_evidencia";
+      exigeAlgunaDe: string[];
+    }
+  | {
+      /** Ninguna ficha del ámbito encaja con la opción que eligió. Falta catálogo para esa necesidad. */
+      causa: "opcion_sin_candidatas";
+      opcionId: string;
+    }
+);
+
 export type ResultadoRecomendacion = {
   /** Las 3 mejores herramientas (o menos, si el catálogo filtrado tiene menos de 3). Vacío cuando hay `sinRecomendacion`. */
   top: HerramientaEvaluada[];
@@ -183,16 +213,17 @@ export type ResultadoRecomendacion = {
    */
   sinRecomendacion?: MotivoSinRecomendacion;
   /**
-   * La puerta de evidencia habría dejado el ámbito sin ninguna candidata, así
-   * que NO se aplicó y aquí queda dicho cuál era y qué pedía.
+   * Algo que la persona pidió no se pudo comprobar, así que el filtro NO se
+   * aplicó y las candidatas que se devuelven no responden a esa necesidad.
    *
-   * Con las siete filas congeladas hoy esto no ocurre en ninguna ruta, y hay
-   * una prueba que lo comprueba. Existe porque el día que ocurra, quedarse
-   * callado sería justo lo que la propietaria prohibió: ensanchar en silencio.
-   * Convertirlo en algo que la persona lee es el bloque 6, y necesita su texto
-   * en la interfaz; hasta entonces esto es un dato, no un mensaje.
+   * Quien lo reciba está obligado a contarlo: enseñar estas herramientas como
+   * si respondieran a lo que preguntó es exactamente lo que la propietaria
+   * prohibió. Nunca autoriza a decir que no la tienen — sólo que no lo hemos
+   * podido confirmar.
+   *
+   * Hoy no ocurre en ninguna ruta, y hay pruebas que lo comprueban.
    */
-  evidenciaInsuficiente?: { ambito: string; exigeAlgunaDe: string[] };
+  necesidadSinConfirmar?: NecesidadSinConfirmar;
 };
 
 export type ComparativaDeRutas = {

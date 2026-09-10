@@ -109,6 +109,14 @@ export async function POST(request: Request) {
       advertencia: evaluada.tieneAdvertencia,
     })),
     generadoEn: new Date().toISOString(),
+    /**
+     * Si no se pudo confirmar lo que la persona pidió, viaja con el enlace.
+     * Sólo el texto: la causa interna —falta de evidencia o falta de
+     * catálogo— se queda aquí, porque no cambia lo que se enseña.
+     */
+    ...(resultado.necesidadSinConfirmar
+      ? { sinConfirmar: { necesidad: resultado.necesidadSinConfirmar.necesidad } }
+      : {}),
   });
 
   // `totalEvaluadas` es real (el tamaño del catálogo filtrado que puntuó el

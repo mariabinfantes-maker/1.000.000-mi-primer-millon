@@ -11,6 +11,7 @@ import BotonCompartir from "@/components/ui/BotonCompartir";
 import AvatarAgente from "@/components/ui/AvatarAgente";
 import FormularioSuscripcion from "@/components/ui/FormularioSuscripcion";
 import TarjetaHerramientaRecomendada from "@/components/TarjetaHerramientaRecomendada";
+import AvisoSinVerificar from "@/components/AvisoSinVerificar";
 
 const RECOMENDADOR = getAgente("recomendador");
 
@@ -32,10 +33,17 @@ export default function PantallaRecomendacion({
   origen,
   token,
   top,
+  sinConfirmar,
 }: {
   origen: OrigenDiagnostico;
   token: string;
   top: HerramientaEvaluada[];
+  /**
+   * Cuando viene, estas herramientas NO responden a lo que la persona pidió:
+   * son lo mejor de la categoría según todo lo demás. La pantalla cambia de
+   * tono entero, no añade una nota al pie.
+   */
+  sinConfirmar?: { necesidad: string };
 }) {
   // Atlas Revenue: de qué recorrido salió esta recomendación. Es la fuente
   // esencial del piloto — sin ella, los clics desde la pantalla final se
@@ -47,6 +55,8 @@ export default function PantallaRecomendacion({
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
       <EnlaceAtras href={`${origen.rutaBase}/cuestionario`}>Repetir el cuestionario</EnlaceAtras>
+
+      {sinConfirmar && <AvisoSinVerificar necesidad={sinConfirmar.necesidad} />}
 
       <div className="relative">
         <div className="absolute -top-6 -right-4 hidden h-40 w-40 overflow-hidden rounded-3xl shadow-premium-lg lg:block">
@@ -69,28 +79,53 @@ export default function PantallaRecomendacion({
               </div>
             </div>
             <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              {vistas.length === 1 ? "Tu mejor opción" : `Tus ${vistas.length} mejores opciones`}
+              {sinConfirmar
+                ? `Lo mejor de ${origen.titulo}, sin esa necesidad comprobada`
+                : vistas.length === 1
+                  ? "Tu mejor opción"
+                  : `Tus ${vistas.length} mejores opciones`}
             </h1>
             <p className="mt-3 max-w-2xl leading-relaxed text-slate-600">
-              {vistas.length === 1
-                ? "Hemos cruzado tus respuestas con nuestra base de herramientas. Esta es la que mejor encaja contigo — todavía no tenemos otra opción investigada en esta categoría con la que compararla."
-                : "Hemos cruzado tus respuestas con nuestra base de herramientas. El orden refleja qué tan bien encaja cada una con tu situación concreta — no siempre coincide con la Puntuación Molnip de cada tarjeta, que valora la herramienta en general, para cualquier empresa."}
+              {sinConfirmar ? (
+                <>
+                  Estas son las mejores opciones según todo lo demás que me has contado: tamaño de tu
+                  empresa, presupuesto y facilidad de uso. Tómalas como un punto de partida, no como
+                  respuesta a lo que preguntabas. Antes de contratar ninguna, comprueba tú mismo en su
+                  página si hace{" "}
+                  <strong className="font-semibold text-slate-900">{sinConfirmar.necesidad}</strong>.
+                </>
+              ) : vistas.length === 1 ? (
+                "Hemos cruzado tus respuestas con nuestra base de herramientas. Esta es la que mejor encaja contigo — todavía no tenemos otra opción investigada en esta categoría con la que compararla."
+              ) : (
+                "Hemos cruzado tus respuestas con nuestra base de herramientas. El orden refleja qué tan bien encaja cada una con tu situación concreta — no siempre coincide con la Puntuación Molnip de cada tarjeta, que valora la herramienta en general, para cualquier empresa."
+              )}
             </p>
 
-            <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
-              {PUNTOS_DE_CONFIANZA.map(({ icono: Icono, texto }) => (
-                <span key={texto} className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500">
-                  <Icono className="h-3.5 w-3.5 shrink-0 text-brand-500" aria-hidden="true" />
-                  {texto}
-                </span>
-              ))}
-            </div>
+            {/*
+              La franja de confianza desaparece cuando no hemos podido
+              confirmar lo que se pedía: tranquilizar justo ahí sería lo
+              contrario de lo que la pantalla está diciendo.
+            */}
+            {!sinConfirmar && (
+              <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+                {PUNTOS_DE_CONFIANZA.map(({ icono: Icono, texto }) => (
+                  <span key={texto} className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500">
+                    <Icono className="h-3.5 w-3.5 shrink-0 text-brand-500" aria-hidden="true" />
+                    {texto}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="flex shrink-0 gap-3">
             <BotonCompartir
-              titulo="Mi recomendación de Molnip"
-              texto={`Molnip me recomienda ${vistas[0]?.nombre ?? "estas herramientas"} para mi empresa.`}
+              titulo={sinConfirmar ? "Alternativas sin confirmar de Molnip" : "Mi recomendación de Molnip"}
+              texto={
+                sinConfirmar
+                  ? `Molnip no ha podido confirmar ${sinConfirmar.necesidad}. Estas son las mejores opciones de la categoría, sin esa necesidad comprobada.`
+                  : `Molnip me recomienda ${vistas[0]?.nombre ?? "estas herramientas"} para mi empresa.`
+              }
             />
             {vistas.length >= 2 && (
               <Boton href={`/resultado/${token}/comparar`} variante="secundario">

@@ -102,7 +102,9 @@ export function getPuertaDeEvidencia() {
   return {
     filaDe(categoriaId: string, subtipoId?: string) {
       const fila = filaDeRuta(categoriaId, subtipoId);
-      return fila ? { ambito: fila.ambito, exigeAlgunaDe: fila.exigeAlgunaDe } : undefined;
+      return fila
+        ? { ambito: fila.ambito, necesidad: fila.necesidad, exigeAlgunaDe: fila.exigeAlgunaDe }
+        : undefined;
     },
     loDemuestra(herramientaId: string, capacidadId: string): boolean {
       return puerto.estadoDe(herramientaId, capacidadId).estado === "verificado";

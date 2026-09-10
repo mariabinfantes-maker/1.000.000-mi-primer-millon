@@ -44,7 +44,7 @@ describe("el motor con la verificación puesta", () => {
         { evidencia }
       );
       expect(r.todas.length, fila.ambito).toBeGreaterThan(0);
-      expect(r.evidenciaInsuficiente, fila.ambito).toBeUndefined();
+      expect(r.necesidadSinConfirmar, fila.ambito).toBeUndefined();
     }
   });
 

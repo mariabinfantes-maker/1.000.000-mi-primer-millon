@@ -32,6 +32,19 @@ export type PayloadTokenResultado = {
   origenTipo: TipoOrigenDiagnostico;
   origenId: string;
   items: ItemTokenResultado[];
+  /**
+   * La necesidad que no se pudo confirmar, cuando la hubo. Sin esto, un enlace
+   * abierto mañana enseñaría las mismas herramientas como si respondieran a lo
+   * que la persona pidió, y el aviso se habría perdido por el camino.
+   *
+   * Es OPCIONAL dentro de `v: 1` a propósito: los enlaces generados antes de
+   * F3 no lo llevan y siguen siendo válidos. Subir la versión los habría
+   * invalidado todos para añadir un campo que la mayoría no necesita.
+   *
+   * Sólo viaja el texto que se enseña. La causa interna se queda en el
+   * servidor: no cambia lo que la persona ve y engordaría cada URL.
+   */
+  sinConfirmar?: { necesidad: string };
   /** ISO 8601 — momento en que Atlas calculó esta recomendación, para mostrarlo al recuperar un enlace antiguo. */
   generadoEn: string;
 };

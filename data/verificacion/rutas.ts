@@ -27,6 +27,15 @@ export type FilaDeRuta = {
   subtipoId?: string;
   /** Basta con demostrar UNA. Nunca se exigen todas. */
   exigeAlgunaDe: string[];
+  /**
+   * La necesidad, en palabras de una persona. Es lo que se le enseña cuando no
+   * hemos podido confirmarla, así que no puede llevar identificadores ni
+   * jerga: las etiquetas del vocabulario están escritas para dentro, y una
+   * fila pide hasta cuatro capacidades que concatenadas leerían fatal.
+   *
+   * Texto editorial aprobado por la propietaria el 2026-09-10.
+   */
+  necesidad: string;
   /** Por qué ésta y no otra. Se lee en la revisión del diff, que es donde se decide de verdad. */
   motivo: string;
 };
@@ -43,6 +52,7 @@ export const RUTAS_CONGELADAS: FilaDeRuta[] = [
     ambito: "gestion-proyectos",
     categoriaId: "gestion-proyectos",
     exigeAlgunaDe: ["cap.project_planning", "cap.task_management", "cap.gantt_and_dependencies"],
+    necesidad: "planificar el trabajo del equipo: proyectos, tareas o fechas",
     motivo:
       "Quien busca gestión de proyectos quiere planificar o repartir trabajo. Exigir planificación Y tareas a la vez dejaría 12 de 29 candidatas; con una basta y quedan 17. El Gantt se añadió el 2026-09-10 al verlo en la simulación: monday.com tiene «gantt_and_dependencies», «kanban_boards» y «team_workload_planning» verificadas y quedaba fuera por dos nombres que no le preguntaron así. La fila medía la evidencia, no el producto. Ninguna de las once que siguen fuera ha demostrado que no planifique: no lo sabemos.",
   },
@@ -56,6 +66,7 @@ export const RUTAS_CONGELADAS: FilaDeRuta[] = [
       "cap.workspace_wide_search",
       "cap.document_version_history",
     ],
+    necesidad: "tener un sitio donde vive la información del equipo",
     motivo:
       "«Espacio de trabajo» no es una capacidad, es un sitio donde conviven varias. Los tres candidatos demostraron una distinta cada uno, así que exigir una concreta dejaría fuera a dos por falta de evidencia, no de producto.",
   },
@@ -64,6 +75,7 @@ export const RUTAS_CONGELADAS: FilaDeRuta[] = [
     categoriaId: "asistentes-ia",
     subtipoId: "escritura",
     exigeAlgunaDe: ["cap.text_generation"],
+    necesidad: "redactar textos",
     motivo: "Es lo que se le pide a un asistente de escritura. Hoy la demuestran los tres candidatos.",
   },
   {
@@ -71,6 +83,7 @@ export const RUTAS_CONGELADAS: FilaDeRuta[] = [
     categoriaId: "asistentes-ia",
     subtipoId: "reuniones-transcripcion",
     exigeAlgunaDe: ["cap.audio_transcription"],
+    necesidad: "transcribir lo que se dice en las reuniones",
     motivo: "Sin transcribir no hay nada que resumir después. Hoy la demuestran los tres candidatos.",
   },
   {
@@ -78,6 +91,7 @@ export const RUTAS_CONGELADAS: FilaDeRuta[] = [
     categoriaId: "asistentes-ia",
     subtipoId: "agenda-planificacion",
     exigeAlgunaDe: ["cap.personal_calendar_planning"],
+    necesidad: "organizar tu día en el calendario",
     motivo: "Es la función del subtipo: colocar el trabajo en el calendario. Hoy la demuestran los tres candidatos.",
   },
   {
@@ -85,6 +99,7 @@ export const RUTAS_CONGELADAS: FilaDeRuta[] = [
     categoriaId: "asistentes-ia",
     subtipoId: "presentaciones",
     exigeAlgunaDe: ["cap.presentation_building"],
+    necesidad: "montar presentaciones",
     motivo: "Es la función del subtipo. Hoy la demuestran los tres candidatos.",
   },
   {
@@ -92,6 +107,7 @@ export const RUTAS_CONGELADAS: FilaDeRuta[] = [
     categoriaId: "asistentes-ia",
     subtipoId: "video",
     exigeAlgunaDe: ["cap.ai_video_generation"],
+    necesidad: "crear vídeos con inteligencia artificial",
     motivo:
       "Es lo que distingue a este subtipo de la edición de vídeo corriente. Hoy la demuestran los tres candidatos; exigir «cap.video_editing» dejaría uno.",
   },
