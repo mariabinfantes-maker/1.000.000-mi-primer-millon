@@ -21,10 +21,18 @@ describe("construirPromptPrechequeo", () => {
     expect(prompt).not.toContain('"commission"');
     expect(prompt).not.toContain('"cookieDuration"');
   });
+
+  it("exige cita literal para afirmar una ausencia, y dice expresamente que no encontrarlo no basta", () => {
+    const prompt = construirPromptPrechequeo("HubSpot");
+
+    expect(prompt).toContain('"citaAusencia"');
+    expect(prompt).toContain('"fuenteAusencia"');
+    expect(prompt).toContain("No basta con que no hayas encontrado el programa");
+  });
 });
 
 describe("prechequearAfiliados", () => {
-  it("acepta cuando hay programa activo y confidenceLevel no es low", async () => {
+  it('"confirmada" cuando hay programa activo y confidenceLevel no es low', async () => {
     const proveedor = proveedorFalso(() => ({
       hasAffiliateProgram: true,
       affiliateStatus: "active",
@@ -34,25 +42,61 @@ describe("prechequearAfiliados", () => {
 
     const resultado = await prechequearAfiliados("HubSpot", proveedor);
 
-    expect(resultado.tieneProgramaFiable).toBe(true);
-    if (resultado.tieneProgramaFiable) {
+    expect(resultado.ok).toBe(true);
+    if (resultado.ok) {
+      expect(resultado.estado).toBe("confirmada");
       expect(resultado.datosAfiliados.hasAffiliateProgram).toBe(true);
     }
     expect(proveedor.generarJson).toHaveBeenCalledWith(expect.stringContaining("HubSpot"));
   });
 
-  it("descarta cuando no tiene programa de afiliados", async () => {
+  it('"hasAffiliateProgram: false" SIN cita es "no_consta", nunca una ausencia demostrada', async () => {
     const proveedor = proveedorFalso(() => ({ hasAffiliateProgram: false, affiliateStatus: "not_available" }));
 
     const resultado = await prechequearAfiliados("HerramientaSinAfiliados", proveedor);
 
-    expect(resultado.tieneProgramaFiable).toBe(false);
-    if (!resultado.tieneProgramaFiable) {
-      expect(resultado.motivo).toContain("prechequeo");
+    expect(resultado.ok).toBe(true);
+    if (resultado.ok) {
+      expect(resultado.estado).toBe("no_consta");
+      expect(resultado.motivo).toContain("no consta");
+      expect(resultado.pruebaDeAusencia).toBeUndefined();
     }
   });
 
-  it("descarta cuando el programa existe pero confidenceLevel es low", async () => {
+  it('"ausencia_demostrada" solo con cita literal y fuente oficial', async () => {
+    const proveedor = proveedorFalso(() => ({
+      hasAffiliateProgram: false,
+      affiliateStatus: "not_available",
+      citaAusencia: "We do not offer an affiliate or referral program.",
+      fuenteAusencia: "https://ejemplo.test/faq",
+    }));
+
+    const resultado = await prechequearAfiliados("SinPrograma", proveedor);
+
+    expect(resultado.ok).toBe(true);
+    if (resultado.ok) {
+      expect(resultado.estado).toBe("ausencia_demostrada");
+      expect(resultado.pruebaDeAusencia).toEqual({
+        cita: "We do not offer an affiliate or referral program.",
+        fuente: "https://ejemplo.test/faq",
+      });
+    }
+  });
+
+  it("una cita sin fuente no es prueba: se queda en no_consta", async () => {
+    const proveedor = proveedorFalso(() => ({
+      hasAffiliateProgram: false,
+      citaAusencia: "No tenemos programa de afiliados.",
+      fuenteAusencia: "   ",
+    }));
+
+    const resultado = await prechequearAfiliados("SinFuente", proveedor);
+
+    expect(resultado.ok).toBe(true);
+    if (resultado.ok) expect(resultado.estado).toBe("no_consta");
+  });
+
+  it('un programa hallado con confidenceLevel "low" es "no_consta", no una ausencia', async () => {
     const proveedor = proveedorFalso(() => ({
       hasAffiliateProgram: true,
       affiliateStatus: "active",
@@ -61,35 +105,36 @@ describe("prechequearAfiliados", () => {
 
     const resultado = await prechequearAfiliados("HubSpot", proveedor);
 
-    expect(resultado.tieneProgramaFiable).toBe(false);
+    expect(resultado.ok).toBe(true);
+    if (resultado.ok) expect(resultado.estado).toBe("no_consta");
   });
 
-  it("acepta cuando no se declara confidenceLevel (no se penaliza por ausencia, igual que la regla de agente.ts)", async () => {
+  it("no se penaliza la ausencia de confidenceLevel", async () => {
     const proveedor = proveedorFalso(() => ({ hasAffiliateProgram: true, affiliateStatus: "active" }));
 
     const resultado = await prechequearAfiliados("HubSpot", proveedor);
 
-    expect(resultado.tieneProgramaFiable).toBe(true);
+    expect(resultado.ok).toBe(true);
+    if (resultado.ok) expect(resultado.estado).toBe("confirmada");
   });
 
-  it("no lanza si el proveedor falla: lo trata como no fiable", async () => {
+  it("un fallo del proveedor NO es un estado de afiliación: es un fallo", async () => {
     const proveedor = proveedorFalso(() => {
       throw new Error("La API no está disponible.");
     });
 
     const resultado = await prechequearAfiliados("HubSpot", proveedor);
 
-    expect(resultado.tieneProgramaFiable).toBe(false);
-    if (!resultado.tieneProgramaFiable) {
-      expect(resultado.motivo).toContain("La API no está disponible.");
-    }
+    expect(resultado.ok).toBe(false);
+    if (!resultado.ok) expect(resultado.error).toContain("La API no está disponible.");
   });
 
-  it("no lanza si la respuesta no es un objeto JSON utilizable", async () => {
+  it("una respuesta ilegible deja el estado en no_consta, no en ausencia", async () => {
     const proveedor = proveedorFalso(() => "esto no es un objeto");
 
     const resultado = await prechequearAfiliados("HubSpot", proveedor);
 
-    expect(resultado.tieneProgramaFiable).toBe(false);
+    expect(resultado.ok).toBe(true);
+    if (resultado.ok) expect(resultado.estado).toBe("no_consta");
   });
 });

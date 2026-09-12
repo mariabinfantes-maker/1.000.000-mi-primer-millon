@@ -1,4 +1,4 @@
-import type { AffiliateData } from "@/data/esquemaInterno";
+import { decidirEstadoAfiliacion } from "./estadoAfiliacion";
 import { construirPromptInvestigacion } from "./prompt";
 import type { ProveedorIA } from "@/agents/compartido/proveedorIA";
 import type { ResultadoInvestigacion, SolicitudInvestigacion } from "./tipos";
@@ -36,28 +36,24 @@ export async function investigarHerramienta(
 
   const propuesta = validarPropuesta(crudo, solicitud);
 
-  // Regla de negocio obligatoria de Atlas: el modelo de negocio se basa en
-  // la monetización por afiliación, así que una herramienta sin programa
-  // de afiliados activo y fiable no se incorpora a la base de datos, por
-  // buena que sea el resto de la investigación. Se comprueba aquí, antes
-  // de devolver la ficha como aceptada, sin cambiar el resto del flujo: si
-  // la herramienta sí cumple, se sigue devolviendo exactamente como antes.
-  if (!tieneProgramaDeAfiliadosFiable(propuesta.datosAfiliados)) {
-    return {
-      ok: false,
-      error:
-        `Descartada "${solicitud.nombreHerramienta}": no dispone de un programa de afiliados activo y fiable, ` +
-        "requisito obligatorio para incorporarla a la base de datos de Atlas.",
-    };
-  }
-
-  return { ok: true, propuesta };
-}
-
-/** "Activo" (hasAffiliateProgram) y "fiable" (la propia investigación no lo marca como confidenceLevel: "low"). Lee de AffiliateData (data/esquemaInterno.ts), nunca de la ficha pública. */
-function tieneProgramaDeAfiliadosFiable(datosAfiliados: Partial<AffiliateData>): boolean {
-  if (datosAfiliados.hasAffiliateProgram !== true) {
-    return false;
-  }
-  return datosAfiliados.confidenceLevel !== "low";
+  // La afiliación ya no descarta aquí.
+  //
+  // Hasta ahora esta función devolvía `ok: false` cuando no había programa
+  // activo y fiable, y con ello se tiraba una investigación entera ya
+  // pagada. La política aprobada de «Herramientas sin afiliación» dice lo
+  // contrario: una herramienta sin programa se presenta a la propietaria,
+  // no se cae sola. Así que el estado se anota y la propuesta se devuelve
+  // igual; quien decide si entra al catálogo es `promover.ts`, y sólo con
+  // una decisión humana por escrito.
+  //
+  // `lote.ts` normalmente ni llega aquí en esos casos: el prechequeo para
+  // antes. Esto cubre `cli.ts`, que investiga una sola herramienta y se
+  // salta el prechequeo.
+  //
+  // El estado va aparte, NO en `propuesta.advertencias`: una advertencia
+  // hace fallar `evaluarCriteriosDeCalidad`, y eso levantaría un segundo
+  // bloqueo que la excepción autorizada de `promover.ts` no podría abrir.
+  // Son dos cosas distintas —la calidad de la investigación y la situación
+  // de la afiliación— y mezclarlas dejaría la excepción inservible.
+  return { ok: true, propuesta, estadoAfiliacion: decidirEstadoAfiliacion(propuesta.datosAfiliados) };
 }

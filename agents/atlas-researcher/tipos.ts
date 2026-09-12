@@ -1,5 +1,6 @@
 import type { Herramienta, NivelConfianza } from "@/data/esquema";
 import type { AffiliateData } from "@/data/esquemaInterno";
+import type { EstadoAfiliacion } from "./estadoAfiliacion";
 
 /** Re-exportado para que quien importe desde el agente no necesite saber que este tipo vive en data/esquema.ts. */
 export type { NivelConfianza };
@@ -53,5 +54,6 @@ export type HerramientaPropuesta = {
 };
 
 export type ResultadoInvestigacion =
-  | { ok: true; propuesta: HerramientaPropuesta }
+  /** `estadoAfiliacion` nunca bloquea por sí solo: se informa para que la propietaria decida en `promover.ts`. */
+  | { ok: true; propuesta: HerramientaPropuesta; estadoAfiliacion: EstadoAfiliacion }
   | { ok: false; error: string };
