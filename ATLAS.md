@@ -196,6 +196,10 @@ esta política, ese descarte debería pasar a ser una **derivación a la
 propietaria**, no un rechazo. No se toca todavía: queda anotado como trabajo
 por autorizar, y esta política es documental hasta entonces.
 
+> **Resuelto el 2026-09-12**, ver «El Researcher deja de descartar por
+> afiliación» al final de este documento. La política deja de ser sólo
+> documental: el código ya deriva en vez de rechazar.
+
 ## Objetivo del MVP
 
 En menos de 60 segundos un usuario debe poder:
@@ -778,9 +782,14 @@ cumple **todo** lo siguiente:
 Cualquier otro caso — afiliación "pendiente de verificar", aviso de
 Curator sin autorización previa, gate de calidad que falla por poco, o
 cualquier duda editorial — se sigue presentando al CEO para su aprobación
-explícita antes de tocar el catálogo real. Las descartadas automáticamente
-por el prechequeo de afiliados (sin programa fiable) no se presentan como
-candidatas, solo se reportan de forma transparente.
+explícita antes de tocar el catálogo real.
+
+> **Corregido el 2026-09-12.** Esta sección decía que las descartadas por el
+> prechequeo de afiliados «no se presentan como candidatas, solo se reportan
+> de forma transparente». Eso contradecía la política de «Herramientas sin
+> afiliación» igual que la hacía el código, y no estaba anotado en ningún
+> pendiente. Ya no hay descarte por afiliación: el prechequeo las deja en
+> `pendiente_de_decision` y **sí se presentan a la propietaria**.
 
 ### Atlas Revenue: recuperado como agente 11 de la arquitectura
 
@@ -3191,10 +3200,10 @@ ningún sprint. Ninguna urge; todas se olvidan si no están escritas.
 - **Cinco fichas sin `analisisAtlas`:** bitrix24, gohighlevel, hubspot, odoo y
   zoho-one. Son las mismas cinco sin facilidad de implementación.
 - **Los seis registros de afiliación en Neon** siguen sin crear.
-- **`tieneProgramaDeAfiliadosFiable()` sigue descartando** automáticamente las
+- ~~**`tieneProgramaDeAfiliadosFiable()` sigue descartando** automáticamente las
   herramientas sin programa de afiliación, y eso **contradice la política de
-  catálogo aprobada**. Está declarado como no implementado en AGENTS.md, pero la
-  contradicción sigue viva en el código.
+  catálogo aprobada**.~~ **Hecho el 2026-09-12**: ya no descarta. Ver «El
+  Researcher deja de descartar por afiliación».
 - **La clave de Gemini que quedó visible el 2026-09-07 hay que borrarla** en AI
   Studio. Era una clave de pruebas y **no está configurada en Vercel** (lo
   confirmó la propietaria), así que borrarla no rompe nada ni exige
@@ -3862,6 +3871,79 @@ F4 está terminada cuando, todo a la vez:
 13. `ATLAS.md` documentado y autorización expresa para fusionar.
 
 ---
+
+## El Researcher deja de descartar por afiliación (2026-09-12)
+
+Preparando la etapa 3 de F4 apareció que **el código contradecía la política
+de catálogo aprobada**. La política de «Herramientas sin afiliación» dice que
+una herramienta sin programa **se presenta a la propietaria**; el código la
+descartaba sola. La contradicción ya estaba anotada, pero no su tamaño: **no
+era un punto, eran tres**, más una frase de este mismo documento que la
+consagraba.
+
+`agente.ts` devolvía `ok: false` y tiraba una investigación entera ya pagada.
+`promover.ts` volvía a bloquear. Y `prechequeoAfiliados.ts` ni siquiera
+llegaba a investigar: `lote.ts` marcaba `descartado_prechequeo` y ahí moría.
+La función de cuatro líneas estaba copiada tres veces.
+
+**El defecto de fondo era el mismo de F2:** la condición `hasAffiliateProgram
+!== true` metía en el mismo saco el `false` demostrado y el `undefined` de una
+investigación que no encontró nada. De las quince candidatas de F4, **siete
+habrían caído por «no tener programa» cuando lo único cierto es que no se
+encontró**.
+
+### Tres estados, y una exigencia de prueba
+
+`estadoAfiliacion.ts` replica el patrón de `EstadoDeEvidencia` de F3 —el
+patrón, no el módulo: importar `data/verificacion` desde aquí habría hecho
+fallar su guarda de aislamiento, y esa guarda vale más que veinte líneas
+ahorradas—:
+
+- `confirmada` — programa activo y la investigación no se declara poco fiable.
+- `ausencia_demostrada` — **exige una cita literal de una página oficial** que
+  diga expresamente que no lo ofrecen. `hasAffiliateProgram: false` por sí
+  solo **no basta**: sin cita es `no_consta`.
+- `no_consta` — todo lo demás.
+
+**Ninguno de los tres descarta.** Los dos últimos dejan la candidata en
+`pendiente_de_decision`, con motivos separados, y **no disparan la
+investigación completa**: gastarla sería decidir por la propietaria que
+merece la pena seguir. El ahorro del prechequeo se conserva entero.
+
+Un fallo del proveedor ya no se confunde con una respuesta: devuelve `ok:
+false` y se reintenta. Antes acababa en descarte, que es lo contrario de lo
+que se sabe en ese momento.
+
+### Lo que sigue bloqueando
+
+La afiliación **sigue siendo la vía habitual y sigue bloqueando la promoción
+por defecto**. Lo que deja de ser es incondicional: la excepción de la
+política —cubre un hueco, o demuestra ventaja material— la abre la propietaria
+con `--admitir-sin-afiliacion` y una justificación escrita que queda en el
+historial, mismo patrón que la anulación del aviso de duplicado. La decisión
+editorial aprobada sigue delante de todo.
+
+El estado de afiliación **no se escribe en `advertencias`**: cualquier
+advertencia hace fallar `evaluarCriteriosDeCalidad`, y eso habría levantado un
+segundo bloqueo que la excepción no podría abrir, dejándola inservible. Son
+dos cosas distintas y se mantienen separadas.
+
+`npm run investigar-pendiente` cierra el ciclo: lista lo que espera y, con una
+decisión «aprobado» registrada, lanza la investigación completa. Sin ese
+comando, «esperar autorización» no tendría forma de terminar.
+
+### Compatibilidad, comprobada antes de tocar nada
+
+`descartado_prechequeo` **no estaba persistido en ningún sitio**: sólo vivía
+en el código. `cli-lote.ts` no escribe a disco y no hay checkpoints. El único
+artefacto guardado, `historial-aprobaciones.json` (46 registros), usa
+`estadoAfiliacion: "confirmada" | "pendiente_de_verificar"`, que este cambio
+no toca. **No hizo falta migrar nada.**
+
+**Nada de esto altera ninguna recomendación.** Es entrada al catálogo, no
+salida al usuario: `independenciaAfiliacion.test.ts` sigue pasando sin
+tocarlo.
+
 
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 

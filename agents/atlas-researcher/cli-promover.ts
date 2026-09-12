@@ -12,6 +12,12 @@ import { promoverBorrador } from "./promover";
  * cuando es un falso positivo (mismo proveedor, productos distintos) —
  * exige `--justificacion`, que queda registrada tal cual en el historial
  * de aprobaciones. Nunca anula ninguna otra comprobación.
+ *
+ * `--admitir-sin-afiliacion` abre la excepción de la política de
+ * «Herramientas sin afiliación»: cubre un hueco o demuestra ventaja
+ * material. Exige `--motivo-sin-afiliacion`, que también queda en el
+ * historial. Tampoco anula ninguna otra comprobación: la decisión
+ * editorial aprobada sigue siendo obligatoria.
  */
 
 function leerFlag(args: string[], nombre: string): string | undefined {
@@ -24,7 +30,10 @@ async function main() {
   const args = process.argv.slice(2);
   const id = args[0]?.trim();
   if (!id || id.startsWith("--")) {
-    console.error('Uso: npm run promover-borrador -- id-de-la-herramienta [--ignorar-duplicado --justificacion "..."]');
+    console.error(
+      "Uso: npm run promover-borrador -- id-de-la-herramienta " +
+        '[--ignorar-duplicado --justificacion "..."] [--admitir-sin-afiliacion --motivo-sin-afiliacion "..."]'
+    );
     process.exitCode = 1;
     return;
   }
@@ -32,7 +41,15 @@ async function main() {
   const ignorarAvisosDuplicado = args.includes("--ignorar-duplicado");
   const justificacionAnulacion = leerFlag(args, "justificacion");
 
-  const resultado = await promoverBorrador(id, { ignorarAvisosDuplicado, justificacionAnulacion });
+  const admitirSinAfiliacion = args.includes("--admitir-sin-afiliacion");
+  const justificacionSinAfiliacion = leerFlag(args, "motivo-sin-afiliacion");
+
+  const resultado = await promoverBorrador(id, {
+    ignorarAvisosDuplicado,
+    justificacionAnulacion,
+    admitirSinAfiliacion,
+    justificacionSinAfiliacion,
+  });
 
   if (!resultado.ok) {
     console.error(`✗ No se ha podido promover "${id}":`);

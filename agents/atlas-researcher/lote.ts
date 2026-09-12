@@ -1,6 +1,8 @@
 import { investigarHerramienta } from "./agente";
 import { escribirBorrador, type BorradorEscrito } from "./borrador";
 import { generarId, idYaExiste } from "./id";
+import type { EstadoAfiliacion, PruebaDeAusencia } from "./estadoAfiliacion";
+import { registrarPendiente } from "./pendientes";
 import { prechequearAfiliados } from "./prechequeoAfiliados";
 import type { ProveedorIA } from "@/agents/compartido/proveedorIA";
 import type { SolicitudInvestigacion } from "./tipos";
@@ -19,8 +21,22 @@ export type CandidatoLote = SolicitudInvestigacion;
 
 export type ResultadoCandidatoLote =
   | { estado: "duplicado"; nombreHerramienta: string; id: string }
-  | { estado: "descartado_prechequeo"; nombreHerramienta: string; id: string; motivo: string }
-  | { estado: "descartado_investigacion"; nombreHerramienta: string; id: string; motivo: string }
+  /**
+   * Ni aceptada ni descartada: esperando a la propietaria.
+   *
+   * Sustituye a `descartado_prechequeo`, que caía sola y contradecía la
+   * política de «Herramientas sin afiliación». `afiliacion` distingue por
+   * qué está aquí — una ausencia demostrada y un "no consta" no son lo
+   * mismo y no deben leerse igual.
+   */
+  | {
+      estado: "pendiente_de_decision";
+      nombreHerramienta: string;
+      id: string;
+      afiliacion: Exclude<EstadoAfiliacion, "confirmada">;
+      motivo: string;
+      pruebaDeAusencia?: PruebaDeAusencia;
+    }
   | { estado: "fallido"; nombreHerramienta: string; id: string; error: string }
   | { estado: "aceptado"; nombreHerramienta: string; id: string; borrador: BorradorEscrito };
 
@@ -30,7 +46,8 @@ export type ResumenLote = {
     total: number;
     aceptados: number;
     duplicados: number;
-    descartados: number;
+    /** Esperando decisión de la propietaria sobre su afiliación. No son descartes. */
+    pendientes: number;
     fallidos: number;
   };
 };
@@ -232,9 +249,7 @@ export async function ejecutarLote(
       total: resultadosFinales.length,
       aceptados: resultadosFinales.filter((r) => r.estado === "aceptado").length,
       duplicados: resultadosFinales.filter((r) => r.estado === "duplicado").length,
-      descartados: resultadosFinales.filter(
-        (r) => r.estado === "descartado_prechequeo" || r.estado === "descartado_investigacion"
-      ).length,
+      pendientes: resultadosFinales.filter((r) => r.estado === "pendiente_de_decision").length,
       fallidos: resultadosFinales.filter((r) => r.estado === "fallido").length,
     },
   };
@@ -254,24 +269,54 @@ async function procesarCandidato(
 ): Promise<ResultadoCandidatoLote> {
   const { reintentos, esperaBaseMs, margenEsperaCuotaMs, esperaCuotaPorDefectoMs } = opciones;
 
+  // Un fallo del proveedor es transitorio y se reintenta; un estado de
+  // afiliación —cualquiera de los tres— es una respuesta, no un fallo.
+  // Antes esto se distinguía olfateando el texto del motivo; ahora lo dice
+  // el tipo.
   const prechequeo = await conReintentos(() => prechequearAfiliados(candidato.nombreHerramienta, proveedor), {
-    esFalloTransitorio: (r) => !r.tieneProgramaFiable && !r.motivo.includes("no supera el prechequeo"),
-    obtenerMensajeDeFallo: (r) => (r.tieneProgramaFiable ? "" : r.motivo),
+    esFalloTransitorio: (r) => !r.ok,
+    obtenerMensajeDeFallo: (r) => (r.ok ? "" : r.error),
     reintentos,
     esperaBaseMs,
     margenEsperaCuotaMs,
     esperaCuotaPorDefectoMs,
   });
 
-  if (!prechequeo.tieneProgramaFiable) {
-    if (prechequeo.motivo.includes("no supera el prechequeo")) {
-      return { estado: "descartado_prechequeo", nombreHerramienta: candidato.nombreHerramienta, id, motivo: prechequeo.motivo };
-    }
-    return { estado: "fallido", nombreHerramienta: candidato.nombreHerramienta, id, error: prechequeo.motivo };
+  if (!prechequeo.ok) {
+    return { estado: "fallido", nombreHerramienta: candidato.nombreHerramienta, id, error: prechequeo.error };
   }
 
+  // Ni "ausencia_demostrada" ni "no_consta" se investigan por su cuenta:
+  // se paran aquí, se guardan, y esperan. Gastar la investigación completa
+  // sería decidir por la propietaria que merece la pena seguir.
+  if (prechequeo.estado !== "confirmada") {
+    const afiliacion = prechequeo.estado;
+    registrarPendiente(
+      {
+        id,
+        nombreHerramienta: candidato.nombreHerramienta,
+        estado: afiliacion,
+        motivo: prechequeo.motivo,
+        datosAfiliados: prechequeo.datosAfiliados,
+        ...(prechequeo.pruebaDeAusencia ? { pruebaDeAusencia: prechequeo.pruebaDeAusencia } : {}),
+      },
+      { dirBase: opciones.dirBaseBorradores }
+    );
+    return {
+      estado: "pendiente_de_decision",
+      nombreHerramienta: candidato.nombreHerramienta,
+      id,
+      afiliacion,
+      motivo: prechequeo.motivo,
+      ...(prechequeo.pruebaDeAusencia ? { pruebaDeAusencia: prechequeo.pruebaDeAusencia } : {}),
+    };
+  }
+
+  // Ya no hay descarte por afiliación en la investigación completa, así
+  // que cualquier `ok: false` es un fallo de verdad y se reintenta. Antes
+  // había que distinguirlo olfateando el prefijo "Descartada" del mensaje.
   const resultado = await conReintentos(() => investigarHerramienta(candidato, proveedor), {
-    esFalloTransitorio: (r) => !r.ok && !r.error.startsWith("Descartada"),
+    esFalloTransitorio: (r) => !r.ok,
     obtenerMensajeDeFallo: (r) => (r.ok ? "" : r.error),
     reintentos,
     esperaBaseMs,
@@ -280,14 +325,6 @@ async function procesarCandidato(
   });
 
   if (!resultado.ok) {
-    if (resultado.error.startsWith("Descartada")) {
-      return {
-        estado: "descartado_investigacion",
-        nombreHerramienta: candidato.nombreHerramienta,
-        id,
-        motivo: resultado.error,
-      };
-    }
     return { estado: "fallido", nombreHerramienta: candidato.nombreHerramienta, id, error: resultado.error };
   }
 

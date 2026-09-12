@@ -69,8 +69,7 @@ function imprimirResumen(resultados: ResultadoCandidatoLote[]) {
   const porEstado = {
     aceptado: resultados.filter((r) => r.estado === "aceptado"),
     duplicado: resultados.filter((r) => r.estado === "duplicado"),
-    descartado_prechequeo: resultados.filter((r) => r.estado === "descartado_prechequeo"),
-    descartado_investigacion: resultados.filter((r) => r.estado === "descartado_investigacion"),
+    pendiente_de_decision: resultados.filter((r) => r.estado === "pendiente_de_decision"),
     fallido: resultados.filter((r) => r.estado === "fallido"),
   };
 
@@ -86,14 +85,15 @@ function imprimirResumen(resultados: ResultadoCandidatoLote[]) {
     for (const r of porEstado.duplicado) console.log(`  - ${r.nombreHerramienta} (${r.id})`);
   }
 
-  const descartadas = [...porEstado.descartado_prechequeo, ...porEstado.descartado_investigacion];
-  if (descartadas.length > 0) {
-    console.log(`\n✗ Descartadas por la regla de afiliados (${descartadas.length}):`);
-    for (const r of descartadas) {
-      if (r.estado === "descartado_prechequeo" || r.estado === "descartado_investigacion") {
-        console.log(`  - ${r.nombreHerramienta}: ${r.motivo}`);
-      }
+  if (porEstado.pendiente_de_decision.length > 0) {
+    console.log(`\n⏸ Pendientes de tu decisión (${porEstado.pendiente_de_decision.length}) — NO descartadas, no se han investigado:`);
+    for (const r of porEstado.pendiente_de_decision) {
+      if (r.estado !== "pendiente_de_decision") continue;
+      console.log(`  - ${r.nombreHerramienta} (${r.id}): ${r.motivo}`);
+      if (r.pruebaDeAusencia) console.log(`      «${r.pruebaDeAusencia.cita}» — ${r.pruebaDeAusencia.fuente}`);
     }
+    console.log("  Para seguir con una: npm run aprobar-borrador -- <id> --decision aprobado --notas \"...\"");
+    console.log("                  y:   npm run investigar-pendiente -- <id>");
   }
 
   if (porEstado.fallido.length > 0) {
@@ -150,7 +150,8 @@ async function main() {
 
   console.log(
     `\nTotales: ${resumen.totales.aceptados} aceptadas, ${resumen.totales.duplicados} duplicadas, ` +
-      `${resumen.totales.descartados} descartadas, ${resumen.totales.fallidos} fallidas (de ${resumen.totales.total}).`
+      `${resumen.totales.pendientes} pendientes de decisión, ${resumen.totales.fallidos} fallidas ` +
+      `(de ${resumen.totales.total}).`
   );
   imprimirResumen(resumen.resultados);
 }

@@ -13,6 +13,7 @@
     "e2e:solo": "playwright test",
     "investigar-herramienta": "tsx agents/atlas-researcher/cli.ts",
     "investigar-lote": "tsx agents/atlas-researcher/cli-lote.ts",
+    "investigar-pendiente": "tsx agents/atlas-researcher/cli-investigar-pendiente.ts",
     "promover-borrador": "tsx agents/atlas-researcher/cli-promover.ts",
     "generar-informe": "tsx agents/atlas-researcher/cli-generar-informe.ts",
     "aprobar-borrador": "tsx agents/atlas-researcher/cli-aprobar-borrador.ts",

@@ -8,6 +8,7 @@ import { getEstrategiaAfiliacion, guardarEstrategiaAfiliacion } from "@/data/rep
 import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
 import { detectarCasiDuplicados } from "@/agents/atlas-curator/duplicados";
 import { leerBorrador } from "./borrador";
+import { decidirEstadoAfiliacion } from "./estadoAfiliacion";
 import { evaluarCriteriosDeCalidad } from "./criteriosCalidad";
 import { leerDecision } from "./decision";
 import { generarIdCuenta } from "@/agents/atlas-affiliate-manager/estrategiaAfiliacion";
@@ -73,11 +74,51 @@ export type OpcionesPromocion = {
   ignorarAvisosDuplicado?: boolean;
   /** Por qué se anula el aviso de duplicado — obligatorio si `ignorarAvisosDuplicado` es `true`; queda en el historial de aprobaciones tal cual. */
   justificacionAnulacion?: string;
+  /**
+   * Promueve una herramienta cuya afiliación no está confirmada — la
+   * excepción que prevé la política de «Herramientas sin afiliación»:
+   * cubre un hueco del catálogo, o demuestra una ventaja material.
+   *
+   * Nunca por defecto. Exige `justificacionSinAfiliacion`, y no sustituye
+   * a la decisión editorial: la puerta de `estaAprobado()` sigue delante.
+   */
+  admitirSinAfiliacion?: boolean;
+  /** Por qué entra sin afiliación confirmada — obligatorio si `admitirSinAfiliacion` es `true`; queda en el historial tal cual. */
+  justificacionSinAfiliacion?: string;
 };
 
-function tieneProgramaDeAfiliadosFiable(datosAfiliados: Partial<AffiliateData>): boolean {
-  if (datosAfiliados.hasAffiliateProgram !== true) return false;
-  return datosAfiliados.confidenceLevel !== "low";
+/**
+ * La afiliación sigue siendo la vía habitual y sigue bloqueando por
+ * defecto — lo que cambia es que deja de ser incondicional. La excepción
+ * la abre la propietaria por escrito, con el mismo patrón que ya usa este
+ * archivo para anular el aviso de duplicado.
+ */
+function bloquearPorAfiliacion(
+  datosAfiliados: Partial<AffiliateData>,
+  opciones: OpcionesPromocion
+): { bloquea: false; anulacion?: string } | { bloquea: true; motivo: string } {
+  const estado = decidirEstadoAfiliacion(datosAfiliados);
+  if (estado === "confirmada") return { bloquea: false };
+
+  if (!opciones.admitirSinAfiliacion) {
+    return {
+      bloquea: true,
+      motivo:
+        `su afiliación está en estado "${estado}" y no se ha autorizado la excepción. ` +
+        "Si cubre un hueco del catálogo o demuestra una ventaja material, vuelve a intentarlo con " +
+        "--admitir-sin-afiliacion y una justificación escrita.",
+    };
+  }
+
+  const justificacion = opciones.justificacionSinAfiliacion?.trim();
+  if (!justificacion) {
+    return {
+      bloquea: true,
+      motivo: 'se ha pedido admitirla sin afiliación confirmada pero sin justificación. La excepción exige escribir por qué.',
+    };
+  }
+
+  return { bloquea: false, anulacion: `Admitida sin afiliación confirmada (estado "${estado}"): ${justificacion}` };
 }
 
 export async function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): Promise<ResultadoPromocion> {
@@ -152,9 +193,11 @@ export async function promoverBorrador(id: string, opciones: OpcionesPromocion =
     errores.push(`"${id}" ya existe en el catálogo real: promoverlo lo sobrescribiría. Revísalo a mano si es intencionado.`);
   }
 
-  if (!tieneProgramaDeAfiliadosFiable(datosAfiliados)) {
-    errores.push(`"${id}" no cumple la regla obligatoria de afiliados (programa activo y fiable) en el borrador.`);
+  const afiliacion = bloquearPorAfiliacion(datosAfiliados, opciones);
+  if (afiliacion.bloquea) {
+    errores.push(`"${id}" no se promueve: ${afiliacion.motivo}`);
   }
+  const anulacionAfiliacionAplicada = afiliacion.bloquea ? undefined : afiliacion.anulacion;
 
   const nombreHerramienta = herramienta?.nombre ?? id;
   const puntuacionMolnip = herramienta ? (calcularPuntuacionAtlas(herramienta)?.puntuacion ?? null) : null;
@@ -168,7 +211,12 @@ export async function promoverBorrador(id: string, opciones: OpcionesPromocion =
         resultado: "rechazada",
         puntuacionMolnip,
         estadoAfiliacion,
-        observaciones: [decision?.notas, anulacionDuplicadoAplicada, `Motivos del bloqueo: ${errores.join(" | ")}`]
+        observaciones: [
+          decision?.notas,
+          anulacionDuplicadoAplicada,
+          anulacionAfiliacionAplicada,
+          `Motivos del bloqueo: ${errores.join(" | ")}`,
+        ]
           .filter(Boolean)
           .join(" "),
         aprobacionCeo,
@@ -225,7 +273,9 @@ export async function promoverBorrador(id: string, opciones: OpcionesPromocion =
       resultado: "aceptada",
       puntuacionMolnip,
       estadoAfiliacion,
-      observaciones: [decision?.notas, anulacionDuplicadoAplicada].filter(Boolean).join(" ") || "Sin observaciones.",
+      observaciones:
+        [decision?.notas, anulacionDuplicadoAplicada, anulacionAfiliacionAplicada].filter(Boolean).join(" ") ||
+        "Sin observaciones.",
       aprobacionCeo,
     },
     { ruta: opciones.rutaHistorial }

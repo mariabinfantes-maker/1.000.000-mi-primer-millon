@@ -62,7 +62,16 @@ describe("ejecutarLote", () => {
     expect(estados.filter((e) => e === "aceptado")).toHaveLength(1);
   });
 
-  it("descarta en el prechequeo sin llegar a investigar (ahorra la llamada completa)", async () => {
+  /**
+   * Antes esto era un descarte. Ahora la candidata se para y espera, que
+   * es lo que dice la política: sin afiliación no se cae sola.
+   *
+   * Lo que NO cambia es el ahorro: sigue habiendo una sola llamada. Que
+   * "no consta" no descarte no significa que se pague la investigación
+   * completa por nuestra cuenta — eso sería decidir por la propietaria que
+   * merece la pena seguir.
+   */
+  it('"no consta" queda pendiente de decisión y NO dispara la investigación completa', async () => {
     const proveedor = proveedorPorHerramienta({
       SinAfiliados: { prechequeo: AFFILIATE_SIN_PROGRAMA },
     });
@@ -70,12 +79,54 @@ describe("ejecutarLote", () => {
 
     const resumen = await ejecutarLote(candidatos, [], proveedor, { dirBaseBorradores: dirTemporal });
 
-    expect(resumen.resultados[0].estado).toBe("descartado_prechequeo");
+    expect(resumen.resultados[0]).toMatchObject({ estado: "pendiente_de_decision", afiliacion: "no_consta" });
     expect(proveedor.generarJson).toHaveBeenCalledTimes(1);
-    expect(resumen.totales.descartados).toBe(1);
+    expect(resumen.totales.pendientes).toBe(1);
+    expect(fs.existsSync(path.join(dirTemporal, "herramientas", "sinafiliados.json"))).toBe(false);
   });
 
-  it("pasa el prechequeo pero la investigación completa descarta por la regla de negocio: no escribe borrador", async () => {
+  it("el pendiente sobrevive al lote: queda escrito en disco con su motivo", async () => {
+    const proveedor = proveedorPorHerramienta({ SinAfiliados: { prechequeo: AFFILIATE_SIN_PROGRAMA } });
+
+    await ejecutarLote([{ nombreHerramienta: "SinAfiliados" }], [], proveedor, { dirBaseBorradores: dirTemporal });
+
+    const ruta = path.join(dirTemporal, "pendientes", "sinafiliados.json");
+    expect(fs.existsSync(ruta)).toBe(true);
+    const pendiente = JSON.parse(fs.readFileSync(ruta, "utf-8"));
+    expect(pendiente).toMatchObject({ id: "sinafiliados", estado: "no_consta" });
+    expect(pendiente.motivo).toContain("no consta");
+  });
+
+  it("una ausencia demostrada también espera, pero se distingue del no consta y guarda su cita", async () => {
+    const proveedor = proveedorPorHerramienta({
+      SinPrograma: {
+        prechequeo: {
+          hasAffiliateProgram: false,
+          affiliateStatus: "not_available",
+          citaAusencia: "We do not offer an affiliate program.",
+          fuenteAusencia: "https://ejemplo.test/faq",
+        },
+      },
+    });
+
+    const resumen = await ejecutarLote([{ nombreHerramienta: "SinPrograma" }], [], proveedor, {
+      dirBaseBorradores: dirTemporal,
+    });
+
+    expect(resumen.resultados[0]).toMatchObject({
+      estado: "pendiente_de_decision",
+      afiliacion: "ausencia_demostrada",
+      pruebaDeAusencia: { cita: "We do not offer an affiliate program.", fuente: "https://ejemplo.test/faq" },
+    });
+  });
+
+  /**
+   * El caso que antes tiraba una investigación entera ya pagada: el
+   * prechequeo dice que hay programa y la investigación completa no lo
+   * confirma. Ahora el borrador se conserva y es `promover.ts` quien
+   * decide, con una autorización escrita.
+   */
+  it("si la investigación completa no confirma la afiliación, el borrador se conserva en vez de tirarse", async () => {
     const proveedor = proveedorPorHerramienta({
       DudosaEnDetalle: {
         prechequeo: AFFILIATE_FIABLE,
@@ -86,8 +137,8 @@ describe("ejecutarLote", () => {
 
     const resumen = await ejecutarLote(candidatos, [], proveedor, { dirBaseBorradores: dirTemporal });
 
-    expect(resumen.resultados[0].estado).toBe("descartado_investigacion");
-    expect(fs.existsSync(path.join(dirTemporal, "herramientas", "dudosaendetalle.json"))).toBe(false);
+    expect(resumen.resultados[0].estado).toBe("aceptado");
+    expect(fs.existsSync(path.join(dirTemporal, "herramientas", "dudosaendetalle.json"))).toBe(true);
   });
 
   it("acepta y escribe el borrador cuando pasa las dos etapas", async () => {
@@ -177,13 +228,13 @@ describe("ejecutarLote", () => {
         prechequeo: AFFILIATE_FIABLE,
         investigacion: { datos: { nombre: "Aceptada" }, affiliateData: AFFILIATE_FIABLE, fuentes: ["https://x.com"] },
       },
-      Descartada: { prechequeo: AFFILIATE_SIN_PROGRAMA },
+      Pendiente: { prechequeo: AFFILIATE_SIN_PROGRAMA },
     });
-    const candidatos: CandidatoLote[] = [{ nombreHerramienta: "Aceptada" }, { nombreHerramienta: "Descartada" }, { nombreHerramienta: "Aceptada" }];
+    const candidatos: CandidatoLote[] = [{ nombreHerramienta: "Aceptada" }, { nombreHerramienta: "Pendiente" }, { nombreHerramienta: "Aceptada" }];
 
     const resumen = await ejecutarLote(candidatos, [], proveedor, { dirBaseBorradores: dirTemporal });
 
-    expect(resumen.totales).toEqual({ total: 3, aceptados: 1, duplicados: 1, descartados: 1, fallidos: 0 });
+    expect(resumen.totales).toEqual({ total: 3, aceptados: 1, duplicados: 1, pendientes: 1, fallidos: 0 });
   });
 
   describe("límite de velocidad (maxPeticionesPorMinuto)", () => {

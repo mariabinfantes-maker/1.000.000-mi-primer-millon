@@ -53,16 +53,26 @@ describe("investigarHerramienta", () => {
     }
   });
 
-  it("si el proveedor devuelve algo que no es JSON válido para el esquema, no lanza (y se descarta, al no poder confirmar programa de afiliados)", async () => {
+  it("si el proveedor devuelve algo que no es JSON válido para el esquema, no lanza: la propuesta sale vacía y la afiliación no consta", async () => {
     const proveedor = proveedorFalso(() => "esto no es un objeto");
 
     const resultado = await investigarHerramienta({ nombreHerramienta: "HubSpot" }, proveedor);
 
-    expect(resultado.ok).toBe(false);
+    expect(resultado.ok).toBe(true);
+    if (resultado.ok) expect(resultado.estadoAfiliacion).toBe("no_consta");
   });
 
-  describe("regla obligatoria del programa de afiliados", () => {
-    it("descarta la herramienta si no tiene programa de afiliados (hasAffiliateProgram: false)", async () => {
+  /**
+   * La afiliación informa, no descarta.
+   *
+   * Estas cuatro pruebas afirmaban lo contrario y se han reescrito, no
+   * borrado: son el registro de qué cambió. La política de «Herramientas
+   * sin afiliación» dice que una herramienta sin programa se presenta a la
+   * propietaria; devolver `ok: false` aquí tiraba la investigación entera
+   * y no la presentaba a nadie.
+   */
+  describe("la afiliación informa, nunca descarta", () => {
+    it("una herramienta sin programa se devuelve igual, con el estado anotado", async () => {
       const proveedor = proveedorFalso(() => ({
         datos: { nombre: "HubSpot" },
         affiliateData: { hasAffiliateProgram: false, affiliateStatus: "not_available" },
@@ -71,14 +81,15 @@ describe("investigarHerramienta", () => {
 
       const resultado = await investigarHerramienta({ nombreHerramienta: "HubSpot" }, proveedor);
 
-      expect(resultado.ok).toBe(false);
-      if (!resultado.ok) {
-        expect(resultado.error).toContain("Descartada");
-        expect(resultado.error).toContain("programa de afiliados");
+      expect(resultado.ok).toBe(true);
+      if (resultado.ok) {
+        // Sin cita oficial no hay ausencia demostrada, sólo falta de constancia.
+        expect(resultado.estadoAfiliacion).toBe("no_consta");
+        expect(resultado.propuesta.datos.nombre).toBe("HubSpot");
       }
     });
 
-    it("descarta la herramienta si no investigó ningún affiliateData en absoluto", async () => {
+    it("no investigar ningún affiliateData deja la afiliación en no consta", async () => {
       const proveedor = proveedorFalso(() => ({
         datos: { nombre: "HubSpot", descripcion: "Un CRM." },
         fuentes: ["https://hubspot.com"],
@@ -86,10 +97,11 @@ describe("investigarHerramienta", () => {
 
       const resultado = await investigarHerramienta({ nombreHerramienta: "HubSpot" }, proveedor);
 
-      expect(resultado.ok).toBe(false);
+      expect(resultado.ok).toBe(true);
+      if (resultado.ok) expect(resultado.estadoAfiliacion).toBe("no_consta");
     });
 
-    it("descarta la herramienta si el programa de afiliados existe pero su confidenceLevel es low", async () => {
+    it('un programa con confidenceLevel "low" tampoco se da por confirmado', async () => {
       const proveedor = proveedorFalso(() => ({
         datos: { nombre: "HubSpot" },
         affiliateData: { ...affiliateDataFiable, confidenceLevel: "low" },
@@ -98,10 +110,32 @@ describe("investigarHerramienta", () => {
 
       const resultado = await investigarHerramienta({ nombreHerramienta: "HubSpot" }, proveedor);
 
-      expect(resultado.ok).toBe(false);
+      expect(resultado.ok).toBe(true);
+      if (resultado.ok) expect(resultado.estadoAfiliacion).toBe("no_consta");
     });
 
-    it("acepta la herramienta cuando el programa de afiliados está disponible y no tiene confidenceLevel low", async () => {
+    /**
+     * `evaluarCriteriosDeCalidad` falla ante cualquier advertencia. Si el
+     * estado de afiliación se colara ahí, levantaría un segundo bloqueo
+     * que la excepción autorizada de `promover.ts` no podría abrir, y la
+     * excepción quedaría inservible. Son dos cosas distintas.
+     */
+    it("el estado de afiliación no se cuela en las advertencias de la investigación", async () => {
+      const proveedor = proveedorFalso(() => ({
+        datos: { nombre: "HubSpot", descripcion: "Un CRM." },
+        affiliateData: { hasAffiliateProgram: false },
+        fuentes: ["https://hubspot.com"],
+      }));
+
+      const resultado = await investigarHerramienta({ nombreHerramienta: "HubSpot" }, proveedor);
+
+      expect(resultado.ok).toBe(true);
+      if (resultado.ok) {
+        expect(resultado.propuesta.advertencias.join(" ")).not.toContain("afiliados");
+      }
+    });
+
+    it('con programa activo y sin confidenceLevel "low", el estado es "confirmada"', async () => {
       const proveedor = proveedorFalso(() => ({
         datos: { nombre: "HubSpot" },
         affiliateData: affiliateDataFiable,
@@ -111,6 +145,7 @@ describe("investigarHerramienta", () => {
       const resultado = await investigarHerramienta({ nombreHerramienta: "HubSpot" }, proveedor);
 
       expect(resultado.ok).toBe(true);
+      if (resultado.ok) expect(resultado.estadoAfiliacion).toBe("confirmada");
     });
 
     it("acepta la herramienta cuando el programa de afiliados no declara confidenceLevel (no se penaliza por ausencia)", async () => {
@@ -128,6 +163,7 @@ describe("investigarHerramienta", () => {
       const resultado = await investigarHerramienta({ nombreHerramienta: "HubSpot" }, proveedor);
 
       expect(resultado.ok).toBe(true);
+      if (resultado.ok) expect(resultado.estadoAfiliacion).toBe("confirmada");
     });
   });
 
