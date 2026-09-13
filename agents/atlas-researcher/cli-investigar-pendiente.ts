@@ -1,6 +1,6 @@
 import { investigarHerramienta } from "./agente";
+import { comprobarAutorizacion } from "./autorizacionAfiliacion";
 import { escribirBorrador } from "./borrador";
-import { leerDecision } from "./decision";
 import { eliminarPendiente, leerPendiente, listarPendientes } from "./pendientes";
 import { crearProveedorGemini } from "@/agents/compartido/proveedores/gemini";
 
@@ -12,27 +12,42 @@ import { crearProveedorGemini } from "@/agents/compartido/proveedores/gemini";
  * de decisión" no tendría forma de terminar: la candidata se guardaría y
  * ahí se quedaría para siempre.
  *
- * La autorización es la misma que ya usa todo el sistema —una decisión
- * "aprobado" registrada con `npm run aprobar-borrador`— y es obligatoria:
- * el sentido de haber parado es que la investigación completa no se gaste
- * hasta que una persona diga que merece la pena.
+ * La autorización es la de `autorizacionAfiliacion.ts`, atada a esta
+ * herramienta y a su estado de afiliación exacto — no la decisión
+ * editorial genérica, que podía venir de meses antes y de otro asunto.
+ * Es obligatoria: el sentido de haber parado es que la investigación
+ * completa no se gaste hasta que una persona lo autorice para esto.
  */
 
 function imprimirListado(): void {
-  const pendientes = listarPendientes();
-  if (pendientes.length === 0) {
+  const { pendientes, corruptos } = listarPendientes();
+
+  if (pendientes.length === 0 && corruptos.length === 0) {
     console.log("No hay ninguna herramienta esperando decisión.");
     return;
   }
 
-  console.log(`${pendientes.length} herramienta(s) esperando tu decisión:\n`);
-  for (const p of pendientes) {
-    console.log(`  ${p.id}  (${p.nombreHerramienta})  [${p.estado}]  ${p.fecha}`);
-    console.log(`    ${p.motivo}`);
-    if (p.pruebaDeAusencia) console.log(`    «${p.pruebaDeAusencia.cita}» — ${p.pruebaDeAusencia.fuente}`);
+  if (pendientes.length > 0) {
+    console.log(`${pendientes.length} herramienta(s) esperando tu decisión:\n`);
+    for (const p of pendientes) {
+      const observaciones = p.observaciones?.length ?? 1;
+      console.log(
+        `  ${p.id}  (${p.nombreHerramienta})  [${p.estado}]  esperando desde ${p.fecha}` +
+          (observaciones > 1 ? `  · ${observaciones} observaciones, última ${p.fechaUltimaObservacion}` : "")
+      );
+      console.log(`    ${p.motivo}`);
+      if (p.pruebaDeAusencia) console.log(`    «${p.pruebaDeAusencia.cita}» — ${p.pruebaDeAusencia.fuente}`);
+    }
+    console.log('\nPara autorizar una: npm run autorizar-afiliacion -- <id> --motivo "..."');
+    console.log("Después:            npm run investigar-pendiente -- <id>");
   }
-  console.log('\nPara autorizar una: npm run aprobar-borrador -- <id> --decision aprobado --notas "..."');
-  console.log("Después:            npm run investigar-pendiente -- <id>");
+
+  // Se reportan aparte y al final: un fichero roto no puede dejar a la
+  // propietaria sin ver el resto de lo que espera.
+  if (corruptos.length > 0) {
+    console.log(`\n⚠ ${corruptos.length} fichero(s) de pendientes no se han podido leer:`);
+    for (const c of corruptos) console.log(`  - ${c.fichero}: ${c.error}`);
+  }
 }
 
 async function main() {
@@ -49,12 +64,9 @@ async function main() {
     return;
   }
 
-  const decision = leerDecision(id);
-  if (decision?.decision !== "aprobado") {
-    console.error(
-      `✗ "${id}" sigue esperando tu decisión: ${pendiente.motivo}\n` +
-        `  Autorízala primero: npm run aprobar-borrador -- ${id} --decision aprobado --notas "..."`
-    );
+  const autorizacion = comprobarAutorizacion(id, pendiente.estado);
+  if (!autorizacion.autorizada) {
+    console.error(`✗ "${id}" sigue esperando tu decisión: ${pendiente.motivo}\n  ${autorizacion.explicacion}`);
     process.exitCode = 1;
     return;
   }

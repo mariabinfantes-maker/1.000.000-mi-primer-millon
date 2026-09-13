@@ -3,6 +3,7 @@ import os from "node:os";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { escribirBorrador } from "../borrador";
+import { registrarAutorizacionAfiliacion } from "../autorizacionAfiliacion";
 import { registrarDecision } from "../decision";
 import { leerHistorialAprobaciones } from "../historialAprobaciones";
 import { promoverBorrador } from "../promover";
@@ -174,45 +175,78 @@ describe.skipIf(!postgresDisponible())("promoverBorrador", () => {
     expect(resultado.ok).toBe(false);
     if (!resultado.ok) {
       expect(resultado.errores.some((e) => e.includes('"no_consta"'))).toBe(true);
-      expect(resultado.errores.some((e) => e.includes("--admitir-sin-afiliacion"))).toBe(true);
+      expect(resultado.errores.some((e) => e.includes("autorizar-afiliacion"))).toBe(true);
     }
   });
 
-  it("admitirla sin afiliación exige justificación escrita: sin ella, sigue bloqueada", async () => {
+  /**
+   * El agujero que encontró la revisión: una decisión editorial antigua,
+   * tomada por otro motivo, desbloqueaba la excepción de afiliación.
+   */
+  it("una decisión editorial aprobada por otro motivo NO desbloquea la excepción de afiliación", async () => {
     const propuestaSinAfiliados: HerramientaPropuesta = {
       ...propuestaValida,
       datosAfiliados: { hasAffiliateProgram: false, affiliateStatus: "not_available" },
     };
-    escribirBorrador("sin-afiliados-sin-motivo", propuestaSinAfiliados, { dirBase: dirBorradores });
-    registrarDecision("sin-afiliados-sin-motivo", "aprobado", "Cubre un hueco.", { dirBase: dirBorradores });
+    escribirBorrador("sin-afiliados-solo-decision", propuestaSinAfiliados, { dirBase: dirBorradores });
+    registrarDecision("sin-afiliados-solo-decision", "aprobado", "La ficha está muy completa.", { dirBase: dirBorradores });
 
-    const resultado = await promoverBorrador("sin-afiliados-sin-motivo", {
+    const resultado = await promoverBorrador("sin-afiliados-solo-decision", {
       dirBaseBorradores: dirBorradores,
       dirDatos,
       poolEstrategia: poolPrueba(),
       rutaHistorial,
-      admitirSinAfiliacion: true,
     });
 
     expect(resultado.ok).toBe(false);
-    if (!resultado.ok) expect(resultado.errores.some((e) => e.includes("sin justificación"))).toBe(true);
+    if (!resultado.ok) expect(resultado.errores.some((e) => e.includes("autorizar-afiliacion"))).toBe(true);
   });
 
-  it("con decisión aprobada y justificación escrita, la excepción deja pasar la herramienta", async () => {
+  it("una autorización dada para OTRO estado de afiliación tampoco sirve", async () => {
+    const propuestaSinAfiliados: HerramientaPropuesta = {
+      ...propuestaValida,
+      datosAfiliados: { hasAffiliateProgram: false, affiliateStatus: "not_available" },
+    };
+    escribirBorrador("sin-afiliados-estado-viejo", propuestaSinAfiliados, { dirBase: dirBorradores });
+    registrarDecision("sin-afiliados-estado-viejo", "aprobado", "Ok.", { dirBase: dirBorradores });
+    // El borrador está en "no_consta"; se autorizó pensando en una ausencia demostrada.
+    registrarAutorizacionAfiliacion(
+      "sin-afiliados-estado-viejo",
+      "ausencia_demostrada",
+      "Dijeron por escrito que no tienen programa, pero nos interesa igual.",
+      { dirBase: dirBorradores }
+    );
+
+    const resultado = await promoverBorrador("sin-afiliados-estado-viejo", {
+      dirBaseBorradores: dirBorradores,
+      dirDatos,
+      poolEstrategia: poolPrueba(),
+      rutaHistorial,
+    });
+
+    expect(resultado.ok).toBe(false);
+    if (!resultado.ok) expect(resultado.errores.some((e) => e.includes("ya no es lo que hay"))).toBe(true);
+  });
+
+  it("con decisión editorial Y autorización para su estado exacto, la excepción deja pasar la herramienta", async () => {
     const propuestaSinAfiliados: HerramientaPropuesta = {
       ...propuestaValida,
       datosAfiliados: { hasAffiliateProgram: false, affiliateStatus: "not_available" },
     };
     escribirBorrador("sin-afiliados-autorizada", propuestaSinAfiliados, { dirBase: dirBorradores });
     registrarDecision("sin-afiliados-autorizada", "aprobado", "Cubre un hueco del catálogo.", { dirBase: dirBorradores });
+    registrarAutorizacionAfiliacion(
+      "sin-afiliados-autorizada",
+      "no_consta",
+      "Única herramienta que cubre reserva online en español para peluquerías.",
+      { dirBase: dirBorradores }
+    );
 
     const resultado = await promoverBorrador("sin-afiliados-autorizada", {
       dirBaseBorradores: dirBorradores,
       dirDatos,
       poolEstrategia: poolPrueba(),
       rutaHistorial,
-      admitirSinAfiliacion: true,
-      justificacionSinAfiliacion: "Única herramienta que cubre reserva online en español para peluquerías.",
     });
 
     expect(resultado.ok).toBe(true);
