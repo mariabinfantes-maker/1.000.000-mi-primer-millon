@@ -4320,9 +4320,18 @@ que se sabe en ese momento.
 La afiliación **sigue siendo la vía habitual y sigue bloqueando la promoción
 por defecto**. Lo que deja de ser es incondicional: la excepción de la
 política —cubre un hueco, o demuestra ventaja material— la abre la propietaria
-con `--admitir-sin-afiliacion` y una justificación escrita que queda en el
-historial, mismo patrón que la anulación del aviso de duplicado. La decisión
-editorial aprobada sigue delante de todo.
+con una **autorización registrada** (`npm run autorizar-afiliacion`), atada a
+esa herramienta y al estado de afiliación exacto que tenga en ese momento. La
+decisión editorial aprobada sigue delante de todo.
+
+> **Corregido tras la revisión de la propietaria (2026-09-13).** La primera
+> versión abría la excepción con una bandera, `--admitir-sin-afiliacion`, y
+> exigía sólo que existiera una decisión «aprobado». La revisión encontró que
+> **una decisión editorial antigua, tomada por otro motivo, desbloqueaba la
+> afiliación**: era una firma reaprovechada, no una autorización. Ahora la
+> excepción exige un registro propio que nombra la herramienta, el estado
+> concreto y un motivo de al menos 20 caracteres; si el estado cambia, la
+> autorización caduca. La bandera ya no existe.
 
 El estado de afiliación **no se escribe en `advertencias`**: cualquier
 advertencia hace fallar `evaluarCriteriosDeCalidad`, y eso habría levantado un
@@ -4332,6 +4341,27 @@ dos cosas distintas y se mantienen separadas.
 `npm run investigar-pendiente` cierra el ciclo: lista lo que espera y, con una
 decisión «aprobado» registrada, lanza la investigación completa. Sin ese
 comando, «esperar autorización» no tendría forma de terminar.
+
+### Los otros cuatro puntos de la revisión
+
+- **Repetir un lote ya no degrada la evidencia.** `registrarPendiente` fusiona
+  en vez de sobrescribir: conserva la fecha original de espera, apila cada
+  observación en un historial y **sólo cambia el estado vigente si la nueva
+  observación es más fuerte**. Una `ausencia_demostrada` con su cita oficial no
+  vuelve nunca a `no_consta` porque una pasada posterior no encontrara la
+  frase. Costó conseguir esa cita; perderla por repetir un lote era el peor de
+  los cinco defectos.
+- **`investigar-herramienta` también prechequea.** Era el único camino por el
+  que se podía gastar una investigación completa sin autorización. La regla
+  vale en los tres caminos o no vale.
+- **Los ids se validan en la frontera.** `pendientes.ts` y
+  `autorizacionAfiliacion.ts` rechazan cualquier id que no sea kebab-case antes
+  de construir una ruta: un `..` ya no escribe fuera de su carpeta.
+- **Escritura atómica y listado tolerante.** Se escribe a un temporal y se
+  renombra. Un fichero corrupto se reporta por su nombre y **no impide ver los
+  demás**: el listado es por donde la propietaria se entera de qué espera
+  decisión, y dejarla ciega por un fichero roto era el peor momento para
+  fallar.
 
 ### Compatibilidad, comprobada antes de tocar nada
 

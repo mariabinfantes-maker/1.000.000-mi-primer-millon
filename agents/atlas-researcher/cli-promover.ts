@@ -13,11 +13,10 @@ import { promoverBorrador } from "./promover";
  * exige `--justificacion`, que queda registrada tal cual en el historial
  * de aprobaciones. Nunca anula ninguna otra comprobación.
  *
- * `--admitir-sin-afiliacion` abre la excepción de la política de
- * «Herramientas sin afiliación»: cubre un hueco o demuestra ventaja
- * material. Exige `--motivo-sin-afiliacion`, que también queda en el
- * historial. Tampoco anula ninguna otra comprobación: la decisión
- * editorial aprobada sigue siendo obligatoria.
+ * La excepción de afiliación NO se abre desde aquí: exige una autorización
+ * registrada con `npm run autorizar-afiliacion`, atada a esa herramienta y
+ * a su estado de afiliación actual. Una bandera de línea de comandos no
+ * deja constancia, y ése era justamente el problema.
  */
 
 function leerFlag(args: string[], nombre: string): string | undefined {
@@ -30,10 +29,7 @@ async function main() {
   const args = process.argv.slice(2);
   const id = args[0]?.trim();
   if (!id || id.startsWith("--")) {
-    console.error(
-      "Uso: npm run promover-borrador -- id-de-la-herramienta " +
-        '[--ignorar-duplicado --justificacion "..."] [--admitir-sin-afiliacion --motivo-sin-afiliacion "..."]'
-    );
+    console.error('Uso: npm run promover-borrador -- id-de-la-herramienta [--ignorar-duplicado --justificacion "..."]');
     process.exitCode = 1;
     return;
   }
@@ -41,15 +37,7 @@ async function main() {
   const ignorarAvisosDuplicado = args.includes("--ignorar-duplicado");
   const justificacionAnulacion = leerFlag(args, "justificacion");
 
-  const admitirSinAfiliacion = args.includes("--admitir-sin-afiliacion");
-  const justificacionSinAfiliacion = leerFlag(args, "motivo-sin-afiliacion");
-
-  const resultado = await promoverBorrador(id, {
-    ignorarAvisosDuplicado,
-    justificacionAnulacion,
-    admitirSinAfiliacion,
-    justificacionSinAfiliacion,
-  });
+  const resultado = await promoverBorrador(id, { ignorarAvisosDuplicado, justificacionAnulacion });
 
   if (!resultado.ok) {
     console.error(`✗ No se ha podido promover "${id}":`);
