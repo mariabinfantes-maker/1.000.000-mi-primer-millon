@@ -1,0 +1,51 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "```json\n{\n  \"idioma_es\": \"no_consta\",\n  \"espana\": \"no_consta\",\n  \"tipo_producto\": \"no_consta\",\n  \"precio\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"reserva_online_cliente\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"recordatorios_automaticos\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"cancelar_o_cambiar_cita\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"ficha_de_cliente\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"catalogo_de_servicios\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"agenda_por_profesional\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"cobro_online\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"tpv_mostrador\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"senal_o_politica_ausencias\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"bonos_packs_sesiones\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"comisiones_o_propinas\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"widget_reserva_en_web_propia\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"inventario_stock\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"ficha_tecnica_servicio\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  }\n}\n```",
+            "thoughtSignature": "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"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0,
+      "urlContextMetadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.eskedula.es/precios",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_PAYWALL"
+          },
+          {
+            "retrievedUrl": "https://www.eskedula.es/precios",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_PAYWALL"
+          }
+        ]
+      }
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1000,
+    "candidatesTokenCount": 560,
+    "totalTokenCount": 5049,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1000
+      }
+    ],
+    "toolUsePromptTokenCount": 2054,
+    "toolUsePromptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 2054
+      }
+    ],
+    "thoughtsTokenCount": 1435,
+    "serviceTier": "standard"
+  },
+  "modelVersion": "gemini-3.6-flash",
+  "responseId": "R9ajarvdAtee-8YPgdCM-Ao"
+}

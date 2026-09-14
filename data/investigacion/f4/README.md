@@ -77,6 +77,12 @@ retocar.**
   - `com-*` — investigación comercial (programas de afiliación o referidos).
   - `idioma-*` — comprobación de si el producto está en español.
 - **`candidatas.json`** — las 15 con sus URL de partida.
+- **`bruto/`** — los **71 volcados originales completos** de Gemini, copiados
+  byte a byte y con el `sha256` de cada uno en su manifiesto. Es la capa de
+  debajo de `respuestas/`: conserva qué URL se recuperó de verdad, si la
+  respuesta se cortó, el gasto de tokens y el texto íntegro del modelo. Incluye
+  los **8 cortes del proxy**, porque una llamada caída es un hecho de la
+  investigación y no un hueco. Tiene su propio README.
 - **`arnes/`** — los scripts con los que se obtuvo. Se guardan porque el prompt
   literal **es parte de la evidencia**: sin él no se sabe qué se preguntó.
   Ninguno contiene credenciales; la clave la inyecta el proxy del entorno.
