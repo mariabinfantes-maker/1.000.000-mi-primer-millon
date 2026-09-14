@@ -1,0 +1,74 @@
+{
+ "pedida": "https://turnito.app/mx/app-turnos-peluqueria/",
+ "urls": [
+  [
+   "https://turnito.app/mx/app-turnos-peluqueria/",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "si",
+  "espana": "no_consta",
+  "tipo_producto": "software",
+  "precio": {
+   "v": "si",
+   "cita": "El plan básico de Turnito es 100% gratuito, limitado a un máximo de 3 agendas"
+  },
+  "reserva_online_cliente": {
+   "v": "si",
+   "cita": "Tus clientes reservan sus cortes, color o afeitado desde cualquier dispositivo"
+  },
+  "recordatorios_automaticos": {
+   "v": "si",
+   "cita": "Recordatorios de turnos por WhatsApp"
+  },
+  "cancelar_o_cambiar_cita": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "ficha_de_cliente": {
+   "v": "si",
+   "cita": "Ficha e historial de clientes."
+  },
+  "catalogo_de_servicios": {
+   "v": "si",
+   "cita": "gestión avanzada de servicios y muchas más herramientas diseñadas para optimizar tu negocio."
+  },
+  "agenda_por_profesional": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "cobro_online": {
+   "v": "si",
+   "cita": "Integrá MercadoPago o PayPal para cobrar señas o el total del servicio al momento de reservar"
+  },
+  "tpv_mostrador": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "senal_o_politica_ausencias": {
+   "v": "si",
+   "cita": "Turnito facilita la integración con Mercado Pago y PayPal para que puedas cobrar una seña"
+  },
+  "bonos_packs_sesiones": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "comisiones_o_propinas": {
+   "v": "si",
+   "cita": "Turnito retiene una comisión del 5% sobre el monto cobrado"
+  },
+  "widget_reserva_en_web_propia": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "inventario_stock": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "ficha_tecnica_servicio": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

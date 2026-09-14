@@ -1,0 +1,23 @@
+{
+ "pedida": "https://biz.booksy.com/es-es/precios",
+ "leidas": [
+  "https://biz.booksy.com/es-es/precios"
+ ],
+ "urls": [
+  [
+   "https://biz.booksy.com/es-es/precios",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "si",
+  "espana": "no_consta",
+  "cita_espana": "",
+  "campos": {
+   "precio": {
+    "v": "si",
+    "cita": "Booksy cuesta 34,99€ al mes +IVA, más 8€ al mes +IVA por cada miembro adicional del equipo."
+   }
+  }
+ }
+}

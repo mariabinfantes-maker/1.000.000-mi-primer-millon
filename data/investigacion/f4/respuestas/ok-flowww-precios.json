@@ -1,0 +1,74 @@
+{
+ "pedida": "https://www.flowww.com/pricing",
+ "urls": [
+  [
+   "https://www.flowww.com/pricing",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "si",
+  "espana": "si",
+  "tipo_producto": "software",
+  "precio": {
+   "v": "si",
+   "cita": "Choose your licence Boss $64 USD* /month $640 USD* /year"
+  },
+  "reserva_online_cliente": {
+   "v": "si",
+   "cita": "An omnichannel experience that makes booking and purchasing easier."
+  },
+  "recordatorios_automaticos": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "cancelar_o_cambiar_cita": {
+   "v": "si",
+   "cita": "Cut no-shows with scope for re-scheduling appointments."
+  },
+  "ficha_de_cliente": {
+   "v": "si",
+   "cita": "Smart agenda 24/7 Patient file Signing of consents Control of schedules"
+  },
+  "catalogo_de_servicios": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "agenda_por_profesional": {
+   "v": "si",
+   "cita": "Smart agenda 24/7 Patient file Signing of consents Control of schedules and shifts"
+  },
+  "cobro_online": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "tpv_mostrador": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "senal_o_politica_ausencias": {
+   "v": "si",
+   "cita": "Reduce absences with the possibility of rescheduling."
+  },
+  "bonos_packs_sesiones": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "comisiones_o_propinas": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "widget_reserva_en_web_propia": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "inventario_stock": {
+   "v": "si",
+   "cita": "Manage stock in a centralized, smart way."
+  },
+  "ficha_tecnica_servicio": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

@@ -1,0 +1,549 @@
+{
+ "que": "Evidencia documental recuperada durante la etapa 2 de F4 (vertical de belleza con citas).",
+ "noEs": "No son fichas de catálogo, ni registros verificados de F2, ni decisiones. Ver README.md.",
+ "fechasDeConsulta": [
+  "2026-09-11",
+  "2026-09-12"
+ ],
+ "modelo": "gemini-3.6-flash con url_context",
+ "candidatas": 15,
+ "herramientas": {
+  "agendapro": {
+   "nombre": "AgendaPro",
+   "funcional": [
+    {
+     "fichero": "respuestas/falta-agendapro-precio.json",
+     "urlsLeidas": [
+      "https://agendapro.com/es/planes"
+     ],
+     "urlPedida": "https://agendapro.com/es/planes"
+    },
+    {
+     "fichero": "respuestas/ok-agendapro-oficial.json",
+     "urlsLeidas": [
+      "https://agendapro.com/es-es"
+     ],
+     "urlPedida": "https://agendapro.com/es-es/"
+    }
+   ],
+   "comercial": [
+    {
+     "fichero": "respuestas/com-agendapro.json",
+     "urlsLeidas": [
+      "https://get.agendapro.com/quiero-ser-partner"
+     ],
+     "urlPedida": "https://get.agendapro.com/quiero-ser-partner"
+    }
+   ],
+   "idioma": []
+  },
+  "bewe": {
+   "nombre": "Bewe",
+   "funcional": [
+    {
+     "fichero": "respuestas/falta-bewe-gestion.json",
+     "urlsLeidas": [
+      "https://www.bewe.ai/"
+     ],
+     "urlPedida": "https://www.bewe.io/inicio"
+    },
+    {
+     "fichero": "respuestas/falta-bewe-peluqueria.json",
+     "urlsLeidas": [
+      "https://www.bewe.ai/industries/beauty"
+     ],
+     "urlPedida": "https://www.bewe.io/negocios/belleza/peluqueria"
+    },
+    {
+     "fichero": "respuestas/ok-bewe-oficial.json",
+     "urlsLeidas": [
+      "https://www.bewe.ai/"
+     ],
+     "urlPedida": "https://bewe.io/es/"
+    }
+   ],
+   "comercial": [
+    {
+     "fichero": "respuestas/com-bewe.json",
+     "urlsLeidas": [
+      "https://www.bewe.ai/"
+     ],
+     "urlPedida": "https://www.bewe.ai/"
+    }
+   ],
+   "idioma": []
+  },
+  "booksy": {
+   "nombre": "Booksy",
+   "funcional": [
+    {
+     "fichero": "respuestas/falta-booksy-precio.json",
+     "urlsLeidas": [
+      "https://biz.booksy.com/es-es/precios"
+     ],
+     "urlPedida": "https://biz.booksy.com/es-es/precios"
+    },
+    {
+     "fichero": "respuestas/ok-booksy-oficial.json",
+     "urlsLeidas": [
+      "https://booksy.com/es-es/"
+     ],
+     "urlPedida": "https://booksy.com/es-es/"
+    }
+   ],
+   "comercial": [
+    {
+     "fichero": "respuestas/com-booksy.json",
+     "urlsLeidas": [
+      "https://support.booksy.com/hc/en-us/articles/16462890090898-How-does-the-Referral-program-work-and-how-many-people-can-I-refer"
+     ],
+     "urlPedida": "https://support.booksy.com/hc/en-us/articles/16462890090898-How-does-the-Referral-program-work-and-how-many-people-can-I-refer"
+    }
+   ],
+   "idioma": []
+  },
+  "eskedula": {
+   "nombre": "Eskedula",
+   "funcional": [],
+   "comercial": [
+    {
+     "fichero": "respuestas/com-eskedula.json",
+     "urlsLeidas": [
+      "https://www.eskedula.es/"
+     ],
+     "urlPedida": "https://www.eskedula.es/"
+    }
+   ],
+   "idioma": []
+  },
+  "estetical": {
+   "nombre": "Estetical",
+   "funcional": [
+    {
+     "fichero": "respuestas/falta-estetical-precio.json",
+     "urlsLeidas": [],
+     "urlPedida": "https://estetical.es/tarifas/"
+    },
+    {
+     "fichero": "respuestas/ok-estetical-oficial.json",
+     "urlsLeidas": [
+      "https://estetical.es/software-para-centros-de-belleza/"
+     ],
+     "urlPedida": "https://estetical.es/software-para-centros-de-belleza/"
+    },
+    {
+     "fichero": "respuestas/ok-estetical-precios.json",
+     "urlsLeidas": [],
+     "urlPedida": "https://estetical.es/tarifas/"
+    }
+   ],
+   "comercial": [
+    {
+     "fichero": "respuestas/com-estetical.json",
+     "urlsLeidas": [
+      "https://estetical.es/"
+     ],
+     "urlPedida": "https://estetical.es/"
+    }
+   ],
+   "idioma": []
+  },
+  "flowww": {
+   "nombre": "flowww",
+   "funcional": [
+    {
+     "fichero": "respuestas/ok-flowww-oficial.json",
+     "urlsLeidas": [
+      "https://www.flowww.com/"
+     ],
+     "urlPedida": "https://www.flowww.com/"
+    },
+    {
+     "fichero": "respuestas/ok-flowww-precios.json",
+     "urlsLeidas": [
+      "https://www.flowww.com/pricing"
+     ],
+     "urlPedida": "https://www.flowww.com/pricing"
+    }
+   ],
+   "comercial": [
+    {
+     "fichero": "respuestas/com-flowww.json",
+     "urlsLeidas": [],
+     "urlPedida": "https://www.flowww.com.mx/programa-referidos"
+    },
+    {
+     "fichero": "respuestas/com-flowww2.json",
+     "urlsLeidas": [],
+     "urlPedida": "https://www.flowww.com.mx/programa-referidos/"
+    }
+   ],
+   "idioma": [
+    {
+     "fichero": "respuestas/idioma-flowww-es.json",
+     "urlsLeidas": [],
+     "urlPedida": null
+    },
+    {
+     "fichero": "respuestas/idioma-flowww.json",
+     "urlsLeidas": [
+      "https://www.flowww.es/"
+     ],
+     "urlPedida": "https://www.flowww.net/"
+    },
+    {
+     "fichero": "respuestas/idioma-flowww2.json",
+     "urlsLeidas": [],
+     "urlPedida": "https://www.flowww.net/software-de-gestion-para-estetica-y-belleza"
+    },
+    {
+     "fichero": "respuestas/idioma-flowww3.json",
+     "urlsLeidas": [
+      "https://www.flowww.es/"
+     ],
+     "urlPedida": "https://www.flowww.net/"
+    }
+   ]
+  },
+  "fresha": {
+   "nombre": "Fresha",
+   "funcional": [
+    {
+     "fichero": "respuestas/falta-fresha-ficha.json",
+     "urlsLeidas": [
+      "https://www.fresha.com/for-business/salon"
+     ],
+     "urlPedida": "https://www.fresha.com/for-business/salon"
+    },
+    {
+     "fichero": "respuestas/falta-fresha-precio.json",
+     "urlsLeidas": [
+      "https://www.fresha.com/pricing"
+     ],
+     "urlPedida": "https://www.fresha.com/pricing"
+    },
+    {
+     "fichero": "respuestas/ok-fresha-oficial.json",
+     "urlsLeidas": [
+      "https://www.fresha.com/es"
+     ],
+     "urlPedida": "https://www.fresha.com/es"
+    }
+   ],
+   "comercial": [
+    {
+     "fichero": "respuestas/com-fresha.json",
+     "urlsLeidas": [],
+     "urlPedida": "https://terms.fresha.com/partner-referral-program"
+    },
+    {
+     "fichero": "respuestas/com-fresha2.json",
+     "urlsLeidas": [
+      "https://www.fresha.com/for-business/refer-a-friend"
+     ],
+     "urlPedida": "https://www.fresha.com/for-business/refer-a-friend"
+    },
+    {
+     "fichero": "respuestas/com-fresha3.json",
+     "urlsLeidas": [
+      "https://terms.fresha.com/partner-referral-program"
+     ],
+     "urlPedida": "https://terms.fresha.com/partner-referral-program/"
+    }
+   ],
+   "idioma": []
+  },
+  "phorest": {
+   "nombre": "Phorest",
+   "funcional": [
+    {
+     "fichero": "respuestas/ok-phorest-oficial.json",
+     "urlsLeidas": [],
+     "urlPedida": "https://www.phorest.com/es/"
+    },
+    {
+     "fichero": "respuestas/ok-phorest-precios.json",
+     "urlsLeidas": [
+      "https://www.phorest.com/"
+     ],
+     "urlPedida": "https://www.phorest.com/"
+    }
+   ],
+   "comercial": [
+    {
+     "fichero": "respuestas/com-phorest.json",
+     "urlsLeidas": [
+      "https://www.phorest.com/us/refer-to-phorest/"
+     ],
+     "urlPedida": "https://www.phorest.com/us/refer-to-phorest/"
+    }
+   ],
+   "idioma": [
+    {
+     "fichero": "respuestas/idioma-phorest.json",
+     "urlsLeidas": [
+      "https://www.phorest.com/"
+     ],
+     "urlPedida": "https://www.phorest.com/"
+    }
+   ]
+  },
+  "shore": {
+   "nombre": "Shore",
+   "funcional": [
+    {
+     "fichero": "respuestas/falta-shore-precio.json",
+     "urlsLeidas": [
+      "https://www.shore.com/en/pricing"
+     ],
+     "urlPedida": "https://www.shore.com/en/pricing"
+    },
+    {
+     "fichero": "respuestas/ok-shore-oficial.json",
+     "urlsLeidas": [
+      "https://www.shore.com/es"
+     ],
+     "urlPedida": "https://www.shore.com/es/"
+    },
+    {
+     "fichero": "respuestas/ok-shore-precios.json",
+     "urlsLeidas": [
+      "https://www.shore.com/es/precios"
+     ],
+     "urlPedida": "https://www.shore.com/es/precios/"
+    }
+   ],
+   "comercial": [
+    {
+     "fichero": "respuestas/com-shore-referidos.json",
+     "urlsLeidas": [
+      "https://www.shore.com/en/partner-program"
+     ],
+     "urlPedida": "https://shore.com/en/referral/"
+    },
+    {
+     "fichero": "respuestas/com-shore.json",
+     "urlsLeidas": [
+      "https://www.shore.com/en/partner-program"
+     ],
+     "urlPedida": "https://www.shore.com/en/partner-program"
+    }
+   ],
+   "idioma": []
+  },
+  "simplybook": {
+   "nombre": "SimplyBook.me",
+   "funcional": [
+    {
+     "fichero": "respuestas/falta-simplybook-oficial.json",
+     "urlsLeidas": [
+      "https://simplybook.me/es/a"
+     ],
+     "urlPedida": "https://simplybook.me/es/a"
+    },
+    {
+     "fichero": "respuestas/ok-simplybook-precios.json",
+     "urlsLeidas": [
+      "https://simplybook.me/es/pricing"
+     ],
+     "urlPedida": "https://simplybook.me/es/pricing"
+    }
+   ],
+   "comercial": [
+    {
+     "fichero": "respuestas/com-simplybook.json",
+     "urlsLeidas": [
+      "https://simplybook.me/en/affiliate-program"
+     ],
+     "urlPedida": "https://simplybook.me/en/affiliate-program"
+    }
+   ],
+   "idioma": []
+  },
+  "solvermedia": {
+   "nombre": "SolverMedia",
+   "funcional": [
+    {
+     "fichero": "respuestas/falta-solvermedia-reserva.json",
+     "urlsLeidas": [
+      "https://www.solvermedia.com/software-tpv-para-gestion-de-peluquerias.html"
+     ],
+     "urlPedida": "https://www.solvermedia.com/software-tpv-para-gestion-de-peluquerias.html"
+    },
+    {
+     "fichero": "respuestas/ok-solvermedia-oficial.json",
+     "urlsLeidas": [
+      "https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html"
+     ],
+     "urlPedida": "https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html"
+    },
+    {
+     "fichero": "respuestas/ok-solvermedia-precios.json",
+     "urlsLeidas": [
+      "https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html"
+     ],
+     "urlPedida": "https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html"
+    }
+   ],
+   "comercial": [
+    {
+     "fichero": "respuestas/com-solvermedia.json",
+     "urlsLeidas": [
+      "https://www.solvermedia.com/"
+     ],
+     "urlPedida": "https://www.solvermedia.com/"
+    }
+   ],
+   "idioma": []
+  },
+  "timify": {
+   "nombre": "TIMIFY",
+   "funcional": [
+    {
+     "fichero": "respuestas/falta-timify-precio.json",
+     "urlsLeidas": [
+      "https://www.timify.com/en/plans/"
+     ],
+     "urlPedida": "https://www.timify.com/en/pricing/"
+    },
+    {
+     "fichero": "respuestas/ok-timify-oficial.json",
+     "urlsLeidas": [
+      "https://www.timify.com/es/"
+     ],
+     "urlPedida": "https://www.timify.com/es/"
+    }
+   ],
+   "comercial": [
+    {
+     "fichero": "respuestas/com-timify-terminos.json",
+     "urlsLeidas": [
+      "https://www.timify.com/en/pages/terms-conditions-affiliate-partner/"
+     ],
+     "urlPedida": "https://timify.com/en-us/pages/terms-conditions-affiliate-partner"
+    },
+    {
+     "fichero": "respuestas/com-timify.json",
+     "urlsLeidas": [
+      "https://www.timify.com/en/partners/affiliate-partner-program/"
+     ],
+     "urlPedida": "https://www.timify.com/en/partners/affiliate-partner-program/"
+    }
+   ],
+   "idioma": []
+  },
+  "treatwell": {
+   "nombre": "Treatwell",
+   "funcional": [
+    {
+     "fichero": "respuestas/falta-treatwell-catalogo.json",
+     "urlsLeidas": [
+      "https://www.treatwell.es/partners/"
+     ],
+     "urlPedida": "https://www.treatwell.es/partners/funcionalidades/connect-salon-software/"
+    },
+    {
+     "fichero": "respuestas/falta-treatwell-connect.json",
+     "urlsLeidas": [
+      "https://www.treatwell.es/partners/soluciones/software-de-gestion-para-salones/"
+     ],
+     "urlPedida": "https://www.treatwell.es/partners/soluciones/software-de-gestion-para-salones/"
+    },
+    {
+     "fichero": "respuestas/ok-treatwell-oficial.json",
+     "urlsLeidas": [
+      "https://www.treatwell.es/partners/"
+     ],
+     "urlPedida": "https://www.treatwell.es/partners/"
+    },
+    {
+     "fichero": "respuestas/ok-treatwell-precios.json",
+     "urlsLeidas": [
+      "https://www.treatwell.es/partners/precios/"
+     ],
+     "urlPedida": "https://www.treatwell.es/partners/precios/"
+    }
+   ],
+   "comercial": [
+    {
+     "fichero": "respuestas/com-treatwell-awin.json",
+     "urlsLeidas": [],
+     "urlPedida": "https://ui.awin.com/merchant-profile/67564"
+    },
+    {
+     "fichero": "respuestas/com-treatwell.json",
+     "urlsLeidas": [
+      "https://www.treatwell.es/inspiracion/affiliates/"
+     ],
+     "urlPedida": "https://www.treatwell.es/inspiracion/affiliates/"
+    }
+   ],
+   "idioma": []
+  },
+  "turnito": {
+   "nombre": "Turnito",
+   "funcional": [
+    {
+     "fichero": "respuestas/falta-turnito-cancelar.json",
+     "urlsLeidas": [
+      "https://turnito.app/"
+     ],
+     "urlPedida": "https://turnito.app/"
+    },
+    {
+     "fichero": "respuestas/falta-turnito-espana.json",
+     "urlsLeidas": [
+      "https://turnito.app/perfil"
+     ],
+     "urlPedida": "https://turnito.app/inicio"
+    },
+    {
+     "fichero": "respuestas/ok-turnito-precios.json",
+     "urlsLeidas": [
+      "https://turnito.app/mx/app-turnos-peluqueria/"
+     ],
+     "urlPedida": "https://turnito.app/mx/app-turnos-peluqueria/"
+    }
+   ],
+   "comercial": [
+    {
+     "fichero": "respuestas/com-turnito.json",
+     "urlsLeidas": [
+      "https://turnito.app/"
+     ],
+     "urlPedida": "https://turnito.app/"
+    }
+   ],
+   "idioma": []
+  },
+  "viday": {
+   "nombre": "ViDay",
+   "funcional": [
+    {
+     "fichero": "respuestas/ok-viday-oficial.json",
+     "urlsLeidas": [
+      "https://viday.es/"
+     ],
+     "urlPedida": "https://viday.es/"
+    },
+    {
+     "fichero": "respuestas/ok-viday-precios.json",
+     "urlsLeidas": [
+      "https://viday.es/precios/"
+     ],
+     "urlPedida": "https://viday.es/precios/"
+    }
+   ],
+   "comercial": [
+    {
+     "fichero": "respuestas/com-viday.json",
+     "urlsLeidas": [
+      "https://viday.es/"
+     ],
+     "urlPedida": "https://viday.es/"
+    }
+   ],
+   "idioma": []
+  }
+ }
+}

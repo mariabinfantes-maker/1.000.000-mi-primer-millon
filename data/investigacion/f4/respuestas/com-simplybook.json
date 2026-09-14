@@ -1,0 +1,43 @@
+{
+ "pedida": "https://simplybook.me/en/affiliate-program",
+ "leidas": [
+  "https://simplybook.me/en/affiliate-program"
+ ],
+ "datos": {
+  "programa_existe": "si",
+  "tipo": "afiliacion_abierta",
+  "cita_tipo": "You can promote SimplyBook.me via blogs, social media, email campaigns, or other online platforms.",
+  "comision": {
+   "v": "si",
+   "cita": "You will get 25% from the first payment of a new user and 15% of consequent payments for up to 24 months."
+  },
+  "recurrencia": {
+   "v": "si",
+   "cita": "Ongoing affiliate revenues coming in for 24 months"
+  },
+  "cookie": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "condiciones": {
+   "v": "si",
+   "cita": "Yes, affiliates must adhere to our terms and conditions, which prohibit misleading or unethical advertising practices."
+  },
+  "abierto_desde_espana": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "promociona_producto_para_negocios": {
+   "v": "si",
+   "cita": "Our scheduling system is a perfect fit for any service based company and covers many business categories."
+  },
+  "activo": {
+   "v": "si",
+   "cita": "Promote the SimplyBook.me appointment scheduling system and start earning commission today!"
+  },
+  "red_de_afiliacion": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

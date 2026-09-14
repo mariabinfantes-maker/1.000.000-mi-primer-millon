@@ -1,0 +1,43 @@
+{
+ "pedida": "https://get.agendapro.com/quiero-ser-partner",
+ "leidas": [
+  "https://get.agendapro.com/quiero-ser-partner"
+ ],
+ "datos": {
+  "programa_existe": "si",
+  "tipo": "partner_reseller",
+  "cita_tipo": "Súmate a la red de agencias y empresas de tecnología que recomiendan AgendaPro",
+  "comision": {
+   "v": "si",
+   "cita": "Se realizará el pago de comisiones por planes y POS vendidos mes a mes"
+  },
+  "recurrencia": {
+   "v": "si",
+   "cita": "Se realizará el pago de comisiones por planes y POS vendidos mes a mes"
+  },
+  "cookie": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "condiciones": {
+   "v": "si",
+   "cita": "Completa el formulario y agendaremos una reunión para evaluación de colaboración"
+  },
+  "abierto_desde_espana": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "promociona_producto_para_negocios": {
+   "v": "si",
+   "cita": "Conoce cómo ayudamos a tus clientes a manejar su negocio fácilmente"
+  },
+  "activo": {
+   "v": "si",
+   "cita": "¡Únete a nuestro programa de Partners y aumenta tus ingresos!"
+  },
+  "red_de_afiliacion": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

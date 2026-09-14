@@ -1,0 +1,43 @@
+{
+ "pedida": "https://terms.fresha.com/partner-referral-program/",
+ "leidas": [
+  "https://terms.fresha.com/partner-referral-program"
+ ],
+ "datos": {
+  "programa_existe": "si",
+  "tipo": "referidos_clientes",
+  "cita_tipo": "If you are a Partner who has been invited to participate in the Program you are referred to as a “Referrer”.",
+  "comision": {
+   "v": "si",
+   "cita": "upon a Qualified Referral the Referrer will receive referral credits and the Referred User will receive welcome credits (“Credits”)."
+  },
+  "recurrencia": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "cookie": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "condiciones": {
+   "v": "si",
+   "cita": "By generating a Referral Link the Referrer accepts the terms of this Agreement."
+  },
+  "abierto_desde_espana": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "promociona_producto_para_negocios": {
+   "v": "si",
+   "cita": "you will only share the Referral Link with a business that is not engaged in any Prohibited Businesses;"
+  },
+  "activo": {
+   "v": "si",
+   "cita": "The Fresha referral program is provided by Fresha.com SV Limited"
+  },
+  "red_de_afiliacion": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

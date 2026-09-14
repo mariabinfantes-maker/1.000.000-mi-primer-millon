@@ -1,0 +1,31 @@
+{
+ "pedida": "https://simplybook.me/es/a",
+ "leidas": [
+  "https://simplybook.me/es/a"
+ ],
+ "urls": [
+  [
+   "https://simplybook.me/es/a",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "si",
+  "espana": "no_consta",
+  "cita_espana": "",
+  "campos": {
+   "inventario_stock": {
+    "v": "no_consta",
+    "cita": ""
+   },
+   "comisiones_o_propinas": {
+    "v": "no_consta",
+    "cita": ""
+   },
+   "bonos_packs_sesiones": {
+    "v": "si",
+    "cita": "Herramientas de Marketing Software para la Programación de Reservas Punto de Venta - PDV Paquetes Integración con Zapier"
+   }
+  }
+ }
+}

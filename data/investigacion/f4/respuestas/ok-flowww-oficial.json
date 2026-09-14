@@ -1,0 +1,74 @@
+{
+ "pedida": "https://www.flowww.com/",
+ "urls": [
+  [
+   "https://www.flowww.com/",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "si",
+  "espana": "si",
+  "tipo_producto": "software",
+  "precio": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "reserva_online_cliente": {
+   "v": "si",
+   "cita": "Open your clinic 24/7 on WhatsApp or social media to capture bookings."
+  },
+  "recordatorios_automaticos": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "cancelar_o_cambiar_cita": {
+   "v": "si",
+   "cita": "Reduce absences with the possibility of rescheduling."
+  },
+  "ficha_de_cliente": {
+   "v": "si",
+   "cita": "Centralize medical records, progress notes, and digital signature consents in the cloud."
+  },
+  "catalogo_de_servicios": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "agenda_por_profesional": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "cobro_online": {
+   "v": "si",
+   "cita": "Design personalized treatment plans, detailed quotes, and offer integrated payments."
+  },
+  "tpv_mostrador": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "senal_o_politica_ausencias": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "bonos_packs_sesiones": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "comisiones_o_propinas": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "widget_reserva_en_web_propia": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "inventario_stock": {
+   "v": "si",
+   "cita": "Manage stock centrally and intelligently."
+  },
+  "ficha_tecnica_servicio": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

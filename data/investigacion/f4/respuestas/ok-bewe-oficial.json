@@ -1,0 +1,74 @@
+{
+ "pedida": "https://bewe.io/es/",
+ "urls": [
+  [
+   "https://www.bewe.ai/",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "si",
+  "espana": "si",
+  "tipo_producto": "software",
+  "precio": {
+   "v": "si",
+   "cita": "Empieza con lo esencial o suma WhatsApp y todo tu equipo."
+  },
+  "reserva_online_cliente": {
+   "v": "si",
+   "cita": "Linda atiende WhatsApp, Instagram y tu web. Responde, cotiza, agenda y cierra ventas"
+  },
+  "recordatorios_automaticos": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "cancelar_o_cambiar_cita": {
+   "v": "si",
+   "cita": "Linda agenda, cancela y reagenda sola."
+  },
+  "ficha_de_cliente": {
+   "v": "si",
+   "cita": "Tiene contexto de tu negocio: catálogo, horarios, preguntas frecuentes e historial del cliente."
+  },
+  "catalogo_de_servicios": {
+   "v": "si",
+   "cita": "Conoce tu catálogo, tu tono y tus normas."
+  },
+  "agenda_por_profesional": {
+   "v": "si",
+   "cita": "Agenda, CRM, finanzas y web para un profesional."
+  },
+  "cobro_online": {
+   "v": "si",
+   "cita": "Linda puede enviar el link de pago durante la conversación con tu cliente."
+  },
+  "tpv_mostrador": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "senal_o_politica_ausencias": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "bonos_packs_sesiones": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "comisiones_o_propinas": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "widget_reserva_en_web_propia": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "inventario_stock": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "ficha_tecnica_servicio": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

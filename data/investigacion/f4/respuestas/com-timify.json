@@ -1,0 +1,43 @@
+{
+ "pedida": "https://www.timify.com/en/partners/affiliate-partner-program/",
+ "leidas": [
+  "https://www.timify.com/en/partners/affiliate-partner-program/"
+ ],
+ "datos": {
+  "programa_existe": "si",
+  "tipo": "afiliacion_abierta",
+  "cita_tipo": "Spread the word about TIMIFY. Promote and refer us to your audience and clients. Your unique affiliate link tracks when a new customer has clicked and signed up.",
+  "comision": {
+   "v": "si",
+   "cita": "Earn a 30% recurring commission each month your referrals renew their subscription."
+  },
+  "recurrencia": {
+   "v": "si",
+   "cita": "We offer lifetime commissions, so the longer your affiliates remain paying customers, the more commission you make!"
+  },
+  "cookie": {
+   "v": "si",
+   "cita": "Cookies are valid for up to 30 days. This means that your client has up to 30 days after using your referral link to sign up"
+  },
+  "condiciones": {
+   "v": "si",
+   "cita": "It is not allowed to bid on branded search terms such as \"TIMIFY\" and \"TIMIFY Pricing\", if you are running paid search campaigns."
+  },
+  "abierto_desde_espana": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "promociona_producto_para_negocios": {
+   "v": "si",
+   "cita": "TIMIFY is a trusted appointment solution for businesses of all sizes and industries."
+  },
+  "activo": {
+   "v": "si",
+   "cita": "As soon as you send us your request through the application form, our team will review it and you will receive feedback within 3 days."
+  },
+  "red_de_afiliacion": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

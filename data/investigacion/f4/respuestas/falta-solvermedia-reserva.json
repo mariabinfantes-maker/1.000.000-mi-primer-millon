@@ -1,0 +1,27 @@
+{
+ "pedida": "https://www.solvermedia.com/software-tpv-para-gestion-de-peluquerias.html",
+ "leidas": [
+  "https://www.solvermedia.com/software-tpv-para-gestion-de-peluquerias.html"
+ ],
+ "urls": [
+  [
+   "https://www.solvermedia.com/software-tpv-para-gestion-de-peluquerias.html",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "si",
+  "espana": "si",
+  "cita_espana": "Adaptado a los requisitos de VERI*FACTU de la Agencia Tributaria española.",
+  "campos": {
+   "reserva_online_cliente": {
+    "v": "no_consta",
+    "cita": ""
+   },
+   "cancelar_o_cambiar_cita": {
+    "v": "no_consta",
+    "cita": ""
+   }
+  }
+ }
+}

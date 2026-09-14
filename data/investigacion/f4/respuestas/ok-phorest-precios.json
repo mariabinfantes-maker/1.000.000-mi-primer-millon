@@ -1,0 +1,74 @@
+{
+ "pedida": "https://www.phorest.com/",
+ "urls": [
+  [
+   "https://www.phorest.com/",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "no_consta",
+  "espana": "no_consta",
+  "tipo_producto": "software",
+  "precio": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "reserva_online_cliente": {
+   "v": "si",
+   "cita": "Get a slick and simple online booking process for your clients"
+  },
+  "recordatorios_automaticos": {
+   "v": "si",
+   "cita": "Automate SMS & email communication with your clients to reduce no-shows"
+  },
+  "cancelar_o_cambiar_cita": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "ficha_de_cliente": {
+   "v": "si",
+   "cita": "Store all your client information, consultation forms, history and notes in one database."
+  },
+  "catalogo_de_servicios": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "agenda_por_profesional": {
+   "v": "si",
+   "cita": "access to manage their own booking calendar on the PhorestGo staff app."
+  },
+  "cobro_online": {
+   "v": "si",
+   "cita": "recurring payments are processed securely through PhorestPay, powered by Stripe."
+  },
+  "tpv_mostrador": {
+   "v": "si",
+   "cita": "Phorest combines our powerful POS software with a slick, touch-screen card terminal"
+  },
+  "senal_o_politica_ausencias": {
+   "v": "si",
+   "cita": "Bookings are secured by deposit for no-show protection."
+  },
+  "bonos_packs_sesiones": {
+   "v": "si",
+   "cita": "Sell services, products, vouchers and course treatments online or in-person."
+  },
+  "comisiones_o_propinas": {
+   "v": "si",
+   "cita": "staff can track their sales and commission in PhorestGo's 'My Numbers' tool."
+  },
+  "widget_reserva_en_web_propia": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "inventario_stock": {
+   "v": "si",
+   "cita": "Track your inventory levels, orders, and deliveries at a glance."
+  },
+  "ficha_tecnica_servicio": {
+   "v": "si",
+   "cita": "Pre-send digital consultation forms to clients for a seamless customer experience and paper-free salon or clinic"
+  }
+ }
+}

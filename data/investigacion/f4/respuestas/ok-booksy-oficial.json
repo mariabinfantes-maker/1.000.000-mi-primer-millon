@@ -1,0 +1,74 @@
+{
+ "pedida": "https://booksy.com/es-es/",
+ "urls": [
+  [
+   "https://booksy.com/es-es/",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "si",
+  "espana": "si",
+  "tipo_producto": "combinacion",
+  "precio": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "reserva_online_cliente": {
+   "v": "si",
+   "cita": "Booksy es una aplicación gratuita que te permite encontrar y reservar citas en cuestión de segundos."
+  },
+  "recordatorios_automaticos": {
+   "v": "si",
+   "cita": "Y como sabemos que no tienes tiempo para pensar en ellas, te enviaremos recordatorios."
+  },
+  "cancelar_o_cambiar_cita": {
+   "v": "si",
+   "cita": "Reagenda o cancela sin llamar por teléfono."
+  },
+  "ficha_de_cliente": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "catalogo_de_servicios": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "agenda_por_profesional": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "cobro_online": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "tpv_mostrador": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "senal_o_politica_ausencias": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "bonos_packs_sesiones": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "comisiones_o_propinas": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "widget_reserva_en_web_propia": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "inventario_stock": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "ficha_tecnica_servicio": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

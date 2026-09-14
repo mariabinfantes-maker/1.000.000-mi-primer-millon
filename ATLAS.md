@@ -3204,8 +3204,8 @@ ningún sprint. Ninguna urge; todas se olvidan si no están escritas.
   herramientas sin programa de afiliación, y eso **contradice la política de
   catálogo aprobada**.~~ **Hecho el 2026-09-12**: ya no descarta. Ver «El
   Researcher deja de descartar por afiliación».
-- **La clave de Gemini que quedó visible el 2026-09-07 hay que borrarla** en AI
-  Studio. Era una clave de pruebas y **no está configurada en Vercel** (lo
+- ~~**La clave de Gemini que quedó visible el 2026-09-07 hay que borrarla** en AI
+  Studio.~~ **Hecha el 2026-09-14**: borrada por la propietaria. Era una clave de pruebas y **no está configurada en Vercel** (lo
   confirmó la propietaria), así que borrarla no rompe nada ni exige
   redesplegar.
 
@@ -3973,6 +3973,40 @@ no toca. **No hizo falta migrar nada.**
 **Nada de esto altera ninguna recomendación.** Es entrada al catálogo, no
 salida al usuario: `independenciaAfiliacion.test.ts` sigue pasando sin
 tocarlo.
+
+
+## La evidencia de F4 sale de /tmp y entra al repositorio (2026-09-14)
+
+Toda la investigación de la etapa 2 de F4 —**62 respuestas útiles, ~40 lecturas
+de páginas oficiales con sus citas literales, los dos ejes: funcional y
+comercial**— vivía en el cuaderno temporal de una sesión. Ese contenedor se
+recicla. El día que se hubiera reciclado, se habría perdido lo que costó cuatro
+cortes del arnés, varias URL adivinadas a mano (Booksy en `biz.`, Bewe
+cambiando de dominio a `bewe.ai`, flowww en `/pricing`) y cuota de Gemini.
+
+**Y no se habría podido rehacer igual:** las páginas cambian, y las citas
+literales del 11 y 12 de septiembre ya no se podrían recuperar.
+
+Ahora está en **`data/investigacion/f4/`**, con una regla escrita en su propio
+README: **no es catálogo, no es verificación de F2, no es una decisión.** No lo
+lee nadie —ni el motor, ni el puerto de F3, ni `data/repositorio.ts`— y si
+alguna de estas herramientas entra algún día al catálogo, **se vuelve a
+verificar por el camino de F2/F3; estos ficheros no lo sustituyen**.
+
+Los ficheros se guardan **tal cual salieron, sin retocar**. Las salvedades
+conocidas —las cinco citas que no sostienen su campo, Bewe redirigiendo al
+agente Linda, el idioma de flowww, el mercado de Turnito, el precio de
+Fresha— se documentan en el README, no dentro de los datos. Se guarda también
+el arnés: **el prompt literal es parte de la evidencia**, porque sin él no se
+sabe qué se preguntó.
+
+**Lección que esto cierra, y que es la misma de F2:** las 62 fichas del
+catálogo se generaron con un modelo sin navegación y **las fuentes no se
+guardaron**. Por eso hoy no se puede saber qué se verificó. Aquí las fuentes sí
+se guardan, y separadas de cualquier conclusión.
+
+La clave de Gemini que quedó visible el 2026-09-07 **ya está borrada** en AI
+Studio (confirmado por la propietaria el 2026-09-14).
 
 
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria

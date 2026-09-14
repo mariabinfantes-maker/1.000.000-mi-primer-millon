@@ -1,0 +1,74 @@
+{
+ "pedida": "https://www.shore.com/es/precios/",
+ "urls": [
+  [
+   "https://www.shore.com/es/precios",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "si",
+  "espana": "si",
+  "tipo_producto": "software",
+  "precio": {
+   "v": "si",
+   "cita": "Alquilas Shore por un precio mensual justo."
+  },
+  "reserva_online_cliente": {
+   "v": "si",
+   "cita": "Reservas online (a través de página web, Google e Instagram)"
+  },
+  "recordatorios_automaticos": {
+   "v": "si",
+   "cita": "Gestión de pacientes conforme al RGPD con recordatorios por SMS"
+  },
+  "cancelar_o_cambiar_cita": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "ficha_de_cliente": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "catalogo_de_servicios": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "agenda_por_profesional": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "cobro_online": {
+   "v": "si",
+   "cita": "Prepago con tarjeta disponible Gestión de clientes Recordatorios automáticos de citas"
+  },
+  "tpv_mostrador": {
+   "v": "si",
+   "cita": "Peluquería Reservas online, gestión de clientes y caja registradora para iPad"
+  },
+  "senal_o_politica_ausencias": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "bonos_packs_sesiones": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "comisiones_o_propinas": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "widget_reserva_en_web_propia": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "inventario_stock": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "ficha_tecnica_servicio": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}
