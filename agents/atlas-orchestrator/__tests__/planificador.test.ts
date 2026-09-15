@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { planificar, proximaVez, type UltimaEjecucion } from "../planificador";
-import { TAREAS, type Tarea } from "../tareas";
+import { SIN_ARGUMENTOS, TAREAS, type Tarea } from "../tareas";
 
 const AHORA = new Date("2026-09-15T10:00:00Z");
 const haceDias = (dias: number) => new Date(AHORA.getTime() - dias * 24 * 60 * 60 * 1000);
@@ -14,6 +14,7 @@ function tarea(parcial: Partial<Tarea>): Tarea {
     carril: "libre",
     motivo: "ninguno",
     cadencia: "semanal",
+    argumentos: SIN_ARGUMENTOS,
     ...parcial,
   } as Tarea;
 }

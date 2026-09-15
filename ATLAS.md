@@ -4169,6 +4169,86 @@ tocar: en este mismo archivo hay **dos encabezados `## 11. Atlas Revenue`**
 duplicados. Es un defecto de documentación conocido y no se arregla aquí para
 no mezclarlo con el cambio de código.
 
+## 2026-09-15 — Orchestrator: las cinco correcciones antes de fusionar
+
+Una revisión independiente de `c49a45a` devolvió **NO APTO** con un
+bloqueante y cuatro observaciones. Se corrigen las cinco antes de fusionar.
+Sigue sin fusionar, sin desplegar y sin tocar Neon.
+
+### El bloqueante: la garantía estaba escrita más fuerte de lo que era
+
+El commit afirmaba que de Postgres no puede salir nada peligroso. Para
+**comandos** era cierto. Para **argumentos** no: el validador aceptaba
+`../../../etc/passwd` y `/etc/shadow`, y en una tarea del carril libre, que
+se ejecuta sin firma ninguna. Quedaba demostrado que el `argv` resolvía a
+`/etc/passwd`.
+
+Hoy no era alcanzable —ningún camino del bloque 1 crea argumentos—, pero el
+bloque 2 es justo lo que abriría ese camino.
+
+### Cómo se corrige: dos capas, y hay que pasar las dos
+
+La propietaria rechazó **sustituir** la validación global por tipos por
+tarea, y tenía razón: si la seguridad dependiera sólo del tipo, el día que
+alguien añada una tarea sin escribirle el suyo no quedaría nada debajo.
+
+- **Suelo** — vale para toda tarea, declare tipo o no. Sin caracteres de
+  control ni invisibles, topes de longitud y cantidad, y ningún valor suelto
+  que empiece por «-».
+- **Techo** — el tipo de cada tarea: posicionales, orden, banderas y clase
+  de valor (`ruta`, `id`, `texto`, `url`, `fecha`, `secreto`).
+- **Las rutas no se salen** — en los seis huecos de clase `ruta`, ni
+  absolutas ni con `..`. En un hueco `texto` o `secreto` no se comprueba, a
+  propósito: el nombre de una herramienta o una contraseña pueden parecerse
+  a una ruta y nadie las abre. Exigirles forma de ruta habría sido la regla
+  rígida que rompe trabajo legítimo.
+
+### Cinco clasificaciones estaban mal, y sólo se vieron leyendo el `argv`
+
+La tabla de tipos se escribió leyendo `process.argv` en los **26** módulos,
+no en los 11 que decían exigir argumentos. Apareció esto:
+
+| Tarea | Decía | Es |
+|---|---|---|
+| `repesca-verificacion` | exige un argumento | **no admite ninguno**: lee `descartes.json` tal cual |
+| `verificar-despliegue` | no admite nada | **exige `--url`**, y admite `--comparar-con` y `--probar-bloqueo` |
+| `verificar-neon` | no admite nada | admite `--env` |
+| `copia-seguridad-afiliacion` | no admite nada | admite `--env` |
+| `migrar-a-neon` | no admite nada | admite `--env` y `--forzar` |
+
+Es exactamente el error de `convertir-verificacion`: deducir del nombre en
+vez de leer el código. Por eso se leyeron los 26.
+
+### Las otras cuatro correcciones
+
+- **Una fila inválida ya no detiene la pasada.** Antes lanzaba desde
+  `reclamarSiguiente` y la excepción subía hasta el CLI, dejando sin
+  ejecutar todo lo que venía detrás. Ahora se cierra como `rechazada`, se
+  anota en la bitácora y se sigue con la siguiente.
+- **El carril y el motivo salen de `tareas.ts`, y ya no existen en
+  Postgres.** Se quitaron las dos columnas. Tenerlas era tener dos verdades,
+  y la de la base es la que se puede manipular; ahora no hay dónde escribir
+  la mentira.
+- **Sólo el ejecutor que reclamó una solicitud puede cerrarla**
+  (`reclamada_por` en el `WHERE`).
+- **La guarda de F3 ve también `require()` e `import()` dinámico.** No
+  estaban en la lista, y son justo las formas que no se ven en la cabecera
+  del fichero.
+
+### Lo que se confirmó que no cambia
+
+Las **62 herramientas**, sus fichas, enlaces, recomendaciones, puntuaciones
+y orden: idénticos. Se comprobó de dos formas — los SHA de árbol de Git del
+motor y del catálogo, y una huella de conducta sobre **810 combinaciones**
+reales, ejecutada contra la base y contra la corrección.
+
+**Sobre esa cifra:** el prompt pedía «la regresión completa de 3.120
+combinaciones». Esa prueba **no existe**. El número sale de una frase dentro
+de un comentario en `puertaDeEvidencia.test.ts` que describe una medición
+hecha a mano una vez; la prueba que hay debajo usa dos herramientas de
+fixture. Se reporta 810 porque 810 es lo que se ejecuta. Queda anotado para
+que nadie vuelva a citar 3.120 como si fuera una prueba.
+
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 
 **Aprobada por la propietaria el 2026-08-31.** Auditada sobre el commit

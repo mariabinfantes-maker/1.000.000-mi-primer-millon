@@ -18,8 +18,20 @@
  * `libre` — sólo lee y reporta. Orchestrator lo dispara solo.
  * `conPermiso` — gasta dinero o escribe datos. Se queda esperando firma.
  *
- * El motivo se guarda junto a la tarea y no se deduce: saber POR QUÉ algo
- * pide permiso es lo que permite revisarlo dentro de seis meses.
+ * El carril y el motivo viven **sólo aquí**. Postgres no los guarda: tener
+ * el mismo dato en dos sitios es tener dos verdades, y la de la base es la
+ * que puede manipularse. Se derivan de esta tabla cada vez que se lee una
+ * solicitud.
+ *
+ * ── Los argumentos ────────────────────────────────────────────────────
+ *
+ * Cada tarea declara qué admite: qué posicionales, en qué orden, y qué
+ * banderas con qué clase de valor. Lo que no está declarado se rechaza.
+ *
+ * Esta tabla se escribió **leyendo el `process.argv` de los 26 módulos**,
+ * no sus nombres. Al hacerlo aparecieron cinco clasificaciones erróneas de
+ * la primera versión, anotadas abajo. Deducir del nombre es el error que
+ * ya se cometió una vez con `convertir-verificacion`.
  */
 
 export type Carril = "libre" | "conPermiso";
@@ -29,6 +41,51 @@ export type MotivoDelCarril = "ninguno" | "gasta_dinero" | "escribe_datos";
 
 /** Cada cuánto tiene sentido repetirla. `manual` = nunca se propone sola. */
 export type Cadencia = "cada_ejecucion" | "semanal" | "mensual" | "manual";
+
+/**
+ * Qué clase de valor es un argumento. Decide qué caracteres se aceptan y,
+ * en `ruta`, que no pueda salirse del repositorio.
+ */
+export type ClaseDeValor =
+  /** Ruta relativa dentro del repositorio. Ni absoluta, ni con `..`. */
+  | "ruta"
+  /** Identificador de herramienta: minúsculas, dígitos y guiones. */
+  | "id"
+  /** Texto libre que la propietaria escribe (un motivo, una nota). Admite espacios y acentos. */
+  | "texto"
+  /** Dirección https. */
+  | "url"
+  /** Fecha AAAA-MM-DD. */
+  | "fecha"
+  /** Una contraseña que la propietaria teclea. Cualquier carácter visible, sin registrar en ningún sitio. */
+  | "secreto";
+
+export type Posicional = {
+  clase: ClaseDeValor;
+  descripcion: string;
+  obligatorio: boolean;
+  /** `true` si admite varios seguidos (p. ej. varios ids de borrador). */
+  repetible?: boolean;
+};
+
+export type Bandera = {
+  /** Sin los dos guiones. */
+  nombre: string;
+  /** `undefined` = interruptor: la bandera va sola, sin valor detrás. */
+  clase?: ClaseDeValor;
+  /** Lista cerrada de valores aceptados, cuando el CLI sólo admite unos pocos. */
+  valores?: readonly string[];
+  descripcion: string;
+};
+
+export type TipoDeArgumentos = {
+  posicionales: readonly Posicional[];
+  banderas: readonly Bandera[];
+  /** `true` si ejecutar la tarea sin ningún argumento es un error del propio CLI. */
+  exigeAlguno: boolean;
+};
+
+export const SIN_ARGUMENTOS: TipoDeArgumentos = { posicionales: [], banderas: [], exigeAlguno: false };
 
 export type Tarea = {
   id: TareaId;
@@ -46,8 +103,7 @@ export type Tarea = {
   carril: Carril;
   motivo: MotivoDelCarril;
   cadencia: Cadencia;
-  /** `true` si el script necesita argumentos que la propietaria aporta (ruta de un lote, id de herramienta). */
-  exigeArgumentos?: boolean;
+  argumentos: TipoDeArgumentos;
 };
 
 export const TAREA_IDS = [
@@ -84,6 +140,13 @@ export const TAREA_IDS = [
 
 export type TareaId = (typeof TAREA_IDS)[number];
 
+/** La bandera `--env ruta/al/.env`, que comparten los tres scripts de Neon. */
+const BANDERA_ENV: Bandera = {
+  nombre: "env",
+  clase: "ruta",
+  descripcion: "fichero de entorno a cargar (por defecto .env.neon.local)",
+};
+
 /**
  * Las 26 tareas.
  *
@@ -96,6 +159,16 @@ export type TareaId = (typeof TAREA_IDS)[number];
  * que el motor cree en F3. Por eso pide permiso: por escritura, no por
  * gasto. La primera clasificación se hizo mal y se corrigió al leer el
  * código.
+ *
+ * ── Las cinco correcciones al leer el `argv` de los 26 módulos ─────────
+ *
+ * 1. `repesca-verificacion` NO acepta ningún argumento: lee `descartes.json`
+ *    directamente. Estaba marcada como si exigiera uno.
+ * 2. `verificar-despliegue` EXIGE `--url`, y además acepta `--comparar-con`
+ *    y `--probar-bloqueo`. Estaba marcada como si no aceptara nada.
+ * 3. `verificar-neon` acepta `--env`. Estaba marcada como si no.
+ * 4. `copia-seguridad-afiliacion` acepta `--env`. Igual.
+ * 5. `migrar-a-neon` acepta `--env` y `--forzar`. Igual.
  */
 export const TAREAS: readonly Tarea[] = [
   {
@@ -106,6 +179,7 @@ export const TAREAS: readonly Tarea[] = [
     carril: "libre",
     motivo: "ninguno",
     cadencia: "semanal",
+    argumentos: SIN_ARGUMENTOS,
   },
   {
     id: "informe-mantenimiento",
@@ -115,6 +189,7 @@ export const TAREAS: readonly Tarea[] = [
     carril: "libre",
     motivo: "ninguno",
     cadencia: "semanal",
+    argumentos: SIN_ARGUMENTOS,
   },
   {
     id: "informe-curador",
@@ -124,6 +199,7 @@ export const TAREAS: readonly Tarea[] = [
     carril: "libre",
     motivo: "ninguno",
     cadencia: "mensual",
+    argumentos: SIN_ARGUMENTOS,
   },
   {
     id: "informe-historial",
@@ -133,6 +209,7 @@ export const TAREAS: readonly Tarea[] = [
     carril: "libre",
     motivo: "ninguno",
     cadencia: "mensual",
+    argumentos: SIN_ARGUMENTOS,
   },
   {
     id: "generar-informe",
@@ -142,7 +219,11 @@ export const TAREAS: readonly Tarea[] = [
     carril: "libre",
     motivo: "ninguno",
     cadencia: "manual",
-    exigeArgumentos: true,
+    argumentos: {
+      posicionales: [{ clase: "id", descripcion: "id de borrador", obligatorio: false, repetible: true }],
+      banderas: [{ nombre: "todos", descripcion: "todos los borradores pendientes, en vez de una lista de ids" }],
+      exigeAlguno: true,
+    },
   },
   {
     id: "verificar-datos",
@@ -152,6 +233,7 @@ export const TAREAS: readonly Tarea[] = [
     carril: "libre",
     motivo: "ninguno",
     cadencia: "cada_ejecucion",
+    argumentos: SIN_ARGUMENTOS,
   },
   {
     id: "verificar-revenue",
@@ -161,6 +243,7 @@ export const TAREAS: readonly Tarea[] = [
     carril: "libre",
     motivo: "ninguno",
     cadencia: "cada_ejecucion",
+    argumentos: SIN_ARGUMENTOS,
   },
   {
     id: "verificar-neon",
@@ -170,6 +253,7 @@ export const TAREAS: readonly Tarea[] = [
     carril: "libre",
     motivo: "ninguno",
     cadencia: "cada_ejecucion",
+    argumentos: { posicionales: [], banderas: [BANDERA_ENV], exigeAlguno: false },
   },
   {
     id: "verificar-despliegue",
@@ -179,6 +263,15 @@ export const TAREAS: readonly Tarea[] = [
     carril: "libre",
     motivo: "ninguno",
     cadencia: "manual",
+    argumentos: {
+      posicionales: [],
+      banderas: [
+        { nombre: "url", clase: "url", descripcion: "la vista previa que se comprueba (obligatoria)" },
+        { nombre: "comparar-con", clase: "url", descripcion: "dirección con la que comparar el texto visible" },
+        { nombre: "probar-bloqueo", descripcion: "prueba el bloqueo tras 5 intentos fallidos (bloquea tu IP 15 minutos)" },
+      ],
+      exigeAlguno: true,
+    },
   },
   {
     id: "verificar-enlaces-afiliados",
@@ -188,6 +281,7 @@ export const TAREAS: readonly Tarea[] = [
     carril: "libre",
     motivo: "ninguno",
     cadencia: "semanal",
+    argumentos: SIN_ARGUMENTOS,
   },
   {
     id: "investigar-lote",
@@ -197,7 +291,11 @@ export const TAREAS: readonly Tarea[] = [
     carril: "conPermiso",
     motivo: "gasta_dinero",
     cadencia: "manual",
-    exigeArgumentos: true,
+    argumentos: {
+      posicionales: [{ clase: "ruta", descripcion: "fichero JSON con la lista de candidatas", obligatorio: true }],
+      banderas: [],
+      exigeAlguno: true,
+    },
   },
   {
     id: "investigar-herramienta",
@@ -207,7 +305,12 @@ export const TAREAS: readonly Tarea[] = [
     carril: "conPermiso",
     motivo: "gasta_dinero",
     cadencia: "manual",
-    exigeArgumentos: true,
+    // El CLI une todos los argumentos con espacios: "Notion" "AI" → "Notion AI".
+    argumentos: {
+      posicionales: [{ clase: "texto", descripcion: "nombre de la herramienta", obligatorio: true, repetible: true }],
+      banderas: [],
+      exigeAlguno: true,
+    },
   },
   {
     id: "investigar-pendiente",
@@ -217,7 +320,11 @@ export const TAREAS: readonly Tarea[] = [
     carril: "conPermiso",
     motivo: "gasta_dinero",
     cadencia: "manual",
-    exigeArgumentos: true,
+    argumentos: {
+      posicionales: [{ clase: "id", descripcion: "id de la candidata pendiente", obligatorio: true }],
+      banderas: [],
+      exigeAlguno: true,
+    },
   },
   {
     id: "repesca-verificacion",
@@ -227,7 +334,8 @@ export const TAREAS: readonly Tarea[] = [
     carril: "conPermiso",
     motivo: "gasta_dinero",
     cadencia: "manual",
-    exigeArgumentos: true,
+    // Corrección 1: no lee `argv`. Trabaja sobre `descartes.json` tal cual.
+    argumentos: SIN_ARGUMENTOS,
   },
   {
     id: "convertir-verificacion",
@@ -237,7 +345,11 @@ export const TAREAS: readonly Tarea[] = [
     carril: "conPermiso",
     motivo: "escribe_datos",
     cadencia: "manual",
-    exigeArgumentos: true,
+    argumentos: {
+      posicionales: [{ clase: "ruta", descripcion: "salida cruda del lote", obligatorio: true }],
+      banderas: [],
+      exigeAlguno: true,
+    },
   },
   {
     id: "promover-borrador",
@@ -247,7 +359,14 @@ export const TAREAS: readonly Tarea[] = [
     carril: "conPermiso",
     motivo: "escribe_datos",
     cadencia: "manual",
-    exigeArgumentos: true,
+    argumentos: {
+      posicionales: [{ clase: "id", descripcion: "id de la herramienta", obligatorio: true }],
+      banderas: [
+        { nombre: "ignorar-duplicado", descripcion: "sigue adelante pese al aviso de duplicado" },
+        { nombre: "justificacion", clase: "texto", descripcion: "por qué se ignora el aviso" },
+      ],
+      exigeAlguno: true,
+    },
   },
   {
     id: "aprobar-borrador",
@@ -257,7 +376,14 @@ export const TAREAS: readonly Tarea[] = [
     carril: "conPermiso",
     motivo: "escribe_datos",
     cadencia: "manual",
-    exigeArgumentos: true,
+    argumentos: {
+      posicionales: [{ clase: "id", descripcion: "id del borrador", obligatorio: true }],
+      banderas: [
+        { nombre: "decision", valores: ["aprobado", "rechazado"], descripcion: "la decisión (obligatoria)" },
+        { nombre: "notas", clase: "texto", descripcion: "motivo, para que quede auditable (obligatorio)" },
+      ],
+      exigeAlguno: true,
+    },
   },
   {
     id: "autorizar-afiliacion",
@@ -267,7 +393,11 @@ export const TAREAS: readonly Tarea[] = [
     carril: "conPermiso",
     motivo: "escribe_datos",
     cadencia: "manual",
-    exigeArgumentos: true,
+    argumentos: {
+      posicionales: [{ clase: "id", descripcion: "id de la herramienta", obligatorio: true }],
+      banderas: [{ nombre: "motivo", clase: "texto", descripcion: "por qué entra pese a su afiliación (obligatorio)" }],
+      exigeAlguno: true,
+    },
   },
   {
     id: "actualizar-estrategia-afiliacion",
@@ -277,7 +407,35 @@ export const TAREAS: readonly Tarea[] = [
     carril: "conPermiso",
     motivo: "escribe_datos",
     cadencia: "manual",
-    exigeArgumentos: true,
+    argumentos: {
+      posicionales: [{ clase: "id", descripcion: "id de la herramienta (salvo con --lote)", obligatorio: false }],
+      banderas: [
+        { nombre: "lote", clase: "ruta", descripcion: "fichero JSON con varias cuentas" },
+        { nombre: "cuenta", clase: "id", descripcion: "id de la cuenta dentro de la herramienta" },
+        {
+          nombre: "estado",
+          valores: ["no_solicitado", "pendiente", "aprobado", "rechazado", "activo"],
+          descripcion: "estado de la solicitud de afiliación",
+        },
+        { nombre: "nombre-programa", clase: "texto", descripcion: "nombre del programa" },
+        { nombre: "plataforma", clase: "texto", descripcion: "plataforma de afiliación" },
+        { nombre: "url-solicitud", clase: "url", descripcion: "dirección donde se solicitó" },
+        { nombre: "usuario-registro", clase: "texto", descripcion: "con qué usuario se registró" },
+        { nombre: "fecha-solicitud", clase: "fecha", descripcion: "AAAA-MM-DD" },
+        { nombre: "fecha-aprobacion", clase: "fecha", descripcion: "AAAA-MM-DD" },
+        { nombre: "comision", clase: "texto", descripcion: "comisión acordada" },
+        { nombre: "cookie", clase: "texto", descripcion: "duración de la cookie" },
+        { nombre: "metodo-pago", clase: "texto", descripcion: "cómo se cobra" },
+        { nombre: "frecuencia-pago", clase: "texto", descripcion: "cada cuánto se cobra" },
+        { nombre: "enlace", clase: "url", descripcion: "enlace de afiliado" },
+        { nombre: "segmento", clase: "texto", descripcion: "país o idioma" },
+        { nombre: "requisitos", clase: "texto", descripcion: "requisitos del programa" },
+        { nombre: "borrador", clase: "texto", descripcion: "notas de borrador" },
+        { nombre: "notas", clase: "texto", descripcion: "notas" },
+        { nombre: "usuario", clase: "texto", descripcion: "quién queda registrado en el historial" },
+      ],
+      exigeAlguno: true,
+    },
   },
   {
     id: "copia-seguridad-afiliacion",
@@ -287,6 +445,7 @@ export const TAREAS: readonly Tarea[] = [
     carril: "conPermiso",
     motivo: "escribe_datos",
     cadencia: "manual",
+    argumentos: { posicionales: [], banderas: [BANDERA_ENV], exigeAlguno: false },
   },
   {
     id: "migrar-json-a-postgres",
@@ -296,6 +455,7 @@ export const TAREAS: readonly Tarea[] = [
     carril: "conPermiso",
     motivo: "escribe_datos",
     cadencia: "manual",
+    argumentos: SIN_ARGUMENTOS,
   },
   {
     id: "migrar-a-neon",
@@ -305,6 +465,11 @@ export const TAREAS: readonly Tarea[] = [
     carril: "conPermiso",
     motivo: "escribe_datos",
     cadencia: "manual",
+    argumentos: {
+      posicionales: [],
+      banderas: [BANDERA_ENV, { nombre: "forzar", descripcion: "sigue adelante pese a los avisos" }],
+      exigeAlguno: false,
+    },
   },
   {
     id: "migrar-taxonomia",
@@ -314,6 +479,7 @@ export const TAREAS: readonly Tarea[] = [
     carril: "conPermiso",
     motivo: "escribe_datos",
     cadencia: "manual",
+    argumentos: SIN_ARGUMENTOS,
   },
   {
     id: "aprovisionar-esquema-postgres",
@@ -323,6 +489,7 @@ export const TAREAS: readonly Tarea[] = [
     carril: "conPermiso",
     motivo: "escribe_datos",
     cadencia: "manual",
+    argumentos: SIN_ARGUMENTOS,
   },
   {
     id: "generar-hash-admin",
@@ -332,7 +499,11 @@ export const TAREAS: readonly Tarea[] = [
     carril: "conPermiso",
     motivo: "escribe_datos",
     cadencia: "manual",
-    exigeArgumentos: true,
+    argumentos: {
+      posicionales: [{ clase: "secreto", descripcion: "la contraseña del panel", obligatorio: true }],
+      banderas: [],
+      exigeAlguno: true,
+    },
   },
   {
     id: "generar-secreto-admin",
@@ -342,6 +513,7 @@ export const TAREAS: readonly Tarea[] = [
     carril: "conPermiso",
     motivo: "escribe_datos",
     cadencia: "manual",
+    argumentos: SIN_ARGUMENTOS,
   },
 ];
 

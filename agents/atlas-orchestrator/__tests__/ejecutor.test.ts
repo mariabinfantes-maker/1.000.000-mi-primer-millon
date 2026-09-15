@@ -14,6 +14,11 @@ const ECO: Tarea = {
   carril: "libre",
   motivo: "ninguno",
   cadencia: "manual",
+  argumentos: {
+    posicionales: [{ clase: "texto", descripcion: "lo que sea", obligatorio: false, repetible: true }],
+    banderas: [],
+    exigeAlguno: false,
+  },
 };
 
 describe("lo que se lanza, y cómo", () => {
@@ -33,8 +38,13 @@ describe("lo que se lanza, y cómo", () => {
    * metido un intérprete por medio.
    */
   it("no construye ninguna cadena de comando ni pasa por npm", () => {
-    for (const tarea of [tareaDe("verificar-datos")!, tareaDe("investigar-lote")!]) {
-      const { ejecutable, argumentos } = comandoDe(tarea, ["data/lotes/lote-1.json"], RAIZ);
+    const casos: [string, string[]][] = [
+      ["verificar-datos", []],
+      ["investigar-lote", ["data/lotes/lote-1.json"]],
+      ["aprobar-borrador", ["viday", "--decision", "aprobado", "--notas", "Cubre un hueco real"]],
+    ];
+    for (const [id, args] of casos) {
+      const { ejecutable, argumentos } = comandoDe(tareaDe(id)!, args, RAIZ);
       expect(ejecutable).not.toMatch(/npm/);
       for (const argumento of [ejecutable, ...argumentos]) {
         expect(argumento).not.toMatch(/[;&|><`$]/);
@@ -43,8 +53,22 @@ describe("lo que se lanza, y cómo", () => {
   });
 
   it("los argumentos van detrás del fichero, en orden y sin tocar", () => {
-    const { argumentos } = comandoDe(tareaDe("investigar-lote")!, ["data/lotes/lote-1.json", "2026-09-15"], RAIZ);
-    expect(argumentos.slice(2)).toEqual(["data/lotes/lote-1.json", "2026-09-15"]);
+    const { argumentos } = comandoDe(
+      tareaDe("actualizar-estrategia-afiliacion")!,
+      ["viday", "--fecha-solicitud", "2026-09-15", "--notas", "Solicitado por correo"],
+      RAIZ
+    );
+    expect(argumentos.slice(2)).toEqual(["viday", "--fecha-solicitud", "2026-09-15", "--notas", "Solicitado por correo"]);
+  });
+
+  /**
+   * El agujero que cerró esta corrección: antes esto construía un `argv`
+   * que apuntaba a `/etc/passwd`, en una tarea del carril libre que se
+   * ejecuta sin firma ninguna.
+   */
+  it("una travesía de directorios no llega ni a construir el comando", () => {
+    expect(() => comandoDe(tareaDe("investigar-lote")!, ["../../../etc/passwd"], RAIZ)).toThrow(/fuera del repositorio/);
+    expect(() => comandoDe(tareaDe("convertir-verificacion")!, ["/etc/shadow"], RAIZ)).toThrow(/Argumentos rechazados/);
   });
 
   it("un argumento que no pasa la revisión no llega ni a construir el comando", () => {

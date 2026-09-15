@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
 import { explicarMotivo } from "./carriles";
-import { ejecutarSiguiente, type Ejecutada, type OpcionesEjecucion } from "./ejecutor";
+import { ejecutarSiguiente, esDescartada, type Ejecutada, type OpcionesEjecucion, type Paso } from "./ejecutor";
 import { planificar, type Propuesta } from "./planificador";
 import {
   crearSolicitud,
@@ -10,6 +10,7 @@ import {
   ultimasEjecuciones,
   type OpcionesRepositorio,
   type Solicitud,
+  type SolicitudInvalida,
 } from "./repositorio";
 
 /**
@@ -42,6 +43,8 @@ export type ResumenPasada = {
   /** Ya había una solicitud viva idéntica: no se duplica. */
   yaEstaban: Propuesta[];
   ejecutadas: Ejecutada[];
+  /** Filas que no se pudieron leer. Quedaron rechazadas y anotadas, y NO detuvieron la pasada. */
+  descartadas: SolicitudInvalida[];
   /** Lo que está esperando la firma de la propietaria, después de la pasada. */
   esperandoFirma: Solicitud[];
 };
@@ -61,7 +64,7 @@ export async function orquestar(opciones: OpcionesPasada = {}): Promise<ResumenP
   const ejecucionId = randomUUID();
   const ahora = opciones.ahora ?? new Date();
 
-  const interrumpidas = await listarInterrumpidas(opciones);
+  const { solicitudes: interrumpidas } = await listarInterrumpidas(opciones);
 
   const propuestas = planificar(await ultimasEjecuciones(opciones), ahora);
 
@@ -78,18 +81,21 @@ export async function orquestar(opciones: OpcionesPasada = {}): Promise<ResumenP
   }
 
   const ejecutadas: Ejecutada[] = [];
+  const descartadas: SolicitudInvalida[] = [];
   if (!opciones.soloPlanificar) {
     const tope = opciones.maximoEjecuciones ?? MAXIMO_EJECUCIONES_POR_PASADA;
     for (let i = 0; i < tope; i++) {
-      const ejecutada = await ejecutarSiguiente(ejecucionId, opciones);
-      if (!ejecutada) break;
-      ejecutadas.push(ejecutada);
+      const paso: Paso | undefined = await ejecutarSiguiente(ejecucionId, opciones);
+      if (!paso) break;
+      // Una fila ilegible ya viene cerrada y anotada: se cuenta y se sigue.
+      if (esDescartada(paso)) descartadas.push(paso.invalida);
+      else ejecutadas.push(paso);
     }
   }
 
-  const esperandoFirma = await listarPorEstado(["esperando_autorizacion"], opciones);
+  const { solicitudes: esperandoFirma } = await listarPorEstado(["esperando_autorizacion"], opciones);
 
-  return { ejecucionId, interrumpidas, propuestas, creadas, yaEstaban, ejecutadas, esperandoFirma };
+  return { ejecucionId, interrumpidas, propuestas, creadas, yaEstaban, ejecutadas, descartadas, esperandoFirma };
 }
 
 /** El resumen en palabras, para la consola y —más adelante— para el panel. */
@@ -102,6 +108,12 @@ export function describirPasada(resumen: ResumenPasada): string[] {
       lineas.push(`   · #${s.id} ${s.tareaId} — reclamada el ${s.reclamadaEn?.toISOString().slice(0, 16).replace("T", " ")}`);
     }
     lineas.push("   Míralas antes de volver a pedirlas: no se sabe hasta dónde llegaron.");
+  }
+
+  if (resumen.descartadas.length) {
+    lineas.push(`⚠ ${resumen.descartadas.length} solicitud(es) no se pudieron leer y quedaron rechazadas:`);
+    for (const d of resumen.descartadas) lineas.push(`   · #${d.id} ${d.tareaId} — ${d.explicacion}`);
+    lineas.push("   Las siguientes se ejecutaron igual: una fila mala no para la pasada.");
   }
 
   lineas.push(`Propuestas: ${resumen.propuestas.length} · nuevas: ${resumen.creadas.length} · ya estaban: ${resumen.yaEstaban.length}`);

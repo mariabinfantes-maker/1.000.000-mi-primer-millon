@@ -330,7 +330,7 @@ Dos clasificaciones se corrigieron leyendo el código y no el nombre:
 modifica), y `convertir-verificacion` pide permiso **por escribir**
 `registros.json`, no por gastar — no llama a ningún proveedor.
 
-### Las cuatro reglas que sostienen el agente
+### Las cinco reglas que sostienen el agente
 
 1. **De la base de datos nunca sale un comando.** Una solicitud guarda un
    identificador de tarea; el fichero que se ejecuta está escrito en
@@ -338,16 +338,38 @@ modifica), y `convertir-verificacion` pide permiso **por escribir**
    `execFile` y `shell: false`: no hay intérprete de comandos en ningún
    punto del camino. Una fila manipulada consigue que la rechacen, no que
    ejecute algo.
-2. **El silencio no es permiso.** Una solicitud que pide firma nace en
+
+   **Ni argumentos peligrosos.** Se revisan en dos capas, y hay que pasar
+   las dos. El **suelo** vale para toda tarea, declare tipo o no: nada de
+   caracteres de control ni invisibles, topes de longitud y cantidad, y
+   ningún valor suelto que empiece por «-» —dejaría de ser un dato y
+   pasaría a ser una opción del programa—. El **techo** es el tipo de cada
+   tarea: qué posicionales, en qué orden, qué banderas y con qué clase de
+   valor (`ruta`, `id`, `texto`, `url`, `fecha`, `secreto`). Lo que no esté
+   declarado se rechaza. En los seis huecos de clase `ruta` —los únicos que
+   un CLI abre como fichero— se rechaza además toda ruta absoluta y todo
+   segmento `..`: no se puede apuntar fuera del repositorio.
+
+   Esa tabla de tipos se escribió **leyendo el `process.argv` de los 26
+   módulos**, y al hacerlo aparecieron cinco clasificaciones erróneas.
+
+2. **Una fila inválida no detiene la pasada.** Si una solicitud no se puede
+   interpretar —la tarea ya no existe, los argumentos no pasan su tipo—, se
+   cierra como `rechazada`, se anota en la bitácora y el orquestador sigue
+   con la siguiente. Antes lanzaba, y la excepción dejaba sin ejecutar todo
+   lo que venía detrás.
+3. **El silencio no es permiso.** Una solicitud que pide firma nace en
    `esperando_autorizacion` y ahí se queda indefinidamente. No caduca a
    favor, no hay plazo tras el cual se ejecute igual. **En el bloque 1 no
    existe ningún comando, CLI ni función que firme una autorización**, por
    decisión expresa de la propietaria: firmar es del bloque 2.
-3. **Reclamar es atómico.** `FOR UPDATE SKIP LOCKED` dentro del mismo
+4. **Reclamar es atómico.** `FOR UPDATE SKIP LOCKED` dentro del mismo
    `UPDATE`: dos procesos simultáneos no pueden llevarse la misma
    solicitud. Es la diferencia entre gastar una vez y gastar dos.
-4. **Una ejecución cortada a mitad queda registrada y nunca se reintenta
-   sola.** La fila se queda en `en_curso` con su asiento en la bitácora, y
+5. **Una ejecución cortada a mitad queda registrada y nunca se reintenta
+   sola.** Y sólo la cierra el ejecutor que la reclamó: `reclamada_por` va
+   en el `WHERE`, así que dos orquestadores a la vez no pueden pisarse el
+   resultado. La fila se queda en `en_curso` con su asiento en la bitácora, y
    sólo se reclaman las que están `lista` o `autorizada`. El orquestador
    las enseña; decide una persona.
 
@@ -357,7 +379,13 @@ Dos tablas en Postgres (`data/db/esquema.ts`), no ficheros: la máquina que
 ejecuta y la web donde se firmará no comparten disco, y el sistema de
 ficheros de Vercel es efímero. `solicitudes_orquestador` es el buzón — sin
 ninguna columna que pueda contener un comando, y hay una prueba que lo
-comprueba. `bitacora_orquestador` es append-only por trigger, como el
+comprueba.
+
+**Tampoco guarda el carril ni el motivo**, y es deliberado: se derivan de
+`tareas.ts` cada vez que se lee una fila. Tenerlos en la base sería tener el
+mismo dato en dos sitios, y el de la base es el que puede manipularse — una
+fila que dijera «libre» en una tarea que gasta dinero habría sido una puerta
+abierta. Ahora no hay dónde escribir esa mentira. `bitacora_orquestador` es append-only por trigger, como el
 historial de afiliación: es la única prueba de qué se ejecutó sin nadie
 delante.
 

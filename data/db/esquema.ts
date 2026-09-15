@@ -96,6 +96,11 @@ export const SENTENCIAS_ESQUEMA: string[] = [
   // ejecuta nada. Una fila manipulada no consigue ejecutar un comando
   // arbitrario: consigue que la rechacen.
   //
+  // Tampoco están aquí el carril ni el motivo, y es deliberado: guardarlos
+  // sería tener el mismo dato en dos sitios, y el de la base es el que
+  // puede manipularse. Se derivan de `tareas.ts` cada vez que se lee una
+  // fila. Dos fuentes de verdad son dos formas de equivocarse.
+  //
   // El estado `esperando_autorizacion` es el que sostiene la regla de la
   // propietaria: el silencio nunca es permiso. Una solicitud que nadie
   // firma se queda ahí indefinidamente, y no hay nada que la mueva sola.
@@ -105,8 +110,6 @@ export const SENTENCIAS_ESQUEMA: string[] = [
   `CREATE TABLE IF NOT EXISTS solicitudes_orquestador (
     id bigserial PRIMARY KEY,
     tarea_id text NOT NULL,
-    carril text NOT NULL,
-    motivo text NOT NULL,
     argumentos jsonb NOT NULL DEFAULT '[]'::jsonb,
     estado text NOT NULL CHECK (estado IN ('lista', 'esperando_autorizacion', 'autorizada', 'en_curso', 'completada', 'fallida', 'rechazada')),
     por_que text,

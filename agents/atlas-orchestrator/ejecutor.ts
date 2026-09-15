@@ -1,7 +1,13 @@
 import { execFile } from "node:child_process";
 import path from "node:path";
 import { exigirArgumentosValidos } from "./carriles";
-import { marcarTerminada, reclamarSiguiente, type OpcionesRepositorio, type Solicitud } from "./repositorio";
+import {
+  marcarTerminada,
+  reclamarSiguiente,
+  type OpcionesRepositorio,
+  type Solicitud,
+  type SolicitudInvalida,
+} from "./repositorio";
 import { tareaDe, type Tarea } from "./tareas";
 
 /**
@@ -62,7 +68,7 @@ export type OpcionesEjecucion = {
 export function comandoDe(tarea: Tarea, argumentos: readonly string[], raiz: string = process.cwd()) {
   return {
     ejecutable: process.execPath,
-    argumentos: [path.join(raiz, CLI_TSX), path.join(raiz, tarea.modulo), ...exigirArgumentosValidos(argumentos)],
+    argumentos: [path.join(raiz, CLI_TSX), path.join(raiz, tarea.modulo), ...exigirArgumentosValidos(tarea, argumentos)],
   };
 }
 
@@ -111,6 +117,15 @@ export type Ejecutada = {
   rechazo?: string;
 };
 
+/** Una fila que ni siquiera pudo leerse. Ya quedó cerrada y anotada; se devuelve para poder contarla. */
+export type Descartada = { invalida: SolicitudInvalida };
+
+export type Paso = Ejecutada | Descartada;
+
+export function esDescartada(paso: Paso): paso is Descartada {
+  return "invalida" in paso;
+}
+
 /**
  * Reclama la siguiente solicitud ejecutable y la ejecuta. Devuelve
  * `undefined` si no había ninguna.
@@ -120,24 +135,30 @@ export type Ejecutada = {
  * con su asiento `reclamada` en la bitácora y **nadie la vuelve a coger**:
  * `reclamarSiguiente` sólo mira `lista` y `autorizada`. Queda registrada y
  * espera a una persona, que es exactamente lo que se pidió.
+ *
+ * Una fila que no se puede leer ya viene cerrada y anotada del
+ * repositorio: aquí sólo se cuenta y se sigue con la siguiente. Nunca
+ * detiene la pasada.
  */
 export async function ejecutarSiguiente(
   ejecucionId: string,
   opciones: OpcionesEjecucion & OpcionesRepositorio = {}
-): Promise<Ejecutada | undefined> {
-  const solicitud = await reclamarSiguiente(ejecucionId, opciones);
-  if (!solicitud) return undefined;
-
-  const tarea = tareaDe(solicitud.tareaId);
-  if (!tarea) {
-    const rechazo = `"${solicitud.tareaId}" no está en el catálogo del código. No se ejecuta nada.`;
-    await marcarTerminada(solicitud.id, "rechazada", { resultado: rechazo, ejecucionId }, opciones);
-    return { solicitud, rechazo };
+): Promise<Paso | undefined> {
+  const reclamada = await reclamarSiguiente(ejecucionId, opciones);
+  if (!reclamada) return undefined;
+  if (!reclamada.ok) {
+    return { invalida: { id: reclamada.id, tareaId: reclamada.tareaId, explicacion: reclamada.explicacion } };
   }
+
+  const solicitud = reclamada.solicitud;
+  // `solicitud.carril` viene de `tareas.ts`, no de la fila: el repositorio
+  // lo deriva al leer. Aun así se vuelve a mirar aquí, que es donde se
+  // aprieta el botón, para que la comprobación esté junto a la acción.
+  const tarea = tareaDe(solicitud.tareaId)!;
 
   if (tarea.carril === "conPermiso" && !solicitud.autorizadaEn) {
     const rechazo = `"${tarea.id}" necesita la firma de la propietaria y la solicitud no la tiene. No se ejecuta.`;
-    await marcarTerminada(solicitud.id, "rechazada", { resultado: rechazo, ejecucionId }, opciones);
+    await marcarTerminada(solicitud.id, "rechazada", ejecucionId, { resultado: rechazo }, opciones);
     return { solicitud, rechazo };
   }
 
@@ -145,7 +166,8 @@ export async function ejecutarSiguiente(
   await marcarTerminada(
     solicitud.id,
     resultado.ok ? "completada" : "fallida",
-    { resultado: resultado.salida.slice(0, 4000), ejecucionId },
+    ejecucionId,
+    { resultado: resultado.salida.slice(0, 4000) },
     opciones
   );
   return { solicitud, resultado };

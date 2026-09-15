@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { limpiarTablasDePrueba, poolDePrueba, postgresDisponible } from "@/data/db/__tests__/entornoPruebaPostgres";
 import { describirPasada, orquestar } from "../index";
-import { ejecutarSiguiente, type ResultadoEjecucion } from "../ejecutor";
+import { ejecutarSiguiente, esDescartada, type ResultadoEjecucion } from "../ejecutor";
 import {
   anotar,
   crearSolicitud,
@@ -39,6 +39,12 @@ function simularFirmaDeLaPropietaria(id: number) {
 }
 
 const pool = () => poolDePrueba();
+
+/** El id de una solicitud recién reclamada, sea cual sea el resultado. */
+function idDe(r: Awaited<ReturnType<typeof reclamarSiguiente>>): number | undefined {
+  if (!r) return undefined;
+  return r.ok ? r.solicitud.id : r.id;
+}
 const opciones = () => ({ pool: poolDePrueba() });
 
 describe.skipIf(!postgresDisponible())("el buzón de solicitudes", () => {
@@ -60,7 +66,7 @@ describe.skipIf(!postgresDisponible())("el buzón de solicitudes", () => {
 
   it("una tarea que no está en el catálogo no crea nada", async () => {
     await expect(crearSolicitud({ tareaId: "rm-rf" }, opciones())).rejects.toThrow(/no es una tarea del catálogo/);
-    expect(await listarPorEstado(["lista", "esperando_autorizacion"], opciones())).toEqual([]);
+    expect((await listarPorEstado(["lista", "esperando_autorizacion"], opciones())).solicitudes).toEqual([]);
   });
 
   it("los argumentos se revisan antes de guardarlos, no al ejecutar", async () => {
@@ -80,7 +86,7 @@ describe.skipIf(!postgresDisponible())("el buzón de solicitudes", () => {
   it("una solicitud ya cerrada deja de contar como viva", async () => {
     const solicitud = await crearSolicitud({ tareaId: "informe-curador" }, opciones());
     await reclamarSiguiente("e1", opciones());
-    await marcarTerminada(solicitud.id, "completada", {}, opciones());
+    await marcarTerminada(solicitud.id, "completada", "e1", {}, opciones());
 
     expect(await haySolicitudViva("informe-curador", [], opciones())).toBe(false);
   });
@@ -95,9 +101,9 @@ describe.skipIf(!postgresDisponible())("reclamar es atómico y no se reparte dos
 
     const [a, b] = await Promise.all([reclamarSiguiente("e1", opciones()), reclamarSiguiente("e2", opciones())]);
 
-    expect(a).toBeDefined();
-    expect(b).toBeDefined();
-    expect(a!.id).not.toBe(b!.id);
+    expect(a?.ok).toBe(true);
+    expect(b?.ok).toBe(true);
+    expect(idDe(a)).not.toBe(idDe(b));
   });
 
   it("con una sola solicitud, uno se la lleva y el otro se va de vacío", async () => {
@@ -118,7 +124,7 @@ describe.skipIf(!postgresDisponible())("reclamar es atómico y no se reparte dos
     await pool().query(`UPDATE solicitudes_orquestador SET creada_en = now() - interval '400 days'`);
 
     expect(await reclamarSiguiente("e1", opciones())).toBeUndefined();
-    expect((await listarPorEstado(["esperando_autorizacion"], opciones()))[0].tareaId).toBe("investigar-lote");
+    expect((await listarPorEstado(["esperando_autorizacion"], opciones())).solicitudes[0].tareaId).toBe("investigar-lote");
   });
 
   it("firmada sí se reclama, y sólo entonces", async () => {
@@ -128,8 +134,11 @@ describe.skipIf(!postgresDisponible())("reclamar es atómico y no se reparte dos
     await simularFirmaDeLaPropietaria(solicitud.id);
 
     const reclamada = await reclamarSiguiente("e1", opciones());
-    expect(reclamada?.id).toBe(solicitud.id);
-    expect(reclamada?.autorizadaEn).toBeInstanceOf(Date);
+    expect(reclamada?.ok).toBe(true);
+    if (reclamada?.ok) {
+      expect(reclamada.solicitud.id).toBe(solicitud.id);
+      expect(reclamada.solicitud.autorizadaEn).toBeInstanceOf(Date);
+    }
   });
 });
 
@@ -143,7 +152,7 @@ describe.skipIf(!postgresDisponible())("una ejecución cortada a mitad queda reg
 
     expect(await reclamarSiguiente("la-siguiente-pasada", opciones())).toBeUndefined();
 
-    const interrumpidas = await listarInterrumpidas(opciones());
+    const { solicitudes: interrumpidas } = await listarInterrumpidas(opciones());
     expect(interrumpidas.map((s) => s.id)).toEqual([solicitud.id]);
     expect(interrumpidas[0].reclamadaPor).toBe("la-que-se-cayo");
   });
@@ -159,15 +168,15 @@ describe.skipIf(!postgresDisponible())("una ejecución cortada a mitad queda reg
 
   it("nadie puede cerrar una solicitud que no estaba en curso", async () => {
     const solicitud = await crearSolicitud({ tareaId: "informe-curador" }, opciones());
-    await expect(marcarTerminada(solicitud.id, "completada", {}, opciones())).rejects.toThrow(/no estaba en curso/);
+    await expect(marcarTerminada(solicitud.id, "completada", "e1", {}, opciones())).rejects.toThrow(/no está en curso/);
   });
 
   it("una solicitud cerrada no se puede volver a cerrar", async () => {
     const solicitud = await crearSolicitud({ tareaId: "informe-curador" }, opciones());
     await reclamarSiguiente("e1", opciones());
-    await marcarTerminada(solicitud.id, "fallida", { resultado: "salió con error" }, opciones());
+    await marcarTerminada(solicitud.id, "fallida", "e1", { resultado: "salió con error" }, opciones());
 
-    await expect(marcarTerminada(solicitud.id, "completada", {}, opciones())).rejects.toThrow(/no estaba en curso/);
+    await expect(marcarTerminada(solicitud.id, "completada", "e1", {}, opciones())).rejects.toThrow(/no está en curso/);
     expect((await leerSolicitud(solicitud.id, opciones()))?.resultado).toBe("salió con error");
   });
 });
@@ -188,13 +197,13 @@ describe.skipIf(!postgresDisponible())("la bitácora no se reescribe", () => {
   it("la última ejecución de una tarea sale de los asientos 'completada', no de los intentos", async () => {
     const solicitud = await crearSolicitud({ tareaId: "informe-curador" }, opciones());
     await reclamarSiguiente("e1", opciones());
-    await marcarTerminada(solicitud.id, "fallida", {}, opciones());
+    await marcarTerminada(solicitud.id, "fallida", "e1", {}, opciones());
 
     expect(await ultimasEjecuciones(opciones())).toEqual([]);
 
     const segunda = await crearSolicitud({ tareaId: "informe-curador" }, opciones());
     await reclamarSiguiente("e2", opciones());
-    await marcarTerminada(segunda.id, "completada", {}, opciones());
+    await marcarTerminada(segunda.id, "completada", "e2", {}, opciones());
 
     const ultimas = await ultimasEjecuciones(opciones());
     expect(ultimas).toHaveLength(1);
@@ -225,18 +234,29 @@ describe.skipIf(!postgresDisponible())("la segunda puerta: el ejecutor vuelve a 
     });
 
     expect(lanzamientos).toEqual([]);
-    expect(ejecutada?.rechazo).toContain("necesita la firma de la propietaria");
+    expect(ejecutada && !esDescartada(ejecutada) ? ejecutada.rechazo : undefined).toContain(
+      "necesita la firma de la propietaria"
+    );
     expect((await leerSolicitud(solicitud.id, opciones()))?.estado).toBe("rechazada");
   });
 
-  it("una tarea cuyo id ya no está en el catálogo se rechaza sin ejecutar nada", async () => {
+  it("una tarea cuyo id ya no está en el catálogo se rechaza, se registra y no lanza", async () => {
     const solicitud = await crearSolicitud({ tareaId: "informe-curador" }, opciones());
     await pool().query(`UPDATE solicitudes_orquestador SET tarea_id = 'tarea-que-ya-no-existe' WHERE id = $1`, [
       solicitud.id,
     ]);
 
-    await expect(reclamarSiguiente("e1", opciones())).rejects.toThrow(/no está en el catálogo/);
-    expect(await leerBitacora(opciones())).toHaveLength(1);
+    const reclamada = await reclamarSiguiente("e1", opciones());
+
+    expect(reclamada?.ok).toBe(false);
+    if (reclamada && !reclamada.ok) expect(reclamada.explicacion).toContain("no está en el catálogo");
+
+    const asientos = await leerBitacora(opciones());
+    expect(asientos.map((a) => a.evento)).toEqual(["rechazada", "reclamada", "creada"]);
+    const { solicitudes } = await listarPorEstado(["rechazada"], opciones());
+    expect(solicitudes).toEqual([]); // no se puede leer, pero está cerrada
+    const { rows } = await pool().query(`SELECT estado FROM solicitudes_orquestador WHERE id = $1`, [solicitud.id]);
+    expect(rows[0].estado).toBe("rechazada");
   });
 });
 
@@ -276,7 +296,7 @@ describe.skipIf(!postgresDisponible())("una pasada completa", () => {
     const resumen = await orquestar({ ...opciones(), ...lanzadorFalso(), soloPlanificar: true, ahora: new Date() });
 
     expect(resumen.propuestas.filter((p) => p.tarea.carril === "conPermiso")).toEqual([]);
-    expect(await listarPorEstado(["esperando_autorizacion"], opciones())).toEqual([]);
+    expect((await listarPorEstado(["esperando_autorizacion"], opciones())).solicitudes).toEqual([]);
   });
 
   it("una solicitud que espera firma sobrevive a la pasada sin ejecutarse", async () => {
@@ -293,13 +313,13 @@ describe.skipIf(!postgresDisponible())("una pasada completa", () => {
   it("dos pasadas seguidas no duplican lo que sigue sin ejecutarse", async () => {
     const ahora = new Date("2026-09-15T10:00:00Z");
     await orquestar({ ...opciones(), ...lanzadorFalso(), soloPlanificar: true, ahora });
-    const listasTrasLaPrimera = await listarPorEstado(["lista"], opciones());
+    const { solicitudes: listasTrasLaPrimera } = await listarPorEstado(["lista"], opciones());
 
     const segunda = await orquestar({ ...opciones(), ...lanzadorFalso(), soloPlanificar: true, ahora });
 
     expect(segunda.creadas).toEqual([]);
     expect(segunda.yaEstaban.length).toBe(listasTrasLaPrimera.length);
-    expect((await listarPorEstado(["lista"], opciones())).map((s) => s.id)).toEqual(listasTrasLaPrimera.map((s) => s.id));
+    expect((await listarPorEstado(["lista"], opciones())).solicitudes.map((s) => s.id)).toEqual(listasTrasLaPrimera.map((s) => s.id));
   });
 
   it("lo semanal no se repite al día siguiente", async () => {
@@ -322,7 +342,7 @@ describe.skipIf(!postgresDisponible())("una pasada completa", () => {
     expect(falso.lanzadas).toEqual([]);
     expect(resumen.ejecutadas).toEqual([]);
     expect(resumen.creadas.length).toBeGreaterThan(0);
-    expect((await listarPorEstado(["lista"], opciones())).length).toBeGreaterThan(0);
+    expect((await listarPorEstado(["lista"], opciones())).solicitudes.length).toBeGreaterThan(0);
   });
 
   it("el resumen dice en cristiano lo que espera y por qué", async () => {
@@ -344,6 +364,149 @@ describe.skipIf(!postgresDisponible())("una pasada completa", () => {
 
     expect(resumen.interrumpidas).toHaveLength(1);
     expect(describirPasada(resumen).join("\n")).toContain("NO se reintentan solas");
-    expect((await listarInterrumpidas(opciones()))[0].reclamadaPor).toBe("la-que-se-cayo");
+    expect((await listarInterrumpidas(opciones())).solicitudes[0].reclamadaPor).toBe("la-que-se-cayo");
+  });
+});
+
+/**
+ * Las cuatro correcciones que pidió la revisión de `c49a45a`, cada una con
+ * el defecto que impide volver.
+ */
+describe.skipIf(!postgresDisponible())("CORRECCIÓN · sólo quien reclamó puede cerrar", () => {
+  beforeEach(limpiarTablasDePrueba);
+
+  it("otro ejecutor no puede cerrar lo que no reclamó", async () => {
+    const solicitud = await crearSolicitud({ tareaId: "informe-curador" }, opciones());
+    await reclamarSiguiente("la-mia", opciones());
+
+    await expect(marcarTerminada(solicitud.id, "completada", "la-de-otro", {}, opciones())).rejects.toThrow(
+      /no está en curso a nombre de "la-de-otro"/
+    );
+
+    const { rows } = await pool().query(`SELECT estado FROM solicitudes_orquestador WHERE id = $1`, [solicitud.id]);
+    expect(rows[0].estado).toBe("en_curso");
+  });
+
+  it("quien la reclamó sí puede", async () => {
+    const solicitud = await crearSolicitud({ tareaId: "informe-curador" }, opciones());
+    await reclamarSiguiente("la-mia", opciones());
+
+    const cerrada = await marcarTerminada(solicitud.id, "completada", "la-mia", {}, opciones());
+    expect(cerrada.estado).toBe("completada");
+  });
+});
+
+describe.skipIf(!postgresDisponible())("CORRECCIÓN · una fila inválida no detiene la pasada", () => {
+  beforeEach(limpiarTablasDePrueba);
+
+  function lanzador() {
+    const lanzadas: string[] = [];
+    /** El `argv` entero de cada lanzamiento, para poder mirar los argumentos y no sólo el módulo. */
+    const argvs: string[][] = [];
+    return {
+      lanzadas,
+      argvs,
+      lanzar: async (_e: string, argumentos: string[]) => {
+        lanzadas.push(argumentos[1]);
+        argvs.push(argumentos);
+        return { ok: true, codigoSalida: 0, salida: "hecho" } satisfies ResultadoEjecucion;
+      },
+    };
+  }
+
+  /**
+   * Antes, una fila así lanzaba desde `reclamarSiguiente` y la excepción
+   * subía hasta el CLI: las solicitudes que venían detrás no se ejecutaban
+   * y nadie se enteraba de por qué.
+   */
+  it("una fila con un tarea_id que ya no existe se rechaza y las siguientes se ejecutan igual", async () => {
+    const mala = await crearSolicitud({ tareaId: "informe-curador" }, opciones());
+    await pool().query(`UPDATE solicitudes_orquestador SET tarea_id = 'ya-no-existe' WHERE id = $1`, [mala.id]);
+    const buena = await crearSolicitud({ tareaId: "informe-historial" }, opciones());
+
+    const falso = lanzador();
+    const resumen = await orquestar({ ...opciones(), ...falso, soloPlanificar: false, ahora: new Date() });
+
+    expect(resumen.descartadas.map((d) => d.id)).toContain(mala.id);
+    expect(resumen.ejecutadas.map((e) => e.solicitud.id)).toContain(buena.id);
+    expect(falso.lanzadas.some((m) => m.includes("cli-informe-historial"))).toBe(true);
+  });
+
+  /**
+   * El agujero de seguridad: argumentos que se colaron en la fila antes de
+   * que existiera el tipo por tarea, o metidos a mano en la base.
+   */
+  it("una fila con una travesía de directorios se rechaza sin ejecutarse, y la siguiente sigue", async () => {
+    const mala = await crearSolicitud({ tareaId: "informe-curador" }, opciones());
+    await pool().query(`UPDATE solicitudes_orquestador SET argumentos = '["../../../etc/passwd"]'::jsonb WHERE id = $1`, [
+      mala.id,
+    ]);
+    const buena = await crearSolicitud({ tareaId: "informe-historial" }, opciones());
+
+    const falso = lanzador();
+    const resumen = await orquestar({ ...opciones(), ...falso, ahora: new Date() });
+
+    expect(resumen.descartadas.map((d) => d.id)).toContain(mala.id);
+    // Lo que importa no es que no se lanzara esa tarea —el planificador crea
+    // otra solicitud limpia y ésa sí corre—, sino que la travesía no llegó a
+    // ningún `argv`.
+    expect(falso.argvs.flat().some((a) => a.includes("etc/passwd"))).toBe(false);
+    expect(resumen.ejecutadas.map((e) => e.solicitud.id)).not.toContain(mala.id);
+    expect(resumen.ejecutadas.map((e) => e.solicitud.id)).toContain(buena.id);
+  });
+
+  it("el rechazo queda escrito en la bitácora, no sólo en la fila", async () => {
+    const mala = await crearSolicitud({ tareaId: "informe-curador" }, opciones());
+    await pool().query(`UPDATE solicitudes_orquestador SET argumentos = '["/etc/shadow"]'::jsonb WHERE id = $1`, [mala.id]);
+
+    await orquestar({ ...opciones(), ...lanzador(), ahora: new Date() });
+
+    const asientos = (await leerBitacora(opciones())).filter((a) => a.solicitudId === mala.id);
+    expect(asientos.map((a) => a.evento)).toEqual(["rechazada", "reclamada", "creada"]);
+    expect(asientos[0].detalle).toMatch(/fuera del repositorio|no admite/);
+  });
+
+  it("el resumen lo cuenta y dice que las siguientes siguieron", async () => {
+    const mala = await crearSolicitud({ tareaId: "informe-curador" }, opciones());
+    await pool().query(`UPDATE solicitudes_orquestador SET tarea_id = 'ya-no-existe' WHERE id = $1`, [mala.id]);
+
+    const resumen = await orquestar({ ...opciones(), ...lanzador(), ahora: new Date() });
+
+    const texto = describirPasada(resumen).join("\n");
+    expect(texto).toContain("no se pudieron leer");
+    expect(texto).toContain("una fila mala no para la pasada");
+  });
+});
+
+describe.skipIf(!postgresDisponible())("CORRECCIÓN · el carril sale del código, nunca de la fila", () => {
+  beforeEach(limpiarTablasDePrueba);
+
+  it("la base ya no guarda el carril ni el motivo", async () => {
+    const { rows } = await pool().query(
+      `SELECT column_name FROM information_schema.columns
+       WHERE table_name = 'solicitudes_orquestador' AND column_name IN ('carril', 'motivo')`
+    );
+    expect(rows).toEqual([]);
+  });
+
+  it("una solicitud leída trae el carril de tareas.ts", async () => {
+    const cara = await crearSolicitud({ tareaId: "investigar-lote", argumentos: ["data/lote.json"] }, opciones());
+    const leida = await leerSolicitud(cara.id, opciones());
+
+    expect(leida).toMatchObject({ carril: "conPermiso", motivo: "gasta_dinero" });
+  });
+
+  /**
+   * Antes esto era una puerta: la fila decía su propio carril, y la fila es
+   * lo que se puede manipular. Ahora no hay dónde escribir la mentira.
+   */
+  it("no hay ninguna columna donde escribir un carril falso", async () => {
+    const cara = await crearSolicitud({ tareaId: "investigar-lote", argumentos: ["data/lote.json"] }, opciones());
+
+    await expect(
+      pool().query(`UPDATE solicitudes_orquestador SET carril = 'libre' WHERE id = $1`, [cara.id])
+    ).rejects.toThrow(/carril/);
+
+    expect((await leerSolicitud(cara.id, opciones()))?.carril).toBe("conPermiso");
   });
 });

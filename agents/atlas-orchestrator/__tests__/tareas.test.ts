@@ -90,3 +90,71 @@ describe("el catálogo de tareas es el único sitio del que sale un comando", ()
     }
   });
 });
+
+/**
+ * El tipo de argumentos de cada tarea se escribió leyendo su `process.argv`,
+ * no su nombre. Estas pruebas fijan lo que se encontró, incluidas las cinco
+ * clasificaciones que estaban mal en la primera versión.
+ */
+describe("cada tarea declara qué argumentos admite", () => {
+  it("las 26 tienen tipo declarado", () => {
+    for (const tarea of TAREAS) {
+      expect(tarea.argumentos, tarea.id).toBeDefined();
+      expect(Array.isArray(tarea.argumentos.posicionales), tarea.id).toBe(true);
+      expect(Array.isArray(tarea.argumentos.banderas), tarea.id).toBe(true);
+      expect(typeof tarea.argumentos.exigeAlguno, tarea.id).toBe("boolean");
+    }
+  });
+
+  it("no hay banderas repetidas dentro de una tarea", () => {
+    for (const tarea of TAREAS) {
+      const nombres = tarea.argumentos.banderas.map((b) => b.nombre);
+      expect(new Set(nombres).size, tarea.id).toBe(nombres.length);
+    }
+  });
+
+  it("ninguna bandera se declara con los dos guiones delante", () => {
+    for (const tarea of TAREAS) {
+      for (const bandera of tarea.argumentos.banderas) expect(bandera.nombre.startsWith("-"), tarea.id).toBe(false);
+    }
+  });
+
+  it("una bandera de lista cerrada no declara además una clase", () => {
+    for (const tarea of TAREAS) {
+      for (const bandera of tarea.argumentos.banderas.filter((b) => b.valores)) {
+        expect(bandera.clase, `${tarea.id} --${bandera.nombre}`).toBeUndefined();
+      }
+    }
+  });
+
+  it("si exige alguno, tiene dónde ponerlo", () => {
+    for (const tarea of TAREAS.filter((x) => x.argumentos.exigeAlguno)) {
+      expect(tarea.argumentos.posicionales.length + tarea.argumentos.banderas.length, tarea.id).toBeGreaterThan(0);
+    }
+  });
+
+  it("un posicional obligatorio no va detrás de uno opcional", () => {
+    for (const tarea of TAREAS) {
+      const obligatorios = tarea.argumentos.posicionales.map((p) => p.obligatorio);
+      expect(obligatorios.slice().sort((a, b) => Number(b) - Number(a)), tarea.id).toEqual(obligatorios);
+    }
+  });
+
+  /** Las cinco que estaban mal y se corrigieron leyendo el `argv`. */
+  it("repesca-verificacion no admite ningún argumento: lee descartes.json tal cual", () => {
+    expect(tareaDe("repesca-verificacion")!.argumentos).toEqual({ posicionales: [], banderas: [], exigeAlguno: false });
+  });
+
+  it("verificar-despliegue exige --url y admite --comparar-con y --probar-bloqueo", () => {
+    const tipo = tareaDe("verificar-despliegue")!.argumentos;
+    expect(tipo.exigeAlguno).toBe(true);
+    expect(tipo.banderas.map((b) => b.nombre).sort()).toEqual(["comparar-con", "probar-bloqueo", "url"]);
+  });
+
+  it("los tres scripts de Neon admiten --env", () => {
+    for (const id of ["verificar-neon", "copia-seguridad-afiliacion", "migrar-a-neon"]) {
+      expect(tareaDe(id)!.argumentos.banderas.map((b) => b.nombre), id).toContain("env");
+    }
+    expect(tareaDe("migrar-a-neon")!.argumentos.banderas.map((b) => b.nombre)).toContain("forzar");
+  });
+});

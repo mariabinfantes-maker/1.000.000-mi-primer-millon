@@ -50,11 +50,17 @@ describe("lo que se espera del esquema se deduce del propio esquema", () => {
   it("solicitudes_orquestador no tiene ninguna columna que pueda contener un comando", () => {
     const columnas = tablasEsperadas().find((t) => t.tabla === "solicitudes_orquestador")!.columnas;
     expect(columnas).toEqual([
-      "id", "tarea_id", "carril", "motivo", "argumentos", "estado", "por_que", "creada_en",
+      "id", "tarea_id", "argumentos", "estado", "por_que", "creada_en",
       "autorizada_en", "autorizada_por", "reclamada_en", "reclamada_por", "terminada_en", "resultado",
     ]);
     for (const prohibida of ["comando", "script", "ejecutable", "modulo", "ruta", "shell", "cmd"]) {
       expect(columnas).not.toContain(prohibida);
+    }
+    // Ni el carril ni el motivo: se derivan de `tareas.ts`. Dos fuentes de
+    // verdad son dos formas de equivocarse, y la de la base es la que se
+    // puede manipular.
+    for (const derivada of ["carril", "motivo"]) {
+      expect(columnas, `${derivada} debe salir del código, no de la base`).not.toContain(derivada);
     }
   });
 });
