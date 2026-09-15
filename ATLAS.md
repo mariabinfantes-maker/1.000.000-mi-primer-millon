@@ -4009,6 +4009,96 @@ La clave de Gemini que quedó visible el 2026-09-07 **ya está borrada** en AI
 Studio (confirmado por la propietaria el 2026-09-14).
 
 
+## F4 queda aparcada esperando a cinco proveedores (2026-09-15)
+
+**No está parada por falta de trabajo: está parada porque el siguiente paso lo
+dan otros.** Se aparca aquí, entera, para que retomarla no cueste reconstruir
+nada.
+
+### Dónde quedó exactamente
+
+La **etapa 3 está abierta, no cerrada**. Ocho candidatas aprobadas para
+comparar —SimplyBook.me, ViDay, Fresha, Turnito, Bewe, Treatwell, SolverMedia y
+flowww— y **ninguna aprobada para el catálogo**. La propietaria lo dijo con
+todas las letras: «*las tres con 5/5 quedan como candidatas funcionalmente
+mejor demostradas, no como catálogo aprobado*», y las demás siguen abiertas
+porque «no consta» no significa que no sirvan.
+
+Tras la recuperación del 12 de septiembre, **cumplen las cinco esenciales
+ViDay, SimplyBook.me y Fresha**. Les falta una esencial a Treatwell (catálogo
+de servicios) y a Turnito (cancelar/cambiar), y dos a SolverMedia (reserva
+online y cancelar). Bewe y flowww quedaron fuera de este piloto: el software de
+gestión de Bewe no se puede leer —todo `bewe.io` redirige al agente Linda— y de
+flowww no consta que la interfaz esté en español.
+
+### Lo que bloquea
+
+**El eje comercial, no el funcional.** De las 15 candidatas investigadas, sólo
+**dos** tienen afiliación abierta sobre el producto para negocios:
+SimplyBook.me y Shore. Treatwell la tiene, pero paga por reservas de
+consumidoras en su marketplace, no por altas del software. Cuatro son referidos
+sólo entre clientes —Fresha, Booksy, Phorest y TIMIFY por sus términos— y siete
+no tienen programa localizable. **Ninguna de las quince dice literalmente que
+acepte afiliadas desde España.**
+
+Y el cruce que decide: de las tres mejor demostradas, **sólo SimplyBook.me es
+monetizable hoy**. ViDay, que es la única sin ninguna salvedad abierta, no
+tiene programa publicado.
+
+### El criterio comercial mínimo, aprobado
+
+F4 continúa como categoría monetizable si se cumplen las tres a la vez:
+
+1. **Dos** vías de ingreso confirmadas por escrito por el proveedor.
+2. **Una** de ellas con comisión en cifra y abierta desde España.
+3. **Una** de esas vías corresponde a una herramienta con las 5 esenciales
+   demostradas.
+
+Si al cabo de tres semanas sólo hay una vía confirmada, F4 **no se abandona**:
+continúa como categoría de servicio no monetizada, y se decide aparte si se
+publica igual.
+
+### Las cinco preguntas que están fuera
+
+Cinco mensajes, escritos, revisados y neutralizados —sin una sola promesa de
+recomendación—, a **SimplyBook.me** (aceptación desde España, método de cobro,
+cookie), **Shore** (porcentaje, España, condiciones), **AgendaPro** (si encaja
+un asesor que no revende), **ViDay** y **Fresha** (si hay acuerdo directo
+aunque no esté publicado). Treatwell queda fuera de la tanda a propósito.
+
+Vías verificadas leyendo cada página: `support@simplybook.me` y el alta directa
+en `affiliate.simplybook.me`; `inbound@shore.com`; `info@viday.es`; y
+formulario en `get.agendapro.com/quiero-ser-partner` y
+`fresha.com/pricing/get-in-touch`. **No se confirmaron** `partnerships@shore.com`
+ni `hello@fresha.com`, que sólo aparecían en resúmenes de buscador.
+
+### Cuando lleguen respuestas
+
+Se anotan en `data/investigacion/f4/`, con la separación de siempre: lo que
+dijeron literalmente por un lado, lo que concluimos por otro. Sólo entonces se
+decide la etapa 3, y las fichas no se crean antes.
+
+### Lo que NO se pierde por aparcar
+
+- **La evidencia está en el repositorio**, no en un cuaderno temporal: 62
+  respuestas procesadas, 71 volcados en bruto con su `sha256`, el arnés y las
+  salvedades. Ver `data/investigacion/f4/README.md`.
+- **El mapa oficial de F4** —cinco esenciales, ocho condicionales, seis
+  preguntas, nueve etapas— sigue escrito arriba, sin cambios.
+- **La rama `claude/atlas-advisor-lote1-verify-5gou27`** sigue sin fusionar, con
+  el filtro del Researcher corregido. Es una decisión abierta, no un olvido.
+
+### Lo que sigue roto mientras tanto, y hay que mirarlo aparte
+
+Aparcar F4 deja vivo en producción el error que la motivó: **una peluquera que
+elige el objetivo «ahorrar tiempo» recibe asistentes de IA.** Son 17
+herramientas, 16 de ellas `asistentes-ia`. La puerta de evidencia de F3 no se
+ejecuta por ese camino porque `motor.ts` la condiciona a que exista
+`categoriaId`. Se aplazó a F4 el 11 de septiembre por no meter un parche; con
+F4 esperando semanas a terceros, **ese aplazamiento ya no se sostiene solo** y
+la propietaria decide si se abre aparte.
+
+
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 
 **Aprobada por la propietaria el 2026-08-31.** Auditada sobre el commit
