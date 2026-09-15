@@ -3863,6 +3863,115 @@ F4 está terminada cuando, todo a la vez:
 
 ---
 
+## 2026-09-15 — Atlas Orchestrator, bloque 1: el buzón y el botón
+
+Se construye el núcleo del décimo agente. **Sin fusionar y sin desplegar**, y
+**sin tocar la base de Neon real**: el esquema está escrito, pero no aplicado.
+
+### Por qué este agente
+
+Es el único que, al construirse, devuelve la vida a otros dos: Curator y
+Mantenimiento están terminados y no los ejecuta nadie porque hay que
+acordarse de hacerlo.
+
+### Lo que se decidió, y lo que se descartó por el camino
+
+**Se descartó guardar las solicitudes en `data/`.** Era lo natural y estaba
+mal: la máquina que ejecuta y la web donde la propietaria firmará no
+comparten disco, y el sistema de ficheros de Vercel es efímero. Una
+autorización firmada en la web no habría llegado nunca al ejecutor. Son dos
+tablas en Postgres.
+
+**Puede dispararlo todo, pidiendo permiso.** Las 24 tareas que hoy existen
+en el repositorio quedan clasificadas una a una, con el motivo escrito al
+lado: 10 en el carril libre, 14 esperando firma (3 porque gastan dinero, 11
+porque escriben datos). Dos clasificaciones sólo se ven leyendo el código —
+`verificar-enlaces-afiliados` es libre; `convertir-verificacion` pide permiso
+por escribir `registros.json`, no por gastar.
+
+**El catálogo cubre lo que existe, ni más ni menos.** Ninguna tarea se
+declara «para cuando llegue»: un proceso nuevo se clasifica en el mismo
+cambio que lo crea, con sus pruebas. Hasta entonces no se puede ejecutar, y
+la prueba «todo script de `tsx` está clasificado» lo reclama en cuanto
+aparece uno sin clasificar. La lista de permitidos falla de forma cerrada.
+
+### Las condiciones de la propietaria, y dónde están cumplidas
+
+| Condición | Dónde vive | Prueba |
+|---|---|---|
+| «El ejecutor nunca aceptará comandos de texto desde Postgres» | `tareas.ts` guarda el fichero; la base sólo guarda un id | `ejecutor.test.ts`, y una prueba de esquema que prohíbe columnas tipo `comando` |
+| «La solicitud se reclamará de forma atómica» | `FOR UPDATE SKIP LOCKED` dentro del `UPDATE` | dos procesos a la vez se llevan filas distintas |
+| «El silencio nunca se interpreta como permiso» | estado `esperando_autorizacion`, sin caducidad | una solicitud de hace 400 días sigue sin reclamarse |
+| «Si una ejecución se interrumpe, queda registrada y nunca se reintenta» | sólo se reclaman `lista` y `autorizada` | la fila cortada se enseña, no vuelve a la cola |
+
+**«No crees ningún comando para firmar autorizaciones»** se cumple en el
+sentido fuerte: no hay CLI, ni función, ni ruta que ponga una solicitud en
+`autorizada`. Donde una prueba lo necesita, lo simula con un `UPDATE` escrito
+a la vista en el propio test. Que haya que escribirlo a mano ahí es la señal
+de que el código de producción no puede hacerlo.
+
+### Los argumentos: dos capas, y hay que pasar las dos
+
+De Postgres no puede salir un comando —eso lo garantiza el catálogo en
+código— pero sí salen argumentos, y acaban en el `argv` de un proceso.
+
+- **Suelo** — vale para toda tarea, declare tipo o no. Sin caracteres de
+  control ni invisibles, topes de longitud y cantidad, y ningún valor suelto
+  que empiece por «-».
+- **Techo** — el tipo de cada tarea: posicionales, orden, banderas y clase de
+  valor (`ruta`, `id`, `texto`, `url`, `fecha`, `secreto`).
+- **Las rutas no se salen** — en los seis huecos de clase `ruta`, ni
+  absolutas ni con `..`. En un hueco `texto` o `secreto` no se comprueba, a
+  propósito: el nombre de una herramienta o una contraseña pueden parecerse a
+  una ruta y nadie las abre.
+
+La tabla de tipos se escribió **leyendo el `process.argv` de cada módulo**, y
+aparecieron cinco casos en los que el nombre engañaba:
+
+| Tarea | Parecía | Es |
+|---|---|---|
+| `repesca-verificacion` | que se le pasa algo | **no admite ningún argumento**: lee `descartes.json` tal cual |
+| `verificar-despliegue` | que no admite nada | **exige `--url`**, y admite `--comparar-con` y `--probar-bloqueo` |
+| `verificar-neon` | que no admite nada | admite `--env` |
+| `copia-seguridad-afiliacion` | que no admite nada | admite `--env` |
+| `migrar-a-neon` | que no admite nada | admite `--env` y `--forzar` |
+
+### Una trampa del esquema, cerrada antes de que muerda
+
+`CREATE TABLE IF NOT EXISTS` no quita columnas. Si una base tuviera ya una
+versión anterior de `solicitudes_orquestador`, conservaría columnas `NOT
+NULL` que el código nuevo no rellena: el `INSERT` fallaría y
+`verificarEsquema` no lo vería, porque sólo busca columnas que falten, nunca
+de más. Se añade un `ALTER TABLE ... DROP COLUMN IF EXISTS` delante, que no
+hace nada en una base limpia. **No se ha aplicado a Neon.**
+
+### Un hallazgo que conviene tener escrito
+
+**Hoy el Orchestrator no propone por su cuenta nada que gaste dinero o
+escriba datos.** Las 14 tareas del carril con permiso tienen todas cadencia
+`manual`, así que el planificador no las mira; sólo entran en la cola si
+alguien las pide. El carril de permisos funciona y está probado entero, pero
+en una pasada automática la bandeja de firmas sale vacía. No se ha cambiado
+ninguna cadencia por iniciativa propia: darle ritmo semanal a la copia de
+seguridad de afiliación, por ejemplo, es una decisión de la propietaria. Una
+prueba fija el estado actual para que cambiarlo sea deliberado.
+
+### Lo que queda fuera, a propósito
+
+El **bloque 2** —el panel `/admin/orquestador` donde la propietaria firma— no
+está empezado. Sin él, las solicitudes que piden permiso se quedan esperando
+para siempre, que es exactamente lo que deben hacer hasta que exista el sitio
+donde firmarlas.
+
+### Una contradicción documental que sigue abierta
+
+`ARQUITECTURA-AGENTES.md` numera a Orchestrator como el **décimo** agente; la
+«Hoja de ruta» de este documento lo lista como el 9.º, porque es anterior a
+la entrada de Curator. Manda el documento canónico, y así queda anotado allí.
+Sin tocar: en este mismo archivo hay **dos encabezados `## 11. Atlas
+Revenue`** duplicados. Es un defecto de documentación conocido y no se arregla
+aquí para no mezclarlo con el cambio de código.
+
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 
 **Aprobada por la propietaria el 2026-08-31.** Auditada sobre el commit

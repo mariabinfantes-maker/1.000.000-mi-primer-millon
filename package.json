@@ -33,7 +33,8 @@
     "verificar-despliegue": "tsx scripts/verificar-despliegue.ts",
     "migrar-taxonomia": "tsx scripts/migrar-taxonomia.ts",
     "convertir-verificacion": "tsx data/verificacion/cli-convertir.ts",
-    "repesca-verificacion": "tsx data/verificacion/cli-repesca.ts"
+    "repesca-verificacion": "tsx data/verificacion/cli-repesca.ts",
+    "orquestar": "tsx agents/atlas-orchestrator/cli-orquestar.ts"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.2",

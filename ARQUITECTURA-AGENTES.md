@@ -300,19 +300,110 @@ también, explícitamente, a Atlas Revenue.
 
 ## 10. Atlas Orchestrator
 
-- **Estado:** Planificado — sin diseñar, sin código.
-- **Carpeta:** ninguna todavía.
-- **Responsabilidad prevista:** coordinar cuándo se activa cada agente que
-  hoy depende de que un humano recuerde ejecutarlo. Hoy existen tres
-  procesos periódicos sueltos que ya cumplirían el umbral que `ATLAS.md`
-  fijó para justificarlo: `informe-afiliacion`, `informe-mantenimiento`,
-  `informe-curador`.
-- **Activación prevista:** no decidida — probablemente el único agente que,
-  por definición, no es activado por un humano ni por una petición de
-  usuario, sino que él mismo dispara a los demás.
-- **Relaciones previstas:** coordina, no sustituye — nunca contendría la
-  lógica de negocio de ningún otro agente, solo decide cuándo invocar la
-  que ya existe en cada uno.
+- **Estado:** Bloque 1 construido (2026-09-15) — el núcleo: catálogo de
+  tareas, carriles, planificador, buzón en Postgres y ejecutor. **Sin
+  fusionar y sin desplegar.** El bloque 2 (el panel donde la propietaria
+  firma) no está empezado.
+- **Carpeta:** `agents/atlas-orchestrator/`.
+- **Numeración:** es el **décimo** agente. `ATLAS.md` lo lista como «9» en
+  la hoja de ruta, que es registro histórico y anterior a la entrada de
+  Curator; este documento manda.
+- **Responsabilidad:** coordinar cuándo se activa cada agente que hoy
+  depende de que un humano recuerde ejecutarlo. Coordina, no sustituye: no
+  contiene la lógica de negocio de ningún otro agente.
+- **Activación:** `npm run orquestar` (con `--solo-plan` para ver qué haría
+  sin hacerlo). No se activa solo: alguien —o algún día un programador de
+  tareas— tiene que lanzarlo.
+
+### Los dos carriles
+
+Las **24 tareas** que hoy existen en el repositorio están clasificadas una
+a una en `tareas.ts`, con su carril y el motivo:
+
+- **Libre (10)** — sólo lee e informa. Se dispara sin preguntar.
+- **Con permiso (14)** — gasta dinero (3, llaman a un proveedor de IA) o
+  escribe datos que el resto de Molnip da por buenos (11). **Esperan la
+  firma de la propietaria y no se ejecutan sin ella.**
+
+El catálogo cubre exactamente los procesos que existen. **Ninguna tarea se
+declara «para cuando llegue»**: un proceso nuevo se clasifica en el mismo
+cambio que lo crea, con sus pruebas, y hasta entonces sencillamente no se
+puede ejecutar. La prueba «todo script de `tsx` está clasificado» lo
+reclama sola en cuanto aparece uno sin clasificar.
+
+Dos clasificaciones sólo se ven leyendo el código y no el nombre:
+`verificar-enlaces-afiliados` es **libre** (sale a la red, pero ni gasta ni
+modifica), y `convertir-verificacion` pide permiso **por escribir**
+`registros.json`, no por gastar — no llama a ningún proveedor.
+
+### Las cinco reglas que sostienen el agente
+
+1. **De la base de datos nunca sale un comando.** Una solicitud guarda un
+   identificador de tarea; el fichero que se ejecuta está escrito en
+   `tareas.ts`, en código. El ejecutor lanza `node tsx <fichero>` con
+   `execFile` y `shell: false`: no hay intérprete de comandos en ningún
+   punto del camino. Una fila manipulada consigue que la rechacen, no que
+   ejecute algo.
+
+   **Ni argumentos peligrosos.** Se revisan en dos capas, y hay que pasar
+   las dos. El **suelo** vale para toda tarea, declare tipo o no: nada de
+   caracteres de control ni invisibles, topes de longitud y cantidad, y
+   ningún valor suelto que empiece por «-» —dejaría de ser un dato y
+   pasaría a ser una opción del programa—. El **techo** es el tipo de cada
+   tarea: qué posicionales, en qué orden, qué banderas y con qué clase de
+   valor (`ruta`, `id`, `texto`, `url`, `fecha`, `secreto`). Lo que no esté
+   declarado se rechaza. En los seis huecos de clase `ruta` —los únicos que
+   un CLI abre como fichero— se rechaza además toda ruta absoluta y todo
+   segmento `..`: no se puede apuntar fuera del repositorio.
+
+   Esa tabla de tipos se escribió **leyendo el `process.argv` de cada
+   módulo**, y al hacerlo aparecieron cinco casos en los que el nombre
+   engañaba.
+
+2. **Una fila inválida no detiene la pasada.** Si una solicitud no se puede
+   interpretar —la tarea ya no existe, los argumentos no pasan su tipo—, se
+   cierra como `rechazada`, se anota en la bitácora y el orquestador sigue
+   con la siguiente.
+
+3. **El silencio no es permiso.** Una solicitud que pide firma nace en
+   `esperando_autorizacion` y ahí se queda indefinidamente. No caduca, no
+   hay plazo tras el cual se ejecute igual. **En el bloque 1 no existe
+   ningún comando, CLI ni función que firme una autorización**, por
+   decisión expresa de la propietaria: firmar es del bloque 2.
+
+4. **Reclamar es atómico.** `FOR UPDATE SKIP LOCKED` dentro del mismo
+   `UPDATE`: dos procesos simultáneos no pueden llevarse la misma
+   solicitud. Es la diferencia entre gastar una vez y gastar dos.
+
+5. **Una ejecución cortada a mitad queda registrada y nunca se reintenta
+   sola.** Y sólo la cierra el ejecutor que la reclamó: `reclamada_por` va
+   en el `WHERE`, así que dos orquestadores a la vez no pueden pisarse el
+   resultado. El orquestador las enseña; decide una persona.
+
+### Dónde vive
+
+Dos tablas en Postgres (`data/db/esquema.ts`), no ficheros: la máquina que
+ejecuta y la web donde se firmará no comparten disco, y el sistema de
+ficheros de Vercel es efímero. `solicitudes_orquestador` es el buzón — sin
+ninguna columna que pueda contener un comando, y hay una prueba que lo
+comprueba.
+
+**Tampoco guarda el carril ni el motivo**, y es deliberado: se derivan de
+`tareas.ts` cada vez que se lee una fila. Tenerlos en la base sería tener el
+mismo dato en dos sitios, y el de la base es el que puede manipularse — una
+fila que dijera «libre» en una tarea que gasta dinero habría sido una puerta
+abierta. Ahora no hay dónde escribir esa mentira.
+
+`bitacora_orquestador` es append-only por trigger, como el historial de
+afiliación: es la única prueba de qué se ejecutó sin nadie delante.
+
+### Lo que hoy no hace, y no es un olvido
+
+**Ninguna tarea del carril con permiso tiene cadencia periódica: todas son
+`manual`.** El planificador, por tanto, no propone por su cuenta nada que
+gaste dinero o escriba datos — sólo entra en la cola si alguien lo pide. Una
+prueba lo fija, para que dar cadencia a una de ellas sea una decisión a la
+vista y no un descuido.
 
 ## 11. Atlas Revenue
 

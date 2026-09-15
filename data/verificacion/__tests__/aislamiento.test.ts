@@ -36,16 +36,28 @@ describe("el aislamiento de la verificación", () => {
       path.join("data", "vocabulario", "__tests__", "aislamiento.test.ts"),
       "La guarda del vocabulario NOMBRA esta ruta para autorizarla, pero no lee nada de aquí.",
     ],
+    [
+      path.join("agents", "atlas-orchestrator", "tareas.ts"),
+      "El catálogo del Orchestrator NOMBRA los dos CLI de verificación como texto, para que el comando salga del código y nunca de la base de datos. No importa nada de aquí ni lee ningún registro.",
+    ],
   ]);
   const EXENTOS = new Set(AUTORIZADOS.keys());
 
-  /** Las mismas formas de acceso que vigila la guarda del vocabulario. */
+  /**
+   * Las mismas formas de acceso que vigila la guarda del vocabulario, más
+   * las dos que se cuelan sin `import`: `require()` y el `import()`
+   * dinámico. Ninguna aparecía en la lista, y son exactamente las que usa
+   * quien no quiere que su dependencia se vea en la cabecera del fichero
+   * — varios scripts del repositorio ya cargan así `data/db/cliente`.
+   */
   const ACCESOS = [
     /data\/verificacion/,
     /["'`](?:\.{1,2}\/)+verificacion\//,
     /["'`]data["'`]\s*,\s*["'`]verificacion["'`]/,
     /plausibles\.json|registros\.json/,
     /verificacion\/(?:repositorio|esquema)/,
+    /require\(\s*["'`][^"'`]*verificacion/,
+    /\bimport\(\s*["'`][^"'`]*verificacion/,
   ];
   /**
    * Quita los comentarios antes de mirar.
@@ -85,11 +97,33 @@ describe("el aislamiento de la verificación", () => {
     expect([...AUTORIZADOS.keys()]).toEqual([
       path.join("app", "api", "recomendaciones", "route.ts"),
       path.join("data", "vocabulario", "__tests__", "aislamiento.test.ts"),
+      path.join("agents", "atlas-orchestrator", "tareas.ts"),
     ]);
   });
 
   it("cada autorización dice por qué lo está", () => {
     for (const [archivo, porque] of AUTORIZADOS) expect(porque.length, archivo).toBeGreaterThan(40);
+  });
+
+  /**
+   * Dos de las tres entradas no leen nada: sólo nombran la ruta. Se
+   * comprueba aquí para que nadie las confunda con lectores de verdad —
+   * el único que lee es la ruta de recomendaciones, y así seguirá.
+   */
+  it("sólo una de las autorizadas lee de verdad; las otras dos sólo nombran la ruta", () => {
+    const soloNombran = [
+      path.join("data", "vocabulario", "__tests__", "aislamiento.test.ts"),
+      path.join("agents", "atlas-orchestrator", "tareas.ts"),
+    ];
+    for (const relativa of soloNombran) {
+      const codigoDelArchivo = fs.readFileSync(path.join(raiz, relativa), "utf8");
+      const codigo = sinComentarios(codigoDelArchivo);
+      // Las tres formas de traerse un módulo, no sólo la que se ve arriba.
+      expect(/from\s+["'`][^"'`]*verificacion/.test(codigo), `${relativa}: import estático`).toBe(false);
+      expect(/require\(\s*["'`][^"'`]*verificacion/.test(codigo), `${relativa}: require()`).toBe(false);
+      expect(/\bimport\(\s*["'`][^"'`]*verificacion/.test(codigo), `${relativa}: import() dinámico`).toBe(false);
+      expect(/registros\.json|plausibles\.json/.test(codigo), `${relativa}: lectura directa`).toBe(false);
+    }
   });
 
   it("y el punto autorizado existe y lee la verificación de verdad", () => {
@@ -127,6 +161,8 @@ describe("el aislamiento de la verificación", () => {
 
   it("el detector reconoce las formas de acceso", () => {
     for (const linea of [
+      'const { getRegistros } = require("@/data/verificacion/repositorio");',
+      'const m = await import("@/data/verificacion/repositorio");',
       'import { getRegistros } from "@/data/verificacion/repositorio";',
       'import r from "@/data/verificacion/registros.json";',
       'const m = await import("@/data/verificacion/repositorio");',
