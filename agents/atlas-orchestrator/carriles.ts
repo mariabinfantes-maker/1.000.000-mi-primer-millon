@@ -49,6 +49,8 @@ export function explicarMotivo(motivo: MotivoDelCarril): string {
       return "gasta dinero (llama a un proveedor de IA que se factura por uso)";
     case "escribe_datos":
       return "escribe datos que el resto de Molnip da por buenos";
+    case "afecta_produccion":
+      return "deja huella en el sitio real (por ejemplo, bloquea una IP un rato)";
     case "ninguno":
       return "no necesita permiso: sólo lee e informa";
   }

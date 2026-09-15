@@ -510,3 +510,76 @@ describe.skipIf(!postgresDisponible())("CORRECCIÓN · el carril sale del códig
     expect((await leerSolicitud(cara.id, opciones()))?.carril).toBe("conPermiso");
   });
 });
+
+/**
+ * El aislamiento de fallos: una tarea que revienta es un hecho de esa
+ * tarea, no de la pasada. Antes, una excepción al lanzar el proceso subía
+ * hasta el CLI y dejaba sin ejecutar todo lo que venía detrás.
+ */
+describe.skipIf(!postgresDisponible())("CORRECCIÓN · una tarea que falla no arrastra a las demás", () => {
+  beforeEach(limpiarTablasDePrueba);
+
+  /** Revienta al lanzar la tarea cuyo módulo contenga `revienta`, y ejecuta el resto. */
+  function lanzadorQueRevientaCon(fragmento: string) {
+    const lanzadas: string[] = [];
+    return {
+      lanzadas,
+      lanzar: async (_e: string, argumentos: string[]) => {
+        const modulo = argumentos[1];
+        if (modulo.includes(fragmento)) throw new Error("ENOENT: no se pudo lanzar el proceso");
+        lanzadas.push(modulo);
+        return { ok: true, codigoSalida: 0, salida: "hecho" } satisfies ResultadoEjecucion;
+      },
+    };
+  }
+
+  it("la excepción al lanzar se registra como fallida y la pasada continúa", async () => {
+    const falso = lanzadorQueRevientaCon("cli-informe-curador");
+
+    const resumen = await orquestar({ ...opciones(), ...falso, ahora: new Date() });
+
+    expect(resumen.cortes).toEqual([]);
+
+    const curador = resumen.ejecutadas.find((e) => e.solicitud.tareaId === "informe-curador");
+    expect(curador?.resultado?.ok).toBe(false);
+    expect(curador?.resultado?.salida).toContain("No se pudo lanzar la tarea");
+
+    // Las demás se ejecutaron igual.
+    expect(resumen.ejecutadas.length).toBeGreaterThan(1);
+    expect(resumen.ejecutadas.filter((e) => e.resultado?.ok).length).toBeGreaterThan(0);
+  });
+
+  it("la que falló queda cerrada como fallida, no en curso", async () => {
+    const falso = lanzadorQueRevientaCon("cli-informe-curador");
+
+    await orquestar({ ...opciones(), ...falso, ahora: new Date() });
+
+    const { rows } = await pool().query(
+      `SELECT estado, resultado FROM solicitudes_orquestador WHERE tarea_id = 'informe-curador'`
+    );
+    expect(rows[0].estado).toBe("fallida");
+    expect(rows[0].resultado).toContain("No se pudo lanzar");
+    expect((await listarInterrumpidas(opciones())).solicitudes).toEqual([]);
+  });
+
+  it("el fallo deja su asiento en la bitácora", async () => {
+    await orquestar({ ...opciones(), ...lanzadorQueRevientaCon("cli-informe-curador"), ahora: new Date() });
+
+    const asientos = (await leerBitacora(opciones())).filter((a) => a.tareaId === "informe-curador");
+    expect(asientos.map((a) => a.evento)).toEqual(["fallida", "reclamada", "creada"]);
+    expect(asientos[0].detalle).toContain("No se pudo lanzar");
+  });
+
+  it("si revientan varias, todas quedan registradas y ninguna para el reparto", async () => {
+    const falso = lanzadorQueRevientaCon("cli-informe-");
+
+    const resumen = await orquestar({ ...opciones(), ...falso, ahora: new Date() });
+
+    const informes = resumen.ejecutadas.filter((e) => e.solicitud.tareaId.startsWith("informe-"));
+    expect(informes.length).toBeGreaterThan(1);
+    for (const i of informes) expect(i.resultado?.ok, i.solicitud.tareaId).toBe(false);
+    // Y lo que no es un informe sí corrió.
+    expect(falso.lanzadas.length).toBeGreaterThan(0);
+    expect(resumen.cortes).toEqual([]);
+  });
+});

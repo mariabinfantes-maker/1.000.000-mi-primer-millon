@@ -63,7 +63,7 @@ describe("el catálogo de tareas es el único sitio del que sale un comando", ()
   it("ninguna tarea se queda sin motivo ni con un motivo que no corresponde a su carril", () => {
     for (const tarea of TAREAS) {
       if (tarea.carril === "libre") expect(tarea.motivo).toBe("ninguno");
-      else expect(["gasta_dinero", "escribe_datos"]).toContain(tarea.motivo);
+      else expect(["gasta_dinero", "escribe_datos", "afecta_produccion"]).toContain(tarea.motivo);
     }
   });
 
@@ -156,5 +156,61 @@ describe("cada tarea declara qué argumentos admite", () => {
       expect(tareaDe(id)!.argumentos.banderas.map((b) => b.nombre), id).toContain("env");
     }
     expect(tareaDe("migrar-a-neon")!.argumentos.banderas.map((b) => b.nombre)).toContain("forzar");
+  });
+});
+
+/**
+ * La guarda que faltaba.
+ *
+ * El carril libre se dispara **sin preguntar**. Hasta ahora sólo se
+ * comprobaba que su `motivo` dijera `ninguno`, que es comprobar la etiqueta
+ * y no el contenido: `verificar-neon` estaba marcada como libre y escribía
+ * en Neon real, dejando apuntes permanentes en el historial de afiliación —
+ * append-only, así que no se pueden borrar.
+ *
+ * Esto mira el código de cada módulo del carril libre. No sigue la cadena
+ * de imports, así que no es una demostración: es la red que caza el caso
+ * evidente, que es justo el que se coló.
+ */
+describe("ninguna tarea del carril libre escribe en la base de datos", () => {
+  const ESCRITURAS = [
+    /guardarEstrategiaAfiliacion/,
+    /restaurarValorHistorial/,
+    /registrarClicSaliente/,
+    /anotarIngreso/,
+    /\bINSERT\s+INTO\b/i,
+    /\bUPDATE\s+[a-z_]+\s+SET\b/i,
+    /\bDELETE\s+FROM\b/i,
+    /\bTRUNCATE\b/i,
+    /\bALTER\s+TABLE\b/i,
+    /\bCREATE\s+TABLE\b/i,
+  ];
+
+  /** Quita comentarios: explicar en prosa que algo NO escribe no es escribir. */
+  function sinComentarios(codigo: string): string {
+    return codigo
+      .replace(/\/\*[\s\S]*?\*\//g, " ")
+      .split("\n")
+      .map((linea) => linea.replace(/\/\/.*$/, ""))
+      .join("\n");
+  }
+
+  for (const tarea of TAREAS.filter((t) => t.carril === "libre")) {
+    it(`${tarea.id} sólo lee`, () => {
+      const codigo = sinComentarios(fs.readFileSync(path.join(raiz, tarea.modulo), "utf8"));
+      const escribe = ESCRITURAS.filter((r) => r.test(codigo)).map((r) => r.source);
+      expect(escribe, `${tarea.id} está en el carril libre y parece escribir`).toEqual([]);
+    });
+  }
+
+  it("las dos que escriben o tocan producción están en el carril con permiso", () => {
+    expect(tareaDe("verificar-neon")).toMatchObject({ carril: "conPermiso", motivo: "escribe_datos" });
+    expect(tareaDe("verificar-despliegue")).toMatchObject({ carril: "conPermiso", motivo: "afecta_produccion" });
+  });
+
+  it("el carril libre son ocho, y ninguna pide permiso", () => {
+    const libres = TAREAS.filter((t) => t.carril === "libre");
+    expect(libres).toHaveLength(8);
+    for (const tarea of libres) expect(tarea.motivo, tarea.id).toBe("ninguno");
   });
 });

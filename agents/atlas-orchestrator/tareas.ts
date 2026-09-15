@@ -36,8 +36,17 @@
 
 export type Carril = "libre" | "conPermiso";
 
-/** Por qué una tarea pide permiso. `ninguno` es el carril libre. */
-export type MotivoDelCarril = "ninguno" | "gasta_dinero" | "escribe_datos";
+/**
+ * Por qué una tarea pide permiso. `ninguno` es el carril libre.
+ *
+ * `afecta_produccion` es para lo que ni gasta ni escribe datos del catálogo,
+ * pero deja huella fuera: `verificar-despliegue --probar-bloqueo` bloquea una
+ * IP durante quince minutos en el limitador real. Se le da un nombre propio
+ * en vez de forzarlo dentro de `escribe_datos` porque el motivo es lo que
+ * permite revisar la decisión dentro de seis meses, y llamarlo «escribe
+ * datos» sería mentir en la bitácora.
+ */
+export type MotivoDelCarril = "ninguno" | "gasta_dinero" | "escribe_datos" | "afecta_produccion";
 
 /** Cada cuánto tiene sentido repetirla. `manual` = nunca se propone sola. */
 export type Cadencia = "cada_ejecucion" | "semanal" | "mensual" | "manual";
@@ -115,14 +124,13 @@ export const TAREA_IDS = [
   "generar-informe",
   "verificar-datos",
   "verificar-revenue",
-  "verificar-neon",
-  "verificar-despliegue",
   "verificar-enlaces-afiliados",
   // ── Con permiso: gastan dinero ───────────────────────────────────
   "investigar-lote",
   "investigar-herramienta",
   "repesca-verificacion",
   // ── Con permiso: escriben datos o catálogo ───────────────────────
+  "verificar-neon",
   "convertir-verificacion",
   "promover-borrador",
   "aprobar-borrador",
@@ -134,6 +142,8 @@ export const TAREA_IDS = [
   "aprovisionar-esquema-postgres",
   "generar-hash-admin",
   "generar-secreto-admin",
+  // ── Con permiso: deja huella fuera ───────────────────────────────
+  "verificar-despliegue",
 ] as const;
 
 export type TareaId = (typeof TAREA_IDS)[number];
@@ -251,34 +261,6 @@ export const TAREAS: readonly Tarea[] = [
     argumentos: SIN_ARGUMENTOS,
   },
   {
-    id: "verificar-neon",
-    script: "verificar-neon",
-    modulo: "scripts/verificar-neon.ts",
-    descripcion: "Conexión y esquema de Postgres",
-    carril: "libre",
-    motivo: "ninguno",
-    cadencia: "cada_ejecucion",
-    argumentos: { posicionales: [], banderas: [BANDERA_ENV], exigeAlguno: false },
-  },
-  {
-    id: "verificar-despliegue",
-    script: "verificar-despliegue",
-    modulo: "scripts/verificar-despliegue.ts",
-    descripcion: "Comprobaciones previas al despliegue",
-    carril: "libre",
-    motivo: "ninguno",
-    cadencia: "manual",
-    argumentos: {
-      posicionales: [],
-      banderas: [
-        { nombre: "url", clase: "url", descripcion: "la vista previa que se comprueba (obligatoria)" },
-        { nombre: "comparar-con", clase: "url", descripcion: "dirección con la que comparar el texto visible" },
-        { nombre: "probar-bloqueo", descripcion: "prueba el bloqueo tras 5 intentos fallidos (bloquea tu IP 15 minutos)" },
-      ],
-      exigeAlguno: true,
-    },
-  },
-  {
     id: "verificar-enlaces-afiliados",
     script: "verificar-enlaces-afiliados",
     modulo: "agents/atlas-affiliate-manager/cli-verificar-enlaces.ts",
@@ -327,6 +309,16 @@ export const TAREAS: readonly Tarea[] = [
     cadencia: "manual",
     // Corrección 1: no lee `argv`. Trabaja sobre `descartes.json` tal cual.
     argumentos: SIN_ARGUMENTOS,
+  },
+  {
+    id: "verificar-neon",
+    script: "verificar-neon",
+    modulo: "scripts/verificar-neon.ts",
+    descripcion: "Recorrido completo de Neon: lee, escribe y restaura",
+    carril: "conPermiso",
+    motivo: "escribe_datos",
+    cadencia: "manual",
+    argumentos: { posicionales: [], banderas: [BANDERA_ENV], exigeAlguno: false },
   },
   {
     id: "convertir-verificacion",
@@ -491,6 +483,24 @@ export const TAREAS: readonly Tarea[] = [
     motivo: "escribe_datos",
     cadencia: "manual",
     argumentos: SIN_ARGUMENTOS,
+  },
+  {
+    id: "verificar-despliegue",
+    script: "verificar-despliegue",
+    modulo: "scripts/verificar-despliegue.ts",
+    descripcion: "Comprobaciones previas al despliegue",
+    carril: "conPermiso",
+    motivo: "afecta_produccion",
+    cadencia: "manual",
+    argumentos: {
+      posicionales: [],
+      banderas: [
+        { nombre: "url", clase: "url", descripcion: "la vista previa que se comprueba (obligatoria)" },
+        { nombre: "comparar-con", clase: "url", descripcion: "dirección con la que comparar el texto visible" },
+        { nombre: "probar-bloqueo", descripcion: "prueba el bloqueo tras 5 intentos fallidos (bloquea tu IP 15 minutos)" },
+      ],
+      exigeAlguno: true,
+    },
   },
 ];
 

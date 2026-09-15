@@ -162,7 +162,24 @@ export async function ejecutarSiguiente(
     return { solicitud, rechazo };
   }
 
-  const resultado = await ejecutarTarea(tarea, solicitud.argumentos, opciones);
+  // ── El aislamiento ──────────────────────────────────────────────
+  //
+  // Lanzar un proceso puede fallar de formas que no son «el proceso salió
+  // con error»: que el ejecutable no esté, que el sistema se quede sin
+  // memoria, que `execFile` reviente antes de arrancar. Todo eso son
+  // excepciones, y una excepción aquí subía hasta el CLI y dejaba sin
+  // ejecutar todas las solicitudes que venían detrás.
+  //
+  // Una tarea que falla es un hecho de esa tarea, no de la pasada. Se
+  // registra en su fila y en la bitácora, y las demás siguen su camino.
+  let resultado: ResultadoEjecucion;
+  try {
+    resultado = await ejecutarTarea(tarea, solicitud.argumentos, opciones);
+  } catch (error) {
+    const mensaje = error instanceof Error ? error.message : String(error);
+    resultado = { ok: false, codigoSalida: null, salida: `No se pudo lanzar la tarea: ${mensaje}` };
+  }
+
   await marcarTerminada(
     solicitud.id,
     resultado.ok ? "completada" : "fallida",

@@ -3884,10 +3884,34 @@ tablas en Postgres.
 
 **Puede dispararlo todo, pidiendo permiso.** Las 24 tareas que hoy existen
 en el repositorio quedan clasificadas una a una, con el motivo escrito al
-lado: 10 en el carril libre, 14 esperando firma (3 porque gastan dinero, 11
-porque escriben datos). Dos clasificaciones sólo se ven leyendo el código —
-`verificar-enlaces-afiliados` es libre; `convertir-verificacion` pide permiso
-por escribir `registros.json`, no por gastar.
+lado: **8 en el carril libre, 16 esperando firma** (3 porque gastan dinero,
+12 porque escriben datos, 1 porque deja huella en el sitio real).
+
+**Cuatro clasificaciones sólo se ven leyendo el código, y dos de ellas
+estaban mal.** `verificar-enlaces-afiliados` es libre (sale a la red pero no
+modifica) y `convertir-verificacion` pide permiso por escribir
+`registros.json`, no por gastar. Y las dos que se corrigieron:
+
+- **`verificar-neon` escribe en Neon.** Suena a comprobación y hace un
+  recorrido completo: modifica el campo `observaciones` de una herramienta
+  real, lo restaura, y deja apuntes permanentes en
+  `historial_cambios_afiliacion` — que es append-only y no se puede limpiar.
+  El propio script lo advierte por consola. Estaba en el carril libre **con
+  cadencia en cada pasada**: el orquestador la habría disparado solo, cada
+  vez, ensuciando la auditoría de afiliación de producción. Pasa a
+  `conPermiso` / `escribe_datos` y a cadencia `manual`.
+- **`verificar-despliegue` deja huella fuera.** Con `--probar-bloqueo`
+  bloquea una IP quince minutos en el limitador real. Pasa a `conPermiso`
+  con un motivo nuevo, `afecta_produccion`: ni gasta ni escribe datos del
+  catálogo, pero tampoco es inocuo, y llamarlo «escribe datos» sería mentir
+  en la bitácora.
+
+**Por qué no lo cazó nada:** la prueba del carril libre comprobaba que el
+campo `motivo` dijera `ninguno`. Comprobaba la etiqueta, no el contenido, así
+que pasaba en verde siendo falsa. Ahora hay una prueba que **lee el código de
+cada módulo del carril libre** y falla si encuentra una escritura. Es el
+mismo error que ya se cometió con `convertir-verificacion`: clasificar por el
+nombre. «Verificar» suena a leer.
 
 **El catálogo cubre lo que existe, ni más ni menos.** Ninguna tarea se
 declara «para cuando llegue»: un proceso nuevo se clasifica en el mismo
@@ -3948,13 +3972,23 @@ hace nada en una base limpia. **No se ha aplicado a Neon.**
 ### Un hallazgo que conviene tener escrito
 
 **Hoy el Orchestrator no propone por su cuenta nada que gaste dinero o
-escriba datos.** Las 14 tareas del carril con permiso tienen todas cadencia
+escriba datos.** Las 16 tareas del carril con permiso tienen todas cadencia
 `manual`, así que el planificador no las mira; sólo entran en la cola si
 alguien las pide. El carril de permisos funciona y está probado entero, pero
 en una pasada automática la bandeja de firmas sale vacía. No se ha cambiado
 ninguna cadencia por iniciativa propia: darle ritmo semanal a la copia de
 seguridad de afiliación, por ejemplo, es una decisión de la propietaria. Una
 prueba fija el estado actual para que cambiarlo sea deliberado.
+
+### El aislamiento de fallos
+
+Una tarea que falla es un hecho de esa tarea, no de la pasada. Si el proceso
+sale con error, se cierra como `fallida`. Si **lanzarlo** revienta —ejecutable
+ausente, memoria agotada—, la excepción se absorbe, se cierra igual como
+`fallida` con el motivo dentro, y el orquestador sigue con la siguiente. Antes
+esa excepción subía hasta el CLI y dejaba sin ejecutar todo lo que venía
+detrás. Sólo se corta el reparto si falla la propia base de datos, y aun así
+la pasada termina y devuelve su resumen en vez de reventar.
 
 ### Lo que queda fuera, a propósito
 

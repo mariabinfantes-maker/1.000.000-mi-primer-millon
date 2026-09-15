@@ -320,10 +320,11 @@ también, explícitamente, a Atlas Revenue.
 Las **24 tareas** que hoy existen en el repositorio están clasificadas una
 a una en `tareas.ts`, con su carril y el motivo:
 
-- **Libre (10)** — sólo lee e informa. Se dispara sin preguntar.
-- **Con permiso (14)** — gasta dinero (3, llaman a un proveedor de IA) o
-  escribe datos que el resto de Molnip da por buenos (11). **Esperan la
-  firma de la propietaria y no se ejecutan sin ella.**
+- **Libre (8)** — sólo lee e informa. Se dispara sin preguntar.
+- **Con permiso (16)** — gasta dinero (3, llaman a un proveedor de IA),
+  escribe datos que el resto de Molnip da por buenos (12), o deja huella en
+  el sitio real (1). **Esperan la firma de la propietaria y no se ejecutan
+  sin ella.**
 
 El catálogo cubre exactamente los procesos que existen. **Ninguna tarea se
 declara «para cuando llegue»**: un proceso nuevo se clasifica en el mismo
@@ -331,10 +332,24 @@ cambio que lo crea, con sus pruebas, y hasta entonces sencillamente no se
 puede ejecutar. La prueba «todo script de `tsx` está clasificado» lo
 reclama sola en cuanto aparece uno sin clasificar.
 
-Dos clasificaciones sólo se ven leyendo el código y no el nombre:
-`verificar-enlaces-afiliados` es **libre** (sale a la red, pero ni gasta ni
-modifica), y `convertir-verificacion` pide permiso **por escribir**
-`registros.json`, no por gastar — no llama a ningún proveedor.
+Cuatro clasificaciones sólo se ven leyendo el código y no el nombre:
+
+- `verificar-enlaces-afiliados` es **libre**: sale a la red a comprobar
+  enlaces de terceros, pero ni gasta ni modifica.
+- `convertir-verificacion` pide permiso **por escribir** `registros.json`,
+  no por gastar — no llama a ningún proveedor.
+- **`verificar-neon` pide permiso: escribe en Neon.** Su nombre suena a
+  comprobación, pero hace un recorrido completo que modifica una fila real
+  y, sobre todo, deja apuntes en `historial_cambios_afiliacion`, que es
+  append-only y no se puede limpiar. El propio script lo advierte.
+- **`verificar-despliegue` pide permiso: deja huella fuera.** Con
+  `--probar-bloqueo` bloquea una IP quince minutos en el limitador real.
+
+Las dos últimas estaban en el carril libre y con cadencia automática: el
+orquestador las habría disparado solo. Una prueba lee ahora el código de
+cada módulo del carril libre y falla si encuentra una escritura — comprobar
+la etiqueta `motivo` no bastaba, porque la etiqueta decía «ninguno» y era
+falsa.
 
 ### Las cinco reglas que sostienen el agente
 
@@ -360,10 +375,14 @@ modifica), y `convertir-verificacion` pide permiso **por escribir**
    módulo**, y al hacerlo aparecieron cinco casos en los que el nombre
    engañaba.
 
-2. **Una fila inválida no detiene la pasada.** Si una solicitud no se puede
+2. **Nada de una tarea detiene la pasada.** Si una solicitud no se puede
    interpretar —la tarea ya no existe, los argumentos no pasan su tipo—, se
-   cierra como `rechazada`, se anota en la bitácora y el orquestador sigue
-   con la siguiente.
+   cierra como `rechazada`. Si al lanzar el proceso salta una excepción
+   —ejecutable ausente, memoria agotada—, se cierra como `fallida` con el
+   motivo dentro. En los dos casos queda su asiento en la bitácora y el
+   orquestador sigue con la siguiente. Sólo se corta el reparto si falla la
+   propia base de datos, y aun así la pasada termina y devuelve su resumen
+   en vez de reventar.
 
 3. **El silencio no es permiso.** Una solicitud que pide firma nace en
    `esperando_autorizacion` y ahí se queda indefinidamente. No caduca, no
@@ -400,7 +419,8 @@ afiliación: es la única prueba de qué se ejecutó sin nadie delante.
 ### Lo que hoy no hace, y no es un olvido
 
 **Ninguna tarea del carril con permiso tiene cadencia periódica: todas son
-`manual`.** El planificador, por tanto, no propone por su cuenta nada que
+`manual`** — `verificar-neon` era la excepción, con cadencia en cada pasada,
+y al pasar al carril con permiso se alinea con el resto.** El planificador, por tanto, no propone por su cuenta nada que
 gaste dinero o escriba datos — sólo entra en la cola si alguien lo pide. Una
 prueba lo fija, para que dar cadencia a una de ellas sea una decisión a la
 vista y no un descuido.

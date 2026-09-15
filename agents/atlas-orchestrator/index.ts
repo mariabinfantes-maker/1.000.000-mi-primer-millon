@@ -45,6 +45,12 @@ export type ResumenPasada = {
   ejecutadas: Ejecutada[];
   /** Filas que no se pudieron leer. Quedaron rechazadas y anotadas, y NO detuvieron la pasada. */
   descartadas: SolicitudInvalida[];
+  /**
+   * Lo que falló por debajo de una tarea concreta —típicamente la base de
+   * datos—. Si aparece algo aquí, la pasada se cortó: no es que una tarea
+   * saliera mal, es que ya no se podía seguir repartiendo trabajo.
+   */
+  cortes: string[];
   /** Lo que está esperando la firma de la propietaria, después de la pasada. */
   esperandoFirma: Solicitud[];
 };
@@ -82,10 +88,22 @@ export async function orquestar(opciones: OpcionesPasada = {}): Promise<ResumenP
 
   const ejecutadas: Ejecutada[] = [];
   const descartadas: SolicitudInvalida[] = [];
+  const cortes: string[] = [];
   if (!opciones.soloPlanificar) {
     const tope = opciones.maximoEjecuciones ?? MAXIMO_EJECUCIONES_POR_PASADA;
     for (let i = 0; i < tope; i++) {
-      const paso: Paso | undefined = await ejecutarSiguiente(ejecucionId, opciones);
+      let paso: Paso | undefined;
+      try {
+        paso = await ejecutarSiguiente(ejecucionId, opciones);
+      } catch (error) {
+        // `ejecutarSiguiente` ya absorbe todo lo que es de la tarea: si
+        // algo llega hasta aquí, ha fallado reclamar o cerrar, es decir, la
+        // base de datos. Insistir daría el mismo error otras diecinueve
+        // veces, así que se anota y se corta el reparto — pero la pasada
+        // termina y devuelve su resumen en vez de reventar.
+        cortes.push(error instanceof Error ? error.message : String(error));
+        break;
+      }
       if (!paso) break;
       // Una fila ilegible ya viene cerrada y anotada: se cuenta y se sigue.
       if (esDescartada(paso)) descartadas.push(paso.invalida);
@@ -95,7 +113,7 @@ export async function orquestar(opciones: OpcionesPasada = {}): Promise<ResumenP
 
   const { solicitudes: esperandoFirma } = await listarPorEstado(["esperando_autorizacion"], opciones);
 
-  return { ejecucionId, interrumpidas, propuestas, creadas, yaEstaban, ejecutadas, descartadas, esperandoFirma };
+  return { ejecucionId, interrumpidas, propuestas, creadas, yaEstaban, ejecutadas, descartadas, cortes, esperandoFirma };
 }
 
 /** El resumen en palabras, para la consola y —más adelante— para el panel. */
@@ -126,6 +144,11 @@ export function describirPasada(resumen: ResumenPasada): string[] {
     } else {
       lineas.push(`✗ #${ejecutada.solicitud.id} ${ejecutada.solicitud.tareaId} — salió con error`);
     }
+  }
+
+  if (resumen.cortes.length) {
+    lineas.push(`⚠ La pasada se cortó antes de repartir todo el trabajo: ${resumen.cortes[0]}`);
+    lineas.push("   No es que una tarea saliera mal: falló la base de datos. Las tareas ya ejecutadas están arriba.");
   }
 
   if (resumen.esperandoFirma.length) {

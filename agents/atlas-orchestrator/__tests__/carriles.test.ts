@@ -241,3 +241,24 @@ describe("las dos capas se aplican siempre, no una u otra", () => {
     expect(revisarArgumentos(t("generar-hash-admin"), ["../mi-contraseña"]).validos).toBe(true);
   });
 });
+
+describe("el motivo nuevo se explica como los demás", () => {
+  it("afecta_produccion dice qué pasa, sin jerga", () => {
+    const texto = explicarMotivo("afecta_produccion");
+    expect(texto).toMatch(/real|producción|IP/i);
+    expect(texto).not.toContain("conPermiso");
+    expect(texto).not.toContain("carril");
+  });
+
+  it("los cuatro motivos tienen explicación, y ninguna se repite", () => {
+    const motivos = ["ninguno", "gasta_dinero", "escribe_datos", "afecta_produccion"] as const;
+    const textos = motivos.map(explicarMotivo);
+    expect(textos.every((t) => t.length > 20)).toBe(true);
+    expect(new Set(textos).size).toBe(motivos.length);
+  });
+
+  it("verificar-despliegue ya no se ejecuta sin firma", () => {
+    expect(exigeAutorizacion(t("verificar-despliegue"))).toBe(true);
+    expect(exigeAutorizacion(t("verificar-neon"))).toBe(true);
+  });
+});
