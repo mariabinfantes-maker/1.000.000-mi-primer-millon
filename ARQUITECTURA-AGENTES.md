@@ -300,19 +300,74 @@ también, explícitamente, a Atlas Revenue.
 
 ## 10. Atlas Orchestrator
 
-- **Estado:** Planificado — sin diseñar, sin código.
-- **Carpeta:** ninguna todavía.
-- **Responsabilidad prevista:** coordinar cuándo se activa cada agente que
-  hoy depende de que un humano recuerde ejecutarlo. Hoy existen tres
-  procesos periódicos sueltos que ya cumplirían el umbral que `ATLAS.md`
-  fijó para justificarlo: `informe-afiliacion`, `informe-mantenimiento`,
-  `informe-curador`.
-- **Activación prevista:** no decidida — probablemente el único agente que,
-  por definición, no es activado por un humano ni por una petición de
-  usuario, sino que él mismo dispara a los demás.
-- **Relaciones previstas:** coordina, no sustituye — nunca contendría la
-  lógica de negocio de ningún otro agente, solo decide cuándo invocar la
-  que ya existe en cada uno.
+- **Estado:** Bloque 1 construido (2026-09-15) — el núcleo: catálogo de
+  tareas, carriles, planificador, buzón en Postgres y ejecutor. **Sin
+  fusionar y sin desplegar.** El bloque 2 (el panel donde la propietaria
+  firma) no está empezado.
+- **Carpeta:** `agents/atlas-orchestrator/`.
+- **Numeración:** es el **décimo** agente. `ATLAS.md` lo lista como «9» en
+  la hoja de ruta, que es registro histórico y anterior a la entrada de
+  Curator; este documento manda.
+- **Responsabilidad:** coordinar cuándo se activa cada agente que hoy
+  depende de que un humano recuerde ejecutarlo. Coordina, no sustituye:
+  no contiene la lógica de negocio de ningún otro agente.
+- **Activación:** `npm run orquestar` (con `--solo-plan` para ver qué haría
+  sin hacerlo). No se activa solo: alguien —o algún día un programador de
+  tareas— tiene que lanzarlo.
+
+### Los dos carriles
+
+Las **26 tareas** del repositorio están clasificadas una a una en
+`tareas.ts`, con su carril y el motivo:
+
+- **Libre (10)** — sólo lee e informa. Se dispara sin preguntar.
+- **Con permiso (16)** — gasta dinero (4, llaman a un proveedor de IA) o
+  escribe datos que el resto de Molnip da por buenos (12). **Esperan la
+  firma de la propietaria y no se ejecutan sin ella.**
+
+Dos clasificaciones se corrigieron leyendo el código y no el nombre:
+`verificar-enlaces-afiliados` es **libre** (sale a la red, pero ni gasta ni
+modifica), y `convertir-verificacion` pide permiso **por escribir**
+`registros.json`, no por gastar — no llama a ningún proveedor.
+
+### Las cuatro reglas que sostienen el agente
+
+1. **De la base de datos nunca sale un comando.** Una solicitud guarda un
+   identificador de tarea; el fichero que se ejecuta está escrito en
+   `tareas.ts`, en código. El ejecutor lanza `node tsx <fichero>` con
+   `execFile` y `shell: false`: no hay intérprete de comandos en ningún
+   punto del camino. Una fila manipulada consigue que la rechacen, no que
+   ejecute algo.
+2. **El silencio no es permiso.** Una solicitud que pide firma nace en
+   `esperando_autorizacion` y ahí se queda indefinidamente. No caduca a
+   favor, no hay plazo tras el cual se ejecute igual. **En el bloque 1 no
+   existe ningún comando, CLI ni función que firme una autorización**, por
+   decisión expresa de la propietaria: firmar es del bloque 2.
+3. **Reclamar es atómico.** `FOR UPDATE SKIP LOCKED` dentro del mismo
+   `UPDATE`: dos procesos simultáneos no pueden llevarse la misma
+   solicitud. Es la diferencia entre gastar una vez y gastar dos.
+4. **Una ejecución cortada a mitad queda registrada y nunca se reintenta
+   sola.** La fila se queda en `en_curso` con su asiento en la bitácora, y
+   sólo se reclaman las que están `lista` o `autorizada`. El orquestador
+   las enseña; decide una persona.
+
+### Dónde vive
+
+Dos tablas en Postgres (`data/db/esquema.ts`), no ficheros: la máquina que
+ejecuta y la web donde se firmará no comparten disco, y el sistema de
+ficheros de Vercel es efímero. `solicitudes_orquestador` es el buzón — sin
+ninguna columna que pueda contener un comando, y hay una prueba que lo
+comprueba. `bitacora_orquestador` es append-only por trigger, como el
+historial de afiliación: es la única prueba de qué se ejecutó sin nadie
+delante.
+
+### Lo que hoy no hace, y no es un olvido
+
+**Ninguna tarea del carril con permiso tiene cadencia periódica: todas son
+`manual`.** El planificador, por tanto, no propone por su cuenta nada que
+gaste dinero o escriba datos — sólo entra en la cola si alguien lo pide. Una
+prueba lo fija, para que dar cadencia a una de ellas sea una decisión a la
+vista y no un descuido.
 
 ## 11. Atlas Revenue
 

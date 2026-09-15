@@ -36,6 +36,10 @@ describe("el aislamiento de la verificación", () => {
       path.join("data", "vocabulario", "__tests__", "aislamiento.test.ts"),
       "La guarda del vocabulario NOMBRA esta ruta para autorizarla, pero no lee nada de aquí.",
     ],
+    [
+      path.join("agents", "atlas-orchestrator", "tareas.ts"),
+      "El catálogo del Orchestrator NOMBRA los dos CLI de verificación como texto, para que el comando salga del código y nunca de la base de datos. No importa nada de aquí ni lee ningún registro.",
+    ],
   ]);
   const EXENTOS = new Set(AUTORIZADOS.keys());
 
@@ -85,11 +89,29 @@ describe("el aislamiento de la verificación", () => {
     expect([...AUTORIZADOS.keys()]).toEqual([
       path.join("app", "api", "recomendaciones", "route.ts"),
       path.join("data", "vocabulario", "__tests__", "aislamiento.test.ts"),
+      path.join("agents", "atlas-orchestrator", "tareas.ts"),
     ]);
   });
 
   it("cada autorización dice por qué lo está", () => {
     for (const [archivo, porque] of AUTORIZADOS) expect(porque.length, archivo).toBeGreaterThan(40);
+  });
+
+  /**
+   * Dos de las tres entradas no leen nada: sólo nombran la ruta. Se
+   * comprueba aquí para que nadie las confunda con lectores de verdad —
+   * el único que lee es la ruta de recomendaciones, y así seguirá.
+   */
+  it("sólo una de las autorizadas lee de verdad; las otras dos sólo nombran la ruta", () => {
+    const soloNombran = [
+      path.join("data", "vocabulario", "__tests__", "aislamiento.test.ts"),
+      path.join("agents", "atlas-orchestrator", "tareas.ts"),
+    ];
+    for (const relativa of soloNombran) {
+      const codigoDelArchivo = fs.readFileSync(path.join(raiz, relativa), "utf8");
+      expect(/from\s+["'`][^"'`]*verificacion/.test(codigoDelArchivo), relativa).toBe(false);
+      expect(/registros\.json|plausibles\.json/.test(sinComentarios(codigoDelArchivo)), relativa).toBe(false);
+    }
   });
 
   it("y el punto autorizado existe y lee la verificación de verdad", () => {

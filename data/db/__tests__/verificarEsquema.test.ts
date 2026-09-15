@@ -5,13 +5,15 @@ import { SENTENCIAS_ESQUEMA } from "../esquema";
 import { tablasEsperadas, triggersEsperados, verificarEsquema } from "../verificarEsquema";
 
 describe("lo que se espera del esquema se deduce del propio esquema", () => {
-  it("encuentra las cuatro tablas con sus columnas", () => {
+  it("encuentra las seis tablas con sus columnas", () => {
     const tablas = tablasEsperadas();
     expect(tablas.map((t) => t.tabla).sort()).toEqual([
+      "bitacora_orquestador",
       "clics_salientes",
       "estrategias_afiliacion",
       "historial_cambios_afiliacion",
       "ingresos_afiliacion",
+      "solicitudes_orquestador",
     ]);
     const clics = tablas.find((t) => t.tabla === "clics_salientes")!;
     expect(clics.columnas).toEqual([
@@ -30,11 +32,30 @@ describe("lo que se espera del esquema se deduce del propio esquema", () => {
     expect(tablas[0].columnas).toEqual(["a", "b"]);
   });
 
-  it("encuentra los dos triggers y la tabla de cada uno", () => {
+  it("encuentra los tres triggers y la tabla de cada uno", () => {
     expect(triggersEsperados().sort((x, y) => x.trigger.localeCompare(y.trigger))).toEqual([
+      { trigger: "bitacora_orquestador_solo_insertar", tabla: "bitacora_orquestador" },
       { trigger: "historial_solo_insertar", tabla: "historial_cambios_afiliacion" },
       { trigger: "ingresos_solo_insertar", tabla: "ingresos_afiliacion" },
     ]);
+  });
+
+  /**
+   * La tabla del Orchestrator guarda QUÉ hacer, nunca CÓMO. Si alguna vez
+   * aparece aquí una columna con un comando, una ruta de ejecutable o unos
+   * argumentos de intérprete, es que el agente ha dejado de ser seguro:
+   * el ejecutor busca el comando en `agents/atlas-orchestrator/tareas.ts`,
+   * en código, y de la base sólo saca un identificador.
+   */
+  it("solicitudes_orquestador no tiene ninguna columna que pueda contener un comando", () => {
+    const columnas = tablasEsperadas().find((t) => t.tabla === "solicitudes_orquestador")!.columnas;
+    expect(columnas).toEqual([
+      "id", "tarea_id", "carril", "motivo", "argumentos", "estado", "por_que", "creada_en",
+      "autorizada_en", "autorizada_por", "reclamada_en", "reclamada_por", "terminada_en", "resultado",
+    ]);
+    for (const prohibida of ["comando", "script", "ejecutable", "modulo", "ruta", "shell", "cmd"]) {
+      expect(columnas).not.toContain(prohibida);
+    }
   });
 });
 
@@ -50,6 +71,8 @@ describe.skipIf(!postgresDisponible())("verificarEsquema contra un Postgres real
         query: (texto) => aislado.query(texto.replace(/'public'/g, `'${esquema}'`)),
       });
       expect(problemas).toContain("falta la tabla clics_salientes");
+      expect(problemas).toContain("falta la tabla solicitudes_orquestador");
+      expect(problemas).toContain("falta la tabla bitacora_orquestador");
       expect(problemas).toContain("falta la tabla ingresos_afiliacion");
       expect(problemas.some((p) => p.includes("historial_solo_insertar"))).toBe(true);
     } finally {
