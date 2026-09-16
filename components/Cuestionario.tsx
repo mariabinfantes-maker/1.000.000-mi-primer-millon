@@ -136,11 +136,27 @@ export default function Cuestionario({
     if (paso > 0) setPaso((p) => p - 1);
   }
 
+  /**
+   * «Ninguna de éstas» es una salida inmediata (decisión de la propietaria
+   * del 2026-09-16): no se hacen más preguntas ni se llama al motor. Se
+   * enseña la pantalla de «no lo he entendido» con sus dos caminos. Vale en
+   * el paso de familia, en el de necesidad y en la aclaración del texto
+   * libre. La ruta de API sigue aceptando el valor por si llega directo.
+   */
+  function salirPorNinguna() {
+    const objetivoId = origen.problemaIdPrefill ?? objetivoAclarado ?? aclaracion?.objetivos[0]?.id ?? "";
+    setSinRecomendacion({ tipo: "ninguna_de_estas", objetivoId });
+  }
+
   function elegirFamilia(familiaId: string) {
+    if (familiaId === NINGUNA_DE_ESTAS) return salirPorNinguna();
     setFamiliaElegida(familiaId);
-    // «Ninguna de éstas» en el paso de familia ya es la respuesta: no hay
-    // necesidad que elegir después.
-    setNecesidadElegida(familiaId === NINGUNA_DE_ESTAS ? NINGUNA_DE_ESTAS : null);
+    setNecesidadElegida(null);
+  }
+
+  function elegirNecesidad(filaId: string) {
+    if (filaId === NINGUNA_DE_ESTAS) return salirPorNinguna();
+    setNecesidadElegida(filaId);
   }
 
   /** Fase de aclaración de la entrada libre: qué falta por elegir. */
@@ -301,7 +317,7 @@ export default function Cuestionario({
                   ))}
                   <button
                     type="button"
-                    onClick={() => setSinRecomendacion({ tipo: "ninguna_de_estas", objetivoId: aclaracion.objetivos[0].id })}
+                    onClick={salirPorNinguna}
                     className="flex items-start justify-between gap-3 rounded-xl border border-dashed border-slate-300 bg-white px-4 py-3.5 text-left text-sm font-semibold text-slate-700 transition-all hover:border-brand-300 hover:bg-brand-50/40"
                   >
                     Ninguna de éstas
@@ -314,7 +330,7 @@ export default function Cuestionario({
                 familiaElegida={familiaElegida}
                 necesidadElegida={necesidadElegida}
                 onElegirFamilia={elegirFamilia}
-                onElegirNecesidad={setNecesidadElegida}
+                onElegirNecesidad={elegirNecesidad}
               />
             ) : null}
 
@@ -389,7 +405,7 @@ export default function Cuestionario({
             familiaElegida={familiaElegida}
             necesidadElegida={necesidadElegida}
             onElegirFamilia={elegirFamilia}
-            onElegirNecesidad={setNecesidadElegida}
+            onElegirNecesidad={elegirNecesidad}
           />
         )}
 

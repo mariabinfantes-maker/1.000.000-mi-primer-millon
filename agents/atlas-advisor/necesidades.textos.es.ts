@@ -47,11 +47,11 @@ export const TEXTOS_NECESIDADES = {
   /** La salida en el paso de familia. Distinta de `ninguna` porque aquí aún no ha visto las necesidades. */
   ningunaFamilia: {
     etiqueta: "Ninguna de éstas",
-    descripcion: "Lo mío no va por ninguno de estos caminos.",
+    descripcion: "Lo mío no va por ninguno de estos caminos. Te propongo otro.",
   },
   ninguna: {
     etiqueta: "Ninguna de éstas",
-    descripcion: "Lo que necesito no está aquí.",
+    descripcion: "Lo que necesito no está aquí. Te propongo otro camino.",
   },
   filas: {
     "captar-datos": {

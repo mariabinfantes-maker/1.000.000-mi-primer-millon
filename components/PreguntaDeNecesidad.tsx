@@ -17,8 +17,8 @@ import { TEXTOS_NECESIDADES } from "@/agents/atlas-advisor/necesidades.textos.es
  * dentro de esa familia. Decisión de la propietaria del 2026-09-16: nunca
  * enseñar las catorce opciones juntas, ni en móvil ni en escritorio.
  *
- * «Ninguna de éstas» está en los dos pasos. Elegirla en el de familia no
- * obliga a entrar en una familia para decir que no.
+ * «Ninguna de éstas» está en los dos pasos y es una salida inmediata: quien
+ * la elige no contesta nada más. Por eso nunca aparece «seleccionada».
  *
  * Es el mismo componente para la entrada por objetivo (primer paso del
  * cuestionario) y para la aclaración de la entrada libre (después de leer el
@@ -102,7 +102,7 @@ export default function PreguntaDeNecesidad({
         <Opcion
           etiqueta={TEXTOS_NECESIDADES.ninguna.etiqueta}
           descripcion={TEXTOS_NECESIDADES.ninguna.descripcion}
-          seleccionado={necesidadElegida === NINGUNA_DE_ESTAS}
+          seleccionado={false}
           discontinua
           onClick={() => onElegirNecesidad(NINGUNA_DE_ESTAS)}
         />

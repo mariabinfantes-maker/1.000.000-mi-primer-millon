@@ -641,8 +641,11 @@ pendientes, el titular lo dice. Ninguna etiqueta afirma que una herramienta
 NO haga algo. El puerto de evidencia expone para ello la fuente de la
 capacidad (`fuente` en `EvidenciaDeCapacidad`).
 
-**«Ninguna de éstas»** está en los cinco objetivos y nunca devuelve el
-catálogo: ofrece contarlo con sus palabras o elegir un tipo de herramienta.
+**«Ninguna de éstas»** está en los cinco objetivos, en el paso de familia y
+en el de necesidad, y es una **salida inmediata**: sin más preguntas y sin
+llamar al motor, se enseña la pantalla de «no lo he entendido» con sus dos
+caminos, contarlo con sus palabras o elegir un tipo de herramienta. Nunca
+devuelve el catálogo. La ruta sigue aceptando el valor si llega directo.
 Una necesidad sin cobertura (tickets, chatbot) se pregunta igual y acaba en
 «no lo cubrimos», con sus palabras: es el mapa de huecos del catálogo.
 
