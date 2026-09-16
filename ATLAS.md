@@ -4375,6 +4375,117 @@ no toca. **No hizo falta migrar nada.**
 salida al usuario: `independenciaAfiliacion.test.ts` sigue pasando sin
 tocarlo.
 
+## Usos, recorridos e idioma en la evidencia, y la reforma del Researcher recuperada (2026-09-16, tercera ronda)
+
+**Autorización de la propietaria:** «implementar los usos y recorridos de
+evidencia en una rama aislada y recuperar allí la reforma del Researcher para
+revisarla, partiendo de la base vigente». Sin lanzar lotes, fusionar ni
+desplegar. Rama `claude/evidencia-usos-recorridos`, desde `d7ebbb9`.
+
+**Lo que resuelve.** F2 demuestra capacidades y el motor filtra por
+capacidad; ninguna de las dos cosas sabe si «reserva online» sirve para un
+corte de pelo, si «automatización de marketing» manda un segundo mensaje
+cuando el cliente calla, o si «cobrar» entrega el curso solo. El aviso de
+«uso sin confirmar» de la opción B era una marca fija de la fila, igual para
+todas las herramientas, sin que ninguna pudiera demostrar lo contrario. La
+etapa 0 de «Vender más» (doce casos, versión 3) lo dejó como condición del
+primer lote: sin sitio donde guardar un uso comprobado, lo investigado no
+llegaría al motor.
+
+**Las decisiones, en orden:**
+
+- **Una lista cerrada de usos** (`data/verificacion/usos.ts`), cada uno
+  colgando de UNA capacidad activa del vocabulario; hay prueba. No es
+  vocabulario: F1 sigue congelado en 3.0.0. Siete usos hoy: los dos de las
+  filas de servicios (reserva de servicio, recordatorio de cita de servicio),
+  el recordatorio por WhatsApp, y los cuatro de los recorridos A y B. Y **dos
+  recorridos**: página, cobro y acceso al curso en el mismo plan; embudo con
+  aviso y seguimientos en el mismo plan.
+- **El registro de F2 puede llevar `usos`**, sólo si la capacidad está
+  verificada y disponible, con tres estados: `demostrado`, `no_consta`,
+  `no_lo_hace`. Los dos extremos exigen fuente de primera mano CON cita; el
+  del medio exige nota y no admite cita. **«No consta» nunca se convierte en
+  «no lo hace»**, igual que con las capacidades. Los 1.544 registros
+  anteriores no cambian.
+- **Recorridos e idiomas son registros aparte** (`recorridos.json`,
+  `idiomas.json`, hoy vacíos). El recorrido lleva las mismas certezas
+  separadas que la capacidad: si lo hace, y en qué plan; un plan sólo se
+  nombra si la cita lo nombra. El idioma se verifica **por separado para la
+  interfaz y para el soporte**, con códigos de dos letras y cita; **sin
+  registro queda como desconocido en las 62**, porque `disponibleEnEspanol`
+  en la ficha no es verificación. Condición de la propietaria.
+- **El puerto** responde `usoDe`, `recorridoDe` e `idiomaDe`; un uso sólo
+  puede estar demostrado si su capacidad lo está. **La puerta** expone
+  `estadoDeUso` con los tres estados sin colapsar: el motor los trata
+  distinto.
+- **Una fila puede pedir un uso** además de la capacidad
+  (`FilaDeNecesidad.uso: { id, imprescindible }`). Regla de la propietaria:
+  «si un uso es imprescindible y no está verificado, la herramienta no puede
+  recomendarse para resolverlo». Con `imprescindible: true` sólo pasa quien
+  lo demostró, y si nadie, se dice con las palabras de la fila. Con `false`
+  pasan las mismas que por la capacidad **salvo las que consta que NO hacen
+  el uso**: apartarlas de ese uso es la única lectura coherente de una
+  ausencia demostrada, y no se dice en voz alta. Las dos filas de servicios
+  quedan enlazadas a sus usos, **no imprescindibles**, como se aprobó: siguen
+  siendo candidatas hasta que un lote demuestre el uso en alguna. Hoy ninguna
+  fila es imprescindible.
+- **La tarjeta enseña el uso por herramienta.** Si esta herramienta lo ha
+  demostrado: «Uso confirmado en una fuente oficial: …», con lo anotado y la
+  fuente enlazada, y sin el aviso fijo, que ya no es verdad para ella. Las
+  confirmadas van primero como opciones y las demás debajo como candidatas.
+  La etiqueta viaja en el enlace sólo demostrada y con su texto en palabras:
+  la pantalla no puede leer la lista de usos y nunca enseña un id. Con los
+  datos de hoy no cambia ni una pantalla.
+- **El pipeline produce usos, recorridos e idioma** con las mismas puertas
+  que la capacidad (dirección leída, mismo dominio, cita literal, cita breve
+  sólo revisada, ahora por uso). Un recorrido sólo se demuestra si todas sus
+  piezas salieron afirmadas en la misma verificación. Lo degradado va a
+  `descartes-usos.json`, aparte, para que la repesca de capacidades no lo
+  confunda con un par a repetir.
+- **El arnés remoto gana el modo `usos`** con los límites de la propietaria
+  escritos en el propio lote y aplicados por el código: **tope de peticiones
+  HTTP contando reintentos** (40), **cinco por minuto** con ventana real de
+  sesenta segundos, y **parada al primer error de cuota sin reintentar**. El
+  lote se valida antes de gastar nada, y se enseña cuántas llamadas prevé.
+
+**El primer lote, congelado y sin lanzar.** `data/verificacion/lotes/usos-1.json`:
+Systeme.io (página, cobro, impartir cursos —que no estaba en su selección
+del lote 3 y se añade aquí, congelado antes de preguntar—) y seis CRM del
+recorrido B (ActiveCampaign, Insightly, Pipedrive, noCRM.io, EngageBay,
+Capsule), dos capacidades cada uno, con sus usos, recorrido e idioma: **14
+llamadas**. `usos-1-nuevas.json`: Hotmart, Thinkific y Teachable, **6
+llamadas**, que el validador rechaza hasta que existan como fichas. Y
+`agents/atlas-researcher/lotes/cursos-1.json` con las tres candidatas para
+el Researcher: **6 llamadas**, dos por candidata (prechequeo de afiliación y,
+tras la autorización de la propietaria, la investigación). **Veintiséis en
+total, no veintitrés:** el recuento de la etapa 0 contaba una llamada por
+candidata nueva y el código hace dos. Corregido en la página de los casos.
+El nivel de la cuenta de Gemini no se puede comprobar desde el entorno; se
+pide antes de disparar.
+
+**La reforma del Researcher (6a12144, 854fc98) está recuperada** en la misma
+rama, sin cambios de fondo. Lo único que faltaba: sus dos comandos no
+estaban clasificados en el Orchestrator y la prueba «todo script está
+clasificado» fallaba. `investigar-pendiente` pide permiso porque gasta
+dinero (con id llama al proveedor; sin id sólo lista, pero se clasifica por
+lo peor); `autorizar-afiliacion` pide permiso porque escribe datos. Son 26
+tareas: 8 libres, 18 con permiso.
+
+**Lo que se comprobó antes de dar nada por hecho.** Huella de las 810
+combinaciones del catálogo y el motor: `2aea9060…` intacta desde `d7ebbb9`.
+Las 2.520 combinaciones por categoría y las 600 por objetivo, idénticas. Suite
+completa: 1.978 pruebas en verde, con 55 nuevas. `tsc` limpio. Los seis
+errores de `eslint` son los mismos seis de producción (`any` en el arnés y en
+una prueba antiguos).
+
+**Después, cuando la propietaria lo decida:** al promover las tres fichas
+nuevas, `plan.test.ts` exige que las 62 herramientas estén asignadas a un
+lote de F2; habrá 65 y la prueba lo dirá. No se toca ahora.
+
+**Fuera de esta ronda, a propósito:** los avisos (caja, tabla en Neon,
+frase de privacidad), los productos propios, la pregunta de idioma en el
+cuestionario y la puerta «Quiero vender más». La verificación del idioma
+existe en los datos y en el puerto, y ninguna pantalla la lee todavía.
 
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 

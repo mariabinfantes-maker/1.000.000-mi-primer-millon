@@ -681,8 +681,37 @@ Una necesidad sin cobertura (tickets, chatbot) se pregunta igual y acaba en
 (`data/verificacion/__tests__/opcionB.test.ts`).
 
 **Pendiente, decidido y sin implementar:** la regla del idioma —preferencia
-frente a necesidad, capas y no puntos, y verificar antes el idioma de
-interfaz y soporte en las 62 fichas—. Commit propio.
+frente a necesidad, capas y no puntos—. Lo que sí existe desde la tercera
+ronda es la verificación del idioma en los datos (abajo): interfaz y soporte
+por separado, desconocidos en las 62 hasta que un lote los compruebe.
+
+**Usos concretos, recorridos e idioma (tercera ronda, 2026-09-16; rama
+aislada, sin fusionar).** La evidencia de F2 gana una lista cerrada de
+**usos** (`data/verificacion/usos.ts`), cada uno colgando de una capacidad
+activa del vocabulario, y de **recorridos** (varias piezas en el mismo
+plan). Un registro verificado puede llevar `usos` en tres estados
+—demostrado, no consta, no lo hace—, con las mismas exigencias de cita que
+la capacidad; recorridos e idiomas son registros aparte
+(`recorridos.json`, `idiomas.json`). El puerto responde `usoDe`,
+`recorridoDe` e `idiomaDe`, y la puerta del motor expone `estadoDeUso` con
+los tres estados sin colapsar.
+
+Una fila puede pedir `uso: { id, imprescindible }`. Imprescindible: sólo
+pasa quien lo ha demostrado, y si nadie, «no lo cubrimos» con las palabras
+de la fila. No imprescindible: pasan las mismas que por la capacidad, salvo
+las que consta que NO hacen el uso, y cada tarjeta enseña «Uso confirmado en
+una fuente oficial: …» con su fuente cuando esa herramienta lo demostró, en
+vez del aviso fijo; las confirmadas van primero como opciones y las demás
+como candidatas. Las dos filas de servicios están enlazadas a sus usos, no
+imprescindibles. Nunca se dice que una herramienta no haga un uso. Con los
+datos de hoy, ninguna pantalla cambia (huella intacta).
+
+El pipeline (`convertir.ts`, `repescar-remoto.ts` en modo `usos`) produce
+los tres con las mismas puertas que la capacidad, y aplica los límites de
+consumo escritos en el propio lote: tope de peticiones HTTP con reintentos,
+peticiones por minuto, parada al primer error de cuota. Los lotes de usos
+viven en `data/verificacion/lotes/` y se validan antes de gastar. Detalle y
+decisiones en `ATLAS.md`, «Usos, recorridos e idioma en la evidencia».
 
 ## Advisor — preguntas adaptativas de diferenciación
 
