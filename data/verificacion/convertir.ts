@@ -1,12 +1,17 @@
 import fs from "node:fs";
 import path from "node:path";
 import type {
+  EvidenciaDeIdiomaRegistrada,
   Fuente,
   NivelConfianza,
   Profundidad,
+  RegistroDeIdioma,
+  RegistroDeRecorrido,
+  RegistroDeUso,
   RegistroVerificacion,
   TipoFuente,
 } from "./esquema";
+import { getUso } from "./usos";
 
 /**
  * De lo que contestó Gemini a lo que Molnip puede afirmar.
@@ -42,6 +47,41 @@ export type RespuestaCruda = {
    */
   planCita?: string | null;
   planUrlFuente?: string | null;
+  /**
+   * Los usos concretos de esta capacidad (tercera ronda). Sólo se piden de
+   * las capacidades de la selección que tienen usos en la lista cerrada, y
+   * sólo cuentan si la capacidad sale afirmada.
+   */
+  usos?: RespuestaDeUsoCruda[];
+};
+
+export type RespuestaDeUsoCruda = {
+  usoId?: string;
+  veredicto?: string;
+  urlFuente?: string | null;
+  cita?: string | null;
+  nota?: string | null;
+};
+
+export type RespuestaDeRecorridoCruda = {
+  recorridoId?: string;
+  veredicto?: string;
+  planMinimo?: string | null;
+  urlFuente?: string | null;
+  cita?: string | null;
+  limites?: string | null;
+  nota?: string | null;
+};
+
+/** Interfaz y soporte por separado: `null` en una lista significa que la página no lo dice. */
+export type RespuestaDeIdiomaCruda = {
+  interfaz?: string[] | null;
+  interfazUrlFuente?: string | null;
+  interfazCita?: string | null;
+  soporte?: string[] | null;
+  soporteUrlFuente?: string | null;
+  soporteCita?: string | null;
+  nota?: string | null;
 };
 
 /** Una redirección resuelta con el cliente HTTP, no supuesta. */
@@ -70,6 +110,12 @@ export type SalidaHerramienta = {
   respuestas?: RespuestaCruda[];
   sinRespuesta?: string[];
   errores?: unknown[];
+  /** Tercera ronda: qué usos, recorridos e idioma se pidieron, y qué se contestó. */
+  usosPedidos?: string[];
+  recorridosPedidos?: string[];
+  recorridos?: RespuestaDeRecorridoCruda[];
+  idiomaPedido?: boolean;
+  idioma?: RespuestaDeIdiomaCruda | null;
 };
 
 export type SalidaLote = {
@@ -100,6 +146,14 @@ export type Descarte = {
   /** Se conserva la cita para no perder la pista, aunque no sirva de prueba. */
   cita?: string;
   urlCitada?: string;
+  /**
+   * Cuando lo degradado es un uso, un recorrido o el idioma, y no la
+   * capacidad. Van en `descartesDeUso`, aparte, para que la repesca de
+   * capacidades no los confunda con un par a repetir.
+   */
+  usoId?: string;
+  recorridoId?: string;
+  idioma?: "interfaz" | "soporte";
 };
 
 export type CitaRevisada = {
@@ -108,6 +162,8 @@ export type CitaRevisada = {
   cita: string;
   veredicto: "vale" | "no_vale";
   motivo: string;
+  /** Cuando la cita revisada es la de un uso y no la de la capacidad. */
+  usoId?: string;
 };
 
 export type Resumen = {
@@ -124,6 +180,10 @@ export type Resumen = {
 export type Conversion = {
   registros: RegistroVerificacion[];
   descartes: Descarte[];
+  /** Lo degradado de usos, recorridos e idioma: aparte, con el mismo formato. */
+  descartesDeUso: Descarte[];
+  recorridos: RegistroDeRecorrido[];
+  idiomas: RegistroDeIdioma[];
   resumen: Resumen;
 };
 
@@ -196,6 +256,22 @@ export function normalizarUrl(u: string): string {
   }
 }
 
+import { getRecorrido as recorridoDe } from "./usos";
+
+/**
+ * La misma comprobación que `citaNombraElPlan` en el repositorio, repetida
+ * aquí porque el repositorio importa este módulo y un ciclo entre los dos
+ * dejaría a uno cargando al otro a medias. Hay una prueba que compara las dos
+ * sobre los mismos casos.
+ */
+export function citaNombraElPlanLocal(cita: string | undefined, plan: string): boolean {
+  const normalizar = (t: string) =>
+    t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
+  const p = normalizar(plan);
+  if (!p) return false;
+  return new RegExp(`(^| )${p}( |$)`).test(normalizar(cita ?? ""));
+}
+
 export function getCitasRevisadas(): CitaRevisada[] {
   const ruta = path.join(process.cwd(), "data", "verificacion", "citas-revisadas.json");
   return fs.existsSync(ruta) ? JSON.parse(fs.readFileSync(ruta, "utf8")) : [];
@@ -222,14 +298,18 @@ export function convertirSalida(
 ): Conversion {
   const registros: RegistroVerificacion[] = [];
   const descartes: Descarte[] = [];
+  const descartesDeUso: Descarte[] = [];
+  const recorridos: RegistroDeRecorrido[] = [];
+  const idiomas: RegistroDeIdioma[] = [];
   let paresEsperados = 0;
   let sinRespuesta = 0;
 
-  const revisadaDe = (herramientaId: string, capacidadId: string, cita: string) =>
+  const revisadaDe = (herramientaId: string, capacidadId: string, cita: string, usoId?: string) =>
     citasRevisadas.find(
       (c) =>
         c.herramientaId === herramientaId &&
         c.capacidadId === capacidadId &&
+        (c.usoId ?? undefined) === usoId &&
         c.cita.trim() === cita.trim()
     );
 
@@ -311,6 +391,73 @@ export function convertirSalida(
         proximaRevision: proximaRevision(h.fechaConsulta, false),
         nota,
       });
+    };
+
+    /**
+     * UNA AFIRMACIÓN CONCRETA (uso, recorrido, idioma) PASA POR LAS MISMAS
+     * PUERTAS QUE LA CAPACIDAD: dirección leída, mismo dominio, cita literal,
+     * y cita breve sólo si alguien la revisó. Devuelve la fuente con cita o
+     * el motivo por el que no vale.
+     */
+    const fuenteAfirmada = (
+      urlCitada: string | null | undefined,
+      citaCruda: string | null | undefined,
+      revisada: (cita: string) => CitaRevisada | undefined
+    ): { fuente: Fuente } | { motivo: string; cita?: string; url?: string } => {
+      const url = (urlCitada ?? "").trim();
+      const cita = (citaCruda ?? "").trim();
+      const urlLeida = url ? resolver(url) : undefined;
+      if (!urlLeida) return { motivo: "la dirección citada no consta como leída", cita, url: url || undefined };
+      if (config.urlPrecios && !mismoDominio(urlLeida, config.urlPrecios)) return { motivo: "la cita viene de otro dominio", cita, url: urlLeida };
+      if (!cita) return { motivo: "sin cita", url: urlLeida };
+      if (cita.length < LONGITUD_QUE_SE_EXPLICA_SOLA) {
+        const r = revisada(cita);
+        if (!r) return { motivo: "cita breve sin revisar", cita, url: urlLeida };
+        if (r.veredicto === "no_vale") return { motivo: "cita breve revisada y rechazada", cita, url: urlLeida };
+      }
+      return { fuente: { tipo: tipoDeFuente(urlLeida), url: urlLeida, fechaConsulta: h.fechaConsulta, cita } };
+    };
+
+    /**
+     * Los usos de UNA capacidad afirmada. Un uso sin respuesta, o con una
+     * afirmación que no se sostiene, queda como `no_consta` con el motivo en
+     * la nota: nunca desaparece, y nunca sube a demostrado sin la frase.
+     */
+    const usosDe = (capacidadId: string, r: RespuestaCruda): RegistroDeUso[] | undefined => {
+      const pedidos = (h.usosPedidos ?? []).filter((u) => getUso(u)?.capacidadId === capacidadId);
+      if (!pedidos.length) return undefined;
+      const resultado: RegistroDeUso[] = [];
+      for (const usoId of pedidos) {
+        const ru = (r.usos ?? []).find((x) => x.usoId === usoId);
+        const noConsta = (nota: string, motivo?: string, cita?: string, url?: string): RegistroDeUso => {
+          if (motivo) descartesDeUso.push({ herramientaId: h.herramientaId, capacidadId, usoId, motivo, cita: cita || undefined, urlCitada: url });
+          return { usoId, estado: "no_consta", fuentes: fuentesConsultadas(), nota };
+        };
+        if (!ru) {
+          resultado.push(noConsta("El modelo no llegó a responder por este uso.", "uso sin respuesta"));
+          continue;
+        }
+        if (ru.veredicto === "no_documentado" || !ru.veredicto) {
+          resultado.push({ usoId, estado: "no_consta", fuentes: fuentesConsultadas(), nota: ru.nota?.trim() || "No aparece en las páginas oficiales consultadas." });
+          continue;
+        }
+        if (ru.veredicto !== "si" && ru.veredicto !== "no") {
+          resultado.push(noConsta(`El modelo respondió "${ru.veredicto}", que no es un veredicto válido.`, "uso con veredicto desconocido"));
+          continue;
+        }
+        const f = fuenteAfirmada(ru.urlFuente, ru.cita, (cita) => revisadaDe(h.herramientaId, capacidadId, cita, usoId));
+        if ("motivo" in f) {
+          resultado.push(noConsta(`Se afirmó "${ru.veredicto}" sin una cita que valga: ${f.motivo}.`, `uso: ${f.motivo}`, f.cita, f.url));
+          continue;
+        }
+        resultado.push({
+          usoId,
+          estado: ru.veredicto === "si" ? "demostrado" : "no_lo_hace",
+          fuentes: [f.fuente],
+          ...(ru.nota?.trim() ? { nota: ru.nota.trim() } : {}),
+        });
+      }
+      return resultado;
     };
 
     for (const capacidadId of pedidas) {
@@ -533,6 +680,112 @@ export function convertirSalida(
         confianza,
         proximaRevision: proximaRevision(h.fechaConsulta, planVerificado),
         nota: r.nota?.trim() || undefined,
+        // Los usos sólo cuelgan de una capacidad afirmada: aquí, y en ningún otro sitio.
+        ...(usosDe(capacidadId, r) ? { usos: usosDe(capacidadId, r) } : {}),
+      });
+    }
+
+    /**
+     * LOS RECORRIDOS. Un recorrido sólo puede demostrarse si TODAS sus piezas
+     * salieron afirmadas en esta misma salida: si falta una, el recorrido no
+     * consta, diga lo que diga la cita, porque la evidencia de las piezas no
+     * la tiene nadie. El plan sigue la misma regla que la capacidad: sólo se
+     * nombra si viene de una fuente que sostiene planes y la cita lo nombra.
+     */
+    const afirmadas = new Set(
+      registros
+        .filter((x) => x.herramientaId === h.herramientaId && x.estado === "verificado" && x.profundidad !== "no_disponible")
+        .map((x) => x.capacidadId)
+    );
+    for (const recorridoId of h.recorridosPedidos ?? []) {
+      const rr = (h.recorridos ?? []).find((x) => x.recorridoId === recorridoId);
+      const noConsta = (nota: string, motivo?: string, cita?: string, url?: string) => {
+        if (motivo) descartesDeUso.push({ herramientaId: h.herramientaId, capacidadId: "", recorridoId, motivo, cita: cita || undefined, urlCitada: url });
+        recorridos.push({ herramientaId: h.herramientaId, recorridoId, estado: "no_consta", fuentes: fuentesConsultadas(), nota, proximaRevision: proximaRevision(h.fechaConsulta, false) });
+      };
+      const definicion = recorridoDe(recorridoId);
+      if (!definicion) {
+        noConsta("El recorrido no existe en la lista cerrada.", "recorrido inexistente");
+        continue;
+      }
+      if (!rr) {
+        noConsta("El modelo no llegó a responder por este recorrido.", "recorrido sin respuesta");
+        continue;
+      }
+      if (rr.veredicto === "no_documentado" || !rr.veredicto) {
+        recorridos.push({ herramientaId: h.herramientaId, recorridoId, estado: "no_consta", fuentes: fuentesConsultadas(), nota: rr.nota?.trim() || "No aparece en las páginas oficiales consultadas.", proximaRevision: proximaRevision(h.fechaConsulta, false) });
+        continue;
+      }
+      if (rr.veredicto !== "si" && rr.veredicto !== "no") {
+        noConsta(`El modelo respondió "${rr.veredicto}", que no es un veredicto válido.`, "recorrido con veredicto desconocido");
+        continue;
+      }
+      const f = fuenteAfirmada(rr.urlFuente, rr.cita, () => undefined);
+      if ("motivo" in f) {
+        noConsta(`Se afirmó "${rr.veredicto}" sin una cita que valga: ${f.motivo}.`, `recorrido: ${f.motivo}`, f.cita, f.url);
+        continue;
+      }
+      if (rr.veredicto === "no") {
+        recorridos.push({ herramientaId: h.herramientaId, recorridoId, estado: "no_lo_hace", fuentes: [f.fuente], ...(rr.nota?.trim() ? { nota: rr.nota.trim() } : {}), proximaRevision: proximaRevision(h.fechaConsulta, false) });
+        continue;
+      }
+      const piezasSinAfirmar = definicion.piezas.filter((pieza) => !pieza.some((c) => afirmadas.has(c)));
+      if (piezasSinAfirmar.length) {
+        noConsta(
+          `Se afirmó el recorrido pero ${piezasSinAfirmar.length} de sus piezas no salieron afirmadas en esta verificación: ${piezasSinAfirmar.map((p) => p.join(" o ")).join("; ")}.`,
+          "recorrido con piezas sin afirmar",
+          f.fuente.cita,
+          f.fuente.url
+        );
+        continue;
+      }
+      const planMinimo = (rr.planMinimo ?? "").trim();
+      const planVerificado = Boolean(planMinimo) && SOSTIENEN_UN_PLAN.includes(f.fuente.tipo) && citaNombraElPlanLocal(f.fuente.cita, planMinimo);
+      if (planMinimo && !planVerificado) {
+        descartesDeUso.push({ herramientaId: h.herramientaId, capacidadId: "", recorridoId, motivo: "recorrido: el plan no viene de una fuente que lo demuestre o la cita no lo nombra", cita: f.fuente.cita, urlCitada: f.fuente.url });
+      }
+      recorridos.push({
+        herramientaId: h.herramientaId,
+        recorridoId,
+        estado: "demostrado",
+        planEstado: planVerificado ? "verificado" : "desconocido",
+        ...(planVerificado ? { planMinimo } : {}),
+        fuentes: [f.fuente],
+        ...(rr.limites?.trim() ? { limites: rr.limites.trim() } : {}),
+        ...(rr.nota?.trim() ? { nota: rr.nota.trim() } : {}),
+        proximaRevision: proximaRevision(h.fechaConsulta, planVerificado),
+      });
+    }
+
+    /**
+     * EL IDIOMA. Interfaz y soporte por separado; cada uno verificado sólo
+     * con una cita que valga y una lista de códigos. Sin registro válido,
+     * queda desconocido: la ficha no cuenta como verificación.
+     */
+    if (h.idiomaPedido) {
+      const parte = (
+        cual: "interfaz" | "soporte",
+        lista: string[] | null | undefined,
+        url: string | null | undefined,
+        cita: string | null | undefined
+      ): EvidenciaDeIdiomaRegistrada => {
+        const desconocido = (nota: string, motivo?: string): EvidenciaDeIdiomaRegistrada => {
+          if (motivo) descartesDeUso.push({ herramientaId: h.herramientaId, capacidadId: "", idioma: cual, motivo, cita: (cita ?? "").trim() || undefined, urlCitada: (url ?? "").trim() || undefined });
+          return { estado: "desconocido", fuentes: fuentesConsultadas(), nota };
+        };
+        if (!h.idioma) return desconocido("El modelo no llegó a responder por el idioma.", "idioma sin respuesta");
+        if (!lista?.length) return desconocido(h.idioma.nota?.trim() || "Las páginas oficiales consultadas no lo dicen.");
+        const codigos = [...new Set(lista.map((c) => String(c).trim().toLowerCase()))];
+        if (codigos.some((c) => !/^[a-z]{2}$/.test(c))) return desconocido(`Se afirmaron idiomas que no son códigos: ${codigos.join(", ")}.`, "idioma con códigos inválidos");
+        const f = fuenteAfirmada(url, cita, () => undefined);
+        if ("motivo" in f) return desconocido(`Se afirmaron idiomas sin una cita que valga: ${f.motivo}.`, `idioma: ${f.motivo}`);
+        return { estado: "verificado", idiomas: codigos, fuentes: [f.fuente] };
+      };
+      idiomas.push({
+        herramientaId: h.herramientaId,
+        interfaz: parte("interfaz", h.idioma?.interfaz, h.idioma?.interfazUrlFuente, h.idioma?.interfazCita),
+        soporte: parte("soporte", h.idioma?.soporte, h.idioma?.soporteUrlFuente, h.idioma?.soporteCita),
+        proximaRevision: proximaRevision(h.fechaConsulta, false),
       });
     }
   }
@@ -543,6 +796,9 @@ export function convertirSalida(
   return {
     registros,
     descartes,
+    descartesDeUso,
+    recorridos,
+    idiomas,
     resumen: {
       herramientas: (salida.herramientas ?? []).length,
       paresEsperados,

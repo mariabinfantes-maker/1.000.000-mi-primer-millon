@@ -27,12 +27,18 @@ import {
 import {
   capacidadesPendientes,
   claveDeLote,
+  erroresDeLoteDeUsos,
+  leerLoteDeUsos,
+  peticionesPrevistas,
   planesPendientes,
   rutaCheckpointDeLote,
   rutaSalidaDeLote,
   trabajoDelLote,
+  type LoteDeUsos,
 } from "./lotes";
-import type { RegistroVerificacion } from "./esquema";
+import { erroresDeIdioma, erroresDeRecorrido } from "./repositorio";
+import type { RegistroDeIdioma, RegistroDeRecorrido, RegistroVerificacion } from "./esquema";
+import { getRecorrido, usosDeCapacidad, type Recorrido, type Uso } from "./usos";
 
 /**
  * La repesca de F2 ejecutada desde el entorno remoto, sin PowerShell y sin
@@ -79,6 +85,16 @@ const MODELO = "gemini-3.6-flash";
  *               reanudar sólo repite lo que no tiene respuesta.
  *
  *                   npx tsx …/repescar-remoto.ts lote <numero> [porLlamada] [AAAA-MM-DD]
+ * usos        — ABRE UN LOTE DE USOS (tercera ronda, 2026-09-16): pocas
+ *               capacidades por herramienta, con sus usos concretos, sus
+ *               recorridos y el idioma, en la misma llamada; después el plan
+ *               de lo afirmado, como siempre. Lleva los límites de consumo
+ *               escritos en el propio lote —tope de peticiones HTTP contando
+ *               reintentos, peticiones por minuto, parada al primer error de
+ *               cuota— y no dispara nada sin enseñar antes cuántas llamadas
+ *               prevé. Va a un checkpoint propio del lote.
+ *
+ *                   npx tsx …/repescar-remoto.ts usos <ruta/al/lote.json> [porLlamada] [AAAA-MM-DD]
  */
 const MODO = (process.argv[2] ?? "completo") as
   | "completo"
@@ -86,12 +102,17 @@ const MODO = (process.argv[2] ?? "completo") as
   | "reconvertir"
   | "pares"
   | "planes"
-  | "lote";
+  | "lote"
+  | "usos";
 
 /** Qué lote se trabaja. Los cinco modos antiguos son, y siguen siendo, del 1. */
 const LOTE = MODO === "lote" ? Number(process.argv[3]) : 1;
 if (MODO === "lote" && ![1, 2, 3].includes(LOTE)) {
   throw new Error(`El lote tiene que ser 1, 2 o 3, y llegó "${process.argv[3]}".`);
+}
+const RUTA_LOTE_DE_USOS = MODO === "usos" ? process.argv[3] : undefined;
+if (MODO === "usos" && !RUTA_LOTE_DE_USOS) {
+  throw new Error("El modo usos necesita la ruta del lote: npx tsx …/repescar-remoto.ts usos data/verificacion/lotes/usos-1.json");
 }
 const PAUSA_MS = 4000;
 /**
@@ -101,14 +122,14 @@ const PAUSA_MS = 4000;
  * partirla en trozos más pequeños es lo único que la trae entera.
  */
 const POR_LLAMADA =
-  Number(MODO === "pares" || MODO === "lote" ? process.argv[4] : process.argv[3]) || 5;
+  Number(MODO === "pares" || MODO === "lote" || MODO === "usos" ? process.argv[4] : process.argv[3]) || 5;
 /**
  * La fecha de consulta. Los modos antiguos conservan la del lote 1 —sus
  * registros ya están escritos con ella y no se reescriben—; un lote nuevo se
  * fecha el día en que se pregunta, que es lo que significa `fechaConsulta`.
  */
 const HOY =
-  MODO === "lote"
+  MODO === "lote" || MODO === "usos"
     ? (process.argv[5] ?? new Date().toISOString().slice(0, 10))
     : "2026-09-07";
 
@@ -137,6 +158,43 @@ type Descarte = {
  * prueba antes de lanzar el resto: fetch da 403 "unregistered caller", curl
  * responde 200 con la clave inyectada.
  */
+/**
+ * Los límites de consumo (tercera ronda). Se cuentan PETICIONES HTTP, no
+ * llamadas lógicas: cada reintento de `invocarGemini` es una petición más, y
+ * es lo que la cuenta de Google ve. Sin lote de usos no hay tope ni limitador
+ * y los modos antiguos se comportan exactamente igual que antes.
+ */
+const consumo = {
+  peticionesHechas: 0,
+  tope: Number.POSITIVE_INFINITY,
+  porMinuto: Number.POSITIVE_INFINITY,
+  cuotaAgotada: false,
+  /** Instantes de las últimas peticiones, para la ventana de un minuto. */
+  ventana: [] as number[],
+};
+
+class ParadaDeConsumo extends Error {}
+
+/** Espera hasta que quepa una petición más en la ventana de sesenta segundos. */
+async function esperarTurno(): Promise<void> {
+  if (!Number.isFinite(consumo.porMinuto)) return;
+  for (;;) {
+    const ahora = Date.now();
+    consumo.ventana = consumo.ventana.filter((t) => ahora - t < 60_000);
+    if (consumo.ventana.length < consumo.porMinuto) {
+      consumo.ventana.push(ahora);
+      return;
+    }
+    const espera = 60_000 - (ahora - consumo.ventana[0]) + 250;
+    console.log(`      límite de ${consumo.porMinuto}/min: espera ${Math.ceil(espera / 1000)}s`);
+    await sleep(espera);
+  }
+}
+
+function esErrorDeCuota(mensaje: string): boolean {
+  return /API error 429|RESOURCE_EXHAUSTED|quota/i.test(mensaje);
+}
+
 async function invocarGemini(prompt: string, urls: string[]): Promise<any> {
   const texto = `${prompt}\n\nDirecciones que debes leer antes de responder:\n${urls.map((u) => `- ${u}`).join("\n")}`;
   const cuerpo = {
@@ -147,6 +205,13 @@ async function invocarGemini(prompt: string, urls: string[]): Promise<any> {
   const uri = `https://generativelanguage.googleapis.com/v1beta/models/${MODELO}:generateContent`;
 
   for (let intento = 1; intento <= 3; intento++) {
+    // Las tres paradas, ANTES de gastar: cuota agotada, tope alcanzado, turno.
+    if (consumo.cuotaAgotada) throw new ParadaDeConsumo("cuota agotada: no se hace ninguna petición más");
+    if (consumo.peticionesHechas >= consumo.tope) {
+      throw new ParadaDeConsumo(`tope de ${consumo.tope} peticiones alcanzado: no se hace ninguna más`);
+    }
+    await esperarTurno();
+    consumo.peticionesHechas++;
     const tmp = path.join(tmpdir(), `gemini-${Date.now()}-${Math.random().toString(36).slice(2)}.json`);
     try {
       await writeFile(tmp, JSON.stringify(cuerpo), "utf8");
@@ -165,6 +230,12 @@ async function invocarGemini(prompt: string, urls: string[]): Promise<any> {
       if (parsed.error) throw new Error(`API error ${parsed.error.code}: ${parsed.error.message}`);
       return parsed;
     } catch (e) {
+      if (e instanceof ParadaDeConsumo) throw e;
+      // Un error de cuota no se reintenta: se para todo. Es la condición de la propietaria.
+      if (esErrorDeCuota((e as Error).message)) {
+        consumo.cuotaAgotada = true;
+        throw new ParadaDeConsumo(`error de cuota: ${(e as Error).message.slice(0, 200)}`);
+      }
       if (intento === 3) throw e;
       const espera = 2 ** intento * 3000;
       console.log(`      reintento ${intento} tras ${espera}ms (${(e as Error).message})`);
@@ -443,6 +514,149 @@ async function procesarPlan(
   };
 }
 
+/**
+ * La primera pasada de un lote de usos: capacidades, usos, recorridos e
+ * idioma en la MISMA llamada. Es el prompt de capacidad con tres apartados
+ * más; la respuesta sigue siendo un array, con tres clases de elementos que
+ * se reparten por su clave (`capacidadId`, `recorridoId`, `idioma`).
+ */
+function promptUsos(nombre: string, capacidades: Capacidad[], usos: Uso[], recorridos: Recorrido[], idioma: boolean): string {
+  const base = promptCapacidad(nombre, capacidades).replace(
+    '  "nota": "breve: si es no_documentado, qué buscaste"\n}',
+    [
+      '  "nota": "breve: si es no_documentado, qué buscaste",',
+      '  "usos": [ { "usoId": "...", "veredicto": "si" | "no" | "no_documentado", "urlFuente": "...", "cita": "frase literal", "nota": "breve" } ]',
+      "}",
+    ].join("\n")
+  );
+  const partes = [base];
+  if (usos.length) {
+    partes.push(
+      "",
+      "USOS CONCRETOS. Cada uno es una pregunta MÁS PRECISA sobre una capacidad de",
+      'arriba. Sólo se contestan si esa capacidad es "si", dentro de su elemento, en',
+      '"usos". Las mismas reglas: "si" exige cita literal que demuestre EL USO, no la',
+      'capacidad general; si la página no lo dice, "no_documentado".',
+      ...usos.map((u) => `- ${u.id} | de ${u.capacidadId} | ${u.etiqueta}: ${u.definicion}${u.noEs ? ` FRONTERA: ${u.noEs}` : ""}`)
+    );
+  }
+  if (recorridos.length) {
+    partes.push(
+      "",
+      "RECORRIDOS. Varias piezas funcionando CONECTADAS dentro del MISMO plan. Añade",
+      "al array un elemento por recorrido, con esta forma:",
+      '{ "recorridoId": "...", "veredicto": "si" | "no" | "no_documentado", "planMinimo": "nombre exacto del plan más barato donde las piezas van juntas, o null", "urlFuente": "...", "cita": "frase literal que muestre que van juntas (y el plan, si lo nombra)", "limites": "los límites que la página ponga a ese plan: comisión, alumnos, contactos, envíos; o null", "nota": "breve" }',
+      '"si" sólo si la página muestra que las piezas funcionan juntas; que existan',
+      'por separado NO lo demuestra.',
+      ...recorridos.map((r) => `- ${r.id} | ${r.etiqueta}: ${r.definicion} PIEZAS: ${r.piezas.map((p) => p.join(" o ")).join("; ")}`)
+    );
+  }
+  if (idioma) {
+    partes.push(
+      "",
+      "IDIOMA. Añade al array UN elemento con esta forma exacta:",
+      '{ "idioma": { "interfaz": ["es","en"] | null, "interfazUrlFuente": "...", "interfazCita": "frase literal", "soporte": ["es"] | null, "soporteUrlFuente": "...", "soporteCita": "frase literal", "nota": "breve" } }',
+      "Códigos ISO de dos letras. La interfaz (el programa) y el soporte (la atención",
+      "al cliente) por separado: si la página no dice en qué idioma está una de las",
+      "dos, esa lista es null. No deduzcas el idioma de que la página esté escrita en él."
+    );
+  }
+  return partes.join("\n");
+}
+
+type ElementoDeUsos = RespuestaCruda & {
+  recorridoId?: string;
+  planMinimo?: string | null;
+  limites?: string | null;
+  idioma?: SalidaHerramienta["idioma"];
+};
+
+async function procesarUsos(
+  h: LoteDeUsos["herramientas"][number],
+  nombre: string,
+  urls: string[],
+  capacidadPorId: Map<string, Capacidad>
+): Promise<SalidaHerramienta> {
+  const ids = h.capacidadIds;
+  const bloques = Math.ceil(ids.length / POR_LLAMADA);
+  const respuestas: RespuestaCruda[] = [];
+  const recorridos: NonNullable<SalidaHerramienta["recorridos"]> = [];
+  let idioma: SalidaHerramienta["idioma"] = undefined;
+  const urlsVistas: Array<{ url?: string; estado?: string; recuperada?: boolean }> = [];
+  const recorridosPedidos = h.recorridoIds.map(getRecorrido).filter((r): r is Recorrido => Boolean(r));
+
+  for (let b = 0; b < bloques; b++) {
+    const trozo = ids.slice(b * POR_LLAMADA, (b + 1) * POR_LLAMADA);
+    const caps = trozo.map((id) => capacidadPorId.get(id)!);
+    const usos = trozo.flatMap((c) => usosDeCapacidad(c).filter((u) => h.usoIds.includes(u.id)));
+    // Recorridos e idioma van en el ÚLTIMO bloque, una sola vez.
+    const ultimo = b === bloques - 1;
+    const prompt = promptUsos(nombre, caps, usos, ultimo ? recorridosPedidos : [], ultimo && h.idioma);
+    const t0 = Date.now();
+    try {
+      const resp = await invocarGemini(prompt, urls);
+      const ms = Date.now() - t0;
+      urlsVistas.push(...extraerUrls(resp));
+      const parseado = JSON.parse(extraerTexto(resp)) as ElementoDeUsos[];
+      let contestadas = 0;
+      for (const el of parseado) {
+        if (el.capacidadId && trozo.includes(el.capacidadId)) {
+          contestadas++;
+          respuestas.push({
+            capacidadId: el.capacidadId,
+            veredicto: el.veredicto,
+            profundidad: el.profundidad,
+            integraCon: aTextoONull(el.integraCon),
+            planMinimo: aTextoONull(el.planMinimo),
+            urlFuente: aTextoONull(el.urlFuente),
+            cita: aTextoONull(el.cita),
+            nota: aTextoONull(el.nota),
+            usos: (el.usos ?? [])
+              .filter((u) => u.usoId && h.usoIds.includes(u.usoId))
+              .map((u) => ({ usoId: u.usoId, veredicto: u.veredicto, urlFuente: aTextoONull(u.urlFuente), cita: aTextoONull(u.cita), nota: aTextoONull(u.nota) })),
+          });
+        } else if (el.recorridoId && h.recorridoIds.includes(el.recorridoId)) {
+          recorridos.push({
+            recorridoId: el.recorridoId,
+            veredicto: el.veredicto,
+            planMinimo: aTextoONull(el.planMinimo),
+            urlFuente: aTextoONull(el.urlFuente),
+            cita: aTextoONull(el.cita),
+            limites: aTextoONull(el.limites),
+            nota: aTextoONull(el.nota),
+          });
+        } else if (el.idioma && h.idioma) {
+          idioma = el.idioma;
+        }
+      }
+      console.log(`    bloque ${b + 1}/${bloques} — ${trozo.length} capacidades, ${ms}ms, ${contestadas} respondidas, ${recorridos.length} recorridos, idioma ${idioma ? "sí" : "no"}`);
+    } catch (e) {
+      console.log(`    bloque ${b + 1}/${bloques} — FALLÓ, queda sin respuesta: ${(e as Error).message.slice(0, 200)}`);
+      if (e instanceof ParadaDeConsumo) break;
+    }
+    if (b < bloques - 1) await sleep(PAUSA_MS);
+  }
+
+  const porId = new Map<string, RespuestaCruda>();
+  for (const r of respuestas) if (r.capacidadId && ids.includes(r.capacidadId)) porId.set(r.capacidadId, r);
+
+  return {
+    herramientaId: h.herramientaId,
+    nombre,
+    fechaConsulta: HOY,
+    urlsSolicitadas: urls,
+    urlsRecuperadas: urlsVistas,
+    capacidadesPedidas: ids,
+    respuestas: [...porId.values()],
+    sinRespuesta: ids.filter((id) => !porId.has(id)),
+    usosPedidos: h.usoIds,
+    recorridosPedidos: h.recorridoIds,
+    recorridos,
+    idiomaPedido: h.idioma,
+    idioma,
+  };
+}
+
 /** Los pares cuyo plan hay que volver a demostrar: los que hoy afirman uno. */
 function r241DesdeRegistros(): Array<{ herramientaId: string; capacidadId: string }> {
   const registros = leerJson<RegistroVerificacion[]>(path.join(DIR, "registros.json"));
@@ -568,7 +782,25 @@ async function main() {
    * retoma donde se quedó en vez de repetir —y volver a pagar— lo que ya
    * está bien hecho.
    */
-  const RUTA_CHECKPOINT = rutaCheckpointDeLote(DIR, LOTE);
+  /**
+   * El lote de usos se lee y se valida ANTES de abrir nada: si el fichero
+   * pide un uso que no cuelga de sus capacidades, o una herramienta que no
+   * está en el catálogo, no se gasta ni una petición.
+   */
+  const loteDeUsos: LoteDeUsos | undefined = RUTA_LOTE_DE_USOS ? leerLoteDeUsos(RUTA_LOTE_DE_USOS) : undefined;
+  if (loteDeUsos) {
+    const errores = erroresDeLoteDeUsos(loteDeUsos, herramientas.map((h) => h.id), capacidadIdsDelVocabulario());
+    if (errores.length) {
+      console.error(`El lote de usos "${loteDeUsos.id}" no pasa el validador. No se hace ninguna petición:`);
+      for (const e of errores) console.error(`  · ${e}`);
+      process.exit(1);
+    }
+    consumo.tope = loteDeUsos.topeDePeticiones;
+    consumo.porMinuto = loteDeUsos.peticionesPorMinuto;
+  }
+
+  const RUTA_CHECKPOINT = loteDeUsos ? path.join(DIR, `_checkpoint-${loteDeUsos.id}.json`) : rutaCheckpointDeLote(DIR, LOTE);
+  const RUTA_SALIDA = loteDeUsos ? path.join(DIR, `_salida-${loteDeUsos.id}.json`) : rutaSalidaDeLote(DIR, LOTE);
   const checkpoint: Record<string, SalidaHerramienta> = fs.existsSync(RUTA_CHECKPOINT)
     ? leerJson<Record<string, SalidaHerramienta>>(RUTA_CHECKPOINT)
     : {};
@@ -801,6 +1033,66 @@ async function main() {
     }
   }
 
+  if (MODO === "usos" && loteDeUsos) {
+    const previsto = peticionesPrevistas(loteDeUsos, POR_LLAMADA);
+    console.log(`\n=== Lote de usos «${loteDeUsos.nombre}» (${loteDeUsos.id}) · ${loteDeUsos.herramientas.length} herramientas · fecha ${HOY} ===`);
+    console.log(`Llamadas previstas: ${previsto.llamadas} · máximo con reintentos: ${previsto.maximoConReintentos} · tope del lote: ${loteDeUsos.topeDePeticiones} · ${loteDeUsos.peticionesPorMinuto}/min`);
+    if (previsto.maximoConReintentos > loteDeUsos.topeDePeticiones) {
+      console.log(`Aviso: si todas las llamadas agotaran sus reintentos, el tope pararía el lote antes de terminar. Lo ya contestado se conserva en el checkpoint.`);
+    }
+    console.log(`Checkpoint: ${path.basename(RUTA_CHECKPOINT)}`);
+
+    console.log(`\n--- Capacidades, usos, recorridos e idioma ---`);
+    for (const t of loteDeUsos.herramientas) {
+      if (consumo.cuotaAgotada || consumo.peticionesHechas >= consumo.tope) {
+        console.log(`· ${t.herramientaId} — no se pregunta: ${consumo.cuotaAgotada ? "cuota agotada" : "tope alcanzado"}`);
+        continue;
+      }
+      const ficha = herramientaPorId.get(t.herramientaId);
+      if (!ficha) throw new Error(`${t.herramientaId} está en el lote y no en el catálogo.`);
+      const clave = `usos:${loteDeUsos.id}:${t.herramientaId}`;
+      const pendientes = capacidadesPendientes(t.capacidadIds, checkpoint[clave]);
+      if (!pendientes.length) {
+        console.log(`· ${ficha.nombre} (${t.herramientaId}) — ya contestadas las ${t.capacidadIds.length}, se salta`);
+        continue;
+      }
+      console.log(`· ${ficha.nombre} (${t.herramientaId}) — ${pendientes.length} capacidades, ${t.usoIds.length} usos, ${t.recorridoIds.length} recorridos${t.idioma ? ", idioma" : ""}`);
+      const salida = await procesarUsos({ ...t, capacidadIds: pendientes }, ficha.nombre, urlsDe(t.herramientaId), capacidadPorId);
+      const previa = checkpoint[clave];
+      checkpoint[clave] = {
+        ...(previa ?? salida),
+        ...salida,
+        respuestas: [...(previa?.respuestas ?? []), ...(salida.respuestas ?? [])],
+        urlsRecuperadas: [...(previa?.urlsRecuperadas ?? []), ...(salida.urlsRecuperadas ?? [])],
+        recorridos: (salida.recorridos ?? []).length ? salida.recorridos : previa?.recorridos,
+        idioma: salida.idioma ?? previa?.idioma,
+        capacidadesPedidas: t.capacidadIds,
+      };
+      escribirJson(RUTA_CHECKPOINT, checkpoint);
+      await sleep(PAUSA_MS);
+    }
+
+    console.log(`\n--- Plan de lo afirmado ---`);
+    for (const t of loteDeUsos.herramientas) {
+      if (consumo.cuotaAgotada || consumo.peticionesHechas >= consumo.tope) break;
+      const clave = `usos:${loteDeUsos.id}:${t.herramientaId}`;
+      const { capacidadIds: pendientes, citaPrevia } = planesPendientes(checkpoint[clave]);
+      if (!pendientes.length) continue;
+      const ficha = herramientaPorId.get(t.herramientaId)!;
+      console.log(`· ${ficha.nombre} (${t.herramientaId}) — ${pendientes.length} planes`);
+      const salida = await procesarPlan(t.herramientaId, ficha.nombre, urlsDe(t.herramientaId), pendientes, capacidadPorId, citaPrevia);
+      const s = checkpoint[clave];
+      const respuestas = (s.respuestas ?? []).map((vieja) => {
+        const nueva = (salida.respuestas ?? []).find((x) => x.capacidadId === vieja.capacidadId);
+        return nueva ? { ...vieja, planMinimo: nueva.planMinimo, planUrlFuente: nueva.planUrlFuente, planCita: nueva.planCita } : vieja;
+      });
+      checkpoint[clave] = { ...s, respuestas, urlsRecuperadas: [...(s.urlsRecuperadas ?? []), ...(salida.urlsRecuperadas ?? [])] };
+      escribirJson(RUTA_CHECKPOINT, checkpoint);
+      await sleep(PAUSA_MS);
+    }
+    console.log(`\nPeticiones HTTP hechas: ${consumo.peticionesHechas} de un tope de ${consumo.tope}${consumo.cuotaAgotada ? " · PARADO POR CUOTA" : ""}`);
+  }
+
   if (MODO === "rescatar") {
     /**
      * Las citas que sostenían estos pares están en el descartes de ANTES de la
@@ -846,7 +1138,7 @@ async function main() {
 
   const salidas: SalidaHerramienta[] = Object.values(checkpoint);
 
-  escribirJson(rutaSalidaDeLote(DIR, LOTE), {
+  escribirJson(RUTA_SALIDA, {
     fecha: HOY,
     modelo: MODELO,
     herramientas: salidas,
@@ -864,7 +1156,7 @@ async function main() {
   }
 
   const salidaLote: SalidaLote = {
-    lote: LOTE,
+    lote: loteDeUsos ? undefined : LOTE,
     fecha: HOY,
     modelo: MODELO,
     herramientas: salidas,
@@ -888,7 +1180,14 @@ async function main() {
     process.exit(1);
   }
 
-  const { registros: nuevosRegistros, descartes: nuevosDescartes, resumen } = convertirSalida(
+  const {
+    registros: nuevosRegistros,
+    descartes: nuevosDescartes,
+    descartesDeUso,
+    recorridos: nuevosRecorridos,
+    idiomas: nuevosIdiomas,
+    resumen,
+  } = convertirSalida(
     salidaLote,
     fuentesPorHerramienta,
     getCitasRevisadas(),
@@ -931,8 +1230,36 @@ async function main() {
     process.exit(1);
   }
 
+  /**
+   * Recorridos e idiomas (tercera ronda): se validan, y se sustituyen SÓLO
+   * los pedidos en este run. Los descartes de uso van a su propio fichero.
+   */
+  const erroresRecorridos = nuevosRecorridos.flatMap((r) => erroresDeRecorrido(r, herramientaIds));
+  const erroresIdiomas = nuevosIdiomas.flatMap((r) => erroresDeIdioma(r, herramientaIds));
+  if (erroresRecorridos.length || erroresIdiomas.length) {
+    console.error(`${erroresRecorridos.length + erroresIdiomas.length} recorrido(s) o idioma(s) no pasan el validador. No se escribe nada:`);
+    for (const e of [...erroresRecorridos, ...erroresIdiomas].slice(0, 30)) console.error(`  · ${e}`);
+    process.exit(1);
+  }
+  const recorridosPedidos = new Set(salidas.flatMap((s) => (s.recorridosPedidos ?? []).map((r) => clavePar(s.herramientaId, r))));
+  const idiomasPedidos = new Set(salidas.filter((s) => s.idiomaPedido).map((s) => s.herramientaId));
+  const rutaRecorridos = path.join(DIR, "recorridos.json");
+  const rutaIdiomas = path.join(DIR, "idiomas.json");
+  const recorridosViejos = fs.existsSync(rutaRecorridos) ? leerJson<RegistroDeRecorrido[]>(rutaRecorridos) : [];
+  const idiomasViejos = fs.existsSync(rutaIdiomas) ? leerJson<RegistroDeIdioma[]>(rutaIdiomas) : [];
+  const recorridosFinal = [...recorridosViejos.filter((r) => !recorridosPedidos.has(clavePar(r.herramientaId, r.recorridoId))), ...nuevosRecorridos];
+  const idiomasFinal = [...idiomasViejos.filter((r) => !idiomasPedidos.has(r.herramientaId)), ...nuevosIdiomas];
+
   escribirJson(path.join(DIR, "registros.json"), registrosFinal);
   escribirJson(path.join(DIR, "descartes.json"), descartesFinal);
+  if (nuevosRecorridos.length || recorridosViejos.length) escribirJson(rutaRecorridos, recorridosFinal);
+  if (nuevosIdiomas.length || idiomasViejos.length) escribirJson(rutaIdiomas, idiomasFinal);
+  if (descartesDeUso.length) {
+    const rutaDescartesDeUso = path.join(DIR, "descartes-usos.json");
+    const viejos = fs.existsSync(rutaDescartesDeUso) ? leerJson<Descarte[]>(rutaDescartesDeUso) : [];
+    const tocadas = new Set(salidas.map((s) => s.herramientaId));
+    escribirJson(rutaDescartesDeUso, [...viejos.filter((d) => !tocadas.has(d.herramientaId)), ...descartesDeUso]);
+  }
 
   console.log("\n=== Resumen de la conversión de este run ===");
   console.log(`Pares pedidos:      ${paresPedidos.size}`);
@@ -944,6 +1271,15 @@ async function main() {
   console.log(`Sin respuesta:      ${resumen.sinRespuesta}`);
   console.log(`\nregistros.json total: ${registrosFinal.length} (antes ${registrosViejos.length})`);
   console.log(`descartes.json total: ${descartesFinal.length} (antes ${descartesViejos.length})`);
+  if (loteDeUsos) {
+    const usosDemostrados = nuevosRegistros.flatMap((r) => r.usos ?? []).filter((u) => u.estado === "demostrado").length;
+    const usosTotales = nuevosRegistros.flatMap((r) => r.usos ?? []).length;
+    console.log(`Usos:               ${usosDemostrados} demostrados de ${usosTotales}`);
+    console.log(`Recorridos:         ${nuevosRecorridos.filter((r) => r.estado === "demostrado").length} demostrados de ${nuevosRecorridos.length}`);
+    console.log(`Idiomas:            ${nuevosIdiomas.filter((i) => i.interfaz.estado === "verificado").length} interfaces verificadas de ${nuevosIdiomas.length}`);
+    console.log(`Descartes de uso:   ${descartesDeUso.length}`);
+    console.log(`Peticiones HTTP:    ${consumo.peticionesHechas} (tope ${consumo.tope})`);
+  }
 }
 
 main().catch((e) => {

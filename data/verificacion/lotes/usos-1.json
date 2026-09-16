@@ -1,0 +1,66 @@
+{
+  "id": "usos-1",
+  "nombre": "Vender más · recorridos A y B · herramientas del catálogo",
+  "motivo": "Primer lote de usos, acotado a lo que desbloquea los casos 3 (asesoría: oportunidades con aviso y seguimientos automáticos) y 9 (formadora: página, cobro y entrega del curso) de la etapa 0 de «Vender más». Se comprueban pocas capacidades por herramienta —las piezas del recorrido—, con sus usos concretos, el recorrido en el mismo plan y el idioma de interfaz y de soporte, para sustituir «español según la ficha» por verificado o desconocido. Las tres candidatas nuevas del recorrido A (Hotmart, Thinkific, Teachable) van en usos-1-nuevas.json, porque hasta que el Researcher las investigue y la propietaria las apruebe no están en el catálogo.",
+  "fecha": "2026-09-16",
+  "topeDePeticiones": 40,
+  "peticionesPorMinuto": 5,
+  "herramientas": [
+    {
+      "herramientaId": "systeme-io",
+      "criterio": "Recorrido A. Página y cobro ya demostrados en el lote 3 (web nativa en Free; cobro por integración con pasarelas); impartir cursos no estaba en su selección plausible del lote 3 y se añade aquí, congelado antes de preguntar, porque es la tercera pieza del recorrido y su ficha lo anuncia. Usos: acceso automático al curso tras el pago; pago único y a plazos. Recorrido: las tres piezas en el mismo plan, con plan mínimo citado y límites (comisión, alumnos, cursos). Idioma de interfaz y de soporte con fuente.",
+      "capacidadIds": ["cap.website_builder", "cap.payment_collection", "cap.training_lms"],
+      "usoIds": ["uso.acceso_al_curso_tras_el_pago", "uso.pago_unico_y_a_plazos"],
+      "recorridoIds": ["rec.pagina_pago_y_acceso_al_curso"],
+      "idioma": true
+    },
+    {
+      "herramientaId": "activecampaign",
+      "criterio": "Recorrido B. Embudo (módulo) y automatización de marketing demostrados en el lote 3, los dos con plan desconocido. Usos: aviso interno de siguiente paso con fecha bajo embudo; segundo mensaje automático si no responde bajo automatización. Recorrido: embudo y seguimientos en el mismo plan, con plan citado y límites (contactos, usuarios, envíos). Idioma con fuente.",
+      "capacidadIds": ["cap.sales_pipeline", "cap.marketing_automation"],
+      "usoIds": ["uso.aviso_interno_de_siguiente_paso", "uso.segundo_mensaje_si_no_responde"],
+      "recorridoIds": ["rec.oportunidades_y_seguimientos"],
+      "idioma": true
+    },
+    {
+      "herramientaId": "insightly",
+      "criterio": "Recorrido B. Embudo demostrado en Plus y automatización de marketing demostrada como módulo con plan desconocido (lote 1). Mismos usos, recorrido e idioma que ActiveCampaign.",
+      "capacidadIds": ["cap.sales_pipeline", "cap.marketing_automation"],
+      "usoIds": ["uso.aviso_interno_de_siguiente_paso", "uso.segundo_mensaje_si_no_responde"],
+      "recorridoIds": ["rec.oportunidades_y_seguimientos"],
+      "idioma": true
+    },
+    {
+      "herramientaId": "pipedrive",
+      "criterio": "Recorrido B. Embudo demostrado (plan desconocido); automatización de marketing buscada en el lote 1 sin evidencia: se vuelve a preguntar porque el uso concreto (segundo mensaje si no responde) puede estar documentado en otra página que la general. Mismos usos, recorrido e idioma.",
+      "capacidadIds": ["cap.sales_pipeline", "cap.marketing_automation"],
+      "usoIds": ["uso.aviso_interno_de_siguiente_paso", "uso.segundo_mensaje_si_no_responde"],
+      "recorridoIds": ["rec.oportunidades_y_seguimientos"],
+      "idioma": true
+    },
+    {
+      "herramientaId": "nocrm-io",
+      "criterio": "Recorrido B. Embudo demostrado (plan desconocido); automatización sin evidencia en el lote 1. Mismos usos, recorrido e idioma.",
+      "capacidadIds": ["cap.sales_pipeline", "cap.marketing_automation"],
+      "usoIds": ["uso.aviso_interno_de_siguiente_paso", "uso.segundo_mensaje_si_no_responde"],
+      "recorridoIds": ["rec.oportunidades_y_seguimientos"],
+      "idioma": true
+    },
+    {
+      "herramientaId": "engagebay",
+      "criterio": "Recorrido B. Embudo demostrado (plan desconocido); automatización sin evidencia en el lote 3. Mismos usos, recorrido e idioma.",
+      "capacidadIds": ["cap.sales_pipeline", "cap.marketing_automation"],
+      "usoIds": ["uso.aviso_interno_de_siguiente_paso", "uso.segundo_mensaje_si_no_responde"],
+      "recorridoIds": ["rec.oportunidades_y_seguimientos"],
+      "idioma": true
+    },
+    {
+      "herramientaId": "capsule-crm",
+      "criterio": "Recorrido B. Embudo demostrado en Free; automatización sin evidencia en el lote 1. Mismos usos, recorrido e idioma.",
+      "capacidadIds": ["cap.sales_pipeline", "cap.marketing_automation"],
+      "usoIds": ["uso.aviso_interno_de_siguiente_paso", "uso.segundo_mensaje_si_no_responde"],
+      "recorridoIds": ["rec.oportunidades_y_seguimientos"],
+      "idioma": true
+    }
+  ]
+}
