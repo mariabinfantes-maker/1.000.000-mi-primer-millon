@@ -1,0 +1,172 @@
+{
+  "estado": "corregidos, sin promover",
+  "fecha": "2026-09-16",
+  "reglas": "agents/atlas-researcher/encargos/REGLAS-DE-EVIDENCIA.md",
+  "cambios": [
+    {
+      "herramienta": "thinkific",
+      "campo": "tienePlanGratuito",
+      "antes": true,
+      "ahora": false,
+      "cita": "No, instead, you can explore the whole platform with a 30-day free trial.",
+      "url": "https://www.thinkific.com/pricing/",
+      "fechaConsulta": "2026-09-16",
+      "nota": "NO demostrada por sí sola: el «No» responde a una pregunta que queda fuera de la cita. Se cambia porque el «true» del borrador no tiene ninguna fuente, y lo único citado es una prueba de 30 días. Marcada para que la propietaria la vea."
+    },
+    {
+      "herramienta": "thinkific",
+      "campo": "precioInicial",
+      "antes": "Plan gratuito limitado disponible. Planes de pago desde 36$/mes (facturación anual).",
+      "ahora": "Plan Basic desde 40 $/mes con facturación anual, 54 $/mes con facturación mensual. Sin plan gratuito: prueba de 30 días. Precios de la tabla oficial del 2026-09-16.",
+      "cita": "### Basic\nFor experts publishing their first course and building an audience from scratch.\n\n$54/mo\n\nBilled monthly\n\n$40/mo\n\nBilled annually",
+      "url": "https://www.thinkific.com/pricing/",
+      "fechaConsulta": "2026-09-16",
+      "nota": "Volcado de la tarjeta del plan, con su nombre y los dos importes. El «36 $» del borrador no aparece en ninguna fuente."
+    },
+    {
+      "herramienta": "thinkific",
+      "campo": "precioRecomendadoPymes",
+      "antes": "Plan Start a 74$/mes (facturación anual), ideal para creadores en crecimiento que necesitan cursos ilimitados y funciones avanzadas.",
+      "ahora": "Plan Start: 82 $/mes con facturación anual, 109 $/mes con facturación mensual. Precios de la tabla oficial del 2026-09-16.",
+      "cita": "### Start\nEverything you need to sell, engage, and grow — with full commerce tools from day one.\n\n$109/mo\n\nBilled monthly\n\n$82/mo\n\nBilled annually",
+      "url": "https://www.thinkific.com/pricing/",
+      "fechaConsulta": "2026-09-16",
+      "nota": "El «74 $» del borrador no aparece en ninguna fuente. Se retira «cursos ilimitados y funciones avanzadas», que describía el plan sin cita."
+    },
+    {
+      "herramienta": "thinkific",
+      "campo": "afiliados.commission",
+      "antes": "30% de comisión recurrente de por vida por cada usuario referido",
+      "ahora": "30 % recurrente de por vida en los planes de pago mensuales o anuales; los planes Plus reciben 150 USD al mes en lugar del 30 %.",
+      "cita": "30% lifetime recurring commission on all monthly or annual paid* plans  ||  Plus plans will receive a recurring commission of $150 per month instead of the 30%.",
+      "url": "https://www.thinkific.com/affiliates/",
+      "fechaConsulta": "2026-09-16",
+      "nota": "Dos citas, cada una con lo suyo: la primera demuestra el 30 % de por vida, la segunda la excepción de Plus. No se unen: se guardan las dos."
+    },
+    {
+      "herramienta": "thinkific",
+      "campo": "afiliados.payoutFrequency",
+      "antes": "Mensual",
+      "ahora": "El día 13 de cada mes, tras una retención de 30 días.",
+      "cita": "Following the 30-day hold, payments are verified at the end of the month and paid out on the 13th of the month",
+      "url": "https://www.thinkific.com/affiliates/",
+      "fechaConsulta": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "herramienta": "teachable",
+      "campo": "tienePlanGratuito",
+      "antes": true,
+      "ahora": false,
+      "cita": "Teachable is a paid service that includes a 7-day free trial",
+      "url": "https://www.teachable.com/pricing",
+      "fechaConsulta": "2026-09-16",
+      "nota": "Demostrada por sí sola: «is a paid service» es una afirmación positiva, no la respuesta a una pregunta ausente."
+    },
+    {
+      "herramienta": "teachable",
+      "campo": "precioInicial",
+      "antes": "Desde 0$/mes (Plan Gratuito con comisión por venta)",
+      "ahora": "Plan Starter desde 29 $/mes con facturación anual, 39 $/mes con facturación mensual, con un 7,5 % de comisión por venta. Sin plan gratuito: prueba de 7 días. Precios de la tabla oficial del 2026-09-16.",
+      "cita": "| Starter  | Builder  | Growth  | Advanced\nMonthly price (billed annually)  | $29  | $69  | $139  | $309\nMonthly price (billed monthly)  | $39  | $89  | $189  | $399  ||  Our Starter plan includes a 7.5% base transaction fee",
+      "url": "https://support.teachable.com/en/articles/11682410-new-teachable-plans-in-june-2025",
+      "fechaConsulta": "2026-09-16",
+      "nota": "Tabla completa con encabezados y las dos filas de precios, más la cita propia del 7,5 %."
+    },
+    {
+      "herramienta": "teachable",
+      "campo": "precioRecomendadoPymes",
+      "antes": "Plan Pro a $119/mes (facturación anual), sin comisiones por transacción y con hasta 5 usuarios administradores.",
+      "ahora": "Plan Builder: 69 $/mes con facturación anual, 89 $/mes con facturación mensual, sin comisión base por venta. Precios de la tabla oficial del 2026-09-16.",
+      "cita": "Starting on June 15, 2025, Teachable retired their Basic, Pro, and Pro+ plans  ||  Our Builder, Growth, and Advanced plans all offer 0% base transaction fees, so you can scale your business while keeping more of what you earn.",
+      "url": "https://support.teachable.com/en/articles/11682410-new-teachable-plans-in-june-2025",
+      "fechaConsulta": "2026-09-16",
+      "nota": "EL BORRADOR RECOMENDABA UN PLAN RETIRADO. Se retira «hasta 5 usuarios administradores», que no tiene cita."
+    },
+    {
+      "herramienta": "teachable",
+      "campo": "afiliados.affiliatePlatform",
+      "antes": "Impact",
+      "ahora": "PartnerStack",
+      "cita": "PartnerStack is the trusted platform we use to manage our affiliate program.",
+      "url": "https://www.teachable.com/partners",
+      "fechaConsulta": "2026-09-16",
+      "nota": ""
+    },
+    {
+      "herramienta": "teachable",
+      "campo": "afiliados.commission",
+      "antes": "Hasta 30% de comisión recurrente",
+      "ahora": "30 % recurrente durante el primer año por cada venta referida.",
+      "cita": "You'll earn 30% recurring commission for a full year on every sale you refer.",
+      "url": "https://www.teachable.com/partners",
+      "fechaConsulta": "2026-09-16",
+      "nota": "El borrador omitía el plazo, y omitirlo la hacía parecer de por vida."
+    },
+    {
+      "herramienta": "teachable",
+      "campo": "afiliados.approvalRequired",
+      "antes": true,
+      "ahora": true,
+      "cita": "We review applications within 2-3 business days",
+      "url": "https://www.teachable.com/partners",
+      "fechaConsulta": "2026-09-16",
+      "nota": "Ya estaba bien; ahora tiene cita."
+    },
+    {
+      "herramienta": "hotmart",
+      "campo": "precioInicial",
+      "antes": "Sin cuota mensual (9,90% + comisión por transacción realizada)",
+      "ahora": "Cobra una comisión por cada venta, sin cuota mensual. El importe exacto de esa comisión NO está confirmado: la página de precios publica porcentajes por tramo de facturación y el centro de ayuda describe un porcentaje fijo más una cuota por venta, y las dos fuentes no se han podido contrastar.",
+      "cita": null,
+      "url": "https://hotmart.com/es/precios",
+      "fechaConsulta": "2026-09-16",
+      "nota": "Se retira una cifra en disputa. No se sustituye por la otra: se dice que no se sabe."
+    },
+    {
+      "herramienta": "hotmart",
+      "campo": "precioRecomendadoPymes",
+      "antes": "Sin coste fijo inicial; cobro de un 9,9% + 0,50 € aprox. por cada venta procesada",
+      "ahora": "Sin coste fijo inicial. La comisión por venta no está confirmada.",
+      "cita": null,
+      "url": "https://hotmart.com/es/precios",
+      "fechaConsulta": "2026-09-16",
+      "nota": "«Aprox.» era una estimación, no un dato."
+    },
+    {
+      "herramienta": "hotmart",
+      "campo": "afiliados.hasAffiliateProgram",
+      "antes": true,
+      "ahora": null,
+      "cita": null,
+      "url": "https://hotmart.com/es/afiliados",
+      "fechaConsulta": "2026-09-16",
+      "nota": "NO CONSTA ningún programa que pague por recomendar Hotmart. El registro del borrador describía otra cosa: el mercado donde se promocionan los productos de los creadores, con la comisión que fija cada creador."
+    },
+    {
+      "herramienta": "hotmart",
+      "campo": "afiliados.confidenceLevel",
+      "antes": "high",
+      "ahora": "low",
+      "cita": null,
+      "url": "https://hotmart.com/es/afiliados",
+      "fechaConsulta": "2026-09-16",
+      "nota": "Estaba en alto describiendo el programa equivocado."
+    }
+  ],
+  "pendientes": {
+    "thinkific": [
+      "idiomasDisponibles y disponibleEnEspanol: lo verificado es la interfaz que ve el alumno, no el panel del negocio",
+      "afiliados.approvalRequired: ninguna frase dice que haya aprobación previa"
+    ],
+    "teachable": [
+      "idiomasDisponibles y disponibleEnEspanol: el idioma del panel de administración no tiene cita literal",
+      "afiliados.payoutMethod y payoutFrequency: su página no los publica"
+    ],
+    "hotmart": [
+      "idiomasDisponibles: la corrección que propuse venía de una búsqueda mía, no de una cita literal; se deja sin tocar",
+      "disponibleEnEspanol: hay cita del soporte en español, no de la interfaz",
+      "tienePlanGratuito: la única cita es la portada, que no sostiene una condición concreta. DECIDE LA PROPIETARIA"
+    ]
+  }
+}

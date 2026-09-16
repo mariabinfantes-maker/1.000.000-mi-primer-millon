@@ -1,0 +1,21 @@
+{
+  "hasAffiliateProgram": null,
+  "affiliateProgramName": null,
+  "affiliatePlatform": null,
+  "affiliateUrl": null,
+  "commission": null,
+  "cookieDuration": null,
+  "approvalRequired": null,
+  "payoutMethod": null,
+  "payoutFrequency": null,
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": null,
+  "confidenceLevel": "low",
+  "source": "https://hotmart.com/es/afiliados",
+  "lastAffiliateCheck": "2026-09-16",
+  "herramientaId": "hotmart",
+  "estadoAfiliacion": "no_consta",
+  "motivoEstado": "Dos consultas al dominio oficial no encontraron ningún programa que pague por recomendar la plataforma. Lo que el borrador llamaba programa de afiliados es el mercado de productos de los creadores."
+}
