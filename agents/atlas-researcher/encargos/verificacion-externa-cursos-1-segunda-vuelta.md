@@ -33,7 +33,7 @@ Thinkific
 5. afiliados_comision — la cita decía «30% lifetime recurring commission» y el valor añadía los 150 USD del plan Plus. Copia la frase que dice lo de Plus, o quítalo del valor.
 6. afiliados_duracion — la cita era la palabra «lifetime». Copia la frase entera donde aparece.
 7. afiliados_pago — la cita hablaba de PayPal y Stripe, y el valor añadía el día 13 y una retención de 30 días. Copia la frase que dice cuándo se paga.
-8. Además, comprueba una cosa que aquí no podemos: las citas de la cookie de 90 días, de PartnerStack y del método de pago las diste todas en https://www.thinkific.com/pricing/ … perdón, en https://www.thinkific.com/affiliates/. Confirma que esas tres frases están EN ESA PÁGINA y no en un artículo del centro de ayuda. Si están en el centro de ayuda, corrige la dirección: importa cuál es la página, no sólo que la frase exista.
+8. Además, comprueba una cosa que aquí no podemos: las citas de la cookie de 90 días, de PartnerStack y del método de pago las diste todas en https://www.thinkific.com/affiliates/. Confirma que esas tres frases están EN ESA PÁGINA y no en un artículo del centro de ayuda. Si están en el centro de ayuda, corrige la dirección: importa cuál es la página, no sólo que la frase exista.
 
 Teachable
 9. planes_y_precios — citaste «$39/mo», «$89/mo» y «$189/mo», seis y siete caracteres, y los valores añadían 29, 69 y 139 anuales. Fila entera con encabezado, mensual y anual juntos, por cada plan.
