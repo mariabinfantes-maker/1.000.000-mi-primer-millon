@@ -4100,6 +4100,35 @@ puntos. Lo que se encontró y lo que se hizo:
 5. **Las etiquetas se implementaron antes de aprobarse.** Se entregaron los
    tres textos exactos que ve el cliente, con capturas, para su aprobación.
 
+### Las decisiones de la segunda ronda (mismo día)
+
+Tras la revisión, la propietaria decidió: pregunta en dos pasos (familia y
+después necesidad, «Ninguna» en los dos, igual en móvil y escritorio);
+familias nuevas en Conseguir clientes, Organizar y Atención, con «Automatizar»
+de una vez; texto libre al mismo filtro en dos peticiones; dos grupos de
+resultados con comparador sólo para el primero; integraciones con las
+confirmadas sólo con tercero y función identificados; la etiqueta «Tenemos
+registrada esta función, pero falta información para confirmar cómo cubre tu
+necesidad»; y plan gratuito documentado sin tocar el motor. Y una precisión:
+**una nota más descriptiva no demuestra mejor encaje; el criterio de los
+grupos hay que explicarlo.**
+
+Hecho en esta ronda: familias, dos pasos, texto libre, etiqueta, plan
+gratuito. En móvil, «Ahorrar tiempo» pasa de 3,3 pantallas a 1,7.
+
+**Lo que se encontró al buscar el criterio de los grupos, y frena el punto
+de los dos grupos hasta decidir:** los 312 pares que pasan la puerta tienen
+TODOS confianza alta, una fuente de primera mano y una cita del fabricante
+que nombra la capacidad (F2 lo exige y las citas se revisaron). El «33 % sin
+detalle» de la revisión no medía evidencia: medía si el campo `nota` estaba
+vacío, y `nota` es, por esquema, «límites que cambian la decisión», no la
+descripción de la función. Pipedrive reserva citas con una cita oficial y
+sin límites anotados, y salía «sin detalle». La única incertidumbre que F2
+registra de verdad es el plan: en 156 de los 312 pares no se sabe en qué plan
+está la función. Las 13 integraciones nombran su tercero. Con esos datos, el
+criterio de los grupos no puede ser la nota; la decisión queda para la
+propietaria.
+
 ### Lo que salió de aquí y queda para después
 
 - **La tabla es el mapa de huecos del catálogo.** Cada fila con cobertura

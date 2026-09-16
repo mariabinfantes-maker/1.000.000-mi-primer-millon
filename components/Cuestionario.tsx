@@ -3,8 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { preguntaParaAmbito } from "@/agents/atlas-advisor/preguntasDiferenciacion";
-import { NINGUNA_DE_ESTAS, enunciadoDe, preguntaParaObjetivo, textoDeFila, tituloDeFamilia } from "@/agents/atlas-advisor/necesidades";
-import { TEXTOS_NECESIDADES } from "@/agents/atlas-advisor/necesidades.textos.es";
+import { NINGUNA_DE_ESTAS, preguntaParaObjetivo } from "@/agents/atlas-advisor/necesidades";
 import Image from "next/image";
 import { ArrowLeft, Check } from "lucide-react";
 import { RANGOS_EMPLEADOS, type RangoEmpleados } from "@/lib/cuestionario";
@@ -14,6 +13,14 @@ import IconoOrigen from "@/components/ui/IconoOrigen";
 import Boton from "@/components/ui/Boton";
 import AtlasTrabajando from "@/components/AtlasTrabajando";
 import SinRecomendacion from "@/components/SinRecomendacion";
+import PreguntaDeNecesidad from "@/components/PreguntaDeNecesidad";
+
+/**
+ * Lo que la ruta devuelve cuando ha leído el texto libre y entiende el
+ * objetivo pero no la necesidad: los objetivos que ha reconocido, con su
+ * título, para preguntar antes de recomendar nada.
+ */
+type Aclaracion = { objetivos: { id: string; titulo: string }[] };
 
 type PreferenciaSuite = "todo_en_uno" | "especializada" | "sin_preferencia";
 
@@ -61,7 +68,16 @@ export default function Cuestionario({
   // que necesita —el objetivo— ya se sabe al entrar; es la misma mecánica que
   // la pregunta de subtipo, y la respuesta filtra en el motor, no puntúa.
   const preguntaObjetivo = preguntaParaObjetivo(origen.problemaIdPrefill);
+  const [familiaElegida, setFamiliaElegida] = useState<string | null>(null);
   const [necesidadElegida, setNecesidadElegida] = useState<string | null>(null);
+
+  // Entrada libre (decisión del 2026-09-16): primero se interpreta el texto;
+  // si la ruta reconoce el objetivo pero no la necesidad, pide aclararla
+  // aquí, con la misma pregunta que la entrada por objetivo; y sólo después
+  // recomienda. Si no entiende, no devuelve herramientas genéricas.
+  const [aclaracion, setAclaracion] = useState<Aclaracion | null>(null);
+  const [objetivoAclarado, setObjetivoAclarado] = useState<string | null>(null);
+  const preguntaAclaracion = preguntaParaObjetivo(objetivoAclarado ?? undefined);
 
   const mostrarPreguntaObjetivo = Boolean(preguntaObjetivo);
   const mostrarPreguntaSuite = !origen.categoriaIdPrefill;
@@ -108,8 +124,37 @@ export default function Cuestionario({
     }
   }
 
+  /** En el paso de la pregunta, «Atrás» deshace primero la familia elegida antes de salir del paso. */
+  const puedeDeshacerFamilia = mostrarPreguntaObjetivo && paso === PASO_OBJETIVO && familiaElegida !== null;
+
   function volverAtras() {
+    if (puedeDeshacerFamilia) {
+      setFamiliaElegida(null);
+      setNecesidadElegida(null);
+      return;
+    }
     if (paso > 0) setPaso((p) => p - 1);
+  }
+
+  function elegirFamilia(familiaId: string) {
+    setFamiliaElegida(familiaId);
+    // «Ninguna de éstas» en el paso de familia ya es la respuesta: no hay
+    // necesidad que elegir después.
+    setNecesidadElegida(familiaId === NINGUNA_DE_ESTAS ? NINGUNA_DE_ESTAS : null);
+  }
+
+  /** Fase de aclaración de la entrada libre: qué falta por elegir. */
+  const aclaracionPendiente =
+    aclaracion !== null &&
+    (objetivoAclarado === null || necesidadElegida === null);
+
+  function volverAtrasEnAclaracion() {
+    if (familiaElegida !== null) {
+      setFamiliaElegida(null);
+      setNecesidadElegida(null);
+      return;
+    }
+    if (aclaracion && aclaracion.objetivos.length > 1) setObjetivoAclarado(null);
   }
 
   const yaLanzado = useRef(false);
@@ -128,7 +173,11 @@ export default function Cuestionario({
 
     const respuestas: RespuestasUsuario = {
       categoriaId: origen.categoriaIdPrefill,
-      problemaIdsCandidatos: origen.problemaIdPrefill ? [origen.problemaIdPrefill] : undefined,
+      problemaIdsCandidatos: origen.problemaIdPrefill
+        ? [origen.problemaIdPrefill]
+        : objetivoAclarado
+          ? [objetivoAclarado]
+          : undefined,
       preferenciaSuite:
         preferenciaSuite === "todo_en_uno" || preferenciaSuite === "especializada" ? preferenciaSuite : undefined,
       industria: sector.trim(),
@@ -154,9 +203,23 @@ export default function Cuestionario({
           token?: string;
           totalEvaluadas?: number;
           sinRecomendacion?: MotivoSinRecomendacion;
+          aclaracion?: Aclaracion;
         }>;
       })
-      .then(({ token, totalEvaluadas, sinRecomendacion }) => {
+      .then(({ token, totalEvaluadas, sinRecomendacion, aclaracion: pedida }) => {
+        // La ruta ha entendido el objetivo del texto, pero no la necesidad:
+        // se vuelve al cuestionario a preguntarla, y se analiza de nuevo
+        // cuando esté contestada.
+        if (pedida && pedida.objetivos.length > 0) {
+          setAclaracion(pedida);
+          setObjetivoAclarado(pedida.objetivos.length === 1 ? pedida.objetivos[0].id : null);
+          setFamiliaElegida(null);
+          setNecesidadElegida(null);
+          setProgreso(0);
+          yaLanzado.current = false;
+          setAnalizando(false);
+          return;
+        }
         setProgreso(100);
         // El motor ha decidido no recomendar. No hay token ni página de
         // resultado que visitar: se cuenta aquí mismo, sin navegar.
@@ -191,11 +254,88 @@ export default function Cuestionario({
   // cualquier cosa. Va antes que `analizando` porque este estado sustituye
   // por completo a la pantalla de trabajo.
   if (sinRecomendacion) {
-    return <SinRecomendacion motivo={sinRecomendacion} />;
+    return <SinRecomendacion motivo={sinRecomendacion} origenTipo={origen.tipo} />;
   }
 
   if (analizando) {
     return <AtlasTrabajando progreso={progreso} totalHerramientas={totalHerramientas} />;
+  }
+
+  // Aclaración de la entrada libre: una pregunta más, con el mismo
+  // componente que la entrada por objetivo, y después se vuelve a analizar.
+  if (aclaracion) {
+    const variosObjetivos = aclaracion.objetivos.length > 1;
+    return (
+      <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-16">
+        <h1 className="sr-only">Cuestionario de Molnip: {origen.titulo}</h1>
+        <div className="flex items-center gap-2.5">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-600 ring-1 ring-brand-100">
+            <IconoOrigen tipo={origen.tipo} id={origen.id} className="h-4 w-4" />
+          </span>
+          <p className="text-sm font-semibold text-brand-700">{origen.titulo}</p>
+        </div>
+        <p className="mt-6 text-xs font-medium text-slate-400">Una pregunta más para acertar</p>
+        <form
+          className="relative mt-4 overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-premium ring-1 ring-contorno sm:p-8"
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (!aclaracionPendiente) setAnalizando(true);
+          }}
+        >
+          <div className="relative">
+            {variosObjetivos && objetivoAclarado === null ? (
+              <fieldset>
+                <legend className="font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+                  He entendido tu situación de más de una forma. ¿Cuál se parece más?
+                </legend>
+                <div className="mt-5 flex flex-col gap-3">
+                  {aclaracion.objetivos.map((objetivo) => (
+                    <button
+                      key={objetivo.id}
+                      type="button"
+                      onClick={() => setObjetivoAclarado(objetivo.id)}
+                      className="flex items-start justify-between gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3.5 text-left text-sm font-semibold text-slate-700 transition-all hover:border-brand-300 hover:bg-brand-50/40"
+                    >
+                      {objetivo.titulo}
+                    </button>
+                  ))}
+                  <button
+                    type="button"
+                    onClick={() => setSinRecomendacion({ tipo: "ninguna_de_estas", objetivoId: aclaracion.objetivos[0].id })}
+                    className="flex items-start justify-between gap-3 rounded-xl border border-dashed border-slate-300 bg-white px-4 py-3.5 text-left text-sm font-semibold text-slate-700 transition-all hover:border-brand-300 hover:bg-brand-50/40"
+                  >
+                    Ninguna de éstas
+                  </button>
+                </div>
+              </fieldset>
+            ) : preguntaAclaracion ? (
+              <PreguntaDeNecesidad
+                pregunta={preguntaAclaracion}
+                familiaElegida={familiaElegida}
+                necesidadElegida={necesidadElegida}
+                onElegirFamilia={elegirFamilia}
+                onElegirNecesidad={setNecesidadElegida}
+              />
+            ) : null}
+
+            <div className="mt-8 flex items-center justify-between border-t border-slate-100 pt-6">
+              <button
+                type="button"
+                onClick={volverAtrasEnAclaracion}
+                disabled={familiaElegida === null && (!variosObjetivos || objetivoAclarado === null)}
+                className="-ml-2 flex items-center gap-1 rounded-xl px-2 py-1.5 text-sm font-medium text-slate-500 transition hover:bg-slate-100 hover:text-slate-700 disabled:invisible"
+              >
+                <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+                Atrás
+              </button>
+              <Boton type="submit" disabled={aclaracionPendiente}>
+                Obtener recomendación
+              </Boton>
+            </div>
+          </div>
+        </form>
+      </div>
+    );
   }
 
   return (
@@ -244,76 +384,13 @@ export default function Cuestionario({
 
         <div className="relative">
         {mostrarPreguntaObjetivo && paso === PASO_OBJETIVO && preguntaObjetivo && (
-          <fieldset>
-            <legend className="font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-              {enunciadoDe(preguntaObjetivo.objetivoId)}
-            </legend>
-            <p className="mt-2 text-sm text-slate-500">
-              Elige lo que más se parezca a lo tuyo. Si no está, dímelo abajo y te lo pregunto de otra forma.
-            </p>
-            <div className="mt-5 flex flex-col gap-5">
-              {preguntaObjetivo.familias.map((familia) => {
-                const titulo = tituloDeFamilia(familia.id);
-                return (
-                  <div key={familia.id}>
-                    {titulo && (
-                      <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">{titulo}</h3>
-                    )}
-                    <div className="flex flex-col gap-3">
-                      {familia.filas.map((fila) => {
-                        const texto = textoDeFila(fila.id);
-                        const seleccionado = necesidadElegida === fila.id;
-                        return (
-                          <button
-                            key={fila.id}
-                            type="button"
-                            onClick={() => setNecesidadElegida(fila.id)}
-                            className={`flex items-start justify-between gap-3 rounded-xl border px-4 py-3.5 text-left transition-all ${
-                              seleccionado
-                                ? "border-brand-600 bg-brand-50 shadow-premium ring-1 ring-brand-100"
-                                : "border-slate-200 bg-white hover:border-brand-300 hover:bg-brand-50/40"
-                            }`}
-                          >
-                            <span>
-                              <span className={`block text-sm font-semibold ${seleccionado ? "text-brand-700" : "text-slate-700"}`}>
-                                {texto.etiqueta}
-                              </span>
-                              <span className="mt-0.5 block text-sm text-slate-500">{texto.descripcion}</span>
-                            </span>
-                            {seleccionado && <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" aria-hidden="true" />}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                );
-              })}
-              {/* Siempre la última y siempre presente: elegirla nunca devuelve algo genérico. */}
-              <button
-                type="button"
-                onClick={() => setNecesidadElegida(NINGUNA_DE_ESTAS)}
-                className={`flex items-start justify-between gap-3 rounded-xl border border-dashed px-4 py-3.5 text-left transition-all ${
-                  necesidadElegida === NINGUNA_DE_ESTAS
-                    ? "border-brand-600 bg-brand-50 shadow-premium ring-1 ring-brand-100"
-                    : "border-slate-300 bg-white hover:border-brand-300 hover:bg-brand-50/40"
-                }`}
-              >
-                <span>
-                  <span
-                    className={`block text-sm font-semibold ${
-                      necesidadElegida === NINGUNA_DE_ESTAS ? "text-brand-700" : "text-slate-700"
-                    }`}
-                  >
-                    {TEXTOS_NECESIDADES.ninguna.etiqueta}
-                  </span>
-                  <span className="mt-0.5 block text-sm text-slate-500">{TEXTOS_NECESIDADES.ninguna.descripcion}</span>
-                </span>
-                {necesidadElegida === NINGUNA_DE_ESTAS && (
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" aria-hidden="true" />
-                )}
-              </button>
-            </div>
-          </fieldset>
+          <PreguntaDeNecesidad
+            pregunta={preguntaObjetivo}
+            familiaElegida={familiaElegida}
+            necesidadElegida={necesidadElegida}
+            onElegirFamilia={elegirFamilia}
+            onElegirNecesidad={setNecesidadElegida}
+          />
         )}
 
         {mostrarPreguntaSubtipo && paso === PASO_NECESIDAD && preguntaSubtipo && (
@@ -498,7 +575,7 @@ export default function Cuestionario({
           <button
             type="button"
             onClick={volverAtras}
-            disabled={paso === 0}
+            disabled={paso === 0 && !puedeDeshacerFamilia}
             className="-ml-2 flex items-center gap-1 rounded-xl px-2 py-1.5 text-sm font-medium text-slate-500 transition hover:bg-slate-100 hover:text-slate-700 disabled:invisible"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />

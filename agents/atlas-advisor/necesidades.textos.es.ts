@@ -22,14 +22,33 @@ export const TEXTOS_NECESIDADES = {
     "organizar-empresa": "¿Qué es lo que más te cuesta tener organizado?",
     "atencion-cliente": "¿Qué es lo que más te ayudaría con tus clientes?",
   } as Record<string, string>,
+  /** Cómo se pregunta la familia cuando la hay. */
+  enunciadoFamilia: "¿Por dónde va lo tuyo?",
   familias: {
     general: "",
+    // Conseguir clientes
+    atraer: "Atraer a gente nueva",
+    convertir: "Convertir el interés en clientes",
+    // Ahorrar tiempo
     citas: "Citas",
     escribir: "Escribir",
     reuniones: "Reuniones",
     materiales: "Materiales",
     "dia-y-equipo": "Mi día y mi equipo",
+    // Organizar la empresa
+    "tareas-proyectos": "Tareas y proyectos",
+    "equipo-tiempo": "Equipo y tiempo",
+    dinero: "Dinero",
+    conocimiento: "Conocimiento",
+    // Atención al cliente
+    atender: "Atender",
+    "conocer-cliente": "Conocer al cliente",
   } as Record<string, string>,
+  /** La salida en el paso de familia. Distinta de `ninguna` porque aquí aún no ha visto las necesidades. */
+  ningunaFamilia: {
+    etiqueta: "Ninguna de éstas",
+    descripcion: "Lo mío no va por ninguno de estos caminos.",
+  },
   ninguna: {
     etiqueta: "Ninguna de éstas",
     descripcion: "Lo que necesito no está aquí.",

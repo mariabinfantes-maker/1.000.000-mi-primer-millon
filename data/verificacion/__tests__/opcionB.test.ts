@@ -92,7 +92,11 @@ describe("la peluquera que perdía citas", () => {
     expect(puntuaciones).toEqual([...puntuaciones].sort((a, b) => b - a));
   });
 
-  it("con plan gratuito obligatorio, entre las que reservan citas suben las que lo tienen", () => {
+  // `requierePlanGratuito` no lo pregunta hoy el cuestionario: nadie lo activa.
+  // En el motor es una penalización, no una exclusión (decisión anterior a la
+  // opción B). La propietaria decidió el 2026-09-16 documentarlo sin cambiar
+  // el motor: cuando se pregunte, será exclusión con su propio «no».
+  it("si alguien exigiera plan gratuito, el motor de hoy penaliza sin excluir: las gratuitas que reservan van delante", () => {
     const r = recomendarHerramientas({ ...perfil, necesidadElegida: "citas-reserva", requierePlanGratuito: true }, catalogo, { evidencia });
     const gratuitasQueReservan = quienesDemuestran(RESERVA).filter((h) => h.tienePlanGratuito).length;
     const esperadas = Math.min(gratuitasQueReservan, r.top.length);

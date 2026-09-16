@@ -593,14 +593,34 @@ y la elegida es la fila que la puerta exige —`capacidades` es «alguna de
 etiquetadas con el objetivo. La respuesta filtra; nunca puntúa.
 
 **Dónde va:** primer paso del cuestionario cuando se entra por objetivo.
-Todo lo que la pregunta necesita se sabe antes del análisis. **Y es
-obligatoria en el servidor, no sólo en el navegador:** la ruta
-`app/api/recomendaciones/route.ts` rechaza con 400 una petición «objetivo»
-sin necesidad elegida, o con una que no es de ese objetivo, porque en la
+Todo lo que la pregunta necesita se sabe antes del análisis. **Se pregunta en
+dos pasos** (`components/PreguntaDeNecesidad.tsx`): primero la familia
+(«¿Por dónde va lo tuyo?») y después la necesidad dentro de ella, con «Ninguna
+de éstas» en los dos pasos, igual en móvil y en escritorio. Sólo «Automatizar»
+cabe en una pantalla y va de una vez. Ninguna familia enseña más de cuatro
+necesidades; hay una prueba.
+
+**Es obligatoria en el servidor, no sólo en el navegador:** la ruta
+`app/api/recomendaciones/route.ts` rechaza con 400 una petición con objetivo
+y sin necesidad elegida, o con una que no es de ese objetivo, porque en la
 revisión previa a fusionar se comprobó que sin eso devolvía el enlace con las
 recomendaciones genéricas de antes
-(`app/api/recomendaciones/__tests__/preguntaObligatoria.test.ts`). La entrada
-«Cuéntanoslo» no tiene pregunta y sigue igual: es un punto abierto.
+(`app/api/recomendaciones/__tests__/preguntaObligatoria.test.ts`).
+
+**La entrada «Cuéntanoslo» llega al mismo filtro**, en dos peticiones:
+la primera interpreta el texto; si reconoce un objetivo, la ruta devuelve
+`aclaracion` con los objetivos reconocidos y el cuestionario hace la misma
+pregunta (eligiendo antes el objetivo si hay empate); la segunda petición
+lleva objetivo y necesidad, y se le exige lo mismo que a la entrada por
+objetivo. Si el texto no da ningún objetivo, el motor dice «no lo he
+entendido»: nunca herramientas genéricas. Límite conocido: la detección es
+por palabras clave literales, y «soy peluquera y pierdo citas» no da ninguna.
+
+**Plan gratuito obligatorio (`requierePlanGratuito`):** el cuestionario no lo
+pregunta y nadie lo activa. En el motor es una penalización de 20 puntos, no
+una exclusión, para todas las entradas. Decisión del 2026-09-16: se documenta
+sin cambiar el motor; el día que se pregunte, será exclusión con su propio
+«no hay ninguna gratuita que lo demuestre».
 
 **Lo que se le dice a la persona por cada herramienta**
 (`etiquetaEvidencia.ts`, calculado en la ruta de API y guardado en el

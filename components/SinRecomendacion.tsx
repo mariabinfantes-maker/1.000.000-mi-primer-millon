@@ -3,6 +3,7 @@ import { ArrowRight, Compass, MessageSquareText } from "lucide-react";
 import EstadoVacio from "@/components/ui/EstadoVacio";
 import Boton from "@/components/ui/Boton";
 import type { MotivoSinRecomendacion } from "@/agents/atlas-advisor";
+import type { TipoOrigenDiagnostico } from "@/lib/origenDiagnostico";
 
 /**
  * Lo que ve alguien cuando Molnip decide NO recomendar nada.
@@ -25,7 +26,14 @@ import type { MotivoSinRecomendacion } from "@/agents/atlas-advisor";
  * categoría, problema y alternativas. Mismo lenguaje visual, ningún
  * componente nuevo.
  */
-export default function SinRecomendacion({ motivo }: { motivo: MotivoSinRecomendacion }) {
+export default function SinRecomendacion({
+  motivo,
+  origenTipo,
+}: {
+  motivo: MotivoSinRecomendacion;
+  /** Por dónde entró. Quien ya lo contó con sus palabras no puede ser enviado a contarlo otra vez. */
+  origenTipo?: TipoOrigenDiagnostico;
+}) {
   const noEntendido = motivo.tipo === "necesidad_no_entendida";
   // Opción B: la persona concretó su necesidad y ninguna de las 62 la ha
   // demostrado. Se le dice exactamente qué es lo que no cubrimos, con sus
@@ -35,6 +43,7 @@ export default function SinRecomendacion({ motivo }: { motivo: MotivoSinRecomend
   // Opción B: eligió «ninguna de éstas». No se adivina ni se rellena: se le
   // ofrecen las otras dos puertas, que sí pueden entenderla.
   const ningunaDeEstas = motivo.tipo === "ninguna_de_estas";
+  const yaLoContoConSusPalabras = origenTipo === "libre";
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-12 sm:px-6 sm:py-20">
@@ -44,7 +53,9 @@ export default function SinRecomendacion({ motivo }: { motivo: MotivoSinRecomend
 
       <h1 className="mt-2 font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
         {ningunaDeEstas
-          ? "Cuéntamelo con tus palabras"
+          ? yaLoContoConSusPalabras
+            ? "No he sabido concretar qué necesitas"
+            : "Cuéntamelo con tus palabras"
           : noEntendido
             ? "No he sabido entender qué necesitas"
             : necesidadSinCobertura
@@ -53,7 +64,12 @@ export default function SinRecomendacion({ motivo }: { motivo: MotivoSinRecomend
       </h1>
 
       <p className="mt-4 leading-relaxed text-slate-600">
-        {ningunaDeEstas ? (
+        {ningunaDeEstas && yaLoContoConSusPalabras ? (
+          <>
+            He leído lo que me has contado, pero ninguna de las opciones que te he dado era la tuya, y prefiero
+            no adivinar. Si eliges directamente el tipo de herramienta que buscas, sí puedo ayudarte.
+          </>
+        ) : ningunaDeEstas ? (
           <>
             Ninguna de las opciones que te he dado era la tuya, y prefiero no adivinar. Si me lo cuentas con
             tus palabras, o eliges directamente el tipo de herramienta que buscas, sí puedo ayudarte.
@@ -87,7 +103,7 @@ export default function SinRecomendacion({ motivo }: { motivo: MotivoSinRecomend
         }
       />
 
-      {ningunaDeEstas && (
+      {ningunaDeEstas && !yaLoContoConSusPalabras && (
         <div className="mt-10 rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-contorno">
           <h2 className="flex items-center gap-2 font-display text-lg font-bold text-slate-900">
             <MessageSquareText className="h-5 w-5 text-brand-600" aria-hidden="true" />
@@ -96,7 +112,7 @@ export default function SinRecomendacion({ motivo }: { motivo: MotivoSinRecomend
           <p className="mt-2 text-sm leading-relaxed text-slate-600">
             Describe tu situación como se la contarías a alguien de confianza. Yo me encargo de entenderla.
           </p>
-          <Boton href="/libre/cuestionario" className="mt-4">
+          <Boton href="/#elige-camino" className="mt-4">
             Contarlo con mis palabras
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Boton>

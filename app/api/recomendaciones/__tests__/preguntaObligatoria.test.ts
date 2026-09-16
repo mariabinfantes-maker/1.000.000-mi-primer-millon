@@ -66,3 +66,64 @@ describe("la entrada por objetivo no puede saltarse la pregunta", () => {
     expect(typeof (await respuesta.json()).token).toBe("string");
   });
 });
+
+/**
+ * Entrada libre (decisión del 2026-09-16): primero se interpreta el texto;
+ * si sólo da un objetivo amplio, se pide aclarar la necesidad; y sólo
+ * después se recomienda. Si no se entiende, no salen herramientas genéricas.
+ */
+describe("la entrada libre llega al mismo filtro", () => {
+  const TEXTO_QUE_DA_OBJETIVO = "Pierdo mucho tiempo en tareas repetitivas";
+  const TEXTO_SIN_OBJETIVO = "Soy peluquera y pierdo citas";
+
+  it("un texto que da un objetivo pide aclaración y no devuelve enlace", async () => {
+    const respuesta = await POST(
+      peticion({ origenTipo: "libre", origenId: "libre", respuestas: { notasAdicionales: TEXTO_QUE_DA_OBJETIVO, tamanoEmpresa: "1-10" } })
+    );
+    expect(respuesta.status).toBe(200);
+    const cuerpo = await respuesta.json();
+    expect(cuerpo.token).toBeUndefined();
+    expect(cuerpo.aclaracion.objetivos.map((o: { id: string }) => o.id)).toEqual(["automatizar-tareas"]);
+    expect(cuerpo.aclaracion.objetivos[0].titulo).toEqual(expect.any(String));
+  });
+
+  it("con el objetivo aclarado y la necesidad elegida, recomienda por evidencia", async () => {
+    const respuesta = await POST(
+      peticion({
+        origenTipo: "libre",
+        origenId: "libre",
+        respuestas: {
+          notasAdicionales: TEXTO_QUE_DA_OBJETIVO,
+          tamanoEmpresa: "1-10",
+          problemaIdsCandidatos: ["automatizar-tareas"],
+          necesidadElegida: "encadenar-acciones",
+        },
+      })
+    );
+    expect(respuesta.status).toBe(200);
+    expect(typeof (await respuesta.json()).token).toBe("string");
+  });
+
+  it("con el objetivo aclarado pero sin necesidad, se rechaza: nunca las genéricas", async () => {
+    const respuesta = await POST(
+      peticion({
+        origenTipo: "libre",
+        origenId: "libre",
+        respuestas: { notasAdicionales: TEXTO_QUE_DA_OBJETIVO, tamanoEmpresa: "1-10", problemaIdsCandidatos: ["automatizar-tareas"] },
+      })
+    );
+    expect(respuesta.status).toBe(400);
+    expect((await respuesta.json()).token).toBeUndefined();
+  });
+
+  it("un texto que no da objetivo acaba en «no lo he entendido», sin enlace", async () => {
+    const respuesta = await POST(
+      peticion({ origenTipo: "libre", origenId: "libre", respuestas: { notasAdicionales: TEXTO_SIN_OBJETIVO, tamanoEmpresa: "1-10" } })
+    );
+    expect(respuesta.status).toBe(200);
+    const cuerpo = await respuesta.json();
+    expect(cuerpo.token).toBeUndefined();
+    expect(cuerpo.aclaracion).toBeUndefined();
+    expect(cuerpo.sinRecomendacion?.tipo).toBe("necesidad_no_entendida");
+  });
+});

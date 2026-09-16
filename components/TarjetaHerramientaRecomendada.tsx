@@ -152,7 +152,7 @@ export default function TarjetaHerramientaRecomendada({
               </>
             )}
             {evidencia.tipo === "sin_detalle" && (
-              <>Verificado, pero no tenemos el detalle de cómo lo hace. Compruébalo en su página antes de decidir.</>
+              <>Tenemos registrada esta función, pero falta información para confirmar cómo cubre tu necesidad.</>
             )}
           </span>
         </p>

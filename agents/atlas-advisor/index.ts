@@ -25,6 +25,7 @@ export {
   enunciadoDe,
   filaDeNecesidad,
   preguntaParaObjetivo,
+  sePreguntaPorFamilias,
   textoDeFila,
   tituloDeFamilia,
 } from "./necesidades";

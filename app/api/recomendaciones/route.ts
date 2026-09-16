@@ -66,19 +66,25 @@ export async function POST(request: Request) {
   let respuestas: RespuestasUsuario = cuerpo.respuestas ?? {};
 
   /**
-   * Opción B: la pregunta de aclaración es obligatoria en la entrada por
-   * objetivo. El cuestionario ya no deja avanzar sin contestarla, pero la
-   * ruta no puede fiarse de eso: cualquier petición que llegue aquí como
-   * «objetivo» sin una necesidad elegida —o con una que no es de ese
-   * objetivo— volvería a las recomendaciones genéricas por etiqueta, que es
-   * justo lo que la pregunta existe para impedir. Se rechaza, no se rellena.
+   * Opción B: la pregunta de aclaración es obligatoria. El cuestionario ya
+   * no deja avanzar sin contestarla, pero la ruta no puede fiarse de eso:
+   * cualquier petición que llegue con un objetivo y sin una necesidad
+   * elegida —o con una que no es de ese objetivo— volvería a las
+   * recomendaciones genéricas por etiqueta, que es justo lo que la pregunta
+   * existe para impedir. Se rechaza, no se rellena.
+   *
+   * En la entrada por objetivo, el objetivo es `origenId`. En la entrada
+   * libre es el que el cuestionario devuelve tras la aclaración (abajo), y
+   * llega en `problemaIdsCandidatos`.
    */
-  if (origenTipo === "objetivo" && preguntaParaObjetivo(origenId)) {
+  const objetivoDeLaPregunta =
+    origenTipo === "objetivo" ? origenId : origenTipo === "libre" ? respuestas.problemaIdsCandidatos?.[0] : undefined;
+  if (objetivoDeLaPregunta && preguntaParaObjetivo(objetivoDeLaPregunta)) {
     const elegida = respuestas.necesidadElegida;
     if (!elegida) {
       return NextResponse.json({ error: "Falta la necesidad elegida: la pregunta de aclaración es obligatoria." }, { status: 400 });
     }
-    if (elegida !== NINGUNA_DE_ESTAS && !filaDeNecesidad(origenId, elegida)) {
+    if (elegida !== NINGUNA_DE_ESTAS && !filaDeNecesidad(objetivoDeLaPregunta, elegida)) {
       return NextResponse.json({ error: "La necesidad elegida no pertenece a este objetivo." }, { status: 400 });
     }
   }
@@ -88,10 +94,25 @@ export async function POST(request: Request) {
   // usa `node:fs`, así que esta detección solo puede vivir aquí (el
   // servidor), nunca en el cuestionario (componente cliente). Si el usuario
   // ya trae `categoriaId` o `problemaIdsCandidatos` (entró por categoría o
-  // por objetivo), no se toca nada: el texto libre nunca sustituye una
-  // elección explícita, solo rellena el hueco cuando no la hay.
+  // por objetivo, o ya aclaró), no se toca nada: el texto libre nunca
+  // sustituye una elección explícita, solo rellena el hueco cuando no la hay.
+  //
+  // Decisión del 2026-09-16: primero se interpreta; si el texto sólo da un
+  // objetivo amplio, se pide aclarar la necesidad ANTES de recomendar. Antes
+  // el objetivo detectado iba directo al motor y salían las genéricas por
+  // etiqueta, la vía del error original. Si no se entiende nada, el motor
+  // dirá «no lo he entendido»: nunca herramientas genéricas.
   if (!respuestas.categoriaId && !respuestas.problemaIdsCandidatos?.length && respuestas.notasAdicionales) {
-    const problemasDetectados = detectarProblemasPorTexto(respuestas.notasAdicionales, getProblemas());
+    const problemas = getProblemas();
+    const problemasDetectados = detectarProblemasPorTexto(respuestas.notasAdicionales, problemas);
+    const conPregunta = problemasDetectados.filter((id) => preguntaParaObjetivo(id));
+    if (conPregunta.length > 0) {
+      return NextResponse.json({
+        aclaracion: {
+          objetivos: conPregunta.map((id) => ({ id, titulo: problemas.find((p) => p.id === id)?.titulo ?? id })),
+        },
+      });
+    }
     if (problemasDetectados.length > 0) {
       respuestas = { ...respuestas, problemaIdsCandidatos: problemasDetectados };
     }

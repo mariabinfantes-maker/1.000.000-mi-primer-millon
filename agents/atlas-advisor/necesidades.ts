@@ -92,17 +92,25 @@ const TAREAS_REPETIDAS: FilaDeNecesidad = { id: "tareas-repetidas", capacidades:
 export const NECESIDADES: PreguntaDeNecesidad[] = [
   {
     objetivoId: "conseguir-clientes",
+    // Familias aprobadas el 2026-09-16: la pregunta se hace en dos pasos
+    // (familia y después necesidad) para no enseñar todas las opciones a la
+    // vez. Sólo «Automatizar» cabe en una pantalla y sigue sin familias.
     familias: [
       {
-        id: "general",
+        id: "atraer",
         filas: [
-          { id: "captar-datos", capacidades: ["cap.lead_capture"] },
-          { id: "seguir-oportunidades", capacidades: ["cap.sales_pipeline"] },
           { id: "web-o-captacion", capacidades: ["cap.website_builder", "cap.landing_pages"] },
+          { id: "captar-datos", capacidades: ["cap.lead_capture"] },
           { id: "correos-lista", capacidades: ["cap.email_campaigns"] },
+        ],
+      },
+      {
+        id: "convertir",
+        filas: [
+          { id: "seguir-oportunidades", capacidades: ["cap.sales_pipeline"] },
           SEGUIMIENTOS_AUTOMATICOS,
-          CITAS_RESERVA,
           { id: "presupuestos", capacidades: ["cap.quotes_and_proposals"] },
+          CITAS_RESERVA,
         ],
       },
     ],
@@ -164,35 +172,41 @@ export const NECESIDADES: PreguntaDeNecesidad[] = [
     objetivoId: "organizar-empresa",
     familias: [
       {
-        id: "general",
+        id: "tareas-proyectos",
         filas: [
           { id: "tareas", capacidades: ["cap.task_management"] },
           { id: "proyectos", capacidades: ["cap.project_planning", "cap.gantt_and_dependencies"] },
           TAREAS_REPETIDAS,
+        ],
+      },
+      {
+        id: "equipo-tiempo",
+        filas: [
           { id: "carga-equipo", capacidades: ["cap.team_workload_planning"] },
           { id: "tiempo-dedicado", capacidades: ["cap.time_tracking"] },
           { id: "fichaje", capacidades: ["cap.time_and_attendance"] },
+        ],
+      },
+      {
+        id: "dinero",
+        filas: [
           { id: "margen-trabajo", capacidades: ["cap.job_costing"] },
           // Separadas a propósito: emitir la factura y cobrarla son dos
           // capacidades, y una sola fila prometería lo que no puede.
           { id: "facturas", capacidades: ["cap.invoicing"] },
           { id: "cobrar-online", capacidades: ["cap.payment_collection"] },
-          CONOCIMIENTO_EQUIPO,
         ],
       },
+      { id: "conocimiento", filas: [CONOCIMIENTO_EQUIPO] },
     ],
   },
   {
     objetivoId: "atencion-cliente",
     familias: [
       {
-        id: "general",
+        id: "atender",
         filas: [
           { id: "bandeja-compartida", capacidades: ["cap.shared_inbox"] },
-          { id: "historial-cliente", capacidades: ["cap.customer_interaction_history"] },
-          RECORDATORIOS_CITAS,
-          { id: "portal-cliente", capacidades: ["cap.client_portal"] },
-          CITAS_RESERVA,
           // Las dos necesidades más obvias de este objetivo, y ninguna
           // herramienta las demuestra. Se quedan: llevan a «no lo cubrimos»,
           // que es más honesto que no preguntarlo.
@@ -200,6 +214,14 @@ export const NECESIDADES: PreguntaDeNecesidad[] = [
           { id: "chatbot", capacidades: ["cap.support_chatbot"], sinCobertura: true },
         ],
       },
+      {
+        id: "conocer-cliente",
+        filas: [
+          { id: "historial-cliente", capacidades: ["cap.customer_interaction_history"] },
+          { id: "portal-cliente", capacidades: ["cap.client_portal"] },
+        ],
+      },
+      { id: "citas", filas: [CITAS_RESERVA, RECORDATORIOS_CITAS] },
     ],
   },
 ];
@@ -209,6 +231,15 @@ const POR_OBJETIVO = new Map(NECESIDADES.map((p) => [p.objetivoId, p]));
 /** La pregunta de un objetivo, o `undefined` si el objetivo no la tiene (hoy la tienen los cinco). */
 export function preguntaParaObjetivo(objetivoId: string | undefined): PreguntaDeNecesidad | undefined {
   return objetivoId ? POR_OBJETIVO.get(objetivoId) : undefined;
+}
+
+/**
+ * Si la pregunta se hace en dos pasos (primero la familia, después la
+ * necesidad). Decisión de la propietaria del 2026-09-16: nunca enseñar todas
+ * las opciones juntas; con una sola familia no hay nada que elegir antes.
+ */
+export function sePreguntaPorFamilias(pregunta: PreguntaDeNecesidad): boolean {
+  return pregunta.familias.length >= 2;
 }
 
 /** La fila elegida dentro de un objetivo. `undefined` si no existe ahí: un id de otro objetivo no vale. */

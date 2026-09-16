@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   NECESIDADES,
+  sePreguntaPorFamilias,
   NINGUNA_DE_ESTAS,
   enunciadoDe,
   filaDeNecesidad,
@@ -91,7 +92,7 @@ describe("la tabla de necesidades", () => {
     }
   });
 
-  it("ahorrar tiempo se pregunta por familias; los demás, de una vez", () => {
+  it("se pregunta por familias en cuatro objetivos; «Automatizar» cabe en una pantalla y va de una vez", () => {
     expect(preguntaParaObjetivo("ahorrar-tiempo")!.familias.map((f) => f.id)).toEqual([
       "citas",
       "escribir",
@@ -99,8 +100,26 @@ describe("la tabla de necesidades", () => {
       "materiales",
       "dia-y-equipo",
     ]);
-    for (const objetivo of ["conseguir-clientes", "automatizar-tareas", "organizar-empresa", "atencion-cliente"]) {
-      expect(preguntaParaObjetivo(objetivo)!.familias.map((f) => f.id), objetivo).toEqual(["general"]);
+    expect(preguntaParaObjetivo("conseguir-clientes")!.familias.map((f) => f.id)).toEqual(["atraer", "convertir"]);
+    expect(preguntaParaObjetivo("organizar-empresa")!.familias.map((f) => f.id)).toEqual([
+      "tareas-proyectos",
+      "equipo-tiempo",
+      "dinero",
+      "conocimiento",
+    ]);
+    expect(preguntaParaObjetivo("atencion-cliente")!.familias.map((f) => f.id)).toEqual(["atender", "conocer-cliente", "citas"]);
+    expect(preguntaParaObjetivo("automatizar-tareas")!.familias.map((f) => f.id)).toEqual(["general"]);
+    for (const pregunta of NECESIDADES) {
+      expect(sePreguntaPorFamilias(pregunta), pregunta.objetivoId).toBe(pregunta.objetivoId !== "automatizar-tareas");
+    }
+  });
+
+  it("ninguna familia enseña más de cuatro necesidades a la vez, y «general» sólo existe cuando es la única", () => {
+    for (const pregunta of NECESIDADES) {
+      for (const familia of pregunta.familias) {
+        expect(familia.filas.length, `${pregunta.objetivoId}/${familia.id}`).toBeLessThanOrEqual(4);
+        if (familia.id === "general") expect(pregunta.familias.length, pregunta.objetivoId).toBe(1);
+      }
     }
   });
 });
