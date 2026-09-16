@@ -317,12 +317,12 @@ también, explícitamente, a Atlas Revenue.
 
 ### Los dos carriles
 
-Las **24 tareas** que hoy existen en el repositorio están clasificadas una
+Las **26 tareas** que hoy existen en el repositorio están clasificadas una
 a una en `tareas.ts`, con su carril y el motivo:
 
 - **Libre (8)** — sólo lee e informa. Se dispara sin preguntar.
-- **Con permiso (16)** — gasta dinero (3, llaman a un proveedor de IA),
-  escribe datos que el resto de Molnip da por buenos (12), o deja huella en
+- **Con permiso (18)** — gasta dinero (4, llaman a un proveedor de IA),
+  escribe datos que el resto de Molnip da por buenos (13), o deja huella en
   el sitio real (1). **Esperan la firma de la propietaria y no se ejecutan
   sin ella.**
 
