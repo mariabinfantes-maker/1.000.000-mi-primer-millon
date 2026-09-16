@@ -35,6 +35,13 @@ function planDe(registro: RegistroVerificacion): EvidenciaDePlan {
  * `desconocido` — con la diferencia de que resolverlo cuesta una comprobación
  * que aún no se ha hecho, y por eso el origen se conserva.
  */
+/** La fuente que demuestra la capacidad: la de rol «capacidad» o la que no lleva rol, con preferencia por la que tiene cita. */
+function fuenteDeCapacidad(registro: RegistroVerificacion): EvidenciaDeCapacidad["fuente"] {
+  const candidatas = (registro.fuentes ?? []).filter((f) => f.rol === "capacidad" || !f.rol);
+  const elegida = candidatas.find((f) => f.cita?.trim()) ?? candidatas[0];
+  return elegida ? { tipo: elegida.tipo, url: elegida.url, fechaConsulta: elegida.fechaConsulta } : undefined;
+}
+
 export function evidenciaDeRegistro(
   herramientaId: string,
   capacidadId: string,
@@ -85,6 +92,7 @@ export function evidenciaDeRegistro(
     ...(registro.integraCon ? { integraCon: registro.integraCon } : {}),
     ...(registro.confianza ? { confianza: registro.confianza } : {}),
     ...(registro.nota ? { nota: registro.nota } : {}),
+    ...(fuenteDeCapacidad(registro) ? { fuente: fuenteDeCapacidad(registro) } : {}),
   };
 }
 

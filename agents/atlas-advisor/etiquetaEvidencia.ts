@@ -2,15 +2,23 @@ import type { FilaDeNecesidad } from "./necesidades";
 
 /**
  * Qué se le puede decir a la persona sobre CÓMO una herramienta demuestra la
- * necesidad que eligió. Tres niveles, decididos por la propietaria el
- * 2026-09-16, porque «lo demuestra» no es una sola cosa:
+ * necesidad que eligió. Decisión de la propietaria del 2026-09-16 (segunda
+ * ronda), después de comprobar los registros de F2:
  *
- *  - `confirmada`  — hay evidencia y describe lo que hace. Se enseña la nota.
- *  - `via_tercero` — lo hace a través de otra herramienta. Se dice cuál, si
- *                    consta, y que no sabemos ni precio ni condiciones de
- *                    esa conexión.
- *  - `sin_detalle` — está verificado, pero la nota guardada no describe qué
- *                    hace. Positivo, y sin detalle: se dice así.
+ *  - Toda capacidad demostrada lo está igual: confianza alta, fuente de
+ *    primera mano y cita del fabricante. No saber en qué plan está NO la
+ *    deja sin demostrar, y separar por plan daría prioridad a quien tiene la
+ *    tarifa mejor documentada, no a quien sirve mejor.
+ *  - Por eso la etiqueta es UNA, `confirmada`, y lleva por separado lo que
+ *    se sabe y lo que no: el plan si se conoce, el tercero si lo hace a
+ *    través de otra herramienta, lo anotado al comprobarlo, y la fuente con
+ *    su fecha para enlazarla.
+ *  - `pendiente` sólo cuando lo hace a través de un tercero que no consta.
+ *    Hoy no hay ningún caso: las 13 integraciones lo nombran.
+ *
+ * Una nota más descriptiva no demuestra mejor encaje: la nota no decide
+ * nada, sólo se enseña. Y ninguna etiqueta dice que una herramienta NO haga
+ * algo: F2 no obtuvo ni una ausencia demostrada.
  *
  * Este módulo no lee la verificación: recibe una función `estadoDe` con la
  * forma del puerto y la aplica. Así `data/verificacion` conserva un único
@@ -18,9 +26,18 @@ import type { FilaDeNecesidad } from "./necesidades";
  */
 
 export type EtiquetaEvidencia =
-  | { tipo: "confirmada"; nota: string }
-  | { tipo: "via_tercero"; tercero?: string }
-  | { tipo: "sin_detalle" };
+  | {
+      tipo: "confirmada";
+      /** Nombre del plan más barato donde está la función, sólo si F2 lo demostró. */
+      plan?: string;
+      /** Con qué otra herramienta lo hace, cuando la profundidad es integración. */
+      integraCon?: string;
+      /** Lo anotado al comprobarlo: límites o detalle. Se enseña, no decide. */
+      anotado?: string;
+      /** Dónde y cuándo se comprobó. */
+      fuente?: { url: string; fecha: string };
+    }
+  | { tipo: "pendiente"; motivo: "tercero_desconocido" };
 
 /** Lo mínimo que hace falta saber de un par para etiquetarlo. Es la forma de `EvidenciaDeCapacidad`, sin importarla. */
 export type EstadoDeUnPar = {
@@ -28,6 +45,8 @@ export type EstadoDeUnPar = {
   profundidad?: string;
   integraCon?: string;
   nota?: string;
+  plan?: { certeza: string; nombre?: string };
+  fuente?: { url: string; fechaConsulta: string };
 };
 
 const LARGO_MAXIMO_NOTA = 160;
@@ -49,13 +68,18 @@ export function etiquetaDeEvidencia(
     const par = estadoDe(herramientaId, capacidadId);
     if (par.estado !== "demostrada") continue;
 
-    if (par.profundidad === "integracion") {
-      const tercero = par.integraCon?.trim();
-      return tercero ? { tipo: "via_tercero", tercero } : { tipo: "via_tercero" };
-    }
-    const nota = par.nota?.trim();
-    if (nota) return { tipo: "confirmada", nota: recortar(nota) };
-    return { tipo: "sin_detalle" };
+    const integraCon = par.integraCon?.trim();
+    if (par.profundidad === "integracion" && !integraCon) return { tipo: "pendiente", motivo: "tercero_desconocido" };
+
+    const plan = par.plan?.certeza === "verificado" ? par.plan.nombre?.trim() : undefined;
+    const anotado = par.nota?.trim();
+    return {
+      tipo: "confirmada",
+      ...(plan ? { plan } : {}),
+      ...(integraCon ? { integraCon } : {}),
+      ...(anotado ? { anotado: recortar(anotado) } : {}),
+      ...(par.fuente ? { fuente: { url: par.fuente.url, fecha: par.fuente.fechaConsulta } } : {}),
+    };
   }
   return undefined;
 }
@@ -65,4 +89,19 @@ function recortar(texto: string): string {
   if (texto.length <= LARGO_MAXIMO_NOTA) return texto;
   const corte = texto.lastIndexOf(" ", LARGO_MAXIMO_NOTA);
   return `${texto.slice(0, corte > 60 ? corte : LARGO_MAXIMO_NOTA).trimEnd()}…`;
+}
+
+/**
+ * Reparte un resultado en las opciones con respaldo suficiente y los
+ * candidatos pendientes. Sin etiquetas (enlaces de antes de la opción B, o
+ * entradas sin pregunta) todo cuenta como respaldado: no hay nada que
+ * separar. El comparador sólo compara el primer grupo.
+ */
+export function separarPorRespaldo<T extends { herramienta: { id: string } }>(
+  items: T[],
+  evidencia?: Record<string, EtiquetaEvidencia>
+): { respaldadas: T[]; pendientes: T[] } {
+  const pendientes = items.filter((i) => evidencia?.[i.herramienta.id]?.tipo === "pendiente");
+  const respaldadas = items.filter((i) => !pendientes.includes(i));
+  return { respaldadas, pendientes };
 }

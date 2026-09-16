@@ -1,4 +1,4 @@
-import { AlertTriangle, ArrowUpRight, Check, ChevronRight, Code2, Globe, Lightbulb, Puzzle, ShieldCheck, ShieldQuestion, Smartphone, X } from "lucide-react";
+import { AlertTriangle, ArrowUpRight, Check, ChevronRight, Code2, ExternalLink, Globe, Lightbulb, Puzzle, ShieldCheck, ShieldQuestion, Smartphone, X } from "lucide-react";
 import type { EtiquetaEvidencia } from "@/agents/atlas-advisor/etiquetaEvidencia";
 import Link from "next/link";
 import type { Reputacion } from "@/data/esquema";
@@ -118,42 +118,58 @@ export default function TarjetaHerramientaRecomendada({
       </p>
 
       {/*
-        Tres niveles y tres frases distintas, porque «lo demuestra» no es una
-        sola cosa. Ninguna de las tres dice que la herramienta NO haga algo:
-        F2 no obtuvo ni una ausencia demostrada, y sin ese dato la frase no
-        puede escribirse.
+        Lo que la evidencia de F2 dice de ESTA necesidad, en el orden que
+        decidió la propietaria (2026-09-16): función confirmada; el plan, si
+        se conoce, o que no lo hemos confirmado; el tercero y lo anotado,
+        cuando corresponda; y la fuente con su fecha, enlazada. Ninguna frase
+        dice que la herramienta NO haga algo: F2 no obtuvo ni una ausencia
+        demostrada, y sin ese dato la frase no puede escribirse.
       */}
-      {evidencia && (
-        <p className="mt-3 flex items-start gap-1.5 text-sm leading-relaxed text-slate-600">
-          {evidencia.tipo === "confirmada" ? (
+      {evidencia?.tipo === "confirmada" && (
+        <div className="mt-3 rounded-xl border border-slate-100 bg-slate-50/70 px-3.5 py-3 text-sm leading-relaxed text-slate-600">
+          <p className="flex items-start gap-1.5 font-medium text-slate-800">
             <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-exito-500" aria-hidden="true" />
-          ) : evidencia.tipo === "via_tercero" ? (
-            <Puzzle className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" aria-hidden="true" />
-          ) : (
-            <ShieldQuestion className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" aria-hidden="true" />
+            Función confirmada en una fuente oficial.
+          </p>
+          <p className="mt-1.5">
+            {evidencia.plan ? (
+              <>
+                Plan: <span className="font-medium text-slate-800">{evidencia.plan}</span>.
+              </>
+            ) : (
+              "No hemos confirmado qué plan necesitas."
+            )}
+          </p>
+          {evidencia.integraCon && (
+            <p className="mt-1.5">
+              Lo hace a través de otra herramienta: <span className="font-medium text-slate-800">{evidencia.integraCon}</span>.
+              El precio y las condiciones de esa conexión no los conocemos.
+            </p>
           )}
+          {evidencia.anotado && <p className="mt-1.5">Anotado al comprobarlo: {evidencia.anotado}</p>}
+          {evidencia.fuente && (
+            <p className="mt-1.5 text-xs text-slate-500">
+              Fuente:{" "}
+              <a
+                href={evidencia.fuente.url}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="inline-flex items-center gap-0.5 font-medium text-brand-600 underline-offset-4 hover:underline"
+              >
+                {dominioDe(evidencia.fuente.url)}
+                <ExternalLink className="h-3 w-3" aria-hidden="true" />
+              </a>
+              {" · "}comprobado el {fechaLarga(evidencia.fuente.fecha)}
+            </p>
+          )}
+        </div>
+      )}
+      {evidencia?.tipo === "pendiente" && (
+        <p className="mt-3 flex items-start gap-1.5 text-sm leading-relaxed text-slate-600">
+          <ShieldQuestion className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" aria-hidden="true" />
           <span>
-            {evidencia.tipo === "confirmada" && (
-              <>
-                <span className="font-medium text-slate-800">Lo que la evidencia confirma:</span> {evidencia.nota}
-              </>
-            )}
-            {evidencia.tipo === "via_tercero" && (
-              <>
-                Lo hace a través de otra herramienta
-                {evidencia.tercero ? (
-                  <>
-                    : <span className="font-medium text-slate-800">{evidencia.tercero}</span>
-                  </>
-                ) : (
-                  ", y no nos consta cuál"
-                )}
-                . El precio y las condiciones de esa conexión no los conocemos.
-              </>
-            )}
-            {evidencia.tipo === "sin_detalle" && (
-              <>Tenemos registrada esta función, pero falta información para confirmar cómo cubre tu necesidad.</>
-            )}
+            Tenemos registrada esta función, pero falta información para confirmar cómo cubre tu necesidad: lo hace a
+            través de otra herramienta y no nos consta cuál.
           </span>
         </p>
       )}
@@ -279,4 +295,20 @@ export default function TarjetaHerramientaRecomendada({
       </Boton>
     </Tarjeta>
   );
+}
+
+/** Sólo el dominio, para que el enlace se lea: «pipedrive.com», no la dirección entera. */
+function dominioDe(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return url;
+  }
+}
+
+/** «2026-09-07» → «7 de septiembre de 2026». Si la fecha no es válida, se enseña tal cual antes que inventar una. */
+function fechaLarga(iso: string): string {
+  const fecha = new Date(`${iso}T00:00:00Z`);
+  if (Number.isNaN(fecha.getTime())) return iso;
+  return new Intl.DateTimeFormat("es-ES", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(fecha);
 }

@@ -1,4 +1,4 @@
-import type { NivelConfianza, Profundidad } from "./esquema";
+import type { NivelConfianza, Profundidad, TipoFuente } from "./esquema";
 
 /**
  * El contrato por el que el motor leerá lo que F2 verificó — F3, bloque 1.
@@ -86,6 +86,13 @@ export type EvidenciaDeCapacidad = {
   confianza?: NivelConfianza;
   /** Límites que cambian la decisión: «sólo en escritorio», «máximo 3 usuarios». */
   nota?: string;
+  /**
+   * La fuente que demuestra la capacidad (la de rol «capacidad», o la que no
+   * lleva rol), con la fecha en que se miró. Sólo cuando está demostrada. Es
+   * lo que permite decirle a la persona «confirmado en su página oficial el
+   * día tal» y enlazarla: transparencia sin mandarla a investigar.
+   */
+  fuente?: { tipo: TipoFuente; url: string; fechaConsulta: string };
 };
 
 /**

@@ -30,7 +30,7 @@ export {
   tituloDeFamilia,
 } from "./necesidades";
 export { TEXTOS_NECESIDADES } from "./necesidades.textos.es";
-export { etiquetaDeEvidencia } from "./etiquetaEvidencia";
+export { etiquetaDeEvidencia, separarPorRespaldo } from "./etiquetaEvidencia";
 export type { EtiquetaEvidencia } from "./etiquetaEvidencia";
 export type { FilaDeNecesidad, FamiliaDeNecesidades, PreguntaDeNecesidad } from "./necesidades";
 export type {

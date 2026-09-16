@@ -624,9 +624,22 @@ sin cambiar el motor; el día que se pregunte, será exclusión con su propio
 
 **Lo que se le dice a la persona por cada herramienta**
 (`etiquetaEvidencia.ts`, calculado en la ruta de API y guardado en el
-enlace): *confirmada* con la nota de F2; *vía tercero*, nombrando cuál si
-consta; o *verificada sin detalle*. Ninguna de las tres afirma que una
-herramienta NO haga algo.
+enlace). Decisión de la propietaria del 2026-09-16, segunda ronda, tras
+comprobar que los 312 pares que pasan la puerta tienen todos confianza alta,
+fuente de primera mano y cita del fabricante: **una sola etiqueta,
+«confirmada»**, que dice por separado lo que se sabe y lo que no. En la
+tarjeta, en este orden: «Función confirmada en una fuente oficial»; «Plan:
+X» o «No hemos confirmado qué plan necesitas»; el tercero cuando lo hace a
+través de otra herramienta, con sus condiciones desconocidas; lo anotado al
+comprobarlo, cuando existe; y la fuente enlazada con la fecha de
+comprobación. No saber el plan no deja la función sin demostrar, y una nota
+más descriptiva no demuestra mejor encaje: la nota se enseña, no decide.
+El único caso «pendiente» es una integración sin tercero nombrado, y hoy no
+hay ninguno (las 13 lo nombran). Los pendientes se enseñan aparte, bajo
+«Candidatos pendientes», fuera del titular y del comparador; si sólo hay
+pendientes, el titular lo dice. Ninguna etiqueta afirma que una herramienta
+NO haga algo. El puerto de evidencia expone para ello la fuente de la
+capacidad (`fuente` en `EvidenciaDeCapacidad`).
 
 **«Ninguna de éstas»** está en los cinco objetivos y nunca devuelve el
 catálogo: ofrece contarlo con sus palabras o elegir un tipo de herramienta.

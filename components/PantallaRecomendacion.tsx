@@ -4,7 +4,7 @@ import { aVistaDeTarjeta } from "@/lib/vistaRecomendacion";
 import type { OrigenDiagnostico } from "@/lib/origenDiagnostico";
 import { rutaDesdeOrigenDiagnostico } from "@/agents/atlas-revenue/rutaOrigen";
 import { getAgente } from "@/lib/agentes";
-import type { EtiquetaEvidencia, HerramientaEvaluada } from "@/agents/atlas-advisor";
+import { separarPorRespaldo, type EtiquetaEvidencia, type HerramientaEvaluada } from "@/agents/atlas-advisor";
 import EnlaceAtras from "@/components/ui/EnlaceAtras";
 import Boton from "@/components/ui/Boton";
 import BotonCompartir from "@/components/ui/BotonCompartir";
@@ -56,7 +56,15 @@ export default function PantallaRecomendacion({
   // registran sin saber qué camino los produjo.
   const rutaOrigen = rutaDesdeOrigenDiagnostico(origen);
 
-  const vistas = top.map((evaluada, indice) => aVistaDeTarjeta(evaluada, indice + 1, evidencia?.[evaluada.herramienta.id]));
+  // Dos grupos (decisión del 2026-09-16): las opciones con respaldo
+  // suficiente y, aparte, los candidatos pendientes. El titular y el
+  // comparador sólo cuentan el primero.
+  const { respaldadas, pendientes } = separarPorRespaldo(top, evidencia);
+  const vistas = respaldadas.map((evaluada, indice) => aVistaDeTarjeta(evaluada, indice + 1, evidencia?.[evaluada.herramienta.id]));
+  const vistasPendientes = pendientes.map((evaluada, indice) =>
+    aVistaDeTarjeta(evaluada, vistas.length + indice + 1, evidencia?.[evaluada.herramienta.id])
+  );
+  const soloPendientes = necesidad && vistas.length === 0 && vistasPendientes.length > 0;
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
@@ -87,10 +95,12 @@ export default function PantallaRecomendacion({
             <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               {sinConfirmar
                 ? `Lo mejor de ${origen.titulo}, sin esa necesidad comprobada`
-                : necesidad
-                  ? vistas.length === 1
-                    ? `Una opción para «${necesidad.texto}»`
-                    : `${vistas.length} opciones para «${necesidad.texto}»`
+                : soloPendientes
+                  ? `Para «${necesidad.texto}» sólo tenemos candidatos pendientes`
+                  : necesidad
+                    ? vistas.length === 1
+                      ? `Una opción para «${necesidad.texto}»`
+                      : `${vistas.length} opciones para «${necesidad.texto}»`
                   : vistas.length === 1
                     ? "Tu mejor opción"
                     : `Tus ${vistas.length} mejores opciones`}
@@ -103,6 +113,11 @@ export default function PantallaRecomendacion({
                   respuesta a lo que preguntabas. Antes de contratar ninguna, comprueba tú mismo en su
                   página lo siguiente:{" "}
                   <strong className="font-semibold text-slate-900">{sinConfirmar.necesidad}</strong>.
+                </>
+              ) : soloPendientes ? (
+                <>
+                  Tenemos herramientas registradas para lo que elegiste, pero en ninguna podemos confirmar todavía cómo lo
+                  cubren. Prefiero decírtelo a presentarlas como si estuvieran confirmadas.
                 </>
               ) : necesidad ? (
                 <>
@@ -169,6 +184,24 @@ export default function PantallaRecomendacion({
           </div>
         ))}
       </div>
+
+      {vistasPendientes.length > 0 && (
+        <section className="mt-12" aria-labelledby="candidatos-pendientes">
+          <h2 id="candidatos-pendientes" className="font-display text-xl font-bold tracking-tight text-slate-900">
+            Candidatos pendientes
+          </h2>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600">
+            Registradas para esto, pero sin poder confirmar cómo lo cubren. No entran en el comparador.
+          </p>
+          <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
+            {vistasPendientes.map((vista) => (
+              <div key={vista.nombre}>
+                <TarjetaHerramientaRecomendada {...vista} rutaOrigen={rutaOrigen} />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       <div className="mt-12">
         <FormularioSuscripcion

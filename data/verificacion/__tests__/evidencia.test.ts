@@ -27,14 +27,25 @@ const de = (cambios: Partial<RegistroVerificacion> = {}) =>
   evidenciaDeRegistro("pipedrive", "cap.sales_pipeline", { ...verificado, ...cambios });
 
 describe("qué se puede afirmar de un par", () => {
-  it("una capacidad verificada se afirma, con su plan y su profundidad", () => {
+  it("una capacidad verificada se afirma, con su plan, su profundidad y la fuente que la demuestra", () => {
     expect(de()).toMatchObject({
       estado: "demostrada",
       origen: "verificado",
       plan: { certeza: "verificado", nombre: "Lite" },
       profundidad: "nativa",
       confianza: "alta",
+      fuente: { tipo: "tarifa_oficial", url: "https://ejemplo.test/precios", fechaConsulta: "2026-09-03" },
     });
+  });
+
+  it("la fuente de la capacidad es la de rol «capacidad» o la que no lleva rol, nunca la de sólo plan", () => {
+    const e = de({
+      fuentes: [
+        { tipo: "tarifa_oficial", url: "https://ejemplo.test/precios", fechaConsulta: "2026-09-03", cita: "— Lite", rol: "plan" },
+        { tipo: "documentacion", url: "https://ejemplo.test/docs", fechaConsulta: "2026-09-04", cita: "Embudo", rol: "capacidad" },
+      ],
+    });
+    expect(e.fuente).toEqual({ tipo: "documentacion", url: "https://ejemplo.test/docs", fechaConsulta: "2026-09-04" });
   });
 
   it("una capacidad desconocida es «no consta», y se sabe que se preguntó", () => {

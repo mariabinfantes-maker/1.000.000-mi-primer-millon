@@ -50,6 +50,37 @@ describe("lo que la tabla afirma sobre los datos, contrastado", () => {
       }
     }
   });
+
+  /**
+   * Lo que se comprobó el 2026-09-16 al buscar el criterio de los grupos:
+   * toda capacidad demostrada tiene fuente oficial con fecha; el plan se
+   * enseña sólo cuando F2 lo demostró; y hoy no hay ningún candidato
+   * pendiente, porque las 13 integraciones nombran su tercero. Si eso
+   * cambia, esta prueba lo dice.
+   */
+  it("con los datos reales: toda etiqueta es «confirmada» con fuente y fecha, el plan sólo si está demostrado, y ningún pendiente", () => {
+    let pares = 0;
+    let conPlan = 0;
+    for (const fila of todasLasFilas()) {
+      for (const h of catalogo) {
+        const etiqueta = etiquetaDeEvidencia(h.id, fila, (a, b) => puerto.estadoDe(a, b));
+        if (!etiqueta) continue;
+        pares++;
+        expect(etiqueta.tipo, `${fila.id} / ${h.id}`).toBe("confirmada");
+        if (etiqueta.tipo !== "confirmada") continue;
+        expect(etiqueta.fuente?.url, `${fila.id} / ${h.id}`).toMatch(/^https:\/\//);
+        expect(etiqueta.fuente?.fecha, `${fila.id} / ${h.id}`).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+        const capacidad = fila.capacidades.find((c) => evidencia.loDemuestra(h.id, c))!;
+        const plan = puerto.estadoDe(h.id, capacidad).plan;
+        expect(Boolean(etiqueta.plan), `${fila.id} / ${h.id}`).toBe(plan.certeza === "verificado" && Boolean(plan.nombre));
+        if (etiqueta.plan) conPlan++;
+        if (etiqueta.integraCon) expect(etiqueta.integraCon.trim().length).toBeGreaterThan(0);
+      }
+    }
+    expect(pares).toBeGreaterThan(0);
+    expect(conPlan).toBeGreaterThan(0);
+    expect(conPlan).toBeLessThan(pares);
+  });
 });
 
 /**

@@ -4129,6 +4129,41 @@ está la función. Las 13 integraciones nombran su tercero. Con esos datos, el
 criterio de los grupos no puede ser la nota; la decisión queda para la
 propietaria.
 
+### La tercera ronda: la etiqueta, comprobada contra los registros
+
+La propietaria pidió, antes de cerrar, señalar dónde están los datos que
+contradecían informes anteriores y enseñar los casos dudosos. Los datos
+están en `data/verificacion/registros.json` (1.544 registros, 659
+verificados): la cita del fabricante en `fuentes[].cita`, el tercero en
+`integraCon`. Lo que se comprobó:
+
+- **Pipedrive / reserva de citas:** nativa, cita oficial «Share your
+  availability with leads and let them book calls on their schedule», plan
+  desconocido, nota vacía. La fuente es la portada de pipedrive.com.
+- **Copper:** dos integraciones, con tercero: SSO vía Okta; presupuestos vía
+  «Google Docs, PandaDoc, DocuSign, QuickBooks». Lo de «tercero sin nombrar»
+  del informe anterior era falso: se leyó la nota, no `integraCon`.
+- **Zoho Projects / facturación:** integración con Zoho Invoice, cita
+  oficial, nota vacía.
+- **Less Annoying CRM / automatización:** integración con Zapier, cita
+  oficial, nota vacía.
+
+Y dos matices que no se pueden callar: **93 de las 312 fuentes son la
+portada del fabricante**, que el propio esquema de F2 dice que «no sirve
+como fuente de una función concreta» pero que la validación no rechaza; y
+**sólo 49 de las 312 citas pasaron por la revisión a mano** de
+`citas-revisadas.json` (las 49 valen). Ninguna de las dos cosas se reabre
+aquí: se dejan escritas.
+
+**Decisión: opción 2.** Funciones confirmadas, indicando por separado si se
+conoce el plan. No saber el plan no deja la función sin demostrar, y
+separar por plan daría prioridad a la tarifa mejor documentada. La tarjeta
+dice: «Función confirmada en una fuente oficial» · «Plan: X» o «No hemos
+confirmado qué plan necesitas» · tercero y lo anotado, cuando corresponda ·
+fuente enlazada y fecha. Pendientes sólo las integraciones sin tercero (hoy
+ninguna), aparte y fuera del comparador. El enlace a la fuente lleva
+`nofollow` y abre aparte; no pasa por Atlas Revenue.
+
 ### Lo que salió de aquí y queda para después
 
 - **La tabla es el mapa de huecos del catálogo.** Cada fila con cobertura

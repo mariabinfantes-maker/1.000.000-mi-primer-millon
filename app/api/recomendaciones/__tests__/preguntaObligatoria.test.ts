@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { POST } from "../route";
+import { leerTokenResultado } from "@/lib/resultadoToken";
 
 /**
  * La pregunta de aclaración es obligatoria en la entrada por objetivo —
@@ -46,6 +47,16 @@ describe("la entrada por objetivo no puede saltarse la pregunta", () => {
     const cuerpo = await respuesta.json();
     expect(typeof cuerpo.token).toBe("string");
     expect(cuerpo.totalEvaluadas).toBeGreaterThan(0);
+
+    // El enlace lleva la necesidad y, por herramienta, la evidencia con su
+    // fuente: es lo que la tarjeta enseña y enlaza. Y sigue cabiendo en una URL.
+    const payload = leerTokenResultado(cuerpo.token)!;
+    expect(payload.necesidad).toBe("citas-reserva");
+    for (const item of payload.items) {
+      expect(item.evidencia?.tipo, item.id).toBe("confirmada");
+      if (item.evidencia?.tipo === "confirmada") expect(item.evidencia.fuente?.url).toMatch(/^https:\/\//);
+    }
+    expect(cuerpo.token.length).toBeLessThan(2000);
   });
 
   it("«ninguna de éstas» no es un salto: devuelve el motivo, no un enlace", async () => {
