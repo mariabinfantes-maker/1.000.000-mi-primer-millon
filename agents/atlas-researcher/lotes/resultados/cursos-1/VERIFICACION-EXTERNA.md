@@ -85,3 +85,60 @@ propietaria lo autorice. Los 17 a revisar necesitan una segunda vuelta
 pidiendo la fila entera con su encabezado de columna, que no cuesta nada.
 Lo que esto NO sustituye: el lote `usos-1` de los siete CRM y Systeme.io,
 que es otro recorrido y otras herramientas.
+
+---
+
+# Segunda vuelta (2026-09-16)
+
+Encargo `verificacion-externa-cursos-1-segunda-vuelta.md`: sólo los 17
+campos que no pasaron, pidiendo la fila entera con su encabezado de columna
+en vez de la celda suelta. JSON en `verificacion-externa-2.json`.
+
+**Resultado: 20 de 23 datos pasan limpios.** El patrón de la primera vuelta
+está corregido: las citas ahora traen la tarjeta del plan entera («### Basic
+… $54/mo … Billed monthly … $40/mo … Billed annually») o la tabla completa
+con sus encabezados. Y donde la página no dejaba copiar la fila de forma
+fiel, bajó la afirmación en vez de forzarla: los límites de Thinkific pasan
+de cinco cifras a «cursos ilimitados», los de Teachable a «no consta».
+
+**El conflicto de Hotmart, resuelto como debía.** Ahora son dos
+afirmaciones separadas: los porcentajes por tramo de facturación, con la
+tabla citada de la página de precios; y la cuota fija, **«no consta»**
+porque el artículo de tarifas sigue sin poder leerse. Ya no hay dos fuentes
+mezcladas en una sola frase, y el «1,00 €» inventado desapareció.
+
+## Lo que queda fuera, y por qué
+
+- **El plan gratuito de Hotmart** sigue citado desde la portada. Se
+  mantuvo la cita y se argumentó en la nota, pero la regla es nuestra y no
+  cambia: una portada no sostiene una condición concreta. **Pendiente.**
+- **`teachable/cursos`**: la cita sigue siendo «Student progress reports»,
+  una fila de la tabla de planes. Revisada a mano, con el criterio escrito
+  en `verificacion-externa-convertida.json`: demuestra el seguimiento del
+  progreso, **no** que la herramienta aloje e imparta el curso. Por eso
+  `cap.training_lms` de Teachable se aparta, y con ella su uso: un uso no
+  puede demostrarse sobre una capacidad que no está demostrada.
+- **`teachable/comision_por_venta`**: la cita de esta vuelta demuestra el
+  0 % de Builder, Growth y Advanced; la de la primera vuelta demostraba el
+  7,5 % de Starter. Cada una sostiene la mitad, y juntas están completas:
+  se guardan como dos afirmaciones, no como una.
+
+## Lo que este canal ha producido, fusionadas las dos vueltas
+
+Convertido a formato F2 y pasado por los validadores reales: **0 errores**.
+
+- **8 registros de capacidad** con confianza media: página, cobro y cursos
+  en Hotmart y Thinkific; página y cobro en Teachable.
+- **5 usos demostrados de 5**: el acceso automático al curso tras el pago
+  en Hotmart y Thinkific, y el pago único o a plazos en las tres.
+- **3 recorridos «no consta»**: ninguna página demuestra las tres piezas
+  juntas en un plan nombrado. Es la respuesta correcta.
+- **Idioma**: la interfaz del panel que usa el negocio no consta en
+  ninguna de las tres. El soporte, sólo en Hotmart. La interfaz que ve el
+  alumno sí consta, pero **no se guarda como idioma de la herramienta**:
+  que la tienda se vea en español no dice en qué idioma trabaja quien
+  administra, y confundirlas es el error que el borrador de Teachable ya
+  cometió al revés.
+
+**Coste: cero llamadas a Gemini.** El lote `usos-1` de Systeme.io y los seis
+CRM sigue siendo otro recorrido y sigue pendiente de autorización.

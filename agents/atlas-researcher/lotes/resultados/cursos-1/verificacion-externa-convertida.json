@@ -205,37 +205,6 @@
           ]
         }
       ]
-    },
-    {
-      "herramientaId": "teachable",
-      "capacidadId": "cap.training_lms",
-      "estado": "verificado",
-      "profundidad": "nativa",
-      "planEstado": "desconocido",
-      "fuentes": [
-        {
-          "tipo": "pagina_oficial",
-          "url": "https://support.teachable.com/en/articles/11682410-new-teachable-plans-in-june-2025",
-          "fechaConsulta": "2026-09-16",
-          "cita": "Student progress reports"
-        }
-      ],
-      "confianza": "media",
-      "proximaRevision": "2027-09-16",
-      "usos": [
-        {
-          "usoId": "uso.acceso_al_curso_tras_el_pago",
-          "estado": "demostrado",
-          "fuentes": [
-            {
-              "tipo": "documentacion",
-              "url": "https://support.teachable.com/en/articles/11682476-price-your-products",
-              "fechaConsulta": "2026-09-16",
-              "cita": "Students receive full product access after their first payment."
-            }
-          ]
-        }
-      ]
     }
   ],
   "recorridos": [
@@ -250,7 +219,7 @@
           "fechaConsulta": "2026-09-16"
         }
       ],
-      "nota": "No consta en las páginas oficiales consultadas.",
+      "nota": "Ninguna página oficial demuestra las tres piezas juntas en un plan nombrado.",
       "proximaRevision": "2027-09-16"
     },
     {
@@ -264,7 +233,7 @@
           "fechaConsulta": "2026-09-16"
         }
       ],
-      "nota": "No consta en las páginas oficiales consultadas.",
+      "nota": "Ninguna página oficial demuestra las tres piezas juntas en un plan nombrado.",
       "proximaRevision": "2027-09-16"
     },
     {
@@ -278,7 +247,7 @@
           "fechaConsulta": "2026-09-16"
         }
       ],
-      "nota": "No consta en las páginas oficiales consultadas.",
+      "nota": "Ninguna página oficial demuestra las tres piezas juntas en un plan nombrado.",
       "proximaRevision": "2027-09-16"
     }
   ],
@@ -294,7 +263,7 @@
             "fechaConsulta": "2026-09-16"
           }
         ],
-        "nota": "El panel de administración no se pudo verificar."
+        "nota": "El idioma del panel que usa el negocio no consta en las páginas oficiales consultadas."
       },
       "soporte": {
         "estado": "verificado",
@@ -306,7 +275,7 @@
             "tipo": "pagina_oficial",
             "url": "https://hotmart.com/es/precios",
             "fechaConsulta": "2026-09-16",
-            "cita": "Soporte en español por email y por chat 24/7"
+            "cita": "Soporte en español por email y por chat 24/7: Resuelve tus dudas técnicas y operativas."
           }
         ]
       },
@@ -323,7 +292,7 @@
             "fechaConsulta": "2026-09-16"
           }
         ],
-        "nota": "El panel de administración no se pudo verificar."
+        "nota": "El idioma del panel que usa el negocio no consta en las páginas oficiales consultadas."
       },
       "soporte": {
         "estado": "desconocido",
@@ -334,7 +303,7 @@
             "fechaConsulta": "2026-09-16"
           }
         ],
-        "nota": "El idioma del soporte no se pudo verificar."
+        "nota": "El idioma del soporte no consta en las páginas oficiales consultadas."
       },
       "proximaRevision": "2027-09-16"
     },
@@ -349,7 +318,7 @@
             "fechaConsulta": "2026-09-16"
           }
         ],
-        "nota": "El panel de administración no se pudo verificar."
+        "nota": "El idioma del panel que usa el negocio no consta en las páginas oficiales consultadas."
       },
       "soporte": {
         "estado": "desconocido",
@@ -360,9 +329,18 @@
             "fechaConsulta": "2026-09-16"
           }
         ],
-        "nota": "El idioma del soporte no se pudo verificar."
+        "nota": "El idioma del soporte no consta en las páginas oficiales consultadas."
       },
       "proximaRevision": "2027-09-16"
     }
-  ]
+  ],
+  "apartados": [
+    "teachable/cap.training_lms: «Student progress reports» es una fila de la tabla de planes y demuestra el seguimiento del progreso, no que la herramienta aloje e imparta el curso. Para afirmar la capacidad entera hace falta otra cita."
+  ],
+  "citasRevisadas": {
+    "teachable/cursos": {
+      "veredicto": "no_vale",
+      "motivo": "«Student progress reports» es una fila de la tabla de planes y demuestra el seguimiento del progreso, no que la herramienta aloje e imparta el curso. Para afirmar la capacidad entera hace falta otra cita."
+    }
+  }
 }
