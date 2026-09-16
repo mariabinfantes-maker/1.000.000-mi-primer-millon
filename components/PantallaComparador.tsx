@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { AlertTriangle } from "lucide-react";
 import { getAgente } from "@/lib/agentes";
 import type { HerramientaEvaluada } from "@/agents/atlas-advisor";
 import EnlaceAtras from "@/components/ui/EnlaceAtras";
@@ -18,11 +19,19 @@ export default function PantallaComparador({
   token,
   top,
   rutaOrigen,
+  usoSinConfirmar,
 }: {
   token: string;
   top: HerramientaEvaluada[];
   /** Atlas Revenue: de qué recorrido salió la recomendación que se está comparando. */
   rutaOrigen?: string;
+  /**
+   * El aviso de uso sin confirmar de la pantalla de resultados. Viaja hasta
+   * aquí porque comparar es el momento de decidir: si el aviso se quedara en
+   * la pantalla anterior, la tabla presentaría como equivalentes unas
+   * candidatas cuyo uso no está confirmado.
+   */
+  usoSinConfirmar?: { tarjeta: string; grupo: string };
 }) {
   return (
     <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-16">
@@ -47,12 +56,28 @@ export default function PantallaComparador({
           </div>
         </div>
         <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-          Comparativa guiada
+          {usoSinConfirmar ? "Comparativa guiada de las candidatas" : "Comparativa guiada"}
         </h1>
         <p className="mt-3 max-w-2xl leading-relaxed text-slate-600">
           Solo se muestran los criterios en los que estas opciones realmente se diferencian, no una tabla exhaustiva.
         </p>
       </div>
+
+      {usoSinConfirmar && (
+        <section
+          aria-labelledby="comparador-uso-sin-confirmar"
+          className="mt-8 rounded-2xl border border-slate-200/80 bg-white p-6 ring-1 ring-contorno"
+        >
+          <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-atencion-700">
+            <AlertTriangle className="h-4 w-4" aria-hidden="true" />
+            {usoSinConfirmar.grupo}
+          </p>
+          <h2 id="comparador-uso-sin-confirmar" className="sr-only">
+            {usoSinConfirmar.grupo}
+          </h2>
+          <p className="mt-2 leading-relaxed text-slate-600">{usoSinConfirmar.tarjeta}</p>
+        </section>
+      )}
 
       <div className="mt-8">
         <TablaComparativa evaluadas={top} rutaOrigen={rutaOrigen} />

@@ -54,6 +54,8 @@ export type TarjetaHerramientaRecomendadaProps = {
   evidencia?: EtiquetaEvidencia;
   /** Aviso de uso sin confirmar (regla del 2026-09-16): la capacidad está demostrada, este uso concreto no. Nunca dice que no sirva. */
   usoSinConfirmar?: string;
+  /** Para QUÉ está confirmada la función. Va en la propia línea de «Función confirmada» para que no afirme más de lo que la evidencia dice. */
+  confirmadoPara?: string;
 };
 
 export default function TarjetaHerramientaRecomendada({
@@ -78,6 +80,7 @@ export default function TarjetaHerramientaRecomendada({
   tieneApiPublica,
   evidencia,
   usoSinConfirmar,
+  confirmadoPara,
 }: TarjetaHerramientaRecomendadaProps) {
   const destacada = posicion === 1;
   const tieneDetalles = motivosPuntuacion.length > 0 || casosNoRecomendados.length > 0;
@@ -132,7 +135,11 @@ export default function TarjetaHerramientaRecomendada({
         <div className="mt-3 rounded-xl border border-slate-100 bg-slate-50/70 px-3.5 py-3 text-sm leading-relaxed text-slate-600">
           <p className="flex items-start gap-1.5 font-medium text-slate-800">
             <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-exito-500" aria-hidden="true" />
-            Función confirmada en una fuente oficial.
+            <span>
+              {confirmadoPara
+                ? `Función confirmada en una fuente oficial: ${confirmadoPara}.`
+                : "Función confirmada en una fuente oficial."}
+            </span>
           </p>
           {usoSinConfirmar && (
             <p className="mt-1.5 flex items-start gap-1.5 text-atencion-700">

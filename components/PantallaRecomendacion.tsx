@@ -52,7 +52,7 @@ export default function PantallaRecomendacion({
   /** Cómo demuestra cada herramienta esa necesidad, por id. */
   evidencia?: Record<string, EtiquetaEvidencia>;
   /** Aviso de uso sin confirmar: se repite en el titular y en cada tarjeta. */
-  usoSinConfirmar?: { tarjeta: string; titular: string };
+  usoSinConfirmar?: { tarjeta: string; titular: string; grupo: string; confirmadoPara?: string };
 }) {
   // Atlas Revenue: de qué recorrido salió esta recomendación. Es la fuente
   // esencial del piloto — sin ella, los clics desde la pantalla final se
@@ -64,12 +64,23 @@ export default function PantallaRecomendacion({
   // comparador sólo cuentan el primero.
   const { respaldadas, pendientes } = separarPorRespaldo(top, evidencia);
   const vistas = respaldadas.map((evaluada, indice) =>
-    aVistaDeTarjeta(evaluada, indice + 1, evidencia?.[evaluada.herramienta.id], usoSinConfirmar?.tarjeta)
+    aVistaDeTarjeta(
+      evaluada,
+      indice + 1,
+      evidencia?.[evaluada.herramienta.id],
+      usoSinConfirmar?.tarjeta,
+      usoSinConfirmar?.confirmadoPara
+    )
   );
   const vistasPendientes = pendientes.map((evaluada, indice) =>
-    aVistaDeTarjeta(evaluada, vistas.length + indice + 1, evidencia?.[evaluada.herramienta.id], usoSinConfirmar?.tarjeta)
+    aVistaDeTarjeta(
+      evaluada,
+      vistas.length + indice + 1,
+      evidencia?.[evaluada.herramienta.id],
+      usoSinConfirmar?.tarjeta,
+      usoSinConfirmar?.confirmadoPara
+    )
   );
-  const coletilla = usoSinConfirmar ? `, ${usoSinConfirmar.titular}` : "";
   const soloPendientes = necesidad && vistas.length === 0 && vistasPendientes.length > 0;
 
   return (
@@ -103,10 +114,14 @@ export default function PantallaRecomendacion({
                 ? `Lo mejor de ${origen.titulo}, sin esa necesidad comprobada`
                 : soloPendientes
                   ? `Para «${necesidad.texto}» sólo tenemos candidatos pendientes`
-                  : necesidad
+                  : necesidad && usoSinConfirmar
                     ? vistas.length === 1
-                      ? `Una opción para «${necesidad.texto}»${coletilla}`
-                      : `${vistas.length} opciones para «${necesidad.texto}»${coletilla}`
+                      ? `Una candidata para «${necesidad.texto}»`
+                      : `${vistas.length} candidatas para «${necesidad.texto}»`
+                    : necesidad
+                      ? vistas.length === 1
+                        ? `Una opción para «${necesidad.texto}»`
+                        : `${vistas.length} opciones para «${necesidad.texto}»`
                   : vistas.length === 1
                     ? "Tu mejor opción"
                     : `Tus ${vistas.length} mejores opciones`}
@@ -127,9 +142,8 @@ export default function PantallaRecomendacion({
                 </>
               ) : necesidad && usoSinConfirmar ? (
                 <>
-                  {usoSinConfirmar.tarjeta} Estas son las herramientas que lo han demostrado, entre las 62 del catálogo.
-                  Debajo de cada una está lo que la evidencia confirma y lo que no sabemos. El orden es cómo encajan
-                  con tu situación.
+                  {usoSinConfirmar.tarjeta} Por eso te las doy como candidatas y no como recomendación. El orden es
+                  cómo encajan con tu situación, no una confirmación de ese uso.
                 </>
               ) : necesidad ? (
                 <>
@@ -163,11 +177,19 @@ export default function PantallaRecomendacion({
 
           <div className="flex shrink-0 gap-3">
             <BotonCompartir
-              titulo={sinConfirmar ? "Alternativas sin confirmar de Molnip" : "Mi recomendación de Molnip"}
+              titulo={
+                sinConfirmar
+                  ? "Alternativas sin confirmar de Molnip"
+                  : usoSinConfirmar
+                    ? "Candidatas de Molnip, con un uso sin confirmar"
+                    : "Mi recomendación de Molnip"
+              }
               texto={
                 sinConfirmar
                   ? `Molnip no ha podido confirmar esto: ${sinConfirmar.necesidad}. Estas son las mejores opciones de la categoría, sin esa necesidad comprobada.`
-                  : `Molnip me recomienda ${vistas[0]?.nombre ?? "estas herramientas"} para mi empresa.`
+                  : usoSinConfirmar
+                    ? `Molnip me da ${vistas[0]?.nombre ?? "estas herramientas"} como candidata: ${usoSinConfirmar.tarjeta}`
+                    : `Molnip me recomienda ${vistas[0]?.nombre ?? "estas herramientas"} para mi empresa.`
               }
             />
             {vistas.length >= 2 && (
@@ -189,13 +211,37 @@ export default function PantallaRecomendacion({
         quedarse invisibles ni un instante. Una animación CSS siempre
         resuelve su estado final aunque nada de JS se ejecute.
       */}
-      <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
-        {vistas.map((vista, indice) => (
-          <div key={vista.nombre} className="animar-entrada" style={{ animationDelay: `${indice * 100}ms` }}>
-            <TarjetaHerramientaRecomendada {...vista} rutaOrigen={rutaOrigen} />
+      {/*
+        Con un uso sin confirmar, las tarjetas NO van sueltas bajo el
+        titular: van bajo un encabezado que dice exactamente qué son. Sin él,
+        quien mira por encima ve tres tarjetas con un escudo verde y se lleva
+        una recomendación donde sólo hay candidatas.
+      */}
+      {usoSinConfirmar ? (
+        <section className="mt-10" aria-labelledby="candidatas-uso-sin-confirmar">
+          <h2
+            id="candidatas-uso-sin-confirmar"
+            className="font-display text-xl font-bold tracking-tight text-slate-900"
+          >
+            {usoSinConfirmar.grupo}
+          </h2>
+          <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
+            {vistas.map((vista, indice) => (
+              <div key={vista.nombre} className="animar-entrada" style={{ animationDelay: `${indice * 100}ms` }}>
+                <TarjetaHerramientaRecomendada {...vista} rutaOrigen={rutaOrigen} />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </section>
+      ) : (
+        <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
+          {vistas.map((vista, indice) => (
+            <div key={vista.nombre} className="animar-entrada" style={{ animationDelay: `${indice * 100}ms` }}>
+              <TarjetaHerramientaRecomendada {...vista} rutaOrigen={rutaOrigen} />
+            </div>
+          ))}
+        </div>
+      )}
 
       {vistasPendientes.length > 0 && (
         <section className="mt-12" aria-labelledby="candidatos-pendientes">

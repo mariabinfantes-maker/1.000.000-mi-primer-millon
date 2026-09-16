@@ -54,13 +54,17 @@ export const TEXTOS_NECESIDADES = {
       tarjeta:
         "Confirmado para reservar reuniones o llamadas. Que sirva para reservar servicios, como un corte de pelo, no lo hemos comprobado: puede que sí.",
       titular: "sin comprobar para servicios",
+      grupo: "Candidatas cuyo uso para servicios falta confirmar",
+      confirmadoPara: "reservar reuniones o llamadas",
     },
     "servicios-recordatorios": {
       tarjeta:
         "Confirmado para recordar reuniones o llamadas. Que sirva para recordar citas de servicios no lo hemos comprobado: puede que sí.",
       titular: "sin comprobar para citas de servicios",
+      grupo: "Candidatas cuyo uso para citas de servicios falta confirmar",
+      confirmadoPara: "recordar reuniones o llamadas",
     },
-  } as Record<string, { tarjeta: string; titular: string }>,
+  } as Record<string, { tarjeta: string; titular: string; grupo: string; confirmadoPara: string }>,
   /** La salida en el paso de familia. Distinta de `ninguna` porque aquí aún no ha visto las necesidades. */
   ningunaFamilia: {
     etiqueta: "Ninguna de éstas",

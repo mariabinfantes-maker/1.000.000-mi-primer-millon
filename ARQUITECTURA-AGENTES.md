@@ -648,11 +648,22 @@ a una peluquera). La evidencia de F2 demuestra una capacidad, no un uso:
 reuniones y llamadas, y ningún registro dice si sirve para un corte de
 pelo. Una fila puede declarar `usoSinConfirmar`: exige la MISMA capacidad
 que su fila hermana, pasan las mismas herramientas en el mismo orden, y
-cada tarjeta añade tras «Función confirmada en una fuente oficial» el aviso
+cada tarjeta añade tras «Función confirmada en una fuente oficial: reservar
+reuniones o llamadas» el aviso
 «Confirmado para reservar reuniones o llamadas. Que sirva para reservar
 servicios, como un corte de pelo, no lo hemos comprobado: puede que sí»; el
-titular lo repite («…, sin comprobar para servicios»). Nunca se dice que no
-sirva. Hay dos pares: reserva y recordatorios, en «Citas» de Ahorrar tiempo
+titular deja de decir «opciones» y dice «candidatas», y las tarjetas van bajo
+el encabezado «Candidatas cuyo uso para servicios falta confirmar». Nunca se
+dice que no sirva.
+
+El aviso tiene cuatro piezas porque tiene que sobrevivir en cuatro sitios:
+`tarjeta` bajo cada herramienta, `confirmadoPara` dentro de la propia línea
+de «Función confirmada» para que no afirme de más, `grupo` como encabezado
+de las candidatas, y `titular` en lo que se lee al compartir el enlace. El
+aviso viaja también al comparador y a los metadatos del enlace: donde se
+decide y donde se comparte, no sólo donde se elige. Si la clave del aviso o
+el texto de la fila desaparecieran del código, se enseña una frase en
+castellano, **nunca el identificador interno**. Hay dos pares: reserva y recordatorios, en «Citas» de Ahorrar tiempo
 y Atención, y el de recordatorios también en Automatizar. La agenda por
 profesional o recurso no se exige: queda condicional en F4. La clave viaja
 en el enlace y el texto se resuelve al abrirlo.

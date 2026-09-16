@@ -27,7 +27,8 @@ export function aVistaDeTarjeta(
   evaluada: HerramientaEvaluada,
   posicion: number,
   evidencia?: EtiquetaEvidencia,
-  usoSinConfirmar?: string
+  usoSinConfirmar?: string,
+  confirmadoPara?: string
 ): TarjetaHerramientaRecomendadaProps {
   const { herramienta } = evaluada;
 
@@ -55,6 +56,7 @@ export function aVistaDeTarjeta(
     casosNoRecomendados: herramienta.casosNoRecomendados,
     ...(evidencia ? { evidencia } : {}),
     ...(usoSinConfirmar ? { usoSinConfirmar } : {}),
+    ...(confirmadoPara ? { confirmadoPara } : {}),
     ...camposComunes(herramienta),
   };
 }

@@ -113,3 +113,56 @@ describe("las necesidades que no se pudieron confirmar", () => {
     expect(r?.generadoEn).toBe(base.generadoEn);
   });
 });
+
+/**
+ * Un enlace guardado puede nombrar una fila o un aviso que ya no existen. La
+ * revisión del 2026-09-16 encontró que en ese caso la pantalla enseñaba el
+ * identificador interno —«clave-retirada», «fila-retirada»— a la persona que
+ * abría el enlace. Nunca puede volver a pasar: el aviso se conserva, la
+ * tripa del motor no se enseña.
+ */
+describe("un enlace cuyo texto ya no existe", () => {
+  const [primera] = getHerramientas();
+  const conFila = (necesidad: string, usoSinConfirmar?: string) =>
+    resolverResultadoCompartido(
+      generarTokenResultado({
+        origenTipo: "objetivo",
+        origenId: "ahorrar-tiempo",
+        necesidad,
+        ...(usoSinConfirmar ? { usoSinConfirmar } : {}),
+        items: [{ id: primera.id, puntuacion: 10, explicacion: "Explicación.", advertencia: false }],
+        generadoEn: new Date().toISOString(),
+      })
+    );
+
+  it("una fila retirada no enseña su identificador", () => {
+    const resultado = conFila("fila-que-ya-no-existe");
+    expect(resultado?.necesidad?.id).toBe("fila-que-ya-no-existe");
+    expect(resultado?.necesidad?.texto).not.toMatch(/fila-que-ya-no-existe|-/);
+    expect(resultado?.necesidad?.texto.length).toBeGreaterThan(5);
+  });
+
+  it("un aviso con clave retirada se conserva, en castellano y sin la clave", () => {
+    const resultado = conFila("servicio-reserva", "clave-que-ya-no-existe");
+    expect(resultado?.usoSinConfirmar).toBeDefined();
+    const aviso = resultado!.usoSinConfirmar!;
+    for (const pieza of [aviso.tarjeta, aviso.titular, aviso.grupo]) {
+      expect(pieza).not.toMatch(/clave-que-ya-no-existe/);
+      expect(pieza).not.toMatch(/_/);
+    }
+    expect(aviso.tarjeta).toMatch(/no lo habíamos confirmado/);
+    expect(aviso.grupo).toMatch(/^Candidatas/);
+  });
+
+  it("un aviso vigente llega con sus cuatro piezas, que es lo que leen la tarjeta, el grupo y el enlace compartido", () => {
+    const aviso = conFila("servicio-reserva", "servicios-reserva")?.usoSinConfirmar;
+    expect(aviso?.grupo).toBe("Candidatas cuyo uso para servicios falta confirmar");
+    expect(aviso?.confirmadoPara).toBe("reservar reuniones o llamadas");
+    expect(aviso?.tarjeta).toMatch(/no lo hemos comprobado/);
+    expect(aviso?.titular).toMatch(/sin comprobar/);
+  });
+
+  it("sin aviso en el enlace, no se inventa ninguno", () => {
+    expect(conFila("citas-reserva")?.usoSinConfirmar).toBeUndefined();
+  });
+});

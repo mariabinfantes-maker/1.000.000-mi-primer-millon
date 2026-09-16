@@ -32,12 +32,24 @@ export async function generateMetadata({ params }: { params: Promise<{ token: st
    * explicando que no es. Es lo primero que se ve en la pestaña y lo único que
    * se lee cuando alguien comparte el enlace.
    */
-  const titulo = resultado.sinConfirmar ? "Alternativas sin confirmar" : `Tu recomendación: ${mejor}`;
+  /**
+   * Con un uso sin confirmar, el título NO puede decir «Tu recomendación»:
+   * es lo único que se lee al compartir el enlace o en la pestaña, y ahí el
+   * aviso que lleva cada tarjeta no se ve. Sin esto, el enlace afirmaba
+   * fuera lo que la pantalla se cuidaba de no afirmar dentro.
+   */
+  const titulo = resultado.sinConfirmar
+    ? "Alternativas sin confirmar"
+    : resultado.usoSinConfirmar
+      ? `Candidatas sin confirmar: ${mejor}`
+      : `Tu recomendación: ${mejor}`;
   const descripcion = resultado.sinConfirmar
     ? `Molnip no ha podido confirmar esto: ${resultado.sinConfirmar.necesidad}. Estas son las mejores opciones de la categoría, sin esa necesidad comprobada.`
-    : resultado.top.length > 1
-      ? `Molnip recomienda ${mejor} y ${resultado.top.length - 1} opción más para tu empresa.`
-      : `Molnip recomienda ${mejor} para tu empresa.`;
+    : resultado.usoSinConfirmar
+      ? resultado.usoSinConfirmar.tarjeta
+      : resultado.top.length > 1
+        ? `Molnip recomienda ${mejor} y ${resultado.top.length - 1} opciones más para tu empresa.`
+        : `Molnip recomienda ${mejor} para tu empresa.`;
 
   return {
     title: titulo,

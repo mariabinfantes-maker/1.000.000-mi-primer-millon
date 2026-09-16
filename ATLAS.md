@@ -4187,6 +4187,37 @@ mismas herramientas, y cada tarjeta y el titular avisan de que ese uso no
 está comprobado. Hecho en `necesidades.ts`, el enlace, la tarjeta y la
 pantalla; nada en el motor, F2 ni las fichas.
 
+### La segunda revisión independiente, y los cuatro arreglos
+
+La revisión de `bb5bd73` contra `4b232d4` volvió a dar NO APTO, esta vez por
+cómo se presentaba el uso sin confirmar. Cuatro fallos, corregidos juntos:
+
+1. **No se presentaban como candidatas.** El titular decía «3 opciones
+   para… sin comprobar para servicios» y las tarjetas iban sueltas. Ahora el
+   titular dice «3 candidatas para…» y van bajo el encabezado «Candidatas
+   cuyo uso para servicios falta confirmar».
+2. **«Función confirmada» no decía para qué.** Abría con el escudo verde y
+   una frase genérica; el matiz llegaba después. Ahora la propia línea dice
+   «Función confirmada en una fuente oficial: reservar reuniones o
+   llamadas». Y la introducción ya no dice «las herramientas que lo han
+   demostrado» detrás de los servicios, que era la afirmación falsa que la
+   regla existía para evitar.
+3. **Una clave de aviso retirada enseñaba el identificador interno.** Se
+   leía «Uso sin confirmar: clave-retirada» y, con una fila retirada, «Una
+   opción para «fila-retirada»». Ahora el respaldo es una frase en
+   castellano y el aviso se conserva entero. Hay pruebas de que no vuelve.
+4. **El aviso desaparecía al comparar y al compartir.** El comparador decía
+   «Comparativa guiada» sin advertencia ninguna, y el enlace compartido
+   decía «Tu recomendación: Reclaim.ai». Ahora el comparador lleva el aviso
+   sobre la tabla, y el enlace se titula «Candidatas sin confirmar».
+
+De paso, en la misma frase que había que reescribir, se corrigió un plural
+que venía de producción: la descripción del enlace decía «2 opción más».
+
+Lo que la revisión confirmó intacto: las 62 fichas, las categorías y las 810
+combinaciones, con la misma huella; los enlaces anteriores en sus cuatro
+formatos; y «Ninguna de éstas» como salida inmediata.
+
 ### Lo que salió de aquí y queda para después
 
 - **La tabla es el mapa de huecos del catálogo.** Cada fila con cobertura

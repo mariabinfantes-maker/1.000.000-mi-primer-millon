@@ -140,12 +140,18 @@ describe("el uso sin confirmar", () => {
     expect(de("recordatorios-citas").usoSinConfirmar).toBeUndefined();
   });
 
-  it("todo uso declarado tiene texto de tarjeta y de titular, y ninguno dice que no sirva", () => {
+  it("todo uso declarado tiene las cuatro piezas del aviso, y ninguna dice que no sirva", () => {
     for (const fila of todasLasFilas().filter((f) => f.usoSinConfirmar)) {
       const texto = textoDeUsoSinConfirmar(fila.usoSinConfirmar!);
       expect(texto.tarjeta).toMatch(/no lo hemos comprobado/);
       expect(texto.tarjeta).not.toMatch(/no sirve|no vale|no funciona/i);
       expect(texto.titular.length).toBeGreaterThan(5);
+      // El encabezado bajo el que van las tarjetas: se presentan como
+      // candidatas pendientes de confirmar, nunca como opciones a secas.
+      expect(texto.grupo, fila.id).toMatch(/^Candidatas cuyo uso .* falta confirmar$/);
+      // Y la línea de «Función confirmada» tiene que decir PARA QUÉ.
+      expect(texto.confirmadoPara.length, fila.id).toBeGreaterThan(5);
+      expect(texto.confirmadoPara, fila.id).toMatch(/reuni|llamad/i);
     }
     expect(() => textoDeUsoSinConfirmar("inventado")).toThrow();
   });

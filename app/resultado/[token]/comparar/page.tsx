@@ -11,8 +11,10 @@ export async function generateMetadata({ params }: { params: Promise<{ token: st
   if (!resultado) return { title: "Enlace no válido", robots: { index: false, follow: true } };
 
   const { respaldadas } = separarPorRespaldo(resultado.top, resultado.evidencia);
+  const nombres = respaldadas.map((e) => e.herramienta.nombre).join(" vs ");
   return {
-    title: `Comparar: ${respaldadas.map((e) => e.herramienta.nombre).join(" vs ")}`,
+    title: resultado.usoSinConfirmar ? `Comparar candidatas sin confirmar: ${nombres}` : `Comparar: ${nombres}`,
+    ...(resultado.usoSinConfirmar ? { description: resultado.usoSinConfirmar.tarjeta } : {}),
     robots: { index: false, follow: true },
   };
 }
@@ -42,5 +44,12 @@ export default async function ResultadoComparadorPage({ params }: { params: Prom
     );
   }
 
-  return <PantallaComparador token={token} top={respaldadas} rutaOrigen={rutaDesdeOrigenDiagnostico(resultado.origen)} />;
+  return (
+    <PantallaComparador
+      token={token}
+      top={respaldadas}
+      rutaOrigen={rutaDesdeOrigenDiagnostico(resultado.origen)}
+      usoSinConfirmar={resultado.usoSinConfirmar}
+    />
+  );
 }

@@ -291,8 +291,20 @@ export function textoDeFila(filaId: string): { etiqueta: string; descripcion: st
   return texto;
 }
 
-/** El aviso de una fila con uso sin confirmar, en el idioma del sitio. `undefined` si la fila no lo declara. Falla en voz alta si falta el texto. */
-export function textoDeUsoSinConfirmar(usoId: string): { tarjeta: string; titular: string } {
+/**
+ * El aviso de una fila con uso sin confirmar, en el idioma del sitio. Falla
+ * en voz alta si falta el texto. Cuatro piezas, porque el aviso tiene que
+ * sobrevivir en cuatro sitios: `tarjeta` bajo cada herramienta,
+ * `confirmadoPara` en la propia línea de «Función confirmada» para que no
+ * afirme de más, `grupo` como encabezado de las candidatas, y `titular` en
+ * lo que se lee al compartir el enlace.
+ */
+export function textoDeUsoSinConfirmar(usoId: string): {
+  tarjeta: string;
+  titular: string;
+  grupo: string;
+  confirmadoPara: string;
+} {
   const texto = TEXTOS_NECESIDADES.usosSinConfirmar[usoId];
   if (!texto) throw new Error(`El uso sin confirmar "${usoId}" no tiene texto en necesidades.textos.es.ts.`);
   return texto;

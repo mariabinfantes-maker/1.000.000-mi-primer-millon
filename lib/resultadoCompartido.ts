@@ -30,7 +30,7 @@ export type ResultadoCompartido = {
   /** Cómo demuestra cada herramienta esa necesidad, por id. Sólo cuando hubo pregunta. */
   evidencia?: Record<string, EtiquetaEvidencia>;
   /** El aviso de uso sin confirmar, ya en palabras, cuando la fila lo declaraba. */
-  usoSinConfirmar?: { tarjeta: string; titular: string };
+  usoSinConfirmar?: { tarjeta: string; titular: string; grupo: string; confirmadoPara?: string };
 };
 
 /**
@@ -91,21 +91,36 @@ export function resolverResultadoCompartido(token: string): ResultadoCompartido 
   };
 }
 
-/** Un enlace viejo puede nombrar una fila que ya no existe: se enseña el id antes que romper el resultado. */
+/**
+ * Un enlace viejo puede nombrar una fila que ya no existe. Se enseña una
+ * frase en castellano, nunca el identificador interno: «servicio-reserva» no
+ * le dice nada a quien abre el enlace, y enseñarlo es filtrar la tripa del
+ * motor en la pantalla que más confianza necesita.
+ */
 function textoSeguro(filaId: string): string {
   try {
     return textoDeFila(filaId).etiqueta;
   } catch {
-    return filaId;
+    return "la necesidad que elegiste";
   }
 }
 
-/** Un aviso cuya clave ya no exista se enseña con su clave antes que perderse: era una advertencia, y callarla sería afirmar de más. */
-function usoSeguro(usoId: string): { tarjeta: string; titular: string } {
+/**
+ * Un aviso cuya clave ya no exista NO se calla: era una advertencia, y
+ * callarla convertiría una candidata en una recomendación. Pero tampoco se
+ * enseña la clave: el respaldo dice en castellano lo único que se sabe con
+ * seguridad, que hay un uso que no se confirmó.
+ */
+function usoSeguro(usoId: string): { tarjeta: string; titular: string; grupo: string; confirmadoPara?: string } {
   try {
     return textoDeUsoSinConfirmar(usoId);
   } catch {
-    return { tarjeta: `Uso sin confirmar: ${usoId}.`, titular: "con un uso sin confirmar" };
+    return {
+      tarjeta:
+        "La función está confirmada en una fuente oficial, pero el uso concreto que elegiste no lo habíamos confirmado.",
+      titular: "con un uso sin confirmar",
+      grupo: "Candidatas con un uso sin confirmar",
+    };
   }
 }
 
