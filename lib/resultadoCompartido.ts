@@ -1,6 +1,7 @@
 import { getCategoria, getHerramienta, getProblema } from "@/data/repositorio";
 import { tipoProductoDe } from "@/data/taxonomia";
-import type { CausaSinConfirmar, HerramientaEvaluada } from "@/agents/atlas-advisor";
+import type { CausaSinConfirmar, EtiquetaEvidencia, HerramientaEvaluada } from "@/agents/atlas-advisor";
+import { textoDeFila } from "@/agents/atlas-advisor";
 import type { OrigenDiagnostico } from "@/lib/origenDiagnostico";
 import { leerTokenResultado, type PayloadTokenResultado } from "@/lib/resultadoToken";
 
@@ -24,6 +25,10 @@ export type ResultadoCompartido = {
    * catálogo es un dato distinto que no debe perderse.
    */
   sinConfirmar?: { necesidad: string; causas: { causa: CausaSinConfirmar; necesidad: string }[] };
+  /** La necesidad que eligió en la pregunta de aclaración, ya en palabras. */
+  necesidad?: { id: string; texto: string };
+  /** Cómo demuestra cada herramienta esa necesidad, por id. Sólo cuando hubo pregunta. */
+  evidencia?: Record<string, EtiquetaEvidencia>;
 };
 
 /**
@@ -63,10 +68,15 @@ export function resolverResultadoCompartido(token: string): ResultadoCompartido 
   }
   if (top.length === 0) return null;
 
+  const evidencia: Record<string, EtiquetaEvidencia> = {};
+  for (const item of payload.items) if (item.evidencia) evidencia[item.id] = item.evidencia;
+
   return {
     origen,
     top,
     generadoEn: payload.generadoEn,
+    ...(payload.necesidad ? { necesidad: { id: payload.necesidad, texto: textoSeguro(payload.necesidad) } } : {}),
+    ...(Object.keys(evidencia).length ? { evidencia } : {}),
     ...(payload.sinConfirmar?.causas.length
       ? {
           sinConfirmar: {
@@ -76,6 +86,15 @@ export function resolverResultadoCompartido(token: string): ResultadoCompartido 
         }
       : {}),
   };
+}
+
+/** Un enlace viejo puede nombrar una fila que ya no existe: se enseña el id antes que romper el resultado. */
+function textoSeguro(filaId: string): string {
+  try {
+    return textoDeFila(filaId).etiqueta;
+  } catch {
+    return filaId;
+  }
 }
 
 function construirOrigen(payload: PayloadTokenResultado): OrigenDiagnostico | null {

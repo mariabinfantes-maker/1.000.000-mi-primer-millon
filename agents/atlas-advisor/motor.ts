@@ -4,6 +4,7 @@ import { CRITERIOS } from "./criterios";
 import { filtrarPorNecesidad, preguntaParaAmbito } from "./preguntasDiferenciacion";
 import { criteriosDeRuta, rangoDeRuta } from "./criteriosRuta";
 import { compararTodoEnUnoVsEspecializada } from "./todoEnUnoVsEspecializada";
+import { NINGUNA_DE_ESTAS, filaDeNecesidad, textoDeFila } from "./necesidades";
 import type {
   ComparativaDeRutas,
   DetalleCriterio,
@@ -329,6 +330,47 @@ function seleccionarCandidatas(
     const quiereSuite = respuestas.preferenciaSuite === "todo_en_uno";
     const filtradasPorSuite = herramientas.filter((herramienta) => esSuite(herramienta) === quiereSuite);
     if (filtradasPorSuite.length > 0) universo = filtradasPorSuite;
+  }
+
+  /**
+   * La pregunta de aclaración — «opción B», 2026-09-16.
+   *
+   * Un objetivo no dice qué capacidad hace falta, así que la puerta no podía
+   * correr por aquí y «ahorrar tiempo» devolvía un corrector de textos a una
+   * peluquera que perdía citas. Con la necesidad concretada sí hay fila que
+   * exigir, y se exige sobre TODAS las herramientas, no sobre las etiquetadas
+   * con el objetivo: las etiquetas eran el problema, no el catálogo.
+   *
+   * Orden: la necesidad va después del filtro de suite y antes de puntuar,
+   * igual que la puerta por categoría. Filtra, no puntúa.
+   *
+   * Sin puerta no hay forma de comprobar nada, y el motor se comporta como
+   * antes de la pregunta: las pruebas de puntuación no la pasan y no tienen
+   * por qué. La ruta de API la pasa siempre.
+   */
+  if (respuestas.necesidadElegida && puerta) {
+    const objetivoId = objetivos[0];
+    if (respuestas.necesidadElegida === NINGUNA_DE_ESTAS) {
+      return { candidatas: [], sinRecomendacion: { tipo: "ninguna_de_estas", objetivoId } };
+    }
+    const fila = filaDeNecesidad(objetivoId, respuestas.necesidadElegida);
+    // Un id que no es de este objetivo no se interpreta: no se cae al
+    // catálogo entero por una respuesta que no se entiende.
+    if (!fila) return { candidatas: [], sinRecomendacion: { tipo: "necesidad_no_entendida" } };
+
+    const demuestran = universo.filter((h) => fila.capacidades.some((c) => puerta.loDemuestra(h.id, c)));
+    if (demuestran.length === 0) {
+      return {
+        candidatas: [],
+        sinRecomendacion: {
+          tipo: "necesidad_sin_cobertura",
+          objetivoId,
+          necesidadId: fila.id,
+          necesidad: textoDeFila(fila.id).etiqueta,
+        },
+      };
+    }
+    return { candidatas: demuestran };
   }
 
   const idsObjetivo = new Set(objetivos);

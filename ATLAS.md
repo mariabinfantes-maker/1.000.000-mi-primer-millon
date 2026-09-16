@@ -4006,6 +4006,84 @@ Sin tocar: en este mismo archivo hay **dos encabezados `## 11. Atlas
 Revenue`** duplicados. Es un defecto de documentación conocido y no se arregla
 aquí para no mezclarlo con el cambio de código.
 
+## 2026-09-16 — La pregunta que faltaba: opción B en la entrada por objetivo
+
+**Sin fusionar y sin desplegar.** No toca fichas, ni F2, ni Neon.
+
+### El defecto, medido
+
+Una peluquera que elige «Ahorrar tiempo» recibía Grammarly, Canva y
+Reclaim.ai. Diecisiete herramientas en ese universo, dieciséis asistentes de
+IA, y la puerta de evidencia sin correr porque `motor.ts:222` la condicionaba a
+`categoriaId`. Un objetivo no es una categoría: no dice qué capacidad exigir.
+
+### Lo decidido, y por qué
+
+1. **La necesidad elegida activa la puerta sobre las 62**, no sobre las
+   etiquetadas con el objetivo. Al medirlo: `workflow_automation` pasaba de
+   3/5 a 28/62 y la bandeja compartida de 0/6 a 3/62. Las etiquetas eran el
+   problema, no el catálogo.
+2. **Demostrado positivamente = verificado**: los 659 registros verificados
+   tienen profundidad nativa, módulo o integración, y **cero** `no_disponible`.
+3. **Las integraciones cuentan, con su tercero a la vista** y lo que no
+   sabemos de precio y condiciones. Cinco registros: Capsule vía Transpond,
+   Systeme.io vía pasarela, Copper vía un tercero sin nombrar, y Zoho
+   Projects y Less Annoying CRM con la nota vacía.
+4. **Tickets y chatbot se preguntan aunque nadie los demuestre** (0/62) y
+   acaban en «no lo cubrimos». Una necesidad que existe no desaparece porque
+   el catálogo no la tenga.
+5. **Conocimiento del equipo** en «Organizar» y en «Ahorrar tiempo»;
+   **reservas y recordatorios** también en «Ahorrar tiempo», en su familia
+   «Citas» — la de la peluquera.
+6. **«Emitir facturas» y «Cobrar online»** separadas, en «Organizar». Cobrar
+   no es conseguir clientes, y una fila con las dos prometería lo que
+   `exigeAlgunaDe` no puede.
+7. **«Ninguna de éstas»** en los cinco, sin nada genérico detrás.
+8. **Redacción en tres niveles**: confirmada, vía tercero, verificada sin
+   detalle. Pipedrive reserva citas con la nota vacía: se dice así.
+9. **Diseño (a)**: la pregunta es el primer paso del cuestionario. Todo lo
+   que necesita se sabe antes del análisis; dos fases serían dos peticiones
+   para el mismo resultado.
+10. **Textos separados de la lógica** desde el primer día, para el Molnip en
+    inglés que vendrá.
+
+### Dos filas que se retiraron mal y vuelven
+
+«Conocimiento del equipo» se presentó con un id inventado y, al corregir, se
+eliminó en vez de buscar la capacidad real: `cap.internal_knowledge_workspace`
+existe y la demuestra Taskade. Y «hacer un vídeo» absorbía en silencio «editar
+lo grabado», que es `cap.video_editing` y el vocabulario separa en su `noEs`.
+Son dos filas.
+
+### La peluquera, con el motor real
+
+Perfil 1-10 empleados, presupuesto ajustado. «Que cojan cita ellos mismos»:
+pasan 8 de 62; el top es Pipedrive, EngageBay, Reclaim.ai. **EngageBay** es
+la que le sirve: gratis hasta 250 contactos, en español, y su evidencia habla
+de *citas*. Pipedrive está verificado con la nota vacía; Reclaim.ai reserva
+*reuniones* y sólo en inglés. Con plan gratuito obligatorio: EngageBay,
+Reclaim.ai, Agiled. Nunca más Grammarly.
+
+### Lo que la pregunta no toca
+
+Las 2.520 combinaciones por categoría y subtipo, y las 600 por objetivo sin
+la pregunta, dan exactamente lo mismo que antes. Hay una prueba que lo fija.
+
+### Lo que salió de aquí y queda para después
+
+- **La tabla es el mapa de huecos del catálogo.** Cada fila con cobertura
+  baja es un encargo para el Researcher, y con la afiliación fuera del
+  filtro la regla de AGENTS.md pasa a ser ejecutable. Condición: fusionar la
+  reforma del Researcher, que hoy sigue descartando sin afiliación.
+- **La regla del idioma**, decidida y sin implementar: preferencia frente a
+  necesidad; capas y no puntos —los +5/−5 del criterio existente nunca
+  disparan porque nadie pregunta el idioma—; la etiqueta dice «no nos
+  consta», nunca «no está», hasta verificar; y **antes** de la regla, dos
+  campos nuevos —idioma de interfaz y de soporte— verificados en las 62
+  fichas. 18 no listan español y 5 no tienen el campo, y nadie lo comprobó.
+- **`text_generation`**: cuatro herramientas sostenidas por una nota, dos
+  de ellas sin describir la capacidad. No se reabre F2.
+
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 
 **Aprobada por la propietaria el 2026-08-31.** Auditada sobre el commit

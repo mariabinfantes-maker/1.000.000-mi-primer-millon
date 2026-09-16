@@ -1,9 +1,13 @@
 import { NextResponse } from "next/server";
 import { getHerramientas, getProblemas } from "@/data/repositorio";
-import { getPuertaDeEvidencia } from "@/data/verificacion/consulta";
+import { getPuertaDeEvidencia, getPuertoDeEvidencia } from "@/data/verificacion/consulta";
 import {
+  NINGUNA_DE_ESTAS,
   detectarProblemasPorTexto,
+  etiquetaDeEvidencia,
+  filaDeNecesidad,
   recomendarHerramientas,
+  type EtiquetaEvidencia,
   type HerramientaEvaluada,
   type RespuestasUsuario,
 } from "@/agents/atlas-advisor";
@@ -99,15 +103,34 @@ export async function POST(request: Request) {
     top = await personalizarRecomendaciones(resultado.top, respuestas, crearProveedorGemini());
   }
 
+  /**
+   * Opción B: si la persona concretó su necesidad, se anota para cada
+   * herramienta CÓMO la demuestra —confirmada, vía tercero, o verificada sin
+   * detalle— y viaja en el enlace. Se calcula aquí porque éste es el único
+   * lector de la verificación; la página del resultado no vuelve a mirarla.
+   */
+  const objetivoId = respuestas.problemaIdsCandidatos?.[0];
+  const fila =
+    respuestas.necesidadElegida && respuestas.necesidadElegida !== NINGUNA_DE_ESTAS
+      ? filaDeNecesidad(objetivoId, respuestas.necesidadElegida)
+      : undefined;
+  const etiquetaDe = (herramientaId: string): EtiquetaEvidencia | undefined =>
+    fila ? etiquetaDeEvidencia(herramientaId, fila, (h, c) => getPuertoDeEvidencia().estadoDe(h, c)) : undefined;
+
   const token = generarTokenResultado({
     origenTipo,
     origenId,
-    items: top.map((evaluada) => ({
-      id: evaluada.herramienta.id,
-      puntuacion: evaluada.puntuacionTotal,
-      explicacion: evaluada.explicacion,
-      advertencia: evaluada.tieneAdvertencia,
-    })),
+    ...(fila ? { necesidad: fila.id } : {}),
+    items: top.map((evaluada) => {
+      const evidencia = etiquetaDe(evaluada.herramienta.id);
+      return {
+        id: evaluada.herramienta.id,
+        puntuacion: evaluada.puntuacionTotal,
+        explicacion: evaluada.explicacion,
+        advertencia: evaluada.tieneAdvertencia,
+        ...(evidencia ? { evidencia } : {}),
+      };
+    }),
     generadoEn: new Date().toISOString(),
     /**
      * Si no se pudo confirmar lo que la persona pidió, viaja con el enlace —y

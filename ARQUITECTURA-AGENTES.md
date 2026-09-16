@@ -579,6 +579,41 @@ producto, no de datos.
 
 ---
 
+## Advisor — la pregunta de aclaración de la entrada por objetivo (opción B, 2026-09-16)
+
+**El defecto:** «soy peluquera y pierdo citas» entraba por «Ahorrar tiempo» y
+recibía Grammarly, Canva y Reclaim.ai. La puerta de evidencia de F3 no corría
+por ese camino: `motor.ts` la condicionaba a `categoriaId`, y un objetivo no
+dice qué capacidad hace falta.
+
+**La solución:** se pregunta. Cada objetivo se abre en necesidades concretas
+(`agents/atlas-advisor/necesidades.ts`, textos en `necesidades.textos.es.ts`),
+y la elegida es la fila que la puerta exige —`capacidades` es «alguna de
+éstas», como `exigeAlgunaDe`— **sobre las 62 herramientas**, no sobre las
+etiquetadas con el objetivo. La respuesta filtra; nunca puntúa.
+
+**Dónde va:** primer paso del cuestionario cuando se entra por objetivo.
+Todo lo que la pregunta necesita se sabe antes del análisis.
+
+**Lo que se le dice a la persona por cada herramienta**
+(`etiquetaEvidencia.ts`, calculado en la ruta de API y guardado en el
+enlace): *confirmada* con la nota de F2; *vía tercero*, nombrando cuál si
+consta; o *verificada sin detalle*. Ninguna de las tres afirma que una
+herramienta NO haga algo.
+
+**«Ninguna de éstas»** está en los cinco objetivos y nunca devuelve el
+catálogo: ofrece contarlo con sus palabras o elegir un tipo de herramienta.
+Una necesidad sin cobertura (tickets, chatbot) se pregunta igual y acaba en
+«no lo cubrimos», con sus palabras: es el mapa de huecos del catálogo.
+
+**Lo que no cambia:** las 2.520 combinaciones por categoría y subtipo, y las
+600 por objetivo sin la pregunta, dan exactamente lo mismo que antes
+(`data/verificacion/__tests__/opcionB.test.ts`).
+
+**Pendiente, decidido y sin implementar:** la regla del idioma —preferencia
+frente a necesidad, capas y no puntos, y verificar antes el idioma de
+interfaz y soporte en las 62 fichas—. Commit propio.
+
 ## Advisor — preguntas adaptativas de diferenciación
 
 `agents/atlas-advisor/preguntasDiferenciacion.ts`

@@ -1,7 +1,7 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 import { deflateRawSync, inflateRawSync } from "node:zlib";
 import type { TipoOrigenDiagnostico } from "@/lib/origenDiagnostico";
-import type { CausaSinConfirmar } from "@/agents/atlas-advisor";
+import type { CausaSinConfirmar, EtiquetaEvidencia } from "@/agents/atlas-advisor";
 
 /**
  * Persistencia de resultados sin base de datos: todo el estado necesario
@@ -26,6 +26,13 @@ export type ItemTokenResultado = {
   puntuacion: number;
   explicacion: string;
   advertencia: boolean;
+  /**
+   * Cómo demuestra esta herramienta la necesidad elegida (opción B). Viaja en
+   * el enlace porque la verificación sólo puede leerse desde la ruta de API:
+   * la página del resultado no tiene permiso para volver a consultarla, y no
+   * debería — el enlace guarda lo que se dijo, no cómo se calculó.
+   */
+  evidencia?: EtiquetaEvidencia;
 };
 
 export type PayloadTokenResultado = {
@@ -52,6 +59,12 @@ export type PayloadTokenResultado = {
    * en el servidor: se deducen del ámbito y engordarían cada enlace.
    */
   sinConfirmar?: { causas: { causa: CausaSinConfirmar; necesidad: string }[] };
+  /**
+   * La fila de la pregunta de aclaración que la persona eligió (opción B). Es
+   * un id corto; el texto se resuelve al abrir el enlace, en el idioma del
+   * sitio. Opcional dentro de `v: 1` por el mismo motivo que `sinConfirmar`.
+   */
+  necesidad?: string;
   /** ISO 8601 — momento en que Atlas calculó esta recomendación, para mostrarlo al recuperar un enlace antiguo. */
   generadoEn: string;
 };

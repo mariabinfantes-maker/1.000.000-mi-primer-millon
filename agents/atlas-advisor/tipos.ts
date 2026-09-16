@@ -82,6 +82,14 @@ export type RespuestasUsuario = {
    * capacidad declarada en las fichas; no da ni quita puntos a nadie.
    */
   necesidadDelSubtipo?: string;
+  /**
+   * Respuesta a la pregunta de aclaración de la entrada por objetivo (ver
+   * `necesidades.ts`): el id de una fila, o `NINGUNA_DE_ESTAS`. Convierte el
+   * objetivo en una fila que la puerta de evidencia puede exigir sobre las
+   * 62 herramientas — sin ella, un objetivo no dice qué capacidad hace
+   * falta y la puerta no tiene nada que comprobar.
+   */
+  necesidadElegida?: string;
   /** Descripción libre de la situación del usuario, contrastada contra casosNoRecomendados de cada herramienta. */
   notasAdicionales?: string;
 };
@@ -175,7 +183,20 @@ export type MotivoSinRecomendacion =
   /** No se pudo determinar qué necesita la persona. No es un fallo suyo: es que no lo hemos entendido. */
   | { tipo: "necesidad_no_entendida" }
   /** Sí se entendió el objetivo, pero el catálogo no tiene ninguna herramienta que lo cubra. */
-  | { tipo: "sin_cobertura"; objetivoIds: string[] };
+  | { tipo: "sin_cobertura"; objetivoIds: string[] }
+  /**
+   * La persona concretó su necesidad y ninguna de las 62 herramientas la ha
+   * DEMOSTRADO. Distinto de `sin_cobertura`: aquí se sabe exactamente qué
+   * faltó, y `necesidad` lo dice en sus palabras. Es el mapa de huecos del
+   * catálogo, fila a fila.
+   */
+  | { tipo: "necesidad_sin_cobertura"; objetivoId: string; necesidadId: string; necesidad: string }
+  /**
+   * Eligió «ninguna de éstas». No se enseña nada genérico: se le ofrecen las
+   * otras dos puertas —contarlo con sus palabras, o elegir un tipo de
+   * herramienta—, que es lo que un asesor haría en vez de adivinar.
+   */
+  | { tipo: "ninguna_de_estas"; objetivoId: string };
 
 /**
  * Por qué no se pudo comprobar lo que la persona pidió.

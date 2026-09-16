@@ -20,6 +20,18 @@ export { evaluarHerramienta, recomendarHerramientas } from "./motor";
 export { CRITERIOS } from "./criterios";
 export { detectarProblemasPorTexto } from "./deteccionProblema";
 export { compararTodoEnUnoVsEspecializada } from "./todoEnUnoVsEspecializada";
+export {
+  NINGUNA_DE_ESTAS,
+  enunciadoDe,
+  filaDeNecesidad,
+  preguntaParaObjetivo,
+  textoDeFila,
+  tituloDeFamilia,
+} from "./necesidades";
+export { TEXTOS_NECESIDADES } from "./necesidades.textos.es";
+export { etiquetaDeEvidencia } from "./etiquetaEvidencia";
+export type { EtiquetaEvidencia } from "./etiquetaEvidencia";
+export type { FilaDeNecesidad, FamiliaDeNecesidades, PreguntaDeNecesidad } from "./necesidades";
 export type {
   CausaSinConfirmar,
   Criterio,

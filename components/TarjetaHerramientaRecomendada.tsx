@@ -1,4 +1,5 @@
-import { AlertTriangle, ArrowUpRight, Check, ChevronRight, Code2, Globe, Lightbulb, Puzzle, Smartphone, X } from "lucide-react";
+import { AlertTriangle, ArrowUpRight, Check, ChevronRight, Code2, Globe, Lightbulb, Puzzle, ShieldCheck, ShieldQuestion, Smartphone, X } from "lucide-react";
+import type { EtiquetaEvidencia } from "@/agents/atlas-advisor/etiquetaEvidencia";
 import Link from "next/link";
 import type { Reputacion } from "@/data/esquema";
 import Tarjeta from "@/components/ui/Tarjeta";
@@ -45,6 +46,12 @@ export type TarjetaHerramientaRecomendadaProps = {
   disponibleEnEspanol: boolean;
   tieneAppMovil: boolean;
   tieneApiPublica: boolean;
+  /**
+   * Cómo demuestra la necesidad que la persona eligió (opción B). Sólo llega
+   * cuando hubo pregunta de aclaración. Es un tipo plano y sin lógica, como
+   * el resto del contrato: la tarjeta lo pinta, no lo decide.
+   */
+  evidencia?: EtiquetaEvidencia;
 };
 
 export default function TarjetaHerramientaRecomendada({
@@ -67,6 +74,7 @@ export default function TarjetaHerramientaRecomendada({
   disponibleEnEspanol,
   tieneAppMovil,
   tieneApiPublica,
+  evidencia,
 }: TarjetaHerramientaRecomendadaProps) {
   const destacada = posicion === 1;
   const tieneDetalles = motivosPuntuacion.length > 0 || casosNoRecomendados.length > 0;
@@ -108,6 +116,47 @@ export default function TarjetaHerramientaRecomendada({
       <p className="mt-3 rounded-xl bg-brand-50/70 p-3 text-sm leading-relaxed text-brand-800">
         {explicacionPersonalizada}
       </p>
+
+      {/*
+        Tres niveles y tres frases distintas, porque «lo demuestra» no es una
+        sola cosa. Ninguna de las tres dice que la herramienta NO haga algo:
+        F2 no obtuvo ni una ausencia demostrada, y sin ese dato la frase no
+        puede escribirse.
+      */}
+      {evidencia && (
+        <p className="mt-3 flex items-start gap-1.5 text-sm leading-relaxed text-slate-600">
+          {evidencia.tipo === "confirmada" ? (
+            <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-exito-500" aria-hidden="true" />
+          ) : evidencia.tipo === "via_tercero" ? (
+            <Puzzle className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" aria-hidden="true" />
+          ) : (
+            <ShieldQuestion className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" aria-hidden="true" />
+          )}
+          <span>
+            {evidencia.tipo === "confirmada" && (
+              <>
+                <span className="font-medium text-slate-800">Lo que la evidencia confirma:</span> {evidencia.nota}
+              </>
+            )}
+            {evidencia.tipo === "via_tercero" && (
+              <>
+                Lo hace a través de otra herramienta
+                {evidencia.tercero ? (
+                  <>
+                    : <span className="font-medium text-slate-800">{evidencia.tercero}</span>
+                  </>
+                ) : (
+                  ", y no nos consta cuál"
+                )}
+                . El precio y las condiciones de esa conexión no los conocemos.
+              </>
+            )}
+            {evidencia.tipo === "sin_detalle" && (
+              <>Verificado, pero no tenemos el detalle de cómo lo hace. Compruébalo en su página antes de decidir.</>
+            )}
+          </span>
+        </p>
+      )}
 
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <span className="text-sm font-semibold text-slate-900">{precioInicial}</span>

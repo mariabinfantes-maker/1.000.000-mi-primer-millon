@@ -75,6 +75,8 @@ export default async function ResultadoPage({ params }: { params: Promise<{ toke
       token={token}
       top={resultado.top}
       sinConfirmar={resultado.sinConfirmar}
+      necesidad={resultado.necesidad}
+      evidencia={resultado.evidencia}
     />
   );
 }

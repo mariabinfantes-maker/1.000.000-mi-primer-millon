@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { preguntaParaAmbito } from "@/agents/atlas-advisor/preguntasDiferenciacion";
+import { NINGUNA_DE_ESTAS, enunciadoDe, preguntaParaObjetivo, textoDeFila, tituloDeFamilia } from "@/agents/atlas-advisor/necesidades";
+import { TEXTOS_NECESIDADES } from "@/agents/atlas-advisor/necesidades.textos.es";
 import Image from "next/image";
 import { ArrowLeft, Check } from "lucide-react";
 import { RANGOS_EMPLEADOS, type RangoEmpleados } from "@/lib/cuestionario";
@@ -54,12 +56,22 @@ export default function Cuestionario({
   const preguntaSubtipo = preguntaParaAmbito(origen.categoriaIdPrefill, subtipoId);
   const [necesidadDelSubtipo, setNecesidadDelSubtipo] = useState<string | null>(null);
 
+  // Opción B (2026-09-16): en la entrada por objetivo, lo primero que se
+  // pregunta es la necesidad concreta. Va ANTES del análisis porque todo lo
+  // que necesita —el objetivo— ya se sabe al entrar; es la misma mecánica que
+  // la pregunta de subtipo, y la respuesta filtra en el motor, no puntúa.
+  const preguntaObjetivo = preguntaParaObjetivo(origen.problemaIdPrefill);
+  const [necesidadElegida, setNecesidadElegida] = useState<string | null>(null);
+
+  const mostrarPreguntaObjetivo = Boolean(preguntaObjetivo);
   const mostrarPreguntaSuite = !origen.categoriaIdPrefill;
   const mostrarPreguntaSubtipo = Boolean(preguntaSubtipo);
-  const TOTAL_PREGUNTAS = (mostrarPreguntaSuite ? 5 : 4) + (mostrarPreguntaSubtipo ? 1 : 0);
-  const PASO_SUITE = 0;
-  const PASO_NECESIDAD = mostrarPreguntaSuite ? 1 : 0;
-  const PASO_SECTOR = (mostrarPreguntaSuite ? 1 : 0) + (mostrarPreguntaSubtipo ? 1 : 0);
+  const DESPLAZAMIENTO_OBJETIVO = mostrarPreguntaObjetivo ? 1 : 0;
+  const TOTAL_PREGUNTAS = (mostrarPreguntaSuite ? 5 : 4) + (mostrarPreguntaSubtipo ? 1 : 0) + DESPLAZAMIENTO_OBJETIVO;
+  const PASO_OBJETIVO = 0;
+  const PASO_SUITE = DESPLAZAMIENTO_OBJETIVO;
+  const PASO_NECESIDAD = DESPLAZAMIENTO_OBJETIVO + (mostrarPreguntaSuite ? 1 : 0);
+  const PASO_SECTOR = DESPLAZAMIENTO_OBJETIVO + (mostrarPreguntaSuite ? 1 : 0) + (mostrarPreguntaSubtipo ? 1 : 0);
   const PASO_EMPLEADOS = PASO_SECTOR + 1;
   const PASO_PROBLEMA = PASO_EMPLEADOS + 1;
   const PASO_HERRAMIENTA = PASO_PROBLEMA + 1;
@@ -79,6 +91,7 @@ export default function Cuestionario({
   const [sinRecomendacion, setSinRecomendacion] = useState<MotivoSinRecomendacion | null>(null);
 
   const puedeAvanzar =
+    (mostrarPreguntaObjetivo && paso === PASO_OBJETIVO && necesidadElegida !== null) ||
     (mostrarPreguntaSuite && paso === PASO_SUITE && preferenciaSuite !== null) ||
     (mostrarPreguntaSubtipo && paso === PASO_NECESIDAD && necesidadDelSubtipo !== null) ||
     (paso === PASO_SECTOR && sector.trim().length > 0) ||
@@ -123,6 +136,7 @@ export default function Cuestionario({
       notasAdicionales,
       subtipoId,
       necesidadDelSubtipo: necesidadDelSubtipo ?? undefined,
+      necesidadElegida: necesidadElegida ?? undefined,
     };
 
     const intervalo = setInterval(() => {
@@ -229,6 +243,79 @@ export default function Cuestionario({
         </div>
 
         <div className="relative">
+        {mostrarPreguntaObjetivo && paso === PASO_OBJETIVO && preguntaObjetivo && (
+          <fieldset>
+            <legend className="font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+              {enunciadoDe(preguntaObjetivo.objetivoId)}
+            </legend>
+            <p className="mt-2 text-sm text-slate-500">
+              Elige lo que más se parezca a lo tuyo. Si no está, dímelo abajo y te lo pregunto de otra forma.
+            </p>
+            <div className="mt-5 flex flex-col gap-5">
+              {preguntaObjetivo.familias.map((familia) => {
+                const titulo = tituloDeFamilia(familia.id);
+                return (
+                  <div key={familia.id}>
+                    {titulo && (
+                      <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">{titulo}</h3>
+                    )}
+                    <div className="flex flex-col gap-3">
+                      {familia.filas.map((fila) => {
+                        const texto = textoDeFila(fila.id);
+                        const seleccionado = necesidadElegida === fila.id;
+                        return (
+                          <button
+                            key={fila.id}
+                            type="button"
+                            onClick={() => setNecesidadElegida(fila.id)}
+                            className={`flex items-start justify-between gap-3 rounded-xl border px-4 py-3.5 text-left transition-all ${
+                              seleccionado
+                                ? "border-brand-600 bg-brand-50 shadow-premium ring-1 ring-brand-100"
+                                : "border-slate-200 bg-white hover:border-brand-300 hover:bg-brand-50/40"
+                            }`}
+                          >
+                            <span>
+                              <span className={`block text-sm font-semibold ${seleccionado ? "text-brand-700" : "text-slate-700"}`}>
+                                {texto.etiqueta}
+                              </span>
+                              <span className="mt-0.5 block text-sm text-slate-500">{texto.descripcion}</span>
+                            </span>
+                            {seleccionado && <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" aria-hidden="true" />}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+              {/* Siempre la última y siempre presente: elegirla nunca devuelve algo genérico. */}
+              <button
+                type="button"
+                onClick={() => setNecesidadElegida(NINGUNA_DE_ESTAS)}
+                className={`flex items-start justify-between gap-3 rounded-xl border border-dashed px-4 py-3.5 text-left transition-all ${
+                  necesidadElegida === NINGUNA_DE_ESTAS
+                    ? "border-brand-600 bg-brand-50 shadow-premium ring-1 ring-brand-100"
+                    : "border-slate-300 bg-white hover:border-brand-300 hover:bg-brand-50/40"
+                }`}
+              >
+                <span>
+                  <span
+                    className={`block text-sm font-semibold ${
+                      necesidadElegida === NINGUNA_DE_ESTAS ? "text-brand-700" : "text-slate-700"
+                    }`}
+                  >
+                    {TEXTOS_NECESIDADES.ninguna.etiqueta}
+                  </span>
+                  <span className="mt-0.5 block text-sm text-slate-500">{TEXTOS_NECESIDADES.ninguna.descripcion}</span>
+                </span>
+                {necesidadElegida === NINGUNA_DE_ESTAS && (
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" aria-hidden="true" />
+                )}
+              </button>
+            </div>
+          </fieldset>
+        )}
+
         {mostrarPreguntaSubtipo && paso === PASO_NECESIDAD && preguntaSubtipo && (
           <fieldset>
             <legend className="font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">

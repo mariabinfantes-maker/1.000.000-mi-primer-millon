@@ -4,7 +4,7 @@ import { aVistaDeTarjeta } from "@/lib/vistaRecomendacion";
 import type { OrigenDiagnostico } from "@/lib/origenDiagnostico";
 import { rutaDesdeOrigenDiagnostico } from "@/agents/atlas-revenue/rutaOrigen";
 import { getAgente } from "@/lib/agentes";
-import type { HerramientaEvaluada } from "@/agents/atlas-advisor";
+import type { EtiquetaEvidencia, HerramientaEvaluada } from "@/agents/atlas-advisor";
 import EnlaceAtras from "@/components/ui/EnlaceAtras";
 import Boton from "@/components/ui/Boton";
 import BotonCompartir from "@/components/ui/BotonCompartir";
@@ -34,6 +34,8 @@ export default function PantallaRecomendacion({
   token,
   top,
   sinConfirmar,
+  necesidad,
+  evidencia,
 }: {
   origen: OrigenDiagnostico;
   token: string;
@@ -44,13 +46,17 @@ export default function PantallaRecomendacion({
    * tono entero, no añade una nota al pie.
    */
   sinConfirmar?: { necesidad: string };
+  /** La necesidad que eligió en la pregunta de aclaración (opción B). Cambia el titular: se dice para qué sirven. */
+  necesidad?: { texto: string };
+  /** Cómo demuestra cada herramienta esa necesidad, por id. */
+  evidencia?: Record<string, EtiquetaEvidencia>;
 }) {
   // Atlas Revenue: de qué recorrido salió esta recomendación. Es la fuente
   // esencial del piloto — sin ella, los clics desde la pantalla final se
   // registran sin saber qué camino los produjo.
   const rutaOrigen = rutaDesdeOrigenDiagnostico(origen);
 
-  const vistas = top.map((evaluada, indice) => aVistaDeTarjeta(evaluada, indice + 1));
+  const vistas = top.map((evaluada, indice) => aVistaDeTarjeta(evaluada, indice + 1, evidencia?.[evaluada.herramienta.id]));
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
@@ -81,9 +87,13 @@ export default function PantallaRecomendacion({
             <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               {sinConfirmar
                 ? `Lo mejor de ${origen.titulo}, sin esa necesidad comprobada`
-                : vistas.length === 1
-                  ? "Tu mejor opción"
-                  : `Tus ${vistas.length} mejores opciones`}
+                : necesidad
+                  ? vistas.length === 1
+                    ? `Una opción para «${necesidad.texto}»`
+                    : `${vistas.length} opciones para «${necesidad.texto}»`
+                  : vistas.length === 1
+                    ? "Tu mejor opción"
+                    : `Tus ${vistas.length} mejores opciones`}
             </h1>
             <p className="mt-3 max-w-2xl leading-relaxed text-slate-600">
               {sinConfirmar ? (
@@ -93,6 +103,12 @@ export default function PantallaRecomendacion({
                   respuesta a lo que preguntabas. Antes de contratar ninguna, comprueba tú mismo en su
                   página lo siguiente:{" "}
                   <strong className="font-semibold text-slate-900">{sinConfirmar.necesidad}</strong>.
+                </>
+              ) : necesidad ? (
+                <>
+                  Estas son las herramientas que han <strong className="font-semibold text-slate-900">demostrado</strong>{" "}
+                  hacer lo que elegiste, entre las 62 del catálogo y sin mirar para qué fueron creadas. Debajo de cada
+                  una está lo que la evidencia confirma y lo que no sabemos. El orden es cómo encajan con tu situación.
                 </>
               ) : vistas.length === 1 ? (
                 "Hemos cruzado tus respuestas con nuestra base de herramientas. Esta es la que mejor encaja contigo — todavía no tenemos otra opción investigada en esta categoría con la que compararla."

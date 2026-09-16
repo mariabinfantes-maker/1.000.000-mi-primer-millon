@@ -1,4 +1,4 @@
-import type { HerramientaEvaluada } from "@/agents/atlas-advisor";
+import type { EtiquetaEvidencia, HerramientaEvaluada } from "@/agents/atlas-advisor";
 import type { Herramienta } from "@/data/esquema";
 import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
 import type { TarjetaHerramientaRecomendadaProps } from "@/components/TarjetaHerramientaRecomendada";
@@ -23,7 +23,11 @@ function camposComunes(herramienta: Herramienta) {
  * es el único archivo que debería tocarse; el componente visual no sabe
  * nada de cómo se llegó a estos datos.
  */
-export function aVistaDeTarjeta(evaluada: HerramientaEvaluada, posicion: number): TarjetaHerramientaRecomendadaProps {
+export function aVistaDeTarjeta(
+  evaluada: HerramientaEvaluada,
+  posicion: number,
+  evidencia?: EtiquetaEvidencia
+): TarjetaHerramientaRecomendadaProps {
   const { herramienta } = evaluada;
 
   // La "Puntuación Atlas" (0-100) mostrada al usuario es la misma que
@@ -48,6 +52,7 @@ export function aVistaDeTarjeta(evaluada: HerramientaEvaluada, posicion: number)
     tieneAdvertencia: evaluada.tieneAdvertencia,
     casoDeUso: herramienta.casosDeUso[0] ?? null,
     casosNoRecomendados: herramienta.casosNoRecomendados,
+    ...(evidencia ? { evidencia } : {}),
     ...camposComunes(herramienta),
   };
 }
