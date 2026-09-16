@@ -6,6 +6,7 @@ import {
   detectarProblemasPorTexto,
   etiquetaDeEvidencia,
   filaDeNecesidad,
+  preguntaParaObjetivo,
   recomendarHerramientas,
   type EtiquetaEvidencia,
   type HerramientaEvaluada,
@@ -63,6 +64,24 @@ export async function POST(request: Request) {
   }
 
   let respuestas: RespuestasUsuario = cuerpo.respuestas ?? {};
+
+  /**
+   * Opción B: la pregunta de aclaración es obligatoria en la entrada por
+   * objetivo. El cuestionario ya no deja avanzar sin contestarla, pero la
+   * ruta no puede fiarse de eso: cualquier petición que llegue aquí como
+   * «objetivo» sin una necesidad elegida —o con una que no es de ese
+   * objetivo— volvería a las recomendaciones genéricas por etiqueta, que es
+   * justo lo que la pregunta existe para impedir. Se rechaza, no se rellena.
+   */
+  if (origenTipo === "objetivo" && preguntaParaObjetivo(origenId)) {
+    const elegida = respuestas.necesidadElegida;
+    if (!elegida) {
+      return NextResponse.json({ error: "Falta la necesidad elegida: la pregunta de aclaración es obligatoria." }, { status: 400 });
+    }
+    if (elegida !== NINGUNA_DE_ESTAS && !filaDeNecesidad(origenId, elegida)) {
+      return NextResponse.json({ error: "La necesidad elegida no pertenece a este objetivo." }, { status: 400 });
+    }
+  }
 
   // Puerta "Cuéntanoslo": a diferencia de "por categoría" y "por objetivo",
   // aquí no llega ninguna elección explícita — solo texto libre. `getProblemas()`

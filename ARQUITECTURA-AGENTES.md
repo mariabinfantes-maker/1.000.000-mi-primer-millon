@@ -593,7 +593,14 @@ y la elegida es la fila que la puerta exige —`capacidades` es «alguna de
 etiquetadas con el objetivo. La respuesta filtra; nunca puntúa.
 
 **Dónde va:** primer paso del cuestionario cuando se entra por objetivo.
-Todo lo que la pregunta necesita se sabe antes del análisis.
+Todo lo que la pregunta necesita se sabe antes del análisis. **Y es
+obligatoria en el servidor, no sólo en el navegador:** la ruta
+`app/api/recomendaciones/route.ts` rechaza con 400 una petición «objetivo»
+sin necesidad elegida, o con una que no es de ese objetivo, porque en la
+revisión previa a fusionar se comprobó que sin eso devolvía el enlace con las
+recomendaciones genéricas de antes
+(`app/api/recomendaciones/__tests__/preguntaObligatoria.test.ts`). La entrada
+«Cuéntanoslo» no tiene pregunta y sigue igual: es un punto abierto.
 
 **Lo que se le dice a la persona por cada herramienta**
 (`etiquetaEvidencia.ts`, calculado en la ruta de API y guardado en el

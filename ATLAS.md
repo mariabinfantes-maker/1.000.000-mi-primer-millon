@@ -4069,6 +4069,37 @@ Reclaim.ai, Agiled. Nunca más Grammarly.
 Las 2.520 combinaciones por categoría y subtipo, y las 600 por objetivo sin
 la pregunta, dan exactamente lo mismo que antes. Hay una prueba que lo fija.
 
+### La revisión previa a fusionar (mismo día)
+
+La propietaria pidió comprobar el recorrido antes de aprobarlo, en cinco
+puntos. Lo que se encontró y lo que se hizo:
+
+1. **La pregunta se podía saltar.** El cuestionario no dejaba avanzar sin
+   contestarla, pero una petición directa a `/api/recomendaciones` como
+   «objetivo» sin `necesidadElegida` devolvía un enlace con las 17 genéricas
+   de siempre. Ahora la ruta la rechaza con 400, y también rechaza una
+   necesidad de otro objetivo. Hay prueba. **Queda abierto** que la entrada
+   «Cuéntanoslo» sigue sin pregunta: detecta el objetivo por el texto y
+   recomienda por etiqueta, como antes de la opción B.
+2. **Evidencia y enlaces.** Las etiquetas salen del registro de F2 tal cual:
+   `integraCon` existe y se enseña. El recorte a 160 caracteres no ha
+   actuado en ninguna de las 202 notas confirmadas (la más larga tiene 125).
+   Los enlaces de antes de la opción B abren igual; uno nuevo con tres
+   etiquetas pasa de 213 a 401 caracteres. De los 312 pares fila×herramienta
+   que pasan la puerta, **104 salen «verificado, pero sin el detalle»**: en
+   «Margen por trabajo» son 4 de 4, en «Proyectos» 10 de 14. Es lo que hay
+   en F2, y se enseña como tal.
+3. **Pruebas neutrales.** Las pruebas con datos reales nombraban a EngageBay,
+   Grammarly, Canva y Reclaim.ai. Ahora comprueban propiedades: que lo
+   recomendado demuestra la capacidad de la fila, que pasan todas las que la
+   demuestran y ninguna más, que el orden respeta la puntuación y que con
+   plan gratuito obligatorio suben las que lo tienen. Ninguna marca.
+4. **Móvil.** La pregunta muestra todas las familias a la vez: «Ahorrar
+   tiempo» ocupa 3,3 pantallas de 390 px antes de llegar a «Ninguna de éstas»
+   y «Siguiente». Se entregaron las capturas para decidir; no se cambió.
+5. **Las etiquetas se implementaron antes de aprobarse.** Se entregaron los
+   tres textos exactos que ve el cliente, con capturas, para su aprobación.
+
 ### Lo que salió de aquí y queda para después
 
 - **La tabla es el mapa de huecos del catálogo.** Cada fila con cobertura

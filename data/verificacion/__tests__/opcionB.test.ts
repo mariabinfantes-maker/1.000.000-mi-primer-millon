@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { getProblemas, getTodasLasCategorias, getTodasLasHerramientas } from "@/data/repositorio";
 import { getCapacidad } from "@/data/vocabulario/repositorio";
 import { recomendarHerramientas } from "@/agents/atlas-advisor/motor";
-import { NECESIDADES, todasLasFilas } from "@/agents/atlas-advisor/necesidades";
+import { NECESIDADES, filaDeNecesidad, todasLasFilas } from "@/agents/atlas-advisor/necesidades";
 import { etiquetaDeEvidencia } from "@/agents/atlas-advisor/etiquetaEvidencia";
 import { perfilesDePrueba } from "@/agents/atlas-advisor/__tests__/perfiles";
 import { getPuertaDeEvidencia, getPuertoDeEvidencia } from "../consulta";
@@ -55,36 +55,53 @@ describe("lo que la tabla afirma sobre los datos, contrastado", () => {
 /**
  * La peluquera del 2026-09-02, ahora con la pregunta. Perfil real: sola o con
  * una empleada, presupuesto ajustado, pierde citas.
+ *
+ * Estas pruebas no nombran herramientas: comprueban que lo recomendado cumple
+ * la necesidad, no que aparezca una marca concreta. Si mañana otra ficha
+ * demuestra la reserva de citas y encaja mejor, la prueba tiene que seguir
+ * pasando — el catálogo está vivo y la prueba no es quien decide el orden.
  */
 describe("la peluquera que perdía citas", () => {
   const perfil = { problemaIdsCandidatos: ["ahorrar-tiempo"], tamanoEmpresa: "1-10" as const, presupuesto: "ajustado" as const };
-  const nombres = (r: ReturnType<typeof recomendarHerramientas>) => r.top.map((e) => e.herramienta.id);
+  // Las capacidades salen de la propia fila, no se copian aquí: si la fila
+  // cambia, la prueba sigue comprobando lo que la pregunta promete.
+  const capacidadesDe = (filaId: string) => filaDeNecesidad("ahorrar-tiempo", filaId)!.capacidades;
+  const RESERVA = capacidadesDe("citas-reserva");
+  const RECORDATORIO = capacidadesDe("recordatorios-citas");
+  const demuestra = (id: string, capacidades: string[]) => capacidades.some((c) => evidencia.loDemuestra(id, c));
+  const quienesDemuestran = (capacidades: string[]) => catalogo.filter((h) => demuestra(h.id, capacidades));
 
-  it("hoy, sin pregunta, sigue recibiendo lo de siempre (y por eso hace falta la pregunta)", () => {
-    expect(nombres(recomendarHerramientas(perfil, catalogo, { evidencia }))).toEqual(["grammarly", "canva", "reclaim-ai"]);
+  it("hoy, sin pregunta, le salen herramientas que no han demostrado reservar citas (y por eso hace falta la pregunta)", () => {
+    const r = recomendarHerramientas(perfil, catalogo, { evidencia });
+    expect(r.top.length).toBeGreaterThan(0);
+    expect(r.top.some((e) => !demuestra(e.herramienta.id, RESERVA))).toBe(true);
   });
 
-  it("«que cojan cita ellos mismos»: sólo quien lo ha demostrado, y nunca un corrector de textos", () => {
+  it("«que cojan cita ellos mismos»: sólo quien lo ha demostrado, todas las que lo han demostrado, y nada más", () => {
     const r = recomendarHerramientas({ ...perfil, necesidadElegida: "citas-reserva" }, catalogo, { evidencia });
     expect(r.sinRecomendacion).toBeUndefined();
-    const top = nombres(r);
-    expect(top).toContain("engagebay");
-    for (const id of ["grammarly", "canva", "jasper", "copy-ai"]) expect(nombres(r)).not.toContain(id);
-    for (const e of r.todas) expect(evidencia.loDemuestra(e.herramienta.id, "cap.online_self_service_booking"), e.herramienta.id).toBe(true);
+    expect(r.top.length).toBeGreaterThan(0);
+    expect(r.todas.map((e) => e.herramienta.id).sort()).toEqual(quienesDemuestran(RESERVA).map((h) => h.id).sort());
+    for (const e of r.top) expect(demuestra(e.herramienta.id, RESERVA), e.herramienta.id).toBe(true);
   });
 
-  it("«recordar las citas sin llamar»: cuatro lo demuestran, y EngageBay encaja primero con su perfil", () => {
+  it("«recordar las citas sin llamar»: las que lo demuestran, ordenadas por encaje con su perfil", () => {
     const r = recomendarHerramientas({ ...perfil, necesidadElegida: "recordatorios-citas" }, catalogo, { evidencia });
-    expect(r.todas).toHaveLength(4);
-    expect(nombres(r)[0]).toBe("engagebay");
+    expect(r.todas.map((e) => e.herramienta.id).sort()).toEqual(quienesDemuestran(RECORDATORIO).map((h) => h.id).sort());
+    const puntuaciones = r.top.map((e) => e.puntuacionTotal);
+    expect(puntuaciones).toEqual([...puntuaciones].sort((a, b) => b - a));
   });
 
-  it("con plan gratuito obligatorio, las de pago bajan y las gratuitas suben", () => {
+  it("con plan gratuito obligatorio, entre las que reservan citas suben las que lo tienen", () => {
     const r = recomendarHerramientas({ ...perfil, necesidadElegida: "citas-reserva", requierePlanGratuito: true }, catalogo, { evidencia });
-    expect(nombres(r).slice(0, 2).sort()).toEqual(["engagebay", "reclaim-ai"]);
+    const gratuitasQueReservan = quienesDemuestran(RESERVA).filter((h) => h.tienePlanGratuito).length;
+    const esperadas = Math.min(gratuitasQueReservan, r.top.length);
+    expect(esperadas).toBeGreaterThan(0);
+    for (const e of r.top.slice(0, esperadas)) expect(e.herramienta.tienePlanGratuito, e.herramienta.id).toBe(true);
+    for (const e of r.top) expect(demuestra(e.herramienta.id, RESERVA), e.herramienta.id).toBe(true);
   });
 
-  it("«ninguna de éstas» la manda a contarlo con sus palabras, no a Grammarly", () => {
+  it("«ninguna de éstas» la manda a contarlo con sus palabras, no a un corrector de textos", () => {
     const r = recomendarHerramientas({ ...perfil, necesidadElegida: "ninguna" }, catalogo, { evidencia });
     expect(r.top).toEqual([]);
     expect(r.sinRecomendacion?.tipo).toBe("ninguna_de_estas");
