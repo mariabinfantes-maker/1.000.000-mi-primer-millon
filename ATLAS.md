@@ -4512,6 +4512,76 @@ fuentes; Teachable sale sólo en inglés según su borrador. El coste real del
 disparo se lee en la consola de Google y se anota aquí cuando la
 propietaria lo diga.
 
+### Los tres borradores, verificados contra fuentes oficiales (2026-09-16)
+
+La propietaria autorizó guardar y verificar; nada promovido. Los borradores,
+el registro de ejecución (sin secretos) y la verificación campo a campo
+están en `agents/atlas-researcher/lotes/resultados/cursos-1/`, marcados
+como pendientes de verificar. **Límite del método:** las páginas oficiales
+no se pueden leer desde el entorno remoto; se usó el buscador restringido a
+los dominios oficiales, así que las citas son las frases que devolvió el
+buscador y quedan pendientes de cita literal. Lo que no devolvió está como
+desconocido.
+
+**Lo que el modelo se inventó o confundió, y se corrige:**
+
+- **Thinkific no tiene plan gratuito**: prueba de 30 días. El borrador
+  decía «plan gratuito limitado» y «desde 36 $/mes»; los precios citados por
+  el soporte son 54, 109 y 219 $/mes, con subida del 10 % desde agosto de
+  2026, así que los importes vigentes quedan **desconocidos**. Afiliación
+  confirmada como decía: 30 % recurrente mientras el referido pague, 90 días
+  de cookie, PartnerStack.
+- **Teachable no tiene plan gratuito** desde junio de 2025: Starter 39 $/mes
+  con 7,5 % de comisión, Builder 89, Growth 189. Su comisión de afiliado del
+  30 % **dura sólo el primer año**, no de por vida. Y el idioma estaba al
+  revés: la interfaz **de los alumnos** sí está en español (y en otros
+  diez), pero **el panel de administración sólo en inglés**; el soporte,
+  desconocido.
+- **Hotmart**: el «Programa de Afiliados» que el modelo dio por afiliación
+  confirmada es **otra cosa**: un mercado donde se promocionan los productos
+  de los productores y cada productor fija su comisión (hasta el 80 %). No
+  es cobrar por recomendar la plataforma, y no consta ningún programa que lo
+  haga. Para Molnip la afiliación de Hotmart es **no consta**, no
+  confirmada: con la reforma del Researcher, eso la deja en espera de la
+  decisión de la propietaria. Precio verificado: sin cuota, 9,90 % + 0,50 €
+  por venta (o + 0,10 € si el producto cuesta 15 € o menos). Idiomas:
+  inglés, portugués y español; el francés, alemán e italiano del borrador no
+  aparecen.
+
+**La cuenta de las llamadas, aclarada.** Las 23 que se dijeron en la etapa
+0 contaban una llamada por candidata nueva; el código hace dos. El total
+son 26: 6 hechas (Researcher, el máximo, porque el modelo dio las tres
+afiliaciones por confirmadas), 14 del lote `usos-1` (siete herramientas, dos
+llamadas cada una, la selección cabe en un bloque), y 6 del lote
+`usos-1-nuevas` cuando las fichas existan. El máximo de 40 es **por
+disparo y en peticiones HTTP**: cada llamada puede ser hasta tres peticiones
+si falla y se reintenta, así que 14 llamadas son entre 14 y 42 peticiones y
+el tope de 40 sólo pararía el lote si casi todas fallaran dos veces; lo
+contestado se conserva y se reanuda. Comprobaciones pendientes que no gastan
+llamadas: la revisión a mano del cien por cien de las citas, y el coste real
+del primer disparo, que se lee en la consola de Google.
+
+**Las 62 fichas, dicho sin rodeos.** Las 62 se generaron con un modelo sin
+navegación y **ningún campo de ficha está verificado contra fuentes
+primarias**: ni precios, ni idiomas, ni plan gratuito, ni funciones. Lo
+que sí está verificado es otra capa, F2: 1.544 pares herramienta-capacidad
+preguntados a las páginas oficiales, de los que 659 están demostrados con
+cita y 885 quedaron como no consta; **las 62 tienen al menos una capacidad
+demostrada**, y ninguna ausencia demostrada. Lo que usa el motor: la puerta
+de evidencia (F2) decide **quién compite** en gestión de proyectos, en los
+seis subtipos de asistentes de IA y en las filas de la pregunta de
+aclaración; en CRM y en plataformas todo en uno —29 herramientas— no hay
+fila congelada y la puerta no aparta a nadie. Después, **el orden lo
+deciden los campos de la ficha** sin verificar: tamaño, precio y plan
+gratuito, facilidad, idioma según `idiomasDisponibles`, y las puntuaciones
+de calidad y fiabilidad. En la rejilla de 810 combinaciones más las filas de
+necesidad, 58 de las 62 aparecen alguna vez en un top; 4 nunca (ClickUp,
+ClickUp Brain, Smartsheet, Wrike). Tres cifras que miden el hueco: 37
+fichas dicen tener plan gratuito y F2 sólo ha demostrado un plan gratuito
+en 18; 18 fichas dicen no estar en español y nadie lo comprobó; el idioma
+verificado es 0 de 62. Esto es un informe: no se ha modificado ninguna
+ficha.
+
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 
 **Aprobada por la propietaria el 2026-08-31.** Auditada sobre el commit

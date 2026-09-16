@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Programa de Afiliados de Hotmart",
+  "affiliatePlatform": "Programa propio",
+  "affiliateUrl": "https://hotmart.com/es/afiliados",
+  "commission": "Hasta un 80% por venta del producto promocionado (definido por el productor)",
+  "cookieDuration": "Configurable por el productor (60, 90, 180 días o permanente)",
+  "approvalRequired": false,
+  "payoutMethod": "Transferencia bancaria, HotPay",
+  "payoutFrequency": "A petición del usuario tras vencer el periodo de garantía de la venta (generalmente 7 a 30 días)",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://hotmart.com/es/afiliados",
+  "lastAffiliateCheck": "2026-09-16",
+  "herramientaId": "hotmart"
+}

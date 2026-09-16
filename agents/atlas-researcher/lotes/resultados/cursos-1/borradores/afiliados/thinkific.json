@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Thinkific Partner Program",
+  "affiliatePlatform": "PartnerStack",
+  "affiliateUrl": "https://www.thinkific.com/partners/",
+  "commission": "30% de comisión recurrente de por vida por cada usuario referido",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, Transferencia bancaria",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.thinkific.com/partners/",
+  "lastAffiliateCheck": "2026-09-16",
+  "herramientaId": "thinkific"
+}

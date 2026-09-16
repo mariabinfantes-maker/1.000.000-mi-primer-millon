@@ -1,0 +1,17 @@
+
+> 1.000.000-mi-primer-millon@0.1.0 investigar-lote
+> tsx agents/atlas-researcher/cli-lote.ts agents/atlas-researcher/lotes/cursos-1.json
+
+Candidatos en la lista: 3
+Ya existentes (catálogo real o borrador), se saltarán sin coste: 0
+Candidatos nuevos a procesar: 3
+Llamadas al proveedor estimadas: entre 3 (si el prechequeo descarta todas) y 6 (si todas pasan el prechequeo y necesitan la investigación completa).
+Ritmo: máximo 5 peticiones/minuto (nivel gratuito de Gemini) — con muchos candidatos puede tardar varios minutos, no es un fallo.
+
+¿Ejecutar el lote contra la API real de Gemini? Escribe "si" para confirmar: 
+Totales: 3 aceptadas, 0 duplicadas, 0 pendientes de decisión, 0 fallidas (de 3).
+
+✓ Aceptadas (3) — borrador escrito, pendiente de promover:
+  - Hotmart (hotmart): /home/user/1.000.000-mi-primer-millon/data/borradores/herramientas/hotmart.json
+  - Thinkific (thinkific): /home/user/1.000.000-mi-primer-millon/data/borradores/herramientas/thinkific.json
+  - Teachable (teachable): /home/user/1.000.000-mi-primer-millon/data/borradores/herramientas/teachable.json
