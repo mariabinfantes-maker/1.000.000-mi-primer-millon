@@ -69,6 +69,27 @@ también, explícitamente, a Atlas Revenue.
   - Nunca decide el ranking (eso es de Advisor) ni toca `EstrategiaAfiliacion`
     una vez que Affiliate Manager la gestiona activamente.
 
+## La afiliación no decide qué se recomienda (regla de producto, 2026-09-16)
+
+**Una herramienta útil entra en Molnip aunque no tenga programa de
+afiliación.** La falta de afiliación afecta sólo a la monetización, y nunca
+convierte una herramienta adecuada en descartada. En concreto:
+
+- **No es criterio de orden, descarte ni exclusión.** El motor no lee ni un
+  campo de afiliación; `independenciaAfiliacion.test.ts` lo comprueba sobre
+  el motor, sobre los criterios y sobre la puerta de evidencia.
+- **Sin enlace de afiliado se enseña el oficial**, y se registra cuál de los
+  dos se usó (`app/herramienta/[id]/ir/page.tsx`). Se pierde la comisión de
+  ese clic; la persona llega igual a donde quería ir.
+- **Donde sí pesa es en la entrada al catálogo**, no en la salida al
+  usuario: `promover.ts` pide una autorización registrada para promover una
+  ficha sin afiliación confirmada. Esa autorización la da la propietaria,
+  queda escrita con su motivo y **caduca sola si el estado de afiliación
+  cambia**.
+
+El caso que la fijó fue Hotmart: la que mejor encaja con quien vende cursos
+y la única de su lote por la que Molnip no cobraría nada.
+
 ## 2. Atlas Advisor
 
 - **Nombre canónico:** Atlas Advisor. *(Nombre de producto usado antes en la

@@ -115,3 +115,58 @@ describe("la afiliación no puede intervenir en la puntuación", () => {
     expect(nombres.filter((n) => /afilia|comision|ingreso|revenue/i.test(n))).toEqual([]);
   });
 });
+
+/**
+ * La regla de producto de la propietaria (2026-09-16), convertida en algo
+ * comprobable:
+ *
+ *   «Una herramienta útil entra en Molnip aunque no tenga programa de
+ *   afiliación. La falta de afiliación sólo afecta a la monetización, nunca
+ *   debe convertir una herramienta adecuada en descartada.»
+ *
+ * El caso que la obligó: Hotmart. Es la que mejor encaja con quien vende
+ * cursos —sin cuota mensual, en español, cobra y entrega— y es la única de
+ * su lote por la que Molnip no cobraría nada. Si la falta de afiliación
+ * pesara en algún sitio, se notaría justo ahí.
+ */
+describe("una herramienta sin afiliación se recomienda igual", () => {
+  const sinPrograma = construirHerramienta({ id: "sin-programa", nombre: "Sin programa", categoriaId: "crm", tipoProducto: "especializada" });
+  const conPrograma = {
+    ...construirHerramienta({ id: "con-programa", nombre: "Con programa", categoriaId: "crm", tipoProducto: "especializada" }),
+    enlaceAfiliado: "https://ejemplo.test/ref/molnip",
+    comision: "80% recurrente",
+    estadoAfiliacion: "activa",
+  } as ReturnType<typeof construirHerramienta>;
+
+  // Por categoría, que es la entrada que sí puntúa fichas de prueba: el
+  // `perfil` por objetivo de arriba filtra por `problemasIds` y las fixtures
+  // no llevan ninguno, así que no compararía nada.
+  const porCategoria = { categoriaId: "crm" as const };
+
+  it("ni se descarta ni baja de puesto por no tener enlace de afiliado", () => {
+    const r = recomendarHerramientas(porCategoria, [conPrograma, sinPrograma]);
+    expect(r.todas.map((e) => e.herramienta.id)).toContain("sin-programa");
+    // Fichas idénticas salvo la afiliación: tienen que empatar.
+    const [a, b] = r.todas;
+    expect(a.puntuacionTotal).toBe(b.puntuacionTotal);
+  });
+
+  it("da igual quién lleve la afiliación: el orden no se mueve", () => {
+    const conLaOtra = { ...sinPrograma, enlaceAfiliado: "https://ejemplo.test/ref/molnip", comision: "80% recurrente" } as typeof sinPrograma;
+    const unos = recomendarHerramientas(porCategoria, [conPrograma, sinPrograma]).todas.map((e) => e.herramienta.id);
+    const otros = recomendarHerramientas(porCategoria, [{ ...conPrograma, enlaceAfiliado: undefined, comision: undefined } as typeof conPrograma, conLaOtra]).todas.map((e) => e.herramienta.id);
+    expect(otros).toEqual(unos);
+  });
+
+  /**
+   * Y lo que ve la persona cuando no hay comisión que cobrar: el enlace
+   * oficial del proveedor. Es un componente de servidor, así que se lee su
+   * código, como en `textoSinConfirmar.test.ts`.
+   */
+  it("sin enlace de afiliado, se manda al enlace oficial del proveedor", () => {
+    const pagina = readFileSync(path.join(process.cwd(), "app", "herramienta", "[herramientaId]", "ir", "page.tsx"), "utf8");
+    expect(pagina).toContain("enlaceAfiliado ?? herramienta.paginaOficial");
+    // Y se registra cuál de los dos se usó, sin esconderlo.
+    expect(pagina).toContain('tipoEnlace: enlaceAfiliado ? "afiliado" : "oficial"');
+  });
+});

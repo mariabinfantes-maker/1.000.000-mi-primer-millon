@@ -50,9 +50,14 @@ igual de bien, se mantiene la regla habitual. **Decide la propietaria.**
 La afiliación sigue siendo la vía habitual, pero nunca convierte lo incompatible
 en recomendable. Política provisional completa en `ATLAS.md`.
 
-**Estado:** esta política está **aprobada como criterio documental, pero la
-excepción todavía no está implementada**. El código actual sigue descartando
-automáticamente las herramientas sin un programa de afiliación fiable.
+**Estado (2026-09-16):** implementada. El Researcher ya **no descarta** por
+afiliación: distingue tres estados y deriva a la propietaria, que autoriza
+con `npm run autorizar-afiliacion`. Y la regla de producto quedó fijada así:
+**una herramienta útil entra aunque no tenga programa. La falta de
+afiliación sólo afecta a la monetización y nunca convierte una herramienta
+adecuada en descartada**; no se usa como criterio de orden, descarte ni
+exclusión, y sin enlace de afiliado se enseña el oficial. Hay pruebas que lo
+sostienen en `independenciaAfiliacion.test.ts`.
 
 Sólida, premium y con la escala de una gran tecnológica, pero humana y cercana.
 Sencilla para quien empieza, profunda para quien sabe más.

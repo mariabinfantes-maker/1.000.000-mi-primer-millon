@@ -4630,6 +4630,40 @@ capacidad cuya única cita era un eslogan.
 
 Huella `2aea9060…` intacta. Nada fusionado ni desplegado.
 
+## Hotmart cerrado: la afiliación no decide qué se recomienda (2026-09-16)
+
+Decisión de producto de la propietaria, que zanja lo que la política dejaba
+abierto: **una herramienta útil entra en Molnip aunque no tenga programa de
+afiliación. La falta de afiliación sólo afecta a la monetización y nunca
+convierte una herramienta adecuada en descartada.** No se usa como criterio
+de orden, de descarte ni de exclusión, y sin enlace de afiliado se enseña el
+oficial.
+
+**Lo que ya estaba hecho, comprobado antes de tocar nada.** Cuatro de las
+cinco reglas ya se cumplían: el motor no lee ni un campo de afiliación y hay
+pruebas que lo sostienen; y la página de salida ya cae al enlace oficial
+cuando no hay afiliado, registrando cuál se usó. Lo único que faltaba era la
+guarda de esa caída, que ahora existe: si alguien la quita, falla una prueba.
+
+**Lo que sí bloqueaba era la entrada al catálogo, no la salida al usuario.**
+`promover.ts` exige una autorización registrada para promover una ficha sin
+afiliación confirmada. Hotmart la tiene desde hoy, con el motivo escrito,
+para el estado `no_consta` exacto; si ese estado cambiara, la autorización
+caduca sola y hay que volver a darla. Vive con los borradores corregidos,
+para que viaje con ellos al promoverlos.
+
+**Sus capacidades no se han tocado:** las demostradas siguen demostradas y
+las pendientes, pendientes. Cobrar entra con profundidad nativa; impartir
+cursos sigue sin demostrarse, y por eso el uso del acceso automático sigue
+archivado sin registrar y el recorrido sigue sin desbloquearse. No se
+investiga más su afiliación ni sus tarifas.
+
+**Una frase de AGENTS.md dejó de ser cierta y se ha corregido.** Decía que
+el código «sigue descartando automáticamente las herramientas sin un
+programa de afiliación fiable». Con la reforma del Researcher recuperada en
+esta rama, ya no: deriva a la propietaria. Dejarla habría hecho que cada
+sesión futura partiera de algo falso.
+
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 
 **Aprobada por la propietaria el 2026-08-31.** Auditada sobre el commit
