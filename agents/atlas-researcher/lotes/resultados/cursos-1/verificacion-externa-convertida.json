@@ -1,0 +1,368 @@
+{
+  "registros": [
+    {
+      "herramientaId": "hotmart",
+      "capacidadId": "cap.website_builder",
+      "estado": "verificado",
+      "profundidad": "nativa",
+      "planEstado": "desconocido",
+      "fuentes": [
+        {
+          "tipo": "pagina_oficial",
+          "url": "https://hotmart.com/es/productos-digitales/crear-curso-online",
+          "fechaConsulta": "2026-09-16",
+          "cita": "La plataforma te guía en cada paso, sin necesidad de saber programar ni contratar un equipo técnico."
+        }
+      ],
+      "confianza": "media",
+      "proximaRevision": "2027-09-16"
+    },
+    {
+      "herramientaId": "hotmart",
+      "capacidadId": "cap.payment_collection",
+      "estado": "verificado",
+      "profundidad": "nativa",
+      "planEstado": "desconocido",
+      "fuentes": [
+        {
+          "tipo": "pagina_oficial",
+          "url": "https://hotmart.com/es/herramientas/pasarela-de-pagos",
+          "fechaConsulta": "2026-09-16",
+          "cita": "Hotmart integra pasarela de pago, checkout optimizado y gestión de afiliados en un solo lugar."
+        }
+      ],
+      "confianza": "media",
+      "proximaRevision": "2027-09-16",
+      "usos": [
+        {
+          "usoId": "uso.pago_unico_y_a_plazos",
+          "estado": "demostrado",
+          "fuentes": [
+            {
+              "tipo": "documentacion",
+              "url": "https://hotmart.com/es/herramientas/pasarela-de-pagos",
+              "fechaConsulta": "2026-09-16",
+              "cita": "La pasarela de pago de Hotmart permite configurar el pago fraccionado con tarjeta de crédito."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "herramientaId": "hotmart",
+      "capacidadId": "cap.training_lms",
+      "estado": "verificado",
+      "profundidad": "nativa",
+      "planEstado": "desconocido",
+      "fuentes": [
+        {
+          "tipo": "pagina_oficial",
+          "url": "https://hotmart.com/es/productos-digitales/crear-curso-online",
+          "fechaConsulta": "2026-09-16",
+          "cita": "Hotmart reúne todo lo necesario para crear, alojar y vender cursos online."
+        }
+      ],
+      "confianza": "media",
+      "proximaRevision": "2027-09-16",
+      "usos": [
+        {
+          "usoId": "uso.acceso_al_curso_tras_el_pago",
+          "estado": "demostrado",
+          "fuentes": [
+            {
+              "tipo": "documentacion",
+              "url": "https://hotmart.com/es/herramientas/pasarela-de-pagos",
+              "fechaConsulta": "2026-09-16",
+              "cita": "Cuando se confirma un pago, el acceso al producto se libera automáticamente sin que tengas que hacer nada."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "herramientaId": "thinkific",
+      "capacidadId": "cap.website_builder",
+      "estado": "verificado",
+      "profundidad": "nativa",
+      "planEstado": "desconocido",
+      "fuentes": [
+        {
+          "tipo": "pagina_oficial",
+          "url": "https://www.thinkific.com/pricing/",
+          "fechaConsulta": "2026-09-16",
+          "cita": "You don’t need to be a developer to build your site and online courses."
+        }
+      ],
+      "confianza": "media",
+      "proximaRevision": "2027-09-16"
+    },
+    {
+      "herramientaId": "thinkific",
+      "capacidadId": "cap.payment_collection",
+      "estado": "verificado",
+      "profundidad": "nativa",
+      "planEstado": "desconocido",
+      "fuentes": [
+        {
+          "tipo": "pagina_oficial",
+          "url": "https://www.thinkific.com/pricing/",
+          "fechaConsulta": "2026-09-16",
+          "cita": "Thinkific offers its own custom payment processor, Thinkific Payments."
+        }
+      ],
+      "confianza": "media",
+      "proximaRevision": "2027-09-16",
+      "usos": [
+        {
+          "usoId": "uso.pago_unico_y_a_plazos",
+          "estado": "demostrado",
+          "fuentes": [
+            {
+              "tipo": "documentacion",
+              "url": "https://support.thinkific.com/hc/en-us/articles/360030356354-Set-Your-Product-Pricing-Guide",
+              "fechaConsulta": "2026-09-16",
+              "cita": "All our processors have one-time payment options"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "herramientaId": "thinkific",
+      "capacidadId": "cap.training_lms",
+      "estado": "verificado",
+      "profundidad": "nativa",
+      "planEstado": "desconocido",
+      "fuentes": [
+        {
+          "tipo": "pagina_oficial",
+          "url": "https://www.thinkific.com/features/courses/",
+          "fechaConsulta": "2026-09-16",
+          "cita": "Measure progress with assignments, surveys and AI-generated quizzes"
+        }
+      ],
+      "confianza": "media",
+      "proximaRevision": "2027-09-16",
+      "usos": [
+        {
+          "usoId": "uso.acceso_al_curso_tras_el_pago",
+          "estado": "demostrado",
+          "fuentes": [
+            {
+              "tipo": "documentacion",
+              "url": "https://support.thinkific.com/hc/en-us/articles/41863910190871-Introducing-Shop-with-Cart-Buy-Multiple-Products-in-One-Checkout",
+              "fechaConsulta": "2026-09-16",
+              "cita": "A learner is automatically enrolled in all eligible products."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "herramientaId": "teachable",
+      "capacidadId": "cap.website_builder",
+      "estado": "verificado",
+      "profundidad": "nativa",
+      "planEstado": "desconocido",
+      "fuentes": [
+        {
+          "tipo": "pagina_oficial",
+          "url": "https://www.teachable.com/site-builder",
+          "fechaConsulta": "2026-09-16",
+          "cita": "Build one on Teachable in minutes—no design or coding expertise required."
+        }
+      ],
+      "confianza": "media",
+      "proximaRevision": "2027-09-16"
+    },
+    {
+      "herramientaId": "teachable",
+      "capacidadId": "cap.payment_collection",
+      "estado": "verificado",
+      "profundidad": "nativa",
+      "planEstado": "desconocido",
+      "fuentes": [
+        {
+          "tipo": "pagina_oficial",
+          "url": "https://support.teachable.com/en/articles/11682476-price-your-products",
+          "fechaConsulta": "2026-09-16",
+          "cita": "Teachable uses Stripe, which charges students in your specified currency."
+        }
+      ],
+      "confianza": "media",
+      "proximaRevision": "2027-09-16",
+      "usos": [
+        {
+          "usoId": "uso.pago_unico_y_a_plazos",
+          "estado": "demostrado",
+          "fuentes": [
+            {
+              "tipo": "documentacion",
+              "url": "https://support.teachable.com/en/articles/11682476-price-your-products",
+              "fechaConsulta": "2026-09-16",
+              "cita": "Students pay a single fee for full, lifetime access to your product."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "herramientaId": "teachable",
+      "capacidadId": "cap.training_lms",
+      "estado": "verificado",
+      "profundidad": "nativa",
+      "planEstado": "desconocido",
+      "fuentes": [
+        {
+          "tipo": "pagina_oficial",
+          "url": "https://support.teachable.com/en/articles/11682410-new-teachable-plans-in-june-2025",
+          "fechaConsulta": "2026-09-16",
+          "cita": "Student progress reports"
+        }
+      ],
+      "confianza": "media",
+      "proximaRevision": "2027-09-16",
+      "usos": [
+        {
+          "usoId": "uso.acceso_al_curso_tras_el_pago",
+          "estado": "demostrado",
+          "fuentes": [
+            {
+              "tipo": "documentacion",
+              "url": "https://support.teachable.com/en/articles/11682476-price-your-products",
+              "fechaConsulta": "2026-09-16",
+              "cita": "Students receive full product access after their first payment."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "recorridos": [
+    {
+      "herramientaId": "hotmart",
+      "recorridoId": "rec.pagina_pago_y_acceso_al_curso",
+      "estado": "no_consta",
+      "fuentes": [
+        {
+          "tipo": "pagina_oficial",
+          "url": "https://hotmart.com/es/herramientas/pasarela-de-pagos",
+          "fechaConsulta": "2026-09-16"
+        }
+      ],
+      "nota": "No consta en las páginas oficiales consultadas.",
+      "proximaRevision": "2027-09-16"
+    },
+    {
+      "herramientaId": "thinkific",
+      "recorridoId": "rec.pagina_pago_y_acceso_al_curso",
+      "estado": "no_consta",
+      "fuentes": [
+        {
+          "tipo": "pagina_oficial",
+          "url": "https://www.thinkific.com/pricing/",
+          "fechaConsulta": "2026-09-16"
+        }
+      ],
+      "nota": "No consta en las páginas oficiales consultadas.",
+      "proximaRevision": "2027-09-16"
+    },
+    {
+      "herramientaId": "teachable",
+      "recorridoId": "rec.pagina_pago_y_acceso_al_curso",
+      "estado": "no_consta",
+      "fuentes": [
+        {
+          "tipo": "pagina_oficial",
+          "url": "https://www.teachable.com/pricing",
+          "fechaConsulta": "2026-09-16"
+        }
+      ],
+      "nota": "No consta en las páginas oficiales consultadas.",
+      "proximaRevision": "2027-09-16"
+    }
+  ],
+  "idiomas": [
+    {
+      "herramientaId": "hotmart",
+      "interfaz": {
+        "estado": "desconocido",
+        "fuentes": [
+          {
+            "tipo": "documentacion",
+            "url": "https://help.hotmart.com/es/article/215826318/-como-actualizar-la-informacion-de-mi-cuenta-de-hotmart-",
+            "fechaConsulta": "2026-09-16"
+          }
+        ],
+        "nota": "El panel de administración no se pudo verificar."
+      },
+      "soporte": {
+        "estado": "verificado",
+        "idiomas": [
+          "es"
+        ],
+        "fuentes": [
+          {
+            "tipo": "pagina_oficial",
+            "url": "https://hotmart.com/es/precios",
+            "fechaConsulta": "2026-09-16",
+            "cita": "Soporte en español por email y por chat 24/7"
+          }
+        ]
+      },
+      "proximaRevision": "2027-09-16"
+    },
+    {
+      "herramientaId": "thinkific",
+      "interfaz": {
+        "estado": "desconocido",
+        "fuentes": [
+          {
+            "tipo": "documentacion",
+            "url": "https://support.thinkific.com/hc/en-us/articles/360030725073-Change-Site-Language",
+            "fechaConsulta": "2026-09-16"
+          }
+        ],
+        "nota": "El panel de administración no se pudo verificar."
+      },
+      "soporte": {
+        "estado": "desconocido",
+        "fuentes": [
+          {
+            "tipo": "pagina_oficial",
+            "url": "https://support.thinkific.com/hc/en-us",
+            "fechaConsulta": "2026-09-16"
+          }
+        ],
+        "nota": "El idioma del soporte no se pudo verificar."
+      },
+      "proximaRevision": "2027-09-16"
+    },
+    {
+      "herramientaId": "teachable",
+      "interfaz": {
+        "estado": "desconocido",
+        "fuentes": [
+          {
+            "tipo": "documentacion",
+            "url": "https://support.teachable.com/en/articles/11682512-how-do-i-translate-my-school",
+            "fechaConsulta": "2026-09-16"
+          }
+        ],
+        "nota": "El panel de administración no se pudo verificar."
+      },
+      "soporte": {
+        "estado": "desconocido",
+        "fuentes": [
+          {
+            "tipo": "pagina_oficial",
+            "url": "https://support.teachable.com/en/articles/11769951-contact-us",
+            "fechaConsulta": "2026-09-16"
+          }
+        ],
+        "nota": "El idioma del soporte no se pudo verificar."
+      },
+      "proximaRevision": "2027-09-16"
+    }
+  ]
+}
