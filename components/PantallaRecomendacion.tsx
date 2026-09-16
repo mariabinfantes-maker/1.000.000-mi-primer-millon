@@ -36,6 +36,7 @@ export default function PantallaRecomendacion({
   sinConfirmar,
   necesidad,
   evidencia,
+  usoSinConfirmar,
 }: {
   origen: OrigenDiagnostico;
   token: string;
@@ -50,6 +51,8 @@ export default function PantallaRecomendacion({
   necesidad?: { texto: string };
   /** Cómo demuestra cada herramienta esa necesidad, por id. */
   evidencia?: Record<string, EtiquetaEvidencia>;
+  /** Aviso de uso sin confirmar: se repite en el titular y en cada tarjeta. */
+  usoSinConfirmar?: { tarjeta: string; titular: string };
 }) {
   // Atlas Revenue: de qué recorrido salió esta recomendación. Es la fuente
   // esencial del piloto — sin ella, los clics desde la pantalla final se
@@ -60,10 +63,13 @@ export default function PantallaRecomendacion({
   // suficiente y, aparte, los candidatos pendientes. El titular y el
   // comparador sólo cuentan el primero.
   const { respaldadas, pendientes } = separarPorRespaldo(top, evidencia);
-  const vistas = respaldadas.map((evaluada, indice) => aVistaDeTarjeta(evaluada, indice + 1, evidencia?.[evaluada.herramienta.id]));
-  const vistasPendientes = pendientes.map((evaluada, indice) =>
-    aVistaDeTarjeta(evaluada, vistas.length + indice + 1, evidencia?.[evaluada.herramienta.id])
+  const vistas = respaldadas.map((evaluada, indice) =>
+    aVistaDeTarjeta(evaluada, indice + 1, evidencia?.[evaluada.herramienta.id], usoSinConfirmar?.tarjeta)
   );
+  const vistasPendientes = pendientes.map((evaluada, indice) =>
+    aVistaDeTarjeta(evaluada, vistas.length + indice + 1, evidencia?.[evaluada.herramienta.id], usoSinConfirmar?.tarjeta)
+  );
+  const coletilla = usoSinConfirmar ? `, ${usoSinConfirmar.titular}` : "";
   const soloPendientes = necesidad && vistas.length === 0 && vistasPendientes.length > 0;
 
   return (
@@ -99,8 +105,8 @@ export default function PantallaRecomendacion({
                   ? `Para «${necesidad.texto}» sólo tenemos candidatos pendientes`
                   : necesidad
                     ? vistas.length === 1
-                      ? `Una opción para «${necesidad.texto}»`
-                      : `${vistas.length} opciones para «${necesidad.texto}»`
+                      ? `Una opción para «${necesidad.texto}»${coletilla}`
+                      : `${vistas.length} opciones para «${necesidad.texto}»${coletilla}`
                   : vistas.length === 1
                     ? "Tu mejor opción"
                     : `Tus ${vistas.length} mejores opciones`}
@@ -118,6 +124,12 @@ export default function PantallaRecomendacion({
                 <>
                   Tenemos herramientas registradas para lo que elegiste, pero en ninguna podemos confirmar todavía cómo lo
                   cubren. Prefiero decírtelo a presentarlas como si estuvieran confirmadas.
+                </>
+              ) : necesidad && usoSinConfirmar ? (
+                <>
+                  {usoSinConfirmar.tarjeta} Estas son las herramientas que lo han demostrado, entre las 62 del catálogo.
+                  Debajo de cada una está lo que la evidencia confirma y lo que no sabemos. El orden es cómo encajan
+                  con tu situación.
                 </>
               ) : necesidad ? (
                 <>

@@ -4164,6 +4164,29 @@ fuente enlazada y fecha. Pendientes sólo las integraciones sin tercero (hoy
 ninguna), aparte y fuera del comparador. El enlace a la fuente lleva
 `nofollow` y abre aparte; no pasa por Atlas Revenue.
 
+### La revisión independiente y la regla del uso sin confirmar
+
+La revisión de `9db4543` contra `4b232d4` dio NO APTO por un motivo: la
+fila «Que cojan cita ellos mismos» exigía «reserva online por la propia
+persona», y las ocho herramientas que la demuestran lo hacen con reservas
+de reuniones o llamadas. La capacidad que describe a una peluquería, agenda
+por profesional o recurso, tiene cero registros en F2. La peluquera recibía
+Reclaim.ai, en inglés y pensada para equipos de producto, con «Función
+confirmada». Fichas, categorías y 810 combinaciones intactas (misma huella
+SHA256); recorrido, enlaces antiguos y API sin puerta trasera, correctos.
+45 de las 109 tarjetas que se enseñan enlazan a una portada: la garantía es
+cierta, la transparencia queda corta.
+
+La propietaria decidió: distinguir reuniones o llamadas de servicios; no
+exigir agenda por profesional (condicional en F4); para servicios decir que
+ese uso no está confirmado, sin afirmar que no sirvan; lo mismo en
+recordatorios; y «Ninguna de éstas» como salida inmediata. Al necesitar una
+regla técnica nueva, se explicó antes y la aprobó: **una fila puede declarar
+un uso sin confirmar**; exige la misma capacidad que su hermana, pasan las
+mismas herramientas, y cada tarjeta y el titular avisan de que ese uso no
+está comprobado. Hecho en `necesidades.ts`, el enlace, la tarjeta y la
+pantalla; nada en el motor, F2 ni las fichas.
+
 ### Lo que salió de aquí y queda para después
 
 - **La tabla es el mapa de huecos del catálogo.** Cada fila con cobertura

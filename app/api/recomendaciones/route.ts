@@ -161,6 +161,10 @@ export async function POST(request: Request) {
     origenTipo,
     origenId,
     ...(fila ? { necesidad: fila.id } : {}),
+    // Uso sin confirmar: la fila lo declara, el enlace lo lleva, la
+    // pantalla lo dice. Las herramientas son las mismas que en su fila
+    // hermana; sólo cambia lo que se afirma de ellas.
+    ...(fila?.usoSinConfirmar ? { usoSinConfirmar: fila.usoSinConfirmar } : {}),
     items: top.map((evaluada) => {
       const evidencia = etiquetaDe(evaluada.herramienta.id);
       return {

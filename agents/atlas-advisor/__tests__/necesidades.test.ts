@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   NECESIDADES,
   sePreguntaPorFamilias,
+  textoDeUsoSinConfirmar,
   NINGUNA_DE_ESTAS,
   enunciadoDe,
   filaDeNecesidad,
@@ -83,7 +84,7 @@ describe("la tabla de necesidades", () => {
     expect(ids("ahorrar-tiempo")).toContain("conocimiento-equipo");
     // Reservas y recordatorios también en Ahorrar tiempo, en su familia.
     const citas = preguntaParaObjetivo("ahorrar-tiempo")!.familias.find((f) => f.id === "citas")!;
-    expect(citas.filas.map((f) => f.id)).toEqual(["citas-reserva", "recordatorios-citas"]);
+    expect(citas.filas.map((f) => f.id)).toEqual(["citas-reserva", "servicio-reserva", "recordatorios-citas", "servicio-recordatorios"]);
     // Generar vídeo y editar vídeo son dos filas.
     expect(ids("ahorrar-tiempo")).toEqual(expect.arrayContaining(["video-ia", "editar-video"]));
     // `email_campaigns` no sostiene ninguna fila de Automatizar.
@@ -114,13 +115,47 @@ describe("la tabla de necesidades", () => {
     }
   });
 
-  it("ninguna familia enseña más de cuatro necesidades a la vez, y «general» sólo existe cuando es la única", () => {
+  it("ninguna familia enseña más de cinco necesidades a la vez, y «general» sólo existe cuando es la única", () => {
     for (const pregunta of NECESIDADES) {
       for (const familia of pregunta.familias) {
-        expect(familia.filas.length, `${pregunta.objetivoId}/${familia.id}`).toBeLessThanOrEqual(4);
+        expect(familia.filas.length, `${pregunta.objetivoId}/${familia.id}`).toBeLessThanOrEqual(5);
         if (familia.id === "general") expect(pregunta.familias.length, pregunta.objetivoId).toBe(1);
       }
     }
+  });
+});
+
+/**
+ * Regla del uso sin confirmar (2026-09-16): reuniones o llamadas frente a
+ * servicios. La misma capacidad, dos filas; la de servicios lo declara.
+ */
+describe("el uso sin confirmar", () => {
+  it("cada fila de servicios exige exactamente las mismas capacidades que su fila hermana", () => {
+    const de = (id: string) => todasLasFilas().find((f) => f.id === id)!;
+    expect(de("servicio-reserva").capacidades).toEqual(de("citas-reserva").capacidades);
+    expect(de("servicio-recordatorios").capacidades).toEqual(de("recordatorios-citas").capacidades);
+    expect(de("servicio-reserva").usoSinConfirmar).toBe("servicios-reserva");
+    expect(de("servicio-recordatorios").usoSinConfirmar).toBe("servicios-recordatorios");
+    expect(de("citas-reserva").usoSinConfirmar).toBeUndefined();
+    expect(de("recordatorios-citas").usoSinConfirmar).toBeUndefined();
+  });
+
+  it("todo uso declarado tiene texto de tarjeta y de titular, y ninguno dice que no sirva", () => {
+    for (const fila of todasLasFilas().filter((f) => f.usoSinConfirmar)) {
+      const texto = textoDeUsoSinConfirmar(fila.usoSinConfirmar!);
+      expect(texto.tarjeta).toMatch(/no lo hemos comprobado/);
+      expect(texto.tarjeta).not.toMatch(/no sirve|no vale|no funciona/i);
+      expect(texto.titular.length).toBeGreaterThan(5);
+    }
+    expect(() => textoDeUsoSinConfirmar("inventado")).toThrow();
+  });
+
+  it("las dos filas de servicios están donde una peluquera entra: Ahorrar tiempo, Atención y Automatizar", () => {
+    for (const objetivo of ["ahorrar-tiempo", "atencion-cliente"]) {
+      const ids = preguntaParaObjetivo(objetivo)!.familias.flatMap((f) => f.filas.map((x) => x.id));
+      expect(ids, objetivo).toEqual(expect.arrayContaining(["servicio-reserva", "servicio-recordatorios"]));
+    }
+    expect(preguntaParaObjetivo("automatizar-tareas")!.familias.flatMap((f) => f.filas.map((x) => x.id))).toContain("servicio-recordatorios");
   });
 });
 

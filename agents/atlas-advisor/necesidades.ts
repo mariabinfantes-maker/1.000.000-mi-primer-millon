@@ -55,6 +55,18 @@ export type FilaDeNecesidad = {
    * deja de ser cierta, la prueba lo dice y la marca se quita.
    */
   sinCobertura?: true;
+  /**
+   * Uso no confirmado — regla aprobada por la propietaria el 2026-09-16.
+   *
+   * La evidencia de F2 demuestra una capacidad, no un uso: «reserva online
+   * por la propia persona» está demostrada con reservas de reuniones y
+   * llamadas, y nada dice si sirve para un corte de pelo. Una fila con este
+   * campo exige la MISMA capacidad que su fila hermana —pasan las mismas
+   * herramientas, en el mismo orden— pero cada tarjeta y el titular dicen
+   * que ese uso concreto no está comprobado. Nunca se dice que no sirva.
+   * El valor es la clave del texto en `necesidades.textos.es.ts`.
+   */
+  usoSinConfirmar?: string;
 };
 
 export type FamiliaDeNecesidades = {
@@ -73,10 +85,22 @@ export const NINGUNA_DE_ESTAS = "ninguna";
 
 // Las filas compartidas se definen una vez y se citan: la misma necesidad
 // tiene el mismo texto y las mismas capacidades esté donde esté.
+// Reuniones o llamadas frente a servicios (un corte de pelo): la misma
+// capacidad, dos filas. Las de servicios declaran el uso sin confirmar.
 const CITAS_RESERVA: FilaDeNecesidad = { id: "citas-reserva", capacidades: ["cap.online_self_service_booking"] };
+const SERVICIO_RESERVA: FilaDeNecesidad = {
+  id: "servicio-reserva",
+  capacidades: ["cap.online_self_service_booking"],
+  usoSinConfirmar: "servicios-reserva",
+};
 const RECORDATORIOS_CITAS: FilaDeNecesidad = {
   id: "recordatorios-citas",
   capacidades: ["cap.customer_appointment_reminders"],
+};
+const SERVICIO_RECORDATORIOS: FilaDeNecesidad = {
+  id: "servicio-recordatorios",
+  capacidades: ["cap.customer_appointment_reminders"],
+  usoSinConfirmar: "servicios-recordatorios",
 };
 const SEGUIMIENTOS_AUTOMATICOS: FilaDeNecesidad = {
   id: "seguimientos-automaticos",
@@ -127,6 +151,7 @@ export const NECESIDADES: PreguntaDeNecesidad[] = [
           // demuestra automatización. Corrección de la propietaria.
           SEGUIMIENTOS_AUTOMATICOS,
           RECORDATORIOS_CITAS,
+          SERVICIO_RECORDATORIOS,
         ],
       },
     ],
@@ -136,7 +161,7 @@ export const NECESIDADES: PreguntaDeNecesidad[] = [
     familias: [
       // La familia de la peluquera. Antes no existía y por eso recibía un
       // corrector de textos.
-      { id: "citas", filas: [CITAS_RESERVA, RECORDATORIOS_CITAS] },
+      { id: "citas", filas: [CITAS_RESERVA, SERVICIO_RESERVA, RECORDATORIOS_CITAS, SERVICIO_RECORDATORIOS] },
       {
         id: "escribir",
         filas: [
@@ -221,7 +246,7 @@ export const NECESIDADES: PreguntaDeNecesidad[] = [
           { id: "portal-cliente", capacidades: ["cap.client_portal"] },
         ],
       },
-      { id: "citas", filas: [CITAS_RESERVA, RECORDATORIOS_CITAS] },
+      { id: "citas", filas: [CITAS_RESERVA, SERVICIO_RESERVA, RECORDATORIOS_CITAS, SERVICIO_RECORDATORIOS] },
     ],
   },
 ];
@@ -263,6 +288,13 @@ export function todasLasFilas(): FilaDeNecesidad[] {
 export function textoDeFila(filaId: string): { etiqueta: string; descripcion: string } {
   const texto = TEXTOS_NECESIDADES.filas[filaId];
   if (!texto) throw new Error(`La necesidad "${filaId}" no tiene texto en necesidades.textos.es.ts.`);
+  return texto;
+}
+
+/** El aviso de una fila con uso sin confirmar, en el idioma del sitio. `undefined` si la fila no lo declara. Falla en voz alta si falta el texto. */
+export function textoDeUsoSinConfirmar(usoId: string): { tarjeta: string; titular: string } {
+  const texto = TEXTOS_NECESIDADES.usosSinConfirmar[usoId];
+  if (!texto) throw new Error(`El uso sin confirmar "${usoId}" no tiene texto en necesidades.textos.es.ts.`);
   return texto;
 }
 

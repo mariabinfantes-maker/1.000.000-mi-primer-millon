@@ -26,7 +26,8 @@ function camposComunes(herramienta: Herramienta) {
 export function aVistaDeTarjeta(
   evaluada: HerramientaEvaluada,
   posicion: number,
-  evidencia?: EtiquetaEvidencia
+  evidencia?: EtiquetaEvidencia,
+  usoSinConfirmar?: string
 ): TarjetaHerramientaRecomendadaProps {
   const { herramienta } = evaluada;
 
@@ -53,6 +54,7 @@ export function aVistaDeTarjeta(
     casoDeUso: herramienta.casosDeUso[0] ?? null,
     casosNoRecomendados: herramienta.casosNoRecomendados,
     ...(evidencia ? { evidencia } : {}),
+    ...(usoSinConfirmar ? { usoSinConfirmar } : {}),
     ...camposComunes(herramienta),
   };
 }

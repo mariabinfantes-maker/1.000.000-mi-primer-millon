@@ -136,6 +136,14 @@ describe("la peluquera que perdía citas", () => {
     for (const e of r.top) expect(demuestra(e.herramienta.id, RESERVA), e.herramienta.id).toBe(true);
   });
 
+  it("«que reserven un servicio»: las mismas herramientas y el mismo orden que reuniones; sólo cambia lo que se afirma", () => {
+    const reuniones = recomendarHerramientas({ ...perfil, necesidadElegida: "citas-reserva" }, catalogo, { evidencia });
+    const servicios = recomendarHerramientas({ ...perfil, necesidadElegida: "servicio-reserva" }, catalogo, { evidencia });
+    expect(servicios.top.map((e) => e.herramienta.id)).toEqual(reuniones.top.map((e) => e.herramienta.id));
+    expect(servicios.todas.map((e) => e.herramienta.id)).toEqual(reuniones.todas.map((e) => e.herramienta.id));
+    expect(filaDeNecesidad("ahorrar-tiempo", "servicio-reserva")?.usoSinConfirmar).toBe("servicios-reserva");
+  });
+
   it("«ninguna de éstas» la manda a contarlo con sus palabras, no a un corrector de textos", () => {
     const r = recomendarHerramientas({ ...perfil, necesidadElegida: "ninguna" }, catalogo, { evidencia });
     expect(r.top).toEqual([]);

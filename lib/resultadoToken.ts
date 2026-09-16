@@ -65,6 +65,11 @@ export type PayloadTokenResultado = {
    * sitio. Opcional dentro de `v: 1` por el mismo motivo que `sinConfirmar`.
    */
   necesidad?: string;
+  /**
+   * La clave del aviso de uso sin confirmar cuando la fila elegida lo
+   * declara (regla del 2026-09-16). El texto se resuelve al abrir el enlace.
+   */
+  usoSinConfirmar?: string;
   /** ISO 8601 — momento en que Atlas calculó esta recomendación, para mostrarlo al recuperar un enlace antiguo. */
   generadoEn: string;
 };

@@ -641,6 +641,22 @@ pendientes, el titular lo dice. Ninguna etiqueta afirma que una herramienta
 NO haga algo. El puerto de evidencia expone para ello la fuente de la
 capacidad (`fuente` en `EvidenciaDeCapacidad`).
 
+**Uso sin confirmar** (regla aprobada el 2026-09-16, tras la revisión que
+detectó que «que cojan cita ellos mismos» devolvía agendadores de reuniones
+a una peluquera). La evidencia de F2 demuestra una capacidad, no un uso:
+«reserva online por la propia persona» está demostrada con reservas de
+reuniones y llamadas, y ningún registro dice si sirve para un corte de
+pelo. Una fila puede declarar `usoSinConfirmar`: exige la MISMA capacidad
+que su fila hermana, pasan las mismas herramientas en el mismo orden, y
+cada tarjeta añade tras «Función confirmada en una fuente oficial» el aviso
+«Confirmado para reservar reuniones o llamadas. Que sirva para reservar
+servicios, como un corte de pelo, no lo hemos comprobado: puede que sí»; el
+titular lo repite («…, sin comprobar para servicios»). Nunca se dice que no
+sirva. Hay dos pares: reserva y recordatorios, en «Citas» de Ahorrar tiempo
+y Atención, y el de recordatorios también en Automatizar. La agenda por
+profesional o recurso no se exige: queda condicional en F4. La clave viaja
+en el enlace y el texto se resuelve al abrirlo.
+
 **«Ninguna de éstas»** está en los cinco objetivos, en el paso de familia y
 en el de necesidad, y es una **salida inmediata**: sin más preguntas y sin
 llamar al motor, se enseña la pantalla de «no lo he entendido» con sus dos

@@ -44,6 +44,23 @@ export const TEXTOS_NECESIDADES = {
     atender: "Atender",
     "conocer-cliente": "Conocer al cliente",
   } as Record<string, string>,
+  /**
+   * Avisos de uso sin confirmar (regla del 2026-09-16). `tarjeta` va en cada
+   * herramienta tras «Función confirmada en una fuente oficial»; `titular`
+   * se añade al titular del resultado. Nunca dicen que no sirva.
+   */
+  usosSinConfirmar: {
+    "servicios-reserva": {
+      tarjeta:
+        "Confirmado para reservar reuniones o llamadas. Que sirva para reservar servicios, como un corte de pelo, no lo hemos comprobado: puede que sí.",
+      titular: "sin comprobar para servicios",
+    },
+    "servicios-recordatorios": {
+      tarjeta:
+        "Confirmado para recordar reuniones o llamadas. Que sirva para recordar citas de servicios no lo hemos comprobado: puede que sí.",
+      titular: "sin comprobar para citas de servicios",
+    },
+  } as Record<string, { tarjeta: string; titular: string }>,
   /** La salida en el paso de familia. Distinta de `ninguna` porque aquí aún no ha visto las necesidades. */
   ningunaFamilia: {
     etiqueta: "Ninguna de éstas",
@@ -75,8 +92,12 @@ export const TEXTOS_NECESIDADES = {
       descripcion: "Si abre esto, mándale aquello; si no compra, recuérdaselo. Una campaña puntual no basta.",
     },
     "citas-reserva": {
-      etiqueta: "Que cojan cita ellos mismos",
-      descripcion: "Que reserve el cliente, solo y a cualquier hora. Un calendario interno no basta.",
+      etiqueta: "Que reserven una reunión o una llamada conmigo",
+      descripcion: "Que elijan hueco en mi agenda, solos y a cualquier hora. Un calendario interno no basta.",
+    },
+    "servicio-reserva": {
+      etiqueta: "Que reserven un servicio, como un corte de pelo",
+      descripcion: "Que el cliente coja cita solo y a cualquier hora. Un calendario interno no basta.",
     },
     presupuestos: {
       etiqueta: "Mandar presupuestos y saber si los aceptan",
@@ -91,7 +112,11 @@ export const TEXTOS_NECESIDADES = {
       descripcion: "Por su cuenta y con criterio. Un chatbot que conversa, o una regla fija, no bastan.",
     },
     "recordatorios-citas": {
-      etiqueta: "Recordar las citas a los clientes sin llamar",
+      etiqueta: "Recordar reuniones o llamadas a los clientes sin llamar",
+      descripcion: "Avisar antes de la reunión, por correo o mensaje. Recordar una tarea al equipo no basta.",
+    },
+    "servicio-recordatorios": {
+      etiqueta: "Recordar citas de servicios a los clientes sin llamar",
       descripcion: "Avisar al cliente antes de su cita. Recordar una tarea al equipo no basta.",
     },
     redactar: {

@@ -59,6 +59,23 @@ describe("la entrada por objetivo no puede saltarse la pregunta", () => {
     expect(cuerpo.token.length).toBeLessThan(2000);
   });
 
+  it("una necesidad con uso sin confirmar lo lleva en el enlace; una sin él, no", async () => {
+    const con = await POST(
+      peticion({ origenTipo: "objetivo", origenId: "ahorrar-tiempo", respuestas: { ...perfil, necesidadElegida: "servicio-reserva" } })
+    );
+    const payloadCon = leerTokenResultado((await con.json()).token)!;
+    expect(payloadCon.necesidad).toBe("servicio-reserva");
+    expect(payloadCon.usoSinConfirmar).toBe("servicios-reserva");
+
+    const sin = await POST(
+      peticion({ origenTipo: "objetivo", origenId: "ahorrar-tiempo", respuestas: { ...perfil, necesidadElegida: "citas-reserva" } })
+    );
+    const payloadSin = leerTokenResultado((await sin.json()).token)!;
+    expect(payloadSin.usoSinConfirmar).toBeUndefined();
+    // Mismas herramientas en los dos enlaces: la regla no cambia el filtro.
+    expect(payloadCon.items.map((i) => i.id)).toEqual(payloadSin.items.map((i) => i.id));
+  });
+
   it("«ninguna de éstas» no es un salto: devuelve el motivo, no un enlace", async () => {
     const respuesta = await POST(
       peticion({ origenTipo: "objetivo", origenId: "ahorrar-tiempo", respuestas: { ...perfil, necesidadElegida: "ninguna" } })

@@ -1,7 +1,7 @@
 import { getCategoria, getHerramienta, getProblema } from "@/data/repositorio";
 import { tipoProductoDe } from "@/data/taxonomia";
 import type { CausaSinConfirmar, EtiquetaEvidencia, HerramientaEvaluada } from "@/agents/atlas-advisor";
-import { textoDeFila } from "@/agents/atlas-advisor";
+import { textoDeFila, textoDeUsoSinConfirmar } from "@/agents/atlas-advisor";
 import type { OrigenDiagnostico } from "@/lib/origenDiagnostico";
 import { leerTokenResultado, type PayloadTokenResultado } from "@/lib/resultadoToken";
 
@@ -29,6 +29,8 @@ export type ResultadoCompartido = {
   necesidad?: { id: string; texto: string };
   /** Cómo demuestra cada herramienta esa necesidad, por id. Sólo cuando hubo pregunta. */
   evidencia?: Record<string, EtiquetaEvidencia>;
+  /** El aviso de uso sin confirmar, ya en palabras, cuando la fila lo declaraba. */
+  usoSinConfirmar?: { tarjeta: string; titular: string };
 };
 
 /**
@@ -77,6 +79,7 @@ export function resolverResultadoCompartido(token: string): ResultadoCompartido 
     generadoEn: payload.generadoEn,
     ...(payload.necesidad ? { necesidad: { id: payload.necesidad, texto: textoSeguro(payload.necesidad) } } : {}),
     ...(Object.keys(evidencia).length ? { evidencia } : {}),
+    ...(payload.usoSinConfirmar ? { usoSinConfirmar: usoSeguro(payload.usoSinConfirmar) } : {}),
     ...(payload.sinConfirmar?.causas.length
       ? {
           sinConfirmar: {
@@ -94,6 +97,15 @@ function textoSeguro(filaId: string): string {
     return textoDeFila(filaId).etiqueta;
   } catch {
     return filaId;
+  }
+}
+
+/** Un aviso cuya clave ya no exista se enseña con su clave antes que perderse: era una advertencia, y callarla sería afirmar de más. */
+function usoSeguro(usoId: string): { tarjeta: string; titular: string } {
+  try {
+    return textoDeUsoSinConfirmar(usoId);
+  } catch {
+    return { tarjeta: `Uso sin confirmar: ${usoId}.`, titular: "con un uso sin confirmar" };
   }
 }
 

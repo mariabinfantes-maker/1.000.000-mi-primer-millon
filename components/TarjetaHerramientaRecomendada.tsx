@@ -52,6 +52,8 @@ export type TarjetaHerramientaRecomendadaProps = {
    * el resto del contrato: la tarjeta lo pinta, no lo decide.
    */
   evidencia?: EtiquetaEvidencia;
+  /** Aviso de uso sin confirmar (regla del 2026-09-16): la capacidad está demostrada, este uso concreto no. Nunca dice que no sirva. */
+  usoSinConfirmar?: string;
 };
 
 export default function TarjetaHerramientaRecomendada({
@@ -75,6 +77,7 @@ export default function TarjetaHerramientaRecomendada({
   tieneAppMovil,
   tieneApiPublica,
   evidencia,
+  usoSinConfirmar,
 }: TarjetaHerramientaRecomendadaProps) {
   const destacada = posicion === 1;
   const tieneDetalles = motivosPuntuacion.length > 0 || casosNoRecomendados.length > 0;
@@ -131,6 +134,12 @@ export default function TarjetaHerramientaRecomendada({
             <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-exito-500" aria-hidden="true" />
             Función confirmada en una fuente oficial.
           </p>
+          {usoSinConfirmar && (
+            <p className="mt-1.5 flex items-start gap-1.5 text-atencion-700">
+              <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+              <span>{usoSinConfirmar}</span>
+            </p>
+          )}
           <p className="mt-1.5">
             {evidencia.plan ? (
               <>
