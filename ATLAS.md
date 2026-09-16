@@ -4582,6 +4582,54 @@ en 18; 18 fichas dicen no estar en español y nadie lo comprobó; el idioma
 verificado es 0 de 62. Esto es un informe: no se ha modificado ninguna
 ficha.
 
+## La lectura comprobada, y los cuatro registros aprobados (2026-09-16)
+
+La propietaria separó dos cosas que yo había juntado: **validar la lógica de
+una cita no es comprobar que la página la contenga**. Las trece afirmaciones
+del canal externo pasaban los validadores; leídas contra su cita, sólo cuatro
+se sostenían; y de esas cuatro, ninguna tenía su frase corroborada por una
+fuente independiente.
+
+**Las nueve reglas de evidencia** quedaron escritas en
+`agents/atlas-researcher/encargos/REGLAS-DE-EVIDENCIA.md` y valen para toda
+evidencia que entre en Molnip, venga de donde venga. La regla 1 —una cita no
+vale por tener palabras relacionadas— me obligó a retirar una que yo mismo
+había dado por buena.
+
+**La diferencia que faltaba nombrar.** El proveedor del Researcher devuelve
+qué direcciones descargó de verdad, y el conversor tira cualquier cita cuya
+dirección no conste como leída. Ese dato lo emite la herramienta de lectura,
+no el modelo. El canal externo no puede darlo, por bien que redacte.
+
+**La comprobación, autorizada y acotada:** tres llamadas, tope de seis. Las
+tres direcciones constan descargadas y las cinco frases aparecen carácter a
+carácter, con su sección y sus frases vecinas. La comparación literal la hizo
+el script, no el modelo. Lo más convincente no es mío: **dos proveedores
+independientes devolvieron la misma frase de 103 caracteres en español**, y
+es justo la que yo señalaba por parecer mi propia pregunta devuelta. El
+contexto trajo además una cita nueva que resuelve la profundidad nativa de la
+pasarela de Hotmart.
+
+**Aprobados cuatro registros de capacidad.** Tres se pueden escribir y uno
+no: Teachable se queda con la profundidad pendiente por decisión de la
+propietaria, y el esquema exige profundidad en todo registro verificado.
+
+**Y los tres tampoco han entrado todavía en `registros.json`**, por un
+motivo que conviene dejar escrito: **sus herramientas no están en el
+catálogo**, y F2 valida cada registro contra él. Escribirlos ahí sería
+saltarse la guarda que mantiene honesta la evidencia. Quedan preparados en
+`data/verificacion/_registros-aprobados-sin-ficha.json`, con una prueba que
+comprueba que son válidos en todo lo demás y que hoy fallan **sólo** por eso.
+Entran en el mismo paso en que se promuevan las fichas, sin volver a decidir
+nada.
+
+La frase de Hotmart sobre el acceso automático queda archivada como
+evidencia del uso en `_evidencia-pendiente-uso-hotmart.json`. **No registra
+que Hotmart imparta cursos ni desbloquea el recorrido**: el uso cuelga de una
+capacidad cuya única cita era un eslogan.
+
+Huella `2aea9060…` intacta. Nada fusionado ni desplegado.
+
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 
 **Aprobada por la propietaria el 2026-08-31.** Auditada sobre el commit
