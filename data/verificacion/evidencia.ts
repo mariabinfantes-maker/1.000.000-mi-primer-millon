@@ -1,5 +1,12 @@
-import type { RegistroVerificacion } from "./esquema";
-import type { CertezaDelPlan, EvidenciaDeCapacidad, EvidenciaDePlan } from "./puerto";
+import type { Fuente, RegistroDeIdioma, RegistroDeRecorrido, RegistroVerificacion } from "./esquema";
+import type {
+  CertezaDelPlan,
+  EvidenciaDeCapacidad,
+  EvidenciaDeIdioma,
+  EvidenciaDePlan,
+  EvidenciaDeRecorrido,
+  EvidenciaDeUso,
+} from "./puerto";
 
 /**
  * Las reglas de lectura de la verificación — F3, bloque 2.
@@ -93,6 +100,80 @@ export function evidenciaDeRegistro(
     ...(registro.confianza ? { confianza: registro.confianza } : {}),
     ...(registro.nota ? { nota: registro.nota } : {}),
     ...(fuenteDeCapacidad(registro) ? { fuente: fuenteDeCapacidad(registro) } : {}),
+  };
+}
+
+/** La primera fuente con cita, o la primera: lo que se enlaza. */
+function fuenteConCita(fuentes: Fuente[]): EvidenciaDeCapacidad["fuente"] {
+  const elegida = fuentes.find((f) => f.cita?.trim()) ?? fuentes[0];
+  return elegida ? { tipo: elegida.tipo, url: elegida.url, fechaConsulta: elegida.fechaConsulta } : undefined;
+}
+
+/**
+ * Qué se puede afirmar de un USO, a partir del registro de su capacidad.
+ *
+ * La regla que manda: un uso sólo puede demostrarse sobre una capacidad
+ * demostrada. Si la capacidad no consta, el uso no consta, diga lo que diga
+ * el registro. Y un uso que nadie preguntó pesa igual que uno que no quedó
+ * claro: `no_consta`, con el origen conservado.
+ */
+export function evidenciaDeUso(herramientaId: string, usoId: string, registro: RegistroVerificacion | undefined): EvidenciaDeUso {
+  const base = { herramientaId, usoId };
+  const capacidad = registro ? evidenciaDeRegistro(herramientaId, registro.capacidadId, registro) : undefined;
+  if (!capacidad || capacidad.estado !== "demostrada") return { ...base, estado: "no_consta", origen: "sin_registro" };
+
+  const uso = registro!.usos?.find((u) => u.usoId === usoId);
+  if (!uso) return { ...base, estado: "no_consta", origen: "sin_registro" };
+  if (uso.estado === "no_consta") return { ...base, estado: "no_consta", origen: "desconocido", ...(uso.nota ? { nota: uso.nota } : {}) };
+  const fuente = fuenteConCita(uso.fuentes ?? []);
+  if (uso.estado === "no_lo_hace") {
+    return { ...base, estado: "ausencia_demostrada", origen: "verificado", ...(uso.nota ? { nota: uso.nota } : {}) };
+  }
+  return {
+    ...base,
+    estado: "demostrada",
+    origen: "verificado",
+    ...(uso.nota ? { nota: uso.nota } : {}),
+    ...(fuente ? { fuente } : {}),
+  };
+}
+
+/** Qué se puede afirmar de un recorrido. Mismas reglas de plan que la capacidad. */
+export function evidenciaDeRecorrido(
+  herramientaId: string,
+  recorridoId: string,
+  registro: RegistroDeRecorrido | undefined
+): EvidenciaDeRecorrido {
+  const base = { herramientaId, recorridoId };
+  if (!registro) return { ...base, estado: "no_consta", origen: "sin_registro", plan: { certeza: "no_procede" } };
+  if (registro.estado === "no_consta") return { ...base, estado: "no_consta", origen: "desconocido", plan: { certeza: "no_procede" } };
+  if (registro.estado === "no_lo_hace") {
+    return { ...base, estado: "ausencia_demostrada", origen: "verificado", plan: { certeza: "no_procede" } };
+  }
+  const certeza: CertezaDelPlan = registro.planEstado ?? "desconocido";
+  const nombre = certeza === "verificado" ? registro.planMinimo?.trim() : undefined;
+  const fuente = fuenteConCita(registro.fuentes ?? []);
+  return {
+    ...base,
+    estado: "demostrada",
+    origen: "verificado",
+    plan: nombre ? { certeza, nombre } : { certeza },
+    ...(registro.limites ? { limites: registro.limites } : {}),
+    ...(fuente ? { fuente } : {}),
+  };
+}
+
+/** Qué se sabe del idioma. Sin registro, todo es desconocido: la ficha no cuenta. */
+export function evidenciaDeIdioma(herramientaId: string, registro: RegistroDeIdioma | undefined): EvidenciaDeIdioma {
+  const parte = (v: RegistroDeIdioma["interfaz"] | undefined): EvidenciaDeIdioma["interfaz"] =>
+    v?.estado === "verificado" ? { estado: "verificado", idiomas: [...v.idiomas] } : { estado: "desconocido" };
+  if (!registro) return { herramientaId, interfaz: { estado: "desconocido" }, soporte: { estado: "desconocido" } };
+  const fuente = fuenteConCita([...(registro.interfaz?.fuentes ?? []), ...(registro.soporte?.fuentes ?? [])]);
+  return {
+    herramientaId,
+    interfaz: parte(registro.interfaz),
+    soporte: parte(registro.soporte),
+    ...(fuente ? { fuente } : {}),
   };
 }
 

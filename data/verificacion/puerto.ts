@@ -96,6 +96,51 @@ export type EvidenciaDeCapacidad = {
 };
 
 /**
+ * Lo que se sabe de un USO concreto de una capacidad (2026-09-16, tercera
+ * ronda). Mismos tres estados que la capacidad, y con la misma regla: sólo
+ * `demostrada` se afirma; `ausencia_demostrada` se conserva y no se colapsa
+ * en `no_consta`.
+ *
+ * Un uso sólo puede estar demostrado si su capacidad lo está: el índice no
+ * mira usos de una capacidad que no consta.
+ */
+export type EvidenciaDeUso = {
+  herramientaId: string;
+  usoId: string;
+  estado: EstadoDeEvidencia;
+  /** `sin_registro` también cuando la capacidad consta pero nadie preguntó por este uso. */
+  origen: OrigenDelEstado;
+  /** Límites del uso, cuando se anotaron. Se enseña, no decide. */
+  nota?: string;
+  /** La fuente con cita que lo demuestra. Sólo cuando está demostrado. */
+  fuente?: { tipo: TipoFuente; url: string; fechaConsulta: string };
+};
+
+/** Lo que se sabe de un RECORRIDO: varias piezas juntas en el mismo plan. */
+export type EvidenciaDeRecorrido = {
+  herramientaId: string;
+  recorridoId: string;
+  estado: EstadoDeEvidencia;
+  origen: OrigenDelEstado;
+  plan: EvidenciaDePlan;
+  /** Los límites en palabras del fabricante. Sólo cuando está demostrado. */
+  limites?: string;
+  fuente?: { tipo: TipoFuente; url: string; fechaConsulta: string };
+};
+
+/**
+ * En qué idiomas está, verificado. `desconocido` es el estado de las 62
+ * herramientas mientras ningún lote lo compruebe: la ficha dice
+ * `disponibleEnEspanol`, y eso no es verificación.
+ */
+export type EvidenciaDeIdioma = {
+  herramientaId: string;
+  interfaz: { estado: "verificado"; idiomas: string[] } | { estado: "desconocido" };
+  soporte: { estado: "verificado"; idiomas: string[] } | { estado: "desconocido" };
+  fuente?: { tipo: TipoFuente; url: string; fechaConsulta: string };
+};
+
+/**
  * La única puerta de lectura de la verificación.
  *
  * Todos sus métodos son síncronos y deterministas: la misma pregunta devuelve
@@ -104,6 +149,12 @@ export type EvidenciaDeCapacidad = {
 export type PuertoDeEvidencia = {
   /** Nunca devuelve `undefined`: un par que no existe es un `no_consta` con origen `sin_registro`. */
   estadoDe(herramientaId: string, capacidadId: string): EvidenciaDeCapacidad;
+  /** Nunca `undefined`: un uso no preguntado —o de una capacidad que no consta— es `no_consta`. */
+  usoDe(herramientaId: string, usoId: string): EvidenciaDeUso;
+  /** Nunca `undefined`. */
+  recorridoDe(herramientaId: string, recorridoId: string): EvidenciaDeRecorrido;
+  /** Nunca `undefined`: sin registro, interfaz y soporte son `desconocido`. */
+  idiomaDe(herramientaId: string): EvidenciaDeIdioma;
   /**
    * Qué sabe hacer esta herramienta, demostrado. Ordenado y estable.
    * Sólo `demostrada`: una ausencia demostrada no es algo que sepa hacer.

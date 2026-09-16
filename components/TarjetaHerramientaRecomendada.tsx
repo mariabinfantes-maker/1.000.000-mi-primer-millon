@@ -141,11 +141,43 @@ export default function TarjetaHerramientaRecomendada({
                 : "Función confirmada en una fuente oficial."}
             </span>
           </p>
-          {usoSinConfirmar && (
-            <p className="mt-1.5 flex items-start gap-1.5 text-atencion-700">
-              <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
-              <span>{usoSinConfirmar}</span>
+          {/*
+            El uso concreto, por herramienta (2026-09-16, tercera ronda): si
+            ESTA herramienta lo ha demostrado, se dice con su fuente y el
+            aviso fijo de la fila no aparece, porque ya no es verdad para
+            ella. Si no consta, el aviso fijo sigue diciendo lo único que se
+            sabe. Nunca se dice que no lo haga.
+          */}
+          {evidencia.uso ? (
+            <p className="mt-1.5 flex items-start gap-1.5 font-medium text-slate-800">
+              <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-exito-500" aria-hidden="true" />
+              <span>
+                Uso confirmado en una fuente oficial: {evidencia.uso.etiqueta}.
+                {evidencia.uso.anotado && <span className="font-normal text-slate-600"> Anotado al comprobarlo: {evidencia.uso.anotado}</span>}
+                {evidencia.uso.fuente && (
+                  <span className="font-normal text-slate-600">
+                    {" "}
+                    <a
+                      href={evidencia.uso.fuente.url}
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                      className="inline-flex items-center gap-0.5 font-medium text-brand-600 underline-offset-4 hover:underline"
+                    >
+                      {dominioDe(evidencia.uso.fuente.url)}
+                      <ExternalLink className="h-3 w-3" aria-hidden="true" />
+                    </a>
+                    {" · "}comprobado el {fechaLarga(evidencia.uso.fuente.fecha)}
+                  </span>
+                )}
+              </span>
             </p>
+          ) : (
+            usoSinConfirmar && (
+              <p className="mt-1.5 flex items-start gap-1.5 text-atencion-700">
+                <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+                <span>{usoSinConfirmar}</span>
+              </p>
+            )
           )}
           <p className="mt-1.5">
             {evidencia.plan ? (

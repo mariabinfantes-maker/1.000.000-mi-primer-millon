@@ -32,7 +32,7 @@ export {
 } from "./necesidades";
 export { TEXTOS_NECESIDADES } from "./necesidades.textos.es";
 export { etiquetaDeEvidencia, separarPorRespaldo } from "./etiquetaEvidencia";
-export type { EtiquetaEvidencia } from "./etiquetaEvidencia";
+export type { EstadoDeUnUso, EtiquetaEvidencia } from "./etiquetaEvidencia";
 export type { FilaDeNecesidad, FamiliaDeNecesidades, PreguntaDeNecesidad } from "./necesidades";
 export type {
   CausaSinConfirmar,

@@ -140,6 +140,8 @@ describe("lo que la puerta le cuenta al motor", () => {
   });
 
   it("no expone el plan por ningún sitio", () => {
-    expect(Object.keys(evidencia).sort()).toEqual(["filaDe", "loDemuestra"]);
+    // `estadoDeUso` (tercera ronda) devuelve sólo el estado del uso, sin plan ni nota.
+    expect(Object.keys(evidencia).sort()).toEqual(["estadoDeUso", "filaDe", "loDemuestra"]);
+    expect(evidencia.estadoDeUso("pipedrive", "uso.reserva_de_servicio")).toBe("no_consta");
   });
 });

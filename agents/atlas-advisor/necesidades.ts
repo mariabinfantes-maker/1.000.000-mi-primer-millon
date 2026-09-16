@@ -67,6 +67,19 @@ export type FilaDeNecesidad = {
    * El valor es la clave del texto en `necesidades.textos.es.ts`.
    */
   usoSinConfirmar?: string;
+  /**
+   * El uso concreto de F2 que esta fila pide, además de la capacidad
+   * (2026-09-16, tercera ronda). Con `imprescindible: true`, sólo pasan las
+   * herramientas que lo han DEMOSTRADO: si ninguna, se dice que no está
+   * comprobado para ese uso. Con `false`, pasan las mismas que por la
+   * capacidad —salvo las que tienen evidencia de que NO lo hacen— y cada
+   * tarjeta enseña si ese uso está demostrado o no consta. El aviso fijo de
+   * `usoSinConfirmar` se queda como respaldo para las que no constan.
+   *
+   * Decisión de la propietaria: «si un uso es imprescindible y no está
+   * verificado, la herramienta no puede recomendarse para resolverlo».
+   */
+  uso?: { id: string; imprescindible: boolean };
 };
 
 export type FamiliaDeNecesidades = {
@@ -92,6 +105,9 @@ const SERVICIO_RESERVA: FilaDeNecesidad = {
   id: "servicio-reserva",
   capacidades: ["cap.online_self_service_booking"],
   usoSinConfirmar: "servicios-reserva",
+  // No imprescindible: la regla aprobada las presenta como candidatas. El
+  // día que un lote demuestre el uso en alguna, su tarjeta lo dirá.
+  uso: { id: "uso.reserva_de_servicio", imprescindible: false },
 };
 const RECORDATORIOS_CITAS: FilaDeNecesidad = {
   id: "recordatorios-citas",
@@ -101,6 +117,7 @@ const SERVICIO_RECORDATORIOS: FilaDeNecesidad = {
   id: "servicio-recordatorios",
   capacidades: ["cap.customer_appointment_reminders"],
   usoSinConfirmar: "servicios-recordatorios",
+  uso: { id: "uso.recordatorio_de_cita_de_servicio", imprescindible: false },
 };
 const SEGUIMIENTOS_AUTOMATICOS: FilaDeNecesidad = {
   id: "seguimientos-automaticos",

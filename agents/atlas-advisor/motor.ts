@@ -358,7 +358,24 @@ function seleccionarCandidatas(
     // catálogo entero por una respuesta que no se entiende.
     if (!fila) return { candidatas: [], sinRecomendacion: { tipo: "necesidad_no_entendida" } };
 
-    const demuestran = universo.filter((h) => fila.capacidades.some((c) => puerta.loDemuestra(h.id, c)));
+    let demuestran = universo.filter((h) => fila.capacidades.some((c) => puerta.loDemuestra(h.id, c)));
+
+    /**
+     * El uso concreto, si la fila lo pide (2026-09-16, tercera ronda). Va
+     * DESPUÉS de la capacidad y también filtra, nunca puntúa. Con evidencia
+     * de que NO lo hace, la herramienta se aparta de ese uso aunque no sea
+     * imprescindible: no se presenta como candidata para algo que consta que
+     * no hace. Si es imprescindible, sólo queda quien lo demostró; y si no
+     * queda nadie, se dice, con las palabras de la fila. Sin `estadoDeUso`
+     * en la puerta, ningún uso está demostrado.
+     */
+    if (fila.uso) {
+      const { id: usoId, imprescindible } = fila.uso;
+      const estadoDe = (h: Herramienta) => puerta.estadoDeUso?.(h.id, usoId) ?? "no_consta";
+      demuestran = demuestran.filter((h) => estadoDe(h) !== "ausencia_demostrada");
+      if (imprescindible) demuestran = demuestran.filter((h) => estadoDe(h) === "demostrada");
+    }
+
     if (demuestran.length === 0) {
       return {
         candidatas: [],

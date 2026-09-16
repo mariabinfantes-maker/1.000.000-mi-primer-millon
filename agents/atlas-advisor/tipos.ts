@@ -161,6 +161,17 @@ export type PuertaDeEvidencia = {
    * Ninguno de los tres autoriza a decir que la herramienta no lo tiene.
    */
   loDemuestra(herramientaId: string, capacidadId: string): boolean;
+  /**
+   * El estado de un USO concreto (2026-09-16, tercera ronda). Aquí los tres
+   * estados sí se distinguen, porque el motor los trata distinto: un uso
+   * imprescindible sólo pasa con `demostrada`; una `ausencia_demostrada`
+   * aparta a la herramienta de ese uso aunque no sea imprescindible; y
+   * `no_consta` la deja como candidata, con el aviso de la fila.
+   *
+   * Opcional para que las puertas de prueba construidas a mano sigan
+   * valiendo. Sin él, ningún uso está demostrado: es lo mismo que «no consta».
+   */
+  estadoDeUso?(herramientaId: string, usoId: string): "demostrada" | "ausencia_demostrada" | "no_consta";
 };
 
 /**

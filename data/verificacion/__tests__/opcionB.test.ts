@@ -6,6 +6,7 @@ import { NECESIDADES, filaDeNecesidad, todasLasFilas } from "@/agents/atlas-advi
 import { etiquetaDeEvidencia } from "@/agents/atlas-advisor/etiquetaEvidencia";
 import { perfilesDePrueba } from "@/agents/atlas-advisor/__tests__/perfiles";
 import { getPuertaDeEvidencia, getPuertoDeEvidencia } from "../consulta";
+import { getUso } from "../usos";
 
 /**
  * La opción B con los datos de verdad: las 62 fichas, los 1.544 registros y
@@ -25,6 +26,26 @@ describe("lo que la tabla afirma sobre los datos, contrastado", () => {
         expect(capacidad?.estado, `${fila.id} → ${id}`).toBe("activa");
       }
     }
+  });
+
+  /**
+   * El uso que pide una fila (tercera ronda) tiene que existir en la lista
+   * cerrada y colgar de una de las capacidades de esa misma fila: si no, la
+   * fila pediría un uso que ninguna de sus capacidades puede tener.
+   */
+  it("el uso de toda fila que lo pide existe y cuelga de una capacidad de la fila", () => {
+    let conUso = 0;
+    for (const fila of todasLasFilas()) {
+      if (!fila.uso) continue;
+      conUso++;
+      const uso = getUso(fila.uso.id);
+      expect(uso, `${fila.id} → ${fila.uso.id}`).toBeDefined();
+      expect(fila.capacidades, `${fila.id} → ${fila.uso.id}`).toContain(uso?.capacidadId);
+      // Las dos filas de servicios de hoy no son imprescindibles: la regla aprobada las presenta como candidatas.
+      expect(fila.uso.imprescindible, fila.id).toBe(false);
+      expect(fila.usoSinConfirmar, `${fila.id}: un uso no imprescindible necesita el aviso fijo de respaldo`).toBeDefined();
+    }
+    expect(conUso).toBe(2);
   });
 
   /**
@@ -213,7 +234,8 @@ describe("la pregunta no cambia nada fuera de su camino", () => {
         const r = recomendarHerramientas({ problemaIdsCandidatos: [pregunta.objetivoId], necesidadElegida: fila.id }, catalogo, { evidencia });
         if (r.sinRecomendacion) {
           expect(r.sinRecomendacion.tipo, `${pregunta.objetivoId}/${fila.id}`).toBe("necesidad_sin_cobertura");
-          expect(fila.sinCobertura, `${pregunta.objetivoId}/${fila.id}`).toBe(true);
+          // O la fila está marcada sin cobertura, o pide un uso imprescindible que nadie ha demostrado.
+          expect(fila.sinCobertura === true || fila.uso?.imprescindible === true, `${pregunta.objetivoId}/${fila.id}`).toBe(true);
         } else {
           expect(r.todas.length, `${pregunta.objetivoId}/${fila.id}`).toBeLessThan(catalogo.length);
           for (const e of r.todas) {
