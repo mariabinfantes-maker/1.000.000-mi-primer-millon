@@ -4487,6 +4487,31 @@ frase de privacidad), los productos propios, la pregunta de idioma en el
 cuestionario y la puerta «Quiero vender más». La verificación del idioma
 existe en los datos y en el puerto, y ninguna pantalla la lee todavía.
 
+### Primer disparo: el Researcher sobre las tres candidatas de cursos (2026-09-16)
+
+La propietaria confirmó que la cuenta de Gemini es **de pago, con 16 € de
+crédito**, y autorizó el primer disparo. Antes de lanzarlo hicieron falta
+dos cosas del entorno, no del producto: el `fetch` de Node no pasa por el
+proxy salvo con `NODE_USE_ENV_PROXY=1`, y el proveedor de Gemini metía la
+clave en la URL, donde un valor de relleno anula la que inyecta el proxy.
+El proveedor admite ahora `GEMINI_CLAVE_INYECTADA_POR_PROXY=true`, explícita
+y sólo para ese entorno; en Vercel y en el ordenador de la propietaria nada
+cambia, y las pruebas del proveedor siguen igual.
+
+**Resultado:** las tres candidatas —Hotmart, Thinkific, Teachable— pasaron el
+prechequeo con afiliación **confirmada** (programa propio, PartnerStack e
+Impact respectivamente, según lo que devolvió el modelo) y recibieron la
+investigación completa: **seis llamadas**, el máximo previsto. Tres
+borradores escritos en `data/borradores/`, que está fuera de git a
+propósito: quedan copiados en el cuaderno de la sesión y entregados a la
+propietaria, porque el entorno remoto es efímero. **Nada entra en el
+catálogo** hasta `aprobar-borrador` y `promover-borrador`, que son suyos.
+Cautela de siempre: la ficha y la afiliación las generó el modelo con las
+direcciones que declara en `metadatos`, y nadie ha comprobado aún esas
+fuentes; Teachable sale sólo en inglés según su borrador. El coste real del
+disparo se lee en la consola de Google y se anota aquí cuando la
+propietaria lo diga.
+
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 
 **Aprobada por la propietaria el 2026-08-31.** Auditada sobre el commit
