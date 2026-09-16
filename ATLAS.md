@@ -4218,6 +4218,37 @@ Lo que la revisión confirmó intacto: las 62 fichas, las categorías y las 810
 combinaciones, con la misma huella; los enlaces anteriores en sus cuatro
 formatos; y «Ninguna de éstas» como salida inmediata.
 
+### La revisión final: APTO, y lo que queda anotado sin arreglar
+
+La revisión de `1a812b4` contra `4b232d4` dio APTO. Los cuatro arreglos
+quedaron comprobados en el navegador, los enlaces anteriores abren en sus
+cuatro formatos con su comparador, el manipulado se rechaza, y la huella del
+catálogo sigue siendo la misma: 62 fichas, 4 categorías, 5 objetivos y 810
+combinaciones. Suite, tipos y compilación en verde; el lint mantiene los
+mismos siete avisos de producción, en dos archivos que esta rama no toca.
+
+**Tres observaciones documentadas a propósito, sin ampliar la etapa:**
+
+1. **Un encabezado que se pintaría vacío.** Si una fila con uso sin
+   confirmar devolviera sólo candidatas pendientes, el encabezado de
+   candidatas aparecería con cero tarjetas encima del de pendientes. Hoy es
+   inalcanzable: el validador de F2 rechaza una integración sin tercero
+   nombrado, así que la etiqueta «pendiente» no puede nacer de un registro
+   válido. Si algún día se relaja esa validación, esto hay que mirarlo.
+2. **Los enlaces del formato intermedio pierden un matiz.** Los generados
+   durante el desarrollo con la etiqueta «sin detalle», ya retirada, no
+   pintan aviso en esa tarjeta. Tampoco es alcanzable: ningún enlace de
+   producción lleva campo de evidencia, porque ese campo nace en esta rama.
+3. **El comparador lleva el aviso, no la evidencia por herramienta.** Es una
+   tabla de diferencias, no una ficha; el aviso de uso sin confirmar sí va,
+   encima de la tabla. Queda anotado como decisión, no como olvido.
+
+Sigue abierta de la primera revisión la cuestión de las fuentes que apuntan
+a la portada del fabricante: 45 de las 109 tarjetas que se enseñan enlazan a
+una portada, donde la afirmación no se puede localizar. La garantía es
+cierta porque la cita está en el registro; la transparencia del enlace queda
+corta. No se reabre aquí.
+
 ### Lo que salió de aquí y queda para después
 
 - **La tabla es el mapa de huecos del catálogo.** Cada fila con cobertura
