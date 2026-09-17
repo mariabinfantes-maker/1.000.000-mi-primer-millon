@@ -10,7 +10,6 @@ import {
   capacidadIdsDelVocabulario,
   erroresDeFuenteDeCapacidad,
   erroresDeRegistro,
-  erroresDeSustitucion,
   getFuentesDeCapacidad,
   getPlan,
   getSelecciones,
@@ -191,11 +190,26 @@ async function esperarTurno(): Promise<void> {
   }
 }
 
+/**
+ * Lo que este arnés LEE de la respuesta de Gemini: sólo la porción que usa,
+ * no el contrato entero del proveedor. Todo opcional a propósito — la
+ * respuesta viene de fuera y ningún campo se puede dar por hecho; escribirla
+ * como `any` era decir «aquí puede venir cualquier cosa y no la miro», que es
+ * justo lo contrario de lo que hace este archivo.
+ */
+type RespuestaGemini = {
+  error?: { code?: number; message?: string };
+  candidates?: Array<{
+    content?: { parts?: Array<{ text?: string }> };
+    urlContextMetadata?: { urlMetadata?: Array<{ retrievedUrl?: string; urlRetrievalStatus?: string }> };
+  }>;
+};
+
 function esErrorDeCuota(mensaje: string): boolean {
   return /API error 429|RESOURCE_EXHAUSTED|quota/i.test(mensaje);
 }
 
-async function invocarGemini(prompt: string, urls: string[]): Promise<any> {
+async function invocarGemini(prompt: string, urls: string[]): Promise<RespuestaGemini> {
   const texto = `${prompt}\n\nDirecciones que debes leer antes de responder:\n${urls.map((u) => `- ${u}`).join("\n")}`;
   const cuerpo = {
     contents: [{ parts: [{ text: texto }] }],
@@ -226,7 +240,7 @@ async function invocarGemini(prompt: string, urls: string[]): Promise<any> {
           }
         );
       });
-      const parsed = JSON.parse(stdout);
+      const parsed = JSON.parse(stdout) as RespuestaGemini;
       if (parsed.error) throw new Error(`API error ${parsed.error.code}: ${parsed.error.message}`);
       return parsed;
     } catch (e) {
@@ -244,6 +258,11 @@ async function invocarGemini(prompt: string, urls: string[]): Promise<any> {
       await unlink(tmp).catch(() => {});
     }
   }
+  // Inalcanzable: el tercer intento fallido lanza. Está escrito para que, si
+  // alguien toca el bucle, esto falle fuerte en vez de devolver `undefined` y
+  // que el fallo aparezca tres funciones más allá, disfrazado de respuesta
+  // vacía del proveedor.
+  throw new Error("invocarGemini terminó sin respuesta: revisa el bucle de reintentos");
 }
 
 /**
@@ -258,7 +277,7 @@ function aTextoONull(v: unknown): string | null {
   return String(v);
 }
 
-function extraerTexto(respuesta: any): string {
+function extraerTexto(respuesta: RespuestaGemini): string {
   const t = respuesta?.candidates?.[0]?.content?.parts?.[0]?.text;
   if (!t) return "";
   return t
@@ -267,10 +286,10 @@ function extraerTexto(respuesta: any): string {
     .trim();
 }
 
-function extraerUrls(respuesta: any): Array<{ url?: string; estado?: string; recuperada?: boolean }> {
+function extraerUrls(respuesta: RespuestaGemini): Array<{ url?: string; estado?: string; recuperada?: boolean }> {
   const metadatos = respuesta?.candidates?.[0]?.urlContextMetadata?.urlMetadata;
   if (!metadatos) return [];
-  return metadatos.map((m: any) => ({
+  return metadatos.map((m) => ({
     url: m.retrievedUrl,
     estado: m.urlRetrievalStatus,
     recuperada: m.urlRetrievalStatus === "URL_RETRIEVAL_STATUS_SUCCESS",
