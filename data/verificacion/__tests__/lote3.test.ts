@@ -134,9 +134,10 @@ describe("la selección congelada del lote 3", () => {
     expect(selecciones.filter((s) => previos.has(s.herramientaId)).map((s) => s.herramientaId)).toEqual([]);
   });
 
-  it("con los tres lotes, las 62 fichas del catálogo quedan incluidas", () => {
+  it("con los tres lotes quedan incluidas las 62 fichas que había al congelarlo", () => {
     const enLotes = new Set(getPlan().lotes.flatMap((l) => l.herramientaIds));
-    expect(enLotes.size).toBe(getTodasLasHerramientas().length);
+    // Las tres promovidas el 2026-09-17 están fuera del plan; lo dice plan.test.ts.
+    expect(enLotes.size).toBe(getTodasLasHerramientas().length - 3);
     const conSeleccion = new Set(getSelecciones().map((s) => s.herramientaId));
     expect([...enLotes].filter((id) => !conSeleccion.has(id))).toEqual([]);
   });

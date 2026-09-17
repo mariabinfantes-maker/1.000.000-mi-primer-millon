@@ -203,18 +203,19 @@ describe("la puerta no lo deja pasar", () => {
   });
 });
 
-describe("y los 1.544 registros de hoy no cambian de comportamiento", () => {
+describe("y los 1.547 registros de hoy no cambian de comportamiento", () => {
   const registros = getRegistros();
 
   it("no hay ni un registro con ausencia demostrada", () => {
     expect(registros.filter((r) => r.profundidad === "no_disponible")).toEqual([]);
   });
 
-  it("los 659 verificados siguen siendo capacidad demostrada", () => {
+  it("los 662 verificados siguen siendo capacidad demostrada", () => {
     const demostradas = registros.filter(
       (r) => evidenciaDeRegistro(r.herramientaId, r.capacidadId, r).estado === "demostrada"
     );
-    expect(demostradas.length).toBe(659);
+    // 659 de F2 más los tres del 2026-09-17.
+    expect(demostradas.length).toBe(662);
   });
 
   it("y ninguno cae en el estado nuevo", () => {

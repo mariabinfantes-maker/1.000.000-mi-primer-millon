@@ -4664,6 +4664,62 @@ programa de afiliación fiable». Con la reforma del Researcher recuperada en
 esta rama, ya no: deriva a la propietaria. Dejarla habría hecho que cada
 sesión futura partiera de algo falso.
 
+## Tres fichas promovidas: el catálogo pasa de 62 a 65 (2026-09-17)
+
+Autorizado por la propietaria con condiciones. **Hotmart, Thinkific y
+Teachable** entran al catálogo, y con ellas los tres registros de capacidad
+que se aprobaron el día anterior tras comprobar la lectura de sus citas.
+`registros.json` pasa de 1.544 a 1.547; los verificados, de 659 a 662.
+
+**La promoción encontró tres defectos reales en las fichas**, y ninguno lo
+habría visto una revisión de texto:
+
+- **Teachable fue rechazada por el esquema:** su `disponibilidadGeografica`
+  era la cadena «GLOBAL» y tiene que ser un array. Corregido a la forma que
+  tienen las otras dos.
+- **La puntuación venía inflada.** Es un valor derivado y el modelo lo
+  escribió a mano: Thinkific tenía 96 y le tocan 93; Teachable, 89 y le
+  tocan 86. Recalculadas. Es exactamente el fallo que documentó
+  `puntuacionGuardada.test.ts` el 2026-09-02, repitiéndose con otro modelo.
+- **Hotmart declaraba dos categorías secundarias imposibles:**
+  «comercio-electronico», que existe pero está en estado pendiente, y
+  «embudos-de-venta», que no existe. Retiradas las dos.
+
+**Las tres entran sin objetivo, marcadas como deuda visible**
+(`objetivoPendienteDeInvestigacion`). Inventarles uno habría cambiado las
+recomendaciones por objetivo sin que nadie lo decidiera. Son 4 pendientes
+sobre 65, por debajo del 10 % que la garantía del Curator tolera.
+
+**El paso de afiliación no llegó a ejecutarse**: crea la fila de estrategia
+en Postgres y aquí no hay base de datos. No es un problema, es lo correcto:
+sin estrategia no hay enlace de afiliado, y la página de salida cae al
+enlace oficial. Ninguna de las tres tiene hoy un enlace de afiliado
+inventado.
+
+**Lo que cambia para quien usa Molnip.** De 1.650 combinaciones
+comparadas, **41 cambian de top**, y sólo en los tres sitios donde las
+nuevas capacidades aplican: «cobrar online» (21), la categoría de
+plataformas todo en uno (15) y «web o páginas de captación» (5). En ningún
+otro sitio se mueve nada.
+
+**Teachable no afirma nada.** Sin registro, no tiene capacidades
+demostradas, no pasa ninguna fila de necesidad, no lleva etiqueta de
+evidencia y no activa ningún uso. Compite en su categoría por su ficha,
+como cualquier otra, y su profundidad sigue pendiente.
+
+**La huella del catálogo cambia, y tiene que cambiar:** de `2aea9060…` a
+`86cc8076…`. Era el sello de las 62; ahora es el de las 65. Las 810
+combinaciones de la rejilla siguen siendo 810.
+
+**Las guardas de recuento se actualizaron con su motivo escrito**, no
+silenciadas. La más importante: el plan de F2 cubría «el catálogo entero» y
+ahora cubre las 62 que existían al congelarlo; las tres nuevas quedan fuera
+de todo lote y la prueba las nombra una a una, para que la deuda se vea y se
+cierre cuando se les asigne lote.
+
+Suite 1.990 en verde, `tsc` limpio, build correcta. Sin fusionar ni
+desplegar.
+
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 
 **Aprobada por la propietaria el 2026-08-31.** Auditada sobre el commit

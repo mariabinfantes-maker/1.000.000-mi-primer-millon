@@ -134,7 +134,9 @@ describe("qué deja fuera cada fila hoy", () => {
   }
 
   it.each([
-    ["gestion-proyectos", 29, 18],
+    // 32 desde el 2026-09-17: las tres suites promovidas entran en el universo
+    // de toda categoría, y la puerta de evidencia las deja fuera igual. Pasan 18.
+    ["gestion-proyectos", 32, 18],
     ["asistentes-ia/espacio-trabajo", 3, 3],
     ["asistentes-ia/escritura", 3, 3],
     ["asistentes-ia/reuniones-transcripcion", 3, 3],

@@ -176,10 +176,10 @@ describe("«no consta» no es «no lo tiene»", () => {
     expect(describir(de(), "Embudo de ventas")).toContain("a partir del plan Lite");
   });
 
-  // ── Sobre los 1.544 registros reales ──────────────────────────────────
-  it("ninguno de los 1.544 registros reales produce una afirmación de ausencia", () => {
+  // ── Sobre los 1.547 registros reales ──────────────────────────────────
+  it("ninguno de los 1.547 registros reales produce una afirmación de ausencia", () => {
     const registros = getRegistros();
-    expect(registros.length).toBe(1544);
+    expect(registros.length).toBe(1547);
     const malas = registros
       .map((r) => describir(evidenciaDeRegistro(r.herramientaId, r.capacidadId, r), r.capacidadId))
       .filter(afirmaAusencia);

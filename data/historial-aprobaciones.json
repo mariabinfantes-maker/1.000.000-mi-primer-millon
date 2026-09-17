@@ -458,5 +458,15 @@
     "estadoAfiliacion": "pendiente_de_verificar",
     "observaciones": "Aprobado por la propietaria el 2026-09-02 para cerrar el subtipo espacio-trabajo. La propietaria autoriza ademas la anulacion justificada del aviso de casi-duplicado con ClickUp: mismo proveedor y dominio, pero producto de IA diferenciado y de pago separado, siguiendo el criterio ya aplicado a otros productos distintos del mismo proveedor (Zoho CRM frente a Zoho One) y el precedente de Notion AI. Aviso de Curator anulado explícitamente: \"ClickUp Brain\" y \"ClickUp\" comparten el mismo dominio (clickup.com) en su página oficial. Justificación: Anulacion autorizada expresamente por la propietaria el 2026-09-02. ClickUp Brain comparte proveedor y dominio con ClickUp, pero se incorpora como producto de IA diferenciado: es un complemento de pago separado (9 dolares/usuario/mes sobre un plan de pago de ClickUp), con su propia pagina de producto y su propio ambito de uso. Mismo criterio ya aplicado a otros productos distintos del mismo proveedor (Zoho CRM frente a Zoho One) y mismo precedente que Notion AI, que tiene ficha propia sin que Notion este en el catalogo.",
     "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-17T06:45:12.182Z",
+    "herramientaId": "teachable",
+    "nombreHerramienta": "teachable",
+    "resultado": "rechazada",
+    "puntuacionMolnip": null,
+    "estadoAfiliacion": null,
+    "observaciones": "Aprobado por la propietaria el 2026-09-17, tras la revisión cita a cita bajo las nueve reglas de evidencia y la corrección de los datos inventados del borrador. Motivos del bloqueo: [data/herramientas/borradores/teachable.json] no es una Herramienta válida:\n  - \"disponibilidadGeografica\" debe ser un array no vacío",
+    "aprobacionCeo": true
   }
 ]

@@ -211,7 +211,7 @@ describe("un lote de usos", () => {
     expect(e({ topeDePeticiones: 0 })).toContain("tope de peticiones");
     expect(e({ fecha: "ayer" })).toContain("fecha inválida");
     expect(h({ criterio: "" })).toContain("sin criterio escrito");
-    expect(h({ herramientaId: "hotmart" })).toContain("no existe en el catálogo");
+    expect(h({ herramientaId: "herramienta-inventada" })).toContain("no existe en el catálogo");
     expect(h({ usoIds: ["uso.reserva_de_servicio"] })).toContain("cuelga de cap.online_self_service_booking, que no está en sus capacidades");
     expect(h({ capacidadIds: ["cap.website_builder", "cap.payment_collection"] })).toContain("necesita cap.training_lms, y no está en sus capacidades");
     expect(h({ recorridoIds: ["rec.nada"] })).toContain('el recorrido "rec.nada" no existe');

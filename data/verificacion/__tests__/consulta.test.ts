@@ -108,7 +108,7 @@ describe("el índice de la verificación", () => {
   });
 });
 
-describe("sobre los 1.544 registros reales", () => {
+describe("sobre los 1.547 registros reales", () => {
   const registros = getRegistros();
   const puerto = getPuertoDeEvidencia();
 
@@ -148,14 +148,20 @@ describe("sobre los 1.544 registros reales", () => {
   });
 
   it("las cuentas cuadran con lo que cerró F2", () => {
-    expect(registros.length).toBe(1544);
+    // 1.544 de F2 más los tres aprobados el 2026-09-17 con prueba de lectura.
+    expect(registros.length).toBe(1547);
     const verificados = registros.filter((r) => puerto.estadoDe(r.herramientaId, r.capacidadId).estado === "demostrada");
-    expect(verificados.length).toBe(659);
+    expect(verificados.length).toBe(662);
   });
 
-  it("las 62 herramientas tienen al menos una capacidad demostrada", () => {
+  /**
+   * 64 y no 65: Teachable está en el catálogo desde el 2026-09-17 y todavía
+   * no tiene ningún registro, porque su profundidad sigue pendiente. Es una
+   * ausencia decidida, no un olvido.
+   */
+  it("64 de las 65 herramientas tienen al menos una capacidad demostrada", () => {
     const herramientas = [...new Set(registros.map((r) => r.herramientaId))];
-    expect(herramientas.length).toBe(62);
+    expect(herramientas.length).toBe(64);
     expect(herramientas.filter((id) => puerto.capacidadesVerificadasDe(id).length === 0)).toEqual([]);
   });
 

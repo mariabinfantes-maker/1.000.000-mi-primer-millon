@@ -24,9 +24,9 @@ describe("el plan de verificación", () => {
     ).toBe(versionDelVocabulario());
   });
 
-  it("cubre el catálogo entero: las 62", () => {
+  it("cubre las 62 fichas que existían cuando se congeló", () => {
     expect(asignadas.length).toBe(62);
-    expect(catalogo.length).toBe(62);
+    expect(catalogo.length).toBe(65);
   });
 
   it("ninguna herramienta se repite", () => {
@@ -34,8 +34,14 @@ describe("el plan de verificación", () => {
     expect(repetidas).toEqual([]);
   });
 
-  it("ninguna herramienta se queda fuera", () => {
-    expect(catalogo.filter((id) => !asignadas.includes(id))).toEqual([]);
+  /**
+   * Las tres fichas promovidas el 2026-09-17 —Hotmart, Thinkific y
+   * Teachable— entraron DESPUÉS de que el plan de F2 se congelara, así que
+   * no están en ningún lote. No se silencia: se nombran aquí para que la
+   * deuda se vea y se cierre cuando se les asigne lote.
+   */
+  it("las únicas que se quedan fuera son las promovidas después de congelarlo", () => {
+    expect(catalogo.filter((id) => !asignadas.includes(id)).sort()).toEqual(["hotmart", "teachable", "thinkific"]);
   });
 
   it("ninguna herramienta del plan es inventada", () => {

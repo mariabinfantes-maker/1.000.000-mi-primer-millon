@@ -32519,5 +32519,62 @@
     "confianza": "baja",
     "proximaRevision": "2027-09-09",
     "nota": "Buscados recordatorios automáticos de citas para clientes; no aparece mencionado en las páginas analizadas."
+  },
+  {
+    "herramientaId": "thinkific",
+    "capacidadId": "cap.website_builder",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.thinkific.com/pricing/",
+        "fechaConsulta": "2026-09-16",
+        "cita": "You don’t need to be a developer to build your site and online courses."
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-16"
+  },
+  {
+    "herramientaId": "thinkific",
+    "capacidadId": "cap.payment_collection",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.thinkific.com/pricing/",
+        "fechaConsulta": "2026-09-16",
+        "cita": "Thinkific offers its own custom payment processor, Thinkific Payments."
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-16"
+  },
+  {
+    "herramientaId": "hotmart",
+    "capacidadId": "cap.payment_collection",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://hotmart.com/es/herramientas/pasarela-de-pagos",
+        "fechaConsulta": "2026-09-16",
+        "cita": "Hotmart integra pasarela de pago, checkout optimizado y gestión de afiliados en un solo lugar."
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://hotmart.com/es/herramientas/pasarela-de-pagos",
+        "fechaConsulta": "2026-09-16",
+        "cita": "La pasarela de Hotmart ya viene integrada de forma nativa con el área de miembros, el programa de afiliados y el dashboard."
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-16"
   }
 ]

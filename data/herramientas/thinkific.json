@@ -1,0 +1,155 @@
+{
+  "nombre": "Thinkific",
+  "paginaOficial": "https://www.thinkific.com",
+  "urlPrecios": "https://www.thinkific.com/pricing/",
+  "logoUrl": "",
+  "categoriaId": "plataformas-todo-en-uno",
+  "categoriasSecundarias": [],
+  "subtiposSecundarios": [],
+  "tipoProducto": "suite",
+  "descripcion": "Thinkific es una plataforma de software basada en la nube que permite a creadores de contenido, educadores y empresas diseñar, comercializar y vender cursos en línea y comunidades virtuales. Ofrece herramientas de personalización de sitios web, gestión de estudiantes, evaluaciones y procesamiento de pagos sin requerir conocimientos avanzados de programación.",
+  "informacionEmpresa": {
+    "anioFundacion": 2012,
+    "paisOrigen": "Canadá",
+    "tamanoAproximado": "201-500 empleados"
+  },
+  "problemasQueResuelve": [
+    "Dificultad técnica para construir y alojar academias virtuales y cursos online independientes.",
+    "Falta de control sobre los datos de los estudiantes y marcas cuando se usan marketplaces de terceros.",
+    "Complejidad para integrar pagos, comunidades y contenidos educativos en una sola herramienta."
+  ],
+  "casosDeUso": [
+    "Creación y venta de programas formativos y cursos individuales para infoproductores.",
+    "Lanzamiento de comunidades de pago y membresías recurrentes.",
+    "Formación y capacitación online de clientes y socios de empresas B2B."
+  ],
+  "idealPara": "Creadores de contenido, consultores, educadores y pymes que buscan monetizar sus conocimientos a través de cursos y comunidades bajo su propia marca.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200"
+  ],
+  "industriasIdeales": [
+    "Educación y Formación",
+    "Consultoría y Coaching",
+    "Marketing y Servicios Profesionales",
+    "Salud y Bienestar"
+  ],
+  "noRecomendadaPara": "Grandes corporaciones que requieran un LMS puramente enfocado en la gestión de recursos humanos y normativas internas (compliance), o negocios que busquen automatizaciones complejas de marketing de ventas directamente nativas.",
+  "casosNoRecomendados": [
+    "Gestión interna de formación corporativa vinculada a sistemas avanzados de RRHH.",
+    "Proyectos que dependan exclusivamente de automatizaciones complejas de email marketing sin usar herramientas externas."
+  ],
+  "funcionesPrincipales": [
+    "Constructor drag-and-drop de páginas web y cursos",
+    "Creación de comunidades interactivas y eventos en vivo",
+    "Soporte para múltiples formatos de contenido (vídeo, audio, PDF, quizes, encuestas)",
+    "Procesamiento de pagos integrado con Thinkific Payments",
+    "Asistentes impulsados por Inteligencia Artificial para estructuración de cursos",
+    "Emisión de certificados de finalización personalizados"
+  ],
+  "modulosIncluidos": [
+    "creador_de_sitios_web",
+    "comercio_electronico",
+    "embudos_de_venta",
+    "asistente_ia"
+  ],
+  "integraciones": [
+    "Zapier",
+    "Stripe",
+    "PayPal",
+    "Mailchimp",
+    "ConvertKit",
+    "ActiveCampaign",
+    "Google Analytics",
+    "Shopify",
+    "Segment"
+  ],
+  "integracionesPrincipales": [
+    "Zapier",
+    "Stripe",
+    "Mailchimp",
+    "ConvertKit"
+  ],
+  "curvaDeAprendizaje": "facil",
+  "precioInicial": "Plan Basic desde 40 $/mes con facturación anual, 54 $/mes con facturación mensual. Sin plan gratuito: prueba de 30 días. Precios de la tabla oficial del 2026-09-16.",
+  "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual",
+    "suscripcion_anual"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Plan Start: 82 $/mes con facturación anual, 109 $/mes con facturación mensual. Precios de la tabla oficial del 2026-09-16.",
+  "disponibilidadGeografica": [
+    "GLOBAL"
+  ],
+  "idiomasDisponibles": [
+    "Inglés",
+    "Español",
+    "Francés",
+    "Alemán",
+    "Portugués",
+    "Italiano"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 8,
+    "fiabilidad": 9,
+    "atencionAlCliente": 8,
+    "escalabilidad": 8,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 9
+  },
+  "metodologiaValoracion": "Puntuaciones estimadas mediante la consolidación de datos públicos de usuarios en portales independientes de evaluación (G2, Capterra) y especificaciones técnicas de la plataforma.",
+  "reputacion": {
+    "g2Puntuacion": 4.7,
+    "g2NumeroResenas": 240,
+    "capterraPuntuacion": 4.6,
+    "capterraNumeroResenas": 700,
+    "otrasFuentes": [
+      {
+        "fuente": "Trustpilot",
+        "puntuacion": 4.6,
+        "numeroResenas": 640,
+        "enlace": "https://www.trustpilot.com/review/thinkific.com"
+      }
+    ]
+  },
+  "ventajas": [
+    "0% de comisión por transacción en los planes de pago.",
+    "Interfaz intuitiva y amigable para creadores sin experiencia técnica previa.",
+    "Excelente integración de comunidades de aprendizaje dentro de la misma plataforma.",
+    "Soporte sólido y amplia base de conocimientos y recursos formativos."
+  ],
+  "inconvenientes": [
+    "Herramientas nativas de email marketing limitadas en comparación con plataformas competidoras.",
+    "Menos flexibilidad en el diseño visual de las páginas en comparación con builders avanzados como WordPress."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Teachable",
+      "Kajabi",
+      "Podia",
+      "LearnWorlds"
+    ],
+    "tipoNegocioIdeal": "Creadores de contenidos, academias virtuales e infoproductores",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 93,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.5/10.",
+      "G2: 4.7/5 (240 reseñas).",
+      "Capterra: 4.6/5 (700 reseñas).",
+      "Tiene plan gratuito.",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "thinkific",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-16",
+  "fechaUltimaRevision": "2026-09-17",
+  "objetivoPendienteDeInvestigacion": true
+}
