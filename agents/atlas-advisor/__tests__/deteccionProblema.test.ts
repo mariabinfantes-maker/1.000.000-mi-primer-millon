@@ -110,3 +110,33 @@ describe("las palabras de facturación llevan a organizar la empresa", () => {
     expect(detectarProblemasPorTexto(frase, problemas)).not.toContain("organizar-empresa");
   });
 });
+
+/**
+ * «Quiero vender más», el saludo más común que va a recibir Molnip, no
+ * llegaba a ninguna puerta: las palabras clave tenían «cerrar ventas» y
+ * «embudo de ventas», jerga de quien ya sabe, y ninguna de las formas en que
+ * lo dice una persona normal. Quedó anotado en la etapa cero y se cierra el
+ * 2026-09-17.
+ *
+ * Las siete frases de abajo son las entradas reales de los doce casos.
+ */
+describe("«quiero vender más» llega a conseguir clientes", () => {
+  const problemas = getProblemas();
+
+  it.each([
+    "quiero vender más",
+    "quiero vender mas",
+    "necesito aumentar las ventas",
+    "somos una asesoría y queremos aumentar las ventas",
+    "hago velas artesanas, somos dos, y quiero vender más",
+    "quiero más ventas este año",
+    "fabricamos componentes y necesitamos aumentar las ventas",
+  ])("«%s»", (frase) => {
+    expect(detectarProblemasPorTexto(frase, problemas)).toContain("conseguir-clientes");
+  });
+
+  it("y no se lleva por delante las otras puertas", () => {
+    expect(detectarProblemasPorTexto("necesito hacer facturas", problemas)).toContain("organizar-empresa");
+    expect(detectarProblemasPorTexto("quiero automatizar tareas repetitivas", problemas)).toContain("automatizar-tareas");
+  });
+});

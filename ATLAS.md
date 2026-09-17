@@ -4752,6 +4752,33 @@ monday.com, Zoho Projects y Teamwork.com.
 programa de facturación. Son CRM y gestores de proyectos que además facturan.
 El hueco no es «no tenemos nada», es «no tenemos nada pensado para esto».
 
+## «Quiero vender más» ya llega a una puerta (2026-09-17)
+
+Quedó anotado como decisión pendiente en la etapa cero y seguía sin hacerse:
+**ninguna de las formas de decirlo llegaba a ningún objetivo**. Ni «quiero
+vender más», ni «aumentar las ventas», ni «más ventas». Es el saludo más
+común que va a recibir Molnip y terminaba en «no lo he entendido».
+
+**La puerta existía; el problema era cómo se llama.** El objetivo
+`conseguir-clientes` se titula «Conseguir más clientes» y sus palabras clave
+eran «cerrar ventas», «embudo de ventas», «pipeline de ventas», «leads»:
+jerga de quien ya sabe. Se añaden seis formas de decirlo en cristiano.
+Prueba con las siete frases de entrada de los doce casos.
+
+**Lo que NO se ha tocado, y es decisión de la propietaria.** La descripción
+que se ve en el sitio dice «Atrae y convierte más **leads** en ventas».
+«Leads» es jerga, y la visión lo prohíbe expresamente: «si la explicación
+sólo la entiende quien ya sabía, no ha servido». Cambiar ese texto y, si
+procede, el título de la puerta, es copia de producto y no se toca sin ella.
+
+**El mapa que salió al mirarlo.** Molnip sabe responder a **62 de las 146**
+capacidades de su propio vocabulario; 84 tienen cero herramientas, y sólo 35
+se preguntan. Por áreas: hacer el trabajo, 67 %; base tecnológica, 61 %;
+conseguir y atender clientes, 41 %; **administrar el negocio, 17 %; mover
+producto, 5 %**. Molnip es bueno en lo que hace una agencia y flojo en lo que
+hace un negocio. Una peluquera, una ceramista o un taller viven casi enteros
+en las dos filas de abajo.
+
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 
 **Aprobada por la propietaria el 2026-08-31.** Auditada sobre el commit
