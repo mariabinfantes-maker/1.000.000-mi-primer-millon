@@ -4988,6 +4988,48 @@ camino A —saber con quién habla, partir el dinero, la página de todas las
 herramientas, vender más— sigue siendo el orden. Estrechar es elegir **por
 dónde se empieza**, no renunciar a dónde se llega.
 
+## EL PLAN GRATUITO NO VALE LO MISMO SI ES UNA PRUEBA (2026-09-17)
+
+**De quién es esto.** Lo señaló la propietaria al leer el informe de la tanda
+2, y es suyo: «plan gratuito por siempre o plan gratuito 20 días ahora puntúa
+igual, pero en un futuro lo armaremos con decimales, no con un punto entero,
+porque un plan gratuito tiene valor pero no debe alejar demasiado de una buena
+herramienta con un buen servicio sin plan por siempre — pero sí merece una
+distinción.»
+
+**Qué falla hoy.** `precioFrenteAlValor` (`criteriosRuta.ts`) da **8 puntos
+planos** a cualquier ficha con `tienePlanGratuito`, y siempre la misma frase:
+«puedes probarla a fondo con su plan gratuito antes de pagar nada». Se escribió
+cuando «gratuito» significaba *indefinido*. La escala está partida por el sitio
+equivocado: separa mucho «ninguno» de «prueba de 7 días» (0 frente a 8) y nada
+«prueba de 7 días» de «gratis para siempre» (8 y 8).
+
+**El caso que lo destapó.** En `crm/captura-sola`, Salesflare le saca a Nimble
+**3 puntos en calidad** (10 frente a 7) y Nimble le saca **8 por una prueba de
+14 días**. La prueba pesó casi el triple que hacer mejor el trabajo.
+Contradice «primero que sirva, después que encaje»: el plan gratuito es encaje,
+no servicio, y no puede mandar sobre él.
+
+**Cuándo se hace: inmediatamente después de la tanda 3 de precios.** No es un
+aplazamiento: es que hoy 17 de las 57 fichas con plan gratuito no declaran de
+qué clase es, y repesar ahora obligaría a inventarles una. 15 de esas 17 están
+en la tanda 3. Al cerrarla quedarán dos: Copy.ai (pendiente de clase) y Hotmart
+(su página no lo dice).
+
+**Y corre.** La tanda 2 pasó de 4 a 21 las fichas marcadas como «prueba», y a
+cada una le dio +8. El desajuste crece con cada tanda.
+
+**Qué NO se decide aquí.** Los números concretos los pone la propietaria cuando
+llegue el momento. Lo que queda fijado es: los tres estados son **indefinido /
+prueba / ninguno**, la diferencia se expresa **en decimales, no en saltos
+enteros**, y no tener plan para siempre **no puede hundir** a una herramienta
+que hace bien su trabajo. El motor ya puntúa en medios, así que no hay que
+tocar la maquinaria — sólo lo que vale cada estado.
+
+**Va con ello la frase que se enseña.** En el catálogo ya se distingue
+(«Gratis, indefinido» / «Gratis 7 días»); en la explicación de la
+recomendación, todavía no.
+
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 
 **Aprobada por la propietaria el 2026-08-31.** Auditada sobre el commit
