@@ -4720,6 +4720,38 @@ cierre cuando se les asigne lote.
 Suite 1.990 en verde, `tsc` limpio, build correcta. Sin fusionar ni
 desplegar.
 
+## Las palabras de facturación, y por qué «cuentas» se quedó fuera (2026-09-17)
+
+La propietaria preguntó si un cliente puede llegar hoy a la facturación. **Sí,
+y por la puerta correcta:** «Organizar mi empresa» → familia «Dinero» →
+«Emitir facturas», que exige `cap.invoicing` y devuelve **doce de las 65**
+herramientas con cita literal. Lo que no existe es la puerta por categoría:
+«facturación y contabilidad» está en estado pendiente y no se enseña.
+
+El texto libre ya llegaba con «necesito hacer facturas», pero **no con
+«quiero facturar a mis clientes»**: la coincidencia es por subcadena y el
+verbo no es el sustantivo. Se añaden seis palabras a `organizar-empresa`:
+`facturar`, `facturación`, `contabilidad`, `llevar las cuentas`, `llevo las
+cuentas` y `cuadran las cuentas`.
+
+**«cuentas» a secas se probó y se descartó.** De siete frases reales cazaba
+seis, y tres eran falsos positivos: «las cuentas de Instagram», «cuentas de
+usuario», «cuentas de correo». Es el mismo error de encaminamiento que ya
+costó mandar «presupuestos» a Organizar y «no doy abasto» a Ahorrar tiempo.
+Por eso van las formas precisas. Hay prueba de las dos caras: las seis
+frases que deben llegar, y las dos que no deben.
+
+**Sobre si «siempre salen las mismas tres».** No. Sobre treinta perfiles de
+tamaño y presupuesto salen **once combinaciones distintas** de top-3. Zoho
+Projects aparece en 24, monday.com en 18, Agiled en 15, HoneyBook y Paymo en
+12, Teamwork.com en 6 y noCRM.io en 3. Una autónoma con presupuesto ajustado
+ve HoneyBook, Zoho Projects y Agiled; una empresa de más de 200 sin límite ve
+monday.com, Zoho Projects y Teamwork.com.
+
+**Y ahí está el argumento real para Holded:** ninguna de esas doce es un
+programa de facturación. Son CRM y gestores de proyectos que además facturan.
+El hueco no es «no tenemos nada», es «no tenemos nada pensado para esto».
+
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 
 **Aprobada por la propietaria el 2026-08-31.** Auditada sobre el commit
