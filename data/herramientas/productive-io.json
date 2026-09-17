@@ -72,7 +72,7 @@
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Professional a $24/usuario/mes (facturación anual), que incluye la planificación de recursos y herramientas avanzadas de rentabilidad.",
   "idiomasDisponibles": [
     "Inglés",
@@ -117,11 +117,12 @@
     ],
     "tipoNegocioIdeal": "Agencias de marketing, diseño y desarrollo de software",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 92,
+    "puntuacion": 95,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.3/10.",
       "G2: 4.6/5 (170 reseñas).",
       "Capterra: 4.6/5 (80 reseñas).",
+      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -134,5 +135,7 @@
   "problemasIds": [
     "organizar-empresa",
     "conseguir-clientes"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14
 }

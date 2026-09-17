@@ -66,7 +66,7 @@
     "Google Workspace"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde $9/usuario/mes (facturado anualmente)",
+  "precioInicial": "Desde $9/miembro/mes (facturado anualmente) o $12 al mes",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -150,5 +150,11 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "organizar-empresa"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 30,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.smartsheet.com/pricing"
+  }
 }
