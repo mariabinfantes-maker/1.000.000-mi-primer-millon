@@ -18,6 +18,18 @@ export default function Header() {
           >
             Cómo funciona
           </Link>
+          {/*
+            El catálogo entero, visible desde cualquier página. Está aquí y no
+            en el centro a propósito: mirarlo todo es un derecho del cliente,
+            pero la puerta principal sigue siendo el diagnóstico.
+          */}
+          <Link
+            href="/herramientas"
+            className="text-sm font-medium text-slate-600 transition hover:text-brand-700"
+          >
+            <span className="sm:hidden">Ver todas</span>
+            <span className="hidden sm:inline">Todas las herramientas</span>
+          </Link>
           <Link
             href="/#elige-camino"
             className="text-sm font-semibold text-brand-600 transition hover:text-brand-800"
