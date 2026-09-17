@@ -4943,14 +4943,17 @@ Hotmart —trece afirmaciones revisadas, cuatro sobrevivieron— sin que aquello
 cambiara ni una recomendación. La lección no fue que la revisión sobrara, sino
 que **se estaba investigando monetización antes que utilidad**.
 
-## ESTRECHAR LA PROMESA — decisión de la propietaria (2026-09-17)
+## ESTRECHAR LA PROMESA — propuesta mía, aprobada por la propietaria (2026-09-17)
 
 **Cierra la decisión que el DIAGNÓSTICO DE PRODUCTO dejaba abierta**
 —«estrechar la promesa a lo que el catálogo sostiene, o mantenerla amplia
 mientras Molnip dice que no durante meses»—. Se estrecha.
 
-**Sus palabras:** «hay que sacar adelante la web funcionando, recomendando,
-trayendo clic, vendiendo… he intentado hacer todo a la vez… el tiempo es oro.»
+**De quién es esto.** El planteamiento es mío; la propietaria lo aprobó
+escribir tal cual («escríbelo»). **No es una conclusión suya**, y no se le
+atribuye ninguna frase: lo que ella dijo en esa conversación fue que había
+intentado hacerlo todo a la vez. Si algún día lo quiere dicho de otra manera,
+manda su versión y ésta se sustituye.
 
 **Qué se decide.** Molnip deja de intentar ser bueno en todo a la vez y **gana
 un carril primero: el dinero de un autónomo o una pyme española, empezando por
