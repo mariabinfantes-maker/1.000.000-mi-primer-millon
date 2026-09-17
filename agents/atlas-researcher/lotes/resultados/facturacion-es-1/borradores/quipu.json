@@ -1,0 +1,149 @@
+{
+  "nombre": "Quipu",
+  "paginaOficial": "https://getquipu.com",
+  "urlPrecios": "https://getquipu.com/precios",
+  "logoUrl": "",
+  "categoriaId": "facturacion",
+  "categoriasSecundarias": [
+    "gestion-financiera"
+  ],
+  "tipoProducto": "especializada",
+  "descripcion": "Quipu es un software de facturación y gestión financiera en la nube diseñado para autónomos, pymes y gestorías en España. Permite automatizar la creación de facturas, conciliar cobros y pagos mediante conexión bancaria, procesar tickets con OCR homologado y calcular los modelos de impuestos oficiales para la AEAT.",
+  "informacionEmpresa": {
+    "anioFundacion": 2013,
+    "paisOrigen": "España",
+    "tamanoAproximado": "11-50 empleados"
+  },
+  "problemasQueResuelve": [
+    "Pérdida de tiempo en el procesado y emisión manual de facturas.",
+    "Extravío de tickets físicos y facturas de compra para deducir gastos.",
+    "Dificultad para conciliar los cobros y pagos con los extractos bancarios.",
+    "Errores en la preparación y presentación trimestral de modelos de impuestos (IVA e IRPF).",
+    "Falta de visibilidad sobre la tesorería futura y la salud financiera del negocio."
+  ],
+  "casosDeUso": [
+    "Emisión y envío automático de facturas recurrentes a clientes.",
+    "Digitalización inmediata de tickets de gastos desde el móvil con validez ante la Agencia Tributaria.",
+    "Sincronización con cuentas bancarias para vincular cada factura con su movimiento real.",
+    "Traspaso directo y en tiempo real de la información contable a la gestoría o asesor."
+  ],
+  "idealPara": "Autónomos, pymes y gestorías en España que buscan simplificar la facturación, el control de gastos y la preparación de impuestos.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "Servicios profesionales",
+    "Comercio electrónico",
+    "Consultoría y agencias",
+    "Freelancers"
+  ],
+  "noRecomendadaPara": "Empresas medianas o grandes con contabilidad analítica compleja, gestión de almacén avanzada o con sede fuera de España.",
+  "casosNoRecomendados": [
+    "Empresas industriales que requieren control avanzado de inventario y cadenas de producción.",
+    "Organizaciones que operan fuera del marco fiscal y normativo español."
+  ],
+  "funcionesPrincipales": [
+    "Facturación electrónica adaptada a la normativa española (Veri*Factu / TicketBAI).",
+    "Digitalización de tickets y facturas mediante OCR homologado por la AEAT.",
+    "Conciliación bancaria automática mediante conexión PSD2.",
+    "Estimación y borrador de modelos de impuestos (303, 130, 111, 115, 347, 390).",
+    "Previsión de flujo de caja y tesorería en tiempo real.",
+    "Acceso y portal colaborativo para asesores y gestorías."
+  ],
+  "integraciones": [
+    "Shopify",
+    "WooCommerce",
+    "PrestaShop",
+    "Stripe",
+    "Zapier",
+    "PayPal",
+    "A3Software"
+  ],
+  "integracionesPrincipales": [
+    "Shopify",
+    "WooCommerce",
+    "Stripe",
+    "Zapier"
+  ],
+  "curvaDeAprendizaje": "muy_facil",
+  "precioInicial": "Desde 14€/mes (plan Starter para autónomos en facturación anual)",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Plan Solution a partir de 32€/mes (pago anual), incluye conciliación bancaria y múltiple usuario.",
+  "disponibilidadGeografica": [
+    "ES"
+  ],
+  "idiomasDisponibles": [
+    "Español",
+    "Catalán",
+    "Inglés"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 8,
+    "fiabilidad": 8,
+    "atencionAlCliente": 8,
+    "escalabilidad": 6,
+    "nivelTecnicoRequerido": 2,
+    "facilidadImplementacion": 9
+  },
+  "metodologiaValoracion": "Puntuaciones calculadas a partir del análisis de reseñas públicas verificadas en Capterra, Trustpilot y Google Play Store, considerando usabilidad, fiabilidad del lector OCR y respuesta del soporte técnico.",
+  "reputacion": {
+    "capterraPuntuacion": 4.1,
+    "capterraNumeroResenas": 55,
+    "otrasFuentes": [
+      {
+        "fuente": "Trustpilot",
+        "puntuacion": 4.3,
+        "numeroResenas": 240,
+        "enlace": "https://es.trustpilot.com/review/getquipu.com"
+      },
+      {
+        "fuente": "Google Play Store",
+        "puntuacion": 4.2,
+        "numeroResenas": 350,
+        "enlace": "https://play.google.com/store/apps/details?id=com.getquipu.app"
+      }
+    ]
+  },
+  "ventajas": [
+    "Interfaz ágil, intuitiva y pensada para usuarios sin formación contable.",
+    "OCR de tickets con homologación oficial de la AEAT.",
+    "Integración directa y cálculo preciso de impuestos del sistema fiscal español.",
+    "Excelente conectividad con bancos y pasarelas de pago como Stripe.",
+    "Facilita el trabajo conjunto enviando datos limpios al gestor."
+  ],
+  "inconvenientes": [
+    "Sin plan gratuito permanente (únicamente prueba gratuita de 14 días).",
+    "No incluye módulos complejos de gestión de stock o proyectos.",
+    "Limitado para empresas fuera del ámbito regulatorio español."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Holded",
+      "FacturaDirecta",
+      "Anfix",
+      "Declarando"
+    ],
+    "tipoNegocioIdeal": "Autónomos, pymes y startups radicadas en España",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 85,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.0/10.",
+      "Capterra: 4.1/5 (55 reseñas).",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "quipu",
+  "estado": "en_revision",
+  "fechaAltaEnAtlas": "2026-09-17",
+  "fechaUltimaRevision": "2026-09-17"
+}

@@ -1,0 +1,152 @@
+{
+  "nombre": "Contasimple",
+  "paginaOficial": "https://www.contasimple.com",
+  "urlPrecios": "https://www.contasimple.com/precios",
+  "categoriaId": "facturacion",
+  "categoriasSecundarias": [
+    "contabilidad"
+  ],
+  "tipoProducto": "especializada",
+  "descripcion": "Contasimple es una herramienta en la nube de facturación, contabilidad e impuestos diseñada específicamente para autónomos y pequeñas empresas en España. Permite gestionar presupuestos, emisió́n de facturas, albaranes, estimación de impuestos oficiales (modelos IVA/IRPF) y control horario de trabajadores.",
+  "informacionEmpresa": {
+    "anioFundacion": 2012,
+    "paisOrigen": "España",
+    "tamanoAproximado": "11-50 empleados"
+  },
+  "problemasQueResuelve": [
+    "Dificultad y pérdida de tiempo en la emisión de facturas y seguimiento de cobros.",
+    "Complejidad en el cálculo e imputación de impuestos trimestrales para autónomos y pymes (modelos 303, 130, 115, 347).",
+    "Falta de digitalización y desorden en los tickets y facturas de gastos acumulados.",
+    "Necesidad de cumplir con la normativa de registro obligatorio de la jornada laboral."
+  ],
+  "casosDeUso": [
+    "Creación rápida de presupuestos y su conversión en facturas con un solo clic.",
+    "Cálculo y simulación automática de liquidaciones de IVA e IRPF para la Agencia Tributaria.",
+    "Digitalización y almacenamiento de tickets de gastos mediante foto o escaneo.",
+    "Fichaje diario y control de presencia de los empleados desde la App móvil o la web."
+  ],
+  "idealPara": "Autónomos, microempresas y pequeñas pymes españolas que buscan gestionar su facturación, contabilidad básica e impuestos sin complicaciones técnicas.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "Servicios profesionales",
+    "Freelancers y trabajadores independientes",
+    "Comercio minorista",
+    "Hostelería y restauración",
+    "Consultoría"
+  ],
+  "noRecomendadaPara": "Empresas medianas o grandes con contabilidad analítica compleja, presencia internacional o necesidades avanzadas de ERP.",
+  "casosNoRecomendados": [
+    "Empresas que tributen fuera del sistema fiscal español.",
+    "Organizaciones que requieran contabilidad de costes por múltiples centros de beneficio o almacenes avanzados.",
+    "Grandes empresas que necesiten flujos de aprobación multinivel complejos para facturación y compras."
+  ],
+  "funcionesPrincipales": [
+    "Emisión y personalización de facturas, presupuestos, albaranes y facturas rectificativas",
+    "Estimación automática de modelos oficiales de impuestos (303, 130, 115, 347, 390)",
+    "Digitalización de gastos y tickets de compra con lectura OCR",
+    "Módulo de registro de jornada laboral y control de fichajes",
+    "Conciliación bancaria básica mediante importación de extractos",
+    "Firma digital de documentos PDF",
+    "Gestión de inventario y catálogo de productos basico"
+  ],
+  "integraciones": [
+    "WooCommerce",
+    "PrestaShop",
+    "Shopify",
+    "Stripe",
+    "PayPal",
+    "Dropbox",
+    "Google Drive",
+    "Zapier"
+  ],
+  "integracionesPrincipales": [
+    "WooCommerce",
+    "PrestaShop",
+    "Stripe",
+    "PayPal"
+  ],
+  "curvaDeAprendizaje": "muy_facil",
+  "precioInicial": "Desde 0€/mes (Plan Básico Gratuito)",
+  "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual",
+    "suscripcion_anual"
+  ],
+  "tienePlanGratuito": true,
+  "precioRecomendadoPymes": "Plan Ultimate a 12,95€/mes (o 10,80€/mes en pago anual)",
+  "disponibilidadGeografica": [
+    "ES"
+  ],
+  "idiomasDisponibles": [
+    "Español",
+    "Catalán"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 8,
+    "fiabilidad": 8,
+    "atencionAlCliente": 7,
+    "escalabilidad": 6,
+    "nivelTecnicoRequerido": 2,
+    "facilidadImplementacion": 9
+  },
+  "metodologiaValoracion": "Puntuaciones basadas en el análisis técnico del producto y la evaluación agregada de valoraciones de usuarios en Capterra, Google Play Store y Apple App Store.",
+  "reputacion": {
+    "capterraPuntuacion": 4.5,
+    "capterraNumeroResenas": 60,
+    "otrasFuentes": [
+      {
+        "fuente": "Google Play Store",
+        "puntuacion": 4.1,
+        "numeroResenas": 1500,
+        "enlace": "https://play.google.com/store/apps/details?id=com.contasimple.android"
+      },
+      {
+        "fuente": "Apple App Store",
+        "puntuacion": 4.3,
+        "numeroResenas": 250,
+        "enlace": "https://apps.apple.com/es/app/contasimple/id982928503"
+      }
+    ]
+  },
+  "ventajas": [
+    "Interfaz muy clara e intuitiva, accesible para personas sin conocimientos contables.",
+    "Plan gratuito permanente con funcionalidades suficientes para autónomos con muy baja facturación.",
+    "Soporte directo para la normativa fiscal española y generación de modelos de la Agencia Tributaria.",
+    "Incluye herramientas complementarias sin coste adicional según plan, como registro horario y firma digital.",
+    "Excelente relación calidad-precio en comparación con otros softwares del mercado."
+  ],
+  "inconvenientes": [
+    "Limitado para empresas con contabilidad analítica o financiera avanzada.",
+    "Atención al cliente por teléfono restringida según el plan contratado.",
+    "Uso acotado exclusivamente al ámbito territorial y fiscal de España."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Holded",
+      "FacturaDirecta",
+      "Anfix",
+      "Quipu"
+    ],
+    "tipoNegocioIdeal": "Autónomos y microempresas en España",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 91,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 7.8/10.",
+      "Capterra: 4.5/5 (60 reseñas).",
+      "Tiene plan gratuito.",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "contasimple",
+  "estado": "en_revision",
+  "fechaAltaEnAtlas": "2026-09-17",
+  "fechaUltimaRevision": "2026-09-17"
+}

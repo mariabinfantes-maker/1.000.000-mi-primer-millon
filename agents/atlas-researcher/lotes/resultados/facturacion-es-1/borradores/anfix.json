@@ -1,0 +1,127 @@
+{
+  "nombre": "Anfix",
+  "paginaOficial": "https://anfix.com/",
+  "urlPrecios": "https://anfix.com/precios/",
+  "categoriaId": "plataformas-todo-en-uno",
+  "categoriasSecundarias": [],
+  "tipoProducto": "suite",
+  "descripcion": "Anfix es una plataforma en la nube de contabilidad, facturación y gestión fiscal orientada a pymes, autónomos y gestorías en España. Permite automatizar la conciliación bancaria, la digitalización de tickets mediante OCR homologado por la AEAT y la comunicación fluida con el asesor fiscal.",
+  "informacionEmpresa": {
+    "anioFundacion": 2010,
+    "paisOrigen": "España",
+    "tamanoAproximado": "11-50 empleados"
+  },
+  "problemasQueResuelve": [
+    "Tiempo excesivo dedicado a la introducción manual de datos de facturas y tickets",
+    "Falta de coordinación en tiempo real entre la pyme/autónomo y su gestoría",
+    "Dificultad para mantener al día la conciliación bancaria y la previsión de tesorería",
+    "Complejidad en el cumplimiento de normativas fiscales españolas como TicketBAI o el SII"
+  ],
+  "casosDeUso": [
+    "Captura de tickets de gasto con el móvil mediante OCR homologado para eliminar el papel",
+    "Emisión y envío de facturas personalizadas, recurrentes y electrónicas",
+    "Conciliación bancaria automatizada conectando las cuentas de la empresa",
+    "Compartir información contable y fiscal en tiempo real con el gestor o asesor"
+  ],
+  "idealPara": "Autónomos, pymes y gestorías en España que buscan sincronizar la facturación, contabilidad e impuestos en un entorno en la nube.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "Servicios profesionales",
+    "Consultoría",
+    "Comercio minorista",
+    "Agencias",
+    "Asesorías y gestorías"
+  ],
+  "noRecomendadaPara": "Grandes empresas con operaciones multinacionales o negocios fuera de España que requieran múltiples divisas o normativas fiscales internacionales.",
+  "casosNoRecomendados": [
+    "Empresas ubicadas fuera de España o con filiales internacionales que dependan de legislaciones fiscales extranjeras",
+    "Empresas industriales que necesiten un control avanzado de producción o gestión de inventario complejo"
+  ],
+  "funcionesPrincipales": [
+    "Facturación electrónica e impuestos",
+    "Digitalización homologada de documentos mediante OCR",
+    "Conciliación bancaria automática",
+    "Generación de contabilidad oficial y modelos tributarios",
+    "Portal colaborativo pyme-gestoría"
+  ],
+  "modulosIncluidos": [
+    "facturacion"
+  ],
+  "integraciones": [
+    "Bancos españoles",
+    "Agencia Tributaria (AEAT)",
+    "Dropbox",
+    "Google Drive"
+  ],
+  "integracionesPrincipales": [
+    "Bancos españoles",
+    "Agencia Tributaria (AEAT)",
+    "Google Drive"
+  ],
+  "curvaDeAprendizaje": "media",
+  "precioInicial": "Desde 10€/mes",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Plan Profesional a aproximadamente 25€/mes",
+  "disponibilidadGeografica": [
+    "ES"
+  ],
+  "idiomasDisponibles": [
+    "es"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 8,
+    "calidad": 8,
+    "fiabilidad": 8,
+    "atencionAlCliente": 7,
+    "escalabilidad": 6,
+    "nivelTecnicoRequerido": 5,
+    "facilidadImplementacion": 8
+  },
+  "metodologiaValoracion": "Puntuaciones calculadas a partir del análisis de valoraciones en plataformas como Capterra, opiniones de asesores contables y comparativas del mercado de software fiscal en España.",
+  "reputacion": {
+    "capterraPuntuacion": 4.2,
+    "capterraNumeroResenas": 35
+  },
+  "ventajas": [
+    "Digitalización de tickets y facturas certificada por la AEAT",
+    "Excelente integración del flujo de trabajo con la gestoría",
+    "Cumplimiento garantizado con la normativa fiscal española (TicketBAI, SII, Veri*factu)",
+    "Aplicación móvil eficiente para la captura inmediata de gastos"
+  ],
+  "inconvenientes": [
+    "Especializado únicamente en el sistema tributario español",
+    "Menos flexibilidad en automatizaciones avanzadas en comparación con ERPs globales",
+    "Interfaz que puede requerir un periodo de adaptación para usuarios sin conceptos contables básicos"
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Holded",
+      "Quipu",
+      "FacturaDirecta"
+    ],
+    "tipoNegocioIdeal": "Pymes y autónomos en España",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 84,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 7.5/10.",
+      "Capterra: 4.2/5 (35 reseñas).",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "anfix",
+  "estado": "en_revision",
+  "fechaAltaEnAtlas": "2026-09-17",
+  "fechaUltimaRevision": "2026-09-17"
+}
