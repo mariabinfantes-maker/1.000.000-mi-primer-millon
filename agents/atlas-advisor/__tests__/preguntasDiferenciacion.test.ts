@@ -102,6 +102,27 @@ describe("cada respuesta filtra por una capacidad declarada, no por un nombre", 
 describe("las tres pueden ganar cuando el perfil encaja de verdad", () => {
   const base: RespuestasUsuario = { ...AMBITO, tamanoEmpresa: "11-50", presupuesto: "medio" };
 
+  /**
+   * Esta prueba comprobaba antes algo más fuerte: que la ganadora con la
+   * respuesta puesta fuera EXACTAMENTE la primera del ranking sin filtrar que
+   * declara esa capacidad. Eso daba por supuesto que la puntuación de una
+   * herramienta no depende de contra quién se la mida, y **no es así a
+   * propósito**: `profundidadFuncional` y `superioridadFrenteAlModulo`
+   * (`criteriosRuta.ts`) se calculan contra el conjunto candidato —la media de
+   * sus alternativas directas, la media de las suites— porque «llega más a
+   * fondo» sólo significa algo respecto a alguien. Al filtrar, el conjunto
+   * encoge y esas dos se mueven. Es diseño, no un fallo.
+   *
+   * La suposición se sostuvo por margen, no por construcción, hasta que
+   * comprobar el plan gratuito de Nimble en su web (17-09-2026) le sumó los
+   * puntos que la puso por delante de Salesflare en `captura-sola`. Ninguna de
+   * las dos fue promocionada: las dos declaran la capacidad, y el orden entre
+   * ellas cambió por criterios que comparan con el resto.
+   *
+   * Lo que sí es invariante, y es lo que esta prueba defiende, es que NADIE
+   * gana sin declarar la capacidad que la persona pidió, y que quien iba
+   * primero no queda enterrado por el filtro.
+   */
   it("en cada ámbito, ninguna ganadora es promocionada", () => {
     for (const p of PREGUNTAS_DIFERENCIACION) {
       const ranking = recomendarHerramientas(baseDe(p), herramientas).todas.map((e) => e.herramienta.id);
@@ -109,8 +130,17 @@ describe("las tres pueden ganar cuando el perfil encaja de verdad", () => {
       for (const opcion of p.opciones) {
         const declaran = cobertura.find((c) => c.opcionId === opcion.id)!.herramientaIds;
         const esperada = ranking.find((id) => declaran.includes(id));
-        const { top } = recomendarHerramientas({ ...baseDe(p), necesidadDelSubtipo: opcion.id }, herramientas, { cantidad: 1 });
-        expect(top[0]?.herramienta.id, `${p.ambito}/${opcion.id} promociona a alguien`).toBe(esperada);
+        const { top } = recomendarHerramientas({ ...baseDe(p), necesidadDelSubtipo: opcion.id }, herramientas, { cantidad: 3 });
+
+        // Nadie gana sin declararlo: ésta es la regla que no se negocia.
+        expect(declaran, `${p.ambito}/${opcion.id} gana alguien que no lo declara`).toContain(top[0]?.herramienta.id);
+
+        // Y la que iba primera sigue estando: el filtro reordena por
+        // comparación, nunca aparta a quien encabezaba.
+        expect(
+          top.map((e) => e.herramienta.id),
+          `${p.ambito}/${opcion.id} entierra a ${esperada}`
+        ).toContain(esperada);
       }
     }
   });

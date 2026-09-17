@@ -1,7 +1,7 @@
 {
   "nombre": "Notion AI",
   "paginaOficial": "https://www.notion.so/product/ai",
-  "urlPrecios": "https://www.notion.so/pricing",
+  "urlPrecios": "https://www.notion.com/pricing",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
   "descripcion": "Notion AI es un asistente de inteligencia artificial integrado de forma nativa en el espacio de trabajo de Notion. Permite a los usuarios redactar borrador de textos, resumir documentos extensos, extraer acciones clave y consultar en lenguaje natural toda la base de conocimiento interna de la organización.",
@@ -70,7 +70,7 @@
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Notion AI Add-on a 8€/usuario/mes (facturado anualmente) sobre cualquier plan pagado o gratuito de Notion.",
   "idiomasDisponibles": [
     "Español",
@@ -120,11 +120,12 @@
     ],
     "tipoNegocioIdeal": "Startups, agencias y empresas con bases de conocimiento centralizadas en Notion",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 92,
+    "puntuacion": 95,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.2/10.",
       "G2: 4.7/5 (5300 reseñas).",
       "Capterra: 4.8/5 (2100 reseñas).",
+      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -137,5 +138,6 @@
     "ahorrar-tiempo"
   ],
   "tipoProducto": "especializada",
-  "subtipoId": "espacio-trabajo"
+  "subtipoId": "espacio-trabajo",
+  "tipoPlanGratuito": "prueba"
 }

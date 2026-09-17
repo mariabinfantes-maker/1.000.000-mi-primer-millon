@@ -67,13 +67,13 @@
     "QuickBooks Online"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde $16/usuario/mes",
+  "precioInicial": "Desde $13/usuario/mes",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Nutshell Pro a $42/usuario/mes (facturación anual)",
   "idiomasDisponibles": [
     "Inglés"
@@ -117,11 +117,12 @@
     ],
     "tipoNegocioIdeal": "Pymes B2B y agencias de servicios profesionales",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 90,
+    "puntuacion": 93,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.5/10.",
       "G2: 4.4/5 (900 reseñas).",
       "Capterra: 4.3/5 (720 reseñas).",
+      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -133,5 +134,11 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "conseguir-clientes"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.nutshell.com/pricing"
+  }
 }

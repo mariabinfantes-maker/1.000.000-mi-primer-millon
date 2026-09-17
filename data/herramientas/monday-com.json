@@ -69,7 +69,7 @@
     "Zapier"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde 9€/usuario/mes (facturación anual, mínimo 3 usuarios)",
+  "precioInicial": "Gratis para hasta 2 personas y 3 tableros. De pago desde $9/usuario/mes (facturación anual)",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -166,5 +166,10 @@
   "categoriasSecundarias": [
     "crm",
     "plataformas-todo-en-uno"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://monday.com/pricing"
+  }
 }

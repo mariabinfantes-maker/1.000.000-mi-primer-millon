@@ -64,7 +64,7 @@
     "Zapier"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde 0$/mes (Plan Free para 1 usuario) o 4,95$/usuario/mes (Plan Starter)",
+  "precioInicial": "Gratis para 1 usuario, 1 cliente y 2 proyectos. De pago desde $5,90/mes los 3 primeros meses y $9,90/mes después",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -140,5 +140,10 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "organizar-empresa"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.paymoapp.com/pricing/"
+  }
 }

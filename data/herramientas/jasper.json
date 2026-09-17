@@ -63,14 +63,14 @@
     "Google Chrome"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde $39/mes (facturación anual) o $49/mes (facturación mensual)",
+  "precioInicial": "Desde $59/usuario/mes (facturación anual) o $69 al mes",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario",
     "a_medida"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Pro desde $59/usuario/mes (facturación anual), ideal para colaborar en equipo y gestionar múltiples voces de marca.",
   "idiomasDisponibles": [
     "Español",
@@ -121,11 +121,12 @@
     ],
     "tipoNegocioIdeal": "Agencias de marketing y equipos de contenido B2B/B2C",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 92,
+    "puntuacion": 95,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.5/10.",
       "G2: 4.7/5 (1230 reseñas).",
       "Capterra: 4.8/5 (1820 reseñas).",
+      "Tiene plan gratuito.",
       "Ofrece una API pública."
     ]
   },
@@ -138,5 +139,11 @@
     "ahorrar-tiempo",
     "conseguir-clientes"
   ],
-  "subtipoId": "escritura"
+  "subtipoId": "escritura",
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 7,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.jasper.ai/pricing"
+  }
 }

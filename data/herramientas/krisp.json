@@ -66,7 +66,7 @@
     "Cisco Webex"
   ],
   "curvaDeAprendizaje": "muy_facil",
-  "precioInicial": "Desde $8/usuario/mes (facturación anual)",
+  "precioInicial": "Desde $8/usuario/mes (la página también muestra $16 y no dice cuál es mensual y cuál anual)",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -133,5 +133,11 @@
   "fechaUltimaRevision": "2026-08-21",
   "tipoProducto": "especializada",
   "objetivoPendienteDeInvestigacion": true,
-  "subtipoId": "reuniones-transcripcion"
+  "subtipoId": "reuniones-transcripcion",
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 7,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://krisp.ai/pricing/"
+  }
 }

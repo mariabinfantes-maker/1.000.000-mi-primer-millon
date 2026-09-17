@@ -62,7 +62,7 @@
     "WordPress"
   ],
   "curvaDeAprendizaje": "muy_facil",
-  "precioInicial": "Gratis / Desde 15€ mes por asiento en planes Starter",
+  "precioInicial": "Gratis para hasta 2 usuarios. De pago desde $7/usuario/mes (la página también muestra $20 y no dice cuál es mensual y cuál anual)",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -114,5 +114,10 @@
   "tipoProducto": "suite",
   "categoriasSecundarias": [
     "crm"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.hubspot.com/pricing/"
+  }
 }

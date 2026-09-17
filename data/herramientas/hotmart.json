@@ -67,7 +67,7 @@
     "WordPress"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Cobra una comisión por cada venta, sin cuota mensual. El importe exacto de esa comisión NO está confirmado: la página de precios publica porcentajes por tramo de facturación y el centro de ayuda describe un porcentaje fijo más una cuota por venta, y las dos fuentes no se han podido contrastar.",
+  "precioInicial": "Sin cuota mensual: cobra 9,9% + 1,00 € por cada venta aprobada",
   "modeloDePrecio": [
     "freemium",
     "a_medida"
@@ -146,5 +146,9 @@
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-09-16",
   "fechaUltimaRevision": "2026-09-17",
-  "objetivoPendienteDeInvestigacion": true
+  "objetivoPendienteDeInvestigacion": true,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://hotmart.com/es/precios"
+  }
 }

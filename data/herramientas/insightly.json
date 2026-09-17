@@ -1,7 +1,7 @@
 {
   "nombre": "Insightly",
   "paginaOficial": "https://www.insightly.com",
-  "urlPrecios": "https://www.insightly.com/pricing/",
+  "urlPrecios": "https://www.insightly.com/pricing-plans/?plan=crm",
   "logoUrl": "",
   "categoriaId": "crm",
   "descripcion": "Insightly es un software de gestión de relaciones con los clientes (CRM) y gestión de proyectos diseñado para empresas en crecimiento. Combina el seguimiento de ventas, la automatización del flujo de trabajo y la gestión de proyectos tras la venta en una única plataforma unificada.",
@@ -68,13 +68,13 @@
     "QuickBooks"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde $29/usuario/mes (facturado anualmente)",
+  "precioInicial": "Desde $29/usuario/mes (facturación anual)",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Professional a $49/usuario/mes (facturación anual), que añade automatizaciones e informes avanzados.",
   "idiomasDisponibles": [
     "Inglés",
@@ -131,11 +131,12 @@
     ],
     "tipoNegocioIdeal": "Agencias y empresas de servicios B2B",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 84,
+    "puntuacion": 87,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 7.7/10.",
       "G2: 4.2/5 (890 reseñas).",
       "Capterra: 4.2/5 (680 reseñas).",
+      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -148,5 +149,11 @@
   "problemasIds": [
     "conseguir-clientes",
     "organizar-empresa"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.insightly.com/pricing-plans/?plan=crm"
+  }
 }

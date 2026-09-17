@@ -69,7 +69,7 @@
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Sales Experts a 29€/usuario/mes (pago anual), para acceder a integraciones avanzadas y gestión completa de equipos.",
   "idiomasDisponibles": [
     "Español",
@@ -118,11 +118,12 @@
     ],
     "tipoNegocioIdeal": "Pymes B2B y agencias de servicios",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 92,
+    "puntuacion": 95,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.3/10.",
       "G2: 4.6/5 (85 reseñas).",
       "Capterra: 4.6/5 (260 reseñas).",
+      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -134,5 +135,7 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "conseguir-clientes"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 15
 }

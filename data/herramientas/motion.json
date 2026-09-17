@@ -60,13 +60,13 @@
     "Zoom"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde $19/mes (facturación anual en plan Individual)",
+  "precioInicial": "Desde $19/usuario/mes (la página no dice si es con facturación mensual o anual)",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Team a $12/usuario/mes (facturado anualmente) o $20/usuario/mes (facturado mensualmente)",
   "idiomasDisponibles": [
     "Inglés"
@@ -119,11 +119,12 @@
     ],
     "tipoNegocioIdeal": "Startups, agencias y profesionales independientes",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 86,
+    "puntuacion": 89,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 7.8/10.",
       "G2: 4.2/5 (90 reseñas).",
       "Capterra: 4.3/5 (45 reseñas).",
+      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -136,5 +137,10 @@
     "ahorrar-tiempo"
   ],
   "tipoProducto": "especializada",
-  "subtipoId": "agenda-planificacion"
+  "subtipoId": "agenda-planificacion",
+  "tipoPlanGratuito": "prueba",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.usemotion.com/pricing"
+  }
 }

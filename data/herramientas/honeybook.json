@@ -66,12 +66,12 @@
     "Zoom"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde $16/mes (plan Starter facturado anualmente)",
+  "precioInicial": "Desde $29/mes (facturación anual)",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Essentials a $32/mes (facturación anual), que incluye automatizaciones, integraciones y soporte para equipos pequeños.",
   "idiomasDisponibles": [
     "Inglés"
@@ -124,11 +124,12 @@
     ],
     "tipoNegocioIdeal": "Freelancers y microagencias de servicios",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 90,
+    "puntuacion": 93,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.3/10.",
       "G2: 4.5/5 (160 reseñas).",
       "Capterra: 4.8/5 (600 reseñas).",
+      "Tiene plan gratuito.",
       "Dispone de app móvil."
     ]
   },
@@ -140,5 +141,11 @@
   "problemasIds": [
     "organizar-empresa",
     "conseguir-clientes"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 30,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.honeybook.com/pricing"
+  }
 }

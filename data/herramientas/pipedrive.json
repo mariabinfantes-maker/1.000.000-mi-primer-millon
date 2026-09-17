@@ -63,13 +63,13 @@
     "Google Workspace"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde 14€/usuario/mes (pago anual)",
+  "precioInicial": "Desde $14/usuario/mes (facturación anual)",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Advanced a 29€/usuario/mes (facturación anual)",
   "idiomasDisponibles": [
     "Español",
@@ -122,11 +122,12 @@
     ],
     "tipoNegocioIdeal": "Pymes B2B y agencias comerciales",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 90,
+    "puntuacion": 93,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.5/10.",
       "G2: 4.2/5 (12500 reseñas).",
       "Capterra: 4.5/5 (2900 reseñas).",
+      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -145,5 +146,11 @@
     "email_marketing",
     "embudos_de_venta"
   ],
-  "tipoProducto": "especializada"
+  "tipoProducto": "especializada",
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.pipedrive.com/es/pricing"
+  }
 }

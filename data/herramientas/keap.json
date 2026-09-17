@@ -63,12 +63,12 @@
     "Stripe"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde $159/mes",
+  "precioInicial": "Desde $299/mes (facturado como $2.988 al año)",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Pro a $159/mes (para 1.500 contactos y 2 usuarios)",
   "idiomasDisponibles": [
     "Inglés"
@@ -119,11 +119,12 @@
     ],
     "tipoNegocioIdeal": "Pequeña empresa de servicios o consultoría",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 81,
+    "puntuacion": 84,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 7.2/10.",
       "G2: 4.2/5 (1460 reseñas).",
       "Capterra: 4.1/5 (1250 reseñas).",
+      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -147,5 +148,10 @@
   "tipoProducto": "suite",
   "categoriasSecundarias": [
     "crm"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://keap.com/pricing"
+  }
 }

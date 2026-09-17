@@ -1,7 +1,7 @@
 {
   "nombre": "Hive",
   "paginaOficial": "https://hive.com",
-  "urlPrecios": "https://hive.com/pricing/",
+  "urlPrecios": "https://hive.com/pricing",
   "logoUrl": "",
   "categoriaId": "gestion-proyectos",
   "descripcion": "Hive es una plataforma integral de gestión de proyectos y colaboración que centraliza tareas, comunicación y seguimiento del tiempo en un único espacio. Ofrece múltiples vistas (Gantt, Kanban, calendario) y automatizaciones avanzadas para optimizar el flujo de trabajo de equipos de cualquier tamaño.",
@@ -71,7 +71,7 @@
     "Zapier"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde $5/usuario/mes (plan Starter) o plan Gratuito para hasta 10 usuarios",
+  "precioInicial": "Gratis para hasta 10 personas. De pago desde $5/usuario/mes",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -153,5 +153,10 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "organizar-empresa"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://hive.com/pricing"
+  }
 }

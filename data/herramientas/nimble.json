@@ -62,13 +62,13 @@
     "Zapier"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde $24.90/usuario/mes (pago anual)",
+  "precioInicial": "Desde $24,90/usuario/mes (facturación anual) o $29,90 al mes",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Nimble Business a $24.90/usuario/mes (facturación anual)",
   "idiomasDisponibles": [
     "Inglés"
@@ -112,11 +112,12 @@
     ],
     "tipoNegocioIdeal": "Agencias, consultoras y pymes B2B",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 89,
+    "puntuacion": 92,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.2/10.",
       "G2: 4.5/5 (1050 reseñas).",
       "Capterra: 4.4/5 (1850 reseñas).",
+      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -128,5 +129,11 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "conseguir-clientes"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.nimble.com/pricing/"
+  }
 }

@@ -1,7 +1,7 @@
 {
   "nombre": "Less Annoying CRM",
   "paginaOficial": "https://www.lessannoyingcrm.com",
-  "urlPrecios": "https://www.lessannoyingcrm.com/pricing",
+  "urlPrecios": "https://lessannoyingcrm.com/pricing",
   "logoUrl": "",
   "categoriaId": "crm",
   "descripcion": "Less Annoying CRM es un software de gestión de relaciones con clientes diseñado específicamente para pequeñas empresas y autónomos. Ofrece seguimiento de contactos, oportunidades de venta y tareas en un entorno intuitivo y sin la complejidad de los CRM empresariales tradicionales. Su propuesta se centra en la máxima sencillez de uso, soporte humano cercano y una tarifa plana por usuario.",
@@ -68,7 +68,7 @@
     "suscripcion_mensual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Único a $15/usuario/mes (incluye todas las funciones y soporte completo)",
   "idiomasDisponibles": [
     "Inglés"
@@ -113,11 +113,12 @@
     ],
     "tipoNegocioIdeal": "Pequeñas empresas y profesionales independientes",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 95,
+    "puntuacion": 98,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.8/10.",
       "G2: 4.9/5 (580 reseñas).",
       "Capterra: 4.8/5 (530 reseñas).",
+      "Tiene plan gratuito.",
       "Ofrece una API pública."
     ]
   },
@@ -128,5 +129,11 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "conseguir-clientes"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 30,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://lessannoyingcrm.com/pricing"
+  }
 }

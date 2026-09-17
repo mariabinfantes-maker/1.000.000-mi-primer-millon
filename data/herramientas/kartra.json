@@ -1,7 +1,7 @@
 {
   "nombre": "Kartra",
   "paginaOficial": "https://www.kartra.com",
-  "urlPrecios": "https://www.kartra.com/pricing/",
+  "urlPrecios": "https://kartra.com/plans-and-pricing/",
   "categoriaId": "plataformas-todo-en-uno",
   "descripcion": "Kartra es una plataforma integral de marketing digital y ventas en línea diseñada para automatizar embudos, alojar cursos, gestionar listas de correo electrónico y vender productos o servicios. Combina CRM, hospedaje de vídeo, creador de sitios web y sistema de membresías sin necesidad de integrar múltiples herramientas de terceros.",
   "informacionEmpresa": {
@@ -71,12 +71,12 @@
     "Twilio"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde $119/mes",
+  "precioInicial": "Desde $52/mes (facturación anual) o $59 al mes",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Growth a $229/mes (o $189/mes con facturación anual)",
   "idiomasDisponibles": [
     "Inglés"
@@ -121,11 +121,12 @@
     ],
     "tipoNegocioIdeal": "Infoproductores, creadores de cursos y consultores",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 80,
+    "puntuacion": 83,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 7.2/10.",
       "G2: 4/5 (55 reseñas).",
       "Capterra: 4.5/5 (160 reseñas).",
+      "Tiene plan gratuito.",
       "Ofrece una API pública."
     ]
   },
@@ -136,5 +137,11 @@
   "tipoProducto": "suite",
   "problemasIds": [
     "conseguir-clientes"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://kartra.com/plans-and-pricing/"
+  }
 }

@@ -66,7 +66,7 @@
     "Plataformas LMS"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Gratis (3 vídeos al mes con marca de agua). Plan Creator desde 29$/mes.",
+  "precioInicial": "Gratis (3 vídeos al mes, de hasta 1 minuto). De pago desde $29/mes o $24 al mes con facturación anual",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
@@ -133,5 +133,10 @@
   "id": "heygen",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-09-02",
-  "fechaUltimaRevision": "2026-09-02"
+  "fechaUltimaRevision": "2026-09-02",
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.heygen.com/pricing"
+  }
 }

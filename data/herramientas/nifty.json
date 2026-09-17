@@ -65,7 +65,7 @@
     "Zapier"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde $39/mes (plan Starter facturado anualmente, incluye hasta 10 miembros)",
+  "precioInicial": "Gratis para miembros ilimitados, con 2 proyectos activos. De pago desde $10/usuario/mes",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -138,5 +138,10 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "organizar-empresa"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://niftypm.com/pricing/"
+  }
 }

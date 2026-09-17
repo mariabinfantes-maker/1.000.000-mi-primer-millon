@@ -49,6 +49,11 @@ comprobado; el precio que se lee en la tarjeta, no.**
 
 ## Lo que NO se ha hecho
 
+*(Esto era cierto al escribir el informe. La propietaria autorizó después
+aplicar la tanda, y las 22 fichas están corregidas y selladas. Se deja escrito
+en vez de borrarlo, porque el orden importa: primero se enseñó, después se
+autorizó, y sólo entonces se tocó el catálogo.)*
+
 No se ha corregido ninguna ficha. Faltan las tandas 2 y 3, y corregir es un
 cambio de datos del catálogo que decide la propietaria.
 

@@ -67,7 +67,7 @@
     "Google Calendar"
   ],
   "curvaDeAprendizaje": "muy_facil",
-  "precioInicial": "Gratis. Planes de pago desde 10 $ / usuario / mes (facturación anual)",
+  "precioInicial": "Gratis (300 minutos de transcripción al mes). De pago desde $8,33/usuario/mes (facturación anual) o $16,99 al mes",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -136,5 +136,10 @@
     "ahorrar-tiempo"
   ],
   "tipoProducto": "especializada",
-  "subtipoId": "reuniones-transcripcion"
+  "subtipoId": "reuniones-transcripcion",
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://otter.ai/pricing"
+  }
 }
