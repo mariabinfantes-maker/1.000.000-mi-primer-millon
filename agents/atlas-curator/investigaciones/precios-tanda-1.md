@@ -8,8 +8,8 @@ cuadra con lo que dice el fabricante en su propia web.**
 
 ## El resultado, y no es cómodo
 
-De las 22, **18 se pudieron contrastar** —dos no se pudieron abrir y dos
-devolvieron «no consta»— y **10 tienen algún dato mal**.
+Las 22 se pudieron abrir, contando el reintento de las dos que fallaron. **De
+las 20 contrastables, 11 tienen algún dato mal** — la mitad justa de la tanda.
 
 | Herramienta | Lo que dice su web oficial | Lo que dice nuestra ficha |
 |---|---|---|
@@ -23,6 +23,7 @@ devolvieron «no consta»— y **10 tienen algún dato mal**.
 | **Bitrix24** | gratis **1-2 usuarios**; US$49 por **organización** | gratis **usuarios ilimitados**; **49€** |
 | **Asana** | $10.99 por usuario/mes | **10,99 €** |
 | **ClickUp Brain** | tiene plan gratuito | `tienePlanGratuito: false` |
+| **Freshsales** | $9 usuario/mes; **sin plan gratuito** | $15/usuario/mes; `tienePlanGratuito: true` |
 
 ### Los tres que más daño hacen
 
@@ -38,8 +39,8 @@ devolvieron «no consta»— y **10 tienen algún dato mal**.
 ## Lo que esto dice del catálogo
 
 Es una muestra del 34 % del catálogo, elegida por orden alfabético y no por
-sospecha. **Si esta proporción se mantiene, unas veinticinco de las 65 fichas
-tienen el precio mal.**
+sospecha. **Si esta proporción se mantiene, unas treinta y cinco de las 65
+fichas tienen algún dato de precio o de plan mal.**
 
 No invalida lo verificado en F2: las capacidades siguen comprobadas con su
 cita. Lo que falla es exactamente lo que no se volvió a mirar — los campos
@@ -83,12 +84,45 @@ ruta. No se queda en un informe como si fuera un hallazgo.
   decir si es mensual o anual.
 - **Descript**: enseña dos cifras y no dice cuál es cuál.
 
-### Sin comprobar, pendientes de reintento
+### Las dos que no abrieron: reintentadas y resueltas
 
-- **Capsule CRM** — la dirección que se le dio no abrió.
-- **Freshsales** — la dirección que se le dio no abrió.
+Se reintentaron empezando por la página principal del fabricante, y las dos
+salieron a la primera. **El problema eran las direcciones, no los sitios** —
+las dos las había escrito el mismo modelo que escribió las fichas, igual que
+pasó con las de afiliación.
 
-Las dos direcciones salieron del mismo modelo que escribió las fichas, así que
-lo más probable es que estén mal, no que la web no exista. El reintento tiene
-que empezar en la página principal del fabricante y navegar hasta sus precios,
-en vez de confiar en la dirección que les dimos.
+- **Capsule CRM**: el enlace «Pricing» de su propia web lleva a
+  `capsulecrm.com/signup/`, no a `/pricing/`, que es lo que guarda la ficha en
+  `urlPrecios`. Plan gratuito **confirmado**, y ahora con sus límites: 250
+  contactos, 2 usuarios, 1 tablero y 1 embudo. Su precio de pago no consta en
+  esa página.
+- **Freshsales**: está en `freshworks.com/crm/pricing/`, no en
+  `/crm/sales/pricing/`. Y trae dos datos que no cuadran.
+
+## El hallazgo más grave de la tanda: Freshsales no tiene plan gratuito
+
+| | Su web oficial | Nuestra ficha |
+|---|---|---|
+| Plan gratuito | **NO** — prueba de 21 días | `tienePlanGratuito: true` |
+| Precio de entrada | $9 por usuario/mes anual | $15/usuario/mes |
+
+**Esto es peor que un precio mal, y conviene entender por qué.**
+
+`tienePlanGratuito` **no es un texto que se enseñe: es un dato que el motor
+usa**. Está en `criterios.ts`, y cuando alguien dice que necesita empezar
+gratis, decide quién sube y quién baja. Un precio equivocado se lee y se
+sufre; una bandera equivocada **cambia la recomendación sin que nadie lo vea**.
+
+Con Freshsales, a quien pide algo gratuito le estamos ofreciendo una prueba de
+21 días como si fuera un plan. Es exactamente la confusión que el prompt
+obligaba a distinguir, y que el catálogo original no distinguió.
+
+**38 de las 65 fichas declaran plan gratuito.** De las 20 que se han podido
+comprobar en esta tanda, **2 estaban mal**. Si esa proporción se mantiene, hay
+unas cuatro banderas falsas repartidas por el catálogo, moviendo
+recomendaciones en silencio.
+
+### Información de verdad que falta (la página lo calla)
+
+- **ActiveCampaign**, **Gamma** y **Capsule CRM**: el precio de entrada no
+  consta en su página.
