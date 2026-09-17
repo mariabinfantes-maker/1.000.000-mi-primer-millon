@@ -176,7 +176,11 @@
     },
     {
       "tipo": "parrafo",
-      "texto": "No te decimos cuál elegir: todavía no hemos comprobado por nuestra cuenta lo que hace cada uno, y hasta que no lo hagamos no vamos a recomendarte ninguno. Cuando lo hagamos, lo verás con la misma frase y el mismo enlace que aquí."
+      "texto": "Si alguno te interesa, pide su declaración responsable: es el documento que la norma le pide tener, y quien lo publica ya te está ahorrando la pregunta."
+    },
+    {
+      "tipo": "parrafo",
+      "texto": "Con esto ya sabes qué te obliga, desde cuándo, y qué significa de verdad «homologado» cuando lo veas en una web."
     }
   ]
 }
