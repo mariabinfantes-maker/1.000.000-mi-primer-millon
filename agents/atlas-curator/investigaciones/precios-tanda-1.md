@@ -62,9 +62,33 @@ así marcó el plan gratuito como **no consta**, porque esa frase es un botón d
 prueba y no un plan. Esa es exactamente la disciplina que faltaba en la
 entrega de septiembre.
 
-## Lo que sigue sin saberse
+## Dos cosas distintas que no hay que mezclar
 
-- **ActiveCampaign** y **Gamma**: precio de entrada no consta.
-- **Capsule CRM** y **Freshsales**: no se pudieron abrir.
-- **Agile CRM, EngageBay, Grammarly, ClickUp Brain**: precio sin periodicidad.
-- **Descript**: no se sabe cuál de las dos cifras es la mensual.
+Lo señaló la propietaria al leer este informe, y tenía razón:
+
+> **«No consta» es información. «No he podido abrirla» no lo es.**
+
+- **NO CONSTA** significa que la página se abrió, se leyó entera y no lo dice.
+  Eso es un hecho sobre el fabricante, y se escribe.
+- **NO HE PODIDO ABRIRLA** no dice nada de la herramienta: dice que el canal
+  falló. Archivarlo junto a lo anterior lo disfraza de resultado.
+
+**Regla, desde ahora:** lo que no se pudo abrir vuelve a la cola con otra
+ruta. No se queda en un informe como si fuera un hallazgo.
+
+### Información de verdad que falta (la página lo calla)
+
+- **ActiveCampaign** y **Gamma**: precio de entrada no consta en su página.
+- **Agile CRM, EngageBay, Grammarly, ClickUp Brain**: el precio aparece sin
+  decir si es mensual o anual.
+- **Descript**: enseña dos cifras y no dice cuál es cuál.
+
+### Sin comprobar, pendientes de reintento
+
+- **Capsule CRM** — la dirección que se le dio no abrió.
+- **Freshsales** — la dirección que se le dio no abrió.
+
+Las dos direcciones salieron del mismo modelo que escribió las fichas, así que
+lo más probable es que estén mal, no que la web no exista. El reintento tiene
+que empezar en la página principal del fabricante y navegar hasta sus precios,
+en vez de confiar en la dirección que les dimos.
