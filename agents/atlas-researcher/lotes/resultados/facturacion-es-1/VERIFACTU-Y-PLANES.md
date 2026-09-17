@@ -128,10 +128,55 @@ El artículo 3 trae exclusiones que nadie cuenta:
 - Y, de antes, el **territorio foral**: TicketBAI en Gipuzkoa, Bizkaia y Álava;
   Navarra excluida con carácter general.
 
-**Cabo suelto, pequeño pero real:** no hemos leído el artículo 62.6 del
-Reglamento del IVA, así que **no sabemos a quién cubre esa exclusión**. No se
-puede decir ni que afecta ni que no afecta a un autónomo concreto. Para
-publicar algo dirigido a autónomos hace falta esa cita, o no mencionarlo.
+### La exclusión del artículo 62.6, leída (tercera vuelta)
+
+Se pidió el texto al BOE y dice esto:
+
+> «6. No obstante lo dispuesto en los apartados anteriores, los libros registro
+> […] **deberán llevarse a través de la Sede electrónica de la Agencia Estatal
+> de Administración Tributaria** […] **por los empresarios o profesionales y
+> otros sujetos pasivos del Impuesto, que tengan un periodo de liquidación que
+> coincida con el mes natural** de acuerdo con lo dispuesto en el artículo 71.3
+> del presente Reglamento.
+>
+> Además, aquellos empresarios o profesionales y otros sujetos pasivos del
+> Impuesto **no mencionados en el párrafo anterior, podrán optar** por llevar
+> los libros registro […] a través de la Sede electrónica […]»
+
+*(BOE-A-1992-28925, consultado el 17 de septiembre de 2026.)*
+
+**Es decir: obligatorio para quien liquida el IVA mensualmente, y VOLUNTARIO
+para todos los demás.**
+
+Eso cambia el tamaño de la excepción. No es un caso raro reservado a grandes
+empresas: **cualquiera puede acogerse**, y quien esté ahí queda fuera del
+reglamento de Veri*Factu por el artículo 3.2. La frase «a los autónomos les
+obliga desde julio de 2027» necesita un «salvo que…» y el salvo es alcanzable
+por elección.
+
+**Un matiz de rigor.** Quien entregó la investigación marcó «NO CONSTA» a la
+pregunta de si un autónomo puede estar ahí dentro, y fue prudente: el texto
+habla de «empresarios o profesionales», no de «personas físicas». Dar por hecho
+que un autónomo es un «empresario o profesional» es interpretar un término
+legal, no leer la frase. **Pero el segundo párrafo no necesita esa
+interpretación**: dice que quien no esté obligado *puede optar*, sin distinguir
+a nadie. La puerta está abierta, y eso sí está escrito.
+
+**Lo que sigue sin leerse**, y ya no hace falta para escribir con verdad: el
+artículo 71.3, que define quién liquida mensualmente. Sin él no podemos decir
+*quién* está obligado al SII — pero sí podemos decir que existe, a quién
+excluye y que es opcional para el resto.
+
+## Una raya que no se cruza
+
+Todo esto es **normativa fiscal, y Molnip no es una asesoría**. Se puede contar
+qué dice la norma, a quién nombra y desde cuándo, con la cita delante. **No se
+puede decirle a nadie qué le conviene hacer** —acogerse al SII para esquivar
+Veri*Factu es una decisión fiscal con consecuencias que no evaluamos—. Donde
+acaba la cita, empieza «pregúntale a tu asesor», y ahí se para Molnip.
+
+Es la misma regla de siempre, aplicada a un terreno nuevo: se dice lo que está
+demostrado y se dice que no cuando no se sabe.
 
 *(Nota de forma: la URL entregada traía un carácter perdido al final. La
 dirección limpia es `https://www.boe.es/buscar/act.php?id=BOE-A-2023-24840`.)*
