@@ -11,7 +11,9 @@ fabricantes están bloqueados. Igual que la vez anterior, **valido la lógica, n
 la existencia**. La diferencia es que estas citas son largas, específicas y
 comprobables con Ctrl+F por cualquiera.
 
-**Estado: confianza media.** Nada de esto entra a una ficha hasta que se decida.
+**Estado: confianza media**, salvo el bloque de Veri*Factu, que tras la segunda
+vuelta al BOE se sostiene entero sobre fuentes primarias. Nada entra a una
+ficha hasta que la propietaria lo decida.
 
 ---
 
@@ -84,31 +86,55 @@ qué.
 
 ---
 
-## Lo único que NO se sostiene, y es lo que más nos importa
+## La fecha de los autónomos: CERRADA (segunda vuelta)
 
-**La fecha de los autónomos.**
+Quedaba pendiente porque la cita decía «el resto de obligados tributarios
+mencionados en el artículo 3.1» sin nombrar a los autónomos. Se pidió ese
+artículo al BOE y lo dice con todas las letras:
 
-La cita dice:
+> «1. El presente Reglamento se aplicará a los obligados tributarios que se
+> indican a continuación, que utilicen sistemas informáticos de facturación,
+> aunque solo los usen para una parte de su actividad:
+> a) Los contribuyentes del Impuesto sobre Sociedades. […]
+> **b) Los contribuyentes del Impuesto sobre la Renta de las Personas Físicas
+> que desarrollen actividades económicas.**
+> c) Los contribuyentes del Impuesto sobre la Renta de no Residentes que
+> obtengan rentas mediante establecimiento permanente.
+> d) Las entidades en régimen de atribución de rentas que desarrollen
+> actividades económicas […]»
 
-> «El resto de obligados tributarios mencionados en el artículo 3.1., deberán
-> tener operativos los sistemas informáticos […] antes del 1 de julio de 2027.»
+*(BOE-A-2023-24840, consultado el 17 de septiembre de 2026.)*
 
-**La frase no nombra a los autónomos ni a las personas físicas.** Dice «el
-resto de obligados tributarios mencionados en el artículo 3.1», y ese artículo
-no lo hemos leído. Que los autónomos estén ahí dentro es **muy probable y es
-una deducción**, no lo que dice la cita.
+**La cadena queda completa, y es literal en los tres eslabones:**
 
-Por la regla que la propietaria fijó —si la frase no lo dice, es «no consta»—
-**esto queda pendiente**. Lo que sí está confirmado es que «el resto de
-obligados tributarios del artículo 3.1» tiene hasta el 1 de julio de 2027.
+1. La letra a) del 3.1 son las sociedades → **antes del 1 de enero de 2027**.
+2. Las letras b), c) y d) son «el resto de obligados tributarios mencionados
+   en el artículo 3.1» → **antes del 1 de julio de 2027**.
+3. La letra b) es, textualmente, el autónomo.
 
-**Hace falta una cita más:** el texto del artículo 3.1 del RD 1007/2023. Con
-ella, la fecha de los autónomos queda cerrada.
+**Es la primera afirmación de todo Molnip que se sostiene entera sobre fuentes
+primarias, sin un solo salto deducido.**
 
-Y no es una pedantería: **el autónomo es exactamente a quien Molnip le va a
-enseñar esa fecha.** Es la afirmación que no nos podemos permitir equivocar.
+## Quién queda FUERA, y esto no lo teníamos
 
----
+El artículo 3 trae exclusiones que nadie cuenta:
+
+- **Entidades exentas del Impuesto sobre Sociedades** (art. 9.1 de la Ley
+  27/2014): fuera. Las **parcialmente exentas** quedan obligadas «exclusivamente
+  por las operaciones que generen rentas que estén sujetas y no exentas del
+  Impuesto». Esto afecta de lleno a asociaciones y fundaciones.
+- **Quienes llevan los libros registro según el apartado 6 del artículo 62 del
+  Reglamento del IVA**: fuera.
+- Y, de antes, el **territorio foral**: TicketBAI en Gipuzkoa, Bizkaia y Álava;
+  Navarra excluida con carácter general.
+
+**Cabo suelto, pequeño pero real:** no hemos leído el artículo 62.6 del
+Reglamento del IVA, así que **no sabemos a quién cubre esa exclusión**. No se
+puede decir ni que afecta ni que no afecta a un autónomo concreto. Para
+publicar algo dirigido a autónomos hace falta esa cita, o no mencionarlo.
+
+*(Nota de forma: la URL entregada traía un carácter perdido al final. La
+dirección limpia es `https://www.boe.es/buscar/act.php?id=BOE-A-2023-24840`.)*
 
 ## Dos avisos para no tropezar con lo que acabamos de aprender
 
