@@ -4787,7 +4787,7 @@ que se alcanzó se pierde, y sin esto cada sesión vuelve a preguntarle a ella
 qué falla, que es exactamente lo que no debe pasar. **No se reabre. Se parte
 de aquí.**
 
-### Lo que falla, en sus palabras y con los números que lo confirman
+### Lo que falla: sus cuatro frases, con los números que las confirman
 
 1. **«Recomienda siempre lo mismo a pesar del catálogo.»** Cierto. Un
    autónomo que pide facturar sólo llega a ver **7 de las 12** herramientas
@@ -4807,9 +4807,14 @@ de aquí.**
 4. **«Molnip no sabe de ventas: cree que vender son dos correos.»** Cierto.
    **Ninguna pieza de "atraer" está verificada**: ni buscadores, ni anuncios,
    ni ficha local, ni marketplace, ni encontrar contactos de empresas.
-5. **«Como directorio es malo; como asesor no asesora.»** Cierto, y es el
-   resumen. 65 herramientas en 4 familias es mal directorio. Y el motor
-   filtra y ordena: no opina, no tiene criterio sobre nadie concreto.
+La propietaria añadió una quinta cosa, y no hay que confundirla con las
+cuatro de arriba: **«si por lo menos fuera un diccionario bueno tendría
+alguna utilidad».** Es una observación sobre lo que Molnip podría estar
+aprovechando y no aprovecha, no un quinto defecto.
+
+*Lectura mía, no suya:* 65 herramientas en 4 familias es mal directorio, y
+el motor filtra y ordena sin opinar. Queda anotado como lectura para que no
+se confunda con lo que ella dijo.
 
 **El mapa completo:** Molnip responde a **62 de las 146** capacidades de su
 propio vocabulario. Por áreas: hacer el trabajo 67 %, base tecnológica 61 %,
