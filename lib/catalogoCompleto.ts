@@ -80,3 +80,29 @@ export function filtrarCatalogo(filas: FilaDeCatalogo[], criterios: CriteriosDeC
     return true;
   });
 }
+
+/**
+ * Cómo se dice el plan gratuito, en una sola función para que la tarjeta, la
+ * ficha y el catálogo no digan tres cosas distintas de lo mismo.
+ *
+ * Decisión de la propietaria (2026-09-17): **una prueba de una semana también
+ * es un plan gratuito.** Lo que no vale es callar cuál de las dos cosas es,
+ * porque «gratis para siempre con 250 contactos» y «gratis 14 días» le sirven
+ * a personas distintas.
+ *
+ * Cuando no se ha comprobado contra la página oficial, se dice «Con plan
+ * gratuito» a secas, como siempre. Inventarse cuál es sería peor que no
+ * decirlo.
+ */
+export function textoDePlanGratuito(h: {
+  tienePlanGratuito: boolean;
+  tipoPlanGratuito?: "indefinido" | "prueba";
+  pruebaGratuitaDias?: number;
+}): string {
+  if (!h.tienePlanGratuito) return "Sin plan gratuito";
+  if (h.tipoPlanGratuito === "indefinido") return "Gratis, indefinido";
+  if (h.tipoPlanGratuito === "prueba") {
+    return h.pruebaGratuitaDias ? `Gratis ${h.pruebaGratuitaDias} días` : "Prueba gratuita";
+  }
+  return "Con plan gratuito";
+}

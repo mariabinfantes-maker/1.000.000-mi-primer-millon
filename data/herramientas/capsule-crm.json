@@ -132,10 +132,11 @@
   "id": "capsule-crm",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-21",
-  "fechaUltimaRevision": "2026-08-21",
+  "fechaUltimaRevision": "2026-09-17",
   "tipoProducto": "especializada",
   "problemasIds": [
     "conseguir-clientes",
     "organizar-empresa"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido"
 }

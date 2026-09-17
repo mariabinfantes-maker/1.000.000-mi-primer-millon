@@ -63,7 +63,7 @@
     "Stripe"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde 0€ (Plan gratuito para 250 contactos) o 11,95$/usuario/mes en planes de pago",
+  "precioInicial": "Gratis hasta 250 contactos. De pago desde $12,74",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -132,7 +132,7 @@
   "id": "engagebay",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-03",
-  "fechaUltimaRevision": "2026-08-05",
+  "fechaUltimaRevision": "2026-09-17",
   "problemasIds": [
     "conseguir-clientes",
     "atencion-cliente"
@@ -147,5 +147,6 @@
   "tipoProducto": "suite",
   "categoriasSecundarias": [
     "crm"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido"
 }

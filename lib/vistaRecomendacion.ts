@@ -2,6 +2,7 @@ import { PUNTOS_IDIOMA_CONFIRMADO } from "@/agents/atlas-advisor";
 import type { EtiquetaEvidencia, HerramientaEvaluada } from "@/agents/atlas-advisor";
 import type { Herramienta } from "@/data/esquema";
 import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
+import { textoDePlanGratuito } from "@/lib/catalogoCompleto";
 import type { TarjetaHerramientaRecomendadaProps } from "@/components/TarjetaHerramientaRecomendada";
 
 /** Campos comunes a las dos vistas (con y sin cuestionario) que no dependen de `HerramientaEvaluada` — evita repetirlos en las dos funciones de abajo. */
@@ -58,6 +59,7 @@ export function aVistaDeTarjeta(
     motivosPuntuacion: puntuacionAtlas?.motivos ?? [],
     precioInicial: herramienta.precioInicial,
     tienePlanGratuito: herramienta.tienePlanGratuito,
+    textoPlanGratuito: textoDePlanGratuito(herramienta),
     ventajas: herramienta.ventajas,
     inconvenientes: herramienta.inconvenientes,
     explicacionPersonalizada: evaluada.explicacion,
@@ -93,6 +95,7 @@ export function aVistaDeTarjetaGenerica(herramienta: Herramienta, posicion: numb
     motivosPuntuacion: puntuacionAtlas?.motivos ?? [],
     precioInicial: herramienta.precioInicial,
     tienePlanGratuito: herramienta.tienePlanGratuito,
+    textoPlanGratuito: textoDePlanGratuito(herramienta),
     ventajas: herramienta.ventajas,
     inconvenientes: herramienta.inconvenientes,
     explicacionPersonalizada: herramienta.idealPara,

@@ -64,12 +64,12 @@
     "ActiveCampaign"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde $81/mes (plan Startup facturado anualmente) o $97/mes (facturado mensualmente)",
+  "precioInicial": "Desde $81/mes (facturación anual) o $97 al mes",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Pro a $157/mes (pago anual) o $197/mes (pago mensual)",
   "idiomasDisponibles": [
     "Inglés"
@@ -121,11 +121,12 @@
     ],
     "tipoNegocioIdeal": "Infoproductores y creadores de contenido",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 86,
+    "puntuacion": 89,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 7.3/10.",
       "G2: 4.6/5 (390 reseñas).",
       "Capterra: 4.5/5 (600 reseñas).",
+      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -133,7 +134,7 @@
   "id": "clickfunnels",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-03",
-  "fechaUltimaRevision": "2026-08-05",
+  "fechaUltimaRevision": "2026-09-17",
   "problemasIds": [
     "conseguir-clientes"
   ],
@@ -145,5 +146,6 @@
     "comercio_electronico",
     "creador_de_sitios_web"
   ],
-  "tipoProducto": "suite"
+  "tipoProducto": "suite",
+  "tipoPlanGratuito": "prueba"
 }

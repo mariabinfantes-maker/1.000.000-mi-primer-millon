@@ -75,7 +75,7 @@
     "Make"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde $15/mes",
+  "precioInicial": "Desde $24/mes (facturación anual)",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -142,7 +142,7 @@
   "id": "agiled",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-21",
-  "fechaUltimaRevision": "2026-08-21",
+  "fechaUltimaRevision": "2026-09-17",
   "tipoProducto": "suite",
   "problemasIds": [
     "organizar-empresa",
@@ -151,5 +151,6 @@
   "categoriasSecundarias": [
     "crm",
     "gestion-proyectos"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido"
 }

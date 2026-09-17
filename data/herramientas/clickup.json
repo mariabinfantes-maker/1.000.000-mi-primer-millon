@@ -70,7 +70,7 @@
     "Zapier"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde $7/usuario/mes (facturado anualmente)",
+  "precioInicial": "Gratis. Plan Unlimited desde $7/usuario/mes (facturación anual) o $10 al mes",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -146,10 +146,11 @@
   "id": "clickup",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-04",
-  "fechaUltimaRevision": "2026-08-05",
+  "fechaUltimaRevision": "2026-09-17",
   "problemasIds": [
     "organizar-empresa",
     "ahorrar-tiempo"
   ],
-  "tipoProducto": "especializada"
+  "tipoProducto": "especializada",
+  "tipoPlanGratuito": "indefinido"
 }

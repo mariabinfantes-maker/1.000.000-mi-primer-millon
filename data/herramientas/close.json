@@ -67,13 +67,13 @@
     "Zoom"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde $49/usuario/mes (facturado anualmente)",
+  "precioInicial": "Desde $9/usuario/mes (facturación anual) o $19 al mes",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Professional a $99/usuario/mes (pago anual), ideal por incluir secuencias completas y marcación automática.",
   "idiomasDisponibles": [
     "Inglés"
@@ -117,11 +117,12 @@
     ],
     "tipoNegocioIdeal": "Startups SaaS B2B y agencias con ventas salientes",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 95,
+    "puntuacion": 98,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.8/10.",
       "G2: 4.7/5 (1100 reseñas).",
       "Capterra: 4.7/5 (160 reseñas).",
+      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -129,9 +130,11 @@
   "id": "close",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-04",
-  "fechaUltimaRevision": "2026-08-05",
+  "fechaUltimaRevision": "2026-09-17",
   "problemasIds": [
     "conseguir-clientes"
   ],
-  "tipoProducto": "especializada"
+  "tipoProducto": "especializada",
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14
 }

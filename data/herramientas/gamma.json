@@ -134,10 +134,11 @@
   "id": "gamma",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-19",
-  "fechaUltimaRevision": "2026-09-02",
+  "fechaUltimaRevision": "2026-09-17",
   "tipoProducto": "especializada",
   "problemasIds": [
     "ahorrar-tiempo"
   ],
-  "subtipoId": "presentaciones"
+  "subtipoId": "presentaciones",
+  "tipoPlanGratuito": "indefinido"
 }

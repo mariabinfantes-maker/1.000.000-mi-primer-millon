@@ -69,7 +69,7 @@
     "suscripcion_mensual",
     "suscripcion_anual"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Plus desde $49/mes (facturado anualmente)",
   "idiomasDisponibles": [
     "Español",
@@ -118,11 +118,12 @@
     ],
     "tipoNegocioIdeal": "Ecommerce B2C y Pymes SaaS/B2B",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 90,
+    "puntuacion": 93,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.0/10.",
       "G2: 4.5/5 (10500 reseñas).",
       "Capterra: 4.6/5 (2400 reseñas).",
+      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -130,7 +131,7 @@
   "id": "activecampaign",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-03",
-  "fechaUltimaRevision": "2026-08-05",
+  "fechaUltimaRevision": "2026-09-17",
   "problemasIds": [
     "conseguir-clientes",
     "automatizar-tareas"
@@ -144,5 +145,7 @@
   "tipoProducto": "suite",
   "categoriasSecundarias": [
     "crm"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14
 }

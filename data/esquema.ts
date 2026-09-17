@@ -401,6 +401,26 @@ export type Herramienta = {
   modeloDePrecio: ModeloDePrecio[];
   /** Añadido: bandera rápida — es la primera pregunta que se hace un usuario con presupuesto ajustado. */
   tienePlanGratuito: boolean;
+  /**
+   * Qué clase de plan gratuito es. Decisión de la propietaria (2026-09-17):
+   * **una prueba de una semana también es un plan gratuito**; lo que no vale
+   * es callar cuál de las dos cosas es.
+   *
+   * - `indefinido` — gratis mientras quieras, normalmente con algún límite
+   *   (Bitrix24 con 1-2 usuarios, Capsule con 250 contactos).
+   * - `prueba` — gratis un tiempo y después se paga.
+   *
+   * Ausente en las fichas que todavía no se han comprobado contra la página
+   * oficial: entonces se dice «con plan gratuito» a secas, como hasta ahora,
+   * en vez de inventarse cuál es.
+   */
+  tipoPlanGratuito?: "indefinido" | "prueba";
+  /**
+   * Cuántos días dura la prueba, cuando `tipoPlanGratuito` es `prueba` y la
+   * página lo dice. Ausente cuando el fabricante no lo publica: hay webs que
+   * ofrecen «free trial» sin decir de cuánto, y ahí no se rellena a ojo.
+   */
+  pruebaGratuitaDias?: number;
   /** Añadido: no siempre el precio de entrada (`precioInicial`) es el plan que de verdad le conviene a una pyme — a veces hace falta un plan intermedio para desbloquear lo esencial. Texto libre, ej. "Plan Professional a 45€/usuario/mes". */
   precioRecomendadoPymes?: string;
 

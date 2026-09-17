@@ -52,6 +52,11 @@ const CAMPOS_OPCIONALES = new Set<keyof Herramienta>([
   // "asistentes-ia"). Exigirlos a un CRM sería pedir un dato que no existe.
   "subtipoId",
   "subtiposSecundarios",
+  // De qué clase es el plan gratuito y cuánto dura la prueba: sólo se
+  // rellenan cuando la página oficial lo dice. Una web que ofrece «free
+  // trial» sin decir de cuánto es un hecho, no un hueco que rellenar.
+  "tipoPlanGratuito",
+  "pruebaGratuitaDias",
 ]);
 
 export const DESCRIPCION_CAMPOS: Record<keyof Herramienta, string> = {
@@ -99,7 +104,12 @@ export const DESCRIPCION_CAMPOS: Record<keyof Herramienta, string> = {
   precioInicial: 'Precio de entrada en texto libre, ej. "Desde 15€/usuario/mes".',
   modeloDePrecio:
     'Array con valores entre "freemium", "suscripcion_mensual", "suscripcion_anual", "pago_unico", "por_usuario", "a_medida".',
-  tienePlanGratuito: "true/false: si existe un plan gratuito real, no solo una prueba de tiempo limitado.",
+  tienePlanGratuito:
+    "true/false: si se puede empezar sin pagar, sea con un plan gratuito permanente o con una prueba limitada. Las dos cuentan.",
+  tipoPlanGratuito:
+    '"indefinido" si es gratis mientras quieras (normalmente con algún límite) o "prueba" si es gratis un tiempo y después se paga. Omítelo si no lo dice la página oficial.',
+  pruebaGratuitaDias:
+    "Número de días que dura la prueba, sólo si la página oficial lo dice. Omítelo si ofrece prueba sin decir cuánto dura.",
   precioRecomendadoPymes:
     'Plan concreto recomendado para una pyme típica (no siempre es el plan más barato), en texto libre, ej. "Plan Professional a 45€/usuario/mes".',
   disponibilidadGeografica:

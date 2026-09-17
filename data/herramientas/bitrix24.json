@@ -58,7 +58,7 @@
     "1C"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Gratis (usuarios ilimitados) / Desde 49€/mes en plan Basic",
+  "precioInicial": "Gratis para 1-2 usuarios. Plan Basic desde US$49 por organización/mes (facturación anual) o US$69 al mes, con 5 usuarios",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual"
@@ -90,7 +90,7 @@
   ],
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-07-24",
-  "fechaUltimaRevision": "2026-07-25",
+  "fechaUltimaRevision": "2026-09-17",
   "modulosIncluidos": [
     "crm",
     "gestion_proyectos",
@@ -107,5 +107,6 @@
   "categoriasSecundarias": [
     "crm",
     "gestion-proyectos"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido"
 }

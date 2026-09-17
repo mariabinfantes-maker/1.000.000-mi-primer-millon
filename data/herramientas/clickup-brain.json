@@ -68,13 +68,13 @@
     "Zapier"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Complemento de 9$/usuario/mes con facturación anual (18$/usuario/mes en mensual), sobre un plan de pago de ClickUp que empieza en 7$/usuario/mes.",
+  "precioInicial": "Desde $9/usuario/mes, como complemento de un plan de pago de ClickUp",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "9$/usuario/mes facturado anualmente, sumados al plan de ClickUp que ya se tenga. Importante: el complemento se cobra sobre TODAS las licencias de pago del espacio de trabajo, no solo sobre quienes vayan a usar la IA.",
   "idiomasDisponibles": [
     "Español",
@@ -123,11 +123,12 @@
     ],
     "tipoNegocioIdeal": "Empresas que ya tienen ClickUp como centro de trabajo y quieren IA sobre su propia información",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 91,
+    "puntuacion": 94,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.0/10.",
       "G2: 4.7/5 (9500 reseñas).",
       "Capterra: 4.7/5 (4000 reseñas).",
+      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -135,5 +136,6 @@
   "id": "clickup-brain",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-09-02",
-  "fechaUltimaRevision": "2026-09-02"
+  "fechaUltimaRevision": "2026-09-17",
+  "tipoPlanGratuito": "prueba"
 }

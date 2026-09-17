@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { textoDePlanGratuito } from "@/lib/catalogoCompleto";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -163,7 +164,7 @@ export default async function FichaHerramientaPage({
         <div className="flex flex-wrap items-center gap-2">
           <span className="text-base font-semibold text-slate-900">{herramienta.precioInicial}</span>
           <Etiqueta variante={herramienta.tienePlanGratuito ? "exito" : "neutra"}>
-            {herramienta.tienePlanGratuito ? "Con plan gratuito" : "Sin plan gratuito"}
+            {textoDePlanGratuito(herramienta)}
           </Etiqueta>
           {herramienta.modeloDePrecio.map((modelo) => (
             <Etiqueta key={modelo}>{ETIQUETA_MODELO_PRECIO[modelo] ?? modelo.replaceAll("_", " ")}</Etiqueta>

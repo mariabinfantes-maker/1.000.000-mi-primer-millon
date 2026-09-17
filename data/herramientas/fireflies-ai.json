@@ -69,7 +69,7 @@
     "HubSpot"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde $10/usuario/mes (plan Pro en facturación anual); dispone de plan gratuito",
+  "precioInicial": "Gratis. Plan Pro desde $10/usuario/mes (facturación anual)",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -147,10 +147,11 @@
   "id": "fireflies-ai",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-18",
-  "fechaUltimaRevision": "2026-08-19",
+  "fechaUltimaRevision": "2026-09-17",
   "tipoProducto": "especializada",
   "problemasIds": [
     "ahorrar-tiempo"
   ],
-  "subtipoId": "reuniones-transcripcion"
+  "subtipoId": "reuniones-transcripcion",
+  "tipoPlanGratuito": "indefinido"
 }

@@ -63,7 +63,7 @@
     "Salesforce"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde $36/mes (facturado anualmente)",
+  "precioInicial": "Desde $24/mes (facturación anual) o $29 al mes",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -127,7 +127,7 @@
   "id": "copy-ai",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-21",
-  "fechaUltimaRevision": "2026-08-21",
+  "fechaUltimaRevision": "2026-09-17",
   "tipoProducto": "especializada",
   "problemasIds": [
     "ahorrar-tiempo",

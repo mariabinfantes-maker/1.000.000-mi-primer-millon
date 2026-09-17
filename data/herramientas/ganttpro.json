@@ -63,14 +63,14 @@
     "Google Drive"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde $9.99/usuario/mes (plan anual)",
+  "precioInicial": "Desde $7/usuario/mes (facturación anual)",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario",
     "a_medida"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Business a aproximadamente $15.99/usuario/mes (facturación anual)",
   "idiomasDisponibles": [
     "Español",
@@ -121,11 +121,12 @@
     ],
     "tipoNegocioIdeal": "Pymes, agencias y empresas de servicios o construcción que gestionan proyectos estructurados",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 96,
+    "puntuacion": 99,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.8/10.",
       "G2: 4.8/5 (480 reseñas).",
       "Capterra: 4.8/5 (470 reseñas).",
+      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -133,9 +134,11 @@
   "id": "ganttpro",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-21",
-  "fechaUltimaRevision": "2026-08-21",
+  "fechaUltimaRevision": "2026-09-17",
   "tipoProducto": "especializada",
   "problemasIds": [
     "organizar-empresa"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14
 }

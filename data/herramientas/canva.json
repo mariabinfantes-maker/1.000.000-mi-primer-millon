@@ -69,7 +69,7 @@
     "API Connect"
   ],
   "curvaDeAprendizaje": "muy_facil",
-  "precioInicial": "Gratis, con un número limitado de generaciones de IA al mes. El plan Pro se sitúa entre 15$ y 18$/mes según la fuente y la región consultada.",
+  "precioInicial": "Gratis. Plan Pro desde US$144 al año para una persona",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
@@ -138,5 +138,6 @@
   "id": "canva",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-09-02",
-  "fechaUltimaRevision": "2026-09-02"
+  "fechaUltimaRevision": "2026-09-17",
+  "tipoPlanGratuito": "indefinido"
 }

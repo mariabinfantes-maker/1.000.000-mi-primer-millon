@@ -29,6 +29,8 @@ export type TarjetaHerramientaRecomendadaProps = {
   motivosPuntuacion: string[];
   precioInicial: string;
   tienePlanGratuito: boolean;
+  /** Ya redactado por `textoDePlanGratuito`: «Gratis, indefinido», «Gratis 14 días» o «Con plan gratuito» cuando no se ha comprobado. */
+  textoPlanGratuito?: string;
   ventajas: string[];
   inconvenientes: string[];
   /** Párrafo ya redactado en lenguaje natural explicando por qué se recomienda para este usuario. */
@@ -73,6 +75,7 @@ export default function TarjetaHerramientaRecomendada({
   motivosPuntuacion,
   precioInicial,
   tienePlanGratuito,
+  textoPlanGratuito,
   ventajas,
   inconvenientes,
   explicacionPersonalizada,
@@ -233,7 +236,7 @@ export default function TarjetaHerramientaRecomendada({
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <span className="text-sm font-semibold text-slate-900">{precioInicial}</span>
         <Etiqueta variante={tienePlanGratuito ? "exito" : "neutra"}>
-          {tienePlanGratuito ? "Con plan gratuito" : "Sin plan gratuito"}
+          {textoPlanGratuito ?? (tienePlanGratuito ? "Con plan gratuito" : "Sin plan gratuito")}
         </Etiqueta>
       </div>
 

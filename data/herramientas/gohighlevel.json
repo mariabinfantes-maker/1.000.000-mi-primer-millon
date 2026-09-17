@@ -64,11 +64,11 @@
     "Twilio"
   ],
   "curvaDeAprendizaje": "dificil",
-  "precioInicial": "Desde 97$/mes",
+  "precioInicial": "Desde $97/mes o $970 al año",
   "modeloDePrecio": [
     "suscripcion_mensual"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "idiomasDisponibles": [
     "inglés (interfaz principal)",
     "soporte parcial en español y otros idiomas"
@@ -96,7 +96,7 @@
   ],
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-07-24",
-  "fechaUltimaRevision": "2026-07-25",
+  "fechaUltimaRevision": "2026-09-17",
   "modulosIncluidos": [
     "crm",
     "asistente_ia",
@@ -110,5 +110,7 @@
   "tipoProducto": "suite",
   "categoriasSecundarias": [
     "crm"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14
 }

@@ -132,10 +132,11 @@
   "id": "grammarly",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-18",
-  "fechaUltimaRevision": "2026-08-19",
+  "fechaUltimaRevision": "2026-09-17",
   "tipoProducto": "especializada",
   "problemasIds": [
     "ahorrar-tiempo"
   ],
-  "subtipoId": "escritura"
+  "subtipoId": "escritura",
+  "tipoPlanGratuito": "indefinido"
 }

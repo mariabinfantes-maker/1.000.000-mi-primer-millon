@@ -65,13 +65,13 @@
     "Slack"
   ],
   "curvaDeAprendizaje": "muy_facil",
-  "precioInicial": "Plan Pro desde 12$/mes con facturación anual. No hay plan gratuito.",
+  "precioInicial": "Desde $14,50/mes (facturación anual) o $45 al mes",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Pro a 12$/mes facturado anualmente para uso individual; el plan Team sube a 40$/usuario/mes y solo compensa si se necesitan plantillas de marca bloqueadas y control de equipo.",
   "idiomasDisponibles": [
     "Inglés"
@@ -124,15 +124,18 @@
     ],
     "tipoNegocioIdeal": "Equipos comerciales y de dirección que presentan a menudo y no tienen diseñador",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 83,
+    "puntuacion": 86,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 7.7/10.",
       "G2: 4.7/5 (195 reseñas).",
-      "Capterra: 4.2/5 (85 reseñas)."
+      "Capterra: 4.2/5 (85 reseñas).",
+      "Tiene plan gratuito."
     ]
   },
   "id": "beautiful-ai",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-09-02",
-  "fechaUltimaRevision": "2026-09-02"
+  "fechaUltimaRevision": "2026-09-17",
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14
 }
