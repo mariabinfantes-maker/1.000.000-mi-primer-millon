@@ -60,7 +60,7 @@
     "Mercado Pago"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Gratis (Plan Freemium sin límite de tiempo)",
+  "precioInicial": "Gratis y sin caducidad (2.000 contactos, 3 embudos, 1 blog y 1 curso). De pago desde $17/mes",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -151,5 +151,10 @@
   "tipoProducto": "suite",
   "categoriasSecundarias": [
     "crm"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://systeme.io/pricing"
+  }
 }

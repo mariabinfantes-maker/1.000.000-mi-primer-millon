@@ -81,3 +81,97 @@ Las salidas que quedan son distintas de las de antes:
 
 42 de 65 fichas con el precio comprobado en la web del fabricante. La tanda 3
 sumó **una**.
+
+---
+
+# La repesca (2026-09-17). **Funcionó.**
+
+Se pidieron las 24 con la escalera de cuatro caminos y el tercer estado
+—**PLANTILLA SIN RELLENAR**— que no existía antes. **Salieron 15.**
+
+El tercer estado es lo que arregló la tanda. Ya no hubo veinte «no consta»
+falsos: hubo cinco plantillas declaradas como lo que eran, cuatro páginas que
+no abrieron, y quince datos con cita.
+
+## Selladas: 12
+
+| Herramienta | Lo que dice su web | Lo que decía la ficha |
+|---|---|---|
+| **Scoro** | **15 €**/usuario/mes, mínimo 5 | **$37**/usuario/mes |
+| **Salesflare** | **$39**/usuario/mes | **$49**/usuario/mes |
+| **TeamGantt** | $24/mes o $240/año | $19/usuario/mes |
+| **Synthesia** | $29/mes | $18 anual / $22 mensual |
+| **Reclaim.ai** | $10/plaza/mes | $8/usuario/mes anual |
+| **Taskade** | gratis **2 usuarios**, 3 apps | gratis **5 miembros** |
+| **Zenkit** | 8 €/plaza/mes | 9 €/usuario/mes |
+| Salesmate | $23/usuario/mes | igual |
+| Teachable | $29 anual / $39 mensual | igual |
+| Thinkific | $40 anual / $54 mensual | igual |
+| Vtiger CRM | gratis 10 usuarios, $12 anual | igual |
+| Systeme.io | gratis sin caducidad, $17/mes | sólo tenía el gratis |
+
+**Scoro es el peor error de las tres tandas después de Close:** 37 dólares
+frente a 15 euros. Más del doble, y en la moneda equivocada.
+
+**Cuatro fichas decían que no había nada gratis** y son pruebas: Salesflare
+(30 días), Salesmate (15), Scoro (14), Teachable (7), Thinkific (30). Cinco
+puntuaciones se movieron: Salesflare 95→98, Salesmate 94→97, Scoro 90→93,
+Teachable 86→89, Thinkific 93→96.
+
+**Zenkit se sella a medias, y a propósito.** Su precio se leyó en euros y con
+región Unión Europea, así que va. Su clase de plan NO: la cita era «Zenkit
+**typically** offers a free trial period of 14 days», y eso no es el
+fabricante hablando de su producto, es alguien resumiéndolo. Se queda sin
+clase.
+
+## Clase sin precio: 3
+
+**Todoist**, **Zoho Projects** y **Odoo** dieron su plan gratuito con cita y
+límites, pero el precio no. Se les pone la clase —los tres indefinidos— y el
+precio se queda **intacto y sin sellar**.
+
+**Odoo abrió por fin**, a la tercera, por el camino del registro y desde
+España en euros. Pero el precio que trajo (11,90 €/mes «por TODAS las apps»)
+venía de la página principal, no de la dirección que declaró. Un precio leído
+en un sitio distinto del que se apunta no se puede sellar: sellar es poder
+volver a mirarlo.
+
+## Lo que se salvó por mirarlo dos veces: Notion AI
+
+La repesca consiguió por fin los euros: **9,50 € por miembro/mes**, con el
+selector puesto en la Unión Europea. **Y no se ha escrito.**
+
+Porque ese precio es el del plan **Plus de Notion**, no el de **Notion AI**.
+Se sabe porque la tanda 2 leyó la misma página en libras y ahí estaba
+desglosado: «Plus £8.50», «Business £16.50», y Notion AI completo en Business.
+9,50 € es la conversión de £8,50 — el plan, no el complemento.
+
+Nuestra ficha es de Notion AI. Escribir 9,50 € habría sido cambiar un dato sin
+comprobar por otro dato equivocado, y habría parecido un acierto.
+
+Lo que sí queda confirmado por segunda vez, con cita: en el plan gratuito de
+Notion, **la IA es una prueba limitada**, no viene incluida.
+
+## Lo que sigue sin salir: 9
+
+| | Qué pasó |
+|---|---|
+| **Wrike**, **Zoho CRM**, **Zoho One**, **Teamwork.com** | No abrieron. Teamwork devolvió **503** |
+| **Streak**, **Todoist**, **Zoho Projects** | Plantilla sin rellenar en el precio |
+| **noCRM.io** | Sigue devolviendo «X€». Tercera vez |
+| **Productive** | «$10/mes» sin decir si es por usuario o por cuenta |
+| **Copy.ai** | Su página de precios no dice si el gratis es indefinido o prueba |
+| **Notion AI** | Falta el precio del complemento, no el del plan |
+
+Cuatro de ellas —Wrike, los dos Zoho y Teamwork— son **fallos de apertura, no
+de lectura**. Eso ya no lo arregla ningún prompt.
+
+## Estado del catálogo
+
+- **54 de 65 fichas con el precio comprobado** en la web del fabricante.
+  Empezamos la jornada en 22.
+- **63 declaran plan gratuito**, y **56 dicen ya de qué clase es**: 28
+  indefinido, 28 prueba.
+- Quedan **7 fichas sin clase**, que es lo único que bloquea repesar el plan
+  gratuito con decimales: Copy.ai, Hotmart, Zenkit, Streak, Teamwork.com,
+  Wrike y los Zoho que no abrieron.

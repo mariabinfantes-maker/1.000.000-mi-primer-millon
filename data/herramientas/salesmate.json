@@ -74,7 +74,7 @@
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Pro a $39/usuario/mes (facturado anualmente)",
   "idiomasDisponibles": [
     "Inglés",
@@ -123,11 +123,12 @@
     ],
     "tipoNegocioIdeal": "Pymes B2B, agencias y equipos de ventas proactivos",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 94,
+    "puntuacion": 97,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.7/10.",
       "G2: 4.6/5 (320 reseñas).",
       "Capterra: 4.7/5 (80 reseñas).",
+      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -139,5 +140,11 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "conseguir-clientes"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 15,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.salesmate.io/pricing/"
+  }
 }

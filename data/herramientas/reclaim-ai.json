@@ -70,7 +70,7 @@
     "Jira"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde 8$ / usuario / mes (facturado anualmente)",
+  "precioInicial": "Gratis para 1 usuario. De pago desde $10/usuario/mes",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -138,5 +138,10 @@
   "problemasIds": [
     "ahorrar-tiempo"
   ],
-  "subtipoId": "agenda-planificacion"
+  "subtipoId": "agenda-planificacion",
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://reclaim.ai/pricing"
+  }
 }

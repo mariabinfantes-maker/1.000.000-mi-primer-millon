@@ -65,7 +65,7 @@
     "Google Drive"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde 19 $/usuario/mes",
+  "precioInicial": "Gratis para 1 usuario, con 1 proyecto y 40 tareas. De pago desde $24/mes o $240 al año",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -141,5 +141,10 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "organizar-empresa"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.teamgantt.com/pricing"
+  }
 }

@@ -1,7 +1,7 @@
 {
   "nombre": "Teachable",
   "paginaOficial": "https://teachable.com",
-  "urlPrecios": "https://teachable.com/pricing",
+  "urlPrecios": "https://www.teachable.com/pricing",
   "logoUrl": "",
   "categoriaId": "plataformas-todo-en-uno",
   "categoriasSecundarias": [],
@@ -69,13 +69,13 @@
     "Stripe"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Plan Starter desde 29 $/mes con facturación anual, 39 $/mes con facturación mensual, con un 7,5 % de comisión por venta. Sin plan gratuito: prueba de 7 días. Precios de la tabla oficial del 2026-09-16.",
+  "precioInicial": "Desde $29/mes (facturación anual) o $39 al mes",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
     "suscripcion_anual"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Builder: 69 $/mes con facturación anual, 89 $/mes con facturación mensual, sin comisión base por venta. Precios de la tabla oficial del 2026-09-16.",
   "disponibilidadGeografica": [
     "GLOBAL"
@@ -121,7 +121,7 @@
     ],
     "tipoNegocioIdeal": "Creadores de contenido, infoproductores y consultores",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 86,
+    "puntuacion": 89,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.0/10.",
       "G2: 4/5 (620 reseñas).",
@@ -135,5 +135,11 @@
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-09-16",
   "fechaUltimaRevision": "2026-09-17",
-  "objetivoPendienteDeInvestigacion": true
+  "objetivoPendienteDeInvestigacion": true,
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 7,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.teachable.com/pricing"
+  }
 }

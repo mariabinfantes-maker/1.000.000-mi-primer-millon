@@ -67,7 +67,7 @@
     "WhatsApp"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde $0/mes (Plan Pilot) o $12/usuario/mes (pago anual)",
+  "precioInicial": "Gratis para hasta 10 usuarios y 3.000 registros. De pago desde $12/usuario/mes (facturación anual)",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -151,5 +151,10 @@
   "problemasIds": [
     "conseguir-clientes",
     "atencion-cliente"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.vtiger.com/pricing/"
+  }
 }

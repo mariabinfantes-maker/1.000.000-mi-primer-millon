@@ -61,13 +61,13 @@
     "Zapier"
   ],
   "curvaDeAprendizaje": "muy_facil",
-  "precioInicial": "Desde $49/usuario/mes (facturación anual)",
+  "precioInicial": "Desde $39/usuario/mes",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Pro a $49/usuario/mes (facturado anualmente)",
   "idiomasDisponibles": [
     "Español",
@@ -117,11 +117,12 @@
     ],
     "tipoNegocioIdeal": "Agencias B2B y Startups SaaS",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 95,
+    "puntuacion": 98,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.7/10.",
       "G2: 4.8/5 (240 reseñas).",
       "Capterra: 4.7/5 (130 reseñas).",
+      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -133,5 +134,11 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "conseguir-clientes"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 30,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://salesflare.com/pricing"
+  }
 }

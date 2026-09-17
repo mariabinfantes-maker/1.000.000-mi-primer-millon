@@ -141,5 +141,6 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "organizar-empresa"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido"
 }

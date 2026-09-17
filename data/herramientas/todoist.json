@@ -140,5 +140,6 @@
   "id": "todoist",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-09-02",
-  "fechaUltimaRevision": "2026-09-02"
+  "fechaUltimaRevision": "2026-09-02",
+  "tipoPlanGratuito": "indefinido"
 }

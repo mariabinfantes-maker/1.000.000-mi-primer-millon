@@ -67,14 +67,14 @@
     "HubSpot"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde $37/usuario/mes (mínimo 5 usuarios)",
+  "precioInicial": "Desde 15 €/usuario/mes, con un mínimo de 5 usuarios",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario",
     "a_medida"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Standard a $63/usuario/mes (facturado anualmente, mínimo 5 usuarios)",
   "idiomasDisponibles": [
     "Inglés",
@@ -131,11 +131,12 @@
     ],
     "tipoNegocioIdeal": "Agencias y empresas de servicios profesionales",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 90,
+    "puntuacion": 93,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.0/10.",
       "G2: 4.5/5 (400 reseñas).",
       "Capterra: 4.6/5 (230 reseñas).",
+      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -148,5 +149,11 @@
   "problemasIds": [
     "organizar-empresa",
     "conseguir-clientes"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.scoro.com/pricing/"
+  }
 }

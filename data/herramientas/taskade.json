@@ -68,7 +68,7 @@
     "API REST"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Gratis (proyectos ilimitados, hasta 5 miembros y 3.000 créditos de IA iniciales). Plan Starter desde 6$/mes.",
+  "precioInicial": "Gratis para 2 usuarios, con 3 aplicaciones y 6.000 créditos. De pago desde $10/mes",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
@@ -134,5 +134,10 @@
   "id": "taskade",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-09-02",
-  "fechaUltimaRevision": "2026-09-02"
+  "fechaUltimaRevision": "2026-09-02",
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.taskade.com/pricing"
+  }
 }

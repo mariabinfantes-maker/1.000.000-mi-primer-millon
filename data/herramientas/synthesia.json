@@ -66,7 +66,7 @@
     "Docebo"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde 18$/mes (facturado anualmente) o 22$/mes (facturado mensualmente)",
+  "precioInicial": "Gratis (1.200 créditos y hasta 10 minutos de vídeo al mes). De pago desde $29/mes",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -141,5 +141,10 @@
   "problemasIds": [
     "ahorrar-tiempo"
   ],
-  "subtipoId": "video"
+  "subtipoId": "video",
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.synthesia.io/pricing"
+  }
 }

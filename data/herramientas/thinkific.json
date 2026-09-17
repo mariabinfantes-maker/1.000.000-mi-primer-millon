@@ -72,13 +72,13 @@
     "ConvertKit"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Plan Basic desde 40 $/mes con facturación anual, 54 $/mes con facturación mensual. Sin plan gratuito: prueba de 30 días. Precios de la tabla oficial del 2026-09-16.",
+  "precioInicial": "Desde $40/mes (facturación anual) o $54 al mes",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
     "suscripcion_anual"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Start: 82 $/mes con facturación anual, 109 $/mes con facturación mensual. Precios de la tabla oficial del 2026-09-16.",
   "disponibilidadGeografica": [
     "GLOBAL"
@@ -137,7 +137,7 @@
     ],
     "tipoNegocioIdeal": "Creadores de contenidos, academias virtuales e infoproductores",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 93,
+    "puntuacion": 96,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.5/10.",
       "G2: 4.7/5 (240 reseñas).",
@@ -151,5 +151,11 @@
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-09-16",
   "fechaUltimaRevision": "2026-09-17",
-  "objetivoPendienteDeInvestigacion": true
+  "objetivoPendienteDeInvestigacion": true,
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 30,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.thinkific.com/pricing/"
+  }
 }
