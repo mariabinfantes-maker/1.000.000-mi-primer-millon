@@ -4990,6 +4990,10 @@ dónde se empieza**, no renunciar a dónde se llega.
 
 ## EL PLAN GRATUITO NO VALE LO MISMO SI ES UNA PRUEBA (2026-09-17)
 
+> **El diagnóstico de esta sección sigue en pie; su remedio no.** Lo
+> sustituye «LO GRATIS ES UNA GANANCIA, NO UN EJE», unas horas después.
+> Los decimales se simularon y se revirtieron sin aplicar.
+
 **De quién es esto.** Lo señaló la propietaria al leer el informe de la tanda
 2, y es suyo: «plan gratuito por siempre o plan gratuito 20 días ahora puntúa
 igual, pero en un futuro lo armaremos con decimales, no con un punto entero,
@@ -5029,6 +5033,62 @@ tocar la maquinaria — sólo lo que vale cada estado.
 **Va con ello la frase que se enseña.** En el catálogo ya se distingue
 («Gratis, indefinido» / «Gratis 7 días»); en la explicación de la
 recomendación, todavía no.
+
+## LO GRATIS ES UNA GANANCIA, NO UN EJE (2026-09-17, misma tarde)
+
+**Sustituye el remedio de la sección anterior, no su diagnóstico.** Sigue siendo
+cierto que los 8 puntos planos de `precioFrenteAlValor` están mal y que
+desordenaron recomendaciones. Lo que se cae es la solución que se había
+apuntado —repesarlo con decimales—, porque la pregunta de la que salía ya era
+la equivocada.
+
+**De quién es esto.** El giro es de la propietaria, y con sus palabras: «el
+cliente no entró y dijo tengo que arreglar mi empresa pero lo voy a hacer
+gratis. El problema real del cliente es arreglar su empresa; la herramienta
+gratis es una ganancia». Lo que va después de eso es desarrollo mío.
+
+**Cómo se llegó aquí, porque el recorrido importa.** Empecé preguntando
+«¿cuántos puntos vale un plan gratuito?». Esa pregunta ya daba por hecho que
+el plan gratuito es un eje. La propietaria lo sacó de la puntuación —bien— y
+propuso enseñar dos grupos, «las gratuitas que además sirven» y «las de pago
+que te ayudarán más». Yo desarrollé ese diseño durante un rato largo sin ver
+lo que tenía delante: **lo habíamos quitado del número y lo habíamos vuelto a
+meter como estructura de la pantalla.** Y ahí pesa más, no menos: si lo
+primero que ve la persona es la página partida en «gratis» y «de pago», el
+asunto de la página ha pasado a ser su bolsillo. Ella entró porque pierde
+citas.
+
+**Qué queda fijado.**
+
+1. **El plan gratuito es un rasgo de la herramienta, no un apartado de la
+   respuesta.** «Esta te resuelve lo de las citas, y además no te cuesta
+   nada» es una frase sobre su problema. «Sección: las gratuitas» es una
+   clasificación que la obliga a clasificarse antes de mirar.
+2. **El abanico sigue, pero se abre sobre las soluciones, no sobre los
+   precios.** La lista se ordena por lo que resuelve. El dinero viaja en cada
+   tarjeta, dicho claro, y cuando no cuesta nada se dice como lo que es: una
+   ganancia.
+3. **Desaparece el problema del grupo vacío.** No hay grupos que puedan
+   quedarse vacíos. Quedaba pendiente de hablar y ya no hace falta.
+4. **Una preferencia no obliga a inventar nada.** Que alguien prefiera algo
+   gratuito no nos obliga a fabricar una gratuita que sirva si no la hay.
+   Esto es de la propietaria y sigue en pie aunque cambie la forma.
+5. **El catálogo grande se enseña.** Que a alguien le sobren seis o no le
+   sobren depende de cómo se explique, y eso es trabajo nuestro. La regla de
+   las tres prohíbe rellenar con malas; no prohíbe enseñar las buenas.
+
+**La raíz, y por dónde se sigue.** El criterio se llama «Precio para lo que
+ofrece» y no mide ningún precio: mira una casilla de sí o no y la trata como
+si fuera un juicio sobre si la herramienta vale lo que cuesta. La pregunta
+real de una persona no es «¿es gratis?», es **«¿me compensa lo que me
+piden?»**, y para contestarla hay que cruzar el precio con lo que hace.
+
+Eso es lo siguiente, acordado con la propietaria: **saber si podemos decirle a
+alguien que 15 € al mes le compensan.** No cuánto vale lo gratis.
+
+Hasta que eso se resuelva no se toca `precioFrenteAlValor` ni la Puntuación
+Atlas: la simulación de los decimales se probó, se midió (9 de 70 consultas
+cambiaban de orden, ninguna entraba ni salía) y **se revirtió sin aplicar**.
 
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 
