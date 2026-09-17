@@ -36,7 +36,7 @@ describe("la coherencia interna del vocabulario", () => {
       areas: getVocabulario().areas.length,
       dominios: dominios.length,
       capacidades: capacidades.length,
-    }).toEqual({ areas: 5, dominios: 23, capacidades: 150 });
+    }).toEqual({ areas: 5, dominios: 23, capacidades: 151 });
   });
 
   it("cada dominio pertenece a un área que existe", () => {
@@ -462,6 +462,9 @@ describe("la coherencia interna del vocabulario", () => {
     "cap.invoice_advance_funding",
     "cap.overdue_payment_recovery",
     "cap.subscription_spend_control",
+    // Creada el 2026-09-17 al colocar las anteriores: «pagar a proveedores»
+    // era la otra mitad de «lo que sale» y tampoco estaba en el vocabulario.
+    "cap.supplier_invoice_payment",
   ];
 
   it("las capacidades salidas de un borrador dejan constancia de dónde venían", () => {

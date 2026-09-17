@@ -1517,7 +1517,7 @@
       "etiqueta": "Controlar lo que pagas cada mes",
       "definicion": "Tener a la vista los servicios que el negocio paga de forma recurrente, con su importe, cuándo se renuevan y quién los usa.",
       "noEs": "No es guardar el justificante de un gasto suelto (cap.expense_tracking) ni cobrar cuotas a tus propios clientes (cap.recurring_billing): es el dinero que sale por lo que tú tienes contratado.",
-      "dominioId": "costes",
+      "dominioId": "facturacion",
       "estado": "activa"
     },
     {
@@ -1534,6 +1534,14 @@
       "definicion": "Tener hoy el dinero de una factura que aún no ha vencido, cediéndosela a un tercero que adelanta el importe a cambio de un coste.",
       "noEs": "No es reclamar a un cliente que no paga (cap.overdue_payment_recovery): aquí nadie te debe nada todavía, sólo que no quieres esperar.",
       "dominioId": "costes",
+      "estado": "activa"
+    },
+    {
+      "id": "cap.supplier_invoice_payment",
+      "etiqueta": "Pagar las facturas que te llegan",
+      "definicion": "Reunir las facturas que te mandan tus proveedores y saber cuáles están aprobadas, cuáles vencen y cuáles ya has pagado.",
+      "noEs": "No es pedir la mercancía y seguir el pedido (cap.purchase_orders), ni guardar el justificante de un gasto suelto (cap.expense_tracking), ni llevar los libros (cap.accounting_ledger): aquí se trata del dinero que tienes que pagar y de cuándo.",
+      "dominioId": "facturacion",
       "estado": "activa"
     }
   ],
