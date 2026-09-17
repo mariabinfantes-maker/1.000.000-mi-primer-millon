@@ -70,7 +70,7 @@
     "Zapier"
   ],
   "curvaDeAprendizaje": "muy_facil",
-  "precioInicial": "Gratis (hasta 5 proyectos activos). Plan Pro desde 4$/mes con facturación anual.",
+  "precioInicial": "Gratis (hasta 5 proyectos personales). De pago desde $5/usuario/mes",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
@@ -141,5 +141,9 @@
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-09-02",
   "fechaUltimaRevision": "2026-09-02",
-  "tipoPlanGratuito": "indefinido"
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.todoist.com/pricing"
+  }
 }

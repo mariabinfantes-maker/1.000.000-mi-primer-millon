@@ -67,7 +67,7 @@
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "idiomasDisponibles": [
     "español",
     "inglés",
@@ -116,5 +116,6 @@
   "categoriasSecundarias": [
     "crm",
     "gestion-proyectos"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba"
 }

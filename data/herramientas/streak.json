@@ -63,7 +63,7 @@
     "Slack"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde 0 $/usuario/mes (Plan Free disponible)",
+  "precioInicial": "Gratis para siempre (50 combinaciones de correo al día). De pago desde $49/usuario/mes",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -140,5 +140,10 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "conseguir-clientes"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.streak.com/pricing"
+  }
 }

@@ -67,7 +67,7 @@
     "QuickBooks"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde $9.99/usuario/mes (plan Deliver, facturación anual)",
+  "precioInicial": "Gratis para hasta 5 usuarios y 5 proyectos. De pago desde $9,99/usuario/mes (facturación anual)",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -148,5 +148,10 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "organizar-empresa"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.teamwork.com/pricing/"
+  }
 }

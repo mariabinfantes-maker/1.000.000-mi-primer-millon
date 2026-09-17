@@ -1,7 +1,7 @@
 {
   "nombre": "Wrike",
   "paginaOficial": "https://www.wrike.com",
-  "urlPrecios": "https://www.wrike.com/pricing/",
+  "urlPrecios": "https://www.wrike.com/price/",
   "logoUrl": "",
   "categoriaId": "gestion-proyectos",
   "descripcion": "Wrike es una plataforma de gestión de trabajo colaborativo basada en la nube que permite a los equipos planificar, gestionar y escalar proyectos con flexibilidad. Ofrece vistas personalizables como diagramas de Gantt y tableros Kanban, automatización de flujos de trabajo e informes avanzados en tiempo real.",
@@ -66,7 +66,7 @@
     "Adobe Creative Cloud"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde 9.80$/usuario/mes",
+  "precioInicial": "Gratis. De pago desde $10/usuario/mes (facturación anual)",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -150,5 +150,10 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "organizar-empresa"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.wrike.com/price/"
+  }
 }

@@ -175,3 +175,98 @@ de lectura**. Eso ya no lo arregla ningún prompt.
 - Quedan **7 fichas sin clase**, que es lo único que bloquea repesar el plan
   gratuito con decimales: Copy.ai, Hotmart, Zenkit, Streak, Teamwork.com,
   Wrike y los Zoho que no abrieron.
+
+---
+
+# Lo que faltaba, con Gemini (2026-09-17)
+
+Lo preguntó la propietaria: «¿y tú con Gemini no lo puedes hacer, lo de las 7
+que quedan?». Sí. Y debería haberlo propuesto yo: **el arnés de Gemini con
+`url_context` es con lo que se construyó la evidencia de F2**, está en
+`agents/compartido/proveedores/gemini.ts` y llevaba semanas ahí.
+
+Se pidieron las 13 pendientes —7 sin clase de plan y 11 sin precio, con
+solapes—. **Gemini leyó las 13.** Las mismas páginas que el canal externo no
+pudo abrir.
+
+## Por qué éste sí y aquél no
+
+`url_context` descarga las páginas desde la infraestructura de Google, que
+**sí ejecuta el JavaScript**. Donde el canal externo veía la plantilla vacía,
+Gemini ve la tabla ya pintada.
+
+Y trae una garantía que el canal externo no tiene: la respuesta incluye
+`urlRetrievalStatus` por cada dirección. **Dice qué descargó de verdad.** Si
+una no se recuperó, su respuesta no cuenta por convincente que suene — que es
+exactamente el fallo de la tanda 3.
+
+Detalle para quien repita esto: Node no usa el proxy por su cuenta. Hace falta
+`NODE_USE_ENV_PROXY=1`, que ya estaba escrito en ATLAS.md de la vez anterior.
+
+## Selladas: 6
+
+| Herramienta | Su web | La ficha decía |
+|---|---|---|
+| **Streak** | gratis para siempre; **$49**/usuario/mes | sólo «$0, Plan Free» |
+| **noCRM.io** | **13 US$**/usuario/mes | 12 €/usuario/mes |
+| **Productive** | **$10 POR USUARIO**, anual | $9/usuario/mes |
+| **Todoist** | $5/usuario/mes | $4/mes |
+| **Wrike** | $10/usuario/mes anual | $9,80/usuario/mes |
+| Teamwork.com | $9,99/usuario/mes anual | igual |
+
+**Productive se resolvió del todo.** La duda era si «$10/mes» era por usuario
+o por cuenta —un factor de diez—. La cita lo cierra: «$10 /month total
+$100/month for 10 users billed yearly». Diez usuarios, cien dólares.
+
+**noCRM.io, a la cuarta.** Tres intentos devolvieron «X€». Gemini leyó la
+cifra: 13 US$/usuario/mes. Queda una rareza anotada: el hueco de la plantilla
+llevaba «€» y el valor servido va en dólares. La cifra es lo que se ha
+escrito; si alguna vez se ve un símbolo distinto en esa página, es por ahí.
+
+## Clase sin precio: 3
+
+**Zoho CRM** («Forever free, for 3 users») y **Zoho Projects** (5 usuarios)
+indefinidos; **Zoho One**, prueba — y con eso pasa de «no tiene nada gratis» a
+tenerlo.
+
+**Zenkit queda en prueba de 14 días.** Antes se rechazó esa cita por sonar a
+resumen ajeno: «Zenkit **typically** offers a free trial period of 14 days».
+Pero los dos canales, por separado, sacaron **la misma frase exacta** del
+dominio de Zenkit. Si está en su web, es suya, por rara que suene.
+
+## Tres cosas que NO se han escrito, y por qué
+
+**Copy.ai.** Gemini dice «prueba», y su cita es «Try for free». Eso es un
+botón, no un plan — es la misma regla por la que en la tanda 1 se dejó Copper
+en «no consta» y se celebró la disciplina. Se aplica igual aquí aunque ahora
+juegue en contra. **Su clase sigue sin saberse.**
+
+**Hotmart.** «No consta» confirmado por los dos canales. Que su página no
+hable de plan gratuito es un hecho sobre Hotmart, y ya está escrito.
+
+**Notion AI.** Gemini confirma que **la página no publica el precio del
+complemento**, sólo el de los planes de Notion. O sea: el «9,50 €» de la
+repesca era del plan Plus, como se dictaminó. Deja un cabo suelto que conviene
+decir en voz alta: **nuestra ficha afirma 8 €/usuario/mes para Notion AI y esa
+cifra no está en la página de precios de Notion.** No se cambia sin fuente,
+pero está sin respaldo.
+
+## El precio de Zoho no se puede leer. Punto.
+
+Seis direcciones —incluidas las variantes `en-us` y `es-xl`— y dos canales
+distintos. Todas devuelven la estructura de los planes y ninguna la cifra.
+**Eso ya no es un fallo: es una característica de su web**, y se deja escrito
+para que nadie vuelva a gastar una tarde en ello.
+
+## Estado del catálogo
+
+- **60 de 65 fichas con el precio comprobado.** Empezamos la jornada en 22.
+- **62 de las 64 con plan gratuito dicen de qué clase es**: 32 indefinido,
+  30 prueba.
+- Sin precio: Notion AI, Odoo y los tres Zoho — los cinco por motivos
+  documentados, no por no haberlo intentado.
+- Sin clase: **sólo Copy.ai y Hotmart**, las dos porque su página no lo dice.
+
+**Con esto deja de estar bloqueado repesar el plan gratuito con decimales**,
+que era la condición escrita en ATLAS.md: hacerlo «inmediatamente después de
+la tanda 3».

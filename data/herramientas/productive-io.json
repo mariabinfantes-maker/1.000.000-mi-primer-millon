@@ -66,7 +66,7 @@
     "Slack"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde $9/usuario/mes (plan Essential facturado anualmente)",
+  "precioInicial": "Desde $10/usuario/mes (facturación anual)",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
@@ -137,5 +137,9 @@
     "conseguir-clientes"
   ],
   "tipoPlanGratuito": "prueba",
-  "pruebaGratuitaDias": 14
+  "pruebaGratuitaDias": 14,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://productive.io/pricing/"
+  }
 }

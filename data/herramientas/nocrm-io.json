@@ -63,7 +63,7 @@
     "WhatsApp"
   ],
   "curvaDeAprendizaje": "muy_facil",
-  "precioInicial": "Desde 12€/usuario/mes",
+  "precioInicial": "Desde 13 US$/usuario/mes",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
@@ -137,5 +137,9 @@
     "conseguir-clientes"
   ],
   "tipoPlanGratuito": "prueba",
-  "pruebaGratuitaDias": 15
+  "pruebaGratuitaDias": 15,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.nocrm.io/es/pricing"
+  }
 }
