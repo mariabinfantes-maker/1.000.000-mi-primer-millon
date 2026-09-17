@@ -153,5 +153,9 @@
     "ahorrar-tiempo"
   ],
   "subtipoId": "reuniones-transcripcion",
-  "tipoPlanGratuito": "indefinido"
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://fireflies.ai/pricing"
+  }
 }

@@ -421,6 +421,28 @@ export type Herramienta = {
    * ofrecen «free trial» sin decir de cuánto, y ahí no se rellena a ojo.
    */
   pruebaGratuitaDias?: number;
+  /**
+   * Cuándo alguien abrió de verdad la página de precios del fabricante y leyó
+   * lo que dice, y **qué dirección abrió**.
+   *
+   * ── Por qué existe, aparte de `fechaUltimaRevision` ────────────────────
+   *
+   * No son lo mismo y confundirlas nos costó medio catálogo. `fechaUltimaRevision`
+   * dice cuándo TOCAMOS la ficha; esto dice cuándo COMPROBAMOS que es verdad.
+   * Una ficha escrita ayer con un precio inventado parece fresquísima por la
+   * primera y no lo está por la segunda: el 2026-09-17, con las 65 fichas
+   * dentro del umbral de frescura —cero desactualizadas— resultó que la mitad
+   * de los precios estaban mal desde el primer día.
+   *
+   * `url` es la que se abrió DE VERDAD, no la que creíamos. Capsule CRM lleva
+   * su enlace «Pricing» a `/signup/`, y en `urlPrecios` teníamos `/pricing/`,
+   * que no abre. Guardar la que funcionó es lo que evita repetir el fallo en
+   * la siguiente ronda.
+   *
+   * Ausente = **nunca se ha comprobado**. No es lo mismo que comprobado hace
+   * mucho, y Atlas Mantenimiento los cuenta por separado.
+   */
+  preciosComprobados?: { fecha: string; url: string };
   /** Añadido: no siempre el precio de entrada (`precioInicial`) es el plan que de verdad le conviene a una pyme — a veces hace falta un plan intermedio para desbloquear lo esencial. Texto libre, ej. "Plan Professional a 45€/usuario/mes". */
   precioRecomendadoPymes?: string;
 

@@ -1,7 +1,7 @@
 {
   "nombre": "EngageBay",
   "paginaOficial": "https://www.engagebay.com/",
-  "urlPrecios": "https://www.engagebay.com/pricing",
+  "urlPrecios": "https://www.engagebay.com/pricing/all-in-one",
   "categoriaId": "plataformas-todo-en-uno",
   "descripcion": "EngageBay es una plataforma unificada de CRM, automatización de marketing, gestión de ventas y soporte al cliente diseñada para pymes. Permite centralizar la captación de leads, el seguimiento comercial y la atención al cliente en una sola herramienta económica.",
   "informacionEmpresa": {
@@ -148,5 +148,9 @@
   "categoriasSecundarias": [
     "crm"
   ],
-  "tipoPlanGratuito": "indefinido"
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.engagebay.com/pricing/all-in-one"
+  }
 }

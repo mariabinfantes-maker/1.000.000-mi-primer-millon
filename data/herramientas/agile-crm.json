@@ -145,5 +145,9 @@
     "conseguir-clientes",
     "atencion-cliente"
   ],
-  "tipoPlanGratuito": "indefinido"
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.agilecrm.com/pricing"
+  }
 }

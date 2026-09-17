@@ -1,7 +1,7 @@
 {
   "nombre": "Freshsales",
   "paginaOficial": "https://www.freshworks.com/crm/sales/",
-  "urlPrecios": "https://www.freshworks.com/crm/sales/pricing/",
+  "urlPrecios": "https://www.freshworks.com/crm/pricing/",
   "categoriaId": "plataformas-todo-en-uno",
   "descripcion": "Freshsales es una plataforma de gestión de relaciones con clientes (CRM) enfocada en automatizar el proceso de ventas e impulsar los ingresos. Ofrece funciones de telefonía integrada, seguimiento de correos electrónicos, secuencias de ventas y cualificación de leads mediante inteligencia artificial (Freddy AI).",
   "informacionEmpresa": {
@@ -160,5 +160,9 @@
     "crm"
   ],
   "tipoPlanGratuito": "prueba",
-  "pruebaGratuitaDias": 21
+  "pruebaGratuitaDias": 21,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.freshworks.com/crm/pricing/"
+  }
 }

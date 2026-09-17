@@ -57,6 +57,8 @@ const CAMPOS_OPCIONALES = new Set<keyof Herramienta>([
   // trial» sin decir de cuánto es un hecho, no un hueco que rellenar.
   "tipoPlanGratuito",
   "pruebaGratuitaDias",
+  // La fecha de comprobación la pone quien comprueba, no quien investiga.
+  "preciosComprobados",
 ]);
 
 export const DESCRIPCION_CAMPOS: Record<keyof Herramienta, string> = {
@@ -110,6 +112,8 @@ export const DESCRIPCION_CAMPOS: Record<keyof Herramienta, string> = {
     '"indefinido" si es gratis mientras quieras (normalmente con algún límite) o "prueba" si es gratis un tiempo y después se paga. Omítelo si no lo dice la página oficial.',
   pruebaGratuitaDias:
     "Número de días que dura la prueba, sólo si la página oficial lo dice. Omítelo si ofrece prueba sin decir cuánto dura.",
+  preciosComprobados:
+    "Lo rellena quien comprueba el precio contra la página oficial, no lo investigues: { fecha, url } con el día de la lectura y la dirección que se abrió de verdad.",
   precioRecomendadoPymes:
     'Plan concreto recomendado para una pyme típica (no siempre es el plan más barato), en texto libre, ej. "Plan Professional a 45€/usuario/mes".',
   disponibilidadGeografica:

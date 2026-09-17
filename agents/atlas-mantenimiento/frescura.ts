@@ -95,3 +95,59 @@ export function detectarCuentasActivasDesactualizadas(
 
   return avisos;
 }
+
+/**
+ * Cada cuánto se vuelve a mirar un precio. Noventa días, la mitad que una
+ * ficha entera: un precio cambia mucho más a menudo que lo que una
+ * herramienta sabe hacer, y es lo primero que se lee.
+ */
+export const DIAS_PRECIO_CADUCADO_POR_DEFECTO = 90;
+
+/**
+ * Las que NUNCA se han comprobado contra la página del fabricante.
+ *
+ * Es el aviso que faltaba, y es el que importa. `detectarHerramientasDesactualizadas`
+ * mide cuándo se tocó la ficha, así que el 2026-09-17 decía «0 desactualizadas»
+ * sobre un catálogo en el que la mitad de los precios estaban mal desde el
+ * primer día: se habían escrito hacía poco, sin comprobar nada.
+ *
+ * Sin fecha de comprobación no hay «hace mucho»: hay «nunca». Y nunca no
+ * caduca, así que no lo detectaría ningún umbral.
+ */
+export function detectarPreciosSinComprobar(herramientas: Herramienta[]): AvisoFrescura[] {
+  return herramientas
+    .filter((h) => h.estado === "activo" && !h.preciosComprobados)
+    .map((h) => ({
+      herramientaId: h.id,
+      dias: 0,
+      mensaje:
+        `"${h.nombre}" enseña un precio que nadie ha comprobado contra su página oficial. ` +
+        `No es que esté viejo: es que nunca se ha mirado.`,
+    }));
+}
+
+/** Las comprobadas hace más del umbral: tuvieron su lectura, y le ha pasado el tiempo. */
+export function detectarPreciosCaducados(
+  herramientas: Herramienta[],
+  hoy: string,
+  umbralDias: number = DIAS_PRECIO_CADUCADO_POR_DEFECTO
+): AvisoFrescura[] {
+  const avisos: AvisoFrescura[] = [];
+
+  for (const herramienta of herramientas) {
+    if (herramienta.estado !== "activo" || !herramienta.preciosComprobados) continue;
+
+    const dias = diasEntre(hoy, herramienta.preciosComprobados.fecha);
+    if (dias !== null && dias >= umbralDias) {
+      avisos.push({
+        herramientaId: herramienta.id,
+        dias,
+        mensaje:
+          `"${herramienta.nombre}" tiene el precio comprobado hace ${dias} días, en ` +
+          `${herramienta.preciosComprobados.url} — toca volver a mirarlo.`,
+      });
+    }
+  }
+
+  return avisos;
+}

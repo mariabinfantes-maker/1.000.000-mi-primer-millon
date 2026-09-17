@@ -1,7 +1,7 @@
 {
   "nombre": "Close",
   "paginaOficial": "https://www.close.com",
-  "urlPrecios": "https://www.close.com/pricing",
+  "urlPrecios": "https://close.com/pricing",
   "categoriaId": "crm",
   "descripcion": "Close es un CRM centrado en ventas y diseñado para maximizar la productividad de los equipos comerciales. Integra llamadas telefónicas, correos electrónicos, SMS y secuencias automatizadas en una sola plataforma fluida y centrada en la acción.",
   "informacionEmpresa": {
@@ -136,5 +136,9 @@
   ],
   "tipoProducto": "especializada",
   "tipoPlanGratuito": "prueba",
-  "pruebaGratuitaDias": 14
+  "pruebaGratuitaDias": 14,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://close.com/pricing"
+  }
 }

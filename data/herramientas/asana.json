@@ -149,5 +149,9 @@
   "problemasIds": [
     "organizar-empresa"
   ],
-  "tipoPlanGratuito": "indefinido"
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://asana.com/pricing"
+  }
 }

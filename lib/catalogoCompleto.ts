@@ -21,6 +21,8 @@ export type FilaDeCatalogo = {
   tienePlanGratuito: boolean;
   disponibleEnEspanol: boolean;
   puntuacionAtlas: number | null;
+  /** Ya redactado por `textoDeComprobacion`, o `null` si nadie ha mirado ese precio. */
+  comprobado: string | null;
 };
 
 export type TipoDeHerramienta = "todas" | "todo_en_uno" | "especializada";
@@ -105,4 +107,20 @@ export function textoDePlanGratuito(h: {
     return h.pruebaGratuitaDias ? `Gratis ${h.pruebaGratuitaDias} días` : "Prueba gratuita";
   }
   return "Con plan gratuito";
+}
+
+/**
+ * «Comprobado el 17 de septiembre de 2026» o, cuando no se ha comprobado
+ * nunca, nada.
+ *
+ * Que una página esté viva es que tenga fecha y que la fecha se mueva. Y que
+ * no la tenga también dice algo: dice que ese precio lo escribimos nosotros y
+ * nadie fue a mirarlo.
+ */
+export function textoDeComprobacion(h: { preciosComprobados?: { fecha: string; url: string } }): string | null {
+  if (!h.preciosComprobados) return null;
+  const fecha = new Date(`${h.preciosComprobados.fecha}T00:00:00Z`);
+  if (Number.isNaN(fecha.getTime())) return null;
+  const legible = new Intl.DateTimeFormat("es-ES", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(fecha);
+  return `Precio comprobado en su web el ${legible}`;
 }

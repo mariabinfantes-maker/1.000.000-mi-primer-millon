@@ -112,5 +112,9 @@
     "crm"
   ],
   "tipoPlanGratuito": "prueba",
-  "pruebaGratuitaDias": 14
+  "pruebaGratuitaDias": 14,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.gohighlevel.com/pricing"
+  }
 }

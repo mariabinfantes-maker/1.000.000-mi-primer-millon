@@ -1,7 +1,7 @@
 {
   "nombre": "Canva",
   "paginaOficial": "https://www.canva.com",
-  "urlPrecios": "https://www.canva.com/pricing",
+  "urlPrecios": "https://www.canva.com/pricing/",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
   "subtipoId": "presentaciones",
@@ -139,5 +139,9 @@
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-09-02",
   "fechaUltimaRevision": "2026-09-17",
-  "tipoPlanGratuito": "indefinido"
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.canva.com/pricing/"
+  }
 }

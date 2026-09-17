@@ -1,7 +1,13 @@
 import { describe, expect, it } from "vitest";
 import { getHerramientas, getTodasLasCategorias } from "@/data/repositorio";
 import { esSuite } from "@/data/taxonomia";
-import { CRITERIOS_VACIOS, filtrarCatalogo, hayFiltro, type FilaDeCatalogo } from "@/lib/catalogoCompleto";
+import {
+  CRITERIOS_VACIOS,
+  filtrarCatalogo,
+  hayFiltro,
+  textoDeComprobacion,
+  type FilaDeCatalogo,
+} from "@/lib/catalogoCompleto";
 
 /**
  * «Todas las herramientas» tiene una promesa muy corta y muy fácil de romper:
@@ -26,6 +32,7 @@ const filas: FilaDeCatalogo[] = getHerramientas().map((h) => ({
   tienePlanGratuito: h.tienePlanGratuito,
   disponibleEnEspanol: h.disponibleEnEspanol ?? false,
   puntuacionAtlas: null,
+  comprobado: textoDeComprobacion(h),
 }));
 
 describe("el catálogo completo se ve entero", () => {
@@ -97,5 +104,38 @@ describe("saber si hay algo puesto", () => {
     expect(hayFiltro({ ...CRITERIOS_VACIOS, tipo: "todo_en_uno" })).toBe(true);
     expect(hayFiltro({ ...CRITERIOS_VACIOS, soloGratis: true })).toBe(true);
     expect(hayFiltro({ ...CRITERIOS_VACIOS, categoriaId: "crm" })).toBe(true);
+  });
+});
+
+/**
+ * La rotación: una página viva tiene fecha y la fecha se mueve. Y cuando no
+ * la tiene, también dice algo — dice que ese precio lo escribimos nosotros y
+ * nadie fue a mirarlo.
+ */
+describe("la fecha de comprobación", () => {
+  it("se redacta en castellano cuando existe", () => {
+    expect(textoDeComprobacion({ preciosComprobados: { fecha: "2026-09-17", url: "https://x.test" } })).toBe(
+      "Precio comprobado en su web el 17 de septiembre de 2026"
+    );
+  });
+
+  it("no se inventa nada cuando la ficha nunca se ha comprobado", () => {
+    expect(textoDeComprobacion({})).toBeNull();
+  });
+
+  it("una fecha rota no produce un texto roto", () => {
+    expect(textoDeComprobacion({ preciosComprobados: { fecha: "cuando sea", url: "https://x.test" } })).toBeNull();
+  });
+
+  it("las comprobadas guardan la dirección que se abrió de verdad", () => {
+    const comprobadas = getHerramientas().filter((h) => h.preciosComprobados);
+    expect(comprobadas.length).toBeGreaterThan(0);
+    for (const h of comprobadas) {
+      expect(h.preciosComprobados!.url, h.nombre).toMatch(/^https:\/\//);
+      expect(h.preciosComprobados!.fecha, h.nombre).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      // Si se comprobó abriendo una dirección, es la que se publica: enviar a
+      // la persona a otra distinta es mandarla a una página que nadie miró.
+      expect(h.urlPrecios, h.nombre).toBe(h.preciosComprobados!.url);
+    }
   });
 });

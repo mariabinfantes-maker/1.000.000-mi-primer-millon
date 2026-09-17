@@ -5,7 +5,7 @@ import { esSuite } from "@/data/taxonomia";
 import { ordenarPorPuntuacionAtlas } from "@/lib/vistaRecomendacion";
 import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
 import CatalogoCompleto from "@/components/CatalogoCompleto";
-import type { FilaDeCatalogo } from "@/lib/catalogoCompleto";
+import { textoDeComprobacion, type FilaDeCatalogo } from "@/lib/catalogoCompleto";
 import Boton from "@/components/ui/Boton";
 
 export const metadata: Metadata = {
@@ -46,6 +46,7 @@ export default function TodasLasHerramientasPage() {
     tienePlanGratuito: herramienta.tienePlanGratuito,
     disponibleEnEspanol: herramienta.disponibleEnEspanol ?? false,
     puntuacionAtlas: calcularPuntuacionAtlas(herramienta)?.puntuacion ?? null,
+    comprobado: textoDeComprobacion(herramienta),
   }));
 
   // Sólo las categorías que de verdad tienen algo: un filtro que siempre

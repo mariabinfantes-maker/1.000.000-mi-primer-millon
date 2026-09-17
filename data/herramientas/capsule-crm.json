@@ -1,7 +1,7 @@
 {
   "nombre": "Capsule CRM",
   "paginaOficial": "https://capsulecrm.com",
-  "urlPrecios": "https://capsulecrm.com/pricing/",
+  "urlPrecios": "https://capsulecrm.com/signup/",
   "logoUrl": "",
   "categoriaId": "crm",
   "descripcion": "Capsule CRM es una solución de gestión de relaciones con clientes diseñada para ser sencilla, flexible e intuitiva. Ayuda a pequeñas y medianas empresas a organizar contactos, gestionar el pipeline de ventas y dar seguimiento a proyectos posteriores a la venta.",
@@ -138,5 +138,9 @@
     "conseguir-clientes",
     "organizar-empresa"
   ],
-  "tipoPlanGratuito": "indefinido"
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://capsulecrm.com/signup/"
+  }
 }
