@@ -42,7 +42,7 @@ describe("ejecutarLote", () => {
     const proveedor = proveedorPorHerramienta({});
     const candidatos: CandidatoLote[] = [{ nombreHerramienta: "HubSpot" }];
 
-    const resumen = await ejecutarLote(candidatos, ["hubspot"], proveedor, { dirBaseBorradores: dirTemporal });
+    const resumen = await ejecutarLote(candidatos, ["hubspot"], proveedor, { dirBaseBorradores: dirTemporal, prechequearAfiliacion: true });
 
     expect(resumen.resultados[0]).toMatchObject({ estado: "duplicado", id: "hubspot" });
     expect(proveedor.generarJson).not.toHaveBeenCalled();
@@ -55,7 +55,7 @@ describe("ejecutarLote", () => {
     });
     const candidatos: CandidatoLote[] = [{ nombreHerramienta: "HubSpot" }, { nombreHerramienta: "HubSpot" }];
 
-    const resumen = await ejecutarLote(candidatos, [], proveedor, { dirBaseBorradores: dirTemporal });
+    const resumen = await ejecutarLote(candidatos, [], proveedor, { dirBaseBorradores: dirTemporal, prechequearAfiliacion: true });
 
     const estados = resumen.resultados.map((r) => r.estado);
     expect(estados.filter((e) => e === "duplicado")).toHaveLength(1);
@@ -77,7 +77,7 @@ describe("ejecutarLote", () => {
     });
     const candidatos: CandidatoLote[] = [{ nombreHerramienta: "SinAfiliados" }];
 
-    const resumen = await ejecutarLote(candidatos, [], proveedor, { dirBaseBorradores: dirTemporal });
+    const resumen = await ejecutarLote(candidatos, [], proveedor, { dirBaseBorradores: dirTemporal, prechequearAfiliacion: true });
 
     expect(resumen.resultados[0]).toMatchObject({ estado: "pendiente_de_decision", afiliacion: "no_consta" });
     expect(proveedor.generarJson).toHaveBeenCalledTimes(1);
@@ -88,13 +88,54 @@ describe("ejecutarLote", () => {
   it("el pendiente sobrevive al lote: queda escrito en disco con su motivo", async () => {
     const proveedor = proveedorPorHerramienta({ SinAfiliados: { prechequeo: AFFILIATE_SIN_PROGRAMA } });
 
-    await ejecutarLote([{ nombreHerramienta: "SinAfiliados" }], [], proveedor, { dirBaseBorradores: dirTemporal });
+    await ejecutarLote([{ nombreHerramienta: "SinAfiliados" }], [], proveedor, { dirBaseBorradores: dirTemporal, prechequearAfiliacion: true });
 
     const ruta = path.join(dirTemporal, "pendientes", "sinafiliados.json");
     expect(fs.existsSync(ruta)).toBe(true);
     const pendiente = JSON.parse(fs.readFileSync(ruta, "utf-8"));
     expect(pendiente).toMatchObject({ id: "sinafiliados", estado: "no_consta" });
     expect(pendiente.motivo).toContain("no consta");
+  });
+
+  /**
+   * La afiliación está aparcada (decisión de la propietaria, 2026-09-17). Estas
+   * dos pruebas sostienen esa decisión: por defecto no se pregunta por ella, no
+   * se gasta una llamada en ello, y nadie se queda esperando una decisión que
+   * ya está tomada. Si alguien vuelve a encender el prechequeo sin querer,
+   * fallan.
+   */
+  describe("con la afiliación aparcada (por defecto)", () => {
+    it("no hace el prechequeo de afiliación: investiga directamente", async () => {
+      const proveedor = proveedorPorHerramienta({
+        Quipu: {
+          investigacion: { datos: { nombre: "Quipu" }, affiliateData: AFFILIATE_SIN_PROGRAMA, fuentes: ["https://getquipu.com"] },
+        },
+      });
+
+      const resumen = await ejecutarLote([{ nombreHerramienta: "Quipu" }], [], proveedor, {
+        dirBaseBorradores: dirTemporal,
+      });
+
+      const prompts = (proveedor.generarJson as ReturnType<typeof vi.fn>).mock.calls.map((c) => c[0] as string);
+      expect(prompts.filter(esPromptDePrechequeo)).toHaveLength(0);
+      expect(prompts).toHaveLength(1);
+      expect(resumen.totales.aceptados).toBe(1);
+    });
+
+    it("una herramienta sin programa de afiliados entra igual, no se queda pendiente", async () => {
+      const proveedor = proveedorPorHerramienta({
+        Contasimple: {
+          investigacion: { datos: { nombre: "Contasimple" }, affiliateData: AFFILIATE_SIN_PROGRAMA, fuentes: ["https://contasimple.com"] },
+        },
+      });
+
+      const resumen = await ejecutarLote([{ nombreHerramienta: "Contasimple" }], [], proveedor, {
+        dirBaseBorradores: dirTemporal,
+      });
+
+      expect(resumen.totales.pendientes).toBe(0);
+      expect(resumen.resultados[0].estado).toBe("aceptado");
+    });
   });
 
   it("una ausencia demostrada también espera, pero se distingue del no consta y guarda su cita", async () => {
@@ -110,7 +151,7 @@ describe("ejecutarLote", () => {
     });
 
     const resumen = await ejecutarLote([{ nombreHerramienta: "SinPrograma" }], [], proveedor, {
-      dirBaseBorradores: dirTemporal,
+      dirBaseBorradores: dirTemporal, prechequearAfiliacion: true,
     });
 
     expect(resumen.resultados[0]).toMatchObject({
@@ -135,7 +176,7 @@ describe("ejecutarLote", () => {
     });
     const candidatos: CandidatoLote[] = [{ nombreHerramienta: "DudosaEnDetalle" }];
 
-    const resumen = await ejecutarLote(candidatos, [], proveedor, { dirBaseBorradores: dirTemporal });
+    const resumen = await ejecutarLote(candidatos, [], proveedor, { dirBaseBorradores: dirTemporal, prechequearAfiliacion: true });
 
     expect(resumen.resultados[0].estado).toBe("aceptado");
     expect(fs.existsSync(path.join(dirTemporal, "herramientas", "dudosaendetalle.json"))).toBe(true);
@@ -150,7 +191,7 @@ describe("ejecutarLote", () => {
     });
     const candidatos: CandidatoLote[] = [{ nombreHerramienta: "HubSpot" }];
 
-    const resumen = await ejecutarLote(candidatos, [], proveedor, { dirBaseBorradores: dirTemporal });
+    const resumen = await ejecutarLote(candidatos, [], proveedor, { dirBaseBorradores: dirTemporal, prechequearAfiliacion: true });
 
     expect(resumen.resultados[0].estado).toBe("aceptado");
     expect(fs.existsSync(path.join(dirTemporal, "herramientas", "hubspot.json"))).toBe(true);
@@ -173,7 +214,7 @@ describe("ejecutarLote", () => {
     const candidatos: CandidatoLote[] = [{ nombreHerramienta: "HubSpot" }];
 
     const resumen = await ejecutarLote(candidatos, [], proveedor, {
-      dirBaseBorradores: dirTemporal,
+      dirBaseBorradores: dirTemporal, prechequearAfiliacion: true,
       reintentos: 1,
       esperaBaseReintentoMs: 0,
     });
@@ -192,7 +233,7 @@ describe("ejecutarLote", () => {
     const candidatos: CandidatoLote[] = [{ nombreHerramienta: "HubSpot" }];
 
     const resumen = await ejecutarLote(candidatos, [], proveedor, {
-      dirBaseBorradores: dirTemporal,
+      dirBaseBorradores: dirTemporal, prechequearAfiliacion: true,
       reintentos: 1,
       esperaBaseReintentoMs: 0,
     });
@@ -217,7 +258,7 @@ describe("ejecutarLote", () => {
     };
     const candidatos: CandidatoLote[] = Array.from({ length: 6 }, (_, i) => ({ nombreHerramienta: `Herramienta${i}` }));
 
-    await ejecutarLote(candidatos, [], proveedor, { dirBaseBorradores: dirTemporal, concurrencia: 2 });
+    await ejecutarLote(candidatos, [], proveedor, { dirBaseBorradores: dirTemporal, prechequearAfiliacion: true, concurrencia: 2 });
 
     expect(maximoObservado).toBeLessThanOrEqual(2);
   });
@@ -232,7 +273,7 @@ describe("ejecutarLote", () => {
     });
     const candidatos: CandidatoLote[] = [{ nombreHerramienta: "Aceptada" }, { nombreHerramienta: "Pendiente" }, { nombreHerramienta: "Aceptada" }];
 
-    const resumen = await ejecutarLote(candidatos, [], proveedor, { dirBaseBorradores: dirTemporal });
+    const resumen = await ejecutarLote(candidatos, [], proveedor, { dirBaseBorradores: dirTemporal, prechequearAfiliacion: true });
 
     expect(resumen.totales).toEqual({ total: 3, aceptados: 1, duplicados: 1, pendientes: 1, fallidos: 0 });
   });
@@ -250,7 +291,7 @@ describe("ejecutarLote", () => {
       const candidatos: CandidatoLote[] = Array.from({ length: 4 }, (_, i) => ({ nombreHerramienta: `Herramienta${i}` }));
 
       await ejecutarLote(candidatos, [], proveedor, {
-        dirBaseBorradores: dirTemporal,
+        dirBaseBorradores: dirTemporal, prechequearAfiliacion: true,
         concurrencia: 4,
         maxPeticionesPorMinuto: 2,
         ventanaLimiteMs: 200,
@@ -270,7 +311,7 @@ describe("ejecutarLote", () => {
       };
       const candidatos: CandidatoLote[] = Array.from({ length: 4 }, (_, i) => ({ nombreHerramienta: `Herramienta${i}` }));
 
-      await ejecutarLote(candidatos, [], proveedor, { dirBaseBorradores: dirTemporal, concurrencia: 4 });
+      await ejecutarLote(candidatos, [], proveedor, { dirBaseBorradores: dirTemporal, prechequearAfiliacion: true, concurrencia: 4 });
 
       expect(Date.now() - inicio).toBeLessThan(190);
     });
@@ -297,7 +338,7 @@ describe("ejecutarLote", () => {
       const candidatos: CandidatoLote[] = [{ nombreHerramienta: "HubSpot" }];
 
       await ejecutarLote(candidatos, [], proveedor, {
-        dirBaseBorradores: dirTemporal,
+        dirBaseBorradores: dirTemporal, prechequearAfiliacion: true,
         reintentos: 1,
         esperaBaseReintentoMs: 0, // un fallo genérico esperaría ~0ms; el de cuota debe ignorar esto
         margenEsperaCuotaMs: 0,
@@ -325,7 +366,7 @@ describe("ejecutarLote", () => {
       const candidatos: CandidatoLote[] = [{ nombreHerramienta: "HubSpot" }];
 
       await ejecutarLote(candidatos, [], proveedor, {
-        dirBaseBorradores: dirTemporal,
+        dirBaseBorradores: dirTemporal, prechequearAfiliacion: true,
         reintentos: 1,
         esperaCuotaPorDefectoMs: 150,
         margenEsperaCuotaMs: 0,
@@ -354,7 +395,7 @@ describe("ejecutarLote", () => {
 
       const inicio = Date.now();
       await ejecutarLote(candidatos, [], proveedor, {
-        dirBaseBorradores: dirTemporal,
+        dirBaseBorradores: dirTemporal, prechequearAfiliacion: true,
         reintentos: 1,
         esperaBaseReintentoMs: 0,
         esperaCuotaPorDefectoMs: 10000, // si se confundiera con un error de cuota, tardaría segundos

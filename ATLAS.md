@@ -4943,6 +4943,48 @@ Hotmart —trece afirmaciones revisadas, cuatro sobrevivieron— sin que aquello
 cambiara ni una recomendación. La lección no fue que la revisión sobrara, sino
 que **se estaba investigando monetización antes que utilidad**.
 
+## ESTRECHAR LA PROMESA — decisión de la propietaria (2026-09-17)
+
+**Cierra la decisión que el DIAGNÓSTICO DE PRODUCTO dejaba abierta**
+—«estrechar la promesa a lo que el catálogo sostiene, o mantenerla amplia
+mientras Molnip dice que no durante meses»—. Se estrecha.
+
+**Sus palabras:** «hay que sacar adelante la web funcionando, recomendando,
+trayendo clic, vendiendo… he intentado hacer todo a la vez… el tiempo es oro.»
+
+**Qué se decide.** Molnip deja de intentar ser bueno en todo a la vez y **gana
+un carril primero: el dinero de un autónomo o una pyme española, empezando por
+facturar.** Todo lo demás sigue existiendo y sigue siendo la visión; lo que
+cambia es que deja de competir por el tiempo.
+
+**Por qué ese carril y no otro** (lectura mía, contrastada con el repositorio):
+
+- Es donde **peor** contesta Molnip hoy: a quien pide «emitir facturas» le
+  devuelve Paymo y Zoho Projects —dos gestores de proyectos— y noCRM, un CRM.
+  Ninguno es un programa de facturación.
+- Es donde hay **búsqueda real en español**, y con una obligación legal
+  empujando (Verifactu, fechas por confirmar en la AEAT).
+- De las 34 candidatas de la barrida del dinero, **ninguna** estaba en el
+  catálogo: el hueco es enorme y nadie lo ha ocupado desde Molnip.
+
+**El orden de trabajo que se deriva, y que reemplaza a «hacerlo todo a la vez»:**
+
+1. **Que Molnip responda bien a una cosa.** Si llega tráfico antes de esto, se
+   va y no vuelve.
+2. **SEO después, no antes.** La maquinaria ya existe —blog, comparativas,
+   alternativas, el generador de contenido—; lo que no existe es contenido que
+   sea verdad. Posicionar 65 fichas sin verificar es traer gente a una tienda
+   vacía.
+3. **Los tres agentes sin diseñar, al final.** Son máquina interna: no traen
+   ni un clic.
+4. **La monetización, cuando haya tráfico** (ver «LA AFILIACIÓN SE APARCA»).
+
+**Lo que esto NO cambia:** la visión entera sigue en pie. Molnip sigue siendo
+un asesor, no un directorio; sigue diciendo que no cuando no cubre algo; y el
+camino A —saber con quién habla, partir el dinero, la página de todas las
+herramientas, vender más— sigue siendo el orden. Estrechar es elegir **por
+dónde se empieza**, no renunciar a dónde se llega.
+
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 
 **Aprobada por la propietaria el 2026-08-31.** Auditada sobre el commit

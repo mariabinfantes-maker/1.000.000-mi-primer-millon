@@ -91,7 +91,7 @@ describe("REGRESIÓN · 3. ningún camino investiga sin la autorización especí
   it("el lote para en el prechequeo: nunca llega a la investigación completa", async () => {
     const { proveedor, llamadas } = proveedorQueCuenta();
 
-    const resumen = await ejecutarLote([{ nombreHerramienta: "ViDay" }], [], proveedor, { dirBaseBorradores: dirBase });
+    const resumen = await ejecutarLote([{ nombreHerramienta: "ViDay" }], [], proveedor, { dirBaseBorradores: dirBase, prechequearAfiliacion: true });
 
     expect(resumen.resultados[0].estado).toBe("pendiente_de_decision");
     expect(llamadas).toEqual(["prechequeo"]);
@@ -106,7 +106,7 @@ describe("REGRESIÓN · 3. ningún camino investiga sin la autorización especí
     registrarAutorizacionAfiliacion("viday", "no_consta", MOTIVO, { dirBase });
     const { proveedor, llamadas } = proveedorQueCuenta();
 
-    await ejecutarLote([{ nombreHerramienta: "ViDay" }], [], proveedor, { dirBaseBorradores: dirBase });
+    await ejecutarLote([{ nombreHerramienta: "ViDay" }], [], proveedor, { dirBaseBorradores: dirBase, prechequearAfiliacion: true });
 
     expect(llamadas).toEqual(["prechequeo"]);
     expect(leerPendiente("viday", { dirBase })).toBeDefined();

@@ -74,6 +74,22 @@ export type OpcionesLote = {
   margenEsperaCuotaMs?: number;
   /** Espera fija tras un error de cuota cuando el proveedor no sugiere un tiempo concreto, en ms. Por defecto 60000. */
   esperaCuotaPorDefectoMs?: number;
+  /**
+   * Si se hace el prechequeo de afiliación antes de investigar. **Por defecto
+   * NO**, desde la decisión de la propietaria del 2026-09-17 («LA AFILIACIÓN
+   * SE APARCA», ATLAS.md): no se investiga, no se comprueba y no se menciona
+   * la afiliación de ninguna herramienta hasta que la web traiga tráfico.
+   *
+   * Con el prechequeo apagado, ninguna candidata se queda en
+   * `pendiente_de_decision` por su afiliación: si cubre una necesidad, se
+   * investiga y entra. Además se ahorra una llamada al proveedor por
+   * candidata, que es dinero de la propietaria.
+   *
+   * Se pone a `true` para volver al comportamiento anterior — y hay que
+   * hacerlo explícitamente, para que desaparcarlo sea una decisión y no un
+   * olvido.
+   */
+  prechequearAfiliacion?: boolean;
 };
 
 const CONCURRENCIA_POR_DEFECTO = 3;
@@ -237,6 +253,7 @@ export async function ejecutarLote(
       margenEsperaCuotaMs,
       esperaCuotaPorDefectoMs,
       dirBaseBorradores: opciones.dirBaseBorradores,
+      prechequearAfiliacion: opciones.prechequearAfiliacion ?? false,
     })
   );
 
@@ -265,9 +282,17 @@ async function procesarCandidato(
     margenEsperaCuotaMs: number;
     esperaCuotaPorDefectoMs: number;
     dirBaseBorradores?: string;
+    prechequearAfiliacion: boolean;
   }
 ): Promise<ResultadoCandidatoLote> {
   const { reintentos, esperaBaseMs, margenEsperaCuotaMs, esperaCuotaPorDefectoMs } = opciones;
+
+  // La afiliación está aparcada (2026-09-17): sin prechequeo no se pregunta,
+  // no se gasta una llamada en ello y nadie se queda esperando una decisión
+  // que la propietaria ya tomó — si cubre una necesidad, se investiga.
+  if (!opciones.prechequearAfiliacion) {
+    return investigarYEscribir(candidato, id, proveedor, opciones);
+  }
 
   // Un fallo del proveedor es transitorio y se reintenta; un estado de
   // afiliación —cualquiera de los tres— es una respuesta, no un fallo.
@@ -312,9 +337,30 @@ async function procesarCandidato(
     };
   }
 
-  // Ya no hay descarte por afiliación en la investigación completa, así
-  // que cualquier `ok: false` es un fallo de verdad y se reintenta. Antes
-  // había que distinguirlo olfateando el prefijo "Descartada" del mensaje.
+  return investigarYEscribir(candidato, id, proveedor, opciones);
+}
+
+/**
+ * La investigación completa y su borrador. Es el camino único cuando la
+ * afiliación está aparcada, y el final del camino cuando no lo está.
+ *
+ * Ya no hay descarte por afiliación aquí, así que cualquier `ok: false` es un
+ * fallo de verdad y se reintenta. Antes había que distinguirlo olfateando el
+ * prefijo "Descartada" del mensaje.
+ */
+async function investigarYEscribir(
+  candidato: CandidatoLote,
+  id: string,
+  proveedor: ProveedorIA,
+  opciones: {
+    reintentos: number;
+    esperaBaseMs: number;
+    margenEsperaCuotaMs: number;
+    esperaCuotaPorDefectoMs: number;
+    dirBaseBorradores?: string;
+  }
+): Promise<ResultadoCandidatoLote> {
+  const { reintentos, esperaBaseMs, margenEsperaCuotaMs, esperaCuotaPorDefectoMs } = opciones;
   const resultado = await conReintentos(() => investigarHerramienta(candidato, proveedor), {
     esFalloTransitorio: (r) => !r.ok,
     obtenerMensajeDeFallo: (r) => (r.ok ? "" : r.error),
