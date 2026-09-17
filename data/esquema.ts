@@ -145,7 +145,15 @@ export type Problema = {
 export type BloqueContenido =
   | { tipo: "parrafo"; texto: string }
   | { tipo: "subtitulo"; texto: string }
-  | { tipo: "lista"; items: string[] };
+  | { tipo: "lista"; items: string[] }
+  /**
+   * Una frase copiada LITERALMENTE de una fuente, con su dirección y el día en
+   * que se leyó. `fuente` y `fecha` no son opcionales a propósito: una cita sin
+   * fuente es una afirmación disfrazada, y es exactamente lo que Molnip no
+   * hace. Si no se puede enlazar y fechar, va como párrafo y se escribe con
+   * las palabras de Molnip.
+   */
+  | { tipo: "cita"; texto: string; fuente: string; fecha: string };
 
 /**
  * Un artículo del blog SEO (Fase 4 de lanzamiento — ver ATLAS.md). Vive en

@@ -1,0 +1,182 @@
+{
+  "id": "verifactu-autonomos-y-pymes-que-dice-la-norma",
+  "titulo": "Veri*Factu: a quién obliga, desde cuándo, y por qué nadie está «homologado»",
+  "resumen": "Las fechas, las excepciones y la palabra que vas a leer en todas partes, con las frases copiadas de la Agencia Tributaria y del BOE para que lo compruebes tú. Sin venderte ningún programa.",
+  "fechaPublicacion": "2026-09-17",
+  "fechaUltimaRevision": "2026-09-17",
+  "autor": "Molnip",
+  "cuerpo": [
+    {
+      "tipo": "parrafo",
+      "texto": "Si tienes un negocio en España y emites facturas con un programa informático, hay una fecha que te afecta y una palabra que vas a leer mucho estos meses: «homologado». Esto es lo que dice la norma, con las frases copiadas de la Agencia Tributaria y del BOE para que puedas comprobarlo tú misma. No te vamos a vender ningún programa por el camino."
+    },
+    {
+      "tipo": "subtitulo",
+      "texto": "Qué es Veri*Factu, en una frase"
+    },
+    {
+      "tipo": "parrafo",
+      "texto": "Es un reglamento que obliga a que el programa con el que facturas cumpla unos requisitos: que las facturas no se puedan alterar después, que quede rastro de todas, y que el programa pueda enviarlas a Hacienda. No cambia cómo facturas tú: cambia lo que tiene que hacer el programa que usas."
+    },
+    {
+      "tipo": "subtitulo",
+      "texto": "A quién obliga, y desde cuándo"
+    },
+    {
+      "tipo": "parrafo",
+      "texto": "Son dos fechas distintas, y la diferencia está en cómo tributas."
+    },
+    {
+      "tipo": "parrafo",
+      "texto": "Si tienes una sociedad:"
+    },
+    {
+      "tipo": "cita",
+      "texto": "Los contribuyentes sujetos al Impuestos sobre Sociedades deberán tener adaptados los sistemas informáticos a las características y requisitos que se establecen en el reglamento de los requisitos que deben adoptar los sistemas y programas informáticos o electrónicos que soporten los procesos de facturación de empresarios y profesionales y en su normativa de desarrollo antes del 1 de enero de 2027.",
+      "fuente": "https://sede.agenciatributaria.gob.es/Sede/iva/sistemas-informaticos-facturacion-verifactu/preguntas-frecuentes/cuestiones-generales-ambitos-aplicacion.html",
+      "fecha": "2026-09-17"
+    },
+    {
+      "tipo": "parrafo",
+      "texto": "Si eres autónoma o autónomo, entras en el segundo grupo, y la fecha es medio año más tarde:"
+    },
+    {
+      "tipo": "cita",
+      "texto": "El resto de obligados tributarios mencionados en el artículo 3.1., deberán tener operativos los sistemas informáticos adaptados a las características y requisitos que se establecen en el citado reglamento y en su normativa de desarrollo antes del 1 de julio de 2027.",
+      "fuente": "https://sede.agenciatributaria.gob.es/Sede/iva/sistemas-informaticos-facturacion-verifactu/preguntas-frecuentes/cuestiones-generales-ambitos-aplicacion.html",
+      "fecha": "2026-09-17"
+    },
+    {
+      "tipo": "parrafo",
+      "texto": "Ese «artículo 3.1» que la Agencia Tributaria menciona es el que dice quién está obligado. Lo hemos leído en el BOE, y ahí es donde aparecen los autónomos con todas sus letras:"
+    },
+    {
+      "tipo": "cita",
+      "texto": "El presente Reglamento se aplicará a los obligados tributarios que se indican a continuación, que utilicen sistemas informáticos de facturación, aunque solo los usen para una parte de su actividad: a) Los contribuyentes del Impuesto sobre Sociedades. […] b) Los contribuyentes del Impuesto sobre la Renta de las Personas Físicas que desarrollen actividades económicas.",
+      "fuente": "https://www.boe.es/buscar/act.php?id=BOE-A-2023-24840",
+      "fecha": "2026-09-17"
+    },
+    {
+      "tipo": "parrafo",
+      "texto": "Dicho en claro: la letra a) son las sociedades, con fecha del 1 de enero de 2027. La letra b) es el autónomo con actividad económica, y su fecha es el 1 de julio de 2027."
+    },
+    {
+      "tipo": "subtitulo",
+      "texto": "Lo que casi nadie te va a contar: nadie está «homologado por la AEAT»"
+    },
+    {
+      "tipo": "parrafo",
+      "texto": "Vas a ver esa palabra en muchas webs de programas de facturación. Conviene saber qué significa exactamente, y lo explica la propia Agencia Tributaria cuando le preguntan si hace falta que alguien certifique el programa:"
+    },
+    {
+      "tipo": "cita",
+      "texto": "No. Para certificar un producto no se requiere de procesos de certificación realizados por otras personas, entidades u organismos independientes –y, por tanto, ajenos al productor– que se dediquen a este tipo de tareas, sino que se trata de una “auto-certificación” del propio productor del producto SIF (Sistema/s Informático/s de Facturación) realizada como Declaración Responsable e incorporada al producto.",
+      "fuente": "https://sede.agenciatributaria.gob.es/Sede/iva/sistemas-informaticos-facturacion-verifactu/preguntas-frecuentes/certificacion-sistemas-informaticos-declaracion-responsable.html",
+      "fecha": "2026-09-17"
+    },
+    {
+      "tipo": "parrafo",
+      "texto": "Y por si quedaba duda sobre si existe una lista oficial en algún sitio:"
+    },
+    {
+      "tipo": "cita",
+      "texto": "En cuanto a su previo registro no está previsto en la norma. Para cumplir con la normativa a este respecto no se prevé ningún registro previo del producto SIF (Sistema/s Informático/s de Facturación) por parte de nadie (ni productor, ni comercializador, ni usuario).",
+      "fuente": "https://sede.agenciatributaria.gob.es/Sede/iva/sistemas-informaticos-facturacion-verifactu/preguntas-frecuentes/certificacion-sistemas-informaticos-declaracion-responsable.html",
+      "fecha": "2026-09-17"
+    },
+    {
+      "tipo": "parrafo",
+      "texto": "Es decir: no hay ningún registro oficial de programas homologados. Cuando un fabricante dice que cumple, lo está declarando bajo su propia responsabilidad. Eso no significa que mienta —es exactamente lo que la norma le pide hacer— pero sí significa que «homologado» no es un sello que le haya dado Hacienda. Si te importa, lo que puedes pedirle a un programa es que enseñe su declaración responsable."
+    },
+    {
+      "tipo": "subtitulo",
+      "texto": "Quién queda fuera"
+    },
+    {
+      "tipo": "parrafo",
+      "texto": "La obligación no es para todo el mundo. Hay tres casos, y los tres están en la norma."
+    },
+    {
+      "tipo": "parrafo",
+      "texto": "El primero, si tributas por normativa foral:"
+    },
+    {
+      "tipo": "cita",
+      "texto": "No se incluyen dentro del ámbito subjetivo del Reglamento SIF aprobado por el RD 1007/2023 aquellas personas que realicen actividades económicas (ya sean personas físicas o jurídicas) que se encuentren sujetas por dichas actividades a la normativa foral en la imposición directa.",
+      "fuente": "https://sede.agenciatributaria.gob.es/Sede/iva/sistemas-informaticos-facturacion-verifactu/preguntas-frecuentes/cuestiones-generales-ambitos-aplicacion.html",
+      "fecha": "2026-09-17"
+    },
+    {
+      "tipo": "parrafo",
+      "texto": "En Gipuzkoa, Bizkaia y Álava funciona otro sistema propio:"
+    },
+    {
+      "tipo": "cita",
+      "texto": "En los territorios históricos de Guipúzcoa, Vizcaya y Álava se está aplicando un sistema, conocido como “TicketBAI”, en sus distintas modalidades de contenido similar a la modalidad VERI*FACTU del Reglamento de Sistemas Informáticos de Facturación.",
+      "fuente": "https://sede.agenciatributaria.gob.es/Sede/iva/sistemas-informaticos-facturacion-verifactu/preguntas-frecuentes/cuestiones-generales-ambitos-aplicacion.html",
+      "fecha": "2026-09-17"
+    },
+    {
+      "tipo": "parrafo",
+      "texto": "Y en Navarra, con carácter general, tampoco se aplica:"
+    },
+    {
+      "tipo": "cita",
+      "texto": "Con carácter general, en la Comunidad Foral de Navarra no será aplicable el RD 1007/2023, de 5 de diciembre, que aprueba el Reglamento regulador de los sistemas informáticos de facturación, cuando los empresarios y profesionales, se sujeten a normativa foral de acuerdo con las normas de la Ley 28/1990, de 26 de diciembre, por la que se aprueba el Convenio Económico entre el Estado y la Comunidad Foral de Navarra, y, en concreto, de acuerdo con lo establecido en los artículos 9 y 18 de dicho texto, respectivamente para IRPF e Impuesto de Sociedades.",
+      "fuente": "https://sede.agenciatributaria.gob.es/Sede/iva/sistemas-informaticos-facturacion-verifactu/preguntas-frecuentes/cuestiones-generales-ambitos-aplicacion.html",
+      "fecha": "2026-09-17"
+    },
+    {
+      "tipo": "parrafo",
+      "texto": "El segundo caso son las entidades exentas del Impuesto sobre Sociedades, que quedan fuera; y las parcialmente exentas, que sólo están obligadas por las operaciones que generen rentas sujetas y no exentas. Esto afecta sobre todo a asociaciones y fundaciones."
+    },
+    {
+      "tipo": "parrafo",
+      "texto": "Y el tercero es el que más gente desconoce: quien lleva sus libros de IVA a través de la Sede electrónica de la Agencia Tributaria también queda fuera del reglamento. Eso es obligatorio para quien liquida el IVA cada mes, y voluntario para el resto:"
+    },
+    {
+      "tipo": "cita",
+      "texto": "No obstante lo dispuesto en los apartados anteriores, los libros registro a que se refiere el apartado 1 de este artículo, deberán llevarse a través de la Sede electrónica de la Agencia Estatal de Administración Tributaria, mediante el suministro electrónico de los registros de facturación, por los empresarios o profesionales y otros sujetos pasivos del Impuesto, que tengan un periodo de liquidación que coincida con el mes natural de acuerdo con lo dispuesto en el artículo 71.3 del presente Reglamento. Además, aquellos empresarios o profesionales y otros sujetos pasivos del Impuesto no mencionados en el párrafo anterior, podrán optar por llevar los libros registro a que se refieren los artículos 40, apartado 1; 47, apartado 2; 61, apartado 2 y el apartado 1 de este artículo, a través de la Sede electrónica de la Agencia Estatal de Administración Tributaria en los términos establecidos en el artículo 68 bis de este Reglamento.",
+      "fuente": "https://www.boe.es/buscar/act.php?id=BOE-A-1992-28925",
+      "fecha": "2026-09-17"
+    },
+    {
+      "tipo": "subtitulo",
+      "texto": "Dónde acaba lo que podemos decirte"
+    },
+    {
+      "tipo": "parrafo",
+      "texto": "Todo lo de arriba es lo que dice la norma, con la frase y el enlace para que lo compruebes. A partir de aquí empieza otra cosa: si a tu negocio en concreto le afecta, si te conviene una opción o la otra, y qué deberías hacer. Eso son decisiones fiscales con consecuencias, y Molnip no es una asesoría."
+    },
+    {
+      "tipo": "parrafo",
+      "texto": "Si tienes dudas sobre tu caso, esto es lo que llevarle a tu asesor, ya con las fechas y los artículos delante."
+    },
+    {
+      "tipo": "subtitulo",
+      "texto": "Qué dice cada programa español de sí mismo"
+    },
+    {
+      "tipo": "parrafo",
+      "texto": "Hemos mirado qué dicen sobre Veri*Factu cinco programas de facturación españoles, en sus propias webs. No es una recomendación y no están ordenados por preferencia: es lo que cada uno afirma, literalmente, para que veas que no todos dicen lo mismo."
+    },
+    {
+      "tipo": "lista",
+      "items": [
+        "Contasimple publica una declaración responsable, que es el documento exacto que describe la norma.",
+        "TS Facturas (lo que antes se llamaba Billin) dice que «ya está adaptado a Verifactu y conectado a Hacienda».",
+        "Quipu dice «VeriFactu: Quipu ya está adaptado».",
+        "Anfix dice «Cumplimos con la factura electrónica y VERI*FACTU».",
+        "FacturaDirecta dice que «se adapta para cumplir con todos los requisitos» — en futuro, no afirma que ya cumpla."
+      ]
+    },
+    {
+      "tipo": "parrafo",
+      "texto": "Esa última diferencia es pequeña en el papel y grande en la práctica, y es justo el tipo de matiz que se pierde cuando alguien te resume cinco webs en una tabla de estrellas."
+    },
+    {
+      "tipo": "parrafo",
+      "texto": "No te decimos cuál elegir: todavía no hemos comprobado por nuestra cuenta lo que hace cada uno, y hasta que no lo hagamos no vamos a recomendarte ninguno. Cuando lo hagamos, lo verás con la misma frase y el mismo enlace que aquí."
+    }
+  ]
+}

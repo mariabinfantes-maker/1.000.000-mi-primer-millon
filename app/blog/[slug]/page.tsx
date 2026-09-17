@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { ExternalLink } from "lucide-react";
 import type { Metadata } from "next";
 import { getCategoria, getHerramientasPorCategoria, getPost, getPosts } from "@/data/repositorio";
 import { aVistaDeTarjetaGenerica, ordenarPorPuntuacionAtlas } from "@/lib/vistaRecomendacion";
@@ -27,6 +28,22 @@ function formatearFecha(fechaISO: string): string {
   });
 }
 
+/** Sólo el dominio, para que el enlace se lea «boe.es» y no la dirección entera. */
+function dominioDe(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return url;
+  }
+}
+
+/** «2026-09-17» → «17 de septiembre de 2026». Si no es una fecha válida, se enseña tal cual antes que inventar una. */
+function fechaLarga(iso: string): string {
+  const fecha = new Date(`${iso}T00:00:00Z`);
+  if (Number.isNaN(fecha.getTime())) return iso;
+  return new Intl.DateTimeFormat("es-ES", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(fecha);
+}
+
 function Bloque({ bloque }: { bloque: BloqueContenido }) {
   if (bloque.tipo === "subtitulo") {
     return <h2 className="mt-8 font-display text-xl font-semibold text-slate-900">{bloque.texto}</h2>;
@@ -38,6 +55,28 @@ function Bloque({ bloque }: { bloque: BloqueContenido }) {
           <li key={item}>{item}</li>
         ))}
       </ul>
+    );
+  }
+  // Una cita se enseña SIEMPRE con su fuente enlazada y la fecha en que se
+  // leyó. Es lo que separa «esto lo dice la Agencia Tributaria» de «esto lo
+  // decimos nosotros», y es todo el valor de una página como ésta.
+  if (bloque.tipo === "cita") {
+    return (
+      <figure className="mt-6 rounded-xl border border-slate-100 bg-slate-50/70 px-4 py-4 sm:px-5">
+        <blockquote className="leading-relaxed text-slate-700">«{bloque.texto}»</blockquote>
+        <figcaption className="mt-2.5 text-xs text-slate-500">
+          <a
+            href={bloque.fuente}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-0.5 font-medium text-brand-600 underline-offset-4 hover:underline"
+          >
+            {dominioDe(bloque.fuente)}
+            <ExternalLink className="h-3 w-3" aria-hidden="true" />
+          </a>
+          {" · "}consultado el {fechaLarga(bloque.fecha)}
+        </figcaption>
+      </figure>
     );
   }
   return <p className="mt-4 leading-relaxed text-slate-600">{bloque.texto}</p>;

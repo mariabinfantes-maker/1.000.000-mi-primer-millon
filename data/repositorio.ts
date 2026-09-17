@@ -205,7 +205,7 @@ export function validarHerramienta(datos: unknown, nombreArchivo: string): Herra
   return datos as Herramienta;
 }
 
-const TIPOS_BLOQUE_VALIDOS = new Set(["parrafo", "subtitulo", "lista"]);
+const TIPOS_BLOQUE_VALIDOS = new Set(["parrafo", "subtitulo", "lista", "cita"]);
 
 /** Validación defensiva de un bloque de `Post.cuerpo` — misma disciplina que el resto del esquema, sin librería externa. */
 function errorEnBloque(errores: string[], indice: number, bloque: unknown): void {
@@ -215,15 +215,28 @@ function errorEnBloque(errores: string[], indice: number, bloque: unknown): void
   }
   const b = bloque as Record<string, unknown>;
   if (typeof b.tipo !== "string" || !TIPOS_BLOQUE_VALIDOS.has(b.tipo)) {
-    errores.push(`"cuerpo[${indice}].tipo" debe ser "parrafo", "subtitulo" o "lista"`);
+    errores.push(`"cuerpo[${indice}].tipo" debe ser "parrafo", "subtitulo", "lista" o "cita"`);
     return;
   }
   if (b.tipo === "lista") {
     if (!Array.isArray(b.items) || b.items.length === 0 || b.items.some((item) => typeof item !== "string")) {
       errores.push(`"cuerpo[${indice}].items" debe ser un array de strings no vacío`);
     }
-  } else if (typeof b.texto !== "string" || b.texto.trim() === "") {
+    return;
+  }
+  if (typeof b.texto !== "string" || b.texto.trim() === "") {
     errores.push(`"cuerpo[${indice}].texto" debe ser un string no vacío`);
+  }
+  // Una cita sin fuente y sin fecha es una afirmación disfrazada. Se rechaza
+  // aquí, en el mismo sitio donde se rechaza un bloque sin texto: es el mismo
+  // tipo de defecto.
+  if (b.tipo === "cita") {
+    if (typeof b.fuente !== "string" || !/^https:\/\//.test(b.fuente)) {
+      errores.push(`"cuerpo[${indice}].fuente" debe ser una dirección https de la fuente citada`);
+    }
+    if (typeof b.fecha !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(b.fecha)) {
+      errores.push(`"cuerpo[${indice}].fecha" debe ser la fecha de lectura en formato AAAA-MM-DD`);
+    }
   }
 }
 
