@@ -1506,9 +1506,9 @@
     },
     {
       "id": "cap.overdue_payment_recovery",
-      "etiqueta": "Reclamar facturas impagadas",
-      "definicion": "Perseguir el cobro de una factura ya vencida: avisos al cliente que van subiendo de tono, registro de cada gestión y el paso a reclamación formal cuando toca.",
-      "noEs": "No es emitir la factura (cap.invoicing) ni cobrarla en el momento de la venta (cap.payment_collection): esto empieza cuando la fecha pasó y el cliente no ha pagado.",
+      "etiqueta": "Cobrar a un cliente que no paga",
+      "definicion": "Perseguir una factura que ya venció: avisos que van subiendo de tono, registro de cada gestión y el paso a reclamación formal cuando toca.",
+      "noEs": "No es adelantar el cobro de una factura que aún no ha vencido (cap.invoice_advance_funding): aquí el cliente ya debería haber pagado y no lo ha hecho.",
       "dominioId": "facturacion",
       "estado": "activa"
     },
@@ -1530,9 +1530,9 @@
     },
     {
       "id": "cap.invoice_advance_funding",
-      "etiqueta": "Adelantar el cobro de facturas",
-      "definicion": "Cobrar hoy una factura emitida que aún no ha vencido, cediéndola a un tercero que adelanta el importe a cambio de un coste.",
-      "noEs": "No es reclamar una factura que ya está impagada (cap.overdue_payment_recovery) ni pedir un préstamo para el negocio (cap.business_financing): aquí la factura es la garantía.",
+      "etiqueta": "Cobrar sin esperar a que venza la factura",
+      "definicion": "Tener hoy el dinero de una factura que aún no ha vencido, cediéndosela a un tercero que adelanta el importe a cambio de un coste.",
+      "noEs": "No es reclamar a un cliente que no paga (cap.overdue_payment_recovery): aquí nadie te debe nada todavía, sólo que no quieres esperar.",
       "dominioId": "costes",
       "estado": "activa"
     }
