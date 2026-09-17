@@ -1503,6 +1503,38 @@
       "dominioId": "seguridad",
       "estado": "activa",
       "origenBorrador": "compliance.document_control"
+    },
+    {
+      "id": "cap.overdue_payment_recovery",
+      "etiqueta": "Reclamar facturas impagadas",
+      "definicion": "Perseguir el cobro de una factura ya vencida: avisos al cliente que van subiendo de tono, registro de cada gestión y el paso a reclamación formal cuando toca.",
+      "noEs": "No es emitir la factura (cap.invoicing) ni cobrarla en el momento de la venta (cap.payment_collection): esto empieza cuando la fecha pasó y el cliente no ha pagado.",
+      "dominioId": "facturacion",
+      "estado": "activa"
+    },
+    {
+      "id": "cap.subscription_spend_control",
+      "etiqueta": "Controlar lo que pagas cada mes",
+      "definicion": "Tener a la vista los servicios que el negocio paga de forma recurrente, con su importe, cuándo se renuevan y quién los usa.",
+      "noEs": "No es guardar el justificante de un gasto suelto (cap.expense_tracking) ni cobrar cuotas a tus propios clientes (cap.recurring_billing): es el dinero que sale por lo que tú tienes contratado.",
+      "dominioId": "costes",
+      "estado": "activa"
+    },
+    {
+      "id": "cap.business_financing",
+      "etiqueta": "Conseguir financiación",
+      "definicion": "Pedir y seguir dinero para el negocio —préstamos, líneas de crédito o ayudas— con su estado, su coste y sus plazos de devolución.",
+      "noEs": "No es prever si el dinero llega a fin de mes (cap.budgeting_and_cash_forecast) ni adelantar el cobro de facturas ya emitidas (cap.invoice_advance_funding).",
+      "dominioId": "costes",
+      "estado": "activa"
+    },
+    {
+      "id": "cap.invoice_advance_funding",
+      "etiqueta": "Adelantar el cobro de facturas",
+      "definicion": "Cobrar hoy una factura emitida que aún no ha vencido, cediéndola a un tercero que adelanta el importe a cambio de un coste.",
+      "noEs": "No es reclamar una factura que ya está impagada (cap.overdue_payment_recovery) ni pedir un préstamo para el negocio (cap.business_financing): aquí la factura es la garantía.",
+      "dominioId": "costes",
+      "estado": "activa"
     }
   ],
   "restricciones": [

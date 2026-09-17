@@ -36,7 +36,7 @@ describe("la coherencia interna del vocabulario", () => {
       areas: getVocabulario().areas.length,
       dominios: dominios.length,
       capacidades: capacidades.length,
-    }).toEqual({ areas: 5, dominios: 23, capacidades: 146 });
+    }).toEqual({ areas: 5, dominios: 23, capacidades: 150 });
   });
 
   it("cada dominio pertenece a un área que existe", () => {
@@ -445,8 +445,27 @@ describe("la coherencia interna del vocabulario", () => {
     ).toEqual([]);
   });
 
+  /**
+   * Las 146 originales salieron de un borrador y dejan constancia de cuál.
+   * Las que nacen después no vienen de ningún sitio: se crean porque falta la
+   * palabra para nombrar una necesidad. Fingirles un origen sería escribir un
+   * dato falso en el campo que existe justo para que no se pierda la verdad.
+   *
+   * Así que la excepción se declara aquí, una por una, y cualquiera que añada
+   * otra tiene que pasar por esta lista y explicarse en el diff — igual que
+   * con las cuatro fronteras legítimas de más arriba.
+   */
+  const NACIDAS_SIN_BORRADOR = [
+    // Creadas el 2026-09-17 al partir «el dinero» en su circuito real: son las
+    // cuatro necesidades que Molnip no sabía ni nombrar.
+    "cap.business_financing",
+    "cap.invoice_advance_funding",
+    "cap.overdue_payment_recovery",
+    "cap.subscription_spend_control",
+  ];
+
   it("las capacidades salidas de un borrador dejan constancia de dónde venían", () => {
     const sinOrigen = capacidades.filter((c) => !c.origenBorrador).map((c) => c.id);
-    expect(sinOrigen).toEqual([]);
+    expect(sinOrigen.sort()).toEqual(NACIDAS_SIN_BORRADOR);
   });
 });
