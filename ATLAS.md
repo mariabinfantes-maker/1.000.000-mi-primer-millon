@@ -4909,6 +4909,40 @@ casi igual; lo que cambia es cuándo Molnip deja de fallar.** Y la evidencia
 es lo lento de los dos: al nivel de prueba de las nueve normas, un lote son
 tres herramientas.
 
+## LA AFILIACIÓN SE APARCA — decisión de la propietaria (2026-09-17)
+
+**Sus palabras:** «quitamos ya lo de afiliados, no quiero perder tiempo en eso;
+cuando la página funcione y traiga clic busco acuerdo o monetización. Por ahora
+hay que sacar adelante la web funcionando, recomendando, trayendo clic,
+vendiendo, y eso traerá dinero a largo plazo. He intentado hacer todo a la vez.»
+
+**Qué reemplaza y por qué.** No sustituye ninguna regla de afiliación: las
+mantiene todas. Lo que cambia es **el orden de trabajo**. Deja de investigarse,
+comprobarse y discutirse la afiliación de ninguna herramienta hasta que la web
+traiga tráfico. El motivo lo dio ella: la afiliación paga cuando alguien
+compra, y para eso primero tiene que llegar gente.
+
+**Qué NO significa, y es importante:**
+
+- **No se borra nada.** El sistema de afiliación, sus estados, sus
+  autorizaciones y sus pruebas se quedan como están. Están escritos y pasan.
+- **Las reglas siguen vigentes**: la afiliación nunca altera el resultado, no
+  se usa como criterio de orden, descarte ni exclusión, y sin enlace de
+  afiliado se enseña el oficial.
+- **Una herramienta útil entra igual.** Esta decisión no añade ninguna
+  condición nueva para entrar al catálogo: la quita.
+
+**Consecuencia práctica para quien trabaje aquí:** si una herramienta cubre una
+necesidad, se investiga y entra. **No se pregunta si tiene programa, no se
+busca, no se comprueba y no se menciona en los informes.** Cuando haya tráfico,
+la propietaria abrirá ese trabajo otra vez y entonces existirá el dato que hoy
+no hace falta.
+
+**Contexto que lo explica:** la afiliación ya costó una tarde entera con
+Hotmart —trece afirmaciones revisadas, cuatro sobrevivieron— sin que aquello
+cambiara ni una recomendación. La lección no fue que la revisión sobrara, sino
+que **se estaba investigando monetización antes que utilidad**.
+
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 
 **Aprobada por la propietaria el 2026-08-31.** Auditada sobre el commit

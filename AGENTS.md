@@ -80,6 +80,12 @@ escrita**. Léela antes de proponer nada — lo que no leas, lo repetirás.
 falla, qué se rescata y qué decisión sigue abierta. No se reabre ni se le
 vuelve a preguntar a ella qué falla: se parte de ahí.
 
+**Y «LA AFILIACIÓN SE APARCA» (2026-09-17).** No se investiga, no se comprueba
+y no se menciona la afiliación de ninguna herramienta hasta que la web traiga
+tráfico. No se borra nada y las reglas siguen vigentes: lo que se aparca es el
+trabajo, no el sistema. Si una herramienta cubre una necesidad, entra; no se
+pregunta si tiene programa.
+
 **Y justo después, «ACUERDO DE RUMBO — camino A».** Es el destino acordado y
 el orden de trabajo: primero que Molnip sepa con quién habla, después partir
 «dinero» en sus piezas reales, después la página de todas las herramientas, y
