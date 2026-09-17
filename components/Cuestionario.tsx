@@ -7,6 +7,7 @@ import { NINGUNA_DE_ESTAS, preguntaParaObjetivo } from "@/agents/atlas-advisor/n
 import Image from "next/image";
 import { ArrowLeft, Check } from "lucide-react";
 import { RANGOS_EMPLEADOS, type RangoEmpleados } from "@/lib/cuestionario";
+import { PAISES, type CodigoPais } from "@/lib/pais";
 import type { MotivoSinRecomendacion, RespuestasUsuario } from "@/agents/atlas-advisor";
 import { PREGUNTA_HERRAMIENTA_GENERICA, type OrigenDiagnostico } from "@/lib/origenDiagnostico";
 import IconoOrigen from "@/components/ui/IconoOrigen";
@@ -83,17 +84,21 @@ export default function Cuestionario({
   const mostrarPreguntaSuite = !origen.categoriaIdPrefill;
   const mostrarPreguntaSubtipo = Boolean(preguntaSubtipo);
   const DESPLAZAMIENTO_OBJETIVO = mostrarPreguntaObjetivo ? 1 : 0;
-  const TOTAL_PREGUNTAS = (mostrarPreguntaSuite ? 5 : 4) + (mostrarPreguntaSubtipo ? 1 : 0) + DESPLAZAMIENTO_OBJETIVO;
+  const TOTAL_PREGUNTAS = (mostrarPreguntaSuite ? 6 : 5) + (mostrarPreguntaSubtipo ? 1 : 0) + DESPLAZAMIENTO_OBJETIVO;
   const PASO_OBJETIVO = 0;
   const PASO_SUITE = DESPLAZAMIENTO_OBJETIVO;
   const PASO_NECESIDAD = DESPLAZAMIENTO_OBJETIVO + (mostrarPreguntaSuite ? 1 : 0);
-  const PASO_SECTOR = DESPLAZAMIENTO_OBJETIVO + (mostrarPreguntaSuite ? 1 : 0) + (mostrarPreguntaSubtipo ? 1 : 0);
+  // El país va delante de todo lo que describe el negocio: es lo primero que
+  // hay que saber para no recomendar en un idioma que la persona no habla.
+  const PASO_PAIS = DESPLAZAMIENTO_OBJETIVO + (mostrarPreguntaSuite ? 1 : 0) + (mostrarPreguntaSubtipo ? 1 : 0);
+  const PASO_SECTOR = PASO_PAIS + 1;
   const PASO_EMPLEADOS = PASO_SECTOR + 1;
   const PASO_PROBLEMA = PASO_EMPLEADOS + 1;
   const PASO_HERRAMIENTA = PASO_PROBLEMA + 1;
 
   const [paso, setPaso] = useState(0);
   const [preferenciaSuite, setPreferenciaSuite] = useState<PreferenciaSuite | null>(null);
+  const [pais, setPais] = useState<CodigoPais | null>(null);
   const [sector, setSector] = useState("");
   const [empleados, setEmpleados] = useState<RangoEmpleados | null>(null);
   const [mayorProblema, setMayorProblema] = useState(origen.notasPrefill ?? "");
@@ -110,6 +115,7 @@ export default function Cuestionario({
     (mostrarPreguntaObjetivo && paso === PASO_OBJETIVO && necesidadElegida !== null) ||
     (mostrarPreguntaSuite && paso === PASO_SUITE && preferenciaSuite !== null) ||
     (mostrarPreguntaSubtipo && paso === PASO_NECESIDAD && necesidadDelSubtipo !== null) ||
+    (paso === PASO_PAIS && pais !== null) ||
     (paso === PASO_SECTOR && sector.trim().length > 0) ||
     (paso === PASO_EMPLEADOS && empleados !== null) ||
     (paso === PASO_PROBLEMA && mayorProblema.trim().length > 0) ||
@@ -196,6 +202,7 @@ export default function Cuestionario({
           : undefined,
       preferenciaSuite:
         preferenciaSuite === "todo_en_uno" || preferenciaSuite === "especializada" ? preferenciaSuite : undefined,
+      pais: pais ?? undefined,
       industria: sector.trim(),
       tamanoEmpresa: empleados as RangoEmpleados,
       notasAdicionales,
@@ -468,6 +475,37 @@ export default function Cuestionario({
                       <span className="mt-0.5 block text-sm text-slate-500">{opcion.descripcion}</span>
                     </span>
                     {seleccionado && <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" aria-hidden="true" />}
+                  </button>
+                );
+              })}
+            </div>
+          </fieldset>
+        )}
+
+        {paso === PASO_PAIS && (
+          <fieldset>
+            <legend className="font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+              ¿Dónde tienes el negocio?
+            </legend>
+            <p className="mt-2 text-sm text-slate-500">
+              Nos sirve para no recomendarte herramientas que no hablan tu idioma.
+            </p>
+            <div className="mt-5 grid grid-cols-2 gap-3">
+              {PAISES.map((opcion) => {
+                const seleccionado = pais === opcion.codigo;
+                return (
+                  <button
+                    key={opcion.codigo}
+                    type="button"
+                    onClick={() => setPais(opcion.codigo)}
+                    className={`flex items-center justify-between gap-2 rounded-xl border px-4 py-3 text-left text-sm font-semibold transition-all ${
+                      seleccionado
+                        ? "border-brand-600 bg-brand-50 text-brand-700 shadow-premium ring-1 ring-brand-100"
+                        : "border-slate-200 bg-white text-slate-700 hover:border-brand-300 hover:bg-brand-50/40"
+                    }`}
+                  >
+                    {opcion.etiqueta}
+                    {seleccionado && <Check className="h-4 w-4 shrink-0 text-brand-600" aria-hidden="true" />}
                   </button>
                 );
               })}

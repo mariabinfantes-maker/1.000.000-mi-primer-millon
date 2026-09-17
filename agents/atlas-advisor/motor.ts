@@ -5,6 +5,7 @@ import { filtrarPorNecesidad, preguntaParaAmbito } from "./preguntasDiferenciaci
 import { criteriosDeRuta, rangoDeRuta } from "./criteriosRuta";
 import { compararTodoEnUnoVsEspecializada } from "./todoEnUnoVsEspecializada";
 import { NINGUNA_DE_ESTAS, filaDeNecesidad, textoDeFila } from "./necesidades";
+import { idiomaDePais } from "@/lib/pais";
 import type {
   ComparativaDeRutas,
   DetalleCriterio,
@@ -243,11 +244,71 @@ function aplicarPuerta(
   return { candidatas: demuestran };
 }
 
+/**
+ * Deduce el idioma que hace falta a partir del país, si no venía dicho.
+ *
+ * Se pregunta el país porque preguntar el idioma es preguntar por la
+ * solución. Un `idiomaNecesario` explícito manda sobre el país: quien lo
+ * ponga a mano sabe lo que hace.
+ */
+export function conIdiomaDelPais(respuestas: RespuestasUsuario): RespuestasUsuario {
+  if (respuestas.idiomaNecesario) return respuestas;
+  const idioma = idiomaDePais(respuestas.pais);
+  if (!idioma) return respuestas;
+  return { ...respuestas, idiomaNecesario: idioma };
+}
+
+/**
+ * Si la ficha DECLARA que la herramienta no está en el idioma que hace falta.
+ *
+ * El único dato explícito de ausencia que hay en las fichas es
+ * `disponibleEnEspanol === false`. `idiomasDisponibles` es texto libre —
+ * «más de 40 idiomas», «soporte parcial en español»—, así que **que un
+ * idioma no aparezca ahí es "no consta", nunca "no lo tiene"**. Por eso esta
+ * función sólo sabe responder del español, y sólo cuando la ficha lo dice.
+ *
+ * Aviso que la propietaria conoce y decidió asumir (2026-09-17): el dato de
+ * idioma de las fichas NO está verificado contra fuentes oficiales. Actuar
+ * sobre el `false` explícito puede apartar una herramienta que sí esté en
+ * español. Se aceptó porque la alternativa —seguir recomendando en inglés a
+ * quien pidió español— era peor, y porque lo que no consta no se aparta.
+ */
+function declaraQueNoEstaEnElIdioma(herramienta: Herramienta, idiomaNecesario: string): boolean {
+  const esEspanol = /espa[nñ]ol|castellano/i.test(idiomaNecesario);
+  return esEspanol && herramienta.disponibleEnEspanol === false;
+}
+
+/**
+ * Aparta las que declaran no estar en el idioma que la persona necesita —
+ * «primero que sirva, después que encaje»: una herramienta que no habla su
+ * idioma no le sirve, por bien que puntúe en todo lo demás.
+ *
+ * Filtra, no puntúa: el criterio de idioma sigue existiendo y es el que
+ * distingue entre «confirmado» y «no lo hemos confirmado», que es lo que
+ * después se le cuenta a la persona en la tarjeta.
+ *
+ * Y si apartarlas dejara el ámbito sin nada, no se aplica: dejar a alguien
+ * sin ninguna respuesta por un dato sin verificar sería cambiar un error por
+ * otro. Cuando eso pasa, el criterio y el aviso de la tarjeta siguen diciendo
+ * la verdad sobre cada una.
+ */
+function filtrarPorIdioma(herramientas: Herramienta[], respuestas: RespuestasUsuario): Herramienta[] {
+  const idioma = respuestas.idiomaNecesario?.trim();
+  if (!idioma) return herramientas;
+  const hablanSuIdioma = herramientas.filter((h) => !declaraQueNoEstaEnElIdioma(h, idioma));
+  return hablanSuIdioma.length > 0 ? hablanSuIdioma : herramientas;
+}
+
 function seleccionarCandidatas(
-  herramientas: Herramienta[],
+  herramientasRecibidas: Herramienta[],
   respuestas: RespuestasUsuario,
   puerta?: PuertaDeEvidencia
 ): Seleccion {
+  // Antes que nada: si sabemos en qué idioma hace falta, las que declaran no
+  // estarlo no son candidatas de esta persona. Va delante de todo lo demás
+  // porque no es una preferencia que se pondere, es que no le sirven.
+  const herramientas = filtrarPorIdioma(herramientasRecibidas, respuestas);
+
   if (respuestas.categoriaId) {
     const deLaCategoria = herramientas.filter((herramienta) => cubreCategoria(herramienta, respuestas.categoriaId!));
     // Si la persona ha concretado qué tipo de herramienta busca, lo demás
@@ -413,11 +474,14 @@ function seleccionarCandidatas(
  * top N junto con el ranking completo.
  */
 export function recomendarHerramientas(
-  respuestas: RespuestasUsuario,
+  respuestasRecibidas: RespuestasUsuario,
   herramientas: Herramienta[],
   opciones: { cantidad?: number; evidencia?: PuertaDeEvidencia } = {}
 ): ResultadoRecomendacion {
   const cantidad = opciones.cantidad ?? CANTIDAD_POR_DEFECTO;
+  // El país se traduce a idioma una sola vez, aquí, y a partir de este punto
+  // todo el motor —filtro, criterios y textos— ve lo mismo.
+  const respuestas = conIdiomaDelPais(respuestasRecibidas);
 
   const seleccion = seleccionarCandidatas(herramientas, respuestas, opciones.evidencia);
   // El motor puede decir que no. Cuando lo dice, se sale aquí: no se puntúa

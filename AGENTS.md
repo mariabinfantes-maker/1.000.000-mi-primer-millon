@@ -80,6 +80,12 @@ escrita**. Léela antes de proponer nada — lo que no leas, lo repetirás.
 falla, qué se rescata y qué decisión sigue abierta. No se reabre ni se le
 vuelve a preguntar a ella qué falla: se parte de ahí.
 
+**Y justo después, «ACUERDO DE RUMBO — camino A».** Es el destino acordado y
+el orden de trabajo: primero que Molnip sepa con quién habla, después partir
+«dinero» en sus piezas reales, después la página de todas las herramientas, y
+«vender más» al final. **Ese orden no se reabre**: proponer otro es repetir la
+conversación que ya se tuvo.
+
 Cinco cosas que no vas a adivinar y que ya están decididas:
 
 1. **Son 11 agentes**, no los que tengan carpeta en `agents/`: tres están sin

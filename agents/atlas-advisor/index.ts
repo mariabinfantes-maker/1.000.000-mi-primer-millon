@@ -17,7 +17,7 @@
  *   resultado.top; // las 3 mejores, cada una con su puntuación, razones y explicación
  */
 export { evaluarHerramienta, recomendarHerramientas } from "./motor";
-export { CRITERIOS } from "./criterios";
+export { CRITERIOS, PUNTOS_IDIOMA_CONFIRMADO } from "./criterios";
 export { detectarProblemasPorTexto } from "./deteccionProblema";
 export { compararTodoEnUnoVsEspecializada } from "./todoEnUnoVsEspecializada";
 export {

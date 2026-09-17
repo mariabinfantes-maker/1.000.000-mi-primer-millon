@@ -1,3 +1,4 @@
+import { PUNTOS_IDIOMA_CONFIRMADO } from "@/agents/atlas-advisor";
 import type { EtiquetaEvidencia, HerramientaEvaluada } from "@/agents/atlas-advisor";
 import type { Herramienta } from "@/data/esquema";
 import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
@@ -39,6 +40,16 @@ export function aVistaDeTarjeta(
   // `HerramientaEvaluada.puntuacionTotal`).
   const puntuacionAtlas = calcularPuntuacionAtlas(herramienta);
 
+  // Idioma: lo que no consta se dice. El criterio ya redactó la frase («No
+  // hemos confirmado que esté disponible en español»); aquí sólo se decide si
+  // hay algo que confesar. Si nadie dijo qué idioma hace falta, el criterio es
+  // neutro, no hay frase y no se avisa de nada: no hay nada que avisar.
+  const detalleIdioma = evaluada.detalles.find((detalle) => detalle.criterio === "idioma");
+  const idiomaSinConfirmar =
+    detalleIdioma && detalleIdioma.explicacion !== "" && detalleIdioma.puntos < PUNTOS_IDIOMA_CONFIRMADO
+      ? detalleIdioma.explicacion
+      : undefined;
+
   return {
     posicion,
     id: herramienta.id,
@@ -57,6 +68,7 @@ export function aVistaDeTarjeta(
     ...(evidencia ? { evidencia } : {}),
     ...(usoSinConfirmar ? { usoSinConfirmar } : {}),
     ...(confirmadoPara ? { confirmadoPara } : {}),
+    ...(idiomaSinConfirmar ? { idiomaSinConfirmar } : {}),
     ...camposComunes(herramienta),
   };
 }

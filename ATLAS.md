@@ -4857,6 +4857,58 @@ el cuestionario (pregunta por soluciones) y la capa de consejo (no existe).
   catálogo sostiene, o mantenerla amplia mientras Molnip dice que no durante
   meses. Mientras no se decida, cada pieza nueva es correcta y no suma.
 
+## ACUERDO DE RUMBO — camino A (2026-09-17)
+
+**Esto no es crónica de lo que se hizo: es el destino acordado.** Se escribe
+porque la propietaria señaló el problema de método — «hoy lo hablamos y
+llegamos a estas conclusiones y mañana vuelves a dirigirme ahí». **No se
+reabre en la siguiente sesión.** Sustituye a «la decisión abierta» del
+diagnóstico anterior: queda cerrada en el sentido de qué se hace primero,
+no en el de estrechar o no la promesa, que sigue viva.
+
+### Lo que dijo la propietaria (sus palabras)
+
+- «hace falta que el cliente pueda ver todas las herramientas»; «el cliente
+  puede elegir entre todas las herramientas especializadas o todo en uno y
+  que pueda verlas y elegir, aunque nosotros le informamos y acompañamos»
+- «hace falta que Molnip sea más concreto»
+- «vender más es un gran problema, ahí Molnip tiene una gran oportunidad;
+  las ventas son algo grande»
+- «el dinero es una gran entrada, Molnip la minimiza; eso no está bien, el
+  dinero es algo gigantesco»
+- «el diseño de página está fallando con las preguntas y las entradas»
+
+### Orden de trabajo acordado
+
+1. **Que Molnip sepa con quién habla** — país, idioma, moneda, si factura en
+   España.
+2. **Partir «dinero» en sus piezas reales**, no ampliarlo.
+3. **La página de todas las herramientas**, porque es un derecho del cliente.
+4. **«Vender más» al final**, cuando el catálogo pueda responderla sin
+   quedar mal.
+
+### Lo que no cambia
+
+Se siguen recomendando **tres con explicación**. Ver el catálogo entero es un
+**derecho del cliente, no la respuesta de Molnip**. Molnip no vuelve a ser un
+directorio.
+
+### Por qué este orden (lectura mía, no suya)
+
+Los pasos 1-3 **no necesitan investigación nueva** y avanzan mientras la
+evidencia corre en paralelo; el 4 sí la necesita —41 % de cobertura en
+conseguir clientes, 5 % en mover producto— y publicarlo antes repetiría
+«siempre las mismas tres» en la entrada más importante que hay.
+
+### Lo que cuesta cada camino (estimación mía, no compromiso)
+
+Camino A ≈ 8-10 sesiones + 5-7 lotes de investigación; camino B («vender más»
+primero) ≈ 9-11 sesiones + los mismos lotes, más 1-2 sesiones de retrabajo
+porque la entrada de ventas nacería sin saber país ni idioma. **El total es
+casi igual; lo que cambia es cuándo Molnip deja de fallar.** Y la evidencia
+es lo lento de los dos: al nivel de prueba de las nueve normas, un lote son
+tres herramientas.
+
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 
 **Aprobada por la propietaria el 2026-08-31.** Auditada sobre el commit

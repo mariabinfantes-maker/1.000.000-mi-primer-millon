@@ -44,6 +44,13 @@ export type TarjetaHerramientaRecomendadaProps = {
   /** Reputación externa (G2/Capterra) ya investigada por Atlas — ver InsigniaReputacion. `undefined` si no existe, nunca inventada. */
   reputacion?: Reputacion;
   disponibleEnEspanol: boolean;
+  /**
+   * Frase honesta sobre el idioma cuando la persona dijo dónde tiene el
+   * negocio y la ficha NO confirma ese idioma. No se calla: lo que no consta
+   * se dice. Ausente cuando el idioma está confirmado o cuando nadie ha
+   * dicho qué idioma hace falta.
+   */
+  idiomaSinConfirmar?: string;
   tieneAppMovil: boolean;
   tieneApiPublica: boolean;
   /**
@@ -76,6 +83,7 @@ export default function TarjetaHerramientaRecomendada({
   casosNoRecomendados,
   reputacion,
   disponibleEnEspanol,
+  idiomaSinConfirmar,
   tieneAppMovil,
   tieneApiPublica,
   evidencia,
@@ -238,6 +246,13 @@ export default function TarjetaHerramientaRecomendada({
             </span>
           ))}
         </div>
+      )}
+
+      {idiomaSinConfirmar && (
+        <p className="mt-3 flex items-start gap-1.5 text-sm text-atencion-700">
+          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+          <span>{idiomaSinConfirmar}</span>
+        </p>
       )}
 
       {integracionPrincipal && (
