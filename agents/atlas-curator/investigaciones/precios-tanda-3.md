@@ -57,7 +57,7 @@ exactamente lo que la tanda 1 prohibió**, sólo que allí venía etiquetado com
   que se mantiene la lectura de la tanda 2, que es la que mira al producto que
   vendemos.
 
-## Lo que vuelve a la cola: 23
+## Lo que vuelve a la cola: 24
 
 Las 19 que se quedaron en blanco, más Copy.ai (que además se abrió en
 `/pricing` y no en `/prices`), más noCRM.io y Notion AI por su precio, más el
