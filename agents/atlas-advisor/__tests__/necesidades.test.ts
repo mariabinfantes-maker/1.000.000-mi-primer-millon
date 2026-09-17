@@ -20,12 +20,15 @@ import { TEXTOS_NECESIDADES } from "../necesidades.textos.es";
  * `data/verificacion/__tests__/opcionB.test.ts`, que sí puede leerlos.
  */
 describe("la tabla de necesidades", () => {
-  it("cubre los cinco objetivos, y ninguno más", () => {
+  it("cubre los seis objetivos, y ninguno más", () => {
     expect(NECESIDADES.map((p) => p.objetivoId).sort()).toEqual([
       "ahorrar-tiempo",
       "atencion-cliente",
       "automatizar-tareas",
       "conseguir-clientes",
+      // Sexta puerta, abierta el 2026-09-17: el dinero deja de ser una esquina
+      // de «organizar la empresa» y pasa a ser una entrada propia.
+      "el-dinero",
       "organizar-empresa",
     ]);
   });
@@ -73,9 +76,18 @@ describe("la tabla de necesidades", () => {
   it("las decisiones de la propietaria están donde se acordaron", () => {
     const ids = (objetivo: string) => preguntaParaObjetivo(objetivo)!.familias.flatMap((f) => f.filas.map((x) => x.id));
 
-    // Facturar y cobrar: dos filas, en Organizar, y fuera de Conseguir clientes.
-    expect(ids("organizar-empresa")).toEqual(expect.arrayContaining(["facturas", "cobrar-online"]));
-    expect(ids("conseguir-clientes")).not.toEqual(expect.arrayContaining(["facturas"]));
+    // Facturar y cobrar: dos filas separadas, y desde el 2026-09-17 en «el
+    // dinero», no en «organizar la empresa».
+    expect(ids("el-dinero")).toEqual(expect.arrayContaining(["emitir-facturas", "cobrar-tarjeta"]));
+    expect(ids("organizar-empresa")).not.toEqual(expect.arrayContaining(["emitir-facturas"]));
+    // Los presupuestos se preguntan por las dos puertas: es lo mismo vender
+    // que cobrar, según por dónde entre la persona.
+    expect(ids("conseguir-clientes")).toContain("presupuestos");
+    expect(ids("el-dinero")).toContain("presupuestos");
+    // Reclamar a quien no paga y adelantar una factura que aún no ha vencido
+    // son dos filas distintas, y las dos sin cobertura hoy.
+    expect(filaDeNecesidad("el-dinero", "cliente-no-paga")?.sinCobertura).toBe(true);
+    expect(filaDeNecesidad("el-dinero", "adelantar-facturas")?.sinCobertura).toBe(true);
     // Tickets y chatbot, aunque no haya cobertura.
     expect(ids("atencion-cliente")).toEqual(expect.arrayContaining(["tickets", "chatbot"]));
     expect(filaDeNecesidad("atencion-cliente", "tickets")?.sinCobertura).toBe(true);
@@ -93,7 +105,7 @@ describe("la tabla de necesidades", () => {
     }
   });
 
-  it("se pregunta por familias en cuatro objetivos; «Automatizar» cabe en una pantalla y va de una vez", () => {
+  it("se pregunta por familias en cinco objetivos; «Automatizar» cabe en una pantalla y va de una vez", () => {
     expect(preguntaParaObjetivo("ahorrar-tiempo")!.familias.map((f) => f.id)).toEqual([
       "citas",
       "escribir",
@@ -102,11 +114,17 @@ describe("la tabla de necesidades", () => {
       "dia-y-equipo",
     ]);
     expect(preguntaParaObjetivo("conseguir-clientes")!.familias.map((f) => f.id)).toEqual(["atraer", "convertir"]);
+    // «dinero» ya no está aquí: se fue entera al objetivo «el-dinero».
     expect(preguntaParaObjetivo("organizar-empresa")!.familias.map((f) => f.id)).toEqual([
       "tareas-proyectos",
       "equipo-tiempo",
-      "dinero",
       "conocimiento",
+    ]);
+    expect(preguntaParaObjetivo("el-dinero")!.familias.map((f) => f.id)).toEqual([
+      "cobrar-facturar",
+      "gastos-cuentas",
+      "gano-dinero",
+      "conseguir-dinero",
     ]);
     expect(preguntaParaObjetivo("atencion-cliente")!.familias.map((f) => f.id)).toEqual(["atender", "conocer-cliente", "citas"]);
     expect(preguntaParaObjetivo("automatizar-tareas")!.familias.map((f) => f.id)).toEqual(["general"]);

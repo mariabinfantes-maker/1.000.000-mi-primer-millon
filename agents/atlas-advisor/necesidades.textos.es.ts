@@ -21,6 +21,7 @@ export const TEXTOS_NECESIDADES = {
     "ahorrar-tiempo": "¿En qué se te va el tiempo?",
     "organizar-empresa": "¿Qué es lo que más te cuesta tener organizado?",
     "atencion-cliente": "¿Qué es lo que más te ayudaría con tus clientes?",
+    "el-dinero": "¿Qué te hace falta para gestionar tu dinero?",
   } as Record<string, string>,
   /** Cómo se pregunta la familia cuando la hay. */
   enunciadoFamilia: "¿Por dónde va lo tuyo?",
@@ -40,6 +41,11 @@ export const TEXTOS_NECESIDADES = {
     "equipo-tiempo": "Equipo y tiempo",
     dinero: "Dinero",
     conocimiento: "Conocimiento",
+    // El dinero — los cuatro momentos del circuito, dichos como se dicen
+    "cobrar-facturar": "Cobrar y facturar",
+    "gastos-cuentas": "Gastos, cuentas e impuestos",
+    "gano-dinero": "Saber si gano dinero",
+    "conseguir-dinero": "Conseguir dinero",
     // Atención al cliente
     atender: "Atender",
     "conocer-cliente": "Conocer al cliente",
@@ -75,6 +81,64 @@ export const TEXTOS_NECESIDADES = {
     descripcion: "Lo que necesito no está aquí. Te propongo otro camino.",
   },
   filas: {
+    // ── El dinero ──────────────────────────────────────────────────────
+    "emitir-facturas": {
+      etiqueta: "Emitir facturas",
+      descripcion: "Correctas, numeradas y con su estado. Cobrarlas es otra opción.",
+    },
+    "cobrar-tarjeta": {
+      etiqueta: "Cobrar con tarjeta, enlace o domiciliación",
+      descripcion: "Pasarela, enlace de pago, recibo domiciliado, y saber qué está pagado y qué no. Emitir la factura es la opción anterior.",
+    },
+    "cuota-mensual": {
+      etiqueta: "Cobrar una cuota cada mes",
+      descripcion: "Suscripciones y recibos que se repiten solos. Un cobro suelto es otra opción.",
+    },
+    "factura-electronica": {
+      etiqueta: "Cumplir con la factura electrónica obligatoria",
+      descripcion: "Lo que la ley va a exigir enviar. Emitir una factura normal no basta.",
+    },
+    "cliente-no-paga": {
+      etiqueta: "Cobrar a un cliente que no paga",
+      descripcion: "Avisos, registro de cada gestión y reclamación cuando la factura ya venció. Emitirla no basta.",
+    },
+    "gastos-tickets": {
+      etiqueta: "Controlar gastos y tickets",
+      descripcion: "Foto del ticket, categoría y a quién se le devuelve. Las facturas de tus proveedores son otra opción.",
+    },
+    "pagar-proveedores": {
+      etiqueta: "Pagar las facturas que te llegan",
+      descripcion: "Cuáles han llegado, cuáles vencen y cuáles ya has pagado. El ticket suelto es la opción anterior.",
+    },
+    contabilidad: {
+      etiqueta: "Llevar la contabilidad",
+      descripcion: "Asientos, libros y cierre. Guardar los tickets no es llevar la contabilidad.",
+    },
+    impuestos: {
+      etiqueta: "Cuadrar los impuestos",
+      descripcion: "El IVA, las retenciones y los modelos que hay que presentar.",
+    },
+    suscripciones: {
+      etiqueta: "Controlar lo que pagas cada mes",
+      descripcion: "Los servicios que se te van cobrando sin darte cuenta: importe, renovación y quién los usa. Cobrar cuotas a tus clientes es otra cosa.",
+    },
+    "informes-negocio": {
+      etiqueta: "Ver cómo va el negocio entero",
+      descripcion: "Ingresos, gastos y resultado, con comparativas. El detalle de un trabajo suelto es otra opción.",
+    },
+    tesoreria: {
+      etiqueta: "Saber si me llega a fin de mes",
+      descripcion: "Cuánto va a entrar y salir los próximos meses, para no quedarte sin caja. Mirar lo que ya pasó es otra opción.",
+    },
+    financiacion: {
+      etiqueta: "Conseguir financiación",
+      descripcion: "Préstamos, líneas de crédito o ayudas, con su coste y sus plazos de devolución.",
+    },
+    "adelantar-facturas": {
+      etiqueta: "Cobrar sin esperar a que venza la factura",
+      descripcion: "Que un tercero te adelante el dinero de una factura que aún no ha vencido. Reclamar a quien no paga es otra opción.",
+    },
+    // ── Conseguir clientes ─────────────────────────────────────────────
     "captar-datos": {
       etiqueta: "Recoger los datos de quien se interesa",
       descripcion: "Que entren solos desde un formulario, la web o una campaña. Tener una web no basta.",
@@ -190,14 +254,6 @@ export const TEXTOS_NECESIDADES = {
     "margen-trabajo": {
       etiqueta: "Saber cuánto deja cada trabajo",
       descripcion: "Coste y margen de esta obra, este encargo. El informe de la empresa entera no basta.",
-    },
-    facturas: {
-      etiqueta: "Emitir facturas",
-      descripcion: "Correctas, numeradas y con su estado. Cobrarlas es la siguiente opción.",
-    },
-    "cobrar-online": {
-      etiqueta: "Cobrar online",
-      descripcion: "Pasarela, enlace de pago, domiciliación. Emitir la factura es la opción anterior.",
     },
     "bandeja-compartida": {
       etiqueta: "Reunir los mensajes del equipo en una bandeja compartida",

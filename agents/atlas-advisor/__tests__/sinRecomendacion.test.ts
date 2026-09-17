@@ -119,12 +119,29 @@ describe("los recorridos que ya funcionaban siguen funcionando", () => {
     }
   });
 
-  it("por objetivo: los cinco objetivos del catálogo siguen recomendando", () => {
+  /**
+   * «El dinero» es la primera puerta que no tiene ni una herramienta
+   * etiquetada, y a propósito: sus filas exigen capacidades sobre las 65, no
+   * sobre las etiquetadas. Quien entra por ahí siempre elige antes una
+   * necesidad concreta —la pregunta de aclaración va primero—, así que este
+   * camino sin necesidad sólo se recorre desde una prueba.
+   *
+   * Y cuando se recorre, el motor dice que no en vez de abrir el catálogo
+   * entero. Eso no es un fallo: es exactamente lo que tiene que hacer.
+   */
+  const SIN_HERRAMIENTAS_ETIQUETADAS = ["el-dinero"];
+
+  it("por objetivo: los objetivos con catálogo etiquetado siguen recomendando", () => {
     for (const problema of PROBLEMAS) {
       const r = recomendarHerramientas(
         { problemaIdsCandidatos: [problema.id], tamanoEmpresa: "1-10" },
         HERRAMIENTAS
       );
+      if (SIN_HERRAMIENTAS_ETIQUETADAS.includes(problema.id)) {
+        expect(r.sinRecomendacion?.tipo, `objetivo ${problema.id}`).toBe("sin_cobertura");
+        expect(r.top, `objetivo ${problema.id}`).toHaveLength(0);
+        continue;
+      }
       expect(r.sinRecomendacion, `objetivo ${problema.id}`).toBeUndefined();
       expect(r.top.length, `objetivo ${problema.id}`).toBeGreaterThan(0);
     }

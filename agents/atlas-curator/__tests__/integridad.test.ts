@@ -120,8 +120,26 @@ describe("garantía 5 — una categoría secundaria nunca aporta puntos", () => 
 });
 
 describe("garantía 6 — cobertura y competencia real por objetivo y subtipo", () => {
+  /**
+   * «El dinero» (2026-09-17) es la excepción declarada, no un descuido.
+   *
+   * La garantía nació cuando un objetivo sólo se resolvía filtrando por
+   * `problemasIds`: sin tres etiquetadas, no había comparación. Esta puerta no
+   * funciona así. Sus dieciséis filas exigen capacidades del vocabulario sobre
+   * las 65 herramientas, no sobre las etiquetadas, y la persona elige la
+   * necesidad ANTES de que se recomiende nada.
+   *
+   * Se declara aquí, con nombre, para que el día que otra puerta se quede sin
+   * competencia siga saltando. Y si algún día se etiquetan fichas con
+   * «el-dinero», esta excepción sobra y hay que quitarla.
+   */
+  const OBJETIVOS_QUE_RESUELVEN_POR_CAPACIDAD = ["El dinero"];
+
   it(`ningún objetivo baja de ${MINIMO_POR_OBJETIVO} alternativas`, () => {
-    expect(detectarObjetivosSinCompetencia(activas, problemas).map((h) => h.motivo)).toEqual([]);
+    const motivos = detectarObjetivosSinCompetencia(activas, problemas)
+      .map((h) => h.motivo)
+      .filter((m) => !OBJETIVOS_QUE_RESUELVEN_POR_CAPACIDAD.some((t) => m.includes(`"${t}"`)));
+    expect(motivos).toEqual([]);
   });
 
   it("toda herramienta de una categoría con subtipos declara el suyo", () => {

@@ -229,17 +229,78 @@ export const NECESIDADES: PreguntaDeNecesidad[] = [
           { id: "fichaje", capacidades: ["cap.time_and_attendance"] },
         ],
       },
+      // La familia «dinero» vivía aquí, con tres filas. Se fue entera al
+      // objetivo «el-dinero» el 2026-09-17, por decisión de la propietaria:
+      // el dinero de un negocio no es una esquina de «organizar la empresa»,
+      // y tratarlo como tal era la razón de que Molnip respondiera lo mismo
+      // a quien quería facturar y a quien quería ordenar sus proyectos.
+      { id: "conocimiento", filas: [CONOCIMIENTO_EQUIPO] },
+    ],
+  },
+  /**
+   * El dinero, partido en su circuito real (2026-09-17).
+   *
+   * Las cuatro familias son los cuatro momentos por los que pasa el dinero de
+   * un negocio —lo que entra, lo que sale, lo que queda y lo que mueves—
+   * dichos como los diría una persona. Y las filas son síntomas, no
+   * categorías: alguien que no sabe si gana dinero no busca «informes
+   * económicos», busca saber si gana dinero.
+   *
+   * Trece de las diecisiete no tienen hoy ninguna herramienta detrás, y se
+   * quedan igual. Una necesidad que existe no desaparece porque el catálogo no
+   * la tenga: lleva a «todavía no lo cubrimos», que es un resultado honesto y
+   * además nos dice exactamente qué falta buscar.
+   *
+   * «Enviar presupuestos» aparece aquí y también en «conseguir clientes», a
+   * propósito: el archivo del vocabulario dice dónde vive una capacidad, no
+   * por qué puerta entra la persona. Se llega al catálogo por varios caminos.
+   */
+  {
+    objetivoId: "el-dinero",
+    familias: [
       {
-        id: "dinero",
+        id: "cobrar-facturar",
         filas: [
-          { id: "margen-trabajo", capacidades: ["cap.job_costing"] },
-          // Separadas a propósito: emitir la factura y cobrarla son dos
-          // capacidades, y una sola fila prometería lo que no puede.
-          { id: "facturas", capacidades: ["cap.invoicing"] },
-          { id: "cobrar-online", capacidades: ["cap.payment_collection"] },
+          { id: "emitir-facturas", capacidades: ["cap.invoicing"] },
+          { id: "cobrar-tarjeta", capacidades: ["cap.payment_collection"] },
+          // La misma fila que en «conseguir clientes», a propósito: un
+          // presupuesto es vender y es cobrar, según por dónde entres.
+          { id: "presupuestos", capacidades: ["cap.quotes_and_proposals"] },
+          { id: "cuota-mensual", capacidades: ["cap.recurring_billing"], sinCobertura: true },
+          { id: "factura-electronica", capacidades: ["cap.regulated_einvoicing"], sinCobertura: true },
         ],
       },
-      { id: "conocimiento", filas: [CONOCIMIENTO_EQUIPO] },
+      {
+        id: "gastos-cuentas",
+        filas: [
+          { id: "gastos-tickets", capacidades: ["cap.expense_tracking"], sinCobertura: true },
+          { id: "pagar-proveedores", capacidades: ["cap.supplier_invoice_payment"], sinCobertura: true },
+          { id: "suscripciones", capacidades: ["cap.subscription_spend_control"], sinCobertura: true },
+          { id: "contabilidad", capacidades: ["cap.accounting_ledger"], sinCobertura: true },
+          { id: "impuestos", capacidades: ["cap.tax_calculation_and_reporting"], sinCobertura: true },
+        ],
+      },
+      {
+        id: "gano-dinero",
+        filas: [
+          { id: "margen-trabajo", capacidades: ["cap.job_costing"] },
+          { id: "informes-negocio", capacidades: ["cap.financial_reporting"], sinCobertura: true },
+          { id: "tesoreria", capacidades: ["cap.budgeting_and_cash_forecast"], sinCobertura: true },
+        ],
+      },
+      /**
+       * Las tres son lo mismo dicho de tres maneras: «necesito dinero y no lo
+       * tengo». Una lo tiene retenido un cliente que no paga, otra una factura
+       * que aún no ha vencido, y la tercera no lo tiene nadie todavía.
+       */
+      {
+        id: "conseguir-dinero",
+        filas: [
+          { id: "cliente-no-paga", capacidades: ["cap.overdue_payment_recovery"], sinCobertura: true },
+          { id: "adelantar-facturas", capacidades: ["cap.invoice_advance_funding"], sinCobertura: true },
+          { id: "financiacion", capacidades: ["cap.business_financing"], sinCobertura: true },
+        ],
+      },
     ],
   },
   {

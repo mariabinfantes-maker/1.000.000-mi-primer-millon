@@ -210,7 +210,7 @@ describe("la pregunta no cambia nada fuera de su camino", () => {
     expect(distintos).toEqual([]);
   });
 
-  it("por objetivo sin la pregunta, 600 combinaciones idénticas a la línea base", () => {
+  it("por objetivo sin la pregunta, 720 combinaciones idénticas a la línea base", () => {
     // La línea base es el motor de antes: aquí se comprueba que sin
     // `necesidadElegida` el camino por objetivo no ha cambiado, comparando
     // con y sin puerta, que era la propiedad que ya garantizaba conexion.test.
@@ -224,7 +224,7 @@ describe("la pregunta no cambia nada fuera de su camino", () => {
         if (sin !== con) distintos.push(`${objetivo}: ${sin} → ${con}`);
       }
     }
-    expect(combinaciones).toBe(600);
+    expect(combinaciones).toBe(720);
     expect(distintos).toEqual([]);
   });
 

@@ -82,15 +82,7 @@
       "hoja de cálculo",
       "excel",
       "se me escapan cosas",
-      "se nos escapan cosas",
-      "facturas",
-      "presupuestos",
-      "facturar",
-      "facturación",
-      "contabilidad",
-      "llevar las cuentas",
-      "llevo las cuentas",
-      "cuadran las cuentas"
+      "se nos escapan cosas"
     ]
   },
   {
@@ -108,6 +100,53 @@
       "chat con clientes",
       "servicio al cliente",
       "no doy abasto respondiendo"
+    ]
+  },
+  {
+    "id": "el-dinero",
+    "titulo": "El dinero",
+    "descripcion": "Cobrar, facturar, llevar las cuentas y saber qué te deja el negocio.",
+    "preguntaHerramienta": "¿Ya usas algún programa para facturar o llevar las cuentas?",
+    "palabrasClave": [
+      "dinero",
+      "facturar",
+      "facturación",
+      "facturas",
+      "emitir facturas",
+      "factura electrónica",
+      "verifactu",
+      "ticketbai",
+      "cobrar",
+      "cobros",
+      "me pagan tarde",
+      "no me pagan",
+      "me deben dinero",
+      "impagados",
+      "morosos",
+      "presupuestos",
+      "tarifas",
+      "contabilidad",
+      "llevar las cuentas",
+      "llevo las cuentas",
+      "cuadran las cuentas",
+      "impuestos",
+      "irpf",
+      "hacienda",
+      "trimestre",
+      "gastos",
+      "tickets",
+      "proveedores",
+      "tesorería",
+      "fin de mes",
+      "márgenes",
+      "rentabilidad",
+      "financiación",
+      "préstamo",
+      "anticipo de facturas",
+      "factoring",
+      "el iva",
+      "modelo 303",
+      "quedarme sin dinero"
     ]
   }
 ]

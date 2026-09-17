@@ -89,7 +89,7 @@ describe("detectarProblemasPorTexto", () => {
  * de encaminamiento que ya se documentó con «presupuestos» y «no doy
  * abasto», así que se usan formas precisas.
  */
-describe("las palabras de facturación llevan a organizar la empresa", () => {
+describe("las palabras de facturación llevan a el dinero", () => {
   const problemas = getProblemas();
 
   it.each([
@@ -99,15 +99,15 @@ describe("las palabras de facturación llevan a organizar la empresa", () => {
     "llevo la contabilidad en excel y no puedo",
     "necesito llevar las cuentas de mi negocio",
     "no me cuadran las cuentas a fin de mes",
-  ])("«%s» llega a organizar-empresa", (frase) => {
-    expect(detectarProblemasPorTexto(frase, problemas)).toContain("organizar-empresa");
+  ])("«%s» llega a el-dinero", (frase) => {
+    expect(detectarProblemasPorTexto(frase, problemas)).toContain("el-dinero");
   });
 
   it.each([
     "gestiono las cuentas de Instagram de mis clientes",
     "tengo varias cuentas de correo y me lío",
   ])("«%s» NO se va a facturación por decir «cuentas»", (frase) => {
-    expect(detectarProblemasPorTexto(frase, problemas)).not.toContain("organizar-empresa");
+    expect(detectarProblemasPorTexto(frase, problemas)).not.toContain("el-dinero");
   });
 });
 
@@ -136,7 +136,7 @@ describe("«quiero vender más» llega a conseguir clientes", () => {
   });
 
   it("y no se lleva por delante las otras puertas", () => {
-    expect(detectarProblemasPorTexto("necesito hacer facturas", problemas)).toContain("organizar-empresa");
+    expect(detectarProblemasPorTexto("necesito hacer facturas", problemas)).toContain("el-dinero");
     expect(detectarProblemasPorTexto("quiero automatizar tareas repetitivas", problemas)).toContain("automatizar-tareas");
   });
 });

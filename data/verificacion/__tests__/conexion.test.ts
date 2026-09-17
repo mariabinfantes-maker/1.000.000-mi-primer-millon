@@ -19,8 +19,8 @@ describe("el motor con la verificación puesta", () => {
 
   /**
    * La regresión COMPLETA, y completa quiere decir todas las puertas de
-   * entrada: las 15 categorías, los 6 subtipos y los 5 objetivos, por los 120
-   * perfiles de cada uno. 3.120 combinaciones.
+   * entrada: las 15 categorías, los 6 subtipos y los 6 objetivos, por los 120
+   * perfiles de cada uno. 3.240 combinaciones.
    *
    * Antes esta prueba recorría sólo las 7 rutas con fila —840— mientras su
    * comentario hablaba de 2.160. Lo señaló la revisión independiente: el
@@ -31,7 +31,7 @@ describe("el motor con la verificación puesta", () => {
    * recomienda, y eso es una decisión de la propietaria, no un efecto
    * secundario de un cambio de datos.
    */
-  it("no cambia ni uno de los 3.120 resultados: todas las categorías, subtipos y objetivos", () => {
+  it("no cambia ni uno de los 3.240 resultados: todas las categorías, subtipos y objetivos", () => {
     // Las 15 DECLARADAS, no las 4 públicas ni las 4 que hoy tienen fichas: una
     // categoría vacía también es un camino por el que se puede llegar, y ahí
     // el motor tiene que seguir diciendo lo mismo que antes de F3.
@@ -40,7 +40,7 @@ describe("el motor con la verificación puesta", () => {
     const objetivos = getProblemas().map((p) => p.id).sort();
     expect(categorias.length).toBe(15);
     expect(subtipos.length).toBe(6);
-    expect(objetivos.length).toBe(5);
+    expect(objetivos.length).toBe(6);
 
     const ambitos = [
       ...categorias.map((categoriaId) => ({ categoriaId })),
@@ -60,7 +60,7 @@ describe("el motor con la verificación puesta", () => {
         }
       }
     }
-    expect(combinaciones).toBe(3120);
+    expect(combinaciones).toBe(3240);
     expect(distintos).toEqual([]);
   });
 
