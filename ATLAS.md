@@ -4779,6 +4779,79 @@ producto, 5 %**. Molnip es bueno en lo que hace una agencia y flojo en lo que
 hace un negocio. Una peluquera, una ceramista o un taller viven casi enteros
 en las dos filas de abajo.
 
+## DIAGNÓSTICO DE PRODUCTO — léelo antes de proponer nada (2026-09-17)
+
+**Esto no es una anotación de trabajo: es una conclusión de la propietaria
+sobre el estado del producto.** Está escrita aquí porque la conversación en
+que se alcanzó se pierde, y sin esto cada sesión vuelve a preguntarle a ella
+qué falla, que es exactamente lo que no debe pasar. **No se reabre. Se parte
+de aquí.**
+
+### Lo que falla, en sus palabras y con los números que lo confirman
+
+1. **«Recomienda siempre lo mismo a pesar del catálogo.»** Cierto. Un
+   autónomo que pide facturar sólo llega a ver **7 de las 12** herramientas
+   que pasan el filtro; cinco no las ve nunca. Con el mismo perfil ve
+   siempre las mismas tres, porque en esa ruta sólo se le pregunta tamaño y
+   presupuesto.
+2. **«Limita al cliente a saber qué necesita.»** Cierto, y es lo más grave
+   porque contradice la visión: la carga de entender es de Molnip. Las filas
+   del cuestionario son el vocabulario de capacidades disfrazado, y su
+   segunda frase es el campo `noEs`, escrito para el verificador. «Tener una
+   web no basta» no ayuda a nadie a elegir.
+3. **«Molnip no sabe de dinero: cree que dinero son tres preguntas.»**
+   Cierto. El vocabulario tiene **18 capacidades de dinero**; el cuestionario
+   ofrece cuatro. Las otras catorce —contabilidad, nóminas, gastos,
+   impuestos, factura electrónica obligatoria, tesorería, TPV— tienen **cero
+   herramientas**.
+4. **«Molnip no sabe de ventas: cree que vender son dos correos.»** Cierto.
+   **Ninguna pieza de "atraer" está verificada**: ni buscadores, ni anuncios,
+   ni ficha local, ni marketplace, ni encontrar contactos de empresas.
+5. **«Como directorio es malo; como asesor no asesora.»** Cierto, y es el
+   resumen. 65 herramientas en 4 familias es mal directorio. Y el motor
+   filtra y ordena: no opina, no tiene criterio sobre nadie concreto.
+
+**El mapa completo:** Molnip responde a **62 de las 146** capacidades de su
+propio vocabulario. Por áreas: hacer el trabajo 67 %, base tecnológica 61 %,
+conseguir y atender clientes 41 %, **administrar el negocio 17 %, mover
+producto 5 %**. Es bueno en lo que hace una agencia y flojo en lo que hace un
+negocio. Además: 48 de 65 fichas ponen el precio en dólares y ninguna guarda
+de qué país es la empresa.
+
+### La causa, para no confundirla con los síntomas
+
+**Se construyó la verificación antes que el consejo.** Todo el esfuerzo fue
+en que Molnip no mienta, y eso funciona. Pero rigor aplicado a un catálogo
+estrecho y a un cuestionario de formulario produce algo honesto, preciso e
+inútil. No está roto: está incompleto en la mitad que se ve, y la mitad cara
+ya está hecha.
+
+### Qué se rescata — la pregunta que la propietaria repite y que hay que responder
+
+Dos cosas, y sólo dos:
+
+- **La evidencia verificada.** 662 pares con frase literal, fuente y fecha.
+  Ningún comparador tiene eso. Hoy está **escondida detrás de un cuestionario
+  que expulsa a la gente antes de llegar a ella**.
+- **El vocabulario.** 146 capacidades que ya saben que el dinero son 18 cosas
+  y que atraer no es convertir. Va **por delante** del catálogo y del
+  cuestionario, no por detrás.
+
+**Lo que NO se rescata tal cual:** el catálogo (estrecho y estadounidense),
+el cuestionario (pregunta por soluciones) y la capa de consejo (no existe).
+
+### Consecuencias para quien lea esto después
+
+- **No propongas mejoras de texto ni puertas nuevas como si arreglaran esto.**
+  Cambiar palabras clave o descripciones es maquillaje sobre el problema 2.
+- **No vuelvas a preguntarle a la propietaria qué falla.** Está arriba.
+- **El catálogo es lo lento** —se arregla investigando, no programando— y es
+  la raíz de los problemas 1, 3 y 4. Cualquier plan que no lo toque no
+  arregla el fondo.
+- **La decisión abierta**, y es de producto: estrechar la promesa a lo que el
+  catálogo sostiene, o mantenerla amplia mientras Molnip dice que no durante
+  meses. Mientras no se decida, cada pieza nueva es correcta y no suma.
+
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 
 **Aprobada por la propietaria el 2026-08-31.** Auditada sobre el commit

@@ -75,6 +75,11 @@ escrita**. Léela antes de proponer nada — lo que no leas, lo repetirás.
 - **`data/vocabulario/CONDICIONES-PARA-F3.md`** — lo que hay que cerrar antes de
   conectar el vocabulario al motor.
 
+**Antes de proponer nada sobre el producto, lee en `ATLAS.md` la sección
+«DIAGNÓSTICO DE PRODUCTO».** Es la conclusión de la propietaria sobre qué
+falla, qué se rescata y qué decisión sigue abierta. No se reabre ni se le
+vuelve a preguntar a ella qué falla: se parte de ahí.
+
 Cinco cosas que no vas a adivinar y que ya están decididas:
 
 1. **Son 11 agentes**, no los que tengan carpeta en `agents/`: tres están sin
