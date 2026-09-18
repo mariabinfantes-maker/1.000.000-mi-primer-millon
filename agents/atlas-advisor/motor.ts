@@ -109,20 +109,25 @@ function generarExplicacion(herramienta: Herramienta, razones: string[]): string
  *    dentro del rango teórico de SU ruta (ver `normalizarRuta`) y luego
  *    llevados a la misma escala (`ESCALA_RUTA`).
  *
- * `catalogo` es el conjunto de candidatas contra el que se compara: los
- * criterios comparativos (profundidad frente a sus iguales, superioridad
- * frente al módulo de una suite) no tienen sentido sin él.
+ * `referencia` es la VARA DE MEDIR de los criterios comparativos (profundidad
+ * frente a sus iguales, superioridad frente al módulo de una suite): el
+ * catálogo entero, **no** las candidatas que han sobrevivido a los filtros.
+ *
+ * Esa distinción importa. Mientras aquí llegaron las candidatas, apartar a
+ * una herramienta cambiaba la nota de todas las demás, porque la media contra
+ * la que se comparaban se movía. Ver `ContextoEvaluacion` en
+ * `criteriosRuta.ts`, que cuenta las dos veces que eso nos mordió.
  */
 export function evaluarHerramienta(
   herramienta: Herramienta,
   respuestas: RespuestasUsuario,
-  catalogo: Herramienta[] = [herramienta]
+  referencia: Herramienta[] = [herramienta]
 ): HerramientaEvaluada {
   const detallesComunes = CRITERIOS.map((criterio) => criterio(herramienta, respuestas));
   const puntuacionComun = detallesComunes.reduce((total, detalle) => total + detalle.puntos, 0);
 
   const criteriosRuta = criteriosDeRuta(herramienta);
-  const contexto = { respuestas, catalogo };
+  const contexto = { respuestas, referencia };
   const detallesRuta = criteriosRuta.map((criterio) => criterio.evaluar(herramienta, contexto));
   const puntosRuta = detallesRuta.reduce((total, detalle) => total + detalle.puntos, 0);
 
@@ -492,7 +497,10 @@ export function recomendarHerramientas(
   const candidatas = seleccion.candidatas;
 
   const evaluadas = candidatas
-    .map((herramienta) => evaluarHerramienta(herramienta, respuestas, candidatas))
+    // La vara de medir es el catálogo entero, no las candidatas: ver
+    // `ContextoEvaluacion`. Pasar `candidatas` aquí hacía que un filtro
+    // cambiara la nota de quien no había filtrado nada.
+    .map((herramienta) => evaluarHerramienta(herramienta, respuestas, herramientas))
     .sort(
       (a, b) =>
         b.puntuacionTotal - a.puntuacionTotal ||

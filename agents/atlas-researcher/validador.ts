@@ -86,7 +86,9 @@ export function validarPropuesta(datosCrudos: unknown, solicitud: SolicitudInves
       motivosPuntuacion: resultadoPuntuacion.motivos,
     };
   } else if (datos.analisisAtlas) {
-    const { puntuacion: _inventada, motivosPuntuacion: _inventados, ...sinPuntuacion } = datos.analisisAtlas;
+    const sinPuntuacion = { ...datos.analisisAtlas };
+    delete sinPuntuacion.puntuacion;
+    delete sinPuntuacion.motivosPuntuacion;
     datos.analisisAtlas = sinPuntuacion;
   }
 

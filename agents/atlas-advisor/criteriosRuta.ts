@@ -26,8 +26,26 @@ import { contieneTexto } from "./utilidades";
 
 export type ContextoEvaluacion = {
   respuestas: RespuestasUsuario;
-  /** El conjunto de candidatas que se está evaluando: los criterios comparativos lo necesitan (una especializada solo puede demostrar superioridad frente a las suites contra las que compite). */
-  catalogo: Herramienta[];
+  /**
+   * La VARA DE MEDIR de los criterios comparativos: el catálogo entero, no
+   * las candidatas que han sobrevivido a los filtros.
+   *
+   * Antes aquí llegaban las candidatas, y eso hacía que la puntuación de una
+   * herramienta dependiera de contra quién se la midiera. Sonaba razonable
+   * —«llega más a fondo que sus alternativas»— pero tenía una consecuencia
+   * que nadie quería: **cada vez que un filtro apartaba a alguien, la vara se
+   * movía y todas las demás cambiaban de nota.** Saltó dos veces en dos días:
+   * con nimble y salesflare al comprobar un plan gratuito, y con zenkit y
+   * monday-com al enchufar la puerta de evidencia, que aparta a zoho-one y
+   * odoo y de rebote movía a un tercero que no tenía nada que ver.
+   *
+   * Desde el 2026-09-18 la vara es fija. «Llega más a fondo que la media de
+   * sus alternativas directas» es una propiedad de la herramienta frente a su
+   * mercado, no frente a quien haya quedado en pie hoy. Cada criterio filtra
+   * esta lista por lo que su comparación significa —misma categoría, suites—,
+   * pero ninguno la recorta por los filtros de la consulta.
+   */
+  referencia: Herramienta[];
 };
 
 export type CriterioRuta = {
@@ -327,7 +345,7 @@ const riesgoDependencia: CriterioRuta = {
 const relevanciaEnCategoriaAjena: CriterioRuta = {
   min: -10,
   max: 0,
-  evaluar: (herramienta, { respuestas, catalogo }) => {
+  evaluar: (herramienta, { respuestas, referencia }) => {
     const etiqueta = "Profundidad en esta categoría";
     const categoriaId = respuestas.categoriaId;
 
@@ -338,7 +356,7 @@ const relevanciaEnCategoriaAjena: CriterioRuta = {
     if (!cubreCategoria(herramienta, categoriaId)) return nada("relevanciaEnCategoriaAjena", etiqueta);
 
     // Los nativos: especializadas cuya categoría PRINCIPAL es esta.
-    const nativos = catalogo.filter((h) => !esSuite(h) && h.categoriaId === categoriaId);
+    const nativos = referencia.filter((h) => !esSuite(h) && h.categoriaId === categoriaId);
     if (nativos.length < 2) return nada("relevanciaEnCategoriaAjena", etiqueta);
 
     const media = nativos.reduce((total, h) => total + h.funcionesPrincipales.length, 0) / nativos.length;
@@ -381,9 +399,9 @@ export const CRITERIOS_SUITE: CriterioRuta[] = [
 const profundidadFuncional: CriterioRuta = {
   min: -14,
   max: 14,
-  evaluar: (herramienta, { catalogo }) => {
+  evaluar: (herramienta, { referencia }) => {
     const etiqueta = "Profundidad en su especialidad";
-    const iguales = catalogo.filter((h) => !esSuite(h) && h.categoriaId === herramienta.categoriaId);
+    const iguales = referencia.filter((h) => !esSuite(h) && h.categoriaId === herramienta.categoriaId);
     if (iguales.length < 2) return nada("profundidadFuncional", etiqueta);
 
     const media = iguales.reduce((total, h) => total + h.funcionesPrincipales.length, 0) / iguales.length;
@@ -471,9 +489,9 @@ const funcionesAvanzadas: CriterioRuta = {
 const integracionesConTerceros: CriterioRuta = {
   min: 0,
   max: 10,
-  evaluar: (herramienta, { catalogo }) => {
+  evaluar: (herramienta, { referencia }) => {
     const etiqueta = "Se conecta con tus otras herramientas";
-    const iguales = catalogo.filter((h) => !esSuite(h));
+    const iguales = referencia.filter((h) => !esSuite(h));
     if (iguales.length < 2) return nada("integracionesConTerceros", etiqueta);
 
     const media = iguales.reduce((total, h) => total + h.integraciones.length, 0) / iguales.length;
@@ -546,9 +564,9 @@ const facilidadEnSuEspecialidad: CriterioRuta = {
 const superioridadFrenteAlModulo: CriterioRuta = {
   min: 0,
   max: 10,
-  evaluar: (herramienta, { catalogo }) => {
+  evaluar: (herramienta, { referencia }) => {
     const etiqueta = "Frente al módulo de una plataforma";
-    const suites = catalogo.filter((h) => esSuite(h));
+    const suites = referencia.filter((h) => esSuite(h));
     if (suites.length === 0) return nada("superioridadFrenteAlModulo", etiqueta);
 
     const mediaSuites = suites.reduce((total, h) => total + h.puntuaciones.calidad, 0) / suites.length;
