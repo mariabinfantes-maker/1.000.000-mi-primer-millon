@@ -124,3 +124,16 @@ export function textoDeComprobacion(h: { preciosComprobados?: { fecha: string; u
   const legible = new Intl.DateTimeFormat("es-ES", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(fecha);
   return `Precio comprobado en su web el ${legible}`;
 }
+
+/**
+ * Lo que se dice cuando ese precio no lo ha comprobado nadie.
+ *
+ * `textoDeComprobacion` devuelve `null` en ese caso, y `null` está bien para
+ * una lista de sesenta y cinco donde la ausencia ya se nota. Pero en la
+ * tarjeta de «lo que te va a costar» callarlo sería dar a entender que el
+ * precio está tan comprobado como el de al lado, y no lo está.
+ *
+ * Son cinco fichas de sesenta y cinco, y cada una por un motivo escrito en
+ * `agents/atlas-curator/investigaciones/`.
+ */
+export const PRECIO_SIN_COMPROBAR = "Este precio no lo hemos comprobado en su web.";

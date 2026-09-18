@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Reputacion } from "@/data/esquema";
 import Tarjeta from "@/components/ui/Tarjeta";
 import Etiqueta from "@/components/ui/Etiqueta";
+import TarjetaLoQueCuesta from "@/components/TarjetaLoQueCuesta";
 import Boton from "@/components/ui/Boton";
 import AnilloPuntuacion from "@/components/ui/AnilloPuntuacion";
 import InsigniaReputacion from "@/components/ui/InsigniaReputacion";
@@ -31,6 +32,16 @@ export type TarjetaHerramientaRecomendadaProps = {
   tienePlanGratuito: boolean;
   /** Ya redactado por `textoDePlanGratuito`: «Gratis, indefinido», «Gratis 14 días» o «Con plan gratuito» cuando no se ha comprobado. */
   textoPlanGratuito?: string;
+  /**
+   * Ya redactado: «Precio comprobado en su web el 17 de septiembre de 2026»,
+   * o `PRECIO_SIN_COMPROBAR` cuando nadie fue a mirarlo. Va a la tarjeta de
+   * «lo que te va a costar», no a la recomendación.
+   */
+  comprobacionDelPrecio: string;
+  /** Si ese precio se comprobó de verdad contra la web del fabricante. */
+  precioComprobado: boolean;
+  /** La página de precios del fabricante, para que pueda ir a mirarla ella. */
+  urlPrecios?: string;
   ventajas: string[];
   inconvenientes: string[];
   /** Párrafo ya redactado en lenguaje natural explicando por qué se recomienda para este usuario. */
@@ -76,6 +87,9 @@ export default function TarjetaHerramientaRecomendada({
   precioInicial,
   tienePlanGratuito,
   textoPlanGratuito,
+  comprobacionDelPrecio,
+  precioComprobado,
+  urlPrecios,
   ventajas,
   inconvenientes,
   explicacionPersonalizada,
@@ -102,9 +116,16 @@ export default function TarjetaHerramientaRecomendada({
   ].filter((b): b is { icono: typeof Globe; etiqueta: string } => b !== null);
 
   return (
+    /**
+     * Dos cosas separadas en la pantalla: arriba el consejo, abajo lo que
+     * cuesta. Ver `TarjetaLoQueCuesta` y ATLAS.md, «ESTAMOS ENDIOSANDO LO
+     * GRATIS». El envoltorio existe para que la recomendación siga estirando
+     * hasta abajo dentro de la rejilla y la de dinero quede pegada al pie.
+     */
+    <div className="flex h-full flex-col">
     <Tarjeta
       ganadora={destacada}
-      className="relative flex h-full flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-premium-lg"
+      className="relative flex flex-1 flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-premium-lg"
     >
       {destacada && (
         <div
@@ -233,13 +254,6 @@ export default function TarjetaHerramientaRecomendada({
         </p>
       )}
 
-      <div className="mt-4 flex flex-wrap items-center gap-2">
-        <span className="text-sm font-semibold text-slate-900">{precioInicial}</span>
-        <Etiqueta variante={tienePlanGratuito ? "exito" : "neutra"}>
-          {textoPlanGratuito ?? (tienePlanGratuito ? "Con plan gratuito" : "Sin plan gratuito")}
-        </Etiqueta>
-      </div>
-
       {badgesEncaje.length > 0 && (
         <div className="mt-3 flex flex-wrap items-center gap-3">
           {badgesEncaje.map(({ icono: Icono, etiqueta }) => (
@@ -360,6 +374,15 @@ export default function TarjetaHerramientaRecomendada({
         <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
       </Boton>
     </Tarjeta>
+    <TarjetaLoQueCuesta
+      precioInicial={precioInicial}
+      comoSeEmpieza={textoPlanGratuito ?? (tienePlanGratuito ? "Con plan gratuito" : "Sin plan gratuito")}
+      tienePlanGratuito={tienePlanGratuito}
+      comprobacion={comprobacionDelPrecio}
+      estaComprobado={precioComprobado}
+      {...(urlPrecios ? { urlPrecios } : {})}
+    />
+    </div>
   );
 }
 
