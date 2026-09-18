@@ -5090,6 +5090,115 @@ Hasta que eso se resuelva no se toca `precioFrenteAlValor` ni la Puntuación
 Atlas: la simulación de los decimales se probó, se midió (9 de 70 consultas
 cambiaban de orden, ninguna entraba ni salía) y **se revirtió sin aplicar**.
 
+## ESTAMOS ENDIOSANDO LO GRATIS (2026-09-18)
+
+**Continúa «LO GRATIS ES UNA GANANCIA, NO UN EJE» y va más lejos.** Ayer se
+decidió que el plan gratuito no ordena. Hoy se quita también de los méritos, y
+se nombra lo que estaba tapando.
+
+**El título es de la propietaria**, y la frase entera también: «estamos
+endiosando lo gratis». Se escribe con sus palabras porque resume dos días de
+conversación mejor que cualquier explicación.
+
+### Los cinco altares
+
+El dato lo tienen **64 de las 65** herramientas del catálogo. Sólo Copper no.
+Un dato que tiene el 98 % no distingue nada, y aun así ocupa cinco sitios:
+
+1. `precioFrenteAlValor` — 8 puntos de unos 72 en la ruta especializada.
+2. `costeTotalFrenteAVarias` — mueve la ruta suite de 6 a 10.
+3. `calcularPuntuacionAtlas` — +3 sobre 100.
+4. **Y guardado como mérito**: «Tiene plan gratuito» aparece en
+   `motivosPuntuacion`, entre «G2: 4.8/5» y «Ofrece una API pública», como si
+   fuera una virtud de la herramienta. No lo es: es una decisión comercial del
+   fabricante para meterte dentro.
+5. El filtro propio en la página de todas las herramientas.
+
+Y un sexto, que conviene dejar escrito: **dos días de conversación.** El
+planteamiento equivocado fue mío y volvió tres veces —cuántos puntos vale,
+dos grupos en pantalla, si le compensa—. Las tres veces era buscar dónde puede
+Molnip juzgar por el cliente.
+
+### Por qué importa de verdad: la trampa
+
+Lo contó la propietaria por experiencia propia: los planes gratuitos enseñan
+lo que se puede hacer, pero al usarlos te frustras porque están muy limitados,
+y como ya metiste ahí tu tiempo y tus datos, acabas pagando **el que te tocó**
+y no el mejor. «Eso te quita la objetividad y no investigas lo suficiente.»
+
+**Los datos del repositorio dicen exactamente eso.** De las 662 capacidades
+verificadas con su cita, sabemos el plan exacto de 329:
+
+| | |
+|---|---|
+| Está en el plan gratuito | **60** |
+| Está sólo si pagas | **269** |
+
+**El 82 % de lo que estas herramientas saben hacer está detrás del muro.**
+
+De ahí sale la frase que da valor a Molnip y que no dice nadie más:
+
+> **«Sí, tiene plan gratuito. Pero lo que tú necesitas no está en él.»**
+
+No es una opinión ni un juicio sobre su bolsillo: es un hecho con la cita del
+fabricante delante. Y no lo puede averiguar sola — tendría que cruzar cada
+función con cada plan en 65 tarifas. **La decisión de verdad no es cuál
+compras, es dónde metes tus datos el primer día**, y para entonces ya no
+vuelves a mirar. Molnip llega antes de ese día.
+
+### Lo que se decide
+
+**La forma, en palabras de la propietaria:** «esta es la mejor en tu
+especialidad, y al lado o abajo una tarjeta que explique el plan comercial».
+
+1. **El consejo y las condiciones son dos cosas separadas en la pantalla.** La
+   recomendación dice cuál es la mejor para lo que busca. Al lado, lo que le
+   va a costar.
+2. **La recomendación no habla de dinero.** El dinero vive entero en la otra
+   tarjeta: precio, dónde se acaba lo gratuito, cuántos días de prueba, y si
+   lo que necesita entra o no en el plan gratuito.
+3. **La tarjeta acompaña, no compite.** Si pesa lo mismo que la
+   recomendación, hemos hecho un comparador de precios en dos cajas.
+4. **Lo gratis deja de ser un mérito.** Sale de `motivosPuntuacion` y pierde
+   los puntos en los tres sitios. Queda como información, igual que el idioma
+   o el precio.
+
+Razón técnica que lo respalda: **las dos tarjetas no envejecen igual.** Lo que
+la herramienta hace se comprobó con su cita y cambia despacio; lo que cuesta
+cambió en 20 de 22 fichas en dos días. Separarlas dice la verdad sobre cuánto
+fiarse de cada una — y da sitio al «precio comprobado el 17 de septiembre» y
+al «esto no hemos podido comprobarlo» que hacen falta para Zoho, Odoo y
+Notion AI.
+
+### Lo que queda destapado, y es lo gordo
+
+Con lo gratis fuera del altar se ve lo que tapaba: **en qué se apoya «esta es
+la mejor».**
+
+Hoy se apoya en `puntuaciones.calidad`, `puntuaciones.facilidadDeUso` y en
+cuántos elementos tiene `funcionesPrincipales`. Los dos criterios de más peso
+del motor —±14 y ±12— salen de ahí.
+
+**Y aquí hay que decirlo con precisión, porque la propietaria corrigió una
+frase mía y tenía razón:** ese modelo sin navegación **no se inventó nada**.
+Escribió con lo que sabía, sin poder guardar de dónde lo sacaba. Ayer quedó
+demostrado: Salesmate, Teachable, Thinkific, Teamwork.com y Vtiger coincidían
+exactamente con su web oficial.
+
+El problema no es de dónde salió el 9. Es de **qué clase de cosa es**:
+
+> **`calidad: 9` no es un dato, es una opinión. Y no es que no la hayamos
+> comprobado: es que no se puede comprobar.** No existe una página del
+> fabricante que diga «esta herramienta tiene un 9 de calidad». En cambio
+> «hace facturas electrónicas» sí, y está comprobado 662 veces con su cita.
+
+**Estamos eligiendo con opiniones teniendo hechos a mano.** Las 662
+capacidades verificadas hoy sólo hacen de portero —dejan pasar o no—, y no
+deciden quién es la mejor.
+
+Eso es lo siguiente. No es desconfiar del trabajo anterior: es usar lo que
+desde entonces hemos comprobado.
+
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 
 **Aprobada por la propietaria el 2026-08-31.** Auditada sobre el commit
