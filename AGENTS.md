@@ -70,6 +70,10 @@ escrita**. Léela antes de proponer nada — lo que no leas, lo repetirás.
 - **`ATLAS.md`** — 3.000 líneas en orden cronológico: decisiones, incidentes y
   por qué cada cosa es como es. Lo más reciente va al final, justo antes del
   bloque «MOLNIP VISUAL v1».
+  **Si tienes prisa, empieza por su sección «DÓNDE ESTAMOS»**, la última antes
+  de ese bloque: dice en qué punto quedó cada cosa y qué está sin decidir. No
+  sustituye al resto — ahí está el porqué —, pero evita reconstruirlo leyendo
+  doscientos commits. Se reescribe entera cada vez que cambia.
 - **`ARQUITECTURA-AGENTES.md`** — referencia canónica de los agentes. Manda
   sobre la «Hoja de ruta» de ATLAS.md, que es registro histórico.
 - **`data/vocabulario/CONDICIONES-PARA-F3.md`** — lo que hay que cerrar antes de

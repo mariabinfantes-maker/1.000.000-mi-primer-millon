@@ -5199,6 +5199,75 @@ deciden quién es la mejor.
 Eso es lo siguiente. No es desconfiar del trabajo anterior: es usar lo que
 desde entonces hemos comprobado.
 
+## DÓNDE ESTAMOS — punto de partida al cerrar el 2026-09-18
+
+Esta sección no decide nada: dice en qué punto quedó todo, para que quien
+retome no tenga que reconstruirlo leyendo doscientos commits. **Se reescribe
+entera cada vez que cambie; no se acumula.**
+
+### El camino A, punto por punto
+
+| | Estado |
+|---|---|
+| **1. Que Molnip sepa con quién habla** | Hecho. `lib/pais.ts` con ocho países, la pregunta «¿Dónde tienes el negocio?» en el cuestionario, y el motor deduce el idioma del país. Comprobado con datos reales: en «peluquería, España», HoneyBook pasó de ser la primera a no aparecer, porque su ficha declara que no está en español. **La moneda se guarda y no la usa nadie**, a propósito: 48 de las 65 fichas cobran en dólares y convertir sin un cambio verificado sería inventar un número. Sigue sin resolverse. |
+| **2. Partir «dinero» en sus piezas** | Hecho. Puerta propia «¿Qué te hace falta para gestionar tu dinero?» con 16 necesidades en cuatro familias: cobrar y facturar (5), gastos y cuentas e impuestos (5), saber si gano dinero (3), conseguir dinero (3). Con cinco capacidades nuevas en el vocabulario. |
+| **3. La página de todas las herramientas** | Hecha. `/herramientas`, con filtros por todo en uno o especializada, categoría, idioma y plan gratuito. Sin «la mejor opción» ni nada que parezca un ranking con premio. |
+| **4. Vender más** | Sin empezar, como estaba acordado. Siguen siendo seis puertas y ninguna es ésa. |
+
+### Y lo que hay que saber antes que eso
+
+**Nada está desplegado.** Los tres puntos hechos viven en la rama
+`claude/evidencia-usos-recorridos` y no están en la rama por defecto. El
+trabajo existe y el cliente no lo ve.
+
+**Decisión de la propietaria (2026-09-18):** esperar. Sus palabras: «habrá que
+esperar a terminar, a ver si realmente se ve y funciona como lo imaginamos».
+Se le había planteado la alternativa —desplegar lo que hay y seguir afinando
+en abierto— y eligió terminar primero. Encaja con el ACUERDO DE RUMBO: si
+llega tráfico antes de que Molnip responda bien a una cosa, se va y no vuelve.
+
+### El catálogo, después de dos días verificando
+
+- **60 de 65 fichas con el precio comprobado** en la web del fabricante, con
+  la fecha y la dirección que se abrió de verdad. Se empezó en 22.
+- **62 de las 64 con plan gratuito dicen de qué clase es**: 32 indefinido, 30
+  prueba. Sin clase quedan Copy.ai y Hotmart, las dos porque su página no lo
+  dice.
+- Sin precio: Notion AI, Odoo y los tres Zoho. **El precio de Zoho no se puede
+  leer**: seis direcciones y dos canales distintos, y ninguno da la cifra. Es
+  una característica de su web, no un fallo nuestro.
+- **662 capacidades verificadas con cita.** De 329 sabemos además el plan
+  exacto, y **269 de ésas están sólo si pagas**.
+
+### Lo que queda encima de la mesa
+
+1. **Lo gordo: que «la mejor» se apoye en lo comprobado.** Hoy se apoya en
+   `puntuaciones.calidad` y en cuántos elementos tiene `funcionesPrincipales`;
+   las 662 capacidades verificadas sólo hacen de portero. Es F3 y tiene
+   condiciones previas en `data/vocabulario/CONDICIONES-PARA-F3.md`. No se
+   abre sin autorización.
+2. **La tarjeta de «lo que te va a costar»**, separada de la recomendación.
+   Acordada y sin construir. Ver «ESTAMOS ENDIOSANDO LO GRATIS».
+3. **La frase que da valor a Molnip**, que sale de ese 82 %: «sí, tiene plan
+   gratuito, pero lo que tú necesitas no está en él». Tenemos el dato y no lo
+   enseña ninguna pantalla — `planMinimo` sólo vive en la verificación.
+4. **La moneda**, sin usar desde el punto 1.
+5. **Cinco fichas sin precio comprobado** y dos sin clase de plan, todas por
+   motivos documentados en `agents/atlas-curator/investigaciones/`.
+
+### Cómo se trabajó, por si sirve de método
+
+Lo que desatascó dos días fue una pregunta de la propietaria: «¿y tú con
+Gemini no lo puedes hacer?». El arnés de `url_context` llevaba semanas en el
+repositorio y leyó en una tarde las páginas que el canal externo no pudo
+abrir en tres intentos. Funciona porque descarga desde la infraestructura de
+Google, que sí ejecuta el JavaScript, y porque dice qué descargó de verdad.
+Hace falta `NODE_USE_ENV_PROXY=1`: Node no usa el proxy por su cuenta.
+
+Y el estado que salvó la tanda: **«PLANTILLA SIN RELLENAR»**, distinto de «no
+consta» y de «no he podido abrirla». Sin él, veinte fabricantes habrían
+quedado escritos como si no publicaran sus precios.
+
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 
 **Aprobada por la propietaria el 2026-08-31.** Auditada sobre el commit
