@@ -94,17 +94,22 @@ function calcularMediaReputacionExterna(reputacion: Herramienta["reputacion"] | 
   return valores.reduce((a, b) => a + b, 0) / valores.length;
 }
 
-const PUNTOS_POR_PLAN_GRATUITO = 3;
+/**
+ * Aquí había un `PUNTOS_POR_PLAN_GRATUITO = 3`, y con él la línea «Tiene plan
+ * gratuito.» en `motivosPuntuacion` — entre «G2: 4.8/5» y «Ofrece una API
+ * pública», como si fuera una virtud de la herramienta.
+ *
+ * Se quitó el 2026-09-18. Lo tienen 64 de las 65 fichas del catálogo: no
+ * distingue nada y no es un mérito, es una decisión comercial del fabricante.
+ * Decisión de la propietaria: «estamos endiosando lo gratis». Sigue viéndose
+ * en la tarjeta y en la ficha, que es donde le toca.
+ */
 const PUNTOS_POR_API_PUBLICA = 2;
 const PUNTOS_POR_APP_MOVIL = 2;
 
 function calcularBonusDeProducto(datos: Partial<Herramienta>, motivos: string[]): number {
   let bonus = 0;
 
-  if (datos.tienePlanGratuito) {
-    bonus += PUNTOS_POR_PLAN_GRATUITO;
-    motivos.push("Tiene plan gratuito.");
-  }
   if (datos.tieneApiPublica) {
     bonus += PUNTOS_POR_API_PUBLICA;
     motivos.push("Ofrece una API pública.");

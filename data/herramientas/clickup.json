@@ -133,12 +133,11 @@
     ],
     "tipoNegocioIdeal": "Agencias, startups tecnológicas y pymes en crecimiento",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 93,
+    "puntuacion": 90,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 7.8/10.",
       "G2: 4.7/5 (9500 reseñas).",
       "Capterra: 4.7/5 (4000 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]

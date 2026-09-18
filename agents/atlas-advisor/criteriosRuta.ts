@@ -227,7 +227,7 @@ const facilidadAdministracion: CriterioRuta = {
 /** Coste total frente a contratar varias herramientas por separado. Solo puntúa si de verdad sustituye a más de una. */
 const costeTotalFrenteAVarias: CriterioRuta = {
   min: 0,
-  max: 10,
+  max: 6,
   evaluar: (herramienta, { respuestas }) => {
     const etiqueta = "Coste frente a contratar varias";
     const necesarios = modulosQueNecesita(respuestas);
@@ -236,12 +236,17 @@ const costeTotalFrenteAVarias: CriterioRuta = {
 
     if (cubiertos < 2) return nada("costeTotalFrenteAVarias", etiqueta);
 
-    const puntos = herramienta.tienePlanGratuito ? 10 : 6;
+    /**
+     * Antes el plan gratuito movía esto de 6 a 10 — cuatro puntos de diez por
+     * un dato que tienen 64 de 65. Se quitó el 2026-09-18 con el resto de los
+     * altares. Lo que este criterio mide es sustituir varias suscripciones por
+     * una, y eso no depende de que la primera sea gratis.
+     */
     return {
       criterio: "costeTotalFrenteAVarias",
       etiqueta,
-      puntos,
-      explicacion: `Sustituye a ${cubiertos} herramientas distintas con una sola suscripción${herramienta.tienePlanGratuito ? ", y tiene plan gratuito para empezar" : ""}.`,
+      puntos: 6,
+      explicacion: `Sustituye a ${cubiertos} herramientas distintas con una sola suscripción.`,
     };
   },
 };
@@ -505,20 +510,28 @@ const facilidadEnSuEspecialidad: CriterioRuta = {
   },
 };
 
-const precioFrenteAlValor: CriterioRuta = {
-  min: 0,
-  max: 8,
-  evaluar: (herramienta) => {
-    const etiqueta = "Precio para lo que ofrece";
-    if (!herramienta.tienePlanGratuito) return nada("precioFrenteAlValor", etiqueta);
-    return {
-      criterio: "precioFrenteAlValor",
-      etiqueta,
-      puntos: 8,
-      explicacion: "Puedes probarla a fondo con su plan gratuito antes de pagar nada.",
-    };
-  },
-};
+/**
+ * AQUÍ VIVÍA `precioFrenteAlValor`, y se quitó el 2026-09-18.
+ *
+ * Daba 8 puntos de unos 72 a cualquier ficha con `tienePlanGratuito`, y se
+ * llamaba «Precio para lo que ofrece» sin mirar ningún precio: leía una
+ * casilla de sí o no. Lo tienen **64 de las 65** herramientas del catálogo,
+ * así que no distinguía nada — sólo multaba a la única que no lo tiene.
+ *
+ * Decisión de la propietaria: «estamos endiosando lo gratis». El plan
+ * gratuito es una decisión comercial del fabricante para meterte dentro, no
+ * una virtud de la herramienta. Pasa a ser información en la tarjeta, como el
+ * idioma o el precio, y deja de ordenar.
+ *
+ * La pregunta que este criterio fingía contestar —«¿me compensa lo que me
+ * piden?»— sigue abierta, y no se contesta con una casilla: hace falta cruzar
+ * el precio con lo que la herramienta hace de verdad. Ver ATLAS.md, «ESTAMOS
+ * ENDIOSANDO LO GRATIS».
+ *
+ * Lo que NO se quitó: `criterioPresupuestoYPlanGratuito` en `criterios.ts`.
+ * Ése sólo actúa cuando la persona ha dicho que necesita empezar sin pagar, y
+ * entonces no es una suposición nuestra: es lo que pidió.
+ */
 
 /**
  * Superioridad frente al módulo equivalente de una suite — el criterio que
@@ -560,7 +573,6 @@ export const CRITERIOS_ESPECIALIZADA: CriterioRuta[] = [
   funcionesAvanzadas,
   integracionesConTerceros,
   facilidadEnSuEspecialidad,
-  precioFrenteAlValor,
   superioridadFrenteAlModulo,
 ];
 

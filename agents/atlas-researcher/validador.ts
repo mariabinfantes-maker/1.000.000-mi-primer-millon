@@ -67,6 +67,17 @@ export function validarPropuesta(datosCrudos: unknown, solicitud: SolicitudInves
   // partir de los datos ya investigados, y sustituye a lo que el proveedor
   // haya podido devolver en esas dos claves — nunca nos fiamos de un
   // "puntuacion"/"motivosPuntuacion" inventado por la IA.
+  /**
+   * La puntuación es un valor DERIVADO: la calcula `puntuacionAtlas.ts` a
+   * partir del resto de la ficha. Si la IA escribe una, no vale.
+   *
+   * Y cuando no se puede calcular, tampoco vale la suya: se BORRA. Antes se
+   * dejaba pasar, porque `if (resultadoPuntuacion)` no hacía nada en ese caso
+   * y la puntuación inventada sobrevivía dentro de `analisisAtlas`. Casi
+   * nunca ocurría porque `tienePlanGratuito` bastaba para disparar el
+   * cálculo; al dejar el plan gratuito de puntuar (2026-09-18) el agujero
+   * quedó a la vista. Un número inventado no entra en una ficha.
+   */
   const resultadoPuntuacion = calcularPuntuacionAtlas(datos);
   if (resultadoPuntuacion) {
     datos.analisisAtlas = {
@@ -74,6 +85,9 @@ export function validarPropuesta(datosCrudos: unknown, solicitud: SolicitudInves
       puntuacion: resultadoPuntuacion.puntuacion,
       motivosPuntuacion: resultadoPuntuacion.motivos,
     };
+  } else if (datos.analisisAtlas) {
+    const { puntuacion: _inventada, motivosPuntuacion: _inventados, ...sinPuntuacion } = datos.analisisAtlas;
+    datos.analisisAtlas = sinPuntuacion;
   }
 
   return {

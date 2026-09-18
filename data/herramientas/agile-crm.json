@@ -126,12 +126,11 @@
     ],
     "tipoNegocioIdeal": "Pymes y agencias de servicios",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 81,
+    "puntuacion": 78,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 6.7/10.",
       "G2: 4/5 (340 reseñas).",
       "Capterra: 4.1/5 (500 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]

@@ -133,12 +133,11 @@
     ],
     "tipoNegocioIdeal": "Agencias de marketing, equipos de TI y medianas/grandes empresas",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 90,
+    "puntuacion": 87,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.0/10.",
       "G2: 4.2/5 (3600 reseñas).",
       "Capterra: 4.3/5 (2600 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]

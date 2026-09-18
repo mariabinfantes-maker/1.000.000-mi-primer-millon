@@ -133,12 +133,11 @@
     ],
     "tipoNegocioIdeal": "Pymes B2B, empresas de servicios e integradoras de tecnología",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 87,
+    "puntuacion": 84,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 7.3/10.",
       "G2: 4.3/5 (320 reseñas).",
       "Capterra: 4.3/5 (500 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]

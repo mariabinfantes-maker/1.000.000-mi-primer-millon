@@ -121,12 +121,11 @@
     ],
     "tipoNegocioIdeal": "Pymes, agencias y empresas de servicios o construcción que gestionan proyectos estructurados",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 99,
+    "puntuacion": 96,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.8/10.",
       "G2: 4.8/5 (480 reseñas).",
       "Capterra: 4.8/5 (470 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]

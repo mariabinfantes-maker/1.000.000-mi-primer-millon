@@ -131,12 +131,11 @@
     ],
     "tipoNegocioIdeal": "Agencias de marketing, consultoras y empresas de servicios B2B",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 93,
+    "puntuacion": 90,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.3/10.",
       "G2: 4.4/5 (3100 reseñas).",
       "Capterra: 4.5/5 (850 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]

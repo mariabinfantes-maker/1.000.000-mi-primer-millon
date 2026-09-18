@@ -231,7 +231,9 @@ describe("validarPropuesta", () => {
       const propuesta = validarPropuesta(
         {
           datos: {
-            tienePlanGratuito: true,
+            // Una señal con la que SÍ se puede calcular. Antes aquí ponía
+            // `tienePlanGratuito`, que dejó de puntuar el 2026-09-18.
+            tieneApiPublica: true,
             analisisAtlas: {
               competidoresDirectos: ["Competidor A", "Competidor B"],
               tipoNegocioIdeal: "Agencias de marketing",
@@ -249,6 +251,36 @@ describe("validarPropuesta", () => {
       expect(propuesta.datos.analisisAtlas?.tipoNegocioIdeal).toBe("Agencias de marketing");
       expect(propuesta.datos.analisisAtlas?.nivelTecnicoRecomendado).toBe("principiante");
       expect(propuesta.datos.analisisAtlas?.puntuacion).not.toBe(999);
+    });
+
+    /**
+     * El agujero que destapó quitarle los puntos al plan gratuito.
+     *
+     * Cuando no hay con qué calcular, `calcularPuntuacionAtlas` devuelve null
+     * y antes no se hacía nada — con lo que la puntuación que se hubiera
+     * inventado la IA se quedaba dentro de la ficha. Casi nunca pasaba porque
+     * `tienePlanGratuito` bastaba para disparar el cálculo. Al dejar de
+     * puntuar, quedó a la vista.
+     */
+    it("borra la puntuación inventada cuando no hay con qué calcular la de verdad", () => {
+      const propuesta = validarPropuesta(
+        {
+          datos: {
+            analisisAtlas: {
+              tipoNegocioIdeal: "Agencias de marketing",
+              puntuacion: 999,
+              motivosPuntuacion: ["Porque sí."],
+            },
+          },
+          fuentes: [],
+        },
+        solicitud
+      );
+
+      expect(propuesta.datos.analisisAtlas?.puntuacion).toBeUndefined();
+      expect(propuesta.datos.analisisAtlas?.motivosPuntuacion).toBeUndefined();
+      // Lo que la IA sí investigó se conserva: sólo se borra el número derivado.
+      expect(propuesta.datos.analisisAtlas?.tipoNegocioIdeal).toBe("Agencias de marketing");
     });
 
     it("avisa de qué subcampos investigables faltan en analisisAtlas", () => {
