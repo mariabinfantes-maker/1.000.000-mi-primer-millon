@@ -5199,6 +5199,143 @@ deciden quién es la mejor.
 Eso es lo siguiente. No es desconfiar del trabajo anterior: es usar lo que
 desde entonces hemos comprobado.
 
+## MOLNIP ES UN INTERMEDIARIO — 2026-09-21
+
+Esta sección no decide nada sobre la tarjeta, ni sobre la puntuación, ni
+sobre las fichas. Es el **porqué**, escrito para no tener que volver a
+llegar hasta aquí. Lo único que ya está aplicado es la quinta regla de la
+visión en `AGENTS.md` —«no somos jueces»—, que es la punta de esto.
+
+Salió de mirar la columna «DESVENTAJAS» de la tarjeta de recomendación, y
+acabó en un sitio bastante más grande.
+
+### Lo que había
+
+**206 pegas repartidas en 65 fichas**, 3,2 por herramienta, en rojo y con una
+× al lado, a dos columnas del mismo ancho que «VENTAJAS». Cruzadas contra
+todo lo que sí verificamos en septiembre:
+
+| | |
+|---|---|
+| desmentidas por nuestro propio dato | **0** |
+| redundantes — ciertas, y ya dichas mejor en otro sitio | **30** |
+| sin nada con que cruzarlas | **175** |
+
+Y de esas 175: **24** juicios sobre lo fácil que es de usar, **25**
+comparaciones de precio sin decir contra qué, **15** sobre el servicio de
+una empresa real, **11** sobre la calidad de su app o su traducción, y
+**100** afirmaciones concretas que F2 no cubrió.
+
+### Las tres reglas, en el orden en que las dijo la propietaria
+
+**1. Si no lo sabemos, no se dice.** Y el aviso no sirve de coartada.
+
+> «Esto es una suposición nuestra. Mejor no dar esa información tan potente,
+> por llamarla de alguna forma, ya que no la poseemos.»
+
+La propuesta que había sobre la mesa era conservarlas con una línea debajo:
+«esto es valoración nuestra, no lo hemos comprobado en su web». **No vale.**
+La persona lee la frase y ya no se la quita nadie; la letra pequeña llega
+tarde o no llega. Lo único que consigue el aviso es trasladarle a ella el
+riesgo de algo que hemos escrito nosotros. Es taparse las espaldas, no ser
+honrado.
+
+**2. Un adjetivo sin «para quién» está a medias.**
+
+> «¿Y para quién es abrumadora? ¿Para un principiante, para un experto…, o
+> simplemente es abrumadora según quién?»
+
+«Abrumadora» no es una propiedad de la herramienta: es una relación entre la
+herramienta y una persona. La misma pantalla es abrumadora para quien empieza
+y completa para quien lleva cinco años. Igual «cara» (¿con qué presupuesto?),
+«limitada» (¿frente a qué necesitas?) o «le falta profundidad» (¿para quién?).
+
+**Por eso no se arreglan comprobándolas.** Mandar a comprobar «¿esta interfaz
+abruma?» no tiene respuesta, como no la tiene «¿esta camisa es grande?». No
+están sin verificar: están incompletas.
+
+Y el mismo examen se lleva por delante las ventajas: «amplia variedad de
+funcionalidades» es una virtud para quien necesita seis cosas y un estorbo
+para quien necesita una.
+
+Lo que sí tiene Molnip y no tiene un directorio: **sabe para quién**. El
+cuestionario ya dijo que es una empresa de reformas de ocho personas que
+pierde facturas. Ésa es justo la mitad que a esas frases les falta. La
+versión buena de esa información no es una etiqueta pegada a la herramienta,
+es una frase dirigida a ella. Hoy no se puede escribir —haría falta saber
+cuánto hay que configurar y con qué nivel, y el campo que tenemos para eso no
+tiene fuente— pero ya sabemos qué forma tiene.
+
+**3. Molnip es un intermediario, y su único activo es que las dos partes le
+acepten en medio.**
+
+> «Si yo soy el dueño de un software, no dejo que Molnip me lo toque, porque
+> Molnip opina de lo que no sabe.»
+>
+> «Y Molnip es un intermediario.»
+
+Un intermediario no tiene producto ni clientes propios. Lo único que tiene es
+su sitio. El día que una de las dos partes deja de aceptarlo, no queda nada
+debajo. **Y un intermediario que opina ya no está en medio: se ha puesto de
+un lado, y encima sobre algo que no sabe.**
+
+Lo que normalmente se cuenta es que hay que elegir —o duro con las
+herramientas y sirves al cliente, o blando y sirves al fabricante—. **La
+regla rompe eso, porque no es blandura: es no inventar.** La clienta no se
+lleva un elogio inventado y el fabricante no se lleva una acusación
+inventada. Es la misma regla y les sirve a los dos.
+
+Con un efecto práctico: si la fama de Molnip es «sólo publican lo que pueden
+demostrar», al fabricante **le interesa** dar los datos, porque es su única
+forma de salir bien descrito. Hoy es al revés: esas 175 frases sin fuente son
+justo el motivo por el que no cogería el teléfono. Lo que parecía falta de
+información es, en parte, una puerta que cerramos nosotros.
+
+Lo único bueno del momento: **todavía no hay ninguna relación rota**, porque
+todavía no hay relación con ningún fabricante.
+
+### Lo que un intermediario sí vende
+
+Tres cosas, y ninguna necesita opinión:
+
+- **Trabajo que ella no hace.** No se lee 65 páginas de tarifas.
+- **Traducción.** «Soy peluquera y pierdo citas» convertido en lo que hace
+  falta que la herramienta haga.
+- **Comprobación.** «Fuimos, miramos, fue el 17 de septiembre, aquí tienes el
+  enlace.»
+
+Las tres se pueden hacer y las tres se pueden demostrar.
+
+### Lo que esto implica y queda pendiente de decidir
+
+No se decide aquí, pero hay que dejar escrito hacia dónde apunta, porque las
+reglas de arriba no dejan muchas salidas:
+
+- **Las pegas que son suposiciones no tienen sitio en la tarjeta.** Las que
+  son hechos concretos —«no permite asignar una tarea a dos personas»,
+  «límite de contactos según el plan»— no son suposiciones: son datos que
+  nadie ha comprobado *todavía*, y pueden volver el día que tengan fuente.
+- **`casosNoRecomendados` está en el mismo saco** y no se salva por sonar
+  mejor. Habría que mirar cuánto de eso es en realidad una forma de contar
+  `segmentosIdeales`, que sí es un campo; eso no sería suposición, sería un
+  dato bien contado.
+- **Un 88 sobre 100 es una opinión con decimales.** Es poner nota, y nadie le
+  ha dado a Molnip autoridad para calificar a nadie. Un intermediario
+  ordena —alguien tiene que salir primero— y enseña con qué ha ordenado; eso
+  no es lo mismo que publicar un número que parece medido. Enlaza con la
+  sección anterior, «`calidad: 9` no es un dato, es una opinión».
+- **`metodologiaValoracion` afirma algo que no hicimos.** 64 de las 65 fichas
+  publican, bajo el título «Cómo llegamos a esta valoración», que las notas
+  salen de «agregación de miles de opiniones verificadas en G2 y Capterra».
+  Nadie agregó nada. **Es la única afirmación falsa de todo esto que habla de
+  nosotros y no de ellos**, y por eso es la más urgente.
+
+Las dos cosas que ocuparon la mañana —las desventajas y la puntuación— eran
+la misma: **opinión disfrazada de dato. Una en párrafo y otra en número.**
+
+Y lo incómodo, dicho entero: las opiniones eran el atajo para parecer útiles
+sin serlo. Sin ellas hay que serlo de verdad, y eso es más trabajo.
+
 ## DÓNDE ESTAMOS — punto de partida al cerrar el 2026-09-18
 
 Esta sección no decide nada: dice en qué punto quedó todo, para que quien
