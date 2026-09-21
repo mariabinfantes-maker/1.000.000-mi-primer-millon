@@ -138,119 +138,67 @@ export function textoDeComprobacion(h: { preciosComprobados?: { fecha: string; u
  */
 export const PRECIO_SIN_COMPROBAR = "Este precio no lo hemos comprobado en su web.";
 
-/**
- * «Growth, 36 $ al mes o 18 $ pagando un año» en vez de «Growth» a secas.
- *
- * El nombre de un plan, solo, no le dice nada a nadie: lo cazó la propietaria
- * preguntando «¿y qué quiere decir plan Growth?». Con el precio pegado da
- * igual cómo se llame.
- *
- * Los dos precios siempre que la página publique los dos, por decisión de la
- * propietaria (2026-09-21): la diferencia entre pagar mes a mes y pagar el año
- * entero es enorme —Close Solo son 19 $ o 9 $— y enseñar sólo uno es enseñar
- * un precio que no puede pagar como quiere.
- *
- * `null` cuando ese plan no está comprobado: entonces la tarjeta se queda con
- * el nombre y manda a mirar la tarifa, que es lo único honesto que puede hacer.
- */
-export function textoDelPlan(
-  nombre: string,
-  planes: { nombre: string; mensual?: string; anual?: string }[] | undefined
-): string | null {
-  const plan = planes?.find((p) => p.nombre.toLowerCase() === nombre.toLowerCase());
-  if (!plan) return null;
-  if (plan.mensual && plan.anual && plan.mensual !== plan.anual) {
-    return `${plan.mensual}, o ${plan.anual} pagando un año entero`;
-  }
-  return plan.mensual ?? plan.anual ?? null;
-}
+
+
+
 
 /**
- * La respuesta a «¿esto, a mí, cuánto me cuesta?» — en una cifra.
+ * Lo que cuesta, en filas de «concepto → dato».
  *
- * La tarjeta decía cuatro cosas de dinero a la vez —precio de entrada,
- * etiqueta de gratis, plan que necesita, comprobación— y dos se
- * contradecían: leías «Gratis, indefinido» y en la línea siguiente
- * «necesitas 29 $». La propietaria lo cortó en seco: «es demasiado confusa».
+ * Instrucción de la propietaria (2026-09-21): «que tenga toda la información
+ * pero ordenada, que el cliente la pueda entender; en esta tarjeta resulta
+ * confusa».
  *
- * Una pregunta, una respuesta. El detalle va debajo, para quien lo quiera.
+ * El problema nunca fue cuánta información había, sino que estaba apilada en
+ * frases sueltas y había que leerla entera para enterarse de algo. En filas
+ * se lee de un vistazo: la persona busca el concepto que le interesa y a la
+ * derecha está su dato.
  *
- * `cuanto` es lo que se enseña grande. `detalle` es la letra pequeña, y puede
- * faltar. Cuando no ha habido diagnóstico no sabemos qué plan le toca, así
- * que no se puede contestar de verdad: se dice desde cuánto empieza y ya.
+ * Nada se oculta: el plan, la otra modalidad de pago y lo que ofrece su
+ * paquete siguen todos ahí. Lo que cambia es que ya no compiten entre sí.
  */
-export function loQueTeCuesta(
-  h: { precioInicial: string; tienePlanGratuito: boolean; tipoPlanGratuito?: "indefinido" | "prueba"; pruebaGratuitaDias?: number },
+export function filasDeLoQueCuesta(
+  h: {
+    precioInicial: string;
+    tienePlanGratuito: boolean;
+    tipoPlanGratuito?: "indefinido" | "prueba";
+    pruebaGratuitaDias?: number;
+  },
   planQueNecesita: string | undefined,
   planes: { nombre: string; mensual?: string; anual?: string }[] | undefined
-): { cuanto: string; detalle?: string } {
+): { respuesta: string; filas: { concepto: string; dato: string }[] } {
   const plan = planQueNecesita ? planes?.find((p) => p.nombre.toLowerCase() === planQueNecesita.toLowerCase()) : undefined;
+  const esGratis = (v?: string) => v !== undefined && /^0\s*(€|\$|US\$)?$/.test(v.trim());
+  const filas: { concepto: string; dato: string }[] = [];
 
-  // Sabemos qué plan le toca Y cuánto vale: la respuesta de verdad.
-  if (plan) {
-    const gratis = (v?: string) => v !== undefined && /^0\s*(€|\$|US\$)?$/.test(v.trim());
-    if (gratis(plan.mensual) || gratis(plan.anual)) {
-      return { cuanto: "Nada", detalle: `Con su plan ${plan.nombre} tienes lo que necesitas.` };
+  // La respuesta: lo que le cuesta a ELLA, con lo que pidió.
+  let respuesta: string;
+  if (plan && (esGratis(plan.mensual) || esGratis(plan.anual))) {
+    respuesta = "Nada";
+    filas.push({ concepto: "Con su plan", dato: plan.nombre });
+  } else if (plan) {
+    respuesta = plan.anual ?? plan.mensual!;
+    filas.push({ concepto: "Con su plan", dato: plan.nombre });
+    if (plan.anual && plan.mensual && plan.anual !== plan.mensual) {
+      filas.push({ concepto: "Pagando mes a mes", dato: plan.mensual });
     }
-    const principal = plan.anual ?? plan.mensual!;
-    const otro = plan.anual && plan.mensual && plan.anual !== plan.mensual ? plan.mensual : undefined;
-    return {
-      cuanto: principal,
-      detalle: otro ? `Es su plan ${plan.nombre}. Mes a mes son ${otro}.` : `Es su plan ${plan.nombre}.`,
-    };
+  } else {
+    // Sin diagnóstico no se puede contestar de verdad: se dice desde cuánto
+    // empieza y no se finge saber qué plan le toca.
+    respuesta = h.precioInicial;
   }
 
-  // Sin diagnóstico no se puede contestar: se dice desde dónde empieza.
-  return { cuanto: h.precioInicial, detalle: textoDePlanGratuito(h) === "Sin plan gratuito" ? undefined : textoDePlanGratuito(h) };
-}
-
-/**
- * Lo último que lee antes de decidir: qué pasa si pulsa.
- *
- * Es la pieza que faltaba para cerrar. «Probar gratis» a secas da miedo —
- * ¿gratis cuánto?, ¿me piden la tarjeta?—. Decirlo quita el último obstáculo
- * entre «ésta es» y «ya la estoy usando».
- *
- * `null` cuando no hay nada que prometer: entonces no se inventa un consuelo.
- */
-export function quePasaSiPulsas(h: {
-  tienePlanGratuito: boolean;
-  tipoPlanGratuito?: "indefinido" | "prueba";
-  pruebaGratuitaDias?: number;
-}): string | null {
-  if (!h.tienePlanGratuito) return null;
-  if (h.tipoPlanGratuito === "indefinido") return "Puedes usar su plan gratuito sin límite de tiempo.";
-  if (h.tipoPlanGratuito === "prueba") {
-    return h.pruebaGratuitaDias
-      ? `Puedes probarla ${h.pruebaGratuitaDias} días antes de pagar.`
-      : "Puedes probarla antes de pagar.";
+  // Lo que ofrece SU paquete. Va al final y en su sitio: es información suya,
+  // no nuestra, y así no discute con la cifra de arriba.
+  if (h.tienePlanGratuito && respuesta !== "Nada") {
+    if (h.tipoPlanGratuito === "indefinido") filas.push({ concepto: "También tiene", dato: "Un plan gratuito que no caduca" });
+    else if (h.tipoPlanGratuito === "prueba") {
+      filas.push({
+        concepto: "También tiene",
+        dato: h.pruebaGratuitaDias ? `${h.pruebaGratuitaDias} días de prueba gratis` : "Una prueba gratuita",
+      });
+    } else filas.push({ concepto: "También tiene", dato: "Una forma de empezar sin pagar" });
   }
-  return "Puedes empezar sin pagar.";
-}
 
-/**
- * Lo que ofrece SU paquete: la prueba o el plan gratuito, dicho plano.
- *
- * Corrección de la propietaria (2026-09-21): «yo no he dicho de quitar la
- * información que trae el paquete de ellos, plan gratis o pruébalo gratis X».
- * Y antes: «son las reglas de ellos, no las nuestras». No ser ambiguo es no
- * dejar a la persona en empate — no es enseñarle menos. Sus condiciones no
- * son ambigüedad: son el paquete que ofrecen y ella tiene derecho a verlas.
- *
- * Se dice en segunda persona y como lo que es —una posibilidad, no un
- * mérito—, y por eso no compite con la cifra: «24 € al mes» contesta cuánto
- * cuesta, «pruébalo gratis 14 días» dice que puede verlo antes de pagar. Son
- * dos hechos distintos y ninguno desmiente al otro.
- */
-export function loQueOfreceSuPaquete(h: {
-  tienePlanGratuito: boolean;
-  tipoPlanGratuito?: "indefinido" | "prueba";
-  pruebaGratuitaDias?: number;
-}): string | null {
-  if (!h.tienePlanGratuito) return null;
-  if (h.tipoPlanGratuito === "indefinido") return "Tiene un plan gratuito que no caduca";
-  if (h.tipoPlanGratuito === "prueba") {
-    return h.pruebaGratuitaDias ? `Pruébalo gratis ${h.pruebaGratuitaDias} días` : "Tiene prueba gratuita";
-  }
-  return "Se puede empezar sin pagar";
+  return { respuesta, filas };
 }

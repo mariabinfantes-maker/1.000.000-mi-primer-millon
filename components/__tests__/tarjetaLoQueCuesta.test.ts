@@ -2,7 +2,7 @@ import fs from "node:fs";
 import { describe, expect, it } from "vitest";
 import { getHerramientas } from "@/data/repositorio";
 import { aVistaDeTarjetaGenerica } from "@/lib/vistaRecomendacion";
-import { PRECIO_SIN_COMPROBAR, loQueTeCuesta, quePasaSiPulsas } from "@/lib/catalogoCompleto";
+import { PRECIO_SIN_COMPROBAR, filasDeLoQueCuesta } from "@/lib/catalogoCompleto";
 
 /**
  * «Esta es la mejor en tu especialidad, y al lado o abajo una tarjeta que
@@ -76,58 +76,55 @@ describe("lo que la tarjeta recibe ya viene redactado", () => {
  * Lo cazó la propietaria preguntando «¿y qué quiere decir plan Growth?». El
  * nombre solo no dice nada; con el precio al lado da igual cómo se llame.
  */
-describe("una pregunta, una respuesta", () => {
+describe("toda la información, pero ordenada", () => {
   /**
-   * La tarjeta decía cuatro cosas de dinero a la vez y dos se contradecían:
-   * leías «Gratis, indefinido» y en la línea siguiente «necesitas 29 $». La
-   * propietaria: «es demasiado confusa».
+   * Dos intentos fallaron por lo mismo: una pila de frases sueltas sobre
+   * dinero, en la que «Gratis, indefinido» y «necesitas 29 $» parecían
+   * discutir. La propietaria lo cortó dos veces —«es demasiado confusa», «no
+   * me gusta»— y dio la regla: «que tenga toda la información pero ordenada,
+   * que el cliente la pueda entender».
+   *
+   * No se quita nada. Se estructura: la respuesta arriba y el resto en filas.
    */
-  const agiled = { precioInicial: "Desde $24/mes", tienePlanGratuito: true, tipoPlanGratuito: "prueba" as const, pruebaGratuitaDias: 14 };
+  const agiled = { precioInicial: "Desde $24/mes", tienePlanGratuito: true, tipoPlanGratuito: "indefinido" as const };
+  const planes = [{ nombre: "Starter", mensual: "29 $/mes", anual: "24 $/mes" }];
 
-  it("con el plan sabido, contesta con su precio y explica cuál es debajo", () => {
-    const r = loQueTeCuesta(agiled, "Starter", [{ nombre: "Starter", mensual: "29 $/mes", anual: "24 $/mes" }]);
-    expect(r.cuanto).toBe("24 $/mes");
-    expect(r.detalle).toBe("Es su plan Starter. Mes a mes son 29 $/mes.");
+  it("contesta con lo que le cuesta a ella y ordena el resto en filas", () => {
+    const r = filasDeLoQueCuesta(agiled, "Starter", planes);
+    expect(r.respuesta).toBe("24 $/mes");
+    expect(r.filas).toEqual([
+      { concepto: "Con su plan", dato: "Starter" },
+      { concepto: "Pagando mes a mes", dato: "29 $/mes" },
+      { concepto: "También tiene", dato: "Un plan gratuito que no caduca" },
+    ]);
   });
 
-  it("cuando lo que necesita entra en el plan gratuito, la respuesta es «Nada»", () => {
-    const r = loQueTeCuesta(agiled, "Free", [{ nombre: "Free", mensual: "0 $" }]);
-    expect(r.cuanto).toBe("Nada");
-    expect(r.detalle).toBe("Con su plan Free tienes lo que necesitas.");
+  /**
+   * Lo que ofrece su paquete NO se esconde: es información suya y la persona
+   * tiene derecho a verla. La propietaria lo corrigió cuando lo quité:
+   * «yo no he dicho de quitar la información que trae el paquete de ellos».
+   */
+  it("la prueba gratuita también sale, con sus días", () => {
+    const conPrueba = { ...agiled, tipoPlanGratuito: "prueba" as const, pruebaGratuitaDias: 14 };
+    const r = filasDeLoQueCuesta(conPrueba, "Starter", planes);
+    expect(r.filas).toContainEqual({ concepto: "También tiene", dato: "14 días de prueba gratis" });
+  });
+
+  it("cuando lo que necesita entra en el plan gratuito, la respuesta es «Nada» y no se repite", () => {
+    const r = filasDeLoQueCuesta(agiled, "Free", [{ nombre: "Free", mensual: "0 $" }]);
+    expect(r.respuesta).toBe("Nada");
+    expect(r.filas).toEqual([{ concepto: "Con su plan", dato: "Free" }]);
   });
 
   it("sin diagnóstico no finge una respuesta: dice desde cuánto empieza", () => {
-    const r = loQueTeCuesta(agiled, undefined, [{ nombre: "Starter", mensual: "29 $/mes" }]);
-    expect(r.cuanto).toBe("Desde $24/mes");
-    expect(r.detalle).toBe("Gratis 14 días");
+    const r = filasDeLoQueCuesta(agiled, undefined, planes);
+    expect(r.respuesta).toBe("Desde $24/mes");
+    expect(r.filas.some((f) => f.concepto === "Con su plan")).toBe(false);
   });
 
   it("si sabemos el plan pero no su precio, tampoco lo inventa", () => {
-    const r = loQueTeCuesta(agiled, "Growth", [{ nombre: "Starter", mensual: "29 $/mes" }]);
-    expect(r.cuanto).toBe("Desde $24/mes");
-  });
-});
-
-describe("lo último que lee antes de pulsar", () => {
-  /**
-   * «Probar gratis» a secas da miedo: ¿gratis cuánto?, ¿me piden la tarjeta?
-   * Decirlo es lo que quita el último obstáculo. Lo señaló la propietaria:
-   * «si el producto es bueno hay que saber cerrar una venta».
-   */
-  it("dice cuántos días tiene para probarla", () => {
-    expect(quePasaSiPulsas({ tienePlanGratuito: true, tipoPlanGratuito: "prueba", pruebaGratuitaDias: 14 })).toBe(
-      "Puedes probarla 14 días antes de pagar."
-    );
-  });
-
-  it("y si el plan no caduca, lo dice así", () => {
-    expect(quePasaSiPulsas({ tienePlanGratuito: true, tipoPlanGratuito: "indefinido" })).toBe(
-      "Puedes usar su plan gratuito sin límite de tiempo."
-    );
-  });
-
-  it("cuando no hay nada que prometer, no se inventa un consuelo", () => {
-    expect(quePasaSiPulsas({ tienePlanGratuito: false })).toBeNull();
+    const r = filasDeLoQueCuesta(agiled, "Growth", planes);
+    expect(r.respuesta).toBe("Desde $24/mes");
   });
 });
 

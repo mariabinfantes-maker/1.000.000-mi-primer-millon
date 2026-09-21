@@ -40,19 +40,12 @@ export type TarjetaHerramientaRecomendadaProps = {
   /** La página de precios del fabricante, para que pueda ir a mirarla ella. */
   urlPrecios?: string;
   /**
-   * La respuesta a «¿esto, a mí, cuánto me cuesta?», ya redactada por
-   * `loQueTeCuesta`: «24 €/usuario/mes», «Nada», o el precio de entrada
-   * cuando no hubo diagnóstico y no se puede contestar de verdad.
+   * La respuesta a «¿esto, a mí, cuánto me cuesta?», ya redactada: «24 €/mes»,
+   * «Nada», o el precio de entrada cuando no hubo diagnóstico.
    */
   cuantoCuesta: string;
-  /** La letra pequeña debajo de la cifra: «Es su plan Starter. Mes a mes son 29 €.» */
-  detalleDelCoste?: string;
-  /**
-   * Lo que ofrece SU paquete —«Pruébalo gratis 14 días»—, ya redactado. Va
-   * dentro de la tarjeta de coste, junto al precio, porque es parte de lo que
-   * cuesta y es información suya, no nuestra.
-   */
-  ofreceSuPaquete?: string;
+  /** El resto, en filas de «concepto → dato»: el plan, la otra modalidad, lo que ofrece su paquete. */
+  filasDelCoste: { concepto: string; dato: string }[];
   ventajas: string[];
   inconvenientes: string[];
   /** Párrafo ya redactado en lenguaje natural explicando por qué se recomienda para este usuario. */
@@ -100,8 +93,7 @@ export default function TarjetaHerramientaRecomendada({
   precioComprobado,
   urlPrecios,
   cuantoCuesta,
-  detalleDelCoste,
-  ofreceSuPaquete,
+  filasDelCoste,
   ventajas,
   inconvenientes,
   explicacionPersonalizada,
@@ -369,12 +361,11 @@ export default function TarjetaHerramientaRecomendada({
 
     </Tarjeta>
       <TarjetaLoQueCuesta
-        cuanto={cuantoCuesta}
-        {...(detalleDelCoste ? { detalle: detalleDelCoste } : {})}
+        respuesta={cuantoCuesta}
+        filas={filasDelCoste}
         comprobacion={comprobacionDelPrecio}
         estaComprobado={precioComprobado}
         {...(urlPrecios ? { urlPrecios } : {})}
-        {...(ofreceSuPaquete ? { ofreceSuPaquete } : {})}
         {...(evidencia?.tipo === "confirmada" && !evidencia.plan ? { planSinConfirmar: true } : {})}
       />
       {/*

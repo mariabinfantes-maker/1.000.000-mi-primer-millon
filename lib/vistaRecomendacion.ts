@@ -2,7 +2,7 @@ import { PUNTOS_IDIOMA_CONFIRMADO } from "@/agents/atlas-advisor";
 import type { EtiquetaEvidencia, HerramientaEvaluada } from "@/agents/atlas-advisor";
 import type { Herramienta } from "@/data/esquema";
 import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
-import { PRECIO_SIN_COMPROBAR, loQueOfreceSuPaquete, loQueTeCuesta, textoDeComprobacion } from "@/lib/catalogoCompleto";
+import { PRECIO_SIN_COMPROBAR, filasDeLoQueCuesta, textoDeComprobacion } from "@/lib/catalogoCompleto";
 import type { TarjetaHerramientaRecomendadaProps } from "@/components/TarjetaHerramientaRecomendada";
 
 /** Campos comunes a las dos vistas (con y sin cuestionario) que no dependen de `HerramientaEvaluada` — evita repetirlos en las dos funciones de abajo. */
@@ -18,7 +18,6 @@ function camposComunes(herramienta: Herramienta) {
    * lado.
    */
   const comprobacion = textoDeComprobacion(herramienta);
-  const ofrece = loQueOfreceSuPaquete(herramienta);
 
   return {
     reputacion: herramienta.reputacion,
@@ -27,7 +26,6 @@ function camposComunes(herramienta: Herramienta) {
     tieneApiPublica: herramienta.tieneApiPublica ?? false,
     comprobacionDelPrecio: comprobacion ?? PRECIO_SIN_COMPROBAR,
     precioComprobado: comprobacion !== null,
-    ...(ofrece ? { ofreceSuPaquete: ofrece } : {}),
     ...(herramienta.urlPrecios ? { urlPrecios: herramienta.urlPrecios } : {}),
 
   };
@@ -68,7 +66,7 @@ export function aVistaDeTarjeta(
    * contestar de verdad, porque la evidencia dice en qué plan vive la función
    * que pidió y la ficha dice lo que vale ese plan.
    */
-  const cuesta = loQueTeCuesta(
+  const cuesta = filasDeLoQueCuesta(
     herramienta,
     evidencia?.tipo === "confirmada" ? evidencia.plan : undefined,
     herramienta.planesComprobados?.planes
@@ -87,8 +85,8 @@ export function aVistaDeTarjeta(
     puntuacionAtlas: puntuacionAtlas?.puntuacion ?? null,
     motivosPuntuacion: puntuacionAtlas?.motivos ?? [],
     tienePlanGratuito: herramienta.tienePlanGratuito,
-    cuantoCuesta: cuesta.cuanto,
-    ...(cuesta.detalle ? { detalleDelCoste: cuesta.detalle } : {}),
+    cuantoCuesta: cuesta.respuesta,
+    filasDelCoste: cuesta.filas,
     ventajas: herramienta.ventajas,
     inconvenientes: herramienta.inconvenientes,
     explicacionPersonalizada: evaluada.explicacion,
@@ -126,8 +124,8 @@ export function aVistaDeTarjetaGenerica(herramienta: Herramienta, posicion: numb
     // Sin cuestionario no sabemos qué función busca, así que no sabemos qué
     // plan le toca: se dice desde cuánto empieza y no se finge una respuesta.
     ...(() => {
-      const c = loQueTeCuesta(herramienta, undefined, herramienta.planesComprobados?.planes);
-      return { cuantoCuesta: c.cuanto, ...(c.detalle ? { detalleDelCoste: c.detalle } : {}) };
+      const c = filasDeLoQueCuesta(herramienta, undefined, herramienta.planesComprobados?.planes);
+      return { cuantoCuesta: c.respuesta, filasDelCoste: c.filas };
     })(),
     ventajas: herramienta.ventajas,
     inconvenientes: herramienta.inconvenientes,
