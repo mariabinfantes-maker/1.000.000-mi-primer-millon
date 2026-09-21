@@ -72,3 +72,8 @@ data/verificacion/_descartes-originales.json
 # Lo mismo para cada lote que se abra con el modo `lote`, que guarda aparte.
 data/verificacion/_checkpoint-lote-*.json
 data/verificacion/_salida-lote-*.json
+
+# Salida accidental de scripts de un solo uso: cuando la variable del
+# directorio de trabajo llega vacía, Node escribe en «undefined/» DENTRO del
+# repositorio. Pasó el 2026-09-18 y dos capturas acabaron subidas.
+undefined/
