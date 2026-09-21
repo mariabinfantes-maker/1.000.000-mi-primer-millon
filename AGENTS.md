@@ -25,7 +25,7 @@ cercano.** Tiene que ayudar igual a una autónoma que sólo sabe describir su
 problema —«soy peluquera y pierdo citas»— que a una empresa que sabe
 exactamente qué busca. **La carga de entender es de Molnip, no de la persona.**
 
-Cuatro reglas que se derivan y que no se negocian:
+Cinco reglas que se derivan y que no se negocian:
 
 - **Decir que no es un resultado válido.** Si no se entiende la necesidad, o el
   catálogo no la cubre, se dice. **Tres recomendaciones es la consecuencia de
@@ -35,6 +35,16 @@ Cuatro reglas que se derivan y que no se negocian:
 - **La afiliación nunca altera el resultado.**
 - **Sin lenguaje técnico.** Si la explicación sólo la entiende quien ya sabía,
   no ha servido.
+- **No somos jueces.** Molnip avisa; no dicta sentencia. No se califica a una
+  herramienta como si fuera un boletín de notas ni se publica un veredicto
+  sobre una empresa: se dice qué le sirve a esta persona y qué tiene que tener
+  en cuenta. **De una herramienta que no encaja no se dice nada malo: se dice
+  que no está pensada para ella.** De ahí salen «Por qué te la recomendamos» y
+  «A tener en cuenta», y de ahí que no haya «Ventajas / Desventajas»
+  enfrentadas a dos columnas, ni ✓ verde contra × roja. *(Regla de la
+  propietaria, 2026-09-21: «nosotros no somos jueces». Nace de que la tarjeta
+  llevaba meses publicando una columna «DESVENTAJAS» que pesaba lo mismo que
+  la recomendación y la deshacía.)*
 
 **El catálogo está vivo.** Las 65 herramientas son la base que verifica F2, no
 un tope. Si el catálogo no cubre una necesidad, Researcher busca alternativas
