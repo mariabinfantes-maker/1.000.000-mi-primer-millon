@@ -164,3 +164,66 @@ export function textoDelPlan(
   }
   return plan.mensual ?? plan.anual ?? null;
 }
+
+/**
+ * La respuesta a «¿esto, a mí, cuánto me cuesta?» — en una cifra.
+ *
+ * La tarjeta decía cuatro cosas de dinero a la vez —precio de entrada,
+ * etiqueta de gratis, plan que necesita, comprobación— y dos se
+ * contradecían: leías «Gratis, indefinido» y en la línea siguiente
+ * «necesitas 29 $». La propietaria lo cortó en seco: «es demasiado confusa».
+ *
+ * Una pregunta, una respuesta. El detalle va debajo, para quien lo quiera.
+ *
+ * `cuanto` es lo que se enseña grande. `detalle` es la letra pequeña, y puede
+ * faltar. Cuando no ha habido diagnóstico no sabemos qué plan le toca, así
+ * que no se puede contestar de verdad: se dice desde cuánto empieza y ya.
+ */
+export function loQueTeCuesta(
+  h: { precioInicial: string; tienePlanGratuito: boolean; tipoPlanGratuito?: "indefinido" | "prueba"; pruebaGratuitaDias?: number },
+  planQueNecesita: string | undefined,
+  planes: { nombre: string; mensual?: string; anual?: string }[] | undefined
+): { cuanto: string; detalle?: string } {
+  const plan = planQueNecesita ? planes?.find((p) => p.nombre.toLowerCase() === planQueNecesita.toLowerCase()) : undefined;
+
+  // Sabemos qué plan le toca Y cuánto vale: la respuesta de verdad.
+  if (plan) {
+    const gratis = (v?: string) => v !== undefined && /^0\s*(€|\$|US\$)?$/.test(v.trim());
+    if (gratis(plan.mensual) || gratis(plan.anual)) {
+      return { cuanto: "Nada", detalle: `Con su plan ${plan.nombre} tienes lo que necesitas.` };
+    }
+    const principal = plan.anual ?? plan.mensual!;
+    const otro = plan.anual && plan.mensual && plan.anual !== plan.mensual ? plan.mensual : undefined;
+    return {
+      cuanto: principal,
+      detalle: otro ? `Es su plan ${plan.nombre}. Mes a mes son ${otro}.` : `Es su plan ${plan.nombre}.`,
+    };
+  }
+
+  // Sin diagnóstico no se puede contestar: se dice desde dónde empieza.
+  return { cuanto: h.precioInicial, detalle: textoDePlanGratuito(h) === "Sin plan gratuito" ? undefined : textoDePlanGratuito(h) };
+}
+
+/**
+ * Lo último que lee antes de decidir: qué pasa si pulsa.
+ *
+ * Es la pieza que faltaba para cerrar. «Probar gratis» a secas da miedo —
+ * ¿gratis cuánto?, ¿me piden la tarjeta?—. Decirlo quita el último obstáculo
+ * entre «ésta es» y «ya la estoy usando».
+ *
+ * `null` cuando no hay nada que prometer: entonces no se inventa un consuelo.
+ */
+export function quePasaSiPulsas(h: {
+  tienePlanGratuito: boolean;
+  tipoPlanGratuito?: "indefinido" | "prueba";
+  pruebaGratuitaDias?: number;
+}): string | null {
+  if (!h.tienePlanGratuito) return null;
+  if (h.tipoPlanGratuito === "indefinido") return "Puedes usar su plan gratuito sin límite de tiempo.";
+  if (h.tipoPlanGratuito === "prueba") {
+    return h.pruebaGratuitaDias
+      ? `Puedes probarla ${h.pruebaGratuitaDias} días antes de pagar.`
+      : "Puedes probarla antes de pagar.";
+  }
+  return "Puedes empezar sin pagar.";
+}

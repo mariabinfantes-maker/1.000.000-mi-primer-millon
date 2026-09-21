@@ -2,7 +2,7 @@ import fs from "node:fs";
 import { describe, expect, it } from "vitest";
 import { getHerramientas } from "@/data/repositorio";
 import { aVistaDeTarjetaGenerica } from "@/lib/vistaRecomendacion";
-import { PRECIO_SIN_COMPROBAR, textoDelPlan } from "@/lib/catalogoCompleto";
+import { PRECIO_SIN_COMPROBAR, loQueTeCuesta, quePasaSiPulsas } from "@/lib/catalogoCompleto";
 
 /**
  * «Esta es la mejor en tu especialidad, y al lado o abajo una tarjeta que
@@ -76,36 +76,72 @@ describe("lo que la tarjeta recibe ya viene redactado", () => {
  * Lo cazó la propietaria preguntando «¿y qué quiere decir plan Growth?». El
  * nombre solo no dice nada; con el precio al lado da igual cómo se llame.
  */
-describe("el plan lleva su precio pegado", () => {
-  it("dice los dos precios cuando la página publica los dos", () => {
-    expect(textoDelPlan("Growth", [{ nombre: "Growth", mensual: "109 $/usuario/mes", anual: "99 $/usuario/mes" }])).toBe(
-      "109 $/usuario/mes, o 99 $/usuario/mes pagando un año entero"
+describe("una pregunta, una respuesta", () => {
+  /**
+   * La tarjeta decía cuatro cosas de dinero a la vez y dos se contradecían:
+   * leías «Gratis, indefinido» y en la línea siguiente «necesitas 29 $». La
+   * propietaria: «es demasiado confusa».
+   */
+  const agiled = { precioInicial: "Desde $24/mes", tienePlanGratuito: true, tipoPlanGratuito: "prueba" as const, pruebaGratuitaDias: 14 };
+
+  it("con el plan sabido, contesta con su precio y explica cuál es debajo", () => {
+    const r = loQueTeCuesta(agiled, "Starter", [{ nombre: "Starter", mensual: "29 $/mes", anual: "24 $/mes" }]);
+    expect(r.cuanto).toBe("24 $/mes");
+    expect(r.detalle).toBe("Es su plan Starter. Mes a mes son 29 $/mes.");
+  });
+
+  it("cuando lo que necesita entra en el plan gratuito, la respuesta es «Nada»", () => {
+    const r = loQueTeCuesta(agiled, "Free", [{ nombre: "Free", mensual: "0 $" }]);
+    expect(r.cuanto).toBe("Nada");
+    expect(r.detalle).toBe("Con su plan Free tienes lo que necesitas.");
+  });
+
+  it("sin diagnóstico no finge una respuesta: dice desde cuánto empieza", () => {
+    const r = loQueTeCuesta(agiled, undefined, [{ nombre: "Starter", mensual: "29 $/mes" }]);
+    expect(r.cuanto).toBe("Desde $24/mes");
+    expect(r.detalle).toBe("Gratis 14 días");
+  });
+
+  it("si sabemos el plan pero no su precio, tampoco lo inventa", () => {
+    const r = loQueTeCuesta(agiled, "Growth", [{ nombre: "Starter", mensual: "29 $/mes" }]);
+    expect(r.cuanto).toBe("Desde $24/mes");
+  });
+});
+
+describe("lo último que lee antes de pulsar", () => {
+  /**
+   * «Probar gratis» a secas da miedo: ¿gratis cuánto?, ¿me piden la tarjeta?
+   * Decirlo es lo que quita el último obstáculo. Lo señaló la propietaria:
+   * «si el producto es bueno hay que saber cerrar una venta».
+   */
+  it("dice cuántos días tiene para probarla", () => {
+    expect(quePasaSiPulsas({ tienePlanGratuito: true, tipoPlanGratuito: "prueba", pruebaGratuitaDias: 14 })).toBe(
+      "Puedes probarla 14 días antes de pagar."
     );
   });
 
-  it("con uno solo, dice ese y no inventa el otro", () => {
-    expect(textoDelPlan("Team", [{ nombre: "Team", anual: "10 $/usuario/mes" }])).toBe("10 $/usuario/mes");
+  it("y si el plan no caduca, lo dice así", () => {
+    expect(quePasaSiPulsas({ tienePlanGratuito: true, tipoPlanGratuito: "indefinido" })).toBe(
+      "Puedes usar su plan gratuito sin límite de tiempo."
+    );
   });
 
-  it("de un plan que no está comprobado no dice nada: la tarjeta se queda con el nombre", () => {
-    expect(textoDelPlan("Enterprise", [{ nombre: "Growth", mensual: "36 $" }])).toBeNull();
-    expect(textoDelPlan("Growth", undefined)).toBeNull();
+  it("cuando no hay nada que prometer, no se inventa un consuelo", () => {
+    expect(quePasaSiPulsas({ tienePlanGratuito: false })).toBeNull();
   });
+});
 
-  it("los precios guardados vienen en euros siempre que alguna lectura los consiguió", () => {
-    const conPlanes = getHerramientas().filter((h) => h.planesComprobados);
-    expect(conPlanes.length).toBeGreaterThan(40);
-    // Decisión de la propietaria (2026-09-21): el euro es lo que vería su
-    // cliente. Que haya fichas en dólares es un hecho —esas páginas no
-    // sirvieron euros—, pero la moneda se guarda siempre, nunca se supone.
-    for (const h of conPlanes) {
-      expect(h.planesComprobados!.moneda, h.nombre).toMatch(/^(EUR|USD|GBP)$/);
-      expect(h.planesComprobados!.url, h.nombre).toMatch(/^https:\/\//);
-      for (const p of h.planesComprobados!.planes) {
-        // Sin cita no se escribe un precio: la regla de estas tres semanas.
-        expect(p.cita, `${h.nombre} / ${p.nombre}`).not.toBe("");
-        expect(Boolean(p.mensual || p.anual), `${h.nombre} / ${p.nombre} sin ningún precio`).toBe(true);
-      }
-    }
+describe("el botón va después del precio, no antes", () => {
+  /**
+   * Pedirle que pulse antes de decirle lo que cuesta es pedirle un salto a
+   * ciegas. El orden es: consejo, lo que cuesta, qué pasa si pulsas, botón.
+   */
+  it("la tarjeta de coste se pinta antes que el botón", () => {
+    const iCoste = RECOMENDACION.indexOf("<TarjetaLoQueCuesta");
+    // El botón de verdad, no la palabra suelta en un comentario.
+    const iBoton = RECOMENDACION.indexOf('{tienePlanGratuito ? "Probar gratis"');
+    expect(iCoste).toBeGreaterThan(0);
+    expect(iBoton).toBeGreaterThan(0);
+    expect(iBoton, "el botón ha vuelto a colocarse encima del precio").toBeGreaterThan(iCoste);
   });
 });

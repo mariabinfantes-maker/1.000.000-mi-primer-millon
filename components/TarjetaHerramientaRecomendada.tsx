@@ -5,7 +5,6 @@ import type { Reputacion } from "@/data/esquema";
 import Tarjeta from "@/components/ui/Tarjeta";
 import Etiqueta from "@/components/ui/Etiqueta";
 import TarjetaLoQueCuesta from "@/components/TarjetaLoQueCuesta";
-import { textoDelPlan } from "@/lib/catalogoCompleto";
 import Boton from "@/components/ui/Boton";
 import AnilloPuntuacion from "@/components/ui/AnilloPuntuacion";
 import InsigniaReputacion from "@/components/ui/InsigniaReputacion";
@@ -29,10 +28,7 @@ export type TarjetaHerramientaRecomendadaProps = {
   puntuacionAtlas: number | null;
   /** Motivos legibles de la puntuación (calidad editorial, reputación externa, señales de producto...). */
   motivosPuntuacion: string[];
-  precioInicial: string;
   tienePlanGratuito: boolean;
-  /** Ya redactado por `textoDePlanGratuito`: «Gratis, indefinido», «Gratis 14 días» o «Con plan gratuito» cuando no se ha comprobado. */
-  textoPlanGratuito?: string;
   /**
    * Ya redactado: «Precio comprobado en su web el 17 de septiembre de 2026»,
    * o `PRECIO_SIN_COMPROBAR` cuando nadie fue a mirarlo. Va a la tarjeta de
@@ -44,11 +40,20 @@ export type TarjetaHerramientaRecomendadaProps = {
   /** La página de precios del fabricante, para que pueda ir a mirarla ella. */
   urlPrecios?: string;
   /**
-   * Los planes con su precio, tal como se comprobaron. La tarjeta no busca
-   * aquí: se lo pasa a `textoDelPlan`, que decide cómo se dice. Ausente
-   * mientras esa ficha no tenga los precios de sus escalones.
+   * La respuesta a «¿esto, a mí, cuánto me cuesta?», ya redactada por
+   * `loQueTeCuesta`: «24 €/usuario/mes», «Nada», o el precio de entrada
+   * cuando no hubo diagnóstico y no se puede contestar de verdad.
    */
-  planesDeLaFicha?: { nombre: string; mensual?: string; anual?: string }[];
+  cuantoCuesta: string;
+  /** La letra pequeña debajo de la cifra: «Es su plan Starter. Mes a mes son 29 €.» */
+  detalleDelCoste?: string;
+  /**
+   * Lo último que lee antes de pulsar: «puedes probarla 14 días antes de
+   * pagar». Es la pieza que cierra — «Probar gratis» a secas da miedo, porque
+   * no dice gratis cuánto ni si piden tarjeta. Ausente cuando no hay nada que
+   * prometer: ahí no se inventa un consuelo.
+   */
+  alPulsar?: string;
   ventajas: string[];
   inconvenientes: string[];
   /** Párrafo ya redactado en lenguaje natural explicando por qué se recomienda para este usuario. */
@@ -91,13 +96,13 @@ export default function TarjetaHerramientaRecomendada({
   nombre,
   puntuacionAtlas,
   motivosPuntuacion,
-  precioInicial,
   tienePlanGratuito,
-  textoPlanGratuito,
   comprobacionDelPrecio,
   precioComprobado,
   urlPrecios,
-  planesDeLaFicha,
+  cuantoCuesta,
+  detalleDelCoste,
+  alPulsar,
   ventajas,
   inconvenientes,
   explicacionPersonalizada,
@@ -363,29 +368,34 @@ export default function TarjetaHerramientaRecomendada({
         <ChevronRight className="h-4 w-4" aria-hidden="true" />
       </Link>
 
+    </Tarjeta>
+      <TarjetaLoQueCuesta
+        cuanto={cuantoCuesta}
+        {...(detalleDelCoste ? { detalle: detalleDelCoste } : {})}
+        comprobacion={comprobacionDelPrecio}
+        estaComprobado={precioComprobado}
+        {...(urlPrecios ? { urlPrecios } : {})}
+        {...(evidencia?.tipo === "confirmada" && !evidencia.plan ? { planSinConfirmar: true } : {})}
+      />
+      {/*
+        El botón, DESPUÉS de saber el precio.
+        Estaba dentro de la recomendación, encima de la tarjeta de coste: le
+        pedíamos que actuara antes de decirle lo que cuesta, que es pedirle un
+        salto a ciegas. Lo señaló la propietaria: «si el producto es bueno hay
+        que saber cerrar una venta». Cerrar no es apretar — es quitar lo que
+        queda entre «ésta es» y «ya la estoy usando»: primero el precio,
+        después qué pasa al pulsar, y entonces el botón.
+      */}
+      {alPulsar && <p className="mt-3 text-center text-sm text-slate-600">{alPulsar}</p>}
       <Boton
         href={`/herramienta/${id}/ir?origen=resultado${rutaOrigen ? `&ruta=${encodeURIComponent(rutaOrigen)}` : ""}`}
         tamano="grande"
         variante={destacada ? "primario" : "secundario"}
-        className="mt-3 w-full"
+        className="mt-2 w-full"
       >
         {tienePlanGratuito ? "Probar gratis" : `Ir a ${nombre}`}
         <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
       </Boton>
-    </Tarjeta>
-    <TarjetaLoQueCuesta
-      precioInicial={precioInicial}
-      comoSeEmpieza={textoPlanGratuito ?? (tienePlanGratuito ? "Con plan gratuito" : "Sin plan gratuito")}
-      tienePlanGratuito={tienePlanGratuito}
-      comprobacion={comprobacionDelPrecio}
-      estaComprobado={precioComprobado}
-      {...(urlPrecios ? { urlPrecios } : {})}
-      {...(evidencia?.tipo === "confirmada" && evidencia.plan ? { planDeLaFuncion: evidencia.plan } : {})}
-      {...(evidencia?.tipo === "confirmada" && evidencia.plan && textoDelPlan(evidencia.plan, planesDeLaFicha)
-        ? { precioDelPlan: textoDelPlan(evidencia.plan, planesDeLaFicha)! }
-        : {})}
-      {...(evidencia?.tipo === "confirmada" && !evidencia.plan ? { planSinConfirmar: true } : {})}
-    />
     </div>
   );
 }
