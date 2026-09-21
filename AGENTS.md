@@ -101,11 +101,24 @@ Cinco cosas que no vas a adivinar y que ya están decididas:
 1. **Son 11 agentes**, no los que tengan carpeta en `agents/`: tres están sin
    diseñar. Y **«Atlas Evaluador» es el nombre antiguo de «Atlas Advisor»**, no
    un agente aparte. Contar carpetas da 8 y es una cuenta equivocada.
-2. **Las 62 fichas del catálogo no se verificaron contra fuentes primarias**,
-   aunque sí pasaron una validación estructural exigente: puntuación mínima,
-   duplicados, afiliación, campos completos y aprobación de la propietaria. Se
-   generaron con un modelo sin navegación y las fuentes no se guardaron. El
-   filtro medía calidad, no veracidad.
+2. **De las 65 fichas, unos campos tienen fuente guardada y otros no**, y la
+   diferencia es lo único que hay que mirar antes de fiarse de un dato.
+   **Con fuente y fecha** (septiembre de 2026, navegando de verdad): las
+   capacidades —1.547 registros, 662 verificados, sobre 64 de las 65—, los
+   precios —60 de 65, con la URL que se abrió— y los planes —50 fichas, 108
+   planes con cita textual—. **Sin fuente guardada**: los textos de la ficha
+   (ventajas, inconvenientes, `idealPara`, `casosNoRecomendados`) y las siete
+   notas de `puntuaciones`, que son de la primera redacción del catálogo.
+   **Que no tengan la fuente anotada no significa que nadie las investigara:
+   significa que no se apuntó dónde se miró, así que hoy no se pueden
+   demostrar.** La validación que pasaron —puntuación mínima, duplicados,
+   campos completos y aprobación de la propietaria— medía calidad, no
+   veracidad.
+
+   *Corregido el 2026-09-21. Antes esta línea decía que las fichas «se
+   generaron con un modelo sin navegación». Eso no consta en ninguna parte y
+   se estaba usando para dar por inventado todo el catálogo, incluido el
+   trabajo de verificación de septiembre, que sí navegó y sí dejó recibos.*
 3. **El vocabulario de capacidades (F1) está en producción y no lo lee nadie
    todavía**, a propósito. Conectarlo al motor es F3 y tiene condiciones previas.
 4. **Nada se fusiona ni se despliega sin autorización explícita de la
