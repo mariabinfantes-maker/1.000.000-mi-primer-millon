@@ -59,6 +59,7 @@ const CAMPOS_OPCIONALES = new Set<keyof Herramienta>([
   "pruebaGratuitaDias",
   // La fecha de comprobación la pone quien comprueba, no quien investiga.
   "preciosComprobados",
+  "planesComprobados",
 ]);
 
 export const DESCRIPCION_CAMPOS: Record<keyof Herramienta, string> = {
@@ -114,6 +115,8 @@ export const DESCRIPCION_CAMPOS: Record<keyof Herramienta, string> = {
     "Número de días que dura la prueba, sólo si la página oficial lo dice. Omítelo si ofrece prueba sin decir cuánto dura.",
   preciosComprobados:
     "Lo rellena quien comprueba el precio contra la página oficial, no lo investigues: { fecha, url } con el día de la lectura y la dirección que se abrió de verdad.",
+  planesComprobados:
+    "Lo rellena quien comprueba los precios contra la página oficial, no lo investigues: el precio de CADA plan con su cita, en euros si la página los sirve, y con el mensual y el anual por separado.",
   precioRecomendadoPymes:
     'Plan concreto recomendado para una pyme típica (no siempre es el plan más barato), en texto libre, ej. "Plan Professional a 45€/usuario/mes".',
   disponibilidadGeografica:

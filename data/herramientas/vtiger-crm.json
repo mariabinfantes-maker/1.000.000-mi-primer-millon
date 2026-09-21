@@ -155,5 +155,29 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.vtiger.com/pricing/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.vtiger.com/pricing/",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "One Pilot",
+        "mensual": "0 $/usuario",
+        "cita": "US$0, hasta 10 usuarios"
+      },
+      {
+        "nombre": "One Growth",
+        "mensual": "15 $/usuario/mes",
+        "anual": "12 $/usuario/mes",
+        "cita": "$15 / $12"
+      },
+      {
+        "nombre": "One Professional",
+        "mensual": "42 $/usuario/mes",
+        "anual": "30 $/usuario/mes",
+        "cita": "$42 / $30"
+      }
+    ]
   }
 }

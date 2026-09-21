@@ -140,5 +140,17 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://otter.ai/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://otter.ai/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Basic",
+        "mensual": "0 $",
+        "cita": "Free forever"
+      }
+    ]
   }
 }

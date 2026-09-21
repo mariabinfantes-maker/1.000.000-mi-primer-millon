@@ -146,5 +146,24 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.honeybook.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.honeybook.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Starter",
+        "mensual": "36 $/mes",
+        "anual": "29 $/mes",
+        "cita": "$36 / $29"
+      },
+      {
+        "nombre": "Essentials",
+        "mensual": "59 $/mes",
+        "anual": "49 $/mes",
+        "cita": "$59 / $49"
+      }
+    ]
   }
 }

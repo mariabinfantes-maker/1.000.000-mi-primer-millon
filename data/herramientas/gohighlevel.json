@@ -116,5 +116,18 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.gohighlevel.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.gohighlevel.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Unlimited",
+        "mensual": "297 $/mes",
+        "anual": "2.970 $/año",
+        "cita": "$297 / $2,970"
+      }
+    ]
   }
 }

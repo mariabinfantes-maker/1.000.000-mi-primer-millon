@@ -138,5 +138,23 @@
   ],
   "tipoProducto": "especializada",
   "subtipoId": "espacio-trabajo",
-  "tipoPlanGratuito": "prueba"
+  "tipoPlanGratuito": "prueba",
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.notion.com/es-es/pricing",
+    "moneda": "EUR",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 €/miembro/mes",
+        "cita": "0 €, IA en prueba limitada"
+      },
+      {
+        "nombre": "Business",
+        "mensual": "23,50 €/miembro/mes",
+        "anual": "19,50 €/miembro/mes",
+        "cita": "23,50 € / 19,50 €"
+      }
+    ]
+  }
 }

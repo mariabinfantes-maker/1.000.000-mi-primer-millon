@@ -144,5 +144,18 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.jasper.ai/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.jasper.ai/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Pro",
+        "mensual": "69 $/usuario/mes",
+        "anual": "59 $/usuario/mes",
+        "cita": "$69 / $59"
+      }
+    ]
   }
 }

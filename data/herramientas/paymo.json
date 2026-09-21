@@ -144,5 +144,35 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.paymoapp.com/pricing/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.paymoapp.com/pricing/",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 $",
+        "cita": "$0"
+      },
+      {
+        "nombre": "Solo",
+        "mensual": "5,90 $/mes los 3 primeros meses, después 9,90 $/mes",
+        "anual": "5,90 $/mes",
+        "cita": "$5.9 / after 3 months: $9.9"
+      },
+      {
+        "nombre": "Plus",
+        "mensual": "10,90 $/usuario/mes los 3 primeros meses, después 15,90 $",
+        "anual": "10,90 $/usuario/mes",
+        "cita": "$10.9 / after 3 months: $15.9"
+      },
+      {
+        "nombre": "Pro",
+        "mensual": "16,90 $/usuario/mes los 3 primeros meses, después 23,90 $",
+        "anual": "16,90 $/usuario/mes",
+        "cita": "$16.9 / after 3 months: $23.9"
+      }
+    ]
   }
 }

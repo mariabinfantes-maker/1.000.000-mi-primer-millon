@@ -141,5 +141,17 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.grammarly.com/plans"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.grammarly.com/plans",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 $/mes",
+        "cita": "$0"
+      }
+    ]
   }
 }

@@ -27,6 +27,7 @@ function camposComunes(herramienta: Herramienta) {
     comprobacionDelPrecio: comprobacion ?? PRECIO_SIN_COMPROBAR,
     precioComprobado: comprobacion !== null,
     ...(herramienta.urlPrecios ? { urlPrecios: herramienta.urlPrecios } : {}),
+    planesDeLaFicha: herramienta.planesComprobados?.planes,
   };
 }
 

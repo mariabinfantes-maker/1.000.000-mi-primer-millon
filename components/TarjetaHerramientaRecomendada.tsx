@@ -5,6 +5,7 @@ import type { Reputacion } from "@/data/esquema";
 import Tarjeta from "@/components/ui/Tarjeta";
 import Etiqueta from "@/components/ui/Etiqueta";
 import TarjetaLoQueCuesta from "@/components/TarjetaLoQueCuesta";
+import { textoDelPlan } from "@/lib/catalogoCompleto";
 import Boton from "@/components/ui/Boton";
 import AnilloPuntuacion from "@/components/ui/AnilloPuntuacion";
 import InsigniaReputacion from "@/components/ui/InsigniaReputacion";
@@ -42,6 +43,12 @@ export type TarjetaHerramientaRecomendadaProps = {
   precioComprobado: boolean;
   /** La página de precios del fabricante, para que pueda ir a mirarla ella. */
   urlPrecios?: string;
+  /**
+   * Los planes con su precio, tal como se comprobaron. La tarjeta no busca
+   * aquí: se lo pasa a `textoDelPlan`, que decide cómo se dice. Ausente
+   * mientras esa ficha no tenga los precios de sus escalones.
+   */
+  planesDeLaFicha?: { nombre: string; mensual?: string; anual?: string }[];
   ventajas: string[];
   inconvenientes: string[];
   /** Párrafo ya redactado en lenguaje natural explicando por qué se recomienda para este usuario. */
@@ -90,6 +97,7 @@ export default function TarjetaHerramientaRecomendada({
   comprobacionDelPrecio,
   precioComprobado,
   urlPrecios,
+  planesDeLaFicha,
   ventajas,
   inconvenientes,
   explicacionPersonalizada,
@@ -373,6 +381,9 @@ export default function TarjetaHerramientaRecomendada({
       estaComprobado={precioComprobado}
       {...(urlPrecios ? { urlPrecios } : {})}
       {...(evidencia?.tipo === "confirmada" && evidencia.plan ? { planDeLaFuncion: evidencia.plan } : {})}
+      {...(evidencia?.tipo === "confirmada" && evidencia.plan && textoDelPlan(evidencia.plan, planesDeLaFicha)
+        ? { precioDelPlan: textoDelPlan(evidencia.plan, planesDeLaFicha)! }
+        : {})}
       {...(evidencia?.tipo === "confirmada" && !evidencia.plan ? { planSinConfirmar: true } : {})}
     />
     </div>

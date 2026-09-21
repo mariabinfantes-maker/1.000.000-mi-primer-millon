@@ -154,5 +154,27 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.insightly.com/pricing-plans/?plan=crm"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.insightly.com/pricing-plans/",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Plus",
+        "anual": "29 $/usuario/mes",
+        "cita": "$29"
+      },
+      {
+        "nombre": "Professional",
+        "anual": "49 $/usuario/mes",
+        "cita": "$49"
+      },
+      {
+        "nombre": "Enterprise",
+        "anual": "99 $/usuario/mes",
+        "cita": "$99"
+      }
+    ]
   }
 }

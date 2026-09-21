@@ -138,5 +138,24 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.copper.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.copper.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Professional",
+        "mensual": "69 $/usuario/mes",
+        "anual": "59 $/usuario/mes",
+        "cita": "$69 / $59"
+      },
+      {
+        "nombre": "Business",
+        "mensual": "134 $/usuario/mes",
+        "anual": "99 $/usuario/mes",
+        "cita": "$134 / $99"
+      }
+    ]
   }
 }

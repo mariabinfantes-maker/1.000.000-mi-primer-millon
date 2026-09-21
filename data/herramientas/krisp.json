@@ -138,5 +138,23 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://krisp.ai/pricing/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://krisp.ai/pricing/",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Core",
+        "mensual": "16 $/usuario/mes",
+        "anual": "8 $/usuario/mes",
+        "cita": "$16 / $8"
+      },
+      {
+        "nombre": "CC Core",
+        "anual": "15 $/agente/mes",
+        "cita": "$15 per agent/mo, billed annually"
+      }
+    ]
   }
 }

@@ -143,5 +143,23 @@
   "problemasIds": [
     "conseguir-clientes"
   ],
-  "tipoPlanGratuito": "indefinido"
+  "tipoPlanGratuito": "indefinido",
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.zoho.com/crm/zohocrm-pricing.html",
+    "moneda": "EUR",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 €",
+        "cita": "Free forever for 3 users."
+      },
+      {
+        "nombre": "Standard",
+        "mensual": "20 €/usuario/mes",
+        "anual": "14 €/usuario/mes",
+        "cita": "€20 / €14"
+      }
+    ]
+  }
 }

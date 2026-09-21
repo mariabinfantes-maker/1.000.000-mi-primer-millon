@@ -152,5 +152,29 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://asana.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://asana.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Personal",
+        "mensual": "0 $",
+        "cita": "$0"
+      },
+      {
+        "nombre": "Starter",
+        "mensual": "13,49 $/usuario/mes",
+        "anual": "10,99 $/usuario/mes",
+        "cita": "$13.49 / $10.99"
+      },
+      {
+        "nombre": "Advanced",
+        "mensual": "30,49 $/usuario/mes",
+        "anual": "24,99 $/usuario/mes",
+        "cita": "$30.49 / $24.99"
+      }
+    ]
   }
 }

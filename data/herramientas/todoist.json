@@ -144,5 +144,30 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.todoist.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.todoist.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Beginner",
+        "mensual": "US $0",
+        "anual": "US $0",
+        "cita": "US $0"
+      },
+      {
+        "nombre": "Business",
+        "mensual": "US $8 plus local tax per user/month",
+        "anual": "$96 billed yearly",
+        "cita": "US $8 plus local tax per user/month, $96 billed yearly"
+      },
+      {
+        "nombre": "Pro",
+        "mensual": "US $5 per user/month",
+        "anual": "$60 billed yearly",
+        "cita": "US $5 per user/month $60 billed yearly"
+      }
+    ]
   }
 }

@@ -155,5 +155,24 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.smartsheet.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.smartsheet.com/pricing",
+    "moneda": "EUR",
+    "planes": [
+      {
+        "nombre": "Pro",
+        "mensual": "11 €/miembro/mes",
+        "anual": "8 €/miembro/mes",
+        "cita": "11 / 8€"
+      },
+      {
+        "nombre": "Business",
+        "mensual": "22 €/miembro/mes",
+        "anual": "17 €/miembro/mes",
+        "cita": "22 / 17€"
+      }
+    ]
   }
 }

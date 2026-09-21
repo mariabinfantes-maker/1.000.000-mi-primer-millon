@@ -140,5 +140,24 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://clickup.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://clickup.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Free Forever",
+        "mensual": "Free",
+        "anual": "Free",
+        "cita": "free forever yearly price:FreePer user/month, billed yearlyfree forever monthly price:FreePer user/month, billed monthly"
+      },
+      {
+        "nombre": "Business",
+        "mensual": "$19",
+        "anual": "$12",
+        "cita": "business yearly price:$12Per user/month, billed yearlybusiness monthly price:$19Per user/month, billed monthly"
+      }
+    ]
   }
 }

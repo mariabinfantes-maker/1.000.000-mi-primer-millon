@@ -144,5 +144,24 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.streak.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.streak.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Pro",
+        "mensual": "59 $/usuario/mes",
+        "anual": "49 $/usuario/mes",
+        "cita": "$59 / $49"
+      },
+      {
+        "nombre": "Pro+",
+        "mensual": "89 $/usuario/mes",
+        "anual": "69 $/usuario/mes",
+        "cita": "$89 / $69"
+      }
+    ]
   }
 }

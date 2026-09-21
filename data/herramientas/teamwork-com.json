@@ -152,5 +152,22 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.teamwork.com/pricing/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.teamwork.com/pricing/",
+    "moneda": "EUR",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 €",
+        "cita": "0"
+      },
+      {
+        "nombre": "Accelerate",
+        "anual": "24,99 €/usuario/mes",
+        "cita": "24.99 billed yearly"
+      }
+    ]
   }
 }

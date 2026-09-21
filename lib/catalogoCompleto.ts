@@ -137,3 +137,30 @@ export function textoDeComprobacion(h: { preciosComprobados?: { fecha: string; u
  * `agents/atlas-curator/investigaciones/`.
  */
 export const PRECIO_SIN_COMPROBAR = "Este precio no lo hemos comprobado en su web.";
+
+/**
+ * «Growth, 36 $ al mes o 18 $ pagando un año» en vez de «Growth» a secas.
+ *
+ * El nombre de un plan, solo, no le dice nada a nadie: lo cazó la propietaria
+ * preguntando «¿y qué quiere decir plan Growth?». Con el precio pegado da
+ * igual cómo se llame.
+ *
+ * Los dos precios siempre que la página publique los dos, por decisión de la
+ * propietaria (2026-09-21): la diferencia entre pagar mes a mes y pagar el año
+ * entero es enorme —Close Solo son 19 $ o 9 $— y enseñar sólo uno es enseñar
+ * un precio que no puede pagar como quiere.
+ *
+ * `null` cuando ese plan no está comprobado: entonces la tarjeta se queda con
+ * el nombre y manda a mirar la tarifa, que es lo único honesto que puede hacer.
+ */
+export function textoDelPlan(
+  nombre: string,
+  planes: { nombre: string; mensual?: string; anual?: string }[] | undefined
+): string | null {
+  const plan = planes?.find((p) => p.nombre.toLowerCase() === nombre.toLowerCase());
+  if (!plan) return null;
+  if (plan.mensual && plan.anual && plan.mensual !== plan.anual) {
+    return `${plan.mensual}, o ${plan.anual} pagando un año entero`;
+  }
+  return plan.mensual ?? plan.anual ?? null;
+}

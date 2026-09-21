@@ -2,7 +2,7 @@ import fs from "node:fs";
 import { describe, expect, it } from "vitest";
 import { getHerramientas } from "@/data/repositorio";
 import { aVistaDeTarjetaGenerica } from "@/lib/vistaRecomendacion";
-import { PRECIO_SIN_COMPROBAR } from "@/lib/catalogoCompleto";
+import { PRECIO_SIN_COMPROBAR, textoDelPlan } from "@/lib/catalogoCompleto";
 
 /**
  * «Esta es la mejor en tu especialidad, y al lado o abajo una tarjeta que
@@ -67,5 +67,45 @@ describe("lo que la tarjeta recibe ya viene redactado", () => {
       return !vista.comprobacionDelPrecio || vista.comprobacionDelPrecio.trim() === "";
     });
     expect(mudas.map((h) => h.nombre)).toEqual([]);
+  });
+});
+
+/**
+ * El precio del escalón, que es lo que convierte «Growth» en algo útil.
+ *
+ * Lo cazó la propietaria preguntando «¿y qué quiere decir plan Growth?». El
+ * nombre solo no dice nada; con el precio al lado da igual cómo se llame.
+ */
+describe("el plan lleva su precio pegado", () => {
+  it("dice los dos precios cuando la página publica los dos", () => {
+    expect(textoDelPlan("Growth", [{ nombre: "Growth", mensual: "109 $/usuario/mes", anual: "99 $/usuario/mes" }])).toBe(
+      "109 $/usuario/mes, o 99 $/usuario/mes pagando un año entero"
+    );
+  });
+
+  it("con uno solo, dice ese y no inventa el otro", () => {
+    expect(textoDelPlan("Team", [{ nombre: "Team", anual: "10 $/usuario/mes" }])).toBe("10 $/usuario/mes");
+  });
+
+  it("de un plan que no está comprobado no dice nada: la tarjeta se queda con el nombre", () => {
+    expect(textoDelPlan("Enterprise", [{ nombre: "Growth", mensual: "36 $" }])).toBeNull();
+    expect(textoDelPlan("Growth", undefined)).toBeNull();
+  });
+
+  it("los precios guardados vienen en euros siempre que alguna lectura los consiguió", () => {
+    const conPlanes = getHerramientas().filter((h) => h.planesComprobados);
+    expect(conPlanes.length).toBeGreaterThan(40);
+    // Decisión de la propietaria (2026-09-21): el euro es lo que vería su
+    // cliente. Que haya fichas en dólares es un hecho —esas páginas no
+    // sirvieron euros—, pero la moneda se guarda siempre, nunca se supone.
+    for (const h of conPlanes) {
+      expect(h.planesComprobados!.moneda, h.nombre).toMatch(/^(EUR|USD|GBP)$/);
+      expect(h.planesComprobados!.url, h.nombre).toMatch(/^https:\/\//);
+      for (const p of h.planesComprobados!.planes) {
+        // Sin cita no se escribe un precio: la regla de estas tres semanas.
+        expect(p.cita, `${h.nombre} / ${p.nombre}`).not.toBe("");
+        expect(Boolean(p.mensual || p.anual), `${h.nombre} / ${p.nombre} sin ningún precio`).toBe(true);
+      }
+    }
   });
 });

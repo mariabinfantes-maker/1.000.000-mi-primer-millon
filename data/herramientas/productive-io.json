@@ -140,5 +140,18 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://productive.io/pricing/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://productive.io/pricing/",
+    "moneda": "EUR",
+    "planes": [
+      {
+        "nombre": "Essential",
+        "mensual": "11 €/usuario/mes",
+        "anual": "9,50 €/usuario/mes",
+        "cita": "€11 / €9.50, mínimo 3 usuarios"
+      }
+    ]
   }
 }

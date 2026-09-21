@@ -145,5 +145,24 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.salesmate.io/pricing/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.salesmate.io/pricing/",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Basic",
+        "mensual": "29 $/usuario/mes",
+        "anual": "23 $/usuario/mes",
+        "cita": "$29 / $23"
+      },
+      {
+        "nombre": "Pro",
+        "mensual": "49 $/usuario/mes",
+        "anual": "39 $/usuario/mes",
+        "cita": "$49 / $39"
+      }
+    ]
   }
 }

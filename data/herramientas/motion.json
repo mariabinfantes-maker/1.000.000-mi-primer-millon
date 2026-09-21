@@ -141,5 +141,24 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.usemotion.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.usemotion.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Pro AI",
+        "mensual": "29 $/usuario/mes",
+        "anual": "19 $/usuario/mes",
+        "cita": "$29 / $19"
+      },
+      {
+        "nombre": "Business AI",
+        "mensual": "49 $/usuario/mes",
+        "anual": "29 $/usuario/mes",
+        "cita": "$49 / $29"
+      }
+    ]
   }
 }

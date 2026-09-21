@@ -139,5 +139,24 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://close.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://close.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Solo",
+        "mensual": "19 $/usuario/mes",
+        "anual": "9 $/usuario/mes",
+        "cita": "$19 / $9"
+      },
+      {
+        "nombre": "Growth",
+        "mensual": "109 $/usuario/mes",
+        "anual": "99 $/usuario/mes",
+        "cita": "$109 / $99"
+      }
+    ]
   }
 }

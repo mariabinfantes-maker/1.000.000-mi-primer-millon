@@ -144,5 +144,24 @@
     "url": "https://zenkit.com/en/pricing/"
   },
   "tipoPlanGratuito": "prueba",
-  "pruebaGratuitaDias": 14
+  "pruebaGratuitaDias": 14,
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://zenkit.com/en/pricing/",
+    "moneda": "EUR",
+    "planes": [
+      {
+        "nombre": "Plus",
+        "mensual": "9 €/usuario/mes",
+        "anual": "8 €/usuario/mes",
+        "cita": "€ 9,00 / € 8,00"
+      },
+      {
+        "nombre": "Business",
+        "mensual": "25 €/usuario/mes",
+        "anual": "21 €/usuario/mes",
+        "cita": "€ 25,00 / € 21,00"
+      }
+    ]
+  }
 }

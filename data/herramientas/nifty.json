@@ -142,5 +142,29 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://niftypm.com/pricing/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://niftypm.com/es/pricing/",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 $",
+        "cita": "$0, miembros ilimitados"
+      },
+      {
+        "nombre": "Pro",
+        "mensual": "16 $/miembro/mes",
+        "anual": "10 $/miembro/mes",
+        "cita": "$16/miembro/mes / $10/miembro/mes"
+      },
+      {
+        "nombre": "Business",
+        "mensual": "25 $/miembro/mes",
+        "anual": "16 $/miembro/mes",
+        "cita": "$25/miembro/mes / $16/miembro/mes"
+      }
+    ]
   }
 }

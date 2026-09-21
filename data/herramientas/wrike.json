@@ -154,5 +154,27 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.wrike.com/price/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.wrike.com/price/",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 $",
+        "cita": "$0"
+      },
+      {
+        "nombre": "Team",
+        "anual": "10 $/usuario/mes",
+        "cita": "$10"
+      },
+      {
+        "nombre": "Business",
+        "anual": "25 $/usuario/mes",
+        "cita": "$25"
+      }
+    ]
   }
 }

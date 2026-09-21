@@ -137,5 +137,18 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.heygen.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.heygen.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Business",
+        "mensual": "149 $/mes",
+        "anual": "119 $/mes",
+        "cita": "$149 / $119 / $1,428 billed yearly"
+      }
+    ]
   }
 }

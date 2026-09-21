@@ -143,5 +143,29 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://ganttpro.com/pricing/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://ganttpro.com/pricing/",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Core",
+        "mensual": "9 $/usuario/mes",
+        "anual": "7 $/usuario/mes",
+        "cita": "9USD / 7USD"
+      },
+      {
+        "nombre": "Business",
+        "mensual": "24 $/usuario/mes",
+        "anual": "17 $/usuario/mes",
+        "cita": "24USD / 17USD"
+      },
+      {
+        "nombre": "Enterprise",
+        "anual": "20 $/usuario/mes",
+        "cita": "20USD"
+      }
+    ]
   }
 }

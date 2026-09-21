@@ -142,5 +142,18 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://kartra.com/plans-and-pricing/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://kartra.com/plans-and-pricing/",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Essentials",
+        "mensual": "59 $/mes",
+        "anual": "52 $/mes",
+        "cita": "$59 / $52"
+      }
+    ]
   }
 }

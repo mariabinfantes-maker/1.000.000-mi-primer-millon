@@ -140,5 +140,24 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.beautiful.ai/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.beautiful.ai/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Pro",
+        "mensual": "45 $/mes",
+        "anual": "14,50 $/mes",
+        "cita": "$45 / $14.50"
+      },
+      {
+        "nombre": "Team",
+        "mensual": "50 $/mes",
+        "anual": "40 $/mes",
+        "cita": "$50 $40 /MO (INCLUDES 3 USERS)"
+      }
+    ]
   }
 }

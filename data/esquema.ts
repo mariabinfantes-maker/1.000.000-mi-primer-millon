@@ -443,6 +443,45 @@ export type Herramienta = {
    * mucho, y Atlas Mantenimiento los cuenta por separado.
    */
   preciosComprobados?: { fecha: string; url: string };
+
+  /**
+   * El precio de CADA ESCALÓN, no sólo el de entrada.
+   *
+   * F2 guardó en qué plan vive cada capacidad —el nombre que le da el
+   * fabricante: «Growth», «Pro»—, pero no cuánto cuesta ese plan. Sin eso,
+   * decirle a alguien «lo que buscas está en Growth» no le dice nada: lo cazó
+   * la propietaria preguntando qué significaba Growth.
+   *
+   * MONEDA. Se guarda la del precio que vería un cliente español, y por eso
+   * se prefiere el euro cuando alguna lectura lo consiguió. No es cosmética:
+   * las mismas páginas sirven tarifas distintas según desde dónde se entre, y
+   * no son una conversión —monday Basic son 9 $ o 9 €, Smartsheet Pro 12 $ u
+   * 8 €—. Decisión de la propietaria, 2026-09-21.
+   *
+   * LOS DOS PRECIOS. Mensual y anual se guardan por separado siempre que la
+   * página publique los dos, porque la diferencia es enorme: Close Solo son
+   * 19 $ al mes o 9 $ pagando el año entero. Enseñar sólo uno es enseñar un
+   * precio que no puede pagar como quiere.
+   *
+   * `fuente` es la dirección que se abrió DE VERDAD, que no siempre coincide
+   * con `preciosComprobados.url`: alguna tarifa sólo aparece en la versión
+   * española de la página.
+   */
+  planesComprobados?: {
+    fecha: string;
+    url: string;
+    /** «EUR», «USD». La del precio guardado, no la del fabricante. */
+    moneda: string;
+    planes: {
+      /** Tal como lo llama el fabricante. Es lo que la persona va a leer en su tarifa. */
+      nombre: string;
+      /** Ausente cuando la página no publica esa modalidad. Nunca se calcula a partir de la otra. */
+      mensual?: string;
+      anual?: string;
+      /** Lo que la página dice literalmente. Sin cita no se escribe el precio. */
+      cita: string;
+    }[];
+  };
   /** Añadido: no siempre el precio de entrada (`precioInicial`) es el plan que de verdad le conviene a una pyme — a veces hace falta un plan intermedio para desbloquear lo esencial. Texto libre, ej. "Plan Professional a 45€/usuario/mes". */
   precioRecomendadoPymes?: string;
 

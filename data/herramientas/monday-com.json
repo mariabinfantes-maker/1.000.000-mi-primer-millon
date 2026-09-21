@@ -170,5 +170,35 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://monday.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://monday.com/lang/es/pricing",
+    "moneda": "EUR",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 €",
+        "cita": "0, gratis, para siempre, hasta 2 usuarios"
+      },
+      {
+        "nombre": "Basic",
+        "mensual": "12 €/usuario/mes",
+        "anual": "9 €/usuario/mes",
+        "cita": "12 / 9"
+      },
+      {
+        "nombre": "Standard",
+        "mensual": "14 €/usuario/mes",
+        "anual": "12 €/usuario/mes",
+        "cita": "14 / 12"
+      },
+      {
+        "nombre": "Pro",
+        "mensual": "24 €/usuario/mes",
+        "anual": "19 €/usuario/mes",
+        "cita": "24 / 19"
+      }
+    ]
   }
 }

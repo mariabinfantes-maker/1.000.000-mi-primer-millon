@@ -150,5 +150,27 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.activecampaign.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.activecampaign.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Enterprise",
+        "anual": "$145 /mo",
+        "cita": "Enterprise Starts at $145 /mo Billed annually"
+      },
+      {
+        "nombre": "Starter",
+        "anual": "$15 /mo",
+        "cita": "Starter Starts at $15 /mo Billed annually"
+      },
+      {
+        "nombre": "Plus",
+        "anual": "$49 /mo",
+        "cita": "Plus Starts at $49 /mo Billed annually"
+      }
+    ]
   }
 }

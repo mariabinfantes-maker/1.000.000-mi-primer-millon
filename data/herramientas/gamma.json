@@ -143,5 +143,22 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://gamma.app/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://gamma.app/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Pro",
+        "anual": "$18 / seat / month ($216 per seat, billed annually)",
+        "cita": "Pro\n\n For premium AI models, API, and more customization\n\n $18\n\n / seat / month\n\n $216 per seat, billed annually"
+      },
+      {
+        "nombre": "Free",
+        "mensual": "$0",
+        "cita": "Free\n\n For simple projects and getting to know Gamma\n\n $0"
+      }
+    ]
   }
 }

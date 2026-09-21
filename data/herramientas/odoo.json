@@ -110,5 +110,30 @@
     "crm",
     "gestion-proyectos"
   ],
-  "tipoPlanGratuito": "indefinido"
+  "tipoPlanGratuito": "indefinido",
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.odoo.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Standard",
+        "mensual": "US$ 31.10 / user / month",
+        "anual": "$ 24.90 / user / month",
+        "cita": "Standard $ 24 31 .90 .10 US$ 31.10 US$ 38.90 * / user / month"
+      },
+      {
+        "nombre": "Custom",
+        "mensual": "US$ 61.00 / user / month",
+        "anual": "$ 49.00 / user / month",
+        "cita": "Custom $ 49 61 .00 .10 US$ 61.00 US$ 76.20 * / user / month"
+      },
+      {
+        "nombre": "One App Free",
+        "mensual": "$ 0",
+        "anual": "$ 0",
+        "cita": "One App Free $ 0 One app, unlimited users Odoo Online"
+      }
+    ]
+  }
 }

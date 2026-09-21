@@ -155,5 +155,24 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://agiled.app/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://agiled.app/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Starter",
+        "mensual": "29 $/mes",
+        "anual": "24 $/mes",
+        "cita": "$29 / $24"
+      },
+      {
+        "nombre": "Pro",
+        "mensual": "69 $/mes",
+        "anual": "59 $/mes",
+        "cita": "$69 / $59"
+      }
+    ]
   }
 }

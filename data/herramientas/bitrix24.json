@@ -112,5 +112,35 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.bitrix24.com/prices/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.bitrix24.com/prices/",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 $",
+        "cita": "100% free"
+      },
+      {
+        "nombre": "Basic",
+        "mensual": "69 $/mes por organización",
+        "anual": "49 $/mes por organización",
+        "cita": "US$ 69 / US$ 49"
+      },
+      {
+        "nombre": "Standard",
+        "mensual": "144 $/mes por organización",
+        "anual": "99 $/mes por organización",
+        "cita": "US$ 144 / US$ 99"
+      },
+      {
+        "nombre": "Professional",
+        "mensual": "289 $/mes por organización",
+        "anual": "199 $/mes por organización",
+        "cita": "US$ 289 / US$ 199"
+      }
+    ]
   }
 }

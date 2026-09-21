@@ -57,6 +57,12 @@ export type TarjetaLoQueCuestaProps = {
    */
   planDeLaFuncion?: string;
   /**
+   * Cuánto cuesta ESE plan, ya redactado por `textoDelPlan`. Con esto el
+   * nombre deja de ser un jeroglífico: da igual qué signifique «Growth» si al
+   * lado pone lo que vale. Ausente mientras ese plan no esté comprobado.
+   */
+  precioDelPlan?: string;
+  /**
    * Hubo pregunta de necesidad y la evidencia no dice en qué plan está. Se
    * dice, en vez de callarlo. `false` o ausente cuando no hubo necesidad
    * concreta que preguntar: ahí no hay nada que confirmar ni que ocultar.
@@ -72,6 +78,7 @@ export default function TarjetaLoQueCuesta({
   estaComprobado,
   urlPrecios,
   planDeLaFuncion,
+  precioDelPlan,
   planSinConfirmar,
 }: TarjetaLoQueCuestaProps) {
   const IconoComprobacion = estaComprobado ? ShieldCheck : ShieldQuestion;
@@ -111,8 +118,17 @@ export default function TarjetaLoQueCuesta({
       */}
       {planDeLaFuncion && (
         <p className="mt-2.5 text-sm leading-relaxed text-slate-700">
-          Cuando mires su tarifa, esta función está en el plan que ellos llaman{" "}
-          <span className="font-medium text-slate-900">{planDeLaFuncion}</span>.
+          {precioDelPlan ? (
+            <>
+              Para esta función necesitas su plan <span className="font-medium text-slate-900">{planDeLaFuncion}</span>:{" "}
+              <span className="font-medium text-slate-900">{precioDelPlan}</span>.
+            </>
+          ) : (
+            <>
+              Cuando mires su tarifa, esta función está en el plan que ellos llaman{" "}
+              <span className="font-medium text-slate-900">{planDeLaFuncion}</span>.
+            </>
+          )}
         </p>
       )}
       {!planDeLaFuncion && planSinConfirmar && (

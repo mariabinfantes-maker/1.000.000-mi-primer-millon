@@ -141,5 +141,28 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://capsulecrm.com/signup/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://capsulecrm.com/signup/",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Growth",
+        "anual": "US$36",
+        "cita": "US$36Per user, per month. Billed Annually."
+      },
+      {
+        "nombre": "Free",
+        "mensual": "US$0",
+        "anual": "US$0",
+        "cita": "US$0Maximum 2 users."
+      },
+      {
+        "nombre": "Starter",
+        "anual": "US$18",
+        "cita": "US$18Per user, per month. Billed Annually."
+      }
+    ]
   }
 }

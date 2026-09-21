@@ -136,5 +136,18 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.copy.ai/prices"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.copy.ai/prices",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Chat",
+        "mensual": "29 $/mes",
+        "anual": "24 $/mes",
+        "cita": "$29/mo / $24/mo / Billed $288/yr"
+      }
+    ]
   }
 }

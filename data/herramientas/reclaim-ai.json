@@ -142,5 +142,28 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://reclaim.ai/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://reclaim.ai/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Lite",
+        "mensual": "0 $",
+        "cita": "Free forever"
+      },
+      {
+        "nombre": "Business",
+        "mensual": "18 $/usuario/mes",
+        "anual": "15 $/usuario/mes",
+        "cita": "$18 / $15"
+      },
+      {
+        "nombre": "Enterprise",
+        "anual": "22 $/usuario/mes",
+        "cita": "$22, Unavailable on monthly plans"
+      }
+    ]
   }
 }

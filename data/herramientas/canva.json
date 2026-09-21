@@ -142,5 +142,17 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.canva.com/pricing/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.canva.com/pricing/",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 $",
+        "cita": "US$0"
+      }
+    ]
   }
 }

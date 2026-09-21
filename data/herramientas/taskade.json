@@ -138,5 +138,35 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.taskade.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.taskade.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 $/mes",
+        "cita": "$0"
+      },
+      {
+        "nombre": "Pro",
+        "mensual": "20 $/mes",
+        "anual": "10 $/mes",
+        "cita": "$20 / $10, incluye 10 usuarios"
+      },
+      {
+        "nombre": "Business",
+        "mensual": "50 $/mes",
+        "anual": "25 $/mes",
+        "cita": "$50 / $25, usuarios ilimitados"
+      },
+      {
+        "nombre": "Max",
+        "mensual": "200 $/mes",
+        "anual": "100 $/mes",
+        "cita": "$200 / $100"
+      }
+    ]
   }
 }

@@ -150,5 +150,24 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://www.clickfunnels.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.clickfunnels.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Launch",
+        "mensual": "97 $/mes",
+        "anual": "81 $/mes",
+        "cita": "$97/mo / $81/mo"
+      },
+      {
+        "nombre": "Scale",
+        "mensual": "197 $/mes",
+        "anual": "164 $/mes",
+        "cita": "$197/mo / $164/mo"
+      }
+    ]
   }
 }

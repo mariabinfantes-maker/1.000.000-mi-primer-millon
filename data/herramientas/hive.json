@@ -157,5 +157,18 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://hive.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://hive.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Teams",
+        "mensual": "18 $/usuario/mes",
+        "anual": "12 $/usuario/mes",
+        "cita": "$18,00 / $12.00"
+      }
+    ]
   }
 }

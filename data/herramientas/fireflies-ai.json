@@ -156,5 +156,28 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://fireflies.ai/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://fireflies.ai/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 $",
+        "cita": "$0"
+      },
+      {
+        "nombre": "Pro",
+        "mensual": "18 $/usuario/mes",
+        "anual": "10 $/usuario/mes",
+        "cita": "$18 / $10"
+      },
+      {
+        "nombre": "Enterprise",
+        "anual": "39 $/usuario/mes",
+        "cita": "$39, sólo facturación anual"
+      }
+    ]
   }
 }

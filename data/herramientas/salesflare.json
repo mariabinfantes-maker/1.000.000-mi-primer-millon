@@ -139,5 +139,30 @@
   "preciosComprobados": {
     "fecha": "2026-09-17",
     "url": "https://salesflare.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://salesflare.com/pricing",
+    "moneda": "EUR",
+    "planes": [
+      {
+        "nombre": "Growth",
+        "mensual": "39 €/usuario/mes",
+        "anual": "29 €/usuario/mes",
+        "cita": "€39 / €29"
+      },
+      {
+        "nombre": "Pro",
+        "mensual": "64 €/usuario/mes",
+        "anual": "49 €/usuario/mes",
+        "cita": "€64 / €49"
+      },
+      {
+        "nombre": "Enterprise",
+        "mensual": "124 €/usuario/mes",
+        "anual": "99 €/usuario/mes",
+        "cita": "€124 / €99, mínimo 5 usuarios"
+      }
+    ]
   }
 }
