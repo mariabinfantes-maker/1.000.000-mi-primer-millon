@@ -211,15 +211,6 @@ export default function TarjetaHerramientaRecomendada({
               </p>
             )
           )}
-          <p className="mt-1.5">
-            {evidencia.plan ? (
-              <>
-                Plan: <span className="font-medium text-slate-800">{evidencia.plan}</span>.
-              </>
-            ) : (
-              "No hemos confirmado qué plan necesitas."
-            )}
-          </p>
           {evidencia.integraCon && (
             <p className="mt-1.5">
               Lo hace a través de otra herramienta: <span className="font-medium text-slate-800">{evidencia.integraCon}</span>.
@@ -381,6 +372,8 @@ export default function TarjetaHerramientaRecomendada({
       comprobacion={comprobacionDelPrecio}
       estaComprobado={precioComprobado}
       {...(urlPrecios ? { urlPrecios } : {})}
+      {...(evidencia?.tipo === "confirmada" && evidencia.plan ? { planDeLaFuncion: evidencia.plan } : {})}
+      {...(evidencia?.tipo === "confirmada" && !evidencia.plan ? { planSinConfirmar: true } : {})}
     />
     </div>
   );

@@ -44,6 +44,24 @@ export type TarjetaLoQueCuestaProps = {
   estaComprobado: boolean;
   /** La página de precios del fabricante, para que pueda ir a mirarlo ella. */
   urlPrecios?: string;
+  /**
+   * En qué plan vive la función que la persona pidió, cuando F2 lo demostró.
+   *
+   * Vive AQUÍ y no en la recomendación, donde estuvo hasta el 2026-09-21
+   * diciendo «Plan: Growth.» a secas. En qué plan está una función es parte de
+   * lo que cuesta, no de si sirve — y la recomendación no habla de dinero.
+   *
+   * Es una regla del fabricante, como el precio o los días de prueba, así que
+   * se dice plana: sin «pero», sin compararla con el plan gratuito y sin
+   * énfasis. Nosotros la transcribimos; lo nuestro es haberla comprobado.
+   */
+  planDeLaFuncion?: string;
+  /**
+   * Hubo pregunta de necesidad y la evidencia no dice en qué plan está. Se
+   * dice, en vez de callarlo. `false` o ausente cuando no hubo necesidad
+   * concreta que preguntar: ahí no hay nada que confirmar ni que ocultar.
+   */
+  planSinConfirmar?: boolean;
 };
 
 export default function TarjetaLoQueCuesta({
@@ -53,6 +71,8 @@ export default function TarjetaLoQueCuesta({
   comprobacion,
   estaComprobado,
   urlPrecios,
+  planDeLaFuncion,
+  planSinConfirmar,
 }: TarjetaLoQueCuestaProps) {
   const IconoComprobacion = estaComprobado ? ShieldCheck : ShieldQuestion;
 
@@ -71,6 +91,15 @@ export default function TarjetaLoQueCuesta({
       <div className="mt-2.5">
         <Etiqueta variante={tienePlanGratuito ? "exito" : "neutra"}>{comoSeEmpieza}</Etiqueta>
       </div>
+
+      {planDeLaFuncion && (
+        <p className="mt-2.5 text-sm leading-relaxed text-slate-700">
+          La función que buscas está en el plan <span className="font-medium text-slate-900">{planDeLaFuncion}</span>.
+        </p>
+      )}
+      {!planDeLaFuncion && planSinConfirmar && (
+        <p className="mt-2.5 text-sm leading-relaxed text-slate-500">No hemos confirmado en qué plan está esa función.</p>
+      )}
 
       <p className="mt-3 flex items-start gap-1.5 text-xs leading-relaxed text-slate-500">
         <IconoComprobacion className="mt-0.5 h-3.5 w-3.5 shrink-0 text-slate-400" aria-hidden="true" />
