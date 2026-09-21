@@ -16,8 +16,13 @@ import { ExternalLink, ShieldCheck, ShieldQuestion } from "lucide-react";
  *
  * Así que no se quita nada: se estructura. Arriba la respuesta a la única
  * pregunta que tiene —¿esto, a mí, cuánto me cuesta?—. Debajo, filas de
- * «concepto → dato» que se escanean con la vista sin leerlas. Y al final, de
- * dónde sale y cuándo se miró.
+ * «concepto → dato» que se escanean con la vista sin leerlas. Después, el
+ * plan gratuito, si lo hay. Y al final, de dónde sale y cuándo se miró.
+ *
+ * El plan gratuito no es una fila. Lo fue, con la etiqueta «También tiene», y
+ * la propietaria lo cortó: «eso sobra. Alto y claro sin miedo». Una etiqueta
+ * que empieza por «también» pide perdón por lo que va a decir. Ahora es una
+ * frase entera, en su propia línea y en negrita: «Plan gratuito básico».
  *
  * ACOMPAÑA, NO COMPITE: sin color de marca, sin sombra. Lo único grande es la
  * respuesta, porque es lo que vino a saber.
@@ -28,8 +33,15 @@ import { ExternalLink, ShieldCheck, ShieldQuestion } from "lucide-react";
 export type TarjetaLoQueCuestaProps = {
   /** La respuesta: «24 $/mes», «Nada», o el precio de entrada si no hubo diagnóstico. */
   respuesta: string;
-  /** El resto, en orden: el plan, la otra modalidad de pago, lo que ofrece su paquete. */
+  /** El resto, en orden: el plan y la otra modalidad de pago. */
   filas: { concepto: string; dato: string }[];
+  /**
+   * «Plan gratuito básico» o «Plan gratuito de prueba, 14 días». Ya redactado
+   * y dicho sin rodeos: es lo que ofrece su paquete, y la persona tiene
+   * derecho a verlo sin tener que buscarlo. Ausente si no hay ninguno, o si
+   * ya le sale gratis lo que necesita.
+   */
+  planGratuito?: string;
   /**
    * Ya redactado: «Precio comprobado en su web el 17 de septiembre de 2026»,
    * o la frase de que no se ha comprobado. Nunca vacío: que una página esté
@@ -50,6 +62,7 @@ export type TarjetaLoQueCuestaProps = {
 export default function TarjetaLoQueCuesta({
   respuesta,
   filas,
+  planGratuito,
   comprobacion,
   estaComprobado,
   urlPrecios,
@@ -72,6 +85,10 @@ export default function TarjetaLoQueCuesta({
             </div>
           ))}
         </dl>
+      )}
+
+      {planGratuito && (
+        <p className="mt-3 border-t border-slate-200/80 pt-3 text-sm font-semibold text-slate-900">{planGratuito}</p>
       )}
 
       {planSinConfirmar && (

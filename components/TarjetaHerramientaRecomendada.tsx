@@ -44,8 +44,10 @@ export type TarjetaHerramientaRecomendadaProps = {
    * «Nada», o el precio de entrada cuando no hubo diagnóstico.
    */
   cuantoCuesta: string;
-  /** El resto, en filas de «concepto → dato»: el plan, la otra modalidad, lo que ofrece su paquete. */
+  /** El resto, en filas de «concepto → dato»: el plan y la otra modalidad de pago. */
   filasDelCoste: { concepto: string; dato: string }[];
+  /** «Plan gratuito básico» o «Plan gratuito de prueba, 14 días», ya redactado. */
+  planGratuito?: string;
   ventajas: string[];
   inconvenientes: string[];
   /** Párrafo ya redactado en lenguaje natural explicando por qué se recomienda para este usuario. */
@@ -94,6 +96,7 @@ export default function TarjetaHerramientaRecomendada({
   urlPrecios,
   cuantoCuesta,
   filasDelCoste,
+  planGratuito,
   ventajas,
   inconvenientes,
   explicacionPersonalizada,
@@ -363,6 +366,7 @@ export default function TarjetaHerramientaRecomendada({
       <TarjetaLoQueCuesta
         respuesta={cuantoCuesta}
         filas={filasDelCoste}
+        {...(planGratuito ? { planGratuito } : {})}
         comprobacion={comprobacionDelPrecio}
         estaComprobado={precioComprobado}
         {...(urlPrecios ? { urlPrecios } : {})}

@@ -95,8 +95,22 @@ describe("toda la información, pero ordenada", () => {
     expect(r.filas).toEqual([
       { concepto: "Con su plan", dato: "Starter" },
       { concepto: "Pagando mes a mes", dato: "29 $/mes" },
-      { concepto: "También tiene", dato: "Un plan gratuito que no caduca" },
     ]);
+  });
+
+  /**
+   * «También tiene: un plan gratuito que no caduca» fue la versión anterior, y
+   * la propietaria la cortó: «eso sobra. Alto y claro sin miedo. Plan gratuito
+   * básico, o en el otro caso plan gratuito de prueba».
+   *
+   * Así que el plan gratuito no es una fila del recibo con una etiqueta que
+   * pide perdón: es una frase entera, y dice de cuál de las dos clases es,
+   * porque no valen lo mismo.
+   */
+  it("el plan gratuito se dice entero y aparte, no como una fila", () => {
+    const r = filasDeLoQueCuesta(agiled, "Starter", planes);
+    expect(r.planGratuito).toBe("Plan gratuito básico");
+    expect(r.filas.some((f) => f.concepto === "También tiene"), "ha vuelto la etiqueta que sobra").toBe(false);
   });
 
   /**
@@ -104,16 +118,31 @@ describe("toda la información, pero ordenada", () => {
    * tiene derecho a verla. La propietaria lo corrigió cuando lo quité:
    * «yo no he dicho de quitar la información que trae el paquete de ellos».
    */
-  it("la prueba gratuita también sale, con sus días", () => {
+  it("la prueba gratuita también sale, con sus días y llamada por su nombre", () => {
     const conPrueba = { ...agiled, tipoPlanGratuito: "prueba" as const, pruebaGratuitaDias: 14 };
-    const r = filasDeLoQueCuesta(conPrueba, "Starter", planes);
-    expect(r.filas).toContainEqual({ concepto: "También tiene", dato: "14 días de prueba gratis" });
+    expect(filasDeLoQueCuesta(conPrueba, "Starter", planes).planGratuito).toBe("Plan gratuito de prueba, 14 días");
+
+    const sinDias = { ...agiled, tipoPlanGratuito: "prueba" as const };
+    expect(filasDeLoQueCuesta(sinDias, "Starter", planes).planGratuito).toBe("Plan gratuito de prueba");
+  });
+
+  it("si no consta de qué clase es, se dice; no se elige una por nosotros", () => {
+    const sinClase = { precioInicial: agiled.precioInicial, tienePlanGratuito: true };
+    expect(filasDeLoQueCuesta(sinClase, "Starter", planes).planGratuito).toBe(
+      "Plan gratuito, no hemos comprobado si caduca"
+    );
+  });
+
+  it("sin plan gratuito no se dice nada de un plan gratuito", () => {
+    const dePago = { ...agiled, tienePlanGratuito: false };
+    expect(filasDeLoQueCuesta(dePago, "Starter", planes).planGratuito).toBeUndefined();
   });
 
   it("cuando lo que necesita entra en el plan gratuito, la respuesta es «Nada» y no se repite", () => {
     const r = filasDeLoQueCuesta(agiled, "Free", [{ nombre: "Free", mensual: "0 $" }]);
     expect(r.respuesta).toBe("Nada");
     expect(r.filas).toEqual([{ concepto: "Con su plan", dato: "Free" }]);
+    expect(r.planGratuito, "ya le sale gratis: repetirlo debajo sobra").toBeUndefined();
   });
 
   it("sin diagnóstico no finge una respuesta: dice desde cuánto empieza", () => {

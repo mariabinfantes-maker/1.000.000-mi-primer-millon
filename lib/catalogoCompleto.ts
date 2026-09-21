@@ -138,10 +138,6 @@ export function textoDeComprobacion(h: { preciosComprobados?: { fecha: string; u
  */
 export const PRECIO_SIN_COMPROBAR = "Este precio no lo hemos comprobado en su web.";
 
-
-
-
-
 /**
  * Lo que cuesta, en filas de «concepto → dato».
  *
@@ -156,6 +152,10 @@ export const PRECIO_SIN_COMPROBAR = "Este precio no lo hemos comprobado en su we
  *
  * Nada se oculta: el plan, la otra modalidad de pago y lo que ofrece su
  * paquete siguen todos ahí. Lo que cambia es que ya no compiten entre sí.
+ *
+ * El plan gratuito sale aparte de las filas, no como una de ellas: no es un
+ * concepto del recibo, es otra cosa que se puede hacer. Ver
+ * `textoDelPlanGratuito`.
  */
 export function filasDeLoQueCuesta(
   h: {
@@ -166,7 +166,7 @@ export function filasDeLoQueCuesta(
   },
   planQueNecesita: string | undefined,
   planes: { nombre: string; mensual?: string; anual?: string }[] | undefined
-): { respuesta: string; filas: { concepto: string; dato: string }[] } {
+): { respuesta: string; filas: { concepto: string; dato: string }[]; planGratuito?: string } {
   const plan = planQueNecesita ? planes?.find((p) => p.nombre.toLowerCase() === planQueNecesita.toLowerCase()) : undefined;
   const esGratis = (v?: string) => v !== undefined && /^0\s*(€|\$|US\$)?$/.test(v.trim());
   const filas: { concepto: string; dato: string }[] = [];
@@ -188,17 +188,33 @@ export function filasDeLoQueCuesta(
     respuesta = h.precioInicial;
   }
 
-  // Lo que ofrece SU paquete. Va al final y en su sitio: es información suya,
-  // no nuestra, y así no discute con la cifra de arriba.
-  if (h.tienePlanGratuito && respuesta !== "Nada") {
-    if (h.tipoPlanGratuito === "indefinido") filas.push({ concepto: "También tiene", dato: "Un plan gratuito que no caduca" });
-    else if (h.tipoPlanGratuito === "prueba") {
-      filas.push({
-        concepto: "También tiene",
-        dato: h.pruebaGratuitaDias ? `${h.pruebaGratuitaDias} días de prueba gratis` : "Una prueba gratuita",
-      });
-    } else filas.push({ concepto: "También tiene", dato: "Una forma de empezar sin pagar" });
-  }
+  return { respuesta, filas, planGratuito: respuesta === "Nada" ? undefined : textoDelPlanGratuito(h) };
+}
 
-  return { respuesta, filas };
+/**
+ * El plan gratuito, dicho alto y claro y sin miedo.
+ *
+ * Tercera versión. Las dos anteriores lo colgaban de una etiqueta —«También
+ * tiene: un plan gratuito que no caduca»— y la propietaria las cortó: «eso
+ * sobra. Alto y claro sin miedo. Plan gratuito básico, o en el otro caso plan
+ * gratuito de prueba». Una etiqueta que empieza por «también» pide perdón por
+ * lo que dice; y el cliente necesita saber exactamente dos cosas: que hay algo
+ * gratis, y de cuál de las dos clases es.
+ *
+ * Las dos clases no valen lo mismo y por eso no se llaman igual. Ver ATLAS.md,
+ * «EL PLAN GRATUITO NO VALE LO MISMO SI ES UNA PRUEBA».
+ */
+function textoDelPlanGratuito(h: {
+  tienePlanGratuito: boolean;
+  tipoPlanGratuito?: "indefinido" | "prueba";
+  pruebaGratuitaDias?: number;
+}): string | undefined {
+  if (!h.tienePlanGratuito) return undefined;
+  if (h.tipoPlanGratuito === "indefinido") return "Plan gratuito básico";
+  if (h.tipoPlanGratuito === "prueba") {
+    return h.pruebaGratuitaDias ? `Plan gratuito de prueba, ${h.pruebaGratuitaDias} días` : "Plan gratuito de prueba";
+  }
+  // Sabemos que lo hay y no sabemos de qué clase. Decirlo es más honrado que
+  // elegir una de las dos por nosotros.
+  return "Plan gratuito, no hemos comprobado si caduca";
 }

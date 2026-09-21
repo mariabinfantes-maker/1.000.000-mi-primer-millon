@@ -87,6 +87,7 @@ export function aVistaDeTarjeta(
     tienePlanGratuito: herramienta.tienePlanGratuito,
     cuantoCuesta: cuesta.respuesta,
     filasDelCoste: cuesta.filas,
+    ...(cuesta.planGratuito ? { planGratuito: cuesta.planGratuito } : {}),
     ventajas: herramienta.ventajas,
     inconvenientes: herramienta.inconvenientes,
     explicacionPersonalizada: evaluada.explicacion,
@@ -125,7 +126,11 @@ export function aVistaDeTarjetaGenerica(herramienta: Herramienta, posicion: numb
     // plan le toca: se dice desde cuánto empieza y no se finge una respuesta.
     ...(() => {
       const c = filasDeLoQueCuesta(herramienta, undefined, herramienta.planesComprobados?.planes);
-      return { cuantoCuesta: c.respuesta, filasDelCoste: c.filas };
+      return {
+        cuantoCuesta: c.respuesta,
+        filasDelCoste: c.filas,
+        ...(c.planGratuito ? { planGratuito: c.planGratuito } : {}),
+      };
     })(),
     ventajas: herramienta.ventajas,
     inconvenientes: herramienta.inconvenientes,
