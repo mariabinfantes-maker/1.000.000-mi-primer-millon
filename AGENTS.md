@@ -36,7 +36,7 @@ Cuatro reglas que se derivan y que no se negocian:
 - **Sin lenguaje técnico.** Si la explicación sólo la entiende quien ya sabía,
   no ha servido.
 
-**El catálogo está vivo.** Las 62 herramientas son la base que verifica F2, no
+**El catálogo está vivo.** Las 65 herramientas son la base que verifica F2, no
 un tope. Si el catálogo no cubre una necesidad, Researcher busca alternativas
 **con o sin afiliación**.
 
