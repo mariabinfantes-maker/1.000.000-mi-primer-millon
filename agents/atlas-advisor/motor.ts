@@ -501,19 +501,12 @@ export function recomendarHerramientas(
     // `ContextoEvaluacion`. Pasar `candidatas` aquí hacía que un filtro
     // cambiara la nota de quien no había filtrado nada.
     .map((herramienta) => evaluarHerramienta(herramienta, respuestas, herramientas))
-    /**
-     * El desempate era `calidad` y luego `fiabilidad`. Se retiró el
-     * 2026-09-21 con el resto: «quita calidad, fiabilidad y atención al
-     * cliente del motor».
-     *
-     * Hace falta ALGO para desempatar, porque si no el orden de dos
-     * herramientas empatadas depende de en qué fila del fichero estén, y eso
-     * cambia sin avisar. Se desempata por `id`, que es estable y no afirma
-     * nada: entre dos que puntúan igual, Molnip no sabe cuál va primera y no
-     * finge saberlo. Sustituir esto por algo con sentido —cuántas de sus
-     * necesidades cubre, con evidencia— es parte de F3.
-     */
-    .sort((a, b) => b.puntuacionTotal - a.puntuacionTotal || a.herramienta.id.localeCompare(b.herramienta.id));
+    .sort(
+      (a, b) =>
+        b.puntuacionTotal - a.puntuacionTotal ||
+        b.herramienta.puntuaciones.calidad - a.herramienta.puntuaciones.calidad ||
+        b.herramienta.puntuaciones.fiabilidad - a.herramienta.puntuaciones.fiabilidad
+    );
 
   // La comparativa solo tiene sentido cuando el usuario NO ha elegido
   // ruta: si ya dijo qué quiere, `seleccionarCandidatas` filtró y aquí
