@@ -48,12 +48,11 @@ export type TarjetaHerramientaRecomendadaProps = {
   /** La letra pequeña debajo de la cifra: «Es su plan Starter. Mes a mes son 29 €.» */
   detalleDelCoste?: string;
   /**
-   * Lo último que lee antes de pulsar: «puedes probarla 14 días antes de
-   * pagar». Es la pieza que cierra — «Probar gratis» a secas da miedo, porque
-   * no dice gratis cuánto ni si piden tarjeta. Ausente cuando no hay nada que
-   * prometer: ahí no se inventa un consuelo.
+   * Lo que ofrece SU paquete —«Pruébalo gratis 14 días»—, ya redactado. Va
+   * dentro de la tarjeta de coste, junto al precio, porque es parte de lo que
+   * cuesta y es información suya, no nuestra.
    */
-  alPulsar?: string;
+  ofreceSuPaquete?: string;
   ventajas: string[];
   inconvenientes: string[];
   /** Párrafo ya redactado en lenguaje natural explicando por qué se recomienda para este usuario. */
@@ -102,7 +101,7 @@ export default function TarjetaHerramientaRecomendada({
   urlPrecios,
   cuantoCuesta,
   detalleDelCoste,
-  alPulsar,
+  ofreceSuPaquete,
   ventajas,
   inconvenientes,
   explicacionPersonalizada,
@@ -375,6 +374,7 @@ export default function TarjetaHerramientaRecomendada({
         comprobacion={comprobacionDelPrecio}
         estaComprobado={precioComprobado}
         {...(urlPrecios ? { urlPrecios } : {})}
+        {...(ofreceSuPaquete ? { ofreceSuPaquete } : {})}
         {...(evidencia?.tipo === "confirmada" && !evidencia.plan ? { planSinConfirmar: true } : {})}
       />
       {/*
@@ -386,7 +386,6 @@ export default function TarjetaHerramientaRecomendada({
         queda entre «ésta es» y «ya la estoy usando»: primero el precio,
         después qué pasa al pulsar, y entonces el botón.
       */}
-      {alPulsar && <p className="mt-3 text-center text-sm text-slate-600">{alPulsar}</p>}
       <Boton
         href={`/herramienta/${id}/ir?origen=resultado${rutaOrigen ? `&ruta=${encodeURIComponent(rutaOrigen)}` : ""}`}
         tamano="grande"

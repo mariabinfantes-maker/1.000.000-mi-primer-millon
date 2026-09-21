@@ -227,3 +227,30 @@ export function quePasaSiPulsas(h: {
   }
   return "Puedes empezar sin pagar.";
 }
+
+/**
+ * Lo que ofrece SU paquete: la prueba o el plan gratuito, dicho plano.
+ *
+ * Corrección de la propietaria (2026-09-21): «yo no he dicho de quitar la
+ * información que trae el paquete de ellos, plan gratis o pruébalo gratis X».
+ * Y antes: «son las reglas de ellos, no las nuestras». No ser ambiguo es no
+ * dejar a la persona en empate — no es enseñarle menos. Sus condiciones no
+ * son ambigüedad: son el paquete que ofrecen y ella tiene derecho a verlas.
+ *
+ * Se dice en segunda persona y como lo que es —una posibilidad, no un
+ * mérito—, y por eso no compite con la cifra: «24 € al mes» contesta cuánto
+ * cuesta, «pruébalo gratis 14 días» dice que puede verlo antes de pagar. Son
+ * dos hechos distintos y ninguno desmiente al otro.
+ */
+export function loQueOfreceSuPaquete(h: {
+  tienePlanGratuito: boolean;
+  tipoPlanGratuito?: "indefinido" | "prueba";
+  pruebaGratuitaDias?: number;
+}): string | null {
+  if (!h.tienePlanGratuito) return null;
+  if (h.tipoPlanGratuito === "indefinido") return "Tiene un plan gratuito que no caduca";
+  if (h.tipoPlanGratuito === "prueba") {
+    return h.pruebaGratuitaDias ? `Pruébalo gratis ${h.pruebaGratuitaDias} días` : "Tiene prueba gratuita";
+  }
+  return "Se puede empezar sin pagar";
+}

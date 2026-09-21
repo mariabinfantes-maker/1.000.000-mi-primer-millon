@@ -1,4 +1,4 @@
-import { ExternalLink, ShieldCheck, ShieldQuestion } from "lucide-react";
+import { ExternalLink, Gift, ShieldCheck, ShieldQuestion } from "lucide-react";
 
 /**
  * «Lo que te va a costar» — el dinero, aparte del consejo.
@@ -43,6 +43,16 @@ export type TarjetaLoQueCuestaProps = {
   /** La página de precios del fabricante, para que pueda ir a mirarlo ella. */
   urlPrecios?: string;
   /**
+   * Lo que ofrece SU paquete: «Pruébalo gratis 14 días», «Tiene un plan
+   * gratuito que no caduca». Ya redactado por `loQueOfreceSuPaquete`.
+   *
+   * Va aquí, junto al precio, porque es suyo y forma parte de lo que cuesta.
+   * Se quitó un momento por confundir «no ser ambiguos» con «enseñar menos»,
+   * y la propietaria lo devolvió a su sitio: sus condiciones no son
+   * ambigüedad.
+   */
+  ofreceSuPaquete?: string;
+  /**
    * Hubo diagnóstico y la evidencia no dice en qué plan está esa función. Se
    * dice, en vez de callarlo. Ausente cuando no hubo necesidad concreta que
    * preguntar: ahí no hay nada que confirmar ni que ocultar.
@@ -56,6 +66,7 @@ export default function TarjetaLoQueCuesta({
   comprobacion,
   estaComprobado,
   urlPrecios,
+  ofreceSuPaquete,
   planSinConfirmar,
 }: TarjetaLoQueCuestaProps) {
   const IconoComprobacion = estaComprobado ? ShieldCheck : ShieldQuestion;
@@ -67,6 +78,13 @@ export default function TarjetaLoQueCuesta({
       <p className="font-display mt-1.5 text-2xl font-bold tracking-tight text-slate-900">{cuanto}</p>
 
       {detalle && <p className="mt-1 text-sm leading-relaxed text-slate-600">{detalle}</p>}
+
+      {ofreceSuPaquete && (
+        <p className="mt-2 inline-flex w-fit items-center gap-1.5 rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-600 ring-1 ring-slate-200">
+          <Gift className="h-3.5 w-3.5 shrink-0 text-slate-400" aria-hidden="true" />
+          {ofreceSuPaquete}
+        </p>
+      )}
 
       {planSinConfirmar && (
         <p className="mt-1 text-sm leading-relaxed text-slate-500">No hemos confirmado en qué plan está esa función.</p>
