@@ -171,50 +171,9 @@ const coberturaUtil: CriterioRuta = {
   },
 };
 
-/**
- * Calidad CONJUNTA: de nada sirve centralizarlo todo en una plataforma
- * cuyos módulos son flojos. Este criterio es el que impide que una suite
- * mediocre gane por amplitud — la amplitud ya la mide `coberturaUtil`, y
- * aquí se le pregunta si además está bien hecha.
- */
-const calidadConjunta: CriterioRuta = {
-  min: -12,
-  max: 12,
-  evaluar: (herramienta) => {
-    const media = (herramienta.puntuaciones.calidad + herramienta.puntuaciones.fiabilidad) / 2;
-    const puntos = desdePuntuacion(media, 12);
-    return {
-      criterio: "calidadConjunta",
-      etiqueta: "Calidad conjunta de los módulos",
-      puntos,
-      explicacion:
-        puntos > 0
-          ? `Sus módulos mantienen buen nivel de calidad y fiabilidad (${media.toFixed(1)}/10 de media).`
-          : puntos < 0
-            ? `Cubre mucho, pero la calidad media de sus módulos se queda en ${media.toFixed(1)}/10.`
-            : "",
-    };
-  },
-};
 
-/** Integración nativa y datos centralizados: que los módulos sean del mismo producto y no piezas pegadas con integraciones. */
-const integracionNativa: CriterioRuta = {
-  min: 0,
-  max: 8,
-  evaluar: (herramienta) => {
-    const modulos = (herramienta.modulosIncluidos ?? []).length;
-    if (modulos === 0) return nada("integracionNativa", "Integración entre módulos");
-    // La fiabilidad es el mejor indicador disponible de que las piezas
-    // funcionan juntas: una plataforma con módulos mal integrados falla.
-    const puntos = Math.max(desdePuntuacion(herramienta.puntuaciones.fiabilidad, 8), 0);
-    return {
-      criterio: "integracionNativa",
-      etiqueta: "Integración entre módulos",
-      puntos,
-      explicacion: puntos > 0 ? "Los módulos comparten los mismos datos, sin conectar nada por fuera." : "",
-    };
-  },
-};
+
+
 
 /** Facilidad de administrar la plataforma entera: el argumento real de centralizar es que la lleve una sola persona. */
 const facilidadAdministracion: CriterioRuta = {
@@ -377,10 +336,36 @@ const relevanciaEnCategoriaAjena: CriterioRuta = {
   },
 };
 
+/**
+ * AQUÍ VIVÍAN CUATRO CRITERIOS Y SE RETIRARON EL 2026-09-21.
+ *
+ * `calidadConjunta` (±12), `integracionNativa` (0-8), `calidadEnLaTarea`
+ * (±12) y `superioridadFrenteAlModulo` (0-10). Los cuatro puntuaban leyendo
+ * `puntuaciones.calidad` o `puntuaciones.fiabilidad`.
+ *
+ * Decisión de la propietaria: **«quita calidad, fiabilidad y atención al
+ * cliente del motor»** — y en la misma frase, que el dato **no se borra**:
+ * «ése es de los mejores datos que tenemos para darle una posición en Molnip,
+ * aunque aún no sepamos exactamente cómo».
+ *
+ * El motivo está en ATLAS.md, «MOLNIP ES UN INTERMEDIARIO». En corto:
+ * `calidad: 9` no es una propiedad que se pueda emparejar con nada de la
+ * persona que pregunta. `nivelTecnicoRequerido` sí —se resta del nivel de su
+ * equipo y sale una distancia—, y por eso ése se queda. Lo que no se empareja
+ * con nadie no es un criterio de encaje: es una nota, y poner nota es lo que
+ * hace un comparador.
+ *
+ * Los campos siguen enteros en la ficha y nadie los ha tocado. Lo que se ha
+ * cerrado es la puerta entre «lo que tenemos guardado» y «con qué puntuamos».
+ *
+ * `integracionNativa` es el que más pena da, porque la idea era buena: que
+ * los módulos sean del mismo producto y no piezas pegadas por fuera. Eso es
+ * un HECHO comprobable (`modulosIncluidos`), no un juicio. Puede volver como
+ * criterio de hecho el día que se decida cuánto vale; hoy no vuelve porque
+ * todo su valor salía de `fiabilidad`.
+ */
 export const CRITERIOS_SUITE: CriterioRuta[] = [
   coberturaUtil,
-  calidadConjunta,
-  integracionNativa,
   facilidadAdministracion,
   costeTotalFrenteAVarias,
   escalabilidadSuite,
@@ -424,24 +409,7 @@ const profundidadFuncional: CriterioRuta = {
   },
 };
 
-const calidadEnLaTarea: CriterioRuta = {
-  min: -12,
-  max: 12,
-  evaluar: (herramienta) => {
-    const puntos = desdePuntuacion(herramienta.puntuaciones.calidad, 12);
-    return {
-      criterio: "calidadEnLaTarea",
-      etiqueta: "Calidad en su especialidad",
-      puntos,
-      explicacion:
-        puntos > 0
-          ? `Hace muy bien aquello para lo que está pensada (${herramienta.puntuaciones.calidad}/10).`
-          : puntos < 0
-            ? `Su calidad se queda por debajo de la media (${herramienta.puntuaciones.calidad}/10).`
-            : "",
-    };
-  },
-};
+
 
 const adaptacionAlSector: CriterioRuta = {
   min: 0,
@@ -551,47 +519,14 @@ const facilidadEnSuEspecialidad: CriterioRuta = {
  * entonces no es una suposición nuestra: es lo que pidió.
  */
 
-/**
- * Superioridad frente al módulo equivalente de una suite — el criterio que
- * de verdad justifica elegir una especializada. Compara su calidad con la
- * media de las suites del conjunto candidato: si no es mejor que el módulo
- * genérico, no hay razón para añadir otra suscripción.
- *
- * Nunca resta: una especializada que empata con las suites no merece
- * puntos extra, pero tampoco un castigo — ya compite por sus otros
- * criterios.
- */
-const superioridadFrenteAlModulo: CriterioRuta = {
-  min: 0,
-  max: 10,
-  evaluar: (herramienta, { referencia }) => {
-    const etiqueta = "Frente al módulo de una plataforma";
-    const suites = referencia.filter((h) => esSuite(h));
-    if (suites.length === 0) return nada("superioridadFrenteAlModulo", etiqueta);
 
-    const mediaSuites = suites.reduce((total, h) => total + h.puntuaciones.calidad, 0) / suites.length;
-    const ventaja = herramienta.puntuaciones.calidad - mediaSuites;
-    if (ventaja <= 0) return nada("superioridadFrenteAlModulo", etiqueta);
-
-    const puntos = Math.min(Math.round(ventaja * 3), 10);
-    return {
-      criterio: "superioridadFrenteAlModulo",
-      etiqueta,
-      puntos,
-      explicacion:
-        "Hace esta función mejor que el módulo equivalente de las plataformas todo en uno con las que compite.",
-    };
-  },
-};
 
 export const CRITERIOS_ESPECIALIZADA: CriterioRuta[] = [
   profundidadFuncional,
-  calidadEnLaTarea,
   adaptacionAlSector,
   funcionesAvanzadas,
   integracionesConTerceros,
   facilidadEnSuEspecialidad,
-  superioridadFrenteAlModulo,
 ];
 
 /** Los criterios que le tocan a una herramienta según lo que es, no según lo que el usuario prefiera. */

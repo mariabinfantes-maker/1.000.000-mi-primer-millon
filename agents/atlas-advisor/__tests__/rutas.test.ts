@@ -142,9 +142,14 @@ describe("equidad entre las dos rutas", () => {
 
     const criteriosDe = (evaluada: typeof suite) => new Set(evaluada.detalles.map((d) => d.criterio));
 
+    // El testigo de la ruta especializada era `superioridadFrenteAlModulo`,
+    // que se retiró el 2026-09-21 por puntuar con `puntuaciones.calidad`. El
+    // invariante que esta prueba defiende no ha cambiado —cada herramienta se
+    // mide con los criterios de SU ruta—, así que sólo cambia el testigo:
+    // `profundidadFuncional` es ahora el que sólo tienen las especializadas.
     expect(criteriosDe(suite).has("coberturaUtil")).toBe(true);
-    expect(criteriosDe(suite).has("superioridadFrenteAlModulo")).toBe(false);
-    expect(criteriosDe(especializada).has("superioridadFrenteAlModulo")).toBe(true);
+    expect(criteriosDe(suite).has("profundidadFuncional")).toBe(false);
+    expect(criteriosDe(especializada).has("profundidadFuncional")).toBe(true);
     expect(criteriosDe(especializada).has("coberturaUtil")).toBe(false);
   });
 });
