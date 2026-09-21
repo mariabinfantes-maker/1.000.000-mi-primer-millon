@@ -5336,7 +5336,7 @@ la misma: **opinión disfrazada de dato. Una en párrafo y otra en número.**
 Y lo incómodo, dicho entero: las opiniones eran el atajo para parecer útiles
 sin serlo. Sin ellas hay que serlo de verdad, y eso es más trabajo.
 
-## DÓNDE ESTAMOS — punto de partida al cerrar el 2026-09-18
+## DÓNDE ESTAMOS — punto de partida al cerrar el 2026-09-21
 
 Esta sección no decide nada: dice en qué punto quedó todo, para que quien
 retome no tenga que reconstruirlo leyendo doscientos commits. **Se reescribe
@@ -5346,57 +5346,136 @@ entera cada vez que cambie; no se acumula.**
 
 | | Estado |
 |---|---|
-| **1. Que Molnip sepa con quién habla** | Hecho. `lib/pais.ts` con ocho países, la pregunta «¿Dónde tienes el negocio?» en el cuestionario, y el motor deduce el idioma del país. Comprobado con datos reales: en «peluquería, España», HoneyBook pasó de ser la primera a no aparecer, porque su ficha declara que no está en español. **La moneda se guarda y no la usa nadie**, a propósito: 48 de las 65 fichas cobran en dólares y convertir sin un cambio verificado sería inventar un número. Sigue sin resolverse. |
-| **2. Partir «dinero» en sus piezas** | Hecho. Puerta propia «¿Qué te hace falta para gestionar tu dinero?» con 16 necesidades en cuatro familias: cobrar y facturar (5), gastos y cuentas e impuestos (5), saber si gano dinero (3), conseguir dinero (3). Con cinco capacidades nuevas en el vocabulario. |
+| **1. Que Molnip sepa con quién habla** | Hecho. `lib/pais.ts` con ocho países, la pregunta «¿Dónde tienes el negocio?» en el cuestionario, y el motor deduce el idioma del país. Comprobado con datos reales: en «peluquería, España», HoneyBook pasó de primera a no aparecer, porque su ficha dice que no está en español. **La moneda se guarda y no la usa nadie**, a propósito: 48 de las 65 fichas cobran en dólares y convertir sin un cambio verificado sería inventar un número. Sigue sin resolverse. |
+| **2. Partir «dinero» en sus piezas** | Hecho. Puerta propia «¿Qué te hace falta para gestionar tu dinero?» con 16 necesidades en cuatro familias, y cinco capacidades nuevas en el vocabulario. |
 | **3. La página de todas las herramientas** | Hecha. `/herramientas`, con filtros por todo en uno o especializada, categoría, idioma y plan gratuito. Sin «la mejor opción» ni nada que parezca un ranking con premio. |
-| **4. Vender más** | Sin empezar, como estaba acordado. Siguen siendo seis puertas y ninguna es ésa. |
+| **4. Vender más** | Sin empezar, como estaba acordado. |
 
-### Y lo que hay que saber antes que eso
+**Nada está desplegado.** Todo vive en la rama
+`claude/evidencia-usos-recorridos`. Decisión de la propietaria del 2026-09-18,
+que sigue vigente: terminar primero. «Habrá que esperar a terminar, a ver si
+realmente se ve y funciona como lo imaginamos.»
 
-**Nada está desplegado.** Los tres puntos hechos viven en la rama
-`claude/evidencia-usos-recorridos` y no están en la rama por defecto. El
-trabajo existe y el cliente no lo ve.
+### El catálogo hoy
 
-**Decisión de la propietaria (2026-09-18):** esperar. Sus palabras: «habrá que
-esperar a terminar, a ver si realmente se ve y funciona como lo imaginamos».
-Se le había planteado la alternativa —desplegar lo que hay y seguir afinando
-en abierto— y eligió terminar primero. Encaja con el ACUERDO DE RUMBO: si
-llega tráfico antes de que Molnip responda bien a una cosa, se va y no vuelve.
+- **65 fichas.**
+- **60 con el precio comprobado** en la web del fabricante, con la fecha y la
+  dirección que se abrió. Se empezó en 22.
+- **50 con los planes citados textualmente**: 108 planes con nombre y precio.
+- **64 tienen plan gratuito**; de ésas, 32 indefinido y 30 de prueba. Sin
+  clase quedan Copy.ai y Hotmart, porque su página no lo dice.
+- **Sin precio comprobado: Notion AI, Odoo, Zoho CRM, Zoho One y Zoho
+  Projects.**
+- **1.547 registros de capacidad sobre 64 de las 65 herramientas**, de los que
+  **662 están verificados** con cita, más 343 descartes con su motivo.
 
-### El catálogo, después de dos días verificando
+> **Corrección (2026-09-21).** La versión anterior de esta sección afirmaba
+> que **«el precio de Zoho no se puede leer»**, como hecho cerrado. Es falso:
+> el canal de GPT sí leyó Zoho CRM —Standard, 20 €/14 €— desde su propia
+> página. Que nosotros no lo hayamos incorporado a la ficha todavía no
+> convierte la lectura en imposible. **Queda pendiente meterlo.**
 
-- **60 de 65 fichas con el precio comprobado** en la web del fabricante, con
-  la fecha y la dirección que se abrió de verdad. Se empezó en 22.
-- **62 de las 64 con plan gratuito dicen de qué clase es**: 32 indefinido, 30
-  prueba. Sin clase quedan Copy.ai y Hotmart, las dos porque su página no lo
-  dice.
-- Sin precio: Notion AI, Odoo y los tres Zoho. **El precio de Zoho no se puede
-  leer**: seis direcciones y dos canales distintos, y ninguno da la cifra. Es
-  una característica de su web, no un fallo nuestro.
-- **662 capacidades verificadas con cita.** De 329 sabemos además el plan
-  exacto, y **269 de ésas están sólo si pagas**.
+### La tarjeta de recomendación: media hecha
+
+**Terminado y en el código:** la tarjeta **«Lo que te va a costar»**, separada
+de la recomendación. Contesta a «¿esto, a mí, cuánto me cuesta?» con una
+cifra, debajo el plan y la otra modalidad de pago en filas, después el plan
+gratuito dicho sin rodeos —«Plan gratuito básico» o «Plan gratuito de prueba,
+14 días»— y al final de dónde sale el precio y cuándo se miró. El botón va
+**después**, porque pedir que pulse antes de saber el precio es pedirle un
+salto a ciegas.
+
+**Sin hacer, y son cuatro cosas concretas:**
+
+1. **El bloque sigue diciendo «DESVENTAJAS»**, a dos columnas del mismo ancho
+   que «Ventajas», con ✓ verde contra × roja. **El repositorio tiene ahora una
+   regla que la tarjeta incumple** — ver la quinta regla de la visión en
+   `AGENTS.md`. La regla se escribió antes que el código, a propósito, pero
+   conviene no olvidarlo.
+2. **El 88 sigue arriba sin decir de qué está hecho.**
+3. **`metodologiaValoracion`**: 64 de 65 fichas publican, bajo el título «Cómo
+   llegamos a esta valoración», que las notas salen de «agregación de miles de
+   opiniones verificadas en G2 y Capterra». Nadie agregó nada.
+4. **`criterioMetodologia`** (en `agents/atlas-advisor/criterios.ts`) da **+2
+   puntos a 60 de 65 fichas** y escribe en pantalla «sus puntuaciones están
+   contrastadas con datos de uso reales». No hay datos de uso reales de nadie:
+   no hay ni un cliente. **Y además puntúa nuestras propias palabras**, no la
+   herramienta: da los puntos porque un texto que escribimos nosotros no
+   contiene cierta frase.
+
+Había una maqueta del bloque nuevo, enseñada y **descartada por la propietaria
+el mismo día**: llevaba un aviso de «esto es valoración nuestra, no lo hemos
+comprobado» debajo de las pegas, y ella lo cortó — el aviso no es honradez,
+es taparse las espaldas. No se reutiliza tal cual.
+
+### Lo que decidió la propietaria el 2026-09-21
+
+Está entero, con sus porqués y sus números, en la sección anterior, **«MOLNIP
+ES UN INTERMEDIARIO»**. En una línea cada una:
+
+1. **Si no lo sabemos, no se dice** — y el aviso no sirve de coartada.
+2. **Un adjetivo sin «para quién» está a medias** — no se comprueba, se
+   completa o se cae.
+3. **Molnip es un intermediario** — su único activo es que las dos partes le
+   acepten en medio, y por eso no opina y no pone nota.
+
+Y tres capas que no se pueden confundir: **lo que tenemos guardado** (no se
+borra), **lo que publicamos** (sólo lo sostenible) y **con qué puntuamos** (la
+metodología del negocio, que es la que hay que tener clara). Es la misma
+forma que ya tiene la capa de verificación, donde el puerto guarda todo y la
+puerta sólo deja ver una rendija.
+
+### Hacia dónde va la pantalla de resultados
+
+Descrito por la propietaria el 2026-09-21, sin construir y sin decidir el
+alcance:
+
+> **«Esto es lo que dicen ellos.»** Lo que llegó por nuestra investigación, de
+> lo que dice su web. De cada herramienta se enseña **lo que dice que hace**.
+> Se ordenan **de la más cercana a lo que ha pedido a la más lejana** —no por
+> nota—, las tres primeras delante, y desplegando se ven **todas las que hemos
+> podido comprobar**.
+
+Tres cosas anotadas de esa conversación:
+
+- **La fuente marca el límite.** Si sólo contamos lo que pone en su página,
+  nunca podremos decir que el soporte es lento ni que la interfaz abruma,
+  porque eso nadie lo escribe en su propia web. Las frases que sobran se caen
+  solas, sin necesidad de una norma que las prohíba.
+- **«Nuestros proveedores» se descartó** el mismo día. No lo son: no hay
+  acuerdo con ninguna de las 65. Además pondría a Molnip de vendedora —y la
+  clienta vendría a reclamar aquí cuando la herramienta le falle—, que es lo
+  contrario de estar en medio.
+- **El final del camino: «cuando tengamos valoraciones de clientes se
+  posicionarán solas.»** El orden lo decidirían los clientes, no nosotros —y
+  contra eso ningún fabricante puede enfadarse con Molnip. Con dos trampas
+  anotadas: con pocas valoraciones la posición es suerte, y **la pregunta que
+  se les haga decide la calidad de todo el sistema** («¿te gustó?» devuelve
+  los mismos adjetivos que hemos borrado; «¿resolvió lo que venías a
+  resolver?» y «¿la sigues usando a los tres meses?» devuelven hechos).
 
 ### Lo que queda encima de la mesa
 
-1. **Lo gordo: que «la mejor» se apoye en lo comprobado.** Hoy se apoya en
-   `puntuaciones.calidad` y en cuántos elementos tiene `funcionesPrincipales`;
-   las 662 capacidades verificadas sólo hacen de portero. Es F3 y tiene
-   condiciones previas en `data/vocabulario/CONDICIONES-PARA-F3.md`. No se
-   abre sin autorización.
-2. **La tarjeta de «lo que te va a costar»**, separada de la recomendación.
-   Acordada y sin construir. Ver «ESTAMOS ENDIOSANDO LO GRATIS».
-3. **La frase que da valor a Molnip**, que sale de ese 82 %: «sí, tiene plan
-   gratuito, pero lo que tú necesitas no está en él». Tenemos el dato y no lo
-   enseña ninguna pantalla — `planMinimo` sólo vive en la verificación.
-4. **La moneda**, sin usar desde el punto 1.
-5. **Cinco fichas sin precio comprobado** y dos sin clase de plan, todas por
-   motivos documentados en `agents/atlas-curator/investigaciones/`.
+1. **Lo gordo: que el orden se apoye en lo comprobado.** Hoy se apoya en las
+   siete notas de `puntuaciones`, que no tienen fuente; las 662 capacidades
+   verificadas sólo hacen de portero. Es F3 y tiene condiciones previas
+   escritas en `data/vocabulario/CONDICIONES-PARA-F3.md`. No se abre sin
+   autorización.
+2. **Las cuatro de la tarjeta**, arriba. La más urgente es la 3, porque es la
+   única afirmación falsa que habla de nosotros y no de ellos.
+3. **La frase que da valor a Molnip**: «sí, tiene plan gratuito, pero lo que
+   tú necesitas no está en él». El dato existe —`planMinimo`, en la capa de
+   verificación— y no lo enseña ninguna pantalla.
+4. **La moneda**, sin usar desde el punto 1 del camino A.
+5. **Zoho**, por la corrección de arriba.
+6. **Dos planes posiblemente fantasma** sin mirar: Scoro «Standard» (3
+   registros) y ClickUp Brain «Business» (12).
 
 ### Cómo se trabajó, por si sirve de método
 
-Lo que desatascó dos días fue una pregunta de la propietaria: «¿y tú con
-Gemini no lo puedes hacer?». El arnés de `url_context` llevaba semanas en el
-repositorio y leyó en una tarde las páginas que el canal externo no pudo
+Lo que desatascó la verificación fue una pregunta de la propietaria: «¿y tú
+con Gemini no lo puedes hacer?». El arnés de `url_context` llevaba semanas en
+el repositorio y leyó en una tarde las páginas que el canal externo no pudo
 abrir en tres intentos. Funciona porque descarga desde la infraestructura de
 Google, que sí ejecuta el JavaScript, y porque dice qué descargó de verdad.
 Hace falta `NODE_USE_ENV_PROXY=1`: Node no usa el proxy por su cuenta.
@@ -5404,6 +5483,13 @@ Hace falta `NODE_USE_ENV_PROXY=1`: Node no usa el proxy por su cuenta.
 Y el estado que salvó la tanda: **«PLANTILLA SIN RELLENAR»**, distinto de «no
 consta» y de «no he podido abrirla». Sin él, veinte fabricantes habrían
 quedado escritos como si no publicaran sus precios.
+
+Del 21 de septiembre, un método distinto y que también funcionó: **cuando la
+propietaria discute un dato, medirlo en vez de defenderlo.** Dos afirmaciones
+mías se cayeron así en la misma tarde —«siete pegas se contradicen» (eran
+cero, la expresión cazaba «ios» dentro de «precios») y «las fichas se
+generaron con un modelo sin navegación» (no consta en ninguna parte)—. Las dos
+estaban dichas con seguridad y las dos eran falsas.
 
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 
