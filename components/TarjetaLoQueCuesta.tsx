@@ -92,9 +92,27 @@ export default function TarjetaLoQueCuesta({
         <Etiqueta variante={tienePlanGratuito ? "exito" : "neutra"}>{comoSeEmpieza}</Etiqueta>
       </div>
 
+      {/*
+        El nombre de un plan, solo, no le dice nada a nadie: «Growth» es como
+        Capsule llama a uno de sus escalones, y otros lo llaman Pro, Business o
+        Team. Lo cazó la propietaria preguntando «¿y qué quiere decir plan
+        Growth?» — si ella no lo sabe, una autónoma tampoco.
+
+        Por eso no se da como un dato sino como una INDICACIÓN: lo que tiene
+        que buscar cuando abra la tarifa. Ahí el nombre sí sirve, porque es
+        literalmente lo que va a leer en esa página. Y el «que ellos llaman»
+        deja claro que es palabra del fabricante, no nuestra.
+
+        Falta lo que lo remataría: cuánto cuesta ese plan. Hoy sólo guardamos
+        el precio de entrada de cada herramienta, no el de cada escalón, así
+        que «desde 9 $» y «necesitas Growth» no se tocan. Cuando esos precios
+        estén comprobados, esta frase pasa a llevarlo pegado y deja de hacer
+        falta mandar a nadie a mirar.
+      */}
       {planDeLaFuncion && (
         <p className="mt-2.5 text-sm leading-relaxed text-slate-700">
-          La función que buscas está en el plan <span className="font-medium text-slate-900">{planDeLaFuncion}</span>.
+          Cuando mires su tarifa, esta función está en el plan que ellos llaman{" "}
+          <span className="font-medium text-slate-900">{planDeLaFuncion}</span>.
         </p>
       )}
       {!planDeLaFuncion && planSinConfirmar && (
