@@ -225,11 +225,34 @@ y la única de su lote por la que Molnip no cobraría nada.
   completa; Capa 2 (re-investigación asistida por IA) explícitamente
   pospuesta, sin código.
 - **Carpeta:** `agents/atlas-mantenimiento/`
-- **Responsabilidad:** detecta, sin IA y sin coste, fichas de herramientas
-  y cuentas de afiliado que llevan más de 180 días sin revisar.
-- **Entradas:** el catálogo completo con sus fechas de última revisión.
+- **Responsabilidad:** detecta, sin IA y sin coste, lo que ha dejado de
+  estar fresco. **Dos ejes distintos, y conviene no confundirlos:**
+  - **Cuándo se tocó la ficha** — herramientas y cuentas de afiliado con más
+    de 180 días sin revisar (`detectarHerramientasDesactualizadas`,
+    `detectarCuentasActivasDesactualizadas`).
+  - **Cuándo se comprobó el precio contra la página del fabricante**
+    (añadido el 2026-09-17, umbral de 90 días):
+    `detectarPreciosSinComprobar` para las que **nunca** se han mirado, y
+    `detectarPreciosCaducados` para las que tuvieron su lectura y les ha
+    pasado el tiempo.
+
+  La separación no es cosmética: el 2026-09-17 el informe decía «0
+  desactualizadas» sobre un catálogo en el que la mitad de los precios
+  estaban mal desde el primer día. Estaban recién escritos —de ahí el cero—
+  y sin comprobar contra ninguna fuente. **Sin fecha de comprobación no hay
+  «hace mucho»: hay «nunca», y nunca no caduca**, así que ningún umbral de
+  antigüedad lo iba a detectar.
+- **Entradas:** el catálogo completo con sus fechas de última revisión y,
+  cuando existe, `preciosComprobados` (fecha y dirección que se abrió de
+  verdad).
 - **Salidas:** informe HTML de solo lectura con los avisos, priorizados por
-  Puntuación Atlas.
+  Puntuación Atlas. Los dos avisos de precio van primero.
+
+- **Lo que NO hace, y hay que saberlo:** avisa de que un dato está viejo y
+  **no hay nadie que vaya a mirarlo**. Su Capa 2 —la re-investigación— sigue
+  pospuesta y sin código, y Researcher sólo corre cuando lo lanza un humano.
+  Las tandas de precios de septiembre de 2026 se hicieron a mano por ese
+  hueco, no por gusto.
 - **Activación:** exclusivamente un humano, vía `npm run informe-mantenimiento`.
 - **Relaciones:**
   - Eje distinto al de Curator: Mantenimiento vigila *frescura en el
