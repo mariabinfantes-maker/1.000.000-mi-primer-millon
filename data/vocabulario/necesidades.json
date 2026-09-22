@@ -1,0 +1,1204 @@
+{
+  "version": "0.1.0",
+  "fecha": "2026-09-22",
+  "nota": "Borrador. Nadie lo lee todavía: conectarlo es una decisión de la propietaria.",
+  "puertas": [
+    {
+      "id": "puerta.vender",
+      "titulo": "Vender más",
+      "loQueDice": [
+        "no me entra trabajo",
+        "piden presupuesto y luego desaparecen",
+        "quiero que me conozca más gente"
+      ],
+      "entradas": [
+        "CRM",
+        "email marketing",
+        "embudo de ventas",
+        "tienda online",
+        "comercio electrónico",
+        "TPV",
+        "página de captación",
+        "posicionamiento web",
+        "automatización de marketing"
+      ]
+    },
+    {
+      "id": "puerta.dinero",
+      "titulo": "Controlar el dinero",
+      "loQueDice": [
+        "facturo pero no sé si gano",
+        "me pagan tarde",
+        "no llego a fin de mes"
+      ],
+      "entradas": [
+        "programa de facturación",
+        "contabilidad",
+        "ERP",
+        "factura electrónica",
+        "control de gastos",
+        "tesorería"
+      ]
+    },
+    {
+      "id": "puerta.orden",
+      "titulo": "Que no se me pierda nada",
+      "loQueDice": [
+        "se me traspapelan los encargos",
+        "pierdo citas",
+        "no sé por dónde va cada cosa"
+      ],
+      "entradas": [
+        "gestión de proyectos",
+        "gestor de tareas",
+        "agenda",
+        "recursos humanos",
+        "almacén",
+        "mantenimiento",
+        "gestión documental",
+        "software de clínica",
+        "plataforma de formación"
+      ]
+    },
+    {
+      "id": "puerta.cuidar",
+      "titulo": "Cuidar al cliente que ya tengo",
+      "loQueDice": [
+        "me escriben por cuatro sitios",
+        "se me queda gente sin contestar",
+        "no sé si están contentos"
+      ],
+      "entradas": [
+        "servicio de asistencia",
+        "tickets",
+        "chat en la web",
+        "centro de ayuda",
+        "encuestas"
+      ]
+    },
+    {
+      "id": "puerta.contenido",
+      "titulo": "Crear y publicar contenido",
+      "loQueDice": [
+        "quiero hacer buenos clips de mis vídeos",
+        "no sé qué escribir",
+        "quiero que se vea profesional"
+      ],
+      "entradas": [
+        "inteligencia artificial",
+        "edición de vídeo",
+        "diseño gráfico",
+        "redacción",
+        "presentaciones",
+        "transcripción"
+      ]
+    },
+    {
+      "id": "puerta.tiempo",
+      "titulo": "Ganar tiempo",
+      "loQueDice": [
+        "hago a mano cosas que deberían hacerse solas",
+        "tengo los datos en cinco sitios"
+      ],
+      "entradas": [
+        "automatización",
+        "integraciones",
+        "cuadro de mando",
+        "informes",
+        "RGPD",
+        "copias de seguridad"
+      ]
+    }
+  ],
+  "necesidades": [
+    {
+      "id": "nec.que-me-encuentren",
+      "titulo": "Que me encuentren cuando me buscan",
+      "loQueDice": [
+        "no salgo cuando me buscan",
+        "nadie me conoce por aquí"
+      ],
+      "puertas": [
+        "puerta.vender"
+      ],
+      "imprescindibles": [
+        "cap.local_business_listings"
+      ],
+      "ayudan": [
+        "cap.reviews_and_reputation",
+        "cap.search_engine_optimization"
+      ]
+    },
+    {
+      "id": "nec.tener-donde-ensenar-lo-que-hago",
+      "titulo": "Tener un sitio donde enseñar lo que hago",
+      "loQueDice": [
+        "no tengo web",
+        "mi web está muerta"
+      ],
+      "puertas": [
+        "puerta.vender"
+      ],
+      "imprescindibles": [
+        "cap.website_builder"
+      ],
+      "ayudan": [
+        "cap.hosting_and_domain",
+        "cap.landing_pages",
+        "cap.offer_catalog"
+      ]
+    },
+    {
+      "id": "nec.que-no-se-pierda-una-pregunta",
+      "titulo": "Que no se me pierda ninguna pregunta",
+      "loQueDice": [
+        "me escriben y se me olvida contestar",
+        "no sé de dónde me viene la gente"
+      ],
+      "puertas": [
+        "puerta.vender"
+      ],
+      "imprescindibles": [
+        "cap.lead_capture"
+      ],
+      "ayudan": [
+        "cap.customer_contact_records",
+        "cap.website_live_chat",
+        "cap.whatsapp_customer_channel"
+      ]
+    },
+    {
+      "id": "nec.seguir-sin-olvidarme-de-nadie",
+      "titulo": "Hacer seguimiento y no olvidarme de nadie",
+      "loQueDice": [
+        "se me olvida llamar",
+        "tengo los contactos en cuatro sitios"
+      ],
+      "puertas": [
+        "puerta.vender"
+      ],
+      "imprescindibles": [
+        "cap.customer_contact_records"
+      ],
+      "ayudan": [
+        "cap.customer_interaction_history",
+        "cap.sales_pipeline",
+        "cap.sales_forecasting"
+      ]
+    },
+    {
+      "id": "nec.escribir-a-mi-gente",
+      "titulo": "Escribir a mi gente y hacer campañas",
+      "loQueDice": [
+        "quiero mandar una newsletter",
+        "tengo una lista y no la uso"
+      ],
+      "puertas": [
+        "puerta.vender"
+      ],
+      "imprescindibles": [
+        "cap.email_campaigns"
+      ],
+      "ayudan": [
+        "cap.marketing_automation",
+        "cap.conversion_funnels",
+        "cap.landing_pages"
+      ]
+    },
+    {
+      "id": "nec.publicar-en-redes",
+      "titulo": "Publicar en redes y saber qué funciona",
+      "loQueDice": [
+        "no tengo tiempo de publicar",
+        "publico y no sé si sirve"
+      ],
+      "puertas": [
+        "puerta.vender",
+        "puerta.contenido"
+      ],
+      "imprescindibles": [
+        "cap.social_publishing"
+      ],
+      "ayudan": [
+        "cap.social_analytics"
+      ]
+    },
+    {
+      "id": "nec.publicidad-de-pago",
+      "titulo": "Poner publicidad y no tirar el dinero",
+      "loQueDice": [
+        "he probado anuncios y no me salen"
+      ],
+      "puertas": [
+        "puerta.vender"
+      ],
+      "imprescindibles": [
+        "cap.paid_ads_management"
+      ],
+      "ayudan": [
+        "cap.conversion_funnels",
+        "cap.landing_pages"
+      ]
+    },
+    {
+      "id": "nec.presupuestar-rapido",
+      "titulo": "Dar un presupuesto rápido y que se firme",
+      "loQueDice": [
+        "tardo un día en pasar un presupuesto",
+        "lo mando y no vuelve firmado"
+      ],
+      "puertas": [
+        "puerta.vender"
+      ],
+      "imprescindibles": [
+        "cap.quotes_and_proposals"
+      ],
+      "ayudan": [
+        "cap.price_lists_and_rates",
+        "cap.bill_of_quantities",
+        "cap.electronic_signature",
+        "cap.quote_to_invoice_conversion"
+      ]
+    },
+    {
+      "id": "nec.contratos-que-no-se-me-pasen",
+      "titulo": "Que no se me pase un contrato ni una renovación",
+      "loQueDice": [
+        "se me caducó sin enterarme"
+      ],
+      "puertas": [
+        "puerta.vender",
+        "puerta.orden"
+      ],
+      "imprescindibles": [
+        "cap.contract_lifecycle"
+      ],
+      "ayudan": [
+        "cap.electronic_signature"
+      ]
+    },
+    {
+      "id": "nec.vender-online",
+      "titulo": "Vender por internet",
+      "loQueDice": [
+        "quiero montar una tienda",
+        "vendo por WhatsApp y es un lío"
+      ],
+      "puertas": [
+        "puerta.vender"
+      ],
+      "imprescindibles": [
+        "cap.online_store"
+      ],
+      "ayudan": [
+        "cap.offer_catalog",
+        "cap.order_management",
+        "cap.shipping_and_tracking",
+        "cap.returns_management",
+        "cap.external_channel_sync"
+      ]
+    },
+    {
+      "id": "nec.cobrar-en-el-mostrador",
+      "titulo": "Cobrar en el mostrador o en la mesa",
+      "loQueDice": [
+        "llevo la caja a mano",
+        "quiero una carta digital"
+      ],
+      "puertas": [
+        "puerta.vender"
+      ],
+      "imprescindibles": [
+        "cap.point_of_sale"
+      ],
+      "ayudan": [
+        "cap.menu_management",
+        "cap.order_management",
+        "cap.offer_catalog"
+      ]
+    },
+    {
+      "id": "nec.que-reserven-solos",
+      "titulo": "Que puedan reservar sin llamarme",
+      "loQueDice": [
+        "pierdo citas fuera de horario",
+        "estoy todo el día cogiendo el teléfono"
+      ],
+      "puertas": [
+        "puerta.vender",
+        "puerta.orden"
+      ],
+      "imprescindibles": [
+        "cap.online_self_service_booking"
+      ],
+      "ayudan": [
+        "cap.embeddable_booking_widget",
+        "cap.booking_cancellation_and_rescheduling",
+        "cap.customer_appointment_reminders",
+        "cap.no_show_and_deposits"
+      ]
+    },
+    {
+      "id": "nec.que-repitan",
+      "titulo": "Que los clientes vuelvan",
+      "loQueDice": [
+        "vienen una vez y no vuelven",
+        "quiero vender bonos"
+      ],
+      "puertas": [
+        "puerta.vender",
+        "puerta.cuidar"
+      ],
+      "imprescindibles": [
+        "cap.loyalty_programs"
+      ],
+      "ayudan": [
+        "cap.prepaid_session_packages",
+        "cap.email_campaigns"
+      ]
+    },
+    {
+      "id": "nec.emitir-una-factura-legal",
+      "titulo": "Emitir una factura en condiciones",
+      "loQueDice": [
+        "hago las facturas en una hoja de cálculo"
+      ],
+      "puertas": [
+        "puerta.dinero"
+      ],
+      "imprescindibles": [
+        "cap.invoicing"
+      ],
+      "ayudan": [
+        "cap.quote_to_invoice_conversion",
+        "cap.regulated_einvoicing",
+        "cap.price_lists_and_rates"
+      ]
+    },
+    {
+      "id": "nec.la-factura-obligatoria",
+      "titulo": "Cumplir con la factura electrónica obligatoria",
+      "loQueDice": [
+        "me han dicho que tengo que cambiar de programa"
+      ],
+      "puertas": [
+        "puerta.dinero"
+      ],
+      "imprescindibles": [
+        "cap.regulated_einvoicing"
+      ],
+      "ayudan": [
+        "cap.invoicing"
+      ]
+    },
+    {
+      "id": "nec.cuotas-cada-mes",
+      "titulo": "Cobrar una cuota cada mes sin acordarme",
+      "loQueDice": [
+        "tengo clientes de iguala y los persigo uno a uno"
+      ],
+      "puertas": [
+        "puerta.dinero"
+      ],
+      "imprescindibles": [
+        "cap.recurring_billing"
+      ],
+      "ayudan": [
+        "cap.payment_collection",
+        "cap.invoicing"
+      ]
+    },
+    {
+      "id": "nec.facturar-por-lo-avanzado",
+      "titulo": "Facturar por lo avanzado, por hitos o por horas",
+      "loQueDice": [
+        "la obra va por certificaciones",
+        "cobro por horas y las apunto en papel"
+      ],
+      "puertas": [
+        "puerta.dinero"
+      ],
+      "imprescindibles": [
+        "cap.progress_and_milestone_billing"
+      ],
+      "ayudan": [
+        "cap.time_tracking",
+        "cap.invoicing"
+      ]
+    },
+    {
+      "id": "nec.facturar-a-mutuas",
+      "titulo": "Facturar a aseguradoras y mutuas",
+      "loQueDice": [
+        "cada mutua pide lo suyo"
+      ],
+      "puertas": [
+        "puerta.dinero"
+      ],
+      "imprescindibles": [
+        "cap.insurer_billing"
+      ],
+      "ayudan": [
+        "cap.invoicing"
+      ]
+    },
+    {
+      "id": "nec.liquidar-a-terceros",
+      "titulo": "Liquidar a propietarios o colaboradores",
+      "loQueDice": [
+        "tengo que repartir lo cobrado y cuadrarlo"
+      ],
+      "puertas": [
+        "puerta.dinero"
+      ],
+      "imprescindibles": [
+        "cap.third_party_settlement"
+      ],
+      "ayudan": [
+        "cap.financial_reporting"
+      ]
+    },
+    {
+      "id": "nec.que-me-paguen",
+      "titulo": "Que me paguen, y a tiempo",
+      "loQueDice": [
+        "me pagan a noventa días",
+        "tengo facturas sin cobrar"
+      ],
+      "puertas": [
+        "puerta.dinero"
+      ],
+      "imprescindibles": [
+        "cap.payment_collection"
+      ],
+      "ayudan": [
+        "cap.overdue_payment_recovery",
+        "cap.invoice_advance_funding"
+      ]
+    },
+    {
+      "id": "nec.controlar-lo-que-gasto",
+      "titulo": "Saber en qué se me va el dinero",
+      "loQueDice": [
+        "tengo tickets por todas partes",
+        "pago suscripciones que ni uso"
+      ],
+      "puertas": [
+        "puerta.dinero"
+      ],
+      "imprescindibles": [
+        "cap.expense_tracking"
+      ],
+      "ayudan": [
+        "cap.supplier_invoice_payment",
+        "cap.subscription_spend_control"
+      ]
+    },
+    {
+      "id": "nec.llevar-la-contabilidad",
+      "titulo": "Llevar la contabilidad",
+      "loQueDice": [
+        "se lo mando todo a la gestoría en una caja"
+      ],
+      "puertas": [
+        "puerta.dinero"
+      ],
+      "imprescindibles": [
+        "cap.accounting_ledger"
+      ],
+      "ayudan": [
+        "cap.expense_tracking",
+        "cap.invoicing"
+      ]
+    },
+    {
+      "id": "nec.los-impuestos",
+      "titulo": "Los impuestos, sin sustos",
+      "loQueDice": [
+        "cada trimestre es un drama"
+      ],
+      "puertas": [
+        "puerta.dinero"
+      ],
+      "imprescindibles": [
+        "cap.tax_calculation_and_reporting"
+      ],
+      "ayudan": [
+        "cap.accounting_ledger",
+        "cap.regulated_einvoicing"
+      ]
+    },
+    {
+      "id": "nec.saber-si-gano-en-cada-trabajo",
+      "titulo": "Saber si gano dinero en cada trabajo",
+      "loQueDice": [
+        "facturo mucho y no me queda nada",
+        "no sé qué cliente me cuesta dinero"
+      ],
+      "puertas": [
+        "puerta.dinero"
+      ],
+      "imprescindibles": [
+        "cap.job_costing"
+      ],
+      "ayudan": [
+        "cap.financial_reporting",
+        "cap.time_tracking"
+      ]
+    },
+    {
+      "id": "nec.llegar-a-fin-de-mes",
+      "titulo": "Ver si llego a fin de mes antes de que llegue",
+      "loQueDice": [
+        "no sé si podré pagar las nóminas"
+      ],
+      "puertas": [
+        "puerta.dinero"
+      ],
+      "imprescindibles": [
+        "cap.budgeting_and_cash_forecast"
+      ],
+      "ayudan": [
+        "cap.financial_reporting",
+        "cap.business_financing"
+      ]
+    },
+    {
+      "id": "nec.donaciones",
+      "titulo": "Recibir donaciones y dar el certificado",
+      "loQueDice": [
+        "somos una asociación y lo llevamos a mano"
+      ],
+      "puertas": [
+        "puerta.dinero"
+      ],
+      "imprescindibles": [
+        "cap.donations_and_fundraising"
+      ],
+      "ayudan": [
+        "cap.payment_collection"
+      ]
+    },
+    {
+      "id": "nec.tareas-y-encargos",
+      "titulo": "Tener claro qué hay que hacer hoy",
+      "loQueDice": [
+        "lo llevo todo en la cabeza",
+        "se me traspapelan los encargos"
+      ],
+      "puertas": [
+        "puerta.orden"
+      ],
+      "imprescindibles": [
+        "cap.task_management"
+      ],
+      "ayudan": [
+        "cap.kanban_boards",
+        "cap.personal_calendar_planning"
+      ]
+    },
+    {
+      "id": "nec.proyectos-largos",
+      "titulo": "Llevar un trabajo largo sin perder el hilo",
+      "loQueDice": [
+        "la obra va por fases y no sé si llegamos"
+      ],
+      "puertas": [
+        "puerta.orden"
+      ],
+      "imprescindibles": [
+        "cap.project_planning"
+      ],
+      "ayudan": [
+        "cap.gantt_and_dependencies",
+        "cap.team_workload_planning",
+        "cap.automatic_rescheduling"
+      ]
+    },
+    {
+      "id": "nec.saber-cuanto-tiempo-echo",
+      "titulo": "Saber cuánto tiempo echo en cada cosa",
+      "loQueDice": [
+        "no sé dónde se me va el día"
+      ],
+      "puertas": [
+        "puerta.orden",
+        "puerta.dinero"
+      ],
+      "imprescindibles": [
+        "cap.time_tracking"
+      ],
+      "ayudan": [
+        "cap.job_costing"
+      ]
+    },
+    {
+      "id": "nec.expedientes",
+      "titulo": "Tener junto todo lo de cada cliente o caso",
+      "loQueDice": [
+        "busco un papel y está en tres carpetas"
+      ],
+      "puertas": [
+        "puerta.orden"
+      ],
+      "imprescindibles": [
+        "cap.case_file_management"
+      ],
+      "ayudan": [
+        "cap.file_storage",
+        "cap.customer_interaction_history"
+      ]
+    },
+    {
+      "id": "nec.mi-agenda",
+      "titulo": "Tener la agenda bajo control",
+      "loQueDice": [
+        "me solapo las citas",
+        "somos tres y una sola agenda"
+      ],
+      "puertas": [
+        "puerta.orden"
+      ],
+      "imprescindibles": [
+        "cap.per_resource_booking_calendar"
+      ],
+      "ayudan": [
+        "cap.capacity_and_time_slots",
+        "cap.booking_waitlist",
+        "cap.room_and_equipment_booking",
+        "cap.personal_calendar_planning",
+        "cap.customer_appointment_reminders"
+      ]
+    },
+    {
+      "id": "nec.el-trabajo-de-fuera",
+      "titulo": "Controlar el trabajo que se hace fuera",
+      "loQueDice": [
+        "los partes vienen en papel y llegan mojados",
+        "no sé por dónde va el técnico"
+      ],
+      "puertas": [
+        "puerta.orden"
+      ],
+      "imprescindibles": [
+        "cap.work_orders"
+      ],
+      "ayudan": [
+        "cap.field_job_capture",
+        "cap.technician_dispatch",
+        "cap.route_planning",
+        "cap.serviced_asset_registry",
+        "cap.service_contracts_and_sla"
+      ]
+    },
+    {
+      "id": "nec.papeles-ordenados",
+      "titulo": "Encontrar los papeles cuando hacen falta",
+      "loQueDice": [
+        "tengo cuarenta versiones del mismo documento"
+      ],
+      "puertas": [
+        "puerta.orden"
+      ],
+      "imprescindibles": [
+        "cap.file_storage"
+      ],
+      "ayudan": [
+        "cap.workspace_wide_search",
+        "cap.document_version_history",
+        "cap.document_templates",
+        "cap.collaborative_document_editing",
+        "cap.internal_knowledge_workspace"
+      ]
+    },
+    {
+      "id": "nec.firmar-documentos",
+      "titulo": "Firmar sin imprimir ni escanear",
+      "loQueDice": [
+        "imprimo, firmo, escaneo y mando"
+      ],
+      "puertas": [
+        "puerta.orden"
+      ],
+      "imprescindibles": [
+        "cap.electronic_signature"
+      ],
+      "ayudan": [
+        "cap.document_templates",
+        "cap.file_storage"
+      ]
+    },
+    {
+      "id": "nec.el-equipo-organizado",
+      "titulo": "Organizar turnos, fichajes y vacaciones",
+      "loQueDice": [
+        "el cuadrante lo hago en papel",
+        "no sé quién libra"
+      ],
+      "puertas": [
+        "puerta.orden"
+      ],
+      "imprescindibles": [
+        "cap.shift_scheduling"
+      ],
+      "ayudan": [
+        "cap.time_and_attendance",
+        "cap.leave_management"
+      ]
+    },
+    {
+      "id": "nec.nominas",
+      "titulo": "Pagar las nóminas",
+      "loQueDice": [
+        "la gestoría me cobra por cada cambio"
+      ],
+      "puertas": [
+        "puerta.orden",
+        "puerta.dinero"
+      ],
+      "imprescindibles": [
+        "cap.payroll"
+      ],
+      "ayudan": [
+        "cap.time_and_attendance",
+        "cap.commissions_and_tips"
+      ]
+    },
+    {
+      "id": "nec.contratar-gente",
+      "titulo": "Contratar y que entren bien",
+      "loQueDice": [
+        "pongo un anuncio y me llegan cien currículos"
+      ],
+      "puertas": [
+        "puerta.orden"
+      ],
+      "imprescindibles": [
+        "cap.recruiting"
+      ],
+      "ayudan": [
+        "cap.employee_onboarding",
+        "cap.performance_reviews"
+      ]
+    },
+    {
+      "id": "nec.el-stock",
+      "titulo": "Saber qué tengo y qué me falta",
+      "loQueDice": [
+        "vendo lo que no tengo",
+        "me quedo sin género sin darme cuenta"
+      ],
+      "puertas": [
+        "puerta.orden"
+      ],
+      "imprescindibles": [
+        "cap.inventory_tracking"
+      ],
+      "ayudan": [
+        "cap.stock_reorder_alerts",
+        "cap.barcode_scanning",
+        "cap.warehouse_and_locations",
+        "cap.lot_and_expiry_traceability"
+      ]
+    },
+    {
+      "id": "nec.comprar-a-proveedores",
+      "titulo": "Ordenar las compras a proveedores",
+      "loQueDice": [
+        "los pedidos los hago por WhatsApp"
+      ],
+      "puertas": [
+        "puerta.orden"
+      ],
+      "imprescindibles": [
+        "cap.purchase_orders"
+      ],
+      "ayudan": [
+        "cap.inventory_tracking",
+        "cap.supplier_invoice_payment"
+      ]
+    },
+    {
+      "id": "nec.fabricar",
+      "titulo": "Controlar lo que fabrico",
+      "loQueDice": [
+        "no sé cuánto me cuesta cada pieza"
+      ],
+      "puertas": [
+        "puerta.orden"
+      ],
+      "imprescindibles": [
+        "cap.production_orders"
+      ],
+      "ayudan": [
+        "cap.bill_of_materials",
+        "cap.material_requirements_planning",
+        "cap.inspections_and_checklists"
+      ]
+    },
+    {
+      "id": "nec.mis-maquinas",
+      "titulo": "Cuidar mis máquinas y mis vehículos",
+      "loQueDice": [
+        "se me para la furgoneta y se para el negocio"
+      ],
+      "puertas": [
+        "puerta.orden"
+      ],
+      "imprescindibles": [
+        "cap.own_asset_maintenance"
+      ],
+      "ayudan": [
+        "cap.fleet_telematics",
+        "cap.inspections_and_checklists"
+      ]
+    },
+    {
+      "id": "nec.hablar-con-mi-equipo",
+      "titulo": "Hablar con el equipo sin liarla",
+      "loQueDice": [
+        "todo por WhatsApp y se mezcla con lo personal"
+      ],
+      "puertas": [
+        "puerta.orden"
+      ],
+      "imprescindibles": [
+        "cap.team_messaging"
+      ],
+      "ayudan": [
+        "cap.video_meetings"
+      ]
+    },
+    {
+      "id": "nec.historia-clinica",
+      "titulo": "Llevar la historia clínica de mis pacientes",
+      "loQueDice": [
+        "tengo las fichas en papel"
+      ],
+      "puertas": [
+        "puerta.orden"
+      ],
+      "imprescindibles": [
+        "cap.clinical_record"
+      ],
+      "ayudan": [
+        "cap.medical_imaging",
+        "cap.electronic_prescription",
+        "cap.case_file_management"
+      ]
+    },
+    {
+      "id": "nec.dar-clases",
+      "titulo": "Dar clases y seguir a mis alumnos",
+      "loQueDice": [
+        "quiero vender un curso",
+        "llevo las notas en un cuaderno"
+      ],
+      "puertas": [
+        "puerta.orden"
+      ],
+      "imprescindibles": [
+        "cap.training_lms"
+      ],
+      "ayudan": [
+        "cap.student_enrollment",
+        "cap.academic_record"
+      ]
+    },
+    {
+      "id": "nec.responder-por-donde-escriban",
+      "titulo": "Responder por donde me escriban sin perder a nadie",
+      "loQueDice": [
+        "me escriben por correo, por WhatsApp y por Instagram"
+      ],
+      "puertas": [
+        "puerta.cuidar"
+      ],
+      "imprescindibles": [
+        "cap.shared_inbox"
+      ],
+      "ayudan": [
+        "cap.whatsapp_customer_channel",
+        "cap.website_live_chat",
+        "cap.canned_responses"
+      ]
+    },
+    {
+      "id": "nec.no-perder-una-incidencia",
+      "titulo": "Que no se me quede una incidencia sin resolver",
+      "loQueDice": [
+        "se me quedan cosas colgadas y el cliente se enfada"
+      ],
+      "puertas": [
+        "puerta.cuidar"
+      ],
+      "imprescindibles": [
+        "cap.support_ticketing"
+      ],
+      "ayudan": [
+        "cap.service_contracts_and_sla",
+        "cap.canned_responses"
+      ]
+    },
+    {
+      "id": "nec.que-se-respondan-solas",
+      "titulo": "Que las preguntas de siempre se respondan solas",
+      "loQueDice": [
+        "contesto lo mismo veinte veces al día"
+      ],
+      "puertas": [
+        "puerta.cuidar"
+      ],
+      "imprescindibles": [
+        "cap.support_chatbot"
+      ],
+      "ayudan": [
+        "cap.public_help_center",
+        "cap.canned_responses"
+      ]
+    },
+    {
+      "id": "nec.saber-si-estan-contentos",
+      "titulo": "Saber si mis clientes están contentos",
+      "loQueDice": [
+        "me entero de que algo va mal cuando ya se han ido"
+      ],
+      "puertas": [
+        "puerta.cuidar"
+      ],
+      "imprescindibles": [
+        "cap.customer_satisfaction_surveys"
+      ],
+      "ayudan": [
+        "cap.reviews_and_reputation"
+      ]
+    },
+    {
+      "id": "nec.que-el-cliente-vea-lo-suyo",
+      "titulo": "Que el cliente pueda ver lo suyo sin preguntarme",
+      "loQueDice": [
+        "me llaman para preguntar por dónde va"
+      ],
+      "puertas": [
+        "puerta.cuidar"
+      ],
+      "imprescindibles": [
+        "cap.client_portal"
+      ],
+      "ayudan": [
+        "cap.case_file_management",
+        "cap.shipping_and_tracking"
+      ]
+    },
+    {
+      "id": "nec.escribir",
+      "titulo": "Escribir textos que no me den vergüenza",
+      "loQueDice": [
+        "me cuesta escribir",
+        "quiero que suene profesional"
+      ],
+      "puertas": [
+        "puerta.contenido"
+      ],
+      "imprescindibles": [
+        "cap.text_generation"
+      ],
+      "ayudan": [
+        "cap.text_correction",
+        "cap.translation"
+      ]
+    },
+    {
+      "id": "nec.imagenes",
+      "titulo": "Hacer imágenes y que todo pegue con mi marca",
+      "loQueDice": [
+        "cada cartel me queda de un color"
+      ],
+      "puertas": [
+        "puerta.contenido"
+      ],
+      "imprescindibles": [
+        "cap.graphic_design"
+      ],
+      "ayudan": [
+        "cap.brand_kit"
+      ]
+    },
+    {
+      "id": "nec.video",
+      "titulo": "Hacer vídeos y clips",
+      "loQueDice": [
+        "quiero hacer buenos clips de mis vídeos",
+        "no sé editar"
+      ],
+      "puertas": [
+        "puerta.contenido"
+      ],
+      "imprescindibles": [
+        "cap.video_editing"
+      ],
+      "ayudan": [
+        "cap.ai_video_generation",
+        "cap.subtitles",
+        "cap.audio_noise_removal"
+      ]
+    },
+    {
+      "id": "nec.audio",
+      "titulo": "Grabar audio que se oiga bien",
+      "loQueDice": [
+        "tengo un pódcast y se oye fatal"
+      ],
+      "puertas": [
+        "puerta.contenido"
+      ],
+      "imprescindibles": [
+        "cap.audio_editing"
+      ],
+      "ayudan": [
+        "cap.audio_noise_removal",
+        "cap.audio_transcription"
+      ]
+    },
+    {
+      "id": "nec.presentaciones",
+      "titulo": "Preparar una presentación decente",
+      "loQueDice": [
+        "tengo que presentar y no sé por dónde empezar"
+      ],
+      "puertas": [
+        "puerta.contenido"
+      ],
+      "imprescindibles": [
+        "cap.presentation_building"
+      ],
+      "ayudan": [
+        "cap.graphic_design",
+        "cap.brand_kit"
+      ]
+    },
+    {
+      "id": "nec.resumir-reuniones",
+      "titulo": "No tomar notas en las reuniones",
+      "loQueDice": [
+        "me paso la reunión escribiendo"
+      ],
+      "puertas": [
+        "puerta.contenido",
+        "puerta.tiempo"
+      ],
+      "imprescindibles": [
+        "cap.meeting_notes"
+      ],
+      "ayudan": [
+        "cap.audio_transcription",
+        "cap.video_meetings"
+      ]
+    },
+    {
+      "id": "nec.conectar-lo-que-uso",
+      "titulo": "Que las herramientas que uso hablen entre sí",
+      "loQueDice": [
+        "copio los datos de un sitio a otro a mano"
+      ],
+      "puertas": [
+        "puerta.tiempo"
+      ],
+      "imprescindibles": [
+        "cap.app_integrations"
+      ],
+      "ayudan": [
+        "cap.public_api",
+        "cap.webhooks"
+      ]
+    },
+    {
+      "id": "nec.que-se-haga-solo",
+      "titulo": "Que lo repetitivo se haga solo",
+      "loQueDice": [
+        "hago lo mismo todos los lunes"
+      ],
+      "puertas": [
+        "puerta.tiempo"
+      ],
+      "imprescindibles": [
+        "cap.workflow_automation"
+      ],
+      "ayudan": [
+        "cap.ai_task_agents",
+        "cap.app_integrations"
+      ]
+    },
+    {
+      "id": "nec.ver-como-va-el-negocio",
+      "titulo": "Ver de un vistazo cómo va el negocio",
+      "loQueDice": [
+        "no tengo ni idea de cómo va el mes"
+      ],
+      "puertas": [
+        "puerta.tiempo"
+      ],
+      "imprescindibles": [
+        "cap.dashboards"
+      ],
+      "ayudan": [
+        "cap.custom_reports",
+        "cap.predictive_analytics",
+        "cap.financial_reporting"
+      ]
+    },
+    {
+      "id": "nec.llevarme-mis-datos",
+      "titulo": "Poder llevarme mis datos si me voy",
+      "loQueDice": [
+        "me da miedo quedarme atrapada"
+      ],
+      "puertas": [
+        "puerta.tiempo"
+      ],
+      "imprescindibles": [
+        "cap.data_export"
+      ],
+      "ayudan": [
+        "cap.data_import_and_migration"
+      ]
+    },
+    {
+      "id": "nec.cumplir-el-rgpd",
+      "titulo": "Cumplir con la protección de datos",
+      "loQueDice": [
+        "no sé si estoy cumpliendo"
+      ],
+      "puertas": [
+        "puerta.tiempo"
+      ],
+      "imprescindibles": [
+        "cap.privacy_compliance_tooling"
+      ],
+      "ayudan": [
+        "cap.data_retention_and_deletion",
+        "cap.audit_log",
+        "cap.third_party_document_control"
+      ]
+    },
+    {
+      "id": "nec.que-sea-seguro",
+      "titulo": "Que nadie me entre y no perder nada",
+      "loQueDice": [
+        "me da pánico perderlo todo"
+      ],
+      "puertas": [
+        "puerta.tiempo"
+      ],
+      "imprescindibles": [
+        "cap.two_factor_authentication"
+      ],
+      "ayudan": [
+        "cap.backup_and_recovery",
+        "cap.roles_and_permissions",
+        "cap.single_sign_on",
+        "cap.user_provisioning"
+      ]
+    }
+  ]
+}

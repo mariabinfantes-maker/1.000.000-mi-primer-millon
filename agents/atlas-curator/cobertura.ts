@@ -29,6 +29,23 @@ import { detectarProblemasDeValidezEnCatalogo } from "./validez";
  * que comparar. Configurable porque el número correcto puede subir cuando
  * el catálogo crezca.
  */
+/**
+ * REVISADO EL 2026-09-22 — no cambies este número sin leer antes la sección
+ * «LAS PUERTAS SON NECESIDADES, NO CATEGORÍAS DE SOFTWARE» de ATLAS.md.
+ *
+ * El motivo de arriba es criterio de COMPARADOR, y contradice la visión: «tres
+ * recomendaciones es la consecuencia de que haya tres buenas, nunca un
+ * objetivo que rellenar». Un comparador con una opción no tiene nada que
+ * comparar; un asesor con una opción bien fundamentada está haciendo su
+ * trabajo, siempre que diga que es la única que ha verificado.
+ *
+ * Decisión de la propietaria: el número deja de ser una puerta cerrada y pasa
+ * a ser parte de la frase con la que se abre la categoría —«para esto sólo
+ * tenemos una comprobada»—. NO se ha aplicado todavía: el umbral sigue
+ * haciendo lo que hacía, que hoy sólo afecta a este informe interno, y se
+ * cambiará cuando se decidan las puertas. Queda anotado para que nadie lo
+ * vuelva a aplicar como regla de publicación sin saber que ya se revisó.
+ */
 export const MINIMO_ALTERNATIVAS_POR_DEFECTO = 3;
 
 /** Por encima de esta proporción del catálogo activo, una sola categoría acapara el catálogo. Mismo criterio que `equilibrio.ts`, reutilizado aquí para que el informe hable con una sola voz. */

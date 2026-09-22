@@ -5714,6 +5714,171 @@ fuera: sólo la marca el criterio.
 5. **Conocer sus límites y decirlos** — «todas las que hemos podido verificar».
 6. **Atreverse a concluir** — si no se moja, no es un asesor: es un buscador.
 
+## LAS PUERTAS SON NECESIDADES, NO CATEGORÍAS DE SOFTWARE — 2026-09-22
+
+Decisión de la propietaria. Cierra la pregunta de las categorías, que llevaba
+abierta desde «lo que hay que solucionar es lo de las categorías que nos
+solucionaría demasiadas cosas».
+
+### Lo que estaba mal
+
+Una categoría decía **qué es** una herramienta. Un CRM es un CRM. Eso sirve
+para un directorio y no sirve para asesorar, porque nadie llega diciendo qué
+es: llega diciendo qué le pasa.
+
+Y se veía en los datos. De las quince categorías declaradas, once estaban
+«vacías» según el informe del Curator. Pero no estaban vacías por falta de
+herramientas: **las 65 fichas llevaban entre todas sólo cuatro etiquetas**, así
+que los once cajones estaban vacíos porque nadie los había llenado nunca. Como
+el motor filtra de verdad por ese campo, publicar una de esas puertas habría
+llevado a la persona a una habitación sin nada dentro.
+
+Además, tres de las cuatro categorías públicas estaban nombradas en idioma de
+software —«Plataformas todo en uno», «CRM y ventas», «Asistentes de IA»—.
+Ninguna es el problema de nadie. Nadie se levanta con la necesidad de una
+plataforma todo en uno.
+
+### Lo que se decide
+
+**La categoría pasa a decir qué quiere conseguir la persona.** Tres niveles, y
+sólo dos se ven:
+
+```
+puerta     → lo que quiero conseguir        (6)
+necesidad  → el problema concreto           (61)
+capacidad  → lo que se verifica             (151, ya existían)
+```
+
+Las seis puertas, en voz de persona:
+
+1. **Vender más**
+2. **Controlar el dinero**
+3. **Que no se me pierda nada**
+4. **Cuidar al cliente que ya tengo**
+5. **Crear y publicar contenido**
+6. **Ganar tiempo**
+
+Tres reglas de construcción:
+
+- **Una necesidad puede colgar de dos puertas.** «Que reserven solos» es vender
+  más para quien pierde citas fuera de horario, y orden para quien tiene la
+  agenda hecha un lío. El mismo hecho, dos problemas.
+- **El sector no es una puerta: es el corte que las atraviesa todas.** Una
+  peluquera y un taller entran los dos por «que no se me pierda nada» y
+  necesitan cosas distintas. «Software sectorial» como cajón es un directorio.
+- **«Todo en uno» y «con IA» no son puertas.** Son respuestas, no preguntas.
+  Salen al final —«esto lo hace una sola herramienta que además hace lo
+  otro»—, nunca al principio.
+
+### El nombre técnico no desaparece: baja de rango
+
+Quien escribe «CRM» entra por *Vender más* y se le pregunta para qué, igual que
+a quien escribe «se me olvida llamar a la gente». Los nombres del sector pasan
+a ser `entradas` de una puerta.
+
+Pero **entender para qué lo necesita no puede convertirse en un peaje**. Quien
+ya sabe lo que busca tiene que poder pasar de largo; a quien no lo sabe, Molnip
+le lleva de la mano. Es la doble profundidad de la visión: sencilla para quien
+empieza, profunda para quien sabe más.
+
+### El asesor proactivo
+
+Palabras de la propietaria: *«Molnip debe ser un asesor proactivo: explorar lo
+que la persona pide y descubrir posibilidades útiles que todavía desconoce.»*
+
+Y el ejemplo con el que lo explicó, que es la casa de tres habitaciones llevada
+al software:
+
+> *«Busca dos habitaciones, pero una de tres puede encajar si la tercera le
+> sirve de despacho. Explícale qué gana, qué coste o esfuerzo adicional supone
+> y deja que decida. En software, tener funciones adicionales no descalifica
+> una alternativa.»*
+
+### Lo que sobra y lo que falta no pesan igual
+
+La frase que lo fija, suya: *«una alternativa con prestaciones adicionales y
+otra que carece de algo imprescindible no son equivalentes».*
+
+De ahí que cada necesidad tenga **dos listas y no una puntuación**:
+
+- `imprescindibles` → sin esto no le sirve. **Lo único que descalifica.**
+- `ayudan` → si lo trae, suma. Si no lo trae, es un aviso.
+
+Y nada penaliza por sobrar: lo que trae de más se cuenta aparte, para poder
+decirlo y que decida quien pregunta. `imprescindibles` se mantiene corto a
+propósito —casi siempre una sola, la que *es* la necesidad—, porque cada cosa
+que se añade ahí excluye herramientas, y excluir por criterios nuestros es lo
+contrario de lo que se pretende.
+
+Los cuatro estados de la verificación sobreviven enteros. Que **falte** algo
+imprescindible es ausencia demostrada y descalifica; que **no esté comprobado**
+sólo se dice. Confundirlos sería convertir «no nos consta» en «no lo tiene»,
+que es lo que las reglas de lectura de F2 prohíben desde el 2026-09-10.
+
+### El mínimo de tres alternativas queda sustituido
+
+`MINIMO_ALTERNATIVAS_POR_DEFECTO = 3` nació con este motivo escrito: «con dos
+sólo hay un duelo, y con una no hay nada que comparar». Es criterio de
+comparador, y **contradecía la visión que ya estaba escrita**: «tres
+recomendaciones es la consecuencia de que haya tres buenas, nunca un objetivo
+que rellenar».
+
+Decisión: *«No exijamos tres recomendaciones, pero tampoco nos detengamos en
+una si existen otras útiles. Ordénalas por cuánto ayudan a su caso, explicando
+qué resuelven, qué aportan y qué falta o no está comprobado.»*
+
+**El número deja de ser una puerta cerrada y pasa a ser parte de la frase:**
+
+| Lo que hay detrás | Lo que dice Molnip |
+|---|---|
+| Varias que sirven | Se ordenan por cuánto ayudan a este caso |
+| Una sola, demostrada | «Para esto sólo tenemos una comprobada. No te digo que sea la mejor que existe: es la única que hemos verificado nosotros» |
+| Nada exacto, algo cercano | «No tengo de dos. Tengo ésta de tres: es buena y habitable, te sobra una habitación y te va a costar más. Tú decides» |
+| Nada | «Esto no lo cubrimos». Decir que no es un resultado |
+
+El aviso es lo que hace honesta a la única. Sin aviso, una sola opción es un
+escaparate; con aviso, es un asesor diciendo lo que sabe y hasta dónde sabe.
+
+**`MINIMO_ALTERNATIVAS_POR_DEFECTO` no se borra.** Se queda donde está: deja de
+decidir si una categoría se publica y pasa a decidir con qué frase se abre. Se
+desconecta, no se elimina.
+
+### El orden de trabajo, y por qué es ése
+
+*«Primero las necesidades y categorías; después ubicamos las herramientas
+según su utilidad demostrada, sin excluirlas por su categoría de origen.»*
+
+Es «primero crear el problema, después la solución». Si se ubicaran antes las
+herramientas, el mapa saldría con la forma de lo que ya tenemos, y lo que ya
+tenemos son cuatro etiquetas heredadas. Y ubicarlas por utilidad demostrada y
+no por categoría de origen es lo que impide que una herramienta se quede fuera
+de una necesidad que cubre sólo porque nació llamándose otra cosa.
+
+### Dónde está, y qué NO hace todavía
+
+`data/vocabulario/necesidades.json` y `necesidades.ts`, con sus pruebas. Seis
+puertas, 61 necesidades y **las 151 capacidades colocadas, ninguna huérfana** —
+una capacidad sin necesidad sería trabajo verificado que nadie podría llegar a
+pedir.
+
+**Nadie lo lee todavía**, igual que el vocabulario, y a propósito. Conectarlo a
+la web o al motor es una decisión de la propietaria.
+
+Vive dentro de `data/vocabulario/` por una razón concreta: validar que una
+necesidad apunte a capacidades reales obliga a leer el vocabulario, y
+`aislamiento.test.ts` congela a propósito la lista de quién puede hacerlo
+—«ampliarla tiene que ser una decisión, no un descuido»—. Darle carpeta propia
+exigiría tocar esa lista, y esa decisión no es de quien escribe el mapa.
+
+### Lo que queda vivo de las quince categorías
+
+No se borra ninguna. Cada una encuentra sitio: «CRM y ventas» pasa a ser
+entrada de *Vender más*; «Facturación y contabilidad» se parte en siete
+necesidades dentro de *Controlar el dinero*; «Reservas y citas» cuelga de dos
+puertas; «Plataformas todo en uno» deja de ser cajón porque ya existe el campo
+`tipoProducto`; «Software sectorial» deja de ser cajón y pasa a ser el corte.
+`categorias.json` no se toca hasta que la propietaria lo autorice.
+
 ## DÓNDE ESTAMOS — punto de partida al cerrar el 2026-09-21
 
 Esta sección no decide nada: dice en qué punto quedó todo, para que quien
