@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { getCapacidades } from "./repositorio";
+import { getCapacidad, getCapacidades } from "./repositorio";
 
 /**
  * EL MAPA DE NECESIDADES — cómo lo dice la persona, no cómo lo llama el sector.
@@ -165,25 +165,59 @@ export function necesidadesDePuerta(puertaId: string): Necesidad[] {
  * sólo avisa. Confundirlos sería convertir «no nos consta» en «no lo tiene»,
  * que es justo lo que las reglas de lectura de F2 prohíben.
  */
+/**
+ * Cómo puede presentarse una herramienta frente a UNA necesidad.
+ *
+ * NO EXISTE UN VALOR QUE SIGNIFIQUE «NO APARECE», y es a propósito: en el
+ * desplegable salen todas las que hemos verificado y elige ella.
+ *
+ * Los tres valores son la respuesta a dos correcciones de la propietaria
+ * (2026-09-22), y las dos van juntas:
+ *
+ * **«Mostrar no equivale a recomendar.»** Antes esto era un booleano `sirve`,
+ * y un booleano sólo sabe decir sí o no. Se enseñaban igual la herramienta que
+ * resuelve la necesidad y la que no sabemos si la resuelve. Recomendar exige
+ * haberlo comprobado; enseñar, no.
+ *
+ * **«No está pensada para esto» no significa «no lo hemos comprobado».** Son
+ * dos estados distintos y NINGUNO se deduce del otro. Con los datos de hoy la
+ * diferencia lo es todo: hay CERO ausencias demostradas en 1.547
+ * comprobaciones, así que en la práctica casi todo cae en `sin_comprobar`. Si
+ * los dos compartieran valor —o frase—, estaríamos diciendo «no lo hace» cada
+ * vez que queremos decir «no lo sabemos», que es la regla 3 de F2 al revés.
+ */
+export type ComoSePresenta =
+  /** Todas sus imprescindibles están DEMOSTRADAS. Lo único que se recomienda. */
+  | "recomendable"
+  /** Se comprobó que NO hace algo imprescindible. Se muestra diciendo qué. */
+  | "le_falta_algo"
+  /** No se ha comprobado algo imprescindible. Se muestra diciendo que no se sabe. */
+  | "sin_comprobar";
+
+/**
+ * Qué le pasa a una herramienta frente a UNA necesidad.
+ *
+ * Función pura: recibe lo que se sabe de la herramienta y no lo va a buscar.
+ * No lee la verificación ni el catálogo — no puede, y tampoco debe: mezclarlo
+ * aquí ataría el mapa a la forma que hoy tienen los datos.
+ *
+ * Los cuatro estados de la verificación sobreviven enteros y SEPARADOS. Que
+ * falte algo (`leFalta`) es ausencia demostrada; que no se sepa
+ * (`noSabemosSiLoHace`) es otra cosa. Nunca se juntan en un campo.
+ */
 export type AjusteConLaNecesidad = {
   necesidadId: string;
   /** Imprescindibles que sí demuestra. */
   resuelve: string[];
-  /** Imprescindibles que se comprobó que NO hace. Lo único que descalifica. */
+  /** Imprescindibles que se comprobó que NO hace. */
   leFalta: string[];
-  /** De las que ayudan, las que demuestra. Suma; no tenerlas no resta. */
+  /** Imprescindibles que no se han comprobado. NO son lo mismo que `leFalta`. */
+  noSabemosSiLoHace: string[];
+  /** De las que ayudan, las que demuestra. Se nombran; no se puntúan. */
   aporta: string[];
-  /** Ni demostradas ni descartadas. Se dice, no se castiga. */
-  sinComprobar: string[];
-  /**
-   * Falso sólo si le falta algo imprescindible DEMOSTRADAMENTE.
-   *
-   * NO es un permiso de entrada. Sigue apareciendo en el desplegable, porque
-   * ahí salen todas las que hemos verificado; lo que cambia es dónde queda y
-   * qué se dice de ella. `leFalta` lleva el motivo para poder decirlo sin
-   * juzgarla: no está pensada para esto.
-   */
-  sirve: boolean;
+  /** De las que ayudan, las que no se han comprobado. */
+  noSabemosSiTrae: string[];
+  comoSePresenta: ComoSePresenta;
 };
 
 export function ajusteConLaNecesidad(
@@ -193,20 +227,87 @@ export function ajusteConLaNecesidad(
 ): AjusteConLaNecesidad {
   const resuelve: string[] = [];
   const leFalta: string[] = [];
+  const noSabemosSiLoHace: string[] = [];
   const aporta: string[] = [];
-  const sinComprobar: string[] = [];
+  const noSabemosSiTrae: string[] = [];
 
   for (const cap of necesidad.imprescindibles) {
     if (demostradas.has(cap)) resuelve.push(cap);
     else if (descartadas.has(cap)) leFalta.push(cap);
-    else sinComprobar.push(cap);
+    else noSabemosSiLoHace.push(cap);
   }
   for (const cap of necesidad.ayudan) {
     if (demostradas.has(cap)) aporta.push(cap);
-    else if (!descartadas.has(cap)) sinComprobar.push(cap);
+    else if (!descartadas.has(cap)) noSabemosSiTrae.push(cap);
   }
 
-  return { necesidadId: necesidad.id, resuelve, leFalta, aporta, sinComprobar, sirve: leFalta.length === 0 };
+  /**
+   * El orden de las tres preguntas importa. Primero lo que SABEMOS que no
+   * hace, porque es lo más serio y lo más raro; después lo que no hemos
+   * mirado. Al revés, una ausencia demostrada quedaría tapada por un hueco
+   * nuestro en la misma necesidad.
+   */
+  const comoSePresenta: ComoSePresenta =
+    leFalta.length > 0 ? "le_falta_algo" : noSabemosSiLoHace.length > 0 ? "sin_comprobar" : "recomendable";
+
+  return { necesidadId: necesidad.id, resuelve, leFalta, noSabemosSiLoHace, aporta, noSabemosSiTrae, comoSePresenta };
+}
+
+/**
+ * La etiqueta de una capacidad tal como entra a mitad de frase.
+ *
+ * Las etiquetas del vocabulario están escritas para una lista —«Reserva online
+ * por la propia persona»— y dentro de una frase la mayúscula suelta chirría.
+ * Se baja, salvo cuando empieza por una sigla: «TPV y caja» o «API abierta» no
+ * se tocan.
+ */
+function etiqueta(capacidadId: string): string {
+  const texto = getCapacidad(capacidadId)?.etiqueta ?? capacidadId;
+  const esSigla = texto.length > 1 && texto[0] === texto[0].toUpperCase() && texto[1] === texto[1].toUpperCase();
+  return esSigla ? texto : texto.charAt(0).toLowerCase() + texto.slice(1);
+}
+
+/**
+ * LA ÚNICA FORMA AUTORIZADA de poner en palabras lo que sabemos de una
+ * herramienta frente a una necesidad.
+ *
+ * Que sea la única es lo que hace comprobable la corrección de la propietaria:
+ * hay pruebas que exigen que la frase de «no lo hace» y la de «no lo sabemos»
+ * NUNCA coincidan, y que la segunda no afirme nunca una ausencia. Si mañana
+ * alguien redacta esto en otro sitio, esas pruebas dejan de proteger nada.
+ *
+ * Mismo patrón, y por el mismo motivo, que `describir()` en
+ * `data/verificacion/evidencia.ts`. No se puede reutilizar aquélla porque la
+ * guarda de aislamiento de la verificación no deja que este módulo la lea, y
+ * romper la guarda es una decisión que no es de quien escribe una frase.
+ *
+ * Y la frase dice **cómo le afecta a ella**, no sólo qué falta: por eso nombra
+ * la necesidad que se queda sin resolver. «Le falta cap.online_self_service_
+ * booking» no le sirve a nadie; «sin eso, que puedan reservar sin llamarte se
+ * queda sin resolver» sí.
+ */
+export function describirElAjuste(necesidad: Necesidad, ajuste: AjusteConLaNecesidad): string {
+  const enMinuscula = necesidad.titulo.charAt(0).toLowerCase() + necesidad.titulo.slice(1);
+
+  if (ajuste.comoSePresenta === "le_falta_algo") {
+    const faltan = ajuste.leFalta.map(etiqueta).join(", ");
+    return (
+      `Lo hemos comprobado: no hace ${faltan}. ` +
+      `Sin eso, ${enMinuscula} se te queda sin resolver. No está pensada para esto.`
+    );
+  }
+
+  if (ajuste.comoSePresenta === "sin_comprobar") {
+    const dudosas = ajuste.noSabemosSiLoHace.map(etiqueta).join(", ");
+    return (
+      `No nos consta que haga ${dudosas}, y es lo que hace falta para ${enMinuscula}. ` +
+      `Lo hemos buscado en su página y no ha quedado demostrado; podría hacerlo igualmente.`
+    );
+  }
+
+  const hace = ajuste.resuelve.map(etiqueta).join(", ");
+  const extras = ajuste.aporta.length > 0 ? ` Además trae ${ajuste.aporta.map(etiqueta).join(", ")}.` : "";
+  return `Hace ${hace}, y está comprobado. Con eso, ${enMinuscula} queda resuelto.${extras}`;
 }
 
 /**
@@ -264,9 +365,16 @@ export function erroresDelMapa(mapa: MapaDeNecesidades = getMapaDeNecesidades())
  * eso `deCuantas` viaja al lado de `cubre`: «3 de 4» se puede decir en voz
  * alta y «3» a secas no significa nada.
  *
+ * Los tres recuentos —`cubre`, `leFaltan`, `sinComprobar`— SUMAN `deCuantas`,
+ * y hay una prueba que lo exige. Así la frase se puede decir entera y sin
+ * huecos: «de tus cuatro, dos las resuelve, una no la hace y de la otra no lo
+ * sabemos». Si no sumaran, algo se estaría cayendo por el camino sin que nadie
+ * lo notase.
+ *
  * `sinComprobar` no se reparte entre los otros dos. Es la parte que no sabemos
  * y que hay que enseñar tal cual, porque si se callara, la herramienta que más
- * hemos mirado parecería la que más cubre.
+ * hemos mirado parecería la que más cubre. Y NO se junta con `leFaltan`: no
+ * haberlo comprobado no es haber comprobado que no.
  *
  * Aquí NO se ordena. Ordenar es del motor, va en F3 y tiene su propia regla ya
  * escrita —«primero que sirva, después que encaje»—: la compatibilidad
@@ -282,10 +390,27 @@ export type AjusteConLoQuePidio = {
   deCuantas: number;
   /** De las suyas, en cuántas se comprobó que le falta algo imprescindible. */
   leFaltan: number;
-  /** De las suyas, en cuántas hay algo que no hemos comprobado. */
-  conAlgoSinComprobar: number;
-  /** Capacidades que trae de más y que ella no pidió. Suma, nunca resta. */
-  aportaDeMas: number;
+  /** De las suyas, en cuántas no hemos comprobado algo imprescindible. */
+  sinComprobar: number;
+  /**
+   * Lo que trae y ella no pidió. **Una LISTA, nunca un número.**
+   *
+   * Y no es una pega de estilo. Corrección de la propietaria (2026-09-22):
+   * «los extras aportan cuando tienen utilidad para esa persona. La tercera
+   * habitación sirve si puede aprovecharla; tener más funciones no debería
+   * subir automáticamente una herramienta.»
+   *
+   * Un número se suma, y sumarlo ordenaría: la suite con cuarenta funciones
+   * adelantaría a la que hace justo lo que le hace falta, sin que nadie haya
+   * dicho que esas cuarenta le sirvan de algo. Y encima volvería a medir
+   * cuánto la hemos mirado nosotros, que es de lo que avisa
+   * `data/verificacion/cobertura.ts`.
+   *
+   * Así que esto se ENSEÑA para que ella juzgue si le sirve —es su tercera
+   * habitación y sabrá si la usa de despacho—, y no entra en la distancia.
+   * Hay una prueba que exige que añadir extras no mueva `cubre`.
+   */
+  traeAdemas: string[];
 };
 
 export function ajusteConLoQuePidio(
@@ -296,22 +421,14 @@ export function ajusteConLoQuePidio(
   const porNecesidad = necesidades.map((n) => ajusteConLaNecesidad(n, demostradas, descartadas));
   const pedidas = new Set(necesidades.flatMap((n) => [...n.imprescindibles, ...n.ayudan]));
 
-  /**
-   * Una necesidad está cubierta cuando están demostradas TODAS sus
-   * imprescindibles. Que una AYUDA esté sin comprobar no la descubre: sería la
-   * asimetría al revés —castigar por lo que no sabemos de un extra—, y lo no
-   * comprobado ya se cuenta aparte en `conAlgoSinComprobar`.
-   */
-  const cubre = necesidades.filter(
-    (n, i) => porNecesidad[i].resuelve.length === n.imprescindibles.length
-  ).length;
+  const cuantas = (estado: ComoSePresenta) => porNecesidad.filter((a) => a.comoSePresenta === estado).length;
 
   return {
     porNecesidad,
-    cubre,
+    cubre: cuantas("recomendable"),
     deCuantas: necesidades.length,
-    leFaltan: porNecesidad.filter((a) => !a.sirve).length,
-    conAlgoSinComprobar: porNecesidad.filter((a) => a.sinComprobar.length > 0).length,
-    aportaDeMas: [...demostradas].filter((c) => !pedidas.has(c)).length,
+    leFaltan: cuantas("le_falta_algo"),
+    sinComprobar: cuantas("sin_comprobar"),
+    traeAdemas: [...demostradas].filter((c) => !pedidas.has(c)).sort(),
   };
 }

@@ -8,6 +8,7 @@ import {
   getPuertas,
   necesidadesDePuerta,
   ajusteConLoQuePidio,
+  describirElAjuste,
 } from "../necesidades";
 import type { Necesidad } from "../necesidades";
 
@@ -64,65 +65,139 @@ describe("el mapa es coherente", () => {
 
 describe("lo que sobra y lo que falta no pesan igual", () => {
   const necesidad: Necesidad = {
-    id: "nec.prueba",
-    titulo: "Prueba",
-    loQueDice: ["x"],
-    puertas: ["puerta.vender"],
-    imprescindibles: ["cap.a"],
-    ayudan: ["cap.b", "cap.c"],
+    id: "nec.prueba", titulo: "Que reserven solos", loQueDice: ["x"],
+    puertas: ["puerta.vender"], imprescindibles: ["cap.a"], ayudan: ["cap.b", "cap.c"],
   };
 
-  it("si demuestra lo imprescindible, sirve", () => {
+  it("si demuestra lo imprescindible, es recomendable", () => {
     const a = ajusteConLaNecesidad(necesidad, new Set(["cap.a"]), new Set());
-    expect(a.sirve).toBe(true);
+    expect(a.comoSePresenta).toBe("recomendable");
     expect(a.resuelve).toEqual(["cap.a"]);
   });
 
   /**
    * La casa de tres habitaciones. Traer de más nunca puede bajar a una
-   * herramienta: se cuenta aparte, en `aporta`, para poder contarlo y que
-   * decida quien pregunta.
+   * herramienta: se nombra aparte, en `aporta`, para que ella juzgue si le
+   * sirve.
    */
-  it("traer cosas de más no la baja: suma y se puede contar", () => {
+  it("traer cosas de más no la baja ni la sube: se nombran", () => {
     const justo = ajusteConLaNecesidad(necesidad, new Set(["cap.a"]), new Set());
     const conExtras = ajusteConLaNecesidad(necesidad, new Set(["cap.a", "cap.b", "cap.c"]), new Set());
-    expect(conExtras.sirve).toBe(justo.sirve);
+    expect(conExtras.comoSePresenta).toBe(justo.comoSePresenta);
     expect(conExtras.aporta).toEqual(["cap.b", "cap.c"]);
     expect(justo.aporta).toEqual([]);
   });
 
-  it("faltarle lo imprescindible sí la descalifica", () => {
+  it("faltarle lo imprescindible la coloca lejos, con su motivo", () => {
     const a = ajusteConLaNecesidad(necesidad, new Set(["cap.b", "cap.c"]), new Set(["cap.a"]));
-    expect(a.sirve).toBe(false);
+    expect(a.comoSePresenta).toBe("le_falta_algo");
     expect(a.leFalta).toEqual(["cap.a"]);
   });
 
-  /**
-   * La asimetría, en una sola prueba: la que trae de más y la que carece de
-   * algo imprescindible NO son equivalentes.
-   */
   it("la que trae de más y la que carece de lo imprescindible no son lo mismo", () => {
     const traeDeMas = ajusteConLaNecesidad(necesidad, new Set(["cap.a", "cap.b", "cap.c"]), new Set());
     const leFalta = ajusteConLaNecesidad(necesidad, new Set(["cap.b", "cap.c"]), new Set(["cap.a"]));
-    expect(traeDeMas.sirve).toBe(true);
-    expect(leFalta.sirve).toBe(false);
+    expect(traeDeMas.comoSePresenta).toBe("recomendable");
+    expect(leFalta.comoSePresenta).toBe("le_falta_algo");
+  });
+});
+
+describe("mostrar no equivale a recomendar", () => {
+  const necesidad: Necesidad = {
+    id: "nec.prueba", titulo: "Que reserven solos", loQueDice: ["x"],
+    puertas: ["puerta.vender"], imprescindibles: ["cap.a"], ayudan: ["cap.b"],
+  };
+
+  /**
+   * Antes esto era un booleano `sirve`, y con los datos de hoy —CERO ausencias
+   * demostradas en 1.547 comprobaciones— salía `true` para casi todo. Es
+   * decir: se habría recomendado sobre «no sabemos nada malo de ella».
+   * Recomendar exige haberlo comprobado; enseñar, no.
+   */
+  it("no haber comprobado nada NO la hace recomendable", () => {
+    const a = ajusteConLaNecesidad(necesidad, new Set(), new Set());
+    expect(a.comoSePresenta).toBe("sin_comprobar");
+    expect(a.comoSePresenta).not.toBe("recomendable");
+    expect(a.noSabemosSiLoHace).toEqual(["cap.a"]);
+    expect(a.leFalta).toEqual([]);
+  });
+
+  it("sólo es recomendable lo que está demostrado", () => {
+    expect(ajusteConLaNecesidad(necesidad, new Set(["cap.a"]), new Set()).comoSePresenta).toBe("recomendable");
+  });
+
+  /** Ningún valor significa «no aparece»: en el desplegable salen todas. */
+  it("ninguno de los tres estados esconde nada", () => {
+    for (const [dem, des] of [
+      [new Set<string>(["cap.a"]), new Set<string>()],
+      [new Set<string>(), new Set<string>(["cap.a"])],
+      [new Set<string>(), new Set<string>()],
+    ] as const) {
+      const a = ajusteConLaNecesidad(necesidad, dem, des);
+      expect(["recomendable", "le_falta_algo", "sin_comprobar"]).toContain(a.comoSePresenta);
+      expect(a.necesidadId).toBe("nec.prueba");
+    }
   });
 
   /**
-   * «No nos consta» no se convierte en «no lo tiene». Es la regla 3 de F2, y
-   * aquí se sostiene: sin comprobar no descalifica, sólo se dice.
+   * Una ausencia demostrada es más seria y más rara que un hueco nuestro. Si
+   * se mirara antes lo no comprobado, quedaría tapada dentro de la misma
+   * necesidad.
    */
-  it("lo que no se ha comprobado avisa, pero no descarta", () => {
-    const a = ajusteConLaNecesidad(necesidad, new Set(), new Set());
-    expect(a.sirve).toBe(true);
-    expect(a.leFalta).toEqual([]);
-    expect(a.sinComprobar).toEqual(["cap.a", "cap.b", "cap.c"]);
+  it("una ausencia demostrada no queda tapada por un hueco nuestro", () => {
+    const dos: Necesidad = { ...necesidad, imprescindibles: ["cap.a", "cap.x"] };
+    const a = ajusteConLaNecesidad(dos, new Set(), new Set(["cap.a"]));
+    expect(a.comoSePresenta).toBe("le_falta_algo");
+    expect(a.leFalta).toEqual(["cap.a"]);
+    expect(a.noSabemosSiLoHace).toEqual(["cap.x"]);
+  });
+});
+
+describe("«no está pensada para esto» no es «no lo hemos comprobado»", () => {
+  const necesidad: Necesidad = {
+    id: "nec.citas", titulo: "Que puedan reservar sin llamarme", loQueDice: ["pierdo citas"],
+    puertas: ["puerta.vender"], imprescindibles: ["cap.online_self_service_booking"], ayudan: [],
+  };
+
+  const noLoHace = describirElAjuste(
+    necesidad, ajusteConLaNecesidad(necesidad, new Set(), new Set(["cap.online_self_service_booking"]))
+  );
+  const noLoSabemos = describirElAjuste(necesidad, ajusteConLaNecesidad(necesidad, new Set(), new Set()));
+  const loHace = describirElAjuste(
+    necesidad, ajusteConLaNecesidad(necesidad, new Set(["cap.online_self_service_booking"]), new Set())
+  );
+
+  it("las tres frases son distintas entre sí", () => {
+    expect(new Set([noLoHace, noLoSabemos, loHace]).size).toBe(3);
   });
 
-  it("una ayuda descartada no se cuenta como pendiente de comprobar", () => {
-    const a = ajusteConLaNecesidad(necesidad, new Set(["cap.a"]), new Set(["cap.b"]));
-    expect(a.sinComprobar).toEqual(["cap.c"]);
-    expect(a.sirve).toBe(true);
+  /**
+   * La que importa. Hoy hay cero ausencias demostradas, así que casi todo
+   * caerá en «no lo sabemos». Esa frase NO puede afirmar una ausencia: sería
+   * decir «no lo hace» cada vez que queremos decir «no lo sé», que es la regla
+   * 3 de F2 al revés.
+   */
+  it("la de «no lo sabemos» nunca afirma que no lo haga", () => {
+    expect(noLoSabemos).toContain("No nos consta");
+    expect(noLoSabemos).toContain("podría hacerlo igualmente");
+    expect(noLoSabemos).not.toContain("no hace");
+    expect(noLoSabemos).not.toContain("No está pensada");
+  });
+
+  it("la de «no lo hace» sí dice que se comprobó, y no deja lugar a la duda", () => {
+    expect(noLoHace).toContain("Lo hemos comprobado");
+    expect(noLoHace).toContain("No está pensada para esto");
+    expect(noLoHace).not.toContain("podría");
+  });
+
+  /** «Cómo le afecta a su caso»: la frase nombra la necesidad que se cae. */
+  it("las dos dicen qué se le queda sin resolver, con sus palabras", () => {
+    expect(noLoHace).toContain("que puedan reservar sin llamarme");
+    expect(noLoSabemos).toContain("que puedan reservar sin llamarme");
+  });
+
+  it("ninguna frase suelta un identificador técnico a la cara", () => {
+    for (const frase of [noLoHace, noLoSabemos, loHace]) expect(frase).not.toContain("cap.");
   });
 });
 
@@ -203,9 +278,13 @@ describe("de más cerca a más lejana, y todas en el desplegable", () => {
     const conExtras = ajusteConLoQuePidio(
       pidio, new Set(["cap.reserva", "cap.factura", "cap.tpv", "cap.nominas"]), new Set()
     );
+    // Los extras NO mueven la distancia. Es la corrección de la propietaria:
+    // tener más funciones no sube automáticamente a una herramienta.
     expect(conExtras.cubre).toBe(justo.cubre);
-    expect(conExtras.aportaDeMas).toBe(2);
-    expect(justo.aportaDeMas).toBe(0);
+    expect(conExtras.leFaltan).toBe(justo.leFaltan);
+    // Se nombran para que ella juzgue si le sirven. Lista, nunca número.
+    expect(conExtras.traeAdemas).toEqual(["cap.nominas", "cap.tpv"]);
+    expect(justo.traeAdemas).toEqual([]);
   });
 
   /**
@@ -218,8 +297,8 @@ describe("de más cerca a más lejana, y todas en el desplegable", () => {
     // Cubre las citas —su imprescindible está demostrada— aunque el
     // recordatorio, que sólo ayuda, siga sin comprobar.
     expect(a.cubre).toBe(1);
-    // Las dos tienen algo sin comprobar, y se dice: no se reparte ni se calla.
-    expect(a.conAlgoSinComprobar).toBe(2);
+    // De la factura no sabemos, y se dice: no se reparte ni se calla.
+    expect(a.sinComprobar).toBe(1);
     expect(a.leFaltan).toBe(0);
   });
 
@@ -230,6 +309,18 @@ describe("de más cerca a más lejana, y todas en el desplegable", () => {
    * módulo que la borre de la lista, porque en el desplegable salen todas las
    * que hemos verificado y elige ella.
    */
+  it("los tres recuentos suman lo que ella pidió, sin huecos", () => {
+    for (const [dem, des] of [
+      [new Set(["cap.reserva", "cap.factura"]), new Set<string>()],
+      [new Set(["cap.reserva"]), new Set(["cap.factura"])],
+      [new Set<string>(), new Set<string>()],
+      [new Set<string>(), new Set(["cap.reserva", "cap.factura"])],
+    ] as const) {
+      const a = ajusteConLoQuePidio(pidio, dem, des);
+      expect(a.cubre + a.leFaltan + a.sinComprobar).toBe(a.deCuantas);
+    }
+  });
+
   it("a la que le falta algo imprescindible se le mide la distancia, no se la tacha", () => {
     const lejos = ajusteConLoQuePidio(pidio, new Set(), new Set(["cap.reserva", "cap.factura"]));
     expect(lejos.porNecesidad).toHaveLength(pidio.length);
@@ -251,5 +342,6 @@ describe("de más cerca a más lejana, y todas en el desplegable", () => {
     expect(a.deCuantas).toBe(0);
     expect(a.cubre).toBe(0);
     expect(a.porNecesidad).toEqual([]);
+    expect(a.traeAdemas).toEqual(["cap.reserva"]);
   });
 });

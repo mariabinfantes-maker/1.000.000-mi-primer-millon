@@ -5870,6 +5870,65 @@ necesidad apunte a capacidades reales obliga a leer el vocabulario, y
 —«ampliarla tiene que ser una decisión, no un descuido»—. Darle carpeta propia
 exigiría tocar esa lista, y esa decisión no es de quien escribe el mapa.
 
+### Las tres condiciones antes de conectarlo — 2026-09-22
+
+Dichas por la propietaria al revisar el mapa, y las tres corrigen algo que
+estaba mal escrito. Van antes de que esto toque el resultado.
+
+**Una. Mostrar no equivale a recomendar.** *«Si falta algo imprescindible,
+puede aparecer en el desplegable, pero indicando exactamente qué falta y cómo
+afecta a su caso.»*
+
+El módulo devolvía un booleano `sirve`, y un booleano sólo sabe decir sí o no.
+Con los datos de hoy eso era grave: hay **cero ausencias demostradas** en 1.547
+comprobaciones, así que `sirve` salía `true` para casi todo y se habría
+recomendado sobre «no sabemos nada malo de ella». Ahora hay tres estados
+—`recomendable`, `le_falta_algo`, `sin_comprobar`— y **ninguno significa «no
+aparece»**: recomendar exige haberlo comprobado; enseñar, no.
+
+**Dos. «No está pensada para esto» no significa «no lo hemos comprobado».**
+*«Hay que decir cuál de las dos situaciones conocemos, sin deducir una de la
+otra.»*
+
+Los dos estados ya iban separados en el dato, pero nada impedía contarlos con
+la misma frase. Ahora hay **una sola forma autorizada de ponerlo en palabras**
+—`describirElAjuste`—, igual que `describir()` en la verificación y por el
+mismo motivo: si la redacción se reparte por el código, las pruebas dejan de
+proteger nada. Y las pruebas exigen que la frase de «no lo sabemos» no afirme
+jamás una ausencia:
+
+> **no lo hace** → «Lo hemos comprobado: no hace *reserva online por la propia
+> persona*. Sin eso, *que puedan reservar sin llamarme* se te queda sin
+> resolver. No está pensada para esto.»
+>
+> **no lo sabemos** → «No nos consta que haga *reserva online por la propia
+> persona*, y es lo que hace falta para *que puedan reservar sin llamarme*. Lo
+> hemos buscado en su página y no ha quedado demostrado; **podría hacerlo
+> igualmente**.»
+
+Las dos nombran la necesidad que se cae, que es el «cómo afecta a su caso».
+«Le falta `cap.online_self_service_booking`» no le sirve a nadie.
+
+**Tres. Los extras aportan cuando tienen utilidad para esa persona.** *«La
+tercera habitación sirve si puede aprovecharla; tener más funciones no debería
+subir automáticamente una herramienta.»*
+
+Esto era un fallo de verdad. El recuento de extras era un **número**
+—`aportaDeMas`—, y un número se suma y ordena: la suite con cuarenta funciones
+habría adelantado a la que hace justo lo que hace falta, sin que nadie hubiera
+dicho que esas cuarenta le sirvan de algo. Y encima volvía a medir cuánto la
+hemos mirado nosotros, que es justo de lo que avisa
+`data/verificacion/cobertura.ts`.
+
+Ahora es una **lista** —`traeAdemas`— que se enseña para que juzgue ella, y no
+entra en la distancia. Hay una prueba que exige que añadir extras no mueva el
+recuento.
+
+Matiz que queda abierto y que no se resuelve solo: saber si un extra le sirve
+**a esta persona** exige preguntárselo o deducirlo del diagnóstico. Hoy Molnip
+no lo sabe, así que los nombra y calla. Nombrarlos ya es más de lo que hacía;
+puntuarlos sería inventar.
+
 ### Lo que queda vivo de las quince categorías
 
 No se borra ninguna. Cada una encuentra sitio: «CRM y ventas» pasa a ser
