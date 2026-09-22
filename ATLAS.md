@@ -5336,6 +5336,78 @@ la misma: **opinión disfrazada de dato. Una en párrafo y otra en número.**
 Y lo incómodo, dicho entero: las opiniones eran el atajo para parecer útiles
 sin serlo. Sin ellas hay que serlo de verdad, y eso es más trabajo.
 
+## QUÉ VE LA PERSONA CUANDO PREGUNTA — 2026-09-21
+
+**Esta sección se guarda literal, sin resumir.** La propietaria la rescató el
+2026-09-22 porque dos reescrituras posteriores le fueron quitando cosas: «te
+pegué la captura para que vieras lo que hablamos». Volver a escribir algo
+pierde piezas — es el mismo fallo que deja caducar los documentos. Así que aquí
+van las dos intervenciones tal cual se dijeron.
+
+### Lo que describió la propietaria
+
+> cuando un cliente hace una pregunta a molnip por ejemplo quiero hacer buenos
+> clip de un video o como mejorar mis videos molnip le muestra :
+> mira a nosotros llego esta informacion de estas herramientas
+> y le muestra lo que cada una hace . y le dice te la dejo de mas cerca a mas
+> lejana las que te pueden ayudar las primeras tres pero si despliega podrás
+> verlas todas las que hemos podido verificar
+
+### La respuesta, que es la que ella dio por buena
+
+> Eso es otra cosa distinta de lo que hay hoy, y encaja con todo lo de esta
+> mañana.
+>
+> Lo que estás describiendo, en piezas:
+>
+> **«A nosotros llegó esta información de estas herramientas».** Ésa es la voz
+> del intermediario. No «ésta es la mejor», no un 88. Es *esto es lo que nos
+> consta y te lo paso*. No hay veredicto que defender, y por tanto no hay nada
+> que un fabricante pueda discutirnos.
+>
+> **Enseñar lo que cada una hace.** Y ahí está lo bueno: eso es justo la capa
+> que sí está verificada —las capacidades, con su fuente y su fecha—. El
+> contenido de la pantalla pasa a ser lo único sólido que tenemos, en vez de
+> las notas.
+>
+> **De más cerca a más lejana.** Esto es lo que sustituye a la puntuación, y es
+> mucho mejor, porque **no es la misma afirmación**. «Ésta es mejor» es un
+> juicio sobre una empresa. «Ésta se parece más a lo que me has pedido» es una
+> medida entre lo que ella dijo y lo que la herramienta hace. Ninguna queda
+> mal: unas están más lejos de *su* necesidad, y eso no las hace peores.
+>
+> Y se puede calcular sin opinar. Es contar cuántas de sus necesidades cubre
+> cada una, de las que están comprobadas.
+>
+> **Las tres primeras, pero puede desplegarlas todas.** Eso quita el problema
+> de fondo que tenemos: hoy la persona ve tres y tiene que fiarse de que detrás
+> hay un criterio. Así ve tres **y el resto**, y puede comprobarnos. **El poder
+> pasa a ella**, que es lo que hace un asesor y no un escaparate.
+>
+> **«Todas las que hemos podido verificar».** Y eso dice el límite en voz alta.
+> No «todas las del mercado»: las que miramos. Convierte el trabajo de
+> septiembre en lo que se ve, en vez de en fontanería que nadie nota.
+>
+> ---
+>
+> Tres cosas honradas antes de que sigas:
+>
+> **Una.** Esto que acabas de describir **es el camino A**, llegando desde el
+> producto en vez de desde el plan. Que Molnip sepa con quién habla, la página
+> de todas las herramientas… está escrito y acordado. No estás abriendo un
+> frente nuevo: estás describiendo el destino con otras palabras. Eso es buena
+> señal, no mala.
+>
+> **Dos.** «De más cerca a más lejana» hoy no es lo que hace el motor: el orden
+> lo deciden en buena parte las siete notas. Cambiarlo a distancia-a-la-
+> necesidad es conectar el vocabulario al motor, que es F3, y tiene condiciones
+> escritas antes de tocarlo.
+>
+> **Tres, y es la que más me importa:** la frase «a nosotros nos llegó esta
+> información» es honrada **sólo si lo que viene detrás está comprobado**. Si
+> se usa para colar «nos llegó que el soporte es lento», es la misma mentira
+> con una voz más simpática. **La voz no arregla el contenido.**
+
 ## DÓNDE ESTAMOS — punto de partida al cerrar el 2026-09-21
 
 Esta sección no decide nada: dice en qué punto quedó todo, para que quien
