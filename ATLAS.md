@@ -6102,6 +6102,84 @@ Cuando deje de ser un ejemplo tiene que mudarse a un sitio único y con pruebas,
 como `describirElAjuste`. Si la redacción se reparte por el código, las pruebas
 que impiden prometer de más dejan de proteger nada.
 
+### SE COMPROBÓ, Y EL CATÁLOGO NO SIRVE PARA UNA PELUQUERA — 2026-09-22
+
+La propietaria mandó dejar de retocar el ejemplo y hacer las comprobaciones de
+verdad: *«no des por hecho que serán diez minutos»*. Tenía razón en las dos
+cosas.
+
+#### Cómo se hizo, y una corrección al manual
+
+`COMO-EJECUTAR.md` dice que esto lo lanza la propietaria porque la clave de
+Gemini vive en su ordenador. **Eso ya no es del todo cierto**: el entorno
+remoto de Claude tiene acceso a `generativelanguage.googleapis.com` por el
+proxy, sin clave. Lo de su máquina sigue valiendo; lo que cambia es que desde
+aquí también se puede. El modelo, además, ya no es el del manual: es
+`gemini-3.6-flash`.
+
+Lo que costó, y no fueron diez minutos:
+
+1. **Primera vuelta tirada a la basura.** Se inventaron las subpáginas
+   —`/appointments`, `/scheduler`— y no existían. Salió «1 de 3 direcciones
+   leídas» y las ocho respuestas se dieron leyendo sólo la portada. Aceptar
+   eso habría sido verificar el aire.
+2. **No se pueden abrir las páginas desde aquí.** La política de red del
+   entorno sólo deja salir a Gemini, así que ni siquiera se podían mirar los
+   enlaces. Hubo que pedirle al propio modelo que leyera la navegación y
+   devolviera las direcciones buenas.
+3. **Segunda vuelta con las direcciones reales**, y tres que no se pudieron
+   leer hubo que reintentarlas aparte con otras páginas. Total: 22 llamadas
+   para 11 herramientas.
+
+#### El resultado
+
+**Las ocho del catálogo que demuestran reserva online: `no_consta` las ocho.**
+Agiled, HoneyBook, Keap, Nutshell, EngageBay, Motion, Pipedrive y Reclaim.ai.
+Todas con sus páginas leídas de verdad, y todas con la misma nota: programan
+**reuniones, llamadas y demos**, y ninguna demuestra que deje reservar un
+servicio con su duración y su precio.
+
+O sea: **el hueco deja de ser nuestro y pasa a ser del catálogo.** Antes la
+respuesta honrada era «no lo hemos mirado». Ahora es «lo hemos mirado y no
+está».
+
+Y como la propietaria avisó de que *«las cuatro primeras son el comienzo de la
+investigación, no su límite»*, se miró fuera. De tres herramientas que no están
+en el catálogo:
+
+| | reservar un servicio | agenda por profesional |
+|---|---|---|
+| Fresha | demostrado | demostrado |
+| SimplyBook.me | demostrado | no consta |
+| Booksy | no consta | no consta |
+
+**Con una salvedad que no se puede maquillar:** la cita de Fresha sale de un
+testimonio de cliente en su portada, no de una página de producto del
+fabricante. Está en su web oficial, pero es un cliente hablando. Antes de
+presentarla como demostrada habría que confirmarlo en una página de producto.
+La de SimplyBook.me —«Set prices for different services»— sí es del fabricante,
+en su página de precios.
+
+#### Lo que esto significa para el producto
+
+Es la primera vez que Molnip contesta «**esto no lo cubrimos**» con recibos, y
+eso es un resultado válido, no un fallo. También es la confirmación medida de
+lo que la propietaria llevaba diciendo: **las 65 no bastan**. No por número:
+por forma. El catálogo está lleno de CRM y gestores de proyectos que programan
+reuniones, y no tiene ni una herramienta pensada para quien vende su tiempo por
+citas — que es medio autónomo de España.
+
+**Lo que NO se ha hecho, y es decisión de la propietaria:** no se ha añadido
+ninguna herramienta al catálogo. Fresha, SimplyBook.me y Booksy se presentan
+como hallazgo, según la regla de que si el catálogo no cubre una necesidad, se
+buscan alternativas y **decide ella**.
+
+Los ocho registros de uso quedan escritos en `registros.json` con sus fuentes y
+sus notas, y la evidencia cruda en `_salida-usos-citas.json`. Dos pruebas que
+decían «todavía no se ha comprobado ningún uso» fallaron al hacerlo: que
+fallaran era la señal de que el lote se había lanzado. Están actualizadas a lo
+que se sabe ahora.
+
 ### Lo que queda vivo de las quince categorías
 
 No se borra ninguna. Cada una encuentra sitio: «CRM y ventas» pasa a ser

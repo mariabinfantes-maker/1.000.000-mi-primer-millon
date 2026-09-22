@@ -9271,7 +9271,31 @@
     ],
     "confianza": "alta",
     "proximaRevision": "2027-09-07",
-    "nota": "El chatbot de IA permite reservar reuniones automáticamente a los visitantes 24/7."
+    "nota": "El chatbot de IA permite reservar reuniones automáticamente a los visitantes 24/7.",
+    "usos": [
+      {
+        "usoId": "uso.reserva_de_servicio",
+        "estado": "no_consta",
+        "fuentes": [
+          {
+            "tipo": "pagina_oficial",
+            "url": "https://www.nutshell.com/",
+            "fechaConsulta": "2026-09-22"
+          },
+          {
+            "tipo": "pagina_oficial",
+            "url": "https://www.nutshell.com/features",
+            "fechaConsulta": "2026-09-22"
+          },
+          {
+            "tipo": "pagina_oficial",
+            "url": "https://www.nutshell.com/pricing",
+            "fechaConsulta": "2026-09-22"
+          }
+        ],
+        "nota": "Se buscó la reserva de servicios concretos con precio y duración específicos por parte de clientes finales, pero las páginas solo mencionan programación de reuniones y demostraciones (Meeting scheduler)."
+      }
+    ]
   },
   {
     "herramientaId": "nutshell",
@@ -12083,7 +12107,31 @@
       }
     ],
     "confianza": "alta",
-    "proximaRevision": "2027-09-07"
+    "proximaRevision": "2027-09-07",
+    "usos": [
+      {
+        "usoId": "uso.reserva_de_servicio",
+        "estado": "no_consta",
+        "fuentes": [
+          {
+            "tipo": "pagina_oficial",
+            "url": "https://www.pipedrive.com/",
+            "fechaConsulta": "2026-09-22"
+          },
+          {
+            "tipo": "pagina_oficial",
+            "url": "https://www.pipedrive.com/en/products",
+            "fechaConsulta": "2026-09-22"
+          },
+          {
+            "tipo": "pagina_oficial",
+            "url": "https://www.pipedrive.com/en/pricing",
+            "fechaConsulta": "2026-09-22"
+          }
+        ],
+        "nota": "Se buscó la posibilidad de reservar servicios con precio y duración propia, pero en las páginas solo se describe la programación de llamadas y reuniones."
+      }
+    ]
   },
   {
     "herramientaId": "productive-io",
@@ -21524,7 +21572,26 @@
     ],
     "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "Permite crear páginas de reserva públicas con disponibilidad."
+    "nota": "Permite crear páginas de reserva públicas con disponibilidad.",
+    "usos": [
+      {
+        "usoId": "uso.reserva_de_servicio",
+        "estado": "no_consta",
+        "fuentes": [
+          {
+            "tipo": "pagina_oficial",
+            "url": "https://www.usemotion.com/",
+            "fechaConsulta": "2026-09-22"
+          },
+          {
+            "tipo": "pagina_oficial",
+            "url": "https://www.usemotion.com/pricing",
+            "fechaConsulta": "2026-09-22"
+          }
+        ],
+        "nota": "Se buscó información sobre la posibilidad de reservar servicios específicos con duración y precio propios, pero las páginas consultadas solo mencionan la programación de reuniones (meetings) y enlaces de reserva (booking links)."
+      }
+    ]
   },
   {
     "herramientaId": "motion",
@@ -22503,7 +22570,21 @@
     ],
     "confianza": "alta",
     "proximaRevision": "2027-03-09",
-    "nota": "Permite compartir enlaces de disponibilidad para que terceros reserven reuniones."
+    "nota": "Permite compartir enlaces de disponibilidad para que terceros reserven reuniones.",
+    "usos": [
+      {
+        "usoId": "uso.reserva_de_servicio",
+        "estado": "no_consta",
+        "fuentes": [
+          {
+            "tipo": "pagina_oficial",
+            "url": "https://reclaim.ai/features/scheduling-links",
+            "fechaConsulta": "2026-09-22"
+          }
+        ],
+        "nota": "Se buscó la posibilidad de definir y reservar servicios específicos con duración y precio para clientes finales, pero la página solo describe la programación de reuniones, llamadas y demos."
+      }
+    ]
   },
   {
     "herramientaId": "reclaim-ai",
@@ -25556,7 +25637,31 @@
     ],
     "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "Permite que los clientes reserven cita directamente por internet."
+    "nota": "Permite que los clientes reserven cita directamente por internet.",
+    "usos": [
+      {
+        "usoId": "uso.reserva_de_servicio",
+        "estado": "no_consta",
+        "fuentes": [
+          {
+            "tipo": "pagina_oficial",
+            "url": "https://agiled.app/",
+            "fechaConsulta": "2026-09-22"
+          },
+          {
+            "tipo": "pagina_oficial",
+            "url": "https://agiled.app/features",
+            "fechaConsulta": "2026-09-22"
+          },
+          {
+            "tipo": "pagina_oficial",
+            "url": "https://agiled.app/pricing",
+            "fechaConsulta": "2026-09-22"
+          }
+        ],
+        "nota": "Buscué si el cliente final puede reservar servicios específicos con su propia duración y precio, pero las páginas leídas solo mencionan la programación de reuniones y citas ('meetings', 'calls', 'appointments')."
+      }
+    ]
   },
   {
     "herramientaId": "agiled",
@@ -27431,7 +27536,26 @@
     ],
     "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "Herramienta de reserva y programación de citas integrada."
+    "nota": "Herramienta de reserva y programación de citas integrada.",
+    "usos": [
+      {
+        "usoId": "uso.reserva_de_servicio",
+        "estado": "no_consta",
+        "fuentes": [
+          {
+            "tipo": "pagina_oficial",
+            "url": "https://www.engagebay.com/",
+            "fechaConsulta": "2026-09-22"
+          },
+          {
+            "tipo": "pagina_oficial",
+            "url": "https://www.engagebay.com/pricing/all-in-one",
+            "fechaConsulta": "2026-09-22"
+          }
+        ],
+        "nota": "Se buscó la posibilidad de reservar servicios con duración y precio específicos, pero solo se menciona de forma general la programación de reuniones y citas (Appointment Scheduling)."
+      }
+    ]
   },
   {
     "herramientaId": "engagebay",
@@ -29067,7 +29191,31 @@
     ],
     "confianza": "alta",
     "proximaRevision": "2027-03-09",
-    "nota": "Permite definir y compartir disponibilidad para la reserva directa por parte del cliente."
+    "nota": "Permite definir y compartir disponibilidad para la reserva directa por parte del cliente.",
+    "usos": [
+      {
+        "usoId": "uso.reserva_de_servicio",
+        "estado": "no_consta",
+        "fuentes": [
+          {
+            "tipo": "pagina_oficial",
+            "url": "https://www.honeybook.com/",
+            "fechaConsulta": "2026-09-22"
+          },
+          {
+            "tipo": "pagina_oficial",
+            "url": "https://www.honeybook.com/",
+            "fechaConsulta": "2026-09-22"
+          },
+          {
+            "tipo": "pagina_oficial",
+            "url": "https://www.honeybook.com/pricing",
+            "fechaConsulta": "2026-09-22"
+          }
+        ],
+        "nota": "Se buscó si los clientes pueden reservar servicios concretos con duración y precio propios, pero en las páginas únicamente se menciona la opción de reservar tiempo o sesiones ('book your time', 'book a session and pay in one go') sin especificar servicios definidos con precio y duración propios."
+      }
+    ]
   },
   {
     "herramientaId": "honeybook",
@@ -30697,7 +30845,21 @@
     ],
     "confianza": "alta",
     "proximaRevision": "2027-09-09",
-    "nota": "Permite enviar un enlace de reserva online con las horas disponibles del calendario."
+    "nota": "Permite enviar un enlace de reserva online con las horas disponibles del calendario.",
+    "usos": [
+      {
+        "usoId": "uso.reserva_de_servicio",
+        "estado": "no_consta",
+        "fuentes": [
+          {
+            "tipo": "pagina_oficial",
+            "url": "https://keap.com/solutions/appointments",
+            "fechaConsulta": "2026-09-22"
+          }
+        ],
+        "nota": "Se buscó la posibilidad de configurar servicios con duración y precio propios para la reserva del cliente, pero la página solo menciona la programación de citas y reuniones de forma general."
+      }
+    ]
   },
   {
     "herramientaId": "keap",

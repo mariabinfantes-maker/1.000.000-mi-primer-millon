@@ -112,10 +112,26 @@ describe("el caso de la peluquera, con los datos de hoy", () => {
     }
   });
 
-  it("hoy no hay NINGUNA herramienta con ese uso comprobado, y por eso se avisa", () => {
+  /**
+   * Y ya no es que no lo hayamos mirado: el 2026-09-22 SE MIRÓ. Se leyeron las
+   * páginas oficiales de las ocho que demuestran reserva online y las ocho
+   * salieron `no_consta`: todas programan reuniones, llamadas o demos, y
+   * ninguna demuestra que deje reservar un servicio con su duración y su
+   * precio. El hueco deja de ser nuestro y pasa a ser del catálogo.
+   */
+  it("se comprobó en las ocho y ninguna lo demuestra: el hueco es del catálogo", () => {
     const conUso = HERRAMIENTAS.filter((h) => usoDe(h.id, RESERVA_DE_SERVICIO).estado === "demostrada");
     expect(conUso).toEqual([]);
-    expect(REGISTROS.filter((r) => (r.usos ?? []).length > 0)).toEqual([]);
+
+    const preguntadas = REGISTROS.filter((r) =>
+      (r.usos ?? []).some((u) => u.usoId === RESERVA_DE_SERVICIO)
+    );
+    expect(preguntadas.length).toBe(8);
+    for (const r of preguntadas) {
+      const u = (r.usos ?? []).find((x) => x.usoId === RESERVA_DE_SERVICIO)!;
+      expect(u.estado).toBe("no_consta");
+      expect(u.nota).toBeTruthy();
+    }
   });
 
   /** El uso declarado dice justo lo que separa un corte de pelo de una reunión. */

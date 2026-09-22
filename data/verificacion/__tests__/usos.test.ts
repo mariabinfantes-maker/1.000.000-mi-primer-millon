@@ -192,7 +192,32 @@ describe("los archivos reales", () => {
     expect(getIdiomas().flatMap((r) => erroresDeIdioma(r, herramientas))).toEqual([]);
   });
 
-  it("ningún registro de hoy lleva usos todavía: el primer lote no se ha lanzado", () => {
-    expect(getRegistros().filter((r) => r.usos?.length).length).toBe(0);
+  /**
+   * El 2026-09-22 se comprobó el PRIMER uso de verdad: `uso.reserva_de_servicio`
+   * en las ocho herramientas que demuestran reserva online. Las ocho salieron
+   * `no_consta` — todas programan reuniones y llamadas, ninguna demuestra que
+   * deje reservar un servicio con su duración y su precio.
+   *
+   * Antes esta prueba decía «ninguna lleva usos todavía». Que fallara fue la
+   * señal de que el lote se había lanzado, no de que algo se hubiera roto.
+   */
+  it("los usos escritos son válidos y ninguno afirma más de lo que se leyó", () => {
+    const conUsos = getRegistros().filter((r) => r.usos?.length);
+    expect(conUsos.length).toBeGreaterThan(0);
+    for (const r of conUsos) {
+      for (const u of r.usos ?? []) {
+        // `no_consta` obliga a decir qué se buscó, y no puede llevar cita.
+        if (u.estado === "no_consta") {
+          expect(u.nota, `${r.herramientaId}/${u.usoId}`).toBeTruthy();
+          expect(u.fuentes.every((f) => f.cita === undefined)).toBe(true);
+        }
+        expect(u.fuentes.length).toBeGreaterThan(0);
+      }
+    }
+  });
+
+  it("de momento ningún uso está DEMOSTRADO en el catálogo, y se dice así", () => {
+    const demostrados = getRegistros().flatMap((r) => (r.usos ?? []).filter((u) => u.estado === "demostrado"));
+    expect(demostrados).toEqual([]);
   });
 });

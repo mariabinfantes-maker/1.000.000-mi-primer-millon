@@ -1,0 +1,303 @@
+{
+  "fecha": "2026-09-22",
+  "modelo": "gemini-3.6-flash",
+  "herramienta": "url_context",
+  "pregunta": "uso.reserva_de_servicio y agenda por profesional, para el caso de la peluquera",
+  "nota": "Ejecutado desde el entorno remoto de Claude a traves del proxy, sin clave. El manual COMO-EJECUTAR.md dice que lo lanza la propietaria porque la clave vive en su ordenador; eso sigue valiendo para su maquina, pero aqui hay acceso a Gemini por el proxy. Primera vuelta descartada: las subpaginas estaban adivinadas y no existian, asi que se respondio leyendo solo la portada. Estas son las respuestas de la segunda vuelta, con las direcciones que el propio modelo encontro en la navegacion.",
+  "delCatalogo": [
+    {
+      "id": "agiled",
+      "nombre": "Agiled",
+      "pedidas": [
+        "https://agiled.app/",
+        "https://agiled.app/features/",
+        "https://agiled.app/pricing/"
+      ],
+      "leidas": [
+        "OK https://agiled.app/",
+        "OK https://agiled.app/features",
+        "OK https://agiled.app/pricing"
+      ],
+      "respuesta": {
+        "reserva_de_servicio": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "Buscué si el cliente final puede reservar servicios específicos con su propia duración y precio, pero las páginas leídas solo mencionan la programación de reuniones y citas ('meetings', 'calls', 'appointments')."
+        },
+        "agenda_por_profesional": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "Buscué si el cliente puede elegir la agenda de un profesional concreto del equipo, pero solo se menciona 'Team scheduling' sin especificar dicha funcionalidad de selección."
+        }
+      }
+    },
+    {
+      "id": "honeybook",
+      "nombre": "HoneyBook",
+      "pedidas": [
+        "https://www.honeybook.com/",
+        "https://www.honeybook.com/features",
+        "https://www.honeybook.com/pricing"
+      ],
+      "leidas": [
+        "OK https://www.honeybook.com/",
+        "OK https://www.honeybook.com/",
+        "OK https://www.honeybook.com/pricing"
+      ],
+      "respuesta": {
+        "reserva_de_servicio": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "Se buscó si los clientes pueden reservar servicios concretos con duración y precio propios, pero en las páginas únicamente se menciona la opción de reservar tiempo o sesiones ('book your time', 'book a session and pay in one go') sin especificar servicios definidos con precio y duración propios."
+        },
+        "agenda_por_profesional": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "Se buscó si el cliente puede elegir entre varios profesionales del equipo para ver su agenda individual, pero solo se menciona la inclusión de miembros del equipo ('team members') sin detallar agendas independientes elegibles por el cliente."
+        }
+      }
+    },
+    {
+      "id": "keap",
+      "nombre": "Keap",
+      "pedidas": [
+        "https://keap.com/features/appointments"
+      ],
+      "leidas": [
+        "OK https://keap.com/solutions/appointments"
+      ],
+      "respuesta": {
+        "reserva_de_servicio": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "https://keap.com/features/appointments",
+          "nota": "Se buscó la posibilidad de configurar servicios con duración y precio propios para la reserva del cliente, pero la página solo menciona la programación de citas y reuniones de forma general."
+        },
+        "agenda_por_profesional": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "https://keap.com/features/appointments",
+          "nota": "Se buscó si el cliente puede elegir entre las agendas individuales de varios miembros del equipo, pero la página no menciona esa función."
+        }
+      }
+    },
+    {
+      "id": "nutshell",
+      "nombre": "Nutshell",
+      "pedidas": [
+        "https://www.nutshell.com/",
+        "https://www.nutshell.com/features",
+        "https://www.nutshell.com/pricing"
+      ],
+      "leidas": [
+        "OK https://www.nutshell.com/",
+        "OK https://www.nutshell.com/features",
+        "OK https://www.nutshell.com/pricing"
+      ],
+      "respuesta": {
+        "reserva_de_servicio": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "Se buscó la reserva de servicios concretos con precio y duración específicos por parte de clientes finales, pero las páginas solo mencionan programación de reuniones y demostraciones (Meeting scheduler)."
+        },
+        "agenda_por_profesional": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "Se buscó la opción de que el cliente elija la agenda de un profesional específico del equipo, pero únicamente se menciona la función general de programar reuniones (Meeting scheduler)."
+        }
+      }
+    },
+    {
+      "id": "engagebay",
+      "nombre": "EngageBay",
+      "pedidas": [
+        "https://www.engagebay.com/",
+        "https://www.engagebay.com/pricing/all-in-one"
+      ],
+      "leidas": [
+        "OK https://www.engagebay.com/",
+        "OK https://www.engagebay.com/pricing/all-in-one"
+      ],
+      "respuesta": {
+        "reserva_de_servicio": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "Se buscó la posibilidad de reservar servicios con duración y precio específicos, pero solo se menciona de forma general la programación de reuniones y citas (Appointment Scheduling)."
+        },
+        "agenda_por_profesional": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "Se buscó la opción de permitir al cliente elegir entre distintas agendas de miembros del equipo, pero solo se hace mención general a las funciones de calendario y programación de citas."
+        }
+      }
+    },
+    {
+      "id": "motion",
+      "nombre": "Motion",
+      "pedidas": [
+        "https://www.usemotion.com/",
+        "https://www.usemotion.com/features",
+        "https://www.usemotion.com/pricing"
+      ],
+      "leidas": [
+        "OK https://www.usemotion.com/",
+        "NO https://www.usemotion.com/features",
+        "OK https://www.usemotion.com/pricing"
+      ],
+      "respuesta": {
+        "reserva_de_servicio": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "Se buscó información sobre la posibilidad de reservar servicios específicos con duración y precio propios, pero las páginas consultadas solo mencionan la programación de reuniones (meetings) y enlaces de reserva (booking links)."
+        },
+        "agenda_por_profesional": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "Se buscó si el cliente puede elegir explícitamente la agenda del profesional con quien desea la cita, pero la documentación leída solo hace referencia a páginas de reserva de reuniones generales sin detallar la selección individual por miembro del equipo."
+        }
+      }
+    },
+    {
+      "id": "pipedrive",
+      "nombre": "Pipedrive",
+      "pedidas": [
+        "https://www.pipedrive.com/",
+        "https://www.pipedrive.com/en/features",
+        "https://www.pipedrive.com/en/pricing"
+      ],
+      "leidas": [
+        "OK https://www.pipedrive.com/",
+        "OK https://www.pipedrive.com/en/products",
+        "OK https://www.pipedrive.com/en/pricing"
+      ],
+      "respuesta": {
+        "reserva_de_servicio": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "Se buscó la posibilidad de reservar servicios con precio y duración propia, pero en las páginas solo se describe la programación de llamadas y reuniones."
+        },
+        "agenda_por_profesional": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "Se buscó la función para que el cliente seleccione la agenda de un profesional específico entre varios del equipo, pero no se menciona en las páginas analizadas."
+        }
+      }
+    },
+    {
+      "id": "reclaim-ai",
+      "nombre": "Reclaim.ai",
+      "pedidas": [
+        "https://reclaim.ai/features/scheduling-links"
+      ],
+      "leidas": [
+        "OK https://reclaim.ai/features/scheduling-links"
+      ],
+      "respuesta": {
+        "reserva_de_servicio": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "Se buscó la posibilidad de definir y reservar servicios específicos con duración y precio para clientes finales, pero la página solo describe la programación de reuniones, llamadas y demos."
+        },
+        "agenda_por_profesional": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "Se buscó si el cliente puede seleccionar expresamente con qué profesional del equipo desea la cita, pero la página únicamente menciona enlaces grupales y reparto automático mediante round-robin."
+        }
+      }
+    }
+  ],
+  "fueraDelCatalogo": [
+    {
+      "id": "_fuera_fresha",
+      "nombre": "Fresha",
+      "pedidas": [
+        "https://www.fresha.com/for-business",
+        "https://www.fresha.com/"
+      ],
+      "leidas": [
+        "OK https://www.fresha.com/for-business",
+        "OK https://www.fresha.com/"
+      ],
+      "respuesta": {
+        "reserva_de_servicio": {
+          "estado": "demostrado",
+          "cita": "Fresha lets you pick the day, time and stylist, gives a price and timeframe for all services on a simple to use menu. Once you make your booking, you get the confirmation right away. Perfect.",
+          "url": "https://www.fresha.com/",
+          "nota": ""
+        },
+        "agenda_por_profesional": {
+          "estado": "demostrado",
+          "cita": "Fresha lets you pick the day, time and stylist, gives a price and timeframe for all services on a simple to use menu. Once you make your booking, you get the confirmation right away. Perfect.",
+          "url": "https://www.fresha.com/",
+          "nota": ""
+        }
+      }
+    },
+    {
+      "id": "_fuera_booksy",
+      "nombre": "Booksy",
+      "pedidas": [
+        "https://booksy.com/biz/es-es/",
+        "https://booksy.com/es-es/"
+      ],
+      "leidas": [
+        "OK https://biz.booksy.com/es-es",
+        "OK https://booksy.com/es-es/"
+      ],
+      "respuesta": {
+        "reserva_de_servicio": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "Se buscó si se permite definir servicios con duración y/o precio propios para reserva del cliente, pero en las páginas solo se menciona la reserva de citas y servicios de forma general sin especificar la duración o precio individual del servicio."
+        },
+        "agenda_por_profesional": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "Se buscó si permite que cada miembro del equipo tenga su propia agenda y que el cliente elija el profesional, pero las páginas solo mencionan gestión de equipo y calendario en general."
+        }
+      }
+    },
+    {
+      "id": "_fuera_simplybook",
+      "nombre": "SimplyBook.me",
+      "pedidas": [
+        "https://simplybook.me/en/",
+        "https://simplybook.me/en/pricing"
+      ],
+      "leidas": [
+        "OK https://simplybook.me/en/",
+        "OK https://simplybook.me/en/pricing"
+      ],
+      "respuesta": {
+        "reserva_de_servicio": {
+          "estado": "demostrado",
+          "cita": "Set prices for different services",
+          "url": "https://simplybook.me/en/pricing",
+          "nota": ""
+        },
+        "agenda_por_profesional": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "Se menciona la gestión de agendas de empleados y la asignación de proveedores a servicios y ubicaciones, pero no se especifica explícitamente que el cliente final pueda elegir con qué profesional reservar."
+        }
+      }
+    }
+  ]
+}
