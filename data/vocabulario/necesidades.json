@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "fecha": "2026-09-22",
   "nota": "Borrador. Nadie lo lee todavía: conectarlo es una decisión de la propietaria.",
   "puertas": [
@@ -296,7 +296,8 @@
         "cap.shipping_and_tracking",
         "cap.returns_management",
         "cap.external_channel_sync"
-      ]
+      ],
+      "loQueTeCuesta": "Hay que montar el catálogo con fotos y precios, y decidir envíos. Es el que más trabajo previo pide."
     },
     {
       "id": "nec.cobrar-en-el-mostrador",
@@ -336,7 +337,8 @@
         "cap.booking_cancellation_and_rescheduling",
         "cap.customer_appointment_reminders",
         "cap.no_show_and_deposits"
-      ]
+      ],
+      "loQueTeCuesta": "Tendrás que dar de alta tus servicios con su duración y su precio, y tus horarios. Es un rato de trabajo tuyo al principio, no del programa."
     },
     {
       "id": "nec.que-repitan",
@@ -373,7 +375,8 @@
         "cap.quote_to_invoice_conversion",
         "cap.regulated_einvoicing",
         "cap.price_lists_and_rates"
-      ]
+      ],
+      "loQueTeCuesta": "Tendrás que meter tus datos fiscales y los de tus clientes habituales una vez."
     },
     {
       "id": "nec.la-factura-obligatoria",
@@ -509,7 +512,8 @@
       "ayudan": [
         "cap.expense_tracking",
         "cap.invoicing"
-      ]
+      ],
+      "loQueTeCuesta": "Esto no se configura solo: normalmente lo pone en marcha tu gestoría."
     },
     {
       "id": "nec.los-impuestos",
@@ -526,7 +530,8 @@
       "ayudan": [
         "cap.accounting_ledger",
         "cap.regulated_einvoicing"
-      ]
+      ],
+      "loQueTeCuesta": "Hay que configurarlo con tu situación fiscal, y conviene que lo mire tu gestoría."
     },
     {
       "id": "nec.saber-si-gano-en-cada-trabajo",
@@ -668,7 +673,8 @@
         "cap.room_and_equipment_booking",
         "cap.personal_calendar_planning",
         "cap.customer_appointment_reminders"
-      ]
+      ],
+      "loQueTeCuesta": "Hay que dar de alta a cada persona y decir qué hace cada una y cuándo trabaja."
     },
     {
       "id": "nec.el-trabajo-de-fuera",
@@ -799,7 +805,8 @@
         "cap.barcode_scanning",
         "cap.warehouse_and_locations",
         "cap.lot_and_expiry_traceability"
-      ]
+      ],
+      "loQueTeCuesta": "Hay que hacer un inventario inicial y mantenerlo al día; si se deja de actualizar, deja de servir."
     },
     {
       "id": "nec.comprar-a-proveedores",
@@ -921,7 +928,8 @@
         "cap.whatsapp_customer_channel",
         "cap.website_live_chat",
         "cap.canned_responses"
-      ]
+      ],
+      "loQueTeCuesta": "Hay que conectar cada sitio por el que te escriben, uno a uno."
     },
     {
       "id": "nec.no-perder-una-incidencia",

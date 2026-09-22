@@ -117,6 +117,22 @@ export type Necesidad = {
   imprescindibles: string[];
   /** Si lo trae, suma. Si no, es un aviso — nunca un descarte. */
   ayudan: string[];
+  /**
+   * Lo que le cuesta a ELLA ponerlo en marcha. En su idioma y sin adornos.
+   *
+   * Cuelga de la NECESIDAD y no de la herramienta a propósito: dar de alta tus
+   * servicios y tus horarios hay que hacerlo con cualquier programa de citas,
+   * así que no es una pega de ninguna marca ni un dato que haya que verificar
+   * — es lo que va a tener que hacer ella, y callarlo sería vender humo.
+   *
+   * Sale de la regla de la casa de tres habitaciones: «explícale qué gana, qué
+   * coste o esfuerzo adicional supone y deja que decida». Sin esta frase sólo
+   * se cuenta la mitad.
+   *
+   * Opcional porque está a medio escribir. Que falte no es que sea gratis: es
+   * que todavía no lo hemos puesto.
+   */
+  loQueTeCuesta?: string;
 };
 
 export type MapaDeNecesidades = {

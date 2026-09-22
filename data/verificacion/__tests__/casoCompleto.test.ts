@@ -1,146 +1,185 @@
 import { describe, expect, it } from "vitest";
 import { getTodasLasHerramientas } from "@/data/repositorio";
-import {
-  ajusteConLaNecesidad,
-  ajusteConLoQuePidio,
-  describirElAjuste,
-  getNecesidad,
-} from "@/data/vocabulario/necesidades";
+import { ajusteConLoQuePidio, describirElAjuste, getNecesidad } from "@/data/vocabulario/necesidades";
 import type { EstadoDeLaCapacidad, NecesidadDelCaso } from "@/data/vocabulario/necesidades";
 import { estadoDelPar } from "../cobertura";
+import { evidenciaDeUso } from "../evidencia";
 import { getRegistros } from "../repositorio";
+import { USOS } from "../usos";
 
 /**
- * UN CASO ENTERO, CON DATOS REALES, DE PRINCIPIO A FIN.
+ * UN CASO ENTERO, CON DATOS REALES, TAL COMO LO LEERÍA ELLA.
  *
  * Lo pidió la propietaria: «ya toca comprobar cómo se traduce todo esto en una
- * ayuda útil», antes de construir otro módulo aislado. Así que esto no añade
- * maquinaria: junta la que hay —el mapa de necesidades y la verificación— y
- * comprueba que lo que sale se le puede enseñar a una persona.
+ * ayuda útil», antes de construir otro módulo aislado. No añade maquinaria:
+ * junta la que hay. Vive aquí porque es el único sitio autorizado a leer los
+ * dos lados —vocabulario y verificación—.
  *
- * Vive en `data/verificacion/__tests__` porque es el único sitio autorizado a
- * leer los dos lados: la guarda del vocabulario lo permite desde aquí, y la de
- * la verificación ignora su propio directorio.
+ * ── LO QUE CORRIGIÓ LA SEGUNDA VUELTA ──────────────────────────────────
  *
- * EL CASO. Una peluquera que dice: «pierdo citas porque estoy con las manos
- * ocupadas y no cojo el teléfono, y las facturas las hago a mano en una
- * libreta.» De ahí salen DOS necesidades, y las dos son suyas — no se deducen
- * del sector, que es una regla escrita («la necesidad debe salir del
- * diagnóstico, no del sector por defecto»).
+ * La primera versión decía «estas cuatro resuelven las dos necesidades». Era
+ * falso, y el propio proyecto tenía el dato que lo desmiente:
  *
- * Y UNA PREGUNTA ADICIONAL, que es lo que se está probando aquí. No sale de
- * los extras de ninguna herramienta —eso dejaría que la suite con más
- * funciones marcase la conversación—: sale de SU caso. «Ausencias y
- * depósitos» ayuda a la necesidad que ella misma trajo, así que se le puede
- * preguntar sin inventar nada.
+ *   uso.reserva_de_servicio — «La persona elige un servicio concreto (un corte
+ *   de pelo, una sesión) con duración y precio propios y coge hora sola.»
+ *   noEs: «No es reservar una reunión o una llamada con alguien del equipo.»
+ *
+ * `cap.online_self_service_booking` NO distingue las dos cosas. Reclaim.ai
+ * agenda reuniones; Pipedrive, llamadas de venta. Demostrar la capacidad no
+ * demuestra que sirva para una peluquería, y **de los 1.547 registros, CERO
+ * tienen un uso comprobado**. Así que no son cuatro que resuelven: son cuatro
+ * CANDIDATAS, y el límite se dice.
+ *
+ * Lo cazó la propietaria: «"reserva online" no confirma que gestione citas de
+ * peluquería. Ya encontramos esa diferencia con las reuniones y las llamadas.»
  */
 
 const HERRAMIENTAS = getTodasLasHerramientas().filter((h) => h.estado === "activo");
 const REGISTROS = getRegistros();
 
-/** El puente entre los dos lados: los cuatro estados, tal cual, sin aplanarlos. */
-function loQueSabemosDe(herramientaId: string): (capacidadId: string) => EstadoDeLaCapacidad {
-  return (capacidadId) =>
-    estadoDelPar(
-      herramientaId,
-      capacidadId,
-      REGISTROS.find((r) => r.herramientaId === herramientaId && r.capacidadId === capacidadId)
-    );
-}
-
 const CITAS = getNecesidad("nec.que-reserven-solos")!;
 const FACTURA = getNecesidad("nec.emitir-una-factura-legal")!;
+const AGENDA = getNecesidad("nec.mi-agenda")!;
+
+/** El uso que de verdad contesta si esa reserva sirve para un corte de pelo. */
+const RESERVA_DE_SERVICIO = "uso.reserva_de_servicio";
+
+function registroDe(herramientaId: string, capacidadId: string) {
+  return REGISTROS.find((r) => r.herramientaId === herramientaId && r.capacidadId === capacidadId);
+}
+
+function loQueSabemosDe(herramientaId: string): (capacidadId: string) => EstadoDeLaCapacidad {
+  return (capacidadId) => estadoDelPar(herramientaId, capacidadId, registroDe(herramientaId, capacidadId));
+}
+
+/** Lo que se puede afirmar del USO, que es otra pregunta que la capacidad. */
+function usoDe(herramientaId: string, usoId: string) {
+  const uso = USOS.find((u) => u.id === usoId)!;
+  return evidenciaDeUso(herramientaId, usoId, registroDe(herramientaId, uso.capacidadId));
+}
 
 /**
- * Lo que ella trajo. Las dos imprescindibles: las dijo ella y las dos duelen.
+ * LO QUE ELLA CUENTA, y lo que Molnip pregunta después.
+ *
+ * La pregunta antigua era una sola y mezclaba dos cosas: «¿sois varias o sólo
+ * tú? Si sois varias te ayudaría que cada una tenga la suya». Un «sí» a eso no
+ * se puede interpretar, porque no se sabe a cuál de las dos contestó. Ahora
+ * son dos, y en el orden que manda: primero el HECHO de su negocio, y sólo
+ * después la necesidad, cuyo peso lo decide ella.
+ *
+ * Y de ahí sale la corrección que más importa: **según cómo trabajen, eso
+ * puede ser imprescindible, no deseable**. La importancia no la ponemos
+ * nosotros a ojo — sale de lo que contesta.
  */
-const LO_QUE_DIJO: NecesidadDelCaso[] = [
+const PREGUNTAS = [
+  { pregunta: "¿Cuántas personas atendéis a clientes?", respuesta: "Tres" },
+  {
+    pregunta:
+      "Siendo tres, ¿necesitáis que cada una tenga su propia agenda y que el cliente elija con quién, " +
+      "o os vale una agenda común?",
+    respuesta: "Cada una la suya, y el cliente elige con quién",
+  },
+];
+
+/** Tres personas y el cliente elige con quién: eso lo hace imprescindible. */
+const IMPORTANCIA_DE_LA_AGENDA = "imprescindible" as const;
+
+const EL_CASO: NecesidadDelCaso[] = [
   { necesidad: CITAS, importancia: "imprescindible" },
   { necesidad: FACTURA, importancia: "imprescindible" },
+  { necesidad: AGENDA, importancia: IMPORTANCIA_DE_LA_AGENDA, salioDeUnaPregunta: true },
 ];
 
-/**
- * Y lo mismo después de que conteste «sí, me ayudaría» a la pregunta.
- *
- * Entra como DESEABLE, nunca como requisito. Es la corrección de la
- * propietaria: convertir un «me ayudaría» en imprescindible relegaría a una
- * herramienta que resuelve perfectamente el problema principal.
- */
-const TRAS_LA_PREGUNTA: NecesidadDelCaso[] = [
-  ...LO_QUE_DIJO,
-  { necesidad: getNecesidad("nec.mi-agenda")!, importancia: "deseable", salioDeUnaPregunta: true },
-];
+const SOLO_LO_QUE_DIJO: NecesidadDelCaso[] = EL_CASO.slice(0, 2);
 
 describe("el caso de la peluquera, con los datos de hoy", () => {
-  it("las que resuelven lo imprescindible salen de los datos, no de una lista escrita a mano", () => {
-    const resuelven = HERRAMIENTAS.filter((h) => {
-      const a = ajusteConLoQuePidio(LO_QUE_DIJO, loQueSabemosDe(h.id));
-      return a.resuelveImprescindibles === a.deImprescindibles;
-    });
-    // Reserva online la demuestran 8; de ésas, las que además demuestran
-    // facturas son cuatro. Si el catálogo o la verificación cambian, cambia.
-    expect(resuelven.map((h) => h.nombre).sort()).toEqual(["Agiled", "HoneyBook", "Keap", "Nutshell"]);
+  const candidatas = HERRAMIENTAS.filter((h) => {
+    const a = ajusteConLoQuePidio(SOLO_LO_QUE_DIJO, loQueSabemosDe(h.id));
+    return a.resuelveImprescindibles === a.deImprescindibles;
+  });
+
+  it("las candidatas salen de los datos, no de una lista escrita a mano", () => {
+    expect(candidatas.map((h) => h.nombre).sort()).toEqual(["Agiled", "HoneyBook", "Keap", "Nutshell"]);
   });
 
   /**
-   * LA PRUEBA QUE SOSTIENE LA CORRECCIÓN. Añadir una deseable no puede mover a
-   * quien ya resolvía lo imprescindible: se cuenta aparte.
+   * LA PRUEBA QUE IMPIDE LA PROMESA DE MÁS. Mientras ninguna demuestre el uso,
+   * ninguna puede presentarse como que resuelve lo de una peluquería.
    */
-  it("decir que sí a la pregunta no relega a quien resuelve el problema principal", () => {
-    for (const h of HERRAMIENTAS) {
-      const antes = ajusteConLoQuePidio(LO_QUE_DIJO, loQueSabemosDe(h.id));
-      const despues = ajusteConLoQuePidio(TRAS_LA_PREGUNTA, loQueSabemosDe(h.id));
-      expect(despues.resuelveImprescindibles).toBe(antes.resuelveImprescindibles);
-      expect(despues.deImprescindibles).toBe(antes.deImprescindibles);
+  it("ninguna candidata tiene comprobado que la reserva sirva para un servicio", () => {
+    for (const h of candidatas) {
+      expect(usoDe(h.id, RESERVA_DE_SERVICIO).estado).not.toBe("demostrada");
     }
   });
 
-  it("la deseable se cuenta aparte y se ve que salió de una pregunta", () => {
-    const a = ajusteConLoQuePidio(TRAS_LA_PREGUNTA, loQueSabemosDe("honeybook"));
-    expect(a.deImprescindibles).toBe(2);
-    expect(a.deDeseables).toBe(1);
-    expect(TRAS_LA_PREGUNTA[2].salioDeUnaPregunta).toBe(true);
+  it("hoy no hay NINGUNA herramienta con ese uso comprobado, y por eso se avisa", () => {
+    const conUso = HERRAMIENTAS.filter((h) => usoDe(h.id, RESERVA_DE_SERVICIO).estado === "demostrada");
+    expect(conUso).toEqual([]);
+    expect(REGISTROS.filter((r) => (r.usos ?? []).length > 0)).toEqual([]);
+  });
+
+  /** El uso declarado dice justo lo que separa un corte de pelo de una reunión. */
+  it("el uso está definido para distinguir el corte de pelo de la reunión", () => {
+    const uso = USOS.find((u) => u.id === RESERVA_DE_SERVICIO)!;
+    expect(uso.capacidadId).toBe(CITAS.imprescindibles[0]);
+    expect(uso.definicion).toContain("corte de pelo");
+    expect(uso.noEs).toContain("reunión");
   });
 
   /**
-   * «Todavía no lo hemos comprobado» frente a «lo hemos buscado y no salió».
-   * Con los datos de hoy las dos aparecen de verdad en este mismo caso, que es
-   * justo lo que hacía falta para que la corrección no fuese teórica.
+   * La pregunta se parte en dos: el hecho primero, la necesidad después. Un
+   * «sí» a una pregunta que mezcla las dos no se puede interpretar.
    */
-  it("las dos clases de «no sabemos» aparecen en este caso, y no dicen lo mismo", () => {
-    // Reserva online se le preguntó a 62 de 65: aquí hubo búsqueda.
-    const buscada = ajusteConLaNecesidad(CITAS, loQueSabemosDe("zoho-crm"));
-    // La agenda por profesional no se le preguntó a nadie: el hueco es nuestro.
-    const jamas = ajusteConLaNecesidad(getNecesidad("nec.mi-agenda")!, loQueSabemosDe("zoho-crm"));
+  it("la pregunta del hecho no sugiere ninguna ventaja", () => {
+    expect(PREGUNTAS[0].pregunta).not.toContain("ayudaría");
+    expect(PREGUNTAS[0].pregunta).not.toContain("agenda");
+  });
 
-    expect(buscada.buscadasSinEncontrar.length).toBeGreaterThan(0);
-    expect(buscada.sinPreguntar).toEqual([]);
-    expect(jamas.sinPreguntar.length).toBeGreaterThan(0);
-    expect(jamas.buscadasSinEncontrar).toEqual([]);
-
-    const frase1 = describirElAjuste(CITAS, buscada);
-    const frase2 = describirElAjuste(getNecesidad("nec.mi-agenda")!, jamas);
-    expect(frase1).toContain("Hemos buscado");
-    expect(frase1).not.toContain("Todavía no hemos comprobado");
-    expect(frase2).toContain("Todavía no hemos comprobado");
-    expect(frase2).not.toContain("Hemos buscado");
+  it("lo que contesta decide el peso: aquí es imprescindible, no deseable", () => {
+    const a = ajusteConLoQuePidio(EL_CASO, loQueSabemosDe("honeybook"));
+    expect(IMPORTANCIA_DE_LA_AGENDA).toBe("imprescindible");
+    expect(a.deImprescindibles).toBe(3);
+    expect(a.deDeseables).toBe(0);
   });
 
   /**
-   * Ni una ni otra pueden penalizar. Comparten estado a propósito: «esa
-   * diferencia entre desconocidos no debería convertirse en una penalización».
+   * Y esto es lo que cuesta la corrección, dicho sin suavizar: al subir la
+   * agenda a imprescindible, NINGUNA de las cuatro la resuelve — «agenda por
+   * profesional» tiene 65 de 65 sin preguntar. El resultado honrado pasa de
+   * «cuatro que valen» a «cuatro por comprobar y una cosa que no sabemos de
+   * nadie». Eso es asesorar; lo otro era rellenar.
    */
-  it("da igual cuál de los dos desconocidos sea: ninguno ordena", () => {
-    const buscada = ajusteConLaNecesidad(CITAS, loQueSabemosDe("zoho-crm"));
-    const jamas = ajusteConLaNecesidad(getNecesidad("nec.mi-agenda")!, loQueSabemosDe("zoho-crm"));
-    expect(buscada.comoSePresenta).toBe("sin_comprobar");
-    expect(jamas.comoSePresenta).toBe("sin_comprobar");
+  it("con la agenda dentro, ninguna llega a resolverlo todo, y se dice", () => {
+    for (const h of candidatas) {
+      const a = ajusteConLoQuePidio(EL_CASO, loQueSabemosDe(h.id));
+      expect(a.resuelveImprescindibles).toBeLessThan(a.deImprescindibles);
+      expect(a.sinComprobar).toBeGreaterThan(0);
+      expect(a.leFaltan).toBe(0);
+    }
   });
 
-  /** Nadie desaparece: el desplegable las lleva todas. */
-  it("las 65 siguen teniendo su fila, resuelvan o no", () => {
-    const todas = HERRAMIENTAS.map((h) => ajusteConLoQuePidio(LO_QUE_DIJO, loQueSabemosDe(h.id)));
+  /** El esfuerzo cuelga de la necesidad, no de la marca: vale para cualquiera. */
+  it("cada necesidad del caso dice lo que le va a costar a ella", () => {
+    for (const n of EL_CASO) {
+      expect(n.necesidad.loQueTeCuesta).toBeTruthy();
+      expect(n.necesidad.loQueTeCuesta).not.toContain("cap.");
+    }
+  });
+
+  it("las 65 conservan su fila: el desplegable las lleva todas", () => {
+    const todas = HERRAMIENTAS.map((h) => ajusteConLoQuePidio(EL_CASO, loQueSabemosDe(h.id)));
     expect(todas).toHaveLength(65);
-    for (const a of todas) expect(a.porNecesidad).toHaveLength(LO_QUE_DIJO.length);
+    for (const a of todas) expect(a.porNecesidad).toHaveLength(EL_CASO.length);
+  });
+
+  /** Las dos clases de «no sabemos» siguen diciendo cosas distintas. */
+  it("«todavía no lo hemos comprobado» y «lo hemos buscado» no se confunden", () => {
+    const frases = HERRAMIENTAS.flatMap((h) => {
+      const a = ajusteConLoQuePidio(EL_CASO, loQueSabemosDe(h.id));
+      return EL_CASO.map((n, i) => describirElAjuste(n.necesidad, a.porNecesidad[i]));
+    });
+    expect(frases.some((f) => f.includes("Todavía no hemos comprobado"))).toBe(true);
+    expect(frases.some((f) => f.includes("Hemos buscado"))).toBe(true);
+    for (const f of frases) expect(f).not.toContain("cap.");
   });
 });

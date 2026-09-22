@@ -6013,6 +6013,95 @@ tiene 65 de 65 sin preguntar—. Así que la pregunta se hace, se guarda, y la
 respuesta honrada es «todavía no lo hemos comprobado». Es exactamente lo que
 tenía que pasar, y es la prueba de que el sistema no inventa para rellenar.
 
+### El ejemplo prometía más de lo que demostraba — 2026-09-22
+
+Tres correcciones de la propietaria al primer caso completo. La primera es la
+grave, y el dato que la desmonta **ya estaba en el repositorio**.
+
+**Una. «Reserva online» no confirma que gestione citas de peluquería.** *«Ya
+encontramos esa diferencia con las reuniones y las llamadas.»*
+
+`data/verificacion/usos.ts` lo tiene escrito desde el 2026-09-16, y dice justo
+esto:
+
+> `uso.reserva_de_servicio` — «La persona elige un servicio concreto (un corte
+> de pelo, una sesión) con duración y precio propios y coge hora sola.»
+> **noEs:** «No es reservar una reunión o una llamada con alguien del equipo.»
+
+La capacidad `cap.online_self_service_booking` NO distingue las dos cosas.
+Reclaim.ai agenda reuniones; Pipedrive, llamadas de venta. Y **de los 1.547
+registros, CERO tienen un uso comprobado**. Así que «estas cuatro resuelven las
+dos necesidades» era una promesa sin respaldo.
+
+Corregido: son **candidatas**, y el límite se dice con todas las letras. Hay
+una prueba que impide presentarlas de otro modo mientras ninguna demuestre el
+uso.
+
+Es el mismo error de siempre en este proyecto: el trabajo estaba hecho, escrito
+y con su motivo delante, y no se leyó.
+
+**Dos. La pregunta mezclaba dos cosas y su «sí» no se podía interpretar.**
+«¿Sois varias o sólo tú? Si sois varias, te ayudaría que cada una tenga la
+suya.» Un sí a eso no dice a cuál de las dos contestó.
+
+Ahora son dos, y en el orden que manda: primero el HECHO de su negocio
+—«¿cuántas personas atendéis?»—, y sólo después la necesidad. Y de ahí sale lo
+que más importa: *«según cómo trabajen, eso podría ser imprescindible, no
+simplemente deseable»*. **La importancia no la ponemos nosotros: sale de lo que
+contesta.**
+
+Y cuesta lo que tiene que costar: al subir la agenda a imprescindible,
+**ninguna de las cuatro lo resuelve todo**, porque «agenda por profesional»
+tiene 65 de 65 sin preguntar. El resultado honrado pasa de «cuatro que valen» a
+«cuatro por comprobar, y una cosa que no sabemos de nadie». Eso es asesorar; lo
+otro era rellenar.
+
+**Tres. Faltaba el consejo.** *«"Imprescindibles 2 de 2" describe un recuento.
+La persona necesita entender: "tus clientes podrían reservar sin que atiendas
+el teléfono… esto exige configurar tus servicios y horarios; esto otro aún no
+lo hemos confirmado".»*
+
+De ahí sale `loQueTeCuesta` en la necesidad. Cuelga de la NECESIDAD y no de la
+herramienta a propósito: dar de alta tus servicios y tus horarios hay que
+hacerlo con cualquier programa de citas, así que no es una pega de ninguna
+marca ni un dato que verificar — es lo que va a tener que hacer ella, y
+callarlo sería vender humo. Sale de la casa de tres habitaciones: «explícale
+qué gana, qué coste o esfuerzo adicional supone y deja que decida».
+
+Escrito en 8 de las 61 necesidades. Que falte no significa que sea gratis:
+significa que todavía no se ha puesto.
+
+#### El resultado, en su voz
+
+    Hemos encontrado 4 candidatas: Agiled, HoneyBook, Keap, Nutshell.
+    Te las llamamos candidatas y no recomendaciones, y te digo por qué.
+
+    LO QUE SÍ SABEMOS
+    · Tus clientes podrían coger hora solos, sin que tengas que soltar
+      las tijeras. Lo hemos comprobado en la página de las cuatro.
+      Tendrás que dar de alta tus servicios con su duración y su precio,
+      y tus horarios. Es un rato de trabajo tuyo al principio.
+    · Podrías sacar las facturas desde el mismo sitio, sin la libreta.
+
+    LO QUE NO SABEMOS, Y ES IMPORTANTE PARA TI
+    · Sabemos que dejan coger hora por internet. NO hemos comprobado que
+      sirva para reservar un servicio con su duración y su precio — un
+      corte, un tinte. Algunas nacieron para concertar reuniones, que no
+      es lo mismo que tu silla. Es la diferencia entre que te valga y que
+      no te valga, así que no te la vamos a dar por buena sin mirarla.
+    · Lo de que cada una tenga su agenda todavía no lo hemos comprobado
+      en ninguna. No es que no lo hagan: es que no lo hemos mirado.
+
+    QUÉ HARÍAMOS NOSOTROS
+    Mirar primero si dejan montar servicios con duración y precio. Es la
+    pregunta que decide. Si quieres, lo comprobamos y te avisamos: es lo
+    que nos falta a nosotros, no a ti.
+
+**Queda pendiente y anotado:** esa redacción se compone hoy dentro del ejemplo.
+Cuando deje de ser un ejemplo tiene que mudarse a un sitio único y con pruebas,
+como `describirElAjuste`. Si la redacción se reparte por el código, las pruebas
+que impiden prometer de más dejan de proteger nada.
+
 ### Lo que queda vivo de las quince categorías
 
 No se borra ninguna. Cada una encuentra sitio: «CRM y ventas» pasa a ser
