@@ -1,0 +1,258 @@
+{
+  "version": "1.0.0",
+  "fecha": "2026-09-22",
+  "queEs": "Expedientes para la REVISION FINAL de tres candidatas de citas. Autorizado por la propietaria el 2026-09-22: «preparar las tres para su revision final, antes de incorporarlas al catalogo». NO son fichas, NO estan en el catalogo y NO las lee el motor.",
+  "comoSeUsan": "Cada afirmacion lleva su cita, su URL y la fecha en que se leyo. Pasar esto por F2 significa INCORPORAR Y VALIDAR estas pruebas y consultar solo lo que falte, no repetir la busqueda entera. Condicion de la propietaria.",
+  "reglaDeLectura": "«no_consta» significa que no lo hemos leido, NUNCA que la herramienta no lo haga. Ninguna casilla vacia de aqui es un descarte.",
+  "herramientas": [
+    {
+      "id": "viday",
+      "nombre": "ViDay",
+      "paginaOficial": "https://viday.es/",
+      "porQueEsCandidata": "Es la unica de la que hemos podido confirmar las dos necesidades de la clienta: las citas y la factura.",
+      "demostrado": [
+        {
+          "que": "El cliente elige con que profesional reserva",
+          "cita": "Al publicar la disponibilidad del personal, los usuarios de esta aplicacion seran quienes reserven cita cuando y con quien ellos prefieran.",
+          "url": "https://viday.es/funcionalidades-sobre-una-app-de-reservas/",
+          "fecha": "2026-09-22"
+        },
+        {
+          "que": "Servicios con su duracion y el empleado que atiende",
+          "cita": "Podras definir cualquier tipo de servicio u horarios, la duracion de cada reserva y el empleado que la atendera.",
+          "url": "https://viday.es/funcionalidades-sobre-una-app-de-reservas/",
+          "fecha": "2026-09-22"
+        },
+        {
+          "que": "Servicios con su precio",
+          "cita": "puedes configurar tus servicios, precios y disponibilidad segun necesites",
+          "url": "https://viday.es/",
+          "fecha": "2026-09-11"
+        },
+        {
+          "que": "El cliente coge hueco sin llamar",
+          "cita": "A traves de la app de reservas o desde un enlace, tus clientes pueden consultar disponibilidad y reservar en cualquier momento, sin llamadas ni mensajes.",
+          "url": "https://viday.es/",
+          "fecha": "2026-09-22"
+        },
+        {
+          "que": "Emite facturas",
+          "cita": "Puedes gestionar tus facturas y pagos desde el propio sistema.",
+          "url": "https://viday.es/funcionalidades-sobre-una-app-de-reservas/",
+          "fecha": "2026-09-22"
+        },
+        {
+          "que": "Dice cumplir Verifactu y TicketBAI",
+          "cita": "El software de reservas cumple con los requisitos de Verifactu y TicketBAI, permitiendote gestionar la facturacion de tu negocio conforme a la normativa vigente",
+          "url": "https://viday.es/funcionalidades-sobre-una-app-de-reservas/",
+          "fecha": "2026-09-22",
+          "matiz": "Dice que lo cumple el PROGRAMA. Si a esta clienta le OBLIGA depende de su situacion fiscal, y eso no lo sabemos ni lo decide el fabricante."
+        },
+        {
+          "que": "Informes para la gestoria",
+          "cita": "Podras descargar los informes mensuales o trimestrales para tu gestoria en solo tres clics.",
+          "url": "https://viday.es/funcionalidades-sobre-una-app-de-reservas/",
+          "fecha": "2026-09-22"
+        },
+        {
+          "que": "Soporte desde Espana",
+          "cita": "Soporte humano y personalizado desde Espana",
+          "url": "https://viday.es/",
+          "fecha": "2026-09-22"
+        },
+        {
+          "que": "Sin permanencia",
+          "cita": "Sin permanencia. Sin costes ocultos. Con soporte humano.",
+          "url": "https://viday.es/precios/",
+          "fecha": "2026-09-22"
+        },
+        {
+          "que": "Sin limite de clientes ni de reservas",
+          "cita": "Sin limite de clientes. Sin limite de reservas.",
+          "url": "https://viday.es/precios/",
+          "fecha": "2026-09-22"
+        },
+        {
+          "que": "Bonos y packs",
+          "cita": "Gestiona bonos, packs y suscripciones",
+          "url": "https://viday.es/",
+          "fecha": "2026-09-11"
+        },
+        {
+          "que": "TPV y caja",
+          "cita": "TPV y control de caja para tu negocio",
+          "url": "https://viday.es/",
+          "fecha": "2026-09-11"
+        }
+      ],
+      "precio": {
+        "moneda": "EUR",
+        "llevaIva": false,
+        "citaIva": "Precios sin IVA",
+        "plan": "Pro Equipo",
+        "precioMes": "75 EUR",
+        "precioMesAnual": "67,50 EUR (-10%)",
+        "incluidos": "2 profesionales",
+        "adicional": "10 EUR por profesional adicional",
+        "paraTresProfesionales": "75 + 10 = 85 EUR/mes SIN IVA (76,50 EUR si se paga el ano entero)",
+        "dudaAbierta": "DOS LECTURAS DISTINTAS DEL MISMO DATO: una dio «+5 EUR por profesional adicional» y otra «+10 EUR». Hasta resolverlo, el coste para tres esta entre 80 y 85 EUR/mes sin IVA. No se cierra.",
+        "citaPrecio": "2 profesionales incluidos · + 10 EUR por profesional adicional",
+        "url": "https://viday.es/precios/",
+        "fecha": "2026-09-22"
+      },
+      "noConsta": [
+        "Prueba gratuita",
+        "El recorrido comprobado de punta a punta por alguien que lo use",
+        "Que la clienta este obligada a Verifactu"
+      ]
+    },
+    {
+      "id": "booksy",
+      "nombre": "Booksy",
+      "paginaOficial": "https://biz.booksy.com/es-es",
+      "porQueEsCandidata": "Es la mas conocida, su precio en euros con IVA esta claro y Espana esta demostrada.",
+      "demostrado": [
+        {
+          "que": "El cliente ve los servicios y reserva",
+          "cita": "La reserva en linea significa utilizar una aplicacion de reserva de citas que permite a los clientes ver y reservar tus servicios en linea las 24 horas del dia",
+          "url": "https://biz.booksy.com/es-es",
+          "fecha": "2026-09-22"
+        },
+        {
+          "que": "El cliente coge hueco sin llamar",
+          "cita": "A los clientes les encanta poder ver tu disponibilidad de tu calendario de manera instantanea y reservar una fecha que les convenga, sin tener que llamarte",
+          "url": "https://biz.booksy.com/es-es",
+          "fecha": "2026-09-22"
+        },
+        {
+          "que": "Las funciones van juntas en un solo producto",
+          "cita": "Booksy Biz: Solucion todo-en-uno para moviles, tablets y web. Agenda citas, gestiona clientes, promociona tu negocio y procesa pagos.",
+          "url": "https://biz.booksy.com/es-es",
+          "fecha": "2026-09-22"
+        },
+        {
+          "que": "Recordatorios",
+          "cita": "Y como sabemos que no tienes tiempo para pensar en ellas, te enviaremos recordatorios.",
+          "url": "https://booksy.com/es-es/",
+          "fecha": "2026-09-11"
+        },
+        {
+          "que": "Cancelar o cambiar",
+          "cita": "Reagenda o cancela sin llamar por telefono.",
+          "url": "https://booksy.com/es-es/",
+          "fecha": "2026-09-11"
+        }
+      ],
+      "precio": {
+        "moneda": "EUR",
+        "llevaIva": false,
+        "citaIva": "34,99 EUR al mes +IVA",
+        "plan": "Booksy Biz",
+        "precioMes": "34,99 EUR + IVA",
+        "adicional": "8 EUR + IVA por miembro adicional del equipo",
+        "paraTresProfesionales": "34,99 + 8 + 8 = 50,99 EUR/mes SIN IVA",
+        "citaPrecio": "Booksy cuesta 34,99 EUR al mes +IVA, mas 8 EUR al mes +IVA por cada miembro adicional del equipo.",
+        "url": "https://biz.booksy.com/es-es/precios",
+        "fecha": "2026-09-22"
+      },
+      "noConsta": [
+        "Que el CLIENTE elija con que profesional reserva",
+        "Duracion propia por servicio",
+        "Precio propio por servicio",
+        "Que emita facturas"
+      ]
+    },
+    {
+      "id": "simplybook",
+      "nombre": "SimplyBook.me",
+      "paginaOficial": "https://simplybook.me/es/",
+      "porQueEsCandidata": "Es la que mejor demuestra servicios con duracion y precio propios, y la mas barata con diferencia.",
+      "demostrado": [
+        {
+          "que": "Duracion propia por servicio",
+          "cita": "Establezca diferentes duraciones de servicios y tiempos de bufer",
+          "url": "https://simplybook.me/es/",
+          "fecha": "2026-09-22"
+        },
+        {
+          "que": "Precio propio por servicio",
+          "cita": "Establezca precios independientes para los diferentes servicios",
+          "url": "https://simplybook.me/es/",
+          "fecha": "2026-09-22"
+        },
+        {
+          "que": "El cliente reserva solo, a cualquier hora",
+          "cita": "SimplyBook.me funciona las 24 horas del dia, los 7 dias de la semana, permitiendo que tus clientes reserven citas en linea desde tu sitio web, redes sociales o Google.",
+          "url": "https://simplybook.me/es/",
+          "fecha": "2026-09-22"
+        },
+        {
+          "que": "Interfaz en espanol",
+          "cita": "Multiples lenguajes... Espanol",
+          "url": "https://simplybook.me/es/",
+          "fecha": "2026-09-22"
+        },
+        {
+          "que": "Soporte en vivo en todos los planes",
+          "cita": "El soporte en vivo esta incluido en todos los planes de SimplyBook.me",
+          "url": "https://simplybook.me/es/",
+          "fecha": "2026-09-22"
+        },
+        {
+          "que": "Pasarelas usables en Espana",
+          "cita": "Acepte pagos en linea y anticipos a traves de PayPal, Stripe y otros proveedores",
+          "url": "https://simplybook.me/es/",
+          "fecha": "2026-09-22"
+        },
+        {
+          "que": "Widget para su propia web",
+          "cita": "Integracion con pagina web usando un iFrame",
+          "url": "https://simplybook.me/es/pricing",
+          "fecha": "2026-09-11"
+        }
+      ],
+      "precio": {
+        "moneda": "USD",
+        "llevaIva": "no_consta",
+        "citaIva": "",
+        "plan": "Basic",
+        "precioMes": "13,9 USD facturado mensualmente",
+        "precioMesAnual": "11,9 USD facturado anualmente (-17%)",
+        "incluidos": "5 prestadores",
+        "paraTresProfesionales": "13,9 USD/mes. EN DOLARES: no se convierte a euros porque no consta que se pueda pagar en euros ni si se anaden impuestos al facturar.",
+        "citaPrecio": "El plan Basic incluye 100 reservas, 3 funciones personalizadas y 5 prestadores a $13.9 al mes.",
+        "url": "https://simplybook.me/es/pricing",
+        "fecha": "2026-09-22"
+      },
+      "limitesDelPlan": [
+        {
+          "que": "100 reservas al mes en el plan Basic",
+          "cita": "El plan Basic incluye 100 reservas, 3 funciones personalizadas y 5 prestadores",
+          "url": "https://simplybook.me/es/pricing",
+          "fecha": "2026-09-22",
+          "porQueImporta": "Tres profesionales trabajando pasan de 100 citas al mes con facilidad. Es el limite que decide si sirve."
+        },
+        {
+          "que": "Solo 3 funciones personalizadas",
+          "cita": "El plan Basic incluye 100 reservas, 3 funciones personalizadas y 5 prestadores",
+          "url": "https://simplybook.me/es/pricing",
+          "fecha": "2026-09-22",
+          "porQueImporta": "Buena parte de lo que hace esta herramienta son «funciones personalizadas», y en Basic solo entran tres."
+        },
+        {
+          "que": "Plan gratis: 50 reservas al mes y 1 funcion",
+          "cita": "el plan gratuito incluye hasta 50 reservas al mes, 1 funcion personalizada premium",
+          "url": "https://simplybook.me/es/pricing",
+          "fecha": "2026-09-22"
+        }
+      ],
+      "noConsta": [
+        "Que el CLIENTE elija con que profesional reserva",
+        "Que se pueda contratar y usar desde Espana",
+        "Que se pueda pagar en euros",
+        "Si el precio lleva impuestos",
+        "Que emita facturas"
+      ]
+    }
+  ]
+}
