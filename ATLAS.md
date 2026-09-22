@@ -5511,6 +5511,55 @@ parecido, se dice que no hay nada. Lo que esta regla prohíbe es **callarse una
 opción existente por no saber explicar en qué se diferencia**.
 
 
+## QUÉ ES UN ASESOR — la vara de medir, 2026-09-22
+
+La propietaria trajo esta definición y dijo: **«esto es lo más cercano a lo
+que Molnip pretende hacer»**, y que era lo que llevaba días explicando con
+otras palabras sin dar con ellas.
+
+> **Un asesor es una persona o un servicio que utiliza sus conocimientos para
+> ayudarte a comprender una situación, valorar las opciones y tomar una
+> decisión adecuada a tus necesidades.**
+>
+> **Un buen asesor escucha, analiza, recomienda y explica por qué. También te
+> señala los riesgos y cuándo una opción no te conviene.**
+>
+> **Por ejemplo: no solo te muestra diez herramientas; te explica cuál encaja
+> con tu negocio y por qué.**
+
+**Se guarda como vara de medir, no como adorno.** Cualquier pantalla nueva se
+contrasta con los cuatro verbos: ¿escucha, analiza, recomienda, explica por
+qué? Si falla uno, falta algo.
+
+### Dónde está Molnip contra los cuatro verbos (2026-09-22)
+
+| | |
+|---|---|
+| **Escucha** | **No.** Ofrece puertas de un menú que escribimos nosotros. Es lo que más falta, y es la pieza que se midió barata: traducir lo que ella escribe a capacidades. |
+| **Analiza** | A medias. Filtra por capacidad verificada — eso sí es análisis. |
+| **Recomienda** | Sí, tres. |
+| **Explica por qué** | A medias. Hay un párrafo y la línea de evidencia, pero buena parte del «porqué» sale de campos sin fuente. |
+
+### Dos cosas que esta definición añade y que no estaban dichas
+
+**«Ayudarte a comprender una situación.»** Va ANTES de las opciones. Molnip
+hoy salta directo a herramientas y **no ayuda a nadie a entender su propio
+problema**. La peluquera que pierde citas quizá no sepa que lo suyo son
+recordatorios automáticos y no una agenda; eso es comprender la situación, y
+es lo primero que hace un asesor.
+
+Es la queja del 2026-09-16 por el otro lado: no era sólo que Molnip no la
+entienda a ella — **es que tampoco la ayuda a entenderse**.
+
+**«Cuándo una opción no te conviene.»** En personal: **«no te conviene»**, no
+«tiene desventajas». Un asesor sí avisa de lo malo — **pero de lo malo para
+ti**, no de lo malo en abstracto.
+
+Esa forma, en cuatro palabras, confirma lo que costó dos días encontrar en la
+sección «MOLNIP ES UN INTERMEDIARIO»: la pega se dice cuando es de esta
+persona, y entonces ya no necesita llamarse desventaja.
+
+
 ## DÓNDE ESTAMOS — punto de partida al cerrar el 2026-09-21
 
 Esta sección no decide nada: dice en qué punto quedó todo, para que quien
