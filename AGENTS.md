@@ -155,3 +155,30 @@ instrucción. **Un «sí» o un «sigue» nunca amplía el alcance ya autorizado
 decisión escrita no la cancela: significa que no se ha encontrado. Una decisión
 sólo se sustituye con autorización explícita, y al sustituirla se deja escrito
 **qué reemplaza y por qué**.
+
+**No se borra: se desconecta.** Lo que no debe usarse se apaga y se queda
+donde está, con una nota de por qué. Un criterio, un campo o una función que
+sobran se dejan de llamar; no se eliminan. Así la decisión es reversible y no
+se pierde el trabajo de quien lo pensó.
+
+De ahí salen dos cosas más, y las tres juntas son una sola idea:
+
+- **Un comentario que explica por qué existe algo es una señal de stop.** Si
+  alguien se molestó en escribir para qué sirve, hubo una decisión detrás.
+  Se pregunta antes de tocarlo, aunque se vea claro el fallo.
+- **«Quita» dicho por la propietaria significa «deja de usarlo».** Nunca
+  «bórralo», salvo que diga «borra».
+
+*Escrito el 2026-09-21, después de borrar cuatro criterios del motor —
+`calidadConjunta`, `integracionNativa`, `calidadEnLaTarea` y
+`superioridadFrenteAlModulo`— al leer «quita calidad y fiabilidad del motor»
+como permiso para eliminarlos. Se revirtió entero (`4c5fb74`) y las 3.240
+recomendaciones volvieron a ser idénticas. Los datos nunca se tocaron, pero
+se destruyó trabajo pensado en otra sesión: `calidadConjunta` llevaba escrito
+encima para qué estaba —impedir que una suite mediocre ganara por amplitud— y
+se borró igual.*
+
+*El motivo de fondo, dicho por la propietaria: «si hoy a la ligera destruimos
+trabajo de meses de otros, así nunca avanzaremos». **Borrar le cuesta meses a
+ella y no le cuesta nada a quien llega sin memoria.** Esa asimetría es la que
+estas tres reglas corrigen; no basta con tener buen criterio en el momento.*
