@@ -113,13 +113,22 @@ describe("el caso de la peluquera, con los datos de hoy", () => {
   });
 
   /**
-   * Y ya no es que no lo hayamos mirado: el 2026-09-22 SE MIRÓ. Se leyeron las
-   * páginas oficiales de las ocho que demuestran reserva online y las ocho
-   * salieron `no_consta`: todas programan reuniones, llamadas o demos, y
-   * ninguna demuestra que deje reservar un servicio con su duración y su
-   * precio. El hueco deja de ser nuestro y pasa a ser del catálogo.
+   * El 2026-09-22 se miró: se leyeron las páginas oficiales de las ocho que
+   * demuestran reserva online y las ocho salieron `no_consta`.
+   *
+   * Y AQUÍ NO SE PUEDE APRETAR MÁS LA CONCLUSIÓN. `no_consta` dice que en las
+   * páginas que leímos no encontramos la demostración. NO dice que ninguna lo
+   * haga, ni que el catálogo tenga un hueco confirmado. La primera redacción
+   * de este bloque decía «el hueco deja de ser nuestro y pasa a ser del
+   * catálogo», y era la regla 3 de F2 rota por quien acababa de guardar bien
+   * el dato.
+   *
+   * Lo demostró el propio trabajo el mismo día: Booksy salió `no_consta`
+   * leyendo sus páginas de cliente y `demostrado` en cuatro de cinco pasos al
+   * leer `biz.booksy.com`. No cambió la herramienta — cambió lo que habíamos
+   * mirado.
    */
-  it("se comprobó en las ocho y ninguna lo demuestra: el hueco es del catálogo", () => {
+  it("se comprobó en las ocho y en ninguna quedó demostrado, que no es lo mismo que no lo haga", () => {
     const conUso = HERRAMIENTAS.filter((h) => usoDe(h.id, RESERVA_DE_SERVICIO).estado === "demostrada");
     expect(conUso).toEqual([]);
 

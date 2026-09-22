@@ -6102,7 +6102,7 @@ Cuando deje de ser un ejemplo tiene que mudarse a un sitio único y con pruebas,
 como `describirElAjuste`. Si la redacción se reparte por el código, las pruebas
 que impiden prometer de más dejan de proteger nada.
 
-### SE COMPROBÓ, Y EL CATÁLOGO NO SIRVE PARA UNA PELUQUERA — 2026-09-22
+### SE COMPROBÓ, Y NO QUEDÓ DEMOSTRADO — 2026-09-22
 
 La propietaria mandó dejar de retocar el ejemplo y hacer las comprobaciones de
 verdad: *«no des por hecho que serán diez minutos»*. Tenía razón en las dos
@@ -6139,40 +6139,77 @@ Todas con sus páginas leídas de verdad, y todas con la misma nota: programan
 **reuniones, llamadas y demos**, y ninguna demuestra que deje reservar un
 servicio con su duración y su precio.
 
-O sea: **el hueco deja de ser nuestro y pasa a ser del catálogo.** Antes la
-respuesta honrada era «no lo hemos mirado». Ahora es «lo hemos mirado y no
-está».
+**Y aquí es donde hay que frenar, porque la primera redacción de esto no lo
+hizo.** Decía «el hueco deja de ser nuestro y pasa a ser del catálogo» y «lo
+hemos mirado y no está». Las dos frases convierten `no_consta` en «no lo hace»,
+que es la regla 3 de F2 rota por quien acababa de guardar bien el dato.
+
+Lo correcto, y lo único que sostiene la tabla:
+
+> **En las páginas consultadas de estas ocho herramientas no hemos podido
+> confirmar la reserva de servicios con duración y precio.**
+
+Ni una palabra más. No se sabe si lo hacen. Y el propio trabajo del mismo día
+lo demostró: **Booksy salió `no_consta` leyendo sus páginas de cliente, y
+`demostrado` en cuatro de los cinco pasos al leer `biz.booksy.com`.** No cambió
+la herramienta — cambió qué habíamos mirado. Un `no_consta` describe nuestra
+búsqueda, nunca el producto.
 
 Y como la propietaria avisó de que *«las cuatro primeras son el comienzo de la
-investigación, no su límite»*, se miró fuera. De tres herramientas que no están
-en el catálogo:
+investigación, no su límite»*, se miró fuera del catálogo. La primera vuelta
+dio Fresha y SimplyBook.me como «demostrado», y **estaba mal en un caso**: la
+cita de Fresha era un **testimonio de cliente** en su portada. Un cliente
+hablando no es el fabricante.
 
-| | reservar un servicio | agenda por profesional |
-|---|---|---|
-| Fresha | demostrado | demostrado |
-| SimplyBook.me | demostrado | no consta |
-| Booksy | no consta | no consta |
+Así que se repitió con una regla añadida al prompt —«un testimonio o reseña NO
+es el fabricante; si la frase está entrecomillada como opinión de un usuario,
+el estado es no_consta»— y comprobando el RECORRIDO entero, los cinco pasos que
+hacen falta de verdad: elegir servicio, duración, precio, elegir profesional y
+coger un hueco libre.
 
-**Con una salvedad que no se puede maquillar:** la cita de Fresha sale de un
-testimonio de cliente en su portada, no de una página de producto del
-fabricante. Está en su web oficial, pero es un cliente hablando. Antes de
-presentarla como demostrada habría que confirmarlo en una página de producto.
-La de SimplyBook.me —«Set prices for different services»— sí es del fabricante,
-en su página de precios.
+| Paso | Fresha | SimplyBook.me | Booksy |
+|---|---|---|---|
+| Elegir servicio | no consta | demostrado | demostrado |
+| Duración propia | no consta | demostrado | demostrado |
+| Precio propio | no consta | demostrado | demostrado |
+| Elegir profesional | no consta | demostrado | **no consta** |
+| Coger hueco libre | no consta | demostrado | demostrado |
+
+**Fresha se cae entera al quitarle el testimonio.** Con el texto del fabricante
+no queda demostrado ni un paso. No significa que no lo haga —es su negocio—:
+significa que la página que leímos no lo dice con sus palabras, y que hay que
+volver con páginas de producto.
+
+**Booksy cambió de respuesta al cambiar de página.** `no_consta` leyendo
+`booksy.com`, cuatro de cinco leyendo `biz.booksy.com`, que es donde habla del
+producto. La herramienta no cambió; cambió lo que miramos. Es la mejor prueba
+de por qué un `no_consta` nunca puede leerse como un «no lo hace».
+
+**SimplyBook.me sale entera, con un matiz que no se puede callar:** dos de los
+cinco pasos —elegir servicio y elegir profesional— se apoyan en la MISMA frase,
+y es sobre un asistente de IA que es una función añadida: «your clients can
+speak to an AI assistant that … helps them select the right service, time, and
+provider». Demuestra que la selección existe, pero por un camino que quizá no
+es el normal. Los otros tres sí son del producto base: «Set different service
+duration and buffer times», «Set prices for different services» y «allowing
+your clients to book appointments online 24/7».
 
 #### Lo que esto significa para el producto
 
-Es la primera vez que Molnip contesta «**esto no lo cubrimos**» con recibos, y
-eso es un resultado válido, no un fallo. También es la confirmación medida de
-lo que la propietaria llevaba diciendo: **las 65 no bastan**. No por número:
-por forma. El catálogo está lleno de CRM y gestores de proyectos que programan
-reuniones, y no tiene ni una herramienta pensada para quien vende su tiempo por
-citas — que es medio autónomo de España.
+Lo que se puede decir, y nada más: **de las 65, ninguna tiene confirmada la
+reserva de un servicio con duración y precio.** Lo que NO se puede decir es que
+no exista ninguna: no se ha mirado en las 57 restantes, y en las ocho miradas
+el resultado es «no lo encontramos», no «no está».
+
+Aun así apunta a algo que la propietaria llevaba diciendo: **las 65 no bastan**,
+y no por número sino por forma. El catálogo está lleno de CRM y gestores de
+proyectos que programan reuniones. Confirmar que falta lo otro exige seguir
+mirando, y ya se sabe exactamente qué preguntar.
 
 **Lo que NO se ha hecho, y es decisión de la propietaria:** no se ha añadido
-ninguna herramienta al catálogo. Fresha, SimplyBook.me y Booksy se presentan
-como hallazgo, según la regla de que si el catálogo no cubre una necesidad, se
-buscan alternativas y **decide ella**.
+ninguna herramienta al catálogo. Fresha, SimplyBook.me y Booksy son un
+hallazgo, según la regla de que si el catálogo no cubre una necesidad se buscan
+alternativas y **decide ella**.
 
 Los ocho registros de uso quedan escritos en `registros.json` con sus fuentes y
 sus notas, y la evidencia cruda en `_salida-usos-citas.json`. Dos pruebas que

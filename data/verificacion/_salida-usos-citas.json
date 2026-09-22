@@ -299,5 +299,153 @@
         }
       }
     }
-  ]
+  ],
+  "recorridoDeReserva": {
+    "fecha": "2026-09-22",
+    "modelo": "gemini-3.6-flash",
+    "nota": "Segunda vuelta sobre las tres de fuera del catalogo, comprobando los cinco pasos por separado y con la regla anadida de que un testimonio de cliente no es el fabricante. Fresha, que en la primera vuelta salio demostrado por un testimonio de portada, se cae entera al aplicarla. Booksy paso de no_consta a demostrado en cuatro pasos solo por leer biz.booksy.com en vez de booksy.com: cambio lo que miramos, no la herramienta.",
+    "pasos": [
+      "elegir_servicio",
+      "duracion",
+      "precio",
+      "elegir_profesional",
+      "hueco_disponible"
+    ],
+    "resultados": [
+      {
+        "id": "fresha",
+        "nombre": "Fresha",
+        "pedidas": [
+          "https://www.fresha.com/for-business"
+        ],
+        "leidas": [
+          "OK https://www.fresha.com/for-business"
+        ],
+        "pasos": {
+          "elegir_servicio": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": "https://www.fresha.com/for-business",
+            "nota": "Se buscó en el texto del fabricante si el negocio define servicios concretos y el cliente elige uno de una lista en la reserva, pero no consta explícitamente."
+          },
+          "duracion": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": "https://www.fresha.com/for-business",
+            "nota": "Se buscó si el fabricante menciona que cada servicio tiene su propia duración, pero no consta en el texto oficial de la página."
+          },
+          "precio": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": "https://www.fresha.com/for-business",
+            "nota": "Se buscó si el fabricante especifica que cada servicio tiene un precio individual visible al reservar, pero no consta explícitamente."
+          },
+          "elegir_profesional": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": "https://www.fresha.com/for-business",
+            "nota": "Se buscó en el texto oficial si el cliente puede elegir con qué miembro del equipo reservarse, pero no consta."
+          },
+          "hueco_disponible": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": "https://www.fresha.com/for-business",
+            "nota": "Se buscó la afirmación explícita de que el cliente ve los huecos libres y coge uno él mismo sin llamar ni esperar confirmación manual, pero no consta en el texto del fabricante."
+          }
+        }
+      },
+      {
+        "id": "simplybook",
+        "nombre": "SimplyBook.me",
+        "pedidas": [
+          "https://simplybook.me/en/",
+          "https://simplybook.me/en/features",
+          "https://simplybook.me/en/pricing"
+        ],
+        "leidas": [
+          "OK https://simplybook.me/en/",
+          "OK https://simplybook.me/en/booking-system-features",
+          "OK https://simplybook.me/en/pricing"
+        ],
+        "pasos": {
+          "elegir_servicio": {
+            "estado": "demostrado",
+            "cita": "With this custom feature, your clients can speak to an AI assistant that understands their requests and helps them select the right service, time, and provider.",
+            "url": "https://simplybook.me/en/features",
+            "nota": ""
+          },
+          "duracion": {
+            "estado": "demostrado",
+            "cita": "Set different service duration and buffer times",
+            "url": "https://simplybook.me/en/pricing",
+            "nota": ""
+          },
+          "precio": {
+            "estado": "demostrado",
+            "cita": "Set prices for different services",
+            "url": "https://simplybook.me/en/pricing",
+            "nota": ""
+          },
+          "elegir_profesional": {
+            "estado": "demostrado",
+            "cita": "With this custom feature, your clients can speak to an AI assistant that understands their requests and helps them select the right service, time, and provider.",
+            "url": "https://simplybook.me/en/features",
+            "nota": ""
+          },
+          "hueco_disponible": {
+            "estado": "demostrado",
+            "cita": "Yes! SimplyBook.me works around the clock, allowing your clients to book appointments online 24/7 from your website, social media, or Google.",
+            "url": "https://simplybook.me/en/",
+            "nota": ""
+          }
+        }
+      },
+      {
+        "id": "booksy",
+        "nombre": "Booksy",
+        "pedidas": [
+          "https://booksy.com/biz/en-us/",
+          "https://booksy.com/biz/es-es/",
+          "https://booksy.com/biz/en-us/features"
+        ],
+        "leidas": [
+          "OK https://biz.booksy.com/",
+          "OK https://biz.booksy.com/es-es",
+          "OK https://biz.booksy.com/features"
+        ],
+        "pasos": {
+          "elegir_servicio": {
+            "estado": "demostrado",
+            "cita": "List services with clear descriptions and visual examples to show off your skills and help clients book the right service.",
+            "url": "https://booksy.com/biz/en-us/features",
+            "nota": ""
+          },
+          "duracion": {
+            "estado": "demostrado",
+            "cita": "Easily set up different booking options for a single service type with durations or prices.",
+            "url": "https://booksy.com/biz/en-us/features",
+            "nota": ""
+          },
+          "precio": {
+            "estado": "demostrado",
+            "cita": "Easily set up different booking options for a single service type with durations or prices.",
+            "url": "https://booksy.com/biz/en-us/features",
+            "nota": ""
+          },
+          "elegir_profesional": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": "",
+            "nota": "Se buscó la posibilidad explícita de que el cliente elija a un profesional específico del equipo durante el proceso de reserva. El sitio menciona perfiles e itinerarios del personal ('Create a profile for each staff member to assign their services'), pero no afirma expresamente en el texto que el cliente elija con quién reservarse."
+          },
+          "hueco_disponible": {
+            "estado": "demostrado",
+            "cita": "A los clientes les encanta poder ver tu disponibilidad de tu calendario de manera instantánea y reservar una fecha que les convenga, sin tener que llamarte o enviarte mensajes.",
+            "url": "https://booksy.com/biz/es-es/",
+            "nota": ""
+          }
+        }
+      }
+    ]
+  }
 }
