@@ -5560,6 +5560,86 @@ sección «MOLNIP ES UN INTERMEDIARIO»: la pega se dice cuando es de esta
 persona, y entonces ya no necesita llamarse desventaja.
 
 
+## QUÉ LE DEBEMOS AL FABRICANTE — la otra mitad del contrato, 2026-09-22
+
+La sección anterior dice qué es un asesor para quien pregunta. Ésta dice qué
+tiene que ofrecerle Molnip **al dueño del software sobre el que asesora**. Las
+dos juntas son el contrato del intermediario: **lo que le debemos a ella y lo
+que le debemos a él.**
+
+Traído por la propietaria:
+
+> Al dueño del software sobre el que asesoramos debes ofrecerle:
+>
+> - **Conocimiento de su software:** comprender qué hace, para quién sirve y
+>   cuáles son sus límites.
+> - **Acceso a posibles compradores:** llegar a personas o negocios que
+>   necesitan ese producto.
+> - **Capacidad de explicar su valor:** mostrar cómo ayuda al comprador con una
+>   necesidad concreta.
+> - **Capacidad comercial:** resolver dudas, hacer demostraciones y acompañar
+>   la decisión de compra.
+> - **Buena representación:** cuidar su reputación y no prometer funciones o
+>   resultados que el software no ofrece.
+> - **Resultados medibles:** demostrar qué oportunidades y ventas generas.
+
+### Dónde está Molnip contra los seis (2026-09-22)
+
+**Lo que ya puede dar, y mejor que un directorio:**
+
+- **Conocimiento de su software.** Es F2 entero: 662 capacidades verificadas
+  con cita y fecha. Un directorio no sabe qué hace cada herramienta — sabe
+  cómo se describe a sí misma.
+- **Explicar su valor ante una necesidad concreta.** Dice «concreta», y eso es
+  el vocabulario: emparejar lo que hace con lo que alguien necesita.
+- **Buena representación.** *«No prometer funciones o resultados que el
+  software no ofrece»*: es todo lo de estos dos días, visto desde el otro
+  lado. Por qué sólo se dice lo comprobado y por qué «DESVENTAJAS» tenía que
+  irse. **La propietaria le puso aquí la razón comercial a lo que hasta hoy
+  se defendía sólo como honradez.**
+
+**Lo que no puede dar todavía, y es lo que más le importa a él:**
+
+- **Acceso a posibles compradores.** Cero tráfico.
+- **Resultados medibles.** Sin lo anterior no hay nada que medir, y sin números
+  no hay conversación comercial posible.
+
+### La capacidad comercial se construye con criterios, no con comerciales
+
+Aquí hubo una corrección de la propietaria. Yo leí «capacidad comercial» como
+lo que hace un distribuidor —demostraciones, empujar la venta— y avisé de que
+chocaba con estar en medio. Su respuesta:
+
+> **«La capacidad comercial la estamos creando con nuestros criterios y
+> decisiones.»**
+
+Y es cierto punto por punto, con lo ya construido:
+
+- **Resolver dudas** → la tarjeta «Lo que te va a costar». *¿Esto, a mí,
+  cuánto me cuesta?*, con su cifra y su fecha. Es la duda más grande de una
+  compra de software, y ya está contestada.
+- **Hacer demostraciones** → enseñar lo que cada herramienta **hace**,
+  verificado y con su fuente. No una demo por videollamada: la prueba de que
+  sirve.
+- **Acompañar la decisión** → el desplegable, «tú decides», y la casa de tres
+  habitaciones: la diferencia por delante, el coste al lado, decide ella.
+
+**Los seis se cumplen con decisiones de producto, no contratando comerciales.**
+
+Y eso es lo que resuelve la contradicción:
+
+> **Una capacidad comercial hecha de criterios no se corrompe.** Un vendedor
+> que acompaña una compra tiene un incentivo para cerrarla. Un criterio no
+> tiene incentivos. Por eso Molnip puede darle capacidad comercial al
+> fabricante **sin dejar de estar en medio**.
+
+### Y el orden entre los seis
+
+**La buena representación es la que hace posibles el acceso a compradores y
+los resultados medibles.** Un fabricante te da acceso a sus clientes porque se
+fía de cómo lo representas. **Lo que parece la parte ética es la que abre la
+puerta comercial.**
+
 ## DÓNDE ESTAMOS — punto de partida al cerrar el 2026-09-21
 
 Esta sección no decide nada: dice en qué punto quedó todo, para que quien
