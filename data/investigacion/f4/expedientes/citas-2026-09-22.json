@@ -127,8 +127,24 @@
         "citaPrecio": "2 profesionales incluidos + 5EUR por profesional adicional / 2 profesionales incluidos + 10EUR por profesional adicional",
         "url": "https://viday.es/precios/",
         "fecha": "2026-09-22",
-        "paraTresProfesionales": "DEPENDE DE SI NECESITA VERIFACTU, y eso no lo sabemos: Equipo Estandar 44 + 5 = 49 EUR/mes sin IVA; Equipo Pro 75 + 10 = 85 EUR/mes sin IVA. Verifactu solo consta en Pro.",
-        "loQueDecideElPrecio": "La diferencia son 36 EUR/mes sin IVA, y la decide una pregunta que sigue abierta: si a esta clienta le obliga Verifactu. Sin esa respuesta no hay precio."
+        "paraTresProfesionales": "Equipo Pro: 75 + 10 = 85 EUR/mes sin IVA (76,50 EUR/mes si se paga el ano). El Equipo Estandar sale a 49 EUR/mes sin IVA, pero en su lista no aparece la facturacion, y ella pidio dejar de hacer las facturas a mano.",
+        "loQueDecideElPrecio": "Ya NO lo decide Verifactu. Ella pidio hacer facturas, con obligacion o sin ella, y la facturacion solo consta en Pro. Asi que si quiere las dos cosas en la misma herramienta, el plan es Pro: 85 EUR/mes sin IVA para tres. Verifactu viene incluido de propina, le obligue o no.",
+        "facturacionPorPlan": {
+          "equipoEstandar": {
+            "facturacion": "no_consta",
+            "loQueListaElPlan": "App personalizada con tu marca · App para profesionales · Reservas grupales e individuales · Gestion de clientes · Bonos y paquetes de sesiones · Listas de espera automaticas · Estadisticas basicas · Notas internas en el calendario · Recordatorios automaticos",
+            "lectura": "En la lista de lo que incluye el plan Estandar NO aparece ninguna funcion de facturacion. Eso no demuestra que el plan no facture, pero si significa que no podemos confirmar que cubra lo que ella pidio.",
+            "url": "https://viday.es/precios/",
+            "fecha": "2026-09-22"
+          },
+          "equipoPro": {
+            "facturacion": "demostrado",
+            "cita": "VERIFACTU incluido",
+            "queAnadeSobreEstandar": "Cobros online y gestion de pagos · Control de gastos con IA · VERIFACTU incluido · Stripe, Redsys, Bizum y SEPA · Sin comisiones en pagos · Muro de novedades · Historial clinico · Fichas y consentimientos digitales · Sesiones online · Streaming · Fidelizacion",
+            "url": "https://viday.es/precios/",
+            "fecha": "2026-09-22"
+          }
+        }
       },
       "noConsta": [
         "Prueba gratuita",
@@ -319,6 +335,53 @@
         "booksy",
         "simplybook"
       ]
+    }
+  ],
+  "escenarios": [
+    {
+      "si": "Quiere las citas y las facturas en la MISMA herramienta",
+      "entonces": "ViDay, plan Equipo Pro",
+      "cuesta": "85 EUR/mes sin IVA para tres (76,50 EUR/mes pagando el ano entero)",
+      "porQue": "Es la unica candidata de la que hemos confirmado las dos cosas: que el cliente elija profesional y reserve, y que se emitan facturas. Verifactu viene incluido, le obligue o no.",
+      "pendiente": [
+        "Nadie la ha usado: todo sale de su pagina",
+        "No hemos comprobado el recorrido de punta a punta"
+      ]
+    },
+    {
+      "si": "Prefiere separar: una herramienta para las citas y otra para facturar",
+      "entonces": "Booksy para las citas, y la facturacion aparte",
+      "cuesta": "Booksy 50,99 EUR/mes sin IVA para tres, mas lo que cueste el programa de facturas",
+      "porQue": "No tiene por que resolverlo todo una sola herramienta. Separar suele salir mas barato y deja cambiar una sin tocar la otra.",
+      "pendiente": [
+        "De Booksy no consta que el CLIENTE elija profesional, y siendo tres eso le importa",
+        "No tenemos ningun programa de facturacion espanol verificado todavia: hay cinco borradores sin citas, sin promover"
+      ]
+    },
+    {
+      "si": "El presupuesto manda y atienden pocas citas al mes",
+      "entonces": "SimplyBook.me, plan Basic",
+      "cuesta": "13,9 USD/mes. En dolares: no consta que se pueda pagar en euros ni si se anaden impuestos",
+      "porQue": "Es la que mejor demuestra servicios con su duracion y su precio, y la mas barata con diferencia.",
+      "pendiente": [
+        "100 reservas al mes: si pasan de ahi, este plan se le queda corto",
+        "Solo 3 funciones personalizadas, y buena parte de lo que hace son funciones personalizadas",
+        "No consta que el CLIENTE elija profesional",
+        "No consta que se pueda contratar desde Espana",
+        "No consta que facture"
+      ]
+    }
+  ],
+  "sobreLaPreguntaFiscal": {
+    "regla": "La pregunta de Verifactu admite «no lo se» y NO bloquea el asesoramiento.",
+    "porQue": "Ella pidio hacer facturas, le obligue Verifactu o no. Como la facturacion solo consta en el plan Pro, el plan es Pro en los dos casos. Saber si le obliga cambia lo urgente que es, no que plan necesita. Resolver si le aplica el reglamento es trabajo de su gestoria, no suyo ni nuestro.",
+    "queNoSeHace": "No se le pide a la clienta que resuelva una cuestion tecnica para poder ayudarla."
+  },
+  "loQueNoSePudoComprobar": [
+    {
+      "que": "SimplyBook.me: que funciones cuentan como «personalizadas» y que pasa al pasar de 100 reservas",
+      "motivo": "Su pagina de precios dio tiempo de espera agotado varias veces seguidas a traves del proxy el 2026-09-22.",
+      "efecto": "El tercer escenario se presenta con ese hueco nombrado. No se rellena ni se adivina."
     }
   ]
 }

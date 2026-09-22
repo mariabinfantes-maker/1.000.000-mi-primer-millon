@@ -691,5 +691,64 @@
         }
       }
     }
+  },
+  "quintaVuelta": {
+    "fecha": "2026-09-22",
+    "queComprobo": "Que factura cada plan de ViDay. La clienta pidio dejar de hacer las facturas a mano, tenga o no obligacion de Verifactu, y yo habia dado por hecho que el plan Estandar le valdria si no le obligaba. En la lista del Equipo Estandar no aparece ninguna funcion de facturacion.",
+    "consecuencia": "El plan es Pro en los dos casos. Verifactu deja de decidir el precio y pasa a venir incluido. Y la pregunta fiscal deja de bloquear: admite «no lo se».",
+    "leidas": [
+      "OK https://viday.es/precios/"
+    ],
+    "datos": {
+      "equipo_estandar": {
+        "emite_facturas": {
+          "estado": "no_consta",
+          "cita": ""
+        },
+        "verifactu": {
+          "estado": "no_consta",
+          "cita": ""
+        },
+        "cobros_online": {
+          "estado": "no_consta",
+          "cita": ""
+        },
+        "informes_gestoria": {
+          "estado": "no_consta",
+          "cita": ""
+        },
+        "todo_lo_que_lista_el_plan": {
+          "estado": "demostrado",
+          "cita": "App personalizada con tu marca App para profesionales Reservas grupales e individuales Gestión de clientes Bonos y paquetes de sesiones Listas de espera automáticas Estadísticas básicas Notas internas en el calendario Recordatorios automáticos Soporte ilimitado"
+        }
+      },
+      "equipo_pro": {
+        "emite_facturas": {
+          "estado": "demostrado",
+          "cita": "VERIFACTU incluido"
+        },
+        "verifactu": {
+          "estado": "demostrado",
+          "cita": "VERIFACTU incluido"
+        },
+        "cobros_online": {
+          "estado": "demostrado",
+          "cita": "Cobros online y gestión de pagos"
+        },
+        "informes_gestoria": {
+          "estado": "no_consta",
+          "cita": ""
+        },
+        "que_anade_sobre_estandar": {
+          "estado": "demostrado",
+          "cita": "Cobros online y gestión de pagos Control de gastos con IA VERIFACTU incluido Stripe, Redsys, Bizum y SEPA Sin comisiones en pagos Muro de novedades Historial clínico Fichas y consentimientos digitales Sesiones online Streaming Fidelización Notas clínicas Entrenamientos en app Control de stock Fichaje de empleados Roles y permisos Integraciones con Urban Sports Club, Wellhub, Webhook y otros"
+        }
+      },
+      "la_diferencia_en_facturacion": {
+        "estado": "demostrado",
+        "explicacion": "El plan Estándar no menciona ninguna función de facturación ni Verifactu en la lista de lo que incluye. Para dejar de hacer facturas a mano y contar con facturación electrónica legal (Verifactu), es necesario el plan Pro.",
+        "cita": "VERIFACTU incluido"
+      }
+    }
   }
 }

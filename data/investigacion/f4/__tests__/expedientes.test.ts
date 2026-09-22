@@ -107,17 +107,32 @@ describe("los precios se pueden comparar sin trampa", () => {
   });
 
   /**
-   * Y el resultado no es un importe: es una horquilla que depende de una
-   * pregunta abierta. 36 EUR/mes de diferencia los decide si a ella le obliga
-   * Verifactu, que es justo lo que no sabemos.
+   * ESTA PRUEBA DECÍA OTRA COSA, Y ESTABA MAL. Fijaba que el precio dependía
+   * de si a la clienta le obligaba Verifactu: 49 € el plan Estándar, 85 € el
+   * Pro. Era un salto, y lo señaló la propietaria: **ella pidió hacer
+   * facturas, le obligue Verifactu o no**.
+   *
+   * Al mirar qué incluye cada plan, en la lista del Equipo Estándar no aparece
+   * ninguna función de facturación. Así que el plan es Pro en los dos casos, y
+   * lo que Verifactu cambia es lo urgente que sea, no qué plan necesita.
+   *
+   * Que en la lista no aparezca NO demuestra que el plan no facture. Demuestra
+   * que no podemos confirmar que cubra lo que ella pidió, que es distinto y es
+   * suficiente para no ofrecérselo como si lo cubriera.
    */
-  it("el precio de ViDay no se cierra sin saber si necesita Verifactu", () => {
+  it("el plan para quien quiere facturar es Pro, y no lo decide Verifactu", () => {
     const v = EXP.herramientas.find((h) => h.id === "viday")!;
-    const texto = String(v.precio.paraTresProfesionales);
-    expect(texto).toContain("DEPENDE");
-    expect(texto).toContain("49");
-    expect(texto).toContain("85");
+    const porPlan = v.precio.facturacionPorPlan as {
+      equipoEstandar: { facturacion: string; lectura: string };
+      equipoPro: { facturacion: string; cita: string };
+    };
+    expect(porPlan.equipoEstandar.facturacion).toBe("no_consta");
+    expect(porPlan.equipoPro.facturacion).toBe("demostrado");
+    // Y la lectura del Estándar no puede afirmar una ausencia.
+    expect(porPlan.equipoEstandar.lectura).toContain("no demuestra que el plan no facture");
+    expect(String(v.precio.loQueDecideElPrecio)).toContain("Ya NO lo decide Verifactu");
   });
+
 });
 
 describe("las dudas siguen siendo dudas", () => {
@@ -172,5 +187,56 @@ describe("lo que falta preguntarle a ELLA, no a una página", () => {
     const sb = EXP.herramientas.find((h) => h.id === "simplybook")!;
     expect(sb.pendientes?.length).toBeGreaterThan(0);
     expect(sb.pendientes![0].intento).toContain("tiempo de espera agotado");
+  });
+});
+
+describe("la propuesta por escenarios", () => {
+  const ESC = (EXP as unknown as { escenarios: { si: string; entonces: string; cuesta: string; porQue: string; pendiente: string[] }[] }).escenarios;
+  const FISCAL = (EXP as unknown as { sobreLaPreguntaFiscal: { regla: string; porQue: string; queNoSeHace: string } }).sobreLaPreguntaFiscal;
+
+  it("cada escenario dice qué cuesta y qué queda pendiente", () => {
+    expect(ESC.length).toBeGreaterThanOrEqual(3);
+    for (const e of ESC) {
+      expect(e.cuesta.length, e.si).toBeGreaterThan(10);
+      expect(e.pendiente.length, e.si).toBeGreaterThan(0);
+    }
+  });
+
+  /**
+   * «No tiene que resolverlo todo una sola herramienta.» Separar las citas de
+   * la facturación es una salida legítima y tiene que estar sobre la mesa.
+   */
+  it("separar citas y facturación es uno de los escenarios", () => {
+    expect(ESC.some((e) => e.si.toLowerCase().includes("separar"))).toBe(true);
+  });
+
+  /**
+   * El salto que había que quitar: «si no le obliga Verifactu, Estándar».
+   * Ella pidió facturas, y en la lista del plan Estándar no aparece ninguna
+   * función de facturación. No se puede ofrecer el plan barato como si
+   * cubriera lo que pidió.
+   */
+  it("ningún escenario ofrece el plan Estándar para quien quiere facturar", () => {
+    const conFactura = ESC.filter((e) => e.si.toLowerCase().includes("factura") && !e.si.toLowerCase().includes("separar"));
+    expect(conFactura.length).toBeGreaterThan(0);
+    for (const e of conFactura) expect(e.entonces).not.toMatch(/Est[áa]ndar/);
+  });
+
+  /**
+   * La pregunta fiscal admite «no lo sé» y no bloquea nada. Y no se le pide a
+   * la clienta que resuelva una cuestión técnica para poder ayudarla.
+   */
+  it("la pregunta de Verifactu no bloquea el asesoramiento", () => {
+    expect(FISCAL.regla).toContain("no lo se");
+    expect(FISCAL.regla).toContain("NO bloquea");
+    expect(FISCAL.queNoSeHace).toContain("cuestion tecnica");
+  });
+
+  /** Nada aquí se presenta como «la mejor»: eso depende de ella. */
+  it("ningún escenario corona a una herramienta", () => {
+    const todo = JSON.stringify(ESC).toLowerCase();
+    for (const frase of ["la mejor", "la más completa es la", "sin duda", "la opción ideal"]) {
+      expect(todo).not.toContain(frase);
+    }
   });
 });
