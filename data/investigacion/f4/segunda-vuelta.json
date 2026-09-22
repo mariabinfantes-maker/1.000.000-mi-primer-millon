@@ -446,5 +446,180 @@
         }
       }
     }
-  ]
+  ],
+  "terceraVuelta": {
+    "fecha": "2026-09-22",
+    "queCorrige": [
+      "El criterio de «funciones juntas» deja de exigir UNA frase perfecta. Correccion de la propietaria: vale una guia, una lista de pasos, documentacion enlazada o una demostracion del producto. Exigir la frase unica era demasiado rigido y tiraba evidencia buena.",
+      "Se comprueba la DISPONIBILIDAD REAL en Espana en vez de deducirla. Que los precios salgan en dolares o la sede este fuera NO demuestra que no sirva aqui: hay que mirar si se puede contratar y usar.",
+      "Se vuelve a preguntar por la facturacion sin dar por hecho nada. Un no_consta anterior no es un «no factura».",
+      "Se pide el coste para TRES profesionales, que es el caso real y no el precio de escaparate."
+    ],
+    "loQueNoSeBorra": "Que algo no se reconfirme hoy no borra lo ya comprobado: las citas validas del lote de septiembre siguen valiendo. Solo se retiran las catorce corregidas en correcciones.json, y por su motivo escrito.",
+    "resultados": [
+      {
+        "id": "viday",
+        "nombre": "ViDay",
+        "pedidas": [
+          "https://viday.es/precios/",
+          "https://viday.es/funcionalidades-sobre-una-app-de-reservas/",
+          "https://viday.es/"
+        ],
+        "leidas": [
+          "OK https://viday.es/precios/",
+          "OK https://viday.es/funcionalidades-sobre-una-app-de-reservas/",
+          "OK https://viday.es/"
+        ],
+        "datos": {
+          "precio_por_profesional": {
+            "estado": "demostrado",
+            "cita": "2 profesionales incluidos + 5€ por profesional adicional",
+            "url": "https://viday.es/precios/",
+            "nota": "El precio base es por negocio e incluye un número fijo de profesionales (1 en plan Individual, 2 en los planes Equipo Estándar y Pro, y 10 en Empresa), cobrándose un extra por profesional adicional. Para un negocio con 3 profesionales, en el plan Equipo Estándar costaría 49 €/mes en cobro mensual (44 €/mes + 5 €) o 44,60 €/mes en pago anual (39,60 €/mes + 5 €); en el plan Equipo Pro costaría 85 €/mes en mensual (75 €/mes + 10 €) o 77,50 €/mes en anual (67,50 €/mes + 10 €)."
+          },
+          "limite_de_usuarios_por_plan": {
+            "estado": "demostrado",
+            "cita": "Sin límite de clientes. Sin límite de reservas.",
+            "url": "https://viday.es/precios/"
+          },
+          "servicios_con_duracion": {
+            "estado": "demostrado",
+            "cita": "Podrás definir cualquier tipo de servicio u horarios, la duración de cada reserva y el empleado que la atenderá.",
+            "url": "https://viday.es/funcionalidades-sobre-una-app-de-reservas/"
+          },
+          "servicios_con_precio": {
+            "estado": "demostrado",
+            "cita": "puedes configurar tus servicios, precios y disponibilidad según necesites",
+            "url": "https://viday.es/"
+          },
+          "funciones_juntas": {
+            "estado": "demostrado",
+            "como": "frase",
+            "cita": "Gestiona todo tu negocio desde un solo panel: clientes, reservas, finanzas y personal.",
+            "url": "https://viday.es/precios/"
+          },
+          "prueba_gratis": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": ""
+          },
+          "permanencia_o_alta": {
+            "estado": "demostrado",
+            "cita": "Sin permanencia. Sin costes ocultos. Con soporte humano.",
+            "url": "https://viday.es/precios/"
+          }
+        }
+      },
+      {
+        "id": "simplybook",
+        "nombre": "SimplyBook.me",
+        "pedidas": [
+          "https://simplybook.me/es/pricing",
+          "https://simplybook.me/es/",
+          "https://simplybook.me/es/accept-payments"
+        ],
+        "leidas": [
+          "OK https://simplybook.me/es/pricing",
+          "OK https://simplybook.me/es/",
+          "NO https://simplybook.me/es/accept-payments"
+        ],
+        "datos": {
+          "se_puede_usar_desde_espana": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": "",
+            "nota": "En el texto leído no se especifica de forma explícita la disponibilidad o contratación directa desde España."
+          },
+          "moneda_euro": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": ""
+          },
+          "pasarelas_de_pago_espanolas": {
+            "estado": "demostrado",
+            "cita": "Acepte pagos en línea y anticipos a través de PayPal, Stripe y otros proveedores",
+            "url": "https://simplybook.me/es/",
+            "nota": "Admite Stripe y PayPal, las cuales son usables en España. No constan referencias a Redsys ni Bizum."
+          },
+          "idioma_interfaz_espanol": {
+            "estado": "demostrado",
+            "cita": "Múltiples lenguajes... Español",
+            "url": "https://simplybook.me/es/pricing"
+          },
+          "soporte": {
+            "estado": "demostrado",
+            "cita": "El soporte en vivo está incluido en todos los planes de SimplyBook.me... Chat en vivo para respuestas rápidas, correo para soluciones detalladas y un amplio centro de ayuda.",
+            "url": "https://simplybook.me/es/"
+          },
+          "emite_facturas": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": "",
+            "nota": "Se mencionan recibos instantáneos e integraciones con software contable (QuickBooks, FreshBooks, Xero), pero no consta la generación directa de facturas del negocio al cliente."
+          },
+          "precio_tres_profesionales": {
+            "estado": "demostrado",
+            "cita": "El plan Basic incluye 100 reservas, 3 funciones personalizadas y 5 prestadores a $13.9 al mes.",
+            "url": "https://simplybook.me/es/pricing",
+            "nota": "Hace falta el plan Básico (Basic), que permite hasta 5 proveedores. Cuesta $11.9 al mes (facturado anualmente) o $13.9 al mes (facturado mensualmente)."
+          },
+          "limite_del_plan_gratis": {
+            "estado": "demostrado",
+            "cita": "el plan gratuito incluye hasta 50 reservas al mes, 1 función personalizada premium, recordatorios básicos por correo electrónico y acceso al widget de reservas y a la aplicación para clientes.",
+            "url": "https://simplybook.me/es/pricing"
+          }
+        }
+      },
+      {
+        "id": "booksy",
+        "nombre": "Booksy",
+        "pedidas": [
+          "https://biz.booksy.com/es-es/precios",
+          "https://biz.booksy.com/es-es",
+          "https://booksy.com/es-es/ayuda"
+        ],
+        "leidas": [
+          "OK https://biz.booksy.com/es-es/precios",
+          "OK https://biz.booksy.com/es-es",
+          "NO https://booksy.com/es-es/ayuda"
+        ],
+        "datos": {
+          "emite_facturas": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": "",
+            "nota": "generar una FACTURA del negocio a su cliente; cobrar o un recibo no es facturar"
+          },
+          "precio_tres_profesionales": {
+            "estado": "demostrado",
+            "cita": "Booksy cuesta 34,99€ al mes +IVA, más 8€ al mes +IVA por cada miembro adicional del equipo.",
+            "url": "https://biz.booksy.com/es-es/precios",
+            "nota": "El precio se estructura en una tarifa base por negocio (34,99 € + IVA/mes) más un suplemento por usuario/empleado adicional (8 € + IVA/mes por persona extra). Para 3 profesionales el coste total es de 50,99 € + IVA al mes."
+          },
+          "elegir_profesional": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": "",
+            "nota": "el CLIENTE elige con qué persona reserva"
+          },
+          "servicios_con_duracion": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": ""
+          },
+          "servicios_con_precio": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": ""
+          },
+          "funciones_juntas": {
+            "estado": "demostrado",
+            "como": "una frase",
+            "cita": "Booksy Biz : Solución todo-en-uno para móviles, tablets y web. Agenda citas, gestiona clientes, promociona tu negocio y procesa pagos.",
+            "url": "https://biz.booksy.com/es-es"
+          }
+        }
+      }
+    ]
+  }
 }
