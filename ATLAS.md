@@ -5640,6 +5640,80 @@ los resultados medibles.** Un fabricante te da acceso a sus clientes porque se
 fía de cómo lo representas. **Lo que parece la parte ética es la que abre la
 puerta comercial.**
 
+## LO QUE MOLNIP SE DEBE A SÍ MISMO — la tercera cara, 2026-09-22
+
+Las dos secciones anteriores dicen qué le debemos a quien pregunta y qué le
+debemos al dueño del software. Falta la tercera, y **no es un tercer deber:**
+
+> **Lo que el asesor se debe a sí mismo es exactamente lo que le permite
+> cumplir con los otros dos.**
+
+- Si pierde la **independencia**, su consejo no le vale a ella y su
+  representación no le vale a él.
+- Si no puede **demostrar lo que dice**, ninguno de los dos puede apoyarse en
+  él.
+- Si no **gana dinero**, desaparece y no sirve a nadie.
+
+Por eso cuidar de Molnip no es egoísmo: **es la forma de cuidar a los otros
+dos.** Y ahí se resuelve lo que parecía una jerarquía incómoda —Molnip primero
+al decidir un cambio, el cliente primero cuando los tres no caben—. No
+competían: una es la condición, la otra es el destino.
+
+### Ganar dinero es una obligación, no una elección
+
+Palabras de la propietaria, dichas para corregir una postura mía:
+
+> **«Ganar dinero es una obligación para Molnip, no una elección, y tiene que
+> saber nadar en esas aguas.»**
+
+**La corrección era necesaria.** Durante toda esta conversación yo traté el
+dinero como el riesgo a gestionar y la honradez como el objetivo. Es al revés:
+**el dinero es la obligación, y la honradez es cómo se gana de forma
+sostenible.** Las dos posturas producen productos distintos.
+
+Lo que cambia, y no es teoría:
+
+- **Cerrar bien es parte de servir.** Si Molnip acierta con la herramienta y la
+  persona no actúa, no sirvió a nadie. **Una pantalla tan prudente que nadie
+  decide nada es un fallo, no una virtud.** Ya estaba dicho el 2026-09-21: «si
+  el producto es bueno hay que saber cerrar una venta».
+- **Medir no es sucio.** Es el sexto punto del contrato con el fabricante: sin
+  números no hay conversación comercial posible.
+- **«Saber nadar en esas aguas»** es conocerlas: cómo funciona un programa de
+  afiliación, qué espera un fabricante, cómo es una conversación de partner.
+  **Ser ingenuo en lo comercial no es inocencia, es incompetencia.**
+
+**Y la línea que no se mueve:** la afiliación nunca altera el resultado. Eso no
+es escrúpulo, es el producto. Pero **todo lo que rodea al resultado** —con qué
+claridad se presenta, qué fácil es actuar, cómo se mide— **es trabajo
+comercial y hay que hacerlo bien.**
+
+### El riesgo que hay que vigilar, dicho por quien lo provocó
+
+**El mayor peligro para Molnip no es que un fabricante lo compre. Es que se
+vuelva tan prudente que deje de decidir.**
+
+En dos días se quitó la nota, las pegas sin fuente, los adjetivos sin sujeto y
+las afirmaciones sin recibo. Todo correcto. **Pero el final de ese camino, si
+nadie lo para, es un sistema impecablemente honrado que enumera herramientas y
+no ayuda a nadie** — un directorio otra vez, sólo que con mejor conciencia.
+
+Decir que no es un resultado válido. **No decir nada, no.**
+
+La diferencia entre callarse por honradez y callarse por miedo no se ve desde
+fuera: sólo la marca el criterio.
+
+### Los seis, en corto
+
+1. **Independencia** — es lo único que vende.
+2. **Poder demostrar lo que afirma** — los recibos protegen primero a Molnip.
+3. **No mentirse a sí mismo** — lo de `metodologiaValoracion` no engañaba a
+   ningún fabricante: nos engañaba a nosotros.
+4. **Sostenerse** — un asesor que no cobra deja de asesorar. Obligación, no
+   elección.
+5. **Conocer sus límites y decirlos** — «todas las que hemos podido verificar».
+6. **Atreverse a concluir** — si no se moja, no es un asesor: es un buscador.
+
 ## DÓNDE ESTAMOS — punto de partida al cerrar el 2026-09-21
 
 Esta sección no decide nada: dice en qué punto quedó todo, para que quien
