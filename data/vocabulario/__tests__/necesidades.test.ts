@@ -10,7 +10,7 @@ import {
   ajusteConLoQuePidio,
   describirElAjuste,
 } from "../necesidades";
-import type { Necesidad } from "../necesidades";
+import type { EstadoDeLaCapacidad, Necesidad, NecesidadDelCaso } from "../necesidades";
 
 /**
  * El mapa de necesidades: que diga la verdad sobre sí mismo, y que la regla de
@@ -63,141 +63,190 @@ describe("el mapa es coherente", () => {
   });
 });
 
-describe("lo que sobra y lo que falta no pesan igual", () => {
-  const necesidad: Necesidad = {
-    id: "nec.prueba", titulo: "Que reserven solos", loQueDice: ["x"],
-    puertas: ["puerta.vender"], imprescindibles: ["cap.a"], ayudan: ["cap.b", "cap.c"],
-  };
+/** Un estado a medida, para no depender de los datos reales en estas pruebas. */
+function saber(mapa: Record<string, EstadoDeLaCapacidad>) {
+  return (cap: string): EstadoDeLaCapacidad => mapa[cap] ?? "sinPreguntar";
+}
 
+const NECESIDAD: Necesidad = {
+  id: "nec.prueba", titulo: "Que reserven solos", loQueDice: ["x"],
+  puertas: ["puerta.vender"], imprescindibles: ["cap.a"], ayudan: ["cap.b", "cap.c"],
+};
+
+describe("lo que sobra y lo que falta no pesan igual", () => {
   it("si demuestra lo imprescindible, es recomendable", () => {
-    const a = ajusteConLaNecesidad(necesidad, new Set(["cap.a"]), new Set());
+    const a = ajusteConLaNecesidad(NECESIDAD, saber({ "cap.a": "demostrada" }));
     expect(a.comoSePresenta).toBe("recomendable");
     expect(a.resuelve).toEqual(["cap.a"]);
   });
 
-  /**
-   * La casa de tres habitaciones. Traer de más nunca puede bajar a una
-   * herramienta: se nombra aparte, en `aporta`, para que ella juzgue si le
-   * sirve.
-   */
+  /** La casa de tres habitaciones: traer de más se nombra, no puntúa. */
   it("traer cosas de más no la baja ni la sube: se nombran", () => {
-    const justo = ajusteConLaNecesidad(necesidad, new Set(["cap.a"]), new Set());
-    const conExtras = ajusteConLaNecesidad(necesidad, new Set(["cap.a", "cap.b", "cap.c"]), new Set());
+    const justo = ajusteConLaNecesidad(NECESIDAD, saber({ "cap.a": "demostrada" }));
+    const conExtras = ajusteConLaNecesidad(
+      NECESIDAD, saber({ "cap.a": "demostrada", "cap.b": "demostrada", "cap.c": "demostrada" })
+    );
     expect(conExtras.comoSePresenta).toBe(justo.comoSePresenta);
     expect(conExtras.aporta).toEqual(["cap.b", "cap.c"]);
     expect(justo.aporta).toEqual([]);
   });
 
   it("faltarle lo imprescindible la coloca lejos, con su motivo", () => {
-    const a = ajusteConLaNecesidad(necesidad, new Set(["cap.b", "cap.c"]), new Set(["cap.a"]));
+    const a = ajusteConLaNecesidad(NECESIDAD, saber({ "cap.a": "descartada" }));
     expect(a.comoSePresenta).toBe("le_falta_algo");
     expect(a.leFalta).toEqual(["cap.a"]);
   });
 
   it("la que trae de más y la que carece de lo imprescindible no son lo mismo", () => {
-    const traeDeMas = ajusteConLaNecesidad(necesidad, new Set(["cap.a", "cap.b", "cap.c"]), new Set());
-    const leFalta = ajusteConLaNecesidad(necesidad, new Set(["cap.b", "cap.c"]), new Set(["cap.a"]));
+    const traeDeMas = ajusteConLaNecesidad(
+      NECESIDAD, saber({ "cap.a": "demostrada", "cap.b": "demostrada", "cap.c": "demostrada" })
+    );
+    const leFalta = ajusteConLaNecesidad(
+      NECESIDAD, saber({ "cap.a": "descartada", "cap.b": "demostrada", "cap.c": "demostrada" })
+    );
     expect(traeDeMas.comoSePresenta).toBe("recomendable");
     expect(leFalta.comoSePresenta).toBe("le_falta_algo");
   });
 });
 
 describe("mostrar no equivale a recomendar", () => {
-  const necesidad: Necesidad = {
-    id: "nec.prueba", titulo: "Que reserven solos", loQueDice: ["x"],
-    puertas: ["puerta.vender"], imprescindibles: ["cap.a"], ayudan: ["cap.b"],
-  };
-
   /**
-   * Antes esto era un booleano `sirve`, y con los datos de hoy —CERO ausencias
-   * demostradas en 1.547 comprobaciones— salía `true` para casi todo. Es
-   * decir: se habría recomendado sobre «no sabemos nada malo de ella».
-   * Recomendar exige haberlo comprobado; enseñar, no.
+   * Antes esto era un booleano `sirve` y, con CERO ausencias demostradas en
+   * 1.547 comprobaciones, salía `true` para casi todo: se habría recomendado
+   * sobre «no sabemos nada malo de ella».
    */
   it("no haber comprobado nada NO la hace recomendable", () => {
-    const a = ajusteConLaNecesidad(necesidad, new Set(), new Set());
+    const a = ajusteConLaNecesidad(NECESIDAD, saber({}));
     expect(a.comoSePresenta).toBe("sin_comprobar");
-    expect(a.comoSePresenta).not.toBe("recomendable");
-    expect(a.noSabemosSiLoHace).toEqual(["cap.a"]);
+    expect(a.sinPreguntar).toEqual(["cap.a"]);
     expect(a.leFalta).toEqual([]);
   });
 
   it("sólo es recomendable lo que está demostrado", () => {
-    expect(ajusteConLaNecesidad(necesidad, new Set(["cap.a"]), new Set()).comoSePresenta).toBe("recomendable");
+    expect(ajusteConLaNecesidad(NECESIDAD, saber({ "cap.a": "demostrada" })).comoSePresenta).toBe("recomendable");
   });
 
   /** Ningún valor significa «no aparece»: en el desplegable salen todas. */
-  it("ninguno de los tres estados esconde nada", () => {
-    for (const [dem, des] of [
-      [new Set<string>(["cap.a"]), new Set<string>()],
-      [new Set<string>(), new Set<string>(["cap.a"])],
-      [new Set<string>(), new Set<string>()],
-    ] as const) {
-      const a = ajusteConLaNecesidad(necesidad, dem, des);
+  it("ninguno de los estados esconde nada", () => {
+    for (const estado of ["demostrada", "descartada", "desconocida", "sinPreguntar"] as const) {
+      const a = ajusteConLaNecesidad(NECESIDAD, saber({ "cap.a": estado }));
       expect(["recomendable", "le_falta_algo", "sin_comprobar"]).toContain(a.comoSePresenta);
       expect(a.necesidadId).toBe("nec.prueba");
     }
   });
 
-  /**
-   * Una ausencia demostrada es más seria y más rara que un hueco nuestro. Si
-   * se mirara antes lo no comprobado, quedaría tapada dentro de la misma
-   * necesidad.
-   */
   it("una ausencia demostrada no queda tapada por un hueco nuestro", () => {
-    const dos: Necesidad = { ...necesidad, imprescindibles: ["cap.a", "cap.x"] };
-    const a = ajusteConLaNecesidad(dos, new Set(), new Set(["cap.a"]));
+    const dos: Necesidad = { ...NECESIDAD, imprescindibles: ["cap.a", "cap.x"] };
+    const a = ajusteConLaNecesidad(dos, saber({ "cap.a": "descartada" }));
     expect(a.comoSePresenta).toBe("le_falta_algo");
     expect(a.leFalta).toEqual(["cap.a"]);
-    expect(a.noSabemosSiLoHace).toEqual(["cap.x"]);
+    expect(a.sinPreguntar).toEqual(["cap.x"]);
   });
 });
 
-describe("«no está pensada para esto» no es «no lo hemos comprobado»", () => {
-  const necesidad: Necesidad = {
-    id: "nec.citas", titulo: "Que puedan reservar sin llamarme", loQueDice: ["pierdo citas"],
-    puertas: ["puerta.vender"], imprescindibles: ["cap.online_self_service_booking"], ayudan: [],
-  };
+describe("los dos desconocidos: distinta frase, ninguna penalización", () => {
+  const citas = getNecesidad("nec.que-reserven-solos")!;
+  const imp = citas.imprescindibles[0];
 
-  const noLoHace = describirElAjuste(
-    necesidad, ajusteConLaNecesidad(necesidad, new Set(), new Set(["cap.online_self_service_booking"]))
-  );
-  const noLoSabemos = describirElAjuste(necesidad, ajusteConLaNecesidad(necesidad, new Set(), new Set()));
-  const loHace = describirElAjuste(
-    necesidad, ajusteConLaNecesidad(necesidad, new Set(["cap.online_self_service_booking"]), new Set())
-  );
+  const jamas = ajusteConLaNecesidad(citas, saber({}));
+  const buscada = ajusteConLaNecesidad(citas, saber({ [imp]: "desconocida" }));
+  const noLoHace = ajusteConLaNecesidad(citas, saber({ [imp]: "descartada" }));
+
+  /**
+   * La corrección de la propietaria: «"sin comprobar" no siempre permite decir
+   * "lo hemos buscado en su página". Si nunca se investigó, debe decir
+   * "todavía no lo hemos comprobado".» Con los datos de hoy eso era falso en
+   * el 84 % de los pares: 8.268 de 9.815 no se preguntaron nunca.
+   */
+  it("nunca preguntado no dice que lo hayamos buscado", () => {
+    const frase = describirElAjuste(citas, jamas);
+    expect(frase).toContain("Todavía no hemos comprobado");
+    expect(frase).not.toContain("Hemos buscado");
+  });
+
+  it("buscado sin encontrar sí lo dice, y no afirma la ausencia", () => {
+    const frase = describirElAjuste(citas, buscada);
+    expect(frase).toContain("Hemos buscado");
+    expect(frase).toContain("podría hacerlo igualmente");
+    expect(frase).not.toContain("Todavía no hemos comprobado");
+  });
 
   it("las tres frases son distintas entre sí", () => {
-    expect(new Set([noLoHace, noLoSabemos, loHace]).size).toBe(3);
+    const frases = [jamas, buscada, noLoHace].map((a) => describirElAjuste(citas, a));
+    expect(new Set(frases).size).toBe(3);
   });
 
   /**
-   * La que importa. Hoy hay cero ausencias demostradas, así que casi todo
-   * caerá en «no lo sabemos». Esa frase NO puede afirmar una ausencia: sería
-   * decir «no lo hace» cada vez que queremos decir «no lo sé», que es la regla
-   * 3 de F2 al revés.
+   * «Esa diferencia entre desconocidos no debería convertirse en una
+   * penalización.» Comparten estado a propósito: que la hayamos mirado y no
+   * saliera insinúa un poco la ausencia; que no la hayamos mirado no dice
+   * nada. Ordenar por eso sería convertir una sospecha en un dato.
    */
-  it("la de «no lo sabemos» nunca afirma que no lo haga", () => {
-    expect(noLoSabemos).toContain("No nos consta");
-    expect(noLoSabemos).toContain("podría hacerlo igualmente");
-    expect(noLoSabemos).not.toContain("no hace");
-    expect(noLoSabemos).not.toContain("No está pensada");
+  it("los dos desconocidos comparten estado, así que no pueden ordenar", () => {
+    expect(jamas.comoSePresenta).toBe("sin_comprobar");
+    expect(buscada.comoSePresenta).toBe("sin_comprobar");
   });
 
-  it("la de «no lo hace» sí dice que se comprobó, y no deja lugar a la duda", () => {
-    expect(noLoHace).toContain("Lo hemos comprobado");
-    expect(noLoHace).toContain("No está pensada para esto");
-    expect(noLoHace).not.toContain("podría");
+  it("la de «no lo hace» no deja lugar a la duda", () => {
+    const frase = describirElAjuste(citas, noLoHace);
+    expect(frase).toContain("Lo hemos comprobado");
+    expect(frase).toContain("No está pensada para esto");
+    expect(frase).not.toContain("podría");
   });
 
-  /** «Cómo le afecta a su caso»: la frase nombra la necesidad que se cae. */
-  it("las dos dicen qué se le queda sin resolver, con sus palabras", () => {
-    expect(noLoHace).toContain("que puedan reservar sin llamarme");
-    expect(noLoSabemos).toContain("que puedan reservar sin llamarme");
+  it("las frases dicen qué se le queda sin resolver, con sus palabras", () => {
+    for (const a of [jamas, buscada, noLoHace]) {
+      expect(describirElAjuste(citas, a)).toContain("que puedan reservar sin llamarme");
+    }
   });
 
   it("ninguna frase suelta un identificador técnico a la cara", () => {
-    for (const frase of [noLoHace, noLoSabemos, loHace]) expect(frase).not.toContain("cap.");
+    for (const a of [jamas, buscada, noLoHace]) expect(describirElAjuste(citas, a)).not.toContain("cap.");
+  });
+});
+
+describe("una deseable nunca relega a quien resuelve lo imprescindible", () => {
+  const citas = getNecesidad("nec.que-reserven-solos")!;
+  const agenda = getNecesidad("nec.mi-agenda")!;
+  const soloLoSuyo: NecesidadDelCaso[] = [{ necesidad: citas, importancia: "imprescindible" }];
+  const conLaPregunta: NecesidadDelCaso[] = [
+    ...soloLoSuyo,
+    { necesidad: agenda, importancia: "deseable", salioDeUnaPregunta: true },
+  ];
+  const resuelveCitas = saber({ [citas.imprescindibles[0]]: "demostrada" });
+
+  /**
+   * «"Sí, me ayudaría" no significa "es imprescindible". Convertirla
+   * automáticamente en requisito podría relegar una herramienta que resuelve
+   * perfectamente el problema principal.»
+   */
+  it("añadir la deseable no toca el recuento de imprescindibles", () => {
+    const antes = ajusteConLoQuePidio(soloLoSuyo, resuelveCitas);
+    const despues = ajusteConLoQuePidio(conLaPregunta, resuelveCitas);
+    expect(despues.resuelveImprescindibles).toBe(antes.resuelveImprescindibles);
+    expect(despues.deImprescindibles).toBe(antes.deImprescindibles);
+    expect(despues.deDeseables).toBe(1);
+    expect(despues.resuelveDeseables).toBe(0);
+  });
+
+  it("los dos niveles se cuentan por separado y se pueden decir en voz alta", () => {
+    const a = ajusteConLoQuePidio(
+      conLaPregunta, saber({ [citas.imprescindibles[0]]: "demostrada", [agenda.imprescindibles[0]]: "demostrada" })
+    );
+    expect(`${a.resuelveImprescindibles} de ${a.deImprescindibles}`).toBe("1 de 1");
+    expect(`${a.resuelveDeseables} de ${a.deDeseables}`).toBe("1 de 1");
+  });
+
+  it("queda registrado que salió de una pregunta, para poder enseñarlo y quitarlo", () => {
+    expect(conLaPregunta[1].salioDeUnaPregunta).toBe(true);
+    expect(soloLoSuyo[0].salioDeUnaPregunta).toBeUndefined();
+  });
+
+  it("si no trajo nada, no hay distancia que medir", () => {
+    const a = ajusteConLoQuePidio([], saber({}));
+    expect(a.deImprescindibles).toBe(0);
+    expect(a.deDeseables).toBe(0);
+    expect(a.porNecesidad).toEqual([]);
   });
 });
 
@@ -237,111 +286,72 @@ describe("el mapa no decide nada todavía", () => {
 });
 
 describe("de más cerca a más lejana, y todas en el desplegable", () => {
-  const citas: Necesidad = {
-    id: "nec.citas", titulo: "Que reserven solos", loQueDice: ["pierdo citas"],
-    puertas: ["puerta.vender"], imprescindibles: ["cap.reserva"], ayudan: ["cap.recordatorio"],
-  };
-  const factura: Necesidad = {
-    id: "nec.factura", titulo: "Emitir factura", loQueDice: ["hago las facturas a mano"],
-    puertas: ["puerta.dinero"], imprescindibles: ["cap.factura"], ayudan: [],
-  };
-  const pidio = [citas, factura];
+  const citas = getNecesidad("nec.que-reserven-solos")!;
+  const factura = getNecesidad("nec.emitir-una-factura-legal")!;
+  const trajo: NecesidadDelCaso[] = [
+    { necesidad: citas, importancia: "imprescindible" },
+    { necesidad: factura, importancia: "imprescindible" },
+  ];
+  const [cita, fact] = [citas.imprescindibles[0], factura.imprescindibles[0]];
 
-  /**
-   * La que cubre las dos está más cerca que la que cubre una. Eso es todo lo
-   * que quiere decir «de más cerca a más lejana», y se calcula sin opinar:
-   * ninguna de las dos afirmaciones dice que una empresa sea mejor que otra.
-   */
-  it("cubrir más de lo que ella pidió es estar más cerca", () => {
-    const dos = ajusteConLoQuePidio(pidio, new Set(["cap.reserva", "cap.factura"]), new Set());
-    const una = ajusteConLoQuePidio(pidio, new Set(["cap.reserva"]), new Set(["cap.factura"]));
-    expect(dos.cubre).toBe(2);
-    expect(una.cubre).toBe(1);
-    expect(dos.deCuantas).toBe(2);
+  it("cubrir más de lo que ella trajo es estar más cerca", () => {
+    const dos = ajusteConLoQuePidio(trajo, saber({ [cita]: "demostrada", [fact]: "demostrada" }));
+    const una = ajusteConLoQuePidio(trajo, saber({ [cita]: "demostrada", [fact]: "descartada" }));
+    expect(dos.resuelveImprescindibles).toBe(2);
+    expect(una.resuelveImprescindibles).toBe(1);
+    expect(dos.deImprescindibles).toBe(2);
   });
 
-  /**
-   * El denominador viaja siempre al lado. «3 de 4» se puede decir en voz alta;
-   * «3» a secas no significa nada y deja a la persona sin poder comprobarnos.
-   */
-  it("el denominador es lo que ella pidió, no el catálogo", () => {
-    const a = ajusteConLoQuePidio(pidio, new Set(["cap.reserva"]), new Set());
-    expect(a.deCuantas).toBe(pidio.length);
+  /** «3 de 4» se puede decir en voz alta; «3» a secas no significa nada. */
+  it("el denominador es lo que ella trajo, no el catálogo", () => {
+    const a = ajusteConLoQuePidio(trajo, saber({ [cita]: "demostrada" }));
+    expect(a.deImprescindibles).toBe(trajo.length);
   });
 
-  /**
-   * Lo que trae de más se cuenta aparte y NUNCA baja a nadie. La casa de tres
-   * habitaciones: la tercera puede servirle de despacho, y eso lo decide ella.
-   */
-  it("traer de más suma y se puede contar, pero no cambia lo que cubre", () => {
-    const justo = ajusteConLoQuePidio(pidio, new Set(["cap.reserva", "cap.factura"]), new Set());
-    const conExtras = ajusteConLoQuePidio(
-      pidio, new Set(["cap.reserva", "cap.factura", "cap.tpv", "cap.nominas"]), new Set()
-    );
-    // Los extras NO mueven la distancia. Es la corrección de la propietaria:
-    // tener más funciones no sube automáticamente a una herramienta.
-    expect(conExtras.cubre).toBe(justo.cubre);
-    expect(conExtras.leFaltan).toBe(justo.leFaltan);
-    // Se nombran para que ella juzgue si le sirven. Lista, nunca número.
-    expect(conExtras.traeAdemas).toEqual(["cap.nominas", "cap.tpv"]);
-    expect(justo.traeAdemas).toEqual([]);
-  });
-
-  /**
-   * Lo que no sabemos no se reparte ni se calla. Si se callara, la herramienta
-   * que más hemos mirado parecería la que más cubre — que es medir nuestro
-   * trabajo y venderlo como suyo.
-   */
-  it("lo no comprobado se cuenta aparte y no se suma a lo que cubre", () => {
-    const a = ajusteConLoQuePidio(pidio, new Set(["cap.reserva"]), new Set());
-    // Cubre las citas —su imprescindible está demostrada— aunque el
-    // recordatorio, que sólo ayuda, siga sin comprobar.
-    expect(a.cubre).toBe(1);
-    // De la factura no sabemos, y se dice: no se reparte ni se calla.
-    expect(a.sinComprobar).toBe(1);
-    expect(a.leFaltan).toBe(0);
+  it("los tres recuentos de sus imprescindibles suman, sin huecos", () => {
+    for (const mapa of [
+      { [cita]: "demostrada", [fact]: "demostrada" },
+      { [cita]: "demostrada", [fact]: "descartada" },
+      {},
+      { [cita]: "descartada", [fact]: "desconocida" },
+    ] as Record<string, EstadoDeLaCapacidad>[]) {
+      const a = ajusteConLoQuePidio(trajo, saber(mapa));
+      expect(a.resuelveImprescindibles + a.leFaltan + a.sinComprobar).toBe(a.deImprescindibles);
+    }
   });
 
   /**
    * LA PRUEBA QUE SOSTIENE EL DESPLEGABLE. A la que le falta algo
-   * imprescindible se le mide la distancia igual que a las demás: sigue
-   * teniendo su ficha, su recuento y su motivo. No hay ninguna salida de este
-   * módulo que la borre de la lista, porque en el desplegable salen todas las
-   * que hemos verificado y elige ella.
+   * imprescindible se le mide la distancia igual que a las demás: conserva su
+   * fila, su recuento y su motivo. Ninguna salida de este módulo la borra.
    */
-  it("los tres recuentos suman lo que ella pidió, sin huecos", () => {
-    for (const [dem, des] of [
-      [new Set(["cap.reserva", "cap.factura"]), new Set<string>()],
-      [new Set(["cap.reserva"]), new Set(["cap.factura"])],
-      [new Set<string>(), new Set<string>()],
-      [new Set<string>(), new Set(["cap.reserva", "cap.factura"])],
-    ] as const) {
-      const a = ajusteConLoQuePidio(pidio, dem, des);
-      expect(a.cubre + a.leFaltan + a.sinComprobar).toBe(a.deCuantas);
-    }
-  });
-
-  it("a la que le falta algo imprescindible se le mide la distancia, no se la tacha", () => {
-    const lejos = ajusteConLoQuePidio(pidio, new Set(), new Set(["cap.reserva", "cap.factura"]));
-    expect(lejos.porNecesidad).toHaveLength(pidio.length);
+  it("a la que le falta algo se le mide la distancia, no se la tacha", () => {
+    const lejos = ajusteConLoQuePidio(trajo, saber({ [cita]: "descartada", [fact]: "descartada" }));
+    expect(lejos.porNecesidad).toHaveLength(trajo.length);
     expect(lejos.leFaltan).toBe(2);
-    expect(lejos.cubre).toBe(0);
-    // El motivo se puede leer en voz alta sin calificar a nadie.
-    expect(lejos.porNecesidad[0].leFalta).toEqual(["cap.reserva"]);
+    expect(lejos.resuelveImprescindibles).toBe(0);
+    expect(lejos.porNecesidad[0].leFalta).toEqual([cita]);
   });
 
-  it("estar lejos no la deja fuera: sigue devolviendo una fila por necesidad", () => {
-    const cerca = ajusteConLoQuePidio(pidio, new Set(["cap.reserva", "cap.factura"]), new Set());
-    const lejos = ajusteConLoQuePidio(pidio, new Set(), new Set(["cap.reserva", "cap.factura"]));
+  it("estar lejos no la deja fuera: sigue habiendo una fila por necesidad", () => {
+    const cerca = ajusteConLoQuePidio(trajo, saber({ [cita]: "demostrada", [fact]: "demostrada" }));
+    const lejos = ajusteConLoQuePidio(trajo, saber({ [cita]: "descartada", [fact]: "descartada" }));
     expect(lejos.porNecesidad.length).toBe(cerca.porNecesidad.length);
   });
 
-  /** Sin necesidades no hay distancia que medir, y no se inventa ninguna. */
-  it("si no pidió nada, no se ordena nada", () => {
-    const a = ajusteConLoQuePidio([], new Set(["cap.reserva"]), new Set());
-    expect(a.deCuantas).toBe(0);
-    expect(a.cubre).toBe(0);
-    expect(a.porNecesidad).toEqual([]);
-    expect(a.traeAdemas).toEqual(["cap.reserva"]);
+  /** Los extras se nombran; sumarlos ordenaría, y eso es lo que no puede pasar. */
+  it("traer de más no mueve la distancia, y se puede enseñar", () => {
+    const justo = ajusteConLoQuePidio(trajo, saber({ [cita]: "demostrada", [fact]: "demostrada" }));
+    const conExtras = ajusteConLoQuePidio(
+      trajo,
+      saber({
+        [cita]: "demostrada", [fact]: "demostrada",
+        "cap.customer_appointment_reminders": "demostrada",
+        "cap.regulated_einvoicing": "demostrada",
+      })
+    );
+    expect(conExtras.resuelveImprescindibles).toBe(justo.resuelveImprescindibles);
+    expect(conExtras.traeAdemas).toEqual(["cap.customer_appointment_reminders", "cap.regulated_einvoicing"]);
+    expect(justo.traeAdemas).toEqual([]);
   });
 });

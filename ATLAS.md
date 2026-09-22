@@ -5929,6 +5929,90 @@ Matiz que queda abierto y que no se resuelve solo: saber si un extra le sirve
 no lo sabe, así que los nombra y calla. Nombrarlos ya es más de lo que hacía;
 puntuarlos sería inventar.
 
+### Dos correcciones más, y el primer caso completo — 2026-09-22
+
+**Cuatro estados, no tres.** *«"Sin comprobar" no siempre permite decir "lo
+hemos buscado en su página". Si nunca se investigó, debe decir "todavía no lo
+hemos comprobado".»*
+
+No era redacción: a la función le faltaba un dato de entrada. Recibía dos
+conjuntos —lo demostrado y lo descartado— y todo lo demás caía en un cajón al
+que se le había puesto la frase de la búsqueda. **Con los datos de hoy eso era
+falso en el 84 % de los casos**: 8.268 de 9.815 pares no se preguntaron nunca.
+El módulo de cobertura escrito esa misma mañana existía justo para separarlos,
+y tres horas después se volvieron a juntar en una frase.
+
+Ahora entran los cuatro estados y salen tres frases distintas:
+
+> **no lo hace** → «Lo hemos comprobado: no hace *reserva online*. Sin eso,
+> *que puedan reservar sin llamarme* se te queda sin resolver. No está pensada
+> para esto.»
+>
+> **buscado sin encontrar** → «Hemos buscado *reserva online* en su página y no
+> ha quedado demostrado; **podría hacerlo igualmente**.»
+>
+> **nunca preguntado** → «**Todavía no hemos comprobado** si hace *reserva
+> online*.»
+
+**Y los dos desconocidos NO penalizan.** *«Esa diferencia entre desconocidos no
+debería convertirse en una penalización.»* Comparten estado a propósito
+—`sin_comprobar`— para que puedan cambiar la frase y no puedan cambiar el
+orden. Que lo hayamos mirado y no saliera insinúa un poco la ausencia; que no
+lo hayamos mirado no dice nada. Ordenar por esa diferencia sería convertir una
+sospecha en un dato. Hay prueba.
+
+**«Sí, me ayudaría» no es «es imprescindible».** *«Puede ser una ventaja
+deseable. Convertirla automáticamente en requisito podría relegar una
+herramienta que resuelve perfectamente el problema principal.»*
+
+De ahí salen **dos niveles que no se mezclan nunca**, y ojo con no confundirlos
+con los de dentro de la necesidad:
+
+| | |
+|---|---|
+| `imprescindibles` / `ayudan` | **estructural**, dentro de la necesidad. Igual para todo el mundo |
+| `imprescindible` / `deseable` | **situacional**, de ESTA persona. Sale de la conversación |
+
+Se ordena primero por las imprescindibles y las deseables sólo desempatan: es
+«primero que sirva, después que encaje» un piso más arriba. Y queda anotado
+`salioDeUnaPregunta`, para poder enseñar «esto lo añadimos porque nos dijiste
+que sí» y para que se pueda quitar.
+
+**Las preguntas salen del caso, no de los extras de una herramienta.** *«Las
+preguntas deberían salir del caso de la persona y explorar después qué
+herramientas lo cubren, evitando que una suite marque la conversación por tener
+más extras.»* Invierte el diseño que se había propuesto —«esta herramienta
+tiene X, ¿te ayudaría?»— y lo arregla de raíz: si la pregunta nace de un
+producto, gana el que más funciones tenga.
+
+**Y la misma puerta es una pista, no una frontera.** *«Alguien entra por
+"Vender más" y puede beneficiarse de algo de "Ganar tiempo". Si lo prohibimos,
+volvemos a limitar el asesoramiento por nuestros cajones.»*
+
+#### El primer caso completo, con datos reales
+
+Pedido por la propietaria: *«ya toca comprobar cómo se traduce todo esto en una
+ayuda útil»*, antes de construir otro módulo aislado. Así que no se añadió
+maquinaria: se juntó la que había. Vive en
+`data/verificacion/__tests__/casoCompleto.test.ts`, que es el único sitio
+autorizado a leer los dos lados.
+
+El caso: *«pierdo citas porque estoy con las manos ocupadas y no cojo el
+teléfono, y las facturas las hago a mano en una libreta»*. Dos necesidades, las
+dos dichas por ella —la necesidad sale del diagnóstico, no del sector—. Y una
+pregunta adicional nacida de su caso, que entra como deseable.
+
+Con los datos de hoy salen **cuatro** herramientas que resuelven las dos
+imprescindibles: Agiled, HoneyBook, Keap y Nutshell. No están escritas a mano:
+salen de cruzar el mapa con la verificación, y cambian si cambia cualquiera de
+los dos. Las 65 conservan su fila en el desplegable.
+
+Lo que enseñó el ejemplo y no se veía en las pruebas sueltas: **de la deseable
+no sabemos nada en ninguna de las 65** —«agenda por profesional o recurso»
+tiene 65 de 65 sin preguntar—. Así que la pregunta se hace, se guarda, y la
+respuesta honrada es «todavía no lo hemos comprobado». Es exactamente lo que
+tenía que pasar, y es la prueba de que el sistema no inventa para rellenar.
+
 ### Lo que queda vivo de las quince categorías
 
 No se borra ninguna. Cada una encuentra sitio: «CRM y ventas» pasa a ser
