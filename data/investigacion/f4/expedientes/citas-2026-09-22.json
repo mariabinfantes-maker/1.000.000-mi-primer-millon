@@ -89,21 +89,53 @@
         "moneda": "EUR",
         "llevaIva": false,
         "citaIva": "Precios sin IVA",
-        "plan": "Pro Equipo",
-        "precioMes": "75 EUR",
-        "precioMesAnual": "67,50 EUR (-10%)",
-        "incluidos": "2 profesionales",
-        "adicional": "10 EUR por profesional adicional",
-        "paraTresProfesionales": "75 + 10 = 85 EUR/mes SIN IVA (76,50 EUR si se paga el ano entero)",
-        "dudaAbierta": "DOS LECTURAS DISTINTAS DEL MISMO DATO: una dio «+5 EUR por profesional adicional» y otra «+10 EUR». Hasta resolverlo, el coste para tres esta entre 80 y 85 EUR/mes sin IVA. No se cierra.",
-        "citaPrecio": "2 profesionales incluidos · + 10 EUR por profesional adicional",
+        "estado": "resuelto",
+        "comoSeResolvio": "No era una contradiccion: CADA PLAN tiene su propio suplemento. Las dos lecturas eran correctas y hablaban de planes distintos. Leido plan por plan el 2026-09-22 en https://viday.es/precios/.",
+        "planes": [
+          {
+            "nombre": "Individual - Estandar",
+            "mes": "39 EUR",
+            "anual": "35,10 EUR/mes"
+          },
+          {
+            "nombre": "Individual - Pro",
+            "mes": "59 EUR",
+            "anual": "53,10 EUR/mes"
+          },
+          {
+            "nombre": "Equipo - Estandar",
+            "mes": "44 EUR",
+            "anual": "39,60 EUR/mes",
+            "incluidos": 2,
+            "suplemento": "5 EUR por profesional adicional"
+          },
+          {
+            "nombre": "Equipo - Pro",
+            "mes": "75 EUR",
+            "anual": "67,50 EUR/mes",
+            "incluidos": 2,
+            "suplemento": "10 EUR por profesional adicional"
+          },
+          {
+            "nombre": "Equipo - Empresa",
+            "mes": "129 EUR",
+            "anual": "116,10 EUR/mes",
+            "incluidos": 10,
+            "suplemento": "15 EUR por profesional adicional"
+          }
+        ],
+        "citaPrecio": "2 profesionales incluidos + 5EUR por profesional adicional / 2 profesionales incluidos + 10EUR por profesional adicional",
         "url": "https://viday.es/precios/",
-        "fecha": "2026-09-22"
+        "fecha": "2026-09-22",
+        "paraTresProfesionales": "DEPENDE DE SI NECESITA VERIFACTU, y eso no lo sabemos: Equipo Estandar 44 + 5 = 49 EUR/mes sin IVA; Equipo Pro 75 + 10 = 85 EUR/mes sin IVA. Verifactu solo consta en Pro.",
+        "loQueDecideElPrecio": "La diferencia son 36 EUR/mes sin IVA, y la decide una pregunta que sigue abierta: si a esta clienta le obliga Verifactu. Sin esa respuesta no hay precio."
       },
       "noConsta": [
         "Prueba gratuita",
         "El recorrido comprobado de punta a punta por alguien que lo use",
-        "Que la clienta este obligada a Verifactu"
+        "Que la clienta este obligada a Verifactu",
+        "Si Verifactu esta tambien en el plan Equipo Estandar o solo en Pro",
+        "Cuantas citas al mes atienden entre las tres"
       ]
     },
     {
@@ -251,7 +283,41 @@
         "Que se pueda contratar y usar desde Espana",
         "Que se pueda pagar en euros",
         "Si el precio lleva impuestos",
-        "Que emita facturas"
+        "Que emita facturas",
+        "Cuales de las funciones que le hacen falta son «personalizadas» y gastan una de las tres del plan Basic",
+        "Que pasa al pasar de 100 reservas: si se bloquea, se cobra extra o hay que subir de plan"
+      ],
+      "pendientes": [
+        {
+          "que": "Que funciones cuentan como personalizadas y que pasa al pasar de 100 reservas",
+          "porQue": "Decide si el plan Basic le sirve de verdad o si el precio real es otro",
+          "intento": "Se intento el 2026-09-22 y la pagina de precios dio tiempo de espera agotado tres veces a traves del proxy. No se da por sabido."
+        }
+      ]
+    }
+  ],
+  "preguntasParaLaClienta": [
+    {
+      "pregunta": "¿Cuántas citas atendéis al mes entre las tres?",
+      "porQue": "Decide si el plan Basic de SimplyBook.me —100 reservas al mes— le sirve o se le queda corto el primer mes. Tener tres profesionales NO demuestra que pasen de 100: eso se pregunta, no se supone.",
+      "afectaA": [
+        "simplybook"
+      ]
+    },
+    {
+      "pregunta": "¿Te obliga ya la factura electrónica (Verifactu)? ¿Lo has hablado con tu gestoría?",
+      "porQue": "En ViDay son 36 € al mes sin IVA de diferencia: Equipo Estándar 49 € frente a Equipo Pro 85 €. Verifactu sólo consta en Pro. Sin esta respuesta no se puede decir cuánto le cuesta.",
+      "afectaA": [
+        "viday"
+      ]
+    },
+    {
+      "pregunta": "¿Cuánto estás dispuesta a pagar al mes por esto?",
+      "porQue": "Las tres candidatas van de 13,9 USD a 85 € sin IVA. Sin saber su techo, recomendar la más completa es recomendar la más cara y llamarlo consejo.",
+      "afectaA": [
+        "viday",
+        "booksy",
+        "simplybook"
       ]
     }
   ]

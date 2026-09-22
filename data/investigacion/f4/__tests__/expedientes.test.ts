@@ -25,7 +25,9 @@ const EXP = JSON.parse(
     precio: Record<string, unknown>;
     noConsta: string[];
     limitesDelPlan?: { que: string; cita: string; url: string }[];
+    pendientes?: { que: string; porQue: string; intento: string }[];
   }[];
+  preguntasParaLaClienta: { pregunta: string; porQue: string; afectaA: string[] }[];
 };
 
 describe("cada afirmación viene con lo que la sostiene", () => {
@@ -88,11 +90,33 @@ describe("los precios se pueden comparar sin trampa", () => {
     expect(sb.precio.llevaIva).toBe("no_consta");
   });
 
-  /** Dos lecturas distintas del mismo dato no se cierran eligiendo una. */
-  it("la contradicción del precio de ViDay queda a la vista, sin resolver", () => {
+  /**
+   * La «contradicción» del suplemento de ViDay no lo era: cada plan tiene el
+   * suyo, y las dos lecturas hablaban de planes distintos. Se resolvió leyendo
+   * la página plan por plan, que es lo que había que hacer desde el principio.
+   */
+  it("el precio de ViDay está resuelto plan a plan, no elegido a dedo", () => {
     const v = EXP.herramientas.find((h) => h.id === "viday")!;
-    expect(String(v.precio.dudaAbierta)).toContain("DOS LECTURAS DISTINTAS");
+    expect(v.precio.estado).toBe("resuelto");
     expect(v.precio.llevaIva).toBe(false);
+    const planes = v.precio.planes as { nombre: string; suplemento?: string }[];
+    expect(planes.length).toBeGreaterThanOrEqual(5);
+    // Los dos que importan, cada uno con su suplemento propio.
+    expect(planes.find((p) => p.nombre.includes("Equipo - Estandar"))?.suplemento).toContain("5");
+    expect(planes.find((p) => p.nombre.includes("Equipo - Pro"))?.suplemento).toContain("10");
+  });
+
+  /**
+   * Y el resultado no es un importe: es una horquilla que depende de una
+   * pregunta abierta. 36 EUR/mes de diferencia los decide si a ella le obliga
+   * Verifactu, que es justo lo que no sabemos.
+   */
+  it("el precio de ViDay no se cierra sin saber si necesita Verifactu", () => {
+    const v = EXP.herramientas.find((h) => h.id === "viday")!;
+    const texto = String(v.precio.paraTresProfesionales);
+    expect(texto).toContain("DEPENDE");
+    expect(texto).toContain("49");
+    expect(texto).toContain("85");
   });
 });
 
@@ -118,5 +142,35 @@ describe("las dudas siguen siendo dudas", () => {
         expect(n.toLowerCase(), `${h.nombre}: ${n}`).not.toMatch(/\bno (lo )?(hace|tiene|permite|sirve)\b/);
       }
     }
+  });
+});
+
+describe("lo que falta preguntarle a ELLA, no a una página", () => {
+  /**
+   * La corrección de la propietaria que convierte esto en asesorar: «tener
+   * tres profesionales no demuestra que superen las 100 reservas». El límite
+   * de un plan sólo significa algo contra el uso real, y el uso real no está
+   * en ninguna web: se pregunta.
+   */
+  it("hay preguntas para la clienta, y cada una dice a qué afecta", () => {
+    expect(EXP.preguntasParaLaClienta.length).toBeGreaterThanOrEqual(3);
+    for (const p of EXP.preguntasParaLaClienta) {
+      expect(p.pregunta).toMatch(/\?/);
+      expect(p.porQue.length).toBeGreaterThan(40);
+      expect(p.afectaA.length).toBeGreaterThan(0);
+    }
+  });
+
+  it("el volumen de citas se pregunta, no se supone por ser tres personas", () => {
+    const q = EXP.preguntasParaLaClienta.find((p) => p.pregunta.includes("citas atendéis"))!;
+    expect(q.porQue).toContain("NO demuestra");
+    expect(q.afectaA).toContain("simplybook");
+  });
+
+  /** Lo que no se pudo comprobar se declara, no se rellena. */
+  it("lo que se intentó y no salió queda escrito como intento, no como dato", () => {
+    const sb = EXP.herramientas.find((h) => h.id === "simplybook")!;
+    expect(sb.pendientes?.length).toBeGreaterThan(0);
+    expect(sb.pendientes![0].intento).toContain("tiempo de espera agotado");
   });
 });

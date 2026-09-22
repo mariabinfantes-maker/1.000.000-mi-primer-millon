@@ -621,5 +621,75 @@
         }
       }
     ]
+  },
+  "cuartaVuelta": {
+    "fecha": "2026-09-22",
+    "queResolvio": "La supuesta contradiccion del suplemento de ViDay. No lo era: CADA PLAN tiene el suyo. Equipo Estandar +5 EUR, Equipo Pro +10 EUR, Empresa +15 EUR. Las dos lecturas anteriores eran correctas y hablaban de planes distintos; el fallo fue mio, por no leer la pagina plan por plan.",
+    "loQueNoSePudo": "SimplyBook.me: que funciones cuentan como «personalizadas» y que pasa al pasar de 100 reservas. Su pagina de precios dio tiempo de espera agotado tres veces seguidas a traves del proxy. Queda declarado como pendiente, no rellenado.",
+    "viday": {
+      "leidas": [
+        "OK https://viday.es/precios/"
+      ],
+      "datos": {
+        "planes": [
+          {
+            "nombre": "Individual - Estándar",
+            "precio_mensual": "39 €/mes",
+            "precio_anual": "35,10 €/mes",
+            "profesionales_incluidos": "no_consta",
+            "suplemento_por_profesional": "no_consta",
+            "cita": "Estándar €39 /mes €35,10 /mes"
+          },
+          {
+            "nombre": "Individual - Pro",
+            "precio_mensual": "59 €/mes",
+            "precio_anual": "53,10 €/mes",
+            "profesionales_incluidos": "no_consta",
+            "suplemento_por_profesional": "no_consta",
+            "cita": "Pro €59 /mes €53,10 /mes"
+          },
+          {
+            "nombre": "Equipo - Estándar",
+            "precio_mensual": "44 €/mes",
+            "precio_anual": "39,60 €/mes",
+            "profesionales_incluidos": "2 profesionales incluidos",
+            "suplemento_por_profesional": "+ 5€ por profesional adicional",
+            "cita": "Estándar €44 /mes €39,60 /mes 2 profesionales incluidos + 5€ por profesional adicional"
+          },
+          {
+            "nombre": "Equipo - Pro",
+            "precio_mensual": "75 €/mes",
+            "precio_anual": "67,50 €/mes",
+            "profesionales_incluidos": "2 profesionales incluidos",
+            "suplemento_por_profesional": "+ 10€ por profesional adicional",
+            "cita": "Pro €75 /mes €67,50 /mes 2 profesionales incluidos + 10€ por profesional adicional"
+          },
+          {
+            "nombre": "Equipo - Empresa",
+            "precio_mensual": "129 €/mes",
+            "precio_anual": "116,10 €/mes",
+            "profesionales_incluidos": "10 profesionales incluidos",
+            "suplemento_por_profesional": "+ 15€ por profesional adicional",
+            "cita": "Empresa €129 /mes €116,10 /mes 10 profesionales incluidos + 15€ por profesional adicional"
+          }
+        ],
+        "hay_suplementos_distintos_por_plan": {
+          "estado": "demostrado",
+          "valor": "si",
+          "explicacion": "Cada plan de la sección Equipo tiene un suplemento diferente por profesional adicional: Equipo Estándar tiene un suplemento de +5€ por profesional adicional, Equipo Pro tiene +10€ por profesional adicional y Equipo Empresa tiene +15€ por profesional adicional."
+        },
+        "plan_para_tres_profesionales": {
+          "estado": "demostrado",
+          "nombre": "Equipo Estándar / Equipo Pro",
+          "calculo": "Tanto Equipo Estándar como Equipo Pro incluyen 2 profesionales. Para un 3er profesional se suma 1 profesional adicional: en Estándar es precio base + 5€ y en Pro es precio base + 10€.",
+          "cita": "2 profesionales incluidos + 5€ por profesional adicional / 2 profesionales incluidos + 10€ por profesional adicional"
+        },
+        "lleva_iva": {
+          "estado": "demostrado",
+          "valor": "no",
+          "cita": "Precios sin IVA"
+        }
+      }
+    }
   }
 }
