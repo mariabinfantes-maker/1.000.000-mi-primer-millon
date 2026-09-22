@@ -5408,6 +5408,51 @@ van las dos intervenciones tal cual se dijeron.
 > se usa para colar «nos llegó que el soporte es lento», es la misma mentira
 > con una voz más simpática. **La voz no arregla el contenido.**
 
+### El desplegable: dónde está la decisión
+
+**Recuperado el 2026-09-22 del histórico de la conversación.** La propietaria
+avisó de que esto se había perdido —«lo que me interesaba es lo del desplegable
+para que la persona pueda decidir por sí misma»— y tenía razón: estaba dicho
+días antes, con más fuerza que en el resumen de arriba, y no se había escrito
+en ninguna parte. Va literal.
+
+> hace falta que el cliente pueda ver todas las herramientas […] **que un
+> cliente reciba tres herramientas principales y que molnip explique por qué
+> esas herramientas ayudan está bien, pero el cliente puede elegir entre todas
+> las herramientas especializadas o todo en uno, y que pueda verlas y elegir.
+> Aunque nosotros le informamos y acompañamos, el cliente puede elegir.**
+
+Y la regla, dicha entera en otro momento:
+
+> **lo lógico es que sea el cliente quien decida si la herramienta le sirve o
+> no**, y en ese caso **presentar las herramientas antes de la puntuación** por
+> gratis ilimitado o gratis con un límite, y le decimos al cliente: estas
+> tienen este servicio que les sumaría puntos por esto.
+
+**Lo que esto quiere decir, y no es lo mismo que «un desplegable»:**
+
+**«Despliega y las ves todas» no es una comodidad de la pantalla. Es dónde está
+la decisión.** Las tres primeras son nuestra ayuda; el desplegable es su
+derecho. Molnip informa y acompaña — **elige ella**.
+
+**Y de ahí sale el orden de la pantalla, que es la consecuencia concreta:**
+
+> **Primero las herramientas y lo que hace cada una. Después nuestra
+> valoración.** No al revés. Si la nota va delante, ya hemos decidido por ella
+> antes de que mire.
+
+Se ven **todas**: especializadas y todo en uno, sin que el tipo de herramienta
+sea una puerta que cierra.
+
+**En la misma conversación, y también sin escribir hasta hoy**, dos cosas más
+de la propietaria que quedan anotadas aquí para no volver a perderlas:
+
+- «**el diseño de página está fallando con las preguntas y las entradas**».
+- «**el dinero es una gran entrada, y Molnip la minimiza. Eso no está bien: el
+  dinero es algo gigantesco.**» *(El camino A abrió después la puerta propia
+  del dinero con sus 16 necesidades; queda por ver si eso lo resuelve o si
+  seguía hablando de otra cosa.)*
+
 ## DÓNDE ESTAMOS — punto de partida al cerrar el 2026-09-21
 
 Esta sección no decide nada: dice en qué punto quedó todo, para que quien
