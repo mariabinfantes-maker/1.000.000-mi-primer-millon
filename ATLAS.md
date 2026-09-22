@@ -5453,6 +5453,64 @@ de la propietaria que quedan anotadas aquí para no volver a perderlas:
   del dinero con sus 16 necesidades; queda por ver si eso lo resuelve o si
   seguía hablando de otra cosa.)*
 
+## LA CASA DE TRES HABITACIONES — 2026-09-22
+
+**Regla de la propietaria, con su ejemplo.** Corrige una idea mía: yo sostenía
+que ofrecer algo que no encaja del todo abría la puerta a recomendar siempre
+cualquier cosa, y que por eso hacía falta un umbral de «cuánto de cerca es
+suficiente». Ella lo desmontó así:
+
+> «¿Quién ha dicho que honradez es no dar opciones? Voy a comprar una casa de
+> dos habitaciones y no hay ninguna, pero el asesor me dice: **tengo esta de
+> tres, te sirve, es habitable, es buena y cómoda, pero te sobra una
+> habitación. Tú decides. Tal vez te guste tener otra habitación, pero te
+> costará.**»
+
+**No hace falta ningún umbral.** No se decide si ofrecer: se ofrece siempre, y
+se dice la diferencia.
+
+> **La honradez no está en dar o no dar la opción. Está en decir en qué se
+> diferencia de lo que pidió, y qué le cuesta esa diferencia.**
+
+La mentira sería decirle «ésta es la de dos que buscabas». Decirle «tengo una
+de tres y te sobra una habitación» es servicio, no venta.
+
+### Las cuatro partes, que van juntas o no vale
+
+1. **Que no es lo que pidió**, dicho antes que nada — «te sobra una
+   habitación», no enterrado al final.
+2. **Por qué aun así puede servirle** — «es habitable, buena y cómoda».
+3. **Qué cuesta la diferencia**, con su número.
+4. **Que decide ella** — «tú decides».
+
+### Y la cuarta parte de su ejemplo, que es la más fina
+
+**«Tal vez te guste tener otra habitación.»** El asesor no sólo avisa de lo
+que sobra: dice que quizá le convenga. Eso no es vender — es que **la
+diferencia puede ser buena o mala según quién sea, y eso no lo sabemos
+nosotros**. Es lo mismo que «un adjetivo sin *para quién* está a medias»
+(ver «MOLNIP ES UN INTERMEDIARIO»): que una herramienta haga de más es un
+hecho; si eso es bueno o malo lo decide quien va a pagarla.
+
+### En Molnip suena así
+
+> «No tengo nada que haga sólo lo que pides. Lo más cerca es **Agiled**, que
+> además trae CRM y proyectos. **Eso es más de lo que necesitas hoy** — puede
+> venirte bien para no llevar tres programas, o puede ser pagar por lo que no
+> usas. **Cuesta 24 $ al mes.**»
+
+### Dónde se aplica
+
+Nace de decidir que **las categorías se crean primero y las herramientas
+después** —«primero crear el problema, después la solución»—, lo que garantiza
+que habrá necesidades con poca o ninguna herramienta detrás. Esta regla dice
+qué hacer en ese momento, que va a ser a menudo.
+
+No sustituye a «decir que no es un resultado válido»: cuando no hay nada
+parecido, se dice que no hay nada. Lo que esta regla prohíbe es **callarse una
+opción existente por no saber explicar en qué se diferencia**.
+
+
 ## DÓNDE ESTAMOS — punto de partida al cerrar el 2026-09-21
 
 Esta sección no decide nada: dice en qué punto quedó todo, para que quien
