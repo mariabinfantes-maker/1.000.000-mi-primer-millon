@@ -7,6 +7,7 @@ import {
   getNecesidades,
   getPuertas,
   necesidadesDePuerta,
+  ajusteConLoQuePidio,
 } from "../necesidades";
 import type { Necesidad } from "../necesidades";
 
@@ -157,5 +158,98 @@ describe("el mapa no decide nada todavía", () => {
     const n = getNecesidad("nec.que-reserven-solos");
     expect(n?.imprescindibles).toEqual(["cap.online_self_service_booking"]);
     expect(n?.puertas).toEqual(["puerta.vender", "puerta.orden"]);
+  });
+});
+
+describe("de más cerca a más lejana, y todas en el desplegable", () => {
+  const citas: Necesidad = {
+    id: "nec.citas", titulo: "Que reserven solos", loQueDice: ["pierdo citas"],
+    puertas: ["puerta.vender"], imprescindibles: ["cap.reserva"], ayudan: ["cap.recordatorio"],
+  };
+  const factura: Necesidad = {
+    id: "nec.factura", titulo: "Emitir factura", loQueDice: ["hago las facturas a mano"],
+    puertas: ["puerta.dinero"], imprescindibles: ["cap.factura"], ayudan: [],
+  };
+  const pidio = [citas, factura];
+
+  /**
+   * La que cubre las dos está más cerca que la que cubre una. Eso es todo lo
+   * que quiere decir «de más cerca a más lejana», y se calcula sin opinar:
+   * ninguna de las dos afirmaciones dice que una empresa sea mejor que otra.
+   */
+  it("cubrir más de lo que ella pidió es estar más cerca", () => {
+    const dos = ajusteConLoQuePidio(pidio, new Set(["cap.reserva", "cap.factura"]), new Set());
+    const una = ajusteConLoQuePidio(pidio, new Set(["cap.reserva"]), new Set(["cap.factura"]));
+    expect(dos.cubre).toBe(2);
+    expect(una.cubre).toBe(1);
+    expect(dos.deCuantas).toBe(2);
+  });
+
+  /**
+   * El denominador viaja siempre al lado. «3 de 4» se puede decir en voz alta;
+   * «3» a secas no significa nada y deja a la persona sin poder comprobarnos.
+   */
+  it("el denominador es lo que ella pidió, no el catálogo", () => {
+    const a = ajusteConLoQuePidio(pidio, new Set(["cap.reserva"]), new Set());
+    expect(a.deCuantas).toBe(pidio.length);
+  });
+
+  /**
+   * Lo que trae de más se cuenta aparte y NUNCA baja a nadie. La casa de tres
+   * habitaciones: la tercera puede servirle de despacho, y eso lo decide ella.
+   */
+  it("traer de más suma y se puede contar, pero no cambia lo que cubre", () => {
+    const justo = ajusteConLoQuePidio(pidio, new Set(["cap.reserva", "cap.factura"]), new Set());
+    const conExtras = ajusteConLoQuePidio(
+      pidio, new Set(["cap.reserva", "cap.factura", "cap.tpv", "cap.nominas"]), new Set()
+    );
+    expect(conExtras.cubre).toBe(justo.cubre);
+    expect(conExtras.aportaDeMas).toBe(2);
+    expect(justo.aportaDeMas).toBe(0);
+  });
+
+  /**
+   * Lo que no sabemos no se reparte ni se calla. Si se callara, la herramienta
+   * que más hemos mirado parecería la que más cubre — que es medir nuestro
+   * trabajo y venderlo como suyo.
+   */
+  it("lo no comprobado se cuenta aparte y no se suma a lo que cubre", () => {
+    const a = ajusteConLoQuePidio(pidio, new Set(["cap.reserva"]), new Set());
+    // Cubre las citas —su imprescindible está demostrada— aunque el
+    // recordatorio, que sólo ayuda, siga sin comprobar.
+    expect(a.cubre).toBe(1);
+    // Las dos tienen algo sin comprobar, y se dice: no se reparte ni se calla.
+    expect(a.conAlgoSinComprobar).toBe(2);
+    expect(a.leFaltan).toBe(0);
+  });
+
+  /**
+   * LA PRUEBA QUE SOSTIENE EL DESPLEGABLE. A la que le falta algo
+   * imprescindible se le mide la distancia igual que a las demás: sigue
+   * teniendo su ficha, su recuento y su motivo. No hay ninguna salida de este
+   * módulo que la borre de la lista, porque en el desplegable salen todas las
+   * que hemos verificado y elige ella.
+   */
+  it("a la que le falta algo imprescindible se le mide la distancia, no se la tacha", () => {
+    const lejos = ajusteConLoQuePidio(pidio, new Set(), new Set(["cap.reserva", "cap.factura"]));
+    expect(lejos.porNecesidad).toHaveLength(pidio.length);
+    expect(lejos.leFaltan).toBe(2);
+    expect(lejos.cubre).toBe(0);
+    // El motivo se puede leer en voz alta sin calificar a nadie.
+    expect(lejos.porNecesidad[0].leFalta).toEqual(["cap.reserva"]);
+  });
+
+  it("estar lejos no la deja fuera: sigue devolviendo una fila por necesidad", () => {
+    const cerca = ajusteConLoQuePidio(pidio, new Set(["cap.reserva", "cap.factura"]), new Set());
+    const lejos = ajusteConLoQuePidio(pidio, new Set(), new Set(["cap.reserva", "cap.factura"]));
+    expect(lejos.porNecesidad.length).toBe(cerca.porNecesidad.length);
+  });
+
+  /** Sin necesidades no hay distancia que medir, y no se inventa ninguna. */
+  it("si no pidió nada, no se ordena nada", () => {
+    const a = ajusteConLoQuePidio([], new Set(["cap.reserva"]), new Set());
+    expect(a.deCuantas).toBe(0);
+    expect(a.cubre).toBe(0);
+    expect(a.porNecesidad).toEqual([]);
   });
 });
