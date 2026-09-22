@@ -1,0 +1,74 @@
+{
+ "pedida": "https://agendapro.com/es-es/",
+ "urls": [
+  [
+   "https://agendapro.com/es-es",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "si",
+  "espana": "si",
+  "tipo_producto": "combinacion",
+  "precio": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "reserva_online_cliente": {
+   "v": "si",
+   "cita": "Reserva de citas online Recordatorios automáticos por WhatsApp y email"
+  },
+  "recordatorios_automaticos": {
+   "v": "si",
+   "cita": "Recordatorios automáticos por WhatsApp y email Reservas 24/7"
+  },
+  "cancelar_o_cambiar_cita": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "ficha_de_cliente": {
+   "v": "si",
+   "cita": "Ficha del cliente Notas internas Historial de citas Firma digital"
+  },
+  "catalogo_de_servicios": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "agenda_por_profesional": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "cobro_online": {
+   "v": "si",
+   "cita": "Pagos online y facturación Cierres de caja Registro y reportes"
+  },
+  "tpv_mostrador": {
+   "v": "si",
+   "cita": "Pagos con terminal bancaria Pagos online y facturación Cierres de caja"
+  },
+  "senal_o_politica_ausencias": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "bonos_packs_sesiones": {
+   "v": "si",
+   "cita": "Control de sesiones y tratamientos"
+  },
+  "comisiones_o_propinas": {
+   "v": "si",
+   "cita": "Gestión de horarios Comisiones automáticas Informes de desempeño"
+  },
+  "widget_reserva_en_web_propia": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "inventario_stock": {
+   "v": "si",
+   "cita": "Control de inventario con AgendaPro"
+  },
+  "ficha_tecnica_servicio": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

@@ -1,0 +1,43 @@
+{
+ "pedida": "https://viday.es/",
+ "leidas": [
+  "https://viday.es/"
+ ],
+ "datos": {
+  "programa_existe": "si",
+  "tipo": "no_consta",
+  "cita_tipo": "",
+  "comision": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "recurrencia": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "cookie": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "condiciones": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "abierto_desde_espana": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "promociona_producto_para_negocios": {
+   "v": "si",
+   "cita": "El software de reservas online para gestionar tu negocio"
+  },
+  "activo": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "red_de_afiliacion": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

@@ -1,0 +1,74 @@
+{
+ "pedida": "https://www.treatwell.es/partners/",
+ "urls": [
+  [
+   "https://www.treatwell.es/partners/",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "si",
+  "espana": "si",
+  "tipo_producto": "combinacion",
+  "precio": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "reserva_online_cliente": {
+   "v": "si",
+   "cita": "Acepta reservas y organiza tu agenda, estés donde estés, 24/7. ¡Y deja que tus clientes hagan lo mismo!"
+  },
+  "recordatorios_automaticos": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "cancelar_o_cambiar_cita": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "ficha_de_cliente": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "catalogo_de_servicios": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "agenda_por_profesional": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "cobro_online": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "tpv_mostrador": {
+   "v": "si",
+   "cita": "Acepta pagos contactless directamente desde la app de Treatwell Connect en tu teléfono o tablet"
+  },
+  "senal_o_politica_ausencias": {
+   "v": "si",
+   "cita": "Desde acciones de marketing personalizadas hasta más protección contra las ausencias,"
+  },
+  "bonos_packs_sesiones": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "comisiones_o_propinas": {
+   "v": "si",
+   "cita": "Además, solo cobramos comisión por la primera reserva de cada cliente en tu salón"
+  },
+  "widget_reserva_en_web_propia": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "inventario_stock": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "ficha_tecnica_servicio": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

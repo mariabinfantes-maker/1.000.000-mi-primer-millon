@@ -1,0 +1,147 @@
+{
+  "version": "1.0.0",
+  "fecha": "2026-09-22",
+  "nota": "Correcciones al lote F4. Los ficheros de respuestas/ y bruto/ NO se tocan: se guardan tal cual salieron, y ese es el motivo por el que esto vive aparte. Aqui se anota que dato deja de valer, cual era, y por que. Leer el lote sin aplicar esto es leerlo mal.",
+  "correcciones": [
+    {
+      "fichero": "respuestas/ok-simplybook-precios.json",
+      "herramienta": "simplybook",
+      "campo": "comisiones_o_propinas",
+      "valorOriginal": "si",
+      "citaOriginal": "SimplyBook.me no cobra comisiones adicionales por transacción en reservas ni en pagos de clientes.",
+      "valorCorregido": "no_consta",
+      "motivo": "La cita mide la comision que el PROVEEDOR cobra al negocio, no la comision al empleado ni la propina al profesional, que es lo que el campo pregunta. Avisado en el README del lote y aplicado aqui al dato.",
+      "fecha": "2026-09-22"
+    },
+    {
+      "fichero": "respuestas/ok-viday-precios.json",
+      "herramienta": "viday",
+      "campo": "comisiones_o_propinas",
+      "valorOriginal": "si",
+      "citaOriginal": "Stripe, Redsys, Bizum y SEPA Sin comisiones en pagos",
+      "valorCorregido": "no_consta",
+      "motivo": "La cita mide la comision que el PROVEEDOR cobra al negocio, no la comision al empleado ni la propina al profesional, que es lo que el campo pregunta. Avisado en el README del lote y aplicado aqui al dato.",
+      "fecha": "2026-09-22"
+    },
+    {
+      "fichero": "respuestas/ok-viday-oficial.json",
+      "herramienta": "viday",
+      "campo": "comisiones_o_propinas",
+      "valorOriginal": "si",
+      "citaOriginal": "agenda, pagos sin comisiones, historiales, recordatorios automáticos, streaming y hasta control de gastos.",
+      "valorCorregido": "no_consta",
+      "motivo": "La cita mide la comision que el PROVEEDOR cobra al negocio, no la comision al empleado ni la propina al profesional, que es lo que el campo pregunta. Avisado en el README del lote y aplicado aqui al dato.",
+      "fecha": "2026-09-22"
+    },
+    {
+      "fichero": "respuestas/ok-turnito-precios.json",
+      "herramienta": "turnito",
+      "campo": "comisiones_o_propinas",
+      "valorOriginal": "si",
+      "citaOriginal": "Turnito retiene una comisión del 5% sobre el monto cobrado",
+      "valorCorregido": "no_consta",
+      "motivo": "La cita mide la comision que el PROVEEDOR cobra al negocio, no la comision al empleado ni la propina al profesional, que es lo que el campo pregunta. Avisado en el README del lote y aplicado aqui al dato.",
+      "fecha": "2026-09-22"
+    },
+    {
+      "fichero": "respuestas/ok-treatwell-precios.json",
+      "herramienta": "treatwell",
+      "campo": "comisiones_o_propinas",
+      "valorOriginal": "si",
+      "citaOriginal": "25 % de comisión por cada nuevo cliente 0% de comisión por reservas repetidas",
+      "valorCorregido": "no_consta",
+      "motivo": "La cita mide la comision que el PROVEEDOR cobra al negocio, no la comision al empleado ni la propina al profesional, que es lo que el campo pregunta. Avisado en el README del lote y aplicado aqui al dato.",
+      "fecha": "2026-09-22"
+    },
+    {
+      "fichero": "respuestas/ok-treatwell-oficial.json",
+      "herramienta": "treatwell",
+      "campo": "comisiones_o_propinas",
+      "valorOriginal": "si",
+      "citaOriginal": "Además, solo cobramos comisión por la primera reserva de cada cliente en tu salón",
+      "valorCorregido": "no_consta",
+      "motivo": "La cita mide la comision que el PROVEEDOR cobra al negocio, no la comision al empleado ni la propina al profesional, que es lo que el campo pregunta. Avisado en el README del lote y aplicado aqui al dato.",
+      "fecha": "2026-09-22"
+    },
+    {
+      "fichero": "respuestas/ok-simplybook-precios.json",
+      "herramienta": "simplybook",
+      "campo": "bonos_packs_sesiones",
+      "valorOriginal": "si",
+      "citaOriginal": "Ejemplos de funciones personalizadas premium: punto de venta, formularios de admisión, membresías",
+      "valorCorregido": "no_consta",
+      "motivo": "La cita habla de «membresias», que no es un bono ni un pack de sesiones. Avisado en el README del lote y aplicado aqui al dato.",
+      "fecha": "2026-09-22"
+    },
+    {
+      "fichero": "respuestas/ok-fresha-oficial.json",
+      "herramienta": "fresha",
+      "campo": "precio",
+      "valorOriginal": "si",
+      "citaOriginal": "y lo mejor de todo es que es gratis.",
+      "valorCorregido": "no_consta",
+      "motivo": "La respuesta se obtuvo de https://www.fresha.com/es, que es la web del CLIENTE FINAL y no el software para el negocio. Las frases estan dirigidas a quien reserva («solo tienes que iniciar sesion para reservar») o son testimonios de un negocio («a mis clientes les encanta»), no afirmaciones del fabricante sobre su producto para salones. El 2026-09-22 se volvio a preguntar sobre https://www.fresha.com/for-business y los cinco pasos del recorrido salieron no_consta.",
+      "fecha": "2026-09-22"
+    },
+    {
+      "fichero": "respuestas/ok-fresha-oficial.json",
+      "herramienta": "fresha",
+      "campo": "reserva_online_cliente",
+      "valorOriginal": "si",
+      "citaOriginal": "A mis clientes les encanta reservar citas online con Fresha.",
+      "valorCorregido": "no_consta",
+      "motivo": "La respuesta se obtuvo de https://www.fresha.com/es, que es la web del CLIENTE FINAL y no el software para el negocio. Las frases estan dirigidas a quien reserva («solo tienes que iniciar sesion para reservar») o son testimonios de un negocio («a mis clientes les encanta»), no afirmaciones del fabricante sobre su producto para salones. El 2026-09-22 se volvio a preguntar sobre https://www.fresha.com/for-business y los cinco pasos del recorrido salieron no_consta.",
+      "fecha": "2026-09-22"
+    },
+    {
+      "fichero": "respuestas/ok-fresha-oficial.json",
+      "herramienta": "fresha",
+      "campo": "recordatorios_automaticos",
+      "valorOriginal": "si",
+      "citaOriginal": "Los recordatorios de Fresha te hacen la vida mucho más fácil.",
+      "valorCorregido": "no_consta",
+      "motivo": "La respuesta se obtuvo de https://www.fresha.com/es, que es la web del CLIENTE FINAL y no el software para el negocio. Las frases estan dirigidas a quien reserva («solo tienes que iniciar sesion para reservar») o son testimonios de un negocio («a mis clientes les encanta»), no afirmaciones del fabricante sobre su producto para salones. El 2026-09-22 se volvio a preguntar sobre https://www.fresha.com/for-business y los cinco pasos del recorrido salieron no_consta.",
+      "fecha": "2026-09-22"
+    },
+    {
+      "fichero": "respuestas/ok-fresha-oficial.json",
+      "herramienta": "fresha",
+      "campo": "cancelar_o_cambiar_cita",
+      "valorOriginal": "si",
+      "citaOriginal": "Solo tienes que iniciar sesión para reservar, modificar o cancelar citas en cualquier momento.",
+      "valorCorregido": "no_consta",
+      "motivo": "La respuesta se obtuvo de https://www.fresha.com/es, que es la web del CLIENTE FINAL y no el software para el negocio. Las frases estan dirigidas a quien reserva («solo tienes que iniciar sesion para reservar») o son testimonios de un negocio («a mis clientes les encanta»), no afirmaciones del fabricante sobre su producto para salones. El 2026-09-22 se volvio a preguntar sobre https://www.fresha.com/for-business y los cinco pasos del recorrido salieron no_consta.",
+      "fecha": "2026-09-22"
+    },
+    {
+      "fichero": "respuestas/ok-fresha-oficial.json",
+      "herramienta": "fresha",
+      "campo": "catalogo_de_servicios",
+      "valorOriginal": "si",
+      "citaOriginal": "Fresha tiene un menú fácil de usar que te permite elegir el día, la hora y el estilista",
+      "valorCorregido": "no_consta",
+      "motivo": "La respuesta se obtuvo de https://www.fresha.com/es, que es la web del CLIENTE FINAL y no el software para el negocio. Las frases estan dirigidas a quien reserva («solo tienes que iniciar sesion para reservar») o son testimonios de un negocio («a mis clientes les encanta»), no afirmaciones del fabricante sobre su producto para salones. El 2026-09-22 se volvio a preguntar sobre https://www.fresha.com/for-business y los cinco pasos del recorrido salieron no_consta.",
+      "fecha": "2026-09-22"
+    },
+    {
+      "fichero": "respuestas/ok-fresha-oficial.json",
+      "herramienta": "fresha",
+      "campo": "agenda_por_profesional",
+      "valorOriginal": "si",
+      "citaOriginal": "te permite elegir el día, la hora y el estilista",
+      "valorCorregido": "no_consta",
+      "motivo": "La respuesta se obtuvo de https://www.fresha.com/es, que es la web del CLIENTE FINAL y no el software para el negocio. Las frases estan dirigidas a quien reserva («solo tienes que iniciar sesion para reservar») o son testimonios de un negocio («a mis clientes les encanta»), no afirmaciones del fabricante sobre su producto para salones. El 2026-09-22 se volvio a preguntar sobre https://www.fresha.com/for-business y los cinco pasos del recorrido salieron no_consta.",
+      "fecha": "2026-09-22"
+    },
+    {
+      "fichero": "respuestas/ok-fresha-oficial.json",
+      "herramienta": "fresha",
+      "campo": "cobro_online",
+      "valorOriginal": "si",
+      "citaOriginal": "Pagar los tratamientos es muy sencillo: no se necesita efectivo ni tarjetas.",
+      "valorCorregido": "no_consta",
+      "motivo": "La respuesta se obtuvo de https://www.fresha.com/es, que es la web del CLIENTE FINAL y no el software para el negocio. Las frases estan dirigidas a quien reserva («solo tienes que iniciar sesion para reservar») o son testimonios de un negocio («a mis clientes les encanta»), no afirmaciones del fabricante sobre su producto para salones. El 2026-09-22 se volvio a preguntar sobre https://www.fresha.com/for-business y los cinco pasos del recorrido salieron no_consta.",
+      "fecha": "2026-09-22"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+ "pedida": "https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html",
+ "urls": [
+  [
+   "https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "no_consta",
+  "espana": "si",
+  "tipo_producto": "software",
+  "precio": {
+   "v": "si",
+   "cita": "Por 11.17 € /mes sin límites"
+  },
+  "reserva_online_cliente": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "recordatorios_automaticos": {
+   "v": "si",
+   "cita": "Enviar recordatorios de citas por WhatsApp, SMS o email."
+  },
+  "cancelar_o_cambiar_cita": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "ficha_de_cliente": {
+   "v": "si",
+   "cita": "Historial completo de ventas, servicios realizados, cobros pendientes y datos de contacto por cliente."
+  },
+  "catalogo_de_servicios": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "agenda_por_profesional": {
+   "v": "si",
+   "cita": "Gestionar agenda de citas y asignar empleado por servicio."
+  },
+  "cobro_online": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "tpv_mostrador": {
+   "v": "si",
+   "cita": "Software TPV para centros de estética y salones de belleza"
+  },
+  "senal_o_politica_ausencias": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "bonos_packs_sesiones": {
+   "v": "si",
+   "cita": "Vende y consume bonos de tratamientos de forma automática."
+  },
+  "comisiones_o_propinas": {
+   "v": "si",
+   "cita": "Calcula las comisiones de cada empleado por ventas o por servicio."
+  },
+  "widget_reserva_en_web_propia": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "inventario_stock": {
+   "v": "si",
+   "cita": "Controla productos de venta y consumo interno."
+  },
+  "ficha_tecnica_servicio": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

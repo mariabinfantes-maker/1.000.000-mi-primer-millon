@@ -1,0 +1,23 @@
+{
+ "pedida": "https://www.timify.com/en/pricing/",
+ "leidas": [
+  "https://www.timify.com/en/plans/"
+ ],
+ "urls": [
+  [
+   "https://www.timify.com/en/plans/",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "si",
+  "espana": "no_consta",
+  "cita_espana": "",
+  "campos": {
+   "precio": {
+    "v": "si",
+    "cita": "Our pricing model consists of licenses and optional add-ons."
+   }
+  }
+ }
+}

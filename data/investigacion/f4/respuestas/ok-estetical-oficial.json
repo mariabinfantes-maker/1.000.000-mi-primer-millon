@@ -1,0 +1,74 @@
+{
+ "pedida": "https://estetical.es/software-para-centros-de-belleza/",
+ "urls": [
+  [
+   "https://estetical.es/software-para-centros-de-belleza/",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "no_consta",
+  "espana": "no_consta",
+  "tipo_producto": "software",
+  "precio": {
+   "v": "si",
+   "cita": "Paga cómodamente desde el primer día sin permanencias ni comisiones"
+  },
+  "reserva_online_cliente": {
+   "v": "si",
+   "cita": "Puedes aceptar reservas online 24/7, incluso desde redes sociales, asegurándote de no perder ningún cliente."
+  },
+  "recordatorios_automaticos": {
+   "v": "si",
+   "cita": "Software de gestión Digitaliza agenda, citas, facturación y clientes. Recordatorios WhatsApp App de reservas Call Center"
+  },
+  "cancelar_o_cambiar_cita": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "ficha_de_cliente": {
+   "v": "si",
+   "cita": "Gestiona toda la información de tus clientes desde su ficha personalizada."
+  },
+  "catalogo_de_servicios": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "agenda_por_profesional": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "cobro_online": {
+   "v": "si",
+   "cita": "Minimiza las pérdidas con nuestro sistema de pago seguro. Configura un depósito para las reservas online"
+  },
+  "tpv_mostrador": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "senal_o_politica_ausencias": {
+   "v": "si",
+   "cita": "Configura un depósito para las reservas online, asegurándote de que tus clientes cumplan con sus citas."
+  },
+  "bonos_packs_sesiones": {
+   "v": "si",
+   "cita": "Crea y gestiona los tickets regalo y bonos."
+  },
+  "comisiones_o_propinas": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "widget_reserva_en_web_propia": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "inventario_stock": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "ficha_tecnica_servicio": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

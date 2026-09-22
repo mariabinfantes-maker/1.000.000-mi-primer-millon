@@ -1,0 +1,51 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "{\n \"programa_existe\": \"no_consta\",\n \"tipo\": \"no_consta\",\n \"cita_tipo\": \"\",\n \"comision\": {\n  \"v\": \"no_consta\",\n  \"cita\": \"\"\n },\n \"recurrencia\": {\n  \"v\": \"no_consta\",\n  \"cita\": \"\"\n },\n \"cookie\": {\n  \"v\": \"no_consta\",\n  \"cita\": \"\"\n },\n \"condiciones\": {\n  \"v\": \"no_consta\",\n  \"cita\": \"\"\n },\n \"abierto_desde_espana\": {\n  \"v\": \"no_consta\",\n  \"cita\": \"\"\n },\n \"promociona_producto_para_negocios\": {\n  \"v\": \"no_consta\",\n  \"cita\": \"\"\n },\n \"activo\": {\n  \"v\": \"no_consta\",\n  \"cita\": \"\"\n },\n \"red_de_afiliacion\": {\n  \"v\": \"no_consta\",\n  \"cita\": \"\"\n }\n}",
+            "thoughtSignature": "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"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0,
+      "urlContextMetadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.flowww.com.mx/programa-referidos",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          },
+          {
+            "retrievedUrl": "http://www.flowww.com.mx/programa-referidos",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          }
+        ]
+      }
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1280,
+    "candidatesTokenCount": 320,
+    "totalTokenCount": 5805,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1280
+      }
+    ],
+    "toolUsePromptTokenCount": 2555,
+    "toolUsePromptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 2555
+      }
+    ],
+    "thoughtsTokenCount": 1650,
+    "serviceTier": "standard"
+  },
+  "modelVersion": "gemini-3.6-flash",
+  "responseId": "c-WjarHyEcnTjMcPlNOLyAg"
+}

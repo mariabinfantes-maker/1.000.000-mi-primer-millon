@@ -1,0 +1,23 @@
+{
+ "pedida": "https://agendapro.com/es/planes",
+ "leidas": [
+  "https://agendapro.com/es/planes"
+ ],
+ "urls": [
+  [
+   "https://agendapro.com/es/planes",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "si",
+  "espana": "no_consta",
+  "cita_espana": "",
+  "campos": {
+   "precio": {
+    "v": "si",
+    "cita": "Nota: todos los precios son adicionales o agregados al valor de tu plan."
+   }
+  }
+ }
+}

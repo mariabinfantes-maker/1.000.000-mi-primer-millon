@@ -1,0 +1,43 @@
+{
+ "pedida": "https://shore.com/en/referral/",
+ "leidas": [
+  "https://www.shore.com/en/partner-program"
+ ],
+ "datos": {
+  "programa_existe": "si",
+  "tipo": "afiliacion_abierta",
+  "cita_tipo": "You'd like to recommend Shore without direct customer contact or operational involvement.",
+  "comision": {
+   "v": "si",
+   "cita": "We give you a share of the revenue from every closed contract for as long as the customer uses Shore."
+  },
+  "recurrencia": {
+   "v": "si",
+   "cita": "You receive a share as long as the customer actively uses Shore."
+  },
+  "cookie": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "condiciones": {
+   "v": "si",
+   "cita": "There's no minimum number of referrals or fixed referral targets."
+  },
+  "abierto_desde_espana": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "promociona_producto_para_negocios": {
+   "v": "si",
+   "cita": "Our prices are exclusively for businesses and are subject to VAT."
+  },
+  "activo": {
+   "v": "si",
+   "cita": "Sign up now for free with no obligation. You can only win!"
+  },
+  "red_de_afiliacion": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}
