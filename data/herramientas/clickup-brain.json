@@ -4,6 +4,9 @@
   "urlPrecios": "https://clickup.com/pricing",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "gestion-proyectos"
+  ],
   "subtipoId": "espacio-trabajo",
   "tipoProducto": "especializada",
   "problemasIds": [

@@ -145,7 +145,8 @@
   ],
   "tipoProducto": "suite",
   "categoriasSecundarias": [
-    "crm"
+    "crm",
+    "gestion-proyectos"
   ],
   "tipoPlanGratuito": "indefinido",
   "preciosComprobados": {

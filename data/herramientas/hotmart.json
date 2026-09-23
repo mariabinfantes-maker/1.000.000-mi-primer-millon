@@ -4,7 +4,9 @@
   "urlPrecios": "https://hotmart.com/es/precios",
   "logoUrl": "",
   "categoriaId": "plataformas-todo-en-uno",
-  "categoriasSecundarias": [],
+  "categoriasSecundarias": [
+    "asistentes-ia"
+  ],
   "subtiposSecundarios": [],
   "tipoProducto": "suite",
   "descripcion": "Hotmart es una plataforma integral para la venta, alojamiento y distribución de productos digitales como cursos en línea, e-books y suscripciones. Integra área de miembros, pasarela de pago internacional propia y una amplia red de afiliados para maximizar las ventas de los creadores de contenido.",

@@ -4,6 +4,9 @@
   "urlPrecios": "https://www.notion.com/pricing",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "gestion-proyectos"
+  ],
   "descripcion": "Notion AI es un asistente de inteligencia artificial integrado de forma nativa en el espacio de trabajo de Notion. Permite a los usuarios redactar borrador de textos, resumir documentos extensos, extraer acciones clave y consultar en lenguaje natural toda la base de conocimiento interna de la organización.",
   "informacionEmpresa": {
     "anioFundacion": 2013,

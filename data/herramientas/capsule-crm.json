@@ -4,6 +4,9 @@
   "urlPrecios": "https://capsulecrm.com/signup/",
   "logoUrl": "",
   "categoriaId": "crm",
+  "categoriasSecundarias": [
+    "gestion-proyectos"
+  ],
   "descripcion": "Capsule CRM es una solución de gestión de relaciones con clientes diseñada para ser sencilla, flexible e intuitiva. Ayuda a pequeñas y medianas empresas a organizar contactos, gestionar el pipeline de ventas y dar seguimiento a proyectos posteriores a la venta.",
   "informacionEmpresa": {
     "anioFundacion": 2009,

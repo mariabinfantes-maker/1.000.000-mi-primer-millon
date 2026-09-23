@@ -3,6 +3,10 @@
   "paginaOficial": "https://productive.io/",
   "urlPrecios": "https://productive.io/pricing/",
   "categoriaId": "gestion-proyectos",
+  "categoriasSecundarias": [
+    "asistentes-ia",
+    "crm"
+  ],
   "descripcion": "Productive es una plataforma de gestión integral (PSA) diseñada específicamente para agencias y empresas de servicios profesionales. Unifica la gestión de proyectos, el seguimiento de tiempo, la planificación de recursos, la facturación y los cálculos de rentabilidad en una única solución.",
   "informacionEmpresa": {
     "anioFundacion": 2014,

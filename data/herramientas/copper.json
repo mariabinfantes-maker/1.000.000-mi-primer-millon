@@ -4,6 +4,10 @@
   "urlPrecios": "https://www.copper.com/pricing",
   "logoUrl": "",
   "categoriaId": "crm",
+  "categoriasSecundarias": [
+    "asistentes-ia",
+    "gestion-proyectos"
+  ],
   "descripcion": "Copper es un CRM basado en la nube diseñado específicamente para empresas que utilizan Google Workspace. Se integra de forma nativa con Gmail, Google Calendar y Drive para automatizar la captura de contactos y el seguimiento de oportunidades comerciales sin entrada manual de datos.",
   "informacionEmpresa": {
     "anioFundacion": 2011,

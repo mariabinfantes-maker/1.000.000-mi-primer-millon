@@ -4,6 +4,9 @@
   "urlPrecios": "https://www.vtiger.com/pricing/",
   "logoUrl": "",
   "categoriaId": "crm",
+  "categoriasSecundarias": [
+    "gestion-proyectos"
+  ],
   "descripcion": "Vtiger CRM es una plataforma unificada en la nube que integra ventas, marketing y soporte al cliente en un único sistema. Destaca por ofrecer una vista de 360 grados del cliente, automatizaciones personalizables y herramientas de gestión de inventario e incidencias.",
   "informacionEmpresa": {
     "anioFundacion": 2004,

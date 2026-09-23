@@ -3,6 +3,9 @@
   "paginaOficial": "https://www.usemotion.com/",
   "urlPrecios": "https://www.usemotion.com/pricing",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "gestion-proyectos"
+  ],
   "descripcion": "Motion es una herramienta de productividad impulsada por inteligencia artificial que automatiza la planificación diaria construyendo calendarios inteligentes. Combina gestión de tareas, proyectos y programación de reuniones, reordenando automáticamente las prioridades del usuario según plazos y disponibilidad.",
   "informacionEmpresa": {
     "anioFundacion": 2020,

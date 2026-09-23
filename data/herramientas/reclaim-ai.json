@@ -4,6 +4,9 @@
   "urlPrecios": "https://reclaim.ai/pricing",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "gestion-proyectos"
+  ],
   "descripcion": "Reclaim.ai es un asistente y planificador de horarios con IA que se integra con Google Calendar y Outlook. Automatiza la programación de reuniones, tiempo de trabajo enfocado, hábitos y tareas pendientes para optimizar la productividad personal y de equipo.",
   "informacionEmpresa": {
     "anioFundacion": 2019,

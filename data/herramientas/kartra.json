@@ -3,6 +3,10 @@
   "paginaOficial": "https://www.kartra.com",
   "urlPrecios": "https://kartra.com/plans-and-pricing/",
   "categoriaId": "plataformas-todo-en-uno",
+  "categoriasSecundarias": [
+    "asistentes-ia",
+    "crm"
+  ],
   "descripcion": "Kartra es una plataforma integral de marketing digital y ventas en línea diseñada para automatizar embudos, alojar cursos, gestionar listas de correo electrónico y vender productos o servicios. Combina CRM, hospedaje de vídeo, creador de sitios web y sistema de membresías sin necesidad de integrar múltiples herramientas de terceros.",
   "informacionEmpresa": {
     "anioFundacion": 2018,

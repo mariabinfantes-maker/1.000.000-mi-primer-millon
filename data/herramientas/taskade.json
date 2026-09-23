@@ -4,6 +4,10 @@
   "urlPrecios": "https://www.taskade.com/pricing",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "crm",
+    "gestion-proyectos"
+  ],
   "subtipoId": "espacio-trabajo",
   "tipoProducto": "especializada",
   "problemasIds": [

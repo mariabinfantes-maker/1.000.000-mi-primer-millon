@@ -3,6 +3,10 @@
   "paginaOficial": "https://www.close.com",
   "urlPrecios": "https://close.com/pricing",
   "categoriaId": "crm",
+  "categoriasSecundarias": [
+    "asistentes-ia",
+    "gestion-proyectos"
+  ],
   "descripcion": "Close es un CRM centrado en ventas y diseñado para maximizar la productividad de los equipos comerciales. Integra llamadas telefónicas, correos electrónicos, SMS y secuencias automatizadas en una sola plataforma fluida y centrada en la acción.",
   "informacionEmpresa": {
     "anioFundacion": 2013,

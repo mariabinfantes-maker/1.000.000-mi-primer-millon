@@ -4,6 +4,9 @@
   "urlPrecios": "https://www.todoist.com/pricing",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "gestion-proyectos"
+  ],
   "subtipoId": "agenda-planificacion",
   "tipoProducto": "especializada",
   "problemasIds": [

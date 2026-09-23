@@ -4,6 +4,9 @@
   "urlPrecios": "https://www.zoho.com/projects/zohoprojects-pricing.html",
   "logoUrl": null,
   "categoriaId": "gestion-proyectos",
+  "categoriasSecundarias": [
+    "asistentes-ia"
+  ],
   "descripcion": "Zoho Projects es una solución de gestión de proyectos basada en la nube que permite a las empresas planificar, realizar seguimiento y colaborar de manera eficiente. Ofrece diagramas de Gantt, control de tiempos, gestión de incidencias y hojas de horas integradas. Es especialmente valorada por su alta conectividad con el resto del ecosistema de aplicaciones de Zoho.",
   "informacionEmpresa": {
     "anioFundacion": 1996,

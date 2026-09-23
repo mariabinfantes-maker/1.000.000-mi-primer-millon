@@ -1,0 +1,583 @@
+[
+ {
+  "id": "activecampaign",
+  "nombre": "ActiveCampaign",
+  "casas": [
+   "automatizacion-integraciones",
+   "marketing-email"
+  ]
+ },
+ {
+  "id": "agile-crm",
+  "nombre": "Agile CRM",
+  "casas": [
+   "reservas-citas",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "recursos-humanos",
+   "firma-gestion-documental"
+  ]
+ },
+ {
+  "id": "agiled",
+  "nombre": "Agiled",
+  "casas": [
+   "facturacion-contabilidad",
+   "reservas-citas",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "recursos-humanos",
+   "firma-gestion-documental"
+  ]
+ },
+ {
+  "id": "asana",
+  "nombre": "Asana",
+  "casas": [
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "beautiful-ai",
+  "nombre": "Beautiful.ai",
+  "casas": [
+   "automatizacion-integraciones",
+   "firma-gestion-documental"
+  ]
+ },
+ {
+  "id": "bitrix24",
+  "nombre": "Bitrix24",
+  "casas": [
+   "facturacion-contabilidad",
+   "reservas-citas",
+   "atencion-cliente",
+   "comercio-electronico",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "recursos-humanos",
+   "inventario-operaciones",
+   "creacion-web-hosting",
+   "firma-gestion-documental"
+  ]
+ },
+ {
+  "id": "canva",
+  "nombre": "Canva",
+  "casas": [
+   "automatizacion-integraciones",
+   "firma-gestion-documental"
+  ]
+ },
+ {
+  "id": "capsule-crm",
+  "nombre": "Capsule CRM",
+  "casas": [
+   "atencion-cliente",
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "clickfunnels",
+  "nombre": "ClickFunnels",
+  "casas": [
+   "facturacion-contabilidad",
+   "comercio-electronico",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "creacion-web-hosting"
+  ]
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "casas": [
+   "automatizacion-integraciones",
+   "firma-gestion-documental"
+  ]
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "casas": [
+   "automatizacion-integraciones",
+   "firma-gestion-documental"
+  ]
+ },
+ {
+  "id": "close",
+  "nombre": "Close",
+  "casas": [
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "copper",
+  "nombre": "Copper",
+  "casas": [
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "copy-ai",
+  "nombre": "Copy.ai",
+  "casas": [
+   "automatizacion-integraciones",
+   "marketing-email"
+  ]
+ },
+ {
+  "id": "descript",
+  "nombre": "Descript",
+  "casas": [
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "casas": [
+   "reservas-citas",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email"
+  ]
+ },
+ {
+  "id": "fireflies-ai",
+  "nombre": "Fireflies.ai",
+  "casas": [
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "freshsales",
+  "nombre": "Freshsales",
+  "casas": [
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "gamma",
+  "nombre": "Gamma",
+  "casas": [
+   "automatizacion-integraciones",
+   "creacion-web-hosting",
+   "firma-gestion-documental"
+  ]
+ },
+ {
+  "id": "ganttpro",
+  "nombre": "GanttPRO",
+  "casas": [
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "gohighlevel",
+  "nombre": "GoHighLevel",
+  "casas": [
+   "facturacion-contabilidad",
+   "reservas-citas",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "creacion-web-hosting"
+  ]
+ },
+ {
+  "id": "grammarly",
+  "nombre": "Grammarly",
+  "casas": [
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "heygen",
+  "nombre": "HeyGen",
+  "casas": [
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "hive",
+  "nombre": "Hive",
+  "casas": [
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "honeybook",
+  "nombre": "HoneyBook",
+  "casas": [
+   "facturacion-contabilidad",
+   "reservas-citas",
+   "automatizacion-integraciones",
+   "firma-gestion-documental"
+  ]
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "casas": [
+   "facturacion-contabilidad",
+   "atencion-cliente",
+   "comercio-electronico",
+   "automatizacion-integraciones",
+   "marketing-email"
+  ]
+ },
+ {
+  "id": "hubspot",
+  "nombre": "HubSpot",
+  "casas": [
+   "facturacion-contabilidad",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "creacion-web-hosting"
+  ]
+ },
+ {
+  "id": "insightly",
+  "nombre": "Insightly",
+  "casas": [
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email"
+  ]
+ },
+ {
+  "id": "jasper",
+  "nombre": "Jasper",
+  "casas": [
+   "automatizacion-integraciones",
+   "marketing-email"
+  ]
+ },
+ {
+  "id": "kartra",
+  "nombre": "Kartra",
+  "casas": [
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "creacion-web-hosting"
+  ]
+ },
+ {
+  "id": "keap",
+  "nombre": "Keap",
+  "casas": [
+   "facturacion-contabilidad",
+   "reservas-citas",
+   "automatizacion-integraciones",
+   "marketing-email"
+  ]
+ },
+ {
+  "id": "krisp",
+  "nombre": "Krisp",
+  "casas": [
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "less-annoying-crm",
+  "nombre": "Less Annoying CRM",
+  "casas": [
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "monday-com",
+  "nombre": "monday.com",
+  "casas": [
+   "facturacion-contabilidad",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "recursos-humanos",
+   "firma-gestion-documental"
+  ]
+ },
+ {
+  "id": "motion",
+  "nombre": "Motion",
+  "casas": [
+   "reservas-citas",
+   "automatizacion-integraciones",
+   "firma-gestion-documental"
+  ]
+ },
+ {
+  "id": "nifty",
+  "nombre": "Nifty",
+  "casas": [
+   "atencion-cliente",
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "nimble",
+  "nombre": "Nimble",
+  "casas": [
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email"
+  ]
+ },
+ {
+  "id": "nocrm-io",
+  "nombre": "noCRM.io",
+  "casas": [
+   "facturacion-contabilidad",
+   "atencion-cliente",
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "notion-ai",
+  "nombre": "Notion AI",
+  "casas": [
+   "automatizacion-integraciones",
+   "firma-gestion-documental"
+  ]
+ },
+ {
+  "id": "nutshell",
+  "nombre": "Nutshell",
+  "casas": [
+   "facturacion-contabilidad",
+   "reservas-citas",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "firma-gestion-documental"
+  ]
+ },
+ {
+  "id": "odoo",
+  "nombre": "Odoo",
+  "casas": [
+   "atencion-cliente",
+   "comercio-electronico",
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "otter-ai",
+  "nombre": "Otter.ai",
+  "casas": [
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "paymo",
+  "nombre": "Paymo",
+  "casas": [
+   "facturacion-contabilidad",
+   "automatizacion-integraciones",
+   "recursos-humanos"
+  ]
+ },
+ {
+  "id": "pipedrive",
+  "nombre": "Pipedrive",
+  "casas": [
+   "reservas-citas",
+   "automatizacion-integraciones",
+   "marketing-email"
+  ]
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "casas": [
+   "facturacion-contabilidad",
+   "automatizacion-integraciones",
+   "recursos-humanos",
+   "firma-gestion-documental"
+  ]
+ },
+ {
+  "id": "reclaim-ai",
+  "nombre": "Reclaim.ai",
+  "casas": [
+   "reservas-citas",
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "salesflare",
+  "nombre": "Salesflare",
+  "casas": [
+   "automatizacion-integraciones",
+   "marketing-email"
+  ]
+ },
+ {
+  "id": "salesmate",
+  "nombre": "Salesmate",
+  "casas": [
+   "atencion-cliente",
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "scoro",
+  "nombre": "Scoro",
+  "casas": [
+   "facturacion-contabilidad",
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "smartsheet",
+  "nombre": "Smartsheet",
+  "casas": [
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "streak",
+  "nombre": "Streak",
+  "casas": [
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "recursos-humanos"
+  ]
+ },
+ {
+  "id": "synthesia",
+  "nombre": "Synthesia",
+  "casas": [
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "systeme-io",
+  "nombre": "Systeme.io",
+  "casas": [
+   "facturacion-contabilidad",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "creacion-web-hosting"
+  ]
+ },
+ {
+  "id": "taskade",
+  "nombre": "Taskade",
+  "casas": [
+   "facturacion-contabilidad",
+   "atencion-cliente",
+   "comercio-electronico",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "recursos-humanos",
+   "creacion-web-hosting",
+   "firma-gestion-documental"
+  ]
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "casas": [
+   "facturacion-contabilidad",
+   "comercio-electronico",
+   "automatizacion-integraciones",
+   "creacion-web-hosting",
+   "software-sectorial"
+  ]
+ },
+ {
+  "id": "teamgantt",
+  "nombre": "TeamGantt",
+  "casas": [
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "teamwork-com",
+  "nombre": "Teamwork.com",
+  "casas": [
+   "facturacion-contabilidad",
+   "atencion-cliente",
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "thinkific",
+  "nombre": "Thinkific",
+  "casas": [
+   "facturacion-contabilidad",
+   "comercio-electronico",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "creacion-web-hosting",
+   "software-sectorial"
+  ]
+ },
+ {
+  "id": "todoist",
+  "nombre": "Todoist",
+  "casas": [
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "casas": [
+   "facturacion-contabilidad",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "inventario-operaciones"
+  ]
+ },
+ {
+  "id": "wrike",
+  "nombre": "Wrike",
+  "casas": [
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "zenkit",
+  "nombre": "Zenkit",
+  "casas": [
+   "automatizacion-integraciones"
+  ]
+ },
+ {
+  "id": "zoho-crm",
+  "nombre": "Zoho CRM",
+  "casas": [
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "inventario-operaciones"
+  ]
+ },
+ {
+  "id": "zoho-one",
+  "nombre": "Zoho One",
+  "casas": [
+   "comercio-electronico",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "recursos-humanos",
+   "inventario-operaciones",
+   "creacion-web-hosting"
+  ]
+ },
+ {
+  "id": "zoho-projects",
+  "nombre": "Zoho Projects",
+  "casas": [
+   "facturacion-contabilidad",
+   "automatizacion-integraciones",
+   "firma-gestion-documental"
+  ]
+ }
+]

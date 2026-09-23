@@ -3,6 +3,9 @@
   "paginaOficial": "https://www.clickfunnels.com",
   "urlPrecios": "https://www.clickfunnels.com/pricing",
   "categoriaId": "plataformas-todo-en-uno",
+  "categoriasSecundarias": [
+    "crm"
+  ],
   "descripcion": "ClickFunnels es una plataforma integral diseñada para crear embudos de ventas, páginas de aterrizaje, automatizaciones de marketing y sitios de membresía. Permite a emprendedores y negocios capturar prospectos y guiar a los usuarios en un proceso de compra optimizado sin necesidad de programar.",
   "informacionEmpresa": {
     "anioFundacion": 2014,

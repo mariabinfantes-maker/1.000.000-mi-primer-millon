@@ -4,6 +4,10 @@
   "urlPrecios": "https://www.nimble.com/pricing/",
   "logoUrl": "",
   "categoriaId": "crm",
+  "categoriasSecundarias": [
+    "asistentes-ia",
+    "gestion-proyectos"
+  ],
   "descripcion": "Nimble es un CRM social y de gestión de relaciones orientado a pequeñas y medianas empresas. Destaca por su capacidad para enriquecer automáticamente contactos y unificar comunicaciones desde redes sociales, correo electrónico y web en una única extensión y plataforma.",
   "informacionEmpresa": {
     "anioFundacion": 2010,

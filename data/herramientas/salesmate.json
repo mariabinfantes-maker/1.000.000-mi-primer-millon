@@ -4,6 +4,9 @@
   "urlPrecios": "https://www.salesmate.io/pricing/",
   "logoUrl": "",
   "categoriaId": "crm",
+  "categoriasSecundarias": [
+    "asistentes-ia"
+  ],
   "descripcion": "Salesmate es una plataforma unificada de CRM, automatización de ventas y marketing diseñada para ayudar a las pymes a gestionar clientes y acelerar ingresos. Ofrece gestión de embudos, secuencias de correo, automatización de procesos y telefonía integrada en un único lugar.",
   "informacionEmpresa": {
     "anioFundacion": 2016,

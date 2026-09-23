@@ -4,6 +4,11 @@
   "urlPrecios": "https://www.honeybook.com/pricing",
   "logoUrl": "",
   "categoriaId": "plataformas-todo-en-uno",
+  "categoriasSecundarias": [
+    "asistentes-ia",
+    "crm",
+    "gestion-proyectos"
+  ],
   "descripcion": "HoneyBook es una plataforma todo en uno para la gestión de clientes y proyectos orientada a autónomos, creativos y pequeñas empresas de servicios. Centraliza propuestas, contratos firmables, facturación, reservas de citas y procesamiento de pagos en flujos de trabajo automatizados.",
   "informacionEmpresa": {
     "anioFundacion": 2013,

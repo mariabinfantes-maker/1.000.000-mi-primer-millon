@@ -4,6 +4,10 @@
   "urlPrecios": "https://www.teamwork.com/pricing/",
   "logoUrl": "",
   "categoriaId": "gestion-proyectos",
+  "categoriasSecundarias": [
+    "asistentes-ia",
+    "crm"
+  ],
   "descripcion": "Teamwork.com es una plataforma integral de gestión de proyectos y tareas diseñada para agencias y empresas de servicios profesionales. Facilita la planificación de proyectos, el seguimiento de horas facturables y el control de la rentabilidad de clientes en un solo lugar. Permite invitar a clientes externos con permisos personalizados sin costo adicional.",
   "informacionEmpresa": {
     "anioFundacion": 2007,

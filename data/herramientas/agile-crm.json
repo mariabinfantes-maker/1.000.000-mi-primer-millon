@@ -4,6 +4,9 @@
   "urlPrecios": "https://www.agilecrm.com/pricing",
   "logoUrl": "",
   "categoriaId": "crm",
+  "categoriasSecundarias": [
+    "gestion-proyectos"
+  ],
   "descripcion": "Agile CRM es un software todo en uno que combina automatización de ventas, marketing y atención al cliente en una sola plataforma. Está diseñado para pequeñas y medianas empresas que buscan centralizar la gestión de sus contactos y procesos comerciales sin incurrir en costes elevados.",
   "informacionEmpresa": {
     "anioFundacion": 2013,

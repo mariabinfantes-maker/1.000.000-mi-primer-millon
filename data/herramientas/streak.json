@@ -4,6 +4,9 @@
   "urlPrecios": "https://www.streak.com/pricing",
   "logoUrl": "",
   "categoriaId": "crm",
+  "categoriasSecundarias": [
+    "gestion-proyectos"
+  ],
   "descripcion": "Streak es una herramienta de gestión de relaciones con clientes (CRM) e integración de flujos de trabajo integrada directamente dentro de Gmail y Google Workspace. Permite gestionar embudos de ventas, contratación, soporte y proyectos sin salir de la bandeja de entrada de correo. Incluye potentes herramientas avanzadas de correo como seguimiento de lecturas, envío masivo de plantillas y fragmentos de texto.",
   "informacionEmpresa": {
     "anioFundacion": 2011,

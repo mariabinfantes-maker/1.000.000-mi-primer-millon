@@ -4,6 +4,9 @@
   "urlPrecios": "https://clickup.com/pricing",
   "logoUrl": "",
   "categoriaId": "gestion-proyectos",
+  "categoriasSecundarias": [
+    "asistentes-ia"
+  ],
   "descripcion": "ClickUp es una plataforma de gestión de proyectos y productividad 'todo en uno' diseñada para centralizar tareas, documentos, metas y comunicación de equipos. Permite personalizar vistas, automatizar flujos de trabajo y sustituir múltiples aplicaciones aisladas en un único entorno.",
   "informacionEmpresa": {
     "anioFundacion": 2017,

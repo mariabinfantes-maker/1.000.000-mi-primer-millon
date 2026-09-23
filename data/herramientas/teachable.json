@@ -4,7 +4,9 @@
   "urlPrecios": "https://www.teachable.com/pricing",
   "logoUrl": "",
   "categoriaId": "plataformas-todo-en-uno",
-  "categoriasSecundarias": [],
+  "categoriasSecundarias": [
+    "asistentes-ia"
+  ],
   "subtipoId": "",
   "subtiposSecundarios": [],
   "tipoProducto": "suite",
