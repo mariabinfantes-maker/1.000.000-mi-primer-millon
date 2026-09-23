@@ -1,0 +1,13 @@
+{
+ "id": "clickup-brain",
+ "nombre": "ClickUp Brain",
+ "urls": [
+  "https://clickup.com/ai",
+  "https://clickup.com/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"The world's most advanced AI for work\"\n    },\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"AI Projects Cross-list orchestration of work across timelines\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Automate tasks\"\n    }\n  ],\n  \"esDe\": \"asistentes-ia\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://clickup.com/brain",
+  "OK https://clickup.com/pricing"
+ ]
+}

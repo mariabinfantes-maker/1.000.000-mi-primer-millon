@@ -1,0 +1,13 @@
+{
+ "id": "capsule-crm",
+ "nombre": "Capsule CRM",
+ "urls": [
+  "https://capsulecrm.com",
+  "https://capsulecrm.com/signup/"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Includes the basics for managing contacts and opportunities.\"\n    },\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Projects Affordable project management.\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Sensible AI features We've been thoughtful about how AI is implemented in Capsule - it's there simply to make your working day easier.\"\n    },\n    {\n      \"id\": \"atencion-cliente\",\n      \"cita\": \"Conversations Provide customer service & support.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Automations Eliminate manual tasks with workflows.\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Campaign builder Send emails to new customers.\"\n    }\n  ],\n  \"esDe\": \"crm\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://capsulecrm.com/",
+  "OK https://capsulecrm.com/signup/"
+ ]
+}

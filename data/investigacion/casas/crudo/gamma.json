@@ -1,0 +1,13 @@
+{
+ "id": "gamma",
+ "nombre": "Gamma",
+ "urls": [
+  "https://gamma.app",
+  "https://gamma.app/pricing"
+ ],
+ "texto": "{\"servicios\":[{\"id\":\"asistentes-ia\",\"cita\":\"Access to the most advanced AI models (text, image, video)\"},{\"id\":\"creacion-web-hosting\",\"cita\":\"Generate a shareable, hosted website in minutes — no developers needed.\"},{\"id\":\"automatizacion-integraciones\",\"cita\":\"Gamma offers an API that lets you connect Gamma to other tools and workflows. It can be used directly by developers or through no-code platforms like Zapier and Make.\"},{\"id\":\"firma-gestion-documental\",\"cita\":\"Structured, visual documents — from one-pagers to white papers — ready to share.\"}],\"esDe\":\"asistentes-ia\",\"sector\":null}",
+ "leidas": [
+  "OK https://gamma.app/",
+  "OK https://gamma.app/pricing"
+ ]
+}

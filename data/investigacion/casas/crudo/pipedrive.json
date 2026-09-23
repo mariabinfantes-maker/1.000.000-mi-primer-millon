@@ -1,0 +1,13 @@
+{
+ "id": "pipedrive",
+ "nombre": "Pipedrive",
+ "urls": [
+  "https://www.pipedrive.com",
+  "https://www.pipedrive.com/es/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Pipedrive es un CRM de ventas basado en la web.\"\n    },\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Entrega proyectos y alcanza tus metas más rápido\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"It records and transcribes your calls so you don't have to. You stay in the conversation, and Nova takes care of the notes.\"\n    },\n    {\n      \"id\": \"reservas-citas\",\n      \"cita\": \"Share your availability with leads and let them book calls on their schedule.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Easily set up workflow automations for your team or choose from ready-made templates.\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Envía campañas increíbles de marketing por correo electrónico\"\n    },\n    {\n      \"id\": \"firma-gestion-documental\",\n      \"cita\": \"Administra todos tus documentos en un solo lugar\"\n    }\n  ],\n  \"esDe\": \"crm\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.pipedrive.com/",
+  "OK https://www.pipedrive.com/es/pricing"
+ ]
+}

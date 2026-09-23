@@ -1,0 +1,13 @@
+{
+ "id": "ganttpro",
+ "nombre": "GanttPRO",
+ "urls": [
+  "https://ganttpro.com/",
+  "https://ganttpro.com/pricing/"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Plan and manage simple tasks and complex projects with professional Gantt chart software.\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"AI Gantt chart maker\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Native Integrations & API\"\n    }\n  ],\n  \"esDe\": \"gestion-proyectos\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://ganttpro.com/",
+  "OK https://ganttpro.com/pricing/"
+ ]
+}

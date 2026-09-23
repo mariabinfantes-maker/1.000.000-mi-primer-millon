@@ -1,0 +1,13 @@
+{
+ "id": "odoo",
+ "nombre": "Odoo",
+ "urls": [
+  "https://www.odoo.com/",
+  "https://www.odoo.com/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Open Source ERP and CRM\"\n    },\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"point of sale, project management, etc.\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Native AI across all your business\"\n    },\n    {\n      \"id\": \"facturacion-contabilidad\",\n      \"cita\": \"Accounting Invoicing Expenses Spreadsheet (BI) Documents Sign\"\n    },\n    {\n      \"id\": \"reservas-citas\",\n      \"cita\": \"Project Timesheets Field Service Helpdesk Planning Appointments\"\n    },\n    {\n      \"id\": \"atencion-cliente\",\n      \"cita\": \"Website Builder eCommerce Blog Forum Live Chat eLearning\"\n    },\n    {\n      \"id\": \"comercio-electronico\",\n      \"cita\": \"CRM Sales POS Shop POS Restaurant Subscriptions Rental\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Social Marketing Email Marketing SMS Marketing Events Marketing Automation Surveys\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Social Marketing Email Marketing SMS Marketing Events Marketing Automation Surveys\"\n    },\n    {\n      \"id\": \"recursos-humanos\",\n      \"cita\": \"Employees Payroll Recruitment Time Off Appraisals Fleet\"\n    },\n    {\n      \"id\": \"inventario-operaciones\",\n      \"cita\": \"Inventory Manufacturing PLM Purchase Maintenance Quality\"\n    },\n    {\n      \"id\": \"creacion-web-hosting\",\n      \"cita\": \"hosting on Odoo Online is free\"\n    },\n    {\n      \"id\": \"firma-gestion-documental\",\n      \"cita\": \"Accounting Invoicing Expenses Spreadsheet (BI) Documents Sign\"\n    }\n  ],\n  \"esDe\": \"crm\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.odoo.com/",
+  "OK https://www.odoo.com/pricing"
+ ]
+}

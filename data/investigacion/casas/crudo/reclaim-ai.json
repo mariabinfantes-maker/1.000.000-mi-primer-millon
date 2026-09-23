@@ -1,0 +1,13 @@
+{
+ "id": "reclaim-ai",
+ "nombre": "Reclaim.ai",
+ "urls": [
+  "https://reclaim.ai",
+  "https://reclaim.ai/pricing"
+ ],
+ "texto": "```json\n{\n  \"servicios\": [\n    {\n      \"id\": \"reservas-citas\",\n      \"cita\": \"Share your availability for meetings with Scheduling Links that offer smart priority settings to book the right meetings sooner.\"\n    },\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Flexibly schedule your tasks in your calendar.\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Use chat to quickly generate meeting agendas and add them to your meetings, using context and information from your connected apps.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Send events to your CRM or any other destination when meetings are booked, rescheduled, or canceled.\"\n    },\n    {\n      \"id\": \"recursos-humanos\",\n      \"cita\": \"Automatically sync employees PTO and out-of-office events to a team calendar to optimize scheduling and coordination.\"\n    }\n  ],\n  \"esDe\": \"reservas-citas\",\n  \"sector\": null\n}\n```",
+ "leidas": [
+  "OK https://reclaim.ai/",
+  "OK https://reclaim.ai/pricing"
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "id": "systeme-io",
+ "nombre": "Systeme.io",
+ "urls": [
+  "https://systeme.io",
+  "https://systeme.io/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Contacts & CRM\"\n    },\n    {\n      \"id\": \"reservas-citas\",\n      \"cita\": \"Booking calendar\"\n    },\n    {\n      \"id\": \"comercio-electronico\",\n      \"cita\": \"E-commerce\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Marketing automation\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Email marketing\"\n    },\n    {\n      \"id\": \"inventario-operaciones\",\n      \"cita\": \"Inventory management\"\n    },\n    {\n      \"id\": \"creacion-web-hosting\",\n      \"cita\": \"Website builder\"\n    }\n  ],\n  \"esDe\": \"marketing-email\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://systeme.io/",
+  "OK https://systeme.io/pricing"
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "id": "monday-com",
+ "nombre": "monday.com",
+ "urls": [
+  "https://monday.com",
+  "https://monday.com/pricing"
+ ],
+ "texto": "{\"servicios\":[{\"id\":\"gestion-proyectos\",\"cita\":\"See all upcoming work in a visual timeline & use Gantt charts to ensure you're meeting deadlines successfully.\"},{\"id\":\"crm\",\"cita\":\"Organize all your team's leads, contacts, & deals\"},{\"id\":\"asistentes-ia\",\"cita\":\"Sidekick is an intelligent context-aware AI assistant that understands, connects, and runs your work\"},{\"id\":\"facturacion-contabilidad\",\"cita\":\"Create and share unlimited customizable quotes & invoices\"},{\"id\":\"reservas-citas\",\"cita\":\"Finds available time slots across calendars and sends meeting invites automatically.\"},{\"id\":\"atencion-cliente\",\"cita\":\"monday service For IT & support\"},{\"id\":\"automatizacion-integraciones\",\"cita\":\"Connect monday.com with the tools you already use to centralize all your team's work.\"},{\"id\":\"marketing-email\",\"cita\":\"Send and track mass emails to reach large audiences with personalized messages\"},{\"id\":\"recursos-humanos\",\"cita\":\"HR agents can post roles, screen candidates, and schedule interviews letting your team focus on people.\"}],\"esDe\":\"gestion-proyectos\",\"sector\":null}",
+ "leidas": [
+  "OK https://monday.com/",
+  "OK https://monday.com/pricing"
+ ]
+}

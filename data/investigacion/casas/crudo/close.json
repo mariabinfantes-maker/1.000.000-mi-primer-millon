@@ -1,0 +1,13 @@
+{
+ "id": "close",
+ "nombre": "Close",
+ "urls": [
+  "https://www.close.com",
+  "https://close.com/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Close is a sales CRM built for teams that sell.\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Chloe is an AI sales agent built into Close CRM that calls leads, qualifies prospects through real conversations, and can book meetings while updating your CRM automatically.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Connect with 2000+ third-party apps through Zapier.\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Send a templated email to multiple contacts at once.\"\n    }\n  ],\n  \"esDe\": \"crm\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://close.com/",
+  "OK https://close.com/pricing"
+ ]
+}

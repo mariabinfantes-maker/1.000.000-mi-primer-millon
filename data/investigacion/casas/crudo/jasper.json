@@ -1,0 +1,13 @@
+{
+ "id": "jasper",
+ "nombre": "Jasper",
+ "urls": [
+  "https://www.jasper.ai",
+  "https://www.jasper.ai/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Jasper is the generative platform built for marketing success, empowering marketers to create on-brand written and visual content with AI.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Get on-brand AI wherever you work using Jasper API-powered integrations like BigQuery, Google Sheets, Zapier, Make and more.\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Jasper includes a library of purpose-built agents, each designed for a specific marketing job: SEO and GEO content, campaign execution, email, social media, personalization, research, and more.\"\n    }\n  ],\n  \"esDe\": \"asistentes-ia\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.jasper.ai/",
+  "OK https://www.jasper.ai/pricing"
+ ]
+}

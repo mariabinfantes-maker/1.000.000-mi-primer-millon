@@ -1,0 +1,13 @@
+{
+ "id": "insightly",
+ "nombre": "Insightly",
+ "urls": [
+  "https://www.insightly.com",
+  "https://www.insightly.com/pricing-plans/?plan=crm"
+ ],
+ "texto": "```json\n{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Get a single source of truth for all customer and pipeline data.\"\n    },\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Native project management\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Boost sales efficiency and CRM adoption by using AI features—like Copilot (Beta), email replies, and email summaries—to keep your data clean, automate repetitive tasks, and focus on the leads that matter most.\"\n    },\n    {\n      \"id\": \"atencion-cliente\",\n      \"cita\": \"Let clients submit tickets through branded portals, email, or web forms.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Easily integrate Insightly with all the apps you use to run your business\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Create and automate campaigns for every stage of the customer journey and automatically score leads based on engagement with your product, service, or content.\"\n    }\n  ],\n  \"esDe\": \"crm\",\n  \"sector\": null\n}\n```",
+ "leidas": [
+  "OK https://www.insightly.com/",
+  "OK https://www.insightly.com/pricing-plans/"
+ ]
+}

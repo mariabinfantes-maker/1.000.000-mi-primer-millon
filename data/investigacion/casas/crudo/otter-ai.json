@@ -1,0 +1,13 @@
+{
+ "id": "otter-ai",
+ "nombre": "Otter.ai",
+ "urls": [
+  "https://otter.ai",
+  "https://otter.ai/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Otter AI Chat searches across your meetings and connected apps to instantly answer questions and help you create follow-ups, reports, and content.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Countless integrations automatically connect your meetings to tools like Slack, Zoom, Salesforce, Claude, Google Drive, and many others.\"\n    }\n  ],\n  \"esDe\": \"asistentes-ia\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://otter.ai/",
+  "OK https://otter.ai/pricing"
+ ]
+}

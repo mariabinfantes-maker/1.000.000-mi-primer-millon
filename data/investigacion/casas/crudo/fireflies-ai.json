@@ -1,0 +1,13 @@
+{
+ "id": "fireflies-ai",
+ "nombre": "Fireflies.ai",
+ "urls": [
+  "https://fireflies.ai",
+  "https://fireflies.ai/pricing"
+ ],
+ "texto": "{\"servicios\":[{\"id\":\"asistentes-ia\",\"cita\":\"Transcribe, summarize, search, and analyze all your team conversations.\"},{\"id\":\"automatizacion-integraciones\",\"cita\":\"Integrate Fireflies with your favorite Work Tools\"}],\"esDe\":\"asistentes-ia\",\"sector\":null}",
+ "leidas": [
+  "OK https://fireflies.ai/",
+  "OK https://fireflies.ai/pricing"
+ ]
+}

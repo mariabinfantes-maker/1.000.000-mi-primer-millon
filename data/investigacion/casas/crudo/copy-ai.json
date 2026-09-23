@@ -1,0 +1,13 @@
+{
+ "id": "copy-ai",
+ "nombre": "Copy.ai",
+ "urls": [
+  "https://www.copy.ai",
+  "https://www.copy.ai/prices"
+ ],
+ "texto": "```json\n{\n  \"servicios\": [\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Power your content engine with AI — SEO, thought leadership, use cases, social, and more. Drafts delivered in seconds, not weeks\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"2,000+ Integrations\"\n    }\n  ],\n  \"esDe\": \"asistentes-ia\",\n  \"sector\": null\n}\n```",
+ "leidas": [
+  "OK https://www.copy.ai/",
+  "OK https://www.copy.ai/prices"
+ ]
+}

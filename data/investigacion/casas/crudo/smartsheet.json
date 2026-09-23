@@ -1,0 +1,13 @@
+{
+ "id": "smartsheet",
+ "nombre": "Smartsheet",
+ "urls": [
+  "https://www.smartsheet.com/",
+  "https://www.smartsheet.com/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Manage projects, automate workflows, and build solutions at scale with Smartsheet.\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Conversational AI features, including Smart Assist, Smart Columns, AI-powered dashboards and more\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Replace repetitive tasks across your organization with customizable, automated workflows.\"\n    }\n  ],\n  \"esDe\": \"gestion-proyectos\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.smartsheet.com/",
+  "OK https://www.smartsheet.com/pricing"
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "id": "teamwork-com",
+ "nombre": "Teamwork.com",
+ "urls": [
+  "https://www.teamwork.com/",
+  "https://www.teamwork.com/pricing/"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Work with Gantt, Table, List & Board views\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Chat with an AI Assistant to get answers, insights about your work and create tasks\"\n    },\n    {\n      \"id\": \"facturacion-contabilidad\",\n      \"cita\": \"Build client invoices from logged time\"\n    },\n    {\n      \"id\": \"atencion-cliente\",\n      \"cita\": \"Handle tickets and project work together in one place\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Reduce admin with 20,000 automations\"\n    },\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Resourcing Profitability Reporting Projects Quote & CRM AI\"\n    }\n  ],\n  \"esDe\": \"gestion-proyectos\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.teamwork.com/",
+  "OK https://www.teamwork.com/pricing/"
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "id": "zoho-crm",
+ "nombre": "Zoho CRM",
+ "urls": [
+  "https://www.zoho.com/crm/",
+  "https://www.zoho.com/crm/pricing.html"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Millions of salespeople trust Zoho CRM to respond faster to leads, close more deals, and run leaner sales operations.\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Build and deploy AI agents that execute tasks on your behalf for any business use case.\"\n    },\n    {\n      \"id\": \"facturacion-contabilidad\",\n      \"cita\": \"Sync QuickBook records with Zoho CRM and create quotes and invoices easily.\"\n    },\n    {\n      \"id\": \"reservas-citas\",\n      \"cita\": \"Schedule and book meetings from within Zoho CRM.\"\n    },\n    {\n      \"id\": \"atencion-cliente\",\n      \"cita\": \"Resolve customer issues with web-to-case forms that convert problems into support tickets that your reps can follow.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Automate repetitive tasks with workflows.\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Send emails via Gmail, Outlook, Zoho Mail, and other popular email services, directly from Zoho CRM.\"\n    },\n    {\n      \"id\": \"inventario-operaciones\",\n      \"cita\": \"Manage all your invoices, sales and purchase orders, products, and vendors.\"\n    },\n    {\n      \"id\": \"firma-gestion-documental\",\n      \"cita\": \"comes with the essentials like leads, documents, and mobile apps\"\n    }\n  ],\n  \"esDe\": \"crm\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.zoho.com/en-us/crm/",
+  "OK https://www.zoho.com/en-us/crm/zohocrm-pricing.html"
+ ]
+}

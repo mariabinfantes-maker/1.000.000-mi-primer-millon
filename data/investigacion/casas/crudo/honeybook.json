@@ -1,0 +1,13 @@
+{
+ "id": "honeybook",
+ "nombre": "HoneyBook",
+ "urls": [
+  "https://www.honeybook.com",
+  "https://www.honeybook.com/pricing"
+ ],
+ "texto": "{\"servicios\":[{\"id\":\"crm\",\"cita\":\"Create proposals, invoices and contracts on the leading CRM platform for small businesses\"},{\"id\":\"gestion-proyectos\",\"cita\":\"Keep every client and project on track\"},{\"id\":\"asistentes-ia\",\"cita\":\"Let AI generate instant, personalized email responses based on your tone, industry and context.\"},{\"id\":\"facturacion-contabilidad\",\"cita\":\"Send professional invoices with flexible payment options.\"},{\"id\":\"reservas-citas\",\"cita\":\"Set and share your availability so clients can book your time.\"},{\"id\":\"automatizacion-integraciones\",\"cita\":\"Automate repetitive tasks and workflows.\"},{\"id\":\"firma-gestion-documental\",\"cita\":\"Collect eSignatures on contracts and forms.\"}],\"esDe\":\"crm\",\"sector\":null}",
+ "leidas": [
+  "OK https://www.honeybook.com/",
+  "OK https://www.honeybook.com/pricing"
+ ]
+}

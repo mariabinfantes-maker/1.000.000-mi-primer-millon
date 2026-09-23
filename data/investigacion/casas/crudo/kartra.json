@@ -1,0 +1,13 @@
+{
+ "id": "kartra",
+ "nombre": "Kartra",
+ "urls": [
+  "https://www.kartra.com",
+  "https://kartra.com/plans-and-pricing/"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Pages + Email + Cart + CRM + Memberships all in one place\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Kartra AI helps you write pages, emails, and sales copy that sound like you — and sell like a pro.\"\n    },\n    {\n      \"id\": \"reservas-citas\",\n      \"cita\": \"Calendars Quickly schedule appointments\"\n    },\n    {\n      \"id\": \"atencion-cliente\",\n      \"cita\": \"Help Desks Support your customers\"\n    },\n    {\n      \"id\": \"comercio-electronico\",\n      \"cita\": \"Checkouts Simple and secure checkouts\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Integrations & APIs Connect with your existing tools\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Email Marketing Drive opens, clicks, & conversions\"\n    },\n    {\n      \"id\": \"creacion-web-hosting\",\n      \"cita\": \"Landing Pages & Websites Build high converting pages\"\n    }\n  ],\n  \"esDe\": \"marketing-email\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://kartra.com/",
+  "OK https://kartra.com/plans-and-pricing/"
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "id": "hubspot",
+ "nombre": "HubSpot",
+ "urls": [
+  "https://www.hubspot.com/",
+  "https://www.hubspot.com/pricing/"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Free HubSpot CRM\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"AI Content Writer\"\n    },\n    {\n      \"id\": \"facturacion-contabilidad\",\n      \"cita\": \"CPQ, billing, and payments software\"\n    },\n    {\n      \"id\": \"reservas-citas\",\n      \"cita\": \"Free Meeting Scheduler App\"\n    },\n    {\n      \"id\": \"atencion-cliente\",\n      \"cita\": \"Customer service software\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Connect your favorite apps to HubSpot\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Email Marketing Software\"\n    },\n    {\n      \"id\": \"creacion-web-hosting\",\n      \"cita\": \"Free Web Hosting\"\n    }\n  ],\n  \"esDe\": \"crm\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.hubspot.com/",
+  "OK https://www.hubspot.com/pricing/marketing"
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "id": "notion-ai",
+ "nombre": "Notion AI",
+ "urls": [
+  "https://www.notion.so/product/ai",
+  "https://www.notion.com/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Improve writing or generate drafts with AI blocks directly in your pages.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"AI agents handle repetitive tasks autonomously, so your team doesn't have to.\"\n    },\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Answer questions, prioritize tasks, and write reports—all while you sleep.\"\n    }\n  ],\n  \"esDe\": \"asistentes-ia\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.notion.com/product/ai",
+  "OK https://www.notion.com/pricing"
+ ]
+}

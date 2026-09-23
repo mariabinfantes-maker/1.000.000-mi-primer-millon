@@ -1,0 +1,13 @@
+{
+ "id": "productive-io",
+ "nombre": "Productive",
+ "urls": [
+  "https://productive.io/",
+  "https://productive.io/pricing/"
+ ],
+ "texto": "```json\n{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Create, track, and progress client deals—from initial pitch to won or lost status.\"\n    },\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Organize all related tasks, budgets, and communication in one place for better tracking and team collaboration.\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Ask anything in plain language to draft, summarize, and manage work inside Productive.\"\n    },\n    {\n      \"id\": \"facturacion-contabilidad\",\n      \"cita\": \"Create and send client invoices directly from Productive.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Use open API to connect Productive to your other applications.\"\n    },\n    {\n      \"id\": \"recursos-humanos\",\n      \"cita\": \"Track and manage all types of absences — including time off and remote work — with clear visibility, annual allocations and approval workflows.\"\n    },\n    {\n      \"id\": \"firma-gestion-documental\",\n      \"cita\": \"Create and collaborate on documents directly within projects to keep all project information centralized.\"\n    },\n    {\n      \"id\": \"software-sectorial\",\n      \"cita\": \"Purpose-built for agencies, consultancies, and other professional services businesses.\"\n    }\n  ],\n  \"esDe\": \"gestion-proyectos\",\n  \"sector\": \"agencias, consultorías\"\n}\n```",
+ "leidas": [
+  "OK https://productive.io/",
+  "OK https://productive.io/pricing/"
+ ]
+}

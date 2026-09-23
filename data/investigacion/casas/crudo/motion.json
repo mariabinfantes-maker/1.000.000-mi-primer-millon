@@ -1,0 +1,13 @@
+{
+ "id": "motion",
+ "nombre": "Motion",
+ "urls": [
+  "https://www.usemotion.com/",
+  "https://www.usemotion.com/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Plan and manage projects automatically\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Help writing and organizing docs faster\"\n    },\n    {\n      \"id\": \"reservas-citas\",\n      \"cita\": \"Simplify meeting scheduling and booking links\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Connect your favorite tools to Motion\"\n    },\n    {\n      \"id\": \"firma-gestion-documental\",\n      \"cita\": \"Create docs — notes, processes, wikis, pages — all in one place\"\n    }\n  ],\n  \"esDe\": \"gestion-proyectos\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.usemotion.com/",
+  "OK https://www.usemotion.com/pricing"
+ ]
+}

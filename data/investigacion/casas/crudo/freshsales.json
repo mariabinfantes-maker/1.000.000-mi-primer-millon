@@ -1,0 +1,13 @@
+{
+ "id": "freshsales",
+ "nombre": "Freshsales",
+ "urls": [
+  "https://www.freshworks.com/crm/sales/",
+  "https://www.freshworks.com/crm/pricing/"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Grow your pipeline, boost conversions, and power productivity with our AI-powered, easy-to-use sales CRM.\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Freddy AI makes work smarter and easier, helping you around the clock: highlighting the best leads and deals, offering insights, and even writing emails.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Eliminate manual effort and save time by automating repetitive, mundane tasks.\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Freshsales helps you run smart sales campaigns to generate more leads, then capture, qualify, route, and track them with the power of Freddy AI.\"\n    }\n  ],\n  \"esDe\": \"crm\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.freshworks.com/crm/sales/",
+  "OK https://www.freshworks.com/crm/pricing/"
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "id": "synthesia",
+ "nombre": "Synthesia",
+ "urls": [
+  "https://www.synthesia.io",
+  "https://www.synthesia.io/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Create studio-quality videos with AI avatars and voiceovers in 160+ languages.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Automate video creation with Synthesia API.\"\n    }\n  ],\n  \"esDe\": \"asistentes-ia\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.synthesia.io/",
+  "OK https://www.synthesia.io/pricing"
+ ]
+}

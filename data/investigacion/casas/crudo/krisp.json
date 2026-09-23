@@ -1,0 +1,13 @@
+{
+ "id": "krisp",
+ "nombre": "Krisp",
+ "urls": [
+  "https://krisp.ai",
+  "https://krisp.ai/pricing/"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"AI Note Taker handles meeting transcripts , summaries, and CRM updates.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Push notes and action items directly to Salesforce, HubSpot, Slack, and more.\"\n    }\n  ],\n  \"esDe\": \"asistentes-ia\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://krisp.ai/",
+  "OK https://krisp.ai/pricing/"
+ ]
+}

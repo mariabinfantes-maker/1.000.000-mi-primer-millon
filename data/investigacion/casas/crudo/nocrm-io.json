@@ -1,0 +1,13 @@
+{
+ "id": "nocrm-io",
+ "nombre": "noCRM.io",
+ "urls": [
+  "https://www.nocrm.io/es",
+  "https://www.nocrm.io/es/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"noCRM es la herramienta de gestión de ventas\"\n    },\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Crea listas de tareas personalizadas, asigna tareas y mantén el control\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Accede a resúmenes detallados o transcripciones generadas por IA\"\n    },\n    {\n      \"id\": \"facturacion-contabilidad\",\n      \"cita\": \"Crea cotizaciones, anticipos, facturas y notas de crédito personalizadas en segundos.\"\n    },\n    {\n      \"id\": \"atencion-cliente\",\n      \"cita\": \"Colabora fácilmente con bandejas compartidas para gestionar conversaciones con leads\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Crea reglas dentro de noCRM para automatizar tareas repetitivas\"\n    }\n  ],\n  \"esDe\": \"crm\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.nocrm.io/es",
+  "OK https://www.nocrm.io/es/pricing"
+ ]
+}

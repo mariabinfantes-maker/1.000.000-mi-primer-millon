@@ -1,0 +1,13 @@
+{
+ "id": "teamgantt",
+ "nombre": "TeamGantt",
+ "urls": [
+  "https://www.teamgantt.com/",
+  "https://www.teamgantt.com/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Manage tasks, timelines, files, and team conversations in one place.\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Build a project timeline fast with the magic of AI-powered planning.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Automate workflows with Zapier or the TeamGantt API.\"\n    }\n  ],\n  \"esDe\": \"gestion-proyectos\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.teamgantt.com/",
+  "OK https://www.teamgantt.com/pricing"
+ ]
+}

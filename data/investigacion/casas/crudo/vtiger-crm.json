@@ -1,0 +1,13 @@
+{
+ "id": "vtiger-crm",
+ "nombre": "Vtiger CRM",
+ "urls": [
+  "https://www.vtiger.com/",
+  "https://www.vtiger.com/pricing/"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Vtiger all-in-one CRM software empowers you to align your marketing, sales and support teams with unified customer data powered by One View.\"\n    },\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Project Management Tasks & Milestones Subtasks Gantt View Kanban Board\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Calculus AI Agent Builder Chatbot Prompt Builder Generative AI Designer Prediction AI Designer\"\n    },\n    {\n      \"id\": \"facturacion-contabilidad\",\n      \"cita\": \"Inventory & Invoicing\"\n    },\n    {\n      \"id\": \"reservas-citas\",\n      \"cita\": \"Appointment Pages\"\n    },\n    {\n      \"id\": \"atencion-cliente\",\n      \"cita\": \"Help Desk Automation Cases SLAs Customer Portal Live Chats FAQs Mailroom Agent Enablement\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Connect with more than 500+ apps you are already using to merge and extend the functionality.\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Marketing Automation Emails Webforms Social Module Landing Pages SMS Campaigns Email Templates Short URL\"\n    },\n    {\n      \"id\": \"inventario-operaciones\",\n      \"cita\": \"Inventory Management Invoicing Vendor Management Purchase Order Management Subscriptions Payment Tracking Sales Order Assets\"\n    },\n    {\n      \"id\": \"firma-gestion-documental\",\n      \"cita\": \"Document Engagement\"\n    }\n  ],\n  \"esDe\": \"crm\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.vtiger.com/",
+  "OK https://www.vtiger.com/pricing/"
+ ]
+}

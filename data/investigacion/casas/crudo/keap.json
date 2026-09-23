@@ -1,0 +1,13 @@
+{
+ "id": "keap",
+ "nombre": "Keap",
+ "urls": [
+  "https://keap.com",
+  "https://keap.com/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Keap CRM helps you engage with leads, stay on top of your bookings, track every deal, and nurture customers.\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"AI Content Assistant Compose emails quickly and easily with the help of AI.\"\n    },\n    {\n      \"id\": \"facturacion-contabilidad\",\n      \"cita\": \"Invoices Send one-time or recurring invoices that sync with your payment and accounting tools\"\n    },\n    {\n      \"id\": \"reservas-citas\",\n      \"cita\": \"Appointments Integrate your current calendar or use Keap's native features to set meetings and send reminders\"\n    },\n    {\n      \"id\": \"comercio-electronico\",\n      \"cita\": \"Checkout forms Sell online with customizable checkout forms that trigger automations and sync to your CRM\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Automation Builder Automate processes across your entire business — drag, drop, and launch 52+ ready-made automations, or craft endless campaigns of your own with our intuitive builder\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Email marketing Send broadcast and 1:1 emails, as well as trigger automated emails based on contact activity.\"\n    }\n  ],\n  \"esDe\": \"crm\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://keap.com/",
+  "OK https://keap.com/pricing"
+ ]
+}

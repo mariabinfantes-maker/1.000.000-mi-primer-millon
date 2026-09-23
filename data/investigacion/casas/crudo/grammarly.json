@@ -1,0 +1,13 @@
+{
+ "id": "grammarly",
+ "nombre": "Grammarly",
+ "urls": [
+  "https://www.grammarly.com",
+  "https://www.grammarly.com/plans"
+ ],
+ "texto": "{\"servicios\":[{\"id\":\"asistentes-ia\",\"cita\":\"Work with an AI partner that helps turn your thoughts into writing that's clear, credible, and impossible to ignore.\"}],\"esDe\":\"asistentes-ia\",\"sector\":null}",
+ "leidas": [
+  "OK https://www.grammarly.com/",
+  "OK https://www.grammarly.com/plans"
+ ]
+}

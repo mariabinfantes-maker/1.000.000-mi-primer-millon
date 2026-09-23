@@ -1,0 +1,13 @@
+{
+ "id": "clickup",
+ "nombre": "ClickUp",
+ "urls": [
+  "https://clickup.com",
+  "https://clickup.com/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Sprint Management\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Unlimited AI writing\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Unlimited Integrations\"\n    },\n    {\n      \"id\": \"firma-gestion-documental\",\n      \"cita\": \"Collaborative Docs\"\n    }\n  ],\n  \"esDe\": \"gestion-proyectos\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://clickup.com/",
+  "OK https://clickup.com/pricing"
+ ]
+}

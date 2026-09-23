@@ -1,0 +1,13 @@
+{
+ "id": "todoist",
+ "nombre": "Todoist",
+ "urls": [
+  "https://www.todoist.com",
+  "https://www.todoist.com/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Capture and organize tasks instantly using easy-flowing, natural language.\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Let artificial intelligence help you with your tasks and filters.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Connect Todoist with 90+ calendar, communication, automation, and voice assistant tools.\"\n    }\n  ],\n  \"esDe\": \"gestion-proyectos\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.todoist.com/",
+  "OK https://www.todoist.com/pricing"
+ ]
+}

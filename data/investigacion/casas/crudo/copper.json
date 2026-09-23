@@ -1,0 +1,13 @@
+{
+ "id": "copper",
+ "nombre": "Copper",
+ "urls": [
+  "https://www.copper.com",
+  "https://www.copper.com/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Manage contacts, deals, and more, in one place\"\n    },\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Manage projects Build workflows that keep everything moving\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"AI email re-writer Make emails clearer or more engaging with AI-powered edits\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Integrate Copper with your favorite apps in one click ⚡\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Respond instantly to form submissions and send welcome or follow up emails.\"\n    }\n  ],\n  \"esDe\": \"crm\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.copper.com/",
+  "OK https://www.copper.com/pricing"
+ ]
+}

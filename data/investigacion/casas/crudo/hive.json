@@ -1,0 +1,13 @@
+{
+ "id": "hive",
+ "nombre": "Hive",
+ "urls": [
+  "https://hive.com",
+  "https://hive.com/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Hive is an AI-powered project management software and work management platform that brings projects, tasks, workflows, collaboration, reporting, CRM, and finance into one workspace.\"\n    },\n    {\n      \"id\": \"crm\",\n      \"cita\": \"CRM: Sales context, connected to action.\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Sidekick is your AI assistant in meetings\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Build workflows inside Hive to automate repeatable tasks, connect your favorite tools, and keep every hand-off moving.\"\n    },\n    {\n      \"id\": \"facturacion-contabilidad\",\n      \"cita\": \"Finance: Financial workflows connected to execution.\"\n    }\n  ],\n  \"esDe\": \"gestion-proyectos\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://hive.com/",
+  "OK https://hive.com/pricing"
+ ]
+}

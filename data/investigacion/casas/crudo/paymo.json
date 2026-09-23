@@ -1,0 +1,13 @@
+{
+ "id": "paymo",
+ "nombre": "Paymo",
+ "urls": [
+  "https://www.paymoapp.com/",
+  "https://www.paymoapp.com/pricing/"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Paymo's purpose-built time tracking and project management software help you complete projects on schedule and within budget, ensuring smoother delivery.\"\n    },\n    {\n      \"id\": \"facturacion-contabilidad\",\n      \"cita\": \"Use Paymo's online invoicing software for small businesses to convert unbilled time into professional-looking invoices.\"\n    },\n    {\n      \"id\": \"recursos-humanos\",\n      \"cita\": \"See at a glance who's available for work or who's overbooked. Manage time off and leave days.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Extend the capabilities of Paymo with third-party integrations.\"\n    }\n  ],\n  \"esDe\": \"gestion-proyectos\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.paymoapp.com/",
+  "OK https://www.paymoapp.com/pricing/"
+ ]
+}
