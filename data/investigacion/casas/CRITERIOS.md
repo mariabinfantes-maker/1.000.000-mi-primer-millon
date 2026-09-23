@@ -1,3 +1,14 @@
+> **Retirado el 2026-09-23, por la propietaria.** Este documento planteaba un
+> dilema entre las 15 categorías y las 6 puertas, y entre tres niveles de
+> pertenencia. No lo había: *«si una herramienta está en la casa de ventas
+> será porque sirve a la casa de ventas, pero si también sirve a la casa de
+> vídeo también estará en la sala de vídeo»*. El reparto bueno está en
+> **`REPARTO.md`**.
+>
+> No se borra porque el recuento por necesidad sigue sirviendo: dice qué
+> necesidades no cubre nadie, y eso es trabajo pendiente de catálogo, no una
+> decisión de estructura.
+
 # El reparto, con nuestros criterios
 
 **23 de septiembre de 2026.** El reparto anterior (`CASAS.md`) usaba el

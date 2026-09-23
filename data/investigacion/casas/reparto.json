@@ -1,0 +1,967 @@
+{
+ "casas": {
+  "plataformas-todo-en-uno": "Plataformas todo en uno",
+  "crm": "CRM y ventas",
+  "gestion-proyectos": "Gestión de proyectos",
+  "asistentes-ia": "Asistentes de IA y productividad",
+  "facturacion-contabilidad": "Facturación y contabilidad",
+  "reservas-citas": "Reservas y citas",
+  "atencion-cliente": "Atención al cliente",
+  "comercio-electronico": "Comercio electrónico",
+  "automatizacion-integraciones": "Automatización e integraciones",
+  "marketing-email": "Marketing y email",
+  "recursos-humanos": "Recursos humanos",
+  "inventario-operaciones": "Inventario y operaciones",
+  "creacion-web-hosting": "Creación web y hosting",
+  "firma-gestion-documental": "Firma electrónica y gestión documental",
+  "software-sectorial": "Software sectorial"
+ },
+ "filas": [
+  {
+   "id": "activecampaign",
+   "nombre": "ActiveCampaign",
+   "sirve": [
+    "crm",
+    "asistentes-ia",
+    "automatizacion-integraciones",
+    "marketing-email"
+   ],
+   "porComprobar": [],
+   "hoy": "plataformas-todo-en-uno"
+  },
+  {
+   "id": "agile-crm",
+   "nombre": "Agile CRM",
+   "sirve": [
+    "crm",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "gestion-proyectos",
+    "reservas-citas",
+    "atencion-cliente",
+    "marketing-email",
+    "recursos-humanos",
+    "creacion-web-hosting",
+    "firma-gestion-documental"
+   ],
+   "hoy": "crm"
+  },
+  {
+   "id": "agiled",
+   "nombre": "Agiled",
+   "sirve": [
+    "crm",
+    "gestion-proyectos",
+    "facturacion-contabilidad",
+    "reservas-citas",
+    "automatizacion-integraciones",
+    "recursos-humanos",
+    "plataformas-todo-en-uno"
+   ],
+   "porComprobar": [
+    "asistentes-ia",
+    "atencion-cliente",
+    "firma-gestion-documental"
+   ],
+   "hoy": "plataformas-todo-en-uno"
+  },
+  {
+   "id": "asana",
+   "nombre": "Asana",
+   "sirve": [
+    "gestion-proyectos",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "asistentes-ia"
+   ],
+   "hoy": "gestion-proyectos"
+  },
+  {
+   "id": "beautiful-ai",
+   "nombre": "Beautiful.ai",
+   "sirve": [
+    "asistentes-ia",
+    "automatizacion-integraciones",
+    "firma-gestion-documental"
+   ],
+   "porComprobar": [],
+   "hoy": "asistentes-ia"
+  },
+  {
+   "id": "bitrix24",
+   "nombre": "Bitrix24",
+   "sirve": [
+    "crm",
+    "gestion-proyectos",
+    "asistentes-ia",
+    "facturacion-contabilidad",
+    "comercio-electronico",
+    "automatizacion-integraciones",
+    "marketing-email",
+    "recursos-humanos",
+    "creacion-web-hosting",
+    "plataformas-todo-en-uno"
+   ],
+   "porComprobar": [
+    "reservas-citas",
+    "atencion-cliente",
+    "inventario-operaciones",
+    "firma-gestion-documental"
+   ],
+   "hoy": "plataformas-todo-en-uno"
+  },
+  {
+   "id": "canva",
+   "nombre": "Canva",
+   "sirve": [
+    "asistentes-ia",
+    "automatizacion-integraciones",
+    "firma-gestion-documental"
+   ],
+   "porComprobar": [],
+   "hoy": "asistentes-ia"
+  },
+  {
+   "id": "capsule-crm",
+   "nombre": "Capsule CRM",
+   "sirve": [
+    "crm",
+    "atencion-cliente",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "gestion-proyectos",
+    "asistentes-ia",
+    "marketing-email"
+   ],
+   "hoy": "crm"
+  },
+  {
+   "id": "clickfunnels",
+   "nombre": "ClickFunnels",
+   "sirve": [
+    "crm",
+    "facturacion-contabilidad",
+    "comercio-electronico",
+    "automatizacion-integraciones",
+    "marketing-email"
+   ],
+   "porComprobar": [
+    "asistentes-ia",
+    "reservas-citas",
+    "atencion-cliente",
+    "creacion-web-hosting"
+   ],
+   "hoy": "plataformas-todo-en-uno"
+  },
+  {
+   "id": "clickup-brain",
+   "nombre": "ClickUp Brain",
+   "sirve": [
+    "gestion-proyectos",
+    "asistentes-ia",
+    "automatizacion-integraciones",
+    "firma-gestion-documental"
+   ],
+   "porComprobar": [],
+   "hoy": "asistentes-ia"
+  },
+  {
+   "id": "clickup",
+   "nombre": "ClickUp",
+   "sirve": [
+    "gestion-proyectos",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "asistentes-ia",
+    "firma-gestion-documental"
+   ],
+   "hoy": "gestion-proyectos"
+  },
+  {
+   "id": "close",
+   "nombre": "Close",
+   "sirve": [
+    "crm",
+    "gestion-proyectos",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "asistentes-ia",
+    "marketing-email"
+   ],
+   "hoy": "crm"
+  },
+  {
+   "id": "copper",
+   "nombre": "Copper",
+   "sirve": [
+    "crm",
+    "gestion-proyectos",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "asistentes-ia",
+    "marketing-email"
+   ],
+   "hoy": "crm"
+  },
+  {
+   "id": "copy-ai",
+   "nombre": "Copy.ai",
+   "sirve": [
+    "asistentes-ia",
+    "automatizacion-integraciones",
+    "marketing-email"
+   ],
+   "porComprobar": [],
+   "hoy": "asistentes-ia"
+  },
+  {
+   "id": "descript",
+   "nombre": "Descript",
+   "sirve": [
+    "asistentes-ia",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [],
+   "hoy": "asistentes-ia"
+  },
+  {
+   "id": "engagebay",
+   "nombre": "EngageBay",
+   "sirve": [
+    "crm",
+    "reservas-citas",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "gestion-proyectos",
+    "asistentes-ia",
+    "atencion-cliente",
+    "marketing-email"
+   ],
+   "hoy": "plataformas-todo-en-uno"
+  },
+  {
+   "id": "fireflies-ai",
+   "nombre": "Fireflies.ai",
+   "sirve": [
+    "asistentes-ia",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [],
+   "hoy": "asistentes-ia"
+  },
+  {
+   "id": "freshsales",
+   "nombre": "Freshsales",
+   "sirve": [
+    "crm",
+    "asistentes-ia"
+   ],
+   "porComprobar": [
+    "automatizacion-integraciones",
+    "marketing-email"
+   ],
+   "hoy": "plataformas-todo-en-uno"
+  },
+  {
+   "id": "gamma",
+   "nombre": "Gamma",
+   "sirve": [
+    "asistentes-ia",
+    "automatizacion-integraciones",
+    "firma-gestion-documental"
+   ],
+   "porComprobar": [
+    "creacion-web-hosting"
+   ],
+   "hoy": "asistentes-ia"
+  },
+  {
+   "id": "ganttpro",
+   "nombre": "GanttPRO",
+   "sirve": [
+    "gestion-proyectos",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "asistentes-ia"
+   ],
+   "hoy": "gestion-proyectos"
+  },
+  {
+   "id": "gohighlevel",
+   "nombre": "GoHighLevel",
+   "sirve": [
+    "crm",
+    "reservas-citas",
+    "automatizacion-integraciones",
+    "marketing-email",
+    "creacion-web-hosting"
+   ],
+   "porComprobar": [
+    "asistentes-ia",
+    "facturacion-contabilidad",
+    "atencion-cliente"
+   ],
+   "hoy": "plataformas-todo-en-uno"
+  },
+  {
+   "id": "grammarly",
+   "nombre": "Grammarly",
+   "sirve": [
+    "asistentes-ia",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [],
+   "hoy": "asistentes-ia"
+  },
+  {
+   "id": "heygen",
+   "nombre": "HeyGen",
+   "sirve": [
+    "asistentes-ia",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [],
+   "hoy": "asistentes-ia"
+  },
+  {
+   "id": "hive",
+   "nombre": "Hive",
+   "sirve": [
+    "gestion-proyectos",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "crm",
+    "asistentes-ia",
+    "facturacion-contabilidad"
+   ],
+   "hoy": "gestion-proyectos"
+  },
+  {
+   "id": "honeybook",
+   "nombre": "HoneyBook",
+   "sirve": [
+    "crm",
+    "gestion-proyectos",
+    "asistentes-ia",
+    "facturacion-contabilidad",
+    "reservas-citas",
+    "automatizacion-integraciones",
+    "plataformas-todo-en-uno"
+   ],
+   "porComprobar": [
+    "firma-gestion-documental"
+   ],
+   "hoy": "plataformas-todo-en-uno"
+  },
+  {
+   "id": "hotmart",
+   "nombre": "Hotmart",
+   "sirve": [
+    "facturacion-contabilidad",
+    "comercio-electronico"
+   ],
+   "porComprobar": [
+    "asistentes-ia",
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "marketing-email",
+    "creacion-web-hosting"
+   ],
+   "hoy": "plataformas-todo-en-uno"
+  },
+  {
+   "id": "hubspot",
+   "nombre": "HubSpot",
+   "sirve": [
+    "crm",
+    "asistentes-ia",
+    "facturacion-contabilidad",
+    "automatizacion-integraciones",
+    "marketing-email",
+    "creacion-web-hosting",
+    "plataformas-todo-en-uno"
+   ],
+   "porComprobar": [
+    "reservas-citas",
+    "atencion-cliente"
+   ],
+   "hoy": "plataformas-todo-en-uno"
+  },
+  {
+   "id": "insightly",
+   "nombre": "Insightly",
+   "sirve": [
+    "crm",
+    "gestion-proyectos",
+    "automatizacion-integraciones",
+    "marketing-email"
+   ],
+   "porComprobar": [
+    "asistentes-ia",
+    "atencion-cliente"
+   ],
+   "hoy": "crm"
+  },
+  {
+   "id": "jasper",
+   "nombre": "Jasper",
+   "sirve": [
+    "asistentes-ia",
+    "automatizacion-integraciones",
+    "marketing-email"
+   ],
+   "porComprobar": [],
+   "hoy": "asistentes-ia"
+  },
+  {
+   "id": "kartra",
+   "nombre": "Kartra",
+   "sirve": [
+    "crm",
+    "marketing-email"
+   ],
+   "porComprobar": [
+    "asistentes-ia",
+    "reservas-citas",
+    "atencion-cliente",
+    "comercio-electronico",
+    "automatizacion-integraciones",
+    "creacion-web-hosting"
+   ],
+   "hoy": "plataformas-todo-en-uno"
+  },
+  {
+   "id": "keap",
+   "nombre": "Keap",
+   "sirve": [
+    "crm",
+    "asistentes-ia",
+    "facturacion-contabilidad",
+    "reservas-citas",
+    "automatizacion-integraciones",
+    "marketing-email",
+    "plataformas-todo-en-uno"
+   ],
+   "porComprobar": [
+    "comercio-electronico"
+   ],
+   "hoy": "plataformas-todo-en-uno"
+  },
+  {
+   "id": "krisp",
+   "nombre": "Krisp",
+   "sirve": [
+    "asistentes-ia",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [],
+   "hoy": "asistentes-ia"
+  },
+  {
+   "id": "less-annoying-crm",
+   "nombre": "Less Annoying CRM",
+   "sirve": [
+    "crm",
+    "gestion-proyectos",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [],
+   "hoy": "crm"
+  },
+  {
+   "id": "monday-com",
+   "nombre": "monday.com",
+   "sirve": [
+    "gestion-proyectos",
+    "facturacion-contabilidad",
+    "automatizacion-integraciones",
+    "firma-gestion-documental"
+   ],
+   "porComprobar": [
+    "crm",
+    "asistentes-ia",
+    "reservas-citas",
+    "atencion-cliente",
+    "marketing-email",
+    "recursos-humanos"
+   ],
+   "hoy": "gestion-proyectos"
+  },
+  {
+   "id": "motion",
+   "nombre": "Motion",
+   "sirve": [
+    "gestion-proyectos",
+    "asistentes-ia",
+    "reservas-citas",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "firma-gestion-documental"
+   ],
+   "hoy": "asistentes-ia"
+  },
+  {
+   "id": "nifty",
+   "nombre": "Nifty",
+   "sirve": [
+    "gestion-proyectos",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "crm",
+    "asistentes-ia",
+    "atencion-cliente",
+    "firma-gestion-documental"
+   ],
+   "hoy": "gestion-proyectos"
+  },
+  {
+   "id": "nimble",
+   "nombre": "Nimble",
+   "sirve": [
+    "crm",
+    "gestion-proyectos",
+    "automatizacion-integraciones",
+    "marketing-email"
+   ],
+   "porComprobar": [
+    "asistentes-ia",
+    "atencion-cliente"
+   ],
+   "hoy": "crm"
+  },
+  {
+   "id": "nocrm-io",
+   "nombre": "noCRM.io",
+   "sirve": [
+    "crm",
+    "gestion-proyectos",
+    "facturacion-contabilidad",
+    "atencion-cliente",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "asistentes-ia"
+   ],
+   "hoy": "crm"
+  },
+  {
+   "id": "notion-ai",
+   "nombre": "Notion AI",
+   "sirve": [
+    "asistentes-ia",
+    "automatizacion-integraciones",
+    "firma-gestion-documental"
+   ],
+   "porComprobar": [
+    "gestion-proyectos"
+   ],
+   "hoy": "asistentes-ia"
+  },
+  {
+   "id": "nutshell",
+   "nombre": "Nutshell",
+   "sirve": [
+    "crm",
+    "facturacion-contabilidad",
+    "reservas-citas",
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "marketing-email",
+    "plataformas-todo-en-uno"
+   ],
+   "porComprobar": [
+    "asistentes-ia",
+    "firma-gestion-documental"
+   ],
+   "hoy": "crm"
+  },
+  {
+   "id": "odoo",
+   "nombre": "Odoo",
+   "sirve": [
+    "crm",
+    "comercio-electronico",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "gestion-proyectos",
+    "asistentes-ia",
+    "facturacion-contabilidad",
+    "reservas-citas",
+    "atencion-cliente",
+    "marketing-email",
+    "recursos-humanos",
+    "inventario-operaciones",
+    "creacion-web-hosting",
+    "firma-gestion-documental"
+   ],
+   "hoy": "plataformas-todo-en-uno"
+  },
+  {
+   "id": "otter-ai",
+   "nombre": "Otter.ai",
+   "sirve": [
+    "asistentes-ia",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [],
+   "hoy": "asistentes-ia"
+  },
+  {
+   "id": "paymo",
+   "nombre": "Paymo",
+   "sirve": [
+    "gestion-proyectos",
+    "facturacion-contabilidad",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "recursos-humanos"
+   ],
+   "hoy": "gestion-proyectos"
+  },
+  {
+   "id": "pipedrive",
+   "nombre": "Pipedrive",
+   "sirve": [
+    "crm",
+    "reservas-citas",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "gestion-proyectos",
+    "asistentes-ia",
+    "marketing-email",
+    "firma-gestion-documental"
+   ],
+   "hoy": "crm"
+  },
+  {
+   "id": "productive-io",
+   "nombre": "Productive",
+   "sirve": [
+    "gestion-proyectos",
+    "facturacion-contabilidad",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "crm",
+    "asistentes-ia",
+    "recursos-humanos",
+    "firma-gestion-documental",
+    "software-sectorial"
+   ],
+   "hoy": "gestion-proyectos"
+  },
+  {
+   "id": "reclaim-ai",
+   "nombre": "Reclaim.ai",
+   "sirve": [
+    "gestion-proyectos",
+    "reservas-citas",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "asistentes-ia",
+    "recursos-humanos"
+   ],
+   "hoy": "asistentes-ia"
+  },
+  {
+   "id": "salesflare",
+   "nombre": "Salesflare",
+   "sirve": [
+    "crm",
+    "automatizacion-integraciones",
+    "marketing-email"
+   ],
+   "porComprobar": [
+    "asistentes-ia"
+   ],
+   "hoy": "crm"
+  },
+  {
+   "id": "salesmate",
+   "nombre": "Salesmate",
+   "sirve": [
+    "crm",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "asistentes-ia",
+    "reservas-citas",
+    "atencion-cliente",
+    "marketing-email"
+   ],
+   "hoy": "crm"
+  },
+  {
+   "id": "scoro",
+   "nombre": "Scoro",
+   "sirve": [
+    "gestion-proyectos",
+    "facturacion-contabilidad",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "crm",
+    "asistentes-ia"
+   ],
+   "hoy": "gestion-proyectos"
+  },
+  {
+   "id": "smartsheet",
+   "nombre": "Smartsheet",
+   "sirve": [
+    "gestion-proyectos",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "asistentes-ia"
+   ],
+   "hoy": "gestion-proyectos"
+  },
+  {
+   "id": "streak",
+   "nombre": "Streak",
+   "sirve": [
+    "crm",
+    "gestion-proyectos",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "asistentes-ia",
+    "atencion-cliente",
+    "marketing-email",
+    "recursos-humanos"
+   ],
+   "hoy": "crm"
+  },
+  {
+   "id": "synthesia",
+   "nombre": "Synthesia",
+   "sirve": [
+    "asistentes-ia",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [],
+   "hoy": "asistentes-ia"
+  },
+  {
+   "id": "systeme-io",
+   "nombre": "Systeme.io",
+   "sirve": [
+    "facturacion-contabilidad",
+    "automatizacion-integraciones",
+    "marketing-email",
+    "creacion-web-hosting"
+   ],
+   "porComprobar": [
+    "crm",
+    "reservas-citas",
+    "comercio-electronico",
+    "inventario-operaciones"
+   ],
+   "hoy": "plataformas-todo-en-uno"
+  },
+  {
+   "id": "taskade",
+   "nombre": "Taskade",
+   "sirve": [
+    "gestion-proyectos",
+    "asistentes-ia",
+    "automatizacion-integraciones",
+    "firma-gestion-documental"
+   ],
+   "porComprobar": [
+    "crm",
+    "facturacion-contabilidad",
+    "reservas-citas",
+    "atencion-cliente",
+    "comercio-electronico",
+    "marketing-email",
+    "recursos-humanos",
+    "inventario-operaciones",
+    "creacion-web-hosting"
+   ],
+   "hoy": "asistentes-ia"
+  },
+  {
+   "id": "teachable",
+   "nombre": "Teachable",
+   "sirve": [
+    "software-sectorial"
+   ],
+   "porComprobar": [
+    "asistentes-ia",
+    "facturacion-contabilidad",
+    "reservas-citas",
+    "comercio-electronico",
+    "automatizacion-integraciones",
+    "marketing-email",
+    "creacion-web-hosting"
+   ],
+   "hoy": "plataformas-todo-en-uno"
+  },
+  {
+   "id": "teamgantt",
+   "nombre": "TeamGantt",
+   "sirve": [
+    "gestion-proyectos",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "asistentes-ia"
+   ],
+   "hoy": "gestion-proyectos"
+  },
+  {
+   "id": "teamwork-com",
+   "nombre": "Teamwork.com",
+   "sirve": [
+    "gestion-proyectos",
+    "facturacion-contabilidad",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "crm",
+    "asistentes-ia",
+    "atencion-cliente"
+   ],
+   "hoy": "gestion-proyectos"
+  },
+  {
+   "id": "thinkific",
+   "nombre": "Thinkific",
+   "sirve": [
+    "facturacion-contabilidad",
+    "creacion-web-hosting",
+    "software-sectorial"
+   ],
+   "porComprobar": [
+    "asistentes-ia",
+    "reservas-citas",
+    "comercio-electronico",
+    "automatizacion-integraciones",
+    "marketing-email"
+   ],
+   "hoy": "plataformas-todo-en-uno"
+  },
+  {
+   "id": "todoist",
+   "nombre": "Todoist",
+   "sirve": [
+    "gestion-proyectos",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "asistentes-ia"
+   ],
+   "hoy": "asistentes-ia"
+  },
+  {
+   "id": "vtiger-crm",
+   "nombre": "Vtiger CRM",
+   "sirve": [
+    "crm",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "gestion-proyectos",
+    "asistentes-ia",
+    "facturacion-contabilidad",
+    "reservas-citas",
+    "atencion-cliente",
+    "marketing-email",
+    "inventario-operaciones",
+    "firma-gestion-documental"
+   ],
+   "hoy": "crm"
+  },
+  {
+   "id": "wrike",
+   "nombre": "Wrike",
+   "sirve": [
+    "gestion-proyectos",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "asistentes-ia"
+   ],
+   "hoy": "gestion-proyectos"
+  },
+  {
+   "id": "zenkit",
+   "nombre": "Zenkit",
+   "sirve": [
+    "gestion-proyectos",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [],
+   "hoy": "gestion-proyectos"
+  },
+  {
+   "id": "zoho-crm",
+   "nombre": "Zoho CRM",
+   "sirve": [
+    "crm",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "asistentes-ia",
+    "facturacion-contabilidad",
+    "reservas-citas",
+    "atencion-cliente",
+    "marketing-email",
+    "inventario-operaciones",
+    "firma-gestion-documental"
+   ],
+   "hoy": "crm"
+  },
+  {
+   "id": "zoho-one",
+   "nombre": "Zoho One",
+   "sirve": [
+    "crm",
+    "automatizacion-integraciones",
+    "marketing-email",
+    "recursos-humanos",
+    "creacion-web-hosting"
+   ],
+   "porComprobar": [
+    "gestion-proyectos",
+    "facturacion-contabilidad",
+    "atencion-cliente",
+    "comercio-electronico",
+    "inventario-operaciones",
+    "firma-gestion-documental"
+   ],
+   "hoy": "plataformas-todo-en-uno"
+  },
+  {
+   "id": "zoho-projects",
+   "nombre": "Zoho Projects",
+   "sirve": [
+    "gestion-proyectos",
+    "facturacion-contabilidad",
+    "automatizacion-integraciones"
+   ],
+   "porComprobar": [
+    "asistentes-ia",
+    "firma-gestion-documental"
+   ],
+   "hoy": "gestion-proyectos"
+  }
+ ]
+}
