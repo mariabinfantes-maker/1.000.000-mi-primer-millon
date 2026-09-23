@@ -8,6 +8,7 @@ import {
   getEsqueleto,
   preguntasDePuerta,
 } from "../asesor";
+import type { ReglaDePresentacion } from "../asesor";
 import { getPuertas, necesidadesDePuerta } from "../necesidades";
 
 /**
@@ -172,5 +173,39 @@ describe("la puerta que se ha desarrollado, y lo que falta a la vista", () => {
     const suyas = dimensionesDeNecesidad("nec.mi-agenda").map((d) => d.id);
     expect(suyas).toContain("dim.cuantas-personas");
     expect(suyas).toContain("dim.volumen-de-citas");
+  });
+});
+
+describe("el límite se dice sin pedir perdón", () => {
+  /**
+   * Corrección de la propietaria (2026-09-23), leyendo el pie del recorrido:
+   * *«casi pedimos perdón; estamos dando una información que nadie nos pidió.
+   * Con decir "es la información que hemos recogido en sus páginas".»*
+   *
+   * Haber leído las páginas oficiales de 65 herramientas es el trabajo, no una
+   * carencia. Contarlo pidiendo permiso convierte lo mejor que tenemos en una
+   * excusa.
+   */
+  const REGLA = getEsqueleto().reglasDePresentacion.find((r) => r.id === "pres.el-limite-sin-pedir-perdon") as
+    | (ReglaDePresentacion & { comoNoSeDice?: string[]; comoSeDice?: string[] })
+    | undefined;
+
+  it("la regla existe y dice qué frases están prohibidas", () => {
+    expect(REGLA).toBeTruthy();
+    expect(REGLA!.comoNoSeDice?.length).toBeGreaterThan(2);
+    expect(REGLA!.comoSeDice?.length).toBeGreaterThan(0);
+  });
+
+  it("la forma buena es procedencia, no disculpa", () => {
+    expect(REGLA!.comoSeDice![0]).toContain("Esta es la información que hemos recogido");
+  });
+
+  /** Y nada del esqueleto puede sonar a excusa, fuera de esa lista de ejemplos. */
+  it("ninguna forma de consejo se disculpa", () => {
+    const disculpas = /lo sentimos|perd[óo]n|por desgracia|lamentablemente|s[óo]lo hemos podido/i;
+    for (const c of getEsqueleto().formasDeConsejo) {
+      expect(c.loQueSeDice, c.id).not.toMatch(disculpas);
+      for (const o of c.obligatorio) expect(o, c.id).not.toMatch(disculpas);
+    }
   });
 });

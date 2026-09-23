@@ -6333,6 +6333,67 @@ antes de extenderlo a las 61.
 
 Nadie lee esto todavía, igual que el vocabulario y por el mismo motivo.
 
+### CASI PEDIMOS PERDÓN — 2026-09-23
+
+La propietaria leyó el pie del recorrido:
+
+> *«Que no sabemos, dicho en claro. Lo de las herramientas sale de leer sus
+> páginas oficiales, no de usarlas… Éstas son las que hemos podido verificar,
+> no todas las que existen.»*
+
+Y dijo lo que era:
+
+> *«Casi pedimos perdón. Estamos dando una información que nadie nos pidió. Con
+> decir "es la información que hemos recogido en sus páginas".»*
+
+**Haber leído las páginas oficiales de 65 herramientas es el trabajo, no una
+carencia.** Contarlo pidiendo permiso convierte lo mejor que tenemos en una
+excusa. Y encima es información que la persona no ha pedido: le estamos
+explicando nuestro método cuando lo que quiere es saber qué le sirve.
+
+La regla `pres.el-limite-en-voz-alta` se sustituye por
+`pres.el-limite-sin-pedir-perdon`, y lleva dentro las dos listas:
+
+| Así no | Así sí |
+|---|---|
+| «No sabemos si…» | **«Esta es la información que hemos recogido en sus páginas.»** |
+| «No hemos podido comprobar todas…» | **«De esto no tenemos información.»** |
+| «Éstas son las que hemos podido verificar, no todas las que existen» | |
+| «Sale de leer sus páginas, no de usarlas» | |
+
+El límite se sigue diciendo —eso no cambia— pero **como procedencia, no como
+disculpa**. Hay pruebas que lo sostienen, incluida una que rechaza cualquier
+«lo sentimos», «por desgracia» o «sólo hemos podido» en las formas de consejo.
+
+#### Y la tarjeta, que llevaba a medias desde el 21 de septiembre
+
+Rediseñada con la misma idea. Cuatro bloques con rótulo, y ninguno se disculpa:
+
+    ViDay                                        85 €
+                                al mes, sin IVA, para 3
+    Plan Equipo Pro. Te resuelve 3 de las 5 cosas que necesitas.
+
+    LO QUE TE RESUELVE
+      · Que puedan reservar sin llamarte
+      · Tener la agenda bajo control
+
+    DE ESTO NO TENEMOS INFORMACIÓN
+      · Firmar sin imprimir ni escanear
+
+    A TENER EN CUENTA
+      Incluye 2 profesionales; cada uno más son 10 € al mes sin IVA
+
+    LO QUE TE VA A COSTAR A TI
+      Dar de alta tus servicios con su duración y su precio, y los horarios.
+
+    Esta es la información que hemos recogido en su página oficial.
+
+«De esto no tenemos información» sustituye a «no lo hemos comprobado»: dice lo
+mismo y no suena a fallo. Y el bloque de las desventajas sigue sin existir,
+como se decidió el 21 de septiembre — lo que hay es **«a tener en cuenta»**, y
+sólo aparece cuando algo del plan choca de verdad con lo que ella ha
+contestado.
+
 ### Lo que queda vivo de las quince categorías
 
 No se borra ninguna. Cada una encuentra sitio: «CRM y ventas» pasa a ser

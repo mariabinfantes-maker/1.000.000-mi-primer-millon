@@ -419,9 +419,19 @@
       "porQue": "Contar sólo lo que gana es vender humo."
     },
     {
-      "id": "pres.el-limite-en-voz-alta",
-      "regla": "«Todas las que hemos podido verificar», no «todas las que hay».",
-      "porQue": "Dice nuestro límite en voz alta y convierte el trabajo hecho en algo que se ve."
+      "id": "pres.el-limite-sin-pedir-perdon",
+      "regla": "El límite se dice como procedencia, no como disculpa: «Esta es la información que hemos recogido en sus páginas». Ni «sólo», ni «no hemos podido», ni «lo sentimos».",
+      "porQue": "Corrección de la propietaria (2026-09-23): «casi pedimos perdón; estamos dando una información que nadie nos pidió». Haber leído sus páginas oficiales es el trabajo, no una carencia. Contarlo pidiendo permiso convierte lo mejor que tenemos en una excusa.",
+      "comoNoSeDice": [
+        "No sabemos si...",
+        "No hemos podido comprobar todas...",
+        "Éstas son las que hemos podido verificar, no todas las que existen",
+        "Sale de leer sus páginas, no de usarlas"
+      ],
+      "comoSeDice": [
+        "Esta es la información que hemos recogido en sus páginas.",
+        "De esto no tenemos información."
+      ]
     },
     {
       "id": "pres.sin-veredicto",
