@@ -6292,10 +6292,43 @@ motivos que se apoyan en un plan, un precio o un tope.
 ocho reglas de presentación, cada una con su motivo para que no se borre en
 cuanto estorbe.
 
-Desarrollada **una puerta**, «Que no se me pierda nada», que es donde cae la
-peluquera: 15 de sus 20 necesidades ya tienen preguntas. Las otras cinco
-puertas están a cero **y hay una prueba que exige que ese estado se vea**, en
-vez de disimularlo. El acuerdo fue cerrar el esqueleto y probar una puerta
+#### La precisión que evitó una purga
+
+Al escribir la prueba me pasé de frenada: prohibí la palabra «tope» en
+cualquier motivo. La propietaria lo corrigió el mismo día:
+
+> *«Hablar de límites en esa segunda parte es correcto: ahí ya estamos
+> valorando herramientas. No hace falta eliminar toda referencia al catálogo,
+> sino mantener el orden necesidad → diagnóstico → solución.»*
+
+Así que el orden deja de defenderse purgando y pasa a estar **en la
+estructura**: cada dimensión tiene dos campos separados.
+
+| | |
+|---|---|
+| `queCambiaEnElDiagnostico` | se escribe **sin mirar el catálogo**. Ahí no caben planes, topes ni precios |
+| `queComprobamosDespues` | ahí **sí**, porque en esa fase ya estamos valorando |
+
+La prueba que caza herramientas sólo revisa el primero. Y hay otra que exige
+que **alguna** dimensión hable de límites en el segundo, para que nadie vuelva
+a purgarlo creyendo que limpia.
+
+Desarrollada **una puerta entera**, «Que no se me pierda nada», que es donde
+cae la peluquera: **sus 20 necesidades tienen preguntas**, con diez dimensiones. Las otras cinco puertas están a cero **y hay una prueba que exige que ese
+estado se vea**, en vez de disimularlo — y el propio recorrido lo enseña, con
+una tabla de qué parte de la casa está construida.
+
+#### El recorrido, ya leyendo la casa
+
+`casa.html` no tiene ni una herramienta escrita a mano en su flujo: las diez
+preguntas, las veinte necesidades, las formas de consejo y las reglas de
+presentación **se generan desde `asesor.json` y `necesidades.json`**. Las
+herramientas entran sólo en la última fase, a llenar.
+
+Y el diagnóstico hace algo que el recorrido anterior no sabía hacer: **quita
+de en medio lo que no es suyo**. A quien sólo vende su tiempo no se le enseña
+control de existencias; a quien trabaja sola no se le habla de turnos ni de
+nóminas. Lo apartado se puede desplegar, con el motivo de por qué se apartó. El acuerdo fue cerrar el esqueleto y probar una puerta
 antes de extenderlo a las 61.
 
 Nadie lee esto todavía, igual que el vocabulario y por el mismo motivo.

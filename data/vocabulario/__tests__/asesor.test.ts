@@ -38,11 +38,16 @@ describe("la prueba decisiva: quitar el catálogo y que la casa siga en pie", ()
    * «hay un plan barato con un tope de 100 reservas». Eso es el catálogo
    * explicándole a la clienta por qué le preguntamos.
    */
-  it("ningún motivo se apoya en el plan, el precio o el tope de un producto", () => {
+  /**
+   * Sólo en la parte del DIAGNÓSTICO. Lo que se comprueba después habla de
+   * herramientas por definición y debe poder nombrar sus límites: ahí ya
+   * estamos valorando. Prohibirlo en todas partes era pasarse de frenada.
+   */
+  it("ningún motivo del diagnóstico se apoya en el plan, el precio o el tope de un producto", () => {
     const sospechosas = /\bplan (barato|gratis|b[áa]sico)\b|\btope\b|\bl[íi]mite de \d|\bcuesta \d|\b\d+ ?(€|\$)\b/i;
     for (const d of getDimensiones()) {
       expect(d.porQuePreguntamos, d.id).not.toMatch(sospechosas);
-      for (const q of d.queCambia) expect(q, `${d.id}: ${q}`).not.toMatch(sospechosas);
+      for (const q of d.queCambiaEnElDiagnostico) expect(q, `${d.id}: ${q}`).not.toMatch(sospechosas);
     }
   });
 
@@ -52,17 +57,31 @@ describe("la prueba decisiva: quitar el catálogo y que la casa siga en pie", ()
    * herramientas contra lo que ya sabemos. Un tope no puede ser el motivo de
    * una pregunta; sí puede ser lo que se hace con la respuesta.
    */
-  it("el esqueleto deja escrito el orden: primero el negocio, después los límites", () => {
-    const r = getEsqueleto().laReglaQueLoGobierna as { elOrdenCorrecto?: string };
-    expect(r.elOrdenCorrecto).toContain("Nunca al revés");
+  it("el esqueleto deja escrito el orden: necesidad, diagnóstico y después solución", () => {
+    const r = getEsqueleto().laReglaQueLoGobierna as { elOrdenCorrecto?: string; precision?: string };
+    expect(r.elOrdenCorrecto).toContain("Necesidad → diagnóstico → solución");
+    expect(r.elOrdenCorrecto).toContain("no puede ser el motivo de una pregunta");
+  });
+
+  /**
+   * Y la fase de valorar SÍ puede hablar de límites. Esta prueba existe para
+   * que nadie vuelva a purgarla creyendo que limpia.
+   */
+  it("la fase de valorar puede nombrar límites, y alguna lo hace", () => {
+    const hablan = getDimensiones().filter((d) => d.queComprobamosDespues.some((q) => /tope|plan|cuesta|l[íi]mite/i.test(q)));
+    expect(hablan.length).toBeGreaterThan(0);
+  });
+
+  it("toda dimensión dice qué se comprueba después, no sólo qué preguntar", () => {
+    for (const d of getDimensiones()) expect(d.queComprobamosDespues.length, d.id).toBeGreaterThan(0);
   });
 });
 
 describe("se pregunta porque cambia el consejo, no porque el negocio lo tenga", () => {
   it("cada dimensión declara qué cambia su respuesta, y no está vacío", () => {
     for (const d of getDimensiones()) {
-      expect(d.queCambia.length, d.id).toBeGreaterThan(0);
-      for (const q of d.queCambia) expect(q.length, `${d.id}: ${q}`).toBeGreaterThan(25);
+      expect(d.queCambiaEnElDiagnostico.length, d.id).toBeGreaterThan(0);
+      for (const q of d.queCambiaEnElDiagnostico) expect(q.length, `${d.id}: ${q}`).toBeGreaterThan(25);
     }
   });
 

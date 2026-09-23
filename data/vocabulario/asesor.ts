@@ -51,6 +51,11 @@ import { getNecesidad, getPuertas, necesidadesDePuerta } from "./necesidades";
  *   dimensión   → qué le preguntamos, y qué cambia su respuesta
  *   consejo     → qué decimos, y qué estamos obligados a decir
  *   presentación→ cómo se enseñan las alternativas
+ *
+ * Y dentro de la dimensión, el orden completo: **necesidad → diagnóstico →
+ * solución**. Las dos primeras se escriben sin mirar el catálogo. En la
+ * tercera sí se habla de límites, planes y precios, porque ahí ya estamos
+ * valorando herramientas. Lo que no se puede es invertirlo.
  */
 
 export type Respuesta = {
@@ -67,14 +72,29 @@ export type Dimension = {
   /** Lo que ve la persona: por qué se lo preguntamos. */
   porQuePreguntamos: string;
   /**
-   * QUÉ CAMBIA SU RESPUESTA. Obligatorio y no vacío.
+   * QUÉ CAMBIA EN EL DIAGNÓSTICO. Obligatorio y no vacío.
    *
-   * Es el campo que separa una pregunta útil de un formulario. Si al
-   * escribirlo no sale nada, la pregunta sobra — y si para escribirlo hace
-   * falta citar un plan o un tope, la pregunta está al revés: nace del
-   * catálogo y no del negocio.
+   * Es el campo que separa una pregunta útil de un formulario: si al
+   * escribirlo no sale nada, la pregunta sobra. Se escribe **sin mirar el
+   * catálogo** — aquí no caben planes, topes ni precios, porque todavía no
+   * estamos valorando herramientas sino entendiendo a la persona.
    */
-  queCambia: string[];
+  queCambiaEnElDiagnostico: string[];
+  /**
+   * QUÉ SE COMPRUEBA DESPUÉS, ya con herramientas delante.
+   *
+   * Aquí los límites SÍ caben, y es lo correcto: en esta fase estamos
+   * valorando. Precisión de la propietaria (2026-09-23): *«hablar de límites
+   * en esa segunda parte es correcto; ahí ya estamos valorando herramientas.
+   * No hace falta eliminar toda referencia al catálogo, sino mantener el
+   * orden.»*
+   *
+   * La primera versión de este módulo prohibía la palabra «tope» en cualquier
+   * sitio, y eso era pasarse de frenada: tiraba información buena por evitar
+   * un error de orden. El orden se arregla separando las dos fases, no
+   * purgando la segunda.
+   */
+  queComprobamosDespues: string[];
   respuestas: Respuesta[];
   /** Las necesidades cuyo consejo cambia con esto. */
   afectaA: string[];
@@ -162,8 +182,10 @@ export function erroresDelEsqueleto(nombresDeHerramientas: readonly string[] = [
     vistos.add(d.id);
 
     // La regla que lo gobierna, comprobada: si no cambia nada, sobra.
-    if (d.queCambia.length === 0) e.push(`${donde}: no declara qué cambia su respuesta, así que sobra`);
-    for (const q of d.queCambia) {
+    if (d.queCambiaEnElDiagnostico.length === 0) {
+      e.push(`${donde}: no declara qué cambia en el diagnóstico, así que sobra`);
+    }
+    for (const q of d.queCambiaEnElDiagnostico) {
       if (q.length < 25) e.push(`${donde}: «${q}» no dice qué cambia, sólo lo nombra`);
     }
 
@@ -178,7 +200,9 @@ export function erroresDelEsqueleto(nombresDeHerramientas: readonly string[] = [
 
     // LA PRUEBA DECISIVA. Si para preguntar hace falta nombrar un producto,
     // la pregunta nació del catálogo.
-    const texto = `${d.pregunta} ${d.porQuePreguntamos} ${d.queCambia.join(" ")}`.toLowerCase();
+    // Sólo se revisa la parte del DIAGNÓSTICO: lo que se comprueba después
+    // habla de herramientas por definición, y debe poder nombrarlas.
+    const texto = `${d.pregunta} ${d.porQuePreguntamos} ${d.queCambiaEnElDiagnostico.join(" ")}`.toLowerCase();
     for (const h of nombresDeHerramientas) {
       const nombre = h.toLowerCase();
       if (nombre.length > 3 && texto.includes(nombre)) e.push(`${donde}: nombra una herramienta («${h}»)`);

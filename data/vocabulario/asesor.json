@@ -7,18 +7,14 @@
     "deQuienEs": "Propietaria, 2026-09-23.",
     "porQue": "Sin esta regla, evitar preguntas sobre herramientas se convierte en un formulario interminable sobre la empresa. Por eso cada dimension tiene que declarar QUE CAMBIA, y si no cambia nada, sobra.",
     "laPruebaDecisiva": "Si quitamos ViDay y cambiamos el catalogo entero, las preguntas y el razonamiento siguen teniendo sentido. Cambiaran las herramientas ofrecidas y la cobertura; la casa sigue en pie.",
-    "elOrdenCorrecto": "Primero se conoce el negocio, después se comparan los límites de las herramientas contra lo que ya sabemos. Nunca al revés: un tope no puede ser el motivo de una pregunta."
+    "elOrdenCorrecto": "Necesidad → diagnóstico → solución. Las dos primeras se escriben sin mirar el catálogo. En la tercera SÍ se habla de límites, planes y precios, porque ahí ya estamos valorando herramientas. Lo que no se puede es invertirlo: un tope no puede ser el motivo de una pregunta.",
+    "precision": "Corrección de la propietaria (2026-09-23): no hace falta eliminar toda referencia al catálogo, sino mantener el orden. Hablar de límites al valorar es correcto."
   },
   "dimensiones": [
     {
       "id": "dim.cuantas-personas",
       "pregunta": "¿Cuántas personas atendéis a clientes?",
       "porQuePreguntamos": "Si sois varias, hay cosas que dejan de ser un extra y pasan a ser imprescindibles.",
-      "queCambia": [
-        "Si hay varias personas, «que el cliente elija con quién» sube de deseable a imprescindible",
-        "Si hay varias personas, aparecen necesidades que sola no tendrías: turnos, fichajes, nóminas",
-        "Con una sola persona, la mitad de esta puerta no aplica y no se enseña"
-      ],
       "respuestas": [
         {
           "id": "sola",
@@ -40,17 +36,20 @@
         "nec.nominas",
         "nec.contratar-gente",
         "nec.hablar-con-mi-equipo"
+      ],
+      "queCambiaEnElDiagnostico": [
+        "Si hay varias personas, «que el cliente elija con quién» sube de deseable a imprescindible",
+        "Si hay varias personas, aparecen necesidades que sola no tendrías: turnos, fichajes, nóminas",
+        "Con una sola persona, la mitad de esta puerta no aplica y no se enseña"
+      ],
+      "queComprobamosDespues": [
+        "Se mira cuántas personas caben en cada plan y qué cuesta añadir una más"
       ]
     },
     {
       "id": "dim.volumen-de-citas",
       "pregunta": "¿Cuántas citas atendéis al mes, más o menos?",
       "porQuePreguntamos": "Lo preguntamos para saber si con una agenda de papel te apañas o se te está yendo de las manos.",
-      "queCambia": [
-        "Con poco volumen, automatizar la agenda puede no compensar: se dice, y se ahorra el gasto",
-        "Con mucho volumen, los recordatorios y las ausencias dejan de ser un detalle y pasan a costar dinero",
-        "Cuando una herramienta traiga un límite de uso, se compara contra su volumen real en vez de suponerlo"
-      ],
       "respuestas": [
         {
           "id": "pocas",
@@ -74,16 +73,19 @@
         "nec.mi-agenda",
         "nec.que-reserven-solos"
       ],
-      "siNoSabe": "Se sigue adelante y se avisa de que ese dato decidiría entre dos opciones. No se le pide que lo averigüe para poder ayudarla."
+      "siNoSabe": "Se sigue adelante y se avisa de que ese dato decidiría entre dos opciones. No se le pide que lo averigüe para poder ayudarla.",
+      "queCambiaEnElDiagnostico": [
+        "Con poco volumen, automatizar la agenda puede no compensar: se dice, y se ahorra el gasto",
+        "Con mucho volumen, los recordatorios y las ausencias dejan de ser un detalle y pasan a costar dinero"
+      ],
+      "queComprobamosDespues": [
+        "Cuando una herramienta traiga un tope de reservas, se compara contra su volumen real en vez de suponerlo"
+      ]
     },
     {
       "id": "dim.donde-se-hace-el-trabajo",
       "pregunta": "¿El trabajo lo hacéis en vuestro local o vais a donde está el cliente?",
       "porQuePreguntamos": "Lo que hace falta para controlar el trabajo cambia mucho según dónde se haga.",
-      "queCambia": [
-        "Si se trabaja fuera, aparecen necesidades enteras: partes en el móvil, rutas, firma del cliente allí",
-        "Si todo es en el local, esas necesidades no se enseñan y no se pregunta por ellas"
-      ],
       "respuestas": [
         {
           "id": "local",
@@ -102,16 +104,19 @@
         "nec.el-trabajo-de-fuera",
         "nec.mis-maquinas",
         "nec.tareas-y-encargos"
+      ],
+      "queCambiaEnElDiagnostico": [
+        "Si se trabaja fuera, aparecen necesidades enteras: partes en el móvil, rutas, firma del cliente allí",
+        "Si todo es en el local, esas necesidades no se enseñan y no se pregunta por ellas"
+      ],
+      "queComprobamosDespues": [
+        "Se mira si tiene app de móvil que funcione fuera, y si sirve sin cobertura"
       ]
     },
     {
       "id": "dim.vende-producto",
       "pregunta": "¿Vendes también producto, o sólo tu tiempo y tu trabajo?",
       "porQuePreguntamos": "Vender producto trae consigo controlar lo que tienes, y eso es un mundo aparte.",
-      "queCambia": [
-        "Si no vende producto, el stock y las compras a proveedores no son necesidad suya y no se enseñan",
-        "Si vende producto, se pregunta por existencias antes de recomendar nada"
-      ],
       "respuestas": [
         {
           "id": "solo-servicio",
@@ -126,16 +131,19 @@
         "nec.el-stock",
         "nec.comprar-a-proveedores",
         "nec.fabricar"
+      ],
+      "queCambiaEnElDiagnostico": [
+        "Si no vende producto, el stock y las compras a proveedores no son necesidad suya y no se enseñan",
+        "Si vende producto, se pregunta por existencias antes de recomendar nada"
+      ],
+      "queComprobamosDespues": [
+        "Se mira si el control de existencias entra en el plan o va aparte"
       ]
     },
     {
       "id": "dim.datos-delicados",
       "pregunta": "¿Guardáis datos de salud de vuestros clientes?",
       "porQuePreguntamos": "Si los guardas, lo que te sirve tiene que cumplir cosas que no le pedimos a cualquier programa.",
-      "queCambia": [
-        "Si guarda datos de salud, la historia clínica pasa a ser necesidad y sube el listón legal",
-        "Si no los guarda, no se le enseña nada de eso ni se le mete miedo con el RGPD sin motivo"
-      ],
       "respuestas": [
         {
           "id": "si",
@@ -156,17 +164,19 @@
         "nec.expedientes",
         "nec.papeles-ordenados"
       ],
-      "siNoSabe": "Se le explica en una frase qué cuenta como dato de salud y se sigue. No se le pide que resuelva una cuestión legal."
+      "siNoSabe": "Se le explica en una frase qué cuenta como dato de salud y se sigue. No se le pide que resuelva una cuestión legal.",
+      "queCambiaEnElDiagnostico": [
+        "Si guarda datos de salud, la historia clínica pasa a ser necesidad y sube el listón legal",
+        "Si no los guarda, no se le enseña nada de eso ni se le mete miedo con el RGPD sin motivo"
+      ],
+      "queComprobamosDespues": [
+        "Se mira dónde guarda los datos y qué dice de cumplimiento, con el mismo listón para todas"
+      ]
     },
     {
       "id": "dim.con-que-se-apana-hoy",
       "pregunta": "¿Con qué te apañas ahora mismo?",
       "porQuePreguntamos": "Saber de dónde vienes cambia lo que te conviene: mudarse cuesta trabajo, y a veces no compensa.",
-      "queCambia": [
-        "Si ya usa algo, se valora si conectar con ello o sustituirlo, y el coste de mudarse entra en el consejo",
-        "Si va con papel o con una hoja de cálculo, el salto es mayor y hay que decírselo antes de que lo descubra sola",
-        "Cambia qué se le presenta primero: no es lo mismo elegir la primera herramienta que cambiar de herramienta"
-      ],
       "respuestas": [
         {
           "id": "papel",
@@ -190,6 +200,140 @@
         "nec.mi-agenda",
         "nec.papeles-ordenados",
         "nec.expedientes"
+      ],
+      "queCambiaEnElDiagnostico": [
+        "Si ya usa algo, se valora si conectar con ello o sustituirlo, y el coste de mudarse entra en el consejo",
+        "Si va con papel o con una hoja de cálculo, el salto es mayor y hay que decírselo antes de que lo descubra sola",
+        "Cambia qué se le presenta primero: no es lo mismo elegir la primera herramienta que cambiar de herramienta"
+      ],
+      "queComprobamosDespues": [
+        "Se mira si conecta con lo que ya usa y si deja sacar los datos para irse"
+      ]
+    },
+    {
+      "id": "dim.encargos-largos-o-cortos",
+      "pregunta": "Lo que haces, ¿se resuelve en un rato o se alarga días o semanas?",
+      "porQuePreguntamos": "Un encargo que dura una tarde y una obra de tres meses no se llevan igual.",
+      "queCambiaEnElDiagnostico": [
+        "Si todo se resuelve en el día, una lista de tareas basta y no hay que meterla en proyectos",
+        "Si se alarga, aparecen fases, plazos y el riesgo de perder el hilo a mitad",
+        "Si se alarga, saber cuánto tiempo se echa deja de ser curiosidad y pasa a decidir si ganas dinero"
+      ],
+      "queComprobamosDespues": [
+        "Se mira si trae fases y plazos, o sólo una lista de tareas suelta"
+      ],
+      "respuestas": [
+        {
+          "id": "corto",
+          "texto": "Se resuelve en el día"
+        },
+        {
+          "id": "largo",
+          "texto": "Se alarga días o semanas"
+        },
+        {
+          "id": "ambos",
+          "texto": "De todo un poco"
+        }
+      ],
+      "afectaA": [
+        "nec.tareas-y-encargos",
+        "nec.proyectos-largos",
+        "nec.saber-cuanto-tiempo-echo"
+      ]
+    },
+    {
+      "id": "dim.como-cobra-el-trabajo",
+      "pregunta": "¿Cobras por el trabajo hecho, por horas, o tienes clientes de cuota fija?",
+      "porQuePreguntamos": "Según cómo cobres, hay cosas que tienes que ir apuntando sobre la marcha o no cuadran luego.",
+      "queCambiaEnElDiagnostico": [
+        "Si cobra por horas, apuntar el tiempo deja de ser opcional: sin eso no puede facturar",
+        "Si tiene clientes de cuota, lo que importa es que no se le pase una renovación",
+        "Si cobra por trabajo cerrado, el tiempo sólo le sirve para saber si le salió a cuenta"
+      ],
+      "queComprobamosDespues": [
+        "Se mira si el control de tiempo llega hasta la factura o se queda en un informe suelto"
+      ],
+      "respuestas": [
+        {
+          "id": "cerrado",
+          "texto": "Por el trabajo, a precio cerrado"
+        },
+        {
+          "id": "horas",
+          "texto": "Por horas"
+        },
+        {
+          "id": "cuota",
+          "texto": "Tengo clientes de cuota fija"
+        },
+        {
+          "id": "mezcla",
+          "texto": "Mezclo varias"
+        }
+      ],
+      "afectaA": [
+        "nec.saber-cuanto-tiempo-echo",
+        "nec.contratos-que-no-se-me-pasen",
+        "nec.proyectos-largos"
+      ]
+    },
+    {
+      "id": "dim.papeles-que-firma-el-cliente",
+      "pregunta": "¿Tus clientes tienen que firmarte algo? Presupuestos, consentimientos, contratos…",
+      "porQuePreguntamos": "Si te toca imprimir, firmar y escanear, es tiempo tuyo que se va todas las semanas.",
+      "queCambiaEnElDiagnostico": [
+        "Si no firma nada, la firma electrónica no es necesidad suya y no se le enseña",
+        "Si firma a menudo, el ir y venir del papel es una parte real de su semana",
+        "Si lo que firma tiene valor legal, hace falta que la firma lo tenga también"
+      ],
+      "queComprobamosDespues": [
+        "Se mira si la firma vale legalmente en España o es sólo un garabato en la pantalla"
+      ],
+      "respuestas": [
+        {
+          "id": "nada",
+          "texto": "No firman nada"
+        },
+        {
+          "id": "aveces",
+          "texto": "De vez en cuando"
+        },
+        {
+          "id": "siempre",
+          "texto": "Casi en cada trabajo"
+        }
+      ],
+      "afectaA": [
+        "nec.firmar-documentos",
+        "nec.contratos-que-no-se-me-pasen",
+        "nec.papeles-ordenados"
+      ]
+    },
+    {
+      "id": "dim.ensena-o-forma",
+      "pregunta": "¿Das clases, cursos o formación a tus clientes?",
+      "porQuePreguntamos": "Si enseñas, hay que llevar quién se ha apuntado y por dónde va cada uno, y eso es otra cosa.",
+      "queCambiaEnElDiagnostico": [
+        "Si no enseña, nada de matrículas ni de alumnos aparece en su recorrido",
+        "Si enseña, llevar la asistencia y el avance pasa a ser necesidad suya"
+      ],
+      "queComprobamosDespues": [
+        "Se mira si trae matrícula y seguimiento del alumno, o sólo un calendario de clases"
+      ],
+      "respuestas": [
+        {
+          "id": "no",
+          "texto": "No"
+        },
+        {
+          "id": "si",
+          "texto": "Sí, doy clases o cursos"
+        }
+      ],
+      "afectaA": [
+        "nec.dar-clases",
+        "nec.mi-agenda"
       ]
     }
   ],
