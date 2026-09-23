@@ -1,0 +1,293 @@
+{
+  "version": "0.1.0",
+  "fecha": "2026-09-23",
+  "nota": "El esqueleto del asesor. Se escribe ANTES de saber que herramientas hay, y tiene que seguir en pie si se cambia el catalogo entero. Nadie lo lee todavia.",
+  "laReglaQueLoGobierna": {
+    "regla": "Se pregunta porque la RESPUESTA CAMBIA EL CONSEJO, no porque el negocio tenga ese dato.",
+    "deQuienEs": "Propietaria, 2026-09-23.",
+    "porQue": "Sin esta regla, evitar preguntas sobre herramientas se convierte en un formulario interminable sobre la empresa. Por eso cada dimension tiene que declarar QUE CAMBIA, y si no cambia nada, sobra.",
+    "laPruebaDecisiva": "Si quitamos ViDay y cambiamos el catalogo entero, las preguntas y el razonamiento siguen teniendo sentido. Cambiaran las herramientas ofrecidas y la cobertura; la casa sigue en pie.",
+    "elOrdenCorrecto": "Primero se conoce el negocio, después se comparan los límites de las herramientas contra lo que ya sabemos. Nunca al revés: un tope no puede ser el motivo de una pregunta."
+  },
+  "dimensiones": [
+    {
+      "id": "dim.cuantas-personas",
+      "pregunta": "¿Cuántas personas atendéis a clientes?",
+      "porQuePreguntamos": "Si sois varias, hay cosas que dejan de ser un extra y pasan a ser imprescindibles.",
+      "queCambia": [
+        "Si hay varias personas, «que el cliente elija con quién» sube de deseable a imprescindible",
+        "Si hay varias personas, aparecen necesidades que sola no tendrías: turnos, fichajes, nóminas",
+        "Con una sola persona, la mitad de esta puerta no aplica y no se enseña"
+      ],
+      "respuestas": [
+        {
+          "id": "sola",
+          "texto": "Sólo yo"
+        },
+        {
+          "id": "pocas",
+          "texto": "Somos entre dos y cinco"
+        },
+        {
+          "id": "muchas",
+          "texto": "Somos más de cinco"
+        }
+      ],
+      "afectaA": [
+        "nec.mi-agenda",
+        "nec.que-reserven-solos",
+        "nec.el-equipo-organizado",
+        "nec.nominas",
+        "nec.contratar-gente",
+        "nec.hablar-con-mi-equipo"
+      ]
+    },
+    {
+      "id": "dim.volumen-de-citas",
+      "pregunta": "¿Cuántas citas atendéis al mes, más o menos?",
+      "porQuePreguntamos": "Lo preguntamos para saber si con una agenda de papel te apañas o se te está yendo de las manos.",
+      "queCambia": [
+        "Con poco volumen, automatizar la agenda puede no compensar: se dice, y se ahorra el gasto",
+        "Con mucho volumen, los recordatorios y las ausencias dejan de ser un detalle y pasan a costar dinero",
+        "Cuando una herramienta traiga un límite de uso, se compara contra su volumen real en vez de suponerlo"
+      ],
+      "respuestas": [
+        {
+          "id": "pocas",
+          "texto": "Menos de cien"
+        },
+        {
+          "id": "bastantes",
+          "texto": "Entre cien y trescientas"
+        },
+        {
+          "id": "muchas",
+          "texto": "Más de trescientas"
+        },
+        {
+          "id": "nose",
+          "texto": "No lo sé",
+          "admiteNoLoSe": true
+        }
+      ],
+      "afectaA": [
+        "nec.mi-agenda",
+        "nec.que-reserven-solos"
+      ],
+      "siNoSabe": "Se sigue adelante y se avisa de que ese dato decidiría entre dos opciones. No se le pide que lo averigüe para poder ayudarla."
+    },
+    {
+      "id": "dim.donde-se-hace-el-trabajo",
+      "pregunta": "¿El trabajo lo hacéis en vuestro local o vais a donde está el cliente?",
+      "porQuePreguntamos": "Lo que hace falta para controlar el trabajo cambia mucho según dónde se haga.",
+      "queCambia": [
+        "Si se trabaja fuera, aparecen necesidades enteras: partes en el móvil, rutas, firma del cliente allí",
+        "Si todo es en el local, esas necesidades no se enseñan y no se pregunta por ellas"
+      ],
+      "respuestas": [
+        {
+          "id": "local",
+          "texto": "En nuestro local"
+        },
+        {
+          "id": "fuera",
+          "texto": "Vamos a donde está el cliente"
+        },
+        {
+          "id": "ambos",
+          "texto": "Las dos cosas"
+        }
+      ],
+      "afectaA": [
+        "nec.el-trabajo-de-fuera",
+        "nec.mis-maquinas",
+        "nec.tareas-y-encargos"
+      ]
+    },
+    {
+      "id": "dim.vende-producto",
+      "pregunta": "¿Vendes también producto, o sólo tu tiempo y tu trabajo?",
+      "porQuePreguntamos": "Vender producto trae consigo controlar lo que tienes, y eso es un mundo aparte.",
+      "queCambia": [
+        "Si no vende producto, el stock y las compras a proveedores no son necesidad suya y no se enseñan",
+        "Si vende producto, se pregunta por existencias antes de recomendar nada"
+      ],
+      "respuestas": [
+        {
+          "id": "solo-servicio",
+          "texto": "Sólo servicio"
+        },
+        {
+          "id": "tambien-producto",
+          "texto": "También vendo producto"
+        }
+      ],
+      "afectaA": [
+        "nec.el-stock",
+        "nec.comprar-a-proveedores",
+        "nec.fabricar"
+      ]
+    },
+    {
+      "id": "dim.datos-delicados",
+      "pregunta": "¿Guardáis datos de salud de vuestros clientes?",
+      "porQuePreguntamos": "Si los guardas, lo que te sirve tiene que cumplir cosas que no le pedimos a cualquier programa.",
+      "queCambia": [
+        "Si guarda datos de salud, la historia clínica pasa a ser necesidad y sube el listón legal",
+        "Si no los guarda, no se le enseña nada de eso ni se le mete miedo con el RGPD sin motivo"
+      ],
+      "respuestas": [
+        {
+          "id": "si",
+          "texto": "Sí"
+        },
+        {
+          "id": "no",
+          "texto": "No"
+        },
+        {
+          "id": "nose",
+          "texto": "No estoy segura",
+          "admiteNoLoSe": true
+        }
+      ],
+      "afectaA": [
+        "nec.historia-clinica",
+        "nec.expedientes",
+        "nec.papeles-ordenados"
+      ],
+      "siNoSabe": "Se le explica en una frase qué cuenta como dato de salud y se sigue. No se le pide que resuelva una cuestión legal."
+    },
+    {
+      "id": "dim.con-que-se-apana-hoy",
+      "pregunta": "¿Con qué te apañas ahora mismo?",
+      "porQuePreguntamos": "Saber de dónde vienes cambia lo que te conviene: mudarse cuesta trabajo, y a veces no compensa.",
+      "queCambia": [
+        "Si ya usa algo, se valora si conectar con ello o sustituirlo, y el coste de mudarse entra en el consejo",
+        "Si va con papel o con una hoja de cálculo, el salto es mayor y hay que decírselo antes de que lo descubra sola",
+        "Cambia qué se le presenta primero: no es lo mismo elegir la primera herramienta que cambiar de herramienta"
+      ],
+      "respuestas": [
+        {
+          "id": "papel",
+          "texto": "Papel, libreta o la cabeza"
+        },
+        {
+          "id": "hoja",
+          "texto": "Una hoja de cálculo"
+        },
+        {
+          "id": "programa",
+          "texto": "Ya uso un programa"
+        },
+        {
+          "id": "varios",
+          "texto": "Varios sueltos que no se hablan"
+        }
+      ],
+      "afectaA": [
+        "nec.tareas-y-encargos",
+        "nec.mi-agenda",
+        "nec.papeles-ordenados",
+        "nec.expedientes"
+      ]
+    }
+  ],
+  "formasDeConsejo": [
+    {
+      "id": "consejo.hay-varias",
+      "cuando": "Varias alternativas resuelven sus imprescindibles.",
+      "loQueSeDice": "Se ordenan por cuánto ayudan a SU caso y se explica qué resuelve cada una.",
+      "obligatorio": [
+        "Decir de cuántas de sus necesidades hablamos: «3 de 4», nunca «3» a secas",
+        "Enseñar lo que hace cada una antes de cualquier valoración nuestra"
+      ]
+    },
+    {
+      "id": "consejo.solo-una",
+      "cuando": "Sólo una alternativa lo resuelve, comprobada.",
+      "loQueSeDice": "«Para esto sólo tenemos una comprobada. No te digo que sea la mejor que existe: es la única que hemos verificado nosotros.»",
+      "obligatorio": [
+        "El aviso va SIEMPRE, y es lo que hace honesta a la única",
+        "No se rellena con dos más para que parezcan tres"
+      ]
+    },
+    {
+      "id": "consejo.cercano",
+      "cuando": "No hay nada exacto, pero hay algo cercano que puede servirle.",
+      "loQueSeDice": "Se ofrece lo cercano diciendo qué gana, qué le sobra y qué esfuerzo o coste añade. Decide ella.",
+      "obligatorio": [
+        "Decir qué le falta a lo cercano respecto de lo que pidió",
+        "Decir qué trae de más, sin que eso lo suba en el orden"
+      ]
+    },
+    {
+      "id": "consejo.no-cubierto",
+      "cuando": "No tenemos nada para eso.",
+      "loQueSeDice": "«Esto no lo cubrimos.» Y si sabemos por dónde mirar, se señala, diciendo que no lo hemos verificado.",
+      "obligatorio": [
+        "Decir que no es un resultado válido y no un fallo",
+        "No empujar lo más parecido como si valiera"
+      ]
+    },
+    {
+      "id": "consejo.no-lo-sabemos",
+      "cuando": "No lo hemos comprobado.",
+      "loQueSeDice": "Se distingue entre «lo buscamos y no salió» y «todavía no lo hemos mirado». Nunca se convierte en «no lo hace».",
+      "obligatorio": [
+        "El hueco es nuestro y se dice como nuestro",
+        "No penaliza a la herramienta en el orden"
+      ]
+    },
+    {
+      "id": "consejo.no-aplica",
+      "cuando": "Sus respuestas dicen que esa necesidad no es suya.",
+      "loQueSeDice": "No se enseña. Ni como opción, ni como aviso.",
+      "obligatorio": [
+        "No se le ofrece control de stock a quien sólo vende su tiempo"
+      ]
+    }
+  ],
+  "reglasDePresentacion": [
+    {
+      "id": "pres.primero-que-hace",
+      "regla": "Primero las herramientas y lo que hace cada una. Después nuestra valoración.",
+      "porQue": "Si la nota va delante, ya hemos decidido por ella antes de que mire."
+    },
+    {
+      "id": "pres.de-cerca-a-lejos",
+      "regla": "De más cerca a más lejana de SU necesidad, nunca de mejor a peor.",
+      "porQue": "«Ésta se parece más a lo que me has pedido» es una medida; «ésta es mejor» es un juicio sobre una empresa."
+    },
+    {
+      "id": "pres.el-desplegable",
+      "regla": "Las primeras son nuestra ayuda; el desplegable con todas las verificadas es su derecho.",
+      "porQue": "Ahí está la decisión. Molnip informa y acompaña; elige ella."
+    },
+    {
+      "id": "pres.tres-estados",
+      "regla": "Lo hace / se comprobó que no lo hace / no lo hemos comprobado. Tres palabras distintas, nunca dos.",
+      "porQue": "Juntarlos convierte nuestro hueco en un defecto suyo."
+    },
+    {
+      "id": "pres.lo-que-te-cuesta",
+      "regla": "Cada necesidad dice lo que le va a costar a ella ponerlo en marcha.",
+      "porQue": "Contar sólo lo que gana es vender humo."
+    },
+    {
+      "id": "pres.el-limite-en-voz-alta",
+      "regla": "«Todas las que hemos podido verificar», no «todas las que hay».",
+      "porQue": "Dice nuestro límite en voz alta y convierte el trabajo hecho en algo que se ve."
+    },
+    {
+      "id": "pres.sin-veredicto",
+      "regla": "Nada de «la mejor», ni ventajas contra desventajas a dos columnas, ni ✓ verde contra × roja, ni puntuaciones.",
+      "porQue": "No somos jueces. De una herramienta que no encaja no se dice nada malo: se dice que no está pensada para ella."
+    },
+    {
+      "id": "pres.los-extras-se-nombran",
+      "regla": "Lo que trae de más se nombra para que lo juzgue ella; no suma en el orden.",
+      "porQue": "Tener más funciones no debería subir automáticamente una herramienta."
+    }
+  ]
+}

@@ -6217,6 +6217,89 @@ decían «todavía no se ha comprobado ningún uso» fallaron al hacerlo: que
 fallaran era la señal de que el lote se había lanzado. Están actualizadas a lo
 que se sabe ahora.
 
+### LA CASA ANTES DE LOS MUEBLES — 2026-09-23
+
+Regla de la propietaria, y corrige el rumbo de toda la ronda anterior:
+
+> *«Nunca debemos diseñar nuestra página pensando en las herramientas que
+> tenemos. Nosotros diseñamos nuestra casa, nuestro esqueleto, y ya buscaremos
+> con qué llenarla.»*
+
+Y el orden que se recupera:
+
+1. Diseñar el esqueleto: necesidades, preguntas, consejo y cómo se presentan
+   las alternativas.
+2. Definir qué debe resolver cada espacio, **independientemente del catálogo**.
+3. Investigar y colocar las herramientas que encajen, **dejando visible lo que
+   todavía no podamos cubrir**.
+
+#### Lo que se comprobó en el código, y no de memoria
+
+**El mapa de necesidades está limpio.** Contrastado contra los trece nombres
+del catálogo: cero coincidencias. Sus campos apuntan a capacidades, nunca a
+productos.
+
+**El recorrido de prueba del 2026-09-22 no lo estaba.** Nombra tres
+herramientas trece veces, tiene cuatro preguntas escritas a mano en el HTML y
+**no lee el mapa de necesidades ni una sola vez**. No es que se apoyara en el
+mapa y se desviara: el mapa no intervenía.
+
+#### El diagnóstico: a la casa le faltaba una planta
+
+| | |
+|---|---|
+| Necesidades | estaba, e independiente del catálogo |
+| **Preguntas** | **no existía** |
+| **Consejo** | **no existía** |
+| Presentación | a medias: el material sí, las reglas sólo en prosa aquí |
+
+La palabra «pregunta» aparecía cinco veces en el mapa y las cinco eran prosa
+dentro de un comentario. Al no haber de dónde sacar las preguntas, se
+improvisaron — y improvisarlas con tres herramientas delante las hizo con forma
+de herramienta. **El hueco del esqueleto es lo que dejó entrar al catálogo.**
+
+#### La regla que lo gobierna
+
+> *«No se pregunta algo simplemente porque el negocio lo tenga, sino porque su
+> respuesta cambia el consejo.»*
+
+Sin ella, evitar las preguntas sobre herramientas se convierte en un formulario
+interminable sobre la empresa. Por eso cada dimensión declara `queCambia`, es
+obligatorio y no puede venir vacío: **si no cambia nada, sobra**. Hay prueba.
+
+Y el orden, que es donde me torcí: **primero se conoce el negocio, y después se
+comparan los límites de las herramientas contra lo que ya sabemos.** Un tope no
+puede ser el motivo de una pregunta; sí puede ser lo que se hace con la
+respuesta. «¿Cuántas citas al mes?» estaba bien como pregunta y mal como
+motivo: el prototipo la explicaba diciendo «hay un plan barato con un tope de
+100 reservas». Eso es el catálogo explicándole a la clienta por qué le
+preguntamos.
+
+#### La prueba decisiva, escrita como prueba
+
+> Si quitamos ViDay y cambiamos el catálogo entero, las preguntas y el
+> razonamiento siguen teniendo sentido. Cambiarán las herramientas ofrecidas y
+> la cobertura; la casa sigue en pie.
+
+`asesor.test.ts` pasa las 65 del catálogo y las once candidatas de fuera contra
+cada pregunta, cada motivo y cada `queCambia`. Y una segunda prueba rechaza los
+motivos que se apoyan en un plan, un precio o un tope.
+
+#### Lo que hay, y lo que falta a la vista
+
+`data/vocabulario/asesor.json` — seis dimensiones, seis formas de consejo
+(incluidas «sólo tenemos una», «esto no lo cubrimos» y «esto no es tuyo») y
+ocho reglas de presentación, cada una con su motivo para que no se borre en
+cuanto estorbe.
+
+Desarrollada **una puerta**, «Que no se me pierda nada», que es donde cae la
+peluquera: 15 de sus 20 necesidades ya tienen preguntas. Las otras cinco
+puertas están a cero **y hay una prueba que exige que ese estado se vea**, en
+vez de disimularlo. El acuerdo fue cerrar el esqueleto y probar una puerta
+antes de extenderlo a las 61.
+
+Nadie lee esto todavía, igual que el vocabulario y por el mismo motivo.
+
 ### Lo que queda vivo de las quince categorías
 
 No se borra ninguna. Cada una encuentra sitio: «CRM y ventas» pasa a ser
