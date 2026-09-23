@@ -20,947 +20,4346 @@
   {
    "id": "activecampaign",
    "nombre": "ActiveCampaign",
-   "sirve": [
-    "crm",
-    "asistentes-ia",
-    "automatizacion-integraciones",
-    "marketing-email"
-   ],
-   "porComprobar": [],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Embudo de ventas y oportunidades"
+     ],
+     "sinComprobar": [
+      "Historial de trato con el cliente",
+      "Captación de contactos interesados",
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Cuadros de mando",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [
+      "Campañas de correo",
+      "Automatización de marketing",
+      "Páginas de captación"
+     ],
+     "sinComprobar": [
+      "Embudos de conversión",
+      "Publicar en redes sociales",
+      "Analítica de redes sociales",
+      "Posicionamiento en buscadores",
+      "Campañas de publicidad de pago",
+      "Fidelización y puntos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "plataformas-todo-en-uno"
   },
   {
    "id": "agile-crm",
    "nombre": "Agile CRM",
-   "sirve": [
-    "crm",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "gestion-proyectos",
-    "reservas-citas",
-    "atencion-cliente",
-    "marketing-email",
-    "recursos-humanos",
-    "creacion-web-hosting",
-    "firma-gestion-documental"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Embudo de ventas y oportunidades",
+      "Captación de contactos interesados"
+     ],
+     "sinComprobar": [
+      "Historial de trato con el cliente",
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "crm"
   },
   {
    "id": "agiled",
    "nombre": "Agiled",
-   "sirve": [
-    "crm",
-    "gestion-proyectos",
-    "facturacion-contabilidad",
-    "reservas-citas",
-    "automatizacion-integraciones",
-    "recursos-humanos",
-    "plataformas-todo-en-uno"
-   ],
-   "porComprobar": [
-    "asistentes-ia",
-    "atencion-cliente",
-    "firma-gestion-documental"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Embudo de ventas y oportunidades",
+      "Captación de contactos interesados",
+      "Portal para el cliente"
+     ],
+     "sinComprobar": [
+      "Previsión de ventas",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas",
+      "Proyectos e hitos",
+      "Control de tiempo dedicado"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Carga de trabajo del equipo",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "facturacion-contabilidad": {
+     "cubre": [
+      "Facturas",
+      "Cobrar"
+     ],
+     "sinComprobar": [
+      "De presupuesto a factura",
+      "Cuotas y facturación recurrente",
+      "Facturar por avance, hitos u horas",
+      "Facturar a aseguradoras y mutuas",
+      "Liquidar a propietarios y colaboradores",
+      "Gastos y tickets",
+      "Contabilidad",
+      "Cálculo y declaración de impuestos",
+      "Factura electrónica obligatoria",
+      "Donaciones, campañas y certificados al donante",
+      "Coste y margen por trabajo, obra o subvención",
+      "Informes económicos",
+      "Presupuesto anual y previsión de tesorería",
+      "Cobrar a un cliente que no paga",
+      "Controlar lo que pagas cada mes",
+      "Conseguir financiación",
+      "Cobrar sin esperar a que venza la factura",
+      "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "reservas-citas": {
+     "cubre": [
+      "Reserva online por la propia persona"
+     ],
+     "sinComprobar": [
+      "Agenda por profesional o recurso",
+      "Recordatorios automáticos",
+      "Cancelar y cambiar la cita",
+      "Aforo, turnos y franjas",
+      "Ausencias y depósitos",
+      "Reserva de salas y equipos",
+      "Lista de espera",
+      "Insertar la reserva en tu propia web"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "recursos-humanos": {
+     "cubre": [
+      "Fichaje y control horario"
+     ],
+     "sinComprobar": [
+      "Selección de personal",
+      "Incorporación",
+      "Nóminas",
+      "Comisiones y propinas",
+      "Turnos y cuadrantes",
+      "Vacaciones y ausencias",
+      "Desempeño y objetivos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "plataformas-todo-en-uno"
   },
   {
    "id": "asana",
    "nombre": "Asana",
-   "sirve": [
-    "gestion-proyectos",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "asistentes-ia"
-   ],
+   "casas": {
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "Cuadros de mando",
+      "Exportar los datos"
+     ],
+     "sinComprobar": [
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "gestion-proyectos"
   },
   {
    "id": "beautiful-ai",
    "nombre": "Beautiful.ai",
-   "sirve": [
-    "asistentes-ia",
-    "automatizacion-integraciones",
-    "firma-gestion-documental"
-   ],
-   "porComprobar": [],
+   "casas": {
+    "asistentes-ia": {
+     "cubre": [
+      "Presentaciones",
+      "Kit de marca"
+     ],
+     "sinComprobar": [
+      "Redactar textos",
+      "Corregir y pulir textos",
+      "Traducir",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "firma-gestion-documental": {
+     "cubre": [
+      "Edición a varias manos",
+      "Plantillas de documento"
+     ],
+     "sinComprobar": [
+      "Espacio de conocimiento interno",
+      "Archivos y carpetas",
+      "Buscar en todo lo guardado",
+      "Versiones y cambios",
+      "Firma electrónica de documentos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "asistentes-ia"
   },
   {
    "id": "bitrix24",
    "nombre": "Bitrix24",
-   "sirve": [
-    "crm",
-    "gestion-proyectos",
-    "asistentes-ia",
-    "facturacion-contabilidad",
-    "comercio-electronico",
-    "automatizacion-integraciones",
-    "marketing-email",
-    "recursos-humanos",
-    "creacion-web-hosting",
-    "plataformas-todo-en-uno"
-   ],
-   "porComprobar": [
-    "reservas-citas",
-    "atencion-cliente",
-    "inventario-operaciones",
-    "firma-gestion-documental"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Embudo de ventas y oportunidades",
+      "Captación de contactos interesados"
+     ],
+     "sinComprobar": [
+      "Historial de trato con el cliente",
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas",
+      "Proyectos e hitos",
+      "Control de tiempo dedicado"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Carga de trabajo del equipo",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "facturacion-contabilidad": {
+     "cubre": [
+      "Facturas",
+      "Cobrar"
+     ],
+     "sinComprobar": [
+      "De presupuesto a factura",
+      "Cuotas y facturación recurrente",
+      "Facturar por avance, hitos u horas",
+      "Facturar a aseguradoras y mutuas",
+      "Liquidar a propietarios y colaboradores",
+      "Gastos y tickets",
+      "Contabilidad",
+      "Cálculo y declaración de impuestos",
+      "Factura electrónica obligatoria",
+      "Donaciones, campañas y certificados al donante",
+      "Coste y margen por trabajo, obra o subvención",
+      "Informes económicos",
+      "Presupuesto anual y previsión de tesorería",
+      "Cobrar a un cliente que no paga",
+      "Controlar lo que pagas cada mes",
+      "Conseguir financiación",
+      "Cobrar sin esperar a que venza la factura",
+      "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "comercio-electronico": {
+     "cubre": [
+      "Tienda online"
+     ],
+     "sinComprobar": [
+      "TPV y caja",
+      "Catálogo de lo que ofreces",
+      "Pedidos y comandas",
+      "Devoluciones y cambios",
+      "Envíos, transportistas y seguimiento",
+      "Sincronizar con portales y marketplaces",
+      "Bonos y paquetes de sesiones",
+      "Carta, modificadores y alérgenos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Avisos automáticos a otros sistemas",
+      "Informes a medida",
+      "Exportar los datos",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [
+      "Campañas de correo",
+      "Páginas de captación"
+     ],
+     "sinComprobar": [
+      "Automatización de marketing",
+      "Embudos de conversión",
+      "Publicar en redes sociales",
+      "Analítica de redes sociales",
+      "Posicionamiento en buscadores",
+      "Campañas de publicidad de pago",
+      "Fidelización y puntos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "recursos-humanos": {
+     "cubre": [
+      "Fichaje y control horario"
+     ],
+     "sinComprobar": [
+      "Selección de personal",
+      "Incorporación",
+      "Nóminas",
+      "Comisiones y propinas",
+      "Turnos y cuadrantes",
+      "Vacaciones y ausencias",
+      "Desempeño y objetivos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "creacion-web-hosting": {
+     "cubre": [
+      "Crear la página web"
+     ],
+     "sinComprobar": [
+      "Alojamiento y dominio",
+      "Reseñas y reputación",
+      "Ficha de negocio en directorios"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "plataformas-todo-en-uno"
   },
   {
    "id": "canva",
    "nombre": "Canva",
-   "sirve": [
-    "asistentes-ia",
-    "automatizacion-integraciones",
-    "firma-gestion-documental"
-   ],
-   "porComprobar": [],
+   "casas": {
+    "asistentes-ia": {
+     "cubre": [
+      "Presentaciones",
+      "Diseño gráfico",
+      "Kit de marca"
+     ],
+     "sinComprobar": [
+      "Redactar textos",
+      "Corregir y pulir textos",
+      "Traducir",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "Exportar los datos"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "firma-gestion-documental": {
+     "cubre": [
+      "Edición a varias manos",
+      "Plantillas de documento"
+     ],
+     "sinComprobar": [
+      "Espacio de conocimiento interno",
+      "Archivos y carpetas",
+      "Buscar en todo lo guardado",
+      "Versiones y cambios",
+      "Firma electrónica de documentos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "asistentes-ia"
   },
   {
    "id": "capsule-crm",
    "nombre": "Capsule CRM",
-   "sirve": [
-    "crm",
-    "atencion-cliente",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "gestion-proyectos",
-    "asistentes-ia",
-    "marketing-email"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Embudo de ventas y oportunidades",
+      "Captación de contactos interesados",
+      "Previsión de ventas"
+     ],
+     "sinComprobar": [
+      "Historial de trato con el cliente",
+      "Portal para el cliente",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "atencion-cliente": {
+     "cubre": [
+      "Bandeja compartida"
+     ],
+     "sinComprobar": [
+      "Tickets e incidencias",
+      "Chat en la web",
+      "Atención por WhatsApp",
+      "Centro de ayuda público",
+      "Respuestas guardadas",
+      "Asistente automático de atención",
+      "Encuestas de satisfacción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "Cuadros de mando",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida",
+      "Exportar los datos",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "crm"
   },
   {
    "id": "clickfunnels",
    "nombre": "ClickFunnels",
-   "sirve": [
-    "crm",
-    "facturacion-contabilidad",
-    "comercio-electronico",
-    "automatizacion-integraciones",
-    "marketing-email"
-   ],
-   "porComprobar": [
-    "asistentes-ia",
-    "reservas-citas",
-    "atencion-cliente",
-    "creacion-web-hosting"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Embudo de ventas y oportunidades",
+      "Captación de contactos interesados"
+     ],
+     "sinComprobar": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "facturacion-contabilidad": {
+     "cubre": [
+      "Cobrar"
+     ],
+     "sinComprobar": [
+      "Facturas",
+      "De presupuesto a factura",
+      "Cuotas y facturación recurrente",
+      "Facturar por avance, hitos u horas",
+      "Facturar a aseguradoras y mutuas",
+      "Liquidar a propietarios y colaboradores",
+      "Gastos y tickets",
+      "Contabilidad",
+      "Cálculo y declaración de impuestos",
+      "Factura electrónica obligatoria",
+      "Donaciones, campañas y certificados al donante",
+      "Coste y margen por trabajo, obra o subvención",
+      "Informes económicos",
+      "Presupuesto anual y previsión de tesorería",
+      "Cobrar a un cliente que no paga",
+      "Controlar lo que pagas cada mes",
+      "Conseguir financiación",
+      "Cobrar sin esperar a que venza la factura",
+      "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "comercio-electronico": {
+     "cubre": [
+      "Tienda online"
+     ],
+     "sinComprobar": [
+      "TPV y caja",
+      "Catálogo de lo que ofreces",
+      "Pedidos y comandas",
+      "Devoluciones y cambios",
+      "Envíos, transportistas y seguimiento",
+      "Sincronizar con portales y marketplaces",
+      "Bonos y paquetes de sesiones",
+      "Carta, modificadores y alérgenos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [
+      "Campañas de correo",
+      "Automatización de marketing",
+      "Páginas de captación",
+      "Embudos de conversión"
+     ],
+     "sinComprobar": [
+      "Publicar en redes sociales",
+      "Analítica de redes sociales",
+      "Posicionamiento en buscadores",
+      "Campañas de publicidad de pago",
+      "Fidelización y puntos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "plataformas-todo-en-uno"
   },
   {
    "id": "clickup-brain",
    "nombre": "ClickUp Brain",
-   "sirve": [
-    "gestion-proyectos",
-    "asistentes-ia",
-    "automatizacion-integraciones",
-    "firma-gestion-documental"
-   ],
-   "porComprobar": [],
+   "casas": {
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [],
+     "sinComprobar": [
+      "Redactar textos",
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": true,
+     "apoyo": "solo-su-portada"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Exportar los datos"
+     ],
+     "sinComprobar": [
+      "Informes a medida",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "firma-gestion-documental": {
+     "cubre": [
+      "Edición a varias manos",
+      "Archivos y carpetas"
+     ],
+     "sinComprobar": [
+      "Espacio de conocimiento interno",
+      "Plantillas de documento",
+      "Buscar en todo lo guardado",
+      "Versiones y cambios",
+      "Firma electrónica de documentos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "asistentes-ia"
   },
   {
    "id": "clickup",
    "nombre": "ClickUp",
-   "sirve": [
-    "gestion-proyectos",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "asistentes-ia",
-    "firma-gestion-documental"
-   ],
+   "casas": {
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas",
+      "Proyectos e hitos",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Gantt y dependencias",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Cuadros de mando",
+      "Exportar los datos"
+     ],
+     "sinComprobar": [
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "gestion-proyectos"
   },
   {
    "id": "close",
    "nombre": "Close",
-   "sirve": [
-    "crm",
-    "gestion-proyectos",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "asistentes-ia",
-    "marketing-email"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Embudo de ventas y oportunidades",
+      "Captación de contactos interesados"
+     ],
+     "sinComprobar": [
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Cuadros de mando",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "crm"
   },
   {
    "id": "copper",
    "nombre": "Copper",
-   "sirve": [
-    "crm",
-    "gestion-proyectos",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "asistentes-ia",
-    "marketing-email"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Embudo de ventas y oportunidades",
+      "Captación de contactos interesados",
+      "Presupuestos y propuestas"
+     ],
+     "sinComprobar": [
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "crm"
   },
   {
    "id": "copy-ai",
    "nombre": "Copy.ai",
-   "sirve": [
-    "asistentes-ia",
-    "automatizacion-integraciones",
-    "marketing-email"
-   ],
-   "porComprobar": [],
+   "casas": {
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos",
+      "Traducir"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Agentes de IA que ejecutan tareas"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [
+      "Posicionamiento en buscadores"
+     ],
+     "sinComprobar": [
+      "Campañas de correo",
+      "Automatización de marketing",
+      "Páginas de captación",
+      "Embudos de conversión",
+      "Publicar en redes sociales",
+      "Analítica de redes sociales",
+      "Campañas de publicidad de pago",
+      "Fidelización y puntos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "asistentes-ia"
   },
   {
    "id": "descript",
    "nombre": "Descript",
-   "sirve": [
-    "asistentes-ia",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [],
+   "casas": {
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "API abierta",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "asistentes-ia"
   },
   {
    "id": "engagebay",
    "nombre": "EngageBay",
-   "sirve": [
-    "crm",
-    "reservas-citas",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "gestion-proyectos",
-    "asistentes-ia",
-    "atencion-cliente",
-    "marketing-email"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Embudo de ventas y oportunidades",
+      "Captación de contactos interesados"
+     ],
+     "sinComprobar": [
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "reservas-citas": {
+     "cubre": [
+      "Reserva online por la propia persona",
+      "Recordatorios automáticos"
+     ],
+     "sinComprobar": [
+      "Agenda por profesional o recurso",
+      "Cancelar y cambiar la cita",
+      "Aforo, turnos y franjas",
+      "Ausencias y depósitos",
+      "Reserva de salas y equipos",
+      "Lista de espera",
+      "Insertar la reserva en tu propia web"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Exportar los datos",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "plataformas-todo-en-uno"
   },
   {
    "id": "fireflies-ai",
    "nombre": "Fireflies.ai",
-   "sirve": [
-    "asistentes-ia",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [],
+   "casas": {
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Exportar los datos"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "asistentes-ia"
   },
   {
    "id": "freshsales",
    "nombre": "Freshsales",
-   "sirve": [
-    "crm",
-    "asistentes-ia"
-   ],
-   "porComprobar": [
-    "automatizacion-integraciones",
-    "marketing-email"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Captación de contactos interesados"
+     ],
+     "sinComprobar": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Embudo de ventas y oportunidades",
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "plataformas-todo-en-uno"
   },
   {
    "id": "gamma",
    "nombre": "Gamma",
-   "sirve": [
-    "asistentes-ia",
-    "automatizacion-integraciones",
-    "firma-gestion-documental"
-   ],
-   "porComprobar": [
-    "creacion-web-hosting"
-   ],
+   "casas": {
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Kit de marca"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "API abierta",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "firma-gestion-documental": {
+     "cubre": [
+      "Edición a varias manos",
+      "Plantillas de documento"
+     ],
+     "sinComprobar": [
+      "Espacio de conocimiento interno",
+      "Archivos y carpetas",
+      "Buscar en todo lo guardado",
+      "Versiones y cambios",
+      "Firma electrónica de documentos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "asistentes-ia"
   },
   {
    "id": "ganttpro",
    "nombre": "GanttPRO",
-   "sirve": [
-    "gestion-proyectos",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "asistentes-ia"
-   ],
+   "casas": {
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "Cuadros de mando"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "gestion-proyectos"
   },
   {
    "id": "gohighlevel",
    "nombre": "GoHighLevel",
-   "sirve": [
-    "crm",
-    "reservas-citas",
-    "automatizacion-integraciones",
-    "marketing-email",
-    "creacion-web-hosting"
-   ],
-   "porComprobar": [
-    "asistentes-ia",
-    "facturacion-contabilidad",
-    "atencion-cliente"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Embudo de ventas y oportunidades"
+     ],
+     "sinComprobar": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Captación de contactos interesados",
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "reservas-citas": {
+     "cubre": [
+      "Recordatorios automáticos"
+     ],
+     "sinComprobar": [
+      "Reserva online por la propia persona",
+      "Agenda por profesional o recurso",
+      "Cancelar y cambiar la cita",
+      "Aforo, turnos y franjas",
+      "Ausencias y depósitos",
+      "Reserva de salas y equipos",
+      "Lista de espera",
+      "Insertar la reserva en tu propia web"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Cuadros de mando"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [
+      "Páginas de captación"
+     ],
+     "sinComprobar": [
+      "Campañas de correo",
+      "Automatización de marketing",
+      "Embudos de conversión",
+      "Publicar en redes sociales",
+      "Analítica de redes sociales",
+      "Posicionamiento en buscadores",
+      "Campañas de publicidad de pago",
+      "Fidelización y puntos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "creacion-web-hosting": {
+     "cubre": [
+      "Crear la página web"
+     ],
+     "sinComprobar": [
+      "Alojamiento y dominio",
+      "Reseñas y reputación",
+      "Ficha de negocio en directorios"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "plataformas-todo-en-uno"
   },
   {
    "id": "grammarly",
    "nombre": "Grammarly",
-   "sirve": [
-    "asistentes-ia",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [],
+   "casas": {
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos",
+      "Corregir y pulir textos"
+     ],
+     "sinComprobar": [
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "asistentes-ia"
   },
   {
    "id": "heygen",
    "nombre": "HeyGen",
-   "sirve": [
-    "asistentes-ia",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [],
+   "casas": {
+    "asistentes-ia": {
+     "cubre": [
+      "Generar vídeo con IA",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "sinComprobar": [
+      "Redactar textos",
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "API abierta"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "asistentes-ia"
   },
   {
    "id": "hive",
    "nombre": "Hive",
-   "sirve": [
-    "gestion-proyectos",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "crm",
-    "asistentes-ia",
-    "facturacion-contabilidad"
-   ],
+   "casas": {
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas",
+      "Proyectos e hitos",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Gantt y dependencias",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "Cuadros de mando"
+     ],
+     "sinComprobar": [
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "gestion-proyectos"
   },
   {
    "id": "honeybook",
    "nombre": "HoneyBook",
-   "sirve": [
-    "crm",
-    "gestion-proyectos",
-    "asistentes-ia",
-    "facturacion-contabilidad",
-    "reservas-citas",
-    "automatizacion-integraciones",
-    "plataformas-todo-en-uno"
-   ],
-   "porComprobar": [
-    "firma-gestion-documental"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Embudo de ventas y oportunidades",
+      "Captación de contactos interesados"
+     ],
+     "sinComprobar": [
+      "Historial de trato con el cliente",
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "facturacion-contabilidad": {
+     "cubre": [
+      "Facturas",
+      "Cobrar"
+     ],
+     "sinComprobar": [
+      "De presupuesto a factura",
+      "Cuotas y facturación recurrente",
+      "Facturar por avance, hitos u horas",
+      "Facturar a aseguradoras y mutuas",
+      "Liquidar a propietarios y colaboradores",
+      "Gastos y tickets",
+      "Contabilidad",
+      "Cálculo y declaración de impuestos",
+      "Factura electrónica obligatoria",
+      "Donaciones, campañas y certificados al donante",
+      "Coste y margen por trabajo, obra o subvención",
+      "Informes económicos",
+      "Presupuesto anual y previsión de tesorería",
+      "Cobrar a un cliente que no paga",
+      "Controlar lo que pagas cada mes",
+      "Conseguir financiación",
+      "Cobrar sin esperar a que venza la factura",
+      "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "reservas-citas": {
+     "cubre": [
+      "Reserva online por la propia persona",
+      "Recordatorios automáticos"
+     ],
+     "sinComprobar": [
+      "Agenda por profesional o recurso",
+      "Cancelar y cambiar la cita",
+      "Aforo, turnos y franjas",
+      "Ausencias y depósitos",
+      "Reserva de salas y equipos",
+      "Lista de espera",
+      "Insertar la reserva en tu propia web"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Exportar los datos",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "plataformas-todo-en-uno"
   },
   {
    "id": "hotmart",
    "nombre": "Hotmart",
-   "sirve": [
-    "facturacion-contabilidad",
-    "comercio-electronico"
-   ],
-   "porComprobar": [
-    "asistentes-ia",
-    "atencion-cliente",
-    "automatizacion-integraciones",
-    "marketing-email",
-    "creacion-web-hosting"
-   ],
+   "casas": {
+    "facturacion-contabilidad": {
+     "cubre": [
+      "Cobrar"
+     ],
+     "sinComprobar": [
+      "Facturas",
+      "De presupuesto a factura",
+      "Cuotas y facturación recurrente",
+      "Facturar por avance, hitos u horas",
+      "Facturar a aseguradoras y mutuas",
+      "Liquidar a propietarios y colaboradores",
+      "Gastos y tickets",
+      "Contabilidad",
+      "Cálculo y declaración de impuestos",
+      "Factura electrónica obligatoria",
+      "Donaciones, campañas y certificados al donante",
+      "Coste y margen por trabajo, obra o subvención",
+      "Informes económicos",
+      "Presupuesto anual y previsión de tesorería",
+      "Cobrar a un cliente que no paga",
+      "Controlar lo que pagas cada mes",
+      "Conseguir financiación",
+      "Cobrar sin esperar a que venza la factura",
+      "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "comercio-electronico": {
+     "cubre": [],
+     "sinComprobar": [
+      "Tienda online",
+      "TPV y caja",
+      "Catálogo de lo que ofreces",
+      "Pedidos y comandas",
+      "Devoluciones y cambios",
+      "Envíos, transportistas y seguimiento",
+      "Sincronizar con portales y marketplaces",
+      "Bonos y paquetes de sesiones",
+      "Carta, modificadores y alérgenos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "solo-su-portada"
+    }
+   },
    "hoy": "plataformas-todo-en-uno"
   },
   {
    "id": "hubspot",
    "nombre": "HubSpot",
-   "sirve": [
-    "crm",
-    "asistentes-ia",
-    "facturacion-contabilidad",
-    "automatizacion-integraciones",
-    "marketing-email",
-    "creacion-web-hosting",
-    "plataformas-todo-en-uno"
-   ],
-   "porComprobar": [
-    "reservas-citas",
-    "atencion-cliente"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Embudo de ventas y oportunidades",
+      "Captación de contactos interesados"
+     ],
+     "sinComprobar": [
+      "Historial de trato con el cliente",
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "facturacion-contabilidad": {
+     "cubre": [
+      "Cobrar"
+     ],
+     "sinComprobar": [
+      "Facturas",
+      "De presupuesto a factura",
+      "Cuotas y facturación recurrente",
+      "Facturar por avance, hitos u horas",
+      "Facturar a aseguradoras y mutuas",
+      "Liquidar a propietarios y colaboradores",
+      "Gastos y tickets",
+      "Contabilidad",
+      "Cálculo y declaración de impuestos",
+      "Factura electrónica obligatoria",
+      "Donaciones, campañas y certificados al donante",
+      "Coste y margen por trabajo, obra o subvención",
+      "Informes económicos",
+      "Presupuesto anual y previsión de tesorería",
+      "Cobrar a un cliente que no paga",
+      "Controlar lo que pagas cada mes",
+      "Conseguir financiación",
+      "Cobrar sin esperar a que venza la factura",
+      "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "Agentes de IA que ejecutan tareas"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [
+      "Páginas de captación"
+     ],
+     "sinComprobar": [
+      "Campañas de correo",
+      "Automatización de marketing",
+      "Embudos de conversión",
+      "Publicar en redes sociales",
+      "Analítica de redes sociales",
+      "Posicionamiento en buscadores",
+      "Campañas de publicidad de pago",
+      "Fidelización y puntos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "creacion-web-hosting": {
+     "cubre": [
+      "Crear la página web"
+     ],
+     "sinComprobar": [
+      "Alojamiento y dominio",
+      "Reseñas y reputación",
+      "Ficha de negocio en directorios"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "plataformas-todo-en-uno"
   },
   {
    "id": "insightly",
    "nombre": "Insightly",
-   "sirve": [
-    "crm",
-    "gestion-proyectos",
-    "automatizacion-integraciones",
-    "marketing-email"
-   ],
-   "porComprobar": [
-    "asistentes-ia",
-    "atencion-cliente"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Embudo de ventas y oportunidades",
+      "Captación de contactos interesados",
+      "Presupuestos y propuestas"
+     ],
+     "sinComprobar": [
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Agentes de IA que ejecutan tareas",
+      "Exportar los datos",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [
+      "Campañas de correo",
+      "Automatización de marketing"
+     ],
+     "sinComprobar": [
+      "Páginas de captación",
+      "Embudos de conversión",
+      "Publicar en redes sociales",
+      "Analítica de redes sociales",
+      "Posicionamiento en buscadores",
+      "Campañas de publicidad de pago",
+      "Fidelización y puntos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "crm"
   },
   {
    "id": "jasper",
    "nombre": "Jasper",
-   "sirve": [
-    "asistentes-ia",
-    "automatizacion-integraciones",
-    "marketing-email"
-   ],
-   "porComprobar": [],
+   "casas": {
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos",
+      "Corregir y pulir textos",
+      "Traducir"
+     ],
+     "sinComprobar": [
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Agentes de IA que ejecutan tareas"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "Avisos automáticos a otros sistemas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [
+      "Posicionamiento en buscadores"
+     ],
+     "sinComprobar": [
+      "Campañas de correo",
+      "Automatización de marketing",
+      "Páginas de captación",
+      "Embudos de conversión",
+      "Publicar en redes sociales",
+      "Analítica de redes sociales",
+      "Campañas de publicidad de pago",
+      "Fidelización y puntos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "asistentes-ia"
   },
   {
    "id": "kartra",
    "nombre": "Kartra",
-   "sirve": [
-    "crm",
-    "marketing-email"
-   ],
-   "porComprobar": [
-    "asistentes-ia",
-    "reservas-citas",
-    "atencion-cliente",
-    "comercio-electronico",
-    "automatizacion-integraciones",
-    "creacion-web-hosting"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Captación de contactos interesados"
+     ],
+     "sinComprobar": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Embudo de ventas y oportunidades",
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [
+      "Campañas de correo",
+      "Automatización de marketing",
+      "Páginas de captación",
+      "Embudos de conversión"
+     ],
+     "sinComprobar": [
+      "Publicar en redes sociales",
+      "Analítica de redes sociales",
+      "Posicionamiento en buscadores",
+      "Campañas de publicidad de pago",
+      "Fidelización y puntos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "plataformas-todo-en-uno"
   },
   {
    "id": "keap",
    "nombre": "Keap",
-   "sirve": [
-    "crm",
-    "asistentes-ia",
-    "facturacion-contabilidad",
-    "reservas-citas",
-    "automatizacion-integraciones",
-    "marketing-email",
-    "plataformas-todo-en-uno"
-   ],
-   "porComprobar": [
-    "comercio-electronico"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Embudo de ventas y oportunidades",
+      "Captación de contactos interesados"
+     ],
+     "sinComprobar": [
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "facturacion-contabilidad": {
+     "cubre": [
+      "Facturas",
+      "Cobrar"
+     ],
+     "sinComprobar": [
+      "De presupuesto a factura",
+      "Cuotas y facturación recurrente",
+      "Facturar por avance, hitos u horas",
+      "Facturar a aseguradoras y mutuas",
+      "Liquidar a propietarios y colaboradores",
+      "Gastos y tickets",
+      "Contabilidad",
+      "Cálculo y declaración de impuestos",
+      "Factura electrónica obligatoria",
+      "Donaciones, campañas y certificados al donante",
+      "Coste y margen por trabajo, obra o subvención",
+      "Informes económicos",
+      "Presupuesto anual y previsión de tesorería",
+      "Cobrar a un cliente que no paga",
+      "Controlar lo que pagas cada mes",
+      "Conseguir financiación",
+      "Cobrar sin esperar a que venza la factura",
+      "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "reservas-citas": {
+     "cubre": [
+      "Reserva online por la propia persona"
+     ],
+     "sinComprobar": [
+      "Agenda por profesional o recurso",
+      "Recordatorios automáticos",
+      "Cancelar y cambiar la cita",
+      "Aforo, turnos y franjas",
+      "Ausencias y depósitos",
+      "Reserva de salas y equipos",
+      "Lista de espera",
+      "Insertar la reserva en tu propia web"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Cuadros de mando",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida",
+      "Exportar los datos",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [
+      "Campañas de correo",
+      "Automatización de marketing",
+      "Páginas de captación"
+     ],
+     "sinComprobar": [
+      "Embudos de conversión",
+      "Publicar en redes sociales",
+      "Analítica de redes sociales",
+      "Posicionamiento en buscadores",
+      "Campañas de publicidad de pago",
+      "Fidelización y puntos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "plataformas-todo-en-uno"
   },
   {
    "id": "krisp",
    "nombre": "Krisp",
-   "sirve": [
-    "asistentes-ia",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [],
+   "casas": {
+    "asistentes-ia": {
+     "cubre": [
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido"
+     ],
+     "sinComprobar": [
+      "Redactar textos",
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "Avisos automáticos a otros sistemas",
+      "Cuadros de mando"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "API abierta",
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "asistentes-ia"
   },
   {
    "id": "less-annoying-crm",
    "nombre": "Less Annoying CRM",
-   "sirve": [
-    "crm",
-    "gestion-proyectos",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente"
+     ],
+     "sinComprobar": [
+      "Embudo de ventas y oportunidades",
+      "Captación de contactos interesados",
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "Exportar los datos"
+     ],
+     "sinComprobar": [
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "crm"
   },
   {
    "id": "monday-com",
    "nombre": "monday.com",
-   "sirve": [
-    "gestion-proyectos",
-    "facturacion-contabilidad",
-    "automatizacion-integraciones",
-    "firma-gestion-documental"
-   ],
-   "porComprobar": [
-    "crm",
-    "asistentes-ia",
-    "reservas-citas",
-    "atencion-cliente",
-    "marketing-email",
-    "recursos-humanos"
-   ],
+   "casas": {
+    "gestion-proyectos": {
+     "cubre": [
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Tareas",
+      "Proyectos e hitos",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "facturacion-contabilidad": {
+     "cubre": [
+      "Facturas"
+     ],
+     "sinComprobar": [
+      "De presupuesto a factura",
+      "Cobrar",
+      "Cuotas y facturación recurrente",
+      "Facturar por avance, hitos u horas",
+      "Facturar a aseguradoras y mutuas",
+      "Liquidar a propietarios y colaboradores",
+      "Gastos y tickets",
+      "Contabilidad",
+      "Cálculo y declaración de impuestos",
+      "Factura electrónica obligatoria",
+      "Donaciones, campañas y certificados al donante",
+      "Coste y margen por trabajo, obra o subvención",
+      "Informes económicos",
+      "Presupuesto anual y previsión de tesorería",
+      "Cobrar a un cliente que no paga",
+      "Controlar lo que pagas cada mes",
+      "Conseguir financiación",
+      "Cobrar sin esperar a que venza la factura",
+      "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Cuadros de mando"
+     ],
+     "sinComprobar": [
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "firma-gestion-documental": {
+     "cubre": [
+      "Edición a varias manos"
+     ],
+     "sinComprobar": [
+      "Espacio de conocimiento interno",
+      "Archivos y carpetas",
+      "Plantillas de documento",
+      "Buscar en todo lo guardado",
+      "Versiones y cambios",
+      "Firma electrónica de documentos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "gestion-proyectos"
   },
   {
    "id": "motion",
    "nombre": "Motion",
-   "sirve": [
-    "gestion-proyectos",
-    "asistentes-ia",
-    "reservas-citas",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "firma-gestion-documental"
-   ],
+   "casas": {
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo",
+      "Calendario y planificación diaria",
+      "Replanificación automática"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "reservas-citas": {
+     "cubre": [
+      "Reserva online por la propia persona"
+     ],
+     "sinComprobar": [
+      "Agenda por profesional o recurso",
+      "Recordatorios automáticos",
+      "Cancelar y cambiar la cita",
+      "Aforo, turnos y franjas",
+      "Ausencias y depósitos",
+      "Reserva de salas y equipos",
+      "Lista de espera",
+      "Insertar la reserva en tu propia web"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Cuadros de mando"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "asistentes-ia"
   },
   {
    "id": "nifty",
    "nombre": "Nifty",
-   "sirve": [
-    "gestion-proyectos",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "crm",
-    "asistentes-ia",
-    "atencion-cliente",
-    "firma-gestion-documental"
-   ],
+   "casas": {
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas",
+      "Proyectos e hitos",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Gantt y dependencias",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Cuadros de mando",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida",
+      "Exportar los datos",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "gestion-proyectos"
   },
   {
    "id": "nimble",
    "nombre": "Nimble",
-   "sirve": [
-    "crm",
-    "gestion-proyectos",
-    "automatizacion-integraciones",
-    "marketing-email"
-   ],
-   "porComprobar": [
-    "asistentes-ia",
-    "atencion-cliente"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Embudo de ventas y oportunidades",
+      "Captación de contactos interesados",
+      "Previsión de ventas"
+     ],
+     "sinComprobar": [
+      "Portal para el cliente",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Cuadros de mando"
+     ],
+     "sinComprobar": [
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [
+      "Campañas de correo",
+      "Automatización de marketing"
+     ],
+     "sinComprobar": [
+      "Páginas de captación",
+      "Embudos de conversión",
+      "Publicar en redes sociales",
+      "Analítica de redes sociales",
+      "Posicionamiento en buscadores",
+      "Campañas de publicidad de pago",
+      "Fidelización y puntos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "crm"
   },
   {
    "id": "nocrm-io",
    "nombre": "noCRM.io",
-   "sirve": [
-    "crm",
-    "gestion-proyectos",
-    "facturacion-contabilidad",
-    "atencion-cliente",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "asistentes-ia"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Embudo de ventas y oportunidades",
+      "Presupuestos y propuestas"
+     ],
+     "sinComprobar": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Captación de contactos interesados",
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "facturacion-contabilidad": {
+     "cubre": [
+      "Facturas"
+     ],
+     "sinComprobar": [
+      "De presupuesto a factura",
+      "Cobrar",
+      "Cuotas y facturación recurrente",
+      "Facturar por avance, hitos u horas",
+      "Facturar a aseguradoras y mutuas",
+      "Liquidar a propietarios y colaboradores",
+      "Gastos y tickets",
+      "Contabilidad",
+      "Cálculo y declaración de impuestos",
+      "Factura electrónica obligatoria",
+      "Donaciones, campañas y certificados al donante",
+      "Coste y margen por trabajo, obra o subvención",
+      "Informes económicos",
+      "Presupuesto anual y previsión de tesorería",
+      "Cobrar a un cliente que no paga",
+      "Controlar lo que pagas cada mes",
+      "Conseguir financiación",
+      "Cobrar sin esperar a que venza la factura",
+      "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "atencion-cliente": {
+     "cubre": [
+      "Bandeja compartida"
+     ],
+     "sinComprobar": [
+      "Tickets e incidencias",
+      "Chat en la web",
+      "Atención por WhatsApp",
+      "Centro de ayuda público",
+      "Respuestas guardadas",
+      "Asistente automático de atención",
+      "Encuestas de satisfacción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Exportar los datos",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "crm"
   },
   {
    "id": "notion-ai",
    "nombre": "Notion AI",
-   "sirve": [
-    "asistentes-ia",
-    "automatizacion-integraciones",
-    "firma-gestion-documental"
-   ],
-   "porComprobar": [
-    "gestion-proyectos"
-   ],
+   "casas": {
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Exportar los datos"
+     ],
+     "sinComprobar": [
+      "Informes a medida",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "firma-gestion-documental": {
+     "cubre": [
+      "Buscar en todo lo guardado",
+      "Versiones y cambios"
+     ],
+     "sinComprobar": [
+      "Edición a varias manos",
+      "Espacio de conocimiento interno",
+      "Archivos y carpetas",
+      "Plantillas de documento",
+      "Firma electrónica de documentos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "asistentes-ia"
   },
   {
    "id": "nutshell",
    "nombre": "Nutshell",
-   "sirve": [
-    "crm",
-    "facturacion-contabilidad",
-    "reservas-citas",
-    "atencion-cliente",
-    "automatizacion-integraciones",
-    "marketing-email",
-    "plataformas-todo-en-uno"
-   ],
-   "porComprobar": [
-    "asistentes-ia",
-    "firma-gestion-documental"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Embudo de ventas y oportunidades",
+      "Captación de contactos interesados",
+      "Presupuestos y propuestas"
+     ],
+     "sinComprobar": [
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "facturacion-contabilidad": {
+     "cubre": [
+      "Facturas"
+     ],
+     "sinComprobar": [
+      "De presupuesto a factura",
+      "Cobrar",
+      "Cuotas y facturación recurrente",
+      "Facturar por avance, hitos u horas",
+      "Facturar a aseguradoras y mutuas",
+      "Liquidar a propietarios y colaboradores",
+      "Gastos y tickets",
+      "Contabilidad",
+      "Cálculo y declaración de impuestos",
+      "Factura electrónica obligatoria",
+      "Donaciones, campañas y certificados al donante",
+      "Coste y margen por trabajo, obra o subvención",
+      "Informes económicos",
+      "Presupuesto anual y previsión de tesorería",
+      "Cobrar a un cliente que no paga",
+      "Controlar lo que pagas cada mes",
+      "Conseguir financiación",
+      "Cobrar sin esperar a que venza la factura",
+      "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "reservas-citas": {
+     "cubre": [
+      "Reserva online por la propia persona"
+     ],
+     "sinComprobar": [
+      "Agenda por profesional o recurso",
+      "Recordatorios automáticos",
+      "Cancelar y cambiar la cita",
+      "Aforo, turnos y franjas",
+      "Ausencias y depósitos",
+      "Reserva de salas y equipos",
+      "Lista de espera",
+      "Insertar la reserva en tu propia web"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "atencion-cliente": {
+     "cubre": [
+      "Bandeja compartida"
+     ],
+     "sinComprobar": [
+      "Tickets e incidencias",
+      "Chat en la web",
+      "Atención por WhatsApp",
+      "Centro de ayuda público",
+      "Respuestas guardadas",
+      "Asistente automático de atención",
+      "Encuestas de satisfacción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Exportar los datos",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [
+      "Campañas de correo"
+     ],
+     "sinComprobar": [
+      "Automatización de marketing",
+      "Páginas de captación",
+      "Embudos de conversión",
+      "Publicar en redes sociales",
+      "Analítica de redes sociales",
+      "Posicionamiento en buscadores",
+      "Campañas de publicidad de pago",
+      "Fidelización y puntos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "crm"
   },
   {
    "id": "odoo",
    "nombre": "Odoo",
-   "sirve": [
-    "crm",
-    "comercio-electronico",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "gestion-proyectos",
-    "asistentes-ia",
-    "facturacion-contabilidad",
-    "reservas-citas",
-    "atencion-cliente",
-    "marketing-email",
-    "recursos-humanos",
-    "inventario-operaciones",
-    "creacion-web-hosting",
-    "firma-gestion-documental"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Portal para el cliente"
+     ],
+     "sinComprobar": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Embudo de ventas y oportunidades",
+      "Captación de contactos interesados",
+      "Previsión de ventas",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "comercio-electronico": {
+     "cubre": [
+      "Tienda online"
+     ],
+     "sinComprobar": [
+      "TPV y caja",
+      "Catálogo de lo que ofreces",
+      "Pedidos y comandas",
+      "Devoluciones y cambios",
+      "Envíos, transportistas y seguimiento",
+      "Sincronizar con portales y marketplaces",
+      "Bonos y paquetes de sesiones",
+      "Carta, modificadores y alérgenos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Exportar los datos"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "plataformas-todo-en-uno"
   },
   {
    "id": "otter-ai",
    "nombre": "Otter.ai",
-   "sirve": [
-    "asistentes-ia",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [],
+   "casas": {
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "asistentes-ia"
   },
   {
    "id": "paymo",
    "nombre": "Paymo",
-   "sirve": [
-    "gestion-proyectos",
-    "facturacion-contabilidad",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "recursos-humanos"
-   ],
+   "casas": {
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "facturacion-contabilidad": {
+     "cubre": [
+      "Facturas",
+      "Coste y margen por trabajo, obra o subvención"
+     ],
+     "sinComprobar": [
+      "De presupuesto a factura",
+      "Cobrar",
+      "Cuotas y facturación recurrente",
+      "Facturar por avance, hitos u horas",
+      "Facturar a aseguradoras y mutuas",
+      "Liquidar a propietarios y colaboradores",
+      "Gastos y tickets",
+      "Contabilidad",
+      "Cálculo y declaración de impuestos",
+      "Factura electrónica obligatoria",
+      "Donaciones, campañas y certificados al donante",
+      "Informes económicos",
+      "Presupuesto anual y previsión de tesorería",
+      "Cobrar a un cliente que no paga",
+      "Controlar lo que pagas cada mes",
+      "Conseguir financiación",
+      "Cobrar sin esperar a que venza la factura",
+      "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "gestion-proyectos"
   },
   {
    "id": "pipedrive",
    "nombre": "Pipedrive",
-   "sirve": [
-    "crm",
-    "reservas-citas",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "gestion-proyectos",
-    "asistentes-ia",
-    "marketing-email",
-    "firma-gestion-documental"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Embudo de ventas y oportunidades",
+      "Captación de contactos interesados",
+      "Previsión de ventas"
+     ],
+     "sinComprobar": [
+      "Portal para el cliente",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "reservas-citas": {
+     "cubre": [
+      "Reserva online por la propia persona"
+     ],
+     "sinComprobar": [
+      "Agenda por profesional o recurso",
+      "Recordatorios automáticos",
+      "Cancelar y cambiar la cita",
+      "Aforo, turnos y franjas",
+      "Ausencias y depósitos",
+      "Reserva de salas y equipos",
+      "Lista de espera",
+      "Insertar la reserva en tu propia web"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "Cuadros de mando",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida",
+      "Exportar los datos",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "crm"
   },
   {
    "id": "productive-io",
    "nombre": "Productive",
-   "sirve": [
-    "gestion-proyectos",
-    "facturacion-contabilidad",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "crm",
-    "asistentes-ia",
-    "recursos-humanos",
-    "firma-gestion-documental",
-    "software-sectorial"
-   ],
+   "casas": {
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Proyectos e hitos",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "facturacion-contabilidad": {
+     "cubre": [
+      "Facturas",
+      "Coste y margen por trabajo, obra o subvención"
+     ],
+     "sinComprobar": [
+      "De presupuesto a factura",
+      "Cobrar",
+      "Cuotas y facturación recurrente",
+      "Facturar por avance, hitos u horas",
+      "Facturar a aseguradoras y mutuas",
+      "Liquidar a propietarios y colaboradores",
+      "Gastos y tickets",
+      "Contabilidad",
+      "Cálculo y declaración de impuestos",
+      "Factura electrónica obligatoria",
+      "Donaciones, campañas y certificados al donante",
+      "Informes económicos",
+      "Presupuesto anual y previsión de tesorería",
+      "Cobrar a un cliente que no paga",
+      "Controlar lo que pagas cada mes",
+      "Conseguir financiación",
+      "Cobrar sin esperar a que venza la factura",
+      "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Agentes de IA que ejecutan tareas",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "gestion-proyectos"
   },
   {
    "id": "reclaim-ai",
    "nombre": "Reclaim.ai",
-   "sirve": [
-    "gestion-proyectos",
-    "reservas-citas",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "asistentes-ia",
-    "recursos-humanos"
-   ],
+   "casas": {
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas",
+      "Control de tiempo dedicado",
+      "Calendario y planificación diaria",
+      "Replanificación automática"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Carga de trabajo del equipo",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "reservas-citas": {
+     "cubre": [
+      "Reserva online por la propia persona",
+      "Recordatorios automáticos"
+     ],
+     "sinComprobar": [
+      "Agenda por profesional o recurso",
+      "Cancelar y cambiar la cita",
+      "Aforo, turnos y franjas",
+      "Ausencias y depósitos",
+      "Reserva de salas y equipos",
+      "Lista de espera",
+      "Insertar la reserva en tu propia web"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "Avisos automáticos a otros sistemas"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "API abierta",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "asistentes-ia"
   },
   {
    "id": "salesflare",
    "nombre": "Salesflare",
-   "sirve": [
-    "crm",
-    "automatizacion-integraciones",
-    "marketing-email"
-   ],
-   "porComprobar": [
-    "asistentes-ia"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Embudo de ventas y oportunidades",
+      "Previsión de ventas"
+     ],
+     "sinComprobar": [
+      "Captación de contactos interesados",
+      "Portal para el cliente",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Exportar los datos",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [
+      "Campañas de correo"
+     ],
+     "sinComprobar": [
+      "Automatización de marketing",
+      "Páginas de captación",
+      "Embudos de conversión",
+      "Publicar en redes sociales",
+      "Analítica de redes sociales",
+      "Posicionamiento en buscadores",
+      "Campañas de publicidad de pago",
+      "Fidelización y puntos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "crm"
   },
   {
    "id": "salesmate",
    "nombre": "Salesmate",
-   "sirve": [
-    "crm",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "asistentes-ia",
-    "reservas-citas",
-    "atencion-cliente",
-    "marketing-email"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Embudo de ventas y oportunidades",
+      "Presupuestos y propuestas"
+     ],
+     "sinComprobar": [
+      "Historial de trato con el cliente",
+      "Captación de contactos interesados",
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Cuadros de mando",
+      "Informes a medida"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "crm"
   },
   {
    "id": "scoro",
    "nombre": "Scoro",
-   "sirve": [
-    "gestion-proyectos",
-    "facturacion-contabilidad",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "crm",
-    "asistentes-ia"
-   ],
+   "casas": {
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "facturacion-contabilidad": {
+     "cubre": [
+      "Facturas",
+      "Coste y margen por trabajo, obra o subvención"
+     ],
+     "sinComprobar": [
+      "De presupuesto a factura",
+      "Cobrar",
+      "Cuotas y facturación recurrente",
+      "Facturar por avance, hitos u horas",
+      "Facturar a aseguradoras y mutuas",
+      "Liquidar a propietarios y colaboradores",
+      "Gastos y tickets",
+      "Contabilidad",
+      "Cálculo y declaración de impuestos",
+      "Factura electrónica obligatoria",
+      "Donaciones, campañas y certificados al donante",
+      "Informes económicos",
+      "Presupuesto anual y previsión de tesorería",
+      "Cobrar a un cliente que no paga",
+      "Controlar lo que pagas cada mes",
+      "Conseguir financiación",
+      "Cobrar sin esperar a que venza la factura",
+      "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Cuadros de mando",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "gestion-proyectos"
   },
   {
    "id": "smartsheet",
    "nombre": "Smartsheet",
-   "sirve": [
-    "gestion-proyectos",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "asistentes-ia"
-   ],
+   "casas": {
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Carga de trabajo del equipo"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Control de tiempo dedicado",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "API abierta",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Exportar los datos"
+     ],
+     "sinComprobar": [
+      "Conectar con otras herramientas",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "gestion-proyectos"
   },
   {
    "id": "streak",
    "nombre": "Streak",
-   "sirve": [
-    "crm",
-    "gestion-proyectos",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "asistentes-ia",
-    "atencion-cliente",
-    "marketing-email",
-    "recursos-humanos"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Embudo de ventas y oportunidades"
+     ],
+     "sinComprobar": [
+      "Captación de contactos interesados",
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Cuadros de mando",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "crm"
   },
   {
    "id": "synthesia",
    "nombre": "Synthesia",
-   "sirve": [
-    "asistentes-ia",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [],
+   "casas": {
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos",
+      "Generar vídeo con IA",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "API abierta",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "asistentes-ia"
   },
   {
    "id": "systeme-io",
    "nombre": "Systeme.io",
-   "sirve": [
-    "facturacion-contabilidad",
-    "automatizacion-integraciones",
-    "marketing-email",
-    "creacion-web-hosting"
-   ],
-   "porComprobar": [
-    "crm",
-    "reservas-citas",
-    "comercio-electronico",
-    "inventario-operaciones"
-   ],
+   "casas": {
+    "facturacion-contabilidad": {
+     "cubre": [
+      "Cobrar"
+     ],
+     "sinComprobar": [
+      "Facturas",
+      "De presupuesto a factura",
+      "Cuotas y facturación recurrente",
+      "Facturar por avance, hitos u horas",
+      "Facturar a aseguradoras y mutuas",
+      "Liquidar a propietarios y colaboradores",
+      "Gastos y tickets",
+      "Contabilidad",
+      "Cálculo y declaración de impuestos",
+      "Factura electrónica obligatoria",
+      "Donaciones, campañas y certificados al donante",
+      "Coste y margen por trabajo, obra o subvención",
+      "Informes económicos",
+      "Presupuesto anual y previsión de tesorería",
+      "Cobrar a un cliente que no paga",
+      "Controlar lo que pagas cada mes",
+      "Conseguir financiación",
+      "Cobrar sin esperar a que venza la factura",
+      "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "API abierta"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [],
+     "sinComprobar": [
+      "Campañas de correo",
+      "Automatización de marketing",
+      "Páginas de captación",
+      "Embudos de conversión",
+      "Publicar en redes sociales",
+      "Analítica de redes sociales",
+      "Posicionamiento en buscadores",
+      "Campañas de publicidad de pago",
+      "Fidelización y puntos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "solo-su-portada"
+    },
+    "creacion-web-hosting": {
+     "cubre": [
+      "Crear la página web"
+     ],
+     "sinComprobar": [
+      "Alojamiento y dominio",
+      "Reseñas y reputación",
+      "Ficha de negocio en directorios"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "plataformas-todo-en-uno"
   },
   {
    "id": "taskade",
    "nombre": "Taskade",
-   "sirve": [
-    "gestion-proyectos",
-    "asistentes-ia",
-    "automatizacion-integraciones",
-    "firma-gestion-documental"
-   ],
-   "porComprobar": [
-    "crm",
-    "facturacion-contabilidad",
-    "reservas-citas",
-    "atencion-cliente",
-    "comercio-electronico",
-    "marketing-email",
-    "recursos-humanos",
-    "inventario-operaciones",
-    "creacion-web-hosting"
-   ],
+   "casas": {
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [],
+     "sinComprobar": [
+      "Redactar textos",
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": true,
+     "apoyo": "solo-su-portada"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Exportar los datos"
+     ],
+     "sinComprobar": [
+      "Avisos automáticos a otros sistemas",
+      "Informes a medida",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "firma-gestion-documental": {
+     "cubre": [
+      "Espacio de conocimiento interno"
+     ],
+     "sinComprobar": [
+      "Edición a varias manos",
+      "Archivos y carpetas",
+      "Plantillas de documento",
+      "Buscar en todo lo guardado",
+      "Versiones y cambios",
+      "Firma electrónica de documentos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "asistentes-ia"
   },
   {
    "id": "teachable",
    "nombre": "Teachable",
-   "sirve": [
-    "software-sectorial"
-   ],
-   "porComprobar": [
-    "asistentes-ia",
-    "facturacion-contabilidad",
-    "reservas-citas",
-    "comercio-electronico",
-    "automatizacion-integraciones",
-    "marketing-email",
-    "creacion-web-hosting"
-   ],
+   "casas": {
+    "software-sectorial": {
+     "cubre": [],
+     "sinComprobar": [
+      "Historia clínica",
+      "Imagen médica",
+      "Receta electrónica",
+      "Impartir y seguir cursos",
+      "Matrícula, inscripción y grupos",
+      "Notas, asistencia y expediente académico"
+     ],
+     "esSuOficio": true,
+     "apoyo": "solo-su-portada"
+    }
+   },
    "hoy": "plataformas-todo-en-uno"
   },
   {
    "id": "teamgantt",
    "nombre": "TeamGantt",
-   "sirve": [
-    "gestion-proyectos",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "asistentes-ia"
-   ],
+   "casas": {
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "gestion-proyectos"
   },
   {
    "id": "teamwork-com",
    "nombre": "Teamwork.com",
-   "sirve": [
-    "gestion-proyectos",
-    "facturacion-contabilidad",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "crm",
-    "asistentes-ia",
-    "atencion-cliente"
-   ],
+   "casas": {
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas",
+      "Proyectos e hitos",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "facturacion-contabilidad": {
+     "cubre": [
+      "Facturas",
+      "Coste y margen por trabajo, obra o subvención"
+     ],
+     "sinComprobar": [
+      "De presupuesto a factura",
+      "Cobrar",
+      "Cuotas y facturación recurrente",
+      "Facturar por avance, hitos u horas",
+      "Facturar a aseguradoras y mutuas",
+      "Liquidar a propietarios y colaboradores",
+      "Gastos y tickets",
+      "Contabilidad",
+      "Cálculo y declaración de impuestos",
+      "Factura electrónica obligatoria",
+      "Donaciones, campañas y certificados al donante",
+      "Informes económicos",
+      "Presupuesto anual y previsión de tesorería",
+      "Cobrar a un cliente que no paga",
+      "Controlar lo que pagas cada mes",
+      "Conseguir financiación",
+      "Cobrar sin esperar a que venza la factura",
+      "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Agentes de IA que ejecutan tareas",
+      "Exportar los datos",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "gestion-proyectos"
   },
   {
    "id": "thinkific",
    "nombre": "Thinkific",
-   "sirve": [
-    "facturacion-contabilidad",
-    "creacion-web-hosting",
-    "software-sectorial"
-   ],
-   "porComprobar": [
-    "asistentes-ia",
-    "reservas-citas",
-    "comercio-electronico",
-    "automatizacion-integraciones",
-    "marketing-email"
-   ],
+   "casas": {
+    "facturacion-contabilidad": {
+     "cubre": [
+      "Cobrar"
+     ],
+     "sinComprobar": [
+      "Facturas",
+      "De presupuesto a factura",
+      "Cuotas y facturación recurrente",
+      "Facturar por avance, hitos u horas",
+      "Facturar a aseguradoras y mutuas",
+      "Liquidar a propietarios y colaboradores",
+      "Gastos y tickets",
+      "Contabilidad",
+      "Cálculo y declaración de impuestos",
+      "Factura electrónica obligatoria",
+      "Donaciones, campañas y certificados al donante",
+      "Coste y margen por trabajo, obra o subvención",
+      "Informes económicos",
+      "Presupuesto anual y previsión de tesorería",
+      "Cobrar a un cliente que no paga",
+      "Controlar lo que pagas cada mes",
+      "Conseguir financiación",
+      "Cobrar sin esperar a que venza la factura",
+      "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "creacion-web-hosting": {
+     "cubre": [
+      "Crear la página web"
+     ],
+     "sinComprobar": [
+      "Alojamiento y dominio",
+      "Reseñas y reputación",
+      "Ficha de negocio en directorios"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "software-sectorial": {
+     "cubre": [],
+     "sinComprobar": [
+      "Historia clínica",
+      "Imagen médica",
+      "Receta electrónica",
+      "Impartir y seguir cursos",
+      "Matrícula, inscripción y grupos",
+      "Notas, asistencia y expediente académico"
+     ],
+     "esSuOficio": true,
+     "apoyo": "solo-su-portada"
+    }
+   },
    "hoy": "plataformas-todo-en-uno"
   },
   {
    "id": "todoist",
    "nombre": "Todoist",
-   "sirve": [
-    "gestion-proyectos",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "asistentes-ia"
-   ],
+   "casas": {
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas",
+      "Calendario y planificación diaria"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "API abierta"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "asistentes-ia"
   },
   {
    "id": "vtiger-crm",
    "nombre": "Vtiger CRM",
-   "sirve": [
-    "crm",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "gestion-proyectos",
-    "asistentes-ia",
-    "facturacion-contabilidad",
-    "reservas-citas",
-    "atencion-cliente",
-    "marketing-email",
-    "inventario-operaciones",
-    "firma-gestion-documental"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Embudo de ventas y oportunidades",
+      "Captación de contactos interesados",
+      "Previsión de ventas",
+      "Presupuestos y propuestas"
+     ],
+     "sinComprobar": [
+      "Portal para el cliente",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Exportar los datos"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "crm"
   },
   {
    "id": "wrike",
    "nombre": "Wrike",
-   "sirve": [
-    "gestion-proyectos",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "asistentes-ia"
-   ],
+   "casas": {
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "Cuadros de mando"
+     ],
+     "sinComprobar": [
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "gestion-proyectos"
   },
   {
    "id": "zenkit",
    "nombre": "Zenkit",
-   "sirve": [
-    "gestion-proyectos",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [],
+   "casas": {
+    "gestion-proyectos": {
+     "cubre": [
+      "Chat del equipo",
+      "Tareas",
+      "Tableros kanban",
+      "Carga de trabajo del equipo"
+     ],
+     "sinComprobar": [
+      "Videollamadas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Control de tiempo dedicado",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "Cuadros de mando",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "gestion-proyectos"
   },
   {
    "id": "zoho-crm",
    "nombre": "Zoho CRM",
-   "sirve": [
-    "crm",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "asistentes-ia",
-    "facturacion-contabilidad",
-    "reservas-citas",
-    "atencion-cliente",
-    "marketing-email",
-    "inventario-operaciones",
-    "firma-gestion-documental"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Embudo de ventas y oportunidades",
+      "Captación de contactos interesados",
+      "Previsión de ventas"
+     ],
+     "sinComprobar": [
+      "Historial de trato con el cliente",
+      "Portal para el cliente",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "crm"
   },
   {
    "id": "zoho-one",
    "nombre": "Zoho One",
-   "sirve": [
-    "crm",
-    "automatizacion-integraciones",
-    "marketing-email",
-    "recursos-humanos",
-    "creacion-web-hosting"
-   ],
-   "porComprobar": [
-    "gestion-proyectos",
-    "facturacion-contabilidad",
-    "atencion-cliente",
-    "comercio-electronico",
-    "inventario-operaciones",
-    "firma-gestion-documental"
-   ],
+   "casas": {
+    "crm": {
+     "cubre": [],
+     "sinComprobar": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Embudo de ventas y oportunidades",
+      "Captación de contactos interesados",
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": true,
+     "apoyo": "solo-su-portada"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "Cuadros de mando",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida",
+      "Exportar los datos",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [
+      "Automatización de marketing"
+     ],
+     "sinComprobar": [
+      "Campañas de correo",
+      "Páginas de captación",
+      "Embudos de conversión",
+      "Publicar en redes sociales",
+      "Analítica de redes sociales",
+      "Posicionamiento en buscadores",
+      "Campañas de publicidad de pago",
+      "Fidelización y puntos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "recursos-humanos": {
+     "cubre": [
+      "Fichaje y control horario"
+     ],
+     "sinComprobar": [
+      "Selección de personal",
+      "Incorporación",
+      "Nóminas",
+      "Comisiones y propinas",
+      "Turnos y cuadrantes",
+      "Vacaciones y ausencias",
+      "Desempeño y objetivos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "creacion-web-hosting": {
+     "cubre": [
+      "Crear la página web"
+     ],
+     "sinComprobar": [
+      "Alojamiento y dominio",
+      "Reseñas y reputación",
+      "Ficha de negocio en directorios"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "plataformas-todo-en-uno"
   },
   {
    "id": "zoho-projects",
    "nombre": "Zoho Projects",
-   "sirve": [
-    "gestion-proyectos",
-    "facturacion-contabilidad",
-    "automatizacion-integraciones"
-   ],
-   "porComprobar": [
-    "asistentes-ia",
-    "firma-gestion-documental"
-   ],
+   "casas": {
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "facturacion-contabilidad": {
+     "cubre": [
+      "Facturas"
+     ],
+     "sinComprobar": [
+      "De presupuesto a factura",
+      "Cobrar",
+      "Cuotas y facturación recurrente",
+      "Facturar por avance, hitos u horas",
+      "Facturar a aseguradoras y mutuas",
+      "Liquidar a propietarios y colaboradores",
+      "Gastos y tickets",
+      "Contabilidad",
+      "Cálculo y declaración de impuestos",
+      "Factura electrónica obligatoria",
+      "Donaciones, campañas y certificados al donante",
+      "Coste y margen por trabajo, obra o subvención",
+      "Informes económicos",
+      "Presupuesto anual y previsión de tesorería",
+      "Cobrar a un cliente que no paga",
+      "Controlar lo que pagas cada mes",
+      "Conseguir financiación",
+      "Cobrar sin esperar a que venza la factura",
+      "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "Cuadros de mando"
+     ],
+     "sinComprobar": [
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    }
+   },
    "hoy": "gestion-proyectos"
   }
  ]

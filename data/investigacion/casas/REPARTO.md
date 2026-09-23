@@ -1,68 +1,86 @@
 # El reparto
 
-**23 de septiembre de 2026.** Las 15 casas, y cada herramienta en **todas las
-que sirve**. Si sirve a ventas está en ventas; si además sirve a vídeo, está
-también en vídeo. No hay que elegir una.
+**Propuesta.** No cambia ninguna ficha ni ninguna recomendación.
 
-Hoy cada ficha tiene **una sola** `categoriaId`, y por eso las 65 viven en 4
-casas de las 15. Con este reparto cada herramienta está en **3,3 casas de
-media**, y la que más, en 10.
+Las 15 casas, y cada herramienta en todas las que puede ayudar. Si sirve a
+ventas está en ventas; si además sirve a vídeo, está también en vídeo. Primero
+existe la estructura, después se coloca cada solución donde puede ayudar.
 
-| Casa | Hoy | Está | Por comprobar |
-|---|---:|---:|---:|
-| Plataformas todo en uno | 17 | 6 | — |
-| CRM y ventas | 15 | 28 | 8 |
-| Gestión de proyectos | 15 | 30 | 8 |
-| Asistentes de IA y productividad | 18 | 22 | 37 |
-| Facturación y contabilidad | 0 | 17 | 8 |
-| Reservas y citas | 0 | 9 | 14 |
-| Atención al cliente | 0 | 3 | 21 |
-| Comercio electrónico | 0 | 4 | 7 |
-| Automatización e integraciones | 0 | 60 | 5 |
-| Marketing y email | 0 | 15 | 17 |
-| Recursos humanos | 0 | 3 | 8 |
-| Inventario y operaciones | 0 | **0** | 7 |
-| Creación web y hosting | 0 | 6 | 8 |
-| Firma electrónica y gestión documental | 0 | 7 | 15 |
-| Software sectorial | 0 | 2 | 1 |
+## Estar en una casa no dice «sirve». Dice qué cubre
 
-## Cuándo está una herramienta en una casa
+*(Regla de la propietaria, 2026-09-23.)* Que F2 verificara algo del tema no
+basta. Cada herramienta entra con **la lista de lo que cubre ahí**, en
+palabras, y con lo que **no hemos comprobado** todavía.
 
-**Está** si sirve a esa casa y lo sabemos: F2 verificó alguna capacidad suya
-de ese tema, o esa casa es su oficio —lo que la herramienta es— según su
-propia portada. Un CRM está en la casa de CRM.
+El ejemplo que lo motivó: en «Firma electrónica y gestión documental», crear
+documentos no demuestra que se puedan firmar.
 
-**Por comprobar** si su página lo anuncia y F2 todavía no lo ha mirado. No es
-que no sirva: es que aún no lo sabemos. Son **164 comprobaciones pendientes**,
-y hasta hacerlas esas herramientas no se enseñan en esa casa.
+> **Canva** — cubre: edición a varias manos, plantillas de documento.
+> Sin comprobar: archivos y carpetas, buscar en todo lo guardado, versiones y
+> cambios, espacio de conocimiento interno, **firma electrónica**.
 
-**Todo en uno** no se decide a ojo: entra quien sirve a seis casas o más. Hoy
-son seis —Agiled, Bitrix24, HoneyBook, HubSpot, Keap y Nutshell— frente a las
-17 que hay marcadas así en las fichas.
+Puede estar en la casa. Lo que no puede es dar a entender que firma.
 
-## Lo que queda visto
+**Sin comprobar nunca significa «no lo hace».** Significa que no lo hemos
+mirado. Mientras no se mire, no se enseña como si lo hiciera.
 
-**Inventario y operaciones está vacía**, y las siete «por comprobar» son la
-única vía para llenarla.
+**Y esa casa destapó un defecto.** La capacidad `cap.electronic_signature`
+existe, pero vive en el dominio `presupuestos` —firmar un presupuesto— y **no
+se le ha preguntado a ninguna de las 65**. Por eso ninguna podía demostrar lo
+que el nombre de la casa promete. Queda incorporada a la casa, donde sale
+«sin comprobar» para las siete, que es la verdad.
 
-**Atención al cliente tiene 3 y 21 por comprobar.** Es la casa donde más
-diferencia va a hacer terminar la verificación.
+## El recuento
 
-**Automatización e integraciones tiene 60 de 65.** Conectar con otras apps lo
-hace casi todo el mundo, así que esa casa no distingue nada. Funciona mejor
-como filtro dentro de las demás que como puerta propia. Queda apuntado; no se
-cambia nada.
+| Casa | Está | De ellas, sólo por su portada |
+|---|---:|---:|
+| Plataformas todo en uno | — | *(sin regla, ver abajo)* |
+| CRM y ventas | 28 | 1 |
+| Gestión de proyectos | 30 | 0 |
+| Asistentes de IA y productividad | 22 | 2 |
+| Facturación y contabilidad | 17 | 0 |
+| Reservas y citas | 9 | 0 |
+| Atención al cliente | 3 | 0 |
+| Comercio electrónico | 4 | 1 |
+| Automatización e integraciones | 60 | 0 |
+| Marketing y email | 15 | 1 |
+| Recursos humanos | 3 | 0 |
+| Inventario y operaciones | 0 | 0 |
+| Creación web y hosting | 6 | 0 |
+| Firma electrónica y gestión documental | 7 | 0 |
+| Software sectorial | 2 | 2 |
 
-## Nada de esto está aplicado
+Hoy cada ficha tiene **una sola** categoría, y por eso las 65 viven en 4 casas
+de las 15.
 
-Las fichas de `data/herramientas/` siguen con su `categoriaId` única. Pasar de
-una casa a varias cambia el esquema y lo que hace el motor, y eso lo autoriza
-la propietaria.
+**«Sólo por su portada»** son las que entran porque esa casa es su oficio
+—lo que la herramienta es— sin que F2 haya verificado aún ninguna capacidad
+suya ahí. Son 8 en total. Entran, pero no pueden decir qué cubren hasta que se
+comprueben.
+
+## «Todo en uno» se queda sin regla, a propósito
+
+*(Regla de la propietaria, 2026-09-23.)* La regla anterior —«seis casas o
+más»— era un umbral inventado. No medía si una herramienta es una suite
+integrada: **medía cuántas capacidades suyas hemos investigado**. Una
+herramienta muy verificada subía sola, y una poco verificada no entraba
+aunque fuera una suite.
+
+No se sustituye por otro número. La casa sigue existiendo y hoy no se llena
+por cálculo: hace falta un criterio de lo que es una suite integrada —que los
+módulos compartan de verdad los datos—, y eso no está verificado.
+
+## Inventario y operaciones está vacía, y eso no la invalida
+
+**La casa existe porque responde a una necesidad, no porque el catálogo la
+cubra.** Llenarla no depende sólo de las siete comprobaciones pendientes:
+también se llena **incorporando herramientas nuevas**. Que hoy no tengamos
+ninguna es un dato sobre el catálogo, no sobre la casa.
 
 ## Los archivos
 
-- `reparto.json` — cada herramienta, en qué casas está, cuáles tiene por
-  comprobar y en cuál está hoy.
-- `reparto.mjs` — cómo se calculó. Se vuelve a ejecutar tal cual.
+- `reparto.json` — cada herramienta, en qué casas está, qué cubre en cada una,
+  qué queda sin comprobar y si entra sólo por su portada.
+- `reparto2.mjs` — cómo se calculó. Se vuelve a ejecutar tal cual.
 - `declarado.json` y `crudo/` — lo que dice cada página oficial, con cita y
   las URLs que se abrieron.
