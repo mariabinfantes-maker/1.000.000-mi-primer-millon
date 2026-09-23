@@ -1,0 +1,17 @@
+{
+ "id": "hotmart__asistentes-ia",
+ "herramientaId": "hotmart",
+ "nombre": "Hotmart",
+ "casa": "asistentes-ia",
+ "nombreCasa": "Asistentes de IA y productividad",
+ "urls": [
+  "https://hotmart.com/",
+  "https://hotmart.com/es/precios"
+ ],
+ "cita": "Creación de nuevos productos, módulos, clases, precios con nuestra IA.",
+ "texto": "{\"resultados\":[{\"id\":\"cap.text_generation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.text_correction\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.translation\",\"estado\":\"si\",\"cita\":\"Traducción automática del proceso de pago\",\"url\":\"https://hotmart.com/es/precios\"},{\"id\":\"cap.presentation_building\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.graphic_design\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.video_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.ai_video_generation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_transcription\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.meeting_notes\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_noise_removal\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.subtitles\",\"estado\":\"si\",\"cita\":\"Subtítulos automáticos en +70 idiomas\",\"url\":\"https://hotmart.com/es/precios\"},{\"id\":\"cap.brand_kit\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://hotmart.com/en",
+  "OK https://hotmart.com/es/precios"
+ ]
+}

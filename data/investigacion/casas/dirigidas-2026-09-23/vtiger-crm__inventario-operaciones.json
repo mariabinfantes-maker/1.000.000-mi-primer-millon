@@ -1,0 +1,17 @@
+{
+ "id": "vtiger-crm__inventario-operaciones",
+ "herramientaId": "vtiger-crm",
+ "nombre": "Vtiger CRM",
+ "casa": "inventario-operaciones",
+ "nombreCasa": "Inventario y operaciones",
+ "urls": [
+  "https://www.vtiger.com/",
+  "https://www.vtiger.com/pricing/"
+ ],
+ "cita": "Inventory Management Invoicing Vendor Management Purchase Order Management Subscriptions Payment Tracking Sales Order Assets",
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.work_orders\",\n      \"estado\": \"si\",\n      \"cita\": \"Work Order Management\",\n      \"url\": \"https://www.vtiger.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.technician_dispatch\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.field_job_capture\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.route_planning\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.serviced_asset_registry\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.service_contracts_and_sla\",\n      \"estado\": \"si\",\n      \"cita\": \"Service Contracts\",\n      \"url\": \"https://www.vtiger.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.inventory_tracking\",\n      \"estado\": \"si\",\n      \"cita\": \"Inventory Management\",\n      \"url\": \"https://www.vtiger.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.stock_reorder_alerts\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.barcode_scanning\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.purchase_orders\",\n      \"estado\": \"si\",\n      \"cita\": \"Purchase Order Management\",\n      \"url\": \"https://www.vtiger.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.warehouse_and_locations\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.lot_and_expiry_traceability\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.bill_of_materials\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.production_orders\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.material_requirements_planning\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.inspections_and_checklists\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.own_asset_maintenance\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.fleet_telematics\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://www.vtiger.com/",
+  "OK https://www.vtiger.com/pricing/"
+ ]
+}

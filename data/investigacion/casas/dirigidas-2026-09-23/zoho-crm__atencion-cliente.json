@@ -1,0 +1,17 @@
+{
+ "id": "zoho-crm__atencion-cliente",
+ "herramientaId": "zoho-crm",
+ "nombre": "Zoho CRM",
+ "casa": "atencion-cliente",
+ "nombreCasa": "Atención al cliente",
+ "urls": [
+  "https://www.zoho.com/crm/",
+  "https://www.zoho.com/crm/pricing.html"
+ ],
+ "cita": "Resolve customer issues with web-to-case forms that convert problems into support tickets that your reps can follow.",
+ "texto": "{\"resultados\":[{\"id\":\"cap.shared_inbox\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.support_ticketing\",\"estado\":\"si\",\"cita\":\"convert problems into support tickets that your reps can follow.\",\"url\":\"https://www.zoho.com/crm/pricing.html\"},{\"id\":\"cap.website_live_chat\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.whatsapp_customer_channel\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.public_help_center\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.canned_responses\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.support_chatbot\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.customer_satisfaction_surveys\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.zoho.com/en-us/crm/",
+  "OK https://www.zoho.com/en-us/crm/zohocrm-pricing.html"
+ ]
+}

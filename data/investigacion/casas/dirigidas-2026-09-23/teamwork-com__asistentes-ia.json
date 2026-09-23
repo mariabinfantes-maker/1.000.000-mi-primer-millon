@@ -1,0 +1,17 @@
+{
+ "id": "teamwork-com__asistentes-ia",
+ "herramientaId": "teamwork-com",
+ "nombre": "Teamwork.com",
+ "casa": "asistentes-ia",
+ "nombreCasa": "Asistentes de IA y productividad",
+ "urls": [
+  "https://www.teamwork.com/",
+  "https://www.teamwork.com/pricing/"
+ ],
+ "cita": "Chat with an AI Assistant to get answers, insights about your work and create tasks",
+ "texto": "{\"resultados\":[{\"id\":\"cap.text_generation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.text_correction\",\"estado\":\"si\",\"cita\":\"Adjust writing tone for updates via AI\",\"url\":\"https://www.teamwork.com/pricing/\"},{\"id\":\"cap.translation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.presentation_building\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.graphic_design\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.video_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.ai_video_generation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_transcription\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.meeting_notes\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_noise_removal\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.subtitles\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.brand_kit\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.teamwork.com/",
+  "OK https://www.teamwork.com/pricing/"
+ ]
+}

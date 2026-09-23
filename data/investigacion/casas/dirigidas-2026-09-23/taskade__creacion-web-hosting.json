@@ -1,0 +1,17 @@
+{
+ "id": "taskade__creacion-web-hosting",
+ "herramientaId": "taskade",
+ "nombre": "Taskade",
+ "casa": "creacion-web-hosting",
+ "nombreCasa": "Creación web y hosting",
+ "urls": [
+  "https://www.taskade.com",
+  "https://www.taskade.com/pricing"
+ ],
+ "cita": "Publish apps under your own domain",
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.website_builder\",\n      \"estado\": \"si\",\n      \"cita\": \"Build websites, landing pages, dashboards, client portals, and custom tools from simple prompts\",\n      \"url\": \"https://www.taskade.com/pricing\"\n    },\n    {\n      \"id\": \"cap.hosting_and_domain\",\n      \"estado\": \"si\",\n      \"cita\": \"Publish apps under your own domain (app.yourbrand.com).\",\n      \"url\": \"https://www.taskade.com/pricing\"\n    },\n    {\n      \"id\": \"cap.reviews_and_reputation\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.local_business_listings\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://www.taskade.com/",
+  "OK https://www.taskade.com/pricing"
+ ]
+}

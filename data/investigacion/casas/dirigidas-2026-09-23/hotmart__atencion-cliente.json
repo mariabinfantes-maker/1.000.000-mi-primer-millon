@@ -1,0 +1,17 @@
+{
+ "id": "hotmart__atencion-cliente",
+ "herramientaId": "hotmart",
+ "nombre": "Hotmart",
+ "casa": "atencion-cliente",
+ "nombreCasa": "Atención al cliente",
+ "urls": [
+  "https://hotmart.com/",
+  "https://hotmart.com/es/precios"
+ ],
+ "cita": "✓ Asistencia 24 horas a través de IA o del Centro de ayuda.",
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.shared_inbox\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.support_ticketing\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.website_live_chat\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.whatsapp_customer_channel\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.public_help_center\",\n      \"estado\": \"si\",\n      \"cita\": \"Asistencia 24 horas a través de IA o del Centro de ayuda.\",\n      \"url\": \"https://hotmart.com/es/precios\"\n    },\n    {\n      \"id\": \"cap.canned_responses\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.support_chatbot\",\n      \"estado\": \"si\",\n      \"cita\": \"Asistente que responde a las preguntas de tus alumnos con Hotmart Tutor.\",\n      \"url\": \"https://hotmart.com/es/precios\"\n    },\n    {\n      \"id\": \"cap.customer_satisfaction_surveys\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://hotmart.com/en",
+  "OK https://hotmart.com/es/precios"
+ ]
+}

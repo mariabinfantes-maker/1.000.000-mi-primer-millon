@@ -1,0 +1,17 @@
+{
+ "id": "streak__recursos-humanos",
+ "herramientaId": "streak",
+ "nombre": "Streak",
+ "casa": "recursos-humanos",
+ "nombreCasa": "Recursos humanos",
+ "urls": [
+  "https://www.streak.com",
+  "https://www.streak.com/pricing"
+ ],
+ "cita": "Organize candidates and stages",
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.recruiting\",\n      \"estado\": \"si\",\n      \"cita\": \"Organize candidates and stages\",\n      \"url\": \"https://www.streak.com\"\n    },\n    {\n      \"id\": \"cap.employee_onboarding\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.payroll\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.commissions_and_tips\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.time_and_attendance\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.shift_scheduling\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.leave_management\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.performance_reviews\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://www.streak.com/",
+  "OK https://www.streak.com/pricing"
+ ]
+}

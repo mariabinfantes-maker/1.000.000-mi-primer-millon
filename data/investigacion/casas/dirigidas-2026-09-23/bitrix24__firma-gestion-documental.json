@@ -1,0 +1,17 @@
+{
+ "id": "bitrix24__firma-gestion-documental",
+ "herramientaId": "bitrix24",
+ "nombre": "Bitrix24",
+ "casa": "firma-gestion-documental",
+ "nombreCasa": "Firma electrónica y gestión documental",
+ "urls": [
+  "https://www.bitrix24.com/",
+  "https://www.bitrix24.com/prices/"
+ ],
+ "cita": "Online documents & file storage Store, share and edit documents online easily with co-workers using company drive",
+ "texto": "{\"resultados\":[{\"id\":\"cap.collaborative_document_editing\",\"estado\":\"si\",\"cita\":\"Store, share and edit documents online easily with co-workers using company drive\",\"url\":\"https://www.bitrix24.com/\"},{\"id\":\"cap.internal_knowledge_workspace\",\"estado\":\"si\",\"cita\":\"Work with knowledge bases, online documents, file storage, access permissions\",\"url\":\"https://www.bitrix24.com/\"},{\"id\":\"cap.file_storage\",\"estado\":\"si\",\"cita\":\"Store, share and edit documents online easily with co-workers using company drive\",\"url\":\"https://www.bitrix24.com/\"},{\"id\":\"cap.document_templates\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.workspace_wide_search\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.document_version_history\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.electronic_signature\",\"estado\":\"si\",\"cita\":\"Get estimates, invoices, payments, catalog, inventory, e-signature, CRM store\",\"url\":\"https://www.bitrix24.com/\"}]}",
+ "leidas": [
+  "OK https://www.bitrix24.com/",
+  "OK https://www.bitrix24.com/prices/"
+ ]
+}

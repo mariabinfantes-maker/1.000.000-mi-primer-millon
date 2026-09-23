@@ -1,0 +1,17 @@
+{
+ "id": "taskade__recursos-humanos",
+ "herramientaId": "taskade",
+ "nombre": "Taskade",
+ "casa": "recursos-humanos",
+ "nombreCasa": "Recursos humanos",
+ "urls": [
+  "https://www.taskade.com",
+  "https://www.taskade.com/pricing"
+ ],
+ "cita": "New-hire onboarding hub",
+ "texto": "{\"resultados\":[{\"id\":\"cap.recruiting\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.employee_onboarding\",\"estado\":\"si\",\"cita\":\"New-hire onboarding hub\",\"url\":\"https://www.taskade.com\"},{\"id\":\"cap.payroll\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.commissions_and_tips\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.time_and_attendance\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.shift_scheduling\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.leave_management\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.performance_reviews\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.taskade.com/",
+  "OK https://www.taskade.com/pricing"
+ ]
+}

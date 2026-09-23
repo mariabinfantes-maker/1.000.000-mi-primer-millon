@@ -1,0 +1,17 @@
+{
+ "id": "kartra__creacion-web-hosting",
+ "herramientaId": "kartra",
+ "nombre": "Kartra",
+ "casa": "creacion-web-hosting",
+ "nombreCasa": "Creación web y hosting",
+ "urls": [
+  "https://www.kartra.com",
+  "https://kartra.com/plans-and-pricing/"
+ ],
+ "cita": "Landing Pages & Websites Build high converting pages",
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.website_builder\",\n      \"estado\": \"si\",\n      \"cita\": \"Quickly design pages with a user-friendly drag-and-drop, no code editor.\",\n      \"url\": \"https://kartra.com/plans-and-pricing/\"\n    },\n    {\n      \"id\": \"cap.hosting_and_domain\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.reviews_and_reputation\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.local_business_listings\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://kartra.com/",
+  "OK https://kartra.com/plans-and-pricing/"
+ ]
+}

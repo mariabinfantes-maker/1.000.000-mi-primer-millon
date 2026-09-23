@@ -1,0 +1,17 @@
+{
+ "id": "odoo__atencion-cliente",
+ "herramientaId": "odoo",
+ "nombre": "Odoo",
+ "casa": "atencion-cliente",
+ "nombreCasa": "Atención al cliente",
+ "urls": [
+  "https://www.odoo.com/",
+  "https://www.odoo.com/pricing"
+ ],
+ "cita": "Website Builder eCommerce Blog Forum Live Chat eLearning",
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.shared_inbox\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.support_ticketing\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.website_live_chat\",\n      \"estado\": \"si\",\n      \"cita\": \"Live Chat\",\n      \"url\": \"https://www.odoo.com/\"\n    },\n    {\n      \"id\": \"cap.whatsapp_customer_channel\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.public_help_center\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.canned_responses\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.support_chatbot\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.customer_satisfaction_surveys\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://www.odoo.com/",
+  "OK https://www.odoo.com/pricing"
+ ]
+}

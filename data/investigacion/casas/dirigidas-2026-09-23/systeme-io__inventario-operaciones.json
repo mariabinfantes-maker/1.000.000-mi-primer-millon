@@ -1,0 +1,17 @@
+{
+ "id": "systeme-io__inventario-operaciones",
+ "herramientaId": "systeme-io",
+ "nombre": "Systeme.io",
+ "casa": "inventario-operaciones",
+ "nombreCasa": "Inventario y operaciones",
+ "urls": [
+  "https://systeme.io",
+  "https://systeme.io/pricing"
+ ],
+ "cita": "Inventory management",
+ "texto": "{\"resultados\":[{\"id\":\"cap.work_orders\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.technician_dispatch\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.field_job_capture\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.route_planning\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.serviced_asset_registry\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.service_contracts_and_sla\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.inventory_tracking\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.stock_reorder_alerts\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.barcode_scanning\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.purchase_orders\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.warehouse_and_locations\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.lot_and_expiry_traceability\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.bill_of_materials\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.production_orders\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.material_requirements_planning\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.inspections_and_checklists\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.own_asset_maintenance\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.fleet_telematics\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://systeme.io/",
+  "OK https://systeme.io/pricing"
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "id": "vtiger-crm__gestion-proyectos",
+ "herramientaId": "vtiger-crm",
+ "nombre": "Vtiger CRM",
+ "casa": "gestion-proyectos",
+ "nombreCasa": "Gestión de proyectos",
+ "urls": [
+  "https://www.vtiger.com/",
+  "https://www.vtiger.com/pricing/"
+ ],
+ "cita": "Project Management Tasks & Milestones Subtasks Gantt View Kanban Board",
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.team_messaging\",\n      \"estado\": \"si\",\n      \"cita\": \"Direct messages, Comments and @Mentions\",\n      \"url\": \"https://www.vtiger.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.video_meetings\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.task_management\",\n      \"estado\": \"si\",\n      \"cita\": \"Tasks & Milestones\",\n      \"url\": \"https://www.vtiger.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.project_planning\",\n      \"estado\": \"si\",\n      \"cita\": \"Tasks & Milestones\",\n      \"url\": \"https://www.vtiger.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.gantt_and_dependencies\",\n      \"estado\": \"si\",\n      \"cita\": \"Task dependencies (Finish to Start)\",\n      \"url\": \"https://www.vtiger.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.kanban_boards\",\n      \"estado\": \"si\",\n      \"cita\": \"Kanban Board\",\n      \"url\": \"https://www.vtiger.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.time_tracking\",\n      \"estado\": \"si\",\n      \"cita\": \"Automated Time Tracking and Billing\",\n      \"url\": \"https://www.vtiger.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.team_workload_planning\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.personal_calendar_planning\",\n      \"estado\": \"si\",\n      \"cita\": \"Calendar and Events\",\n      \"url\": \"https://www.vtiger.com/\"\n    },\n    {\n      \"id\": \"cap.automatic_rescheduling\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.case_file_management\",\n      \"estado\": \"si\",\n      \"cita\": \"Cases\",\n      \"url\": \"https://www.vtiger.com/\"\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://www.vtiger.com/",
+  "OK https://www.vtiger.com/pricing/"
+ ]
+}

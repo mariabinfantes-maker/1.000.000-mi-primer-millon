@@ -1,0 +1,18 @@
+{
+ "id": "salesmate__asistentes-ia",
+ "herramientaId": "salesmate",
+ "nombre": "Salesmate",
+ "casa": "asistentes-ia",
+ "nombreCasa": "Asistentes de IA y productividad",
+ "urls": [
+  "https://www.salesmate.io/",
+  "https://www.salesmate.io/pricing/"
+ ],
+ "cita": "Use AI to assist teams, summarize conversations, automate repetitive work, support next-best actions, and improve execution using real customer context.",
+ "texto": "{\"resultados\":[{\"id\":\"cap.text_generation\",\"estado\":\"si\",\"cita\":\"Compose Emails\",\"url\":\"https://www.salesmate.io/\"},{\"id\":\"cap.text_correction\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.translation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.presentation_building\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.graphic_design\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.video_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.ai_video_generation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_transcription\",\"estado\":\"si\",\"cita\":\"Call Transcriptions\",\"url\":\"https://www.salesmate.io/\"},{\"id\":\"cap.meeting_notes\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_noise_removal\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.subtitles\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.brand_kit\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.salesmate.io/",
+  "OK https://www.salesmate.io/pricing/",
+  "OK https://www.salesmate.io/pricing/"
+ ]
+}

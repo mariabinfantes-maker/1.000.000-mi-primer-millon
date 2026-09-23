@@ -1,0 +1,17 @@
+{
+ "id": "nifty__crm",
+ "herramientaId": "nifty",
+ "nombre": "Nifty",
+ "casa": "crm",
+ "nombreCasa": "CRM y ventas",
+ "urls": [
+  "https://niftypm.com",
+  "https://niftypm.com/pricing/"
+ ],
+ "cita": "Pipeline visibility with live deal status and values",
+ "texto": "{\"resultados\":[{\"id\":\"cap.customer_contact_records\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.customer_interaction_history\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.sales_pipeline\",\"estado\":\"si\",\"cita\":\"Pipeline visibility with live deal status and values\",\"url\":\"https://niftypm.com\"},{\"id\":\"cap.lead_capture\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.sales_forecasting\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.client_portal\",\"estado\":\"si\",\"cita\":\"Give every client a branded workspace to see progress, approve work, and message your team.\",\"url\":\"https://niftypm.com\"},{\"id\":\"cap.quotes_and_proposals\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.bill_of_quantities\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.price_lists_and_rates\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.electronic_signature\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.contract_lifecycle\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://niftypm.com/",
+  "OK https://niftypm.com/pricing/"
+ ]
+}

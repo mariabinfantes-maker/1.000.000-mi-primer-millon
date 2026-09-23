@@ -1,0 +1,17 @@
+{
+ "id": "clickfunnels__creacion-web-hosting",
+ "herramientaId": "clickfunnels",
+ "nombre": "ClickFunnels",
+ "casa": "creacion-web-hosting",
+ "nombreCasa": "Creación web y hosting",
+ "urls": [
+  "https://www.clickfunnels.com",
+  "https://www.clickfunnels.com/pricing"
+ ],
+ "cita": "All ClickFunnels plans include secure, unlimited hosting for all your digital content.",
+ "texto": "{\"resultados\":[{\"id\":\"cap.website_builder\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.hosting_and_domain\",\"estado\":\"si\",\"cita\":\"All ClickFunnels plans include secure, unlimited hosting for all your digital content.\",\"url\":\"https://www.clickfunnels.com/pricing\"},{\"id\":\"cap.reviews_and_reputation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.local_business_listings\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.clickfunnels.com/",
+  "OK https://www.clickfunnels.com/pricing"
+ ]
+}

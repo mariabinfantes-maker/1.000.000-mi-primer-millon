@@ -1,0 +1,17 @@
+{
+ "id": "teamwork-com__crm",
+ "herramientaId": "teamwork-com",
+ "nombre": "Teamwork.com",
+ "casa": "crm",
+ "nombreCasa": "CRM y ventas",
+ "urls": [
+  "https://www.teamwork.com/",
+  "https://www.teamwork.com/pricing/"
+ ],
+ "cita": "Resourcing Profitability Reporting Projects Quote & CRM AI",
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.customer_contact_records\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.customer_interaction_history\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.sales_pipeline\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.lead_capture\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.sales_forecasting\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.client_portal\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.quotes_and_proposals\",\n      \"estado\": \"si\",\n      \"cita\": \"Build client ready quotes\",\n      \"url\": \"https://www.teamwork.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.bill_of_quantities\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.price_lists_and_rates\",\n      \"estado\": \"si\",\n      \"cita\": \"Set role-based & client rates\",\n      \"url\": \"https://www.teamwork.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.electronic_signature\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.contract_lifecycle\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://www.teamwork.com/",
+  "OK https://www.teamwork.com/pricing/"
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "id": "zoho-projects__firma-gestion-documental",
+ "herramientaId": "zoho-projects",
+ "nombre": "Zoho Projects",
+ "casa": "firma-gestion-documental",
+ "nombreCasa": "Firma electrónica y gestión documental",
+ "urls": [
+  "https://www.zoho.com/projects/",
+  "https://www.zoho.com/projects/zohoprojects-pricing.html"
+ ],
+ "cita": "Document Management: Store, manage, and share documents securely.",
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.collaborative_document_editing\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.internal_knowledge_workspace\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.file_storage\",\n      \"estado\": \"si\",\n      \"cita\": \"Document Management: Store, manage, and share documents securely.\",\n      \"url\": \"https://www.zoho.com/projects/\"\n    },\n    {\n      \"id\": \"cap.document_templates\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.workspace_wide_search\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.document_version_history\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.electronic_signature\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://www.zoho.com/projects/",
+  "OK https://www.zoho.com/projects/zohoprojects-pricing.html"
+ ]
+}

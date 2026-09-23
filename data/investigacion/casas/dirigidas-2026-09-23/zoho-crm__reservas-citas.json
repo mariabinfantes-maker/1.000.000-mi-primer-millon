@@ -1,0 +1,17 @@
+{
+ "id": "zoho-crm__reservas-citas",
+ "herramientaId": "zoho-crm",
+ "nombre": "Zoho CRM",
+ "casa": "reservas-citas",
+ "nombreCasa": "Reservas y citas",
+ "urls": [
+  "https://www.zoho.com/crm/",
+  "https://www.zoho.com/crm/pricing.html"
+ ],
+ "cita": "Schedule and book meetings from within Zoho CRM.",
+ "texto": "{\"resultados\":[{\"id\":\"cap.online_self_service_booking\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.per_resource_booking_calendar\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.customer_appointment_reminders\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.booking_cancellation_and_rescheduling\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.capacity_and_time_slots\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.no_show_and_deposits\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.room_and_equipment_booking\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.booking_waitlist\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.embeddable_booking_widget\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.zoho.com/en-us/crm/",
+  "OK https://www.zoho.com/en-us/crm/zohocrm-pricing.html"
+ ]
+}

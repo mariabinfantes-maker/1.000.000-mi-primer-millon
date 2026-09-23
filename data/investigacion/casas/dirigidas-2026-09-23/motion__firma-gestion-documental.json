@@ -1,0 +1,17 @@
+{
+ "id": "motion__firma-gestion-documental",
+ "herramientaId": "motion",
+ "nombre": "Motion",
+ "casa": "firma-gestion-documental",
+ "nombreCasa": "Firma electrónica y gestión documental",
+ "urls": [
+  "https://www.usemotion.com/",
+  "https://www.usemotion.com/pricing"
+ ],
+ "cita": "Create docs — notes, processes, wikis, pages — all in one place",
+ "texto": "{\"resultados\":[{\"id\":\"cap.collaborative_document_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.internal_knowledge_workspace\",\"estado\":\"si\",\"cita\":\"Create docs — notes, processes, wikis, pages — all in one place\",\"url\":\"https://www.usemotion.com/\"},{\"id\":\"cap.file_storage\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.document_templates\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.workspace_wide_search\",\"estado\":\"si\",\"cita\":\"Instantly finds anything - docs, notes, project, task, communication\",\"url\":\"https://www.usemotion.com/\"},{\"id\":\"cap.document_version_history\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.electronic_signature\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.usemotion.com/",
+  "OK https://www.usemotion.com/pricing"
+ ]
+}

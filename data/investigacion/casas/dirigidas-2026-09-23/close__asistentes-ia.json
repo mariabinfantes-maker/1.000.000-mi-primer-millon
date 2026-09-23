@@ -1,0 +1,17 @@
+{
+ "id": "close__asistentes-ia",
+ "herramientaId": "close",
+ "nombre": "Close",
+ "casa": "asistentes-ia",
+ "nombreCasa": "Asistentes de IA y productividad",
+ "urls": [
+  "https://www.close.com",
+  "https://close.com/pricing"
+ ],
+ "cita": "Chloe is an AI sales agent built into Close CRM that calls leads, qualifies prospects through real conversations, and can book meetings while updating your CRM automatically.",
+ "texto": "{\"resultados\":[{\"id\":\"cap.text_generation\",\"estado\":\"si\",\"cita\":\"Use AI to draft and edit emails directly within Close\",\"url\":\"https://close.com/pricing\"},{\"id\":\"cap.text_correction\",\"estado\":\"si\",\"cita\":\"Use AI to draft and edit emails directly within Close\",\"url\":\"https://close.com/pricing\"},{\"id\":\"cap.translation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.presentation_building\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.graphic_design\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.video_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.ai_video_generation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_transcription\",\"estado\":\"si\",\"cita\":\"Record, transcribe, and summarize all meetings synced to Close from Zoom, Teams, and Meet.\",\"url\":\"https://close.com/pricing\"},{\"id\":\"cap.meeting_notes\",\"estado\":\"si\",\"cita\":\"Record, transcribe, and summarize all meetings synced to Close from Zoom, Teams, and Meet.\",\"url\":\"https://close.com/pricing\"},{\"id\":\"cap.audio_noise_removal\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.subtitles\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.brand_kit\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://close.com/",
+  "OK https://close.com/pricing"
+ ]
+}

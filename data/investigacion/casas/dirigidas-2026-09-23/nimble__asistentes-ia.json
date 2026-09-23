@@ -1,0 +1,17 @@
+{
+ "id": "nimble__asistentes-ia",
+ "herramientaId": "nimble",
+ "nombre": "Nimble",
+ "casa": "asistentes-ia",
+ "nombreCasa": "Asistentes de IA y productividad",
+ "urls": [
+  "https://www.nimble.com/",
+  "https://www.nimble.com/pricing/"
+ ],
+ "cita": "AI-Powered Email Creation Tools",
+ "texto": "{\"resultados\":[{\"id\":\"cap.text_generation\",\"estado\":\"si\",\"cita\":\"AI-Powered Email Creation Tools\",\"url\":\"https://www.nimble.com/pricing/\"},{\"id\":\"cap.text_correction\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.translation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.presentation_building\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.graphic_design\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.video_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.ai_video_generation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_transcription\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.meeting_notes\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_noise_removal\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.subtitles\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.brand_kit\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.nimble.com/",
+  "OK https://www.nimble.com/pricing/"
+ ]
+}

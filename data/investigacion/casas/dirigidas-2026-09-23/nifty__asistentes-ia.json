@@ -1,0 +1,17 @@
+{
+ "id": "nifty__asistentes-ia",
+ "herramientaId": "nifty",
+ "nombre": "Nifty",
+ "casa": "asistentes-ia",
+ "nombreCasa": "Asistentes de IA y productividad",
+ "urls": [
+  "https://niftypm.com",
+  "https://niftypm.com/pricing/"
+ ],
+ "cita": "Orbit AI Let AI plan, build, and update work",
+ "texto": "{\"resultados\":[{\"id\":\"cap.text_generation\",\"estado\":\"si\",\"cita\":\"Orbit plans projects, prioritizes tasks, drafts updates, and writes docs.\",\"url\":\"https://niftypm.com\"},{\"id\":\"cap.text_correction\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.translation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.presentation_building\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.graphic_design\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.video_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.ai_video_generation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_transcription\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.meeting_notes\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_noise_removal\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.subtitles\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.brand_kit\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://niftypm.com/",
+  "OK https://niftypm.com/pricing/"
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "id": "teachable__asistentes-ia",
+ "herramientaId": "teachable",
+ "nombre": "Teachable",
+ "casa": "asistentes-ia",
+ "nombreCasa": "Asistentes de IA y productividad",
+ "urls": [
+  "https://teachable.com",
+  "https://www.teachable.com/pricing"
+ ],
+ "cita": "Built-in AI creation and translation tools",
+ "texto": "{\"resultados\":[{\"id\":\"cap.text_generation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.text_correction\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.translation\",\"estado\":\"si\",\"cita\":\"Built-in AI creation and translation tools\",\"url\":\"https://teachable.com\"},{\"id\":\"cap.presentation_building\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.graphic_design\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.video_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.ai_video_generation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_transcription\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.meeting_notes\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_noise_removal\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.subtitles\",\"estado\":\"si\",\"cita\":\"Generate video subtitles and translate them into over 70 other languages\",\"url\":\"https://teachable.com\"},{\"id\":\"cap.brand_kit\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.teachable.com/",
+  "OK https://www.teachable.com/pricing"
+ ]
+}

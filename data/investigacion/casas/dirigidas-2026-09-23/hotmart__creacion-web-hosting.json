@@ -1,0 +1,17 @@
+{
+ "id": "hotmart__creacion-web-hosting",
+ "herramientaId": "hotmart",
+ "nombre": "Hotmart",
+ "casa": "creacion-web-hosting",
+ "nombreCasa": "Creación web y hosting",
+ "urls": [
+  "https://hotmart.com/",
+  "https://hotmart.com/es/precios"
+ ],
+ "cita": "Hotmart gives you everything you need to host and promote your course or ebook, from idea to sale.",
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.website_builder\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.hosting_and_domain\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.reviews_and_reputation\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.local_business_listings\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://hotmart.com/en",
+  "OK https://hotmart.com/es/precios"
+ ]
+}

@@ -32,31 +32,33 @@ que el nombre de la casa promete. Queda incorporada a la casa, donde sale
 
 ## El recuento
 
+*(Actualizado el 23-09 con las dos pasadas de verificación: ver
+`pasada-2026-09-23/` y `dirigidas-2026-09-23/`.)*
+
 | Casa | Está | De ellas, sólo por su portada |
 |---|---:|---:|
 | Plataformas todo en uno | — | *(sin regla, ver abajo)* |
-| CRM y ventas | 28 | 1 |
-| Gestión de proyectos | 30 | 0 |
-| Asistentes de IA y productividad | 22 | 2 |
-| Facturación y contabilidad | 17 | 0 |
-| Reservas y citas | 9 | 0 |
-| Atención al cliente | 3 | 0 |
-| Comercio electrónico | 4 | 1 |
-| Automatización e integraciones | 60 | 0 |
-| Marketing y email | 15 | 1 |
-| Recursos humanos | 3 | 0 |
-| Inventario y operaciones | 0 | 0 |
-| Creación web y hosting | 6 | 0 |
-| Firma electrónica y gestión documental | 7 | 0 |
-| Software sectorial | 2 | 2 |
+| CRM y ventas | 34 | 1 |
+| Gestión de proyectos | 37 | 0 |
+| Asistentes de IA y productividad | 42 | 0 |
+| Facturación y contabilidad | 21 | 0 |
+| Reservas y citas | 11 | 0 |
+| Atención al cliente | 22 | 0 |
+| Comercio electrónico | 8 | 1 |
+| Automatización e integraciones | 65 | 0 |
+| Marketing y email | 22 | 1 |
+| Recursos humanos | 9 | 0 |
+| Inventario y operaciones | 4 | 0 |
+| Creación web y hosting | 11 | 0 |
+| Firma electrónica y gestión documental | 16 | 0 |
+| Software sectorial | 2 | 0 |
 
 Hoy cada ficha tiene **una sola** categoría, y por eso las 65 viven en 4 casas
 de las 15.
 
 **«Sólo por su portada»** son las que entran porque esa casa es su oficio
-—lo que la herramienta es— sin que F2 haya verificado aún ninguna capacidad
-suya ahí. Son 8 en total. Entran, pero no pueden decir qué cubren hasta que se
-comprueben.
+—lo que la herramienta es— sin que se haya verificado aún ninguna capacidad
+suya ahí. Quedan 3, de las 7 que había.
 
 ## «Todo en uno» se queda sin regla, a propósito
 

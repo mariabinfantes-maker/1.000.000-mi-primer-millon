@@ -1,0 +1,17 @@
+{
+ "id": "teachable__creacion-web-hosting",
+ "herramientaId": "teachable",
+ "nombre": "Teachable",
+ "casa": "creacion-web-hosting",
+ "nombreCasa": "Creación web y hosting",
+ "urls": [
+  "https://teachable.com",
+  "https://www.teachable.com/pricing"
+ ],
+ "cita": "Site Builder",
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.website_builder\",\n      \"estado\": \"si\",\n      \"cita\": \"Site Builder\",\n      \"url\": \"https://teachable.com\"\n    },\n    {\n      \"id\": \"cap.hosting_and_domain\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.reviews_and_reputation\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.local_business_listings\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://www.teachable.com/",
+  "OK https://www.teachable.com/pricing"
+ ]
+}

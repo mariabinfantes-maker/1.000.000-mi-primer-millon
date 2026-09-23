@@ -1,0 +1,17 @@
+{
+ "id": "clickup__firma-gestion-documental",
+ "herramientaId": "clickup",
+ "nombre": "ClickUp",
+ "casa": "firma-gestion-documental",
+ "nombreCasa": "Firma electrónica y gestión documental",
+ "urls": [
+  "https://clickup.com",
+  "https://clickup.com/pricing"
+ ],
+ "cita": "Collaborative Docs",
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.collaborative_document_editing\",\n      \"estado\": \"si\",\n      \"cita\": \"Collaborative Docs\",\n      \"url\": \"https://clickup.com/pricing\"\n    },\n    {\n      \"id\": \"cap.internal_knowledge_workspace\",\n      \"estado\": \"si\",\n      \"cita\": \"Wikis\",\n      \"url\": \"https://clickup.com\"\n    },\n    {\n      \"id\": \"cap.file_storage\",\n      \"estado\": \"si\",\n      \"cita\": \"File Storage\",\n      \"url\": \"https://clickup.com/pricing\"\n    },\n    {\n      \"id\": \"cap.document_templates\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.workspace_wide_search\",\n      \"estado\": \"si\",\n      \"cita\": \"Connected Search\",\n      \"url\": \"https://clickup.com\"\n    },\n    {\n      \"id\": \"cap.document_version_history\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.electronic_signature\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://clickup.com/",
+  "OK https://clickup.com/pricing"
+ ]
+}

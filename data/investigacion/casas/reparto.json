@@ -107,7 +107,8 @@
      "cubre": [
       "Fichas de cliente",
       "Embudo de ventas y oportunidades",
-      "Captación de contactos interesados"
+      "Captación de contactos interesados",
+      "Firma electrónica de documentos"
      ],
      "sinComprobar": [
       "Historial de trato con el cliente",
@@ -116,10 +117,45 @@
       "Presupuestos y propuestas",
       "Presupuesto por partidas y mediciones",
       "Tarifas y listas de precios",
-      "Firma electrónica de documentos",
       "Contratos vivos: vencimientos y renovaciones"
      ],
      "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "reservas-citas": {
+     "cubre": [
+      "Reserva online por la propia persona"
+     ],
+     "sinComprobar": [
+      "Agenda por profesional o recurso",
+      "Recordatorios automáticos",
+      "Cancelar y cambiar la cita",
+      "Aforo, turnos y franjas",
+      "Ausencias y depósitos",
+      "Reserva de salas y equipos",
+      "Lista de espera",
+      "Insertar la reserva en tu propia web"
+     ],
+     "esSuOficio": false,
      "apoyo": "verificado"
     },
     "atencion-cliente": {
@@ -152,6 +188,37 @@
       "Exportar los datos",
       "Importar y migrar desde otra herramienta",
       "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "recursos-humanos": {
+     "cubre": [
+      "Selección de personal"
+     ],
+     "sinComprobar": [
+      "Incorporación",
+      "Nóminas",
+      "Comisiones y propinas",
+      "Fichaje y control horario",
+      "Turnos y cuadrantes",
+      "Vacaciones y ausencias",
+      "Desempeño y objetivos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "firma-gestion-documental": {
+     "cubre": [
+      "Firma electrónica de documentos"
+     ],
+     "sinComprobar": [
+      "Edición a varias manos",
+      "Espacio de conocimiento interno",
+      "Archivos y carpetas",
+      "Plantillas de documento",
+      "Buscar en todo lo guardado",
+      "Versiones y cambios"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -197,6 +264,27 @@
       "Calendario y planificación diaria",
       "Replanificación automática",
       "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -427,7 +515,8 @@
      "cubre": [
       "Fichas de cliente",
       "Embudo de ventas y oportunidades",
-      "Captación de contactos interesados"
+      "Captación de contactos interesados",
+      "Firma electrónica de documentos"
      ],
      "sinComprobar": [
       "Historial de trato con el cliente",
@@ -436,7 +525,6 @@
       "Presupuestos y propuestas",
       "Presupuesto por partidas y mediciones",
       "Tarifas y listas de precios",
-      "Firma electrónica de documentos",
       "Contratos vivos: vencimientos y renovaciones"
      ],
      "esSuOficio": true,
@@ -506,6 +594,23 @@
       "Conseguir financiación",
       "Cobrar sin esperar a que venza la factura",
       "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "reservas-citas": {
+     "cubre": [
+      "Aforo, turnos y franjas",
+      "Reserva de salas y equipos"
+     ],
+     "sinComprobar": [
+      "Reserva online por la propia persona",
+      "Agenda por profesional o recurso",
+      "Recordatorios automáticos",
+      "Cancelar y cambiar la cita",
+      "Ausencias y depósitos",
+      "Lista de espera",
+      "Insertar la reserva en tu propia web"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -631,6 +736,21 @@
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
+    },
+    "firma-gestion-documental": {
+     "cubre": [
+      "Edición a varias manos",
+      "Espacio de conocimiento interno",
+      "Archivos y carpetas",
+      "Firma electrónica de documentos"
+     ],
+     "sinComprobar": [
+      "Plantillas de documento",
+      "Buscar en todo lo guardado",
+      "Versiones y cambios"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
     }
    },
    "hoy": "plataformas-todo-en-uno"
@@ -717,6 +837,25 @@
       "Contratos vivos: vencimientos y renovaciones"
      ],
      "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas",
+      "Proyectos e hitos",
+      "Calendario y planificación diaria"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": false,
      "apoyo": "verificado"
     },
     "atencion-cliente": {
@@ -858,6 +997,18 @@
      ],
      "esSuOficio": true,
      "apoyo": "verificado"
+    },
+    "creacion-web-hosting": {
+     "cubre": [
+      "Alojamiento y dominio"
+     ],
+     "sinComprobar": [
+      "Crear la página web",
+      "Reseñas y reputación",
+      "Ficha de negocio en directorios"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
     }
    },
    "hoy": "plataformas-todo-en-uno"
@@ -965,6 +1116,27 @@
      "esSuOficio": true,
      "apoyo": "verificado"
     },
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "automatizacion-integraciones": {
      "cubre": [
       "Automatizar tareas repetidas",
@@ -979,6 +1151,21 @@
       "Informes a medida",
       "Importar y migrar desde otra herramienta",
       "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "firma-gestion-documental": {
+     "cubre": [
+      "Edición a varias manos",
+      "Archivos y carpetas",
+      "Buscar en todo lo guardado"
+     ],
+     "sinComprobar": [
+      "Espacio de conocimiento interno",
+      "Plantillas de documento",
+      "Versiones y cambios",
+      "Firma electrónica de documentos"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -1024,6 +1211,27 @@
       "Calendario y planificación diaria",
       "Replanificación automática",
       "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos",
+      "Corregir y pulir textos",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión"
+     ],
+     "sinComprobar": [
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -1087,6 +1295,27 @@
       "Calendario y planificación diaria",
       "Replanificación automática",
       "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos",
+      "Corregir y pulir textos"
+     ],
+     "sinComprobar": [
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -1244,6 +1473,25 @@
      "esSuOficio": true,
      "apoyo": "verificado"
     },
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "reservas-citas": {
      "cubre": [
       "Reserva online por la propia persona",
@@ -1291,6 +1539,23 @@
       "Informes a medida",
       "Exportar los datos",
       "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [
+      "Campañas de correo",
+      "Automatización de marketing",
+      "Páginas de captación",
+      "Publicar en redes sociales"
+     ],
+     "sinComprobar": [
+      "Embudos de conversión",
+      "Analítica de redes sociales",
+      "Posicionamiento en buscadores",
+      "Campañas de publicidad de pago",
+      "Fidelización y puntos"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -1387,6 +1652,24 @@
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Agentes de IA que ejecutan tareas",
+      "Analítica avanzada y predicción"
+     ],
+     "sinComprobar": [
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
     }
    },
    "hoy": "plataformas-todo-en-uno"
@@ -1430,6 +1713,18 @@
       "Cuadros de mando",
       "Informes a medida",
       "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "creacion-web-hosting": {
+     "cubre": [
+      "Crear la página web",
+      "Alojamiento y dominio"
+     ],
+     "sinComprobar": [
+      "Reseñas y reputación",
+      "Ficha de negocio en directorios"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -1515,6 +1810,34 @@
       "Tarifas y listas de precios",
       "Firma electrónica de documentos",
       "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "facturacion-contabilidad": {
+     "cubre": [
+      "Facturas",
+      "Cobrar"
+     ],
+     "sinComprobar": [
+      "De presupuesto a factura",
+      "Cuotas y facturación recurrente",
+      "Facturar por avance, hitos u horas",
+      "Facturar a aseguradoras y mutuas",
+      "Liquidar a propietarios y colaboradores",
+      "Gastos y tickets",
+      "Contabilidad",
+      "Cálculo y declaración de impuestos",
+      "Factura electrónica obligatoria",
+      "Donaciones, campañas y certificados al donante",
+      "Coste y margen por trabajo, obra o subvención",
+      "Informes económicos",
+      "Presupuesto anual y previsión de tesorería",
+      "Cobrar a un cliente que no paga",
+      "Controlar lo que pagas cada mes",
+      "Conseguir financiación",
+      "Cobrar sin esperar a que venza la factura",
+      "Pagar las facturas que te llegan"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -1746,7 +2069,8 @@
      "cubre": [
       "Fichas de cliente",
       "Embudo de ventas y oportunidades",
-      "Captación de contactos interesados"
+      "Captación de contactos interesados",
+      "Firma electrónica de documentos"
      ],
      "sinComprobar": [
       "Historial de trato con el cliente",
@@ -1755,7 +2079,6 @@
       "Presupuestos y propuestas",
       "Presupuesto por partidas y mediciones",
       "Tarifas y listas de precios",
-      "Firma electrónica de documentos",
       "Contratos vivos: vencimientos y renovaciones"
      ],
      "esSuOficio": true,
@@ -1863,6 +2186,21 @@
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
+    },
+    "firma-gestion-documental": {
+     "cubre": [
+      "Plantillas de documento",
+      "Firma electrónica de documentos"
+     ],
+     "sinComprobar": [
+      "Edición a varias manos",
+      "Espacio de conocimiento interno",
+      "Archivos y carpetas",
+      "Buscar en todo lo guardado",
+      "Versiones y cambios"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
     }
    },
    "hoy": "plataformas-todo-en-uno"
@@ -1871,6 +2209,27 @@
    "id": "hotmart",
    "nombre": "Hotmart",
    "casas": {
+    "asistentes-ia": {
+     "cubre": [
+      "Traducir",
+      "Subtítulos"
+     ],
+     "sinComprobar": [
+      "Redactar textos",
+      "Corregir y pulir textos",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "facturacion-contabilidad": {
      "cubre": [
       "Cobrar"
@@ -1899,6 +2258,22 @@
      "esSuOficio": false,
      "apoyo": "verificado"
     },
+    "atencion-cliente": {
+     "cubre": [
+      "Centro de ayuda público",
+      "Asistente automático de atención"
+     ],
+     "sinComprobar": [
+      "Bandeja compartida",
+      "Tickets e incidencias",
+      "Chat en la web",
+      "Atención por WhatsApp",
+      "Respuestas guardadas",
+      "Encuestas de satisfacción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "comercio-electronico": {
      "cubre": [],
      "sinComprobar": [
@@ -1914,6 +2289,41 @@
      ],
      "esSuOficio": true,
      "apoyo": "solo-su-portada"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Exportar los datos",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [
+      "Campañas de correo",
+      "Páginas de captación"
+     ],
+     "sinComprobar": [
+      "Automatización de marketing",
+      "Embudos de conversión",
+      "Publicar en redes sociales",
+      "Analítica de redes sociales",
+      "Posicionamiento en buscadores",
+      "Campañas de publicidad de pago",
+      "Fidelización y puntos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
     }
    },
    "hoy": "plataformas-todo-en-uno"
@@ -2098,6 +2508,27 @@
      "esSuOficio": false,
      "apoyo": "verificado"
     },
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "atencion-cliente": {
      "cubre": [
       "Tickets e incidencias",
@@ -2238,6 +2669,61 @@
      "esSuOficio": false,
      "apoyo": "verificado"
     },
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "atencion-cliente": {
+     "cubre": [
+      "Chat en la web"
+     ],
+     "sinComprobar": [
+      "Bandeja compartida",
+      "Tickets e incidencias",
+      "Atención por WhatsApp",
+      "Centro de ayuda público",
+      "Respuestas guardadas",
+      "Asistente automático de atención",
+      "Encuestas de satisfacción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta"
+     ],
+     "sinComprobar": [
+      "Avisos automáticos a otros sistemas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Informes a medida",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "marketing-email": {
      "cubre": [
       "Campañas de correo",
@@ -2253,6 +2739,18 @@
       "Fidelización y puntos"
      ],
      "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "creacion-web-hosting": {
+     "cubre": [
+      "Crear la página web"
+     ],
+     "sinComprobar": [
+      "Alojamiento y dominio",
+      "Reseñas y reputación",
+      "Ficha de negocio en directorios"
+     ],
+     "esSuOficio": false,
      "apoyo": "verificado"
     }
    },
@@ -2498,6 +2996,25 @@
    "id": "monday-com",
    "nombre": "monday.com",
    "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Embudo de ventas y oportunidades",
+      "Presupuestos y propuestas"
+     ],
+     "sinComprobar": [
+      "Captación de contactos interesados",
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "gestion-proyectos": {
      "cubre": [
       "Gantt y dependencias",
@@ -2515,6 +3032,27 @@
       "Expedientes y casos"
      ],
      "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos",
+      "Actas y resúmenes de reunión"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
      "apoyo": "verificado"
     },
     "facturacion-contabilidad": {
@@ -2545,6 +3083,22 @@
      "esSuOficio": false,
      "apoyo": "verificado"
     },
+    "atencion-cliente": {
+     "cubre": [
+      "Tickets e incidencias"
+     ],
+     "sinComprobar": [
+      "Bandeja compartida",
+      "Chat en la web",
+      "Atención por WhatsApp",
+      "Centro de ayuda público",
+      "Respuestas guardadas",
+      "Asistente automático de atención",
+      "Encuestas de satisfacción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "automatizacion-integraciones": {
      "cubre": [
       "Automatizar tareas repetidas",
@@ -2559,6 +3113,39 @@
       "Exportar los datos",
       "Importar y migrar desde otra herramienta",
       "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [
+      "Campañas de correo"
+     ],
+     "sinComprobar": [
+      "Automatización de marketing",
+      "Páginas de captación",
+      "Embudos de conversión",
+      "Publicar en redes sociales",
+      "Analítica de redes sociales",
+      "Posicionamiento en buscadores",
+      "Campañas de publicidad de pago",
+      "Fidelización y puntos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "recursos-humanos": {
+     "cubre": [
+      "Selección de personal"
+     ],
+     "sinComprobar": [
+      "Incorporación",
+      "Nóminas",
+      "Comisiones y propinas",
+      "Fichaje y control horario",
+      "Turnos y cuadrantes",
+      "Vacaciones y ausencias",
+      "Desempeño y objetivos"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -2659,6 +3246,21 @@
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
+    },
+    "firma-gestion-documental": {
+     "cubre": [
+      "Espacio de conocimiento interno",
+      "Buscar en todo lo guardado"
+     ],
+     "sinComprobar": [
+      "Edición a varias manos",
+      "Archivos y carpetas",
+      "Plantillas de documento",
+      "Versiones y cambios",
+      "Firma electrónica de documentos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
     }
    },
    "hoy": "asistentes-ia"
@@ -2667,6 +3269,25 @@
    "id": "nifty",
    "nombre": "Nifty",
    "casas": {
+    "crm": {
+     "cubre": [
+      "Embudo de ventas y oportunidades",
+      "Portal para el cliente"
+     ],
+     "sinComprobar": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Captación de contactos interesados",
+      "Previsión de ventas",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "gestion-proyectos": {
      "cubre": [
       "Tareas",
@@ -2684,6 +3305,43 @@
       "Expedientes y casos"
      ],
      "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "atencion-cliente": {
+     "cubre": [
+      "Tickets e incidencias"
+     ],
+     "sinComprobar": [
+      "Bandeja compartida",
+      "Chat en la web",
+      "Atención por WhatsApp",
+      "Centro de ayuda público",
+      "Respuestas guardadas",
+      "Asistente automático de atención",
+      "Encuestas de satisfacción"
+     ],
+     "esSuOficio": false,
      "apoyo": "verificado"
     },
     "automatizacion-integraciones": {
@@ -2745,6 +3403,27 @@
       "Calendario y planificación diaria",
       "Replanificación automática",
       "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -2845,6 +3524,27 @@
      "esSuOficio": false,
      "apoyo": "verificado"
     },
+    "asistentes-ia": {
+     "cubre": [
+      "Transcribir audio"
+     ],
+     "sinComprobar": [
+      "Redactar textos",
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "facturacion-contabilidad": {
      "cubre": [
       "Facturas"
@@ -2914,6 +3614,25 @@
    "id": "notion-ai",
    "nombre": "Notion AI",
    "casas": {
+    "gestion-proyectos": {
+     "cubre": [
+      "Tareas",
+      "Calendario y planificación diaria"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "asistentes-ia": {
      "cubre": [
       "Redactar textos"
@@ -2992,6 +3711,27 @@
       "Contratos vivos: vencimientos y renovaciones"
      ],
      "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
      "apoyo": "verificado"
     },
     "facturacion-contabilidad": {
@@ -3129,6 +3869,22 @@
       "Contratos vivos: vencimientos y renovaciones"
      ],
      "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "atencion-cliente": {
+     "cubre": [
+      "Chat en la web"
+     ],
+     "sinComprobar": [
+      "Bandeja compartida",
+      "Tickets e incidencias",
+      "Atención por WhatsApp",
+      "Centro de ayuda público",
+      "Respuestas guardadas",
+      "Asistente automático de atención",
+      "Encuestas de satisfacción"
+     ],
+     "esSuOficio": false,
      "apoyo": "verificado"
     },
     "comercio-electronico": {
@@ -3283,6 +4039,22 @@
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
+    },
+    "recursos-humanos": {
+     "cubre": [
+      "Fichaje y control horario",
+      "Vacaciones y ausencias"
+     ],
+     "sinComprobar": [
+      "Selección de personal",
+      "Incorporación",
+      "Nóminas",
+      "Comisiones y propinas",
+      "Turnos y cuadrantes",
+      "Desempeño y objetivos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
     }
    },
    "hoy": "gestion-proyectos"
@@ -3308,6 +4080,46 @@
       "Contratos vivos: vencimientos y renovaciones"
      ],
      "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "gestion-proyectos": {
+     "cubre": [
+      "Tableros kanban"
+     ],
+     "sinComprobar": [
+      "Chat del equipo",
+      "Videollamadas",
+      "Tareas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Control de tiempo dedicado",
+      "Carga de trabajo del equipo",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [
+      "Transcribir audio",
+      "Actas y resúmenes de reunión"
+     ],
+     "sinComprobar": [
+      "Redactar textos",
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
      "apoyo": "verificado"
     },
     "reservas-citas": {
@@ -3344,6 +4156,23 @@
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [
+      "Campañas de correo"
+     ],
+     "sinComprobar": [
+      "Automatización de marketing",
+      "Páginas de captación",
+      "Embudos de conversión",
+      "Publicar en redes sociales",
+      "Analítica de redes sociales",
+      "Posicionamiento en buscadores",
+      "Campañas de publicidad de pago",
+      "Fidelización y puntos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
     }
    },
    "hoy": "crm"
@@ -3352,6 +4181,25 @@
    "id": "productive-io",
    "nombre": "Productive",
    "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Embudo de ventas y oportunidades",
+      "Previsión de ventas",
+      "Presupuestos y propuestas",
+      "Tarifas y listas de precios"
+     ],
+     "sinComprobar": [
+      "Historial de trato con el cliente",
+      "Captación de contactos interesados",
+      "Portal para el cliente",
+      "Presupuesto por partidas y mediciones",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "gestion-proyectos": {
      "cubre": [
       "Tareas",
@@ -3369,6 +4217,27 @@
       "Expedientes y casos"
      ],
      "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
      "apoyo": "verificado"
     },
     "facturacion-contabilidad": {
@@ -3416,6 +4285,37 @@
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
+    },
+    "recursos-humanos": {
+     "cubre": [
+      "Vacaciones y ausencias"
+     ],
+     "sinComprobar": [
+      "Selección de personal",
+      "Incorporación",
+      "Nóminas",
+      "Comisiones y propinas",
+      "Fichaje y control horario",
+      "Turnos y cuadrantes",
+      "Desempeño y objetivos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "firma-gestion-documental": {
+     "cubre": [
+      "Edición a varias manos"
+     ],
+     "sinComprobar": [
+      "Espacio de conocimiento interno",
+      "Archivos y carpetas",
+      "Plantillas de documento",
+      "Buscar en todo lo guardado",
+      "Versiones y cambios",
+      "Firma electrónica de documentos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
     }
    },
    "hoy": "gestion-proyectos"
@@ -3439,6 +4339,27 @@
       "Tableros kanban",
       "Carga de trabajo del equipo",
       "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos",
+      "Actas y resúmenes de reunión"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -3565,6 +4486,27 @@
      "esSuOficio": true,
      "apoyo": "verificado"
     },
+    "asistentes-ia": {
+     "cubre": [
+      "Redactar textos",
+      "Transcribir audio"
+     ],
+     "sinComprobar": [
+      "Corregir y pulir textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "atencion-cliente": {
      "cubre": [
       "Bandeja compartida",
@@ -3606,6 +4548,25 @@
    "id": "scoro",
    "nombre": "Scoro",
    "casas": {
+    "crm": {
+     "cubre": [
+      "Fichas de cliente",
+      "Embudo de ventas y oportunidades",
+      "Portal para el cliente",
+      "Presupuestos y propuestas",
+      "Tarifas y listas de precios"
+     ],
+     "sinComprobar": [
+      "Historial de trato con el cliente",
+      "Captación de contactos interesados",
+      "Previsión de ventas",
+      "Presupuesto por partidas y mediciones",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "gestion-proyectos": {
      "cubre": [
       "Tareas",
@@ -3695,6 +4656,27 @@
       "Expedientes y casos"
      ],
      "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [
+      "Traducir"
+     ],
+     "sinComprobar": [
+      "Redactar textos",
+      "Corregir y pulir textos",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
      "apoyo": "verificado"
     },
     "automatizacion-integraciones": {
@@ -3790,6 +4772,22 @@
       "Agentes de IA que ejecutan tareas",
       "Informes a medida",
       "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "recursos-humanos": {
+     "cubre": [
+      "Selección de personal"
+     ],
+     "sinComprobar": [
+      "Incorporación",
+      "Nóminas",
+      "Comisiones y propinas",
+      "Fichaje y control horario",
+      "Turnos y cuadrantes",
+      "Vacaciones y ausencias",
+      "Desempeño y objetivos"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -3928,6 +4926,25 @@
    "id": "taskade",
    "nombre": "Taskade",
    "casas": {
+    "crm": {
+     "cubre": [
+      "Embudo de ventas y oportunidades",
+      "Portal para el cliente"
+     ],
+     "sinComprobar": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Captación de contactos interesados",
+      "Previsión de ventas",
+      "Presupuestos y propuestas",
+      "Presupuesto por partidas y mediciones",
+      "Tarifas y listas de precios",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "gestion-proyectos": {
      "cubre": [
       "Tareas"
@@ -3968,6 +4985,67 @@
      "esSuOficio": true,
      "apoyo": "verificado"
     },
+    "facturacion-contabilidad": {
+     "cubre": [
+      "Cobrar"
+     ],
+     "sinComprobar": [
+      "Facturas",
+      "De presupuesto a factura",
+      "Cuotas y facturación recurrente",
+      "Facturar por avance, hitos u horas",
+      "Facturar a aseguradoras y mutuas",
+      "Liquidar a propietarios y colaboradores",
+      "Gastos y tickets",
+      "Contabilidad",
+      "Cálculo y declaración de impuestos",
+      "Factura electrónica obligatoria",
+      "Donaciones, campañas y certificados al donante",
+      "Coste y margen por trabajo, obra o subvención",
+      "Informes económicos",
+      "Presupuesto anual y previsión de tesorería",
+      "Cobrar a un cliente que no paga",
+      "Controlar lo que pagas cada mes",
+      "Conseguir financiación",
+      "Cobrar sin esperar a que venza la factura",
+      "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "atencion-cliente": {
+     "cubre": [
+      "Bandeja compartida",
+      "Asistente automático de atención"
+     ],
+     "sinComprobar": [
+      "Tickets e incidencias",
+      "Chat en la web",
+      "Atención por WhatsApp",
+      "Centro de ayuda público",
+      "Respuestas guardadas",
+      "Encuestas de satisfacción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "comercio-electronico": {
+     "cubre": [
+      "Tienda online",
+      "Pedidos y comandas"
+     ],
+     "sinComprobar": [
+      "TPV y caja",
+      "Catálogo de lo que ofreces",
+      "Devoluciones y cambios",
+      "Envíos, transportistas y seguimiento",
+      "Sincronizar con portales y marketplaces",
+      "Bonos y paquetes de sesiones",
+      "Carta, modificadores y alérgenos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "automatizacion-integraciones": {
      "cubre": [
       "Automatizar tareas repetidas",
@@ -3982,6 +5060,51 @@
       "Informes a medida",
       "Importar y migrar desde otra herramienta",
       "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [
+      "Páginas de captación"
+     ],
+     "sinComprobar": [
+      "Campañas de correo",
+      "Automatización de marketing",
+      "Embudos de conversión",
+      "Publicar en redes sociales",
+      "Analítica de redes sociales",
+      "Posicionamiento en buscadores",
+      "Campañas de publicidad de pago",
+      "Fidelización y puntos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "recursos-humanos": {
+     "cubre": [
+      "Incorporación"
+     ],
+     "sinComprobar": [
+      "Selección de personal",
+      "Nóminas",
+      "Comisiones y propinas",
+      "Fichaje y control horario",
+      "Turnos y cuadrantes",
+      "Vacaciones y ausencias",
+      "Desempeño y objetivos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "creacion-web-hosting": {
+     "cubre": [
+      "Crear la página web",
+      "Alojamiento y dominio"
+     ],
+     "sinComprobar": [
+      "Reseñas y reputación",
+      "Ficha de negocio en directorios"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -4008,6 +5131,102 @@
    "id": "teachable",
    "nombre": "Teachable",
    "casas": {
+    "asistentes-ia": {
+     "cubre": [
+      "Traducir",
+      "Subtítulos"
+     ],
+     "sinComprobar": [
+      "Redactar textos",
+      "Corregir y pulir textos",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "facturacion-contabilidad": {
+     "cubre": [
+      "Cobrar",
+      "Cuotas y facturación recurrente",
+      "Cálculo y declaración de impuestos"
+     ],
+     "sinComprobar": [
+      "Facturas",
+      "De presupuesto a factura",
+      "Facturar por avance, hitos u horas",
+      "Facturar a aseguradoras y mutuas",
+      "Liquidar a propietarios y colaboradores",
+      "Gastos y tickets",
+      "Contabilidad",
+      "Factura electrónica obligatoria",
+      "Donaciones, campañas y certificados al donante",
+      "Coste y margen por trabajo, obra o subvención",
+      "Informes económicos",
+      "Presupuesto anual y previsión de tesorería",
+      "Cobrar a un cliente que no paga",
+      "Controlar lo que pagas cada mes",
+      "Conseguir financiación",
+      "Cobrar sin esperar a que venza la factura",
+      "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "comercio-electronico": {
+     "cubre": [
+      "Tienda online"
+     ],
+     "sinComprobar": [
+      "TPV y caja",
+      "Catálogo de lo que ofreces",
+      "Pedidos y comandas",
+      "Devoluciones y cambios",
+      "Envíos, transportistas y seguimiento",
+      "Sincronizar con portales y marketplaces",
+      "Bonos y paquetes de sesiones",
+      "Carta, modificadores y alérgenos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Informes a medida",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Automatizar tareas repetidas",
+      "Agentes de IA que ejecutan tareas",
+      "Cuadros de mando",
+      "Exportar los datos",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "creacion-web-hosting": {
+     "cubre": [
+      "Crear la página web"
+     ],
+     "sinComprobar": [
+      "Alojamiento y dominio",
+      "Reseñas y reputación",
+      "Ficha de negocio en directorios"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "software-sectorial": {
      "cubre": [
       "Impartir y seguir cursos"
@@ -4073,6 +5292,25 @@
    "id": "teamwork-com",
    "nombre": "Teamwork.com",
    "casas": {
+    "crm": {
+     "cubre": [
+      "Presupuestos y propuestas",
+      "Tarifas y listas de precios"
+     ],
+     "sinComprobar": [
+      "Fichas de cliente",
+      "Historial de trato con el cliente",
+      "Embudo de ventas y oportunidades",
+      "Captación de contactos interesados",
+      "Previsión de ventas",
+      "Portal para el cliente",
+      "Presupuesto por partidas y mediciones",
+      "Firma electrónica de documentos",
+      "Contratos vivos: vencimientos y renovaciones"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "gestion-proyectos": {
      "cubre": [
       "Tareas",
@@ -4090,6 +5328,27 @@
       "Expedientes y casos"
      ],
      "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [
+      "Corregir y pulir textos"
+     ],
+     "sinComprobar": [
+      "Redactar textos",
+      "Traducir",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
      "apoyo": "verificado"
     },
     "facturacion-contabilidad": {
@@ -4116,6 +5375,22 @@
       "Conseguir financiación",
       "Cobrar sin esperar a que venza la factura",
       "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "atencion-cliente": {
+     "cubre": [
+      "Tickets e incidencias"
+     ],
+     "sinComprobar": [
+      "Bandeja compartida",
+      "Chat en la web",
+      "Atención por WhatsApp",
+      "Centro de ayuda público",
+      "Respuestas guardadas",
+      "Asistente automático de atención",
+      "Encuestas de satisfacción"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -4169,6 +5444,58 @@
       "Conseguir financiación",
       "Cobrar sin esperar a que venza la factura",
       "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "comercio-electronico": {
+     "cubre": [
+      "Tienda online"
+     ],
+     "sinComprobar": [
+      "TPV y caja",
+      "Catálogo de lo que ofreces",
+      "Pedidos y comandas",
+      "Devoluciones y cambios",
+      "Envíos, transportistas y seguimiento",
+      "Sincronizar con portales y marketplaces",
+      "Bonos y paquetes de sesiones",
+      "Carta, modificadores y alérgenos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "automatizacion-integraciones": {
+     "cubre": [
+      "Automatizar tareas repetidas",
+      "Conectar con otras herramientas",
+      "API abierta",
+      "Avisos automáticos a otros sistemas",
+      "Cuadros de mando",
+      "Exportar los datos",
+      "Importar y migrar desde otra herramienta"
+     ],
+     "sinComprobar": [
+      "Agentes de IA que ejecutan tareas",
+      "Informes a medida",
+      "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [
+      "Automatización de marketing",
+      "Páginas de captación"
+     ],
+     "sinComprobar": [
+      "Campañas de correo",
+      "Embudos de conversión",
+      "Publicar en redes sociales",
+      "Analítica de redes sociales",
+      "Posicionamiento en buscadores",
+      "Campañas de publicidad de pago",
+      "Fidelización y puntos"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -4269,6 +5596,53 @@
      "esSuOficio": true,
      "apoyo": "verificado"
     },
+    "gestion-proyectos": {
+     "cubre": [
+      "Chat del equipo",
+      "Tareas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado",
+      "Calendario y planificación diaria"
+     ],
+     "sinComprobar": [
+      "Videollamadas",
+      "Carga de trabajo del equipo",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "facturacion-contabilidad": {
+     "cubre": [
+      "Facturas",
+      "Cobrar",
+      "Cuotas y facturación recurrente",
+      "Facturar por avance, hitos u horas"
+     ],
+     "sinComprobar": [
+      "De presupuesto a factura",
+      "Facturar a aseguradoras y mutuas",
+      "Liquidar a propietarios y colaboradores",
+      "Gastos y tickets",
+      "Contabilidad",
+      "Cálculo y declaración de impuestos",
+      "Factura electrónica obligatoria",
+      "Donaciones, campañas y certificados al donante",
+      "Coste y margen por trabajo, obra o subvención",
+      "Informes económicos",
+      "Presupuesto anual y previsión de tesorería",
+      "Cobrar a un cliente que no paga",
+      "Controlar lo que pagas cada mes",
+      "Conseguir financiación",
+      "Cobrar sin esperar a que venza la factura",
+      "Pagar las facturas que te llegan"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "atencion-cliente": {
      "cubre": [
       "Tickets e incidencias"
@@ -4299,6 +5673,32 @@
       "Agentes de IA que ejecutan tareas",
       "Importar y migrar desde otra herramienta",
       "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "inventario-operaciones": {
+     "cubre": [
+      "Órdenes de trabajo",
+      "Contratos de mantenimiento y compromisos de respuesta",
+      "Existencias",
+      "Compras y proveedores"
+     ],
+     "sinComprobar": [
+      "Asignar y despachar técnicos",
+      "Parte en el móvil: fotos y firma",
+      "Planificación de rutas",
+      "Historial por bien atendido del cliente",
+      "Avisos de reposición",
+      "Código de barras",
+      "Almacén, ubicaciones y multi-tienda",
+      "Lotes, caducidad y trazabilidad",
+      "Escandallo o lista de materiales",
+      "Órdenes de fabricación",
+      "Planificación de materiales (MRP)",
+      "Inspecciones, listas de comprobación y no conformidades",
+      "Activos propios: inventario y mantenimiento preventivo",
+      "Flota: localización, consumos y tacógrafo"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -4417,6 +5817,22 @@
      "esSuOficio": true,
      "apoyo": "verificado"
     },
+    "atencion-cliente": {
+     "cubre": [
+      "Tickets e incidencias"
+     ],
+     "sinComprobar": [
+      "Bandeja compartida",
+      "Chat en la web",
+      "Atención por WhatsApp",
+      "Centro de ayuda público",
+      "Respuestas guardadas",
+      "Asistente automático de atención",
+      "Encuestas de satisfacción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "automatizacion-integraciones": {
      "cubre": [
       "Automatizar tareas repetidas",
@@ -4431,6 +5847,49 @@
       "Cuadros de mando",
       "Informes a medida",
       "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "marketing-email": {
+     "cubre": [
+      "Campañas de publicidad de pago"
+     ],
+     "sinComprobar": [
+      "Campañas de correo",
+      "Automatización de marketing",
+      "Páginas de captación",
+      "Embudos de conversión",
+      "Publicar en redes sociales",
+      "Analítica de redes sociales",
+      "Posicionamiento en buscadores",
+      "Fidelización y puntos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "inventario-operaciones": {
+     "cubre": [
+      "Compras y proveedores"
+     ],
+     "sinComprobar": [
+      "Órdenes de trabajo",
+      "Asignar y despachar técnicos",
+      "Parte en el móvil: fotos y firma",
+      "Planificación de rutas",
+      "Historial por bien atendido del cliente",
+      "Contratos de mantenimiento y compromisos de respuesta",
+      "Existencias",
+      "Avisos de reposición",
+      "Código de barras",
+      "Almacén, ubicaciones y multi-tienda",
+      "Lotes, caducidad y trazabilidad",
+      "Escandallo o lista de materiales",
+      "Órdenes de fabricación",
+      "Planificación de materiales (MRP)",
+      "Inspecciones, listas de comprobación y no conformidades",
+      "Activos propios: inventario y mantenimiento preventivo",
+      "Flota: localización, consumos y tacógrafo"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -4459,6 +5918,42 @@
      ],
      "esSuOficio": true,
      "apoyo": "solo-su-portada"
+    },
+    "gestion-proyectos": {
+     "cubre": [
+      "Chat del equipo",
+      "Tareas",
+      "Proyectos e hitos",
+      "Gantt y dependencias",
+      "Tableros kanban",
+      "Control de tiempo dedicado"
+     ],
+     "sinComprobar": [
+      "Videollamadas",
+      "Carga de trabajo del equipo",
+      "Calendario y planificación diaria",
+      "Replanificación automática",
+      "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "comercio-electronico": {
+     "cubre": [
+      "Tienda online"
+     ],
+     "sinComprobar": [
+      "TPV y caja",
+      "Catálogo de lo que ofreces",
+      "Pedidos y comandas",
+      "Devoluciones y cambios",
+      "Envíos, transportistas y seguimiento",
+      "Sincronizar con portales y marketplaces",
+      "Bonos y paquetes de sesiones",
+      "Carta, modificadores y alérgenos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
     },
     "automatizacion-integraciones": {
      "cubre": [
@@ -4511,6 +6006,32 @@
      "esSuOficio": false,
      "apoyo": "verificado"
     },
+    "inventario-operaciones": {
+     "cubre": [
+      "Existencias",
+      "Almacén, ubicaciones y multi-tienda"
+     ],
+     "sinComprobar": [
+      "Órdenes de trabajo",
+      "Asignar y despachar técnicos",
+      "Parte en el móvil: fotos y firma",
+      "Planificación de rutas",
+      "Historial por bien atendido del cliente",
+      "Contratos de mantenimiento y compromisos de respuesta",
+      "Avisos de reposición",
+      "Código de barras",
+      "Compras y proveedores",
+      "Lotes, caducidad y trazabilidad",
+      "Escandallo o lista de materiales",
+      "Órdenes de fabricación",
+      "Planificación de materiales (MRP)",
+      "Inspecciones, listas de comprobación y no conformidades",
+      "Activos propios: inventario y mantenimiento preventivo",
+      "Flota: localización, consumos y tacógrafo"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "creacion-web-hosting": {
      "cubre": [
       "Crear la página web"
@@ -4547,6 +6068,27 @@
       "Expedientes y casos"
      ],
      "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "asistentes-ia": {
+     "cubre": [
+      "Traducir"
+     ],
+     "sinComprobar": [
+      "Redactar textos",
+      "Corregir y pulir textos",
+      "Presentaciones",
+      "Diseño gráfico",
+      "Edición de vídeo",
+      "Generar vídeo con IA",
+      "Edición de audio y pódcast",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión",
+      "Limpiar el sonido",
+      "Subtítulos",
+      "Kit de marca"
+     ],
+     "esSuOficio": false,
      "apoyo": "verificado"
     },
     "facturacion-contabilidad": {
@@ -4591,6 +6133,21 @@
       "Exportar los datos",
       "Importar y migrar desde otra herramienta",
       "Analítica avanzada y predicción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "firma-gestion-documental": {
+     "cubre": [
+      "Archivos y carpetas"
+     ],
+     "sinComprobar": [
+      "Edición a varias manos",
+      "Espacio de conocimiento interno",
+      "Plantillas de documento",
+      "Buscar en todo lo guardado",
+      "Versiones y cambios",
+      "Firma electrónica de documentos"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"

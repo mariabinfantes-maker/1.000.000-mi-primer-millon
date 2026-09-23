@@ -1,0 +1,17 @@
+{
+ "id": "teachable__comercio-electronico",
+ "herramientaId": "teachable",
+ "nombre": "Teachable",
+ "casa": "comercio-electronico",
+ "nombreCasa": "Comercio electrónico",
+ "urls": [
+  "https://teachable.com",
+  "https://www.teachable.com/pricing"
+ ],
+ "cita": "Sell globally with 35+ local payment methods and checkout experiences.",
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.online_store\",\n      \"estado\": \"si\",\n      \"cita\": \"Sell globally with 35+ local payment methods and checkout experiences.\",\n      \"url\": \"https://teachable.com\"\n    },\n    {\n      \"id\": \"cap.point_of_sale\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.offer_catalog\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.order_management\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.returns_management\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.shipping_and_tracking\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.external_channel_sync\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.prepaid_session_packages\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.menu_management\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://www.teachable.com/",
+  "OK https://www.teachable.com/pricing"
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "id": "teachable__marketing-email",
+ "herramientaId": "teachable",
+ "nombre": "Teachable",
+ "casa": "marketing-email",
+ "nombreCasa": "Marketing y email",
+ "urls": [
+  "https://teachable.com",
+  "https://www.teachable.com/pricing"
+ ],
+ "cita": "Built-in email marketing",
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.email_campaigns\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.marketing_automation\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.landing_pages\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.conversion_funnels\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.social_publishing\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.social_analytics\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.search_engine_optimization\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.paid_ads_management\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.loyalty_programs\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://www.teachable.com/",
+  "OK https://www.teachable.com/pricing"
+ ]
+}

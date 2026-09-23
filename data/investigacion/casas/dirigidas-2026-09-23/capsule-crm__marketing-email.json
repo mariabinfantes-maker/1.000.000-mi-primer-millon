@@ -1,0 +1,17 @@
+{
+ "id": "capsule-crm__marketing-email",
+ "herramientaId": "capsule-crm",
+ "nombre": "Capsule CRM",
+ "casa": "marketing-email",
+ "nombreCasa": "Marketing y email",
+ "urls": [
+  "https://capsulecrm.com",
+  "https://capsulecrm.com/signup/"
+ ],
+ "cita": "Campaign builder Send emails to new customers.",
+ "texto": "{\"resultados\":[{\"id\":\"cap.email_campaigns\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.marketing_automation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.landing_pages\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.conversion_funnels\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.social_publishing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.social_analytics\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.search_engine_optimization\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.paid_ads_management\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.loyalty_programs\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://capsulecrm.com/",
+  "OK https://capsulecrm.com/signup/"
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "id": "reclaim-ai__asistentes-ia",
+ "herramientaId": "reclaim-ai",
+ "nombre": "Reclaim.ai",
+ "casa": "asistentes-ia",
+ "nombreCasa": "Asistentes de IA y productividad",
+ "urls": [
+  "https://reclaim.ai",
+  "https://reclaim.ai/pricing"
+ ],
+ "cita": "Use chat to quickly generate meeting agendas and add them to your meetings, using context and information from your connected apps.",
+ "texto": "{\"resultados\":[{\"id\":\"cap.text_generation\",\"estado\":\"si\",\"cita\":\"generate follow-up email or chat messages based on your meeting conversations.\",\"url\":\"https://reclaim.ai/pricing\"},{\"id\":\"cap.text_correction\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.translation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.presentation_building\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.graphic_design\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.video_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.ai_video_generation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_transcription\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.meeting_notes\",\"estado\":\"si\",\"cita\":\"Automatically generate recommended tasks through action items from your meetings\",\"url\":\"https://reclaim.ai/pricing\"},{\"id\":\"cap.audio_noise_removal\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.subtitles\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.brand_kit\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://reclaim.ai/",
+  "OK https://reclaim.ai/pricing"
+ ]
+}

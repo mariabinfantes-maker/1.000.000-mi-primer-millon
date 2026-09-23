@@ -1,0 +1,17 @@
+{
+ "id": "gamma__creacion-web-hosting",
+ "herramientaId": "gamma",
+ "nombre": "Gamma",
+ "casa": "creacion-web-hosting",
+ "nombreCasa": "Creación web y hosting",
+ "urls": [
+  "https://gamma.app",
+  "https://gamma.app/pricing"
+ ],
+ "cita": "Generate a shareable, hosted website in minutes — no developers needed.",
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.website_builder\",\n      \"estado\": \"si\",\n      \"cita\": \"Generate a shareable, hosted website in minutes — no developers needed.\",\n      \"url\": \"https://gamma.app\"\n    },\n    {\n      \"id\": \"cap.hosting_and_domain\",\n      \"estado\": \"si\",\n      \"cita\": \"Publish up to 10 custom domains\",\n      \"url\": \"https://gamma.app/pricing\"\n    },\n    {\n      \"id\": \"cap.reviews_and_reputation\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.local_business_listings\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://gamma.app/",
+  "OK https://gamma.app/pricing"
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "id": "reclaim-ai__recursos-humanos",
+ "herramientaId": "reclaim-ai",
+ "nombre": "Reclaim.ai",
+ "casa": "recursos-humanos",
+ "nombreCasa": "Recursos humanos",
+ "urls": [
+  "https://reclaim.ai",
+  "https://reclaim.ai/pricing"
+ ],
+ "cita": "Automatically sync employees PTO and out-of-office events to a team calendar to optimize scheduling and coordination.",
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.recruiting\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.employee_onboarding\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.payroll\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.commissions_and_tips\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.time_and_attendance\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.shift_scheduling\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.leave_management\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.performance_reviews\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://reclaim.ai/",
+  "OK https://reclaim.ai/pricing"
+ ]
+}

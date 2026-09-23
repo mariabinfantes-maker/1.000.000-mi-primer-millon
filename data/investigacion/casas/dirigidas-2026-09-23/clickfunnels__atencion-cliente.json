@@ -1,0 +1,17 @@
+{
+ "id": "clickfunnels__atencion-cliente",
+ "herramientaId": "clickfunnels",
+ "nombre": "ClickFunnels",
+ "casa": "atencion-cliente",
+ "nombreCasa": "Atención al cliente",
+ "urls": [
+  "https://www.clickfunnels.com",
+  "https://www.clickfunnels.com/pricing"
+ ],
+ "cita": "Connect with your leads and customers — in one place.",
+ "texto": "{\"resultados\":[{\"id\":\"cap.shared_inbox\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.support_ticketing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.website_live_chat\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.whatsapp_customer_channel\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.public_help_center\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.canned_responses\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.support_chatbot\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.customer_satisfaction_surveys\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.clickfunnels.com/",
+  "OK https://www.clickfunnels.com/pricing"
+ ]
+}

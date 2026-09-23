@@ -1,0 +1,17 @@
+{
+ "id": "copper__marketing-email",
+ "herramientaId": "copper",
+ "nombre": "Copper",
+ "casa": "marketing-email",
+ "nombreCasa": "Marketing y email",
+ "urls": [
+  "https://www.copper.com",
+  "https://www.copper.com/pricing"
+ ],
+ "cita": "Respond instantly to form submissions and send welcome or follow up emails.",
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.email_campaigns\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.marketing_automation\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.landing_pages\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.conversion_funnels\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.social_publishing\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.social_analytics\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.search_engine_optimization\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.paid_ads_management\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.loyalty_programs\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://www.copper.com/",
+  "OK https://www.copper.com/pricing"
+ ]
+}

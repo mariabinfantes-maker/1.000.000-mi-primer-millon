@@ -1,0 +1,17 @@
+{
+ "id": "taskade__facturacion-contabilidad",
+ "herramientaId": "taskade",
+ "nombre": "Taskade",
+ "casa": "facturacion-contabilidad",
+ "nombreCasa": "Facturación y contabilidad",
+ "urls": [
+  "https://www.taskade.com",
+  "https://www.taskade.com/pricing"
+ ],
+ "cita": "Stripe checkout wired into every Taskade Genesis app — no plumbing.",
+ "texto": "{\"resultados\":[{\"id\":\"cap.invoicing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.quote_to_invoice_conversion\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.payment_collection\",\"estado\":\"si\",\"cita\":\"Stripe checkout wired into every Taskade Genesis app — no plumbing.\",\"url\":\"https://www.taskade.com\"},{\"id\":\"cap.recurring_billing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.progress_and_milestone_billing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.insurer_billing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.third_party_settlement\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.expense_tracking\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.accounting_ledger\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.tax_calculation_and_reporting\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.regulated_einvoicing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.donations_and_fundraising\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.job_costing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.financial_reporting\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.budgeting_and_cash_forecast\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.overdue_payment_recovery\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.subscription_spend_control\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.business_financing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.invoice_advance_funding\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.supplier_invoice_payment\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.taskade.com/",
+  "OK https://www.taskade.com/pricing"
+ ]
+}

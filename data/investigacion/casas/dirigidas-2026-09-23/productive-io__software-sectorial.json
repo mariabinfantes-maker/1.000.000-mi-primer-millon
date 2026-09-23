@@ -1,0 +1,17 @@
+{
+ "id": "productive-io__software-sectorial",
+ "herramientaId": "productive-io",
+ "nombre": "Productive",
+ "casa": "software-sectorial",
+ "nombreCasa": "Software sectorial",
+ "urls": [
+  "https://productive.io/",
+  "https://productive.io/pricing/"
+ ],
+ "cita": "Purpose-built for agencies, consultancies, and other professional services businesses.",
+ "texto": "{\"resultados\":[{\"id\":\"cap.clinical_record\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.medical_imaging\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.electronic_prescription\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.training_lms\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.student_enrollment\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.academic_record\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://productive.io/",
+  "OK https://productive.io/pricing/"
+ ]
+}

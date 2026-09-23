@@ -1,0 +1,17 @@
+{
+ "id": "bitrix24__reservas-citas",
+ "herramientaId": "bitrix24",
+ "nombre": "Bitrix24",
+ "casa": "reservas-citas",
+ "nombreCasa": "Reservas y citas",
+ "urls": [
+  "https://www.bitrix24.com/",
+  "https://www.bitrix24.com/prices/"
+ ],
+ "cita": "open time slots, meeting room booking",
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.online_self_service_booking\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.per_resource_booking_calendar\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.customer_appointment_reminders\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.booking_cancellation_and_rescheduling\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.capacity_and_time_slots\",\n      \"estado\": \"si\",\n      \"cita\": \"open time slots\",\n      \"url\": \"https://www.bitrix24.com/\"\n    },\n    {\n      \"id\": \"cap.no_show_and_deposits\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.room_and_equipment_booking\",\n      \"estado\": \"si\",\n      \"cita\": \"meeting room booking\",\n      \"url\": \"https://www.bitrix24.com/\"\n    },\n    {\n      \"id\": \"cap.booking_waitlist\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.embeddable_booking_widget\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://www.bitrix24.com/",
+  "OK https://www.bitrix24.com/prices/"
+ ]
+}

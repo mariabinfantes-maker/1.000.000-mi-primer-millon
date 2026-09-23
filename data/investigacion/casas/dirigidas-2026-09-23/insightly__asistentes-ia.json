@@ -1,0 +1,17 @@
+{
+ "id": "insightly__asistentes-ia",
+ "herramientaId": "insightly",
+ "nombre": "Insightly",
+ "casa": "asistentes-ia",
+ "nombreCasa": "Asistentes de IA y productividad",
+ "urls": [
+  "https://www.insightly.com",
+  "https://www.insightly.com/pricing-plans/?plan=crm"
+ ],
+ "cita": "Boost sales efficiency and CRM adoption by using AI features—like Copilot (Beta), email replies, and email summaries—to keep your data clean, automate repetitive tasks, and focus on the leads that matter most.",
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.text_generation\",\n      \"estado\": \"si\",\n      \"cita\": \"Automatically generate email replies.\",\n      \"url\": \"https://www.insightly.com\"\n    },\n    {\n      \"id\": \"cap.text_correction\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.translation\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.presentation_building\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.graphic_design\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.video_editing\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.ai_video_generation\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.audio_editing\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.audio_transcription\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.meeting_notes\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.audio_noise_removal\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.subtitles\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.brand_kit\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://www.insightly.com/",
+  "OK https://www.insightly.com/pricing-plans/"
+ ]
+}

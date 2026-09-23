@@ -1,0 +1,17 @@
+{
+ "id": "taskade__comercio-electronico",
+ "herramientaId": "taskade",
+ "nombre": "Taskade",
+ "casa": "comercio-electronico",
+ "nombreCasa": "Comercio electrónico",
+ "urls": [
+  "https://www.taskade.com",
+  "https://www.taskade.com/pricing"
+ ],
+ "cita": "Storefronts, inventory, Stripe invoicing",
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.online_store\",\n      \"estado\": \"si\",\n      \"cita\": \"Storefronts, inventory, Stripe invoicing\",\n      \"url\": \"https://www.taskade.com\"\n    },\n    {\n      \"id\": \"cap.point_of_sale\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.offer_catalog\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.order_management\",\n      \"estado\": \"si\",\n      \"cita\": \"Manage orders, stock, and customers.\",\n      \"url\": \"https://www.taskade.com\"\n    },\n    {\n      \"id\": \"cap.returns_management\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.shipping_and_tracking\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.external_channel_sync\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.prepaid_session_packages\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.menu_management\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://www.taskade.com/",
+  "OK https://www.taskade.com/pricing"
+ ]
+}

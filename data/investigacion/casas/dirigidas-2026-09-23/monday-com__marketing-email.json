@@ -1,0 +1,17 @@
+{
+ "id": "monday-com__marketing-email",
+ "herramientaId": "monday-com",
+ "nombre": "monday.com",
+ "casa": "marketing-email",
+ "nombreCasa": "Marketing y email",
+ "urls": [
+  "https://monday.com",
+  "https://monday.com/pricing"
+ ],
+ "cita": "Send and track mass emails to reach large audiences with personalized messages",
+ "texto": "{\"resultados\":[{\"id\":\"cap.email_campaigns\",\"estado\":\"si\",\"cita\":\"Send and track mass emails to reach large audiences with personalized messages\",\"url\":\"https://monday.com/pricing\"},{\"id\":\"cap.marketing_automation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.landing_pages\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.conversion_funnels\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.social_publishing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.social_analytics\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.search_engine_optimization\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.paid_ads_management\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.loyalty_programs\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://monday.com/",
+  "OK https://monday.com/pricing"
+ ]
+}

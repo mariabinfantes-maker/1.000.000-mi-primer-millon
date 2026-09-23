@@ -1,0 +1,17 @@
+{
+ "id": "freshsales__automatizacion-integraciones",
+ "herramientaId": "freshsales",
+ "nombre": "Freshsales",
+ "casa": "automatizacion-integraciones",
+ "nombreCasa": "Automatización e integraciones",
+ "urls": [
+  "https://www.freshworks.com/crm/sales/",
+  "https://www.freshworks.com/crm/pricing/"
+ ],
+ "cita": "Eliminate manual effort and save time by automating repetitive, mundane tasks.",
+ "texto": "{\"resultados\":[{\"id\":\"cap.workflow_automation\",\"estado\":\"si\",\"cita\":\"Eliminate manual effort and save time by automating repetitive, mundane tasks.\",\"url\":\"https://www.freshworks.com/crm/sales/\"},{\"id\":\"cap.app_integrations\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.public_api\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.webhooks\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.ai_task_agents\",\"estado\":\"si\",\"cita\":\"Freddy AI Agent $49/100 sessions\",\"url\":\"https://www.freshworks.com/crm/pricing/\"},{\"id\":\"cap.dashboards\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.custom_reports\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.data_export\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.data_import_and_migration\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.predictive_analytics\",\"estado\":\"si\",\"cita\":\"Forecasting insights\",\"url\":\"https://www.freshworks.com/crm/pricing/\"}]}",
+ "leidas": [
+  "OK https://www.freshworks.com/crm/sales/",
+  "OK https://www.freshworks.com/crm/pricing/"
+ ]
+}
