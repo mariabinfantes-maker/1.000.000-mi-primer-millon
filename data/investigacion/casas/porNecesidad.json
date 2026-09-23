@@ -1,0 +1,1491 @@
+{
+ "porPuerta": {
+  "puerta.vender": {
+   "titulo": "Vender más",
+   "necesidades": [
+    {
+     "id": "nec.que-me-encuentren",
+     "titulo": "Que me encuentren cuando me buscan",
+     "n": 0
+    },
+    {
+     "id": "nec.tener-donde-ensenar-lo-que-hago",
+     "titulo": "Tener un sitio donde enseñar lo que hago",
+     "n": 6
+    },
+    {
+     "id": "nec.que-no-se-pierda-una-pregunta",
+     "titulo": "Que no se me pierda ninguna pregunta",
+     "n": 19
+    },
+    {
+     "id": "nec.seguir-sin-olvidarme-de-nadie",
+     "titulo": "Hacer seguimiento y no olvidarme de nadie",
+     "n": 21
+    },
+    {
+     "id": "nec.escribir-a-mi-gente",
+     "titulo": "Escribir a mi gente y hacer campañas",
+     "n": 9
+    },
+    {
+     "id": "nec.publicar-en-redes",
+     "titulo": "Publicar en redes y saber qué funciona",
+     "n": 0
+    },
+    {
+     "id": "nec.publicidad-de-pago",
+     "titulo": "Poner publicidad y no tirar el dinero",
+     "n": 0
+    },
+    {
+     "id": "nec.presupuestar-rapido",
+     "titulo": "Dar un presupuesto rápido y que se firme",
+     "n": 6
+    },
+    {
+     "id": "nec.contratos-que-no-se-me-pasen",
+     "titulo": "Que no se me pase un contrato ni una renovación",
+     "n": 0
+    },
+    {
+     "id": "nec.vender-online",
+     "titulo": "Vender por internet",
+     "n": 3
+    },
+    {
+     "id": "nec.cobrar-en-el-mostrador",
+     "titulo": "Cobrar en el mostrador o en la mesa",
+     "n": 0
+    },
+    {
+     "id": "nec.que-reserven-solos",
+     "titulo": "Que puedan reservar sin llamarme",
+     "n": 8
+    },
+    {
+     "id": "nec.que-repitan",
+     "titulo": "Que los clientes vuelvan",
+     "n": 0
+    }
+   ],
+   "herramientas": [
+    "Bitrix24",
+    "GoHighLevel",
+    "HubSpot",
+    "Systeme.io",
+    "Thinkific",
+    "Zoho One",
+    "Agile CRM",
+    "Agiled",
+    "Capsule CRM",
+    "ClickFunnels",
+    "Close",
+    "Copper",
+    "EngageBay",
+    "Freshsales",
+    "HoneyBook",
+    "Insightly",
+    "Kartra",
+    "Keap",
+    "Nimble",
+    "Nutshell",
+    "Pipedrive",
+    "Vtiger CRM",
+    "Zoho CRM",
+    "ActiveCampaign",
+    "Less Annoying CRM",
+    "Salesflare",
+    "Salesmate",
+    "Streak",
+    "noCRM.io",
+    "Odoo",
+    "Motion",
+    "Reclaim.ai"
+   ]
+  },
+  "puerta.dinero": {
+   "titulo": "Controlar el dinero",
+   "necesidades": [
+    {
+     "id": "nec.emitir-una-factura-legal",
+     "titulo": "Emitir una factura en condiciones",
+     "n": 12
+    },
+    {
+     "id": "nec.la-factura-obligatoria",
+     "titulo": "Cumplir con la factura electrónica obligatoria",
+     "n": 0
+    },
+    {
+     "id": "nec.cuotas-cada-mes",
+     "titulo": "Cobrar una cuota cada mes sin acordarme",
+     "n": 0
+    },
+    {
+     "id": "nec.facturar-por-lo-avanzado",
+     "titulo": "Facturar por lo avanzado, por hitos o por horas",
+     "n": 0
+    },
+    {
+     "id": "nec.facturar-a-mutuas",
+     "titulo": "Facturar a aseguradoras y mutuas",
+     "n": 0
+    },
+    {
+     "id": "nec.liquidar-a-terceros",
+     "titulo": "Liquidar a propietarios o colaboradores",
+     "n": 0
+    },
+    {
+     "id": "nec.que-me-paguen",
+     "titulo": "Que me paguen, y a tiempo",
+     "n": 9
+    },
+    {
+     "id": "nec.controlar-lo-que-gasto",
+     "titulo": "Saber en qué se me va el dinero",
+     "n": 0
+    },
+    {
+     "id": "nec.llevar-la-contabilidad",
+     "titulo": "Llevar la contabilidad",
+     "n": 0
+    },
+    {
+     "id": "nec.los-impuestos",
+     "titulo": "Los impuestos, sin sustos",
+     "n": 0
+    },
+    {
+     "id": "nec.saber-si-gano-en-cada-trabajo",
+     "titulo": "Saber si gano dinero en cada trabajo",
+     "n": 4
+    },
+    {
+     "id": "nec.llegar-a-fin-de-mes",
+     "titulo": "Ver si llego a fin de mes antes de que llegue",
+     "n": 0
+    },
+    {
+     "id": "nec.donaciones",
+     "titulo": "Recibir donaciones y dar el certificado",
+     "n": 0
+    },
+    {
+     "id": "nec.saber-cuanto-tiempo-echo",
+     "titulo": "Saber cuánto tiempo echo en cada cosa",
+     "n": 17
+    },
+    {
+     "id": "nec.nominas",
+     "titulo": "Pagar las nóminas",
+     "n": 0
+    }
+   ],
+   "herramientas": [
+    "Agiled",
+    "Bitrix24",
+    "HoneyBook",
+    "Keap",
+    "monday.com",
+    "noCRM.io",
+    "Nutshell",
+    "Paymo",
+    "Productive",
+    "Scoro",
+    "Teamwork.com",
+    "Zoho Projects",
+    "ClickFunnels",
+    "Hotmart",
+    "HubSpot",
+    "Systeme.io",
+    "Thinkific",
+    "Asana",
+    "ClickUp",
+    "GanttPRO",
+    "Hive",
+    "Motion",
+    "Nifty",
+    "Reclaim.ai",
+    "TeamGantt",
+    "Wrike"
+   ]
+  },
+  "puerta.orden": {
+   "titulo": "Que no se me pierda nada",
+   "necesidades": [
+    {
+     "id": "nec.contratos-que-no-se-me-pasen",
+     "titulo": "Que no se me pase un contrato ni una renovación",
+     "n": 0
+    },
+    {
+     "id": "nec.que-reserven-solos",
+     "titulo": "Que puedan reservar sin llamarme",
+     "n": 8
+    },
+    {
+     "id": "nec.tareas-y-encargos",
+     "titulo": "Tener claro qué hay que hacer hoy",
+     "n": 29
+    },
+    {
+     "id": "nec.proyectos-largos",
+     "titulo": "Llevar un trabajo largo sin perder el hilo",
+     "n": 12
+    },
+    {
+     "id": "nec.saber-cuanto-tiempo-echo",
+     "titulo": "Saber cuánto tiempo echo en cada cosa",
+     "n": 17
+    },
+    {
+     "id": "nec.expedientes",
+     "titulo": "Tener junto todo lo de cada cliente o caso",
+     "n": 0
+    },
+    {
+     "id": "nec.mi-agenda",
+     "titulo": "Tener la agenda bajo control",
+     "n": 0
+    },
+    {
+     "id": "nec.el-trabajo-de-fuera",
+     "titulo": "Controlar el trabajo que se hace fuera",
+     "n": 0
+    },
+    {
+     "id": "nec.papeles-ordenados",
+     "titulo": "Encontrar los papeles cuando hacen falta",
+     "n": 1
+    },
+    {
+     "id": "nec.firmar-documentos",
+     "titulo": "Firmar sin imprimir ni escanear",
+     "n": 0
+    },
+    {
+     "id": "nec.el-equipo-organizado",
+     "titulo": "Organizar turnos, fichajes y vacaciones",
+     "n": 0
+    },
+    {
+     "id": "nec.nominas",
+     "titulo": "Pagar las nóminas",
+     "n": 0
+    },
+    {
+     "id": "nec.contratar-gente",
+     "titulo": "Contratar y que entren bien",
+     "n": 0
+    },
+    {
+     "id": "nec.el-stock",
+     "titulo": "Saber qué tengo y qué me falta",
+     "n": 0
+    },
+    {
+     "id": "nec.comprar-a-proveedores",
+     "titulo": "Ordenar las compras a proveedores",
+     "n": 0
+    },
+    {
+     "id": "nec.fabricar",
+     "titulo": "Controlar lo que fabrico",
+     "n": 0
+    },
+    {
+     "id": "nec.mis-maquinas",
+     "titulo": "Cuidar mis máquinas y mis vehículos",
+     "n": 0
+    },
+    {
+     "id": "nec.hablar-con-mi-equipo",
+     "titulo": "Hablar con el equipo sin liarla",
+     "n": 1
+    },
+    {
+     "id": "nec.historia-clinica",
+     "titulo": "Llevar la historia clínica de mis pacientes",
+     "n": 0
+    },
+    {
+     "id": "nec.dar-clases",
+     "titulo": "Dar clases y seguir a mis alumnos",
+     "n": 0
+    }
+   ],
+   "herramientas": [
+    "Agiled",
+    "EngageBay",
+    "HoneyBook",
+    "Keap",
+    "Motion",
+    "Nutshell",
+    "Pipedrive",
+    "Reclaim.ai",
+    "Asana",
+    "Bitrix24",
+    "ClickUp Brain",
+    "ClickUp",
+    "Close",
+    "Copper",
+    "GanttPRO",
+    "Hive",
+    "Insightly",
+    "Less Annoying CRM",
+    "Nifty",
+    "Nimble",
+    "noCRM.io",
+    "Paymo",
+    "Productive",
+    "Scoro",
+    "Smartsheet",
+    "Streak",
+    "Taskade",
+    "TeamGantt",
+    "Teamwork.com",
+    "Todoist",
+    "Wrike",
+    "Zenkit",
+    "Zoho Projects",
+    "monday.com"
+   ]
+  },
+  "puerta.cuidar": {
+   "titulo": "Cuidar al cliente que ya tengo",
+   "necesidades": [
+    {
+     "id": "nec.que-repitan",
+     "titulo": "Que los clientes vuelvan",
+     "n": 0
+    },
+    {
+     "id": "nec.responder-por-donde-escriban",
+     "titulo": "Responder por donde me escriban sin perder a nadie",
+     "n": 3
+    },
+    {
+     "id": "nec.no-perder-una-incidencia",
+     "titulo": "Que no se me quede una incidencia sin resolver",
+     "n": 0
+    },
+    {
+     "id": "nec.que-se-respondan-solas",
+     "titulo": "Que las preguntas de siempre se respondan solas",
+     "n": 0
+    },
+    {
+     "id": "nec.saber-si-estan-contentos",
+     "titulo": "Saber si mis clientes están contentos",
+     "n": 0
+    },
+    {
+     "id": "nec.que-el-cliente-vea-lo-suyo",
+     "titulo": "Que el cliente pueda ver lo suyo sin preguntarme",
+     "n": 2
+    }
+   ],
+   "herramientas": [
+    "Capsule CRM",
+    "noCRM.io",
+    "Nutshell",
+    "Agiled",
+    "Odoo"
+   ]
+  },
+  "puerta.contenido": {
+   "titulo": "Crear y publicar contenido",
+   "necesidades": [
+    {
+     "id": "nec.publicar-en-redes",
+     "titulo": "Publicar en redes y saber qué funciona",
+     "n": 0
+    },
+    {
+     "id": "nec.escribir",
+     "titulo": "Escribir textos que no me den vergüenza",
+     "n": 16
+    },
+    {
+     "id": "nec.imagenes",
+     "titulo": "Hacer imágenes y que todo pegue con mi marca",
+     "n": 2
+    },
+    {
+     "id": "nec.video",
+     "titulo": "Hacer vídeos y clips",
+     "n": 1
+    },
+    {
+     "id": "nec.audio",
+     "titulo": "Grabar audio que se oiga bien",
+     "n": 1
+    },
+    {
+     "id": "nec.presentaciones",
+     "titulo": "Preparar una presentación decente",
+     "n": 3
+    },
+    {
+     "id": "nec.resumir-reuniones",
+     "titulo": "No tomar notas en las reuniones",
+     "n": 3
+    }
+   ],
+   "herramientas": [
+    "ActiveCampaign",
+    "Bitrix24",
+    "Copy.ai",
+    "Descript",
+    "Fireflies.ai",
+    "Freshsales",
+    "Gamma",
+    "Grammarly",
+    "HoneyBook",
+    "HubSpot",
+    "Jasper",
+    "Keap",
+    "Motion",
+    "Notion AI",
+    "Otter.ai",
+    "Synthesia",
+    "Canva",
+    "Beautiful.ai",
+    "Krisp"
+   ]
+  },
+  "puerta.tiempo": {
+   "titulo": "Ganar tiempo",
+   "necesidades": [
+    {
+     "id": "nec.resumir-reuniones",
+     "titulo": "No tomar notas en las reuniones",
+     "n": 3
+    },
+    {
+     "id": "nec.conectar-lo-que-uso",
+     "titulo": "Que las herramientas que uso hablen entre sí",
+     "n": 55
+    },
+    {
+     "id": "nec.que-se-haga-solo",
+     "titulo": "Que lo repetitivo se haga solo",
+     "n": 28
+    },
+    {
+     "id": "nec.ver-como-va-el-negocio",
+     "titulo": "Ver de un vistazo cómo va el negocio",
+     "n": 31
+    },
+    {
+     "id": "nec.llevarme-mis-datos",
+     "titulo": "Poder llevarme mis datos si me voy",
+     "n": 25
+    },
+    {
+     "id": "nec.cumplir-el-rgpd",
+     "titulo": "Cumplir con la protección de datos",
+     "n": 0
+    },
+    {
+     "id": "nec.que-sea-seguro",
+     "titulo": "Que nadie me entre y no perder nada",
+     "n": 14
+    }
+   ],
+   "herramientas": [
+    "Fireflies.ai",
+    "Krisp",
+    "Otter.ai",
+    "ActiveCampaign",
+    "Agile CRM",
+    "Agiled",
+    "Asana",
+    "Beautiful.ai",
+    "Bitrix24",
+    "Canva",
+    "Capsule CRM",
+    "ClickFunnels",
+    "ClickUp Brain",
+    "ClickUp",
+    "Close",
+    "Copper",
+    "EngageBay",
+    "GanttPRO",
+    "GoHighLevel",
+    "Grammarly",
+    "HeyGen",
+    "Hive",
+    "HoneyBook",
+    "HubSpot",
+    "Insightly",
+    "Jasper",
+    "Keap",
+    "Less Annoying CRM",
+    "monday.com",
+    "Motion",
+    "Nifty",
+    "Nimble",
+    "noCRM.io",
+    "Notion AI",
+    "Nutshell",
+    "Odoo",
+    "Paymo",
+    "Pipedrive",
+    "Productive",
+    "Reclaim.ai",
+    "Salesflare",
+    "Salesmate",
+    "Scoro",
+    "Streak",
+    "Systeme.io",
+    "Taskade",
+    "TeamGantt",
+    "Teamwork.com",
+    "Todoist",
+    "Vtiger CRM",
+    "Wrike",
+    "Zenkit",
+    "Zoho CRM",
+    "Zoho One",
+    "Zoho Projects",
+    "Smartsheet",
+    "Descript",
+    "Gamma",
+    "Synthesia"
+   ]
+  }
+ },
+ "necesidades": [
+  {
+   "id": "nec.que-me-encuentren",
+   "titulo": "Que me encuentren cuando me buscan",
+   "puertas": [
+    "puerta.vender"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.tener-donde-ensenar-lo-que-hago",
+   "titulo": "Tener un sitio donde enseñar lo que hago",
+   "puertas": [
+    "puerta.vender"
+   ],
+   "n": 6,
+   "quienes": [
+    "Bitrix24",
+    "GoHighLevel",
+    "HubSpot",
+    "Systeme.io",
+    "Thinkific",
+    "Zoho One"
+   ]
+  },
+  {
+   "id": "nec.que-no-se-pierda-una-pregunta",
+   "titulo": "Que no se me pierda ninguna pregunta",
+   "puertas": [
+    "puerta.vender"
+   ],
+   "n": 19,
+   "quienes": [
+    "Agile CRM",
+    "Agiled",
+    "Bitrix24",
+    "Capsule CRM",
+    "ClickFunnels",
+    "Close",
+    "Copper",
+    "EngageBay",
+    "Freshsales",
+    "HoneyBook",
+    "HubSpot",
+    "Insightly",
+    "Kartra",
+    "Keap",
+    "Nimble",
+    "Nutshell",
+    "Pipedrive",
+    "Vtiger CRM",
+    "Zoho CRM"
+   ]
+  },
+  {
+   "id": "nec.seguir-sin-olvidarme-de-nadie",
+   "titulo": "Hacer seguimiento y no olvidarme de nadie",
+   "puertas": [
+    "puerta.vender"
+   ],
+   "n": 21,
+   "quienes": [
+    "ActiveCampaign",
+    "Agile CRM",
+    "Agiled",
+    "Bitrix24",
+    "Capsule CRM",
+    "Close",
+    "Copper",
+    "EngageBay",
+    "HoneyBook",
+    "HubSpot",
+    "Insightly",
+    "Keap",
+    "Less Annoying CRM",
+    "Nimble",
+    "Nutshell",
+    "Pipedrive",
+    "Salesflare",
+    "Salesmate",
+    "Streak",
+    "Vtiger CRM",
+    "Zoho CRM"
+   ]
+  },
+  {
+   "id": "nec.escribir-a-mi-gente",
+   "titulo": "Escribir a mi gente y hacer campañas",
+   "puertas": [
+    "puerta.vender"
+   ],
+   "n": 9,
+   "quienes": [
+    "ActiveCampaign",
+    "Bitrix24",
+    "ClickFunnels",
+    "Insightly",
+    "Kartra",
+    "Keap",
+    "Nimble",
+    "Nutshell",
+    "Salesflare"
+   ]
+  },
+  {
+   "id": "nec.publicar-en-redes",
+   "titulo": "Publicar en redes y saber qué funciona",
+   "puertas": [
+    "puerta.vender",
+    "puerta.contenido"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.publicidad-de-pago",
+   "titulo": "Poner publicidad y no tirar el dinero",
+   "puertas": [
+    "puerta.vender"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.presupuestar-rapido",
+   "titulo": "Dar un presupuesto rápido y que se firme",
+   "puertas": [
+    "puerta.vender"
+   ],
+   "n": 6,
+   "quienes": [
+    "Copper",
+    "Insightly",
+    "noCRM.io",
+    "Nutshell",
+    "Salesmate",
+    "Vtiger CRM"
+   ]
+  },
+  {
+   "id": "nec.contratos-que-no-se-me-pasen",
+   "titulo": "Que no se me pase un contrato ni una renovación",
+   "puertas": [
+    "puerta.vender",
+    "puerta.orden"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.vender-online",
+   "titulo": "Vender por internet",
+   "puertas": [
+    "puerta.vender"
+   ],
+   "n": 3,
+   "quienes": [
+    "Bitrix24",
+    "ClickFunnels",
+    "Odoo"
+   ]
+  },
+  {
+   "id": "nec.cobrar-en-el-mostrador",
+   "titulo": "Cobrar en el mostrador o en la mesa",
+   "puertas": [
+    "puerta.vender"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.que-reserven-solos",
+   "titulo": "Que puedan reservar sin llamarme",
+   "puertas": [
+    "puerta.vender",
+    "puerta.orden"
+   ],
+   "n": 8,
+   "quienes": [
+    "Agiled",
+    "EngageBay",
+    "HoneyBook",
+    "Keap",
+    "Motion",
+    "Nutshell",
+    "Pipedrive",
+    "Reclaim.ai"
+   ]
+  },
+  {
+   "id": "nec.que-repitan",
+   "titulo": "Que los clientes vuelvan",
+   "puertas": [
+    "puerta.vender",
+    "puerta.cuidar"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.emitir-una-factura-legal",
+   "titulo": "Emitir una factura en condiciones",
+   "puertas": [
+    "puerta.dinero"
+   ],
+   "n": 12,
+   "quienes": [
+    "Agiled",
+    "Bitrix24",
+    "HoneyBook",
+    "Keap",
+    "monday.com",
+    "noCRM.io",
+    "Nutshell",
+    "Paymo",
+    "Productive",
+    "Scoro",
+    "Teamwork.com",
+    "Zoho Projects"
+   ]
+  },
+  {
+   "id": "nec.la-factura-obligatoria",
+   "titulo": "Cumplir con la factura electrónica obligatoria",
+   "puertas": [
+    "puerta.dinero"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.cuotas-cada-mes",
+   "titulo": "Cobrar una cuota cada mes sin acordarme",
+   "puertas": [
+    "puerta.dinero"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.facturar-por-lo-avanzado",
+   "titulo": "Facturar por lo avanzado, por hitos o por horas",
+   "puertas": [
+    "puerta.dinero"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.facturar-a-mutuas",
+   "titulo": "Facturar a aseguradoras y mutuas",
+   "puertas": [
+    "puerta.dinero"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.liquidar-a-terceros",
+   "titulo": "Liquidar a propietarios o colaboradores",
+   "puertas": [
+    "puerta.dinero"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.que-me-paguen",
+   "titulo": "Que me paguen, y a tiempo",
+   "puertas": [
+    "puerta.dinero"
+   ],
+   "n": 9,
+   "quienes": [
+    "Agiled",
+    "Bitrix24",
+    "ClickFunnels",
+    "HoneyBook",
+    "Hotmart",
+    "HubSpot",
+    "Keap",
+    "Systeme.io",
+    "Thinkific"
+   ]
+  },
+  {
+   "id": "nec.controlar-lo-que-gasto",
+   "titulo": "Saber en qué se me va el dinero",
+   "puertas": [
+    "puerta.dinero"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.llevar-la-contabilidad",
+   "titulo": "Llevar la contabilidad",
+   "puertas": [
+    "puerta.dinero"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.los-impuestos",
+   "titulo": "Los impuestos, sin sustos",
+   "puertas": [
+    "puerta.dinero"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.saber-si-gano-en-cada-trabajo",
+   "titulo": "Saber si gano dinero en cada trabajo",
+   "puertas": [
+    "puerta.dinero"
+   ],
+   "n": 4,
+   "quienes": [
+    "Paymo",
+    "Productive",
+    "Scoro",
+    "Teamwork.com"
+   ]
+  },
+  {
+   "id": "nec.llegar-a-fin-de-mes",
+   "titulo": "Ver si llego a fin de mes antes de que llegue",
+   "puertas": [
+    "puerta.dinero"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.donaciones",
+   "titulo": "Recibir donaciones y dar el certificado",
+   "puertas": [
+    "puerta.dinero"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.tareas-y-encargos",
+   "titulo": "Tener claro qué hay que hacer hoy",
+   "puertas": [
+    "puerta.orden"
+   ],
+   "n": 29,
+   "quienes": [
+    "Agiled",
+    "Asana",
+    "Bitrix24",
+    "ClickUp Brain",
+    "ClickUp",
+    "Close",
+    "Copper",
+    "GanttPRO",
+    "Hive",
+    "HoneyBook",
+    "Insightly",
+    "Less Annoying CRM",
+    "Motion",
+    "Nifty",
+    "Nimble",
+    "noCRM.io",
+    "Paymo",
+    "Productive",
+    "Reclaim.ai",
+    "Scoro",
+    "Smartsheet",
+    "Streak",
+    "Taskade",
+    "TeamGantt",
+    "Teamwork.com",
+    "Todoist",
+    "Wrike",
+    "Zenkit",
+    "Zoho Projects"
+   ]
+  },
+  {
+   "id": "nec.proyectos-largos",
+   "titulo": "Llevar un trabajo largo sin perder el hilo",
+   "puertas": [
+    "puerta.orden"
+   ],
+   "n": 12,
+   "quienes": [
+    "Agiled",
+    "Asana",
+    "Bitrix24",
+    "ClickUp",
+    "GanttPRO",
+    "Hive",
+    "Nifty",
+    "Paymo",
+    "Scoro",
+    "Smartsheet",
+    "TeamGantt",
+    "Teamwork.com"
+   ]
+  },
+  {
+   "id": "nec.saber-cuanto-tiempo-echo",
+   "titulo": "Saber cuánto tiempo echo en cada cosa",
+   "puertas": [
+    "puerta.orden",
+    "puerta.dinero"
+   ],
+   "n": 17,
+   "quienes": [
+    "Agiled",
+    "Asana",
+    "Bitrix24",
+    "ClickUp",
+    "GanttPRO",
+    "Hive",
+    "monday.com",
+    "Motion",
+    "Nifty",
+    "Paymo",
+    "Productive",
+    "Reclaim.ai",
+    "Scoro",
+    "TeamGantt",
+    "Teamwork.com",
+    "Wrike",
+    "Zoho Projects"
+   ]
+  },
+  {
+   "id": "nec.expedientes",
+   "titulo": "Tener junto todo lo de cada cliente o caso",
+   "puertas": [
+    "puerta.orden"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.mi-agenda",
+   "titulo": "Tener la agenda bajo control",
+   "puertas": [
+    "puerta.orden"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.el-trabajo-de-fuera",
+   "titulo": "Controlar el trabajo que se hace fuera",
+   "puertas": [
+    "puerta.orden"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.papeles-ordenados",
+   "titulo": "Encontrar los papeles cuando hacen falta",
+   "puertas": [
+    "puerta.orden"
+   ],
+   "n": 1,
+   "quienes": [
+    "ClickUp Brain"
+   ]
+  },
+  {
+   "id": "nec.firmar-documentos",
+   "titulo": "Firmar sin imprimir ni escanear",
+   "puertas": [
+    "puerta.orden"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.el-equipo-organizado",
+   "titulo": "Organizar turnos, fichajes y vacaciones",
+   "puertas": [
+    "puerta.orden"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.nominas",
+   "titulo": "Pagar las nóminas",
+   "puertas": [
+    "puerta.orden",
+    "puerta.dinero"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.contratar-gente",
+   "titulo": "Contratar y que entren bien",
+   "puertas": [
+    "puerta.orden"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.el-stock",
+   "titulo": "Saber qué tengo y qué me falta",
+   "puertas": [
+    "puerta.orden"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.comprar-a-proveedores",
+   "titulo": "Ordenar las compras a proveedores",
+   "puertas": [
+    "puerta.orden"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.fabricar",
+   "titulo": "Controlar lo que fabrico",
+   "puertas": [
+    "puerta.orden"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.mis-maquinas",
+   "titulo": "Cuidar mis máquinas y mis vehículos",
+   "puertas": [
+    "puerta.orden"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.hablar-con-mi-equipo",
+   "titulo": "Hablar con el equipo sin liarla",
+   "puertas": [
+    "puerta.orden"
+   ],
+   "n": 1,
+   "quienes": [
+    "Zenkit"
+   ]
+  },
+  {
+   "id": "nec.historia-clinica",
+   "titulo": "Llevar la historia clínica de mis pacientes",
+   "puertas": [
+    "puerta.orden"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.dar-clases",
+   "titulo": "Dar clases y seguir a mis alumnos",
+   "puertas": [
+    "puerta.orden"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.responder-por-donde-escriban",
+   "titulo": "Responder por donde me escriban sin perder a nadie",
+   "puertas": [
+    "puerta.cuidar"
+   ],
+   "n": 3,
+   "quienes": [
+    "Capsule CRM",
+    "noCRM.io",
+    "Nutshell"
+   ]
+  },
+  {
+   "id": "nec.no-perder-una-incidencia",
+   "titulo": "Que no se me quede una incidencia sin resolver",
+   "puertas": [
+    "puerta.cuidar"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.que-se-respondan-solas",
+   "titulo": "Que las preguntas de siempre se respondan solas",
+   "puertas": [
+    "puerta.cuidar"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.saber-si-estan-contentos",
+   "titulo": "Saber si mis clientes están contentos",
+   "puertas": [
+    "puerta.cuidar"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.que-el-cliente-vea-lo-suyo",
+   "titulo": "Que el cliente pueda ver lo suyo sin preguntarme",
+   "puertas": [
+    "puerta.cuidar"
+   ],
+   "n": 2,
+   "quienes": [
+    "Agiled",
+    "Odoo"
+   ]
+  },
+  {
+   "id": "nec.escribir",
+   "titulo": "Escribir textos que no me den vergüenza",
+   "puertas": [
+    "puerta.contenido"
+   ],
+   "n": 16,
+   "quienes": [
+    "ActiveCampaign",
+    "Bitrix24",
+    "Copy.ai",
+    "Descript",
+    "Fireflies.ai",
+    "Freshsales",
+    "Gamma",
+    "Grammarly",
+    "HoneyBook",
+    "HubSpot",
+    "Jasper",
+    "Keap",
+    "Motion",
+    "Notion AI",
+    "Otter.ai",
+    "Synthesia"
+   ]
+  },
+  {
+   "id": "nec.imagenes",
+   "titulo": "Hacer imágenes y que todo pegue con mi marca",
+   "puertas": [
+    "puerta.contenido"
+   ],
+   "n": 2,
+   "quienes": [
+    "Canva",
+    "Gamma"
+   ]
+  },
+  {
+   "id": "nec.video",
+   "titulo": "Hacer vídeos y clips",
+   "puertas": [
+    "puerta.contenido"
+   ],
+   "n": 1,
+   "quienes": [
+    "Descript"
+   ]
+  },
+  {
+   "id": "nec.audio",
+   "titulo": "Grabar audio que se oiga bien",
+   "puertas": [
+    "puerta.contenido"
+   ],
+   "n": 1,
+   "quienes": [
+    "Descript"
+   ]
+  },
+  {
+   "id": "nec.presentaciones",
+   "titulo": "Preparar una presentación decente",
+   "puertas": [
+    "puerta.contenido"
+   ],
+   "n": 3,
+   "quienes": [
+    "Beautiful.ai",
+    "Canva",
+    "Gamma"
+   ]
+  },
+  {
+   "id": "nec.resumir-reuniones",
+   "titulo": "No tomar notas en las reuniones",
+   "puertas": [
+    "puerta.contenido",
+    "puerta.tiempo"
+   ],
+   "n": 3,
+   "quienes": [
+    "Fireflies.ai",
+    "Krisp",
+    "Otter.ai"
+   ]
+  },
+  {
+   "id": "nec.conectar-lo-que-uso",
+   "titulo": "Que las herramientas que uso hablen entre sí",
+   "puertas": [
+    "puerta.tiempo"
+   ],
+   "n": 55,
+   "quienes": [
+    "ActiveCampaign",
+    "Agile CRM",
+    "Agiled",
+    "Asana",
+    "Beautiful.ai",
+    "Bitrix24",
+    "Canva",
+    "Capsule CRM",
+    "ClickFunnels",
+    "ClickUp Brain",
+    "ClickUp",
+    "Close",
+    "Copper",
+    "EngageBay",
+    "Fireflies.ai",
+    "GanttPRO",
+    "GoHighLevel",
+    "Grammarly",
+    "HeyGen",
+    "Hive",
+    "HoneyBook",
+    "HubSpot",
+    "Insightly",
+    "Jasper",
+    "Keap",
+    "Krisp",
+    "Less Annoying CRM",
+    "monday.com",
+    "Motion",
+    "Nifty",
+    "Nimble",
+    "noCRM.io",
+    "Notion AI",
+    "Nutshell",
+    "Odoo",
+    "Otter.ai",
+    "Paymo",
+    "Pipedrive",
+    "Productive",
+    "Reclaim.ai",
+    "Salesflare",
+    "Salesmate",
+    "Scoro",
+    "Streak",
+    "Systeme.io",
+    "Taskade",
+    "TeamGantt",
+    "Teamwork.com",
+    "Todoist",
+    "Vtiger CRM",
+    "Wrike",
+    "Zenkit",
+    "Zoho CRM",
+    "Zoho One",
+    "Zoho Projects"
+   ]
+  },
+  {
+   "id": "nec.que-se-haga-solo",
+   "titulo": "Que lo repetitivo se haga solo",
+   "puertas": [
+    "puerta.tiempo"
+   ],
+   "n": 28,
+   "quienes": [
+    "Agiled",
+    "Asana",
+    "Bitrix24",
+    "Capsule CRM",
+    "ClickUp Brain",
+    "ClickUp",
+    "Close",
+    "Copper",
+    "Hive",
+    "HoneyBook",
+    "Insightly",
+    "Keap",
+    "Less Annoying CRM",
+    "monday.com",
+    "Nifty",
+    "Nimble",
+    "noCRM.io",
+    "Notion AI",
+    "Pipedrive",
+    "Productive",
+    "Scoro",
+    "Smartsheet",
+    "Streak",
+    "Taskade",
+    "Teamwork.com",
+    "Wrike",
+    "Zoho CRM",
+    "Zoho Projects"
+   ]
+  },
+  {
+   "id": "nec.ver-como-va-el-negocio",
+   "titulo": "Ver de un vistazo cómo va el negocio",
+   "puertas": [
+    "puerta.tiempo"
+   ],
+   "n": 31,
+   "quienes": [
+    "Asana",
+    "Bitrix24",
+    "Capsule CRM",
+    "ClickUp Brain",
+    "ClickUp",
+    "Close",
+    "GanttPRO",
+    "GoHighLevel",
+    "Hive",
+    "Insightly",
+    "Keap",
+    "Krisp",
+    "monday.com",
+    "Motion",
+    "Nifty",
+    "Nimble",
+    "Notion AI",
+    "Pipedrive",
+    "Productive",
+    "Salesflare",
+    "Salesmate",
+    "Scoro",
+    "Smartsheet",
+    "Streak",
+    "Taskade",
+    "Teamwork.com",
+    "Vtiger CRM",
+    "Wrike",
+    "Zenkit",
+    "Zoho One",
+    "Zoho Projects"
+   ]
+  },
+  {
+   "id": "nec.llevarme-mis-datos",
+   "titulo": "Poder llevarme mis datos si me voy",
+   "puertas": [
+    "puerta.tiempo"
+   ],
+   "n": 25,
+   "quienes": [
+    "Agiled",
+    "Asana",
+    "Beautiful.ai",
+    "Canva",
+    "ClickUp Brain",
+    "ClickUp",
+    "Close",
+    "Copper",
+    "Descript",
+    "Fireflies.ai",
+    "Gamma",
+    "Less Annoying CRM",
+    "Notion AI",
+    "Odoo",
+    "Otter.ai",
+    "Productive",
+    "Scoro",
+    "Smartsheet",
+    "Streak",
+    "Synthesia",
+    "Taskade",
+    "TeamGantt",
+    "Vtiger CRM",
+    "Zenkit",
+    "Zoho CRM"
+   ]
+  },
+  {
+   "id": "nec.cumplir-el-rgpd",
+   "titulo": "Cumplir con la protección de datos",
+   "puertas": [
+    "puerta.tiempo"
+   ],
+   "n": 0,
+   "quienes": []
+  },
+  {
+   "id": "nec.que-sea-seguro",
+   "titulo": "Que nadie me entre y no perder nada",
+   "puertas": [
+    "puerta.tiempo"
+   ],
+   "n": 14,
+   "quienes": [
+    "ClickUp Brain",
+    "ClickUp",
+    "Close",
+    "GanttPRO",
+    "HeyGen",
+    "Krisp",
+    "Nifty",
+    "Notion AI",
+    "Otter.ai",
+    "Productive",
+    "Scoro",
+    "Teamwork.com",
+    "Zenkit",
+    "Zoho Projects"
+   ]
+  }
+ ],
+ "sinCasa": [
+  "Teachable"
+ ]
+}
