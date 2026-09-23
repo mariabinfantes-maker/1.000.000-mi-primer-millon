@@ -1,0 +1,15 @@
+{
+ "id": "zoho-one__casa-crm",
+ "nombre": "Zoho One",
+ "url": "https://www.zoho.com/one/",
+ "preguntas": [
+  {
+   "q": "casa:crm",
+   "por": "está en esa casa sólo por su portada, sin capacidad verificada"
+  }
+ ],
+ "texto": "{\"resultados\":[{\"id\":\"cap.customer_contact_records\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.customer_interaction_history\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.sales_pipeline\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.lead_capture\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.sales_forecasting\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.client_portal\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.quotes_and_proposals\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.bill_of_quantities\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.price_lists_and_rates\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.electronic_signature\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.contract_lifecycle\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.zoho.com/one/"
+ ]
+}

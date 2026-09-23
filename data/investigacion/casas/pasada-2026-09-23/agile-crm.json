@@ -1,0 +1,19 @@
+{
+ "id": "agile-crm",
+ "nombre": "Agile CRM",
+ "url": "https://www.agilecrm.com",
+ "preguntas": [
+  {
+   "q": "firma",
+   "por": "su página ya declara firma o gestión documental"
+  },
+  {
+   "q": "casa:atencion-cliente",
+   "por": "lo declara su página y F2 no lo ha comprobado"
+  }
+ ],
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.electronic_signature\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.shared_inbox\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.support_ticketing\",\n      \"estado\": \"si\",\n      \"cita\": \"Powerful ticketing feature to resolve customer queries quickly\",\n      \"url\": \"https://www.agilecrm.com\"\n    },\n    {\n      \"id\": \"cap.website_live_chat\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.whatsapp_customer_channel\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.public_help_center\",\n      \"estado\": \"si\",\n      \"cita\": \"Enabling a self-service portal to help customers help themselves\",\n      \"url\": \"https://www.agilecrm.com\"\n    },\n    {\n      \"id\": \"cap.canned_responses\",\n      \"estado\": \"si\",\n      \"cita\": \"Pre-formatted replies to ensure fast and consistent responses to common questions.\",\n      \"url\": \"https://www.agilecrm.com\"\n    },\n    {\n      \"id\": \"cap.support_chatbot\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.customer_satisfaction_surveys\",\n      \"estado\": \"si\",\n      \"cita\": \"Improve customer relations by querying and analyzing their feedback\",\n      \"url\": \"https://www.agilecrm.com\"\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://www.agilecrm.com/"
+ ]
+}

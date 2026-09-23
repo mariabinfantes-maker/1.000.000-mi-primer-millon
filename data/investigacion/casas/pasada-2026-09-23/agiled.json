@@ -1,0 +1,19 @@
+{
+ "id": "agiled",
+ "nombre": "Agiled",
+ "url": "https://agiled.app/",
+ "preguntas": [
+  {
+   "q": "firma",
+   "por": "su página ya declara firma o gestión documental"
+  },
+  {
+   "q": "casa:atencion-cliente",
+   "por": "lo declara su página y F2 no lo ha comprobado"
+  }
+ ],
+ "texto": "{\"resultados\":[{\"id\":\"cap.electronic_signature\",\"estado\":\"si\",\"cita\":\"Built-in e-signing with legally binding signatures\",\"url\":\"https://agiled.app/\"},{\"id\":\"cap.shared_inbox\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.support_ticketing\",\"estado\":\"si\",\"cita\":\"Built-in support ticketing for client requests\",\"url\":\"https://agiled.app/\"},{\"id\":\"cap.website_live_chat\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.whatsapp_customer_channel\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.public_help_center\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.canned_responses\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.support_chatbot\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.customer_satisfaction_surveys\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://agiled.app/"
+ ]
+}

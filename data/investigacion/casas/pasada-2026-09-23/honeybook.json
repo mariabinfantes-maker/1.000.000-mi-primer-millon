@@ -1,0 +1,15 @@
+{
+ "id": "honeybook",
+ "nombre": "HoneyBook",
+ "url": "https://www.honeybook.com",
+ "preguntas": [
+  {
+   "q": "firma",
+   "por": "su página ya declara firma o gestión documental · su ficha nombra firmar"
+  }
+ ],
+ "texto": "{\"resultados\":[{\"id\":\"cap.electronic_signature\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.honeybook.com/"
+ ]
+}

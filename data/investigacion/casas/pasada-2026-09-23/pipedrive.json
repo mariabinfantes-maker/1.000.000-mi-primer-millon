@@ -1,0 +1,15 @@
+{
+ "id": "pipedrive",
+ "nombre": "Pipedrive",
+ "url": "https://www.pipedrive.com",
+ "preguntas": [
+  {
+   "q": "firma",
+   "por": "su página ya declara firma o gestión documental"
+  }
+ ],
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.electronic_signature\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://www.pipedrive.com/"
+ ]
+}

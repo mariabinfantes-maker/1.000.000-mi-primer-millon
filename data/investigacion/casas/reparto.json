@@ -122,6 +122,22 @@
      "esSuOficio": true,
      "apoyo": "verificado"
     },
+    "atencion-cliente": {
+     "cubre": [
+      "Tickets e incidencias",
+      "Centro de ayuda público",
+      "Respuestas guardadas",
+      "Encuestas de satisfacción"
+     ],
+     "sinComprobar": [
+      "Bandeja compartida",
+      "Chat en la web",
+      "Atención por WhatsApp",
+      "Asistente automático de atención"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "automatizacion-integraciones": {
      "cubre": [
       "Conectar con otras herramientas"
@@ -153,14 +169,14 @@
       "Historial de trato con el cliente",
       "Embudo de ventas y oportunidades",
       "Captación de contactos interesados",
-      "Portal para el cliente"
+      "Portal para el cliente",
+      "Firma electrónica de documentos"
      ],
      "sinComprobar": [
       "Previsión de ventas",
       "Presupuestos y propuestas",
       "Presupuesto por partidas y mediciones",
       "Tarifas y listas de precios",
-      "Firma electrónica de documentos",
       "Contratos vivos: vencimientos y renovaciones"
      ],
      "esSuOficio": true,
@@ -230,6 +246,22 @@
      "esSuOficio": false,
      "apoyo": "verificado"
     },
+    "atencion-cliente": {
+     "cubre": [
+      "Tickets e incidencias"
+     ],
+     "sinComprobar": [
+      "Bandeja compartida",
+      "Chat en la web",
+      "Atención por WhatsApp",
+      "Centro de ayuda público",
+      "Respuestas guardadas",
+      "Asistente automático de atención",
+      "Encuestas de satisfacción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "automatizacion-integraciones": {
      "cubre": [
       "Automatizar tareas repetidas",
@@ -260,6 +292,21 @@
       "Turnos y cuadrantes",
       "Vacaciones y ausencias",
       "Desempeño y objetivos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "firma-gestion-documental": {
+     "cubre": [
+      "Firma electrónica de documentos"
+     ],
+     "sinComprobar": [
+      "Edición a varias manos",
+      "Espacio de conocimiento interno",
+      "Archivos y carpetas",
+      "Plantillas de documento",
+      "Buscar en todo lo guardado",
+      "Versiones y cambios"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -463,6 +510,22 @@
      "esSuOficio": false,
      "apoyo": "verificado"
     },
+    "atencion-cliente": {
+     "cubre": [
+      "Chat en la web"
+     ],
+     "sinComprobar": [
+      "Bandeja compartida",
+      "Tickets e incidencias",
+      "Atención por WhatsApp",
+      "Centro de ayuda público",
+      "Respuestas guardadas",
+      "Asistente automático de atención",
+      "Encuestas de satisfacción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "comercio-electronico": {
      "cubre": [
       "Tienda online"
@@ -527,6 +590,32 @@
       "Turnos y cuadrantes",
       "Vacaciones y ausencias",
       "Desempeño y objetivos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "inventario-operaciones": {
+     "cubre": [
+      "Existencias",
+      "Almacén, ubicaciones y multi-tienda"
+     ],
+     "sinComprobar": [
+      "Órdenes de trabajo",
+      "Asignar y despachar técnicos",
+      "Parte en el móvil: fotos y firma",
+      "Planificación de rutas",
+      "Historial por bien atendido del cliente",
+      "Contratos de mantenimiento y compromisos de respuesta",
+      "Avisos de reposición",
+      "Código de barras",
+      "Compras y proveedores",
+      "Lotes, caducidad y trazabilidad",
+      "Escandallo o lista de materiales",
+      "Órdenes de fabricación",
+      "Planificación de materiales (MRP)",
+      "Inspecciones, listas de comprobación y no conformidades",
+      "Activos propios: inventario y mantenimiento preventivo",
+      "Flota: localización, consumos y tacógrafo"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -797,24 +886,25 @@
      "apoyo": "verificado"
     },
     "asistentes-ia": {
-     "cubre": [],
-     "sinComprobar": [
+     "cubre": [
       "Redactar textos",
       "Corregir y pulir textos",
-      "Traducir",
       "Presentaciones",
       "Diseño gráfico",
+      "Transcribir audio",
+      "Actas y resúmenes de reunión"
+     ],
+     "sinComprobar": [
+      "Traducir",
       "Edición de vídeo",
       "Generar vídeo con IA",
       "Edición de audio y pódcast",
-      "Transcribir audio",
-      "Actas y resúmenes de reunión",
       "Limpiar el sonido",
       "Subtítulos",
       "Kit de marca"
      ],
      "esSuOficio": true,
-     "apoyo": "solo-su-portada"
+     "apoyo": "verificado"
     },
     "automatizacion-integraciones": {
      "cubre": [
@@ -1171,6 +1261,22 @@
      "esSuOficio": false,
      "apoyo": "verificado"
     },
+    "atencion-cliente": {
+     "cubre": [
+      "Tickets e incidencias",
+      "Chat en la web",
+      "Respuestas guardadas",
+      "Asistente automático de atención"
+     ],
+     "sinComprobar": [
+      "Bandeja compartida",
+      "Atención por WhatsApp",
+      "Centro de ayuda público",
+      "Encuestas de satisfacción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "automatizacion-integraciones": {
      "cubre": [
       "Conectar con otras herramientas",
@@ -1426,6 +1532,22 @@
       "Reserva de salas y equipos",
       "Lista de espera",
       "Insertar la reserva en tu propia web"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "atencion-cliente": {
+     "cubre": [
+      "Chat en la web"
+     ],
+     "sinComprobar": [
+      "Bandeja compartida",
+      "Tickets e incidencias",
+      "Atención por WhatsApp",
+      "Centro de ayuda público",
+      "Respuestas guardadas",
+      "Asistente automático de atención",
+      "Encuestas de satisfacción"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -1868,6 +1990,22 @@
      "esSuOficio": false,
      "apoyo": "verificado"
     },
+    "atencion-cliente": {
+     "cubre": [
+      "Chat en la web",
+      "Asistente automático de atención"
+     ],
+     "sinComprobar": [
+      "Bandeja compartida",
+      "Tickets e incidencias",
+      "Atención por WhatsApp",
+      "Centro de ayuda público",
+      "Respuestas guardadas",
+      "Encuestas de satisfacción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "automatizacion-integraciones": {
      "cubre": [
       "Conectar con otras herramientas",
@@ -1956,6 +2094,22 @@
       "Calendario y planificación diaria",
       "Replanificación automática",
       "Expedientes y casos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "atencion-cliente": {
+     "cubre": [
+      "Tickets e incidencias",
+      "Centro de ayuda público"
+     ],
+     "sinComprobar": [
+      "Bandeja compartida",
+      "Chat en la web",
+      "Atención por WhatsApp",
+      "Respuestas guardadas",
+      "Asistente automático de atención",
+      "Encuestas de satisfacción"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -2595,6 +2749,22 @@
      "esSuOficio": false,
      "apoyo": "verificado"
     },
+    "atencion-cliente": {
+     "cubre": [
+      "Chat en la web"
+     ],
+     "sinComprobar": [
+      "Bandeja compartida",
+      "Tickets e incidencias",
+      "Atención por WhatsApp",
+      "Centro de ayuda público",
+      "Respuestas guardadas",
+      "Asistente automático de atención",
+      "Encuestas de satisfacción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "automatizacion-integraciones": {
      "cubre": [
       "Automatizar tareas repetidas",
@@ -2811,14 +2981,14 @@
       "Historial de trato con el cliente",
       "Embudo de ventas y oportunidades",
       "Captación de contactos interesados",
-      "Presupuestos y propuestas"
+      "Presupuestos y propuestas",
+      "Firma electrónica de documentos"
      ],
      "sinComprobar": [
       "Previsión de ventas",
       "Portal para el cliente",
       "Presupuesto por partidas y mediciones",
       "Tarifas y listas de precios",
-      "Firma electrónica de documentos",
       "Contratos vivos: vencimientos y renovaciones"
      ],
      "esSuOficio": true,
@@ -2916,6 +3086,21 @@
       "Posicionamiento en buscadores",
       "Campañas de publicidad de pago",
       "Fidelización y puntos"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
+    "firma-gestion-documental": {
+     "cubre": [
+      "Firma electrónica de documentos"
+     ],
+     "sinComprobar": [
+      "Edición a varias manos",
+      "Espacio de conocimiento interno",
+      "Archivos y carpetas",
+      "Plantillas de documento",
+      "Buscar en todo lo guardado",
+      "Versiones y cambios"
      ],
      "esSuOficio": false,
      "apoyo": "verificado"
@@ -3380,6 +3565,22 @@
      "esSuOficio": true,
      "apoyo": "verificado"
     },
+    "atencion-cliente": {
+     "cubre": [
+      "Bandeja compartida",
+      "Tickets e incidencias",
+      "Encuestas de satisfacción"
+     ],
+     "sinComprobar": [
+      "Chat en la web",
+      "Atención por WhatsApp",
+      "Centro de ayuda público",
+      "Respuestas guardadas",
+      "Asistente automático de atención"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "automatizacion-integraciones": {
      "cubre": [
       "Conectar con otras herramientas",
@@ -3559,6 +3760,22 @@
      "esSuOficio": false,
      "apoyo": "verificado"
     },
+    "atencion-cliente": {
+     "cubre": [
+      "Respuestas guardadas"
+     ],
+     "sinComprobar": [
+      "Bandeja compartida",
+      "Tickets e incidencias",
+      "Chat en la web",
+      "Atención por WhatsApp",
+      "Centro de ayuda público",
+      "Asistente automático de atención",
+      "Encuestas de satisfacción"
+     ],
+     "esSuOficio": false,
+     "apoyo": "verificado"
+    },
     "automatizacion-integraciones": {
      "cubre": [
       "Automatizar tareas repetidas",
@@ -3731,9 +3948,10 @@
      "apoyo": "verificado"
     },
     "asistentes-ia": {
-     "cubre": [],
+     "cubre": [
+      "Redactar textos"
+     ],
      "sinComprobar": [
-      "Redactar textos",
       "Corregir y pulir textos",
       "Traducir",
       "Presentaciones",
@@ -3748,7 +3966,7 @@
       "Kit de marca"
      ],
      "esSuOficio": true,
-     "apoyo": "solo-su-portada"
+     "apoyo": "verificado"
     },
     "automatizacion-integraciones": {
      "cubre": [
@@ -3791,17 +4009,18 @@
    "nombre": "Teachable",
    "casas": {
     "software-sectorial": {
-     "cubre": [],
+     "cubre": [
+      "Impartir y seguir cursos"
+     ],
      "sinComprobar": [
       "Historia clínica",
       "Imagen médica",
       "Receta electrónica",
-      "Impartir y seguir cursos",
       "Matrícula, inscripción y grupos",
       "Notas, asistencia y expediente académico"
      ],
      "esSuOficio": true,
-     "apoyo": "solo-su-portada"
+     "apoyo": "verificado"
     }
    },
    "hoy": "plataformas-todo-en-uno"
@@ -3967,17 +4186,18 @@
      "apoyo": "verificado"
     },
     "software-sectorial": {
-     "cubre": [],
+     "cubre": [
+      "Impartir y seguir cursos"
+     ],
      "sinComprobar": [
       "Historia clínica",
       "Imagen médica",
       "Receta electrónica",
-      "Impartir y seguir cursos",
       "Matrícula, inscripción y grupos",
       "Notas, asistencia y expediente académico"
      ],
      "esSuOficio": true,
-     "apoyo": "solo-su-portada"
+     "apoyo": "verificado"
     }
    },
    "hoy": "plataformas-todo-en-uno"
@@ -4047,6 +4267,22 @@
       "Contratos vivos: vencimientos y renovaciones"
      ],
      "esSuOficio": true,
+     "apoyo": "verificado"
+    },
+    "atencion-cliente": {
+     "cubre": [
+      "Tickets e incidencias"
+     ],
+     "sinComprobar": [
+      "Bandeja compartida",
+      "Chat en la web",
+      "Atención por WhatsApp",
+      "Centro de ayuda público",
+      "Respuestas guardadas",
+      "Asistente automático de atención",
+      "Encuestas de satisfacción"
+     ],
+     "esSuOficio": false,
      "apoyo": "verificado"
     },
     "automatizacion-integraciones": {

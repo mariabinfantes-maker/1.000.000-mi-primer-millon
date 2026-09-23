@@ -1,0 +1,15 @@
+{
+ "id": "motion",
+ "nombre": "Motion",
+ "url": "https://www.usemotion.com/",
+ "preguntas": [
+  {
+   "q": "firma",
+   "por": "su página ya declara firma o gestión documental"
+  }
+ ],
+ "texto": "{\"resultados\":[{\"id\":\"cap.electronic_signature\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.usemotion.com/"
+ ]
+}

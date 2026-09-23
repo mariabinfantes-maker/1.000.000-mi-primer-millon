@@ -23,7 +23,12 @@ const EXTRA={"firma-gestion-documental":["cap.electronic_signature"]};
 const capsDeCasa=Object.fromEntries(Object.entries(DOM).map(([c,dd])=>
  [c, [...V.capacidades.filter(x=>dd.includes(x.dominioId)).map(x=>x.id), ...(EXTRA[c]??[])]]));
 
+// La pasada del 23-09: se incorpora como verificación igual que la de F2,
+// con su cita y su URL guardadas en resultados.json.
+const nuevos=JSON.parse(readFileSync("/tmp/claude-0/-home-user-1-000-000-mi-primer-millon/ab1c1d42-b597-536e-a467-9fde178942ad/scratchpad/casas/resultados.json","utf8"));
 const ver=new Map();  // herramienta -> Set(capacidad verificada)
+for(const r of nuevos){ if(r.estado!=="si") continue;
+ if(!ver.has(r.id)) ver.set(r.id,new Set()); ver.get(r.id).add(r.cap); }
 for(const r of regs){ if(r.estado!=="verificado"||r.profundidad==="no_disponible") continue;
  if(!ver.has(r.herramientaId)) ver.set(r.herramientaId,new Set());
  ver.get(r.herramientaId).add(r.capacidadId); }

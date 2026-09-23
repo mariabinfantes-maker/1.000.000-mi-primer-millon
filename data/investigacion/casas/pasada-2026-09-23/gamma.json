@@ -1,0 +1,15 @@
+{
+ "id": "gamma",
+ "nombre": "Gamma",
+ "url": "https://gamma.app",
+ "preguntas": [
+  {
+   "q": "firma",
+   "por": "su página ya declara firma o gestión documental"
+  }
+ ],
+ "texto": "{\"resultados\":[{\"id\":\"cap.electronic_signature\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://gamma.app/"
+ ]
+}

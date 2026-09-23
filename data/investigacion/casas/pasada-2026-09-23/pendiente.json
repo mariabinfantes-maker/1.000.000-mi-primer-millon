@@ -1,0 +1,264 @@
+[
+ {
+  "casa": "asistentes-ia",
+  "nombre": "Asistentes de IA y productividad",
+  "declaranSinComprobar": 37,
+  "nuncaPreguntado": 744,
+  "quienes": [
+   "Agiled",
+   "Asana",
+   "Capsule CRM",
+   "ClickFunnels",
+   "ClickUp",
+   "Close",
+   "Copper",
+   "EngageBay",
+   "GanttPRO",
+   "GoHighLevel",
+   "Hive",
+   "Hotmart",
+   "Insightly",
+   "Kartra",
+   "monday.com",
+   "Nifty",
+   "Nimble",
+   "noCRM.io",
+   "Nutshell",
+   "Odoo",
+   "Pipedrive",
+   "Productive",
+   "Reclaim.ai",
+   "Salesflare",
+   "Salesmate",
+   "Scoro",
+   "Smartsheet",
+   "Streak",
+   "Teachable",
+   "TeamGantt",
+   "Teamwork.com",
+   "Thinkific",
+   "Todoist",
+   "Vtiger CRM",
+   "Wrike",
+   "Zoho CRM",
+   "Zoho Projects"
+  ]
+ },
+ {
+  "casa": "marketing-email",
+  "nombre": "Marketing y email",
+  "declaranSinComprobar": 17,
+  "nuncaPreguntado": 497,
+  "quienes": [
+   "Agile CRM",
+   "Capsule CRM",
+   "Close",
+   "Copper",
+   "EngageBay",
+   "Freshsales",
+   "Hotmart",
+   "monday.com",
+   "Odoo",
+   "Pipedrive",
+   "Salesmate",
+   "Streak",
+   "Taskade",
+   "Teachable",
+   "Thinkific",
+   "Vtiger CRM",
+   "Zoho CRM"
+  ]
+ },
+ {
+  "casa": "reservas-citas",
+  "nombre": "Reservas y citas",
+  "declaranSinComprobar": 14,
+  "nuncaPreguntado": 476,
+  "quienes": [
+   "Agile CRM",
+   "Bitrix24",
+   "ClickFunnels",
+   "HubSpot",
+   "Kartra",
+   "monday.com",
+   "Odoo",
+   "Salesmate",
+   "Systeme.io",
+   "Taskade",
+   "Teachable",
+   "Thinkific",
+   "Vtiger CRM",
+   "Zoho CRM"
+  ]
+ },
+ {
+  "casa": "firma-gestion-documental",
+  "nombre": "Firma electrónica y gestión documental",
+  "declaranSinComprobar": 13,
+  "nuncaPreguntado": 321,
+  "quienes": [
+   "Agile CRM",
+   "Bitrix24",
+   "ClickUp",
+   "HoneyBook",
+   "Motion",
+   "Nifty",
+   "Odoo",
+   "Pipedrive",
+   "Productive",
+   "Vtiger CRM",
+   "Zoho CRM",
+   "Zoho One",
+   "Zoho Projects"
+  ]
+ },
+ {
+  "casa": "atencion-cliente",
+  "nombre": "Atención al cliente",
+  "declaranSinComprobar": 10,
+  "nuncaPreguntado": 344,
+  "quienes": [
+   "ClickFunnels",
+   "Hotmart",
+   "Kartra",
+   "monday.com",
+   "Nifty",
+   "Odoo",
+   "Taskade",
+   "Teamwork.com",
+   "Zoho CRM",
+   "Zoho One"
+  ]
+ },
+ {
+  "casa": "crm",
+  "nombre": "CRM y ventas",
+  "declaranSinComprobar": 8,
+  "nuncaPreguntado": 535,
+  "quienes": [
+   "Hive",
+   "monday.com",
+   "Nifty",
+   "Productive",
+   "Scoro",
+   "Systeme.io",
+   "Taskade",
+   "Teamwork.com"
+  ]
+ },
+ {
+  "casa": "gestion-proyectos",
+  "nombre": "Gestión de proyectos",
+  "declaranSinComprobar": 8,
+  "nuncaPreguntado": 559,
+  "quienes": [
+   "Agile CRM",
+   "Capsule CRM",
+   "EngageBay",
+   "Notion AI",
+   "Odoo",
+   "Pipedrive",
+   "Vtiger CRM",
+   "Zoho One"
+  ]
+ },
+ {
+  "casa": "facturacion-contabilidad",
+  "nombre": "Facturación y contabilidad",
+  "declaranSinComprobar": 8,
+  "nuncaPreguntado": 1234,
+  "quienes": [
+   "GoHighLevel",
+   "Hive",
+   "Odoo",
+   "Taskade",
+   "Teachable",
+   "Vtiger CRM",
+   "Zoho CRM",
+   "Zoho One"
+  ]
+ },
+ {
+  "casa": "recursos-humanos",
+  "nombre": "Recursos humanos",
+  "declaranSinComprobar": 8,
+  "nuncaPreguntado": 516,
+  "quienes": [
+   "Agile CRM",
+   "monday.com",
+   "Odoo",
+   "Paymo",
+   "Productive",
+   "Reclaim.ai",
+   "Streak",
+   "Taskade"
+  ]
+ },
+ {
+  "casa": "creacion-web-hosting",
+  "nombre": "Creación web y hosting",
+  "declaranSinComprobar": 8,
+  "nuncaPreguntado": 251,
+  "quienes": [
+   "Agile CRM",
+   "ClickFunnels",
+   "Gamma",
+   "Hotmart",
+   "Kartra",
+   "Odoo",
+   "Taskade",
+   "Teachable"
+  ]
+ },
+ {
+  "casa": "comercio-electronico",
+  "nombre": "Comercio electrónico",
+  "declaranSinComprobar": 7,
+  "nuncaPreguntado": 567,
+  "quienes": [
+   "Kartra",
+   "Keap",
+   "Systeme.io",
+   "Taskade",
+   "Teachable",
+   "Thinkific",
+   "Zoho One"
+  ]
+ },
+ {
+  "casa": "inventario-operaciones",
+  "nombre": "Inventario y operaciones",
+  "declaranSinComprobar": 6,
+  "nuncaPreguntado": 1029,
+  "quienes": [
+   "Odoo",
+   "Systeme.io",
+   "Taskade",
+   "Vtiger CRM",
+   "Zoho CRM",
+   "Zoho One"
+  ]
+ },
+ {
+  "casa": "automatizacion-integraciones",
+  "nombre": "Automatización e integraciones",
+  "declaranSinComprobar": 5,
+  "nuncaPreguntado": 125,
+  "quienes": [
+   "Freshsales",
+   "Hotmart",
+   "Kartra",
+   "Teachable",
+   "Thinkific"
+  ]
+ },
+ {
+  "casa": "software-sectorial",
+  "nombre": "Software sectorial",
+  "declaranSinComprobar": 1,
+  "nuncaPreguntado": 378,
+  "quienes": [
+   "Productive"
+  ]
+ }
+]
