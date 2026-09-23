@@ -210,12 +210,15 @@ describe("y los 1.547 registros de hoy no cambian de comportamiento", () => {
     expect(registros.filter((r) => r.profundidad === "no_disponible")).toEqual([]);
   });
 
-  it("los 662 verificados siguen siendo capacidad demostrada", () => {
+  it("los 855 verificados siguen siendo capacidad demostrada", () => {
     const demostradas = registros.filter(
       (r) => evidenciaDeRegistro(r.herramientaId, r.capacidadId, r).estado === "demostrada"
     );
-    // 659 de F2 más los tres del 2026-09-17.
-    expect(demostradas.length).toBe(662);
+    // 659 de F2, los tres del 2026-09-17 y 193 de las dos pasadas del
+    // 2026-09-23 (la de la firma y las 150 dirigidas). Ninguno de los nuevos
+    // cambia el comportamiento que vigila esta prueba: siguen siendo
+    // capacidad demostrada y ninguno es una ausencia.
+    expect(demostradas.length).toBe(855);
   });
 
   it("y ninguno cae en el estado nuevo", () => {

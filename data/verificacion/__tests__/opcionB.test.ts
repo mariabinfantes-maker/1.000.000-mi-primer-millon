@@ -171,14 +171,44 @@ describe("la peluquera que perdía citas", () => {
     expect(r.sinRecomendacion?.tipo).toBe("ninguna_de_estas");
   });
 
-  it("tickets: se dice que no lo cubrimos, con sus palabras", () => {
+  /**
+   * Hasta el 2026-09-23 esta prueba decía «tickets: se dice que no lo
+   * cubrimos». Era cierto: ninguna herramienta lo había demostrado, y la fila
+   * se dejaba puesta a propósito para decirlo en voz alta.
+   *
+   * Ese día la propietaria autorizó incorporar las dos pasadas de
+   * verificación por casas, y diez herramientas demostraron tickets con cita
+   * de su página oficial. No cambió el motor ni la regla: cambió lo que
+   * sabemos. La peluquera que preguntaba por tickets ya obtiene respuesta.
+   */
+  it("tickets: ahora sí lo cubrimos, y sólo con quien lo demuestra", () => {
     const r = recomendarHerramientas(
       { problemaIdsCandidatos: ["atencion-cliente"], necesidadElegida: "tickets", tamanoEmpresa: "1-10" },
       catalogo,
       { evidencia }
     );
+    expect(r.top.length).toBeGreaterThan(0);
+    expect(r.sinRecomendacion).toBeUndefined();
+    for (const e of r.top) {
+      // Las capacidades salen de la propia fila, como en las de arriba.
+      const suyas = filaDeNecesidad("atencion-cliente", "tickets")!.capacidades;
+      expect(demuestra(e.herramienta.id, suyas), e.herramienta.id).toBe(true);
+    }
+  });
+
+  /**
+   * Y el mecanismo de «no lo cubrimos» sigue vivo donde sigue siendo verdad:
+   * la factura electrónica obligatoria no la demuestra nadie. Si algún día
+   * alguien la demuestra, esta prueba avisará igual que avisó la de tickets.
+   */
+  it("factura electrónica: se dice que no lo cubrimos, con sus palabras", () => {
+    const r = recomendarHerramientas(
+      { problemaIdsCandidatos: ["el-dinero"], necesidadElegida: "factura-electronica", tamanoEmpresa: "1-10" },
+      catalogo,
+      { evidencia }
+    );
     expect(r.top).toEqual([]);
-    expect(r.sinRecomendacion).toMatchObject({ tipo: "necesidad_sin_cobertura", necesidad: "Convertir cada petición en un ticket con estado" });
+    expect(r.sinRecomendacion?.tipo).toBe("necesidad_sin_cobertura");
   });
 });
 

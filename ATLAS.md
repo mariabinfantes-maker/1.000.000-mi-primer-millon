@@ -6558,6 +6558,83 @@ cero, la expresión cazaba «ios» dentro de «precios») y «las fichas se
 generaron con un modelo sin navegación» (no consta en ninguna parte)—. Las dos
 estaban dichas con seguridad y las dos eran falsas.
 
+## 2026-09-23 — EL REPARTO POR CASAS, Y 1.541 REGISTROS NUEVOS EN F2
+
+**Qué se hizo.** Se investigaron las 65 herramientas activas contra sus
+páginas oficiales y se repartieron en las 15 casas de `data/categorias.json`.
+Después, dos pasadas de verificación, y la propietaria autorizó incorporar sus
+respuestas a `registros.json`.
+
+**La regla del reparto, en sus palabras:** «si una herramienta está en la casa
+de ventas será porque sirve a la casa de ventas, pero si también sirve a la
+casa de vídeo también estará en la sala de vídeo». Hoy cada ficha tiene una
+sola `categoriaId` y por eso las 65 viven en 4 casas de las 15. El reparto
+propuesto las pone en 3,3 de media. **Sigue sin aplicarse a las fichas.**
+
+**Dos reglas que ella corrigió el mismo día, y que mandan:**
+
+1. **Estar en una casa no dice «sirve». Dice qué cubre.** Que F2 verificara
+   algo del tema no basta: cada herramienta entra con la lista de lo que cubre
+   ahí y lo que no se ha comprobado. «En Firma y gestión documental, crear
+   documentos no demuestra que permita firmarlos.» Eso destapó un defecto:
+   `cap.electronic_signature` vive en el dominio `presupuestos` y no se le
+   había preguntado a ninguna de las 65.
+2. **«Todo en uno = seis casas o más» era un umbral inventado.** No medía si
+   una herramienta es una suite integrada: medía cuántas capacidades suyas
+   hemos investigado. Se retiró sin sustituirla por otro número.
+
+Y una tercera, sobre las casas vacías: **la casa existe porque responde a una
+necesidad, aunque el catálogo no la cubra.** Se llena verificando y también
+incorporando herramientas nuevas.
+
+**Lo que se verificó.** Dos pasadas, 1.972 respuestas con cita literal y URL,
+todas guardadas en `data/investigacion/casas/`:
+
+- La firma electrónica se preguntó a 22 candidatas elegidas por lógica, no a
+  las 65. **A las otras 44 no se les preguntó, y eso no es un dato sobre
+  ellas.** Resultado: 5 la demuestran.
+- Las 150 dirigidas —donde la herramienta ya decía hacerlo y faltaba el
+  recibo—: 84 confirman, 66 no dan nada. Odoo sale 8 veces entre los que no
+  dan nada porque su portada es un índice de aplicaciones: es un problema de
+  qué página leímos, no de Odoo.
+- Una pasada más para la **profundidad** de las 206 capacidades demostradas.
+  No se inventó: sin ella un registro verificado no es válido, y es la
+  distinción que evita que un calendario parezca un software de reservas.
+
+**Lo que cambió en `registros.json`:** de 1.547 a 3.088 registros, de 662 a
+855 verificados. 1.541 añadidos, 30 mejorados y **117 respetados**: un «no
+consta» nuevo nunca pisa lo que ya había.
+
+**Dos frenos que saltaron y se respetaron:**
+
+- **Teachable queda fuera entero.** Es una condición escrita de la propietaria
+  mientras la profundidad de `teachable/cap.payment_collection` siga
+  pendiente. Ahora hay evidencia suya en otra capacidad: eso es información
+  nueva para ella, no permiso para levantar el bloqueo.
+- **Las notas de los «no consta» hablan de la evidencia, no del producto.**
+  Dicen dónde se miró, nunca lo que la herramienta deja de hacer. Es la regla
+  que ella aplicó a mano el 2026-09-09.
+
+**Lo que cambió para quien pregunta.** Tres necesidades dejaron de llevar a
+«no lo cubrimos»: **tickets** (diez herramientas), **asistente automático de
+atención** (cuatro) y **cuota mensual** (una). La peluquera que preguntaba por
+tickets ya obtiene respuesta. No cambió el motor ni la regla: cambió lo que
+sabemos. Las marcas `sinCobertura` se quitaron, como pedía la prueba que las
+vigilaba.
+
+**Y lo que sigue sin cubrir nadie**, que es donde está el trabajo: la factura
+electrónica obligatoria, los impuestos, la contabilidad, ver si se llega a fin
+de mes, la agenda bajo control, que los clientes vuelvan, cobrar en el
+mostrador, turnos y fichajes. Quedan unos 7.400 pares que nadie ha preguntado
+nunca, con facturación e inventario a la cabeza.
+
+**Nota de aislamiento.** Los scripts de las pasadas viven en
+`data/verificacion/investigacion-casas/` y no junto a sus resultados, porque
+leen el vocabulario y la lista de autorizados está congelada a propósito. Se
+movió el código en lugar de tocar la guarda.
+
+---
+
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 
 **Aprobada por la propietaria el 2026-08-31.** Auditada sobre el commit

@@ -88,9 +88,13 @@ describe("la tabla de necesidades", () => {
     // son dos filas distintas, y las dos sin cobertura hoy.
     expect(filaDeNecesidad("el-dinero", "cliente-no-paga")?.sinCobertura).toBe(true);
     expect(filaDeNecesidad("el-dinero", "adelantar-facturas")?.sinCobertura).toBe(true);
-    // Tickets y chatbot, aunque no haya cobertura.
+    // Tickets y chatbot. La decisión de la propietaria es que las dos filas
+    // estén, y ésa sigue igual. Lo que cambió el 2026-09-23 es el mundo: diez
+    // herramientas demostraron tickets y cuatro un asistente automático, así
+    // que la marca de «sin cobertura» se quitó. Se comprueba que no ha vuelto
+    // sola.
     expect(ids("atencion-cliente")).toEqual(expect.arrayContaining(["tickets", "chatbot"]));
-    expect(filaDeNecesidad("atencion-cliente", "tickets")?.sinCobertura).toBe(true);
+    expect(filaDeNecesidad("atencion-cliente", "tickets")?.sinCobertura).toBeUndefined();
     // Conocimiento del equipo en los dos sitios.
     expect(ids("organizar-empresa")).toContain("conocimiento-equipo");
     expect(ids("ahorrar-tiempo")).toContain("conocimiento-equipo");

@@ -266,7 +266,9 @@ export const NECESIDADES: PreguntaDeNecesidad[] = [
           // La misma fila que en «conseguir clientes», a propósito: un
           // presupuesto es vender y es cobrar, según por dónde entres.
           { id: "presupuestos", capacidades: ["cap.quotes_and_proposals"] },
-          { id: "cuota-mensual", capacidades: ["cap.recurring_billing"], sinCobertura: true },
+          // La marca se quitó el 2026-09-23: Vtiger CRM demostró suscripciones
+          // en su página oficial. Una sola herramienta, pero con cita.
+          { id: "cuota-mensual", capacidades: ["cap.recurring_billing"] },
           { id: "factura-electronica", capacidades: ["cap.regulated_einvoicing"], sinCobertura: true },
         ],
       },
@@ -310,11 +312,14 @@ export const NECESIDADES: PreguntaDeNecesidad[] = [
         id: "atender",
         filas: [
           { id: "bandeja-compartida", capacidades: ["cap.shared_inbox"] },
-          // Las dos necesidades más obvias de este objetivo, y ninguna
-          // herramienta las demuestra. Se quedan: llevan a «no lo cubrimos»,
-          // que es más honesto que no preguntarlo.
-          { id: "tickets", capacidades: ["cap.support_ticketing"], sinCobertura: true },
-          { id: "chatbot", capacidades: ["cap.support_chatbot"], sinCobertura: true },
+          // Las dos necesidades más obvias de este objetivo llevaban a «no lo
+          // cubrimos», y se dejaban puestas porque preguntarlo era más honesto
+          // que callarlo. El 2026-09-23 dejaron de estar vacías: diez
+          // herramientas demuestran tickets y cuatro un asistente automático,
+          // todas con cita de su página oficial. No cambió la regla: cambió lo
+          // que sabemos. Las marcas se quitan, como pedía su prueba.
+          { id: "tickets", capacidades: ["cap.support_ticketing"] },
+          { id: "chatbot", capacidades: ["cap.support_chatbot"] },
         ],
       },
       {
