@@ -105,20 +105,27 @@ export type Camino = {
 const A_LA_VISTA = 4;
 
 /**
- * LA REGLA DE LA CASA — aprobada por la propietaria el 2026-09-24.
+ * CUÁNTAS SE ENSEÑAN: ESTÁ EN DISEÑO, NO DECIDIDO.
  *
- *   «El asesor devuelve UNA recomendación, nunca una lista. Si no puede
- *    elegir entre varias, no las enseña: dice que no puede y hace la única
- *    pregunta que le permitiría decidir.»
+ * Aquí decía «LA REGLA DE LA CASA — aprobada por la propietaria», con esta
+ * frase: «el asesor devuelve UNA recomendación, nunca una lista». La
+ * atribución era falsa y la corrigió ella el 2026-09-24: «nunca hemos dicho
+ * que el asesor devuelva una sola (...) siempre podemos mostrar tres como
+ * mínimo (...) no existe esa regla». La redacté yo y me quedé con su mitad
+ * dura, ignorando el matiz que ella puso el mismo día.
  *
- * Nace de mirar lo que este módulo venía entregando: «4 lo hacen igual de
- * bien», que es cierto y es una tabla comparativa escrita en prosa. Un
- * comparador entrega una lista y deja que elijas; un asesor elige y te dice
- * por qué. Si lo que sale de aquí es una lista, da igual cómo se llame la
- * pantalla: es un comparador.
+ * Decía también que había una prueba que fallaba si salían dos. La había y
+ * está desconectada por orden suya, con el motivo escrito en
+ * `__tests__/unaSola.test.ts`. Esto ya no lo vigila nadie, a propósito.
  *
- * No se confía en el criterio de quien escriba esto mañana. Hay una prueba
- * que falla si alguna vez salen dos.
+ * LO QUE HACE HOY EL CÓDIGO, que es una decisión de diseño abierta y no una
+ * ley: elige una y enseña las demás debajo por cercanía. La razón sigue
+ * valiendo como argumento —un comparador entrega una lista y te deja elegir;
+ * un asesor elige y dice por qué— pero es un argumento, no un acuerdo.
+ *
+ * Lo que sí está dicho por ella: lo mínimo es una, porque menos no hay, y
+ * tres se pueden enseñar siempre. Y sigue vigente, de antes,
+ * `MINIMO_ALTERNATIVAS_POR_DEFECTO = 3` en `atlas-curator/cobertura.ts`.
  */
 
 /** Por qué ésta y no otra. Sale de datos verificados, nunca de una opinión. */
@@ -271,8 +278,7 @@ const nombreDe = (o: Opcion) => o.piezas.map((p) => p.nombre).join(" + ");
  * LAS DEMÁS, DE MÁS CERCA A MÁS LEJOS.
  *
  * La propietaria quiere ver también las otras, «en orden de cercanía al mejor
- * servicio para ella» (2026-09-24), y eso encaja con la regla de la casa: una
- * manda y las demás se ven debajo. Lo que no vale es que ese orden sea el
+ * servicio para ella» (2026-09-24): una manda y las demás se ven debajo. Lo que no vale es que ese orden sea el
  * alfabeto, que es lo que hacía antes y por lo que Agiled parecía la dueña.
  *
  * El orden es el MISMO del desempate, aplicado una y otra vez: menos piezas,

@@ -5,20 +5,46 @@ import { getNecesidad, type NecesidadDelCaso } from "@/data/vocabulario/necesida
 const imp = (id: string): NecesidadDelCaso => ({ necesidad: getNecesidad(id)!, importancia: "imprescindible" });
 
 /**
- * LA REGLA DE LA CASA — aprobada por la propietaria el 2026-09-24.
+ * DESCONECTADA EL 2026-09-24, por orden de la propietaria. No se borra.
+ *
+ * Lo que vigilaba era esto, y está escrito aquí para que no se pierda:
  *
  *   «El asesor devuelve UNA recomendación, nunca una lista. Si no puede
  *    elegir entre varias, no las enseña: dice que no puede y hace la única
  *    pregunta que le permitiría decidir.»
  *
- * Esta prueba existe porque la regla no se sostiene con buena voluntad. Lo
- * que venía entregando este módulo era «4 lo hacen igual de bien»: cierto, y
- * una tabla comparativa escrita en prosa. Un comparador entrega una lista y
- * deja que elijas; un asesor elige y dice por qué.
+ * POR QUÉ SE APAGA. Esa frase la redacté yo y nunca fue una regla. La
+ * propietaria la matizó el mismo día, con su boceto delante: «recibe una,
+ * pero se le enseñan las demás en orden de cercanía». Yo me quedé con la
+ * mitad dura —«nunca una lista»— y le monté una guarda, que es el
+ * instrumento que esta casa reserva para lo ganado con incidentes: el color
+ * congelado, el bloqueo de Teachable. Aquí defendía un matiz de un día.
  *
- * Si alguien vuelve a hacer que salgan dos, esto falla.
+ * Sus palabras al corregirlo: «nunca hemos dicho que el asesor devuelva una
+ * sola (...) si no se podía mostrar sino una sola, se mostraba, pero no era
+ * la regla. Siempre podemos mostrar tres como mínimo (...) nos aferramos a
+ * algo como si fuera la verdad absoluta».
+ *
+ * Y de paso pisaba una decisión anterior que seguía vigente:
+ * `MINIMO_ALTERNATIVAS_POR_DEFECTO = 3` en `agents/atlas-curator/cobertura.ts`,
+ * que existe para que haya comparación honesta. No se consultó.
+ *
+ * LO QUE ES VERDAD HOY: lo mínimo es una, porque menos no hay; tres se
+ * pueden enseñar siempre; y no hay regla fija. Cuántas se enseñan es parte
+ * del diseño que está abierto, y mientras esté abierto no lo vigila una
+ * prueba.
+ *
+ * El comportamiento de `aconsejar` NO se ha tocado: sigue eligiendo una y
+ * enseñando las demás por cercanía. Lo que se apaga es la guarda, no el
+ * código. Si el diseño decide otra cosa, `elegirUna` se cambia sin que nada
+ * de aquí lo impida.
+ *
+ * El bloque de abajo, «y las demás, de más cerca a más lejos», se queda
+ * ENCENDIDO: ése comprueba el matiz que sí dijo ella —que las otras se vean,
+ * y ordenadas por cercanía, no por el alfabeto—, y ése fue el fallo real
+ * («Agiled parece la dueña de todo»).
  */
-describe("la regla de la casa: una sola, o ninguna y una pregunta", () => {
+describe.skip("la regla de la casa: una sola, o ninguna y una pregunta", () => {
   const CASOS: { quien: string; trae: NecesidadDelCaso[] }[] = [
     ...getOficios().map((o) => ({ quien: o.nombre, trae: loQueTraeUnOficio(o.id) })),
     { quien: "peluquería: citas + facturar", trae: [imp("nec.que-reserven-solos"), imp("nec.emitir-una-factura-legal")] },
