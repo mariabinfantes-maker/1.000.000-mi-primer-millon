@@ -1,0 +1,1683 @@
+{
+ "medidoEl": "2026-09-24",
+ "filas": [
+  {
+   "id": "agencia",
+   "nombre": "Agencia de marketing y consultoría",
+   "de": 10,
+   "cubiertas": [
+    {
+     "titulo": "Hacer seguimiento y no olvidarme de nadie",
+     "cuantas": 24,
+     "seLePreguntoA": 36
+    },
+    {
+     "titulo": "Llevar un trabajo largo sin perder el hilo",
+     "cuantas": 15,
+     "seLePreguntoA": 26
+    },
+    {
+     "titulo": "Saber cuánto tiempo echo en cada cosa",
+     "cuantas": 19,
+     "seLePreguntoA": 29
+    },
+    {
+     "titulo": "Dar un presupuesto rápido y que se firme",
+     "cuantas": 10,
+     "seLePreguntoA": 24
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Escribir a mi gente y hacer campañas",
+     "cuantas": 13,
+     "seLePreguntoA": 31
+    },
+    {
+     "titulo": "Publicar en redes y saber qué funciona",
+     "cuantas": 1,
+     "seLePreguntoA": 17
+    },
+    {
+     "titulo": "Ver de un vistazo cómo va el negocio",
+     "cuantas": 33,
+     "seLePreguntoA": 64
+    },
+    {
+     "titulo": "Escribir textos que no me den vergüenza",
+     "cuantas": 31,
+     "seLePreguntoA": 59
+    },
+    {
+     "titulo": "Saber si gano dinero en cada trabajo",
+     "cuantas": 4,
+     "seLePreguntoA": 21
+    }
+   ],
+   "huecoReal": [],
+   "sinPreguntar": [],
+   "detalle": [
+    {
+     "titulo": "Hacer seguimiento y no olvidarme de nadie",
+     "cuantas": 24,
+     "seLePreguntoA": 36
+    },
+    {
+     "titulo": "Llevar un trabajo largo sin perder el hilo",
+     "cuantas": 15,
+     "seLePreguntoA": 26
+    },
+    {
+     "titulo": "Saber cuánto tiempo echo en cada cosa",
+     "cuantas": 19,
+     "seLePreguntoA": 29
+    },
+    {
+     "titulo": "Dar un presupuesto rápido y que se firme",
+     "cuantas": 10,
+     "seLePreguntoA": 24
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Escribir a mi gente y hacer campañas",
+     "cuantas": 13,
+     "seLePreguntoA": 31
+    },
+    {
+     "titulo": "Publicar en redes y saber qué funciona",
+     "cuantas": 1,
+     "seLePreguntoA": 17
+    },
+    {
+     "titulo": "Ver de un vistazo cómo va el negocio",
+     "cuantas": 33,
+     "seLePreguntoA": 64
+    },
+    {
+     "titulo": "Escribir textos que no me den vergüenza",
+     "cuantas": 31,
+     "seLePreguntoA": 59
+    },
+    {
+     "titulo": "Saber si gano dinero en cada trabajo",
+     "cuantas": 4,
+     "seLePreguntoA": 21
+    }
+   ]
+  },
+  {
+   "id": "creativo",
+   "nombre": "Diseño, foto y vídeo por cuenta propia",
+   "de": 10,
+   "cubiertas": [
+    {
+     "titulo": "Dar un presupuesto rápido y que se firme",
+     "cuantas": 10,
+     "seLePreguntoA": 24
+    },
+    {
+     "titulo": "Saber cuánto tiempo echo en cada cosa",
+     "cuantas": 19,
+     "seLePreguntoA": 29
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Que me paguen, y a tiempo",
+     "cuantas": 12,
+     "seLePreguntoA": 17
+    },
+    {
+     "titulo": "Llevar un trabajo largo sin perder el hilo",
+     "cuantas": 15,
+     "seLePreguntoA": 26
+    },
+    {
+     "titulo": "Hacer imágenes y que todo pegue con mi marca",
+     "cuantas": 3,
+     "seLePreguntoA": 41
+    },
+    {
+     "titulo": "Hacer vídeos y clips",
+     "cuantas": 1,
+     "seLePreguntoA": 41
+    },
+    {
+     "titulo": "Tener un sitio donde enseñar lo que hago",
+     "cuantas": 9,
+     "seLePreguntoA": 13
+    },
+    {
+     "titulo": "Saber si gano dinero en cada trabajo",
+     "cuantas": 4,
+     "seLePreguntoA": 21
+    },
+    {
+     "titulo": "Firmar sin imprimir ni escanear",
+     "cuantas": 5,
+     "seLePreguntoA": 27
+    }
+   ],
+   "huecoReal": [],
+   "sinPreguntar": [],
+   "detalle": [
+    {
+     "titulo": "Dar un presupuesto rápido y que se firme",
+     "cuantas": 10,
+     "seLePreguntoA": 24
+    },
+    {
+     "titulo": "Saber cuánto tiempo echo en cada cosa",
+     "cuantas": 19,
+     "seLePreguntoA": 29
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Que me paguen, y a tiempo",
+     "cuantas": 12,
+     "seLePreguntoA": 17
+    },
+    {
+     "titulo": "Llevar un trabajo largo sin perder el hilo",
+     "cuantas": 15,
+     "seLePreguntoA": 26
+    },
+    {
+     "titulo": "Hacer imágenes y que todo pegue con mi marca",
+     "cuantas": 3,
+     "seLePreguntoA": 41
+    },
+    {
+     "titulo": "Hacer vídeos y clips",
+     "cuantas": 1,
+     "seLePreguntoA": 41
+    },
+    {
+     "titulo": "Tener un sitio donde enseñar lo que hago",
+     "cuantas": 9,
+     "seLePreguntoA": 13
+    },
+    {
+     "titulo": "Saber si gano dinero en cada trabajo",
+     "cuantas": 4,
+     "seLePreguntoA": 21
+    },
+    {
+     "titulo": "Firmar sin imprimir ni escanear",
+     "cuantas": 5,
+     "seLePreguntoA": 27
+    }
+   ]
+  },
+  {
+   "id": "reformas",
+   "nombre": "Reformas y construcción",
+   "de": 10,
+   "cubiertas": [
+    {
+     "titulo": "Dar un presupuesto rápido y que se firme",
+     "cuantas": 10,
+     "seLePreguntoA": 24
+    },
+    {
+     "titulo": "Facturar por lo avanzado, por hitos o por horas",
+     "cuantas": 1,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Llevar un trabajo largo sin perder el hilo",
+     "cuantas": 15,
+     "seLePreguntoA": 26
+    },
+    {
+     "titulo": "Controlar el trabajo que se hace fuera",
+     "cuantas": 1,
+     "seLePreguntoA": 22
+    },
+    {
+     "titulo": "Que me paguen, y a tiempo",
+     "cuantas": 12,
+     "seLePreguntoA": 17
+    },
+    {
+     "titulo": "Saber si gano dinero en cada trabajo",
+     "cuantas": 4,
+     "seLePreguntoA": 21
+    },
+    {
+     "titulo": "Ordenar las compras a proveedores",
+     "cuantas": 2,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Firmar sin imprimir ni escanear",
+     "cuantas": 5,
+     "seLePreguntoA": 27
+    }
+   ],
+   "huecoReal": [],
+   "sinPreguntar": [
+    {
+     "titulo": "Cuidar mis máquinas y mis vehículos",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    }
+   ],
+   "detalle": [
+    {
+     "titulo": "Dar un presupuesto rápido y que se firme",
+     "cuantas": 10,
+     "seLePreguntoA": 24
+    },
+    {
+     "titulo": "Facturar por lo avanzado, por hitos o por horas",
+     "cuantas": 1,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Llevar un trabajo largo sin perder el hilo",
+     "cuantas": 15,
+     "seLePreguntoA": 26
+    },
+    {
+     "titulo": "Controlar el trabajo que se hace fuera",
+     "cuantas": 1,
+     "seLePreguntoA": 22
+    },
+    {
+     "titulo": "Que me paguen, y a tiempo",
+     "cuantas": 12,
+     "seLePreguntoA": 17
+    },
+    {
+     "titulo": "Saber si gano dinero en cada trabajo",
+     "cuantas": 4,
+     "seLePreguntoA": 21
+    },
+    {
+     "titulo": "Ordenar las compras a proveedores",
+     "cuantas": 2,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Cuidar mis máquinas y mis vehículos",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Firmar sin imprimir ni escanear",
+     "cuantas": 5,
+     "seLePreguntoA": 27
+    }
+   ]
+  },
+  {
+   "id": "entrenador",
+   "nombre": "Entrenamiento personal y coaching",
+   "de": 10,
+   "cubiertas": [
+    {
+     "titulo": "Que puedan reservar sin llamarme",
+     "cuantas": 9,
+     "seLePreguntoA": 63
+    },
+    {
+     "titulo": "Cobrar una cuota cada mes sin acordarme",
+     "cuantas": 1,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Escribir a mi gente y hacer campañas",
+     "cuantas": 13,
+     "seLePreguntoA": 31
+    },
+    {
+     "titulo": "Tener un sitio donde enseñar lo que hago",
+     "cuantas": 9,
+     "seLePreguntoA": 13
+    },
+    {
+     "titulo": "Vender por internet",
+     "cuantas": 6,
+     "seLePreguntoA": 12
+    },
+    {
+     "titulo": "Publicar en redes y saber qué funciona",
+     "cuantas": 1,
+     "seLePreguntoA": 17
+    },
+    {
+     "titulo": "Que no se me pierda ninguna pregunta",
+     "cuantas": 19,
+     "seLePreguntoA": 36
+    }
+   ],
+   "huecoReal": [],
+   "sinPreguntar": [
+    {
+     "titulo": "Tener la agenda bajo control",
+     "cuantas": 0,
+     "seLePreguntoA": 13
+    },
+    {
+     "titulo": "Que los clientes vuelvan",
+     "cuantas": 0,
+     "seLePreguntoA": 17
+    }
+   ],
+   "detalle": [
+    {
+     "titulo": "Que puedan reservar sin llamarme",
+     "cuantas": 9,
+     "seLePreguntoA": 63
+    },
+    {
+     "titulo": "Tener la agenda bajo control",
+     "cuantas": 0,
+     "seLePreguntoA": 13
+    },
+    {
+     "titulo": "Cobrar una cuota cada mes sin acordarme",
+     "cuantas": 1,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Que los clientes vuelvan",
+     "cuantas": 0,
+     "seLePreguntoA": 17
+    },
+    {
+     "titulo": "Escribir a mi gente y hacer campañas",
+     "cuantas": 13,
+     "seLePreguntoA": 31
+    },
+    {
+     "titulo": "Tener un sitio donde enseñar lo que hago",
+     "cuantas": 9,
+     "seLePreguntoA": 13
+    },
+    {
+     "titulo": "Vender por internet",
+     "cuantas": 6,
+     "seLePreguntoA": 12
+    },
+    {
+     "titulo": "Publicar en redes y saber qué funciona",
+     "cuantas": 1,
+     "seLePreguntoA": 17
+    },
+    {
+     "titulo": "Que no se me pierda ninguna pregunta",
+     "cuantas": 19,
+     "seLePreguntoA": 36
+    }
+   ]
+  },
+  {
+   "id": "academia",
+   "nombre": "Academia y formación",
+   "de": 10,
+   "cubiertas": [
+    {
+     "titulo": "Dar clases y seguir a mis alumnos",
+     "cuantas": 1,
+     "seLePreguntoA": 2
+    },
+    {
+     "titulo": "Cobrar una cuota cada mes sin acordarme",
+     "cuantas": 1,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Tener un sitio donde enseñar lo que hago",
+     "cuantas": 9,
+     "seLePreguntoA": 13
+    },
+    {
+     "titulo": "Vender por internet",
+     "cuantas": 6,
+     "seLePreguntoA": 12
+    },
+    {
+     "titulo": "Escribir a mi gente y hacer campañas",
+     "cuantas": 13,
+     "seLePreguntoA": 31
+    },
+    {
+     "titulo": "Que no se me pierda ninguna pregunta",
+     "cuantas": 19,
+     "seLePreguntoA": 36
+    }
+   ],
+   "huecoReal": [],
+   "sinPreguntar": [
+    {
+     "titulo": "Tener la agenda bajo control",
+     "cuantas": 0,
+     "seLePreguntoA": 13
+    },
+    {
+     "titulo": "Organizar turnos, fichajes y vacaciones",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    },
+    {
+     "titulo": "Que los clientes vuelvan",
+     "cuantas": 0,
+     "seLePreguntoA": 17
+    }
+   ],
+   "detalle": [
+    {
+     "titulo": "Dar clases y seguir a mis alumnos",
+     "cuantas": 1,
+     "seLePreguntoA": 2
+    },
+    {
+     "titulo": "Cobrar una cuota cada mes sin acordarme",
+     "cuantas": 1,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Tener la agenda bajo control",
+     "cuantas": 0,
+     "seLePreguntoA": 13
+    },
+    {
+     "titulo": "Tener un sitio donde enseñar lo que hago",
+     "cuantas": 9,
+     "seLePreguntoA": 13
+    },
+    {
+     "titulo": "Vender por internet",
+     "cuantas": 6,
+     "seLePreguntoA": 12
+    },
+    {
+     "titulo": "Escribir a mi gente y hacer campañas",
+     "cuantas": 13,
+     "seLePreguntoA": 31
+    },
+    {
+     "titulo": "Que no se me pierda ninguna pregunta",
+     "cuantas": 19,
+     "seLePreguntoA": 36
+    },
+    {
+     "titulo": "Organizar turnos, fichajes y vacaciones",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    },
+    {
+     "titulo": "Que los clientes vuelvan",
+     "cuantas": 0,
+     "seLePreguntoA": 17
+    }
+   ]
+  },
+  {
+   "id": "asesoria",
+   "nombre": "Asesoría, gestoría y despacho",
+   "de": 10,
+   "cubiertas": [
+    {
+     "titulo": "Cobrar una cuota cada mes sin acordarme",
+     "cuantas": 1,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Encontrar los papeles cuando hacen falta",
+     "cuantas": 4,
+     "seLePreguntoA": 27
+    },
+    {
+     "titulo": "Firmar sin imprimir ni escanear",
+     "cuantas": 5,
+     "seLePreguntoA": 27
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Que el cliente pueda ver lo suyo sin preguntarme",
+     "cuantas": 5,
+     "seLePreguntoA": 16
+    },
+    {
+     "titulo": "Que nadie me entre y no perder nada",
+     "cuantas": 14,
+     "seLePreguntoA": 62
+    }
+   ],
+   "huecoReal": [],
+   "sinPreguntar": [
+    {
+     "titulo": "Tener junto todo lo de cada cliente o caso",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    },
+    {
+     "titulo": "Que no se me pase un contrato ni una renovación",
+     "cuantas": 0,
+     "seLePreguntoA": 9
+    },
+    {
+     "titulo": "Los impuestos, sin sustos",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Llevar la contabilidad",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    }
+   ],
+   "detalle": [
+    {
+     "titulo": "Tener junto todo lo de cada cliente o caso",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    },
+    {
+     "titulo": "Cobrar una cuota cada mes sin acordarme",
+     "cuantas": 1,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Encontrar los papeles cuando hacen falta",
+     "cuantas": 4,
+     "seLePreguntoA": 27
+    },
+    {
+     "titulo": "Firmar sin imprimir ni escanear",
+     "cuantas": 5,
+     "seLePreguntoA": 27
+    },
+    {
+     "titulo": "Que no se me pase un contrato ni una renovación",
+     "cuantas": 0,
+     "seLePreguntoA": 9
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Los impuestos, sin sustos",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Llevar la contabilidad",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que el cliente pueda ver lo suyo sin preguntarme",
+     "cuantas": 5,
+     "seLePreguntoA": 16
+    },
+    {
+     "titulo": "Que nadie me entre y no perder nada",
+     "cuantas": 14,
+     "seLePreguntoA": 62
+    }
+   ]
+  },
+  {
+   "id": "instalador",
+   "nombre": "Fontanería, electricidad e instalación",
+   "de": 10,
+   "cubiertas": [
+    {
+     "titulo": "Controlar el trabajo que se hace fuera",
+     "cuantas": 1,
+     "seLePreguntoA": 22
+    },
+    {
+     "titulo": "Dar un presupuesto rápido y que se firme",
+     "cuantas": 10,
+     "seLePreguntoA": 24
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Que me paguen, y a tiempo",
+     "cuantas": 12,
+     "seLePreguntoA": 17
+    },
+    {
+     "titulo": "Saber qué tengo y qué me falta",
+     "cuantas": 3,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que no se me pierda ninguna pregunta",
+     "cuantas": 19,
+     "seLePreguntoA": 36
+    }
+   ],
+   "huecoReal": [],
+   "sinPreguntar": [
+    {
+     "titulo": "Tener la agenda bajo control",
+     "cuantas": 0,
+     "seLePreguntoA": 13
+    },
+    {
+     "titulo": "Tener junto todo lo de cada cliente o caso",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    },
+    {
+     "titulo": "Cuidar mis máquinas y mis vehículos",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que los clientes vuelvan",
+     "cuantas": 0,
+     "seLePreguntoA": 17
+    }
+   ],
+   "detalle": [
+    {
+     "titulo": "Tener la agenda bajo control",
+     "cuantas": 0,
+     "seLePreguntoA": 13
+    },
+    {
+     "titulo": "Controlar el trabajo que se hace fuera",
+     "cuantas": 1,
+     "seLePreguntoA": 22
+    },
+    {
+     "titulo": "Dar un presupuesto rápido y que se firme",
+     "cuantas": 10,
+     "seLePreguntoA": 24
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Que me paguen, y a tiempo",
+     "cuantas": 12,
+     "seLePreguntoA": 17
+    },
+    {
+     "titulo": "Tener junto todo lo de cada cliente o caso",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    },
+    {
+     "titulo": "Cuidar mis máquinas y mis vehículos",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Saber qué tengo y qué me falta",
+     "cuantas": 3,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que no se me pierda ninguna pregunta",
+     "cuantas": 19,
+     "seLePreguntoA": 36
+    },
+    {
+     "titulo": "Que los clientes vuelvan",
+     "cuantas": 0,
+     "seLePreguntoA": 17
+    }
+   ]
+  },
+  {
+   "id": "transporte",
+   "nombre": "Transporte y reparto",
+   "de": 10,
+   "cubiertas": [
+    {
+     "titulo": "Controlar el trabajo que se hace fuera",
+     "cuantas": 1,
+     "seLePreguntoA": 22
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Que me paguen, y a tiempo",
+     "cuantas": 12,
+     "seLePreguntoA": 17
+    },
+    {
+     "titulo": "Dar un presupuesto rápido y que se firme",
+     "cuantas": 10,
+     "seLePreguntoA": 24
+    },
+    {
+     "titulo": "Saber si gano dinero en cada trabajo",
+     "cuantas": 4,
+     "seLePreguntoA": 21
+    },
+    {
+     "titulo": "Que las herramientas que uso hablen entre sí",
+     "cuantas": 58,
+     "seLePreguntoA": 64
+    }
+   ],
+   "huecoReal": [],
+   "sinPreguntar": [
+    {
+     "titulo": "Cuidar mis máquinas y mis vehículos",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Organizar turnos, fichajes y vacaciones",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    },
+    {
+     "titulo": "Tener junto todo lo de cada cliente o caso",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    },
+    {
+     "titulo": "Cumplir con la factura electrónica obligatoria",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    }
+   ],
+   "detalle": [
+    {
+     "titulo": "Cuidar mis máquinas y mis vehículos",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Controlar el trabajo que se hace fuera",
+     "cuantas": 1,
+     "seLePreguntoA": 22
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Que me paguen, y a tiempo",
+     "cuantas": 12,
+     "seLePreguntoA": 17
+    },
+    {
+     "titulo": "Dar un presupuesto rápido y que se firme",
+     "cuantas": 10,
+     "seLePreguntoA": 24
+    },
+    {
+     "titulo": "Saber si gano dinero en cada trabajo",
+     "cuantas": 4,
+     "seLePreguntoA": 21
+    },
+    {
+     "titulo": "Organizar turnos, fichajes y vacaciones",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    },
+    {
+     "titulo": "Tener junto todo lo de cada cliente o caso",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    },
+    {
+     "titulo": "Que las herramientas que uso hablen entre sí",
+     "cuantas": 58,
+     "seLePreguntoA": 64
+    },
+    {
+     "titulo": "Cumplir con la factura electrónica obligatoria",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    }
+   ]
+  },
+  {
+   "id": "inmobiliaria",
+   "nombre": "Inmobiliaria y alquiler",
+   "de": 10,
+   "cubiertas": [
+    {
+     "titulo": "Hacer seguimiento y no olvidarme de nadie",
+     "cuantas": 24,
+     "seLePreguntoA": 36
+    },
+    {
+     "titulo": "Firmar sin imprimir ni escanear",
+     "cuantas": 5,
+     "seLePreguntoA": 27
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Encontrar los papeles cuando hacen falta",
+     "cuantas": 4,
+     "seLePreguntoA": 27
+    },
+    {
+     "titulo": "Que el cliente pueda ver lo suyo sin preguntarme",
+     "cuantas": 5,
+     "seLePreguntoA": 16
+    }
+   ],
+   "huecoReal": [],
+   "sinPreguntar": [
+    {
+     "titulo": "Liquidar a propietarios o colaboradores",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que no se me pase un contrato ni una renovación",
+     "cuantas": 0,
+     "seLePreguntoA": 9
+    },
+    {
+     "titulo": "Tener la agenda bajo control",
+     "cuantas": 0,
+     "seLePreguntoA": 13
+    },
+    {
+     "titulo": "Tener junto todo lo de cada cliente o caso",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    },
+    {
+     "titulo": "Que me encuentren cuando me buscan",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    }
+   ],
+   "detalle": [
+    {
+     "titulo": "Hacer seguimiento y no olvidarme de nadie",
+     "cuantas": 24,
+     "seLePreguntoA": 36
+    },
+    {
+     "titulo": "Liquidar a propietarios o colaboradores",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que no se me pase un contrato ni una renovación",
+     "cuantas": 0,
+     "seLePreguntoA": 9
+    },
+    {
+     "titulo": "Firmar sin imprimir ni escanear",
+     "cuantas": 5,
+     "seLePreguntoA": 27
+    },
+    {
+     "titulo": "Tener la agenda bajo control",
+     "cuantas": 0,
+     "seLePreguntoA": 13
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Tener junto todo lo de cada cliente o caso",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    },
+    {
+     "titulo": "Que me encuentren cuando me buscan",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Encontrar los papeles cuando hacen falta",
+     "cuantas": 4,
+     "seLePreguntoA": 27
+    },
+    {
+     "titulo": "Que el cliente pueda ver lo suyo sin preguntarme",
+     "cuantas": 5,
+     "seLePreguntoA": 16
+    }
+   ]
+  },
+  {
+   "id": "taller-artesano",
+   "nombre": "Obrador y taller artesano",
+   "de": 10,
+   "cubiertas": [
+    {
+     "titulo": "Saber qué tengo y qué me falta",
+     "cuantas": 3,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Ordenar las compras a proveedores",
+     "cuantas": 2,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Saber si gano dinero en cada trabajo",
+     "cuantas": 4,
+     "seLePreguntoA": 21
+    },
+    {
+     "titulo": "Vender por internet",
+     "cuantas": 6,
+     "seLePreguntoA": 12
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    }
+   ],
+   "huecoReal": [],
+   "sinPreguntar": [
+    {
+     "titulo": "Controlar lo que fabrico",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Cobrar en el mostrador o en la mesa",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que me encuentren cuando me buscan",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Cuidar mis máquinas y mis vehículos",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que los clientes vuelvan",
+     "cuantas": 0,
+     "seLePreguntoA": 17
+    }
+   ],
+   "detalle": [
+    {
+     "titulo": "Controlar lo que fabrico",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Saber qué tengo y qué me falta",
+     "cuantas": 3,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Ordenar las compras a proveedores",
+     "cuantas": 2,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Saber si gano dinero en cada trabajo",
+     "cuantas": 4,
+     "seLePreguntoA": 21
+    },
+    {
+     "titulo": "Vender por internet",
+     "cuantas": 6,
+     "seLePreguntoA": 12
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Cobrar en el mostrador o en la mesa",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que me encuentren cuando me buscan",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Cuidar mis máquinas y mis vehículos",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que los clientes vuelvan",
+     "cuantas": 0,
+     "seLePreguntoA": 17
+    }
+   ]
+  },
+  {
+   "id": "restaurante",
+   "nombre": "Restaurante y bar",
+   "de": 10,
+   "cubiertas": [
+    {
+     "titulo": "Que puedan reservar sin llamarme",
+     "cuantas": 9,
+     "seLePreguntoA": 63
+    },
+    {
+     "titulo": "Ordenar las compras a proveedores",
+     "cuantas": 2,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Saber qué tengo y qué me falta",
+     "cuantas": 3,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Saber si mis clientes están contentos",
+     "cuantas": 2,
+     "seLePreguntoA": 21
+    }
+   ],
+   "huecoReal": [],
+   "sinPreguntar": [
+    {
+     "titulo": "Cobrar en el mostrador o en la mesa",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Organizar turnos, fichajes y vacaciones",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    },
+    {
+     "titulo": "Cumplir con la factura electrónica obligatoria",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que me encuentren cuando me buscan",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que los clientes vuelvan",
+     "cuantas": 0,
+     "seLePreguntoA": 17
+    }
+   ],
+   "detalle": [
+    {
+     "titulo": "Cobrar en el mostrador o en la mesa",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que puedan reservar sin llamarme",
+     "cuantas": 9,
+     "seLePreguntoA": 63
+    },
+    {
+     "titulo": "Ordenar las compras a proveedores",
+     "cuantas": 2,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Saber qué tengo y qué me falta",
+     "cuantas": 3,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Organizar turnos, fichajes y vacaciones",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Cumplir con la factura electrónica obligatoria",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que me encuentren cuando me buscan",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que los clientes vuelvan",
+     "cuantas": 0,
+     "seLePreguntoA": 17
+    },
+    {
+     "titulo": "Saber si mis clientes están contentos",
+     "cuantas": 2,
+     "seLePreguntoA": 21
+    }
+   ]
+  },
+  {
+   "id": "taller",
+   "nombre": "Taller mecánico",
+   "de": 10,
+   "cubiertas": [
+    {
+     "titulo": "Dar un presupuesto rápido y que se firme",
+     "cuantas": 10,
+     "seLePreguntoA": 24
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Saber qué tengo y qué me falta",
+     "cuantas": 3,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Ordenar las compras a proveedores",
+     "cuantas": 2,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que me paguen, y a tiempo",
+     "cuantas": 12,
+     "seLePreguntoA": 17
+    }
+   ],
+   "huecoReal": [],
+   "sinPreguntar": [
+    {
+     "titulo": "Cumplir con la factura electrónica obligatoria",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Tener junto todo lo de cada cliente o caso",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    },
+    {
+     "titulo": "Tener la agenda bajo control",
+     "cuantas": 0,
+     "seLePreguntoA": 13
+    },
+    {
+     "titulo": "Cuidar mis máquinas y mis vehículos",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que los clientes vuelvan",
+     "cuantas": 0,
+     "seLePreguntoA": 17
+    }
+   ],
+   "detalle": [
+    {
+     "titulo": "Dar un presupuesto rápido y que se firme",
+     "cuantas": 10,
+     "seLePreguntoA": 24
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Cumplir con la factura electrónica obligatoria",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Tener junto todo lo de cada cliente o caso",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    },
+    {
+     "titulo": "Tener la agenda bajo control",
+     "cuantas": 0,
+     "seLePreguntoA": 13
+    },
+    {
+     "titulo": "Saber qué tengo y qué me falta",
+     "cuantas": 3,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Ordenar las compras a proveedores",
+     "cuantas": 2,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Cuidar mis máquinas y mis vehículos",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que me paguen, y a tiempo",
+     "cuantas": 12,
+     "seLePreguntoA": 17
+    },
+    {
+     "titulo": "Que los clientes vuelvan",
+     "cuantas": 0,
+     "seLePreguntoA": 17
+    }
+   ]
+  },
+  {
+   "id": "tienda",
+   "nombre": "Tienda y comercio minorista",
+   "de": 10,
+   "cubiertas": [
+    {
+     "titulo": "Saber qué tengo y qué me falta",
+     "cuantas": 3,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Ordenar las compras a proveedores",
+     "cuantas": 2,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Vender por internet",
+     "cuantas": 6,
+     "seLePreguntoA": 12
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Escribir a mi gente y hacer campañas",
+     "cuantas": 13,
+     "seLePreguntoA": 31
+    }
+   ],
+   "huecoReal": [],
+   "sinPreguntar": [
+    {
+     "titulo": "Cobrar en el mostrador o en la mesa",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Cumplir con la factura electrónica obligatoria",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que me encuentren cuando me buscan",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que los clientes vuelvan",
+     "cuantas": 0,
+     "seLePreguntoA": 17
+    },
+    {
+     "titulo": "Organizar turnos, fichajes y vacaciones",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    }
+   ],
+   "detalle": [
+    {
+     "titulo": "Cobrar en el mostrador o en la mesa",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Saber qué tengo y qué me falta",
+     "cuantas": 3,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Ordenar las compras a proveedores",
+     "cuantas": 2,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Vender por internet",
+     "cuantas": 6,
+     "seLePreguntoA": 12
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Cumplir con la factura electrónica obligatoria",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que me encuentren cuando me buscan",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Escribir a mi gente y hacer campañas",
+     "cuantas": 13,
+     "seLePreguntoA": 31
+    },
+    {
+     "titulo": "Que los clientes vuelvan",
+     "cuantas": 0,
+     "seLePreguntoA": 17
+    },
+    {
+     "titulo": "Organizar turnos, fichajes y vacaciones",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    }
+   ]
+  },
+  {
+   "id": "peluqueria",
+   "nombre": "Peluquería y estética",
+   "de": 10,
+   "cubiertas": [
+    {
+     "titulo": "Que puedan reservar sin llamarme",
+     "cuantas": 9,
+     "seLePreguntoA": 63
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Saber qué tengo y qué me falta",
+     "cuantas": 3,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Responder por donde me escriban sin perder a nadie",
+     "cuantas": 5,
+     "seLePreguntoA": 29
+    }
+   ],
+   "huecoReal": [],
+   "sinPreguntar": [
+    {
+     "titulo": "Tener la agenda bajo control",
+     "cuantas": 0,
+     "seLePreguntoA": 13
+    },
+    {
+     "titulo": "Cobrar en el mostrador o en la mesa",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que los clientes vuelvan",
+     "cuantas": 0,
+     "seLePreguntoA": 17
+    },
+    {
+     "titulo": "Que me encuentren cuando me buscan",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Organizar turnos, fichajes y vacaciones",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    },
+    {
+     "titulo": "Cumplir con la factura electrónica obligatoria",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    }
+   ],
+   "detalle": [
+    {
+     "titulo": "Que puedan reservar sin llamarme",
+     "cuantas": 9,
+     "seLePreguntoA": 63
+    },
+    {
+     "titulo": "Tener la agenda bajo control",
+     "cuantas": 0,
+     "seLePreguntoA": 13
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Cobrar en el mostrador o en la mesa",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Que los clientes vuelvan",
+     "cuantas": 0,
+     "seLePreguntoA": 17
+    },
+    {
+     "titulo": "Que me encuentren cuando me buscan",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Saber qué tengo y qué me falta",
+     "cuantas": 3,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Organizar turnos, fichajes y vacaciones",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    },
+    {
+     "titulo": "Responder por donde me escriban sin perder a nadie",
+     "cuantas": 5,
+     "seLePreguntoA": 29
+    },
+    {
+     "titulo": "Cumplir con la factura electrónica obligatoria",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    }
+   ]
+  },
+  {
+   "id": "clinica",
+   "nombre": "Clínica: fisio, dental, psicología",
+   "de": 10,
+   "cubiertas": [
+    {
+     "titulo": "Que puedan reservar sin llamarme",
+     "cuantas": 9,
+     "seLePreguntoA": 63
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Que nadie me entre y no perder nada",
+     "cuantas": 14,
+     "seLePreguntoA": 62
+    }
+   ],
+   "huecoReal": [],
+   "sinPreguntar": [
+    {
+     "titulo": "Llevar la historia clínica de mis pacientes",
+     "cuantas": 0,
+     "seLePreguntoA": 2
+    },
+    {
+     "titulo": "Tener la agenda bajo control",
+     "cuantas": 0,
+     "seLePreguntoA": 13
+    },
+    {
+     "titulo": "Facturar a aseguradoras y mutuas",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Cumplir con la protección de datos",
+     "cuantas": 0,
+     "seLePreguntoA": 0
+    },
+    {
+     "titulo": "Que los clientes vuelvan",
+     "cuantas": 0,
+     "seLePreguntoA": 17
+    },
+    {
+     "titulo": "Cobrar en el mostrador o en la mesa",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Tener junto todo lo de cada cliente o caso",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    }
+   ],
+   "detalle": [
+    {
+     "titulo": "Llevar la historia clínica de mis pacientes",
+     "cuantas": 0,
+     "seLePreguntoA": 2
+    },
+    {
+     "titulo": "Que puedan reservar sin llamarme",
+     "cuantas": 9,
+     "seLePreguntoA": 63
+    },
+    {
+     "titulo": "Tener la agenda bajo control",
+     "cuantas": 0,
+     "seLePreguntoA": 13
+    },
+    {
+     "titulo": "Facturar a aseguradoras y mutuas",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Emitir una factura en condiciones",
+     "cuantas": 14,
+     "seLePreguntoA": 39
+    },
+    {
+     "titulo": "Cumplir con la protección de datos",
+     "cuantas": 0,
+     "seLePreguntoA": 0
+    },
+    {
+     "titulo": "Que nadie me entre y no perder nada",
+     "cuantas": 14,
+     "seLePreguntoA": 62
+    },
+    {
+     "titulo": "Que los clientes vuelvan",
+     "cuantas": 0,
+     "seLePreguntoA": 17
+    },
+    {
+     "titulo": "Cobrar en el mostrador o en la mesa",
+     "cuantas": 0,
+     "seLePreguntoA": 7
+    },
+    {
+     "titulo": "Tener junto todo lo de cada cliente o caso",
+     "cuantas": 0,
+     "seLePreguntoA": 8
+    }
+   ]
+  }
+ ]
+}
