@@ -82,7 +82,8 @@ function Puerta({ icono: Icono, titulo, abierta, alPulsar, children }: {
   );
 }
 
-function Detalle({ p }: { p: Pieza }) {
+/** Las tres puertas de una herramienta. La usa también la tarjeta nueva. */
+export function Detalle({ p }: { p: Pieza }) {
   const [abierta, setAbierta] = useState<string | null>(null);
   const alt = (k: string) => setAbierta(abierta === k ? null : k);
   return (

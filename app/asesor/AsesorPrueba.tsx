@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { VarianteA, VarianteB, type Camino as CaminoDetallado } from "./Variantes";
+import TarjetaDelConsejo from "./TarjetaDelConsejo";
 import Boton from "@/components/ui/Boton";
 import SimboloMolnip from "@/components/ui/SimboloMolnip";
 
@@ -75,12 +76,13 @@ export default function AsesorPrueba() {
   const [cargando, setCargando] = useState(false);
   const [abierto, setAbierto] = useState<string | null>(null);
   const [desplegado, setDesplegado] = useState<string | null>(null);
+  const [dudas, setDudas] = useState(false);
   /**
    * Las tres formas de enseñar el mismo consejo, para elegir usándolas.
    * No es una opción del producto: es un banco de pruebas y se quita al
    * decidir cuál se queda.
    */
-  const [diseno, setDiseno] = useState<"conversacion" | "a" | "b">("a");
+  const [diseno, setDiseno] = useState<"tarjeta" | "conversacion" | "a" | "b">("tarjeta");
   /**
    * Las casas de Molnip son OFICIOS (decisión de la propietaria, 2026-09-24).
    * Es la puerta principal: se entra diciendo qué eres, no qué software
@@ -124,7 +126,7 @@ export default function AsesorPrueba() {
         </div>
         <p className="mt-3 text-slate-600">Cuéntame tu problema. Yo busco, y te digo lo que sé y lo que no.</p>
         <div className="mt-5 flex gap-1 rounded-full border border-slate-200/80 bg-white p-1 text-sm shadow-premium">
-          {([["conversacion", "Conversación"], ["a", "A · Consejo"], ["b", "B · Tarjetas"]] as const).map(([k, n]) => (
+          {([["tarjeta", "Tarjeta"], ["conversacion", "Conversación"], ["a", "A"], ["b", "B"]] as const).map(([k, n]) => (
             <button
               key={k}
               onClick={() => setDiseno(k)}
@@ -220,6 +222,8 @@ export default function AsesorPrueba() {
                 <p className="font-semibold">No tengo nada que proponerte.</p>
                 <p className="mt-1">Y prefiero decírtelo antes que darte algo que no te sirve.</p>
               </Dice>
+            ) : diseno === "tarjeta" ? (
+              <TarjetaDelConsejo caminos={c.caminos} quePide={quePide} />
             ) : diseno === "a" ? (
               <VarianteA caminos={c.caminos} quePide={quePide} />
             ) : diseno === "b" ? (
@@ -275,10 +279,28 @@ export default function AsesorPrueba() {
               </div>
             )}
 
+            {/*
+              Esto era la otra pared. Siete párrafos casi idénticos —cambiaba
+              el nombre de la necesidad y el resto era la misma frase— en la
+              primera pantalla, debajo del consejo. No se quita ni una coma:
+              se guarda detrás de una línea, porque lo que agobia no es la
+              honestidad, es tenerla que leer entera para saber si sirve.
+            */}
             {c.sinComprobar.length > 0 && (
               <Dice>
-                <p className="font-semibold">Lo que no te puedo asegurar</p>
-                <ul className="mt-1 space-y-1 text-sm">{c.sinComprobar.map((s) => <li key={s}>· {s}</li>)}</ul>
+                <button onClick={() => setDudas(!dudas)} className="flex w-full items-center gap-3 text-left">
+                  <span className="flex-1 font-semibold text-slate-900">
+                    {c.sinComprobar.length === 1
+                      ? "Hay una cosa que no te puedo asegurar"
+                      : `Hay ${c.sinComprobar.length} cosas que no te puedo asegurar`}
+                  </span>
+                  <span className="text-sm font-semibold text-brand-700">{dudas ? "Ocultar" : "Ver cuáles"}</span>
+                </button>
+                {dudas && (
+                  <ul className="mt-3 space-y-2 border-t border-slate-200/80 pt-3 text-sm text-slate-600">
+                    {c.sinComprobar.map((s) => <li key={s}>{s}</li>)}
+                  </ul>
+                )}
               </Dice>
             )}
 
