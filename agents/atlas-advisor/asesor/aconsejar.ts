@@ -278,8 +278,13 @@ const nombreDe = (o: Opcion) => o.piezas.map((p) => p.nombre).join(" + ");
  * LAS DEMÁS, DE MÁS CERCA A MÁS LEJOS.
  *
  * La propietaria quiere ver también las otras, «en orden de cercanía al mejor
- * servicio para ella» (2026-09-24): una manda y las demás se ven debajo. Lo que no vale es que ese orden sea el
- * alfabeto, que es lo que hacía antes y por lo que Agiled parecía la dueña.
+ * servicio para ella» (2026-09-24): una manda y las demás se ven debajo.
+ *
+ * Lo que no vale es que ese orden sea el alfabeto. Eso es lo que hacía este
+ * módulo, y fue un fallo mío: al desempatar por el nombre, Agiled salía la
+ * primera casi siempre por empezar por A, y parecía recomendada cuando sólo
+ * era su inicial. Lo detectó la propietaria el 2026-09-24: «Agiled parece la
+ * dueña de todo».
  *
  * El orden es el MISMO del desempate, aplicado una y otra vez: menos piezas,
  * español, plan gratuito, precio, curva. Así el segundo es segundo por una

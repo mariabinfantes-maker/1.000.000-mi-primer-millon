@@ -40,9 +40,14 @@ const imp = (id: string): NecesidadDelCaso => ({ necesidad: getNecesidad(id)!, i
  * de aquí lo impida.
  *
  * El bloque de abajo, «y las demás, de más cerca a más lejos», se queda
- * ENCENDIDO: ése comprueba el matiz que sí dijo ella —que las otras se vean,
- * y ordenadas por cercanía, no por el alfabeto—, y ése fue el fallo real
- * («Agiled parece la dueña de todo»).
+ * ENCENDIDO. Ése no defiende ninguna idea mía: comprueba lo que sí dijo ella
+ * —que las otras se vean, y ordenadas por cercanía— y vigila un fallo que
+ * cometí yo y que detectó ella.
+ *
+ * EL FALLO FUE MÍO: cuando varias quedaban igualadas, yo las desempataba por
+ * orden alfabético. Agiled empieza por A, así que salía la primera casi
+ * siempre y parecía que la recomendábamos, cuando lo único que pasaba era su
+ * inicial. Ella lo vio enseguida: «Agiled parece la dueña de todo».
  */
 describe.skip("la regla de la casa: una sola, o ninguna y una pregunta", () => {
   const CASOS: { quien: string; trae: NecesidadDelCaso[] }[] = [
