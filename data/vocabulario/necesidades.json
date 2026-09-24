@@ -114,6 +114,7 @@
     {
       "id": "nec.que-me-encuentren",
       "titulo": "Que me encuentren cuando me buscan",
+      "enCorto": "que te encuentren",
       "loQueDice": [
         "no salgo cuando me buscan",
         "nadie me conoce por aquí"
@@ -132,6 +133,7 @@
     {
       "id": "nec.tener-donde-ensenar-lo-que-hago",
       "titulo": "Tener un sitio donde enseñar lo que hago",
+      "enCorto": "tu web",
       "loQueDice": [
         "no tengo web",
         "mi web está muerta"
@@ -151,6 +153,7 @@
     {
       "id": "nec.que-no-se-pierda-una-pregunta",
       "titulo": "Que no se me pierda ninguna pregunta",
+      "enCorto": "consultas",
       "loQueDice": [
         "me escriben y se me olvida contestar",
         "no sé de dónde me viene la gente"
@@ -170,6 +173,7 @@
     {
       "id": "nec.seguir-sin-olvidarme-de-nadie",
       "titulo": "Hacer seguimiento y no olvidarme de nadie",
+      "enCorto": "seguimiento",
       "loQueDice": [
         "se me olvida llamar",
         "tengo los contactos en cuatro sitios"
@@ -189,6 +193,7 @@
     {
       "id": "nec.escribir-a-mi-gente",
       "titulo": "Escribir a mi gente y hacer campañas",
+      "enCorto": "campañas",
       "loQueDice": [
         "quiero mandar una newsletter",
         "tengo una lista y no la uso"
@@ -208,6 +213,7 @@
     {
       "id": "nec.publicar-en-redes",
       "titulo": "Publicar en redes y saber qué funciona",
+      "enCorto": "redes",
       "loQueDice": [
         "no tengo tiempo de publicar",
         "publico y no sé si sirve"
@@ -226,6 +232,7 @@
     {
       "id": "nec.publicidad-de-pago",
       "titulo": "Poner publicidad y no tirar el dinero",
+      "enCorto": "publicidad",
       "loQueDice": [
         "he probado anuncios y no me salen"
       ],
@@ -243,6 +250,7 @@
     {
       "id": "nec.presupuestar-rapido",
       "titulo": "Dar un presupuesto rápido y que se firme",
+      "enCorto": "presupuestos",
       "loQueDice": [
         "tardo un día en pasar un presupuesto",
         "lo mando y no vuelve firmado"
@@ -263,6 +271,7 @@
     {
       "id": "nec.contratos-que-no-se-me-pasen",
       "titulo": "Que no se me pase un contrato ni una renovación",
+      "enCorto": "contratos",
       "loQueDice": [
         "se me caducó sin enterarme"
       ],
@@ -280,6 +289,7 @@
     {
       "id": "nec.vender-online",
       "titulo": "Vender por internet",
+      "enCorto": "tienda online",
       "loQueDice": [
         "quiero montar una tienda",
         "vendo por WhatsApp y es un lío"
@@ -302,6 +312,7 @@
     {
       "id": "nec.cobrar-en-el-mostrador",
       "titulo": "Cobrar en el mostrador o en la mesa",
+      "enCorto": "cobro en mostrador",
       "loQueDice": [
         "llevo la caja a mano",
         "quiero una carta digital"
@@ -321,6 +332,7 @@
     {
       "id": "nec.que-reserven-solos",
       "titulo": "Que puedan reservar sin llamarme",
+      "enCorto": "reservas",
       "loQueDice": [
         "pierdo citas fuera de horario",
         "estoy todo el día cogiendo el teléfono"
@@ -343,6 +355,7 @@
     {
       "id": "nec.que-repitan",
       "titulo": "Que los clientes vuelvan",
+      "enCorto": "que vuelvan",
       "loQueDice": [
         "vienen una vez y no vuelven",
         "quiero vender bonos"
@@ -362,6 +375,7 @@
     {
       "id": "nec.emitir-una-factura-legal",
       "titulo": "Emitir una factura en condiciones",
+      "enCorto": "facturas",
       "loQueDice": [
         "hago las facturas en una hoja de cálculo"
       ],
@@ -381,6 +395,7 @@
     {
       "id": "nec.la-factura-obligatoria",
       "titulo": "Cumplir con la factura electrónica obligatoria",
+      "enCorto": "factura electrónica",
       "loQueDice": [
         "me han dicho que tengo que cambiar de programa"
       ],
@@ -397,6 +412,7 @@
     {
       "id": "nec.cuotas-cada-mes",
       "titulo": "Cobrar una cuota cada mes sin acordarme",
+      "enCorto": "cuotas mensuales",
       "loQueDice": [
         "tengo clientes de iguala y los persigo uno a uno"
       ],
@@ -414,6 +430,7 @@
     {
       "id": "nec.facturar-por-lo-avanzado",
       "titulo": "Facturar por lo avanzado, por hitos o por horas",
+      "enCorto": "facturar por horas",
       "loQueDice": [
         "la obra va por certificaciones",
         "cobro por horas y las apunto en papel"
@@ -432,6 +449,7 @@
     {
       "id": "nec.facturar-a-mutuas",
       "titulo": "Facturar a aseguradoras y mutuas",
+      "enCorto": "facturar a mutuas",
       "loQueDice": [
         "cada mutua pide lo suyo"
       ],
@@ -448,6 +466,7 @@
     {
       "id": "nec.liquidar-a-terceros",
       "titulo": "Liquidar a propietarios o colaboradores",
+      "enCorto": "liquidaciones",
       "loQueDice": [
         "tengo que repartir lo cobrado y cuadrarlo"
       ],
@@ -464,6 +483,7 @@
     {
       "id": "nec.que-me-paguen",
       "titulo": "Que me paguen, y a tiempo",
+      "enCorto": "cobros",
       "loQueDice": [
         "me pagan a noventa días",
         "tengo facturas sin cobrar"
@@ -482,6 +502,7 @@
     {
       "id": "nec.controlar-lo-que-gasto",
       "titulo": "Saber en qué se me va el dinero",
+      "enCorto": "gastos",
       "loQueDice": [
         "tengo tickets por todas partes",
         "pago suscripciones que ni uso"
@@ -500,6 +521,7 @@
     {
       "id": "nec.llevar-la-contabilidad",
       "titulo": "Llevar la contabilidad",
+      "enCorto": "contabilidad",
       "loQueDice": [
         "se lo mando todo a la gestoría en una caja"
       ],
@@ -518,6 +540,7 @@
     {
       "id": "nec.los-impuestos",
       "titulo": "Los impuestos, sin sustos",
+      "enCorto": "impuestos",
       "loQueDice": [
         "cada trimestre es un drama"
       ],
@@ -536,6 +559,7 @@
     {
       "id": "nec.saber-si-gano-en-cada-trabajo",
       "titulo": "Saber si gano dinero en cada trabajo",
+      "enCorto": "rentabilidad por trabajo",
       "loQueDice": [
         "facturo mucho y no me queda nada",
         "no sé qué cliente me cuesta dinero"
@@ -554,6 +578,7 @@
     {
       "id": "nec.llegar-a-fin-de-mes",
       "titulo": "Ver si llego a fin de mes antes de que llegue",
+      "enCorto": "fin de mes",
       "loQueDice": [
         "no sé si podré pagar las nóminas"
       ],
@@ -571,6 +596,7 @@
     {
       "id": "nec.donaciones",
       "titulo": "Recibir donaciones y dar el certificado",
+      "enCorto": "donaciones",
       "loQueDice": [
         "somos una asociación y lo llevamos a mano"
       ],
@@ -587,6 +613,7 @@
     {
       "id": "nec.tareas-y-encargos",
       "titulo": "Tener claro qué hay que hacer hoy",
+      "enCorto": "tareas",
       "loQueDice": [
         "lo llevo todo en la cabeza",
         "se me traspapelan los encargos"
@@ -605,6 +632,7 @@
     {
       "id": "nec.proyectos-largos",
       "titulo": "Llevar un trabajo largo sin perder el hilo",
+      "enCorto": "proyectos",
       "loQueDice": [
         "la obra va por fases y no sé si llegamos"
       ],
@@ -623,6 +651,7 @@
     {
       "id": "nec.saber-cuanto-tiempo-echo",
       "titulo": "Saber cuánto tiempo echo en cada cosa",
+      "enCorto": "control de horas",
       "loQueDice": [
         "no sé dónde se me va el día"
       ],
@@ -640,6 +669,7 @@
     {
       "id": "nec.expedientes",
       "titulo": "Tener junto todo lo de cada cliente o caso",
+      "enCorto": "expedientes",
       "loQueDice": [
         "busco un papel y está en tres carpetas"
       ],
@@ -657,6 +687,7 @@
     {
       "id": "nec.mi-agenda",
       "titulo": "Tener la agenda bajo control",
+      "enCorto": "agenda",
       "loQueDice": [
         "me solapo las citas",
         "somos tres y una sola agenda"
@@ -679,6 +710,7 @@
     {
       "id": "nec.el-trabajo-de-fuera",
       "titulo": "Controlar el trabajo que se hace fuera",
+      "enCorto": "trabajo fuera",
       "loQueDice": [
         "los partes vienen en papel y llegan mojados",
         "no sé por dónde va el técnico"
@@ -700,6 +732,7 @@
     {
       "id": "nec.papeles-ordenados",
       "titulo": "Encontrar los papeles cuando hacen falta",
+      "enCorto": "papeles",
       "loQueDice": [
         "tengo cuarenta versiones del mismo documento"
       ],
@@ -720,6 +753,7 @@
     {
       "id": "nec.firmar-documentos",
       "titulo": "Firmar sin imprimir ni escanear",
+      "enCorto": "firma digital",
       "loQueDice": [
         "imprimo, firmo, escaneo y mando"
       ],
@@ -737,6 +771,7 @@
     {
       "id": "nec.el-equipo-organizado",
       "titulo": "Organizar turnos, fichajes y vacaciones",
+      "enCorto": "turnos",
       "loQueDice": [
         "el cuadrante lo hago en papel",
         "no sé quién libra"
@@ -755,6 +790,7 @@
     {
       "id": "nec.nominas",
       "titulo": "Pagar las nóminas",
+      "enCorto": "nóminas",
       "loQueDice": [
         "la gestoría me cobra por cada cambio"
       ],
@@ -773,6 +809,7 @@
     {
       "id": "nec.contratar-gente",
       "titulo": "Contratar y que entren bien",
+      "enCorto": "contrataciones",
       "loQueDice": [
         "pongo un anuncio y me llegan cien currículos"
       ],
@@ -790,6 +827,7 @@
     {
       "id": "nec.el-stock",
       "titulo": "Saber qué tengo y qué me falta",
+      "enCorto": "stock",
       "loQueDice": [
         "vendo lo que no tengo",
         "me quedo sin género sin darme cuenta"
@@ -811,6 +849,7 @@
     {
       "id": "nec.comprar-a-proveedores",
       "titulo": "Ordenar las compras a proveedores",
+      "enCorto": "compras",
       "loQueDice": [
         "los pedidos los hago por WhatsApp"
       ],
@@ -828,6 +867,7 @@
     {
       "id": "nec.fabricar",
       "titulo": "Controlar lo que fabrico",
+      "enCorto": "producción",
       "loQueDice": [
         "no sé cuánto me cuesta cada pieza"
       ],
@@ -846,6 +886,7 @@
     {
       "id": "nec.mis-maquinas",
       "titulo": "Cuidar mis máquinas y mis vehículos",
+      "enCorto": "mantenimiento",
       "loQueDice": [
         "se me para la furgoneta y se para el negocio"
       ],
@@ -863,6 +904,7 @@
     {
       "id": "nec.hablar-con-mi-equipo",
       "titulo": "Hablar con el equipo sin liarla",
+      "enCorto": "chat del equipo",
       "loQueDice": [
         "todo por WhatsApp y se mezcla con lo personal"
       ],
@@ -879,6 +921,7 @@
     {
       "id": "nec.historia-clinica",
       "titulo": "Llevar la historia clínica de mis pacientes",
+      "enCorto": "historia clínica",
       "loQueDice": [
         "tengo las fichas en papel"
       ],
@@ -897,6 +940,7 @@
     {
       "id": "nec.dar-clases",
       "titulo": "Dar clases y seguir a mis alumnos",
+      "enCorto": "clases",
       "loQueDice": [
         "quiero vender un curso",
         "llevo las notas en un cuaderno"
@@ -915,6 +959,7 @@
     {
       "id": "nec.responder-por-donde-escriban",
       "titulo": "Responder por donde me escriban sin perder a nadie",
+      "enCorto": "mensajes",
       "loQueDice": [
         "me escriben por correo, por WhatsApp y por Instagram"
       ],
@@ -934,6 +979,7 @@
     {
       "id": "nec.no-perder-una-incidencia",
       "titulo": "Que no se me quede una incidencia sin resolver",
+      "enCorto": "incidencias",
       "loQueDice": [
         "se me quedan cosas colgadas y el cliente se enfada"
       ],
@@ -951,6 +997,7 @@
     {
       "id": "nec.que-se-respondan-solas",
       "titulo": "Que las preguntas de siempre se respondan solas",
+      "enCorto": "respuestas automáticas",
       "loQueDice": [
         "contesto lo mismo veinte veces al día"
       ],
@@ -968,6 +1015,7 @@
     {
       "id": "nec.saber-si-estan-contentos",
       "titulo": "Saber si mis clientes están contentos",
+      "enCorto": "opiniones",
       "loQueDice": [
         "me entero de que algo va mal cuando ya se han ido"
       ],
@@ -984,6 +1032,7 @@
     {
       "id": "nec.que-el-cliente-vea-lo-suyo",
       "titulo": "Que el cliente pueda ver lo suyo sin preguntarme",
+      "enCorto": "área de clientes",
       "loQueDice": [
         "me llaman para preguntar por dónde va"
       ],
@@ -1001,6 +1050,7 @@
     {
       "id": "nec.escribir",
       "titulo": "Escribir textos que no me den vergüenza",
+      "enCorto": "textos",
       "loQueDice": [
         "me cuesta escribir",
         "quiero que suene profesional"
@@ -1019,6 +1069,7 @@
     {
       "id": "nec.imagenes",
       "titulo": "Hacer imágenes y que todo pegue con mi marca",
+      "enCorto": "imágenes",
       "loQueDice": [
         "cada cartel me queda de un color"
       ],
@@ -1035,6 +1086,7 @@
     {
       "id": "nec.video",
       "titulo": "Hacer vídeos y clips",
+      "enCorto": "vídeos",
       "loQueDice": [
         "quiero hacer buenos clips de mis vídeos",
         "no sé editar"
@@ -1054,6 +1106,7 @@
     {
       "id": "nec.audio",
       "titulo": "Grabar audio que se oiga bien",
+      "enCorto": "audio",
       "loQueDice": [
         "tengo un pódcast y se oye fatal"
       ],
@@ -1071,6 +1124,7 @@
     {
       "id": "nec.presentaciones",
       "titulo": "Preparar una presentación decente",
+      "enCorto": "presentaciones",
       "loQueDice": [
         "tengo que presentar y no sé por dónde empezar"
       ],
@@ -1088,6 +1142,7 @@
     {
       "id": "nec.resumir-reuniones",
       "titulo": "No tomar notas en las reuniones",
+      "enCorto": "notas de reuniones",
       "loQueDice": [
         "me paso la reunión escribiendo"
       ],
@@ -1106,6 +1161,7 @@
     {
       "id": "nec.conectar-lo-que-uso",
       "titulo": "Que las herramientas que uso hablen entre sí",
+      "enCorto": "conectar programas",
       "loQueDice": [
         "copio los datos de un sitio a otro a mano"
       ],
@@ -1123,6 +1179,7 @@
     {
       "id": "nec.que-se-haga-solo",
       "titulo": "Que lo repetitivo se haga solo",
+      "enCorto": "automatizar lo repetitivo",
       "loQueDice": [
         "hago lo mismo todos los lunes"
       ],
@@ -1140,6 +1197,7 @@
     {
       "id": "nec.ver-como-va-el-negocio",
       "titulo": "Ver de un vistazo cómo va el negocio",
+      "enCorto": "números del negocio",
       "loQueDice": [
         "no tengo ni idea de cómo va el mes"
       ],
@@ -1158,6 +1216,7 @@
     {
       "id": "nec.llevarme-mis-datos",
       "titulo": "Poder llevarme mis datos si me voy",
+      "enCorto": "llevarte tus datos",
       "loQueDice": [
         "me da miedo quedarme atrapada"
       ],
@@ -1174,6 +1233,7 @@
     {
       "id": "nec.cumplir-el-rgpd",
       "titulo": "Cumplir con la protección de datos",
+      "enCorto": "protección de datos",
       "loQueDice": [
         "no sé si estoy cumpliendo"
       ],
@@ -1192,6 +1252,7 @@
     {
       "id": "nec.que-sea-seguro",
       "titulo": "Que nadie me entre y no perder nada",
+      "enCorto": "seguridad",
       "loQueDice": [
         "me da pánico perderlo todo"
       ],

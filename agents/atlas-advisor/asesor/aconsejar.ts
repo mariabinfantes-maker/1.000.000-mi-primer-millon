@@ -57,6 +57,11 @@ export type Pieza = {
   nombre: string;
   /** Necesidades suyas que esta pieza cubre, con el título que ella entiende. */
   cubre: string[];
+  /**
+   * Lo mismo en dos palabras: «reservas», «facturas». Para el titular de una
+   * tarjeta, donde la frase entera no cabe. Sale de `enCorto` del vocabulario.
+   */
+  cubreEnCorto: string[];
   /** En qué casas vive. Sirve para contar dónde se buscó, no para ordenar. */
   casas: string[];
   /** Puerta 1: qué te resuelve, con el recibo de cada cosa. */
@@ -219,6 +224,7 @@ function aPieza(
         herramientaId: p.herramientaId,
         nombre: h?.nombre ?? p.herramientaId,
         cubre: p.cubre.map((id) => getNecesidad(id)?.titulo ?? id),
+        cubreEnCorto: p.cubre.map((id) => getNecesidad(id)?.enCorto ?? id),
         casas: p.casas,
         queResuelve,
         coste: {
@@ -385,7 +391,10 @@ export function aconsejar(
 
   const sinComprobar = r.nadieDemuestra.map(
     (id) =>
-      `«${getNecesidad(id)?.titulo ?? id}»: ninguna de las ${r.seMiraron} herramientas del catálogo nos lo ha demostrado en su página. No es que no exista: es que no lo hemos podido comprobar.`
+      // Una línea por necesidad. El «no significa que no exista» se dice UNA
+      // vez donde se enseñan, no pegado a cada una: repetido siete veces
+      // dejaba de ser honestidad y se leía como una disculpa.
+      `«${getNecesidad(id)?.titulo ?? id}»: no lo he encontrado en ninguna de las ${r.seMiraron}.`
   );
 
   if (r.soluciones.length === 0) {

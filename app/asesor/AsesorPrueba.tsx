@@ -23,7 +23,7 @@ const TARJETA = "rounded-2xl border border-slate-200/80 bg-white";
  *  3. La caja de texto se queda abajo. Puede responder y ajustar.
  */
 
-type Necesidad = { id: string; titulo: string };
+type Necesidad = { id: string; titulo: string; enCorto: string };
 type Oficio = { id: string; nombre: string; cubiertasHoy: number; deCuantas: number };
 type Opcion = CaminoDetallado["opciones"][number];
 type Pieza = Opcion["piezas"][number];
@@ -110,6 +110,8 @@ export default function AsesorPrueba() {
   // que conteste. Enseñarle ocho a la vez es el formulario otra vez.
   const laPregunta = r?.preguntas?.[0];
   const quePide = r?.comprension?.necesidades.map((n) => n.necesidad.titulo) ?? [];
+  // Los nombres cortos («reservas», «facturas») los saca cada tarjeta de lo
+  // que cubre SU opción, no de todo lo que ella pidió.
 
   return (
     <div className="mx-auto flex min-h-screen max-w-2xl flex-col px-4 pt-28 pb-10 sm:px-6">
@@ -124,7 +126,7 @@ export default function AsesorPrueba() {
             <p className="text-sm font-semibold text-slate-500">Tu asesor de software</p>
           </div>
         </div>
-        <p className="mt-3 text-slate-600">Cuéntame tu problema. Yo busco, y te digo lo que sé y lo que no.</p>
+        <p className="mt-3 text-slate-600">Cuéntame qué te pasa.</p>
         <div className="mt-5 flex gap-1 rounded-full border border-slate-200/80 bg-white p-1 text-sm shadow-premium">
           {([["tarjeta", "Tarjeta"], ["conversacion", "Conversación"], ["a", "A"], ["b", "B"]] as const).map(([k, n]) => (
             <button
@@ -143,9 +145,6 @@ export default function AsesorPrueba() {
           <>
             <Dice>
               <p>¿A qué te dedicas?</p>
-              <p className="mt-1 text-sm text-slate-600">
-                Con eso me basta para empezar. Si prefieres contármelo con tus palabras, escríbeme abajo.
-              </p>
             </Dice>
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
               {oficios.map((o) => (
@@ -190,30 +189,33 @@ export default function AsesorPrueba() {
           <>
             <Dice>
               {oficioElegido ? (
-                <p>
-                  Con lo que suele hacer falta en {oficioElegido.nombre.toLowerCase()}, he mirado{" "}
-                  {r?.comprension?.necesidades.length} cosas. Quita lo que no sea tuyo y dime lo que falte.
-                </p>
+                <p>Esto es lo que suele hacer falta en {oficioElegido.nombre.toLowerCase()}.</p>
               ) : (
                 <p>
                   He entendido que necesitas {r?.comprension?.necesidades.map((n) => `«${n.necesidad.titulo.toLowerCase()}»`).join(" y ")}.
                 </p>
               )}
-              {c.caminos.length > 1 && (
-                <p className="mt-2">Se puede abordar de dos maneras, y la elección es tuya.</p>
-              )}
-              {!r?.leyoLaIA && !oficioElegido && (
-              <p className="mt-2 text-sm text-slate-500">Esto lo has elegido tú, no lo he leído de tu texto.</p>
-            )}
+              {/*
+                Aquí iba «se puede abordar de dos maneras, y la elección es
+                tuya» y «esto lo has elegido tú, no lo he leído de tu texto».
+                Las dos tarjetas ya dicen que hay dos maneras, y la segunda es
+                Molnip hablando de Molnip. Fuera: la propietaria lo llamó por
+                su nombre el 2026-09-24 —«nuestra página pide perdón por todo,
+                parece una rata miedosa»— y tenía razón.
+              */}
             </Dice>
 
             {laPregunta && (
               <Dice>
                 <p className="font-semibold">{laPregunta.pregunta}</p>
+                {/*
+                  Debajo de la pregunta había DOS explicaciones: por qué se
+                  pregunta, y por qué se pregunta. Tres textos para una sola
+                  pregunta es lo que ella vio como redundante e inseguro. Se
+                  queda el motivo, que es información suya; se va el meta.
+                  `porQuePreguntamos` sigue en el vocabulario, intacto.
+                */}
                 <p className="mt-1 text-sm text-slate-600">{laPregunta.porQuePreguntamos}</p>
-                <p className="mt-2 text-xs text-slate-500">
-                  Te pregunto esto porque cambia lo que te voy a recomendar. Lo que no lo cambia, no te lo pregunto.
-                </p>
               </Dice>
             )}
 
@@ -223,7 +225,7 @@ export default function AsesorPrueba() {
                 <p className="mt-1">Y prefiero decírtelo antes que darte algo que no te sirve.</p>
               </Dice>
             ) : diseno === "tarjeta" ? (
-              <TarjetaDelConsejo caminos={c.caminos} quePide={quePide} />
+              <TarjetaDelConsejo caminos={c.caminos} />
             ) : diseno === "a" ? (
               <VarianteA caminos={c.caminos} quePide={quePide} />
             ) : diseno === "b" ? (
@@ -290,24 +292,28 @@ export default function AsesorPrueba() {
               <Dice>
                 <button onClick={() => setDudas(!dudas)} className="flex w-full items-center gap-3 text-left">
                   <span className="flex-1 font-semibold text-slate-900">
-                    {c.sinComprobar.length === 1
-                      ? "Hay una cosa que no te puedo asegurar"
-                      : `Hay ${c.sinComprobar.length} cosas que no te puedo asegurar`}
+                    {c.sinComprobar.length === 1 ? "Una cosa que todavía no sé" : `${c.sinComprobar.length} cosas que todavía no sé`}
                   </span>
                   <span className="text-sm font-semibold text-brand-700">{dudas ? "Ocultar" : "Ver cuáles"}</span>
                 </button>
                 {dudas && (
-                  <ul className="mt-3 space-y-2 border-t border-slate-200/80 pt-3 text-sm text-slate-600">
-                    {c.sinComprobar.map((s) => <li key={s}>{s}</li>)}
-                  </ul>
+                  <>
+                    <ul className="mt-3 space-y-2 border-t border-slate-200/80 pt-3 text-sm text-slate-600">
+                      {c.sinComprobar.map((s) => <li key={s}>{s}</li>)}
+                    </ul>
+                    {/* La regla de F2, dicha UNA vez y donde toca. */}
+                    <p className="mt-3 text-xs text-slate-500">Que no lo haya encontrado no quiere decir que no exista.</p>
+                  </>
                 )}
               </Dice>
             )}
 
-            <p className="px-1 text-xs text-slate-500">
-              Es la información que hemos recogido en sus páginas. Miré {c.dondeSeBusco.herramientas} herramientas
-              repartidas en {c.dondeSeBusco.casas} casas, sin quedarme en la que parecía la tuya.
-            </p>
+            {/*
+              Aquí se contaba cuántas herramientas había mirado y que no me
+              había quedado en la casa que parecía la suya. Es mérito nuestro,
+              no información suya, y cerraba la pantalla hablando de nosotros.
+              El dato sigue en `dondeSeBusco` para cuando haga falta.
+            */}
           </>
         )}
       </div>

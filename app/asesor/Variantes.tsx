@@ -33,7 +33,7 @@ export type Coste = {
   tienePlanGratuito?: boolean; curva?: string; enEspanol?: boolean;
 };
 export type Pieza = {
-  herramientaId: string; nombre: string; cubre: string[]; casas: string[];
+  herramientaId: string; nombre: string; cubre: string[]; cubreEnCorto: string[]; casas: string[];
   queResuelve: QueResuelve[]; coste: Coste; faltaPorConfirmar: string[];
 };
 export type Opcion = { piezas: Pieza[]; laConexionNoEstaComprobada: boolean };
@@ -95,7 +95,7 @@ export function Detalle({ p }: { p: Pieza }) {
               <p className="text-slate-800">{q.necesidad}</p>
               {q.url && (
                 <p className="text-xs text-slate-500">
-                  Lo vimos en <a href={q.url} target="_blank" rel="noreferrer noopener" className="underline">su página</a> el {q.fecha}.
+                  <a href={q.url} target="_blank" rel="noreferrer noopener" className="underline">Su página</a>, {q.fecha}
                 </p>
               )}
             </li>
@@ -104,31 +104,34 @@ export function Detalle({ p }: { p: Pieza }) {
       </Puerta>
 
       <Puerta icono={Coins} titulo="Coste y puesta en marcha" abierta={abierta === "coste"} alPulsar={() => alt("coste")}>
-        <p className="font-semibold text-slate-800">{p.coste.desde ?? "No tenemos su precio comprobado."}</p>
+        <p className="font-semibold text-slate-800">{p.coste.desde ?? "Precio sin comprobar"}</p>
         {p.coste.comprobadoEl && (
           <p className="text-xs text-slate-500">
             Comprobado el {p.coste.comprobadoEl}
             {p.coste.urlPrecios && (
               <> en <a href={p.coste.urlPrecios} target="_blank" rel="noreferrer noopener" className="underline">su tarifa</a></>
-            )}. Míralo antes de decidir: los precios cambian.
+            )}
           </p>
         )}
         <ul className="mt-2.5 space-y-1">
-          {p.coste.tienePlanGratuito && <li>Tiene plan gratuito, así que puedes probarla sin pagar.</li>}
+          {p.coste.tienePlanGratuito && <li>Tiene plan gratuito.</li>}
           {p.coste.curva && <li>{CURVA[p.coste.curva] ?? p.coste.curva}.</li>}
-          <li>{p.coste.enEspanol ? "Está en español." : "No hemos confirmado que esté en español."}</li>
+          <li>{p.coste.enEspanol ? "Está en español." : "En español: sin comprobar."}</li>
         </ul>
       </Puerta>
 
       <Puerta icono={FileText} titulo="Qué falta por confirmar" abierta={abierta === "falta"} alPulsar={() => alt("falta")}>
         {p.faltaPorConfirmar.length === 0 ? (
-          <p>De lo que nos pediste, no nos queda nada pendiente de comprobar en ésta.</p>
+          <p>Nada pendiente de lo que me pediste.</p>
         ) : (
           <ul className="space-y-1.5">{p.faltaPorConfirmar.map((f) => <li key={f}>{f}</li>)}</ul>
         )}
-        <p className="mt-2.5 text-xs text-slate-500">
-          Que algo no nos conste no significa que no lo haga: significa que no lo hemos podido comprobar.
-        </p>
+        {/*
+          Aquí iba «que algo no nos conste no significa que no lo haga». Es
+          verdad y sigue siendo la regla, pero salía DENTRO de cada herramienta
+          de cada combinación: la misma advertencia diez veces en una pantalla.
+          Se dice una sola vez, donde se enseña la lista entera.
+        */}
       </Puerta>
     </div>
   );
@@ -155,7 +158,7 @@ function Candidatas({ opciones, hayMas }: { opciones: Opcion[]; hayMas: number }
           <li key={j} className={`${TARJETA} px-4 py-3`}>
             <p className="font-semibold text-slate-900">{o.piezas.map((p) => p.nombre).join("  +  ")}</p>
             {o.laConexionNoEstaComprobada && (
-              <p className="mt-0.5 text-xs text-slate-500">No hemos comprobado que se entiendan entre sí.</p>
+              <p className="mt-0.5 text-xs text-slate-500">Sin comprobar que se entiendan entre sí.</p>
             )}
             {o.piezas.map((p) => <Detalle key={p.herramientaId} p={p} />)}
           </li>

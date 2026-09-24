@@ -69,7 +69,7 @@ function saber(mapa: Record<string, EstadoDeLaCapacidad>) {
 }
 
 const NECESIDAD: Necesidad = {
-  id: "nec.prueba", titulo: "Que reserven solos", loQueDice: ["x"],
+  id: "nec.prueba", titulo: "Que reserven solos", enCorto: "reservas", loQueDice: ["x"],
   puertas: ["puerta.vender"], imprescindibles: ["cap.a"], ayudan: ["cap.b", "cap.c"],
 };
 
@@ -353,5 +353,36 @@ describe("de más cerca a más lejana, y todas en el desplegable", () => {
     expect(conExtras.resuelveImprescindibles).toBe(justo.resuelveImprescindibles);
     expect(conExtras.traeAdemas).toEqual(["cap.customer_appointment_reminders", "cap.regulated_einvoicing"]);
     expect(justo.traeAdemas).toEqual([]);
+  });
+});
+/**
+ * El nombre corto es lo que hace legible una tarjeta. Si falta uno, el
+ * titular vuelve a decir «una herramienta para cada cosa» —cómo lo llamamos
+ * nosotros— en vez de «reservas y facturas», que es cómo lo llama ella.
+ */
+describe("el nombre corto de cada necesidad", () => {
+  it("las 61 lo tienen, y ninguno pasa de tres palabras", () => {
+    for (const n of getNecesidades()) {
+      expect(n.enCorto, n.id).toBeTruthy();
+      expect(n.enCorto.split(/\s+/).length, `${n.id}: «${n.enCorto}»`).toBeLessThanOrEqual(3);
+    }
+  });
+
+  /** En minúscula porque se incrusta en una frase: «reservas y facturas, juntas». */
+  it("empiezan en minúscula, porque van dentro de una frase", () => {
+    for (const n of getNecesidades()) {
+      expect(n.enCorto[0], n.id).toBe(n.enCorto[0].toLowerCase());
+    }
+  });
+
+  it("no hay dos necesidades que se llamen igual de corto", () => {
+    const vistos = new Map<string, string>();
+    const choques: string[] = [];
+    for (const n of getNecesidades()) {
+      const ya = vistos.get(n.enCorto);
+      if (ya) choques.push(`«${n.enCorto}»: ${ya} y ${n.id}`);
+      vistos.set(n.enCorto, n.id);
+    }
+    expect(choques).toEqual([]);
   });
 });

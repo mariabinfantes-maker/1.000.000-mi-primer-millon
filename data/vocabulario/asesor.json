@@ -13,7 +13,7 @@
   "dimensiones": [
     {
       "id": "dim.cuantas-personas",
-      "pregunta": "¿Cuántas personas atendéis a clientes?",
+      "pregunta": "¿Cuánta gente sois?",
       "porQuePreguntamos": "Si sois varias, hay cosas que dejan de ser un extra y pasan a ser imprescindibles.",
       "respuestas": [
         {

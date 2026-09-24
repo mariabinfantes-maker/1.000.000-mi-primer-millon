@@ -47,12 +47,36 @@ const TARJETA = "rounded-2xl border border-slate-200/80 bg-white";
 
 const ICONO: Record<string, LucideIcon> = { "todo-en-uno": CalendarCheck, "por-separado": LayoutGrid };
 
-/** Qué consigue, en una línea. Nunca un nombre de herramienta. */
-function titular(forma: string, cuantas: number): string {
-  if (forma !== "todo-en-uno") return "Una herramienta para cada cosa";
-  if (cuantas <= 1) return "Todo en un solo sitio";
-  if (cuantas === 2) return "Las dos cosas en un solo sitio";
-  return `Las ${cuantas} cosas en un solo sitio`;
+/**
+ * Qué consigue, en una línea y CON SUS PALABRAS. Nunca un nombre de marca.
+ *
+ * Decía «una herramienta para cada cosa». Es exacto y no significa nada:
+ * «cosa» es como lo llamamos nosotros. Ahora dice «Reservas y facturas, en
+ * dos herramientas», que es lo que ella ha venido a resolver. De ahí sale el
+ * `enCorto` del vocabulario.
+ */
+function enumerar(cosas: string[]): string {
+  if (cosas.length === 0) return "lo que me has contado";
+  if (cosas.length === 1) return cosas[0];
+  if (cosas.length === 2) return `${cosas[0]} y ${cosas[1]}`;
+  return `${cosas[0]}, ${cosas[1]} y ${cosas.length - 2} cosas más`;
+}
+
+/**
+  * Lo que resuelve ESTA opción, no todo lo que ella pidió.
+  *
+  * Primero decía «reservas, agenda y 8 cosas más» porque contaba las diez que
+  * trae el oficio. La peluquera leía que esto se lo resuelve todo, y no es
+  * verdad: estas dos herramientas cubren lo que cubren. El titular tiene que
+  * decir eso y nada más.
+  */
+function titular(forma: string, opcion: Opcion | undefined): string {
+  const cubiertas = [...new Set((opcion?.piezas ?? []).flatMap((p) => p.cubreEnCorto))];
+  const lista = enumerar(cubiertas);
+  const piezas = opcion?.piezas.length ?? 2;
+  const donde = forma === "todo-en-uno" ? "en un solo sitio" : piezas > 2 ? `en ${piezas} herramientas` : "en dos herramientas";
+  const frase = `${lista}, ${donde}`;
+  return frase.charAt(0).toUpperCase() + frase.slice(1);
 }
 
 /** El cuadrado con el icono. Lleno en la que manda, con tinte en las demás. */
@@ -102,7 +126,7 @@ function Dentro({ opciones, hayMas, queImplica }: { opciones: Opcion[]; hayMas: 
               {abierta && (
                 <>
                   {o.laConexionNoEstaComprobada && (
-                    <p className="mt-2 text-xs text-slate-500">No hemos comprobado que se entiendan entre sí.</p>
+                    <p className="mt-2 text-xs text-slate-500">Sin comprobar que se entiendan entre sí.</p>
                   )}
                   {/*
                     Con dos herramientas, las tres puertas salen dos veces. Sin
@@ -128,7 +152,7 @@ function Dentro({ opciones, hayMas, queImplica }: { opciones: Opcion[]; hayMas: 
   );
 }
 
-export default function TarjetaDelConsejo({ caminos, quePide }: { caminos: Camino[]; quePide: string[] }) {
+export default function TarjetaDelConsejo({ caminos }: { caminos: Camino[] }) {
   const [abierto, setAbierto] = useState<string | null>(null);
   if (caminos.length === 0) return null;
 
@@ -156,7 +180,7 @@ export default function TarjetaDelConsejo({ caminos, quePide }: { caminos: Camin
                   Opción {String.fromCharCode(65 + i)} · {cam.titulo}
                 </span>
                 <span className="mt-2 block font-display text-lg font-bold leading-snug text-slate-900">
-                  {titular(cam.forma, quePide.length)}
+                  {titular(cam.forma, cam.opciones[0])}
                 </span>
                 <span className="mt-1 block text-sm font-semibold text-brand-700">
                   {abierta ? "Ocultar el detalle" : "Ver funciones, coste y límites"}

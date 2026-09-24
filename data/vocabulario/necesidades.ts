@@ -110,6 +110,19 @@ export type Puerta = {
 export type Necesidad = {
   id: string;
   titulo: string;
+  /**
+   * El mismo concepto, en dos palabras y como lo diría ella: «reservas»,
+   * «facturas», «agenda».
+   *
+   * No sustituye a `titulo` —ése es la frase entera, la que se lee cuando hay
+   * sitio— sino que existe para los sitios donde una frase larga no cabe sin
+   * convertir la pantalla en deberes. Nace de esto, el 2026-09-24: «no son
+   * tarjetas que uno mire y entienda, el vocabulario es raro». El titular de
+   * una tarjeta decía «una herramienta para cada cosa», que es cómo lo
+   * llamamos nosotros; con esto dice «reservas y facturas», que es cómo lo
+   * llama ella.
+   */
+  enCorto: string;
   loQueDice: string[];
   /** Puede colgar de varias. Ver la cabecera. */
   puertas: string[];
