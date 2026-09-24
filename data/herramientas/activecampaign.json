@@ -144,7 +144,9 @@
   "tipoProducto": "suite",
   "categoriasSecundarias": [
     "asistentes-ia",
-    "crm"
+    "automatizacion-integraciones",
+    "crm",
+    "marketing-email"
   ],
   "tipoPlanGratuito": "prueba",
   "pruebaGratuitaDias": 14,

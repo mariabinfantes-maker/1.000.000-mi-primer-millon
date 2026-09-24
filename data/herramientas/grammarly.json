@@ -4,6 +4,9 @@
   "urlPrecios": "https://www.grammarly.com/plans",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "Grammarly es un asistente de escritura impulsado por inteligencia artificial que ayuda a corregir gramática, ortografía y puntuación en tiempo real. Además, ofrece sugerencias de claridad, ajuste de tono y capacidades de IA generativa para optimizar la comunicación escrita en múltiples aplicaciones y navegadores.",
   "informacionEmpresa": {
     "anioFundacion": 2009,

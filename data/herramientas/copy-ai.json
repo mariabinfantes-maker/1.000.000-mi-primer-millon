@@ -4,6 +4,10 @@
   "urlPrecios": "https://www.copy.ai/prices",
   "logoUrl": null,
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "marketing-email"
+  ],
   "descripcion": "Copy.ai es una plataforma de inteligencia artificial diseñada para la automatización de flujos de trabajo Go-To-Market (GTM) y generación de contenidos. Permite a equipos de marketing y ventas crear copys, escalar la creación de contenidos y automatizar procesos comerciales. Integra un asistente de chat flexible impulsado por múltiples modelos de lenguaje avanzados.",
   "informacionEmpresa": {
     "anioFundacion": 2020,

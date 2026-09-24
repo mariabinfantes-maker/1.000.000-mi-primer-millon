@@ -4,6 +4,9 @@
   "urlPrecios": "https://hive.com/pricing",
   "logoUrl": "",
   "categoriaId": "gestion-proyectos",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "Hive es una plataforma integral de gestión de proyectos y colaboración que centraliza tareas, comunicación y seguimiento del tiempo en un único espacio. Ofrece múltiples vistas (Gantt, Kanban, calendario) y automatizaciones avanzadas para optimizar el flujo de trabajo de equipos de cualquier tamaño.",
   "informacionEmpresa": {
     "anioFundacion": 2015,

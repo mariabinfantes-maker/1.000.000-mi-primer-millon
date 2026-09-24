@@ -4,6 +4,9 @@
   "urlPrecios": "https://www.teamgantt.com/pricing",
   "logoUrl": "",
   "categoriaId": "gestion-proyectos",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "TeamGantt es un software de gestión de proyectos enfocado en diagramas de Gantt visuales e intuitivos. Permite planificar, programar y gestionar proyectos mediante una interfaz sencilla de arrastrar y soltar, facilitando la colaboración en tiempo real y el control de la carga de trabajo.",
   "informacionEmpresa": {
     "anioFundacion": 2009,

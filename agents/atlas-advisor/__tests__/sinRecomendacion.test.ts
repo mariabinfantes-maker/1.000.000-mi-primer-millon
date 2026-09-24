@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { getTodasLasHerramientas, getProblemas } from "@/data/repositorio";
 import { detectarProblemasPorTexto } from "../deteccionProblema";
 import { recomendarHerramientas } from "../motor";
+import { cubreCategoria } from "@/data/taxonomia";
 
 /**
  * Regresión del fallo del 2026-09-02, encontrado por la propietaria
@@ -153,11 +154,29 @@ describe("los recorridos que ya funcionaban siguen funcionando", () => {
     expect(r.top).toHaveLength(3);
   });
 
+  /**
+   * El comportamiento que vigila esta prueba no ha cambiado: quien pide una
+   * categoría no recibe otra cosa a cambio.
+   *
+   * Lo que cambió el 2026-09-24 es el catálogo. «Reservas y citas» servía de
+   * ejemplo de categoría vacía porque ninguna ficha la declaraba; ese día la
+   * propietaria abrió las once casas pendientes y el reparto metió once
+   * herramientas ahí. Ya no queda ninguna categoría vacía, así que el caso se
+   * comprueba con una que no existe, que es la forma de seguir probándolo sin
+   * depender de qué tenga hoy el catálogo.
+   */
   it("una categoría sin herramientas devuelve vacío, no el catálogo entero", () => {
-    // Comportamiento que ya existía y no debe cambiar: quien pide justo esa
-    // categoría no recibe otra cosa a cambio.
-    const r = recomendarHerramientas({ categoriaId: "reservas-citas" }, HERRAMIENTAS);
+    const r = recomendarHerramientas({ categoriaId: "no-existe-esta-categoria" }, HERRAMIENTAS);
     expect(r.top).toHaveLength(0);
     expect(r.todas).toHaveLength(0);
+  });
+
+  it("y una categoría con herramientas devuelve SOLO las suyas", () => {
+    const r = recomendarHerramientas({ categoriaId: "reservas-citas" }, HERRAMIENTAS);
+    expect(r.todas.length).toBeGreaterThan(0);
+    expect(r.todas.length).toBeLessThan(HERRAMIENTAS.length);
+    for (const e of r.todas) {
+      expect(cubreCategoria(e.herramienta, "reservas-citas"), e.herramienta.id).toBe(true);
+    }
   });
 });

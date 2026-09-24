@@ -3,6 +3,11 @@
   "paginaOficial": "https://gamma.app",
   "urlPrecios": "https://gamma.app/pricing",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "creacion-web-hosting",
+    "firma-gestion-documental"
+  ],
   "descripcion": "Gamma es una herramienta impulsada por inteligencia artificial diseñada para crear presentaciones, documentos y páginas web interactivas de manera rápida. Permite generar formatos visuales atractivos mediante instrucciones de texto o plantillas flexibles, eliminando la necesidad de maquetar diapositivas manualmente.",
   "informacionEmpresa": {
     "anioFundacion": 2020,

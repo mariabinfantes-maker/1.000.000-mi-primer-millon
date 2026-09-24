@@ -3,6 +3,9 @@
   "paginaOficial": "https://www.descript.com",
   "urlPrecios": "https://www.descript.com/pricing",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "Descript es un editor todo en uno de audio y vídeo basado en texto impulsado por inteligencia artificial. Permite editar grabaciones modificando directamente el texto de la transcripción, además de ofrecer funciones avanzadas de grabación de pantalla, clonación de voz y mejora de sonido.",
   "informacionEmpresa": {
     "anioFundacion": 2017,

@@ -4,6 +4,9 @@
   "urlPrecios": "https://krisp.ai/pricing/",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "Krisp es una herramienta basada en inteligencia artificial que elimina en tiempo real el ruido de fondo, el eco y las voces secundarias durante llamadas y videoconferencias. Además, actúa como un asistente de reuniones que ofrece transcripciones automáticas, notas y resúmenes ejecutivos.",
   "informacionEmpresa": {
     "anioFundacion": 2017,

@@ -5,7 +5,11 @@
   "categoriaId": "gestion-proyectos",
   "categoriasSecundarias": [
     "asistentes-ia",
-    "crm"
+    "automatizacion-integraciones",
+    "crm",
+    "facturacion-contabilidad",
+    "firma-gestion-documental",
+    "recursos-humanos"
   ],
   "descripcion": "Productive es una plataforma de gestión integral (PSA) diseñada específicamente para agencias y empresas de servicios profesionales. Unifica la gestión de proyectos, el seguimiento de tiempo, la planificación de recursos, la facturación y los cálculos de rentabilidad en una única solución.",
   "informacionEmpresa": {

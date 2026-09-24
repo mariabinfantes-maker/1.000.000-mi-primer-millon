@@ -149,7 +149,11 @@
   ],
   "tipoProducto": "suite",
   "categoriasSecundarias": [
-    "crm"
+    "automatizacion-integraciones",
+    "creacion-web-hosting",
+    "crm",
+    "facturacion-contabilidad",
+    "marketing-email"
   ],
   "tipoPlanGratuito": "indefinido",
   "preciosComprobados": {

@@ -4,6 +4,10 @@
   "urlPrecios": "https://www.jasper.ai/pricing",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "marketing-email"
+  ],
   "descripcion": "Jasper es una plataforma de generación de contenido basada en inteligencia artificial diseñada para equipos de marketing y empresas. Permite crear copys para anuncios, artículos de blog, publicaciones en redes sociales y correos manteniendo la voz y el estilo propio de cada marca.",
   "informacionEmpresa": {
     "anioFundacion": 2021,

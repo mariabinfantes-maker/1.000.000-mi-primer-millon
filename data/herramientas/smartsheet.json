@@ -4,7 +4,8 @@
   "urlPrecios": "https://www.smartsheet.com/pricing",
   "categoriaId": "gestion-proyectos",
   "categoriasSecundarias": [
-    "asistentes-ia"
+    "asistentes-ia",
+    "automatizacion-integraciones"
   ],
   "descripcion": "Smartsheet es una plataforma de gestión del trabajo basada en formato de hoja de cálculo empresarial que permite planificar, hacer seguimiento y automatizar proyectos complejos. Combina la interfaz familiar de las hojas de cálculo con vistas de Gantt, Kanban y formularios, además de integraciones avanzadas para entornos corporativos.",
   "informacionEmpresa": {

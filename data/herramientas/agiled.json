@@ -149,8 +149,14 @@
   ],
   "categoriasSecundarias": [
     "asistentes-ia",
+    "atencion-cliente",
+    "automatizacion-integraciones",
     "crm",
-    "gestion-proyectos"
+    "facturacion-contabilidad",
+    "firma-gestion-documental",
+    "gestion-proyectos",
+    "recursos-humanos",
+    "reservas-citas"
   ],
   "tipoPlanGratuito": "indefinido",
   "preciosComprobados": {

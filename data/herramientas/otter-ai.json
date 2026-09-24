@@ -4,6 +4,9 @@
   "urlPrecios": "https://otter.ai/pricing",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "Otter.ai es un asistente de reuniones con inteligencia artificial que graba, transcribe en tiempo real y genera resúmenes automáticos de videollamadas. Permite extraer puntos de acción, capturar diapositivas y chatear con la IA para obtener respuestas sobre el contenido de la reunión.",
   "informacionEmpresa": {
     "anioFundacion": 2016,

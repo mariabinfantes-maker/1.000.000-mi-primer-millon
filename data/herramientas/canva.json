@@ -4,6 +4,10 @@
   "urlPrecios": "https://www.canva.com/pricing/",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "firma-gestion-documental"
+  ],
   "subtipoId": "presentaciones",
   "tipoProducto": "especializada",
   "problemasIds": [

@@ -5,7 +5,9 @@
   "logoUrl": "",
   "categoriaId": "gestion-proyectos",
   "categoriasSecundarias": [
-    "crm"
+    "automatizacion-integraciones",
+    "crm",
+    "facturacion-contabilidad"
   ],
   "descripcion": "Scoro es una plataforma integral de gestión del trabajo que combina gestión de proyectos, CRM, seguimiento del tiempo y facturación en un solo sistema. Permite a las empresas de servicios profesionales y agencias controlar todo el ciclo de vida del cliente y la rentabilidad de sus proyectos en tiempo real.",
   "informacionEmpresa": {

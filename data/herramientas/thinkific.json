@@ -4,7 +4,14 @@
   "urlPrecios": "https://www.thinkific.com/pricing/",
   "logoUrl": "",
   "categoriaId": "plataformas-todo-en-uno",
-  "categoriasSecundarias": [],
+  "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "comercio-electronico",
+    "creacion-web-hosting",
+    "facturacion-contabilidad",
+    "marketing-email",
+    "software-sectorial"
+  ],
   "subtiposSecundarios": [],
   "tipoProducto": "suite",
   "descripcion": "Thinkific es una plataforma de software basada en la nube que permite a creadores de contenido, educadores y empresas diseñar, comercializar y vender cursos en línea y comunidades virtuales. Ofrece herramientas de personalización de sitios web, gestión de estudiantes, evaluaciones y procesamiento de pagos sin requerir conocimientos avanzados de programación.",

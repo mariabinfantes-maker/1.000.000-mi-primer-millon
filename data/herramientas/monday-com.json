@@ -164,8 +164,14 @@
   "tipoProducto": "suite",
   "categoriasSecundarias": [
     "asistentes-ia",
+    "atencion-cliente",
+    "automatizacion-integraciones",
     "crm",
-    "plataformas-todo-en-uno"
+    "facturacion-contabilidad",
+    "firma-gestion-documental",
+    "marketing-email",
+    "plataformas-todo-en-uno",
+    "recursos-humanos"
   ],
   "tipoPlanGratuito": "indefinido",
   "preciosComprobados": {

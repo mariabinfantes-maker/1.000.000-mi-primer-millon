@@ -3,6 +3,10 @@
   "paginaOficial": "https://salesflare.com/",
   "urlPrecios": "https://salesflare.com/pricing",
   "categoriaId": "crm",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "marketing-email"
+  ],
   "descripcion": "Salesflare es un CRM inteligente diseñado para pequeñas y medianas empresas B2B que automatiza casi por completo la entrada de datos. Se conecta a las cuentas de correo, calendarios y redes sociales para rastrear interacciones y oportunidades de venta sin esfuerzo manual.",
   "informacionEmpresa": {
     "anioFundacion": 2014,

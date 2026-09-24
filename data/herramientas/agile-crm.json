@@ -5,7 +5,12 @@
   "logoUrl": "",
   "categoriaId": "crm",
   "categoriasSecundarias": [
-    "gestion-proyectos"
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "firma-gestion-documental",
+    "gestion-proyectos",
+    "recursos-humanos",
+    "reservas-citas"
   ],
   "descripcion": "Agile CRM es un software todo en uno que combina automatización de ventas, marketing y atención al cliente en una sola plataforma. Está diseñado para pequeñas y medianas empresas que buscan centralizar la gestión de sus contactos y procesos comerciales sin incurrir en costes elevados.",
   "informacionEmpresa": {

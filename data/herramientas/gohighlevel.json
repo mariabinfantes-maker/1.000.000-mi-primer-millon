@@ -109,7 +109,13 @@
   ],
   "tipoProducto": "suite",
   "categoriasSecundarias": [
-    "crm"
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "creacion-web-hosting",
+    "crm",
+    "facturacion-contabilidad",
+    "marketing-email",
+    "reservas-citas"
   ],
   "tipoPlanGratuito": "prueba",
   "pruebaGratuitaDias": 14,

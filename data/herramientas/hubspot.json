@@ -114,7 +114,12 @@
   "tipoProducto": "suite",
   "categoriasSecundarias": [
     "asistentes-ia",
-    "crm"
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "creacion-web-hosting",
+    "crm",
+    "facturacion-contabilidad",
+    "marketing-email"
   ],
   "tipoPlanGratuito": "indefinido",
   "preciosComprobados": {

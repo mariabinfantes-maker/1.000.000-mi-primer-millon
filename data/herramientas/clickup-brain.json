@@ -5,6 +5,8 @@
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
   "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "firma-gestion-documental",
     "gestion-proyectos"
   ],
   "subtipoId": "espacio-trabajo",

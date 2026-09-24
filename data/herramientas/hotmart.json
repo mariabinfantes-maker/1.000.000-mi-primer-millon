@@ -5,7 +5,12 @@
   "logoUrl": "",
   "categoriaId": "plataformas-todo-en-uno",
   "categoriasSecundarias": [
-    "asistentes-ia"
+    "asistentes-ia",
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "comercio-electronico",
+    "facturacion-contabilidad",
+    "marketing-email"
   ],
   "subtiposSecundarios": [],
   "tipoProducto": "suite",

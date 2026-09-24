@@ -4,6 +4,11 @@
   "urlPrecios": "https://www.paymoapp.com/pricing/",
   "logoUrl": "",
   "categoriaId": "gestion-proyectos",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "facturacion-contabilidad",
+    "recursos-humanos"
+  ],
   "descripcion": "Paymo es una plataforma integral de gestión de proyectos, seguimiento del tiempo y facturación diseñada para pequeñas empresas, agencias y freelancers. Permite planificar tareas, monitorear la rentabilidad del equipo y gestionar todo el ciclo de trabajo con los clientes en un solo lugar.",
   "informacionEmpresa": {
     "anioFundacion": 2008,

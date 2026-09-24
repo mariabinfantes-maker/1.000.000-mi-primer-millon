@@ -6,6 +6,8 @@
   "categoriaId": "gestion-proyectos",
   "categoriasSecundarias": [
     "asistentes-ia",
+    "atencion-cliente",
+    "automatizacion-integraciones",
     "crm"
   ],
   "descripcion": "Nifty es una plataforma de gestión de proyectos y colaboración integral que centraliza hitos, tareas, documentos y comunicación de equipo en un solo lugar. Ayuda a los equipos a automatizar sus flujos de trabajo y a mantener una visibilidad clara del progreso de sus proyectos mediante diagramas de Gantt y tableros Kanban.",

@@ -4,6 +4,9 @@
   "urlPrecios": "https://ganttpro.com/pricing/",
   "logoUrl": "",
   "categoriaId": "gestion-proyectos",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "GanttPRO es un software de gestión de proyectos basado en diagramas de Gantt interactivos diseñado para simplificar la planificación de proyectos, el seguimiento de tareas y la colaboración en equipo. Permite crear cronogramas detallados, gestionar recursos, calcular la ruta crítica y controlar el presupuesto en tiempo real.",
   "informacionEmpresa": {
     "anioFundacion": 2015,

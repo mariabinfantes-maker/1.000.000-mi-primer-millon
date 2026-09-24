@@ -5,7 +5,9 @@
   "logoUrl": "",
   "categoriaId": "crm",
   "categoriasSecundarias": [
-    "asistentes-ia"
+    "asistentes-ia",
+    "atencion-cliente",
+    "automatizacion-integraciones"
   ],
   "descripcion": "Salesmate es una plataforma unificada de CRM, automatización de ventas y marketing diseñada para ayudar a las pymes a gestionar clientes y acelerar ingresos. Ofrece gestión de embudos, secuencias de correo, automatización de procesos y telefonía integrada en un único lugar.",
   "informacionEmpresa": {

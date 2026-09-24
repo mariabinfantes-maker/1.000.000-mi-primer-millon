@@ -4,6 +4,9 @@
   "urlPrecios": "https://www.synthesia.io/pricing",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "Synthesia es una plataforma de generación de video mediante inteligencia artificial que permite crear videos profesionales a partir de texto utilizando avatares fotorrealistas y locuciones sintéticas. Está orientada principalmente a la creación de contenido de formación corporativa, onboarding, comunicaciones internas y marketing sin requerir cámaras, estudios ni actores.",
   "informacionEmpresa": {
     "anioFundacion": 2017,

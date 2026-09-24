@@ -5,7 +5,13 @@
   "logoUrl": "",
   "categoriaId": "crm",
   "categoriasSecundarias": [
-    "asistentes-ia"
+    "asistentes-ia",
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "facturacion-contabilidad",
+    "firma-gestion-documental",
+    "marketing-email",
+    "reservas-citas"
   ],
   "descripcion": "Nutshell es un CRM todo en uno y plataforma de automatización de ventas diseñada para ayudar a equipos B2B a organizar contactos, gestionar pipelines y cerrar negocios más rápido. Combina gestión comercial, automatización de correo electrónico y análisis de datos en una interfaz intuitiva y fácil de adoptar.",
   "informacionEmpresa": {

@@ -3,6 +3,9 @@
   "paginaOficial": "https://zenkit.com",
   "urlPrecios": "https://zenkit.com/en/pricing/",
   "categoriaId": "gestion-proyectos",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "Zenkit es una plataforma de gestión de proyectos y bases de datos colaborativa que permite transformar la información entre distintas vistas como Kanban, mapas mentales, tablas, listas y calendarios. Facilita la organización de flujos de trabajo personalizados y el seguimiento de tareas para equipos de todos los tamaños.",
   "informacionEmpresa": {
     "anioFundacion": 2016,

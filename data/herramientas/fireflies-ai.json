@@ -3,6 +3,9 @@
   "paginaOficial": "https://fireflies.ai",
   "urlPrecios": "https://fireflies.ai/pricing",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "Fireflies.ai es un asistente de reuniones impulsado por inteligencia artificial que graba, transcribe y analiza conversaciones en plataformas de videoconferencia de forma automática. Permite realizar búsquedas inteligentes dentro de las transcripciones, extraer acciones clave e integrar los resúmenes directamente en herramientas de gestión de proyectos y CRM.",
   "informacionEmpresa": {
     "anioFundacion": 2016,

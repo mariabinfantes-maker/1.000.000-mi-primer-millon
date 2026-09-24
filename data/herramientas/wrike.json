@@ -4,6 +4,9 @@
   "urlPrecios": "https://www.wrike.com/price/",
   "logoUrl": "",
   "categoriaId": "gestion-proyectos",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "Wrike es una plataforma de gestión de trabajo colaborativo basada en la nube que permite a los equipos planificar, gestionar y escalar proyectos con flexibilidad. Ofrece vistas personalizables como diagramas de Gantt y tableros Kanban, automatización de flujos de trabajo e informes avanzados en tiempo real.",
   "informacionEmpresa": {
     "anioFundacion": 2006,

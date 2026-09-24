@@ -107,6 +107,9 @@
   ],
   "tipoProducto": "suite",
   "categoriasSecundarias": [
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "comercio-electronico",
     "crm",
     "gestion-proyectos"
   ],

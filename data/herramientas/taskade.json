@@ -5,8 +5,16 @@
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
   "categoriasSecundarias": [
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "comercio-electronico",
+    "creacion-web-hosting",
     "crm",
-    "gestion-proyectos"
+    "facturacion-contabilidad",
+    "firma-gestion-documental",
+    "gestion-proyectos",
+    "marketing-email",
+    "recursos-humanos"
   ],
   "subtipoId": "espacio-trabajo",
   "tipoProducto": "especializada",

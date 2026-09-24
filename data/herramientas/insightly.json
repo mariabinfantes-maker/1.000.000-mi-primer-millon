@@ -6,7 +6,10 @@
   "categoriaId": "crm",
   "categoriasSecundarias": [
     "asistentes-ia",
-    "gestion-proyectos"
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "gestion-proyectos",
+    "marketing-email"
   ],
   "descripcion": "Insightly es un software de gestión de relaciones con los clientes (CRM) y gestión de proyectos diseñado para empresas en crecimiento. Combina el seguimiento de ventas, la automatización del flujo de trabajo y la gestión de proyectos tras la venta en una única plataforma unificada.",
   "informacionEmpresa": {

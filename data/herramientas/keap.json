@@ -147,7 +147,11 @@
   "tipoProducto": "suite",
   "categoriasSecundarias": [
     "asistentes-ia",
-    "crm"
+    "automatizacion-integraciones",
+    "crm",
+    "facturacion-contabilidad",
+    "marketing-email",
+    "reservas-citas"
   ],
   "tipoPlanGratuito": "prueba",
   "preciosComprobados": {

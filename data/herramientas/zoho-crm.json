@@ -3,6 +3,12 @@
   "paginaOficial": "https://www.zoho.com/crm/",
   "urlPrecios": "https://www.zoho.com/crm/pricing.html",
   "categoriaId": "crm",
+  "categoriasSecundarias": [
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "inventario-operaciones",
+    "marketing-email"
+  ],
   "descripcion": "Zoho CRM es una plataforma de gestión de relaciones con clientes basada en la nube que permite a empresas de todos los tamaños gestionar ventas, marketing y soporte técnico. Ofrece automatización de flujos de trabajo, análisis de rendimiento y un asistente impulsado por inteligencia artificial llamado Zia.",
   "informacionEmpresa": {
     "anioFundacion": 1996,

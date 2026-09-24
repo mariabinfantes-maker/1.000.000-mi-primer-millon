@@ -157,6 +157,7 @@
   "tipoProducto": "suite",
   "categoriasSecundarias": [
     "asistentes-ia",
+    "automatizacion-integraciones",
     "crm"
   ],
   "tipoPlanGratuito": "prueba",

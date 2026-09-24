@@ -114,8 +114,14 @@
   ],
   "tipoProducto": "suite",
   "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "comercio-electronico",
+    "creacion-web-hosting",
     "crm",
-    "gestion-proyectos"
+    "gestion-proyectos",
+    "inventario-operaciones",
+    "marketing-email",
+    "recursos-humanos"
   ],
   "tipoPlanGratuito": "prueba"
 }

@@ -4,6 +4,9 @@
   "urlPrecios": "https://asana.com/pricing",
   "logoUrl": null,
   "categoriaId": "gestion-proyectos",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "Asana es una plataforma de gestión del trabajo y colaboración en equipo diseñada para organizar, priorizar y realizar un seguimiento de tareas y proyectos. Facilita la visibilidad del flujo de trabajo a través de vistas en listas, tableros Kanban, cronogramas y calendarios, permitiendo a los equipos cumplir con sus objetivos de forma más eficiente.",
   "informacionEmpresa": {
     "anioFundacion": 2008,

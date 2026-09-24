@@ -6,6 +6,9 @@
   "categoriaId": "crm",
   "categoriasSecundarias": [
     "asistentes-ia",
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "facturacion-contabilidad",
     "gestion-proyectos"
   ],
   "descripcion": "noCRM.io es un software de gestión de oportunidades de venta diseñado específicamente para comerciales, enfocado en el seguimiento de leads más que en la recolección masiva de datos. Su filosofía elimina la burocracia de los CRM tradicionales centrándose siempre en la 'siguiente acción' para cerrar ventas.",

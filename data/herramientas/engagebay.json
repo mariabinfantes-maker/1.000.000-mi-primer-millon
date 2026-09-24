@@ -145,8 +145,12 @@
   ],
   "tipoProducto": "suite",
   "categoriasSecundarias": [
+    "atencion-cliente",
+    "automatizacion-integraciones",
     "crm",
-    "gestion-proyectos"
+    "gestion-proyectos",
+    "marketing-email",
+    "reservas-citas"
   ],
   "tipoPlanGratuito": "indefinido",
   "preciosComprobados": {
