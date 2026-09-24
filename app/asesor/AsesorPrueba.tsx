@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { VarianteA, VarianteB, type Camino as CaminoDetallado } from "./Variantes";
 import Boton from "@/components/ui/Boton";
+import SimboloMolnip from "@/components/ui/SimboloMolnip";
 
 /** La receta única de tarjeta de MOLNIP VISUAL v1. No se compone a mano. */
 const TARJETA = "rounded-2xl border border-slate-200/80 bg-white";
@@ -50,7 +51,7 @@ const EJEMPLOS = [
 function Dice({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex gap-3">
-      <div className="mt-1 h-8 w-8 shrink-0 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 shadow-premium" aria-hidden />
+      <SimboloMolnip className="mt-1 h-8 w-8 shrink-0 rounded-xl shadow-premium" />
       <div className="max-w-[85%] rounded-2xl border border-slate-200/80 bg-white px-4 py-3 leading-relaxed text-slate-700 shadow-premium">
         {children}
       </div>
@@ -103,10 +104,14 @@ export default function AsesorPrueba() {
         <p className="inline-block rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-800 ring-1 ring-brand-100">
           Versión de prueba · la web actual no cambia
         </p>
-        <h1 className="mt-4 font-display text-3xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-4xl">
-          Tu asesor de software
-        </h1>
-        <p className="mt-2 text-slate-600">Cuéntame tu problema. Yo busco, y te digo lo que sé y lo que no.</p>
+        <div className="mt-4 flex items-center gap-3">
+          <SimboloMolnip className="h-12 w-12 rounded-2xl shadow-premium" />
+          <div>
+            <h1 className="font-display text-3xl font-bold leading-[1.1] tracking-tight text-slate-900">Molnip</h1>
+            <p className="text-sm font-semibold text-slate-500">Tu asesor de software</p>
+          </div>
+        </div>
+        <p className="mt-3 text-slate-600">Cuéntame tu problema. Yo busco, y te digo lo que sé y lo que no.</p>
         <div className="mt-5 flex gap-1 rounded-full border border-slate-200/80 bg-white p-1 text-sm shadow-premium">
           {([["conversacion", "Conversación"], ["a", "A · Consejo"], ["b", "B · Tarjetas"]] as const).map(([k, n]) => (
             <button
