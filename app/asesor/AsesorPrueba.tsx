@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { VarianteA, VarianteB, type Camino as CaminoDetallado } from "./Variantes";
 
 /**
  * La versión de PRUEBA del asesor. Vive en /asesor y no sustituye a nada.
@@ -17,9 +18,9 @@ import { useState } from "react";
  */
 
 type Necesidad = { id: string; titulo: string };
-type Pieza = { herramientaId: string; nombre: string; cubre: string[]; casas: string[] };
-type Opcion = { piezas: Pieza[]; laConexionNoEstaComprobada: boolean };
-type Camino = { forma: string; titulo: string; queImplica: string; opciones: Opcion[]; hayMas: number };
+type Opcion = CaminoDetallado["opciones"][number];
+type Pieza = Opcion["piezas"][number];
+type Camino = CaminoDetallado;
 type Consejo = {
   caminos: Camino[];
   loQueHaria: Opcion | null;
@@ -66,6 +67,12 @@ export default function AsesorPrueba() {
   const [cargando, setCargando] = useState(false);
   const [abierto, setAbierto] = useState<string | null>(null);
   const [desplegado, setDesplegado] = useState<string | null>(null);
+  /**
+   * Las tres formas de enseñar el mismo consejo, para elegir usándolas.
+   * No es una opción del producto: es un banco de pruebas y se quita al
+   * decidir cuál se queda.
+   */
+  const [diseno, setDiseno] = useState<"conversacion" | "a" | "b">("conversacion");
 
   async function enviar(cuerpo: { texto?: string; necesidadIds?: string[] }) {
     setCargando(true);
@@ -82,6 +89,7 @@ export default function AsesorPrueba() {
   // La pregunta que más mueve, y sólo una: el resto se guarda para después de
   // que conteste. Enseñarle ocho a la vez es el formulario otra vez.
   const laPregunta = r?.preguntas?.[0];
+  const quePide = r?.comprension?.necesidades.map((n) => n.necesidad.titulo) ?? [];
 
   return (
     <div className="mx-auto flex min-h-screen max-w-2xl flex-col px-4 pt-28 pb-8 sm:px-6">
@@ -90,6 +98,17 @@ export default function AsesorPrueba() {
           Versión de prueba · la web actual no cambia
         </p>
         <h1 className="mt-3 font-display text-2xl font-bold text-slate-900">Tu asesor de software</h1>
+        <div className="mt-3 flex gap-1 rounded-full bg-slate-100 p-1 text-sm">
+          {([["conversacion", "Conversación"], ["a", "A · Consejo"], ["b", "B · Tarjetas"]] as const).map(([k, n]) => (
+            <button
+              key={k}
+              onClick={() => setDiseno(k)}
+              className={`flex-1 rounded-full px-3 py-1.5 font-semibold ${diseno === k ? "bg-white text-brand-700 shadow-sm" : "text-slate-600"}`}
+            >
+              {n}
+            </button>
+          ))}
+        </div>
       </header>
 
       <div className="flex-1 space-y-5">
@@ -155,7 +174,12 @@ export default function AsesorPrueba() {
                 <p className="font-semibold">No tengo nada que proponerte.</p>
                 <p className="mt-1">Y prefiero decírtelo antes que darte algo que no te sirve.</p>
               </Dice>
+            ) : diseno === "a" ? (
+              <VarianteA caminos={c.caminos} quePide={quePide} />
+            ) : diseno === "b" ? (
+              <VarianteB caminos={c.caminos} quePide={quePide} />
             ) : (
+
               <div className="space-y-3">
                 {c.caminos.map((cam, i) => (
                   <section key={cam.forma} className={`rounded-2xl border p-4 ${i === 0 ? "border-brand-600 bg-brand-50/40" : "border-slate-200"}`}>

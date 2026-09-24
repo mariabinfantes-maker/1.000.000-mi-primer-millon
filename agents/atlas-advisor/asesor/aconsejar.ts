@@ -18,6 +18,40 @@ import { buscar, type Solucion } from "./buscar";
  * sale de aquí**, que sólo lee datos verificados.
  */
 
+/**
+ * Lo que hay detrás de cada puerta de una herramienta.
+ *
+ * Las tres puertas salen del boceto de la propietaria (2026-09-24): «qué te
+ * resuelve», «coste y puesta en marcha», «límites y fuentes». No son adorno:
+ * cada una se llena con datos que ya tenemos y que hasta hoy no se enseñaban.
+ *
+ * La tercera es la que más importa. Es donde se ve CUÁNDO se comprobó cada
+ * cosa y DÓNDE, con la frase literal de su página. Es la diferencia entre
+ * «nos fiamos» y «míralo tú».
+ */
+export type QueResuelve = {
+  /** La necesidad suya, con sus palabras. */
+  necesidad: string;
+  /**
+   * Dónde y cuándo lo vimos. La frase literal existe y está en el registro,
+   * pero el puerto de evidencia la deja fuera a propósito, así que aquí no se
+   * inventa: se enlaza la página y se dice el día en que se abrió.
+   */
+  url?: string;
+  fecha?: string;
+};
+
+export type Coste = {
+  /** Tal cual lo dice el fabricante. No se traduce ni se redondea. */
+  desde?: string;
+  /** Cuándo se abrió esa página de precios, y cuál. Un precio sin fecha no vale. */
+  comprobadoEl?: string;
+  urlPrecios?: string;
+  tienePlanGratuito?: boolean;
+  curva?: string;
+  enEspanol?: boolean;
+};
+
 export type Pieza = {
   herramientaId: string;
   nombre: string;
@@ -25,6 +59,15 @@ export type Pieza = {
   cubre: string[];
   /** En qué casas vive. Sirve para contar dónde se buscó, no para ordenar. */
   casas: string[];
+  /** Puerta 1: qué te resuelve, con el recibo de cada cosa. */
+  queResuelve: QueResuelve[];
+  /** Puerta 2: coste y puesta en marcha. */
+  coste: Coste;
+  /**
+   * Puerta 3: lo que falta por confirmar DE ESTA herramienta. Nunca se
+   * convierte en «no lo hace»: dice qué no hemos podido comprobar.
+   */
+  faltaPorConfirmar: string[];
 };
 
 /**
@@ -85,15 +128,61 @@ export type Consejo = {
 
 function aPieza(
   s: Solucion,
-  nombres: Map<string, string>
+  fichas: Map<string, ReturnType<typeof getTodasLasHerramientas>[number]>,
+  delCaso: readonly NecesidadDelCaso[],
+  puerto: PuertoDeEvidencia
 ): { piezas: Pieza[]; laConexionNoEstaComprobada: boolean } {
   return {
-    piezas: s.partes.map((p) => ({
-      herramientaId: p.herramientaId,
-      nombre: nombres.get(p.herramientaId) ?? p.herramientaId,
-      cubre: p.cubre.map((id) => getNecesidad(id)?.titulo ?? id),
-      casas: p.casas,
-    })),
+    piezas: s.partes.map((p) => {
+      const h = fichas.get(p.herramientaId);
+      const queResuelve: QueResuelve[] = [];
+      const faltaPorConfirmar: string[] = [];
+
+      for (const id of p.cubre) {
+        const nec = getNecesidad(id);
+        if (!nec) continue;
+        // El recibo se busca en la capacidad imprescindible que la sostiene.
+        let cita: QueResuelve | undefined;
+        for (const cap of nec.imprescindibles) {
+          const ev = puerto.estadoDe(p.herramientaId, cap);
+          if (ev.estado !== "demostrada" || !ev.fuente) continue;
+          cita = { necesidad: nec.titulo, url: ev.fuente.url, fecha: ev.fuente.fechaConsulta };
+          if (ev.plan?.certeza !== "verificado") {
+            faltaPorConfirmar.push(`En qué plan entra «${nec.titulo.toLowerCase()}»: lo hemos visto en su página, pero no en qué tarifa.`);
+          }
+          break;
+        }
+        queResuelve.push(cita ?? { necesidad: nec.titulo });
+      }
+
+      // Lo que ella pidió y ESTA pieza no cubre. En una combinación lo pone la
+      // otra; en una sola, es un hueco y se dice.
+      for (const n of delCaso) {
+        if (p.cubre.includes(n.necesidad.id)) continue;
+        if (s.partes.some((o) => o.cubre.includes(n.necesidad.id))) continue;
+        faltaPorConfirmar.push(`No nos consta que cubra «${n.necesidad.titulo.toLowerCase()}».`);
+      }
+      if (h && !h.disponibleEnEspanol) {
+        faltaPorConfirmar.push("No hemos confirmado que esté en español.");
+      }
+
+      return {
+        herramientaId: p.herramientaId,
+        nombre: h?.nombre ?? p.herramientaId,
+        cubre: p.cubre.map((id) => getNecesidad(id)?.titulo ?? id),
+        casas: p.casas,
+        queResuelve,
+        coste: {
+          desde: h?.precioInicial,
+          comprobadoEl: h?.preciosComprobados?.fecha,
+          urlPrecios: h?.preciosComprobados?.url ?? h?.urlPrecios,
+          tienePlanGratuito: h?.tienePlanGratuito,
+          curva: h?.curvaDeAprendizaje,
+          enEspanol: h?.disponibleEnEspanol,
+        },
+        faltaPorConfirmar: [...new Set(faltaPorConfirmar)],
+      };
+    }),
     laConexionNoEstaComprobada: Boolean(s.laConexionNoEstaComprobada),
   };
 }
@@ -102,7 +191,7 @@ export function aconsejar(
   delCaso: readonly NecesidadDelCaso[],
   puerto: PuertoDeEvidencia = getPuertoDeEvidencia()
 ): Consejo {
-  const nombres = new Map(getTodasLasHerramientas().map((h) => [h.id, h.nombre]));
+  const fichas = new Map(getTodasLasHerramientas().map((h) => [h.id, h]));
   const r = buscar(delCaso, puerto);
   const dondeSeBusco = { herramientas: r.seMiraron, casas: r.casasRecorridas.length };
 
@@ -118,7 +207,7 @@ export function aconsejar(
   }
 
   const mejor = r.soluciones[0];
-  const loQueHaria = aPieza(mejor, nombres);
+  const loQueHaria = aPieza(mejor, fichas, delCaso, puerto);
 
   // Alternativa sólo lo que cubre LO MISMO. Una que cubre menos no es una
   // alternativa: es otra cosa, y ofrecerla sería rellenar hasta tres.
@@ -126,7 +215,7 @@ export function aconsejar(
     .slice(1)
     .filter((s) => s.cubreImprescindibles === mejor.cubreImprescindibles)
     .slice(0, 3)
-    .map((s) => aPieza(s, nombres));
+    .map((s) => aPieza(s, fichas, delCaso, puerto));
 
   // Los caminos se agrupan por FORMA, y sólo entran los que de verdad
   // resuelven tanto como el mejor: un camino que cubre menos no es una manera
@@ -145,14 +234,14 @@ export function aconsejar(
             forma: "todo-en-uno",
             titulo: "Todo en un sitio",
             queImplica: `Una sola herramienta se encarga de ${queCubre.map((c) => `«${c}»`).join(" y de ")}. Un programa que aprender y una cuota.`,
-            opciones: suyas.slice(0, A_LA_VISTA).map((s) => aPieza(s, nombres)),
+            opciones: suyas.slice(0, A_LA_VISTA).map((s) => aPieza(s, fichas, delCaso, puerto)),
             hayMas: Math.max(0, suyas.length - A_LA_VISTA),
           }
         : {
             forma: "por-separado",
             titulo: "Por separado",
             queImplica: `Cada herramienta hace una parte. Suelen ser más finas en lo suyo, y son dos programas y dos cuotas.`,
-            opciones: suyas.slice(0, A_LA_VISTA).map((s) => aPieza(s, nombres)),
+            opciones: suyas.slice(0, A_LA_VISTA).map((s) => aPieza(s, fichas, delCaso, puerto)),
             hayMas: Math.max(0, suyas.length - A_LA_VISTA),
           }
     );
