@@ -129,13 +129,24 @@ export function buscar(
     soluciones.push({ forma: "una_sola", partes: [c], ...n });
   }
 
-  // Después, las combinaciones, y SÓLO si aportan algo que ninguna sola da.
+  /**
+   * Después, las combinaciones.
+   *
+   * Se calculan aunque ya haya una herramienta que lo haga todo, porque
+   * repartir el trabajo es una ELECCIÓN legítima, no un plan B: dos
+   * especialistas suelen ser más finas en lo suyo, a cambio de dos programas,
+   * dos cuotas y de que no sabemos si se entienden entre ellas. Eso lo decide
+   * quien pregunta, no nosotros. *(Idea de la propietaria, 2026-09-24.)*
+   *
+   * Lo que NO entra es una combinación que resuelve menos que la mejor sola:
+   * eso no es otra manera de resolverlo, es resolverlo a medias.
+   */
   const mejorSola = Math.max(0, ...soluciones.map((s) => s.cubreImprescindibles));
-  if (mejorSola < imprescindibles.length && pedidos.size > 1) {
+  if (pedidos.size > 1) {
     for (const combo of combinaciones(coberturas, MAXIMO_DE_PIEZAS)) {
       const suyas = new Set(combo.flatMap((c) => c.cubre));
       const n = cuenta(suyas);
-      if (n.cubreImprescindibles <= mejorSola) continue;
+      if (n.cubreImprescindibles < mejorSola) continue;
       // Ninguna pieza puede sobrar: si quitándola se cubre lo mismo, sobra.
       const sobra = combo.some((pieza) => {
         const resto = new Set(combo.filter((o) => o !== pieza).flatMap((c) => c.cubre));
