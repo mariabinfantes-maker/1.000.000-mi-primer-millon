@@ -1,6 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import Boton from "@/components/ui/Boton";
+
+/**
+ * Nota de sistema: esto se reescribió el 2026-09-24 para cumplir MOLNIP
+ * VISUAL v1, que la primera versión se saltaba. Tres líneas congeladas
+ * cruzadas sin darse cuenta: los botones a mano en vez del componente
+ * `Boton`, la tarjeta sin su receta única y las superficies sin la sombra de
+ * marca. El aspecto «caro» no era algo que hubiera que inventar: estaba ya
+ * pagado y escrito.
+ */
+
+/** La receta única de tarjeta. 30 apariciones idénticas en el proyecto. */
+const TARJETA = "rounded-2xl border border-slate-200/80 bg-white";
 
 /**
  * Las tres formas de enseñar el MISMO consejo, para poder elegir usándolas.
@@ -32,12 +45,12 @@ function Puerta({ titulo, abierta, alPulsar, children }: {
   titulo: string; abierta: boolean; alPulsar: () => void; children: React.ReactNode;
 }) {
   return (
-    <div className="border-t border-slate-200 first:border-t-0">
-      <button onClick={alPulsar} className="flex w-full items-center justify-between py-3 text-left">
-        <span className="font-semibold text-slate-800">{titulo}</span>
-        <span className="text-slate-400">{abierta ? "−" : "+"}</span>
+    <div className="border-t border-slate-200/80 first:border-t-0">
+      <button onClick={alPulsar} className="flex w-full items-center justify-between gap-3 py-3.5 text-left">
+        <span className="text-sm font-semibold text-slate-800">{titulo}</span>
+        <span aria-hidden className={`text-brand-500 transition-transform ${abierta ? "rotate-45" : ""}`}>+</span>
       </button>
-      {abierta && <div className="pb-4 text-sm text-slate-700">{children}</div>}
+      {abierta && <div className="pb-4 text-sm leading-relaxed text-slate-600">{children}</div>}
     </div>
   );
 }
@@ -106,11 +119,13 @@ export function VarianteA({ caminos, quePide }: { caminos: Camino[]; quePide: st
   if (!principal) return null;
   return (
     <div className="space-y-4">
-      <section className="rounded-2xl bg-brand-50 p-4">
-        <p className="text-sm font-semibold text-slate-900">Lo que quieres resolver</p>
+      <section className={`${TARJETA} p-5 shadow-premium`}>
+        <p className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">Lo que quieres resolver</p>
         <div className="mt-2 flex flex-wrap gap-2">
           {quePide.map((q) => (
-            <span key={q} className="rounded-full bg-white px-3 py-1 text-sm text-brand-800">{q}</span>
+            <span key={q} className="rounded-full bg-brand-50 px-3 py-1.5 text-sm font-semibold text-brand-800 ring-1 ring-brand-100">
+              {q}
+            </span>
           ))}
         </div>
       </section>
@@ -123,25 +138,27 @@ export function VarianteA({ caminos, quePide }: { caminos: Camino[]; quePide: st
 
       <h2 className="font-display text-xl font-bold text-slate-900">Opciones para tu negocio</h2>
 
-      <section className="rounded-2xl border-2 border-brand-600 p-4">
-        <p className="font-display text-lg font-bold text-slate-900">
+      <section className={`${TARJETA} p-5 shadow-premium-lg ring-1 ring-brand-100`}>
+        <p className="text-xs font-semibold uppercase tracking-[0.08em] text-brand-600">
+          {caminos[0].titulo}
+        </p>
+        <p className="mt-1 font-display text-2xl font-bold tracking-tight text-slate-900">
           {principal.piezas.map((p) => p.nombre).join("  +  ")}
         </p>
-        <p className="text-sm text-slate-600">{caminos[0].titulo.toLowerCase()}</p>
         {principal.piezas.map((p) => <Detalle key={p.herramientaId} p={p} />)}
       </section>
 
       {otras.length > 0 && (
         <>
-          <button onClick={() => setMas(!mas)} className="w-full rounded-2xl border border-slate-300 py-3 font-semibold text-brand-700">
+          <Boton variante="secundario" onClick={() => setMas(!mas)} className="w-full">
             {mas ? "Ocultar alternativas" : `Ver más alternativas (${otras.length})`}
-          </button>
+          </Boton>
           {mas && (
             <ul className="space-y-2">
               {otras.slice(0, 8).map((o, i) => (
-                <li key={i} className="rounded-2xl border border-slate-200 p-3">
+                <li key={i} className={`${TARJETA} p-4`}>
                   <p className="font-semibold text-slate-900">{o.piezas.map((p) => p.nombre).join(" + ")}</p>
-                  <p className="text-sm text-slate-600">
+                  <p className="mt-0.5 text-sm text-slate-600">
                     {o.laConexionNoEstaComprobada
                       ? "Dos herramientas, y no hemos comprobado que se entiendan entre sí."
                       : "Otra que hace lo mismo."}
@@ -163,18 +180,20 @@ export function VarianteB({ caminos, quePide }: { caminos: Camino[]; quePide: st
   if (todas.length === 0) return null;
   return (
     <div className="space-y-4">
-      <section className="rounded-2xl bg-brand-50 p-4">
-        <p className="text-sm font-semibold text-slate-900">Buscas resolver</p>
+      <section className={`${TARJETA} p-5 shadow-premium`}>
+        <p className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">Buscas resolver</p>
         <div className="mt-2 flex flex-wrap gap-2">
           {quePide.map((q) => (
-            <span key={q} className="rounded-full bg-white px-3 py-1 text-sm text-brand-800">{q}</span>
+            <span key={q} className="rounded-full bg-brand-50 px-3 py-1.5 text-sm font-semibold text-brand-800 ring-1 ring-brand-100">
+              {q}
+            </span>
           ))}
         </div>
       </section>
 
-      <section className="rounded-2xl bg-slate-100 p-4">
-        <p className="font-semibold text-brand-800">La orientación de Molnip</p>
-        <p className="mt-1 text-slate-700">
+      <section className="rounded-2xl bg-brand-50 p-5 ring-1 ring-brand-100">
+        <p className="text-sm font-semibold text-brand-800">La orientación de Molnip</p>
+        <p className="mt-1.5 leading-relaxed text-slate-700">
           {caminos.length > 1
             ? `Puedes resolverlo en un solo sitio o separarlo. ${caminos[1].queImplica}`
             : caminos[0].queImplica}
@@ -182,19 +201,19 @@ export function VarianteB({ caminos, quePide }: { caminos: Camino[]; quePide: st
       </section>
 
       {todas.slice(0, mas ? 8 : 2).map(({ o, camino }, i) => (
-        <section key={i} className="rounded-2xl border border-slate-200 p-4">
-          <p className="font-display text-lg font-bold text-slate-900">
+        <section key={i} className={`${TARJETA} p-5 ${i === 0 ? "shadow-premium-lg" : "shadow-premium"}`}>
+          <p className="text-xs font-semibold uppercase tracking-[0.08em] text-brand-600">{camino.titulo}</p>
+          <p className="mt-1 font-display text-2xl font-bold tracking-tight text-slate-900">
             {o.piezas.map((p) => p.nombre).join("  +  ")}
           </p>
-          <p className="text-sm text-slate-600">{camino.titulo}</p>
           {o.piezas.map((p) => <Detalle key={p.herramientaId} p={p} />)}
         </section>
       ))}
 
       {todas.length > 2 && (
-        <button onClick={() => setMas(!mas)} className="w-full rounded-2xl border border-slate-300 py-3 font-semibold text-brand-700">
+        <Boton variante="secundario" onClick={() => setMas(!mas)} className="w-full">
           {mas ? "Mostrar menos" : `Mostrar más alternativas (${todas.length - 2})`}
-        </button>
+        </Boton>
       )}
     </div>
   );
