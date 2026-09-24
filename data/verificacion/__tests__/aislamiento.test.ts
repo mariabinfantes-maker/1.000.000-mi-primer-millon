@@ -44,6 +44,14 @@ describe("el aislamiento de la verificación", () => {
       path.join("agents", "atlas-advisor", "asesor", "buscar.ts"),
       "F3, 2026-09-24: el asesor busca atravesando las casas y sólo puede afirmar lo verificado, así que necesita el puerto de evidencia. Entra por `getPuertoDeEvidencia()`, la misma puerta de siempre, y no lee `registros.json` por su cuenta.",
     ],
+    [
+      path.join("agents", "atlas-advisor", "asesor", "aclarar.ts"),
+      "F3, 2026-09-24: para saber si una pregunta cambia el consejo hay que simular sus respuestas contra el catálogo real. Usa el mismo `getPuertoDeEvidencia()` y sólo se lo pasa a `buscar`; no lee ningún registro.",
+    ],
+    [
+      path.join("agents", "atlas-advisor", "asesor", "aconsejar.ts"),
+      "F3, 2026-09-24: redacta el consejo, y toda afirmación sobre una herramienta tiene que salir de datos verificados. Recibe el puerto por parámetro y no lee `registros.json`.",
+    ],
   ]);
   const EXENTOS = new Set(AUTORIZADOS.keys());
 
@@ -103,6 +111,8 @@ describe("el aislamiento de la verificación", () => {
       path.join("data", "vocabulario", "__tests__", "aislamiento.test.ts"),
       path.join("agents", "atlas-orchestrator", "tareas.ts"),
       path.join("agents", "atlas-advisor", "asesor", "buscar.ts"),
+      path.join("agents", "atlas-advisor", "asesor", "aclarar.ts"),
+      path.join("agents", "atlas-advisor", "asesor", "aconsejar.ts"),
     ]);
   });
 
