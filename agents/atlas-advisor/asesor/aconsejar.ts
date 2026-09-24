@@ -104,18 +104,60 @@ export type Camino = {
 /** Cuántas se enseñan sin desplegar. */
 const A_LA_VISTA = 4;
 
+/**
+ * LA REGLA DE LA CASA — aprobada por la propietaria el 2026-09-24.
+ *
+ *   «El asesor devuelve UNA recomendación, nunca una lista. Si no puede
+ *    elegir entre varias, no las enseña: dice que no puede y hace la única
+ *    pregunta que le permitiría decidir.»
+ *
+ * Nace de mirar lo que este módulo venía entregando: «4 lo hacen igual de
+ * bien», que es cierto y es una tabla comparativa escrita en prosa. Un
+ * comparador entrega una lista y deja que elijas; un asesor elige y te dice
+ * por qué. Si lo que sale de aquí es una lista, da igual cómo se llame la
+ * pantalla: es un comparador.
+ *
+ * No se confía en el criterio de quien escriba esto mañana. Hay una prueba
+ * que falla si alguna vez salen dos.
+ */
+
+/** Por qué ésta y no otra. Sale de datos verificados, nunca de una opinión. */
+export type Desempate = {
+  /** El motivo, dicho para quien pregunta. */
+  porQue: string;
+  /** Cuál de los criterios decidió. Se guarda para poder auditarlo. */
+  criterio: "idioma" | "plan-gratuito" | "precio" | "curva" | "unica";
+};
+
 export type Consejo = {
   /**
    * Las formas de resolverlo, la mejor primero. Vacío cuando no hay ninguna,
    * que es un resultado válido y no un fallo.
    */
   caminos: Camino[];
-  /** Lo que haría. Vacío cuando no hay nada que proponer, que es un resultado. */
-  loQueHaria: { piezas: Pieza[]; laConexionNoEstaComprobada: boolean } | null;
+  /**
+   * UNA. Nunca una lista. `null` cuando no hay nada que proponer o cuando
+   * varias empatan y no hay con qué decidir — y entonces se dice.
+   */
+  loQueHaria: { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; desempate: Desempate } | null;
+  /**
+   * Lo que hace falta saber para poder elegir. Sólo cuando `loQueHaria` es
+   * null por empate: es la única pregunta que decidiría, no una lista de
+   * preguntas.
+   */
+  loQueNecesitoSaber: string | null;
   /** Por qué: qué necesidad suya resuelve cada pieza. */
   porQue: string[];
-  /** Alternativas reales, no relleno: sólo las que cubren lo mismo. */
+  /**
+   * Las demás, de más cerca a más lejos. Cubren LO MISMO que la que manda:
+   * una que cubre menos no es una alternativa, es otra cosa.
+   *
+   * Recortadas a unas pocas. El boceto de la propietaria enseña tres, y tiene
+   * razón: catorce filas no son opciones, son el listado otra vez.
+   */
   alternativas: { piezas: Pieza[]; laConexionNoEstaComprobada: boolean }[];
+  /** Cuántas más hay detrás, para el desplegable. */
+  masAlternativas: number;
   /**
    * Lo que sigue sin comprobarse. Nunca se convierte en «no lo hace».
    * Incluye lo que nadie demuestra y, en las combinaciones, que no sabemos si
@@ -187,6 +229,141 @@ function aPieza(
   };
 }
 
+/**
+ * CÓMO SE ELIGE ENTRE VARIAS QUE CUBREN LO MISMO.
+ *
+ * Cuando empatan en lo que ella pidió, no empatan en todo lo demás: de esas
+ * herramientas tenemos idioma, plan gratuito, precio y curva, verificados y
+ * con su fecha. Ahí está la decisión, y es comprobable.
+ *
+ * El orden no es de calidad —«no somos jueces»— sino de qué obstáculo le
+ * quita antes a quien pregunta:
+ *
+ *  1. ESPAÑOL. Si una está en su idioma y la otra no, para una autónoma
+ *     española eso decide. No es que la otra sea peor: es que no está pensada
+ *     para ella.
+ *  2. PLAN GRATUITO. Poder probarla sin pagar quita el miedo a equivocarse,
+ *     que es lo que de verdad frena a quien no sabe de esto.
+ *  3. PRECIO DE ENTRADA, el verificado y con su fecha.
+ *  4. CURVA. La que se coge antes.
+ *
+ * Si después de los cuatro siguen empatadas, NO se enseñan las dos: se dice
+ * que no se puede elegir y se pregunta lo que decidiría.
+ */
+const CURVA_ORDEN: Record<string, number> = { muy_facil: 0, facil: 1, media: 2, dificil: 3 };
+
+type Opcion = { piezas: Pieza[]; laConexionNoEstaComprobada: boolean };
+
+/** El precio de entrada de una solución entera. Suma sus piezas. */
+function euros(o: Opcion): number | null {
+  let total = 0;
+  for (const p of o.piezas) {
+    const m = String(p.coste.desde ?? "").match(/(\d+(?:[.,]\d+)?)/);
+    if (!m) return null;
+    total += parseFloat(m[1].replace(",", "."));
+  }
+  return total;
+}
+
+const nombreDe = (o: Opcion) => o.piezas.map((p) => p.nombre).join(" + ");
+
+/**
+ * LAS DEMÁS, DE MÁS CERCA A MÁS LEJOS.
+ *
+ * La propietaria quiere ver también las otras, «en orden de cercanía al mejor
+ * servicio para ella» (2026-09-24), y eso encaja con la regla de la casa: una
+ * manda y las demás se ven debajo. Lo que no vale es que ese orden sea el
+ * alfabeto, que es lo que hacía antes y por lo que Agiled parecía la dueña.
+ *
+ * El orden es el MISMO del desempate, aplicado una y otra vez: menos piezas,
+ * español, plan gratuito, precio, curva. Así el segundo es segundo por una
+ * razón que se puede decir en voz alta, y no es un ranking de calidad —nadie
+ * es peor— sino distancia a lo que ella pidió.
+ */
+export function ordenarPorCercania(opciones: Opcion[]): Opcion[] {
+  const restantes = [...opciones];
+  const orden: Opcion[] = [];
+  while (restantes.length) {
+    const r = elegirUna(restantes);
+    const siguiente = "empate" in r ? restantes[0] : r.elegida;
+    orden.push(siguiente);
+    restantes.splice(restantes.indexOf(siguiente), 1);
+  }
+  return orden;
+}
+
+function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempate } | { empate: string } {
+  let opciones = candidatas;
+  if (opciones.length === 1) {
+    return { elegida: opciones[0], desempate: { criterio: "unica", porQue: "Es la única que cubre lo que me has contado." } };
+  }
+
+  /**
+   * ANTES QUE NADA, MENOS PIEZAS.
+   *
+   * Cubriendo lo mismo, una herramienta es mejor consejo que dos, y dos que
+   * tres: es un programa que aprender y una cuota, y no hace falta que hablen
+   * entre sí —que es justo lo que no podemos comprobar—. Sin esto, el
+   * desempate por precio recetaba tres programas a una peluquera porque
+   * sumaban menos euros, y eso no es asesorar.
+   */
+  const menosPiezas = Math.min(...opciones.map((o) => o.piezas.length));
+  const simples = opciones.filter((o) => o.piezas.length === menosPiezas);
+  if (simples.length === 1) {
+    return { elegida: simples[0], desempate: {
+      criterio: "unica",
+      porQue: menosPiezas === 1
+        ? `${nombreDe(simples[0])} se encarga de todo ella sola. Un programa que aprender y una cuota, en vez de varios que además tendrían que entenderse entre sí.`
+        : `Es la forma de cubrirlo con menos programas: ${menosPiezas} en vez de más.`,
+    } };
+  }
+  opciones = simples;
+
+  const enEspanol = opciones.filter((o) => o.piezas.every((p) => p.coste.enEspanol));
+  if (enEspanol.length === 1) {
+    return { elegida: enEspanol[0], desempate: {
+      criterio: "idioma",
+      porQue: `De las que te valen, ${nombreDe(enEspanol[0])} es la única que está en español. Las otras no están pensadas para trabajar en tu idioma.`,
+    } };
+  }
+  const quedan1 = enEspanol.length > 1 ? enEspanol : opciones;
+
+  const gratis = quedan1.filter((o) => o.piezas.every((p) => p.coste.tienePlanGratuito));
+  if (gratis.length === 1) {
+    return { elegida: gratis[0], desempate: {
+      criterio: "plan-gratuito",
+      porQue: `${nombreDe(gratis[0])} tiene plan gratuito, así que puedes probarla antes de pagar nada.`,
+    } };
+  }
+  const quedan2 = gratis.length > 1 ? gratis : quedan1;
+
+  const conPrecio = quedan2
+    .map((o) => ({ o, e: euros(o) }))
+    .filter((x): x is { o: Opcion; e: number } => x.e !== null)
+    .sort((a, b) => a.e - b.e);
+  if (conPrecio.length > 1 && conPrecio[0].e < conPrecio[1].e) {
+    return { elegida: conPrecio[0].o, desempate: {
+      criterio: "precio",
+      porQue: `Cubriendo lo mismo, ${nombreDe(conPrecio[0].o)} es la más barata para empezar. Míralo en su tarifa antes de decidir: los precios cambian.`,
+    } };
+  }
+  const quedan3 = conPrecio.length > 1 ? conPrecio.filter((x) => x.e === conPrecio[0].e).map((x) => x.o) : quedan2;
+
+  const curva = quedan3
+    .map((o) => ({ o, c: Math.max(...o.piezas.map((p) => CURVA_ORDEN[p.coste.curva ?? ""] ?? 9)) }))
+    .sort((a, b) => a.c - b.c);
+  if (curva.length > 1 && curva[0].c < curva[1].c && curva[0].c < 9) {
+    return { elegida: curva[0].o, desempate: {
+      criterio: "curva",
+      porQue: `Las dos te sirven, pero ${nombreDe(curva[0].o)} se coge antes. Para empezar, eso vale más que cualquier función de más.`,
+    } };
+  }
+
+  // No se enseñan las dos. Se dice que no se puede elegir y se pregunta.
+  return { empate: `${quedan3.length > 1 ? quedan3.length : opciones.length} salen igual de bien con lo que me has contado, y no tengo con qué decidir entre ellas. Dime cuánto puedes gastar al mes y si trabajas sola o con gente, y te digo cuál.` };
+}
+
+
 export function aconsejar(
   delCaso: readonly NecesidadDelCaso[],
   puerto: PuertoDeEvidencia = getPuertoDeEvidencia()
@@ -203,15 +380,14 @@ export function aconsejar(
   if (r.soluciones.length === 0) {
     // Decir que no es un resultado válido. Es la forma `no-cubierto` del
     // esqueleto, y existe para no rellenar con lo que haya.
-    return { caminos: [], loQueHaria: null, porQue: [], alternativas: [], sinComprobar, dondeSeBusco };
+    return { caminos: [], loQueHaria: null, loQueNecesitoSaber: null, porQue: [], alternativas: [], masAlternativas: 0, sinComprobar, dondeSeBusco };
   }
 
   const mejor = r.soluciones[0];
-  const loQueHaria = aPieza(mejor, fichas, delCaso, puerto);
 
   // Alternativa sólo lo que cubre LO MISMO. Una que cubre menos no es una
   // alternativa: es otra cosa, y ofrecerla sería rellenar hasta tres.
-  const alternativas = r.soluciones
+  let alternativas = r.soluciones
     .slice(1)
     .filter((s) => s.cubreImprescindibles === mejor.cubreImprescindibles)
     .slice(0, 3)
@@ -247,9 +423,31 @@ export function aconsejar(
     );
   }
 
-  const porQue = loQueHaria.piezas.map(
-    (p) => `${p.nombre} se encarga de ${p.cubre.map((c) => `«${c.toLowerCase()}»`).join(" y ")}.`
-  );
+  /**
+   * LA REGLA DE LA CASA, aplicada. De todas las que cubren lo mismo sale UNA,
+   * elegida con datos verificados, o ninguna y una pregunta. Nunca una lista.
+   */
+  const empatadas = r.soluciones
+    .filter((s) => s.cubreImprescindibles === mejor.cubreImprescindibles)
+    .map((s) => aPieza(s, fichas, delCaso, puerto));
+  const elegida = elegirUna(empatadas);
+
+  if ("empate" in elegida) {
+    if (mejor.cubreImprescindibles < mejor.deImprescindibles) {
+      sinComprobar.push(`De lo que me has contado, lo que he encontrado cubre ${mejor.cubreImprescindibles} de ${mejor.deImprescindibles} cosas.`);
+    }
+    return { caminos, loQueHaria: null, loQueNecesitoSaber: elegida.empate, porQue: [], alternativas: [], masAlternativas: 0, sinComprobar, dondeSeBusco };
+  }
+
+  const loQueHaria = { ...elegida.elegida, desempate: elegida.desempate };
+  // Las demás, de más cerca a más lejos, sin repetir la que manda.
+  const todasLasDemas = ordenarPorCercania(empatadas.filter((o) => o !== elegida.elegida));
+  alternativas = todasLasDemas.slice(0, A_LA_VISTA);
+  const masAlternativas = Math.max(0, todasLasDemas.length - A_LA_VISTA);
+  const porQue = [
+    ...loQueHaria.piezas.map((p) => `${p.nombre} se encarga de ${p.cubre.map((c) => `«${c.toLowerCase()}»`).join(" y ")}.`),
+    elegida.desempate.porQue,
+  ];
 
   if (loQueHaria.laConexionNoEstaComprobada) {
     sinComprobar.unshift(
@@ -258,10 +456,10 @@ export function aconsejar(
   }
   if (mejor.cubreImprescindibles < mejor.deImprescindibles) {
     sinComprobar.push(
-      `De lo que nos has contado, esto cubre ${mejor.cubreImprescindibles} de ${mejor.deImprescindibles} cosas.`
+      `De lo que me has contado, esto cubre ${mejor.cubreImprescindibles} de ${mejor.deImprescindibles} cosas.`
     );
   }
-  return { caminos, loQueHaria, porQue, alternativas, sinComprobar, dondeSeBusco };
+  return { caminos, loQueHaria, loQueNecesitoSaber: null, porQue, alternativas, masAlternativas, sinComprobar, dondeSeBusco };
 }
 
 /** Las reglas de presentación que este módulo tiene que respetar, para poder probarlas. */
