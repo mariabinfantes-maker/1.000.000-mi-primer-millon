@@ -152,9 +152,12 @@ describe("sobre los 1.547 registros reales", () => {
     // 1.541 del 2026-09-23, cuando la propietaria autorizó incorporar las dos
     // pasadas de verificación por casas. De los nuevos, 193 demuestran una
     // capacidad y el resto son «no consta» con dónde se miró anotado.
-    expect(registros.length).toBe(3088);
+    // 3.880 desde el 2026-09-24: las 808 comprobaciones de las cuatro necesidades
+    // que bloqueaban a nueve oficios. Se incorporaron porque cada pasada cuesta
+    // dinero real y, si el resultado no llega hasta aquí, no cambia nada.
+    expect(registros.length).toBe(3880);
     const verificados = registros.filter((r) => puerto.estadoDe(r.herramientaId, r.capacidadId).estado === "demostrada");
-    expect(verificados.length).toBe(855);
+    expect(verificados.length).toBe(863);
   });
 
   /**

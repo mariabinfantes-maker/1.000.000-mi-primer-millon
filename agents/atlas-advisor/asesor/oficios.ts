@@ -1,6 +1,8 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { getNecesidad, type NecesidadDelCaso } from "@/data/vocabulario/necesidades";
+import { getPuertoDeEvidencia } from "@/data/verificacion/consulta";
+import type { PuertoDeEvidencia } from "@/data/verificacion/puerto";
 
 /**
  * LAS CASAS DE MOLNIP SON OFICIOS.
@@ -23,10 +25,76 @@ export type Oficio = {
   nombre: string;
   /** Las necesidades que trae este oficio, del vocabulario. */
   necesidades: string[];
-  /** Cuántas de las suyas cubría alguien el día que se midió. Es un dato, no una nota. */
+  /**
+   * Lo que se midió el día que se escribió el archivo. Se conserva como
+   * fotografía, pero NO se usa para decidir nada: para eso está
+   * `podemosServirA()`, que lee la evidencia de ahora.
+   */
   cubiertasHoy: number;
   deCuantas: number;
 };
+
+/**
+ * EL NÚCLEO DE UN OFICIO: lo que si falla le deja con el problema por el que
+ * vino. Una peluquera sin agenda no tiene negocio.
+ *
+ * Vive como dato, no en un documento, por una razón que dijo la propietaria
+ * el 2026-09-24: «lo que nos suele suceder es que hacemos una investigación y
+ * la dejamos encerrada donde luego no se conecta con la inteligencia de
+ * Molnip, y esa información queda perdida». Cada pasada de verificación
+ * cuesta dinero de verdad; si el resultado no llega hasta aquí, ese dinero no
+ * cambia nada.
+ */
+type Nucleos = { oficios: Record<string, { nucleo: string[]; porQue: string }> };
+
+let nucleos: Nucleos | undefined;
+function leerNucleos(): Nucleos {
+  if (!nucleos) {
+    nucleos = JSON.parse(readFileSync(join(process.cwd(), "data", "oficios", "nucleo.json"), "utf8")) as Nucleos;
+  }
+  return nucleos;
+}
+
+export type EstadoDeUnOficio = {
+  oficio: Oficio;
+  /** El porqué de su núcleo, escrito a mano y revisable. */
+  porQue: string;
+  /** Podemos hacernos cargo: TODO su núcleo está cubierto por alguien. */
+  servido: boolean;
+  /** Lo que le falta del núcleo, con sus palabras. Vacío si está servido. */
+  leFalta: string[];
+};
+
+/**
+ * ¿Podemos hacernos cargo de este oficio? Se calcula con la evidencia de
+ * AHORA, no con el número que había el día que se escribió el archivo. Así,
+ * cuando una pasada de verificación encuentra algo, esto cambia solo.
+ */
+export function estadoDeUnOficio(id: string, puerto: PuertoDeEvidencia = getPuertoDeEvidencia()): EstadoDeUnOficio | undefined {
+  const oficio = getOficio(id);
+  const nuc = leerNucleos().oficios[id];
+  if (!oficio || !nuc) return undefined;
+
+  const leFalta: string[] = [];
+  for (const necesidadId of nuc.nucleo) {
+    const n = getNecesidad(necesidadId);
+    if (!n) continue;
+    // La cubre quien demuestre TODOS sus imprescindibles.
+    const quienes = n.imprescindibles.length
+      ? puerto.herramientasQueDemuestran(n.imprescindibles[0])
+          .filter((h) => n.imprescindibles.every((c) => puerto.estadoDe(h, c).estado === "demostrada"))
+      : [];
+    if (quienes.length === 0) leFalta.push(n.titulo);
+  }
+  return { oficio, porQue: nuc.porQue, servido: leFalta.length === 0, leFalta };
+}
+
+/** A quién podemos servir hoy. Sale del dato, no de un documento. */
+export function aQuienServimos(puerto: PuertoDeEvidencia = getPuertoDeEvidencia()): EstadoDeUnOficio[] {
+  return getOficios()
+    .map((o) => estadoDeUnOficio(o.id, puerto))
+    .filter((e): e is EstadoDeUnOficio => Boolean(e));
+}
 
 type Archivo = { version: string; fecha: string; porQue: string; oficios: Oficio[] };
 

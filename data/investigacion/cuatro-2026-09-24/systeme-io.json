@@ -1,0 +1,16 @@
+{
+ "id": "systeme-io",
+ "nombre": "Systeme.io",
+ "url": "https://systeme.io",
+ "precios": "https://systeme.io/pricing",
+ "caps": [
+  "cap.personal_calendar_planning",
+  "cap.case_file_management",
+  "cap.file_storage"
+ ],
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.personal_calendar_planning\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.case_file_management\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.file_storage\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://systeme.io/",
+  "OK https://systeme.io/pricing"
+ ]
+}

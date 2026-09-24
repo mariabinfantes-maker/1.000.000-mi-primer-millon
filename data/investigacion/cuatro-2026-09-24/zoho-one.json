@@ -1,0 +1,17 @@
+{
+ "id": "zoho-one",
+ "nombre": "Zoho One",
+ "url": "https://www.zoho.com/one/",
+ "precios": "https://www.zoho.com/one/pricing.html",
+ "caps": [
+  "cap.per_resource_booking_calendar",
+  "cap.capacity_and_time_slots",
+  "cap.booking_waitlist",
+  "cap.room_and_equipment_booking"
+ ],
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.per_resource_booking_calendar\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.capacity_and_time_slots\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.booking_waitlist\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.room_and_equipment_booking\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://www.zoho.com/one/",
+  "OK https://www.zoho.com/one/pricing/"
+ ]
+}

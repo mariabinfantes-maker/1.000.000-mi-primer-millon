@@ -49,6 +49,10 @@ describe("el aislamiento de la verificación", () => {
       "F3, 2026-09-24: para saber si una pregunta cambia el consejo hay que simular sus respuestas contra el catálogo real. Usa el mismo `getPuertoDeEvidencia()` y sólo se lo pasa a `buscar`; no lee ningún registro.",
     ],
     [
+      path.join("agents", "atlas-advisor", "asesor", "oficios.ts"),
+      "F3, 2026-09-24: «a quién podemos servir» se calcula de la evidencia de AHORA y no de un número escrito a mano en un documento, que es donde se perdían las investigaciones. Entra por `getPuertoDeEvidencia()` y no lee `registros.json` por su cuenta.",
+    ],
+    [
       path.join("agents", "atlas-advisor", "asesor", "aconsejar.ts"),
       "F3, 2026-09-24: redacta el consejo, y toda afirmación sobre una herramienta tiene que salir de datos verificados. Recibe el puerto por parámetro y no lee `registros.json`.",
     ],
@@ -112,6 +116,7 @@ describe("el aislamiento de la verificación", () => {
       path.join("agents", "atlas-orchestrator", "tareas.ts"),
       path.join("agents", "atlas-advisor", "asesor", "buscar.ts"),
       path.join("agents", "atlas-advisor", "asesor", "aclarar.ts"),
+      path.join("agents", "atlas-advisor", "asesor", "oficios.ts"),
       path.join("agents", "atlas-advisor", "asesor", "aconsejar.ts"),
     ]);
   });

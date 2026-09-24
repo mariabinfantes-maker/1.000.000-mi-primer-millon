@@ -176,14 +176,17 @@ describe("«no consta» no es «no lo tiene»", () => {
     expect(describir(de(), "Embudo de ventas")).toContain("a partir del plan Lite");
   });
 
-  // ── Sobre los 3.088 registros reales ──────────────────────────────────
+  // ── Sobre los 3.880 registros reales ──────────────────────────────────
   // 1.547 hasta el 2026-09-22 y 1.541 más el 2026-09-23, cuando la propietaria
   // autorizó incorporar las dos pasadas de verificación por casas. Los nuevos
   // «no consta» llevan nota, y sus notas dicen dónde se miró, nunca lo que la
   // herramienta deja de hacer: por eso ninguna cae en `afirmaAusencia`.
-  it("ninguno de los 3.088 registros reales produce una afirmación de ausencia", () => {
+  it("ninguno de los 3.880 registros reales produce una afirmación de ausencia", () => {
     const registros = getRegistros();
-    expect(registros.length).toBe(3088);
+    // 3.880 desde el 2026-09-24: las 808 comprobaciones de las cuatro necesidades
+    // que bloqueaban a nueve oficios. Se incorporaron porque cada pasada cuesta
+    // dinero real y, si el resultado no llega hasta aquí, no cambia nada.
+    expect(registros.length).toBe(3880);
     const malas = registros
       .map((r) => describir(evidenciaDeRegistro(r.herramientaId, r.capacidadId, r), r.capacidadId))
       .filter(afirmaAusencia);

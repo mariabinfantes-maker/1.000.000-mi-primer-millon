@@ -1,0 +1,67 @@
+{
+  "escritoEl": "2026-09-24",
+  "quePregunta": "¿De qué oficios podemos hacernos cargo? No «a cuántos les cubrimos algo», que eso ya lo sabíamos y no contesta nada: de quién podemos RESPONDER.",
+  "comoSeDecide": "Dentro de cada oficio, sus necesidades se parten en dos, igual que el vocabulario parte cada necesidad en imprescindibles y ayudan. NÚCLEO es lo que si falla no le hemos servido: la persona se va con el problema por el que vino. AYUDA es lo demás, que suma y no define. Podemos hacernos cargo de un oficio cuando cubrimos TODO su núcleo. Esto es criterio, no cálculo, y por eso está escrito aquí para corregirlo de un vistazo.",
+  "oficios": {
+    "peluqueria": {
+      "nucleo": ["nec.que-reserven-solos", "nec.mi-agenda", "nec.cobrar-en-el-mostrador"],
+      "porQue": "Vive de la agenda y del mostrador. Si pierde citas o no cobra, lo demás da igual."
+    },
+    "restaurante": {
+      "nucleo": ["nec.cobrar-en-el-mostrador", "nec.el-stock", "nec.comprar-a-proveedores"],
+      "porQue": "Caja, género y proveedores. Sin eso no abre, por muy bien que lleve las reservas."
+    },
+    "taller": {
+      "nucleo": ["nec.presupuestar-rapido", "nec.expedientes", "nec.el-stock"],
+      "porQue": "Presupuesta antes de tocar, guarda el historial del vehículo y necesita saber si tiene la pieza."
+    },
+    "reformas": {
+      "nucleo": ["nec.presupuestar-rapido", "nec.facturar-por-lo-avanzado", "nec.proyectos-largos"],
+      "porQue": "La obra se presupuesta, se certifica por fases y dura meses. Ése es el oficio."
+    },
+    "instalador": {
+      "nucleo": ["nec.mi-agenda", "nec.el-trabajo-de-fuera", "nec.presupuestar-rapido"],
+      "porQue": "Su trabajo pasa fuera y se organiza por avisos. Sin agenda y sin parte de trabajo no hay servicio."
+    },
+    "creativo": {
+      "nucleo": ["nec.presupuestar-rapido", "nec.saber-cuanto-tiempo-echo", "nec.emitir-una-factura-legal"],
+      "porQue": "Cobra por horas o por proyecto: presupuestar, medir el tiempo y facturarlo es el ciclo entero."
+    },
+    "asesoria": {
+      "nucleo": ["nec.expedientes", "nec.papeles-ordenados", "nec.firmar-documentos"],
+      "porQue": "Su materia prima son expedientes y papeles firmados. Es lo que vende."
+    },
+    "agencia": {
+      "nucleo": ["nec.proyectos-largos", "nec.saber-cuanto-tiempo-echo", "nec.seguir-sin-olvidarme-de-nadie"],
+      "porQue": "Lleva varios clientes a la vez y factura tiempo. Perder el hilo de uno le cuesta la cuenta."
+    },
+    "academia": {
+      "nucleo": ["nec.dar-clases", "nec.cuotas-cada-mes", "nec.mi-agenda"],
+      "porQue": "Da clases, cobra cuotas y cuadra horarios. Sin las tres no es una academia."
+    },
+    "clinica": {
+      "nucleo": ["nec.historia-clinica", "nec.que-reserven-solos", "nec.cumplir-el-rgpd"],
+      "porQue": "La historia clínica y la protección de datos no son opcionales: son ley."
+    },
+    "tienda": {
+      "nucleo": ["nec.cobrar-en-el-mostrador", "nec.el-stock", "nec.comprar-a-proveedores"],
+      "porQue": "Caja, existencias y reposición. Es el oficio entero."
+    },
+    "entrenador": {
+      "nucleo": ["nec.que-reserven-solos", "nec.mi-agenda", "nec.cuotas-cada-mes"],
+      "porQue": "Vende sesiones y bonos con cuota: reservar, cuadrar y cobrar cada mes."
+    },
+    "inmobiliaria": {
+      "nucleo": ["nec.seguir-sin-olvidarme-de-nadie", "nec.contratos-que-no-se-me-pasen", "nec.liquidar-a-terceros"],
+      "porQue": "Seguimiento de interesados, contratos con vencimiento y liquidar al propietario."
+    },
+    "transporte": {
+      "nucleo": ["nec.mis-maquinas", "nec.el-trabajo-de-fuera", "nec.emitir-una-factura-legal"],
+      "porQue": "La flota es el negocio, el trabajo pasa en carretera y se factura por servicio."
+    },
+    "taller-artesano": {
+      "nucleo": ["nec.fabricar", "nec.el-stock", "nec.saber-si-gano-en-cada-trabajo"],
+      "porQue": "Fabrica: necesita saber qué lleva cada pieza, qué material tiene y si gana con ella."
+    }
+  }
+}

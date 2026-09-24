@@ -210,7 +210,7 @@ describe("y los 1.547 registros de hoy no cambian de comportamiento", () => {
     expect(registros.filter((r) => r.profundidad === "no_disponible")).toEqual([]);
   });
 
-  it("los 855 verificados siguen siendo capacidad demostrada", () => {
+  it("los 863 verificados siguen siendo capacidad demostrada", () => {
     const demostradas = registros.filter(
       (r) => evidenciaDeRegistro(r.herramientaId, r.capacidadId, r).estado === "demostrada"
     );
@@ -218,7 +218,10 @@ describe("y los 1.547 registros de hoy no cambian de comportamiento", () => {
     // 2026-09-23 (la de la firma y las 150 dirigidas). Ninguno de los nuevos
     // cambia el comportamiento que vigila esta prueba: siguen siendo
     // capacidad demostrada y ninguno es una ausencia.
-    expect(demostradas.length).toBe(855);
+    // 3.880 desde el 2026-09-24: las 808 comprobaciones de las cuatro necesidades
+    // que bloqueaban a nueve oficios. Se incorporaron porque cada pasada cuesta
+    // dinero real y, si el resultado no llega hasta aquí, no cambia nada.
+    expect(demostradas.length).toBe(863);
   });
 
   it("y ninguno cae en el estado nuevo", () => {

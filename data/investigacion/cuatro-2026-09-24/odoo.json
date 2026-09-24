@@ -1,0 +1,17 @@
+{
+ "id": "odoo",
+ "nombre": "Odoo",
+ "url": "https://www.odoo.com/",
+ "precios": "https://www.odoo.com/pricing",
+ "caps": [
+  "cap.point_of_sale",
+  "cap.menu_management",
+  "cap.order_management",
+  "cap.offer_catalog"
+ ],
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.point_of_sale\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.menu_management\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.order_management\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.offer_catalog\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://www.odoo.com/",
+  "OK https://www.odoo.com/pricing"
+ ]
+}
