@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { VarianteA, VarianteB, type Camino as CaminoDetallado } from "./Variantes";
 import Boton from "@/components/ui/Boton";
 import SimboloMolnip from "@/components/ui/SimboloMolnip";
@@ -23,6 +23,7 @@ const TARJETA = "rounded-2xl border border-slate-200/80 bg-white";
  */
 
 type Necesidad = { id: string; titulo: string };
+type Oficio = { id: string; nombre: string; cubiertasHoy: number; deCuantas: number };
 type Opcion = CaminoDetallado["opciones"][number];
 type Pieza = Opcion["piezas"][number];
 type Camino = CaminoDetallado;
@@ -79,9 +80,19 @@ export default function AsesorPrueba() {
    * No es una opción del producto: es un banco de pruebas y se quita al
    * decidir cuál se queda.
    */
-  const [diseno, setDiseno] = useState<"conversacion" | "a" | "b">("conversacion");
+  const [diseno, setDiseno] = useState<"conversacion" | "a" | "b">("a");
+  /**
+   * Las casas de Molnip son OFICIOS (decisión de la propietaria, 2026-09-24).
+   * Es la puerta principal: se entra diciendo qué eres, no qué software
+   * buscas. Lo segundo es comparar, y Molnip no compara.
+   */
+  const [oficios, setOficios] = useState<Oficio[]>([]);
+  const [oficioElegido, setOficioElegido] = useState<Oficio | null>(null);
+  useEffect(() => {
+    fetch("/api/asesor").then((r) => r.json()).then((d) => setOficios(d.oficios ?? [])).catch(() => {});
+  }, []);
 
-  async function enviar(cuerpo: { texto?: string; necesidadIds?: string[] }) {
+  async function enviar(cuerpo: { texto?: string; necesidadIds?: string[]; oficioId?: string }) {
     setCargando(true);
     const res = await fetch("/api/asesor", {
       method: "POST",
@@ -126,11 +137,27 @@ export default function AsesorPrueba() {
       </header>
 
       <div className="flex-1 space-y-6">
-        {dicho.length === 0 && (
-          <Dice>
-            <p>Cuéntame qué te pasa en tu negocio, con tus palabras.</p>
-            <p className="mt-1 text-sm text-slate-600">No hace falta que sepas qué herramienta necesitas.</p>
-          </Dice>
+        {dicho.length === 0 && !r && (
+          <>
+            <Dice>
+              <p>¿A qué te dedicas?</p>
+              <p className="mt-1 text-sm text-slate-600">
+                Con eso me basta para empezar. Si prefieres contármelo con tus palabras, escríbeme abajo.
+              </p>
+            </Dice>
+            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+              {oficios.map((o) => (
+                <button
+                  key={o.id}
+                  onClick={() => { setOficioElegido(o); setDicho([`Soy ${o.nombre.toLowerCase()}`]); enviar({ oficioId: o.id }); }}
+                  className={`${TARJETA} flex items-center justify-between gap-3 px-4 py-3.5 text-left shadow-premium transition hover:border-brand-200`}
+                >
+                  <span className="font-semibold text-slate-900">{o.nombre}</span>
+                  <span aria-hidden className="text-brand-400">→</span>
+                </button>
+              ))}
+            </div>
+          </>
         )}
         {dicho.map((d, i) => <Digo key={i}>{d}</Digo>)}
 
@@ -160,13 +187,22 @@ export default function AsesorPrueba() {
         {c && (
           <>
             <Dice>
-              <p>
-                He entendido que necesitas {r?.comprension?.necesidades.map((n) => `«${n.necesidad.titulo.toLowerCase()}»`).join(" y ")}.
-              </p>
+              {oficioElegido ? (
+                <p>
+                  Con lo que suele hacer falta en {oficioElegido.nombre.toLowerCase()}, he mirado{" "}
+                  {r?.comprension?.necesidades.length} cosas. Quita lo que no sea tuyo y dime lo que falte.
+                </p>
+              ) : (
+                <p>
+                  He entendido que necesitas {r?.comprension?.necesidades.map((n) => `«${n.necesidad.titulo.toLowerCase()}»`).join(" y ")}.
+                </p>
+              )}
               {c.caminos.length > 1 && (
                 <p className="mt-2">Se puede abordar de dos maneras, y la elección es tuya.</p>
               )}
-              {!r?.leyoLaIA && <p className="mt-2 text-sm text-slate-500">Esto lo has elegido tú, no lo he leído de tu texto.</p>}
+              {!r?.leyoLaIA && !oficioElegido && (
+              <p className="mt-2 text-sm text-slate-500">Esto lo has elegido tú, no lo he leído de tu texto.</p>
+            )}
             </Dice>
 
             {laPregunta && (

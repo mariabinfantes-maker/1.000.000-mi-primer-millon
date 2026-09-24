@@ -1,0 +1,277 @@
+{
+  "version": "1.0.0",
+  "fecha": "2026-09-24",
+  "porQue": "Las casas de Molnip son OFICIOS, no tipos de software. Decisión de la propietaria del 2026-09-24: «yo quiero ser un asesor y asesorar a pymes, clínicas, pequeñas empresas». Una peluquera no sabe que necesita un CRM: sabe que es peluquera. Entrar por «qué eres» es asesorar; entrar por «qué software buscas» es comparar, y eso es lo que Molnip no es. Las categorías de producto (data/categorias.json) NO se borran: se quedan dentro, para que el motor sepa qué es cada herramienta. La clienta no tiene por qué verlas.",
+  "oficios": [
+    {
+      "id": "peluqueria",
+      "nombre": "Peluquería y estética",
+      "necesidades": [
+        "nec.que-reserven-solos",
+        "nec.mi-agenda",
+        "nec.emitir-una-factura-legal",
+        "nec.cobrar-en-el-mostrador",
+        "nec.que-repitan",
+        "nec.que-me-encuentren",
+        "nec.el-stock",
+        "nec.el-equipo-organizado",
+        "nec.responder-por-donde-escriban",
+        "nec.la-factura-obligatoria"
+      ],
+      "cubiertasHoy": 4,
+      "deCuantas": 10
+    },
+    {
+      "id": "restaurante",
+      "nombre": "Restaurante y bar",
+      "necesidades": [
+        "nec.cobrar-en-el-mostrador",
+        "nec.que-reserven-solos",
+        "nec.comprar-a-proveedores",
+        "nec.el-stock",
+        "nec.el-equipo-organizado",
+        "nec.emitir-una-factura-legal",
+        "nec.la-factura-obligatoria",
+        "nec.que-me-encuentren",
+        "nec.que-repitan",
+        "nec.saber-si-estan-contentos"
+      ],
+      "cubiertasHoy": 5,
+      "deCuantas": 10
+    },
+    {
+      "id": "taller",
+      "nombre": "Taller mecánico",
+      "necesidades": [
+        "nec.presupuestar-rapido",
+        "nec.emitir-una-factura-legal",
+        "nec.la-factura-obligatoria",
+        "nec.expedientes",
+        "nec.mi-agenda",
+        "nec.el-stock",
+        "nec.comprar-a-proveedores",
+        "nec.mis-maquinas",
+        "nec.que-me-paguen",
+        "nec.que-repitan"
+      ],
+      "cubiertasHoy": 5,
+      "deCuantas": 10
+    },
+    {
+      "id": "reformas",
+      "nombre": "Reformas y construcción",
+      "necesidades": [
+        "nec.presupuestar-rapido",
+        "nec.facturar-por-lo-avanzado",
+        "nec.emitir-una-factura-legal",
+        "nec.proyectos-largos",
+        "nec.el-trabajo-de-fuera",
+        "nec.que-me-paguen",
+        "nec.saber-si-gano-en-cada-trabajo",
+        "nec.comprar-a-proveedores",
+        "nec.mis-maquinas",
+        "nec.firmar-documentos"
+      ],
+      "cubiertasHoy": 9,
+      "deCuantas": 10
+    },
+    {
+      "id": "instalador",
+      "nombre": "Fontanería, electricidad e instalación",
+      "necesidades": [
+        "nec.mi-agenda",
+        "nec.el-trabajo-de-fuera",
+        "nec.presupuestar-rapido",
+        "nec.emitir-una-factura-legal",
+        "nec.que-me-paguen",
+        "nec.expedientes",
+        "nec.mis-maquinas",
+        "nec.el-stock",
+        "nec.que-no-se-pierda-una-pregunta",
+        "nec.que-repitan"
+      ],
+      "cubiertasHoy": 6,
+      "deCuantas": 10
+    },
+    {
+      "id": "creativo",
+      "nombre": "Diseño, foto y vídeo por cuenta propia",
+      "necesidades": [
+        "nec.presupuestar-rapido",
+        "nec.saber-cuanto-tiempo-echo",
+        "nec.emitir-una-factura-legal",
+        "nec.que-me-paguen",
+        "nec.proyectos-largos",
+        "nec.imagenes",
+        "nec.video",
+        "nec.tener-donde-ensenar-lo-que-hago",
+        "nec.saber-si-gano-en-cada-trabajo",
+        "nec.firmar-documentos"
+      ],
+      "cubiertasHoy": 10,
+      "deCuantas": 10
+    },
+    {
+      "id": "asesoria",
+      "nombre": "Asesoría, gestoría y despacho",
+      "necesidades": [
+        "nec.expedientes",
+        "nec.cuotas-cada-mes",
+        "nec.papeles-ordenados",
+        "nec.firmar-documentos",
+        "nec.contratos-que-no-se-me-pasen",
+        "nec.emitir-una-factura-legal",
+        "nec.los-impuestos",
+        "nec.llevar-la-contabilidad",
+        "nec.que-el-cliente-vea-lo-suyo",
+        "nec.que-sea-seguro"
+      ],
+      "cubiertasHoy": 6,
+      "deCuantas": 10
+    },
+    {
+      "id": "agencia",
+      "nombre": "Agencia de marketing y consultoría",
+      "necesidades": [
+        "nec.seguir-sin-olvidarme-de-nadie",
+        "nec.proyectos-largos",
+        "nec.saber-cuanto-tiempo-echo",
+        "nec.presupuestar-rapido",
+        "nec.emitir-una-factura-legal",
+        "nec.escribir-a-mi-gente",
+        "nec.publicar-en-redes",
+        "nec.ver-como-va-el-negocio",
+        "nec.escribir",
+        "nec.saber-si-gano-en-cada-trabajo"
+      ],
+      "cubiertasHoy": 10,
+      "deCuantas": 10
+    },
+    {
+      "id": "academia",
+      "nombre": "Academia y formación",
+      "necesidades": [
+        "nec.dar-clases",
+        "nec.cuotas-cada-mes",
+        "nec.emitir-una-factura-legal",
+        "nec.mi-agenda",
+        "nec.tener-donde-ensenar-lo-que-hago",
+        "nec.vender-online",
+        "nec.escribir-a-mi-gente",
+        "nec.que-no-se-pierda-una-pregunta",
+        "nec.el-equipo-organizado",
+        "nec.que-repitan"
+      ],
+      "cubiertasHoy": 7,
+      "deCuantas": 10
+    },
+    {
+      "id": "clinica",
+      "nombre": "Clínica: fisio, dental, psicología",
+      "necesidades": [
+        "nec.historia-clinica",
+        "nec.que-reserven-solos",
+        "nec.mi-agenda",
+        "nec.facturar-a-mutuas",
+        "nec.emitir-una-factura-legal",
+        "nec.cumplir-el-rgpd",
+        "nec.que-sea-seguro",
+        "nec.que-repitan",
+        "nec.cobrar-en-el-mostrador",
+        "nec.expedientes"
+      ],
+      "cubiertasHoy": 3,
+      "deCuantas": 10
+    },
+    {
+      "id": "tienda",
+      "nombre": "Tienda y comercio minorista",
+      "necesidades": [
+        "nec.cobrar-en-el-mostrador",
+        "nec.el-stock",
+        "nec.comprar-a-proveedores",
+        "nec.vender-online",
+        "nec.emitir-una-factura-legal",
+        "nec.la-factura-obligatoria",
+        "nec.que-me-encuentren",
+        "nec.escribir-a-mi-gente",
+        "nec.que-repitan",
+        "nec.el-equipo-organizado"
+      ],
+      "cubiertasHoy": 5,
+      "deCuantas": 10
+    },
+    {
+      "id": "entrenador",
+      "nombre": "Entrenamiento personal y coaching",
+      "necesidades": [
+        "nec.que-reserven-solos",
+        "nec.mi-agenda",
+        "nec.cuotas-cada-mes",
+        "nec.emitir-una-factura-legal",
+        "nec.que-repitan",
+        "nec.escribir-a-mi-gente",
+        "nec.tener-donde-ensenar-lo-que-hago",
+        "nec.vender-online",
+        "nec.publicar-en-redes",
+        "nec.que-no-se-pierda-una-pregunta"
+      ],
+      "cubiertasHoy": 8,
+      "deCuantas": 10
+    },
+    {
+      "id": "inmobiliaria",
+      "nombre": "Inmobiliaria y alquiler",
+      "necesidades": [
+        "nec.seguir-sin-olvidarme-de-nadie",
+        "nec.liquidar-a-terceros",
+        "nec.contratos-que-no-se-me-pasen",
+        "nec.firmar-documentos",
+        "nec.mi-agenda",
+        "nec.emitir-una-factura-legal",
+        "nec.expedientes",
+        "nec.que-me-encuentren",
+        "nec.papeles-ordenados",
+        "nec.que-el-cliente-vea-lo-suyo"
+      ],
+      "cubiertasHoy": 5,
+      "deCuantas": 10
+    },
+    {
+      "id": "transporte",
+      "nombre": "Transporte y reparto",
+      "necesidades": [
+        "nec.mis-maquinas",
+        "nec.el-trabajo-de-fuera",
+        "nec.emitir-una-factura-legal",
+        "nec.que-me-paguen",
+        "nec.presupuestar-rapido",
+        "nec.saber-si-gano-en-cada-trabajo",
+        "nec.el-equipo-organizado",
+        "nec.expedientes",
+        "nec.conectar-lo-que-uso",
+        "nec.la-factura-obligatoria"
+      ],
+      "cubiertasHoy": 6,
+      "deCuantas": 10
+    },
+    {
+      "id": "taller-artesano",
+      "nombre": "Obrador y taller artesano",
+      "necesidades": [
+        "nec.fabricar",
+        "nec.el-stock",
+        "nec.comprar-a-proveedores",
+        "nec.saber-si-gano-en-cada-trabajo",
+        "nec.vender-online",
+        "nec.emitir-una-factura-legal",
+        "nec.cobrar-en-el-mostrador",
+        "nec.que-me-encuentren",
+        "nec.mis-maquinas",
+        "nec.que-repitan"
+      ],
+      "cubiertasHoy": 5,
+      "deCuantas": 10
+    }
+  ]
+}

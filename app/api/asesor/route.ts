@@ -4,6 +4,8 @@ import {
   aconsejar,
   entender,
   leerComprension,
+  getOficios,
+  loQueTraeUnOficio,
   necesidadesDeLaLista,
   necesidadesQueSePuedenElegir,
   type PreguntaUtil,
@@ -27,9 +29,29 @@ import { crearProveedorGemini } from "@/agents/compartido/proveedores/gemini";
 
 const HAY_IA = Boolean(process.env.GEMINI_API_KEY);
 
+/** Las casas: los oficios. Se piden sin cuerpo, para pintar la portada. */
+export async function GET() {
+  return NextResponse.json({ oficios: getOficios() });
+}
+
 export async function POST(peticion: Request) {
-  const cuerpo = (await peticion.json()) as { texto?: string; necesidadIds?: string[] };
+  const cuerpo = (await peticion.json()) as { texto?: string; necesidadIds?: string[]; oficioId?: string };
   const texto = (cuerpo.texto ?? "").trim();
+
+  // La puerta principal: entrar diciendo QUÉ ERES. Un oficio trae sus
+  // necesidades y el asesor hace el resto, sin que ella escriba una palabra.
+  if (cuerpo.oficioId) {
+    const delCaso = loQueTraeUnOficio(cuerpo.oficioId);
+    if (delCaso.length) {
+      return NextResponse.json({
+        comprension: { loQueDijo: "", necesidades: delCaso, noEntendido: [], circunstancias: [] },
+        preguntas: aclarar(delCaso).map(resumir),
+        consejo: aconsejar(delCaso),
+        leyoLaIA: false,
+        porOficio: true,
+      });
+    }
+  }
 
   // Camino sin IA: ella elige lo que le pasa y el asesor sigue desde ahí. Se
   // dice en voz alta que el paso de entender no ha corrido; callarlo sería
