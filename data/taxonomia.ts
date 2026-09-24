@@ -40,7 +40,19 @@ export const MARCO_CATEGORIAS_MINIMO: { id: string; nombre: string }[] = [
   { id: "inventario-operaciones", nombre: "Inventario y operaciones" },
   { id: "creacion-web-hosting", nombre: "Creación web y hosting" },
   { id: "firma-gestion-documental", nombre: "Firma electrónica y gestión documental" },
-  { id: "software-sectorial", nombre: "Software sectorial" },
+  /**
+   * Los sectores van con su nombre, no agrupados.
+   *
+   * Hasta el 2026-09-24 había una sola entrada, «Software sectorial», que en
+   * su descripción prometía hostelería, clínicas, talleres y despachos. El
+   * vocabulario sólo sabe preguntar por dos de esos —salud y formación— y
+   * sólo había herramientas de uno. Decisión de la propietaria: «ya que son
+   * específicos, deberían especificar el sector». La genérica se desconecta
+   * —queda en `pendiente`, no se borra— y cada sector entra por su nombre.
+   * Un taller o un restaurante no tienen casa todavía, y eso ahora se ve.
+   */
+  { id: "formacion-academias", nombre: "Formación y academias" },
+  { id: "clinicas-salud", nombre: "Clínicas y salud" },
 ];
 
 /**

@@ -219,7 +219,7 @@ describe("la peluquera que perdía citas", () => {
  * cualquier cambio ahí sería un efecto secundario, no una decisión.
  */
 describe("la pregunta no cambia nada fuera de su camino", () => {
-  it("por categoría y por subtipo, la necesidad elegida se ignora: 2.520 combinaciones idénticas", () => {
+  it("por categoría y por subtipo, la necesidad elegida se ignora: 2.760 combinaciones idénticas", () => {
     const categorias = getTodasLasCategorias().map((c) => c.id).sort();
     const subtipos = [...new Set(catalogo.filter((h) => h.subtipoId).map((h) => `${h.categoriaId}/${h.subtipoId}`))].sort();
     const ambitos = [
@@ -236,7 +236,9 @@ describe("la pregunta no cambia nada fuera de su camino", () => {
         if (sin !== con) distintos.push(`${JSON.stringify(ambito)}: ${sin} → ${con}`);
       }
     }
-    expect(combinaciones).toBe(2520);
+    // 2.760 desde el 2026-09-24: dos categorías más, porque los sectores
+    // pasaron a tener nombre propio. Lo que mide la prueba no cambió.
+    expect(combinaciones).toBe(2760);
     expect(distintos).toEqual([]);
   });
 

@@ -84,9 +84,21 @@
     "estado": "publica"
   },
   {
+    "id": "formacion-academias",
+    "nombre": "Formación y academias",
+    "descripcion": "Programas para quien da clases, cursos o formación: impartir y seguir los cursos, matrículas y grupos, notas y expediente.",
+    "estado": "publica"
+  },
+  {
+    "id": "clinicas-salud",
+    "nombre": "Clínicas y salud",
+    "descripcion": "Programas para consultas y centros sanitarios: historia clínica, imagen médica y receta electrónica.",
+    "estado": "pendiente"
+  },
+  {
     "id": "software-sectorial",
     "nombre": "Software sectorial",
-    "descripcion": "Programas diseñados para un sector concreto (hostelería, clínicas, talleres, despachos) en lugar de para cualquier empresa.",
-    "estado": "publica"
+    "descripcion": "Desconectada el 2026-09-24. Prometía hostelería, clínicas, talleres y despachos, pero el vocabulario sólo sabe preguntar por dos sectores —salud y formación— y sólo había herramientas de uno. Una casa que nombra cuatro sectores y atiende a uno engaña. En su lugar, cada sector tiene su propia casa con su nombre. No se borra por si vuelve a hacer falta agrupar.",
+    "estado": "pendiente"
   }
 ]
