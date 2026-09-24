@@ -40,6 +40,10 @@ describe("el aislamiento de la verificación", () => {
       path.join("agents", "atlas-orchestrator", "tareas.ts"),
       "El catálogo del Orchestrator NOMBRA los dos CLI de verificación como texto, para que el comando salga del código y nunca de la base de datos. No importa nada de aquí ni lee ningún registro.",
     ],
+    [
+      path.join("agents", "atlas-advisor", "asesor", "buscar.ts"),
+      "F3, 2026-09-24: el asesor busca atravesando las casas y sólo puede afirmar lo verificado, así que necesita el puerto de evidencia. Entra por `getPuertoDeEvidencia()`, la misma puerta de siempre, y no lee `registros.json` por su cuenta.",
+    ],
   ]);
   const EXENTOS = new Set(AUTORIZADOS.keys());
 
@@ -98,6 +102,7 @@ describe("el aislamiento de la verificación", () => {
       path.join("app", "api", "recomendaciones", "route.ts"),
       path.join("data", "vocabulario", "__tests__", "aislamiento.test.ts"),
       path.join("agents", "atlas-orchestrator", "tareas.ts"),
+      path.join("agents", "atlas-advisor", "asesor", "buscar.ts"),
     ]);
   });
 
