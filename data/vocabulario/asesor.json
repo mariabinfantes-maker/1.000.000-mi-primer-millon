@@ -47,6 +47,36 @@
       ]
     },
     {
+      "id": "dim.como-se-asignan-las-citas",
+      "pregunta": "¿Cómo se asignan las citas: el cliente elige profesional o lo deciden ustedes?",
+      "porQuePreguntamos": "Si el cliente elige con quién, hace falta una agenda separada por profesional; si lo asignan ustedes, con una sola agenda basta.",
+      "respuestas": [
+        {
+          "id": "elige-el-cliente",
+          "texto": "El cliente elige profesional"
+        },
+        {
+          "id": "lo-asignamos",
+          "texto": "Lo asignamos nosotros"
+        },
+        {
+          "id": "da-igual",
+          "texto": "Da igual quién le atienda"
+        }
+      ],
+      "afectaA": [
+        "nec.mi-agenda"
+      ],
+      "queCambiaEnElDiagnostico": [
+        "Si el cliente elige profesional, la agenda separada por profesional pasa a ser imprescindible",
+        "Si la asignan ellos, una sola agenda compartida es suficiente y no se le pide más",
+        "No se deduce del sector ni del número de personas: sale de lo que cuenten"
+      ],
+      "queComprobamosDespues": [
+        "Se comprueba cómo funciona la reserva de cada candidata: si separa por profesional, qué incluye y qué hay que contratar aparte"
+      ]
+    },
+    {
       "id": "dim.volumen-de-citas",
       "pregunta": "¿Cuántas citas atienden al mes, aproximadamente?",
       "porQuePreguntamos": "Con pocas citas una agenda en papel es suficiente; con muchas se queda corta, y eso cambia lo que te conviene.",

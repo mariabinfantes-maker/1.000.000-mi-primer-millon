@@ -40,11 +40,34 @@ describe("el recorrido completo", () => {
       for (const p of preguntas.slice(0, 4)) {
         console.log(`   «${p.dimension.pregunta}»  → decide ${p.afectaA.length}, mueve ${p.candidatasQueSeMueven} candidatas`);
       }
-      // Ninguna pregunta decorativa: todas cambian la cabeza del resultado.
+      /**
+       * Ninguna pregunta decorativa: todas tienen que mover el CONSEJO.
+       *
+       * Esta comprobación medía sólo las tres primeras herramientas, y eso
+       * dejaba pasar por decorativa la pregunta que más cambia la respuesta.
+       * Caso real (2026-09-25): a la clínica, «¿cómo se asignan las citas?»
+       * no mueve a Agiled, HoneyBook ni Keap de sus puestos —siguen siendo las
+       * tres mejores— pero pasan de cubrirlo todo a cubrir dos de tres, y
+       * Molnip tendría que decirle que la agenda por profesional no se la
+       * resuelve nadie. Eso no es un matiz: es otra respuesta.
+       *
+       * Así que se mide lo mismo que mide `aclarar`: quiénes encabezan Y
+       * cuánto cubren. Y se prueban las dos respuestas posibles, porque una
+       * pregunta es útil si ALGUNA de ellas mueve el consejo.
+       */
+      const resumen = (c: NecesidadDelCaso[]) => {
+        const b = buscar(c);
+        const cobertura = b.soluciones[0]
+          ? `${b.soluciones[0].cubreImprescindibles}/${b.soluciones[0].deImprescindibles}`
+          : "0/0";
+        return cobertura + "::" + b.soluciones.slice(0, 3).map((s) => s.partes.map((x) => x.herramientaId).join("+")).join("|");
+      };
+      const antes = resumen(caso.trae);
       for (const p of preguntas) {
-        const con = [...caso.trae, { necesidad: getNecesidad(p.afectaA[0])!, importancia: "deseable" as const }];
-        const otra = buscar(con).soluciones.slice(0, 3).map((s) => s.partes.map((x) => x.herramientaId).join("+")).join("|");
-        expect(otra, p.dimension.pregunta).not.toBe(base);
+        const mueve = (["deseable", "imprescindible"] as const).some(
+          (importancia) => resumen([...caso.trae, { necesidad: getNecesidad(p.afectaA[0])!, importancia }]) !== antes
+        );
+        expect(mueve, p.dimension.pregunta).toBe(true);
       }
     }
   });

@@ -1,4 +1,5 @@
 import { getDimensiones, type Dimension } from "@/data/vocabulario/asesor";
+import { getCapacidad } from "@/data/vocabulario/repositorio";
 import { getNecesidad, type NecesidadDelCaso } from "@/data/vocabulario/necesidades";
 import { buscar, type Busqueda } from "./buscar";
 import type { PuertoDeEvidencia } from "@/data/verificacion/puerto";
@@ -39,12 +40,32 @@ export type PreguntaUtil = {
   cercaDeLoQueConto: number;
 };
 
-/** Las tres primeras soluciones, que es lo que ella llegaría a ver. */
+/**
+ * EL CONSEJO, RESUMIDO PARA COMPARARLO: las tres primeras soluciones Y cuánto
+ * cubren de lo que ella pide.
+ *
+ * Antes sólo miraba las tres primeras herramientas, y eso dejaba fuera la
+ * pregunta que más cambia el consejo. Ejemplo real: a la clínica, añadir
+ * «tener la agenda bajo control» no mueve a Agiled, HoneyBook ni Keap de sus
+ * puestos —siguen siendo las tres mejores—, pero pasan de cubrirlo todo a
+ * cubrir dos de tres cosas, y Molnip tendría que decirle que la agenda por
+ * profesional no se la resuelve nadie. Eso no es un matiz: es otra respuesta.
+ *
+ * Con la cobertura dentro, una pregunta cuenta como útil también cuando lo que
+ * cambia es LO QUE NO PODEMOS RESOLVERLE.
+ */
 function cabeza(b: Busqueda): string {
-  return b.soluciones
-    .slice(0, 3)
-    .map((s) => s.partes.map((p) => p.herramientaId).join("+"))
-    .join("|");
+  const cobertura = b.soluciones[0]
+    ? `${b.soluciones[0].cubreImprescindibles}/${b.soluciones[0].deImprescindibles}`
+    : "0/0";
+  return (
+    cobertura +
+    "::" +
+    b.soluciones
+      .slice(0, 3)
+      .map((s) => s.partes.map((p) => p.herramientaId).join("+"))
+      .join("|")
+  );
 }
 
 /**
@@ -60,8 +81,21 @@ export function aclarar(
   puerto: PuertoDeEvidencia = getPuertoDeEvidencia()
 ): PreguntaUtil[] {
   const yaTiene = new Set(delCaso.map((n) => n.necesidad.id));
-  /** Las capacidades que están en juego en lo que ella contó. */
-  const suyas = new Set(delCaso.flatMap((n) => [...n.necesidad.imprescindibles, ...n.necesidad.ayudan]));
+  /**
+   * DE QUÉ VA LO QUE ELLA CONTÓ: los dominios de sus capacidades.
+   *
+   * Primero comparé capacidades sueltas, y eso era demasiado estrecho: «tener
+   * la agenda bajo control» y «que puedan reservar sin llamarme» no comparten
+   * ni una capacidad, y sin embargo hablan de lo mismo —las dos son del
+   * dominio `citas`—. Con capacidades, la pregunta sobre las citas salía con
+   * cercanía cero justo en el caso de la clínica.
+   */
+  const suyos = new Set(
+    delCaso
+      .flatMap((n) => [...n.necesidad.imprescindibles, ...n.necesidad.ayudan])
+      .map((c) => getCapacidad(c)?.dominioId)
+      .filter(Boolean) as string[]
+  );
   const base = cabeza(buscar(delCaso, puerto));
   const utiles: PreguntaUtil[] = [];
 
@@ -74,20 +108,46 @@ export function aclarar(
     const mueve = new Set<string>();
     const afecta: string[] = [];
     for (const id of candidatas) {
-      const conEsta = [
-        ...delCaso,
-        { necesidad: getNecesidad(id)!, importancia: "deseable" as const, salioDeUnaPregunta: true },
-      ];
-      const otra = cabeza(buscar(conEsta, puerto));
-      if (otra === base) continue;
+      /**
+       * Se simulan LAS DOS respuestas posibles, no una.
+       *
+       * Antes sólo se probaba a añadir la necesidad como `deseable`, y las
+       * deseables no descalifican a nadie: sólo desempatan. Así que una
+       * pregunta cuya respuesta convierte algo en IMPRESCINDIBLE —«¿el cliente
+       * elige profesional?»— salía como decorativa y no se hacía nunca, justo
+       * la que más cambia el consejo: si pasa a imprescindible y nadie lo
+       * demuestra, la respuesta honrada deja de ser una lista y pasa a ser un
+       * «esto no te lo resuelvo».
+       *
+       * Una pregunta es útil si ALGUNA de sus respuestas mueve el consejo.
+       */
+      let movio = false;
+      for (const importancia of ["deseable", "imprescindible"] as const) {
+        const conEsta = [...delCaso, { necesidad: getNecesidad(id)!, importancia, salioDeUnaPregunta: true }];
+        const otra = cabeza(buscar(conEsta, puerto));
+        if (otra === base) continue;
+        movio = true;
+        for (const t of otra.split(/[|+]/)) mueve.add(t);
+      }
+      if (!movio) continue;
       afecta.push(id);
-      for (const t of otra.split(/[|+]/)) mueve.add(t);
     }
     if (afecta.length === 0) continue;
-    const cercaDeLoQueConto = afecta.reduce((suma, id) => {
+    /**
+     * QUÉ PROPORCIÓN DE ESTA PREGUNTA VA DE LO SUYO, de 0 a 100.
+     *
+     * Contar capacidades sueltas premiaba a la pregunta que toca más
+     * necesidades: «¿cuántas personas trabajan en el negocio?» afecta a seis y
+     * ganaba por volumen a «¿cómo se asignan las citas?», que va justo de lo
+     * que la clínica contó. Lo que ordena bien no es cuánto toca, sino qué
+     * parte de lo que toca es de su asunto.
+     */
+    const dominios = afecta.flatMap((id) => {
       const n = getNecesidad(id)!;
-      return suma + [...n.imprescindibles, ...n.ayudan].filter((c) => suyas.has(c)).length;
-    }, 0);
+      return [...n.imprescindibles, ...n.ayudan].map((c) => getCapacidad(c)?.dominioId);
+    });
+    const deLoSuyo = dominios.filter((d) => d && suyos.has(d)).length;
+    const cercaDeLoQueConto = dominios.length === 0 ? 0 : Math.round((deLoSuyo / dominios.length) * 100);
     utiles.push({ dimension, afectaA: afecta, candidatasQueSeMueven: mueve.size, cercaDeLoQueConto });
   }
 

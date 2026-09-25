@@ -6724,29 +6724,65 @@ esa clínica, pero eso depende de si tiene ausencias, y **no lo sabemos**. Por
 eso la frase en pantalla termina en «si eso te importa»: deja la decisión
 abierta, que es lo correcto.
 
-### EL ENCAJE DE LAS RESERVAS, SIN CERRAR — y lo que sí sabemos
+### EL ENCAJE DE LAS RESERVAS: LO QUE SABEMOS Y LA PREGUNTA QUE FALTABA
 
-Sigue pendiente confirmar que las reservas de las herramientas encajan con el
-uso que necesita una clínica. Lo medido el 2026-09-25, para las tres que salen:
+Lo medido el 2026-09-25 para las tres que salen a una clínica que pide reservas
+y facturas:
 
 | | Reserva online | Recordatorios | Facturación |
 |---|---|---|---|
-| Agiled | demostrada, **como módulo** | no consta | demostrada, nativa |
+| Agiled | demostrada, como módulo | no consta | demostrada, nativa |
 | HoneyBook | demostrada, nativa | demostrada, nativa | demostrada, nativa |
 | Keap | demostrada, nativa | no consta | demostrada, nativa |
 
-Dos cosas salen de ahí y ninguna está en pantalla todavía:
+**Dos conclusiones mías que la propietaria corrigió el mismo día, y las dos
+eran inferencias, no datos:**
 
-1. **La que Molnip recomienda primero tiene la reserva como módulo**, no
-   nativa, mientras que las otras dos la tienen nativa. Es una diferencia
-   comprobada y sobre lo que ella viene a resolver.
-2. **La agenda por profesional no la demuestra nadie**: preguntada a 65 de 65,
-   cero. Para una clínica con varios dentistas, que es elegir con quién,
-   **eso es el encaje, y no lo tenemos**. Está en la lista de lo que habría que
-   construir, como la pieza que más oficios desbloquea.
+1. **«Módulo» no es peor que «nativa».** Lo presenté como un defecto de
+   Agiled. No lo es: dice cómo viene empaquetado, no si funciona mejor o peor.
+   Lo que importa es **cómo funciona, qué incluye y qué tiene que contratar
+   ella**, y eso no lo sabemos.
+2. **Que una clínica tenga varios dentistas NO implica que el paciente elija
+   profesional.** La clínica puede asignarlo por dentro. Yo deduje la
+   necesidad del sector, que es exactamente lo que la visión prohíbe: «recoge
+   sus necesidades SIN ATRIBUIRTE OTRAS AUTOMÁTICAMENTE».
 
-Conclusión honesta: **el encaje no está confirmado, y sabemos por qué.** No se
-tapa con extras ni con otra vuelta de diseño.
+**Y el cero tampoco demuestra nada sobre los productos.** Que la agenda por
+profesional no esté demostrada en ninguna de las 65 no significa que ninguna
+sirva: significa que no lo tenemos comprobado.
+
+**La conclusión correcta:** tenemos demostrada la reserva online; falta saber
+si su funcionamiento encaja con la forma de dar citas de ESA clínica.
+
+**Y el paso que cierra eso, propuesto por ella:** preguntarlo.
+`dim.como-se-asignan-las-citas` — «¿Cómo se asignan las citas: el cliente elige
+profesional o lo deciden ustedes?». Con la respuesta se usa la investigación
+que ya hay y se comprueba sólo lo que falte.
+
+Para que esa pregunta llegara a salir hubo que arreglar dos cosas en `aclarar`:
+
+- **«Cambia el consejo» medía sólo las tres primeras herramientas.** Añadir
+  «tener la agenda bajo control» no mueve a Agiled, HoneyBook ni Keap de sus
+  puestos, pero pasan de cubrirlo todo a cubrir dos de tres. Eso no es un
+  matiz: es otra respuesta. Ahora el resumen incluye la cobertura.
+- **Se simulaba sólo la respuesta «deseable».** Las deseables no descalifican,
+  así que una pregunta cuya respuesta convierte algo en imprescindible salía
+  como decorativa. Ahora se simulan las dos: una pregunta es útil si ALGUNA de
+  sus respuestas mueve el consejo.
+- **Y la cercanía se mide por proporción, no por volumen.** Contando
+  capacidades ganaba «¿cuántas personas trabajan en el negocio?», que toca
+  seis necesidades. Lo que ordena bien no es cuánto toca una pregunta, sino
+  qué parte de lo que toca es del asunto que ella contó.
+
+Resultado: la clínica recibe primero «¿cómo se asignan las citas?» (83 %);
+reformas recibe la de firmas (27 %); una tienda, la de si vende producto.
+
+**Queda anotado, sin tocarlo:** `dim.cuantas-personas` sigue arrastrando
+`nec.mi-agenda` en su `afectaA`, y su diagnóstico dice que con varias personas
+«que el cliente elija con quién» sube a imprescindible. Es la misma inferencia
+corregida arriba, sólo que a partir del número de personas en vez del sector.
+No se ha tocado porque es una decisión anterior y su crítica iba del sector;
+decidirlo es de la propietaria.
 
 ### CÓMO HABLA MOLNIP — regla de la propietaria
 
