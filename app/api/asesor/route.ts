@@ -7,6 +7,7 @@ import {
   getOficios,
   loQueTraeUnOficio,
   necesidadesDeLaLista,
+  conLaRespuesta,
   necesidadesQueSePuedenElegir,
   type PreguntaUtil,
 } from "@/agents/atlas-advisor/asesor";
@@ -44,8 +45,40 @@ export async function GET() {
 }
 
 export async function POST(peticion: Request) {
-  const cuerpo = (await peticion.json()) as { texto?: string; necesidadIds?: string[]; oficioId?: string };
+  const cuerpo = (await peticion.json()) as {
+    texto?: string;
+    necesidadIds?: string[];
+    oficioId?: string;
+    /** Lo que acaba de contestar a la pregunta anterior. */
+    respondida?: { dimensionId?: string; respuestaId?: string };
+    /** Lo que ya se sabía antes de contestar, para no volver a leer el texto. */
+    necesidadesPrevias?: string[];
+    /**
+     * Las preguntas que ya ha contestado. No se repiten.
+     *
+     * Hace falta porque una respuesta puede no traer ninguna necesidad —«lo
+     * asignamos nosotros»— y entonces el caso queda igual que antes: `aclarar`
+     * la volvería a proponer y Molnip preguntaría lo mismo dos veces. Contestar
+     * «no» también es contestar.
+     */
+    respondidas?: string[];
+  };
+  const yaContestadas = new Set(cuerpo.respondidas ?? []);
+  const sinRepetir = (ps: ReturnType<typeof aclarar>) => ps.filter((p) => !yaContestadas.has(p.dimension.id));
   const texto = (cuerpo.texto ?? "").trim();
+
+  // Contestó una pregunta: se continúa desde lo que ya se sabía, sin volver a
+  // llamar al modelo ni pedirle que repita su historia.
+  if (cuerpo.respondida?.respuestaId && cuerpo.necesidadesPrevias?.length) {
+    const delCaso = conLaRespuesta(necesidadesDeLaLista(cuerpo.necesidadesPrevias), cuerpo.respondida);
+    return NextResponse.json({
+      comprension: { loQueDijo: texto, necesidades: delCaso, noEntendido: [], circunstancias: [] },
+      preguntas: sinRepetir(aclarar(delCaso)).map(resumir),
+      consejo: aconsejar(delCaso),
+      leyoLaIA: false,
+      yaRespondio: true,
+    });
+  }
 
   // La puerta principal: entrar diciendo QUÉ ERES. Un oficio trae sus
   // necesidades y el asesor hace el resto, sin que ella escriba una palabra.

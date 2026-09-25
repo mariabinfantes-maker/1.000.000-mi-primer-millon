@@ -14,7 +14,7 @@ export { aconsejar } from "./aconsejar";
 export type { Consejo, Pieza } from "./aconsejar";
 export { buscar } from "./buscar";
 export type { Busqueda, Solucion, Cobertura } from "./buscar";
-export { necesidadesDeLaLista, necesidadesQueSePuedenElegir } from "./caso";
+export { necesidadesDeLaLista, necesidadesQueSePuedenElegir, conLaRespuesta } from "./caso";
 export { getOficios, getOficio, loQueTraeUnOficio, erroresDeOficios, estadoDeUnOficio, aQuienServimos } from "./oficios";
 export type { Oficio, EstadoDeUnOficio } from "./oficios";
 export type { CasoDeUnaPersona } from "./caso";

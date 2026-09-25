@@ -35,9 +35,17 @@ type Consejo = {
   sinComprobar: string[];
   dondeSeBusco: { herramientas: number; casas: number };
 };
-type Pregunta = { id: string; pregunta: string; porQuePreguntamos: string; cercaDeLoQueConto: number; respuestas: { id: string; texto: string }[] };
+type Pregunta = {
+  id: string;
+  pregunta: string;
+  porQuePreguntamos: string;
+  cercaDeLoQueConto: number;
+  respuestas: { id: string; texto: string; loCuentaElla?: boolean }[];
+};
 type Respuesta = {
   sinIA?: boolean;
+  /** Ya contestó la pregunta: lo que se ve es el consejo, no una primera selección. */
+  yaRespondio?: boolean;
   necesidades?: Necesidad[];
   leyoLaIA?: boolean;
   comprension?: { necesidades: { necesidad: Necesidad }[]; noEntendido: string[] };
@@ -93,6 +101,15 @@ export default function AsesorPrueba() {
    */
   const [abierta, setAbierta] = useState<Abierta | null>(null);
   /**
+   * Las preguntas ya contestadas, para no repetirlas.
+   *
+   * Hace falta porque una respuesta puede no traer ninguna necesidad —«lo
+   * asignamos nosotros»— y entonces el caso queda igual que antes: `aclarar`
+   * la volvería a proponer y Molnip preguntaría lo mismo dos veces. Contestar
+   * «no» también es contestar.
+   */
+  const [respondidas, setRespondidas] = useState<string[]>([]);
+  /**
    * Las formas antiguas de enseñar el consejo ya NO están en la pantalla.
    *
    * Eran cuatro pestañas arriba del todo —«Tarjeta · Conversación · A · B»— y
@@ -123,7 +140,14 @@ export default function AsesorPrueba() {
     fetch("/api/asesor").then((r) => r.json()).then((d) => setOficios(d.oficios ?? [])).catch(() => {});
   }, []);
 
-  async function enviar(cuerpo: { texto?: string; necesidadIds?: string[]; oficioId?: string }) {
+  async function enviar(cuerpo: {
+    texto?: string;
+    necesidadIds?: string[];
+    oficioId?: string;
+    respondida?: { dimensionId: string; respuestaId: string };
+    necesidadesPrevias?: string[];
+    respondidas?: string[];
+  }) {
     setCargando(true);
     const res = await fetch("/api/asesor", {
       method: "POST",
@@ -318,7 +342,16 @@ export default function AsesorPrueba() {
               */}
             </Dice>
 
-            {laPregunta && (
+            {/*
+              LA RESPUESTA VA PEGADA A LA PREGUNTA.
+              Antes la pregunta salía sola y la única forma de contestar era la
+              caja del final, debajo de todas las herramientas y del consejo.
+              Propietaria, 2026-09-25: «eso hace que parezca un comentario más
+              de Molnip, en lugar de una conversación que influye en la
+              recomendación». Ahora los botones están debajo de la pregunta y,
+              al pulsarlos, Molnip sigue desde ahí.
+            */}
+            {laPregunta && !r?.yaRespondio && (
               <Dice>
                 <p className="font-semibold">{laPregunta.pregunta}</p>
                 {/*
@@ -329,6 +362,30 @@ export default function AsesorPrueba() {
                   `porQuePreguntamos` sigue en el vocabulario, intacto.
                 */}
                 <p className="mt-1 text-sm text-slate-600">{laPregunta.porQuePreguntamos}</p>
+                <div className="mt-3 flex flex-col gap-2">
+                  {laPregunta.respuestas.map((resp) => (
+                    <button
+                      key={resp.id}
+                      onClick={() => {
+                        setDicho((d) => [...d, resp.texto]);
+                        const yaVan = [...respondidas, laPregunta.id];
+                        setRespondidas(yaVan);
+                        // «Te explico cómo lo hacemos» no trae nada: abre la
+                        // conversación y la escribe ella abajo, con sus palabras.
+                        if (resp.loCuentaElla) return;
+                        enviar({
+                          texto,
+                          respondida: { dimensionId: laPregunta.id, respuestaId: resp.id },
+                          necesidadesPrevias: r?.comprension?.necesidades.map((n) => n.necesidad.id) ?? [],
+                          respondidas: yaVan,
+                        });
+                      }}
+                      className="rounded-xl border border-brand-200 bg-white px-4 py-2.5 text-left text-sm font-semibold text-brand-700 transition hover:border-brand-300 hover:bg-brand-50"
+                    >
+                      {resp.texto}
+                    </button>
+                  ))}
+                </div>
               </Dice>
             )}
 
@@ -338,7 +395,26 @@ export default function AsesorPrueba() {
                 <p className="mt-1">Y prefiero decírtelo antes que darte algo que no te sirve.</p>
               </Dice>
             ) : diseno === "tarjeta" ? (
-              <TarjetaDelConsejo caminos={c.caminos} porQue={c.loQueHaria?.desempate?.porQue} quePide={r?.comprension?.necesidades.map((n) => n.necesidad.enCorto) ?? []} alAbrir={setAbierta} />
+              <>
+                {/*
+                  Con una pregunta sin contestar, lo que se ve todavía no es el
+                  consejo final. Decirlo es lo honrado y además explica por qué
+                  merece la pena contestar. Propietaria, 2026-09-25: «si
+                  mantiene opciones visibles antes de la respuesta, debe
+                  presentarlas como una primera selección, todavía por afinar».
+                */}
+                {laPregunta && !r?.yaRespondio && (
+                  <p className="-mb-1 text-sm font-semibold text-slate-500">
+                    Una primera selección, a falta de tu respuesta.
+                  </p>
+                )}
+                <TarjetaDelConsejo
+                  caminos={c.caminos}
+                  porQue={c.loQueHaria?.desempate?.porQue}
+                  quePide={r?.comprension?.necesidades.map((n) => n.necesidad.enCorto) ?? []}
+                  alAbrir={setAbierta}
+                />
+              </>
             ) : diseno === "a" ? (
               <VarianteA caminos={c.caminos} quePide={r?.comprension?.necesidades.map((n) => n.necesidad.enCorto) ?? []} />
             ) : diseno === "b" ? (

@@ -63,6 +63,21 @@ export type Respuesta = {
   texto: string;
   /** Marca la salida honrada: no saberlo no puede bloquear el asesoramiento. */
   admiteNoLoSe?: boolean;
+  /**
+   * QUÉ TRAE ESTA RESPUESTA, y con qué peso.
+   *
+   * Sin esto, las respuestas eran decoración: la pregunta salía en pantalla y
+   * contestarla no cambiaba nada, porque nadie sabía qué significaba cada
+   * respuesta. Propietaria, 2026-09-25: «al responder, Molnip continúa desde
+   * ahí».
+   *
+   * Sólo se rellena cuando la respuesta trae algo DE VERDAD. Una respuesta que
+   * no añade ninguna necesidad no escribe aquí una lista vacía para quedar
+   * simétrica: es que no trae nada, y deducir lo contrario sería inventar.
+   */
+  traeNecesidades?: { id: string; importancia: "imprescindible" | "deseable" }[];
+  /** La respuesta es «te lo cuento yo»: no trae nada y abre la conversación. */
+  loCuentaElla?: boolean;
 };
 
 export type Dimension = {
