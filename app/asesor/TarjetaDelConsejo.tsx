@@ -109,6 +109,22 @@ function Fila({ opcion, forma, alAbrir }: { opcion: Opcion; forma: string; alAbr
             {opcion.piezas.map((x) => x.nombre).join(" + ")}
           </p>
           <p className="mt-1 text-sm leading-relaxed text-slate-600">{titular(forma, opcion)}</p>
+          {/*
+            Lo que NO le resuelve, en la fila y no en letra pequeña. Es lo que
+            permite ofrecer una herramienta sencilla sin esconder nada: la
+            regla «decir que no es un resultado válido», llegando a la
+            pantalla. Y si son dos programas, se dice ahí mismo lo que cuesta:
+            dos altas, dos cuotas, y que no sabemos si se hablan.
+          */}
+          {opcion.piezas.length > 1 && (
+            <p className="mt-1.5 text-sm font-semibold text-atencion-700">
+              Son {opcion.piezas.length} programas y {opcion.piezas.length} cuotas
+              {opcion.laConexionNoEstaComprobada && ", y no hemos comprobado que se conecten"}
+            </p>
+          )}
+          {opcion.noCubre.length > 0 && (
+            <p className="mt-1 text-sm text-slate-500">No te cubre {enumerar(opcion.noCubre.slice(0, 3))}</p>
+          )}
           <p className="mt-2.5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700">
             Ver herramienta <ArrowRight className="h-4 w-4" aria-hidden />
           </p>
@@ -147,12 +163,28 @@ export default function TarjetaDelConsejo({
    * formas distintas de resolverlo —todo junto o repartido— aparezcan antes
    * que la cuarta variante de la misma.
    */
-  const porCabeza = [
+  const todas = [
     ...caminos.map((cam) => ({ opcion: cam.opciones[0], forma: cam.forma })),
     ...caminos.flatMap((cam) => cam.opciones.slice(1).map((o) => ({ opcion: o, forma: cam.forma }))),
   ];
-  const alaVista = porCabeza.slice(0, 3);
-  const otras = porCabeza.slice(3);
+
+  /**
+   * LA LISTA ENSEÑA HERRAMIENTAS SUELTAS. Los apilamientos van detrás.
+   *
+   * Aunque el motor ya pone la sencilla primero, dejar debajo dos montajes de
+   * dos y tres programas seguía siendo trabajo para ella: comparar peras con
+   * manzanas justo cuando ha venido a que le digan qué hacer. La propietaria,
+   * el 2026-09-25: «no le compliques la vida al cliente, por favor».
+   *
+   * No se pierden: quedan en «explorar», con lo que cuestan de verdad escrito
+   * al lado —cuántas cuotas y si sabemos que se conectan—. Y si no hay ni una
+   * suelta que sirva, entonces sí encabezan, porque quedarse callado teniendo
+   * algo tampoco ayuda.
+   */
+  const sueltas = todas.filter((o) => o.opcion.piezas.length === 1);
+  const apiladas = todas.filter((o) => o.opcion.piezas.length > 1);
+  const alaVista = (sueltas.length > 0 ? sueltas : apiladas).slice(0, 3);
+  const otras = [...(sueltas.length > 0 ? sueltas : apiladas).slice(3), ...(sueltas.length > 0 ? apiladas : [])];
   const abrir = (o: Opcion, forma: string, primera: boolean) =>
     alAbrir({ opcion: o, titular: titular(forma, o), porQue: primera ? porQue : undefined });
 
@@ -194,7 +226,7 @@ export default function TarjetaDelConsejo({
         <>
           <button onClick={() => setMas(!mas)} className={`${TARJETA} flex w-full items-center gap-3 px-5 py-4 text-left`}>
             <span className="flex-1 text-sm font-semibold text-slate-800">
-              {mas ? "Ocultar las demás" : `Explorar ${otras.length} herramientas más`}
+              {mas ? "Ocultar las demás" : `Explorar ${otras.length} opciones más`}
             </span>
             <ChevronDown aria-hidden className={`h-5 w-5 shrink-0 text-slate-400 transition-transform ${mas ? "rotate-180" : ""}`} />
           </button>
@@ -208,6 +240,12 @@ export default function TarjetaDelConsejo({
                 <span className="min-w-0 flex-1">
                   <span className="block font-semibold text-slate-900">{o.opcion.piezas.map((x) => x.nombre).join(" + ")}</span>
                   <span className="block text-sm text-slate-600">{titular(o.forma, o.opcion)}</span>
+                  {o.opcion.piezas.length > 1 && (
+                    <span className="block text-sm font-semibold text-atencion-700">
+                      {o.opcion.piezas.length} programas y {o.opcion.piezas.length} cuotas
+                      {o.opcion.laConexionNoEstaComprobada && ", sin comprobar que se conecten"}
+                    </span>
+                  )}
                 </span>
                 <ChevronRight aria-hidden className="h-5 w-5 shrink-0 text-slate-300" />
               </button>

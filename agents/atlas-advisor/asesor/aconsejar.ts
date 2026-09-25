@@ -143,7 +143,7 @@ export type Camino = {
    * ella quiere —la regla del desplegable, acordada tiempo atrás: «si
    * despliega podrá verlas todas las que hemos podido verificar»—.
    */
-  opciones: { piezas: Pieza[]; laConexionNoEstaComprobada: boolean }[];
+  opciones: { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[] }[];
   /** Cuántas más hay detrás del desplegable. Cero cuando no hay ninguna. */
   hayMas: number;
 };
@@ -193,7 +193,7 @@ export type Consejo = {
    * UNA. Nunca una lista. `null` cuando no hay nada que proponer o cuando
    * varias empatan y no hay con qué decidir — y entonces se dice.
    */
-  loQueHaria: { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; desempate: Desempate } | null;
+  loQueHaria: { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[]; desempate: Desempate } | null;
   /**
    * Lo que hace falta saber para poder elegir. Sólo cuando `loQueHaria` es
    * null por empate: es la única pregunta que decidiría, no una lista de
@@ -209,7 +209,7 @@ export type Consejo = {
    * Recortadas a unas pocas. El boceto de la propietaria enseña tres, y tiene
    * razón: catorce filas no son opciones, son el listado otra vez.
    */
-  alternativas: { piezas: Pieza[]; laConexionNoEstaComprobada: boolean }[];
+  alternativas: { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[] }[];
   /** Cuántas más hay detrás, para el desplegable. */
   masAlternativas: number;
   /**
@@ -227,8 +227,21 @@ function aPieza(
   fichas: Map<string, ReturnType<typeof getTodasLasHerramientas>[number]>,
   delCaso: readonly NecesidadDelCaso[],
   puerto: PuertoDeEvidencia
-): { piezas: Pieza[]; laConexionNoEstaComprobada: boolean } {
+): { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[] } {
+  /**
+   * Lo que esta solución NO le resuelve, con sus nombres cortos.
+   *
+   * Es la otra mitad de dejar de descartar lo sencillo: una herramienta puede
+   * entrar cubriendo menos, pero entonces hay que decir qué falta. Es la regla
+   * de `AGENTS.md` —«decir que no es un resultado válido»— llegando por fin a
+   * la pantalla, y no en letra pequeña.
+   */
+  const cubiertas = new Set(s.partes.flatMap((p) => p.cubre));
+  const noCubre = delCaso
+    .filter((n) => n.importancia === "imprescindible" && !cubiertas.has(n.necesidad.id))
+    .map((n) => n.necesidad.enCorto);
   return {
+    noCubre,
     piezas: s.partes.map((p) => {
       const h = fichas.get(p.herramientaId);
       const queResuelve: QueResuelve[] = [];
@@ -308,7 +321,7 @@ function aPieza(
  */
 const CURVA_ORDEN: Record<string, number> = { muy_facil: 0, facil: 1, media: 2, dificil: 3 };
 
-type Opcion = { piezas: Pieza[]; laConexionNoEstaComprobada: boolean };
+type Opcion = { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[] };
 
 /** El precio de entrada de una solución entera. Suma sus piezas. */
 function euros(o: Opcion): number | null {
@@ -448,18 +461,45 @@ export function aconsejar(
 
   const mejor = r.soluciones[0];
 
-  // Alternativa sólo lo que cubre LO MISMO. Una que cubre menos no es una
-  // alternativa: es otra cosa, y ofrecerla sería rellenar hasta tres.
-  let alternativas = r.soluciones
+  /**
+   * LO SENCILLO NO SE DESCARTA POR CUBRIR MENOS.
+   *
+   * Aquí había una regla mía, y estaba mal guardada. `AGENTS.md` dice «primero
+   * que sirva, después que encaje»: comprueba que funcione antes de ordenar
+   * por precio o idioma. Yo lo convertí en «gana quien cubra más casillas», y
+   * encima me apoyé en «tres es la consecuencia, no un objetivo», que habla de
+   * no rellenar con malas — no de tirar la buena por ser sencilla.
+   *
+   * La consecuencia, medida el 2026-09-25: Molnip apilaba herramientas en 15
+   * de 17 casos, y en los oficios las sueltas llegaban a la lista CERO veces.
+   * A una peluquera se le tiraba Agiled —que le resuelve las reservas y las
+   * facturas— por no cubrir además el stock y los turnos, y en su lugar se le
+   * ofrecían tres programas apilados con dos cuotas y sin saber si se hablan
+   * entre ellos. La propietaria: «no le compliques la vida al cliente».
+   *
+   * Ahora se guarda **la mejor de cada tamaño**: la mejor suelta, la mejor
+   * pareja, el mejor trío. Ninguna se descarta por ser sencilla y ninguna
+   * entra para rellenar, porque sólo entra si es la mejor en su tamaño. Y
+   * cada una dice lo que NO cubre, que es lo que permite elegir lo sencillo
+   * sin esconder nada.
+   */
+  const mejoresPorTamano = (() => {
+    const techo = new Map<number, number>();
+    for (const sol of r.soluciones) {
+      const n = sol.partes.length;
+      techo.set(n, Math.max(techo.get(n) ?? 0, sol.cubreImprescindibles));
+    }
+    return r.soluciones.filter((sol) => sol.cubreImprescindibles === techo.get(sol.partes.length));
+  })();
+
+  let alternativas = mejoresPorTamano
     .slice(1)
-    .filter((s) => s.cubreImprescindibles === mejor.cubreImprescindibles)
     .slice(0, 3)
     .map((s) => aPieza(s, fichas, delCaso, puerto));
 
-  // Los caminos se agrupan por FORMA, y sólo entran los que de verdad
-  // resuelven tanto como el mejor: un camino que cubre menos no es una manera
-  // distinta de resolverlo, es resolverlo a medias.
-  const alDia = r.soluciones.filter((s) => s.cubreImprescindibles === mejor.cubreImprescindibles);
+  // Los caminos se agrupan por FORMA. Entra la mejor de cada tamaño, así que
+  // «todo en un sitio» sigue existiendo aunque cubra menos que un apilamiento.
+  const alDia = mejoresPorTamano;
   const caminos: Camino[] = [];
   for (const forma of ["una_sola", "varias"] as const) {
     const suyas = alDia.filter((s) => s.forma === forma);
@@ -490,9 +530,7 @@ export function aconsejar(
    * LA REGLA DE LA CASA, aplicada. De todas las que cubren lo mismo sale UNA,
    * elegida con datos verificados, o ninguna y una pregunta. Nunca una lista.
    */
-  const empatadas = r.soluciones
-    .filter((s) => s.cubreImprescindibles === mejor.cubreImprescindibles)
-    .map((s) => aPieza(s, fichas, delCaso, puerto));
+  const empatadas = mejoresPorTamano.map((s) => aPieza(s, fichas, delCaso, puerto));
   const elegida = elegirUna(empatadas);
 
   if ("empate" in elegida) {

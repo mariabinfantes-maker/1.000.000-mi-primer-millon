@@ -37,7 +37,12 @@ export type Pieza = {
   herramientaId: string; nombre: string; cubre: string[]; cubreEnCorto: string[]; casas: string[];
   queResuelve: QueResuelve[]; coste: Coste; faltaPorConfirmar: string[];
 };
-export type Opcion = { piezas: Pieza[]; laConexionNoEstaComprobada: boolean };
+export type Opcion = {
+  piezas: Pieza[];
+  laConexionNoEstaComprobada: boolean;
+  /** Lo que esta opción NO le resuelve, en nombres cortos. Se dice siempre. */
+  noCubre: string[];
+};
 export type Camino = { forma: string; titulo: string; queImplica: string; opciones: Opcion[]; hayMas: number };
 
 /** La receta única de tarjeta de MOLNIP VISUAL v1. 30 apariciones idénticas. */
