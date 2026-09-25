@@ -48,7 +48,42 @@ export type QueResuelve = {
   fecha?: string;
 };
 
+/**
+ * La cifra más barata de pago, de los planes que se citaron textualmente.
+ *
+ * `precioInicial` no sirve para enseñar de un vistazo: en 52 de las 65 fichas
+ * es una frase entera —«Gratis para 1-2 usuarios. Plan Basic desde US$49 por
+ * organización/mes (facturación anual) o US$69 al mes»—. Puesta en una lista
+ * rompe la pantalla y no contesta «¿cuánto me cuesta?».
+ *
+ * `planesComprobados` sí: cada plan trae su cifra corta y su cita literal de
+ * la página del fabricante, con fecha. Se coge la de pago más barata y **se
+ * enseña tal cual, con su unidad** —«10,99 $/usuario/mes»—, porque quitar el
+ * «por usuario» cambiaría lo que dice. La moneda no se convierte: sigue
+ * vigente que convertir sin un cambio verificado sería inventar un número.
+ */
+function masBarato(h: { planesComprobados?: { planes?: { nombre: string; mensual?: string; anual?: string }[] } } | undefined): string | undefined {
+  const planes = h?.planesComprobados?.planes ?? [];
+  let mejor: { texto: string; n: number } | undefined;
+  for (const plan of planes) {
+    const texto = plan.anual ?? plan.mensual;
+    if (!texto) continue;
+    const m = texto.replace(/\s/g, "").match(/(\d+(?:[.,]\d+)?)/);
+    if (!m) continue;
+    const n = Number(m[1].replace(",", "."));
+    // El plan gratuito no es «el precio»: se dice aparte, con su clase.
+    if (!Number.isFinite(n) || n <= 0) continue;
+    if (!mejor || n < mejor.n) mejor = { texto, n };
+  }
+  return mejor?.texto;
+}
+
 export type Coste = {
+  /**
+   * La cifra corta para una lista: «10,99 $/usuario/mes». Sale de los planes
+   * citados. Puede faltar: 15 fichas no tienen planes comprobados.
+   */
+  desdeCorto?: string;
   /** Tal cual lo dice el fabricante. No se traduce ni se redondea. */
   desde?: string;
   /** Cuándo se abrió esa página de precios, y cuál. Un precio sin fecha no vale. */
@@ -236,6 +271,7 @@ function aPieza(
         queResuelve,
         coste: {
           desde: h?.precioInicial,
+          desdeCorto: masBarato(h),
           comprobadoEl: h?.preciosComprobados?.fecha,
           urlPrecios: h?.preciosComprobados?.url ?? h?.urlPrecios,
           tienePlanGratuito: h?.tienePlanGratuito,

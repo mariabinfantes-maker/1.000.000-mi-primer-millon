@@ -29,6 +29,7 @@ import Boton from "@/components/ui/Boton";
 
 export type QueResuelve = { necesidad: string; loQueTeCuesta?: string; url?: string; fecha?: string };
 export type Coste = {
+  desdeCorto?: string;
   desde?: string; comprobadoEl?: string; urlPrecios?: string;
   tienePlanGratuito?: boolean; curva?: string; enEspanol?: boolean;
 };

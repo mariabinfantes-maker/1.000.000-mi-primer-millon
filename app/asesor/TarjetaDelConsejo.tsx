@@ -1,181 +1,213 @@
 "use client";
 
 import { useState } from "react";
-import { CalendarCheck, LayoutGrid, ChevronRight, Search, Sparkles, type LucideIcon } from "lucide-react";
+import { ChevronRight, ChevronDown, ArrowRight, Pencil, type LucideIcon, CalendarCheck, LayoutGrid, Sparkles } from "lucide-react";
+import SimboloMolnip from "@/components/ui/SimboloMolnip";
 import { type Camino, type Opcion } from "./Variantes";
 
 /**
- * LA TARJETA QUE SE CONTESTA MIRANDO.
+ * «ESTAS SON TUS OPCIONES» — la imagen 4 del boceto de la propietaria
+ * (2026-09-25), seguida de cerca y a propósito.
  *
- * Nace de lo único que la propietaria supo decir con sus palabras sobre
- * diseño, el 2026-09-24, y que vale más que cualquier regla que me inventara
- * yo:
+ * LO QUE HABÍA AQUÍ ANTES, Y POR QUÉ SE APAGA. Dos tarjetas, «Opción A · Todo
+ * en un sitio» y «Opción B · Por separado», con un titular que decía
+ * «Expedientes, presupuestos y 4 cosas más, en dos herramientas». Tres
+ * defectos, y los tres los había diagnosticado yo mismo el día anterior antes
+ * de volver a cometerlos:
  *
- *   «Me gusta que el ojo sabe dónde mirar, la tarjeta ya te señala dónde
- *    tengo que mirar (...) quiero que los puntos clave sean fáciles de
- *    identificar para mi ojo, así ahorro tiempo y veo si es útil o no (...)
- *    en tus diseños me aburro y me agobio inmediatamente porque pienso que
- *    tendré que leer todo eso para saber si esa página me sirve.»
+ *  1. **«y 4 cosas más» es un acertijo.** Para saber cuáles hay que abrir.
+ *  2. **Obligaba a elegir entre dos caminos** antes de saber nada de ninguno.
+ *  3. **No decía nada.** Ofrecía.
  *
- * El fallo que describe era real y medible: la versión anterior llegaba con
- * el primer camino ABIERTO, y dentro cada herramienta traía sus tres puertas.
- * Una peluquera aterrizaba en una columna de texto y tenía que leerla entera
- * para saber si le servía. Nadie hace eso: se va.
+ * Sus palabras, que son el listón: «quien entra a que la ayuden no quiere
+ * elegir entre caminos», «lo que a nosotros nos conviene es hacer nosotros el
+ * trabajo y dárselo masticadito», «si yo entro a una página donde tengo que
+ * entender la página, ya no quiero entrar».
  *
- * Cinco reglas, sacadas de su boceto. Si alguna se rompe, la pantalla vuelve
- * a ser deberes:
+ * LO QUE HACE AHORA, copiado de su imagen 4:
  *
- *  1. MANDA EL RESULTADO, NO LA MARCA. El titular dice qué consigue. Los
- *     nombres de las herramientas están detrás del clic. Así ninguna vuelve
- *     a «parecer la dueña de todo».
- *  2. EL COLOR DICE CUÁL ES CUÁL. La recomendada va sobre fondo de marca; las
- *     otras, en blanco. Y el color va atado al ORDEN, no a si está abierta:
- *     antes teñía la abierta, así que el color decía «estás mirando esto» en
- *     vez de «ésta es la que te propongo», que es lo que ella necesita ver.
- *  3. UNA LÍNEA POR TARJETA, EL RESTO DETRÁS. «Ver funciones, coste y
- *     límites» es un enlace, no un párrafo. Las tres puertas —qué resuelve,
- *     coste, qué falta por confirmar— siguen enteras dentro. La honestidad no
- *     cuesta pantalla: cuesta un clic. El dilema entre enseñar las pruebas y
- *     no agobiar me lo había inventado yo.
- *  4. EL ICONO ADELANTA EL SIGNIFICADO. Calendario, todo junto; bloques, por
- *     separado.
- *  5. NADA LLEGA ABIERTO. Al aterrizar se ve el mapa entero: dos tarjetas y
- *     una salida. La decisión de leer es suya.
+ *  - Una fila por opción, con **el precio a la vista**. «¿Cuánto me cuesta?»
+ *    se contesta sin abrir nada.
+ *  - La descripción nombra **lo que cubre, con sus palabras y sin acertijo**:
+ *    como mucho tres cosas, y las demás están en su ficha. Nunca «y N más».
+ *  - **«Mi consejo»**, abajo y en primera persona. Ahí Molnip se moja. Es la
+ *    diferencia entre ofrecer y decir, y sale de `desempate.porQue`, que el
+ *    motor ya calculaba.
+ *
+ * La forma de resolverlo —todo junto o repartido— **no desaparece**: era una
+ * idea suya del 24 y sigue mandando en el motor. Lo que cambia es que deja de
+ * ser una bifurcación que ella tiene que resolver y pasa a ser parte de la
+ * frase: «en un mismo sitio», «en dos herramientas».
  */
 
 const TARJETA = "rounded-2xl border border-slate-200/80 bg-white";
 
+export type Abierta = { opcion: Opcion; titular: string; porQue?: string };
+
 const ICONO: Record<string, LucideIcon> = { "todo-en-uno": CalendarCheck, "por-separado": LayoutGrid };
 
-/**
- * Qué consigue, en una línea y CON SUS PALABRAS. Nunca un nombre de marca.
- *
- * Decía «una herramienta para cada cosa». Es exacto y no significa nada:
- * «cosa» es como lo llamamos nosotros. Ahora dice «Reservas y facturas, en
- * dos herramientas», que es lo que ella ha venido a resolver. De ahí sale el
- * `enCorto` del vocabulario.
- */
+/** Como mucho tres cosas, sin anunciar un resto que habría que ir a buscar. */
+const A_LA_VISTA = 3;
+
 function enumerar(cosas: string[]): string {
   if (cosas.length === 0) return "lo que me has contado";
   if (cosas.length === 1) return cosas[0];
-  if (cosas.length === 2) return `${cosas[0]} y ${cosas[1]}`;
-  return `${cosas[0]}, ${cosas[1]} y ${cosas.length - 2} cosas más`;
+  return `${cosas.slice(0, -1).join(", ")} y ${cosas[cosas.length - 1]}`;
 }
 
-/**
-  * Lo que resuelve ESTA opción, no todo lo que ella pidió.
-  *
-  * Primero decía «reservas, agenda y 8 cosas más» porque contaba las diez que
-  * trae el oficio. La peluquera leía que esto se lo resuelve todo, y no es
-  * verdad: estas dos herramientas cubren lo que cubren. El titular tiene que
-  * decir eso y nada más.
-  */
-function titular(forma: string, opcion: Opcion | undefined): string {
-  const cubiertas = [...new Set((opcion?.piezas ?? []).flatMap((p) => p.cubreEnCorto))];
-  const lista = enumerar(cubiertas);
-  const piezas = opcion?.piezas.length ?? 2;
-  const donde = forma === "todo-en-uno" ? "en un solo sitio" : piezas > 2 ? `en ${piezas} herramientas` : "en dos herramientas";
-  const frase = `${lista}, ${donde}`;
+/** Qué resuelve y de qué forma, en una frase. Nunca «y N cosas más». */
+export function titular(forma: string, opcion: Opcion | undefined): string {
+  const cubre = [...new Set((opcion?.piezas ?? []).flatMap((p) => p.cubreEnCorto))].slice(0, A_LA_VISTA);
+  const piezas = opcion?.piezas.length ?? 1;
+  const donde =
+    forma === "todo-en-uno" || piezas === 1
+      ? "en un mismo sitio"
+      : piezas > 2
+        ? `en ${piezas} herramientas`
+        : "en dos herramientas";
+  const frase = `${enumerar(cubre)}, ${donde}`;
   return frase.charAt(0).toUpperCase() + frase.slice(1);
 }
 
-/** El cuadrado con el icono. Lleno en la que manda, con tinte en las demás. */
-function Baldosa({ icono: Icono, manda }: { icono: LucideIcon; manda: boolean }) {
+/**
+ * El precio para la lista: la cifra CORTA de los planes citados.
+ *
+ * La primera versión ponía `coste.desde`, que en 52 de las 65 fichas es una
+ * frase entera. La pantalla se rompió de lado a lado: una fila de la lista
+ * llevaba «Gratis para miembros ilimitados, con 2 proyectos activos. De pago
+ * desde $10/usuario/mes». Eso no contesta «¿cuánto me cuesta?»: hay que
+ * leerlo. Ahora sale de `desdeCorto`, con su unidad y sin convertir.
+ */
+function precio(opcion: Opcion): { cifra: string; nota?: string } {
+  const cortos = opcion.piezas.map((p) => p.coste.desdeCorto).filter(Boolean) as string[];
+  const gratis = opcion.piezas.every((p) => p.coste.tienePlanGratuito);
+  if (cortos.length < opcion.piezas.length) {
+    return gratis ? { cifra: "Tiene plan gratuito", nota: "el de pago, sin comprobar" } : { cifra: "Sin comprobar" };
+  }
+  return {
+    cifra: `desde ${cortos.join(" + ")}`,
+    nota: opcion.piezas.length > 1 ? "son dos cuotas" : gratis ? "y plan gratuito" : undefined,
+  };
+}
+
+function Baldosa({ icono: Icono }: { icono: LucideIcon }) {
   return (
-    <span
-      aria-hidden
-      className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ${
-        manda ? "bg-brand-600 text-white shadow-premium" : "bg-brand-50 text-brand-600 ring-1 ring-brand-100"
-      }`}
-    >
+    <span aria-hidden className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 ring-1 ring-brand-100">
       <Icono className="h-5 w-5" strokeWidth={2} />
     </span>
   );
 }
 
-/**
- * Aquí vivía `Dentro`, que abría la opción EN EL SITIO: la combinación, y
- * debajo sus tres puertas, y debajo las de la otra pieza. Se apagó el
- * 2026-09-25 al construir la pantalla 1 del boceto de la propietaria.
- *
- * El motivo no es de estilo. Abrir en el sitio obliga a sostener a la vez la
- * lista y el detalle, y eso es lo que ella no quiere hacer: «si yo entro a una
- * página donde tengo que entender la página, ya no quiero entrar». Abrir una
- * opción ahora LLEVA a su pantalla, donde no hay nada que comparar. Una
- * pantalla, una cosa. Lo que se enseña dentro no se ha recortado: está entero
- * en `FichaDeUnaOpcion`.
- */
+function Fila({ opcion, forma, alAbrir }: { opcion: Opcion; forma: string; alAbrir: () => void }) {
+  const p = precio(opcion);
+  return (
+    <button onClick={alAbrir} className={`${TARJETA} w-full p-5 text-left shadow-premium transition hover:border-brand-200`}>
+      <div className="flex items-start gap-4">
+        <Baldosa icono={ICONO[forma] ?? Sparkles} />
+        <div className="min-w-0 flex-1">
+          <p className="font-display text-lg font-bold leading-tight text-slate-900">
+            {opcion.piezas.map((x) => x.nombre).join(" + ")}
+          </p>
+          <p className="mt-1 text-sm leading-relaxed text-slate-600">{titular(forma, opcion)}</p>
+          <p className="mt-2.5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700">
+            Ver herramienta <ArrowRight className="h-4 w-4" aria-hidden />
+          </p>
+        </div>
+        <div className="w-28 shrink-0 text-right">
+          <p className="font-display text-sm font-bold leading-snug text-slate-900">{p.cifra}</p>
+          {p.nota && <p className="mt-0.5 text-xs leading-snug text-slate-500">{p.nota}</p>}
+        </div>
+      </div>
+    </button>
+  );
+}
 
-export type Abierta = { opcion: Opcion; titular: string; porQue?: string };
-
-/**
- * La ficha NO se abre aquí dentro, y no es un detalle de implementación.
- *
- * La primera versión la pintaba debajo de las tarjetas, así que encima de la
- * pantalla 1 seguían la cabecera, la conversación y la pregunta. El boceto de
- * la propietaria es una pantalla ENTERA: arriba del todo «← Mis opciones» y
- * nada por encima. Por eso el padre se entera de que hay una opción abierta y
- * esconde lo demás.
- */
 export default function TarjetaDelConsejo({
-  caminos, porQue, alAbrir,
-}: { caminos: Camino[]; porQue?: string; alAbrir: (a: Abierta) => void }) {
+  caminos, porQue, quePide, alAbrir,
+}: {
+  caminos: Camino[];
+  /** Por qué Molnip miraría ésa primero. Es donde se moja. */
+  porQue?: string;
+  /** Lo que ella ha contado, para que se vea que Molnip lo tiene presente. */
+  quePide?: string[];
+  alAbrir: (a: Abierta) => void;
+}) {
   const [mas, setMas] = useState(false);
   if (caminos.length === 0) return null;
 
-  // Las demás combinaciones de todos los caminos, sin la que encabeza cada uno.
-  const otras = caminos.flatMap((cam) =>
-    cam.opciones.slice(1).map((o) => ({ opcion: o, titular: titular(cam.forma, o) }))
-  );
+  /**
+   * TRES A LA VISTA, y el resto detrás.
+   *
+   * La primera versión enseñaba una por camino, así que a un taller mecánico
+   * —que sólo tiene un camino— le salía una sola fila. Ni es lo que dibujó la
+   * propietaria (tres herramientas con su precio) ni lo que dice el ACUERDO
+   * DE RUMBO del 17: «se siguen recomendando tres con explicación».
+   *
+   * Se ordenan poniendo primero la que encabeza cada camino, para que las
+   * formas distintas de resolverlo —todo junto o repartido— aparezcan antes
+   * que la cuarta variante de la misma.
+   */
+  const porCabeza = [
+    ...caminos.map((cam) => ({ opcion: cam.opciones[0], forma: cam.forma })),
+    ...caminos.flatMap((cam) => cam.opciones.slice(1).map((o) => ({ opcion: o, forma: cam.forma }))),
+  ];
+  const alaVista = porCabeza.slice(0, 3);
+  const otras = porCabeza.slice(3);
+  const abrir = (o: Opcion, forma: string, primera: boolean) =>
+    alAbrir({ opcion: o, titular: titular(forma, o), porQue: primera ? porQue : undefined });
 
   return (
     <div className="space-y-3">
-      {caminos.map((cam, i) => {
-        const manda = i === 0;
-        return (
-          <section
-            key={cam.forma}
-            className={
-              manda
-                ? "rounded-2xl bg-brand-50 p-5 ring-1 ring-brand-200 shadow-premium-lg"
-                : `${TARJETA} p-5 shadow-premium`
-            }
-          >
-            <button
-              onClick={() => alAbrir({ opcion: cam.opciones[0], titular: titular(cam.forma, cam.opciones[0]), porQue: manda ? porQue : undefined })}
-              className="flex w-full items-center gap-4 text-left"
-            >
-              <Baldosa icono={ICONO[cam.forma] ?? Sparkles} manda={manda} />
-              <span className="flex-1">
-                <span className="inline-block rounded-full bg-brand-100 px-2.5 py-1 text-xs font-semibold text-brand-800">
-                  Opción {String.fromCharCode(65 + i)} · {cam.titulo}
-                </span>
-                <span className="mt-2 block font-display text-lg font-bold leading-snug text-slate-900">
-                  {titular(cam.forma, cam.opciones[0])}
-                </span>
-                <span className="mt-1 block text-sm font-semibold text-brand-700">Ver funciones, coste y límites</span>
-              </span>
-              <ChevronRight aria-hidden className="h-5 w-5 shrink-0 text-brand-400" />
-            </button>
-          </section>
-        );
-      })}
+      <h2 className="font-display text-2xl font-bold tracking-tight text-slate-900">Estas son tus opciones</h2>
+
+      {/*
+        El recordatorio de su caso. Con diez necesidades, pegarlas todas era
+        otro muro: se enseñan las primeras y el resto vive detrás de «Editar».
+        No se anuncia un resto («y 7 más») porque eso es el acertijo otra vez.
+      */}
+      {quePide && quePide.length > 0 && (
+        <div className="flex items-center gap-3 rounded-2xl bg-brand-50 px-4 py-3 ring-1 ring-brand-100">
+          <p className="min-w-0 flex-1 text-sm font-semibold text-brand-900">{quePide.slice(0, 3).join(" · ")}</p>
+          <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700">
+            <Pencil className="h-4 w-4" aria-hidden /> Editar
+          </span>
+        </div>
+      )}
+
+      {alaVista.map((o, i) => (
+        <Fila key={i} opcion={o.opcion} forma={o.forma} alAbrir={() => abrir(o.opcion, o.forma, i === 0)} />
+      ))}
+
+      {porQue && (
+        <div className="flex gap-3 rounded-2xl bg-brand-50 p-5 ring-1 ring-brand-100">
+          <SimboloMolnip className="mt-0.5 h-8 w-8 shrink-0 rounded-xl" />
+          <div>
+            <p className="font-display text-base font-bold text-brand-900">Mi consejo</p>
+            <p className="mt-1 leading-relaxed text-brand-900">
+              Empezaría por {alaVista[0].opcion.piezas.map((x) => x.nombre).join(" + ")}. {porQue}
+            </p>
+          </div>
+        </div>
+      )}
 
       {otras.length > 0 && (
         <>
           <button onClick={() => setMas(!mas)} className={`${TARJETA} flex w-full items-center gap-3 px-5 py-4 text-left`}>
-            <Search className="h-5 w-5 shrink-0 text-brand-500" aria-hidden />
             <span className="flex-1 text-sm font-semibold text-slate-800">
-              {mas ? "Ocultar las demás" : `Explorar ${otras.length} alternativas más`}
+              {mas ? "Ocultar las demás" : `Explorar ${otras.length} herramientas más`}
             </span>
-            <ChevronRight aria-hidden className={`h-5 w-5 shrink-0 text-slate-300 transition-transform ${mas ? "rotate-90" : ""}`} />
+            <ChevronDown aria-hidden className={`h-5 w-5 shrink-0 text-slate-400 transition-transform ${mas ? "rotate-180" : ""}`} />
           </button>
           {mas &&
             otras.map((o, i) => (
-              <button key={i} onClick={() => alAbrir(o)} className={`${TARJETA} flex w-full items-center gap-3 px-5 py-4 text-left`}>
-                <span className="flex-1">
-                  <span className="block font-semibold text-slate-900">{o.opcion.piezas.map((p) => p.nombre).join("  +  ")}</span>
-                  <span className="block text-sm text-brand-700">Ver esta opción</span>
+              <button
+                key={i}
+                onClick={() => abrir(o.opcion, o.forma, false)}
+                className={`${TARJETA} flex w-full items-center gap-3 px-5 py-4 text-left`}
+              >
+                <span className="min-w-0 flex-1">
+                  <span className="block font-semibold text-slate-900">{o.opcion.piezas.map((x) => x.nombre).join(" + ")}</span>
+                  <span className="block text-sm text-slate-600">{titular(o.forma, o.opcion)}</span>
                 </span>
                 <ChevronRight aria-hidden className="h-5 w-5 shrink-0 text-slate-300" />
               </button>

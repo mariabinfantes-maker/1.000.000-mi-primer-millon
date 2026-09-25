@@ -245,11 +245,11 @@ export default function AsesorPrueba() {
                 <p className="mt-1">Y prefiero decírtelo antes que darte algo que no te sirve.</p>
               </Dice>
             ) : diseno === "tarjeta" ? (
-              <TarjetaDelConsejo caminos={c.caminos} porQue={c.loQueHaria?.desempate?.porQue} alAbrir={setAbierta} />
+              <TarjetaDelConsejo caminos={c.caminos} porQue={c.loQueHaria?.desempate?.porQue} quePide={r?.comprension?.necesidades.map((n) => n.necesidad.enCorto) ?? []} alAbrir={setAbierta} />
             ) : diseno === "a" ? (
-              <VarianteA caminos={c.caminos} quePide={quePide} />
+              <VarianteA caminos={c.caminos} quePide={r?.comprension?.necesidades.map((n) => n.necesidad.enCorto) ?? []} />
             ) : diseno === "b" ? (
-              <VarianteB caminos={c.caminos} quePide={quePide} />
+              <VarianteB caminos={c.caminos} quePide={r?.comprension?.necesidades.map((n) => n.necesidad.enCorto) ?? []} />
             ) : (
 
               <div className="space-y-3">
