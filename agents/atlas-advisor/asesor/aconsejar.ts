@@ -33,6 +33,13 @@ export type QueResuelve = {
   /** La necesidad suya, con sus palabras. */
   necesidad: string;
   /**
+   * Lo que le toca hacer a ELLA para ponerlo en marcha, del vocabulario.
+   * Cuelga de la necesidad y no de la marca, porque dar de alta tus servicios
+   * y tus horarios hay que hacerlo con cualquier programa de citas. Es la
+   * sección «Para empezar» del boceto de la propietaria del 2026-09-25.
+   */
+  loQueTeCuesta?: string;
+  /**
    * Dónde y cuándo lo vimos. La frase literal existe y está en el registro,
    * pero el puerto de evidencia la deja fuera a propósito, así que aquí no se
    * inventa: se enlaza la página y se dice el día en que se abrió.
@@ -200,13 +207,13 @@ function aPieza(
         for (const cap of nec.imprescindibles) {
           const ev = puerto.estadoDe(p.herramientaId, cap);
           if (ev.estado !== "demostrada" || !ev.fuente) continue;
-          cita = { necesidad: nec.titulo, url: ev.fuente.url, fecha: ev.fuente.fechaConsulta };
+          cita = { necesidad: nec.titulo, loQueTeCuesta: nec.loQueTeCuesta, url: ev.fuente.url, fecha: ev.fuente.fechaConsulta };
           if (ev.plan?.certeza !== "verificado") {
             faltaPorConfirmar.push(`En qué plan entra «${nec.titulo.toLowerCase()}»: lo hemos visto en su página, pero no en qué tarifa.`);
           }
           break;
         }
-        queResuelve.push(cita ?? { necesidad: nec.titulo });
+        queResuelve.push(cita ?? { necesidad: nec.titulo, loQueTeCuesta: nec.loQueTeCuesta });
       }
 
       // Lo que ella pidió y ESTA pieza no cubre. En una combinación lo pone la

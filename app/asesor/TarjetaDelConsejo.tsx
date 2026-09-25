@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { CalendarCheck, LayoutGrid, ChevronRight, Search, Sparkles, type LucideIcon } from "lucide-react";
-import { Detalle, type Camino, type Opcion } from "./Variantes";
+import { type Camino, type Opcion } from "./Variantes";
 
 /**
  * LA TARJETA QUE SE CONTESTA MIRANDO.
@@ -94,73 +94,44 @@ function Baldosa({ icono: Icono, manda }: { icono: LucideIcon; manda: boolean })
 }
 
 /**
- * Las herramientas, ya dentro. Y aquí ESTABA LA PARED.
+ * Aquí vivía `Dentro`, que abría la opción EN EL SITIO: la combinación, y
+ * debajo sus tres puertas, y debajo las de la otra pieza. Se apagó el
+ * 2026-09-25 al construir la pantalla 1 del boceto de la propietaria.
  *
- * La primera versión pintaba las tres puertas —qué resuelve, coste, qué
- * falta— de CADA pieza de CADA combinación. Con cuatro combinaciones de dos
- * herramientas salían veinticuatro filas casi idénticas, una detrás de otra.
- * Es literalmente lo que ella describe: «me agobio inmediatamente porque
- * pienso que tendré que leer todo eso».
- *
- * Ahora cada combinación es UNA línea. Sus puertas sólo aparecen cuando se
- * abre esa combinación, y sólo la que se abre. Ningún nivel enseña más de lo
- * que cabe de un vistazo.
+ * El motivo no es de estilo. Abrir en el sitio obliga a sostener a la vez la
+ * lista y el detalle, y eso es lo que ella no quiere hacer: «si yo entro a una
+ * página donde tengo que entender la página, ya no quiero entrar». Abrir una
+ * opción ahora LLEVA a su pantalla, donde no hay nada que comparar. Una
+ * pantalla, una cosa. Lo que se enseña dentro no se ha recortado: está entero
+ * en `FichaDeUnaOpcion`.
  */
-function Dentro({ opciones, hayMas, queImplica }: { opciones: Opcion[]; hayMas: number; queImplica: string }) {
-  const [cual, setCual] = useState<number | null>(null);
-  return (
-    <div className="mt-4 border-t border-slate-200/80 pt-4">
-      <p className="text-sm leading-relaxed text-slate-600">{queImplica}</p>
-      <ul className="mt-4 space-y-2">
-        {opciones.map((o, j) => {
-          const abierta = cual === j;
-          return (
-            <li key={j} className={`${TARJETA} px-4 py-3`}>
-              <button onClick={() => setCual(abierta ? null : j)} className="flex w-full items-center gap-3 text-left">
-                <span className="flex-1">
-                  <span className="block font-semibold text-slate-900">{o.piezas.map((p) => p.nombre).join("  +  ")}</span>
-                  <span className="block text-sm text-brand-700">{abierta ? "Ocultar" : "Ver el detalle"}</span>
-                </span>
-                <ChevronRight aria-hidden className={`h-4 w-4 shrink-0 text-slate-300 transition-transform ${abierta ? "rotate-90" : ""}`} />
-              </button>
-              {abierta && (
-                <>
-                  {o.laConexionNoEstaComprobada && (
-                    <p className="mt-2 text-xs text-slate-500">Sin comprobar que se entiendan entre sí.</p>
-                  )}
-                  {/*
-                    Con dos herramientas, las tres puertas salen dos veces. Sin
-                    decir de cuál son, se lee como seis filas repetidas: hay que
-                    nombrar a quién pertenece cada juego.
-                  */}
-                  {o.piezas.map((p) => (
-                    <div key={p.herramientaId}>
-                      {o.piezas.length > 1 && (
-                        <p className="mt-4 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">{p.nombre}</p>
-                      )}
-                      <Detalle p={p} />
-                    </div>
-                  ))}
-                </>
-              )}
-            </li>
-          );
-        })}
-        {hayMas > 0 && <li className="px-1 text-sm text-slate-600">Y {hayMas} más que también lo cubren.</li>}
-      </ul>
-    </div>
-  );
-}
 
-export default function TarjetaDelConsejo({ caminos }: { caminos: Camino[] }) {
-  const [abierto, setAbierto] = useState<string | null>(null);
+export type Abierta = { opcion: Opcion; titular: string; porQue?: string };
+
+/**
+ * La ficha NO se abre aquí dentro, y no es un detalle de implementación.
+ *
+ * La primera versión la pintaba debajo de las tarjetas, así que encima de la
+ * pantalla 1 seguían la cabecera, la conversación y la pregunta. El boceto de
+ * la propietaria es una pantalla ENTERA: arriba del todo «← Mis opciones» y
+ * nada por encima. Por eso el padre se entera de que hay una opción abierta y
+ * esconde lo demás.
+ */
+export default function TarjetaDelConsejo({
+  caminos, porQue, alAbrir,
+}: { caminos: Camino[]; porQue?: string; alAbrir: (a: Abierta) => void }) {
+  const [mas, setMas] = useState(false);
   if (caminos.length === 0) return null;
+
+  // Las demás combinaciones de todos los caminos, sin la que encabeza cada uno.
+  const otras = caminos.flatMap((cam) =>
+    cam.opciones.slice(1).map((o) => ({ opcion: o, titular: titular(cam.forma, o) }))
+  );
 
   return (
     <div className="space-y-3">
       {caminos.map((cam, i) => {
         const manda = i === 0;
-        const abierta = abierto === cam.forma;
         return (
           <section
             key={cam.forma}
@@ -171,7 +142,7 @@ export default function TarjetaDelConsejo({ caminos }: { caminos: Camino[] }) {
             }
           >
             <button
-              onClick={() => setAbierto(abierta ? null : cam.forma)}
+              onClick={() => alAbrir({ opcion: cam.opciones[0], titular: titular(cam.forma, cam.opciones[0]), porQue: manda ? porQue : undefined })}
               className="flex w-full items-center gap-4 text-left"
             >
               <Baldosa icono={ICONO[cam.forma] ?? Sparkles} manda={manda} />
@@ -182,25 +153,35 @@ export default function TarjetaDelConsejo({ caminos }: { caminos: Camino[] }) {
                 <span className="mt-2 block font-display text-lg font-bold leading-snug text-slate-900">
                   {titular(cam.forma, cam.opciones[0])}
                 </span>
-                <span className="mt-1 block text-sm font-semibold text-brand-700">
-                  {abierta ? "Ocultar el detalle" : "Ver funciones, coste y límites"}
-                </span>
+                <span className="mt-1 block text-sm font-semibold text-brand-700">Ver funciones, coste y límites</span>
               </span>
-              <ChevronRight
-                aria-hidden
-                className={`h-5 w-5 shrink-0 text-brand-400 transition-transform ${abierta ? "rotate-90" : ""}`}
-              />
+              <ChevronRight aria-hidden className="h-5 w-5 shrink-0 text-brand-400" />
             </button>
-            {abierta && <Dentro opciones={cam.opciones} hayMas={cam.hayMas} queImplica={cam.queImplica} />}
           </section>
         );
       })}
 
-      <div className={`${TARJETA} flex items-center gap-3 px-5 py-4 text-slate-600`}>
-        <Search className="h-5 w-5 shrink-0 text-brand-500" aria-hidden />
-        <span className="flex-1 text-sm font-semibold text-slate-800">Explorar más alternativas</span>
-        <ChevronRight className="h-5 w-5 shrink-0 text-slate-300" aria-hidden />
-      </div>
+      {otras.length > 0 && (
+        <>
+          <button onClick={() => setMas(!mas)} className={`${TARJETA} flex w-full items-center gap-3 px-5 py-4 text-left`}>
+            <Search className="h-5 w-5 shrink-0 text-brand-500" aria-hidden />
+            <span className="flex-1 text-sm font-semibold text-slate-800">
+              {mas ? "Ocultar las demás" : `Explorar ${otras.length} alternativas más`}
+            </span>
+            <ChevronRight aria-hidden className={`h-5 w-5 shrink-0 text-slate-300 transition-transform ${mas ? "rotate-90" : ""}`} />
+          </button>
+          {mas &&
+            otras.map((o, i) => (
+              <button key={i} onClick={() => alAbrir(o)} className={`${TARJETA} flex w-full items-center gap-3 px-5 py-4 text-left`}>
+                <span className="flex-1">
+                  <span className="block font-semibold text-slate-900">{o.opcion.piezas.map((p) => p.nombre).join("  +  ")}</span>
+                  <span className="block text-sm text-brand-700">Ver esta opción</span>
+                </span>
+                <ChevronRight aria-hidden className="h-5 w-5 shrink-0 text-slate-300" />
+              </button>
+            ))}
+        </>
+      )}
     </div>
   );
 }

@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { VarianteA, VarianteB, type Camino as CaminoDetallado } from "./Variantes";
-import TarjetaDelConsejo from "./TarjetaDelConsejo";
+import TarjetaDelConsejo, { type Abierta } from "./TarjetaDelConsejo";
+import FichaDeUnaOpcion from "./FichaDeUnaOpcion";
 import Boton from "@/components/ui/Boton";
 import SimboloMolnip from "@/components/ui/SimboloMolnip";
 
@@ -30,7 +31,7 @@ type Pieza = Opcion["piezas"][number];
 type Camino = CaminoDetallado;
 type Consejo = {
   caminos: Camino[];
-  loQueHaria: Opcion | null;
+  loQueHaria: (Opcion & { desempate?: { criterio: string; porQue: string } }) | null;
   sinComprobar: string[];
   dondeSeBusco: { herramientas: number; casas: number };
 };
@@ -78,6 +79,12 @@ export default function AsesorPrueba() {
   const [desplegado, setDesplegado] = useState<string | null>(null);
   const [dudas, setDudas] = useState(false);
   /**
+   * La opción abierta. Mientras haya una, la pantalla es SÓLO esa: ni
+   * cabecera, ni conversación, ni pregunta. «Una pantalla, una cosa», del
+   * boceto del 2026-09-25.
+   */
+  const [abierta, setAbierta] = useState<Abierta | null>(null);
+  /**
    * Las tres formas de enseñar el mismo consejo, para elegir usándolas.
    * No es una opción del producto: es un banco de pruebas y se quita al
    * decidir cuál se queda.
@@ -112,6 +119,19 @@ export default function AsesorPrueba() {
   const quePide = r?.comprension?.necesidades.map((n) => n.necesidad.titulo) ?? [];
   // Los nombres cortos («reservas», «facturas») los saca cada tarjeta de lo
   // que cubre SU opción, no de todo lo que ella pidió.
+
+  if (abierta) {
+    return (
+      <div className="mx-auto min-h-screen max-w-2xl px-4 pt-28 pb-16 sm:px-6">
+        <FichaDeUnaOpcion
+          opcion={abierta.opcion}
+          titular={abierta.titular}
+          porQue={abierta.porQue}
+          alVolver={() => setAbierta(null)}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="mx-auto flex min-h-screen max-w-2xl flex-col px-4 pt-28 pb-10 sm:px-6">
@@ -225,7 +245,7 @@ export default function AsesorPrueba() {
                 <p className="mt-1">Y prefiero decírtelo antes que darte algo que no te sirve.</p>
               </Dice>
             ) : diseno === "tarjeta" ? (
-              <TarjetaDelConsejo caminos={c.caminos} />
+              <TarjetaDelConsejo caminos={c.caminos} porQue={c.loQueHaria?.desempate?.porQue} alAbrir={setAbierta} />
             ) : diseno === "a" ? (
               <VarianteA caminos={c.caminos} quePide={quePide} />
             ) : diseno === "b" ? (

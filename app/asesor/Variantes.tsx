@@ -27,7 +27,7 @@ import Boton from "@/components/ui/Boton";
  *     donde se va, no como una pregunta frecuente.
  */
 
-export type QueResuelve = { necesidad: string; url?: string; fecha?: string };
+export type QueResuelve = { necesidad: string; loQueTeCuesta?: string; url?: string; fecha?: string };
 export type Coste = {
   desde?: string; comprobadoEl?: string; urlPrecios?: string;
   tienePlanGratuito?: boolean; curva?: string; enEspanol?: boolean;
