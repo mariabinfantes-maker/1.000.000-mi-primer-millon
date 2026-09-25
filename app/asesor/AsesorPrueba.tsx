@@ -45,10 +45,19 @@ type Respuesta = {
   consejo?: Consejo;
 };
 
+/**
+ * Ejemplos para arrancar, no personajes.
+ *
+ * Los de antes eran retratos —«tengo una peluquería», «soy diseñadora»— y la
+ * propietaria pidió dejarlos: «quiero que olvides el diseño con la peluquera o
+ * el albañil». Un ejemplo sirve para enseñar CÓMO se escribe aquí, no para
+ * decirle a quién servimos. Éstos describen una situación de negocio y valen
+ * igual para un taller, una clínica o una agencia.
+ */
 const EJEMPLOS = [
-  "Tengo una peluquería, pierdo citas y facturo a mano",
-  "Hago reformas, preparo presupuestos y luego repito todo en la factura",
-  "Soy diseñadora y cobro según las horas",
+  "Paso los presupuestos a factura a mano y repito el trabajo",
+  "Quiero que los clientes reserven sin llamar por teléfono",
+  "Llevamos el inventario en una hoja de cálculo",
 ];
 
 function Dice({ children }: { children: React.ReactNode }) {
@@ -85,11 +94,25 @@ export default function AsesorPrueba() {
    */
   const [abierta, setAbierta] = useState<Abierta | null>(null);
   /**
-   * Las tres formas de enseñar el mismo consejo, para elegir usándolas.
-   * No es una opción del producto: es un banco de pruebas y se quita al
-   * decidir cuál se queda.
+   * Las formas antiguas de enseñar el consejo ya NO están en la pantalla.
+   *
+   * Eran cuatro pestañas arriba del todo —«Tarjeta · Conversación · A · B»— y
+   * la propietaria lo dijo claro el 2026-09-25: «arriba, el cliente para
+   * empezar no tiene que elegir; no me queda claro a simple vista para qué
+   * son». Tenía razón dos veces: era mi banco de pruebas con cara de producto,
+   * y ponía una decisión antes de la primera palabra.
+   *
+   * No se borran, que sigue habiendo trabajo pensado ahí: se llega a ellas
+   * por la dirección, con `?diseno=a`. Quien no lo sepa no las verá nunca, que
+   * es justo lo que hace falta.
    */
-  const [diseno, setDiseno] = useState<"tarjeta" | "conversacion" | "a" | "b">("tarjeta");
+  const [diseno] = useState<"tarjeta" | "conversacion" | "a" | "b">(() => {
+    if (typeof window === "undefined") return "tarjeta";
+    const q = new URLSearchParams(window.location.search).get("diseno");
+    return q === "a" || q === "b" || q === "conversacion" ? q : "tarjeta";
+  });
+  /** Igual con la entrada por oficio: existe, pero no es la puerta. */
+  const verOficios = typeof window !== "undefined" && new URLSearchParams(window.location.search).has("oficios");
   /**
    * Las casas de Molnip son OFICIOS (decisión de la propietaria, 2026-09-24).
    * Es la puerta principal: se entra diciendo qué eres, no qué software
@@ -133,35 +156,84 @@ export default function AsesorPrueba() {
     );
   }
 
-  return (
-    <div className="mx-auto flex min-h-screen max-w-2xl flex-col px-4 pt-28 pb-10 sm:px-6">
-      <header className="mb-10">
-        <p className="inline-block rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-800 ring-1 ring-brand-100">
-          Versión de prueba · la web actual no cambia
-        </p>
-        <div className="mt-4 flex items-center gap-3">
-          <SimboloMolnip className="h-12 w-12 rounded-2xl shadow-premium" />
-          <div>
-            <h1 className="font-display text-3xl font-bold leading-[1.1] tracking-tight text-slate-900">Molnip</h1>
-            <p className="text-sm font-semibold text-slate-500">Tu asesor de software</p>
+  /**
+   * LA PANTALLA DE LLEGADA. Lo primero que ve alguien, y lo único.
+   *
+   * La propietaria, el 2026-09-25: «arriba, el cliente para empezar no tiene
+   * que elegir (...) la presentación es lo que en 2 segundos decidirá si se
+   * queda o se va, lo que le dirá su cerebro sin pensar».
+   *
+   * Lo que había aquí pedía DOS decisiones antes de la primera palabra: qué
+   * diseño mirar, en cuatro pestañas sin explicar, y a qué te dedicas, en
+   * quince botones. Ahora hay una sola cosa que hacer: escribir.
+   *
+   * Y no hay nada más en pantalla. Ni pestañas, ni rejilla de oficios, ni
+   * contadores. Los ejemplos van debajo, pequeños, porque enseñan CÓMO se
+   * escribe aquí sin obligar a leerlos.
+   */
+  if (dicho.length === 0 && !r && !verOficios) {
+    return (
+      <div className="mx-auto flex min-h-screen max-w-xl flex-col justify-center px-6 pb-16 pt-24">
+        <div className="text-center">
+          <SimboloMolnip className="mx-auto h-16 w-16 rounded-3xl shadow-premium-lg" />
+          <h1 className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight text-slate-900 sm:text-5xl">
+            Molnip
+          </h1>
+          <p className="mt-4 text-lg leading-relaxed text-slate-600">
+            Cuéntame qué necesita tu negocio. Busco entre 65 herramientas y te digo cuál te sirve —{" "}
+            <span className="font-semibold text-slate-800">y cuál no</span>.
+          </p>
+        </div>
+
+        <form
+          onSubmit={(ev) => {
+            ev.preventDefault();
+            if (!texto.trim()) return;
+            setDicho([texto]);
+            enviar({ texto });
+            setTexto("");
+          }}
+          className="mt-10 flex items-center gap-2 rounded-3xl border border-slate-200/80 bg-white p-2 pl-6 shadow-premium-lg"
+        >
+          <input
+            value={texto}
+            onChange={(e) => setTexto(e.target.value)}
+            placeholder="Escribe aquí lo que te pasa…"
+            autoFocus
+            className="flex-1 bg-transparent py-3 text-slate-900 outline-none placeholder:text-slate-400"
+          />
+          <Boton type="submit" tamano="grande" disabled={!texto.trim() || cargando} className="rounded-2xl">
+            {cargando ? "Pensando…" : "Empezar"}
+          </Boton>
+        </form>
+
+        <div className="mt-8">
+          <p className="text-center text-sm text-slate-500">Por ejemplo:</p>
+          <div className="mt-3 flex flex-col gap-2">
+            {EJEMPLOS.map((e) => (
+              <button
+                key={e}
+                onClick={() => { setDicho([e]); enviar({ texto: e }); }}
+                className={`${TARJETA} px-5 py-3 text-left text-sm text-slate-600 transition hover:border-brand-200 hover:text-brand-700`}
+              >
+                {e}
+              </button>
+            ))}
           </div>
         </div>
-        <p className="mt-3 text-slate-600">Cuéntame qué te pasa.</p>
-        <div className="mt-5 flex gap-1 rounded-full border border-slate-200/80 bg-white p-1 text-sm shadow-premium">
-          {([["tarjeta", "Tarjeta"], ["conversacion", "Conversación"], ["a", "A"], ["b", "B"]] as const).map(([k, n]) => (
-            <button
-              key={k}
-              onClick={() => setDiseno(k)}
-              className={`flex-1 rounded-full px-3 py-2 font-semibold transition ${diseno === k ? "bg-brand-600 text-white shadow-premium" : "text-slate-600 hover:text-brand-700"}`}
-            >
-              {n}
-            </button>
-          ))}
-        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mx-auto flex min-h-screen max-w-2xl flex-col px-4 pt-28 pb-10 sm:px-6">
+      <header className="mb-8 flex items-center gap-3">
+        <SimboloMolnip className="h-10 w-10 rounded-2xl shadow-premium" />
+        <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900">Molnip</h1>
       </header>
 
       <div className="flex-1 space-y-6">
-        {dicho.length === 0 && !r && (
+        {verOficios && dicho.length === 0 && !r && (
           <>
             <Dice>
               <p>¿A qué te dedicas?</p>
@@ -339,15 +411,6 @@ export default function AsesorPrueba() {
       </div>
 
       <div className="sticky bottom-4 mt-8">
-        {dicho.length === 0 && (
-          <div className="mb-2 flex flex-wrap gap-2">
-            {EJEMPLOS.map((e) => (
-              <button key={e} onClick={() => setTexto(e)} className="rounded-full border border-slate-200/80 bg-white px-3.5 py-1.5 text-sm text-slate-600 shadow-premium transition hover:border-brand-200 hover:text-brand-700">
-                {e}
-              </button>
-            ))}
-          </div>
-        )}
         <form
           onSubmit={(ev) => {
             ev.preventDefault();

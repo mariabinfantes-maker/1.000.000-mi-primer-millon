@@ -27,7 +27,16 @@ import { crearProveedorGemini } from "@/agents/compartido/proveedores/gemini";
  * `aconsejar`, que únicamente lee datos verificados.
  */
 
-const HAY_IA = Boolean(process.env.GEMINI_API_KEY);
+/**
+ * Hay IA si hay clave... o si la pone el proxy, que es como funciona el
+ * entorno remoto donde se lanzan los lotes (`GEMINI_CLAVE_INYECTADA_POR_PROXY`
+ * en `agents/compartido/proveedores/gemini.ts`, con su motivo escrito allí).
+ *
+ * Faltaba esa segunda mitad, y por eso el asesor decía «todavía no sé leer tu
+ * texto» en un entorno donde sí podía: se miraba sólo la variable de la clave.
+ */
+const HAY_IA =
+  Boolean(process.env.GEMINI_API_KEY) || process.env.GEMINI_CLAVE_INYECTADA_POR_PROXY === "true";
 
 /** Las casas: los oficios. Se piden sin cuerpo, para pintar la portada. */
 export async function GET() {
