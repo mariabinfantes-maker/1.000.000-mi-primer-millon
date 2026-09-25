@@ -6701,17 +6701,37 @@ existen, pero no **qué cambia cada una**, así que hoy serían de adorno.
 
 ### CÓMO HABLA MOLNIP — regla de la propietaria
 
-> **«Cercano sí, pero respetuoso y considerado.»**
+> **«Ser cercano sí, pero respetuoso y considerado.»** Y a continuación, lo que
+> de verdad estaba roto: *«ese lenguaje callejero no me gusta, estamos en un
+> entorno de negocios (...) todo el lenguaje que me has presentado no es
+> universal, está pensado sólo para impulsar la mediocridad en los negocios.
+> Has confundido cercanía y educación con un lenguaje para muy pocas personas,
+> porque si alguien que no es de España no va a sentirse cómodo.»*
 
-De **tú**, como el resto de la web. Lo que se prohíbe no es la cercanía, es el
-coloquialismo que rebaja a quien pregunta. Nace de una corrección suya:
+**No era cuestión de gusto: era excluyente y se podía medir.** `lib/pais.ts`
+dice a quién servimos —España, México, Argentina, Colombia, Chile y Perú— y
+**cinco de las diez preguntas estaban en vosotros**, que en cinco de esos seis
+países no lo dice nadie. Y en la tarjeta ponía **«se coge rápido»**: «coger»
+es vulgar en buena parte de América.
+
+El registro, fijado: **tú** para una persona, **ustedes** para varias —que es
+lo que se entiende en los seis—, vocabulario de negocio y sin regionalismos.
+Cercanía no es coloquialismo, y menos uno que da por hecho que quien pregunta
+va apurada. Nace de una corrección suya:
 *«no se dice "cuánta gente sois", es despectivo; se dice "cuántas personas",
 con educación»*. La palabra «personas» estaba en la pregunta original y **la
 quité yo** el día antes, al acortarla buscando que sonara natural.
 
-Corregido en las frases donde Molnip habla:
+Reescritas las diez preguntas, sus motivos y sus respuestas. Algunas:
 
-- «¿Cuánta gente sois?» → **«¿Cuántas personas sois?»**
+- «¿Cuánta gente sois?» → **«¿Cuántas personas trabajan en el negocio?»**
+- «¿Cuántas citas atendéis al mes?» → **«¿Cuántas citas atienden al mes?»**
+- «¿El trabajo lo hacéis en vuestro local o vais a donde está el cliente?» →
+  **«¿Trabajan en un local propio o se desplazan a donde está el cliente?»**
+- «Se coge rápido» → **«Se aprende rápido»**
+- «No estoy segura» → **«No lo sé con certeza»**. Le ponía género a quien
+  contesta: hablar nosotros de «la clienta» es una cosa; ponérselo en la boca
+  a ella es otra.
 - «¿Con qué te apañas ahora mismo?» → **«¿Con qué te organizas ahora mismo?»**
   («apañarse», dicho a quien lleva un negocio, es «ir tirando».)
 - «si con una agenda de papel te apañas o se te está yendo de las manos» →

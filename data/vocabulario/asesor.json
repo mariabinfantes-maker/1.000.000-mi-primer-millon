@@ -13,20 +13,20 @@
   "dimensiones": [
     {
       "id": "dim.cuantas-personas",
-      "pregunta": "¿Cuántas personas sois?",
-      "porQuePreguntamos": "Si sois varias, hay cosas que dejan de ser un extra y pasan a ser imprescindibles.",
+      "pregunta": "¿Cuántas personas trabajan en el negocio?",
+      "porQuePreguntamos": "Si son varias, hay cosas que dejan de ser un extra y pasan a ser imprescindibles.",
       "respuestas": [
         {
           "id": "sola",
-          "texto": "Sólo yo"
+          "texto": "Solo yo"
         },
         {
           "id": "pocas",
-          "texto": "Somos entre dos y cinco"
+          "texto": "Entre dos y cinco"
         },
         {
           "id": "muchas",
-          "texto": "Somos más de cinco"
+          "texto": "Más de cinco"
         }
       ],
       "afectaA": [
@@ -48,8 +48,8 @@
     },
     {
       "id": "dim.volumen-de-citas",
-      "pregunta": "¿Cuántas citas atendéis al mes, más o menos?",
-      "porQuePreguntamos": "Con pocas citas una agenda de papel llega; con muchas se queda corta, y eso cambia lo que te conviene.",
+      "pregunta": "¿Cuántas citas atienden al mes, aproximadamente?",
+      "porQuePreguntamos": "Con pocas citas una agenda en papel es suficiente; con muchas se queda corta, y eso cambia lo que te conviene.",
       "respuestas": [
         {
           "id": "pocas",
@@ -84,8 +84,8 @@
     },
     {
       "id": "dim.donde-se-hace-el-trabajo",
-      "pregunta": "¿El trabajo lo hacéis en vuestro local o vais a donde está el cliente?",
-      "porQuePreguntamos": "Lo que hace falta para controlar el trabajo cambia mucho según dónde se haga.",
+      "pregunta": "¿Trabajan en un local propio o se desplazan a donde está el cliente?",
+      "porQuePreguntamos": "Lo que hace falta para controlar el trabajo cambia según dónde se haga.",
       "respuestas": [
         {
           "id": "local",
@@ -93,7 +93,7 @@
         },
         {
           "id": "fuera",
-          "texto": "Vamos a donde está el cliente"
+          "texto": "Nos desplazamos al cliente"
         },
         {
           "id": "ambos",
@@ -115,16 +115,16 @@
     },
     {
       "id": "dim.vende-producto",
-      "pregunta": "¿Vendes también producto, o sólo tu tiempo y tu trabajo?",
-      "porQuePreguntamos": "Vender producto trae consigo controlar lo que tienes, y eso es un mundo aparte.",
+      "pregunta": "¿Vendes también productos, o solo tu tiempo y tu trabajo?",
+      "porQuePreguntamos": "Vender producto obliga a controlar las existencias, y eso es un terreno distinto.",
       "respuestas": [
         {
           "id": "solo-servicio",
-          "texto": "Sólo servicio"
+          "texto": "Solo servicios"
         },
         {
           "id": "tambien-producto",
-          "texto": "También vendo producto"
+          "texto": "También vendo productos"
         }
       ],
       "afectaA": [
@@ -142,8 +142,8 @@
     },
     {
       "id": "dim.datos-delicados",
-      "pregunta": "¿Guardáis datos de salud de vuestros clientes?",
-      "porQuePreguntamos": "Si los guardas, lo que te sirve tiene que cumplir cosas que no le pedimos a cualquier programa.",
+      "pregunta": "¿Guardan datos de salud de sus clientes?",
+      "porQuePreguntamos": "Si los guardas, el programa tiene que cumplir requisitos que no le pedimos a cualquiera.",
       "respuestas": [
         {
           "id": "si",
@@ -155,7 +155,7 @@
         },
         {
           "id": "nose",
-          "texto": "No estoy segura",
+          "texto": "No lo sé con certeza",
           "admiteNoLoSe": true
         }
       ],
@@ -175,12 +175,12 @@
     },
     {
       "id": "dim.con-que-se-apana-hoy",
-      "pregunta": "¿Con qué te organizas ahora mismo?",
-      "porQuePreguntamos": "Saber de dónde vienes cambia lo que te conviene: mudarse cuesta trabajo, y a veces no compensa.",
+      "pregunta": "¿Con qué te organizas actualmente?",
+      "porQuePreguntamos": "Saber de dónde partes cambia lo que te conviene: cambiar de herramienta tiene un coste, y a veces no compensa.",
       "respuestas": [
         {
           "id": "papel",
-          "texto": "Papel, libreta o la cabeza"
+          "texto": "Papel o libreta"
         },
         {
           "id": "hoja",
@@ -192,7 +192,7 @@
         },
         {
           "id": "varios",
-          "texto": "Varios sueltos que no se hablan"
+          "texto": "Varios programas que no se conectan entre sí"
         }
       ],
       "afectaA": [
@@ -212,8 +212,8 @@
     },
     {
       "id": "dim.encargos-largos-o-cortos",
-      "pregunta": "Lo que haces, ¿se resuelve en un rato o se alarga días o semanas?",
-      "porQuePreguntamos": "Un encargo que dura una tarde y una obra de tres meses no se llevan igual.",
+      "pregunta": "¿Cada trabajo se resuelve en el día o se alarga días o semanas?",
+      "porQuePreguntamos": "Un encargo de una tarde y un proyecto de tres meses no se gestionan igual.",
       "queCambiaEnElDiagnostico": [
         "Si todo se resuelve en el día, una lista de tareas basta y no hay que meterla en proyectos",
         "Si se alarga, aparecen fases, plazos y el riesgo de perder el hilo a mitad",
@@ -233,7 +233,7 @@
         },
         {
           "id": "ambos",
-          "texto": "De todo un poco"
+          "texto": "De los dos tipos"
         }
       ],
       "afectaA": [
@@ -245,7 +245,7 @@
     {
       "id": "dim.como-cobra-el-trabajo",
       "pregunta": "¿Cobras por el trabajo hecho, por horas, o tienes clientes de cuota fija?",
-      "porQuePreguntamos": "Según cómo cobres, hay cosas que tienes que ir apuntando sobre la marcha o no cuadran luego.",
+      "porQuePreguntamos": "Según cómo cobres, hay datos que tienes que registrar sobre la marcha o después no salen las cuentas.",
       "queCambiaEnElDiagnostico": [
         "Si cobra por horas, apuntar el tiempo deja de ser opcional: sin eso no puede facturar",
         "Si tiene clientes de cuota, lo que importa es que no se le pase una renovación",
@@ -257,7 +257,7 @@
       "respuestas": [
         {
           "id": "cerrado",
-          "texto": "Por el trabajo, a precio cerrado"
+          "texto": "Por trabajo, a precio cerrado"
         },
         {
           "id": "horas",
@@ -265,11 +265,11 @@
         },
         {
           "id": "cuota",
-          "texto": "Tengo clientes de cuota fija"
+          "texto": "Clientes con cuota fija"
         },
         {
           "id": "mezcla",
-          "texto": "Mezclo varias"
+          "texto": "Combino varias formas"
         }
       ],
       "afectaA": [
@@ -281,7 +281,7 @@
     {
       "id": "dim.papeles-que-firma-el-cliente",
       "pregunta": "¿Tus clientes tienen que firmarte algo? Presupuestos, consentimientos, contratos…",
-      "porQuePreguntamos": "Si te toca imprimir, firmar y escanear, es tiempo tuyo que se va todas las semanas.",
+      "porQuePreguntamos": "Si tienes que imprimir, firmar y escanear, es tiempo tuyo que se va cada semana.",
       "queCambiaEnElDiagnostico": [
         "Si no firma nada, la firma electrónica no es necesidad suya y no se le enseña",
         "Si firma a menudo, el ir y venir del papel es una parte real de su semana",
@@ -313,7 +313,7 @@
     {
       "id": "dim.ensena-o-forma",
       "pregunta": "¿Das clases, cursos o formación a tus clientes?",
-      "porQuePreguntamos": "Si enseñas, hay que llevar quién se ha apuntado y por dónde va cada uno, y eso es otra cosa.",
+      "porQuePreguntamos": "Si enseñas, hay que registrar quién se ha inscrito y por dónde va cada uno, y eso es otra cosa.",
       "queCambiaEnElDiagnostico": [
         "Si no enseña, nada de matrículas ni de alumnos aparece en su recorrido",
         "Si enseña, llevar la asistencia y el avance pasa a ser necesidad suya"

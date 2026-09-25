@@ -49,7 +49,7 @@ export type Camino = { forma: string; titulo: string; queImplica: string; opcion
 const TARJETA = "rounded-2xl border border-slate-200/80 bg-white";
 
 const CURVA: Record<string, string> = {
-  muy_facil: "Se coge muy rápido", facil: "Se coge rápido",
+  muy_facil: "Se aprende muy rápido", facil: "Se aprende rápido",
   media: "Lleva un rato aprenderla", dificil: "Cuesta aprenderla",
 };
 

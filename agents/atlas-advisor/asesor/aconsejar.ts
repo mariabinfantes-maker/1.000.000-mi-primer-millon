@@ -57,7 +57,7 @@ export type QueResuelve = {
  * rompe la pantalla y no contesta «¿cuánto me cuesta?».
  *
  * `planesComprobados` sí: cada plan trae su cifra corta y su cita literal de
- * la página del fabricante, con fecha. Se coge la de pago más barata y **se
+ * la página del fabricante, con fecha. Se toma la de pago más barata y **se
  * enseña tal cual, con su unidad** —«10,99 $/usuario/mes»—, porque quitar el
  * «por usuario» cambiaría lo que dice. La moneda no se convierte: sigue
  * vigente que convertir sin un cambio verificado sería inventar un número.
@@ -314,7 +314,7 @@ function aPieza(
  *  2. PLAN GRATUITO. Poder probarla sin pagar quita el miedo a equivocarse,
  *     que es lo que de verdad frena a quien no sabe de esto.
  *  3. PRECIO DE ENTRADA, el verificado y con su fecha.
- *  4. CURVA. La que se coge antes.
+ *  4. CURVA. La que se aprende antes.
  *
  * Si después de los cuatro siguen empatadas, NO se enseñan las dos: se dice
  * que no se puede elegir y se pregunta lo que decidiría.
@@ -428,7 +428,7 @@ function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempat
   if (curva.length > 1 && curva[0].c < curva[1].c && curva[0].c < 9) {
     return { elegida: curva[0].o, desempate: {
       criterio: "curva",
-      porQue: `Las dos te sirven, pero ${nombreDe(curva[0].o)} se coge antes. Para empezar, eso vale más que cualquier función de más.`,
+      porQue: `Las dos te sirven, pero ${nombreDe(curva[0].o)} se aprende antes. Para empezar, eso vale más que cualquier función de más.`,
     } };
   }
 

@@ -83,7 +83,7 @@ function Plegada({ icono: Icono, titulo, children }: { icono: LucideIcon; titulo
 }
 
 const CURVA: Record<string, string> = {
-  muy_facil: "Se coge muy rápido", facil: "Se coge rápido",
+  muy_facil: "Se aprende muy rápido", facil: "Se aprende rápido",
   media: "Lleva un rato aprenderla", dificil: "Cuesta aprenderla",
 };
 
