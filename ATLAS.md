@@ -6630,7 +6630,103 @@ sin decir de quién era; ya lo dice.
 
 ---
 
-## DÓNDE ESTAMOS — punto de partida al cerrar el 2026-09-24
+## 2026-09-25 — DEJAR DE APILAR, Y CÓMO HABLA MOLNIP
+
+### Lo sencillo no se descarta por cubrir menos
+
+**Una regla mía, mal guardada, estaba deformando el producto entero.**
+`AGENTS.md` dice «primero que sirva, después que encaje» —comprueba que
+funcione antes de ordenar por precio o idioma—. Yo lo había convertido en
+«gana quien cubra más casillas», y justifiqué el filtro citando «tres es la
+consecuencia, no un objetivo», que habla de no rellenar con malas, no de
+tirar la buena por ser sencilla.
+
+Medido antes de tocar nada: **Molnip apilaba herramientas en 15 de 17 casos**,
+y en los oficios las sueltas llegaban a la lista **cero** veces —el filtro las
+descartaba antes de ordenar—. A una peluquera se le tiraba Agiled, que le
+resuelve las reservas y las facturas, por no cubrir además el stock y los
+turnos; en su lugar se le ofrecían tres programas apilados, tres cuotas y sin
+saber si se hablan entre ellos.
+
+Lo dijo la propietaria sin rodeos: *«siempre me pones algo que va a complicar
+al cliente. No le compliques la vida al cliente, por favor.»* Y después, el
+diagnóstico de fondo, que vale para todo lo demás: *«guardas cosas que luego
+te van a complicar; si guardas algo, fíjate de entender bien el contexto».*
+
+Tres cambios:
+
+1. El motor guarda **la mejor de cada tamaño**: la mejor suelta, la mejor
+   pareja, el mejor trío. Ninguna se descarta por sencilla y ninguna entra a
+   rellenar, porque sólo entra si es la mejor en lo suyo.
+2. **Cada opción dice lo que NO cubre**, con nombres cortos y en la fila. Es
+   la otra mitad: ofrecer algo sencillo sin esconder nada, y es «decir que no
+   es un resultado válido» llegando por fin a la pantalla.
+3. **La lista enseña herramientas sueltas.** Los apilamientos pasan a
+   «explorar», con lo que cuestan escrito al lado —cuántas cuotas, y si
+   sabemos que se conectan—. Si no hay ninguna suelta que sirva, encabezan
+   ellos.
+
+### La medición que explica por qué las pantallas se veían complicadas
+
+| Entra diciendo | Molnip encuentra |
+|---|---|
+| «Pierdo citas y facturo a mano» (2 necesidades) | **8 opciones**: Agiled 24 $/mes, HoneyBook 29 $/mes, Keap, Nutshell… |
+| «Soy taller mecánico» (10 necesidades) | **1 opción** |
+| «Soy asesoría» (10 necesidades) | **1 opción**, y son tres programas |
+
+Mismo diseño, distinta entrada. **La puerta por oficio no afea la tarjeta: le
+quita al asesor el margen para aconsejar.** Si sólo hay una salida no hay
+consejo, hay resignación. Confirma con números lo anotado el 24.
+
+### La pantalla, siguiendo sus bocetos
+
+De cuatro que dibujó señaló dos: «me gusta mucho cómo se ven la 1 y la 3».
+
+- **Pantalla 1, «abres una opción»**, construida. Abrir ya no despliega en el
+  sitio: lleva a una pantalla entera donde no hay nada que comparar. Dos datos
+  que llevaban semanas escritos y no salían a ninguna pantalla se usan por fin:
+  `desempate.porQue` (el consejo en primera persona) y `loQueTeCuesta` del
+  vocabulario (la sección «Para empezar»).
+- **La lista, como su imagen 4**: herramienta, precio a la vista y «Mi
+  consejo» abajo, donde Molnip se moja. El precio corto sale de
+  `planesComprobados` —`precioInicial` es una frase entera en 52 de las 65
+  fichas y rompía la pantalla—; se enseña con su unidad y **sin convertir la
+  moneda**, que sigue sin resolverse.
+- **Nunca «y N cosas más».** Era el acertijo que yo mismo había señalado el
+  día anterior y volví a escribir a la mañana siguiente.
+
+**Pantalla 3, sin construir, y con un dato que falta:** los botones de
+respuesta no pueden funcionar todavía. El vocabulario guarda qué respuestas
+existen, pero no **qué cambia cada una**, así que hoy serían de adorno.
+
+### CÓMO HABLA MOLNIP — regla de la propietaria
+
+> **«Cercano sí, pero respetuoso y considerado.»**
+
+De **tú**, como el resto de la web. Lo que se prohíbe no es la cercanía, es el
+coloquialismo que rebaja a quien pregunta. Nace de una corrección suya:
+*«no se dice "cuánta gente sois", es despectivo; se dice "cuántas personas",
+con educación»*. La palabra «personas» estaba en la pregunta original y **la
+quité yo** el día antes, al acortarla buscando que sonara natural.
+
+Corregido en las frases donde Molnip habla:
+
+- «¿Cuánta gente sois?» → **«¿Cuántas personas sois?»**
+- «¿Con qué te apañas ahora mismo?» → **«¿Con qué te organizas ahora mismo?»**
+  («apañarse», dicho a quien lleva un negocio, es «ir tirando».)
+- «si con una agenda de papel te apañas o se te está yendo de las manos» →
+  «con pocas citas una agenda de papel llega; con muchas se queda corta».
+  (Daba por hecho que había perdido el control.)
+- «dime cuánto puedes gastar al mes» → **«dime qué presupuesto manejas al
+  mes»**.
+
+**Lo que NO se toca:** las necesidades están escritas en la voz de ella
+—«escribir a mi gente», «textos que no me den vergüenza»—. Ésas son sus
+palabras sobre lo suyo, no Molnip hablándole.
+
+---
+
+## DÓNDE ESTAMOS — punto de partida al cerrar el 2026-09-25
 
 Esta sección no decide nada: dice en qué punto quedó todo, para que quien
 retome no tenga que reconstruirlo leyendo doscientos commits. **Se reescribe
@@ -6680,10 +6776,12 @@ oficios**.
 
 **Sin resolver, y por este orden:**
 
-1. **La pantalla obliga a pensar.** Es el listón de la propietaria y ninguna
-   de las dos versiones de la tarjeta lo pasa. Ver la sección del 24.
-2. **A 10 de 15 oficios Molnip les dice que sí sin poder.** El dato existe y
-   no llega a la pantalla. Incumple «decir que no es un resultado válido».
+1. **La pantalla obliga a pensar.** Sigue siendo el listón, y sigue sin
+   pasarlo del todo. El 25 mejoró —una herramienta, lo que no cubre, y el
+   consejo— pero lo decide ella, no yo.
+2. ~~**A 10 de 15 oficios Molnip les dice que sí sin poder.**~~ Resuelto el
+   2026-09-25: cada opción dice lo que NO cubre, en la fila y no en letra
+   pequeña.
 3. **La puerta por oficio mete diez necesidades donde caben dos**, y por eso
    ningún titular es legible. Decisión abierta: si se entra por frase escrita,
    qué pasa con la puerta de oficios.

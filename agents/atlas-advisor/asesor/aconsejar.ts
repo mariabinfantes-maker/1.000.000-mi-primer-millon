@@ -433,7 +433,7 @@ function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempat
   }
 
   // No se enseñan las dos. Se dice que no se puede elegir y se pregunta.
-  return { empate: `${quedan3.length > 1 ? quedan3.length : opciones.length} salen igual de bien con lo que me has contado, y no tengo con qué decidir entre ellas. Dime cuánto puedes gastar al mes y si trabaja sola o con más personas, y le digo cuál.` };
+  return { empate: `${quedan3.length > 1 ? quedan3.length : opciones.length} salen igual de bien con lo que me has contado, y no tengo con qué decidir entre ellas. Dime qué presupuesto manejas al mes y si trabajas sola o con más personas, y te digo cuál.` };
 }
 
 

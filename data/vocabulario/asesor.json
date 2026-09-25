@@ -13,7 +13,7 @@
   "dimensiones": [
     {
       "id": "dim.cuantas-personas",
-      "pregunta": "¿Cuántas personas son?",
+      "pregunta": "¿Cuántas personas sois?",
       "porQuePreguntamos": "Si sois varias, hay cosas que dejan de ser un extra y pasan a ser imprescindibles.",
       "respuestas": [
         {
@@ -49,7 +49,7 @@
     {
       "id": "dim.volumen-de-citas",
       "pregunta": "¿Cuántas citas atendéis al mes, más o menos?",
-      "porQuePreguntamos": "Lo preguntamos para saber si con una agenda de papel te apañas o se te está yendo de las manos.",
+      "porQuePreguntamos": "Con pocas citas una agenda de papel llega; con muchas se queda corta, y eso cambia lo que te conviene.",
       "respuestas": [
         {
           "id": "pocas",
@@ -175,7 +175,7 @@
     },
     {
       "id": "dim.con-que-se-apana-hoy",
-      "pregunta": "¿Con qué te apañas ahora mismo?",
+      "pregunta": "¿Con qué te organizas ahora mismo?",
       "porQuePreguntamos": "Saber de dónde vienes cambia lo que te conviene: mudarse cuesta trabajo, y a veces no compensa.",
       "respuestas": [
         {
