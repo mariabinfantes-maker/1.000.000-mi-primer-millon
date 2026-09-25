@@ -82,7 +82,7 @@ function precio(opcion: Opcion): { cifra: string; nota?: string } {
   const cortos = opcion.piezas.map((p) => p.coste.desdeCorto).filter(Boolean) as string[];
   const gratis = opcion.piezas.every((p) => p.coste.tienePlanGratuito);
   if (cortos.length < opcion.piezas.length) {
-    return gratis ? { cifra: "Tiene plan gratuito", nota: "el de pago, sin comprobar" } : { cifra: "Sin comprobar" };
+    return gratis ? { cifra: "Tiene plan gratuito", nota: "y planes de pago" } : { cifra: "Precio en su web" };
   }
   return {
     cifra: `desde ${cortos.join(" + ")}`,
@@ -110,16 +110,18 @@ function Fila({ opcion, forma, alAbrir }: { opcion: Opcion; forma: string; alAbr
           </p>
           <p className="mt-1 text-sm leading-relaxed text-slate-600">{titular(forma, opcion)}</p>
           {/*
-            Lo que NO le resuelve, en la fila y no en letra pequeña. Es lo que
-            permite ofrecer una herramienta sencilla sin esconder nada: la
-            regla «decir que no es un resultado válido», llegando a la
-            pantalla. Y si son dos programas, se dice ahí mismo lo que cuesta:
-            dos altas, dos cuotas, y que no sabemos si se hablan.
+            Lo que NO le resuelve, y lo que le cuesta de verdad si son dos
+            programas. Las dos cosas cambian su decisión, así que van en la
+            fila y no en letra pequeña.
+
+            Aquí decía además «y no hemos comprobado que se conecten». Eso no
+            era información suya: era Molnip enseñando hasta dónde llegó su
+            trabajo. Propietaria, 2026-09-25: «nuestro trabajo no es demostrar
+            que hicimos los deberes, es dar buena información al cliente».
           */}
           {opcion.piezas.length > 1 && (
             <p className="mt-1.5 text-sm font-semibold text-atencion-700">
               Son {opcion.piezas.length} programas y {opcion.piezas.length} cuotas
-              {opcion.laConexionNoEstaComprobada && ", y no hemos comprobado que se conecten"}
             </p>
           )}
           {opcion.noCubre.length > 0 && (
@@ -243,7 +245,6 @@ export default function TarjetaDelConsejo({
                   {o.opcion.piezas.length > 1 && (
                     <span className="block text-sm font-semibold text-atencion-700">
                       {o.opcion.piezas.length} programas y {o.opcion.piezas.length} cuotas
-                      {o.opcion.laConexionNoEstaComprobada && ", sin comprobar que se conecten"}
                     </span>
                   )}
                 </span>

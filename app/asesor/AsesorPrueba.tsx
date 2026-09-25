@@ -86,7 +86,6 @@ export default function AsesorPrueba() {
   const [cargando, setCargando] = useState(false);
   const [abierto, setAbierto] = useState<string | null>(null);
   const [desplegado, setDesplegado] = useState<string | null>(null);
-  const [dudas, setDudas] = useState(false);
   /**
    * La opción abierta. Mientras haya una, la pantalla es SÓLO esa: ni
    * cabecera, ni conversación, ni pregunta. «Una pantalla, una cosa», del
@@ -382,32 +381,25 @@ export default function AsesorPrueba() {
             )}
 
             {/*
-              Esto era la otra pared. Siete párrafos casi idénticos —cambiaba
-              el nombre de la necesidad y el resto era la misma frase— en la
-              primera pantalla, debajo del consejo. No se quita ni una coma:
-              se guarda detrás de una línea, porque lo que agobia no es la
-              honestidad, es tenerla que leer entera para saber si sirve.
-            */}
-            {c.sinComprobar.length > 0 && (
-              <Dice>
-                <button onClick={() => setDudas(!dudas)} className="flex w-full items-center gap-3 text-left">
-                  <span className="flex-1 font-semibold text-slate-900">
-                    {c.sinComprobar.length === 1 ? "Una cosa que todavía no sé" : `${c.sinComprobar.length} cosas que todavía no sé`}
-                  </span>
-                  <span className="text-sm font-semibold text-brand-700">{dudas ? "Ocultar" : "Ver cuáles"}</span>
-                </button>
-                {dudas && (
-                  <>
-                    <ul className="mt-3 space-y-2 border-t border-slate-200/80 pt-3 text-sm text-slate-600">
-                      {c.sinComprobar.map((s) => <li key={s}>{s}</li>)}
-                    </ul>
-                    {/* La regla de F2, dicha UNA vez y donde toca. */}
-                    <p className="mt-3 text-xs text-slate-500">Que no lo haya encontrado no quiere decir que no exista.</p>
-                  </>
-                )}
-              </Dice>
-            )}
+              AQUÍ IBA LA LISTA DE LO QUE NO SABEMOS («8 cosas que todavía no
+              sé»). Se apaga, no se borra.
 
+              Pasó por tres versiones: primero siete párrafos idénticos, luego
+              una línea con «ver cuáles», y ahora fuera. Lo que no cambiaba en
+              ninguna es de quién hablaba: de nosotros. Lo que a ella le sirve
+              para decidir —qué NO le cubre cada opción— lo dice ya cada fila.
+
+              Propietaria, 2026-09-25: «siempre estás tratando de demostrar
+              algo, y nuestro trabajo no es demostrar que hicimos los deberes.
+              Nuestro trabajo es dar buena información al cliente, clara,
+              concisa, que lo lleve directamente a elegir lo que nosotros ya
+              estudiamos». Y el fondo: «somos personas de bien y no necesitamos
+              demostrarle a nadie que lo somos, se da por hecho».
+
+              `consejo.sinComprobar` sigue calculándose y está disponible: la
+              verificación sirve para que no digamos una mentira, no para que
+              nadie nos audite.
+            */}
             {/*
               Aquí se contaba cuántas herramientas había mirado y que no me
               había quedado en la casa que parecía la suya. Es mérito nuestro,

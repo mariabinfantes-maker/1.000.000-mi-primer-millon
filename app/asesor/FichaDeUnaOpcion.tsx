@@ -90,7 +90,7 @@ const CURVA: Record<string, string> = {
 function Coste({ p }: { p: Pieza }) {
   return (
     <>
-      <p className="text-base font-semibold text-slate-900">{p.coste.desde ?? "Precio sin comprobar"}</p>
+      <p className="text-base font-semibold text-slate-900">{p.coste.desde ?? "Consúltalo en su web"}</p>
       {p.coste.comprobadoEl && (
         <p className="mt-1 text-xs text-slate-500">
           Comprobado el {p.coste.comprobadoEl}
@@ -102,7 +102,14 @@ function Coste({ p }: { p: Pieza }) {
       <ul className="mt-2.5 space-y-1">
         {p.coste.tienePlanGratuito && <li>Tiene plan gratuito.</li>}
         {p.coste.curva && <li>{CURVA[p.coste.curva] ?? p.coste.curva}.</li>}
-        <li>{p.coste.enEspanol ? "Está en español." : "En español: sin comprobar."}</li>
+        {/*
+          El idioma se dice cuando lo sabemos y es una ventaja suya. Antes se
+          escribía también cuando NO lo sabíamos —«en español: sin
+          comprobar»—, que no le sirve para nada: es el estado de nuestro
+          trabajo, no una característica del programa. Quien elige por idioma
+          sigue protegida: el consejo lo dice en voz alta cuando decide.
+        */}
+        {p.coste.enEspanol && <li>Está en español.</li>}
       </ul>
     </>
   );
@@ -111,24 +118,28 @@ function Coste({ p }: { p: Pieza }) {
 function Fuentes({ p }: { p: Pieza }) {
   return (
     <>
-      <ul className="space-y-2.5">
+      {/*
+        Esto era «Funciones y fuentes»: cada cosa con la página donde la vimos
+        y la fecha en que se abrió, más una lista de lo que nos faltaba por
+        confirmar. Era el recibo de nuestro trabajo puesto delante de ella.
+        Ahora es lo que incluye, y un enlace a su página por si quiere verlo —
+        que es útil, no una prueba. La evidencia sigue entera en la capa de
+        verificación, que es donde trabaja: sirve para que no digamos una
+        mentira, no para que ella nos audite.
+      */}
+      <ul className="space-y-2">
         {p.queResuelve.map((q) => (
-          <li key={q.necesidad}>
-            <p className="text-slate-800">{q.necesidad}</p>
-            {q.url && (
-              <p className="text-xs text-slate-500">
-                <a href={q.url} target="_blank" rel="noreferrer noopener" className="underline">Su página</a>, {q.fecha}
-              </p>
+          <li key={q.necesidad} className="text-slate-800">
+            {q.url ? (
+              <a href={q.url} target="_blank" rel="noreferrer noopener" className="underline decoration-slate-300 underline-offset-2">
+                {q.necesidad}
+              </a>
+            ) : (
+              q.necesidad
             )}
           </li>
         ))}
       </ul>
-      {p.faltaPorConfirmar.length > 0 && (
-        <>
-          <p className="mt-4 font-semibold text-slate-800">Falta por confirmar</p>
-          <ul className="mt-1 space-y-1">{p.faltaPorConfirmar.map((f) => <li key={f}>{f}</li>)}</ul>
-        </>
-      )}
     </>
   );
 }
@@ -173,9 +184,7 @@ export default function FichaDeUnaOpcion({
         </div>
       )}
 
-      {opcion.laConexionNoEstaComprobada && (
-        <p className="text-sm text-slate-500">Sin comprobar que se entiendan entre sí.</p>
-      )}
+
 
       <ul>{resuelve.map((q, i) => <Fila key={q.necesidad} i={i}>{q.necesidad}</Fila>)}</ul>
 
@@ -195,7 +204,7 @@ export default function FichaDeUnaOpcion({
               <p className="pt-4 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">{p.nombre}</p>
             )}
             <Plegada icono={Coins} titulo="Precio y condiciones"><Coste p={p} /></Plegada>
-            <Plegada icono={BookOpen} titulo="Funciones y fuentes"><Fuentes p={p} /></Plegada>
+            <Plegada icono={BookOpen} titulo="Qué incluye"><Fuentes p={p} /></Plegada>
           </div>
         ))}
       </div>
