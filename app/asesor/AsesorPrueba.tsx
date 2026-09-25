@@ -179,9 +179,17 @@ export default function AsesorPrueba() {
           <h1 className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight text-slate-900 sm:text-5xl">
             Molnip
           </h1>
+          {/*
+            Aquí ponía «busco entre 65 herramientas». Fuera, por una razón de
+            negocio de la propietaria (2026-09-25): «decir cuántas herramientas
+            tenemos sin que nadie lo pregunte es contraproducente: para unas
+            será mucho y para otras poco. Es un as en la manga que nadie
+            necesita saber, a menos que estemos cerrando un negocio tú a tú».
+            El número sigue en los datos; lo que se quita es presumir de él.
+          */}
           <p className="mt-4 text-lg leading-relaxed text-slate-600">
-            Cuéntame qué necesita tu negocio. Busco entre 65 herramientas y te digo cuál te sirve —{" "}
-            <span className="font-semibold text-slate-800">y cuál no</span>.
+            Cuéntame qué necesita tu negocio y te digo qué usar —{" "}
+            <span className="font-semibold text-slate-800">y qué no</span>.
           </p>
         </div>
 
