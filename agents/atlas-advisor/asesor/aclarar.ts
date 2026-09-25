@@ -32,6 +32,11 @@ export type PreguntaUtil = {
    * una pregunta decorativa sin que se note.
    */
   candidatasQueSeMueven: number;
+  /**
+   * Cuánto tiene que ver con lo que ELLA acaba de contar: capacidades que
+   * comparten las necesidades que la pregunta traería con las que ella trajo.
+   */
+  cercaDeLoQueConto: number;
 };
 
 /** Las tres primeras soluciones, que es lo que ella llegaría a ver. */
@@ -55,6 +60,8 @@ export function aclarar(
   puerto: PuertoDeEvidencia = getPuertoDeEvidencia()
 ): PreguntaUtil[] {
   const yaTiene = new Set(delCaso.map((n) => n.necesidad.id));
+  /** Las capacidades que están en juego en lo que ella contó. */
+  const suyas = new Set(delCaso.flatMap((n) => [...n.necesidad.imprescindibles, ...n.necesidad.ayudan]));
   const base = cabeza(buscar(delCaso, puerto));
   const utiles: PreguntaUtil[] = [];
 
@@ -77,11 +84,29 @@ export function aclarar(
       for (const t of otra.split(/[|+]/)) mueve.add(t);
     }
     if (afecta.length === 0) continue;
-    utiles.push({ dimension, afectaA: afecta, candidatasQueSeMueven: mueve.size });
+    const cercaDeLoQueConto = afecta.reduce((suma, id) => {
+      const n = getNecesidad(id)!;
+      return suma + [...n.imprescindibles, ...n.ayudan].filter((c) => suyas.has(c)).length;
+    }, 0);
+    utiles.push({ dimension, afectaA: afecta, candidatasQueSeMueven: mueve.size, cercaDeLoQueConto });
   }
 
+  /**
+   * PRIMERO LA QUE SIGUE SU PROBLEMA.
+   *
+   * Antes mandaba «a cuántas necesidades afecta», así que a una clínica que
+   * contaba que pierde pacientes por no coger el teléfono se le preguntaba por
+   * las firmas antes que por las citas. La pregunta era útil —cambia el
+   * consejo— pero llegaba fuera de sitio: todavía no sabíamos cómo llevan las
+   * citas, que es lo que ella había contado.
+   *
+   * Lo dijo la propietaria el 2026-09-25: «la pregunta debe seguir el problema
+   * que contó la clínica; la firma puede explorarse después si viene al caso».
+   * Por eso manda ahora la cercanía a lo que trajo, y lo demás desempata.
+   */
   return utiles.sort(
     (a, b) =>
+      b.cercaDeLoQueConto - a.cercaDeLoQueConto ||
       b.afectaA.length - a.afectaA.length ||
       b.candidatasQueSeMueven - a.candidatasQueSeMueven ||
       a.dimension.id.localeCompare(b.dimension.id, "es")

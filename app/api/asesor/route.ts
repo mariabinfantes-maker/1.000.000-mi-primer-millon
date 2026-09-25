@@ -97,5 +97,6 @@ function resumir(p: PreguntaUtil) {
     porQuePreguntamos: p.dimension.porQuePreguntamos,
     respuestas: p.dimension.respuestas,
     candidatasQueSeMueven: p.candidatasQueSeMueven,
+    cercaDeLoQueConto: p.cercaDeLoQueConto,
   };
 }

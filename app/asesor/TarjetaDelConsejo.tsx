@@ -55,6 +55,23 @@ function enumerar(cosas: string[]): string {
   return `${cosas.slice(0, -1).join(", ")} y ${cosas[cosas.length - 1]}`;
 }
 
+/**
+ * Lo mismo en dos palabras, para cuando habla Molnip.
+ *
+ * Los títulos del vocabulario están en primera persona de ella —«que puedan
+ * reservar sin llamarME»— y en la fila eso está bien: es devolverle sus
+ * palabras. Pero en «Mi consejo» habla Molnip, y ahí sonaba a que se
+ * confundían las voces.
+ */
+function cubreEnCorto(opcion: Opcion): string[] {
+  return [...new Set(opcion.piezas.flatMap((p) => p.cubreEnCorto))].slice(0, A_LA_VISTA);
+}
+
+/** Lo que resuelve, con las palabras del vocabulario. Como mucho tres. */
+export function queResuelve(opcion: Opcion): string[] {
+  return [...new Set(opcion.piezas.flatMap((p) => p.queResuelve.map((q) => q.necesidad)))].slice(0, A_LA_VISTA);
+}
+
 /** Qué resuelve y de qué forma, en una frase. Nunca «y N cosas más». */
 export function titular(forma: string, opcion: Opcion | undefined): string {
   const cubre = [...new Set((opcion?.piezas ?? []).flatMap((p) => p.cubreEnCorto))].slice(0, A_LA_VISTA);
@@ -108,7 +125,24 @@ function Fila({ opcion, forma, alAbrir }: { opcion: Opcion; forma: string; alAbr
           <p className="font-display text-lg font-bold leading-tight text-slate-900">
             {opcion.piezas.map((x) => x.nombre).join(" + ")}
           </p>
-          <p className="mt-1 text-sm leading-relaxed text-slate-600">{titular(forma, opcion)}</p>
+          {/*
+            LO QUE LE RESUELVE, CON SUS PALABRAS.
+            Antes ponía «reservas y facturas, en un mismo sitio»: nombraba el
+            tema y la forma, pero no el trabajo. Propietaria, 2026-09-25:
+            «falta conectar la herramienta con el trabajo concreto de esa
+            clínica: qué reserva permite gestionar y cómo resuelve la
+            facturación». Ahora se escriben las necesidades tal y como están
+            dichas en el vocabulario, que son sus palabras; la forma —en un
+            sitio o en dos— baja a una etiqueta, que es lo que es.
+          */}
+          <ul className="mt-1.5 space-y-0.5">
+            {queResuelve(opcion).map((t) => (
+              <li key={t} className="text-sm leading-relaxed text-slate-600">{t}</li>
+            ))}
+          </ul>
+          <p className="mt-1.5 text-xs font-semibold uppercase tracking-[0.06em] text-slate-400">
+            {forma === "todo-en-uno" || opcion.piezas.length === 1 ? "En un mismo sitio" : `En ${opcion.piezas.length} herramientas`}
+          </p>
           {/*
             Lo que NO le resuelve, y lo que le cuesta de verdad si son dos
             programas. Las dos cosas cambian su decisión, así que van en la
@@ -131,7 +165,7 @@ function Fila({ opcion, forma, alAbrir }: { opcion: Opcion; forma: string; alAbr
             Ver herramienta <ArrowRight className="h-4 w-4" aria-hidden />
           </p>
         </div>
-        <div className="w-28 shrink-0 text-right">
+        <div className="w-24 shrink-0 text-right">
           <p className="font-display text-sm font-bold leading-snug text-slate-900">{p.cifra}</p>
           {p.nota && <p className="mt-0.5 text-xs leading-snug text-slate-500">{p.nota}</p>}
         </div>
@@ -217,8 +251,19 @@ export default function TarjetaDelConsejo({
           <SimboloMolnip className="mt-0.5 h-8 w-8 shrink-0 rounded-xl" />
           <div>
             <p className="font-display text-base font-bold text-brand-900">Mi consejo</p>
+            {/*
+              EL ENCAJE PRIMERO, EL DESEMPATE DESPUÉS.
+              Decía «empezaría por Agiled. De las que te valen, es la única que
+              está en español»: aconsejaba por el idioma sin haber explicado
+              nunca por qué le vale. Propietaria, 2026-09-25: «el idioma puede
+              apoyar la elección, pero no sustituir esa explicación». Se
+              compone con frases que ya existen; no se añade ningún bloque.
+            */}
             <p className="mt-1 leading-relaxed text-brand-900">
-              Empezaría por {alaVista[0].opcion.piezas.map((x) => x.nombre).join(" + ")}. {porQue}
+              Empezaría por {alaVista[0].opcion.piezas.map((x) => x.nombre).join(" + ")}
+              {": te lleva "}
+              {enumerar(cubreEnCorto(alaVista[0].opcion))}
+              {alaVista[0].opcion.piezas.length === 1 ? " desde un mismo sitio" : ""}. {porQue}
             </p>
           </div>
         </div>

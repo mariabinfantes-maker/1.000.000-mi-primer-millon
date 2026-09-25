@@ -35,7 +35,7 @@ type Consejo = {
   sinComprobar: string[];
   dondeSeBusco: { herramientas: number; casas: number };
 };
-type Pregunta = { id: string; pregunta: string; porQuePreguntamos: string; respuestas: { id: string; texto: string }[] };
+type Pregunta = { id: string; pregunta: string; porQuePreguntamos: string; cercaDeLoQueConto: number; respuestas: { id: string; texto: string }[] };
 type Respuesta = {
   sinIA?: boolean;
   necesidades?: Necesidad[];
@@ -137,7 +137,21 @@ export default function AsesorPrueba() {
   const c = r?.consejo;
   // La pregunta que más mueve, y sólo una: el resto se guarda para después de
   // que conteste. Enseñarle ocho a la vez es el formulario otra vez.
-  const laPregunta = r?.preguntas?.[0];
+  /**
+   * Y sólo si SIGUE SU PROBLEMA.
+   *
+   * A una clínica que contaba que pierde pacientes por no coger el teléfono se
+   * le preguntaba por las firmas: útil —cambia el consejo— pero fuera de
+   * sitio, porque todavía no sabíamos cómo llevan las citas, que es lo que
+   * ella había contado. Propietaria, 2026-09-25: «la pregunta debe seguir el
+   * problema que contó la clínica; la firma puede explorarse después si viene
+   * al caso».
+   *
+   * Si ninguna pregunta toca lo que contó, no se pregunta: se aconseja. La
+   * pregunta sigue calculada y puede salir cuando haya conversación de por
+   * medio.
+   */
+  const laPregunta = r?.preguntas?.find((p) => p.cercaDeLoQueConto > 0);
   const quePide = r?.comprension?.necesidades.map((n) => n.necesidad.titulo) ?? [];
   // Los nombres cortos («reservas», «facturas») los saca cada tarjeta de lo
   // que cubre SU opción, no de todo lo que ella pidió.
@@ -233,7 +247,7 @@ export default function AsesorPrueba() {
   }
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-2xl flex-col px-4 pt-28 pb-10 sm:px-6">
+    <div className="mx-auto flex min-h-screen max-w-2xl flex-col px-4 pt-28 pb-16 sm:px-6">
       <header className="mb-8 flex items-center gap-3">
         <SimboloMolnip className="h-10 w-10 rounded-2xl shadow-premium" />
         <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900">Molnip</h1>
@@ -410,7 +424,17 @@ export default function AsesorPrueba() {
         )}
       </div>
 
-      <div className="sticky bottom-4 mt-8">
+      {/*
+        LA CAJA NO TAPA NADA, Y POR ESO NO FLOTA.
+        Primero fue `sticky bottom-4` y caía justo encima de la primera
+        herramienta: interrumpía donde empieza la elección. Después la hice
+        barra fija, y seguía cubriendo la tarjeta que hubiera debajo, porque
+        eso es lo que hace cualquier cosa fija. Propietaria, 2026-09-25: «debe
+        quedar accesible sin cubrir tarjetas ni botones». Así que va al final
+        del contenido: se llega a ella cuando se ha terminado de mirar, que es
+        cuando hace falta.
+      */}
+      <div className="mt-10">
         <form
           onSubmit={(ev) => {
             ev.preventDefault();
@@ -419,7 +443,7 @@ export default function AsesorPrueba() {
             enviar({ texto });
             setTexto("");
           }}
-          className="flex items-center gap-2 rounded-2xl border border-slate-200/80 bg-white p-2 pl-5 shadow-premium-lg"
+          className="mx-auto flex max-w-2xl items-center gap-2 rounded-2xl border border-slate-200/80 bg-white p-2 pl-5 shadow-premium"
         >
           <input
             value={texto}
