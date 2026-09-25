@@ -1,5 +1,6 @@
 import { getTodasLasHerramientas } from "@/data/repositorio";
 import { getNecesidad, type NecesidadDelCaso } from "@/data/vocabulario/necesidades";
+import { getCapacidad } from "@/data/vocabulario/repositorio";
 import { getEsqueleto } from "@/data/vocabulario/asesor";
 import { getPuertoDeEvidencia } from "@/data/verificacion/consulta";
 import type { PuertoDeEvidencia } from "@/data/verificacion/puerto";
@@ -104,6 +105,21 @@ export type Pieza = {
    * tarjeta, donde la frase entera no cabe. Sale de `enCorto` del vocabulario.
    */
   cubreEnCorto: string[];
+  /**
+   * LO QUE ESTA HERRAMIENTA HACE DE MÁS, y está demostrado.
+   *
+   * Sale de las capacidades `ayudan` de SUS necesidades: las que suman pero no
+   * descalifican. Una herramienta de reservas que además demuestra
+   * recordatorios automáticos no es igual que una que no, y eso es lo único
+   * que distingue de verdad a dos que cubren lo mismo.
+   *
+   * Nace de una observación de la propietaria (2026-09-25): «las tres tarjetas
+   * repiten prácticamente la misma explicación (...) eso debe salir de
+   * diferencias comprobadas relevantes para esta persona, sin inventar
+   * ventajas para distinguirlas». Por eso se lee de la evidencia y sólo entra
+   * lo que está `demostrada`; si no hay diferencia, no se escribe ninguna.
+   */
+  ademas: string[];
   /** En qué casas vive. Sirve para contar dónde se buscó, no para ordenar. */
   casas: string[];
   /** Puerta 1: qué te resuelve, con el recibo de cada cosa. */
@@ -275,9 +291,20 @@ function aPieza(
         faltaPorConfirmar.push("No hemos confirmado que esté en español.");
       }
 
+      // Lo que suma, demostrado, de las necesidades que ella trajo.
+      const ademas: string[] = [];
+      for (const id of p.cubre) {
+        for (const cap of getNecesidad(id)?.ayudan ?? []) {
+          if (puerto.estadoDe(p.herramientaId, cap).estado !== "demostrada") continue;
+          const etiqueta = getCapacidad(cap)?.etiqueta;
+          if (etiqueta && !ademas.includes(etiqueta)) ademas.push(etiqueta);
+        }
+      }
+
       return {
         herramientaId: p.herramientaId,
         nombre: h?.nombre ?? p.herramientaId,
+        ademas,
         cubre: p.cubre.map((id) => getNecesidad(id)?.titulo ?? id),
         cubreEnCorto: p.cubre.map((id) => getNecesidad(id)?.enCorto ?? id),
         casas: p.casas,
@@ -396,7 +423,11 @@ function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempat
   if (enEspanol.length === 1) {
     return { elegida: enEspanol[0], desempate: {
       criterio: "idioma",
-      porQue: `De las que te valen, ${nombreDe(enEspanol[0])} es la única que está en español. Las otras no están pensadas para trabajar en tu idioma.`,
+      // «De las que te valen» daba por explicado un encaje que la pantalla no
+      // contaba (propietaria, 2026-09-25). Ahora el encaje se dice antes, en el
+      // propio consejo, así que esta frase sólo tiene que aportar lo suyo: el
+      // idioma desempata, no justifica.
+      porQue: `Y es la única de las tres que está en español; las demás no están pensadas para trabajar en tu idioma.`,
     } };
   }
   const quedan1 = enEspanol.length > 1 ? enEspanol : opciones;

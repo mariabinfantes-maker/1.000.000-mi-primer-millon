@@ -34,7 +34,7 @@ export type Coste = {
   tienePlanGratuito?: boolean; curva?: string; enEspanol?: boolean;
 };
 export type Pieza = {
-  herramientaId: string; nombre: string; cubre: string[]; cubreEnCorto: string[]; casas: string[];
+  herramientaId: string; nombre: string; cubre: string[]; cubreEnCorto: string[]; ademas: string[]; casas: string[];
   queResuelve: QueResuelve[]; coste: Coste; faltaPorConfirmar: string[];
 };
 export type Opcion = {

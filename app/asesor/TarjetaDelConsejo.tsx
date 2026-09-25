@@ -115,8 +115,22 @@ function Baldosa({ icono: Icono }: { icono: LucideIcon }) {
   );
 }
 
-function Fila({ opcion, forma, alAbrir }: { opcion: Opcion; forma: string; alAbrir: () => void }) {
+/**
+ * LO QUE DISTINGUE A ÉSTA DE LAS DEMÁS DE LA LISTA.
+ *
+ * `ademas` trae lo que la herramienta demuestra de más sobre las necesidades
+ * que ella trajo. Aquí se filtra a lo que NO tienen todas: si las tres traen
+ * lo mismo, no distingue nada y no se escribe. Así la tarjeta sólo habla
+ * cuando tiene algo que decir, y nunca se inventa una ventaja para rellenar.
+ */
+function loQueDistingue(opcion: Opcion, todas: Opcion[]): string[] {
+  const suyos = [...new Set(opcion.piezas.flatMap((p) => p.ademas))];
+  return suyos.filter((e) => !todas.every((o) => o.piezas.some((p) => p.ademas.includes(e))));
+}
+
+function Fila({ opcion, forma, entreEllas, alAbrir }: { opcion: Opcion; forma: string; entreEllas: Opcion[]; alAbrir: () => void }) {
   const p = precio(opcion);
+  const distingue = loQueDistingue(opcion, entreEllas);
   return (
     <button onClick={alAbrir} className={`${TARJETA} w-full p-5 text-left shadow-premium transition hover:border-brand-200`}>
       <div className="flex items-start gap-4">
@@ -140,6 +154,9 @@ function Fila({ opcion, forma, alAbrir }: { opcion: Opcion; forma: string; alAbr
               <li key={t} className="text-sm leading-relaxed text-slate-600">{t}</li>
             ))}
           </ul>
+          {distingue.length > 0 && (
+            <p className="mt-1.5 text-sm font-semibold text-brand-700">Además: {distingue.join(", ").toLowerCase()}</p>
+          )}
           <p className="mt-1.5 text-xs font-semibold uppercase tracking-[0.06em] text-slate-400">
             {forma === "todo-en-uno" || opcion.piezas.length === 1 ? "En un mismo sitio" : `En ${opcion.piezas.length} herramientas`}
           </p>
@@ -221,6 +238,17 @@ export default function TarjetaDelConsejo({
   const apiladas = todas.filter((o) => o.opcion.piezas.length > 1);
   const alaVista = (sueltas.length > 0 ? sueltas : apiladas).slice(0, 3);
   const otras = [...(sueltas.length > 0 ? sueltas : apiladas).slice(3), ...(sueltas.length > 0 ? apiladas : [])];
+  /** La primera de las demás que traiga algo que la elegida no tiene. */
+  const laOtraConAlgo = (() => {
+    if (alaVista.length < 2) return undefined;
+    const todas = alaVista.map((x) => x.opcion);
+    for (const o of alaVista.slice(1)) {
+      const extra = loQueDistingue(o.opcion, todas)[0];
+      if (extra) return { nombre: o.opcion.piezas.map((x) => x.nombre).join(" + "), extra };
+    }
+    return undefined;
+  })();
+
   const abrir = (o: Opcion, forma: string, primera: boolean) =>
     alAbrir({ opcion: o, titular: titular(forma, o), porQue: primera ? porQue : undefined });
 
@@ -243,7 +271,13 @@ export default function TarjetaDelConsejo({
       )}
 
       {alaVista.map((o, i) => (
-        <Fila key={i} opcion={o.opcion} forma={o.forma} alAbrir={() => abrir(o.opcion, o.forma, i === 0)} />
+        <Fila
+          key={i}
+          opcion={o.opcion}
+          forma={o.forma}
+          entreEllas={alaVista.map((x) => x.opcion)}
+          alAbrir={() => abrir(o.opcion, o.forma, i === 0)}
+        />
       ))}
 
       {porQue && (
@@ -265,6 +299,19 @@ export default function TarjetaDelConsejo({
               {enumerar(cubreEnCorto(alaVista[0].opcion))}
               {alaVista[0].opcion.piezas.length === 1 ? " desde un mismo sitio" : ""}. {porQue}
             </p>
+            {/*
+              Y si otra de la lista demuestra algo que la elegida no tiene, se
+              dice. Es lo que convierte una lista en un consejo: no callar el
+              dato que podría cambiar su decisión sólo porque no gana el
+              desempate. Sale de la evidencia; si no hay diferencia, no sale
+              nada.
+            */}
+            {laOtraConAlgo && (
+              <p className="mt-2 leading-relaxed text-brand-900">
+                {laOtraConAlgo.nombre} es la única de las tres que además demuestra{" "}
+                {laOtraConAlgo.extra.toLowerCase()}. Si eso te importa, míralo antes de decidir.
+              </p>
+            )}
           </div>
         </div>
       )}
