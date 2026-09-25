@@ -6699,6 +6699,55 @@ De cuatro que dibujó señaló dos: «me gusta mucho cómo se ven la 1 y la 3».
 respuesta no pueden funcionar todavía. El vocabulario guarda qué respuestas
 existen, pero no **qué cambia cada una**, así que hoy serían de adorno.
 
+### DOS AFIRMACIONES QUE NO SON LA MISMA — corrección de la propietaria
+
+> «"Sólo HoneyBook lo tiene" describe los productos. "Sólo lo tenemos
+> demostrado en HoneyBook" describe lo que Molnip ha comprobado. El consejo usa
+> la segunda, que es la que sostiene el informe. Los "ninguna" tampoco deben
+> convertirse en ausencias sin evidencia.»
+
+La pantalla decía «X es la única de las tres que además demuestra Y», que se
+lee como una afirmación sobre las otras dos. Ahora dice «de las tres, Y sólo lo
+hemos comprobado en X».
+
+Y el fallo fue sobre todo MÍO al informar: presenté una tabla de capacidades
+con «ninguna» en seis filas. Ninguna de esas filas significaba que las
+herramientas no lo hagan: significaba que no lo tenemos demostrado. Es la misma
+regla que F2 lleva aplicando desde el 2026-09-09 —«no consta» no es «no lo
+hace»— incumplida por mí en la explicación, no en el código.
+
+**Y una confusión de producto, también mía:** dije que los recordatorios
+automáticos eran «justo lo que importa a una clínica que pierde pacientes por
+no coger el teléfono». No es verdad. Un recordatorio avisa de una cita **ya
+reservada**; no resuelve que alguien no consiga reservar. Pueden interesarle a
+esa clínica, pero eso depende de si tiene ausencias, y **no lo sabemos**. Por
+eso la frase en pantalla termina en «si eso te importa»: deja la decisión
+abierta, que es lo correcto.
+
+### EL ENCAJE DE LAS RESERVAS, SIN CERRAR — y lo que sí sabemos
+
+Sigue pendiente confirmar que las reservas de las herramientas encajan con el
+uso que necesita una clínica. Lo medido el 2026-09-25, para las tres que salen:
+
+| | Reserva online | Recordatorios | Facturación |
+|---|---|---|---|
+| Agiled | demostrada, **como módulo** | no consta | demostrada, nativa |
+| HoneyBook | demostrada, nativa | demostrada, nativa | demostrada, nativa |
+| Keap | demostrada, nativa | no consta | demostrada, nativa |
+
+Dos cosas salen de ahí y ninguna está en pantalla todavía:
+
+1. **La que Molnip recomienda primero tiene la reserva como módulo**, no
+   nativa, mientras que las otras dos la tienen nativa. Es una diferencia
+   comprobada y sobre lo que ella viene a resolver.
+2. **La agenda por profesional no la demuestra nadie**: preguntada a 65 de 65,
+   cero. Para una clínica con varios dentistas, que es elegir con quién,
+   **eso es el encaje, y no lo tenemos**. Está en la lista de lo que habría que
+   construir, como la pieza que más oficios desbloquea.
+
+Conclusión honesta: **el encaje no está confirmado, y sabemos por qué.** No se
+tapa con extras ni con otra vuelta de diseño.
+
 ### CÓMO HABLA MOLNIP — regla de la propietaria
 
 > **«Ser cercano sí, pero respetuoso y considerado.»** Y a continuación, lo que

@@ -300,6 +300,14 @@ export default function TarjetaDelConsejo({
               {alaVista[0].opcion.piezas.length === 1 ? " desde un mismo sitio" : ""}. {porQue}
             </p>
             {/*
+              LA FRASE DESCRIBE LO QUE HEMOS COMPROBADO, NO EL PRODUCTO.
+              Decía «X es la única de las tres que además demuestra Y», que se
+              lee como una afirmación sobre las otras dos. Distinción de la
+              propietaria (2026-09-25): «"sólo HoneyBook lo tiene" describe los
+              productos; "sólo lo tenemos demostrado en HoneyBook" describe lo
+              que Molnip ha comprobado». La segunda es la que sostiene el
+              informe, y es la que se escribe.
+
               Y si otra de la lista demuestra algo que la elegida no tiene, se
               dice. Es lo que convierte una lista en un consejo: no callar el
               dato que podría cambiar su decisión sólo porque no gana el
@@ -308,8 +316,8 @@ export default function TarjetaDelConsejo({
             */}
             {laOtraConAlgo && (
               <p className="mt-2 leading-relaxed text-brand-900">
-                {laOtraConAlgo.nombre} es la única de las tres que además demuestra{" "}
-                {laOtraConAlgo.extra.toLowerCase()}. Si eso te importa, míralo antes de decidir.
+                De las tres, {laOtraConAlgo.extra.toLowerCase()} sólo lo hemos comprobado en{" "}
+                {laOtraConAlgo.nombre}. Si eso te importa, míralo antes de decidir.
               </p>
             )}
           </div>
