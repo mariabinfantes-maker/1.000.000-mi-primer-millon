@@ -217,6 +217,27 @@ export type ReputacionExterna = {
   puntuacion?: number;
   numeroResenas?: number;
   enlace?: string;
+  /** Cuándo se abrió ese enlace. Ver `ComprobacionReputacion`. */
+  fechaComprobacion?: string;
+};
+
+/**
+ * Dónde y cuándo se leyó una cifra de reputación.
+ *
+ * Añadido el 2026-09-28 por orden de la propietaria. Antes no existía: el
+ * esquema guardaba `g2Puntuacion: 4.2` y nada más, así que la cifra no se
+ * podía demostrar ni se sabía de cuándo era. No fue un descuido de quien
+ * investigó —el campo donde anotarlo no estaba—, y por eso la carencia se
+ * confundió durante meses con que nadie hubiera investigado la reputación.
+ *
+ * Misma forma que `preciosComprobados` y `planesComprobados`: la dirección
+ * que se abrió de verdad y el día que se abrió.
+ */
+export type ComprobacionReputacion = {
+  fecha: string;
+  url: string;
+  /** Lo que decía la página, tal cual. Sin cita no se escribe la cifra. */
+  cita?: string;
 };
 
 /**
@@ -230,10 +251,24 @@ export type Reputacion = {
   /** Escala habitual de G2: 1-5. */
   g2Puntuacion?: number;
   g2NumeroResenas?: number;
+  /** Dónde y cuándo se leyó lo de G2. Sin esto la cifra no se puede demostrar. */
+  g2Comprobado?: ComprobacionReputacion;
   /** Escala habitual de Capterra: 1-5. */
   capterraPuntuacion?: number;
   capterraNumeroResenas?: number;
+  /** Dónde y cuándo se leyó lo de Capterra. */
+  capterraComprobado?: ComprobacionReputacion;
   otrasFuentes?: ReputacionExterna[];
+  /**
+   * De dónde vienen estas cifras cuando no hay comprobación guardada.
+   *
+   * `redaccion-inicial` es el catálogo de la primera redacción: se investigó,
+   * pero no se anotó dónde se miró, así que hoy no se puede demostrar ni se
+   * sabe de cuándo es. No significa que sea falso; significa que no está
+   * demostrado. Es la misma distinción que el resto del catálogo usa entre
+   * «con fuente» y «sin fuente guardada».
+   */
+  origen?: "redaccion-inicial" | "comprobado";
 };
 
 /** Añadido: datos de la empresa que hay detrás de la herramienta (no de la herramienta en sí). `paginaOficial` ya vive en `Herramienta`, no se duplica aquí. */
