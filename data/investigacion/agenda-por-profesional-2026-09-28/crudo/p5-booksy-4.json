@@ -1,0 +1,7 @@
+{
+ "id": "booksy",
+ "nombre": "Booksy",
+ "url": "https://support.booksy.com/hc/es-es/articles/360012213799-%C2%BFPuedo-asignar-a-uno-de-mis-empleados-a-un-determinado-servicio-o-categor%C3%ADa",
+ "recuperada": false,
+ "texto": "```json\n{\n  \"abierta\": false,\n  \"agendaPorProfesional\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"eligeElCliente\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"enEspanol\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  }\n}\n```"
+}

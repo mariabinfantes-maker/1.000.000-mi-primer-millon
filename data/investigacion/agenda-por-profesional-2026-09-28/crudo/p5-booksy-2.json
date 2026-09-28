@@ -1,0 +1,7 @@
+{
+ "id": "booksy",
+ "nombre": "Booksy",
+ "url": "https://support.booksy.com/hc/es-es/articles/360012213839-%C2%BFC%C3%B3mo-puedo-editar-los-horarios-de-trabajo-de-los-empleados",
+ "recuperada": false,
+ "texto": "```json\n{\n  \"abierta\": false,\n  \"agendaPorProfesional\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"eligeElCliente\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"enEspanol\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  }\n}\n```"
+}

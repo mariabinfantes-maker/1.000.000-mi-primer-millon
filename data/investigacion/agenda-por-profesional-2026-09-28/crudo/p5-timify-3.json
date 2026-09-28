@@ -1,0 +1,7 @@
+{
+ "id": "timify",
+ "nombre": "TIMIFY",
+ "url": "https://www.timify.com/es/support/como-pueden-mis-clientes-reservar-una-cita-online/",
+ "recuperada": false,
+ "texto": "```json\n{\n  \"abierta\": false,\n  \"agendaPorProfesional\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"eligeElCliente\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"enEspanol\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  }\n}\n```"
+}

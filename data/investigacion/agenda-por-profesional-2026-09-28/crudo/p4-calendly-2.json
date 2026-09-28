@@ -1,0 +1,7 @@
+{
+ "id": "calendly",
+ "nombre": "Calendly",
+ "url": "https://help.calendly.com/hc/es/articles/1260802778830-Uso-de-Calendly-con-un-equipo",
+ "recuperada": false,
+ "texto": "{\"abierta\":false,\"agendaPorProfesional\":{\"estado\":\"no_consta\",\"cita\":null},\"eligeElCliente\":{\"estado\":\"no_consta\",\"cita\":null},\"enEspanol\":{\"estado\":\"no_consta\",\"cita\":null}}"
+}

@@ -1,0 +1,7 @@
+{
+ "id": "calendly",
+ "nombre": "Calendly",
+ "url": "https://help.calendly.com/hc/es/articles/360007295834-C%C3%B3mo-configurar-una-p%C3%A1gina-del-equipo",
+ "recuperada": false,
+ "texto": "```json\n{\n  \"abierta\": false,\n  \"agendaPorProfesional\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"eligeElCliente\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"enEspanol\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  }\n}\n```"
+}

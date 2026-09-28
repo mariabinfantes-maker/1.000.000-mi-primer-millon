@@ -1,0 +1,7 @@
+{
+ "id": "doctoralia",
+ "nombre": "Doctoralia",
+ "url": "https://pro.doctoralia.co/blog/paso-a-paso-configure-la-reserva-de-cita",
+ "recuperada": false,
+ "texto": "```json\n{\n  \"abierta\": false,\n  \"agendaPorProfesional\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"eligeElCliente\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"enEspanol\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  }\n}\n```"
+}

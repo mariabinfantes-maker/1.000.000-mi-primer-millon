@@ -1,0 +1,7 @@
+{
+ "id": "calendly",
+ "nombre": "Calendly",
+ "url": "https://help.calendly.com/hc/en-us/articles/14074913220247-How-to-set-up-a-team-Collective-event-type",
+ "recuperada": false,
+ "texto": "```json\n{\n \"abierta\": false,\n \"agendaPorProfesional\": {\n  \"estado\": \"no_consta\",\n  \"cita\": null\n },\n \"eligeElCliente\": {\n  \"estado\": \"no_consta\",\n  \"cita\": null\n },\n \"enEspanol\": {\n  \"estado\": \"no_consta\",\n  \"cita\": null\n }\n}\n```"
+}

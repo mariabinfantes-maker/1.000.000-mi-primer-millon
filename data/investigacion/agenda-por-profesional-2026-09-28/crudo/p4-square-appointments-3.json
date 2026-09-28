@@ -1,0 +1,7 @@
+{
+ "id": "square-appointments",
+ "nombre": "Square Appointments",
+ "url": "https://squareup.com/help/es/es/article/6910-schedule-multi-staff-appointments",
+ "recuperada": true,
+ "texto": "```json\n{\n  \"abierta\": false,\n  \"agendaPorProfesional\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"eligeElCliente\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"enEspanol\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  }\n}\n```"
+}

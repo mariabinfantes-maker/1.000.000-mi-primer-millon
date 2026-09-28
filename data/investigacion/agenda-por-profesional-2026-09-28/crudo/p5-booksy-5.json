@@ -1,0 +1,7 @@
+{
+ "id": "booksy",
+ "nombre": "Booksy",
+ "url": "https://support.booksy.com/hc/es-es/articles/360012170359-%C2%BFC%C3%B3mo-puedo-personalizar-la-configuraci%C3%B3n-de-mis-servicios",
+ "recuperada": false,
+ "texto": "```json\n{\"abierta\":false,\n \"agendaPorProfesional\":{\"estado\":\"no_consta\",\"cita\":null},\n \"eligeElCliente\":{\"estado\":\"no_consta\",\"cita\":null},\n \"enEspanol\":{\"estado\":\"no_consta\",\"cita\":null}}\n```"
+}

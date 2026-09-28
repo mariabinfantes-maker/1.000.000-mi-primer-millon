@@ -1,0 +1,206 @@
+{
+ "capacidad": "cap.per_resource_booking_calendar",
+ "fecha": "2026-09-28",
+ "comoSeLeyo": "Una página por llamada, con url_context, exigiendo cita literal. Sin conocimiento previo.",
+ "avisoSobreLosCeros": "«no lo hemos encontrado» es que la página se abrió y no lo decía. «no hemos podido mirar» es que ninguna página se abrió. Ninguna de las dos significa que la herramienta no lo tenga.",
+ "herramientas": [
+  {
+   "id": "simplybook-me",
+   "nombre": "SimplyBook.me",
+   "enElCatalogo": false,
+   "paginasAbiertas": 4,
+   "paginasIntentadas": 4,
+   "agendaPorProfesional": {
+    "estado": "verificado",
+    "cita": "You can set regular schedule for providers in Manage -> Service Providers",
+    "url": "https://help.simplybook.me/wiki/Adding_services,_providers_and_availability(new_interface)"
+   },
+   "eligeElCliente": {
+    "estado": "verificado",
+    "cita": "Si no tiene la intención de permitir que los clientes reserven con un proveedor específico, siempre puede llamarlo «Proveedor 1/2/3/4».",
+    "url": "https://news.simplybook.me/es/como-configurar-servicios-y-proveedores-en-simplybook-me/"
+   },
+   "productoEnEspanol": {
+    "estado": "desconocido"
+   }
+  },
+  {
+   "id": "calendly",
+   "nombre": "Calendly",
+   "enElCatalogo": false,
+   "paginasAbiertas": 1,
+   "paginasIntentadas": 10,
+   "agendaPorProfesional": {
+    "estado": "desconocido"
+   },
+   "eligeElCliente": {
+    "estado": "desconocido"
+   },
+   "productoEnEspanol": {
+    "estado": "desconocido"
+   }
+  },
+  {
+   "id": "cal-com",
+   "nombre": "Cal.com",
+   "enElCatalogo": false,
+   "paginasAbiertas": 4,
+   "paginasIntentadas": 10,
+   "agendaPorProfesional": {
+    "estado": "desconocido"
+   },
+   "eligeElCliente": {
+    "estado": "desconocido"
+   },
+   "productoEnEspanol": {
+    "estado": "desconocido"
+   }
+  },
+  {
+   "id": "acuity-scheduling",
+   "nombre": "Acuity Scheduling (Squarespace)",
+   "enElCatalogo": false,
+   "paginasAbiertas": 0,
+   "paginasIntentadas": 9,
+   "agendaPorProfesional": {
+    "estado": "sin_mirar"
+   },
+   "eligeElCliente": {
+    "estado": "sin_mirar"
+   },
+   "productoEnEspanol": {
+    "estado": "sin_mirar"
+   }
+  },
+  {
+   "id": "setmore",
+   "nombre": "Setmore",
+   "enElCatalogo": false,
+   "paginasAbiertas": 1,
+   "paginasIntentadas": 4,
+   "agendaPorProfesional": {
+    "estado": "desconocido"
+   },
+   "eligeElCliente": {
+    "estado": "verificado",
+    "cita": "Each staff profile includes a Booking Page link, allowing customers to schedule appointments with specific team members.",
+    "url": "https://www.setmore.com/features/staff-scheduling"
+   },
+   "productoEnEspanol": {
+    "estado": "desconocido"
+   }
+  },
+  {
+   "id": "square-appointments",
+   "nombre": "Square Appointments",
+   "enElCatalogo": false,
+   "paginasAbiertas": 2,
+   "paginasIntentadas": 4,
+   "agendaPorProfesional": {
+    "estado": "desconocido"
+   },
+   "eligeElCliente": {
+    "estado": "desconocido"
+   },
+   "productoEnEspanol": {
+    "estado": "desconocido"
+   }
+  },
+  {
+   "id": "zoho-bookings",
+   "nombre": "Zoho Bookings",
+   "enElCatalogo": false,
+   "paginasAbiertas": 1,
+   "paginasIntentadas": 10,
+   "agendaPorProfesional": {
+    "estado": "desconocido"
+   },
+   "eligeElCliente": {
+    "estado": "desconocido"
+   },
+   "productoEnEspanol": {
+    "estado": "desconocido"
+   }
+  },
+  {
+   "id": "fresha",
+   "nombre": "Fresha",
+   "enElCatalogo": false,
+   "paginasAbiertas": 1,
+   "paginasIntentadas": 10,
+   "agendaPorProfesional": {
+    "estado": "desconocido"
+   },
+   "eligeElCliente": {
+    "estado": "desconocido"
+   },
+   "productoEnEspanol": {
+    "estado": "desconocido"
+   }
+  },
+  {
+   "id": "booksy",
+   "nombre": "Booksy",
+   "enElCatalogo": false,
+   "paginasAbiertas": 2,
+   "paginasIntentadas": 8,
+   "agendaPorProfesional": {
+    "estado": "desconocido"
+   },
+   "eligeElCliente": {
+    "estado": "desconocido"
+   },
+   "productoEnEspanol": {
+    "estado": "desconocido"
+   }
+  },
+  {
+   "id": "timify",
+   "nombre": "TIMIFY",
+   "enElCatalogo": false,
+   "paginasAbiertas": 1,
+   "paginasIntentadas": 9,
+   "agendaPorProfesional": {
+    "estado": "desconocido"
+   },
+   "eligeElCliente": {
+    "estado": "desconocido"
+   },
+   "productoEnEspanol": {
+    "estado": "desconocido"
+   }
+  },
+  {
+   "id": "reservio",
+   "nombre": "Reservio",
+   "enElCatalogo": false,
+   "paginasAbiertas": 2,
+   "paginasIntentadas": 10,
+   "agendaPorProfesional": {
+    "estado": "desconocido"
+   },
+   "eligeElCliente": {
+    "estado": "desconocido"
+   },
+   "productoEnEspanol": {
+    "estado": "desconocido"
+   }
+  },
+  {
+   "id": "doctoralia",
+   "nombre": "Doctoralia",
+   "enElCatalogo": false,
+   "paginasAbiertas": 1,
+   "paginasIntentadas": 10,
+   "agendaPorProfesional": {
+    "estado": "desconocido"
+   },
+   "eligeElCliente": {
+    "estado": "desconocido"
+   },
+   "productoEnEspanol": {
+    "estado": "desconocido"
+   }
+  }
+ ]
+}
