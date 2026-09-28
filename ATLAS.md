@@ -6831,6 +6831,122 @@ palabras sobre lo suyo, no Molnip hablándole.
 
 ---
 
+## 2026-09-28 — LA CASA DE LAS RESERVAS, Y LAS SIETE NOTAS
+
+### El cero que era nuestro
+
+La pantalla del asesor decía que «el paciente elige dentista» no estaba
+confirmado en ninguna herramienta. `cap.per_resource_booking_calendar` se
+había preguntado a 64 de 65 y salieron 64 «desconocido».
+
+No era un dato sobre las herramientas. Sus notas dicen dónde se miró: **la
+portada y la página de precios**. Una agenda por profesional no se explica
+ahí. **El cero medía dónde habíamos mirado.**
+
+Y había una razón de fondo: las 65 son 18 asistentes de IA, 17 plataformas
+todo-en-uno, 15 CRM y 15 de gestión de proyectos. **Ni un sistema de
+reservas.** El catálogo nunca cubrió a quien da citas.
+
+### Doctoralia, y la lección que hay que quedarse
+
+En la primera pasada quedó en «no lo hemos encontrado» con **1 de 10 páginas
+abiertas**. La propietaria paró ahí: era la española. Al insistir:
+
+- `pro.doctoralia.es` bloquea al lector entero: 0 de 7 páginas en tres rondas.
+- El bloque de reserva de `www.doctoralia.es` **no se dibuja para un lector
+  automático**: sale «Este centro aún no ofrece la reserva online de cita» en
+  todas las fichas, tengan la reserva activada o no. De habernos fiado,
+  habríamos escrito que las clínicas españolas no tienen reserva online.
+
+La evidencia salió de su documentación de integraciones: el calendario cuelga
+de una dirección, la dirección de un doctor, el doctor de un centro, y se
+reserva contra el doctor.
+
+> **Cuando una herramienta sale a cero y sus páginas no se abrieron, el cero
+> es nuestro.**
+
+### La casa ya estaba abierta
+
+Se dijo que había que crear una categoría. **Era falso.** `reservas-citas`
+existe y es pública desde que se abrieron las quince casas. El error fue
+medir el eje equivocado: se contó qué categorías **usan** las 65 fichas
+—cuatro— y se contó como si fuera el catálogo de categorías —diecisiete—.
+
+Y ahí está el hallazgo que importa: **en «Reservas y citas» no vive nadie.**
+Once herramientas la tienen como categoría secundaria; ninguna como
+principal. La casa estaba puesta y vacía.
+
+### Las 22
+
+La propietaria trajo 30 candidatas investigadas fuera, con cita literal y
+dirección. **22 demuestran las dos cosas** —agenda por profesional y que el
+cliente elija con quién—. Cinco españolas: Nubimed, Archivex, ViDay, BEWE y
+Bookitit. Trece con el producto en español. Guardadas en
+`data/investigacion/agenda-por-profesional-2026-09-28/`.
+
+### La puerta de la afiliación, las tres copias
+
+La orden de desconectarla es del 2026-09-16 y se cumplió **sólo en el
+Researcher**. Quedaban dos copias vivas, encontradas al preguntar la
+propietaria cómo entran 30 herramientas nuevas:
+
+- `data/verificar.ts` — exigía `hasAffiliateProgram: true` para estar activa.
+  Bloqueaba también a `hotmart`, que ya está en el catálogo.
+- `agents/atlas-researcher/promover.ts` — `bloquearPorAfiliacion`.
+
+Las dos desconectadas hoy, conservadas enteras con su nota. Las tres pruebas
+que vigilaban la segunda quedan en `skip`, no borradas.
+
+> **La orden se aplicaba donde se estaba trabajando y quedaba una copia en
+> otro archivo.** Cuando se desconecte algo, se buscan todas las copias.
+
+### DECISIÓN — las siete notas van a `null` cuando no haya prueba
+
+El encargo de investigación pedía las siete valoraciones de 1 a 10 sin pedir
+prueba de nada, y al lado `metodologiaValoracion`: «breve nota sobre en qué
+se basan». Por eso **62 de 65 fichas contestaron lo mismo**: «agregación de
+miles de opiniones verificadas en G2 y Capterra». Es la respuesta que sale
+cuando preguntas en qué te basas a quien no se basó en nada.
+
+**Decisión de la propietaria, 2026-09-28: donde no haya prueba, `null`.**
+
+Reemplaza a la práctica anterior —pedirle las siete al modelo y aceptarlas
+sin respaldo—. Qué se puede demostrar y qué no:
+
+| Nota | Se puede |
+|---|---|
+| `nivelTecnicoRequerido` | Sí — si hay que migrar datos, tocar código, contratar implantación |
+| `facilidadImplementacion` | Sí — pasos del alta, puesta en marcha de pago |
+| `fiabilidad` | Sólo si publica página de estado o compromiso de disponibilidad |
+| `atencionAlCliente` | Sí — canales, planes en que están, soporte en español |
+| `facilidadDeUso`, `calidad`, `escalabilidad` | **Casi nunca.** Ningún fabricante publica que su producto es un 7 |
+
+`metodologiaValoracion` deja de ser una frase de relleno: dice de dónde salió
+cada número y cuáles quedan sin valorar. Con `null`, la Puntuación Molnip se
+calcula sólo con lo demostrado — `lib/puntuacionAtlas.ts` ya lo soporta y
+devuelve `null` antes que inventar.
+
+**Queda sin resolver:** `criterioMetodologia` (`agents/atlas-advisor/criterios.ts`)
+**suma 2 puntos** a toda ficha cuya metodología no diga «pendiente de
+contrastar», y enseña «Sus puntuaciones están contrastadas con datos de uso
+reales». Las 62 con la frase inventada se llevan esos puntos y esa frase.
+
+### La reputación tenía dónde, pero no dónde anotarlo
+
+`Reputacion` guardaba `g2Puntuacion: 4.2` y nada más: ni enlace ni fecha. **No
+fue un descuido de quien investigó — el campo no existía.** Esa carencia se
+confundió durante meses con que nadie hubiera investigado la reputación, y
+eso es falso: 60 de 65 fichas la tienen, y `InsigniaReputacion.tsx` lleva
+tiempo enseñándola en la tarjeta.
+
+Añadidos `g2Comprobado` y `capterraComprobado` —fecha, url y cita— y `origen`,
+que distingue la primera redacción de lo comprobado. Comprobado que G2 y
+Capterra se dejan leer. Primer aviso: la ficha de Pipedrive dice G2 4,2 con
+12.500 reseñas; G2 dice hoy **4,3 con 5.029**. No es sólo que falte la
+fuente: el dato está desfasado.
+
+---
+
 ## DÓNDE ESTAMOS — punto de partida al cerrar el 2026-09-25
 
 Esta sección no decide nada: dice en qué punto quedó todo, para que quien
