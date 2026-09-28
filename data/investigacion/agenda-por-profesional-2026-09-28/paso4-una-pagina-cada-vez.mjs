@@ -39,10 +39,10 @@ const sleep = (m) => new Promise((r) => setTimeout(r, m));
 const tareas = COLA.flatMap((t) => t.urls.map((u, i) => ({ t, u, i })));
 let hechas = 0;
 for (const { t, u, i } of tareas) {
-  const d = `${S}/salida/p5-${t.id}-${i}.json`;
+  const d = `${S}/salida/p9-${t.id}-${i}.json`;
   hechas++;
   if (existsSync(d)) continue;
-  const f = `${S}/salida/_q5-${t.id}-${i}.json`;
+  const f = `${S}/salida/_q9-${t.id}-${i}.json`;
   await writeFile(f, JSON.stringify({
     contents: [{ parts: [{ text: PROMPT(t, u) }] }],
     tools: [{ url_context: {} }],
