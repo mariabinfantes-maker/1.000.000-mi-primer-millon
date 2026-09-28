@@ -77,3 +77,7 @@ data/verificacion/_salida-lote-*.json
 # directorio de trabajo llega vacía, Node escribe en «undefined/» DENTRO del
 # repositorio. Pasó el 2026-09-18 y dos capturas acabaron subidas.
 undefined/
+
+# Capturas del asesor para revisarlas. Se quedan en local: el repositorio
+# guarda el código, no fotos de una pantalla que cambia cada día.
+capturas/
