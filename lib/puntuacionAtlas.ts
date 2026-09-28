@@ -57,18 +57,40 @@ export function calcularPuntuacionAtlas(datos: Partial<Herramienta>): ResultadoP
 function calcularMediaPuntuacionesInternas(puntuaciones: Herramienta["puntuaciones"] | undefined): number | null {
   if (!puntuaciones) return null;
 
-  // Las 5 primeras son obligatorias en el esquema: si existe `puntuaciones`, existen ellas.
-  const valores: number[] = [
+  /**
+   * SE PROMEDIA LO QUE HAY, NO LO QUE DEBERÍA HABER.
+   *
+   * Aquí ponía «las 5 primeras son obligatorias en el esquema: si existe
+   * `puntuaciones`, existen ellas», y se sumaban a ciegas. Dejó de ser cierto
+   * el 2026-09-28, cuando la propietaria decidió que **donde no haya prueba,
+   * `null`**: ningún fabricante publica que su producto es un 7, así que
+   * `calidad`, `facilidadDeUso` y `escalabilidad` van a quedar vacías casi
+   * siempre.
+   *
+   * Con una sola vacía, la suma daba `NaN` y la nota salía «NaN/100» — un
+   * número roto que además se colaba en los motivos como «media de NaN/10».
+   * Se vio con la primera tanda de fichas nuevas de reservas: las cinco.
+   *
+   * Ahora se promedia sólo lo que tiene valor. Si no hay ninguna, devuelve
+   * `null`, que es lo que el resto de la función ya sabe tratar: sin señales,
+   * `calcularPuntuacionAtlas` devuelve `null` antes que inventar un número.
+   */
+  const valores = [
     puntuaciones.calidad,
     puntuaciones.fiabilidad,
     puntuaciones.facilidadDeUso,
     puntuaciones.atencionAlCliente,
     puntuaciones.escalabilidad,
-  ];
+    puntuaciones.facilidadImplementacion,
+    // `nivelTecnicoRequerido` NO entra, y no es un olvido: va al revés que las
+    // demás. 1 significa «apta sin conocimientos técnicos», que es bueno, así
+    // que promediarlo hundiría a la herramienta más sencilla. La lista original
+    // ya lo dejaba fuera; se intentó añadir el 2026-09-28 y Nubimed sacó 10/100
+    // por ser fácil de usar. Sirve al motor en `criterioNivelTecnico`, donde se
+    // compara con lo que sabe hacer el equipo — que es su sitio.
+  ].filter((v): v is number => typeof v === "number" && Number.isFinite(v));
 
-  if (typeof puntuaciones.facilidadImplementacion === "number") {
-    valores.push(puntuaciones.facilidadImplementacion);
-  }
+  if (valores.length === 0) return null;
 
   return valores.reduce((a, b) => a + b, 0) / valores.length;
 }
