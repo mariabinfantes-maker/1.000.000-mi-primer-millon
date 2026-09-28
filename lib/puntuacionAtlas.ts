@@ -88,7 +88,7 @@ function calcularMediaPuntuacionesInternas(puntuaciones: Herramienta["puntuacion
     // ya lo dejaba fuera; se intentó añadir el 2026-09-28 y Nubimed sacó 10/100
     // por ser fácil de usar. Sirve al motor en `criterioNivelTecnico`, donde se
     // compara con lo que sabe hacer el equipo — que es su sitio.
-  ].filter((v): v is number => typeof v === "number" && Number.isFinite(v));
+  ].filter((v): v is NonNullable<typeof v> => typeof v === "number" && Number.isFinite(v));
 
   if (valores.length === 0) return null;
 
