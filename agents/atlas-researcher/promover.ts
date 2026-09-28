@@ -78,14 +78,34 @@ export type OpcionesPromocion = {
 };
 
 /**
- * La afiliación sigue siendo la vía habitual y sigue bloqueando por
- * defecto — lo que cambia es que deja de ser incondicional.
+ * DESCONECTADA POR ORDEN DE LA PROPIETARIA (2026-09-28).
  *
- * La excepción NO la abre una bandera de línea de comandos: la abre una
- * autorización registrada, atada a esta herramienta y al estado de
- * afiliación exacto que tiene ahora. Una decisión editorial antigua,
- * tomada por otro motivo, ya no sirve para esto — era el agujero que
- * encontró la revisión.
+ * Ya no se llama. La promoción no mira la afiliación: una herramienta útil
+ * entra aunque no tenga programa. La falta de afiliación sólo afecta a la
+ * monetización y nunca convierte una herramienta adecuada en descartada; no
+ * se usa como criterio de orden, descarte ni exclusión (AGENTS.md).
+ *
+ * Es la misma orden que ya se cumplió en el Researcher el 2026-09-16 y en
+ * `data/verificar.ts` el 2026-09-28. Este punto se quedó atrás: la orden se
+ * aplicaba donde se estaba trabajando y quedaba una copia en otro archivo.
+ * Se vio al preguntar la propietaria cómo entran al catálogo 30 herramientas
+ * nuevas encontradas fuera de él.
+ *
+ * Se conserva entera, con lo que decía cuando estaba viva, porque la
+ * decisión tiene que poder revertirse sin rehacer el trabajo de quien la
+ * pensó. Lo que decía:
+ *
+ *   «La afiliación sigue siendo la vía habitual y sigue bloqueando por
+ *   defecto — lo que cambia es que deja de ser incondicional. La excepción
+ *   NO la abre una bandera de línea de comandos: la abre una autorización
+ *   registrada, atada a esta herramienta y al estado de afiliación exacto
+ *   que tiene ahora. Una decisión editorial antigua, tomada por otro motivo,
+ *   ya no sirve para esto — era el agujero que encontró la revisión.»
+ *
+ * Para volver a encenderla, se vuelve a llamar desde `promoverBorrador`,
+ * donde está marcada la línea. El resto de comprobaciones —esquema,
+ * categoría, duplicados, calidad y la aprobación manual— siguen intactas:
+ * lo que se apaga es la puerta de la afiliación, nada más.
  */
 function bloquearPorAfiliacion(
   id: string,
@@ -173,11 +193,11 @@ export async function promoverBorrador(id: string, opciones: OpcionesPromocion =
     errores.push(`"${id}" ya existe en el catálogo real: promoverlo lo sobrescribiría. Revísalo a mano si es intencionado.`);
   }
 
-  const afiliacion = bloquearPorAfiliacion(id, datosAfiliados, opciones);
-  if (afiliacion.bloquea) {
-    errores.push(`"${id}" no se promueve: ${afiliacion.motivo}`);
-  }
-  const anulacionAfiliacionAplicada = afiliacion.bloquea ? undefined : afiliacion.anulacion;
+  // Aquí se llamaba a `bloquearPorAfiliacion`. Desconectada el 2026-09-28 por
+  // orden de la propietaria — ver la nota sobre esa función. Para volver a
+  // encenderla, se restaura esta llamada.
+  void bloquearPorAfiliacion;
+  const anulacionAfiliacionAplicada: string | undefined = undefined;
 
   const nombreHerramienta = herramienta?.nombre ?? id;
   const puntuacionMolnip = herramienta ? (calcularPuntuacionAtlas(herramienta)?.puntuacion ?? null) : null;

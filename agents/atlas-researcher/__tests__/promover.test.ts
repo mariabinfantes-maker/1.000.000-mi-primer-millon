@@ -163,7 +163,22 @@ describe.skipIf(!postgresDisponible())("promoverBorrador", () => {
    * propietaria por escrito, con el mismo patrón que la anulación del
    * aviso de duplicado.
    */
-  it("bloquea por defecto un borrador cuya afiliación no está confirmada", async () => {
+  /**
+   * LAS TRES SIGUIENTES ESTÁN DESCONECTADAS (2026-09-28).
+   *
+   * Guardaban la puerta de la afiliación en la promoción: que bloqueara por
+   * defecto, y que la excepción sólo la abriera una autorización atada a esa
+   * herramienta y a su estado exacto. La propietaria mandó desconectar esa
+   * puerta —misma orden que ya se cumplió en el Researcher el 2026-09-16 y en
+   * `data/verificar.ts` hoy—, así que estas tres vigilan una regla que ya no
+   * rige y fallan por hacer bien su trabajo.
+   *
+   * No se borran: son la memoria escrita de por qué existía la puerta, y ahí
+   * está el agujero que encontró la revisión —una decisión editorial antigua
+   * servía para desbloquear algo que no le correspondía—. Si la puerta vuelve
+   * a encenderse en `promover.ts`, se quita el `.skip` y vuelven a vigilarla.
+   */
+  it.skip("bloquea por defecto un borrador cuya afiliación no está confirmada", async () => {
     const propuestaSinAfiliados: HerramientaPropuesta = {
       ...propuestaValida,
       datosAfiliados: { hasAffiliateProgram: false, affiliateStatus: "not_available" },
@@ -183,7 +198,7 @@ describe.skipIf(!postgresDisponible())("promoverBorrador", () => {
    * El agujero que encontró la revisión: una decisión editorial antigua,
    * tomada por otro motivo, desbloqueaba la excepción de afiliación.
    */
-  it("una decisión editorial aprobada por otro motivo NO desbloquea la excepción de afiliación", async () => {
+  it.skip("una decisión editorial aprobada por otro motivo NO desbloquea la excepción de afiliación", async () => {
     const propuestaSinAfiliados: HerramientaPropuesta = {
       ...propuestaValida,
       datosAfiliados: { hasAffiliateProgram: false, affiliateStatus: "not_available" },
@@ -202,7 +217,7 @@ describe.skipIf(!postgresDisponible())("promoverBorrador", () => {
     if (!resultado.ok) expect(resultado.errores.some((e) => e.includes("autorizar-afiliacion"))).toBe(true);
   });
 
-  it("una autorización dada para OTRO estado de afiliación tampoco sirve", async () => {
+  it.skip("una autorización dada para OTRO estado de afiliación tampoco sirve", async () => {
     const propuestaSinAfiliados: HerramientaPropuesta = {
       ...propuestaValida,
       datosAfiliados: { hasAffiliateProgram: false, affiliateStatus: "not_available" },
