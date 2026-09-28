@@ -33,6 +33,7 @@ type Consejo = {
   caminos: Camino[];
   loQueHaria: (Opcion & { desempate?: { criterio: string; porQue: string } }) | null;
   sinComprobar: string[];
+  sinConfirmarEnNinguna: string[];
   dondeSeBusco: { herramientas: number; casas: number };
 };
 type Pregunta = {
@@ -48,7 +49,7 @@ type Respuesta = {
   yaRespondio?: boolean;
   necesidades?: Necesidad[];
   leyoLaIA?: boolean;
-  comprension?: { necesidades: { necesidad: Necesidad }[]; noEntendido: string[] };
+  comprension?: { necesidades: { necesidad: Necesidad; salioDeUnaPregunta?: boolean }[]; noEntendido: string[] };
   preguntas?: Pregunta[];
   consejo?: Consejo;
 };
@@ -109,6 +110,8 @@ export default function AsesorPrueba() {
    * «no» también es contestar.
    */
   const [respondidas, setRespondidas] = useState<string[]>([]);
+  /** Lo último que contestó, con sus palabras, para poder repetírselo. */
+  const [ultimaRespuesta, setUltimaRespuesta] = useState<string | null>(null);
   /**
    * Las formas antiguas de enseñar el consejo ya NO están en la pantalla.
    *
@@ -328,9 +331,32 @@ export default function AsesorPrueba() {
               {oficioElegido ? (
                 <p>Esto es lo que suele hacer falta en {oficioElegido.nombre.toLowerCase()}.</p>
               ) : (
-                <p>
-                  He entendido que necesitas {r?.comprension?.necesidades.map((n) => `«${n.necesidad.titulo.toLowerCase()}»`).join(" y ")}.
-                </p>
+                <>
+                  <p>
+                    He entendido que necesitas{" "}
+                    {r?.comprension?.necesidades
+                      .filter((n) => !n.salioDeUnaPregunta)
+                      .map((n) => `«${n.necesidad.titulo.toLowerCase()}»`)
+                      .join(" y ")}
+                    .
+                  </p>
+                  {/*
+                    LO QUE ELLA CONTESTÓ SE REPITE CON SUS PALABRAS.
+                    Antes, «el paciente elige profesional» se convertía en
+                    «tener la agenda bajo control» —el título genérico del
+                    vocabulario— y la necesidad concreta se perdía por el
+                    camino. Propietaria, 2026-09-25: «se pierde la necesidad
+                    concreta». El vocabulario sigue siendo el que manda por
+                    dentro; lo que cambia es que al hablarle a ella se usa lo
+                    que ella dijo.
+                  */}
+                  {ultimaRespuesta && (
+                    <p className="mt-2">
+                      Y que {ultimaRespuesta.charAt(0).toLowerCase() + ultimaRespuesta.slice(1)}. Ese detalle cambia lo
+                      que te puedo recomendar.
+                    </p>
+                  )}
+                </>
               )}
               {/*
                 Aquí iba «se puede abordar de dos maneras, y la elección es
@@ -368,6 +394,7 @@ export default function AsesorPrueba() {
                       key={resp.id}
                       onClick={() => {
                         setDicho((d) => [...d, resp.texto]);
+                        setUltimaRespuesta(resp.texto);
                         const yaVan = [...respondidas, laPregunta.id];
                         setRespondidas(yaVan);
                         // «Te explico cómo lo hacemos» no trae nada: abre la
@@ -412,6 +439,7 @@ export default function AsesorPrueba() {
                   caminos={c.caminos}
                   porQue={c.loQueHaria?.desempate?.porQue}
                   quePide={r?.comprension?.necesidades.map((n) => n.necesidad.enCorto) ?? []}
+                  sinConfirmarEnNinguna={c.sinConfirmarEnNinguna}
                   alAbrir={setAbierta}
                 />
               </>

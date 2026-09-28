@@ -176,7 +176,15 @@ function Fila({ opcion, forma, entreEllas, alAbrir }: { opcion: Opcion; forma: s
             </p>
           )}
           {opcion.noCubre.length > 0 && (
-            <p className="mt-1 text-sm text-slate-500">No te cubre {enumerar(opcion.noCubre.slice(0, 3))}</p>
+            <p className="mt-1 text-sm text-slate-500">
+              {/*
+                Decía «No te cubre X», que es una afirmación sobre el producto.
+                Lo que sabemos es que no lo hemos comprobado en ella. Misma
+                distinción que la propietaria fijó el 2026-09-25, aplicada
+                también aquí.
+              */}
+              Sin confirmar: {enumerar(opcion.noCubre.slice(0, 3))}
+            </p>
           )}
           <p className="mt-2.5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700">
             Ver herramienta <ArrowRight className="h-4 w-4" aria-hidden />
@@ -192,9 +200,15 @@ function Fila({ opcion, forma, entreEllas, alAbrir }: { opcion: Opcion; forma: s
 }
 
 export default function TarjetaDelConsejo({
-  caminos, porQue, quePide, alAbrir,
+  caminos, porQue, quePide, sinConfirmarEnNinguna = [], alAbrir,
 }: {
   caminos: Camino[];
+  /**
+   * Lo que ella pidió y no está confirmado en ninguna. Mientras esto tenga
+   * algo, Molnip NO recomienda una para el conjunto: enseña lo que sí tiene
+   * comprobado y dice qué falta por resolver.
+   */
+  sinConfirmarEnNinguna?: string[];
   /** Por qué Molnip miraría ésa primero. Es donde se moja. */
   porQue?: string;
   /** Lo que ella ha contado, para que se vea que Molnip lo tiene presente. */
@@ -280,71 +294,55 @@ export default function TarjetaDelConsejo({
         />
       ))}
 
-      {porQue && (
+      {/*
+        DOS CONSEJOS DISTINTOS, NO UNO CON UNA PEGA AL FINAL.
+        Antes, cuando algo que ella acababa de pedir no estaba confirmado en
+        ninguna, Molnip seguía diciendo «empezaría por ésta» y añadía debajo
+        «eso sí, no te cubre X». Propietaria, 2026-09-25: «el resultado suena
+        contradictorio: empieza por esta; eso sí, no cubre algo que acabas de
+        pedirme (...) lo que falta es que la nueva respuesta cambie el juicio
+        del asesor, no sólo las etiquetas y una frase al final».
+        Así que con algo sin confirmar no se elige: se enseña lo que sí hay
+        comprobado, se dice qué falta, y se deja claro que para recomendar una
+        para el conjunto falta resolver ese punto.
+      */}
+      {sinConfirmarEnNinguna.length > 0 ? (
         <div className="flex gap-3 rounded-2xl bg-brand-50 p-5 ring-1 ring-brand-100">
           <SimboloMolnip className="mt-0.5 h-8 w-8 shrink-0 rounded-xl" />
           <div>
-            <p className="font-display text-base font-bold text-brand-900">Mi consejo</p>
-            {/*
-              EL ENCAJE PRIMERO, EL DESEMPATE DESPUÉS.
-              Decía «empezaría por Agiled. De las que te valen, es la única que
-              está en español»: aconsejaba por el idioma sin haber explicado
-              nunca por qué le vale. Propietaria, 2026-09-25: «el idioma puede
-              apoyar la elección, pero no sustituir esa explicación». Se
-              compone con frases que ya existen; no se añade ningún bloque.
-            */}
+            <p className="font-display text-base font-bold text-brand-900">Dónde estamos</p>
             <p className="mt-1 leading-relaxed text-brand-900">
-              Empezaría por {alaVista[0].opcion.piezas.map((x) => x.nombre).join(" + ")}
-              {": te lleva "}
-              {enumerar(cubreEnCorto(alaVista[0].opcion))}
-              {alaVista[0].opcion.piezas.length === 1 ? " desde un mismo sitio" : ""}. {porQue}
+              En estas {alaVista.length === 3 ? "tres" : alaVista.length} hemos comprobado{" "}
+              {enumerar(cubreEnCorto(alaVista[0].opcion))}, pero todavía no hemos confirmado{" "}
+              {enumerar(sinConfirmarEnNinguna.slice(0, 3))}.
             </p>
-            {/*
-              LA FRASE DESCRIBE LO QUE HEMOS COMPROBADO, NO EL PRODUCTO.
-              Decía «X es la única de las tres que además demuestra Y», que se
-              lee como una afirmación sobre las otras dos. Distinción de la
-              propietaria (2026-09-25): «"sólo HoneyBook lo tiene" describe los
-              productos; "sólo lo tenemos demostrado en HoneyBook" describe lo
-              que Molnip ha comprobado». La segunda es la que sostiene el
-              informe, y es la que se escribe.
-
-              Y si otra de la lista demuestra algo que la elegida no tiene, se
-              dice. Es lo que convierte una lista en un consejo: no callar el
-              dato que podría cambiar su decisión sólo porque no gana el
-              desempate. Sale de la evidencia; si no hay diferencia, no sale
-              nada.
-            */}
-            {/*
-              LO QUE ACABA DE CONTAR TIENE QUE APARECER EN EL CONSEJO.
-              Con las tarjetas ya diciendo «no te cubre agenda», el consejo
-              seguía hablando sólo de reservas, facturas e idioma: la respuesta
-              que ella acababa de dar no se reflejaba en la explicación.
-              Propietaria, 2026-09-25: «lo importante es que la explicación
-              refleje lo que acabas de contar».
-            */}
-            {alaVista[0].opcion.noCubre.length > 0 && (
-              <p className="mt-2 leading-relaxed text-brand-900">
-                {/*
-                  Escrito así —sujeto delante— para no tener que concordar con
-                  el nombre corto, que puede ser masculino, femenino, singular
-                  o plural. La primera versión decía «agenda no te lo
-                  resuelve».
-                */}
-                Eso sí:{" "}
-                {alaVista.every((o) => alaVista[0].opcion.noCubre.every((n) => o.opcion.noCubre.includes(n)))
-                  ? "ninguna de las tres te cubre"
-                  : `${alaVista[0].opcion.piezas.map((x) => x.nombre).join(" + ")} no te cubre`}{" "}
-                {enumerar(alaVista[0].opcion.noCubre.slice(0, 3))}.
-              </p>
-            )}
-            {laOtraConAlgo && (
-              <p className="mt-2 leading-relaxed text-brand-900">
-                De las tres, {laOtraConAlgo.extra.toLowerCase()} sólo lo hemos comprobado en{" "}
-                {laOtraConAlgo.nombre}. Si eso te importa, míralo antes de decidir.
-              </p>
-            )}
+            <p className="mt-2 leading-relaxed text-brand-900">
+              Puedes explorarlas por lo que aportan. Para recomendarte una para el conjunto de lo que necesitas, falta
+              resolver ese punto.
+            </p>
           </div>
         </div>
+      ) : (
+        porQue && (
+          <div className="flex gap-3 rounded-2xl bg-brand-50 p-5 ring-1 ring-brand-100">
+            <SimboloMolnip className="mt-0.5 h-8 w-8 shrink-0 rounded-xl" />
+            <div>
+              <p className="font-display text-base font-bold text-brand-900">Mi consejo</p>
+              <p className="mt-1 leading-relaxed text-brand-900">
+                Empezaría por {alaVista[0].opcion.piezas.map((x) => x.nombre).join(" + ")}
+                {": te lleva "}
+                {enumerar(cubreEnCorto(alaVista[0].opcion))}
+                {alaVista[0].opcion.piezas.length === 1 ? " desde un mismo sitio" : ""}. {porQue}
+              </p>
+              {laOtraConAlgo && (
+                <p className="mt-2 leading-relaxed text-brand-900">
+                  De las tres, {laOtraConAlgo.extra.toLowerCase()} sólo lo hemos comprobado en{" "}
+                  {laOtraConAlgo.nombre}. Si eso te importa, míralo antes de decidir.
+                </p>
+              )}
+            </div>
+          </div>
+        )
       )}
 
       {otras.length > 0 && (

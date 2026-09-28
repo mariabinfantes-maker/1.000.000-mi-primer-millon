@@ -234,6 +234,25 @@ export type Consejo = {
    * las piezas se entienden entre ellas.
    */
   sinComprobar: string[];
+  /**
+   * LO QUE IMPIDE RECOMENDAR UNA PARA EL CONJUNTO.
+   *
+   * Necesidades que ella ha pedido y que NO están confirmadas en ninguna
+   * candidata, con su nombre corto. Vacío cuando sí se puede recomendar.
+   *
+   * No es un adorno del texto: cambia el juicio. Con esto lleno, Molnip no
+   * dice «empezaría por ésta» y luego una pega —«empieza por esta; eso sí, no
+   * cubre algo que acabas de pedirme», que es una contradicción—. Dice lo que
+   * sí tiene comprobado en las que hay, dice lo que falta por confirmar, y
+   * deja claro que para elegir una para TODO falta resolver ese punto.
+   *
+   * Propietaria, 2026-09-25: «lo que falta es que la nueva respuesta cambie el
+   * juicio del asesor, no sólo las etiquetas y una frase al final».
+   *
+   * Y se llama «sin confirmar», no «no lo tienen»: lo que sabemos es que no lo
+   * hemos comprobado en estas herramientas, no que no exista.
+   */
+  sinConfirmarEnNinguna: string[];
   /** Cuántas herramientas se miraron y en cuántas casas. Para poder decirlo. */
   dondeSeBusco: { herramientas: number; casas: number };
 };
@@ -476,6 +495,25 @@ export function aconsejar(
   const r = buscar(delCaso, puerto);
   const dondeSeBusco = { herramientas: r.seMiraron, casas: r.casasRecorridas.length };
 
+  /**
+   * Se nombra lo MÁS CONCRETO que tengamos, no lo más corto.
+   *
+   * `enCorto` de «tener la agenda bajo control» es «agenda», y con eso se
+   * perdía lo que ella acababa de pedir: que el paciente elija profesional al
+   * reservar. Cuando una necesidad se sostiene sobre una sola capacidad, esa
+   * capacidad tiene nombre propio —«agenda por profesional o recurso»— y es
+   * el que hay que decir. Propietaria, 2026-09-25: «se pierde la necesidad
+   * concreta».
+   */
+  const sinConfirmarEnNinguna = r.nadieDemuestra
+    .map((id) => {
+      const necesidad = getNecesidad(id);
+      if (!necesidad) return undefined;
+      const unaSola = necesidad.imprescindibles.length === 1 ? getCapacidad(necesidad.imprescindibles[0]) : undefined;
+      return unaSola?.etiqueta?.toLowerCase() ?? necesidad.enCorto;
+    })
+    .filter((x): x is string => Boolean(x));
+
   const sinComprobar = r.nadieDemuestra.map(
     (id) =>
       // Una línea por necesidad. El «no significa que no exista» se dice UNA
@@ -487,7 +525,7 @@ export function aconsejar(
   if (r.soluciones.length === 0) {
     // Decir que no es un resultado válido. Es la forma `no-cubierto` del
     // esqueleto, y existe para no rellenar con lo que haya.
-    return { caminos: [], loQueHaria: null, loQueNecesitoSaber: null, porQue: [], alternativas: [], masAlternativas: 0, sinComprobar, dondeSeBusco };
+    return { caminos: [], loQueHaria: null, loQueNecesitoSaber: null, porQue: [], alternativas: [], masAlternativas: 0, sinComprobar, sinConfirmarEnNinguna, dondeSeBusco };
   }
 
   const mejor = r.soluciones[0];
@@ -568,7 +606,7 @@ export function aconsejar(
     if (mejor.cubreImprescindibles < mejor.deImprescindibles) {
       sinComprobar.push(`De lo que me has contado, lo que he encontrado cubre ${mejor.cubreImprescindibles} de ${mejor.deImprescindibles} cosas.`);
     }
-    return { caminos, loQueHaria: null, loQueNecesitoSaber: elegida.empate, porQue: [], alternativas: [], masAlternativas: 0, sinComprobar, dondeSeBusco };
+    return { caminos, loQueHaria: null, loQueNecesitoSaber: elegida.empate, porQue: [], alternativas: [], masAlternativas: 0, sinComprobar, sinConfirmarEnNinguna, dondeSeBusco };
   }
 
   const loQueHaria = { ...elegida.elegida, desempate: elegida.desempate };
@@ -591,7 +629,7 @@ export function aconsejar(
       `De lo que me has contado, esto cubre ${mejor.cubreImprescindibles} de ${mejor.deImprescindibles} cosas.`
     );
   }
-  return { caminos, loQueHaria, loQueNecesitoSaber: null, porQue, alternativas, masAlternativas, sinComprobar, dondeSeBusco };
+  return { caminos, loQueHaria, loQueNecesitoSaber: null, porQue, alternativas, masAlternativas, sinComprobar, sinConfirmarEnNinguna, dondeSeBusco };
 }
 
 /** Las reglas de presentación que este módulo tiene que respetar, para poder probarlas. */
