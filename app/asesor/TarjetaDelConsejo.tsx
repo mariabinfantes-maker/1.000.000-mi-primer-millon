@@ -314,6 +314,29 @@ export default function TarjetaDelConsejo({
               desempate. Sale de la evidencia; si no hay diferencia, no sale
               nada.
             */}
+            {/*
+              LO QUE ACABA DE CONTAR TIENE QUE APARECER EN EL CONSEJO.
+              Con las tarjetas ya diciendo «no te cubre agenda», el consejo
+              seguía hablando sólo de reservas, facturas e idioma: la respuesta
+              que ella acababa de dar no se reflejaba en la explicación.
+              Propietaria, 2026-09-25: «lo importante es que la explicación
+              refleje lo que acabas de contar».
+            */}
+            {alaVista[0].opcion.noCubre.length > 0 && (
+              <p className="mt-2 leading-relaxed text-brand-900">
+                {/*
+                  Escrito así —sujeto delante— para no tener que concordar con
+                  el nombre corto, que puede ser masculino, femenino, singular
+                  o plural. La primera versión decía «agenda no te lo
+                  resuelve».
+                */}
+                Eso sí:{" "}
+                {alaVista.every((o) => alaVista[0].opcion.noCubre.every((n) => o.opcion.noCubre.includes(n)))
+                  ? "ninguna de las tres te cubre"
+                  : `${alaVista[0].opcion.piezas.map((x) => x.nombre).join(" + ")} no te cubre`}{" "}
+                {enumerar(alaVista[0].opcion.noCubre.slice(0, 3))}.
+              </p>
+            )}
             {laOtraConAlgo && (
               <p className="mt-2 leading-relaxed text-brand-900">
                 De las tres, {laOtraConAlgo.extra.toLowerCase()} sólo lo hemos comprobado en{" "}
