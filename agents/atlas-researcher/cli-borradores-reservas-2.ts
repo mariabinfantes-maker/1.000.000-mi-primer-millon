@@ -1,0 +1,127 @@
+/**
+ * LOS BORRADORES DE LAS CINCO QUE FALTABAN DE RESERVAS.
+ *
+ * `npx tsx agents/atlas-researcher/cli-borradores-reservas-2.ts`
+ *
+ * AgendaPro, Cliniko, Jane, Square Appointments y Schedulista. Las cinco
+ * pasan el examen de entrada y el validador; las otras cinco de reservas
+ * —Nubimed, Archivex, ViDay, BEWE y Bookitit— ya las escribió
+ * `cli-borradores-reservas.ts` y éste no las toca.
+ *
+ * NO promueve nada. Eso lo decide la propietaria, una a una, con
+ * `npm run aprobar-borrador` y `npm run promover-borrador`.
+ *
+ * DE DÓNDE SALE CADA COSA, porque son cuatro fuentes distintas y conviene
+ * saberlo antes de fiarse de un dato:
+ *   · la ficha —descripción, ventajas, inconvenientes…— de las tandas 4 y 5 y
+ *     de las entregas 1 y 2, todas de GPT navegando el 2026-09-29;
+ *   · el tamaño y los límites, de las tandas 1 a 3 del mismo día;
+ *   · el sector, derivado en `sectores-derivados-2026-09-29` de lo que el
+ *     barrido del 28 ya había leído. NO es investigación nueva;
+ *   · el precio, de donde lo traiga cada una.
+ *
+ * Cuando una herramienta tiene DOS lecturas del mismo campo —Square y
+ * Schedulista se investigaron dos veces— se toma la segunda, que es más rica,
+ * y la primera se queda donde está sin borrarse.
+ */
+import fs from "node:fs";
+import path from "node:path";
+import { escribirBorrador } from "@/agents/atlas-researcher/borrador";
+import type { HerramientaPropuesta } from "@/agents/atlas-researcher/tipos";
+
+const D = path.join(process.cwd(), "data", "investigacion");
+const leer = (p: string) => JSON.parse(fs.readFileSync(path.join(D, p), "utf8"));
+
+const LAS_CINCO = ["agendapro", "cliniko", "jane", "square-appointments", "schedulista"];
+
+/** La ficha: lo último que llegó gana, porque cada entrega es más rica que la anterior. */
+const ficha = new Map<string, any>();
+for (const f of ["reservas-17-2026-09-29/tanda-4.json", "reservas-17-2026-09-29/tanda-5.json",
+                 "lo-que-falta-2026-09-29/entrega-1.json", "lo-que-falta-2026-09-29/entrega-2.json"]) {
+  for (const h of leer(f).herramientas ?? []) ficha.set(h.id, { ...(ficha.get(h.id) ?? {}), ...h });
+}
+/** El tamaño y los límites, de las tandas 1 a 3. */
+const extra = new Map<string, any>();
+for (const f of ["reservas-17-2026-09-29/tanda-1.json", "reservas-17-2026-09-29/tanda-2.json",
+                 "reservas-17-2026-09-29/tanda-3.json"]) {
+  const j = leer(f);
+  for (const h of j.herramientas ?? []) extra.set(h.id, h);
+  for (const [id, v] of Object.entries(j.losDosPendientes ?? {})) extra.set(id, { ...(extra.get(id) ?? {}), ...(v as object) });
+}
+/** El sector, derivado de lo ya leído el 28. */
+const sector = new Map<string, string[]>(
+  leer("sectores-derivados-2026-09-29/sectores.json").herramientas.map((s: any) => [s.id, s.industriasIdeales])
+);
+/** Y el barrido del 28, que es de donde salen `idealPara` y los idiomas de algunas. */
+const b28 = new Map<string, any>(
+  leer("agenda-por-profesional-2026-09-28/HALLAZGO-GPT.json").herramientas.map((h: any) => [
+    h.id ?? h.nombre.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-"), h])
+);
+
+const MODELO = ["freemium", "suscripcion_mensual", "suscripcion_anual", "pago_unico", "por_usuario", "a_medida"];
+
+for (const id of LAS_CINCO) {
+  const h = ficha.get(id);
+  const e = extra.get(id) ?? {};
+  const g = b28.get(id) ?? {};
+  if (!h) { console.log(`${id}: sin ficha, se salta`); continue; }
+
+  /**
+   * `casosNoRecomendados` son los LÍMITES, no sectores excluidos: qué topa
+   * aunque seas su cliente. Corrección de la propietaria, 2026-09-28.
+   */
+  const limites: string[] = [
+    ...(e.limites ?? []).map((l: any) => (typeof l === "string" ? l : l.texto)),
+    ...(h.inconvenientes ?? []),
+  ].filter(Boolean);
+
+  const advertencias: string[] = [];
+  if (!h.idiomasDisponibles?.length && !g.idiomaDelProducto?.length) advertencias.push("Los idiomas no están demostrados.");
+  if (h.notaDelPrecio) advertencias.push(`Cómo cobra, en corto: ${h.notaDelPrecio}`);
+
+  const datos: Record<string, unknown> = {
+    nombre: h.nombre ?? g.nombre,
+    paginaOficial: h.paginaOficial ?? g.web,
+    urlPrecios: h.urlPrecios,
+    categoriaId: h.categoriaId,
+    descripcion: h.descripcion,
+    problemasQueResuelve: h.problemasQueResuelve,
+    casosDeUso: h.casosDeUso,
+    idealPara: h.idealPara ?? g.paraQuienEstaPensada,
+    segmentosIdeales: h.segmentosIdeales ?? e.segmentosIdeales,
+    industriasIdeales: h.industriasIdeales ?? sector.get(id),
+    noRecomendadaPara: h.noRecomendadaPara ?? limites[0],
+    casosNoRecomendados: limites,
+    funcionesPrincipales: h.funcionesPrincipales,
+    integraciones: h.integraciones,
+    integracionesPrincipales: h.integracionesPrincipales,
+    // Nadie publica lo fácil que es su producto. Sin prueba, no se pone.
+    curvaDeAprendizaje: undefined,
+    precioInicial: h.precioInicial ?? e.precioInicial ?? g.precioMasBajo?.cita,
+    modeloDePrecio: (h.modeloDePrecio ?? ["suscripcion_mensual"]).filter((m: string) => MODELO.includes(m)),
+    tienePlanGratuito: h.tienePlanGratuito ?? e.tienePlanGratuito,
+    idiomasDisponibles: h.idiomasDisponibles ?? g.idiomaDelProducto,
+    disponibleEnEspanol: (h.idiomasDisponibles ?? g.idiomaDelProducto ?? []).includes("es") || undefined,
+    tieneAppMovil: h.tieneAppMovil ?? undefined,
+    tieneApiPublica: h.tieneApiPublica ?? undefined,
+    puntuaciones: h.puntuaciones,
+    metodologiaValoracion: h.metodologiaValoracion,
+    ventajas: h.ventajas,
+    inconvenientes: h.inconvenientes,
+    informacionEmpresa: h.informacionEmpresa,
+  };
+
+  const propuesta: HerramientaPropuesta = {
+    datos: datos as never,
+    // La afiliación está aparcada desde el 2026-09-17: ni se investiga ni se menciona.
+    datosAfiliados: {},
+    // Lo que falta a propósito: no se puede demostrar, así que no se inventa.
+    camposFaltantes: ["curvaDeAprendizaje", "puntuaciones", "reputacion"],
+    fuentes: (h.paginasQueAbriste ?? [h.paginaOficial]).filter(Boolean),
+    confianza: "alta",
+    advertencias,
+  };
+
+  const r = escribirBorrador(id, propuesta);
+  console.log(`${id.padEnd(20)} → ${path.relative(process.cwd(), r.rutaHerramienta)}${advertencias.length ? "   ⚠ " + advertencias.length : ""}`);
+}
