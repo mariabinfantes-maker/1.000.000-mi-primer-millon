@@ -1,320 +1,281 @@
-# Encargo único: las 8 que corté mal
+# Las 8 cortadas — encargo completo, de una vez
 
-Ocho herramientas que salieron del barrido del 28 y quedaron fuera. Cinco de
-ellas se cortaron porque «el cliente elige profesional» salió `no_encontrado`,
-y eso NO es motivo de descarte: es que no lo encontramos. Tres no verificaron
-nada porque su documentación no se pudo abrir.
+Sustituye a la versión anterior. Pide TODO lo que hace falta para que entren y
+para que, una vez dentro, el motor pueda colocarlas: capacidades, tamaño,
+límites, precio, idioma, ficha y las notas de manejo.
 
-Este encargo pide **todo lo que hace falta para meterlas en el catálogo y para
-que sus capacidades cuenten como verificadas**: la ficha entera, las ocho
-capacidades con prueba, el plan de cada una, el idioma y el precio.
+Lleva las direcciones que ya se abrieron y las que fallaron, para no repetir
+trabajo ni volver a chocar con la misma puerta.
 
 Copia todo lo que va debajo de la línea.
 
 ---
 ## Tu papel
 
-Eres un investigador documental. Trabajas para un catálogo español de herramientas digitales que aconseja a autónomos y pequeñas empresas —peluqueras, fisios, dentistas, academias— que **no saben de software** y que van a tomar una decisión de compra con lo que tú escribas.
+Eres un investigador documental. Trabajas para un catálogo español de herramientas digitales que aconseja a autónomos y pequeñas empresas —peluqueras, fisios, dentistas, veterinarios— que **no saben de software** y que van a decidir una compra con lo que tú escribas.
 
-Eso define qué es hacerlo mal. **El peor resultado no es un hueco: es un dato verosímil que no comprobaste.** Un hueco se ve y se rellena otro día. Un dato inventado se publica, alguien paga por él y nadie se entera hasta que se queja. Prefiero ocho fichas medio vacías y honradas a ocho completas que no pueda sostener.
+**El peor resultado no es un hueco: es un dato verosímil que no comprobaste.** Un hueco se ve y se rellena otro día. Un dato inventado se publica y alguien paga por él.
 
-Por eso no eres un redactor comercial ni un comparador. **No vendes ni opinas: recoges lo que el fabricante dice de sí mismo, con la página delante, y anotas dónde lo leíste.**
+**No vendes ni opinas: recoges lo que el fabricante dice de sí mismo, con la página delante, y anotas dónde lo leíste.**
+
+## Lo que haces bien y quiero que repitas
+
+- Abriste el **JavaScript de la calculadora de Bookitit** cuando la tarifa no daba cifras.
+- Dejaste el precio de Pabau en `null` diciendo *«no afirmo que no lo publiquen: no conseguí visualizar esas cifras»*.
+- Dejaste el tamaño de Booksy en `null` negándote a deducir «ilimitado» de que se pueda pagar por más empleados.
+- Avisaste de que la tarifa de Zoho **redirigía a otra versión sin cifras al reabrirla**. Nadie te lo pidió y era lo importante.
+
+## Lo único que sigue fallando
+
+**`pendientes` ha vuelto vacío sin serlo cuatro veces seguidas.** Lleva **los ids que NO has hecho**. Entregar tres de ocho está bien; decir que son ocho, no: me hace contar como terminado lo que no lo está.
+
+**Ve herramienta por herramienta y cierra cada una antes de seguir.** Una ficha a medias parece hecha, y eso es peor que no empezarla.
 
 ## Cómo te tienes que comportar
 
-1. **Abre las páginas. Siempre.** Lo que no abriste, no existe para este encargo. No cites de memoria ni de lo que «se sabe» de una herramienta.
-2. **Cada afirmación lleva cita literal y dirección.** Sin cita, no se afirma: se pone `null` o `desconocido`.
-3. **Sólo vale la palabra del fabricante**: su web, su documentación, su centro de ayuda, su tarifa. **No valen** blogs ajenos, comparadores, directorios de software ni reseñas de usuarios. Si el único sitio donde aparece un dato es el blog del propio fabricante, vale, **pero dímelo**.
-4. **Distingue tres cosas que no son lo mismo**, y no las mezcles nunca:
-   - «**Lo tiene**» — lo leíste y lo citas.
-   - «**No lo hemos encontrado**» — abriste páginas y no lo decían. **Esto no dice nada del producto.**
-   - «**No lo tiene**» — el fabricante lo dice con esas palabras. Sólo entonces.
-5. **No rellenes huecos con lo razonable.** Si una herramienta de citas «seguro que» tiene recordatorios, y no lo encuentras escrito, no lo tiene escrito. Punto.
-6. **No juzgues.** Nada de rankings, notas globales ni «es la mejor opción». Si algo no encaja, se dice para quién está pensada y para quién no.
-7. **No me preguntes a mitad.** No pares a pedirme permiso, a confirmar un criterio ni a proponerme alternativas. Si una decisión es dudosa, toma la más conservadora, sigue, y anótalo en `loQueNoPudeComprobar`.
-8. **No te disculpes ni me expliques tu proceso.** Lo que no pudiste hacer va dentro del JSON, en su campo. Fuera del JSON no quiero texto.
-9. **Escribe en español**, claro y sin tecnicismos, salvo las citas, que van en su idioma original.
-10. **Nada de afiliación**: ni la investigues, ni la menciones, ni la tengas en cuenta.
-11. **Si una página no carga, pide iniciar sesión, o es un PDF que no puedes leer, dilo.** «No pude abrirla» es información útil y es distinto de «no lo tiene».
-
-### Si te quedas sin margen a mitad
-
-Pasa, y no es un problema si lo gestionas así: **entrega completas las herramientas que hayas terminado y di cuáles faltan.** Cinco fichas enteras y tres nombres pendientes me sirven.
-
-Lo que no me sirve es que recortes por todas partes para llegar a ocho, ni que me des un resumen en prosa en lugar del JSON. **Una herramienta a medias es peor que una herramienta sin empezar**, porque parece hecha.
-
-## Las 8
-
-```
-1. Clinic Cloud   https://clinic-cloud.com/      clínicas y centros médicos (España)
-2. DriCloud       https://dricloud.com/          consultas y clínicas (en español)
-3. Koibox         https://koibox.cloud/          peluquerías y estética (España)
-4. flowww         https://www.flowww.es/         medicina estética y belleza (España)
-5. TutorBird      https://www.tutorbird.com/     tutores y academias
-6. QVET           https://qvet.net/              clínicas veterinarias (España)
-7. Gesden G5      https://www.infomedsoftware.com/   clínicas dentales (España)
-8. Treatwell      https://www.treatwell.es/partners/ peluquería y estética
-```
-
-### Lo que YA está comprobado — no lo repitas
-
-| | Agenda por profesional | Precio más bajo |
-|---|---|---|
-| Clinic Cloud | ✔ «dispones de agendas personalizadas para cada profesional» | ✔ 29 € al mes + IVA (plan Mini) |
-| DriCloud | ✔ «Cada profesional decide sus horarios y tipos de cita disponibles online» | ✔ 42 €/mes con IVA, anual (plan ESENCIAL, un profesional) |
-| Koibox | ✔ ficha del empleado con su horario | ✔ 0 €/mes (plan Free, un usuario) |
-| flowww | ✔ «visual por doctor e información sobre la cita» | ✔ 59 €/mes (licencia Boss, sin IVA) |
-| TutorBird | ✔ «Set individual tutor availability…» | ✔ 16,95 $/mes (un tutor) |
-| QVET | — nada | — nada |
-| Gesden G5 | — nada | — nada |
-| Treatwell | — nada | — nada |
-
-De las cinco primeras **da por buenos la agenda y el precio** y dedica el esfuerzo al resto. De QVET, Gesden G5 y Treatwell hace falta todo: en su día la página de cita online de Gesden quedó bloqueada, QVET no publica precio y los artículos de ayuda de Treatwell daban error. **Inténtalo otra vez; si vuelve a fallar, dímelo con esas palabras.**
+- **Abre las páginas. Siempre.** Lo que no abriste, no existe para este encargo.
+- **Cada afirmación lleva cita literal y dirección**, con el **título exacto de la página** y **una frase de al lado** sin relación con lo que busco.
+- **Sólo vale la palabra del fabricante**: su web, documentación, ayuda, tarifa. Si el único sitio es su propio blog o una nota de prensa, vale, **pero márcalo `fuente_secundaria`**.
+- **Lo que no encuentres, `null`, y di dónde miraste.**
+- **Nunca escribas que no lo tiene** salvo que el fabricante lo diga con esas palabras.
+- **No juzgues.** Nada de rankings ni «es la mejor».
+- **No me preguntes a mitad.** Opción conservadora, sigue, y anótalo.
+- **Fuera del JSON no escribas nada.**
+- **Nada de afiliación.**
+- **Escribe en español**, salvo las citas.
 
 ---
 
-## PARTE A — Las ocho capacidades, una por una
+# LAS 8, Y QUÉ SE SABE YA DE CADA UNA
 
-Estas ocho, **todas, en las ocho herramientas**. Ninguna se salta. Si de una no encuentras nada, se responde igual con «no consta» y dónde miraste. *(Se fija la lista entera de antemano a propósito: si se va eligiendo sobre la marcha, la lista se estrecha justo donde la prueba incomoda.)*
+**No repitas lo que pone «✔ ya comprobado».** Y mira las direcciones: las que se abrieron te ahorran trabajo, y las que fallaron te dicen por dónde no ir.
 
-1. **`cap.per_resource_booking_calendar` — Agenda por profesional o recurso.** Agenda separada por profesional, sala, sillón o máquina, con sus horarios y sus servicios. *(Ya está en las cinco de arriba.)*
-2. **`cap.online_self_service_booking` — Reserva online por la propia persona.** Que el cliente coja hora solo, por internet, sin llamar y a cualquier hora.
-3. **`cap.customer_appointment_reminders` — Recordatorios automáticos.** Avisar al cliente antes de su cita, por el canal que sea, sin que nadie llame. **Dime el canal (SMS, correo, WhatsApp) y si se paga aparte.**
-4. **`cap.booking_cancellation_and_rescheduling` — Cancelar y cambiar la cita.** Anularla o moverla liberando el hueco. **Hacen falta las dos cosas**: si sólo se puede cancelar, dilo así.
-5. **`cap.capacity_and_time_slots` — Aforo, turnos y franjas.** Cuánta gente cabe y cuándo: duración del hueco, plazas, turnos, descansos.
-6. **`cap.no_show_and_deposits` — Ausencias y depósitos.** Señal previa, política de cancelación, penalización, aviso de reincidencia.
-7. **`cap.booking_waitlist` — Lista de espera.** Apuntar a quien no encontró hueco **y avisarle** cuando se libera. Una lista que el personal repasa a mano no cuenta.
-8. **`cap.embeddable_booking_widget` — Insertar la reserva en tu propia web.** Que el sistema de reserva se meta en la web del negocio, con su aspecto y sin salir de su dominio. **Un botón que lleva a otra página no cuenta.**
+### 1. Clinic Cloud — https://clinic-cloud.com/
+Clínicas y centros médicos. **✔ Agenda por profesional** («dispones de agendas personalizadas para cada profesional»). **✔ Precio: 29 €/mes + IVA.**
+Abiertas: `/blog/como-agendar-una-cita-medica-con-clinic-cloud` · `/faq/agenda-y-comunicaciones` · `/faq/doctoralia` · `/tarifas`
+No abre: `/precios`
+**Ojo:** su reserva online va por **Doctoralia**. Si una función sólo existe a través de Doctoralia, dilo: la profundidad es `integracion`, no `nativa`.
 
-### Y la pregunta que dejó a cinco de éstas fuera
+### 2. DriCloud — https://dricloud.com/
+Consultas, clínicas y hospitales. **✔ Agenda por profesional** («Cada profesional decide sus horarios y tipos de cita disponibles online»). **✔ Precio: 42 €/mes con IVA, anual, plan ESENCIAL con un profesional.**
+Abiertas: `/precios/` · `/cita-medica-online/` · `/agenda-clinica/`
 
-Dentro de `cap.per_resource_booking_calendar` necesito una cosa concreta: **¿puede el CLIENTE elegir con qué profesional va, al reservar él mismo?** No vale que el negocio asigne. Tiene que elegir quien reserva.
+### 3. Koibox — https://koibox.cloud/
+Peluquerías, barberías y estética. **✔ Agenda por profesional.** **✔ Precio: 0 €/mes (Free, un usuario).**
+**✔ Y el cliente SÍ elige profesional**, de su portada: *«Tus clientes podrán agendar, consultar la disponibilidad de su estilista favorito y reservar 24/7 sin barreras.»*
+Abiertas: `/pricing/` · `soporte.koibox.cloud/es/article/como-se-configuran-las-reservas-online-vgtrro/` · `.../como-cambio-el-horario-de-un-dia-en-concreto-tf7uvc/`
+No abre: `www.koibox.com` (el bueno es `koibox.cloud`)
 
-Búscala en el recorrido de reserva online, en la ayuda sobre «reserva online» o «cita online», y en las capturas de la página de reservas. **De Clinic Cloud, mira además su integración con Doctoralia**, porque su reserva online va por ahí.
+### 4. flowww — https://www.flowww.es/
+Medicina estética, belleza y salud. **✔ Agenda por profesional** («visual por doctor»). **✔ Precio: 59 €/mes, licencia Boss, sin IVA.**
+Abiertas: `/flowww-saas` · `/flowww-book` · `/precios`
 
-Tres respuestas posibles: **lo hace** (con cita), **no consta** (dónde miraste), **no lo hace** (sólo si el fabricante lo dice con esas palabras).
+### 5. TutorBird — https://www.tutorbird.com/
+Tutores y academias. **✔ Agenda por profesional** («Set individual tutor availability»). **✔ Precio: 16,95 $/mes, un tutor.**
+Abiertas: `/` · `/have-it-your-way/` · `/public-self-booking/` · `/pricing/`
+No abre: `/features/`
+**Ojo:** comprueba si la **gestión** está en español o sólo la página de reservas.
+
+### 6. QVET — https://qvet.net/  ← de ésta no hay nada
+Clínicas y hospitales veterinarios. **Ni agenda ni precio comprobados.**
+Abiertas: `/caracteristicas-de-qvet/` · `/soporte-y-formacion/`
+Menciona agendas múltiples y cita online sin explicar horarios por veterinario. **Si no publican precio, dilo con esas palabras.**
+
+### 7. Gesden G5 — https://www.infomedsoftware.com/  ← de ésta no hay nada
+Clínicas dentales. **Ni agenda ni precio comprobados.**
+Abiertas: `/` · `/software/gesden/gesden-g5/` · **y este PDF, que sí se lee:**
+`https://www.infomedsoftware.com/wp-content/themes/softwareinfomed/_pdfs/es/gesden-g5_funcionalidades_agenda.pdf`
+No abren: `/software/gesden/` · `/software/gesden/gesden-g5/cita-online-g5/`
+**Su documentación está en PDF.** Busca más PDF en `/wp-content/themes/softwareinfomed/_pdfs/es/`.
+
+### 8. Treatwell — https://www.treatwell.es/partners/  ← de ésta no hay nada
+Peluquerías, barberías, uñas, estética, masajes y spa. **Ni agenda ni precio comprobados.**
+Abiertas: `/partners/` · `/partners/precios/` · `/partners/soluciones/software-de-gestion-para-salones/`
+**Su ayuda NO está en `treatwell.es`.** Está en estos dominios, y los cinco fallaron al abrirse — reinténtalo:
+`support-expert.treatwell.com` · `help.treatwell.pro` · `partnercare.treatwell.com` · `propartnercare.treatwell.com`
+Hay un artículo que se llama literalmente `show-an-employee-s-profile-in-the-booking-widget`. Si consigues abrirlo, responde dos cosas de golpe.
+**Y ojo:** Treatwell es a la vez un directorio público y un programa de gestión («Treatwell Connect»). **Me interesa el programa de gestión, no el directorio.**
+
+---
+
+# PARTE A — Las ocho capacidades
+
+Las ocho, en las ocho herramientas. **Ninguna se salta.** Si de una no encuentras nada, se responde igual con `desconocido` y dónde miraste. *(La lista se fija entera de antemano a propósito: eligiendo sobre la marcha se estrecha justo donde la prueba incomoda.)*
+
+1. **`cap.per_resource_booking_calendar` — Agenda por profesional o recurso.** Agenda separada por profesional, sala, sillón o máquina, con sus horarios y servicios. *(Ya está en cinco.)*
+2. **`cap.online_self_service_booking` — Reserva online por la propia persona.** El cliente coge hora solo, sin llamar, a cualquier hora.
+3. **`cap.customer_appointment_reminders` — Recordatorios automáticos.** **Dime el canal** (SMS, correo, WhatsApp) y **si se paga aparte**.
+4. **`cap.booking_cancellation_and_rescheduling` — Cancelar y cambiar la cita**, el cliente por su cuenta. **Hacen falta las dos**: si sólo cancela, dilo así.
+5. **`cap.capacity_and_time_slots` — Aforo, turnos y franjas.** Duración del hueco, plazas, descansos.
+6. **`cap.no_show_and_deposits` — Ausencias y depósitos.** Señal al reservar, política de cancelación, penalización.
+7. **`cap.booking_waitlist` — Lista de espera.** Se apunta **y le avisan** al liberarse. Una lista que repasa el personal a mano no cuenta.
+8. **`cap.embeddable_booking_widget` — Insertar la reserva en tu propia web.** Con tu aspecto y sin salir de tu dominio. **Un botón que lleva a otra página no cuenta.**
+
+### Y la pregunta que dejó a estas ocho fuera
+
+Dentro de la primera: **¿puede el CLIENTE elegir con qué profesional va, al reservar él mismo?** No vale que el negocio asigne.
+
+Búscala en el recorrido de reserva, en la ayuda sobre «reserva online» o «cita online», y en las capturas. Tres respuestas: **lo hace** (con cita), **no consta** (dónde miraste), **no lo hace** (sólo si lo dicen con esas palabras).
 
 ### Cómo se responde cada capacidad
 
-**`estado`** — uno de tres:
-- `verificado` — lo leíste, con cita literal.
-- `desconocido` — buscaste y no hay prueba bastante. **No significa que no lo tenga.** Obliga a decir qué buscaste y dónde.
-- `descartado` — **el fabricante dice que NO lo hace**, con esas palabras. Lleva cita igual.
+**`estado`**: `verificado` (lo leíste, con cita) · `desconocido` (buscaste y no hay prueba — **no significa que no lo tenga**, y obliga a decir dónde miraste) · `descartado` (**el fabricante dice que NO**, con cita igual).
 
-**`profundidad`** — obligatoria sólo si es `verificado`, y una de estas cuatro:
-- `nativa` — es el producto, o una parte central de él.
-- `modulo` — existe dentro de una suite más amplia, a veces como módulo que se contrata aparte.
-- `integracion` — **sólo funciona conectando otra herramienta.** Entonces dime cuál en `integraCon`. *(Clinic Cloud con Doctoralia es probablemente este caso.)*
-- `no_disponible` — hay prueba de que NO lo hace.
+**`profundidad`**, obligatoria si es `verificado`: `nativa` (es el producto) · `modulo` (dentro de una suite, a veces aparte) · `integracion` (**sólo conectando otra herramienta** — di cuál en `integraCon`) · `no_disponible`.
 
-**El plan va aparte de la capacidad, y esto es importante.** Son dos certezas distintas:
-- `planEstado: "verificado"` sólo si tu cita **nombra el plan**. Entonces `planMinimo` lleva el plan más barato donde la función existe de verdad, **con el nombre que le da el fabricante**.
-- `planEstado: "desconocido"` si sabes que lo hace pero no en qué plan. **Entonces `planMinimo` va a `null`.** Nombrar un plan sin prueba es afirmarlo.
+**El plan va aparte de la capacidad.** `planEstado: "verificado"` **sólo si tu cita nombra el plan**; entonces `planMinimo` lleva ese nombre. Si sabes que lo hace pero no en qué plan, `planEstado: "desconocido"` y **`planMinimo: null`**. Nombrar un plan sin prueba es afirmarlo.
 
-**`confianza`** — `alta`, `media` o `baja`. **Sólo puede ser `alta` si la fuente es de primera mano**: página oficial, documentación, tarifa oficial o prueba directa. Una comparativa, un directorio o una reseña, por buena que parezca, **nunca** sostiene `alta`.
+**`confianza`**: `alta` **sólo con fuente de primera mano** — `pagina_oficial`, `documentacion`, `tarifa_oficial`, `prueba_directa`. Una comparativa o una reseña, nunca.
 
-**`tipo` de cada fuente** — uno de: `pagina_oficial`, `documentacion`, `tarifa_oficial`, `prueba_directa`, `nota_de_version`, `fuente_secundaria`.
+**`tipo` de fuente**, sin inventar otros: `pagina_oficial`, `documentacion`, `tarifa_oficial`, `prueba_directa`, `nota_de_version`, `fuente_secundaria`.
 
-**Una portada no sirve como fuente de una función concreta.** La dirección tiene que ser la página donde lo pone.
+**Una portada no sirve como fuente de una función concreta.**
 
 ---
 
-## PARTE B — El idioma, separado en dos
+# PARTE B — Tamaño, límites, precio e idioma
 
-No basta con «está en español». Necesito **dos respuestas independientes**, porque no van siempre juntas:
+**`segmentosIdeales`** — De esta lista: `"1-10"`, `"11-50"`, `"51-200"`, `"200+"`. Puede ser más de uno. **No opines: sácalo de sus planes** —cuántos profesionales o usuarios incluye cada uno y hasta dónde llega el mayor—, con la cita. Si no publican números, dilo.
 
-- **`interfaz`** — las pantallas que usa el negocio, en qué idiomas están.
+**`limites`** — **No son sectores excluidos.** Es con qué se da de bruces alguien que SÍ es su cliente: topes de plan, **una licencia por cada centro**, funciones anunciadas y no disponibles, cargo por profesional añadido, países donde no funciona, puesta en marcha aparte.
+
+**`precioInicial`** — El plan más barato de verdad, con lo que incluye. **Dime la moneda que ves y NO conviertas nada.** Si la tarifa no enseña cifras es JavaScript: busca el fichero del selector.
+**`tienePlanGratuito`** — `true` sólo si es **permanente**. Una prueba de 15 o 30 días NO lo es. Si sólo hay prueba, `null`, no `false`.
+
+**`idioma`, en dos respuestas separadas**, porque no van juntas:
+- **`interfaz`** — las pantallas que usa el negocio.
 - **`soporte`** — en qué idiomas atienden.
 
-Cada una: `verificado` con la lista de idiomas (`["es","en"]`) y su cita, o `desconocido` diciendo qué buscaste.
-
-**Y ojo con una trampa que ya nos pasó:** hay herramientas cuya página de reservas del cliente está en español pero cuya gestión sigue en inglés. **Son cosas distintas. Dímelo si las ves separadas.** (TutorBird y Treatwell son las candidatas a esto.)
+Cada una `verificado` con la lista y su cita, o `desconocido` diciendo qué buscaste. **Hay herramientas cuya página de reservas está en español y cuya gestión sigue en inglés.** Son cosas distintas.
 
 ---
 
-## PARTE C — La ficha de catálogo
+# PARTE C — La ficha
 
-De las ocho, todo esto:
+**`categoriaId`** — UNA de esta lista, tal cual: `reservas-citas`, `clinicas-salud`, `formacion-academias`, `agenda-planificacion`, `plataformas-todo-en-uno`, `marketing-email`, `crm`.
 
-**`categoriaId`** — elige UNA de esta lista, tal cual:
-`reservas-citas`, `clinicas-salud`, `formacion-academias`, `agenda-planificacion`, `plataformas-todo-en-uno`, `marketing-email`, `crm`.
+**`descripcion`** — Dos o tres frases que entienda alguien que no sabe de software. Sin tecnicismos ni folleto.
 
-**`descripcion`** — Dos o tres frases que entienda alguien que no sabe de software. Sin tecnicismos y sin lenguaje de folleto.
+**`problemasQueResuelve`** — Tres o cuatro, **en las palabras del cliente, en primera persona**: «Pierdo citas porque no cojo el teléfono a tiempo». No: «Optimización de la gestión de citas».
 
-**`problemasQueResuelve`** — Tres o cuatro, **en las palabras del cliente, en primera persona**. Así: «Pierdo citas porque no cojo el teléfono a tiempo». No así: «Optimización de la gestión de citas».
-
-**`casosDeUso`** — Tres o cuatro ejemplos concretos. «Una clínica con cuatro fisios deja que el paciente elija con quién va».
+**`casosDeUso`** — Tres o cuatro ejemplos concretos.
 
 **`idealPara`** — Una frase: qué tipo de negocio la usa.
+**`industriasIdeales`** — Sectores en español y minúsculas.
+**`noRecomendadaPara`** — Una frase. **No es un defecto: es para quién NO está pensada.** Si no consta, `null`.
 
-**`segmentosIdeales`** — Tramos de plantilla del CLIENTE, exactamente de esta lista: `"1-10"`, `"11-50"`, `"51-200"`, `"200+"`. Puede ser más de uno. **No opines: sácalo de sus planes** — cuántos profesionales o usuarios incluye cada plan y hasta dónde llega el mayor. Con la cita. Si no publican números, dilo.
+**`funcionesPrincipales`** — Entre cinco y ocho.
+**`integraciones`** e **`integracionesPrincipales`** — Por nombre. Si publica un directorio, di cuántas hay **y que es el contador del directorio**.
 
-**`industriasIdeales`** — Sectores en español y minúsculas: `["clínicas dentales", "fisioterapia"]`.
+**`modeloDePrecio`** — Una o varias, sin inventar otras: `freemium`, `suscripcion_mensual`, `suscripcion_anual`, `pago_unico`, `por_usuario`, `a_medida`. Si cobran de otra forma —por centro, por transacción, por tramos—, elige la más cercana **y dilo en `notaDelPrecio`**.
 
-**`noRecomendadaPara`** — Una frase. **No es un defecto: es para quién NO está pensada.** «No está pensada para quien necesita facturación con VeriFactu».
+**`ventajas`** — Tres o cuatro, **con hechos, no adjetivos**.
+**`inconvenientes`** — Tres o cuatro. **No es una lista de defectos: es lo que hay que tener en cuenta.**
 
-**`casosNoRecomendados`** — **Esto NO son sectores excluidos.** Es con qué se va a dar de bruces alguien que SÍ es su cliente: topes de plan, una licencia por cada centro, funciones anunciadas y no disponibles, cargo por cada profesional añadido, países donde no funciona, puesta en marcha que se paga aparte.
+**`metodologiaValoracion`** — En qué te basaste.
+**Prohibido «miles de opiniones verificadas en G2 y Capterra» o parecido.**
 
-**`funcionesPrincipales`** — Entre cinco y ocho, las que la definen.
-
-**`integraciones`** e **`integracionesPrincipales`** — Con qué se conecta, por nombre. Si publica un directorio, dime cuántas hay.
-
-**`precioInicial`** — Texto claro, con moneda y con lo que incluye: «Desde 29 € al mes + IVA, plan Mini». **Dime siempre qué moneda estás viendo y NO conviertas nada.**
-
-**`modeloDePrecio`** — Una o varias, tal cual: `freemium`, `suscripcion_mensual`, `suscripcion_anual`, `pago_unico`, `por_usuario`, `a_medida`.
-
-**`tienePlanGratuito`** — `true` sólo si hay plan gratuito **permanente**. **Una prueba de 15 o 30 días no lo es.** Si la tarifa habla de prueba pero no dice nada de plan permanente, `null`, no `false`.
-
-**`tieneApiPublica`**, **`tieneAppMovil`** — `true`, `false` o `null`.
-
-**`ventajas`** — Tres o cuatro. **Con hechos, no con adjetivos.** «Cobra la señal al reservar» sí. «Muy potente» no.
-
-**`inconvenientes`** — Tres o cuatro. **No es una lista de defectos: es lo que hay que tener en cuenta.** «Los SMS se pagan aparte». «El plan de entrada incluye un solo usuario».
-
-**`informacionEmpresa`** — País de origen, año de fundación, tamaño aproximado. `null` lo que no conste.
-
-**`urlPrecios`** — La dirección de su tarifa.
-
-### Las siete valoraciones
-
-De 1 a 10. **Sólo pon número donde puedas justificarlo con algo que hayas leído. Donde no, `null`.**
-
-- **`nivelTecnicoRequerido`** — 1 es apta sin conocimientos técnicos, 10 exige equipo técnico. Con hechos: si hay que migrar datos, instalar algo, contratar implantación.
-- **`facilidadImplementacion`** — cuántos pasos para empezar, si hay puesta en marcha de pago, si hay que importar historiales.
-- **`fiabilidad`** — **sólo** si publican página de estado, histórico de caídas o compromiso de disponibilidad. Si no, `null`.
-- **`atencionAlCliente`** — según canales y en qué plan: chat, teléfono, correo, horario, si atienden en español.
-- **`facilidadDeUso`**, **`calidad`**, **`escalabilidad`** — **casi siempre `null`**. Ningún fabricante publica que su producto es un 7. Ponlos sólo si encuentras la nota desglosada de G2 o Capterra para ese aspecto, y di de dónde.
-
-**`metodologiaValoracion`** — En qué te basaste, herramienta por herramienta. Ejemplo: *«Nivel técnico e implantación, de su guía de puesta en marcha. Atención al cliente, de su página de soporte. Los demás quedan sin valorar.»*
-
-**Prohibido escribir «miles de opiniones verificadas en G2 y Capterra» o cualquier frase parecida.** Es justo la frase que estamos quitando del catálogo.
+**`tieneApiPublica`**, **`tieneAppMovil`** — `true`, `false` o `null`. **`false` sólo con cita.**
+**`informacionEmpresa`** — País, año, tamaño. `null` lo que no conste.
 
 ---
 
-## Dos avisos, por experiencia con estas webs
+# PARTE D — Lo fácil que es de manejar
 
-**No me des una dirección que no hayas abierto.** Ya me dieron cuatro juegos de direcciones de un centro de ayuda que no existían, con citas que sonaban perfectas. Los identificadores de artículo hay que sacarlos navegando.
+**Esto es nuevo y es importante:** sin estos campos, una herramienta entra en el catálogo y **no sale recomendada nunca**. Está medido.
 
-Por eso cada cita lleva dos pruebas de que estuviste allí: el **título exacto de la página** y **una frase de al lado** sin relación con lo que busco.
+**`curvaDeAprendizaje`** — Exactamente una de estas cuatro palabras: `muy_facil`, `facil`, `media`, `dificil`. No por intuición: de lo que publiquen sobre cuánto se tarda en empezar —**cuántos pasos tiene su guía de primeros pasos**, si hace falta formación, si la formación se paga, si hay que migrar datos y quién lo hace—.
+- `muy_facil`: te registras y empiezas.
+- `facil`: unos pocos pasos guiados, con ayuda escrita.
+- `media`: hay que configurar servicios, horarios o personal antes de usarla.
+- `dificil`: hace falta implantación, migración asistida o formación obligatoria.
 
-**Y algunas webs pintan sus tarifas con JavaScript**, u ofrecen monedas distintas según desde dónde entres. Si ves nombres de plan sin cifras, es eso: dímelo. **Di siempre qué moneda ves y no conviertas.**
+**`facilidadDeUso`** de 1 a 10 — **De la nota de «Ease of Use» de G2 o Capterra**, que se mide sobre reseñas reales. Dame la nota, su escala, **cuántas reseñas la sostienen** y la dirección. Multiplica por 2 para pasarla a 10 y dilo. Es `fuente_secundaria`.
+**Aviso:** varias de estas ocho son españolas y pequeñas, y puede que **no tengan reseñas en ninguna parte**. Si es así, `null` y dime en qué fichas miraste. No uses la nota general en lugar de la de facilidad de uso.
+
+**`nivelTecnicoRequerido`** de 1 a 10 — 1 cualquiera puede, 10 hace falta alguien técnico. Con hechos: ¿hay que **tocar código**? ¿configurar un **dominio**? ¿**instalar** algo? ¿hay cosas que **tiene que hacer el fabricante por ti**? Eso último cuenta.
+
+**`facilidadImplementacion`** de 1 a 10 — ¿cobran la **puesta en marcha**? ¿es **obligatoria** una demo? ¿**importan tus datos**? ¿publican un tiempo de puesta en marcha?
+
+**`atencionAlCliente`** de 1 a 10 — canales, **en qué plan** está cada uno, horario, si atienden en español.
+
+**`fiabilidad`** de 1 a 10 — **sólo** con página de estado pública, histórico de incidencias o compromiso con cifra. Si no, `null`.
+
+**`calidad`** y **`escalabilidad`** — **casi siempre `null`**. Sólo con nota desglosada de G2 o Capterra.
+
+**De cada nota, dime en una línea qué la sostiene.**
+
+---
 
 ## Cómo quiero la respuesta
 
-**Fuera del JSON no escribas nada.** Ni introducción, ni resumen, ni conclusiones, ni «espero que te sirva», ni una lista de lo que has hecho. Todo lo que quieras contarme cabe dentro: los campos `nota`, `loQueNoPudeComprobar` y `paginasQueNoSeAbrieron` están ahí para eso.
-
-Ve de dos en dos o de tres en tres para no atragantarte. **Cada tanda es un bloque JSON completo y válido**, con la misma forma. No pares hasta las 8.
-
-### Las ocho capacidades van SIEMPRE las ocho
-
-En `capacidades` tiene que haber **ocho objetos**, uno por cada identificador, en todas las herramientas. Aunque siete sean `desconocido`. Un array con menos de ocho está incompleto:
-
-```
-cap.per_resource_booking_calendar
-cap.online_self_service_booking
-cap.customer_appointment_reminders
-cap.booking_cancellation_and_rescheduling
-cap.capacity_and_time_slots
-cap.no_show_and_deposits
-cap.booking_waitlist
-cap.embeddable_booking_widget
-```
-
-### La forma
-
-Abajo va una herramienta entera de ejemplo. Los valores son de muestra: cámbialos todos.
+**Nada fuera del JSON.** Ve de dos en dos, y **no pares hasta las 8**.
 
 ```json
 {
   "fecha": "AAAA-MM-DD",
-  "tanda": 1,
   "herramientas": [
     {
-      "id": "clinic-cloud",
-      "nombre": "Clinic Cloud",
-      "paginaOficial": "https://clinic-cloud.com/",
-      "urlPrecios": "https://clinic-cloud.com/tarifas",
-      "categoriaId": "clinicas-salud",
+      "id": "koibox",
+      "nombre": "Koibox",
+      "paginaOficial": "https://koibox.cloud/",
+      "urlPrecios": "https://koibox.cloud/pricing/",
+      "categoriaId": "reservas-citas",
 
       "descripcion": "...",
-      "problemasQueResuelve": ["..."],
-      "casosDeUso": ["..."],
-      "idealPara": "...",
-      "segmentosIdeales": ["1-10"],
-      "porQueEseTamano": "Cita de la tarifa.",
-      "industriasIdeales": ["..."],
-      "noRecomendadaPara": "...",
-      "casosNoRecomendados": ["..."],
+      "problemasQueResuelve": ["..."], "casosDeUso": ["..."],
+      "idealPara": "...", "industriasIdeales": ["..."], "noRecomendadaPara": null,
       "funcionesPrincipales": ["..."],
-      "integraciones": ["..."],
-      "integracionesPrincipales": ["..."],
-
-      "precioInicial": "Desde 29 € al mes + IVA, plan Mini",
-      "moneda": "EUR",
-      "modeloDePrecio": ["suscripcion_mensual"],
-      "tienePlanGratuito": null,
-      "citaDelPrecio": "...",
-
-      "tieneApiPublica": null,
-      "tieneAppMovil": true,
-
-      "puntuaciones": {
-        "nivelTecnicoRequerido": 3,
-        "facilidadImplementacion": null,
-        "fiabilidad": null,
-        "atencionAlCliente": 6,
-        "facilidadDeUso": null,
-        "calidad": null,
-        "escalabilidad": null
-      },
+      "integraciones": ["..."], "integracionesPrincipales": ["..."],
+      "cuantasIntegracionesPublica": null,
+      "ventajas": ["..."], "inconvenientes": ["..."],
       "metodologiaValoracion": "...",
+      "tieneApiPublica": null, "tieneAppMovil": null,
+      "informacionEmpresa": { "paisOrigen": null, "anioFundacion": null, "tamanoAproximado": null },
 
-      "ventajas": ["..."],
-      "inconvenientes": ["..."],
-      "informacionEmpresa": { "paisOrigen": "España", "anioFundacion": null, "tamanoAproximado": null },
+      "segmentosIdeales": ["1-10"],
+      "porQueEseTamano": "Cita de la tarifa con el número de usuarios.",
+      "oNoLoPublican": false,
+      "limites": [{ "texto": "Qué topa.", "cita": "...", "url": "..." }],
+
+      "precioInicial": "...", "moneda": "EUR",
+      "modeloDePrecio": ["freemium"], "notaDelPrecio": null,
+      "tienePlanGratuito": true, "citaDelPrecio": "...", "urlDelPrecio": "...",
 
       "idioma": {
         "interfaz": { "estado": "verificado", "idiomas": ["es"], "cita": "...", "url": "..." },
         "soporte":  { "estado": "desconocido", "nota": "Qué buscaste y dónde." }
       },
 
+      "curvaDeAprendizaje": "facil",
+      "porQueEsaCurva": "Pasos de su guía, si hay formación, si hay migración.",
+      "puntuaciones": {
+        "facilidadDeUso": null, "nivelTecnicoRequerido": 3,
+        "facilidadImplementacion": 7, "atencionAlCliente": null,
+        "fiabilidad": null, "calidad": null, "escalabilidad": null
+      },
+      "porQueCadaNota": {
+        "facilidadDeUso": "Sin reseñas en G2 ni Capterra; fichas miradas: ...",
+        "nivelTecnicoRequerido": "Qué hechos lo sostienen.",
+        "facilidadImplementacion": "Qué hechos lo sostienen.",
+        "atencionAlCliente": "Canales, plan y horario.",
+        "fiabilidad": "Qué buscaste y dónde."
+      },
+
       "capacidades": [
         {
           "capacidadId": "cap.online_self_service_booking",
-          "estado": "verificado",
-          "profundidad": "integracion",
-          "integraCon": "Doctoralia",
-          "planEstado": "desconocido",
-          "planMinimo": null,
-          "confianza": "alta",
+          "estado": "verificado", "profundidad": "nativa", "integraCon": null,
+          "planEstado": "desconocido", "planMinimo": null, "confianza": "alta",
           "nota": "Límites que cambian la decisión.",
-          "fuentes": [
-            {
-              "tipo": "documentacion",
-              "url": "https://...",
-              "cita": "frase literal",
-              "tituloDeLaPagina": "el título exacto",
-              "fraseDeAlLado": "otra frase de esa página, sin relación"
-            }
-          ]
-        },
-        {
-          "capacidadId": "cap.booking_waitlist",
-          "estado": "desconocido",
-          "confianza": "baja",
-          "nota": "Qué buscaste y dónde. Obligatoria cuando es desconocido.",
-          "fuentes": [
-            { "tipo": "documentacion", "url": "https://...", "tituloDeLaPagina": "..." }
-          ]
+          "fuentes": [{ "tipo": "documentacion", "url": "https://...", "cita": "...",
+            "tituloDeLaPagina": "...", "fraseDeAlLado": "..." }]
         }
       ],
 
       "eligeElClienteConQuienVa": {
-        "estado": "verificado",
-        "cita": "...",
-        "url": "...",
-        "tituloDeLaPagina": "...",
-        "fraseDeAlLado": "...",
+        "estado": "verificado", "cita": "...", "url": "...",
+        "tituloDeLaPagina": "...", "fraseDeAlLado": "...",
         "dondeMiraste": "Si es no consta: las direcciones que abriste."
       },
 
@@ -323,15 +284,18 @@ Abajo va una herramienta entera de ejemplo. Los valores son de muestra: cámbial
       "loQueNoPudeComprobar": "Qué falta y por qué."
     }
   ],
-  "pendientes": ["Los nombres de las herramientas que aún no has hecho."]
+  "pendientes": ["los ids que NO has hecho"]
 }
 ```
 
-### Antes de enviar cada tanda, repásalo
+### Antes de enviar
 
-- ¿Hay **ocho** objetos en `capacidades` de cada herramienta?
-- ¿Cada `estado: "verificado"` lleva `profundidad` y al menos una fuente con cita?
-- ¿Cada `estado: "desconocido"` lleva `nota` diciendo dónde miraste?
-- ¿Hay algún `planMinimo` con nombre y `planEstado: "desconocido"`? Eso está mal: o lo demuestras, o va a `null`.
-- ¿Hay alguna `confianza: "alta"` sostenida por un blog o un comparador? Eso está mal: baja a `media`.
+- **¿`pendientes` lleva los ids que no has hecho?** Es lo único que ha fallado cuatro veces.
+- ¿Hay **ocho** objetos en `capacidades` de cada herramienta, aunque siete sean `desconocido`?
+- ¿Cada `verificado` lleva `profundidad` y una fuente con cita, título y frase de al lado?
+- ¿Algún `planMinimo` con nombre y `planEstado: "desconocido"`? Mal: o lo demuestras, o va a `null`.
+- ¿Alguna `confianza: "alta"` sostenida por un comparador? Mal: baja a `media`.
+- ¿`curvaDeAprendizaje` es una de las cuatro palabras, o `null`?
+- ¿Algún `tienePlanGratuito: true` que sea una prueba de 30 días? Mal.
+- ¿Has convertido alguna moneda? No se convierte.
 - ¿Has escrito algo fuera del JSON? Quítalo.
