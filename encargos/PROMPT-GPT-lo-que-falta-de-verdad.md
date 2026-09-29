@@ -37,7 +37,9 @@ No eres un redactor comercial ni un comparador. **No vendes ni opinas: recoges l
 
 # BLOQUE 1 — Cinco recibos de precio. Nada más.
 
-De estas cinco **ya tenemos todo menos una cosa**: la página donde se ve el precio y el día que se miró. No me hace falta la ficha, ni las funciones, ni el tamaño. **Sólo el recibo.**
+De estas cinco falta el recibo del precio: la página donde se ve y el día que se miró. Va primero porque es rápido y porque **a Bookitit la deja terminada del todo**.
+
+Las otras cuatro necesitan además su ficha, que va en el bloque 3. Aquí, sólo el recibo.
 
 ```
 Bookitit        https://www.bookitit.com/es/
@@ -60,13 +62,13 @@ Lo que ya sé y no hace falta repetir, por si te ahorra tiempo:
 - **Teachworks** anuncia prueba de 21 días, no plan gratuito.
 - **Pabau** dice expresamente que no tiene ni plan gratuito ni prueba.
 - **Fresha** habla de suscripción mensual flexible, sin cifra.
-- **Bookitit** no ha dado precio en ningún intento. Si no lo publica, **dilo con esas palabras**.
+- **Bookitit** no ha dado precio en ningún intento. Si no lo publica, **dilo con esas palabras**. Es la única de las cinco que con esto queda terminada.
 
 **Aviso:** algunas webs pintan sus tarifas con JavaScript. Si ves nombres de plan sin cifras, es eso: dímelo en vez de dejarlo vacío.
 
 ---
 
-# BLOQUE 2 — SimplyBook.me: sólo el tamaño
+# BLOQUE 2 — SimplyBook.me: el tamaño
 
 `https://simplybook.me/`
 
@@ -74,11 +76,13 @@ No opines: **mírate sus planes.** Cuántos proveedores o miembros de personal i
 
 Su FAQ dice *«The number of staff members and service providers depends on the subscription you choose»* pero no enseña las cifras. Busca la comparación de planes y el centro de ayuda. **Si de verdad no publican números, dilo con esas palabras** — es un dato que ellos no publican, no un fallo tuyo.
 
+**SimplyBook.me necesita además su ficha**, que va en el bloque 3 con las demás.
+
 ---
 
-# BLOQUE 3 — Nueve fichas
+# BLOQUE 3 — Catorce fichas
 
-De estas nueve **ya tengo comprobadas las funciones, el tamaño, los límites, el precio y el sector**. Lo pongo debajo para que no lo busques otra vez. **Sólo necesito el texto de la ficha.**
+De estas catorce **ya tengo comprobadas las funciones, y de casi todas el tamaño, los límites, el precio y el sector**. Lo pongo debajo para que no lo busques otra vez. **Sólo necesito el texto de la ficha.**
 
 | Herramienta | Web | Ya comprobado |
 |---|---|---|
@@ -91,6 +95,13 @@ De estas nueve **ya tengo comprobadas las funciones, el tamaño, los límites, e
 | Cliniko | https://www.cliniko.com/ | 5 funciones · 1-10 a 51-200 · clínicas, fisioterapia, terapias |
 | Jane | https://jane.app/ | 6 funciones · 1-10 a 200+ · desde 54 CAD/mes |
 | Booksy | https://biz.booksy.com/ | 7 funciones · 1-10 · 34,99 €/mes +IVA, +8 €/mes por persona extra |
+| Zoho Bookings | https://www.zoho.com/bookings/ | 6 funciones · 1-10 a 200+ · «Forever Free Plan» |
+| Teachworks | https://www.teachworks.com/ | 6 funciones · academias, clases, música, idiomas |
+| Pabau | https://pabau.com/ | 6 funciones · clínicas, estética, dermatología, cirugía |
+| Fresha | https://www.fresha.com/ | 6 funciones · peluquerías, barberías, belleza, bienestar |
+| SimplyBook.me | https://simplybook.me/ | 6 funciones · salud, belleza, academias, deporte |
+
+Las cinco últimas son las mismas de los bloques 1 y 2. **El precio y el tamaño van allí; aquí sólo su ficha.**
 
 De cada una, esto:
 
