@@ -227,11 +227,11 @@ describe("y los 1.547 registros de hoy no cambian de comportamiento", () => {
     // dinero real y, si el resultado no llega hasta aquí, no cambia nada.
     //
     // 3.908 y 891 desde el 2026-09-29 por la tarde: entran BEWE, Bookitit,
-    // AgendaPro y Cliniko, autorizadas por la propietaria («sube las 6 al
+    // AgendaPro, Cliniko y Archivex, autorizadas por la propietaria («sube las 6 al
     // catálogo»), con los 24 registros de sus capacidades de reservas. Ya
     // estaban investigadas con cita y dirección desde el 28 y el 29; lo que
     // faltaba era archivarlas, y eso hace `cli-archivar-reservas.ts`.
-    expect(demostradas.length).toBe(891);
+    expect(demostradas.length).toBe(897);
   });
 
   it("y ninguno cae en el estado nuevo", () => {

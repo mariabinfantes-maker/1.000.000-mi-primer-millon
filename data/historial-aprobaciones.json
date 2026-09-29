@@ -548,5 +548,25 @@
     "estadoAfiliacion": null,
     "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Examen de entrada: El precio no tiene fuente guardada (página y fecha).",
     "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T18:06:07.449Z",
+    "herramientaId": "archivex",
+    "nombreHerramienta": "Archivex",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 52,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Aviso de Curator anulado explícitamente: \"Archivex\" y \"Hive\" tienen nombres muy parecidos — revisa si son la misma herramienta. Justificación: La propietaria confirma el 2026-09-29 que Archivex y Hive son herramientas distintas: «archivex y hive son distintas, súbela». Lo sostienen sus propias fichas — Hive es gestión de proyectos en hive.com; Archivex es gestión de clínicas con citas, pacientes e historias clínicas en archivex.io. El aviso del Curador era por parecido de nombre, no de producto. Motivos del bloqueo: Examen de entrada: Sólo 0 capacidades verificadas; hacen falta 3. Sin esto no sabemos qué hace.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T18:06:51.146Z",
+    "herramientaId": "archivex",
+    "nombreHerramienta": "Archivex",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 52,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Atlas Curator: \"Archivex\" y \"Hive\" tienen nombres muy parecidos — revisa si son la misma herramienta. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces. | \"archivex\" ya existe en el catálogo real: promoverlo lo sobrescribiría. Revísalo a mano si es intencionado.",
+    "aprobacionCeo": true
   }
 ]

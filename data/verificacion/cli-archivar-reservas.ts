@@ -99,19 +99,33 @@ for (const f of fs.readdirSync(path.join(D, "borradores", "herramientas")))
   ficha.set(f.replace(/\.json$/, ""), leer(`borradores/herramientas/${f}`));
 
 /**
- * SÓLO SE ARCHIVA LO DE LAS QUE YA ESTÁN EN EL CATÁLOGO.
+ * SÓLO SE ARCHIVA LO DE LAS QUE ESTÁN DENTRO O ENTRANDO.
  *
- * Un registro de verificación apunta a una herramienta, y `registros.test.ts`
- * comprueba que esa herramienta exista. Archivar antes de promover deja 59
- * registros colgando de fichas que no están, y el orden es el otro: la ficha
- * entra y sus registros entran con ella.
+ * Un registro de verificación apunta a una herramienta y `registros.test.ts`
+ * comprueba que exista, así que archivar a lo loco deja registros colgando de
+ * fichas que no están: pasó con 59 el 2026-09-29.
  *
- * Las que todavía esperan decisión conservan su investigación intacta en
- * `data/investigacion/`. Este archivo se vuelve a pasar cuando entren.
+ * Pero tampoco vale sólo «las del catálogo», porque entonces no entra ninguna
+ * nueva: el examen pide capacidades archivadas para promover, y archivarlas
+ * pedía estar promovida. Pez que se muerde la cola.
+ *
+ * La regla que lo rompe sin aflojar nada: cuenta la que YA está en el
+ * catálogo, y también la que tiene una decisión `aprobado` registrada, que es
+ * la firma explícita de la propietaria y significa que está a punto de ser
+ * ficha. Las que sólo tienen borrador, no.
+ *
+ * Las que esperan decisión conservan su investigación intacta en
+ * `data/investigacion/`, y este archivo se vuelve a pasar cuando entren.
  */
 const enCatalogo = new Set(
   fs.readdirSync(path.join(D, "herramientas")).filter((f) => f.endsWith(".json")).map((f) => f.replace(/\.json$/, ""))
 );
+const dirDecisiones = path.join(D, "borradores", "decisiones");
+if (fs.existsSync(dirDecisiones))
+  for (const f of fs.readdirSync(dirDecisiones).filter((x) => x.endsWith(".json"))) {
+    const d = JSON.parse(fs.readFileSync(path.join(dirDecisiones, f), "utf8"));
+    if (d.decision === "aprobado") enCatalogo.add(d.id ?? f.replace(/\.json$/, ""));
+  }
 const nuevos: any[] = [];
 const esperandoFicha: string[] = [];
 let convencion = 0;
@@ -163,5 +177,30 @@ const ya = new Set(arr.map((r: any) => `${r.herramientaId}/${r.capacidadId}`));
 const aAnadir = nuevos.filter((r) => !ya.has(`${r.herramientaId}/${r.capacidadId}`));
 console.log(`   ${nuevos.length - aAnadir.length} ya estaban archivados`);
 arr.push(...aAnadir);
+
+/**
+ * LIMPIEZA FINAL. Una herramienta aprobada puede quedarse sin promover —le
+ * falta un campo, la para una advertencia— y entonces sus registros quedan
+ * colgando de una ficha que no existe, que es lo que `registros.test.ts`
+ * prohíbe.
+ *
+ * Así que al cerrar se quitan los registros de todo lo que no esté en el
+ * catálogo. No se pierde nada: la investigación sigue entera en
+ * `data/investigacion/` y este archivo es idempotente, así que en cuanto la
+ * ficha entre se vuelve a pasar y vuelven a su sitio.
+ *
+ * Por eso conviene pasarlo DESPUÉS de cada ronda de promociones, no antes.
+ */
+const enCatalogoAhora = new Set(
+  fs.readdirSync(path.join(D, "herramientas")).filter((f) => f.endsWith(".json")).map((f) => f.replace(/\.json$/, ""))
+);
+const colgando = arr.filter((r: any) => !enCatalogoAhora.has(r.herramientaId));
+if (colgando.length) {
+  const de = [...new Set(colgando.map((r: any) => r.herramientaId))];
+  console.log(`   ${colgando.length} registros retirados por no tener ficha todavía: ${de.join(", ")}`);
+  const limpio = arr.filter((r: any) => enCatalogoAhora.has(r.herramientaId));
+  arr.length = 0;
+  arr.push(...limpio);
+}
 fs.writeFileSync(ruta, JSON.stringify(actual, null, 1));
 console.log(`\nguardado: ${arr.length} registros en total`);

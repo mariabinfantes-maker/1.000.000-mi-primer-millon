@@ -1,0 +1,123 @@
+{
+  "nombre": "Archivex",
+  "paginaOficial": "https://archivex.io/",
+  "urlPrecios": "https://archivex.io/precios",
+  "categoriaId": "reservas-citas",
+  "descripcion": "Programa de gestión para clínicas que reúne citas, pacientes, historias clínicas y cobros. También ofrece reservas online con prepago, videoconsultas y una tienda del centro.",
+  "problemasQueResuelve": [
+    "Necesito organizar las citas de mi clínica.",
+    "Quiero guardar la evolución y los documentos de cada paciente.",
+    "Necesito controlar facturas, cobros y bonos."
+  ],
+  "casosDeUso": [
+    "Una consulta de fisioterapia registra la evolución de sus pacientes.",
+    "Una clínica de varias especialidades administra citas y cobros.",
+    "Un profesional atiende una videoconsulta y conserva la historia del paciente."
+  ],
+  "idealPara": "Consultas y clínicas sanitarias que necesitan gestionar pacientes, actividad clínica y administración.",
+  "segmentosIdeales": [
+    "1-10"
+  ],
+  "industriasIdeales": [
+    "fisioterapia",
+    "psicología",
+    "nutrición y dietética",
+    "podología",
+    "logopedia",
+    "medicina estética",
+    "dermatología"
+  ],
+  "noRecomendadaPara": "La licencia individual no está pensada para cubrir varias clínicas con ubicaciones distintas.",
+  "casosNoRecomendados": [
+    "Cada centro necesita una licencia independiente."
+  ],
+  "funcionesPrincipales": [
+    "Agenda y reservas online con prepago",
+    "Historias clínicas y documentación de pacientes",
+    "Facturación, cobros y control de caja",
+    "Bonos y actividades grupales",
+    "Videoconsultas",
+    "Firma de consentimientos",
+    "Tienda online e inventario"
+  ],
+  "integraciones": [
+    "Stripe para pagos de la tienda online"
+  ],
+  "integracionesPrincipales": [
+    "Stripe para pagos de la tienda online"
+  ],
+  "precioInicial": "45 € / mes",
+  "modeloDePrecio": [
+    "suscripcion_mensual"
+  ],
+  "tienePlanGratuito": false,
+  "preciosComprobados": {
+    "fecha": "2026-09-28",
+    "url": "https://archivex.io/precios"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-28",
+    "url": "https://archivex.io/precios",
+    "moneda": "EUR",
+    "planes": [
+      {
+        "nombre": "Plan S",
+        "mensual": "45 € + IVA",
+        "anual": null,
+        "cita": "45 € / mes"
+      },
+      {
+        "nombre": "Plan M",
+        "mensual": "65 € + IVA",
+        "anual": null,
+        "cita": "65 € / mes"
+      },
+      {
+        "nombre": "Plan L",
+        "mensual": "95 € + IVA",
+        "anual": null,
+        "cita": "95 € / mes"
+      }
+    ]
+  },
+  "idiomasDisponibles": [
+    "es"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "puntuaciones": {
+    "nivelTecnicoRequerido": null,
+    "facilidadImplementacion": null,
+    "fiabilidad": null,
+    "atencionAlCliente": null,
+    "facilidadDeUso": null,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Su web documenta instalación y configuración autónoma con tutoriales, y su tarifa distingue migraciones gratuitas y de pago: son hechos comprobados, pero no permiten fijar una nota sin añadir un baremo propio. Su contrato publica un compromiso de acceso del 95 % mensual salvo mantenimientos, y soporte telefónico de 09:00 a 18:00 con tres horas mensuales incluidas; tampoco se convierte en nota. No se encontraron notas desglosadas de G2 o Capterra. Las siete quedan sin valorar.",
+  "ventajas": [
+    "Reúne documentación clínica, citas y administración del centro.",
+    "Permite atender por videoconsulta.",
+    "Publica las condiciones de soporte y disponibilidad en su contrato."
+  ],
+  "inconvenientes": [
+    "Los precios publicados excluyen IVA.",
+    "Plan S incluye un usuario y una especialidad; M hasta cinco; L hasta diez.",
+    "La migración de datos administrativos es gratuita si el formato es legible; otros módulos cuestan 100 € más impuestos por módulo.",
+    "Cada centro necesita su propia licencia."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": "España",
+    "anioFundacion": null,
+    "tamanoAproximado": null
+  },
+  "id": "archivex",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-29",
+  "fechaUltimaRevision": "2026-09-29",
+  "problemasIds": [
+    "organizar-empresa",
+    "ahorrar-tiempo",
+    "atencion-cliente"
+  ]
+}
