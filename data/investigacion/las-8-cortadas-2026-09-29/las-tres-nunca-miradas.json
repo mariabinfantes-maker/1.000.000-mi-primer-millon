@@ -1,0 +1,41 @@
+{
+ "fecha": "2026-09-29",
+ "queSon": "Las tres que GPT anotó el 28 como «no me dio tiempo». Esto es sólo la primera pregunta: si existen. No es una ficha ni pretende serlo.",
+ "comoSeInvestigo": {
+  "quien": "Gemini 3.7 flash con google_search, desde el contenedor.",
+  "porQue": "La política de red de este contenedor sólo deja salir a generativelanguage.googleapis.com; WebFetch da EGRESS_BLOCKED. Gemini es la única vía a la web desde aquí."
+ },
+ "herramientas": [
+  {
+   "id": "mivete",
+   "nombre": "Mivete",
+   "existe": true,
+   "web": "https://www.miveteapp.com",
+   "queEs": "Software de gestión para clínicas veterinarias con módulo de agenda inteligente, citas en línea y recordatorios automáticos.",
+   "deDonde": "Costa Rica / Latinoamérica",
+   "porQueLoDigo": "Aparece la plataforma 'Mi Vete App' (desarrollada por CachorroSoft) que ofrece portal del cliente, agendamiento de citas 24/7 y gestión médica veterinaria en varios países de la región.",
+   "cuidado": "El nombre 'Mi Vete' coincide también con clínicas veterinarias físicas particulares (como una en Bogotá) y con una tienda online de productos para mascotas en Costa Rica (mivete.com)."
+  },
+  {
+   "id": "reservasimple",
+   "nombre": "ReservaSimple",
+   "existe": true,
+   "web": "https://www.reservasimple.com",
+   "queEs": "Plataforma SaaS de agenda, gestión de turnos, citas y reservas online con recordatorios automáticos por WhatsApp e integración con pasarelas de pago.",
+   "deDonde": "Latinoamérica (orientada al mercado regional / rioplatense con integración en MercadoPago, aunque con presencia en varios países de habla hispana, no es propiamente española)",
+   "porQueLoDigo": "Existe la web oficial operativa (reservasimple.com), fichas y reseñas en directorios de software (ComparaSoftware) y comparativas comerciales frente a otras plataformas de reservas.",
+   "cuidado": "El software está diseñado y enfocado principalmente en Latinoamérica (utiliza términos como 'turnos', 'MercadoPago' y redacción en voseo) en lugar de ser un producto originario de España."
+  },
+  {
+   "id": "tureservaonline",
+   "nombre": "TuReservaOnline",
+   "existe": true,
+   "web": "https://tureservaonline.app",
+   "queEs": "Software de gestión de agenda y reserva de citas/turnos online con recordatorios por WhatsApp para profesionales y empresas.",
+   "deDonde": "Argentina (desarrollado por KH web studio), con comercialización y soporte también para España.",
+   "porQueLoDigo": "Se identifica la plataforma 'Tu Reserva Online' en tureservaonline.app orientada a citas de salud, belleza y servicios, con teléfonos de contacto en Argentina (+54) y España (+34).",
+   "cuidado": "En España opera el dominio 'tureservaonline.es' (Grupo Suata Canarias SLU), pero no es un software de citas profesionales, sino una ticketera de venta de entradas para eventos y espectáculos."
+  }
+ ],
+ "loQueHayQueMirarAntesDeSeguir": "Las tres traen un aviso de nombre que puede llevar a una ficha equivocada. El de TuReservaOnline es el peligroso: tureservaonline.es no es el mismo producto que tureservaonline.app."
+}

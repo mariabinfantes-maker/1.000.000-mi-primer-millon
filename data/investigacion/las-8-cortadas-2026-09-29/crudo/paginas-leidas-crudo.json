@@ -1,0 +1,3352 @@
+[
+ {
+  "id": "clinic-cloud",
+  "url": "https://clinic-cloud.com/tarifas/",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Tarifas y Precios| Software Clínicas en la Nube",
+   "fraseDeAlLado": "Transforma tu clínica con el plan ideal",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Acceso a portal de pacientes y reserva online 24/7 (Doctoralia)"
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Recordatorios de cita a pacientes",
+    "canal": "varios",
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "si",
+    "c": "49€ al mes + IVA",
+    "moneda": "EUR",
+    "plan": "Mini"
+   },
+   "tamano": {
+    "e": "si",
+    "c": "1 incluida (Mini), 3 incluidas (Pro), 5 incluidas (Max), Ilimitadas (Enterprise)"
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": [
+    "+10 EUR/ agenda extra hasta alcanzar el límite de cada plan.",
+    "Límite de agendas: 1 (Mini), 5 (Pro), Ilimitadas (Max)",
+    "Espacio de almacenamiento para imágenes: 4 GB (Pro), 10 GB (Max)"
+   ]
+  }
+ },
+ {
+  "id": "clinic-cloud",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEnJuE5dorocv6OyIH43jZ1TqtCBQN-0GpSESmzd9tOXfk4Sjktl5rvbFmE3tgeR5fAVT6_oBozCzdyeVtzEf03YDA2ZefQUTxH4rJZ2J6aCEIfMBa62f_Y7vOG8ZG3FZKoJ0RSZuNpPDD4IR16hcTy6VSCoKqX--rHSFUl3n6JK3RvvljalWSF",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Recodatorio de citas vía WhatsApp | Clinic Cloud",
+   "fraseDeAlLado": "Tiempo estimado:3 minutos",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "no_consta",
+    "c": null
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Con Clinic Cloud, puedes automatizar estos recordatorios mediante SMS, email o WhatsApp, ofreciendo una comunicación más rápida, directa y eficaz.",
+    "canal": "varios",
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": [
+    "Actualmente WhatsApp Web no permite envíos masivos (difusiones), por lo que Clinic Cloud tampoco puede realizar este tipo de envíos.",
+    "Desde la sección Plantillas > WhatsApp sólo es posible crear una plantilla predeterminada."
+   ]
+  }
+ },
+ {
+  "id": "clinic-cloud",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEiD_CYFzMVUFXjZOaHgD_Thn5J9mlxsvKJhw73-JQww5I1kz1WqNdv7BSuSrxFgDc-dycM9jU-L99ZrBs7-qxvuI0cLB7Dwn8kkM0gVJeqxdXmC69hrbSnMdD5xg==",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Clinic Cloud Centro de ayuda - Doctoralia",
+   "fraseDeAlLado": "Aumenta tu visibilidad online y atrae más pacientes.",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Gestiona reservas y comunicaciones automáticas 24/7, incluso cuando no estás disponible."
+   },
+   "recordatorios": {
+    "e": "no_consta",
+    "c": null,
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "si",
+    "c": "Cómo añadir la cita online en una página web (Widget de cita online)"
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "clinic-cloud",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHeCPh2YXJVkunygBGcgD3JXgKwlVuYdAYFknk9oI3Wsjp007QAzxpQ97bC6OqPVLSbnBf51kIq-vqfs8sH-6rNHkCSmYdbNPIaEL2lW2lPP0VGqDBGmKVoU9mzz6VCJCi97WwiPvm0_wfCJj0Wwq6218Wpwitih1T5ulKK3iywG2cW_A==",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Enviar recordatorios de citas por SMS, E-MAIL o WHATSAPP | Clinic Cloud",
+   "fraseDeAlLado": "Tiempo estimado:3 minutos",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "no_consta",
+    "c": null
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "El primer paso es elegir el canal a través del cual se enviarán los recordatorios: SMS, correo electrónico o WhatsApp:",
+    "canal": "varios",
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "clinic-cloud",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE0hgwH4ALyrlPcF7C-X0TM-sFNPDeh-URHkWLwJ1x2dm9QS3L7xTQQtzusPIV7UrwhU9rSn1XimffPnJX2vBlqL6k8mxnd59Ycvlk1Au8IWc4DHQoaPxFnNEN4UE6W0pQ_71-g_Qv2PeUVxvSVEQUy5JacZslK1XDOqTvDN9qx9l3hUKPX",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Recordatorio de cita automático por E-mail y SMS | Clinic Cloud",
+   "fraseDeAlLado": "Tiempo estimado:3 minutos",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "no_consta",
+    "c": null
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Clinic Cloud le permite programar el envío automático de recordatorios de cita por correo electrónico o SMS.",
+    "canal": "varios",
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "clinic-cloud",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFBhYBj2NDh0KgrJgkTb5bthCKllm6QqbBCMxKer8awF40H-Ri2_PsmE5smFrZk85LLF_mtiNuvwrld0UUDWagRd1PQCqfWemuDUaQ-Y182Nkmfm0kjlHOH_Dubhw88gRivJOKsuD-9I8EWW2yejhvtPZalFexD7aUfA0QYQYGd0bujcCHrYGzq",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Recordatorios de cita por mail | Clinic Cloud",
+   "fraseDeAlLado": "Tiempo estimado:3 minutos",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Cita online (envíos de confirmaciones/cancelaciones al paciente y avisos de reserva)"
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Desde Clinic Cloud podemos hacer envíos de Recordatorio de cita por varias vías: SMS E-MAIL WHATSAPP",
+    "canal": "varios",
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "clinic-cloud",
+  "url": "https://clinic-cloud.com/blog/software-para-agendar-citas-medicas-online/",
+  "recuperada": "URL_RETRIEVAL_STATUS_ERROR",
+  "r": {
+   "abierta": false
+  }
+ },
+ {
+  "id": "clinic-cloud",
+  "url": "https://clinic-cloud.com/blog/pedir-cita-medica-por-internet-la-cita-online/",
+  "recuperada": "URL_RETRIEVAL_STATUS_ERROR",
+  "r": {
+   "abierta": false
+  }
+ },
+ {
+  "id": "clinic-cloud",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFQWM9_m2bkqAxy2lrLCLNLr8TFYB8SpGWtcad7DrsVxUHOrHH2SVeBPyLjCXobk9K9oSOLoutIc-K4SzzpsKEirRk986htffe-SJNnug-QvVUWJ6wavBGMEfhN2e17ogEtQS55s9hQWJUuVi1xvIswYoJuExkeuKHz6Tur5KSEeY-qsHFaKoP0HROvA8tA1fucrYfvl5AW0Y3YwGjZuA==",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Cómo añadir la cita online en una página web (Widget de cita online)",
+   "fraseDeAlLado": "Tiempo estimado:3 minutos",
+   "agenda_por_profesional": {
+    "e": "si",
+    "c": "Muestra profesionales disponibles y sus agendas. Recomendado para clínicas con varios especialistas."
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Añadir un widget de cita online en tu página web permite a tus pacientes reservar en cualquier momento, sin llamadas, sin esperas y sin fricción."
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "⏰ Recordatorio previo",
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "si",
+    "c": "Además, el paciente podrá modificar o cancelar su cita desde las notificaciones recibidas.",
+    "soloCancelar": false
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "si",
+    "c": "Haz clic en generar y copia el código proporcionado. Ese código es el que se insertará en tu web."
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "clinic-cloud",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGrJ2kGL2kP9A_zTmkny3XqRNAWWXrQyRqeNM7rxMExTGJwyxTd5LyqUaqtJf0cdw2oAlaGWaz5im9WtEHd7gVV466QGc_MkNauPKAFc2AHE4B00ex-ieSIr8uRpPoKBt-AFJXcLp2voxQndEbWZRZV7hY9638_M-JAH6wQCzlG65uC7y75DY-T534aiqVKMeif2lQM1ZwYC11-HBw46Vnu_3gPm1rjnlt3H0i9Ar4JJbBx",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Doctoralia: Cómo permitir que tus pacientes reserven cita online desde cualquier canal",
+   "fraseDeAlLado": "Tiempo estimado: 3 minutos",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Con los canales de reserva de Doctoralia puedes compartir tu calendario online para que los pacientes soliciten citas desde tu web, WhatsApp, redes sociales"
+   },
+   "recordatorios": {
+    "e": "no_consta",
+    "c": null,
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "si",
+    "c": "Configurar horas y días específicos para citas"
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "si",
+    "c": "Desde el módulo de Doctoralia, accede a Canales de reserva y pulsa \"Generar widget\"."
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "clinic-cloud",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFxsT3j1b1tmyg2BLfeOqYjZU6Hd6PmfBTGp6bEPQtxwxFMEimNbXZhJHwzf1f2HPBf_aArm8INEhaw2XnItc0qQbU0ejifYddztyCQY8RIuxUZWBd2TLjcQixY60cRQit-SoSCcRvOe9g=",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Clinic Cloud Centro de ayuda - Agenda y comunicaciones",
+   "fraseDeAlLado": "Gestiona tu agenda, citas y comunicaciones con pacientes.",
+   "agenda_por_profesional": {
+    "e": "si",
+    "c": "¿Cómo configuro la agenda de un profesional que no tiene un horario fijo?"
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Visibilidad y reserva online: Doctoralia"
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "¿Cómo puedo enviar recordatorios de cita por SMS?",
+    "canal": "varios",
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "si",
+    "c": "¿Cómo generar el widget de Doctoralia (citación online) para integrarlo en la web?"
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "dricloud",
+  "url": "https://dricloud.com/como-reducir-ausencias-en-clinica/",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Cómo reducir ausencias en clínica sin perder citas | DriCloud",
+   "fraseDeAlLado": "Una hora vacía en la agenda no es solo una cita perdida.",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Cita médica onlineTus pacientes reservan 24 horas desde tu web"
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Marketing médicoCampañas, recordatorios y fidelización",
+    "canal": "varios",
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "si",
+    "c": "Confirme o solicite un cambio de horario con un clic",
+    "soloCancelar": false
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "si",
+    "c": "Cuando una cita reserva tiempo clínico valioso, solicitar un depósito o mantener un método de pago puede reducir cancelaciones tardías."
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "si",
+    "c": "Médicos autónomosPara pasar consulta tú solo, sin papeleo\n\n ClínicasGestión completa de consultas y clínicas\n\n Centros médicosVarios profesionales y especialidades\n\n Grandes clínicasHasta 300 personas, multi-sede"
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": [
+    "Grandes clínicasHasta 300 personas, multi-sede"
+   ]
+  }
+ },
+ {
+  "id": "dricloud",
+  "url": "https://dricloud.com/precios/",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Precios de DriCloud: Planes y Comparativa Completa",
+   "fraseDeAlLado": "Clasificación CIE 10 predictiva",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Cita médica onlineTus pacientes reservan 24 horas desde tu web"
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Recordatorios por email, SMS y push",
+    "canal": "varios",
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "si",
+    "c": "42 € /mesImpuestos incluidosfacturado anualmente (510 € al año), 2 meses gratis",
+    "moneda": "EUR",
+    "plan": "ESENCIAL"
+   },
+   "tamano": {
+    "e": "si",
+    "c": "Usuarios incluidos 1 profesional 1 usuario 1 a 3 usuarios4º y 5º usuario, por usuario 4 a 30 usuarios 31 a 50 usuarios¿Más de 50 usuarios? Contacta con nosotros"
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": [
+    "Plan ESENCIAL: 1 profesional, almacenamiento de 2 GB",
+    "Plan SOLO: 1 usuario, almacenamiento de 100 GB",
+    "Plan CLÍNICA: 1 a 3 usuarios (4º y 5º usuario, por usuario extra), almacenamiento de 1 TB",
+    "Plan CENTRO MÉDICO: 4 a 30 usuarios",
+    "Plan GRANDES CLÍNICAS: 31 a 50 usuarios (más de 50 usuarios requiere contactar para precio a medida)",
+    "Plan ESENCIAL suplementos opcionales: Portal del paciente (+9 €/mes), CRM (+9 €/mes), Telemedicina ilimitada (+10 €/mes), Página web (+10 €/mes)",
+    "API con dos usuarios (servicio opcional con precio propio)"
+   ]
+  }
+ },
+ {
+  "id": "dricloud",
+  "url": "https://dricloud.com/",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Software médico en la nube para clínicas y consultas | DriCloud",
+   "fraseDeAlLado": "Tus datos nunca salen de Europa",
+   "agenda_por_profesional": {
+    "e": "si",
+    "c": "Reserva online 24/7, sincronizada al segundo con la agenda de cada profesional"
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Tus pacientes reservan 24 horas desde tu web"
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Confirmaciones y recordatorios por email incluidos de serie, y por SMS y WhatsApp si los quieres",
+    "canal": "varios",
+    "sePagaAparte": true
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "si",
+    "c": "Videoconsulta segura con minutos ilimitados y cobro previo."
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "si",
+    "c": "ESENCIAL, 42 € al mes ($49 en América) para 1 profesional",
+    "moneda": "EUR",
+    "plan": "ESENCIAL"
+   },
+   "tamano": {
+    "e": "si",
+    "c": "ESENCIAL, 42 € al mes ($49 en América) para 1 profesional, ampliable por módulos; SOLO, 92 € ($107) para 1 usuario con todo incluido; CLÍNICA, 129 € ($149) para 1 a 3 usuarios; CENTRO MÉDICO, 249 € ($287) para 4 a 30; y GRANDES CLÍNICAS, 497 € ($574) para 31 a 50."
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": [
+    "CLÍNICA: 1 a 3 usuarios (4º y 5º por usuario)",
+    "ESENCIAL: 2 GB",
+    "SOLO: 100 GB de almacenamiento",
+    "CLÍNICA: 1 TB de almacenamiento",
+    "SMS: 0,09 € por mensaje",
+    "WhatsApp: mensajes ilimitados por 35 € al mes con la API oficial de Meta (el proveedor externo puede aplicar costes adicionales)",
+    "GRANDES CLÍNICAS: 31 a 50 usuarios (más de 50 usuarios requiere contactar para precio a medida)"
+   ]
+  }
+ },
+ {
+  "id": "dricloud",
+  "url": "https://dricloud.com/cita-medica-online",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Cita Médica Online para tu Clínica | DriCloud",
+   "fraseDeAlLado": "Con Google Maps integrado, el paciente llega a tu clínica sin perderse.",
+   "agenda_por_profesional": {
+    "e": "si",
+    "c": "Cada profesional decide sus horarios y tipos de cita disponibles online"
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "la cita online de DriCloud funciona las 24 horas desde tu web, sincronizada al segundo con tu agenda."
+   },
+   "recordatorios": {
+    "e": "no_consta",
+    "c": null,
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "si",
+    "c": "Chatbot de IA incluido que pide, cambia y anula citas por conversación",
+    "soloCancelar": false
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "si",
+    "c": "Se integra en cualquier web, WordPress, blogs e incluso Facebook, además del portal del paciente."
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "flowww",
+  "url": "https://www.flowww.es/blog/como-reducir-las-citas-no-asistidas-con-una-politica-de-cancelacion",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Cómo reducir las citas no asistidas con una política de cancelación",
+   "fraseDeAlLado": "Centraliza tus redes sociales, ahorra tiempo y consigue resultados.",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Una experiencia omnicanal que facilita la reserva y compra."
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Si ya envías recordatorios de citas a tus clientes para evitar olvidos",
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "si",
+    "c": "Reduce las ausencias con la posibilidad de reagendar.",
+    "soloCancelar": false
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "si",
+    "c": "Si el cliente no se presenta, flowww marcará la cita como \"No asistida\" y descontará la sesión del bono contratado o la cantidad abonada a modo de fianza de forma automática."
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "flowww",
+  "url": "https://www.flowww.es/blog/pago-de-fianza-online-garantiza-la-asistencia-de-tus-clientes",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "¿Pagos de fianza online? Garantiza la asistencia clientes | flowww",
+   "fraseDeAlLado": "Un equipo con un propósito común",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Novedades flowww: Ahora podrás solicitar una fianza a los clientes que reserven sus citas online"
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Para ello, se apoyan en el envío de mensajes de recordatorio de cita, enlazados a un completo gestor de citas , el add-on 'Reagenda' de flowww",
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "si",
+    "c": "donde los clientes pueden confirmar su reserva, reagendarla para otra fecha y hora, así como cancelarla con la antelación suficiente.",
+    "soloCancelar": false
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "si",
+    "c": "Para dar solución a este problema, flowww ha desarrollado la funcionalidad de 'Fianzas', con la que tu negocio podrá solicitar al cliente que abone un anticipo a modo de fianza, en caso de no desear pagar el total del coste del servicio reservado."
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": [
+    "Para poder activar la opción de pago de fianza en la App flowwwer, la App de marca y el Área de Clientes, deberás tener contratada la versión Star de flowww"
+   ]
+  }
+ },
+ {
+  "id": "flowww",
+  "url": "https://www.flowww.es/blog/como-crear-un-compromiso-con-el-paciente-para-que-asista-a-sus-citas",
+  "recuperada": "URL_RETRIEVAL_STATUS_ERROR",
+  "r": {
+   "abierta": false
+  }
+ },
+ {
+  "id": "flowww",
+  "url": "https://www.flowww.es/blog/guia-definitiva-cancelacion-de-citas-para-centros-de-estetica",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Guía definitiva: Cancelación de citas para centros estéticos | flowww",
+   "fraseDeAlLado": "Un equipo con un propósito común",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Mientras atiendes al teléfono o a los clientes que se pasan a cancelar en persona, deberás ofrecerles, por si acaso, la posibilidad de hacerlo online desde una app de reserva de citas."
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Con flowww, podrás programar el envío automático de SMS y mensajes push con recordatorios de cita personalizados, con el nombre del cliente, así como el día y la hora de su cita.",
+    "canal": "varios",
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "si",
+    "c": "Por ejemplo, si tus clientes reciben su recordatorio por mensaje push, podrán acceder en el momento a la información de su cita reservada y cancelarla para no asistir o para reservar otra fecha, que encaje mejor con su rutina diaria.",
+    "soloCancelar": false
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "si",
+    "c": "Por ejemplo, podrás cobrar un importe determinado a tus clientes a los que cancelen a última. Una manera genial de hacerlo es hacerles comprar desde tu app un bono confianza, que deberán tener siempre en reserva por si algún día faltan a su cita y no se acuerdan de notificártelo con tiempo."
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "flowww",
+  "url": "https://www.flowww.es/blog/como-integrar-flowww-con-wordpress-citas-y-compras-online",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": null,
+  "bruto": ""
+ },
+ {
+  "id": "flowww",
+  "url": "https://www.flowww.es/blog/novedades-integracion-de-citas-online-en-tu-facebook-y-pagina-web",
+  "recuperada": "URL_RETRIEVAL_STATUS_ERROR",
+  "r": {
+   "abierta": false
+  }
+ },
+ {
+  "id": "flowww",
+  "url": "https://www.flowww.es/blog/novedad-area-de-clientes-tu-portal-de-reservas-y-ventas-online",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Novedad: Área de Clientes, tu portal de reservas y ventas online",
+   "fraseDeAlLado": "Celebramos flowwwday, nuestro evento de verano",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Hemos extendido las ventajas de la app a una versión web para que tus clientes puedan reservar, pagar sus citas y realizar sus compras online directamente desde Facebook, Instagram, tu web, tu ficha de Google My Business e incluso, accediendo al enlace que les envías por email, WhatsApp o SMS."
+   },
+   "recordatorios": {
+    "e": "no_consta",
+    "c": null,
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "si",
+    "c": "Podrás ofrecer a tus clientes la opción de prepagar sus citas e incluso, poner como condición a los clientes que te entran desde web o redes sociales, el pago anticipado del servicio reservado para así asegurarte de que asisten a su cita."
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "si",
+    "c": "incrustarlo en tu web, mediante un código iFrame, por ejemplo, colocándolo en un área de tu página centrado o bien, como un pop up o ventana emergente."
+   },
+   "precio": {
+    "e": "si",
+    "c": "Este complemento tiene un precio de 20€/mes/centro para negocios, que usen flowww en cualquiera de sus versiones, desde la Boss hasta la Legend",
+    "moneda": "EUR",
+    "plan": "Boss hasta la Legend (complemento Área de Clientes)"
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": [
+    "Precio de 20€/mes por centro",
+    "Requiere usar flowww en versiones desde Boss hasta Legend",
+    "Requiere aplicaciones de reservas (flowwwer o app corporativa)"
+   ]
+  }
+ },
+ {
+  "id": "flowww",
+  "url": "https://www.flowww.es/blog/como-anadir-el-modulo-pide-tu-cita-ahora-facebook",
+  "recuperada": "URL_RETRIEVAL_STATUS_ERROR",
+  "r": {
+   "abierta": false
+  }
+ },
+ {
+  "id": "koibox",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFiqfPmNniYbwNj4b85ZE4RcjNuoUGUdC6Qlr0VliA5-U9JNb4Ffbmq_WCFtXZPkkQ3eOHrhDh9ZgFnGFNo-8qhpDsqYvht1gKWeMKV03tbbAO-wtsvCNj2jsMRMK2O5se8qfG0ogox4a3ijKYH5ET1N_dTLmZgoqBpHHc7LC6B9ve0OOXzQBHgSA==",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Necesito que me llamen por teléfono | Centro de Soporte de Koibox",
+   "fraseDeAlLado": "Nuestro número de asistencia es 960 620 053, nos puedes llamar directamente en cuanto lo necesites.",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "no_consta",
+    "c": null
+   },
+   "recordatorios": {
+    "e": "no_consta",
+    "c": null,
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "koibox",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG9UqbKks3-5eFOzjquFI-iz3kq441hbdZ1Cpy7fTVikU2T_cKqoFIrupcnhXdGQBpZ5LwVjh4Y7s1PFp4bImKxr1FYpcxliGZ2M9ul5LC62g==",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "🥇 FAQS: Preguntas Frecuentes Software Salón de Belleza nº1 | Koibox",
+   "fraseDeAlLado": "Si tienes dudas adicionales, te ayudamos por chat, email o teléfono.",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "no_consta",
+    "c": null
+   },
+   "recordatorios": {
+    "e": "no_consta",
+    "c": null,
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "koibox",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGLRGrtOS0NJ-1_h-3R68XGI-UQgkmr-3odX16Jd1qInojNY_ODcLHLZbg3H-1Zqk55q4RAe9HGF6otJkaxJhcOxhRxrIScRt2BE0kE-sUo6wOq3lA1SsJukFhLP0DnqfBUL82lUzseNYiwgNZdz-PsBL0fUWjB-bt0OPE98h65AQ==",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "🥇 Recepcionista virtual IA nº1 para Peluquerías, Centros de Estética y Belleza | Koibox",
+   "fraseDeAlLado": "SPAIN +34 960 620 053",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "agenda citas en tiempo real"
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Envía recordatorios automáticos para recordar la cita a tus clientes y no falten a la cita.",
+    "canal": null,
+    "sePagaAparte": false
+   },
+   "cancelar_y_cambiar": {
+    "e": "si",
+    "c": "cambio de reservas, etc…",
+    "soloCancelar": false
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "si",
+    "c": "Asistente IA Start mensual* €49.00",
+    "moneda": "EUR",
+    "plan": "Asistente IA Start"
+   },
+   "tamano": {
+    "e": "si",
+    "c": "✔ Ideal para centros con 1-2 empleados"
+   },
+   "idioma_gestion": {
+    "e": "si",
+    "c": "Disponible 24/7 en más de 30 idiomas."
+   },
+   "limites": [
+    "100 minutos de conversación al mes (Asistente IA Start)",
+    "250 minutos de conversación al mes (Asistente IA Growth)",
+    "400 minutos de conversación al mes (Asistente IA Pro)",
+    "impuestos no incluidos",
+    "Puedes comprar packs de minutos extra. Son acumulables, de prepago y con descuento por volumen"
+   ]
+  }
+ },
+ {
+  "id": "koibox",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFU2KB7f2DXmxFpLSVEzXDwGefPeN1GSRGRk3ku0E9Sbou3OaXtz91x_1KTmfImDsMtPMmiTwYpRsh7Sh60srSSv_s5pJ_SYoLOVTIdX40OS4e3i4h4bsnhgEmMD1hWhV6NlR3p6ZiJj-w202LSM8mnfkO0wJclVCsbe3178KLmyflTeNfy-wSqRaE=",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Recuperar datos de la clave API | Documentación para desarrolladores de Koibox",
+   "fraseDeAlLado": "Te devuelve la misma clave de API que se envía en la cabecera de autenticación",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "no_consta",
+    "c": null
+   },
+   "recordatorios": {
+    "e": "no_consta",
+    "c": null,
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "koibox",
+  "url": "https://koibox.cloud/",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "🥇 Programa de Gestión para Centros de Belleza | Koibox",
+   "fraseDeAlLado": "Sí, nuestro software de gestión está totalmente integrado con Veri*Factu y TicketBAI.",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "si",
+    "c": "Tus clientes podrán agendar, consultar la disponibilidad de su estilista favorito y reservar 24/7 sin barreras."
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Koibox incluye un sistema de reservas online que puedes integrar en tu web, compartir como enlace en redes sociales o conectar con Google."
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Koibox envía recordatorios automáticos por SMS, email y WhatsApp antes de cada cita, con la antelación que configures.",
+    "canal": "varios",
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "si",
+    "c": "Koibox incluye un sistema de reservas online que puedes integrar en tu web, compartir como enlace en redes sociales o conectar con Google."
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "koibox",
+  "url": "https://koibox.cloud/reservas-online/",
+  "recuperada": "URL_RETRIEVAL_STATUS_ERROR",
+  "r": {
+   "abierta": false
+  }
+ },
+ {
+  "id": "koibox",
+  "url": "https://koibox.cloud/software-peluquerias/",
+  "recuperada": "URL_RETRIEVAL_STATUS_ERROR",
+  "r": {
+   "abierta": false
+  }
+ },
+ {
+  "id": "koibox",
+  "url": "https://koibox.cloud/software-centros-estetica/",
+  "recuperada": "URL_RETRIEVAL_STATUS_ERROR",
+  "r": {
+   "abierta": false
+  }
+ },
+ {
+  "id": "koibox",
+  "url": "https://koibox.cloud/pagos-koibox-pay/",
+  "recuperada": "URL_RETRIEVAL_STATUS_ERROR",
+  "r": {
+   "abierta": false
+  }
+ },
+ {
+  "id": "qvet",
+  "url": "https://qvet.net/caracteristicas-de-qvet/",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Características de QVET",
+   "fraseDeAlLado": "Nos avalan más de 8.000 clínicas y hospitales veterinarios en 31 países",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "QVET ofrece este servicio para que el propietario de mascota puede agendarse una cita directamente en las agendas y horarios que el centro veterinario ha dispuesto para este fin."
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Enviar recordatorios de vacunas o tratamientos, campañas promocionales y mensajes directos por WhatsApp, sms o email.",
+    "canal": "varios",
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "si",
+    "c": "La cita online se puede incorporar en la web del centro veterinario"
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": [
+    "Imágenes Médicas (1GB) en plan Estándar",
+    "Agenda múltiple (4) en plan Estándar",
+    "Control de cajas de cobro (una) en plan Estándar",
+    "Múltiples series de facturación (dos) en plan Estándar"
+   ]
+  }
+ },
+ {
+  "id": "qvet",
+  "url": "https://qvet.net/whatsapp-qvet/",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "WhatsApp QVET - El software líder",
+   "fraseDeAlLado": "¡Disfruta ya de las novedades del WhatsApp QVET!",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "no_consta",
+    "c": null
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Con WhatsApp integrado en QVET envía automáticamente los recordatorios de citas, vacunas, desparasitaciones y revisiones.",
+    "canal": "whatsapp",
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "qvet",
+  "url": "https://qvet.net/escriba-qvet/",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Escriba QVET - El software líder",
+   "fraseDeAlLado": "Tu recepción cubierta las 24 horas gracias a la IA QVET",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "–Puede pedir, consultar o cambiar citas."
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "-Gestiona conversaciones que llegan después de campañas y recordatorios.",
+    "canal": "whatsapp",
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "si",
+    "c": "–Puede pedir, consultar o cambiar citas.",
+    "soloCancelar": false
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "treatwell",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFm-klkCskG4a-1hhSYqquVQG0NNx_XmnKFyO7n-TlDci36nc7fWDfAHQTkwDciFGDWoydHCUQwV1in7bXVpBgcTB7JMODvFcgEAnWRAuQOaxQnhplw7Vd3HqiXs6nphAsf9cmn1XG32Bz9nnCA88EH1-6rs4wmd6wo4gpLYue-ksGo3s7vAIQoO_FBuiheRhd4x6BgKSSY6lSYxqfopnOAl6BAQFO0KXqLeoFIZ2uK1EYTf_c-KBVyej8=",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Maximizar beneficios salón de belleza: estrategias clave Treatwell",
+   "fraseDeAlLado": "Beth Ryan - 16 min de lectura",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "no_consta",
+    "c": null
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Con Treatwell PRO tendrás SMS recordatorios de citas (gratuitos e ilimitados) para tu salón",
+    "canal": "sms",
+    "sePagaAparte": false
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "treatwell",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGAWtGs2RUOnrZhwBlQAVaagYyACHEMrV7iQgwJUvO78CsjdmAbPE1gnIG8r42x1_6NlrL94Nt7FCRAJPC8Sf5sEwMY9HvaMr5gtbn00neUM8MTxveRTvurParyTBqI5vzzMgATcfuJwYTmOkJsOD21HZf9db7xZsEftTawIPOWmLoJzGocl3Pa-U86slR4IiNyRwti",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": null,
+  "bruto": ""
+ },
+ {
+  "id": "treatwell",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH7535xAdTnIgcNg7eBvH9IgG8B_qotuT_qpzBUhr3UPEA1ipp_YfH43SQVBbYYksWx-sZrXpL1g4K3gWoSzy8oMubmCrmqD6lIvTTvhhi_8n-qHe0TcRmOU4ZHm8fEHHo8xGFf4KMxpEKC0IfVnWpnL_993F6TG0aCiOekpGE1kRDLRHOyDm0sJLcWgWz7UqgvBEFicP1cxF_sY0AT-cXy1gwaRlC80CFArGjT",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Atraer nuevos clientes al salón y llenar la agenda - Treatwell",
+   "fraseDeAlLado": "TikTok llega a un público más joven con personalidad y contenido de detrás de las cámaras, y Facebook funciona bien para los grupos locales.",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Ofrece una reserva online optimizada para el móvil con disponibilidad en tiempo real y pago sin registro, muestra la duración y el precio de los tratamientos desde el principio, y responde rápido al teléfono."
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Un recordatorio antes de cada visita: por email 24 horas antes, por SMS 4 horas antes, o mediante una notificación push",
+    "canal": "varios",
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "si",
+    "c": "Una confirmación de reserva en cuanto se fija la cita, más una actualización si más adelante se cambia o se cancela",
+    "soloCancelar": false
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "si",
+    "c": "Una tarjeta guardada y una política de cancelación protegen tus reservas de mayor valor y reducen las ausencias sin apenas complicaciones."
+   },
+   "lista_de_espera": {
+    "e": "si",
+    "c": "Y cuando estés al completo, activa la lista de espera: en cuanto una cancelación libera un hueco, lo llenas con clientes que ya están interesados en lugar de dejarlo vacío."
+   },
+   "widget_en_tu_web": {
+    "e": "si",
+    "c": "Con Treatwell puedes añadir el widget de reservas de Connect a tu propia web, para que los clientes reserven una cita en tiempo real en un par de toques sin salir de la página."
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "treatwell",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHFK07hWdcIGiUC8iWVnTfIhyjiWrozX87FVSurkcGavc9uoE94T57Da08tHEHdcCk4B8aY_4H_NzYIE2N07YgviYMLqDWgykkyC_bKe4otI71irj2JXZAQihkvtVSBEG2V5s75FzLhunOPqswMb0IA5sBisPJGYLbISRCxNA9jaffPyqish5TMjJfZxwE=",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Software para salones: por qué el digital ya no es opcional",
+   "fraseDeAlLado": "Publicado el 13 de julio de 2026",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "si",
+    "c": "cuando los clientes pueden ver y reservar a la persona en la que confían, no se dispersan."
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Tu perfil de Treatwell, los botones « Reservar » y el widget de reservas aceptan reservas las 24 horas, directamente en tu disponibilidad real."
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Y como los recordatorios por SMS de Connect son gratis, una secuencia más completa no significa una factura más alta.",
+    "canal": "sms",
+    "sePagaAparte": false
+   },
+   "cancelar_y_cambiar": {
+    "e": "si",
+    "c": "Mantenlo personal y fiel a tu marca: el nombre, el tratamiento, la hora y un enlace para reprogramar si hace falta.",
+    "soloCancelar": false
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "si",
+    "c": "Aquí es donde la lista de espera de Connect demuestra su valor. Actívala en Ajustes > Reservas online: cuando alguien cancela, puedes avisar por correo a los clientes que esperan ese hueco o inscribirlos tú mismo directamente."
+   },
+   "widget_en_tu_web": {
+    "e": "si",
+    "c": "Pon tu widget de reservas en cada página de tu web, mantén activo tu perfil de Treatwell y estarás ahí para ellos."
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "treatwell",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHwEz1sa6pXEpxtD4WXhS89LFsUk6sCHBjv83OTrHFJm24EbGGQgo7PkIgxphEsKYbpWFAM4vrII0ndOPoMN77tmPpDGCM1nrNHo6MbkhH9SgFzTtuvcCyWvxEYcI1NwJLZ7P9uBknL_IQk0EWAS2oEcUt31X5ULN7TEzWgBFc8d3CnXTVLn1Dd9roqWNQ4rnCtlFvE61LUNurXR3iIzVBkJ81T4Uw4cOdTgUGo",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Atraer nuevos clientes al salón y llenar la agenda",
+   "fraseDeAlLado": "Cómo gestionar las propinas de forma justa en tu salón",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Ofrece una reserva online optimizada para el móvil con disponibilidad en tiempo real y pago sin registro"
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Un recordatorio antes de cada visita: por email 24 horas antes, por SMS 4 horas antes, o mediante una notificación push",
+    "canal": "varios",
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "si",
+    "c": "Una confirmación de reserva en cuanto se fija la cita, más una actualización si más adelante se cambia o se cancela",
+    "soloCancelar": false
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "si",
+    "c": "Una tarjeta guardada y una política de cancelación protegen tus reservas de mayor valor y reducen las ausencias sin apenas complicaciones."
+   },
+   "lista_de_espera": {
+    "e": "si",
+    "c": "Y cuando estés al completo, activa la lista de espera: en cuanto una cancelación libera un hueco, lo llenas con clientes que ya están interesados en lugar de dejarlo vacío."
+   },
+   "widget_en_tu_web": {
+    "e": "si",
+    "c": "Con Treatwell puedes añadir el widget de reservas de Connect a tu propia web, para que los clientes reserven una cita en tiempo real en un par de toques sin salir de la página."
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "treatwell",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHtXUkpEcnvbdEEZ1Jfgicr33PP_aAxGLMmGkBlENuUsGImWgnyAWee6khLcuykXfPHvfyqJ8MPaAgCSNwKHTuaMfIvHcUfr8tAHW_jxl5phnS4ReTCJ5h50FIEp0AE5u6DUoiduM-d2jKcT-Cqv8YZtf6NPwxQR1OzrwCON37PiUhuHDfjHo0iesqej40=",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Software para salones: por qué el digital ya no es opcional - Treatwell",
+   "fraseDeAlLado": "Tres personas reunidas alrededor de un portátil, señalando la pantalla mientras navegan juntas por internet",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "si",
+    "c": "cuando los clientes pueden ver y reservar a la persona en la que confían, no se dispersan."
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Tu perfil de Treatwell, los botones « Reservar » y el widget de reservas aceptan reservas las 24 horas, directamente en tu disponibilidad real."
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Y como los recordatorios por SMS de Connect son gratis, una secuencia más completa no significa una factura más alta.",
+    "canal": "sms",
+    "sePagaAparte": false
+   },
+   "cancelar_y_cambiar": {
+    "e": "si",
+    "c": "el nombre, el tratamiento, la hora y un enlace para reprogramar si hace falta.",
+    "soloCancelar": false
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "si",
+    "c": "Aquí es donde la lista de espera de Connect demuestra su valor. Actívala en Ajustes > Reservas online: cuando alguien cancela, puedes avisar por correo a los clientes que esperan ese hueco o inscribirlos tú mismo directamente."
+   },
+   "widget_en_tu_web": {
+    "e": "si",
+    "c": "Pon tu widget de reservas en cada página de tu web, mantén activo tu perfil de Treatwell y estarás ahí para ellos."
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "treatwell",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH0QUODQKpX4uhu7U92J2rj-rS4YiZLy-jGD5ZiYIT0gZCGsnjJAU3xdRO5-GvzsWCZuYgBEGiy-GrK3vQrHW0MKoisgJINGW9Nw_o-7jW45zrdotUi0jcbNJseLUchXixhHFD_qDMZRFcV6AZ7oTyIZFM9JxMQAcmpFpKSHXsO1dTFBXZYgJfPl6M9brwZFkU=",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Formas de uñas más populares: guía y tendencias | Treatwell",
+   "fraseDeAlLado": "Las favoritas del clan Kardashian.",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "si",
+    "c": "Así puedes elegir la forma de uñas que prefieras y seleccionar los profesionales que más te gusten."
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "puedes reservar tu próxima manicura en tan solo tres clics con la app de Treatwell."
+   },
+   "recordatorios": {
+    "e": "no_consta",
+    "c": null,
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "treatwell",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE0ZmTZLFOtgsjZ3oDk1sdRfY1-i2fFoxlxz2MapOC0SV2fhK-7UXXsYX3if5xhJZucWJPJK2ZTBy7BkjpVV9hTig2KGTRoK0LAkOsw5lcUGuvUQreplBMvYmHQS8OIFQc3GcW45lTUcvJP1_j2a1hTbo9mvNvr",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Octopus hair: capas y volumen, corte tendencia | Treatwell",
+   "fraseDeAlLado": "Al llevar tantas capas cortas en la parte de arriba, el octopus hair se recomienda más para melenas lisas u onduladas.",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "si",
+    "c": "Encuentra salones cercanos y elige el profesional que más se adapte a tu estilo desde cualquier lugar."
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Con Treatwell, puedes reservar tus tratamientos de belleza online en tus salones favoritos, de forma sencilla, rápida y en un abrir y cerrar de ojos."
+   },
+   "recordatorios": {
+    "e": "no_consta",
+    "c": null,
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "treatwell",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHoAcDWIlS4FNim2b_trw6MdSzfeionMhfYZH1idjng8KJuIWb2ZroBJ00kCpLArsEqHHwEBxCvA1P3JBBCG_UsUHR8A7Y3zs5VNUeaUoyb1h1rssNLLJLCN287SJO7DHfY3wrIGGHX7Wu7k-jzPnI4t7g3gRzztX7QXhvaZs2QbXDvNSk0zgHMqodbc7kdEC77W1uW",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Agenda digital salón: eficiencia y servicio | Treatwell",
+   "fraseDeAlLado": "Beth Ryan - 14 min de lectura",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Con la agenda digital, todos estos problemas desaparecen: el cliente puede reservar su cita online sin tener que llamar al salón."
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Por ejemplo, antes de cada cita, la agenda envía un recordatorio al cliente.",
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "si",
+    "c": "con franjas horarias bien definidas según el tipo de servicio siguiente, de tal manera que no habrá solapamiento de servicios."
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "si",
+    "c": "Tus clientes podrán reservar también desde tu sitio web a través de un simple widget instalado."
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "treatwell",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG0PcUQ1vGuiAIBf3lxee6TjaogzgH3i2tViyhFL8epERAcjKpNPxJl9xbhqRUnkqmyShElxUCA_tsyf2Ps_PvSnSingbeFBEYIHHqbU6S06S0Ok7rrg4PLcAZdBVRqJHPxEyjsGYoisNaIburno6KzJkRwmca2cMSJ82wSUnj82Tv2d4aT93p4hw==",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Los mejores salones de belleza en Barcelona, por barrios | Treatwell",
+   "fraseDeAlLado": "Subir al Park Güell es un entrenamiento disfrazado de paseo.",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "La reserva es online, instantánea y disponible las 24 horas."
+   },
+   "recordatorios": {
+    "e": "no_consta",
+    "c": null,
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "treatwell",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHWY4hFBiJH2Ll5_C8Acq7Y5W6ohWn6pKwbcmqWYmSF7dx7iq0ZEqZUmZxQyKIZvm1wpCpZkPh4CGksTN8YyP9bWfvmm0G_CXYr8NvjZ76YM2eynR4pBWiRRGvIGQNIVlpmFgwBsDkpSvPjBXEmrsPfg_OywTSrCO7nPs49GdxGZKuAoGPjc99MqhK36o0hKOk_xM_udLnphteGBBozNj8AlqFi",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Reserva online para salones: cómo funciona y por qué - Treatwell",
+   "fraseDeAlLado": "El punto no es la tecnología.",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "si",
+    "c": "Los clientes ven tus tratamientos, tus precios y quién puede hacerlos, luego eligen un horario que les va bien."
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "La reserva online es un sistema que permite a tus clientes reservar directamente contigo — a través de tu web, tus perfiles sociales o el marketplace, a cualquier hora."
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "En Connect, los recordatorios SMS están incluidos, así que una secuencia completa no engorda la factura mensual.",
+    "canal": "sms",
+    "sePagaAparte": false
+   },
+   "cancelar_y_cambiar": {
+    "e": "si",
+    "c": "Si tienen que mover o cancelar, lo hacen por sí mismos desde el mismo enlace.",
+    "soloCancelar": false
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "si",
+    "c": "En Connect puedes hacer el pago anticipado obligatorio en cada reserva, o dejar al cliente elegir entre pagar por adelantado o en el salón. En paralelo defines tus condiciones de cancelación, para que las cancelaciones tardías y las ausencias tengan una consecuencia clara."
+   },
+   "lista_de_espera": {
+    "e": "si",
+    "c": "La función lista de espera de Connect, en Ajustes > Reservas online, permite a los clientes apuntarse para un hueco muy solicitado. En cuanto se libera algo, puedes mandar un email a la lista o meter directamente a alguien."
+   },
+   "widget_en_tu_web": {
+    "e": "si",
+    "c": "En lo alto de la lista: un widget de reserva que integres en tu web y en tus redes sociales, gestión de agenda en tiempo real, recordatorios automáticos y pagos seguros."
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": [
+    "Comisión en reservas que provienen del marketplace (sin comisión desde el widget propio)",
+    "Posibles tarifas por usuario"
+   ]
+  }
+ },
+ {
+  "id": "treatwell",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEY5qHk4RpPwgtB6ciLKyWiaFybc8Z3z5I4i6yBJqtyKl6OAr8Yrs7WQB33XxzBYyMtByRidDpqiikC5u1gzaWmLxZjCRWKbRPNcHCe0wlkHN_DC-SzoMF5mLT7mjzsIIN2caXkAD0JcRlCYQpY0VkLoWqyQwlEGjlHu12GQUyDeftFbHIa6SMexVpEHhcMFMs=",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Funciones de Treatwell Connect que quizá no conoces - Treatwell Business",
+   "fraseDeAlLado": "Si este mes tres personas han dicho que la música estaba muy alta, bájala.",
+   "agenda_por_profesional": {
+    "e": "si",
+    "c": "Por lo general, cada persona tiene su propia agenda, avisos de sus reservas y un perfil público con un porfolio de sus mejores trabajos."
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "El widget web, en cambio, permite reservar en tu propio sitio sin que a nadie lo manden a Treatwell."
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Treatwell Connect envía recordatorios de cita en cada reserva, gratis y en cualquier plan. Tu cliente recibe una confirmación al reservar y después un recordatorio antes de la cita",
+    "canal": "sms",
+    "sePagaAparte": false
+   },
+   "cancelar_y_cambiar": {
+    "e": "si",
+    "c": "Los pagos anticipados están activos desde el primer día, y las condiciones de cancelación las fijas tú.",
+    "soloCancelar": true
+   },
+   "aforo_y_franjas": {
+    "e": "si",
+    "c": "Sincroniza las agendas de todas las cabinas y puestos, comprueba que los informes se consolidan bien"
+   },
+   "senal_y_ausencias": {
+    "e": "si",
+    "c": "Tú decides si pides pagos anticipados en todo, solo en ciertos tratamientos o solo a ciertos clientes."
+   },
+   "lista_de_espera": {
+    "e": "si",
+    "c": "Cuando se libera un hueco, tú decides qué pasa. Escribes de una vez a todo el mundo que espera para ese día, o mandas una invitación a una clienta concreta. El correo lleva un botón «Reservar» que abre tu widget con la fecha y el tratamiento ya puestos"
+   },
+   "widget_en_tu_web": {
+    "e": "si",
+    "c": "El widget web, en cambio, permite reservar en tu propio sitio sin que a nadie lo manden a Treatwell."
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": [
+    "Treatwell Connect no te deja escribir dos veces al mismo cliente en siete días.",
+    "Los recordatorios de nueva reserva van con créditos de mensajes, así que necesitas saldo en tu cuenta para que salgan.",
+    "Cuando una clienta nueva te encuentra en el marketplace, pagas comisión por esa primera reserva.",
+    "Funciona en la nube, por lo que requiere conexión a internet."
+   ]
+  }
+ },
+ {
+  "id": "tutorbird",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE4MX4jsRx4Qmb2M-9alyizSk7Fy-Xa8FuN7BdhkHtXh4esh1akGX9AqX0N4Wlh_zGHK6K8u7Q_L0Ra3O1eXwY8e-ujnb4PHVkc-nns9Fcx_92wMXC1KtayK0DPvf5am37DSucmiX5OwAqaZSU5vq39ry1I7Cp6E6SIdX66qfeyKIZdsk9KWzo2Eh00nZognzD-Ba_Sbw5galClIPNYANM=",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Can my students reschedule lessons from the Student Portal?",
+   "fraseDeAlLado": "Feature Request",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "no_consta",
+    "c": null
+   },
+   "recordatorios": {
+    "e": "no_consta",
+    "c": null,
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "tutorbird",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE3YHV1ihuh7KOYDfR4fLjiLPy6v2nSVz22bPAJKqL8QzkRidlW2vEWy2w5e6RUCVZsd50pQWsb5PsXMG_2QI1vcwyulDFgkXdmzVy-G3NyvHD4vSxhrcsPbIjEDvvyACK_MPiuu28Wh6n58bEcfIh7mLzRHRcJJ1HDxapNrDscwg5gKoFOtaUPkNUjGvchOMloj9ZBvOlwNeke3TqMDEOOPlnMHFTjfNMmOw==",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "My students cannot seem to register for lessons via the Student Portal? - TutorBird Help Center",
+   "fraseDeAlLado": "Support Hours: Monday to Friday, 9:00 AM – 4:30 PM Eastern Time (UTC-4)",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Under \"Allow event booking from\" select \"Booking Form & Student Portal\""
+   },
+   "recordatorios": {
+    "e": "no_consta",
+    "c": null,
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "si",
+    "c": "Under \"Cancellation Policy\", select \"Allow event cancellation in the Student Portal\".",
+    "soloCancelar": true
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "si",
+    "c": "Note: You also have the option to setup what happens if a student cancels an event (such as a lesson) BEFORE the deadline is reached and what happens if a student cancels an event (such as a lesson) AFTER the deadline has passed."
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "tutorbird",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEDptXkyjuhSqwgyvqqAXVWwzXTr3dyyek4Dn11jTXpgKET4h8WZC1unzWLROyaT3FUB9ibxicP4q6P1kJctP3x9njlmUdWM4uHQRFp5Oxd4xldibkPOE-8hab9S2ZnYW-HBSr5CfMXLgdGOACpqOn-sDeLRt-ShCE1toEJ-VA004o0h4-iAw==",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Can TutorBird send email reminders? - TutorBird Help Center",
+   "fraseDeAlLado": "Support Hours: Monday to Friday, 9:00 AM – 4:30 PM Eastern Time (UTC-4)",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "no_consta",
+    "c": null
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "TutorBird can send your students (and/or their parents) email reminders for upcoming events, such as lessons, recitals, etc.",
+    "canal": "email",
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "si",
+    "c": "This gives your students a fair chance to cancel their lessons and give you notice if they can't attend.",
+    "soloCancelar": true
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "tutorbird",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE1ctEmNG3gZ0RIjt7fy5fS2SYv4ATRBFkTQyn1Gku81OPMihYOBQiGodG503J8GZDfWv9-HNl51CvOfu00bU6NrT1s86mLUaZ0tofzMY_j-2EQ8lhKuhoNWUmJQIp5bdlCdQgWj5Gi_zm-l6DpYcTYkd5gdyVw_rAbK-4KXBxm6lF3bAeUEFw5",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Feature Overview - Messaging & Templates - TutorBird Help Center",
+   "fraseDeAlLado": "All messages sent from your account are logged in the Message History.",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "no_consta",
+    "c": null
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "TutorBird can automatically send event reminders based on your calendar category's settings. Within each category, you can set when an email reminder and/or SMS reminder is sent. The system can send 1 email and 1 SMS automatically to an attendee for each event.",
+    "canal": "varios",
+    "sePagaAparte": false
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": [
+    "The system can send 1 email and 1 SMS automatically to an attendee for each event.",
+    "we cannot send promotional/custom SMS to students directly from our number."
+   ]
+  }
+ },
+ {
+  "id": "tutorbird",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEWNoSBtiRdINkAo62wJHsIX7j3G1-JDRg_EdOECioAx7ea33uIMcIqWOaZCk5fW8haApzuwL4WNn2vc1OzF9zC7KbhFgBeH6OzvX6pszElaOgNOgj7SwGZlVhyXQ==",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Getting Started Guide - Automate It - TutorBird",
+   "fraseDeAlLado": "Proudly Canadian 🇨🇦 Real people in Canada building and supporting your business.",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Automatically convert cancelled lessons into open make-up slots for your other students to register in!"
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Reduce no-shows with automatic email & SMS lesson reminders. Choose how far in advance you want them to be sent, and for which lesson categories!",
+    "canal": "varios",
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "si",
+    "c": "If a student cancels, you don't have to let that adjust your schedule. Automatically convert cancelled lessons into open make-up slots for your other students to register in!",
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "si",
+    "c": "Organize your lessons, record attendance, and track student progress"
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "si",
+    "c": "Add a sign-up form to your website and new student information will automatically be added in TutorBird."
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "si",
+    "c": "Languages supported: English flag English French flag French Spanish flag Spanish Dutch flag Dutch German flag German Polish flag Polish"
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "tutorbird",
+  "url": "https://www.tutorbird.com/integrations/",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Integrations - TutorBird",
+   "fraseDeAlLado": "Proudly Canadian 🇨🇦 Real people in Canada building and supporting your business.",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "no_consta",
+    "c": null
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Plus, include meeting links automatically in lesson reminders so students can join with one click!",
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "si",
+    "c": "Our sign-up widget & Student Portal login widget integrates seamlessly! Collect new student info that automatically adds to your TutorBird account, and give families a place to log in – without leaving your site."
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "si",
+    "c": "Languages supported: English flag English French flag French Spanish flag Spanish Dutch flag Dutch German flag German Polish flag Polish"
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "tutorbird",
+  "url": "https://www.tutorbird.com/zapier-integration/",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Zapier Integration - TutorBird",
+   "fraseDeAlLado": "Connect TutorBird with thousands of apps you already know and love—like HubSpot, Mailchimp, QuickBooks, SimpleTexting, and more!",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "no_consta",
+    "c": null
+   },
+   "recordatorios": {
+    "e": "no_consta",
+    "c": null,
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "si",
+    "c": "Languages supported:\n\n English flag English\n\n French flag French\n\n Spanish flag Spanish\n\n Dutch flag Dutch\n\n German flag German\n\n Polish flag Polish"
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "tutorbird",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE2vYA0RxOsIqI6vSJT_jRfQCujYWegPeFA3ewDre6-jc4F6pX3nCk9M-g1t1auCaXlpA4jY6goCYbZv_5BJgAKK1lBsSV1OwELOPngtT9BiX8yIG9gi_ishiRHB88DCWtfuUCkjvL-CJLhKV1zATXvwA9NJTAZJFWc1y1U7fcevMFOLOeYo_mQR18tlxvAZg==",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "What do the different Student Statuses mean? - TutorBird Help Center",
+   "fraseDeAlLado": "Find out more here about how to change a student's status.",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "no_consta",
+    "c": null
+   },
+   "recordatorios": {
+    "e": "no_consta",
+    "c": null,
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "tutorbird",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFkLHTgT96pbGObonDcSYQ33vlYa2lhUrozcd8CddtdJVPXeebprdcCVdkDRvgbqDFOCdK-tCXm0SZ7h3kA4AkRCxWN67xuH_N0rBXdOqN2bOr8J-zxBctnPRpBgYT25E2uYEoOuTSMS4dXU5vKLj3DYYp63adCjw==",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Good Things Come to Those Who Wait(List) - TutorBird",
+   "fraseDeAlLado": "Did you know? Your students can now stream video directly from the Download Library!",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "no_consta",
+    "c": null
+   },
+   "recordatorios": {
+    "e": "no_consta",
+    "c": null,
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "si",
+    "c": "Languages supported: English flag English French flag French Spanish flag Spanish Dutch flag Dutch German flag German Polish flag Polish"
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "tutorbird",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHLKzzgTJJdwL-E36oHkjVp_JSC-HFxjlXbkIFUCqRJbLduADMQIbCbmVj3xnPPRfzJSWwHNLzPhEgMXVYQeM1hKcJIkuhiZCd_AeDTZQPXtFlrxWnV36l2AA3mjkZAFoqlEttmDg3tEIssiD4NFx3jQmfIya0ajL71ivxLZB8loK5ta5cIbOd-rgE5",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Can I use TutorBird in another language? - TutorBird Help Center",
+   "fraseDeAlLado": "How do I change a tutor's time zone?",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "no_consta",
+    "c": null
+   },
+   "recordatorios": {
+    "e": "no_consta",
+    "c": null,
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "si",
+    "c": "TutorBird is available in several languages including: English French Spanish Dutch German Polish"
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "tutorbird",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHMOsii-8tlIRkGiH1_3rWah09lxZS5jhfZuHBUS31fcRnrkUWmexe1olCeSWVdfj_XV3dhGJZd-jIiMDq8UvVmPrt4jtzwozqLYa2HJQLaCLEOabX20j0uPJi9QFqSWZBW",
+  "recuperada": "URL_RETRIEVAL_STATUS_ERROR",
+  "r": {
+   "abierta": false
+  }
+ },
+ {
+  "id": "tutorbird",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFhlEdigHUAFacysqMVNs8q3dD89AF5GAFWLh_Qdfiw0Fg-obZLaKB7LwO5Rh4aVhmB4IDsPY3Y1K7WnxaZqHGbL1E8qWE151g-pKVe_hnqfQ0K6e1WHh8=",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Contact - TutorBird",
+   "fraseDeAlLado": "Proudly Canadian 🇨🇦 Real people in Canada building and supporting your business.",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "no_consta",
+    "c": null
+   },
+   "recordatorios": {
+    "e": "no_consta",
+    "c": null,
+    "canal": null,
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "si",
+    "c": "Languages supported: English flag English French flag French Spanish flag Spanish Dutch flag Dutch German flag German Polish flag Polish"
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "tutorbird",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHkLkybnUht_JXkLpiY7n8gLIDO7vNhIjqkidoR-N-FqWEX_SSdCsF8_u4SPYALlUTBDB1a4IKfPg9iz9IhNXOZQp-4nu5PyuBOw-2_etcEKasMZCG3YJLDX1OMdDrCAVBcdiB3Yx3Edy8o_w==",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Somewhere over the rainbow... - TutorBird",
+   "fraseDeAlLado": "Proudly Canadian 🇨🇦 Real people in Canada building and supporting your business.",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "no_consta",
+    "c": null
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "We updated the registration form settings so when an email address is included in the Student Information section, that student will automatically have email lesson reminders enabled (this was already the case for parent email addresses)",
+    "canal": "email",
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "si",
+    "c": "Languages supported: English flag English French flag French Spanish flag Spanish Dutch flag Dutch German flag German Polish flag Polish"
+   },
+   "limites": []
+  }
+ },
+ {
+  "id": "tutorbird",
+  "url": "https://www.tutorbird.com/pricing/",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Pricing - TutorBird",
+   "fraseDeAlLado": "Proudly Canadian 🇨🇦 Real people in Canada building and supporting your business.",
+   "agenda_por_profesional": {
+    "e": "si",
+    "c": "tutor-specific schedules & availability"
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "si",
+    "c": "Optional self-service scheduling"
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "SMS reminders are included in your subscription—no extra fees, no surprises.",
+    "canal": "sms",
+    "sePagaAparte": false
+   },
+   "cancelar_y_cambiar": {
+    "e": "si",
+    "c": "rescheduling, cancellations",
+    "soloCancelar": false
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "si",
+    "c": "embeddable forms for external websites"
+   },
+   "precio": {
+    "e": "si",
+    "c": "Only $16.95 per month",
+    "moneda": "USD",
+    "plan": null
+   },
+   "tamano": {
+    "e": "si",
+    "c": "+ $4.95 per each additional tutor or staff member"
+   },
+   "idioma_gestion": {
+    "e": "si",
+    "c": "TutorBird is currently available in English, French, Spanish, Dutch, German and Polish."
+   },
+   "limites": [
+    "+ $4.95 per each additional tutor or staff member",
+    "as long as each file is under 2GB"
+   ]
+  }
+ },
+ {
+  "id": "tutorbird",
+  "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEHPwynC9r3nVD0X1-GVrJj4681yr2ZGXiQoHeXV6iR1bsFLavRoaRD7IosSRBZlZQC0WP_TXJnA71qQqBfZQlXkLcrIq5noCaiEQPkRGDgxxmwMlhh1Pd76a7YZqSUjZ3KtjVfYNw3ahKv3vEaka6wgYiDzQiUKxWLjGRLiJN9XydOlOnhOdfCxZRt",
+  "recuperada": "URL_RETRIEVAL_STATUS_SUCCESS",
+  "r": {
+   "abierta": true,
+   "titulo": "Can TutorBird send SMS lesson reminders? - TutorBird Help Center",
+   "fraseDeAlLado": "Navigate to the “Calendar” from the main menu on the left.",
+   "agenda_por_profesional": {
+    "e": "no_consta",
+    "c": null
+   },
+   "elige_el_cliente": {
+    "e": "no_consta",
+    "c": null
+   },
+   "reserva_online": {
+    "e": "no_consta",
+    "c": null
+   },
+   "recordatorios": {
+    "e": "si",
+    "c": "Yes! TutorBird can send your students (and/or their parents) SMS (text message) reminders for upcoming events, such as lessons, recitals, etc.",
+    "canal": "sms",
+    "sePagaAparte": null
+   },
+   "cancelar_y_cambiar": {
+    "e": "no_consta",
+    "c": null,
+    "soloCancelar": null
+   },
+   "aforo_y_franjas": {
+    "e": "no_consta",
+    "c": null
+   },
+   "senal_y_ausencias": {
+    "e": "no_consta",
+    "c": null
+   },
+   "lista_de_espera": {
+    "e": "no_consta",
+    "c": null
+   },
+   "widget_en_tu_web": {
+    "e": "no_consta",
+    "c": null
+   },
+   "precio": {
+    "e": "no_consta",
+    "c": null,
+    "moneda": null,
+    "plan": null
+   },
+   "tamano": {
+    "e": "no_consta",
+    "c": null
+   },
+   "idioma_gestion": {
+    "e": "no_consta",
+    "c": null
+   },
+   "limites": []
+  }
+ }
+]
