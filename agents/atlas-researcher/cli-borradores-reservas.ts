@@ -43,7 +43,24 @@ for (const h of ficha.herramientas) {
     idealPara: h.idealPara,
     segmentosIdeales: e.segmentosIdeales,
     industriasIdeales: h.industriasIdeales,
-    noRecomendadaPara: h.noRecomendadaPara ?? limites[0],
+    /**
+     * SIN RELLENO. Antes esto decía `h.noRecomendadaPara ?? limites[0]`, y
+     * copiaba el primer límite en un campo que significa otra cosa.
+     *
+     * No son lo mismo y la propietaria lo dejó dicho el 2026-09-28:
+     * `noRecomendadaPara` es PARA QUIÉN NO ESTÁ PENSADA —sale por descarte de
+     * saber para quién sí—, y `casosNoRecomendados` son los LÍMITES: qué topa
+     * aunque seas su cliente.
+     *
+     * Lo que producía: ViDay salía con «No está pensada para… el plan Empresa
+     * incluye hasta tres CIFs con contabilidades separadas», que no es para
+     * quién no está pensada; es su tarifa. Y la tarjeta imprimía la misma
+     * frase dos veces en dos campos distintos.
+     *
+     * Si no consta, se queda vacío y el validador protesta. Que proteste: eso
+     * es el hueco enseñándose, no un fallo.
+     */
+    noRecomendadaPara: h.noRecomendadaPara,
     casosNoRecomendados: limites,
     funcionesPrincipales: h.funcionesPrincipales,
     integraciones: h.integraciones,

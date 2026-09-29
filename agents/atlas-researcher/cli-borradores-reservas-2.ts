@@ -90,7 +90,24 @@ for (const id of LAS_CINCO) {
     idealPara: h.idealPara ?? g.paraQuienEstaPensada,
     segmentosIdeales: h.segmentosIdeales ?? e.segmentosIdeales,
     industriasIdeales: h.industriasIdeales ?? sector.get(id),
-    noRecomendadaPara: h.noRecomendadaPara ?? limites[0],
+    /**
+     * SIN RELLENO. Antes esto decía `h.noRecomendadaPara ?? limites[0]`, y
+     * copiaba el primer límite en un campo que significa otra cosa.
+     *
+     * No son lo mismo y la propietaria lo dejó dicho el 2026-09-28:
+     * `noRecomendadaPara` es PARA QUIÉN NO ESTÁ PENSADA —sale por descarte de
+     * saber para quién sí—, y `casosNoRecomendados` son los LÍMITES: qué topa
+     * aunque seas su cliente.
+     *
+     * Lo que producía: ViDay salía con «No está pensada para… el plan Empresa
+     * incluye hasta tres CIFs con contabilidades separadas», que no es para
+     * quién no está pensada; es su tarifa. Y la tarjeta imprimía la misma
+     * frase dos veces en dos campos distintos.
+     *
+     * Si no consta, se queda vacío y el validador protesta. Que proteste: eso
+     * es el hueco enseñándose, no un fallo.
+     */
+    noRecomendadaPara: h.noRecomendadaPara,
     casosNoRecomendados: limites,
     funcionesPrincipales: h.funcionesPrincipales,
     integraciones: h.integraciones,
@@ -101,7 +118,20 @@ for (const id of LAS_CINCO) {
     modeloDePrecio: (h.modeloDePrecio ?? ["suscripcion_mensual"]).filter((m: string) => MODELO.includes(m)),
     tienePlanGratuito: h.tienePlanGratuito ?? e.tienePlanGratuito,
     idiomasDisponibles: h.idiomasDisponibles ?? g.idiomaDelProducto,
-    disponibleEnEspanol: (h.idiomasDisponibles ?? g.idiomaDelProducto ?? []).includes("es") || undefined,
+    /**
+     * SIN DEDUCIR. Antes se ponía `true` si la lista de idiomas incluía «es».
+     *
+     * `disponibleEnEspanol` no es «tiene español en alguna parte»: es que la
+     * parte de GESTIÓN, la que usa el negocio, esté en español. Schedulista lo
+     * demuestra: su página de reservas está en español y su panel, su app y sus
+     * avisos al profesional siguen en inglés, y su propia ayuda lo dice —«will
+     * remain in English»—. Deducirlo de la lista ponía `true` en la ficha de
+     * una herramienta que se gestiona en inglés, en el campo que más pesa en un
+     * catálogo español.
+     *
+     * Sólo se rellena con evidencia directa sobre la gestión.
+     */
+    disponibleEnEspanol: h.disponibleEnEspanol,
     tieneAppMovil: h.tieneAppMovil ?? undefined,
     tieneApiPublica: h.tieneApiPublica ?? undefined,
     puntuaciones: h.puntuaciones,
