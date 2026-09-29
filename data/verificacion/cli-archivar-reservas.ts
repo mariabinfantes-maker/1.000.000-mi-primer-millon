@@ -96,6 +96,28 @@ for (const f of ["crudo/tanda-1-crudo.json", "crudo/tanda-2-crudo.json", "crudo/
   }
 }
 
+/**
+ * 4. Las 8 que se cortaron mal. Llegan de una en una y cada una trae sus
+ *    capacidades con cita, dirección, profundidad y plan.
+ */
+{
+  const dir = path.join(D, "investigacion", "las-8-cortadas-2026-09-29");
+  if (fs.existsSync(dir))
+    for (const f of fs.readdirSync(dir).filter((x) => x.endsWith(".json"))) {
+      const j = JSON.parse(fs.readFileSync(path.join(dir, f), "utf8"));
+      for (const h of j.herramientas ?? [])
+        for (const c of h.capacidades ?? []) {
+          if (c.estado !== "verificado") continue;
+          const cita = c.cita ?? c.fuentes?.[0]?.cita;
+          const url = c.url ?? c.fuentes?.[0]?.url;
+          if (!cita || !url) { sinCita.push(`${h.id}/${c.capacidadId ?? c.id}`); continue; }
+          mete(h.id, { capacidadId: c.capacidadId ?? c.id, cita, url, profundidad: c.profundidad,
+                       integraCon: c.integraCon ?? undefined, planMinimo: c.planMinimo,
+                       planEstado: c.planEstado, fecha: "2026-09-29" });
+        }
+    }
+}
+
 const ficha = new Map<string, any>();
 for (const f of fs.readdirSync(path.join(D, "borradores", "herramientas")))
   ficha.set(f.replace(/\.json$/, ""), leer(`borradores/herramientas/${f}`));

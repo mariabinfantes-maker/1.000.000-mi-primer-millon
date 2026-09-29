@@ -588,5 +588,15 @@
     "estadoAfiliacion": "confirmada",
     "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: \"schedulista\" ya existe en el catálogo real: promoverlo lo sobrescribiría. Revísalo a mano si es intencionado.",
     "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T19:53:18.682Z",
+    "herramientaId": "koibox",
+    "nombreHerramienta": "Koibox",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 93,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado en la tanda de las 8 cortadas, 2026-09-29. Primera con facilidadDeUso demostrada: Capterra 4,9/5 sobre 18 reseñas. Motivos del bloqueo: Examen de entrada: Sólo 1 capacidades verificadas; hacen falta 3. Sin esto no sabemos qué hace.",
+    "aprobacionCeo": true
   }
 ]

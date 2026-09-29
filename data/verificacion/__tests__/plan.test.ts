@@ -29,7 +29,7 @@ describe("el plan de verificación", () => {
     // 69 desde el 2026-09-29: las cuatro de reservas que autorizó la
     // propietaria esa tarde. El plan sigue congelado en 62; la deuda se ve
     // en la prueba de abajo, que las nombra una a una.
-    expect(catalogo.length).toBe(76);
+    expect(catalogo.length).toBe(77);
   });
 
   it("ninguna herramienta se repite", () => {
@@ -49,7 +49,7 @@ describe("el plan de verificación", () => {
    */
   it("las únicas que se quedan fuera son las promovidas después de congelarlo", () => {
     expect(catalogo.filter((id) => !asignadas.includes(id)).sort()).toEqual(
-      ["agendapro", "archivex", "bewe", "bookitit", "booksy", "cliniko", "hotmart", "nubimed", "schedulista", "square-appointments", "teachable", "thinkific", "timify", "viday"]
+      ["agendapro", "archivex", "bewe", "bookitit", "booksy", "cliniko", "hotmart", "koibox", "nubimed", "schedulista", "square-appointments", "teachable", "thinkific", "timify", "viday"]
     );
   });
 

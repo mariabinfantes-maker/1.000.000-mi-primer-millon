@@ -77,7 +77,9 @@
    ],
    "fraseOriginal": "Peluquerías, barberías y centros de estética y belleza.",
    "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
-   "urlDeLaHerramienta": "https://koibox.cloud/"
+   "urlDeLaHerramienta": "https://koibox.cloud/",
+   "noRecomendadaPara": "No está pensada para negocios fuera de la peluquería, la barbería y la estética.",
+   "deDondeSaleNoRecomendadaPara": "Invertido de `fraseOriginal`, por la regla de la propietaria del 2026-09-28."
   },
   {
    "id": "flowww",

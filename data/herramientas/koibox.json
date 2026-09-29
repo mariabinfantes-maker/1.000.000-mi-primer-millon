@@ -1,0 +1,125 @@
+{
+  "nombre": "Koibox",
+  "paginaOficial": "https://koibox.cloud/",
+  "urlPrecios": "https://koibox.cloud/pricing/",
+  "categoriaId": "reservas-citas",
+  "descripcion": "Software de gestión para negocios de belleza que reúne agenda, clientes, ventas, inventario y marketing. Ofrece reservas online, recordatorios y cobro de señales, con disponibilidad según el plan.",
+  "problemasQueResuelve": [
+    "Necesito organizar las citas y la disponibilidad de mi equipo.",
+    "Quiero que mis clientes reserven sin que tenga que atender cada petición por teléfono.",
+    "Necesito recordar las citas y pedir una señal al reservar.",
+    "Quiero consultar las ventas, las existencias y el historial de mis clientes desde un mismo programa."
+  ],
+  "casosDeUso": [
+    "Una peluquería publica los servicios que pueden reservarse y asigna qué empleados realizan cada uno.",
+    "Una barbería permite que el cliente elija profesional, servicio y hora.",
+    "Un centro de estética cobra un porcentaje anticipado para confirmar una reserva.",
+    "Un salón importa sus clientes, servicios y productos desde archivos Excel."
+  ],
+  "idealPara": "Peluquerías y otros negocios de belleza que necesitan gestionar citas, clientes y operaciones del establecimiento.",
+  "segmentosIdeales": [
+    "1-10"
+  ],
+  "industriasIdeales": [
+    "peluquerías",
+    "barberías",
+    "centros de estética",
+    "clínicas estéticas",
+    "salones de uñas",
+    "centros de cejas y pestañas"
+  ],
+  "noRecomendadaPara": "No está pensada para negocios fuera de la peluquería, la barbería y la estética.",
+  "casosNoRecomendados": [
+    "La API requiere Platinum.",
+    "La integración Redsys documentada se limita a bancos españoles.",
+    "La importación de agenda e históricos se contempla solamente para algunos casos y requiere consultar con soporte.",
+    "Las suscripciones se renuevan automáticamente y exigen avisar con antelación para no renovar.",
+    "Mensual: Free 0 €, Lite 15 €, Basic 30 €, Gold 40 €, Platinum 55 €. Los importes de pago excluyen impuestos. Free incluye un usuario. No se confunde con la prueba de 15 días."
+  ],
+  "funcionesPrincipales": [
+    "Agenda y gestión de citas.",
+    "Reservas online y elección de profesional.",
+    "Recordatorios automáticos.",
+    "Cobro de señales al reservar.",
+    "Fichas e historial de clientes.",
+    "Ventas, caja e inventario.",
+    "Campañas y herramientas de fidelización.",
+    "Estadísticas y aplicación de gestión móvil."
+  ],
+  "integraciones": [
+    "TicketBAI",
+    "Mailchimp",
+    "Brevo",
+    "Sendgrid",
+    "PayPal",
+    "Stripe",
+    "Redsys",
+    "WhatsApp",
+    "Google Calendar",
+    "Microsoft Calendar",
+    "Google Forms",
+    "Typeform"
+  ],
+  "integracionesPrincipales": [
+    "PayPal",
+    "Stripe",
+    "Redsys",
+    "WhatsApp",
+    "Google Calendar"
+  ],
+  "curvaDeAprendizaje": "facil",
+  "precioInicial": "Plan Free: 0 €/mes. Primer plan de pago, Lite: 15 €/mes más impuestos. Para reservas online: Basic, 30 €/mes más impuestos.",
+  "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual",
+    "suscripcion_anual"
+  ],
+  "tienePlanGratuito": true,
+  "preciosComprobados": {
+    "url": "https://koibox.cloud/pricing/",
+    "fecha": "2026-09-29",
+    "cita": "Mailchimp, Brevo, Paypal y Stripe"
+  },
+  "idiomasDisponibles": [
+    "es"
+  ],
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9.8,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 7,
+    "atencionAlCliente": 9.8,
+    "fiabilidad": null,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Funciones y condiciones contrastadas en páginas oficiales abiertas. Capterra se utiliza exclusivamente para las valoraciones de usuarios. Facilidad de uso y atención al cliente se convierten de cinco a diez multiplicando por dos. Las notas de nivel técnico e implementación son estimaciones documentales propias, explicadas individualmente; no proceden de una prueba práctica. No se transforma la publicidad del fabricante en puntuaciones de fiabilidad, calidad o escalabilidad.",
+  "ventajas": [
+    "Publica documentación de una API REST y webhooks.",
+    "Ofrece importación de clientes, servicios y productos desde Excel.",
+    "Permite gestionar el negocio desde una aplicación móvil.",
+    "La interfaz de gestión dispone de cinco idiomas identificados en su documentación."
+  ],
+  "inconvenientes": [
+    "La API requiere Platinum.",
+    "La integración Redsys documentada se limita a bancos españoles.",
+    "La importación de agenda e históricos se contempla solamente para algunos casos y requiere consultar con soporte.",
+    "Las suscripciones se renuevan automáticamente y exigen avisar con antelación para no renovar.",
+    "Mensual: Free 0 €, Lite 15 €, Basic 30 €, Gold 40 €, Platinum 55 €. Los importes de pago excluyen impuestos. Free incluye un usuario. No se confunde con la prueba de 15 días."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": null,
+    "anioFundacion": null,
+    "tamanoAproximado": null
+  },
+  "id": "koibox",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-29",
+  "fechaUltimaRevision": "2026-09-29",
+  "problemasIds": [
+    "ahorrar-tiempo",
+    "organizar-empresa",
+    "conseguir-clientes"
+  ]
+}

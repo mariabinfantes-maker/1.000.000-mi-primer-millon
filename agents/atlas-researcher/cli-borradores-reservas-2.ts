@@ -37,13 +37,15 @@ const leer = (p: string) => JSON.parse(fs.readFileSync(path.join(D, p), "utf8"))
  * quedan: volver a escribir su borrador no las toca, y así el archivo sirve
  * para rehacerlo todo desde cero si hace falta.
  */
-const LAS_CINCO = ["agendapro", "cliniko", "jane", "square-appointments", "schedulista", "timify", "booksy"];
+const LAS_CINCO = ["agendapro", "cliniko", "jane", "square-appointments", "schedulista", "timify", "booksy", "koibox"];
 
 /** La ficha: lo último que llegó gana, porque cada entrega es más rica que la anterior. */
 const ficha = new Map<string, any>();
 for (const f of ["reservas-17-2026-09-29/tanda-4.json", "reservas-17-2026-09-29/tanda-5.json",
                  "lo-que-falta-2026-09-29/entrega-1.json", "lo-que-falta-2026-09-29/entrega-2.json",
-                 "lo-que-falta-2026-09-29/entrega-3.json"]) {
+                 "lo-que-falta-2026-09-29/entrega-3.json",
+                 // Las 8 que se cortaron mal; llegan de una en una.
+                 "las-8-cortadas-2026-09-29/koibox.json"]) {
   for (const h of leer(f).herramientas ?? []) {
     const antes = ficha.get(h.id) ?? {};
     /**
@@ -167,7 +169,13 @@ for (const id of LAS_CINCO) {
     integraciones: h.integraciones,
     integracionesPrincipales: h.integracionesPrincipales,
     // Nadie publica lo fácil que es su producto. Sin prueba, no se pone.
-    curvaDeAprendizaje: undefined,
+    /**
+     * Ya no va siempre vacía: desde el 2026-09-29 el encargo la pide con
+     * hechos detrás —los pasos de la guía de primeros pasos, si hay formación,
+     * si hay migración— y se recoge cuando viene. Sin ella la herramienta
+     * entra al catálogo y el motor no la coloca nunca.
+     */
+    curvaDeAprendizaje: h.curvaDeAprendizaje ?? undefined,
     precioInicial: h.precioInicial ?? e.precioInicial ?? g.precioMasBajo?.cita,
     modeloDePrecio: (h.modeloDePrecio ?? ["suscripcion_mensual"]).filter((m: string) => MODELO.includes(m)),
     tienePlanGratuito: h.tienePlanGratuito ?? e.tienePlanGratuito,
