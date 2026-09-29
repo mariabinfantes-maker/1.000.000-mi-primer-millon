@@ -32,12 +32,18 @@ import type { HerramientaPropuesta } from "@/agents/atlas-researcher/tipos";
 const D = path.join(process.cwd(), "data", "investigacion");
 const leer = (p: string) => JSON.parse(fs.readFileSync(path.join(D, p), "utf8"));
 
-const LAS_CINCO = ["agendapro", "cliniko", "jane", "square-appointments", "schedulista"];
+/**
+ * Las que no escribió `cli-borradores-reservas.ts`. Las ya promovidas se
+ * quedan: volver a escribir su borrador no las toca, y así el archivo sirve
+ * para rehacerlo todo desde cero si hace falta.
+ */
+const LAS_CINCO = ["agendapro", "cliniko", "jane", "square-appointments", "schedulista", "timify", "booksy"];
 
 /** La ficha: lo último que llegó gana, porque cada entrega es más rica que la anterior. */
 const ficha = new Map<string, any>();
 for (const f of ["reservas-17-2026-09-29/tanda-4.json", "reservas-17-2026-09-29/tanda-5.json",
-                 "lo-que-falta-2026-09-29/entrega-1.json", "lo-que-falta-2026-09-29/entrega-2.json"]) {
+                 "lo-que-falta-2026-09-29/entrega-1.json", "lo-que-falta-2026-09-29/entrega-2.json",
+                 "lo-que-falta-2026-09-29/entrega-3.json"]) {
   for (const h of leer(f).herramientas ?? []) {
     const antes = ficha.get(h.id) ?? {};
     /**
