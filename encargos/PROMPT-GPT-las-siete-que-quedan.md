@@ -104,7 +104,7 @@ Hay un artículo que se llama literalmente `show-an-employee-s-profile-in-the-bo
 Las ocho, en las siete herramientas. **Ninguna se salta.** Si de una no encuentras nada, se responde igual con `desconocido` y dónde miraste. *(La lista se fija entera de antemano a propósito: eligiendo sobre la marcha se estrecha justo donde la prueba incomoda.)*
 
 1. **`cap.per_resource_booking_calendar` — Agenda por profesional o recurso.** Agenda separada por profesional, sala, sillón o máquina, con sus horarios y servicios. *(Ya está en cuatro.)*
-   **Aunque ya esté comprobada, devuélvela igual en la lista.** En la última entrega la diste por sabida y no la incluiste, y entonces la lista viene con siete objetos en vez de ocho y parece que falta una.
+   **Aunque ya esté comprobada, devuélvela igual en la lista.** Si la das por sabida, la lista viene con siete objetos en vez de ocho y parece que falta una.
 2. **`cap.online_self_service_booking` — Reserva online por la propia persona.** El cliente coge hora solo, sin llamar, a cualquier hora.
 3. **`cap.customer_appointment_reminders` — Recordatorios automáticos.** **Dime el canal** (SMS, correo, WhatsApp) y **si se paga aparte**.
 4. **`cap.booking_cancellation_and_rescheduling` — Cancelar y cambiar la cita**, el cliente por su cuenta. **Hacen falta las dos**: si sólo cancela, dilo así.
@@ -123,7 +123,7 @@ Búscala en el recorrido de reserva, en la ayuda sobre «reserva online» o «ci
 
 **`estado`**: `verificado` (lo leíste, con cita) · `desconocido` (buscaste y no hay prueba — **no significa que no lo tenga**, y obliga a decir dónde miraste) · `descartado` (**el fabricante dice que NO**, con cita igual).
 
-**Son esas tres palabras y ninguna más.** En la última entrega escribiste `no_consta`, que no existe en el esquema y hay que traducir a mano. Lo que querías decir es `desconocido`: es exactamente eso, «buscado y no encontrado», y no da por supuesto que falte.
+**Son esas tres palabras y ninguna más.** No escribas `no_consta`: no existe en el esquema y hay que traducirlo a mano. Lo que quieres decir es `desconocido` — «buscado y no encontrado», que no da por supuesto que falte.
 
 **`profundidad`**, obligatoria si es `verificado`: `nativa` (es el producto) · `modulo` (dentro de una suite, a veces aparte) · `integracion` (**sólo conectando otra herramienta** — di cuál en `integraCon`) · `no_disponible`.
 
@@ -145,7 +145,7 @@ Búscala en el recorrido de reserva, en la ayuda sobre «reserva online» o «ci
 
 **`precioInicial`** — El plan más barato de verdad, con lo que incluye. **Dime la moneda que ves y NO conviertas nada.** Si la tarifa no enseña cifras es JavaScript: busca el fichero del selector.
 
-**`citaDelPrecio` no es opcional y no es cualquier frase de la página de tarifas: son las cifras.** Es el recibo que se publica debajo del precio, y lo que se enseña a quien pregunte de dónde sale. Tu última entrega lo hizo bien —`«0€/mes […] 15€*/mes […] 30€*/mes»`—; la frase de al lado y el título van aparte y no sirven de recibo.
+**`citaDelPrecio` no es opcional y no es cualquier frase de la página de tarifas: son las cifras.** Es el recibo que se publica debajo del precio, y lo que se enseña a quien pregunte de dónde sale. Así, tal cual: `«0€/mes […] 15€*/mes […] 30€*/mes»`. El título y la frase de al lado van aparte y no sirven de recibo.
 
 **Y si la misma página te da una moneda distinta según cuándo la abras, dilo.** Ya ha pasado: una tarifa que leída un día decía CAD y otro USD, con la misma cifra. Es un dato, no un estorbo.
 **`tienePlanGratuito`** — `true` sólo si es **permanente**. Una prueba de 15 o 30 días NO lo es. Si sólo hay prueba, `null`, no `false`.
@@ -186,7 +186,7 @@ Cada una `verificado` con la lista y su cita, o `desconocido` diciendo qué busc
 **Prohibido «miles de opiniones verificadas en G2 y Capterra» o parecido.**
 
 **`tieneApiPublica`**, **`tieneAppMovil`** — `true`, `false` o `null`. **`false` sólo con cita.**
-**`informacionEmpresa`** — País, año, tamaño. `null` lo que no conste.
+**`informacionEmpresa`** — País, año, tamaño. `null` lo que no conste. **El domicilio social de las condiciones de contratación NO es prueba del país de origen.**
 
 ---
 
@@ -254,7 +254,8 @@ No uses la nota general en lugar de la de facilidad de uso: son distintas.
 
       "precioInicial": "...", "moneda": "EUR",
       "modeloDePrecio": ["suscripcion_mensual"], "notaDelPrecio": null,
-      "tienePlanGratuito": null, "citaDelPrecio": "...", "urlDelPrecio": "...",
+      "tienePlanGratuito": null,
+      "citaDelPrecio": "Las cifras, tal cual salen.", "urlDelPrecio": "...",
 
       "idioma": {
         "interfaz": { "estado": "verificado", "idiomas": ["es"], "cita": "...", "url": "..." },
@@ -308,6 +309,8 @@ Los siete ids, tal cual: `clinic-cloud` · `dricloud` · `flowww` · `tutorbird`
 
 - **¿`pendientes` lleva los ids que no has hecho?** Es lo único que ha fallado cuatro veces.
 - ¿Hay **ocho** objetos en `capacidades` de cada herramienta, aunque siete sean `desconocido`?
+- ¿Has escrito `no_consta` en algún sitio? Cámbialo por `desconocido`.
+- ¿`citaDelPrecio` lleva cifras, o te has quedado con una frase cualquiera de la página de tarifas?
 - ¿Cada `verificado` lleva `profundidad` y una fuente con cita, título y frase de al lado?
 - ¿Algún `planMinimo` con nombre y `planEstado: "desconocido"`? Mal: o lo demuestras, o va a `null`.
 - ¿Alguna `confianza: "alta"` sostenida por un comparador? Mal: baja a `media`.
