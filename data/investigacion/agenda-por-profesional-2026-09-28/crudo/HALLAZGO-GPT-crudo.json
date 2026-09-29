@@ -1,0 +1,1024 @@
+{
+  "fecha": "2026-09-28",
+  "cuantasRevisadas": 30,
+  "herramientas": [
+    {
+      "nombre": "Nubimed",
+      "web": "https://www.nubimed.com/",
+      "deDonde": "espana",
+      "idiomaDelProducto": ["es", "en"],
+      "paraQuienEstaPensada": "Clínicas y consultas de profesionales sanitarios.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de otros sectores.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "Los huecos que se ofrecen al paciente se calculan a partir del horario de trabajo del profesional.",
+        "url": "https://celn.zendesk.com/hc/es/articles/25478836453788-Configurar-profesionales"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "Seleccionar la especialidad, el área, el tratamiento o el profesional que necesita.",
+        "url": "https://celn.zendesk.com/hc/es/articles/25432855725980-Qu%C3%A9-es-el-Portal-de-Reserva-de-Citas"
+      },
+      "precioMasBajo": {
+        "estado": "verificado",
+        "cita": "27,40€\nal mes + IVA",
+        "moneda": "EUR",
+        "url": "https://www.nubimed.com/planes-precios/"
+      },
+      "paginasQueAbriste": [
+        "https://www.nubimed.com/",
+        "https://www.nubimed.com/planes-precios/",
+        "https://celn.zendesk.com/hc/es/articles/25478836453788-Configurar-profesionales",
+        "https://celn.zendesk.com/hc/es/articles/25432855725980-Qu%C3%A9-es-el-Portal-de-Reserva-de-Citas"
+      ],
+      "paginasQueNoSeAbrieron": [
+        "https://www.nubimed.com/precios/"
+      ],
+      "loQueNoSePudoComprobar": "La elección exige activar la visualización de doctores en la cita online. LITE incluye una agenda; las adicionales tienen coste. Los idiomas indicados están documentados para el portal de reservas, no necesariamente para todos los módulos internos."
+    },
+    {
+      "nombre": "Clinic Cloud",
+      "web": "https://clinic-cloud.com/",
+      "deDonde": "espana",
+      "idiomaDelProducto": ["es"],
+      "paraQuienEstaPensada": "Clínicas y centros médicos que gestionan pacientes, citas e historias clínicas.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de otros sectores.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "Con este soporte dispones de agendas personalizadas para cada profesional",
+        "url": "https://clinic-cloud.com/blog/como-agendar-una-cita-medica-con-clinic-cloud"
+      },
+      "eligeElCliente": {
+        "estado": "no_encontrado",
+        "cita": null,
+        "url": "https://clinic-cloud.com/faq/doctoralia"
+      },
+      "precioMasBajo": {
+        "estado": "verificado",
+        "cita": "29€\nal mes + IVA",
+        "moneda": "EUR",
+        "url": "https://clinic-cloud.com/tarifas"
+      },
+      "paginasQueAbriste": [
+        "https://clinic-cloud.com/blog/como-agendar-una-cita-medica-con-clinic-cloud",
+        "https://clinic-cloud.com/faq/agenda-y-comunicaciones",
+        "https://clinic-cloud.com/faq/doctoralia",
+        "https://clinic-cloud.com/tarifas"
+      ],
+      "paginasQueNoSeAbrieron": [
+        "https://clinic-cloud.com/precios"
+      ],
+      "loQueNoSePudoComprobar": "La página de tarifas incluye reserva online mediante Doctoralia, pero las páginas abiertas no explicaron expresamente la elección de profesional por el paciente en ese recorrido integrado. El precio citado corresponde a Mini."
+    },
+    {
+      "nombre": "DriCloud",
+      "web": "https://dricloud.com/",
+      "deDonde": "internacional",
+      "idiomaDelProducto": ["es"],
+      "paraQuienEstaPensada": "Consultas, clínicas, centros médicos y hospitales, con oferta dirigida también al mercado hispanohablante.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de otros sectores.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "Cada profesional decide sus horarios y tipos de cita disponibles online",
+        "url": "https://dricloud.com/cita-medica-online/"
+      },
+      "eligeElCliente": {
+        "estado": "no_encontrado",
+        "cita": null,
+        "url": "https://dricloud.com/cita-medica-online/"
+      },
+      "precioMasBajo": {
+        "estado": "verificado",
+        "cita": "42 € /mes Impuestos incluidos facturado anualmente (510 € al año), 2 meses gratis",
+        "moneda": "EUR",
+        "url": "https://dricloud.com/precios/"
+      },
+      "paginasQueAbriste": [
+        "https://dricloud.com/precios/",
+        "https://dricloud.com/cita-medica-online/",
+        "https://dricloud.com/agenda-clinica/"
+      ],
+      "paginasQueNoSeAbrieron": [],
+      "loQueNoSePudoComprobar": "No encontré una frase que atribuya al paciente la selección del médico. ESENCIAL incluye un profesional. Reproduzco los importes mensual y anual publicados aunque no coincidan aritméticamente; la página indica además que el cobro se procesa en USD. La clasificación internacional corresponde a la empresa estadounidense identificada en la página."
+    },
+    {
+      "nombre": "Archivex",
+      "web": "https://archivex.io/",
+      "deDonde": "espana",
+      "idiomaDelProducto": ["es"],
+      "paraQuienEstaPensada": "Clínicas y consultas que necesitan agenda, historia clínica y gestión administrativa.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de otros sectores.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "Al estar todo conectado, ya puede acceder a su calendario para agendar sus citas, así como visualizar pacientes o la contabilidad.",
+        "url": "https://archivex.io/caracteristicas/profesionales"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "Ellos mismos podrán seleccionar la fecha, hora, profesional o tratamiento que tú les ofrezcas, y, además, pagarte al instante.",
+        "url": "https://archivex.io/caracteristicas/citas-online"
+      },
+      "precioMasBajo": {
+        "estado": "verificado",
+        "cita": "45 € / mes\nIVA no incluido, sin permanencia",
+        "moneda": "EUR",
+        "url": "https://archivex.io/precios"
+      },
+      "paginasQueAbriste": [
+        "https://archivex.io/caracteristicas/profesionales",
+        "https://archivex.io/caracteristicas/citas-online",
+        "https://archivex.io/caracteristicas/categoria/agenda-medica",
+        "https://archivex.io/precios"
+      ],
+      "paginasQueNoSeAbrieron": [],
+      "loQueNoSePudoComprobar": "El precio mínimo corresponde al Plan S, con un usuario; no es el precio de un equipo. La página de profesionales también documenta la vinculación de servicios a profesionales."
+    },
+    {
+      "nombre": "ViDay",
+      "web": "https://viday.es/",
+      "deDonde": "espana",
+      "idiomaDelProducto": ["es"],
+      "paraQuienEstaPensada": "Centros de salud y bienestar, estética, academias, talleres y autoescuelas.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de otros sectores.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "Aprenderemos cómo modificar el horario específico de un trabajador o sala desde el calendario",
+        "url": "https://intercom.help/viday/es/articles/14086225-nueva-interfaz-como-modificar-el-horario-especifico-de-un-profesional-o-sala-para-que-no-se-pueda-reservar"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "Sí. Pueden seleccionar el tipo de servicio y el profesional que desean al hacer su reserva.",
+        "url": "https://viday.es/app-gestion-negocios/gestion-multicentro/"
+      },
+      "precioMasBajo": {
+        "estado": "verificado",
+        "cita": "€35,10 /mes",
+        "moneda": "EUR",
+        "url": "https://viday.es/precios/"
+      },
+      "paginasQueAbriste": [
+        "https://viday.es/precios/",
+        "https://viday.es/agenda-reservas/",
+        "https://viday.es/app-gestion-negocios/gestion-multicentro/",
+        "https://intercom.help/viday/es/articles/14086225-nueva-interfaz-como-modificar-el-horario-especifico-de-un-profesional-o-sala-para-que-no-se-pueda-reservar"
+      ],
+      "paginasQueNoSeAbrieron": [],
+      "loQueNoSePudoComprobar": "El mínimo citado es Individual Estándar con descuento anual y sin IVA. Equipo Estándar aparece desde 39,60 €/mes con modalidad anual e incluye dos profesionales; no debe confundirse con el precio individual."
+    },
+    {
+      "nombre": "Koibox",
+      "web": "https://koibox.cloud/",
+      "deDonde": "espana",
+      "idiomaDelProducto": ["es"],
+      "paraQuienEstaPensada": "Peluquerías, barberías y centros de estética y belleza.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de otros sectores.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "Desde configuración > empleados, accede a la ficha del empleado al que quieres modificar el horario.",
+        "url": "https://soporte.koibox.cloud/es/article/como-cambio-el-horario-de-un-dia-en-concreto-tf7uvc/"
+      },
+      "eligeElCliente": {
+        "estado": "no_encontrado",
+        "cita": null,
+        "url": "https://soporte.koibox.cloud/es/article/como-se-configuran-las-reservas-online-vgtrro/"
+      },
+      "precioMasBajo": {
+        "estado": "verificado",
+        "cita": "0€/mes",
+        "moneda": "EUR",
+        "url": "https://koibox.cloud/pricing/"
+      },
+      "paginasQueAbriste": [
+        "https://koibox.cloud/pricing/",
+        "https://soporte.koibox.cloud/es/article/como-se-configuran-las-reservas-online-vgtrro/",
+        "https://soporte.koibox.cloud/es/article/como-cambio-el-horario-de-un-dia-en-concreto-tf7uvc/"
+      ],
+      "paginasQueNoSeAbrieron": [
+        "https://www.koibox.com/"
+      ],
+      "loQueNoSePudoComprobar": "Se documentan horarios y servicios por empleado, pero no encontré una instrucción inequívoca para que el cliente elija empleado al reservar. Free incluye un usuario; la página presenta reservas online dentro de Basic. No atribuyo al plan gratuito las dos funciones buscadas."
+    },
+    {
+      "nombre": "flowww",
+      "web": "https://www.flowww.es/",
+      "deDonde": "espana",
+      "idiomaDelProducto": ["es"],
+      "paraQuienEstaPensada": "Negocios de medicina estética, belleza y salud.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de otros sectores.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "Una agenda especializada en negocios de medicina estética, belleza y salud con visual por doctor e información sobre la cita.",
+        "url": "https://www.flowww.es/flowww-saas"
+      },
+      "eligeElCliente": {
+        "estado": "no_encontrado",
+        "cita": null,
+        "url": "https://www.flowww.es/flowww-book"
+      },
+      "precioMasBajo": {
+        "estado": "verificado",
+        "cita": "59€* /mes\n590€* /año",
+        "moneda": "EUR",
+        "url": "https://www.flowww.es/precios"
+      },
+      "paginasQueAbriste": [
+        "https://www.flowww.es/flowww-saas",
+        "https://www.flowww.es/flowww-book",
+        "https://www.flowww.es/precios"
+      ],
+      "paginasQueNoSeAbrieron": [],
+      "loQueNoSePudoComprobar": "La documentación combina agenda por doctor con disponibilidad y habilidades del profesional, pero no encontré elección explícita del profesional por el cliente. El precio es de la licencia Boss, sin IVA; la página muestra herramientas de reserva y una puesta en marcha con costes separados."
+    },
+    {
+      "nombre": "BEWE",
+      "web": "https://www.bewe.ai/",
+      "deDonde": "espana",
+      "idiomaDelProducto": ["es"],
+      "paraQuienEstaPensada": "Negocios de servicios, incluidos centros de belleza, bienestar, fitness y salud, con presencia en España y Latinoamérica.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de otros sectores.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "Profesionales, salas y equipos como recursos, cada uno con su horario.",
+        "url": "https://www.bewe.ai/agenda"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "podrá elegir con qué profesional quiere tomar la sesión.",
+        "url": "https://www.bewe.ai/blog/software-para-control-de-pacientes"
+      },
+      "precioMasBajo": {
+        "estado": "verificado",
+        "cita": "$29.00/mes",
+        "moneda": null,
+        "url": "https://www.bewe.ai/pricing"
+      },
+      "paginasQueAbriste": [
+        "https://www.bewe.ai/",
+        "https://blog.bewe.io/bewe-io-software-para-control-de-pacientes",
+        "https://www.bewe.ai/blog/software-para-control-de-pacientes",
+        "https://www.bewe.ai/novedades",
+        "https://www.bewe.ai/pricing",
+        "https://www.bewe.ai/agenda",
+        "https://www.bewe.ai/blog/que-es-una-agenda-online-y-como-funciona",
+        "https://www.bewe.ai/blog/razones-para-cambiarte-al-software-de-bewe"
+      ],
+      "paginasQueNoSeAbrieron": [],
+      "loQueNoSePudoComprobar": "La selección está descrita para la app personalizada de BEWE.io; no comprobé que esté incluida en el actual Starter. Starter incluye un empleado. El texto extraído muestra $, pero no identifica inequívocamente su código monetario. El fabricante se describe literalmente como software español en la última página listada."
+    },
+    {
+      "nombre": "Bookitit",
+      "web": "https://www.bookitit.com/es/",
+      "deDonde": "espana",
+      "idiomaDelProducto": ["es"],
+      "paraQuienEstaPensada": "Centros sanitarios, deportivos y de belleza, academias, servicios profesionales y talleres.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de otros sectores.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "La agenda es aquella persona o lugar que ofrece el servicio que solicita el cliente.",
+        "url": "https://www.bookitit.com/es/tutoriales/configuracion-de-una-agenda/"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "Si el servicio está asociado a dos o más agendas, el cliente deberá elegir la agenda que desee:",
+        "url": "https://www.bookitit.com/es/tutoriales/reservas-online/"
+      },
+      "precioMasBajo": {
+        "estado": "no_encontrado",
+        "cita": null,
+        "moneda": "EUR",
+        "url": "https://www.bookitit.com/es/tarifas/"
+      },
+      "paginasQueAbriste": [
+        "https://www.bookitit.com/es/tutoriales/configuracion-de-una-agenda/",
+        "https://www.bookitit.com/es/tutoriales/reservas-online/",
+        "https://www.bookitit.com/es/tarifas/"
+      ],
+      "paginasQueNoSeAbrieron": [
+        "https://www.bookitit.com/es/precios/"
+      ],
+      "loQueNoSePudoComprobar": "La tarifa depende del número de agendas. Se cargaron 16.90 €/mes con pago anual y 202.81 €/año, sin IVA, pero no el valor del selector de agendas: no puedo certificar que ese importe sea el mínimo ni a cuántas agendas corresponda."
+    },
+    {
+      "nombre": "AgendaPro",
+      "web": "https://agendapro.com/",
+      "deDonde": "latinoamerica",
+      "idiomaDelProducto": ["es"],
+      "paraQuienEstaPensada": "Negocios de belleza, bienestar y salud que gestionan citas, servicios y clientes.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de otros sectores.",
+      "esDirectorioOProgramaPropio": "las dos cosas",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "Indica el tipo de configuración del horario del profesional.",
+        "url": "https://ayuda.agendapro.com/es/articles/6273220-como-creo-un-profesional"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "Selección de servicio y/o profesional desde tu sitio web al reservar",
+        "url": "https://agendapro.com/es-es/agenda-online"
+      },
+      "precioMasBajo": {
+        "estado": "verificado",
+        "cita": "$9\nUSD/mes",
+        "moneda": "USD",
+        "url": "https://agendapro.com/es/planes"
+      },
+      "paginasQueAbriste": [
+        "https://ayuda.agendapro.com/es/articles/6273220-como-creo-un-profesional",
+        "https://agendapro.com/es-es/reservas-online",
+        "https://agendapro.com/es-es/agenda-online",
+        "https://agendapro.com/es/planes"
+      ],
+      "paginasQueNoSeAbrieron": [
+        "https://agendapro.com/es-es/precios"
+      ],
+      "loQueNoSePudoComprobar": "El precio corresponde a Individual, con un profesional. La ayuda reserva la creación de profesionales adicionales a planes de Empresa; no comprobé una correspondencia exacta entre esa nomenclatura y todos los planes comerciales actuales. La tabla de agenda marca Sí para la selección citada."
+    },
+    {
+      "nombre": "Reservo",
+      "web": "https://reservo.cl/",
+      "deDonde": "latinoamerica",
+      "idiomaDelProducto": ["es"],
+      "paraQuienEstaPensada": "Profesionales y centros de salud que necesitan gestionar pacientes y reservas.",
+      "paraQuienNoEstaPensada": "El portal público de agendamiento documentado tiene requisitos profesionales y territoriales específicos para Chile.",
+      "esDirectorioOProgramaPropio": "las dos cosas",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "Esta función permite asignar un horario calendarizado a un profesional",
+        "url": "https://intercom.help/reservo/es/articles/2898003-crear-agenda-profesional"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "Una vez que el paciente/cliente seleccione el profesional y fecha de su atención",
+        "url": "https://intercom.help/reservo/es/articles/5676625-reserva-online-multiprecios"
+      },
+      "precioMasBajo": {
+        "estado": "no_pude_mirar",
+        "cita": null,
+        "moneda": null,
+        "url": null
+      },
+      "paginasQueAbriste": [
+        "https://intercom.help/reservo/es/articles/2898003-crear-agenda-profesional",
+        "https://intercom.help/reservo/es/articles/5676625-reserva-online-multiprecios",
+        "https://intercom.help/reservo/es/articles/4275576-como-crear-la-reserva-online",
+        "https://intercom.help/reservo/es/articles/12261185-como-configurar-el-portal-de-agendamiento"
+      ],
+      "paginasQueNoSeAbrieron": [
+        "https://reservo.cl/",
+        "https://reservo.cl/planes",
+        "https://agendamiento.reservo.cl/es/"
+      ],
+      "loQueNoSePudoComprobar": "La documentación funcional sí se abrió. Las páginas comerciales intentadas devolvieron error o contenido vacío, por lo que no pude comprobar precios. Los requisitos del directorio chileno no se extrapolan al conjunto del programa."
+    },
+    {
+      "nombre": "QVET",
+      "web": "https://qvet.net/",
+      "deDonde": "espana",
+      "idiomaDelProducto": ["es"],
+      "paraQuienEstaPensada": "Clínicas y hospitales veterinarios.",
+      "paraQuienNoEstaPensada": "No he encontrado una declaración del fabricante sobre su adecuación a negocios ajenos a la veterinaria.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "no_encontrado",
+        "cita": null,
+        "url": "https://qvet.net/caracteristicas-de-qvet/"
+      },
+      "eligeElCliente": {
+        "estado": "no_encontrado",
+        "cita": null,
+        "url": "https://qvet.net/caracteristicas-de-qvet/"
+      },
+      "precioMasBajo": {
+        "estado": "no_encontrado",
+        "cita": null,
+        "moneda": null,
+        "url": "https://qvet.net/caracteristicas-de-qvet/"
+      },
+      "paginasQueAbriste": [
+        "https://qvet.net/caracteristicas-de-qvet/",
+        "https://qvet.net/soporte-y-formacion/"
+      ],
+      "paginasQueNoSeAbrieron": [],
+      "loQueNoSePudoComprobar": "La página menciona agendas múltiples y cita online integrada, pero no encontré una explicación suficiente de horarios y servicios por veterinario ni de elección del veterinario por el propietario. Se describen ediciones sin un importe mínimo publicado en las páginas revisadas."
+    },
+    {
+      "nombre": "Gesden G5",
+      "web": "https://www.infomedsoftware.com/",
+      "deDonde": "espana",
+      "idiomaDelProducto": ["es"],
+      "paraQuienEstaPensada": "Clínicas dentales y grupos de clínicas odontológicas.",
+      "paraQuienNoEstaPensada": "No he encontrado una declaración de adecuación a negocios ajenos a la odontología.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "no_encontrado",
+        "cita": null,
+        "url": "https://www.infomedsoftware.com/wp-content/themes/softwareinfomed/_pdfs/es/gesden-g5_funcionalidades_agenda.pdf"
+      },
+      "eligeElCliente": {
+        "estado": "no_encontrado",
+        "cita": null,
+        "url": "https://www.infomedsoftware.com/software/gesden/gesden-g5/"
+      },
+      "precioMasBajo": {
+        "estado": "no_encontrado",
+        "cita": null,
+        "moneda": null,
+        "url": "https://www.infomedsoftware.com/"
+      },
+      "paginasQueAbriste": [
+        "https://www.infomedsoftware.com/",
+        "https://www.infomedsoftware.com/software/gesden/gesden-g5/",
+        "https://www.infomedsoftware.com/wp-content/themes/softwareinfomed/_pdfs/es/gesden-g5_funcionalidades_agenda.pdf"
+      ],
+      "paginasQueNoSeAbrieron": [
+        "https://www.infomedsoftware.com/software/gesden/",
+        "https://www.infomedsoftware.com/software/gesden/gesden-g5/cita-online-g5/"
+      ],
+      "loQueNoSePudoComprobar": "El PDF documenta agenda multigabinete y multiusuario, pero no todos los elementos exigidos de horarios y servicios por recurso. La ficha general confirma reserva por Internet sin explicar selección del profesional. La página específica de cita online quedó bloqueada; no encontré precio mínimo."
+    },
+    {
+      "nombre": "Setmore",
+      "web": "https://www.setmore.com/",
+      "deDonde": "internacional",
+      "idiomaDelProducto": ["es", "en"],
+      "paraQuienEstaPensada": "Negocios con citas, incluidos servicios jurídicos, automoción, salud, belleza y formación.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de otros sectores.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "Each staff profile comes with a calendar and individual Booking Page link.",
+        "url": "https://www.setmore.com/features/staff-scheduling"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "Select a service and provider",
+        "url": "https://support.setmore.com/en/articles/12570746-how-to-test-your-setmore-booking-flow"
+      },
+      "precioMasBajo": {
+        "estado": "verificado",
+        "cita": "$0 user / mo",
+        "moneda": null,
+        "url": "https://www.setmore.com/pricing"
+      },
+      "paginasQueAbriste": [
+        "https://www.setmore.com/features/staff-scheduling",
+        "https://support.setmore.com/en/articles/12570746-how-to-test-your-setmore-booking-flow",
+        "https://www.setmore.com/pricing",
+        "https://support.setmore.com/en/articles/491010-change-your-setmore-account-language"
+      ],
+      "paginasQueNoSeAbrieron": [],
+      "loQueNoSePudoComprobar": "La selección citada pertenece expresamente a la prueba de reserva como cliente. Free permite hasta cuatro usuarios. El importe es cero; no asigno un código monetario al símbolo $ sin confirmación. La ayuda confirma español e inglés en la interfaz de gestión."
+    },
+    {
+      "nombre": "Acuity Scheduling",
+      "web": "https://www.acuityscheduling.com/",
+      "deDonde": "internacional",
+      "idiomaDelProducto": ["en"],
+      "paraQuienEstaPensada": "Profesionales y negocios de belleza, consultoría, bienestar, fitness, artes y educación.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de otros sectores.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "If you have multiple staff members or locations, you can create individual calendars for them.",
+        "url": "https://help.acuityscheduling.com/hc/en-us/articles/16676883635725-Managing-availability-and-calendars"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "If you have more than one calendar, clients choose a calendar.",
+        "url": "https://help.acuityscheduling.com/hc/en-us/articles/16676869573645-How-clients-book-appointments"
+      },
+      "precioMasBajo": {
+        "estado": "verificado",
+        "cita": "$16/ month",
+        "moneda": "USD",
+        "url": "https://www.acuityscheduling.com/pricing"
+      },
+      "paginasQueAbriste": [
+        "https://help.acuityscheduling.com/hc/en-us/articles/16676883635725-Managing-availability-and-calendars",
+        "https://help.acuityscheduling.com/hc/en-us/articles/16676869573645-How-clients-book-appointments",
+        "https://www.acuityscheduling.com/signup.php",
+        "https://www.acuityscheduling.com/pricing"
+      ],
+      "paginasQueNoSeAbrieron": [],
+      "loQueNoSePudoComprobar": "La guía pone como ejemplo un calendario por peluquero. Starter cuesta lo citado con facturación anual, sin impuestos, e incluye un calendario: no cubre varios profesionales con agendas separadas. No comprobé el alcance de una versión española del producto."
+    },
+    {
+      "nombre": "SimplyBook.me",
+      "web": "https://simplybook.me/",
+      "deDonde": "internacional",
+      "idiomaDelProducto": ["en"],
+      "paraQuienEstaPensada": "Negocios de servicios de salud, belleza, educación, deporte y atención profesional.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de otros sectores.",
+      "esDirectorioOProgramaPropio": "las dos cosas",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "You can set regular schedule for providers in Manage -> Service Providers",
+        "url": "https://help.simplybook.me/index.php?title=Adding_services,_providers_and_availability(new_interface)/en"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "user should be allowed to select Any provider option or choose provider manually.",
+        "url": "https://help.simplybook.me/wiki/User_API_guide"
+      },
+      "precioMasBajo": {
+        "estado": "verificado",
+        "cita": "The Free plan includes 50 bookings, 1 custom feature, and 1 provider at $0 per month.",
+        "moneda": null,
+        "url": "https://simplybook.me/en/pricing"
+      },
+      "paginasQueAbriste": [
+        "https://help.simplybook.me/index.php?title=Adding_services,_providers_and_availability(new_interface)/en",
+        "https://simplybook.me/en/booking-system-features",
+        "https://help.simplybook.me/wiki/User_API_guide",
+        "https://simplybook.me/en/pricing",
+        "https://simplybook.me/en/booking-page"
+      ],
+      "paginasQueNoSeAbrieron": [],
+      "loQueNoSePudoComprobar": "La documentación técnica condiciona la selección manual a no ocultar los proveedores. Free solo incluye uno; no cubre la comparación entre varios profesionales. Booking.page es su directorio. No comprobé el alcance de la traducción española de la interfaz, aunque la web comercial la ofrece."
+    },
+    {
+      "nombre": "Zoho Bookings",
+      "web": "https://www.zoho.com/bookings/",
+      "deDonde": "internacional",
+      "idiomaDelProducto": ["es", "en"],
+      "paraQuienEstaPensada": "Profesionales y equipos que ofrecen citas individuales, sesiones colectivas y servicios reservables.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de sectores.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "Select the checkbox Customize working hours to edit staff working hours.",
+        "url": "https://help.zoho.com/portal/en/kb/bookings/staff/staff-properties/articles/staff-working-hours"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "When this setting is 'Enabled', it allows the customers to choose their preferred staff from the available list on the booking page.",
+        "url": "https://help.zoho.com/portal/en/kb/bookings/workspace/articles/bookings-policies-and-preferences"
+      },
+      "precioMasBajo": {
+        "estado": "no_encontrado",
+        "cita": null,
+        "moneda": null,
+        "url": "https://www.zoho.com/es-xl/bookings/pricing.html"
+      },
+      "paginasQueAbriste": [
+        "https://help.zoho.com/portal/en/kb/bookings/staff/staff-properties/articles/staff-working-hours",
+        "https://help.zoho.com/portal/en/kb/bookings/workspace/articles/bookings-policies-and-preferences",
+        "https://www.zoho.com/bookings/pricing.html",
+        "https://www.zoho.com/de/bookings/pricing.html?sredirect=true",
+        "https://www.zoho.com/es-xl/bookings/pricing.html"
+      ],
+      "paginasQueNoSeAbrieron": [],
+      "loQueNoSePudoComprobar": "Debe habilitarse la selección de personal; la asignación automática es una configuración distinta. Las páginas de precios abrieron, pero los importes no se cargaron y hubo redirección regional. Español e inglés están documentados para la página de reservas; no comprobé todo el panel administrativo."
+    },
+    {
+      "nombre": "Reservio",
+      "web": "https://www.reservio.com/",
+      "deDonde": "internacional",
+      "idiomaDelProducto": ["es", "en"],
+      "paraQuienEstaPensada": "Negocios de belleza, bienestar, fitness y clínicas que ofrecen citas o eventos.",
+      "paraQuienNoEstaPensada": "Su marketplace no admite negocios de cualquier país: la documentación lo limita a Chequia y Eslovaquia.",
+      "esDirectorioOProgramaPropio": "las dos cosas",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "Specific time slots can be set up in the individual staff member's settings using custom booking hours.",
+        "url": "https://help.reservio.com/en/articles/6534441-time-slots-for-bookings"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "o elija un miembro del personal favorito al que desee acudir (y seleccione el servicio en el segundo paso).",
+        "url": "https://help.reservio.com/es/articles/5645234-como-crear-una-reserva-a-traves-del-sitio-web-de-reservas-como-cliente"
+      },
+      "precioMasBajo": {
+        "estado": "verificado",
+        "cita": "Free",
+        "moneda": null,
+        "url": "https://www.reservio.com/pricing"
+      },
+      "paginasQueAbriste": [
+        "https://help.reservio.com/en/articles/6534441-time-slots-for-bookings",
+        "https://help.reservio.com/en/articles/8512930-how-to-make-bookings-on-reservio",
+        "https://help.reservio.com/es/articles/5645234-como-crear-una-reserva-a-traves-del-sitio-web-de-reservas-como-cliente",
+        "https://www.reservio.com/pricing",
+        "https://help.reservio.com/en/articles/15190264-how-to-add-your-business-to-the-reservio-marketplace"
+      ],
+      "paginasQueNoSeAbrieron": [],
+      "loQueNoSePudoComprobar": "Free aparece como plan permanente con 40 reservas por 30 días; los importes de pago no se cargaron. No comprobé qué límites concretos de personal tiene Free. La restricción territorial corresponde al marketplace, no al programa de reservas."
+    },
+    {
+      "nombre": "Bookeo Appointments",
+      "web": "https://www.bookeo.com/appointments/",
+      "deDonde": "internacional",
+      "idiomaDelProducto": ["en"],
+      "paraQuienEstaPensada": "Negocios con servicios por cita, incluidos salones y equipos de profesionales.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de otros sectores.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "It also supports different working hours for each staff member",
+        "url": "https://www.bookeo.com/appointments/features/advanced-scheduling/"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "lets clients choose their preferred staff member",
+        "url": "https://www.bookeo.com/appointments/features/advanced-scheduling/"
+      },
+      "precioMasBajo": {
+        "estado": "verificado",
+        "cita": "€ 10\n95       EUR/month",
+        "moneda": "EUR",
+        "url": "https://www.bookeo.com/appointments/pricing/"
+      },
+      "paginasQueAbriste": [
+        "https://www.bookeo.com/appointments/features/advanced-scheduling/",
+        "https://www.bookeo.com/appointments/salon-scheduling-software/",
+        "https://www.bookeo.com/appointments/pricing/"
+      ],
+      "paginasQueNoSeAbrieron": [],
+      "loQueNoSePudoComprobar": "La extracción separa los céntimos del precio del plan Solo en otra línea; mantengo esa separación. Solo incluye un consultor y no cubre varias agendas profesionales. No comprobé el alcance de la interfaz en español."
+    },
+    {
+      "nombre": "TIMIFY",
+      "web": "https://www.timify.com/",
+      "deDonde": "internacional",
+      "idiomaDelProducto": ["en"],
+      "paraQuienEstaPensada": "Empresas de servicios y comercios que reservan personal, salas y otros recursos para atender clientes.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de otros sectores.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "Set the working and booking times for the resource.",
+        "url": "https://www.timify.com/en/support/3037200-the-timify-handbook/"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "Customers can select a specific team member when booking, or let the system auto-assign based on staff availability and location.",
+        "url": "https://www.timify.com/en/solutions/retail-scheduling-software/"
+      },
+      "precioMasBajo": {
+        "estado": "verificado",
+        "cita": "€0.00",
+        "moneda": "EUR",
+        "url": "https://www.timify.com/en/pricing/"
+      },
+      "paginasQueAbriste": [
+        "https://www.timify.com/en/support/3037200-the-timify-handbook/",
+        "https://www.timify.com/en/solutions/retail-scheduling-software/",
+        "https://www.timify.com/en/pricing",
+        "https://www.timify.com/en/pricing/"
+      ],
+      "paginasQueNoSeAbrieron": [],
+      "loQueNoSePudoComprobar": "Classic gratuito se presenta para un recurso. No equivale a disponer gratuitamente de varias agendas. El fabricante anuncia múltiples idiomas, pero no comprobé una lista que identificara expresamente español para la interfaz revisada."
+    },
+    {
+      "nombre": "Teachworks",
+      "web": "https://www.teachworks.com/",
+      "deDonde": "internacional",
+      "idiomaDelProducto": ["en"],
+      "paraQuienEstaPensada": "Academias, empresas de tutoría, escuelas de música, idiomas y otras actividades docentes.",
+      "paraQuienNoEstaPensada": "No he encontrado una declaración de adecuación a negocios ajenos a la enseñanza.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "In addition to the main calendar, Teachworks also offers a Teacher Calendar and a Location Calendar.",
+        "url": "https://blog.teachworks.com/2019/08/8-features-to-speed-up-music-lesson-scheduling/"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "Next, they can choose the teacher/tutor they want to book.",
+        "url": "https://blog.teachworks.com/2024/08/teachworks-website-booking-plugin-part-1-adding-your-first-booking-option/"
+      },
+      "precioMasBajo": {
+        "estado": "no_encontrado",
+        "cita": null,
+        "moneda": null,
+        "url": "https://www.teachworks.com/pricing"
+      },
+      "paginasQueAbriste": [
+        "https://blog.teachworks.com/2019/08/8-features-to-speed-up-music-lesson-scheduling/",
+        "https://blog.teachworks.com/2024/08/teachworks-website-booking-plugin-part-1-adding-your-first-booking-option/",
+        "https://www.teachworks.com/pricing",
+        "https://www.teachworks.com/teachworks3-0"
+      ],
+      "paginasQueNoSeAbrieron": [],
+      "loQueNoSePudoComprobar": "La página de precios contiene dos bloques Starter incompatibles: 16.49 al mes más 0.320 por alumno y lección, y 15 más 0.25; no certifico cuál rige. La versión 3.0 anuncia traducción completa a 45 idiomas, pero no encontré su lista para confirmar español. La elección del docente está documentada mediante Website Booking Plugin."
+    },
+    {
+      "nombre": "TutorBird",
+      "web": "https://www.tutorbird.com/",
+      "deDonde": "internacional",
+      "idiomaDelProducto": ["es", "en"],
+      "paraQuienEstaPensada": "Tutores particulares y empresas con varios docentes.",
+      "paraQuienNoEstaPensada": "No he encontrado una declaración de adecuación a negocios ajenos a la enseñanza.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "Set individual tutor availability for new student bookings/consultations directly through your website",
+        "url": "https://www.tutorbird.com/public-self-booking/"
+      },
+      "eligeElCliente": {
+        "estado": "no_encontrado",
+        "cita": null,
+        "url": "https://www.tutorbird.com/public-self-booking/"
+      },
+      "precioMasBajo": {
+        "estado": "verificado",
+        "cita": "$16.95/month",
+        "moneda": null,
+        "url": "https://www.tutorbird.com/pricing/"
+      },
+      "paginasQueAbriste": [
+        "https://www.tutorbird.com/",
+        "https://www.tutorbird.com/have-it-your-way/",
+        "https://www.tutorbird.com/public-self-booking/",
+        "https://www.tutorbird.com/pricing/"
+      ],
+      "paginasQueNoSeAbrieron": [
+        "https://www.tutorbird.com/features/"
+      ],
+      "loQueNoSePudoComprobar": "El fabricante permite configurar qué tutores son reservables, pero no encontré una frase que confirme que el alumno escoge entre ellos. El precio base es para un tutor; se publica un suplemento por cada tutor o empleado adicional. El símbolo $ no quedó identificado por código monetario. El pie de página enumera español e inglés como idiomas soportados."
+    },
+    {
+      "nombre": "Cliniko",
+      "web": "https://www.cliniko.com/",
+      "deDonde": "internacional",
+      "idiomaDelProducto": ["en"],
+      "paraQuienEstaPensada": "Clínicas y profesionales de salud, incluidas disciplinas de rehabilitación y terapias.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de otros sectores.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "Select which services each practitioner provides, their default appointment type, when they take their breaks, and much more.",
+        "url": "https://www.cliniko.com/features/appointments/"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "The designation and description information will only appear under the practitioner’s name when patients are choosing who to book with.",
+        "url": "https://help.cliniko.com/en/articles/1023963-set-up-online-bookings"
+      },
+      "precioMasBajo": {
+        "estado": "verificado",
+        "cita": "Cliniko is free to use for registered charities or educational institutions.",
+        "moneda": "USD",
+        "url": "https://www.cliniko.com/pricing/"
+      },
+      "paginasQueAbriste": [
+        "https://www.cliniko.com/features/appointments/",
+        "https://help.cliniko.com/en/articles/1800855-create-custom-online-bookings-pages",
+        "https://help.cliniko.com/en/articles/1023963-set-up-online-bookings",
+        "https://www.cliniko.com/pricing/"
+      ],
+      "paginasQueNoSeAbrieron": [],
+      "loQueNoSePudoComprobar": "La gratuidad está restringida a las entidades citadas. Para negocios ordinarios se publica 45 USD/mes por un profesional y 95 USD/mes para dos a cinco; el pago anual ofrece un mes gratis. No comprobé una versión española de la interfaz."
+    },
+    {
+      "nombre": "Jane",
+      "web": "https://jane.app/",
+      "deDonde": "internacional",
+      "idiomaDelProducto": ["en"],
+      "paraQuienEstaPensada": "Consultas y clínicas, incluidas fisioterapia, quiropráctica, masaje y acupuntura.",
+      "paraQuienNoEstaPensada": "El buscador público Practitioner Search documentado está limitado a Columbia Británica, Canadá.",
+      "esDirectorioOProgramaPropio": "las dos cosas",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "Choose a day that your practitioner works, and select the start time and end time of the shift you’re wanting to create.",
+        "url": "https://jane.app/guide/setting-up-shifts"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "From here, you can choose whether patients book online by treatment or by a staff member.",
+        "url": "https://jane.app/guide/online-booking-choosing-what-is-offered-online-locations-staff-shifts-treatments-etc-and-individual-staff-preferences"
+      },
+      "precioMasBajo": {
+        "estado": "verificado",
+        "cita": "CAD $54 / month",
+        "moneda": "otra",
+        "url": "https://jane.app/pricing"
+      },
+      "paginasQueAbriste": [
+        "https://jane.app/guide/setting-up-shifts",
+        "https://jane.app/guide/online-booking-choosing-what-is-offered-online-locations-staff-shifts-treatments-etc-and-individual-staff-preferences",
+        "https://jane.app/pricing",
+        "https://jane.app/guide/practitioner-search-for-patients"
+      ],
+      "paginasQueNoSeAbrieron": [],
+      "loQueNoSePudoComprobar": "La moneda de la última consulta de precios es CAD, dólares canadienses. Balance incluye un profesional y 20 citas mensuales; no es el plan de un equipo. No comprobé una versión española. La restricción territorial del buscador no se extrapola al software de clínica."
+    },
+    {
+      "nombre": "Pabau",
+      "web": "https://pabau.com/",
+      "deDonde": "internacional",
+      "idiomaDelProducto": ["en"],
+      "paraQuienEstaPensada": "Clínicas médicas, de estética, dermatología, cirugía y bienestar.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de otros sectores.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "The Schedule page displays all staff members on the left, with dates across the top.",
+        "url": "https://support.pabau.com/en/pabau2/how-to-create-a-shift-in-the-scheduler"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "If applicable, you can also choose your preferred practitioner before proceeding to the calendar.",
+        "url": "https://support.pabau.com/en/pabau2/how-to-book-an-appointment-via-the-client-portal"
+      },
+      "precioMasBajo": {
+        "estado": "no_encontrado",
+        "cita": null,
+        "moneda": null,
+        "url": "https://pabau.com/pricing/"
+      },
+      "paginasQueAbriste": [
+        "https://support.pabau.com/en/pabau2/how-to-create-a-shift-in-the-scheduler",
+        "https://support.pabau.com/en/pabau2/how-to-book-an-appointment-via-the-client-portal",
+        "https://pabau.com/pricing/"
+      ],
+      "paginasQueNoSeAbrieron": [],
+      "loQueNoSePudoComprobar": "La guía de turnos permite definir horas, servicios y sala. La elección del profesional depende de la configuración de la clínica. La página de precios abrió y describe planes, pero sus importes no aparecieron en el contenido recuperado. La web comercial tiene español; no comprobé la traducción del producto."
+    },
+    {
+      "nombre": "Fresha",
+      "web": "https://www.fresha.com/",
+      "deDonde": "internacional",
+      "idiomaDelProducto": ["en"],
+      "paraQuienEstaPensada": "Salones de peluquería, barberías y negocios de belleza y bienestar.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de otros sectores.",
+      "esDirectorioOProgramaPropio": "las dos cosas",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "Scheduled shifts are edited individually for each team member, giving you full control over each person’s availability.",
+        "url": "https://www.fresha.com/help-center/knowledge-base/calendar/252-schedule-and-update-team-shifts"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "Clients can explore and select their preferred professional during the booking process",
+        "url": "https://www.fresha.com/blog/searchable-professional-profiles"
+      },
+      "precioMasBajo": {
+        "estado": "no_encontrado",
+        "cita": null,
+        "moneda": null,
+        "url": "https://www.fresha.com/pricing"
+      },
+      "paginasQueAbriste": [
+        "https://www.fresha.com/help-center/knowledge-base/calendar/252-schedule-and-update-team-shifts",
+        "https://www.fresha.com/blog/searchable-professional-profiles",
+        "https://www.fresha.com/pricing"
+      ],
+      "paginasQueNoSeAbrieron": [],
+      "loQueNoSePudoComprobar": "Se publican 19.95 por mes para Independent y 14.95 por miembro al mes para Team, ambos con símbolo $. No comprobé el mínimo de miembros facturables ni el código monetario, por lo que no certifico un mínimo total comparable. No comprobé la disponibilidad de español en la interfaz."
+    },
+    {
+      "nombre": "Booksy",
+      "web": "https://biz.booksy.com/",
+      "deDonde": "internacional",
+      "idiomaDelProducto": ["es", "en"],
+      "paraQuienEstaPensada": "Peluquerías, barberías, salones y profesionales de belleza y bienestar.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de otros sectores.",
+      "esDirectorioOProgramaPropio": "las dos cosas",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "Crea un perfil a cada empleado para asignarle servicios, establecer sus horarios y permitirle gestionar sus citas en la app de Booksy.",
+        "url": "https://biz.booksy.com/es-es/funcionalidades"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "The great thing is, you can actually choose a staff member for your appointment.",
+        "url": "https://biz.booksy.com/blog/how-to-book-an-appointment"
+      },
+      "precioMasBajo": {
+        "estado": "verificado",
+        "cita": "Booksy cuesta 34,99€ al mes +IVA, más 8€ al mes +IVA por cada miembro adicional del equipo.",
+        "moneda": "EUR",
+        "url": "https://biz.booksy.com/es-es/precios"
+      },
+      "paginasQueAbriste": [
+        "https://biz.booksy.com/es-es/funcionalidades",
+        "https://biz.booksy.com/blog/how-to-book-an-appointment",
+        "https://biz.booksy.com/es-es/precios"
+      ],
+      "paginasQueNoSeAbrieron": [],
+      "loQueNoSePudoComprobar": "El precio citado es el publicado para España y aumenta con los miembros adicionales. No extrapolé esa tarifa a otros países."
+    },
+    {
+      "nombre": "Treatwell",
+      "web": "https://www.treatwell.es/partners/",
+      "deDonde": "internacional",
+      "idiomaDelProducto": ["es"],
+      "paraQuienEstaPensada": "Peluquerías, barberías y centros de uñas, estética, masajes y spa.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de otros sectores.",
+      "esDirectorioOProgramaPropio": "las dos cosas",
+      "agendaPorProfesional": {
+        "estado": "no_encontrado",
+        "cita": null,
+        "url": "https://www.treatwell.es/partners/soluciones/software-de-gestion-para-salones/"
+      },
+      "eligeElCliente": {
+        "estado": "no_encontrado",
+        "cita": null,
+        "url": "https://www.treatwell.es/partners/soluciones/software-de-gestion-para-salones/"
+      },
+      "precioMasBajo": {
+        "estado": "no_encontrado",
+        "cita": null,
+        "moneda": null,
+        "url": "https://www.treatwell.es/partners/precios/"
+      },
+      "paginasQueAbriste": [
+        "https://www.treatwell.es/partners/",
+        "https://www.treatwell.es/partners/precios/",
+        "https://www.treatwell.es/partners/soluciones/software-de-gestion-para-salones/"
+      ],
+      "paginasQueNoSeAbrieron": [
+        "https://support-expert.treatwell.com/en/articles/572314-how-do-i-add-a-new-employee",
+        "https://support-expert.treatwell.com/en/articles/16201261-show-an-employee-s-profile-in-the-booking-widget",
+        "https://partnercare.treatwell.com/s/?language=es",
+        "https://help.treatwell.pro/es/",
+        "https://propartnercare.treatwell.com/s/?language=es"
+      ],
+      "loQueNoSePudoComprobar": "Las páginas comerciales describen turnos, personal y reservas, sin la precisión necesaria para verificar ambos requisitos. Los artículos pertinentes del soporte dieron error y los otros centros de ayuda no cargaron contenido útil. La invitación a empezar gratis no demuestra una cuota recurrente mínima."
+    },
+    {
+      "nombre": "Square Appointments / Citas Square",
+      "web": "https://squareup.com/es/es/appointments",
+      "deDonde": "internacional",
+      "idiomaDelProducto": ["es", "en"],
+      "paraQuienEstaPensada": "Negocios de servicios con citas, personal y cobro en punto de venta.",
+      "paraQuienNoEstaPensada": "No he encontrado una exclusión expresa de sectores; no comprobé disponibilidad comercial en todos los países.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "services the staff member can provide, whether customers can choose the staff member during an online booking, the staff member's hours",
+        "url": "https://developer.squareup.com/docs/bookings-api/onboard-to-the-api?preview=true"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "as well as the services and preferred staff member for the appointment.",
+        "url": "https://api.squareup.com/help/us/en/article/5355-set-up-online-booking-with-square-appointments"
+      },
+      "precioMasBajo": {
+        "estado": "verificado",
+        "cita": "0 €\npor un único punto de venta.",
+        "moneda": "EUR",
+        "url": "https://squareup.com/es/es/appointments/pricing"
+      },
+      "paginasQueAbriste": [
+        "https://developer.squareup.com/docs/bookings-api/onboard-to-the-api?preview=true",
+        "https://api.squareup.com/help/us/en/article/5355-set-up-online-booking-with-square-appointments",
+        "https://squareup.com/es/es/appointments/pricing"
+      ],
+      "paginasQueNoSeAbrieron": [],
+      "loQueNoSePudoComprobar": "La segunda cita es el final del párrafo que explica lo que podrán elegir los clientes en la web de reservas. El precio pertenece a la oferta española para un punto de venta. No comprobé equivalencia completa entre los planes regionales y todas las funciones descritas en la documentación estadounidense."
+    },
+    {
+      "nombre": "Schedulista",
+      "web": "https://www.schedulista.com/",
+      "deDonde": "internacional",
+      "idiomaDelProducto": ["es", "en"],
+      "paraQuienEstaPensada": "Negocios que trabajan con citas, incluidos consultores, abogados, contables, docentes y profesionales de belleza y bienestar.",
+      "paraQuienNoEstaPensada": "Quien necesite la gestión interna íntegramente en español: el fabricante indica que esa parte permanece en inglés.",
+      "esDirectorioOProgramaPropio": "programa propio",
+      "agendaPorProfesional": {
+        "estado": "verificado",
+        "cita": "Each service provider has a calendar showing all of their past and future appointments.",
+        "url": "https://support.schedulista.com/en/articles/397026-getting-started-with-schedulista"
+      },
+      "eligeElCliente": {
+        "estado": "verificado",
+        "cita": "clients will be able to choose between them when scheduling an appointment.",
+        "url": "https://support.schedulista.com/en/articles/365819-how-do-clients-choose-a-service-provider-in-the-scheduler"
+      },
+      "precioMasBajo": {
+        "estado": "verificado",
+        "cita": "19\nUSD\nper month",
+        "moneda": "USD",
+        "url": "https://www.schedulista.com/"
+      },
+      "paginasQueAbriste": [
+        "https://www.schedulista.com/",
+        "https://support.schedulista.com/en/articles/397026-getting-started-with-schedulista",
+        "https://support.schedulista.com/en/articles/365819-how-do-clients-choose-a-service-provider-in-the-scheduler",
+        "https://support.schedulista.com/en/articles/3199321-about-schedulista-subscriptions",
+        "https://support.schedulista.com/en/articles/365830-changing-the-scheduler-language"
+      ],
+      "paginasQueNoSeAbrieron": [
+        "https://www.schedulista.com/pricing",
+        "https://www.schedulista.com/pricing.html"
+      ],
+      "loQueNoSePudoComprobar": "El precio de 19 USD/mes es individual; la portada publica 39 USD/mes para 2–15 empleados. Español está disponible para reservas y comunicaciones al cliente. Sobre la gestión interna, la ayuda dice: \"The rest of the product (the part that you see) does not change and will remain in English.\""
+    }
+  ],
+  "candidatasQueNoDioTiempo": [
+    "ReservaSimple",
+    "Mivete",
+    "TuReservaOnline"
+  ]
+}

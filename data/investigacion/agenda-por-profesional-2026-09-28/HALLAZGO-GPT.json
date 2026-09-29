@@ -7,7 +7,8 @@
   "paginasQueNoSeAbrieron": "Cada herramienta las lista en `paginasQueNoSeAbrieron`.",
   "loQueNoSePudoComprobar": "Por herramienta, en su campo `loQueNoSePudoComprobar`. Tres se quedaron sin nada: QVET, Gesden y Treatwell, las dos últimas porque sus páginas se bloquearon.",
   "abiertoPorNosotrosOContadoPorOtro": "lo_dice_otro",
-  "porQueLoDiceOtro": "Desde este entorno la única salida a internet es el lector de Gemini, y no abre casi ninguna de estas páginas. No hemos podido repetir estas lecturas por nuestra cuenta. Las citas son buenas y traen su dirección, pero no las hemos comprobado nosotros."
+  "porQueLoDiceOtro": "Desde este entorno la única salida a internet es el lector de Gemini, y no abre casi ninguna de estas páginas. No hemos podido repetir estas lecturas por nuestra cuenta. Las citas son buenas y traen su dirección, pero no las hemos comprobado nosotros.",
+  "loQueSeHabiaPerdido": "Al guardar este archivo el 2026-09-28 se dejaron fuera `paginasQueAbriste` y `paginasQueNoSeAbrieron`: 115 direcciones abiertas y 18 que no se abrieron. Restaurados el 2026-09-29 del mensaje original, que está entero en crudo/HALLAZGO-GPT-crudo.json. Eran los recibos: distinguen «leída y no lo dice» de «no hemos podido mirar», y dicen dónde ya se buscó. Se perdieron tres días de saber, por ejemplo, que Gesden G5 sí tiene un PDF legible de su agenda y que la ayuda de Treatwell vive en support-expert.treatwell.com."
  },
  "fecha": "2026-09-28",
  "cuantasRevisadas": 30,
@@ -39,7 +40,16 @@
     "moneda": "EUR",
     "url": "https://www.nubimed.com/planes-precios/"
    },
-   "loQueNoSePudoComprobar": "La elección exige activar la visualización de doctores en la cita online. LITE incluye una agenda; las adicionales tienen coste."
+   "loQueNoSePudoComprobar": "La elección exige activar la visualización de doctores en la cita online. LITE incluye una agenda; las adicionales tienen coste.",
+   "paginasQueAbriste": [
+    "https://www.nubimed.com/",
+    "https://www.nubimed.com/planes-precios/",
+    "https://celn.zendesk.com/hc/es/articles/25478836453788-Configurar-profesionales",
+    "https://celn.zendesk.com/hc/es/articles/25432855725980-Qu%C3%A9-es-el-Portal-de-Reserva-de-Citas"
+   ],
+   "paginasQueNoSeAbrieron": [
+    "https://www.nubimed.com/precios/"
+   ]
   },
   {
    "nombre": "Clinic Cloud",
@@ -67,7 +77,16 @@
     "moneda": "EUR",
     "url": "https://clinic-cloud.com/tarifas"
    },
-   "loQueNoSePudoComprobar": "Su reserva online va por Doctoralia; no se explicó la elección de profesional en ese recorrido. El precio citado es el plan Mini."
+   "loQueNoSePudoComprobar": "Su reserva online va por Doctoralia; no se explicó la elección de profesional en ese recorrido. El precio citado es el plan Mini.",
+   "paginasQueAbriste": [
+    "https://clinic-cloud.com/blog/como-agendar-una-cita-medica-con-clinic-cloud",
+    "https://clinic-cloud.com/faq/agenda-y-comunicaciones",
+    "https://clinic-cloud.com/faq/doctoralia",
+    "https://clinic-cloud.com/tarifas"
+   ],
+   "paginasQueNoSeAbrieron": [
+    "https://clinic-cloud.com/precios"
+   ]
   },
   {
    "nombre": "DriCloud",
@@ -95,7 +114,13 @@
     "moneda": "EUR",
     "url": "https://dricloud.com/precios/"
    },
-   "loQueNoSePudoComprobar": "ESENCIAL incluye un profesional. Los importes mensual y anual publicados no cuadran entre sí; el cobro se procesa en USD."
+   "loQueNoSePudoComprobar": "ESENCIAL incluye un profesional. Los importes mensual y anual publicados no cuadran entre sí; el cobro se procesa en USD.",
+   "paginasQueAbriste": [
+    "https://dricloud.com/precios/",
+    "https://dricloud.com/cita-medica-online/",
+    "https://dricloud.com/agenda-clinica/"
+   ],
+   "paginasQueNoSeAbrieron": []
   },
   {
    "nombre": "Archivex",
@@ -123,7 +148,14 @@
     "moneda": "EUR",
     "url": "https://archivex.io/precios"
    },
-   "loQueNoSePudoComprobar": "El mínimo es el Plan S, con un usuario; no es precio de equipo."
+   "loQueNoSePudoComprobar": "El mínimo es el Plan S, con un usuario; no es precio de equipo.",
+   "paginasQueAbriste": [
+    "https://archivex.io/caracteristicas/profesionales",
+    "https://archivex.io/caracteristicas/citas-online",
+    "https://archivex.io/caracteristicas/categoria/agenda-medica",
+    "https://archivex.io/precios"
+   ],
+   "paginasQueNoSeAbrieron": []
   },
   {
    "nombre": "ViDay",
@@ -151,7 +183,14 @@
     "moneda": "EUR",
     "url": "https://viday.es/precios/"
    },
-   "loQueNoSePudoComprobar": "El mínimo es Individual Estándar con descuento anual y sin IVA. Equipo Estándar desde 39,60 €/mes incluye dos profesionales."
+   "loQueNoSePudoComprobar": "El mínimo es Individual Estándar con descuento anual y sin IVA. Equipo Estándar desde 39,60 €/mes incluye dos profesionales.",
+   "paginasQueAbriste": [
+    "https://viday.es/precios/",
+    "https://viday.es/agenda-reservas/",
+    "https://viday.es/app-gestion-negocios/gestion-multicentro/",
+    "https://intercom.help/viday/es/articles/14086225-nueva-interfaz-como-modificar-el-horario-especifico-de-un-profesional-o-sala-para-que-no-se-pueda-reservar"
+   ],
+   "paginasQueNoSeAbrieron": []
   },
   {
    "nombre": "Koibox",
@@ -179,7 +218,15 @@
     "moneda": "EUR",
     "url": "https://koibox.cloud/pricing/"
    },
-   "loQueNoSePudoComprobar": "Free incluye un usuario; las reservas online están en Basic. No se atribuyen al plan gratuito las dos funciones buscadas."
+   "loQueNoSePudoComprobar": "Free incluye un usuario; las reservas online están en Basic. No se atribuyen al plan gratuito las dos funciones buscadas.",
+   "paginasQueAbriste": [
+    "https://koibox.cloud/pricing/",
+    "https://soporte.koibox.cloud/es/article/como-se-configuran-las-reservas-online-vgtrro/",
+    "https://soporte.koibox.cloud/es/article/como-cambio-el-horario-de-un-dia-en-concreto-tf7uvc/"
+   ],
+   "paginasQueNoSeAbrieron": [
+    "https://www.koibox.com/"
+   ]
   },
   {
    "nombre": "flowww",
@@ -207,7 +254,13 @@
     "moneda": "EUR",
     "url": "https://www.flowww.es/precios"
    },
-   "loQueNoSePudoComprobar": "Precio de la licencia Boss, sin IVA, con puesta en marcha aparte."
+   "loQueNoSePudoComprobar": "Precio de la licencia Boss, sin IVA, con puesta en marcha aparte.",
+   "paginasQueAbriste": [
+    "https://www.flowww.es/flowww-saas",
+    "https://www.flowww.es/flowww-book",
+    "https://www.flowww.es/precios"
+   ],
+   "paginasQueNoSeAbrieron": []
   },
   {
    "nombre": "BEWE",
@@ -235,7 +288,18 @@
     "moneda": null,
     "url": "https://www.bewe.ai/pricing"
    },
-   "loQueNoSePudoComprobar": "La selección está descrita para su app personalizada; Starter incluye un empleado. La moneda del símbolo $ no quedó identificada."
+   "loQueNoSePudoComprobar": "La selección está descrita para su app personalizada; Starter incluye un empleado. La moneda del símbolo $ no quedó identificada.",
+   "paginasQueAbriste": [
+    "https://www.bewe.ai/",
+    "https://blog.bewe.io/bewe-io-software-para-control-de-pacientes",
+    "https://www.bewe.ai/blog/software-para-control-de-pacientes",
+    "https://www.bewe.ai/novedades",
+    "https://www.bewe.ai/pricing",
+    "https://www.bewe.ai/agenda",
+    "https://www.bewe.ai/blog/que-es-una-agenda-online-y-como-funciona",
+    "https://www.bewe.ai/blog/razones-para-cambiarte-al-software-de-bewe"
+   ],
+   "paginasQueNoSeAbrieron": []
   },
   {
    "nombre": "Bookitit",
@@ -263,7 +327,15 @@
     "moneda": "EUR",
     "url": "https://www.bookitit.com/es/tarifas/"
    },
-   "loQueNoSePudoComprobar": "La tarifa depende del número de agendas. Se vieron 16,90 €/mes con pago anual, pero no a cuántas agendas corresponde."
+   "loQueNoSePudoComprobar": "La tarifa depende del número de agendas. Se vieron 16,90 €/mes con pago anual, pero no a cuántas agendas corresponde.",
+   "paginasQueAbriste": [
+    "https://www.bookitit.com/es/tutoriales/configuracion-de-una-agenda/",
+    "https://www.bookitit.com/es/tutoriales/reservas-online/",
+    "https://www.bookitit.com/es/tarifas/"
+   ],
+   "paginasQueNoSeAbrieron": [
+    "https://www.bookitit.com/es/precios/"
+   ]
   },
   {
    "nombre": "AgendaPro",
@@ -291,7 +363,16 @@
     "moneda": "USD",
     "url": "https://agendapro.com/es/planes"
    },
-   "loQueNoSePudoComprobar": "El precio es de Individual, con un profesional. Los profesionales adicionales van en planes de Empresa."
+   "loQueNoSePudoComprobar": "El precio es de Individual, con un profesional. Los profesionales adicionales van en planes de Empresa.",
+   "paginasQueAbriste": [
+    "https://ayuda.agendapro.com/es/articles/6273220-como-creo-un-profesional",
+    "https://agendapro.com/es-es/reservas-online",
+    "https://agendapro.com/es-es/agenda-online",
+    "https://agendapro.com/es/planes"
+   ],
+   "paginasQueNoSeAbrieron": [
+    "https://agendapro.com/es-es/precios"
+   ]
   },
   {
    "nombre": "Reservo",
@@ -319,7 +400,18 @@
     "moneda": null,
     "url": null
    },
-   "loQueNoSePudoComprobar": "Las páginas comerciales dieron error; no se pudieron comprobar precios."
+   "loQueNoSePudoComprobar": "Las páginas comerciales dieron error; no se pudieron comprobar precios.",
+   "paginasQueAbriste": [
+    "https://intercom.help/reservo/es/articles/2898003-crear-agenda-profesional",
+    "https://intercom.help/reservo/es/articles/5676625-reserva-online-multiprecios",
+    "https://intercom.help/reservo/es/articles/4275576-como-crear-la-reserva-online",
+    "https://intercom.help/reservo/es/articles/12261185-como-configurar-el-portal-de-agendamiento"
+   ],
+   "paginasQueNoSeAbrieron": [
+    "https://reservo.cl/",
+    "https://reservo.cl/planes",
+    "https://agendamiento.reservo.cl/es/"
+   ]
   },
   {
    "nombre": "QVET",
@@ -347,7 +439,12 @@
     "moneda": null,
     "url": "https://qvet.net/caracteristicas-de-qvet/"
    },
-   "loQueNoSePudoComprobar": "Menciona agendas múltiples y cita online, sin explicar horarios por veterinario ni elección por el propietario."
+   "loQueNoSePudoComprobar": "Menciona agendas múltiples y cita online, sin explicar horarios por veterinario ni elección por el propietario.",
+   "paginasQueAbriste": [
+    "https://qvet.net/caracteristicas-de-qvet/",
+    "https://qvet.net/soporte-y-formacion/"
+   ],
+   "paginasQueNoSeAbrieron": []
   },
   {
    "nombre": "Gesden G5",
@@ -375,7 +472,16 @@
     "moneda": null,
     "url": "https://www.infomedsoftware.com/"
    },
-   "loQueNoSePudoComprobar": "Documenta agenda multigabinete y multiusuario. La página de cita online quedó bloqueada; no hay precio publicado."
+   "loQueNoSePudoComprobar": "Documenta agenda multigabinete y multiusuario. La página de cita online quedó bloqueada; no hay precio publicado.",
+   "paginasQueAbriste": [
+    "https://www.infomedsoftware.com/",
+    "https://www.infomedsoftware.com/software/gesden/gesden-g5/",
+    "https://www.infomedsoftware.com/wp-content/themes/softwareinfomed/_pdfs/es/gesden-g5_funcionalidades_agenda.pdf"
+   ],
+   "paginasQueNoSeAbrieron": [
+    "https://www.infomedsoftware.com/software/gesden/",
+    "https://www.infomedsoftware.com/software/gesden/gesden-g5/cita-online-g5/"
+   ]
   },
   {
    "nombre": "Setmore",
@@ -404,7 +510,14 @@
     "moneda": null,
     "url": "https://www.setmore.com/pricing"
    },
-   "loQueNoSePudoComprobar": "Free permite hasta cuatro usuarios. La ayuda confirma español e inglés en la gestión."
+   "loQueNoSePudoComprobar": "Free permite hasta cuatro usuarios. La ayuda confirma español e inglés en la gestión.",
+   "paginasQueAbriste": [
+    "https://www.setmore.com/features/staff-scheduling",
+    "https://support.setmore.com/en/articles/12570746-how-to-test-your-setmore-booking-flow",
+    "https://www.setmore.com/pricing",
+    "https://support.setmore.com/en/articles/491010-change-your-setmore-account-language"
+   ],
+   "paginasQueNoSeAbrieron": []
   },
   {
    "nombre": "Acuity Scheduling",
@@ -432,7 +545,14 @@
     "moneda": "USD",
     "url": "https://www.acuityscheduling.com/pricing"
    },
-   "loQueNoSePudoComprobar": "Starter incluye UN calendario: no cubre varios profesionales con agendas separadas."
+   "loQueNoSePudoComprobar": "Starter incluye UN calendario: no cubre varios profesionales con agendas separadas.",
+   "paginasQueAbriste": [
+    "https://help.acuityscheduling.com/hc/en-us/articles/16676883635725-Managing-availability-and-calendars",
+    "https://help.acuityscheduling.com/hc/en-us/articles/16676869573645-How-clients-book-appointments",
+    "https://www.acuityscheduling.com/signup.php",
+    "https://www.acuityscheduling.com/pricing"
+   ],
+   "paginasQueNoSeAbrieron": []
   },
   {
    "nombre": "SimplyBook.me",
@@ -460,7 +580,15 @@
     "moneda": null,
     "url": "https://simplybook.me/en/pricing"
    },
-   "loQueNoSePudoComprobar": "Free sólo incluye un proveedor; no cubre varios profesionales."
+   "loQueNoSePudoComprobar": "Free sólo incluye un proveedor; no cubre varios profesionales.",
+   "paginasQueAbriste": [
+    "https://help.simplybook.me/index.php?title=Adding_services,_providers_and_availability(new_interface)/en",
+    "https://simplybook.me/en/booking-system-features",
+    "https://help.simplybook.me/wiki/User_API_guide",
+    "https://simplybook.me/en/pricing",
+    "https://simplybook.me/en/booking-page"
+   ],
+   "paginasQueNoSeAbrieron": []
   },
   {
    "nombre": "Zoho Bookings",
@@ -489,7 +617,15 @@
     "moneda": null,
     "url": "https://www.zoho.com/es-xl/bookings/pricing.html"
    },
-   "loQueNoSePudoComprobar": "Hay que habilitar la selección de personal. Los importes no se cargaron."
+   "loQueNoSePudoComprobar": "Hay que habilitar la selección de personal. Los importes no se cargaron.",
+   "paginasQueAbriste": [
+    "https://help.zoho.com/portal/en/kb/bookings/staff/staff-properties/articles/staff-working-hours",
+    "https://help.zoho.com/portal/en/kb/bookings/workspace/articles/bookings-policies-and-preferences",
+    "https://www.zoho.com/bookings/pricing.html",
+    "https://www.zoho.com/de/bookings/pricing.html?sredirect=true",
+    "https://www.zoho.com/es-xl/bookings/pricing.html"
+   ],
+   "paginasQueNoSeAbrieron": []
   },
   {
    "nombre": "Reservio",
@@ -518,7 +654,15 @@
     "moneda": null,
     "url": "https://www.reservio.com/pricing"
    },
-   "loQueNoSePudoComprobar": "Free es permanente con 40 reservas por 30 días; no se comprobó su límite de personal."
+   "loQueNoSePudoComprobar": "Free es permanente con 40 reservas por 30 días; no se comprobó su límite de personal.",
+   "paginasQueAbriste": [
+    "https://help.reservio.com/en/articles/6534441-time-slots-for-bookings",
+    "https://help.reservio.com/en/articles/8512930-how-to-make-bookings-on-reservio",
+    "https://help.reservio.com/es/articles/5645234-como-crear-una-reserva-a-traves-del-sitio-web-de-reservas-como-cliente",
+    "https://www.reservio.com/pricing",
+    "https://help.reservio.com/en/articles/15190264-how-to-add-your-business-to-the-reservio-marketplace"
+   ],
+   "paginasQueNoSeAbrieron": []
   },
   {
    "nombre": "Bookeo Appointments",
@@ -546,7 +690,13 @@
     "moneda": "EUR",
     "url": "https://www.bookeo.com/appointments/pricing/"
    },
-   "loQueNoSePudoComprobar": "Solo incluye un consultor y no cubre varias agendas profesionales."
+   "loQueNoSePudoComprobar": "Solo incluye un consultor y no cubre varias agendas profesionales.",
+   "paginasQueAbriste": [
+    "https://www.bookeo.com/appointments/features/advanced-scheduling/",
+    "https://www.bookeo.com/appointments/salon-scheduling-software/",
+    "https://www.bookeo.com/appointments/pricing/"
+   ],
+   "paginasQueNoSeAbrieron": []
   },
   {
    "nombre": "TIMIFY",
@@ -574,7 +724,14 @@
     "moneda": "EUR",
     "url": "https://www.timify.com/en/pricing/"
    },
-   "loQueNoSePudoComprobar": "El Classic gratuito es para un recurso. No se confirmó español en la interfaz."
+   "loQueNoSePudoComprobar": "El Classic gratuito es para un recurso. No se confirmó español en la interfaz.",
+   "paginasQueAbriste": [
+    "https://www.timify.com/en/support/3037200-the-timify-handbook/",
+    "https://www.timify.com/en/solutions/retail-scheduling-software/",
+    "https://www.timify.com/en/pricing",
+    "https://www.timify.com/en/pricing/"
+   ],
+   "paginasQueNoSeAbrieron": []
   },
   {
    "nombre": "Teachworks",
@@ -602,7 +759,14 @@
     "moneda": null,
     "url": "https://www.teachworks.com/pricing"
    },
-   "loQueNoSePudoComprobar": "La página de precios muestra dos bloques Starter incompatibles entre sí."
+   "loQueNoSePudoComprobar": "La página de precios muestra dos bloques Starter incompatibles entre sí.",
+   "paginasQueAbriste": [
+    "https://blog.teachworks.com/2019/08/8-features-to-speed-up-music-lesson-scheduling/",
+    "https://blog.teachworks.com/2024/08/teachworks-website-booking-plugin-part-1-adding-your-first-booking-option/",
+    "https://www.teachworks.com/pricing",
+    "https://www.teachworks.com/teachworks3-0"
+   ],
+   "paginasQueNoSeAbrieron": []
   },
   {
    "nombre": "TutorBird",
@@ -631,7 +795,16 @@
     "moneda": null,
     "url": "https://www.tutorbird.com/pricing/"
    },
-   "loQueNoSePudoComprobar": "El precio base es para un tutor, con suplemento por cada uno adicional."
+   "loQueNoSePudoComprobar": "El precio base es para un tutor, con suplemento por cada uno adicional.",
+   "paginasQueAbriste": [
+    "https://www.tutorbird.com/",
+    "https://www.tutorbird.com/have-it-your-way/",
+    "https://www.tutorbird.com/public-self-booking/",
+    "https://www.tutorbird.com/pricing/"
+   ],
+   "paginasQueNoSeAbrieron": [
+    "https://www.tutorbird.com/features/"
+   ]
   },
   {
    "nombre": "Cliniko",
@@ -659,7 +832,14 @@
     "moneda": "USD",
     "url": "https://www.cliniko.com/pricing/"
    },
-   "loQueNoSePudoComprobar": "La gratuidad es sólo para entidades benéficas y educativas. Para negocios: 45 USD/mes un profesional, 95 USD/mes de dos a cinco."
+   "loQueNoSePudoComprobar": "La gratuidad es sólo para entidades benéficas y educativas. Para negocios: 45 USD/mes un profesional, 95 USD/mes de dos a cinco.",
+   "paginasQueAbriste": [
+    "https://www.cliniko.com/features/appointments/",
+    "https://help.cliniko.com/en/articles/1800855-create-custom-online-bookings-pages",
+    "https://help.cliniko.com/en/articles/1023963-set-up-online-bookings",
+    "https://www.cliniko.com/pricing/"
+   ],
+   "paginasQueNoSeAbrieron": []
   },
   {
    "nombre": "Jane",
@@ -687,7 +867,14 @@
     "moneda": "otra",
     "url": "https://jane.app/pricing"
    },
-   "loQueNoSePudoComprobar": "Balance incluye un profesional y 20 citas al mes. La moneda es el dólar canadiense."
+   "loQueNoSePudoComprobar": "Balance incluye un profesional y 20 citas al mes. La moneda es el dólar canadiense.",
+   "paginasQueAbriste": [
+    "https://jane.app/guide/setting-up-shifts",
+    "https://jane.app/guide/online-booking-choosing-what-is-offered-online-locations-staff-shifts-treatments-etc-and-individual-staff-preferences",
+    "https://jane.app/pricing",
+    "https://jane.app/guide/practitioner-search-for-patients"
+   ],
+   "paginasQueNoSeAbrieron": []
   },
   {
    "nombre": "Pabau",
@@ -715,7 +902,13 @@
     "moneda": null,
     "url": "https://pabau.com/pricing/"
    },
-   "loQueNoSePudoComprobar": "Los importes no aparecieron en la página de precios."
+   "loQueNoSePudoComprobar": "Los importes no aparecieron en la página de precios.",
+   "paginasQueAbriste": [
+    "https://support.pabau.com/en/pabau2/how-to-create-a-shift-in-the-scheduler",
+    "https://support.pabau.com/en/pabau2/how-to-book-an-appointment-via-the-client-portal",
+    "https://pabau.com/pricing/"
+   ],
+   "paginasQueNoSeAbrieron": []
   },
   {
    "nombre": "Fresha",
@@ -743,7 +936,13 @@
     "moneda": null,
     "url": "https://www.fresha.com/pricing"
    },
-   "loQueNoSePudoComprobar": "Se publican 19,95 Independent y 14,95 por miembro Team, con símbolo $ sin código monetario confirmado."
+   "loQueNoSePudoComprobar": "Se publican 19,95 Independent y 14,95 por miembro Team, con símbolo $ sin código monetario confirmado.",
+   "paginasQueAbriste": [
+    "https://www.fresha.com/help-center/knowledge-base/calendar/252-schedule-and-update-team-shifts",
+    "https://www.fresha.com/blog/searchable-professional-profiles",
+    "https://www.fresha.com/pricing"
+   ],
+   "paginasQueNoSeAbrieron": []
   },
   {
    "nombre": "Booksy",
@@ -772,7 +971,13 @@
     "moneda": "EUR",
     "url": "https://biz.booksy.com/es-es/precios"
    },
-   "loQueNoSePudoComprobar": "El precio es el publicado para España y sube con cada miembro adicional."
+   "loQueNoSePudoComprobar": "El precio es el publicado para España y sube con cada miembro adicional.",
+   "paginasQueAbriste": [
+    "https://biz.booksy.com/es-es/funcionalidades",
+    "https://biz.booksy.com/blog/how-to-book-an-appointment",
+    "https://biz.booksy.com/es-es/precios"
+   ],
+   "paginasQueNoSeAbrieron": []
   },
   {
    "nombre": "Treatwell",
@@ -800,7 +1005,19 @@
     "moneda": null,
     "url": "https://www.treatwell.es/partners/precios/"
    },
-   "loQueNoSePudoComprobar": "Los artículos de soporte pertinentes dieron error y los centros de ayuda no cargaron contenido útil."
+   "loQueNoSePudoComprobar": "Los artículos de soporte pertinentes dieron error y los centros de ayuda no cargaron contenido útil.",
+   "paginasQueAbriste": [
+    "https://www.treatwell.es/partners/",
+    "https://www.treatwell.es/partners/precios/",
+    "https://www.treatwell.es/partners/soluciones/software-de-gestion-para-salones/"
+   ],
+   "paginasQueNoSeAbrieron": [
+    "https://support-expert.treatwell.com/en/articles/572314-how-do-i-add-a-new-employee",
+    "https://support-expert.treatwell.com/en/articles/16201261-show-an-employee-s-profile-in-the-booking-widget",
+    "https://partnercare.treatwell.com/s/?language=es",
+    "https://help.treatwell.pro/es/",
+    "https://propartnercare.treatwell.com/s/?language=es"
+   ]
   },
   {
    "nombre": "Square Appointments",
@@ -858,7 +1075,18 @@
     "moneda": "USD",
     "url": "https://www.schedulista.com/"
    },
-   "loQueNoSePudoComprobar": "19 USD/mes es individual; 39 USD/mes para 2-15 empleados. La gestión interna sigue en inglés."
+   "loQueNoSePudoComprobar": "19 USD/mes es individual; 39 USD/mes para 2-15 empleados. La gestión interna sigue en inglés.",
+   "paginasQueAbriste": [
+    "https://www.schedulista.com/",
+    "https://support.schedulista.com/en/articles/397026-getting-started-with-schedulista",
+    "https://support.schedulista.com/en/articles/365819-how-do-clients-choose-a-service-provider-in-the-scheduler",
+    "https://support.schedulista.com/en/articles/3199321-about-schedulista-subscriptions",
+    "https://support.schedulista.com/en/articles/365830-changing-the-scheduler-language"
+   ],
+   "paginasQueNoSeAbrieron": [
+    "https://www.schedulista.com/pricing",
+    "https://www.schedulista.com/pricing.html"
+   ]
   }
  ],
  "candidatasQueNoDioTiempo": [
