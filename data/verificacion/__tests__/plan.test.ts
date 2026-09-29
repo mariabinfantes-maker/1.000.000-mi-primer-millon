@@ -24,9 +24,12 @@ describe("el plan de verificación", () => {
     ).toBe(versionDelVocabulario());
   });
 
-  it("cubre las 62 fichas que existían cuando se congeló", () => {
+  it("sigue cubriendo las 62 fichas que existían cuando se congeló", () => {
     expect(asignadas.length).toBe(62);
-    expect(catalogo.length).toBe(65);
+    // 69 desde el 2026-09-29: las cuatro de reservas que autorizó la
+    // propietaria esa tarde. El plan sigue congelado en 62; la deuda se ve
+    // en la prueba de abajo, que las nombra una a una.
+    expect(catalogo.length).toBe(69);
   });
 
   it("ninguna herramienta se repite", () => {
@@ -35,13 +38,19 @@ describe("el plan de verificación", () => {
   });
 
   /**
-   * Las tres fichas promovidas el 2026-09-17 —Hotmart, Thinkific y
-   * Teachable— entraron DESPUÉS de que el plan de F2 se congelara, así que
-   * no están en ningún lote. No se silencia: se nombran aquí para que la
-   * deuda se vea y se cierre cuando se les asigne lote.
+   * Las fichas promovidas DESPUÉS de que el plan de F2 se congelara no están
+   * en ningún lote. No se silencia: se nombran aquí para que la deuda se vea
+   * y se cierre cuando se les asigne lote.
+   *
+   * Las tres primeras son del 2026-09-17: Hotmart, Thinkific y Teachable. Las
+   * cuatro de reservas son del 2026-09-29 —BEWE, Bookitit, AgendaPro y
+   * Cliniko—; sus capacidades sí están verificadas y archivadas, lo que les
+   * falta es lote en el plan de F2.
    */
   it("las únicas que se quedan fuera son las promovidas después de congelarlo", () => {
-    expect(catalogo.filter((id) => !asignadas.includes(id)).sort()).toEqual(["hotmart", "teachable", "thinkific"]);
+    expect(catalogo.filter((id) => !asignadas.includes(id)).sort()).toEqual(
+      ["agendapro", "bewe", "bookitit", "cliniko", "hotmart", "teachable", "thinkific"]
+    );
   });
 
   it("ninguna herramienta del plan es inventada", () => {

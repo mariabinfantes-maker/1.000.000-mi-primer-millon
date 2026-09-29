@@ -80302,5 +80302,461 @@
   ],
   "confianza": "alta",
   "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "bewe",
+  "capacidadId": "cap.per_resource_booking_calendar",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.bewe.ai/agenda",
+    "fechaConsulta": "2026-09-28",
+    "cita": "Profesionales, salas y equipos como recursos, cada uno con su horario.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-28"
+ },
+ {
+  "herramientaId": "bewe",
+  "capacidadId": "cap.online_self_service_booking",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.bewe.ai/sales-assistant",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Linda detecta la intención de agendar, consulta tu calendario en tiempo real y crea la cita en el mismo chat.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "bewe",
+  "capacidadId": "cap.customer_appointment_reminders",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.bewe.ai/sales-assistant",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Recordatorios automáticos para bajar el no-show.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "bewe",
+  "capacidadId": "cap.booking_cancellation_and_rescheduling",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.bewe.ai/sales-assistant",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Reagenda y cancela desde el mismo canal cuando el cliente lo pide.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "bewe",
+  "capacidadId": "cap.capacity_and_time_slots",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.bewe.ai/agenda",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Profesionales, salas y equipos como recursos, cada uno con su horario.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "bookitit",
+  "capacidadId": "cap.per_resource_booking_calendar",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.bookitit.com/es/tutoriales/configuracion-de-una-agenda/",
+    "fechaConsulta": "2026-09-28",
+    "cita": "La agenda es aquella persona o lugar que ofrece el servicio que solicita el cliente.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-28"
+ },
+ {
+  "herramientaId": "bookitit",
+  "capacidadId": "cap.online_self_service_booking",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.bookitit.com/es/blog/utiliza-bookitit-para-tu-academia-de-idiomas-%C2%B7-sistema-de-reservas-online/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Tus estudiantes podrán entrar en la página web de tu academia de idiomas y reservar la clase",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "bookitit",
+  "capacidadId": "cap.customer_appointment_reminders",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.bookitit.com/es/blog/utiliza-bookitit-para-tu-academia-de-idiomas-%C2%B7-sistema-de-reservas-online/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "tanto tú como los estudiantes recibiréis una notificación por e-mail o SMS",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "bookitit",
+  "capacidadId": "cap.booking_cancellation_and_rescheduling",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.bookitit.com/es/blog/sistema-de-reservas-online-para-autoescuelas-%C2%B7-bookitit/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "un cliente decide no realizar finalmente una práctica que ya había reservado, podrá cancelarla",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "bookitit",
+  "capacidadId": "cap.capacity_and_time_slots",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.bookitit.com/es/reservas-online-programa-kit-digital/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Puedes configurar cuántas citas quieres recibir a una misma hora en una agenda.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "bookitit",
+  "capacidadId": "cap.booking_waitlist",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.bookitit.com/pt-br/perguntas-frequentes-sobre-reservas-online/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Cuando un servicio alcanza la capacidad máxima, los usuarios pueden entrar en una lista de espera y acceder automáticamente a las plazas que quedan disponibles.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "bookitit",
+  "capacidadId": "cap.embeddable_booking_widget",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.bookitit.com/es/blog/utiliza-bookitit-para-tu-academia-de-idiomas-%C2%B7-sistema-de-reservas-online/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "tendrás que incorporar el widget de Bookitit en tu página web",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "agendapro",
+  "capacidadId": "cap.per_resource_booking_calendar",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://ayuda.agendapro.com/es/articles/6273220-como-creo-un-profesional",
+    "fechaConsulta": "2026-09-28",
+    "cita": "Indica el tipo de configuración del horario del profesional.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-28"
+ },
+ {
+  "herramientaId": "agendapro",
+  "capacidadId": "cap.online_self_service_booking",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://agendapro.com/es-es/reservas-online",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Permite que tus clientes reserven 24/7 y automatiza tu operación.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "agendapro",
+  "capacidadId": "cap.customer_appointment_reminders",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://agendapro.com/es-es/reservas-online",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Envía recordatorios automáticos por WhatsApp, email o SMS y reduce ausencias con solo un clic.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "agendapro",
+  "capacidadId": "cap.booking_cancellation_and_rescheduling",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://ayuda.agendapro.com/es/articles/5929550-como-funciona-el-envio-de-notificacion-y-recordatorios-de-cita-por-email",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Activa o inactiva las opciones de «Reservas editables» si quieres o no que tus clientes puedan reagendar desde el mail de recordatorio y «Reservas cancelables» si quieres o no que tus clientes puedan cancelar citas desde el mail de recordatorio.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "agendapro",
+  "capacidadId": "cap.capacity_and_time_slots",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://ayuda.agendapro.com/es/articles/3333001-como-crear-un-servicio-tipo-clase",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Una clase es un tipo de servicio al que pueden reservar y asistir múltiples personas al mismo tiempo. Tu defines la capacidad (cantidad de cupos de la clase), el horario de la clase y el profesional que la dicta.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "agendapro",
+  "capacidadId": "cap.booking_waitlist",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://ayuda.agendapro.com/es/articles/15465873-centro-de-ayuda-agendapro-fitness-faq",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Cuando la clase se llena, los alumnos pueden anotarse. Si alguien cancela, el sistema inscribe automáticamente al siguiente de la lista (no hace falta que confirme).",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "cliniko",
+  "capacidadId": "cap.per_resource_booking_calendar",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.cliniko.com/features/appointments/",
+    "fechaConsulta": "2026-09-28",
+    "cita": "Select which services each practitioner provides, their default appointment type, when they take their breaks, and much more.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-28"
+ },
+ {
+  "herramientaId": "cliniko",
+  "capacidadId": "cap.online_self_service_booking",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.cliniko.com/features/appointments/online-bookings/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Customers can book on their phone, tablet or computer.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "cliniko",
+  "capacidadId": "cap.customer_appointment_reminders",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.cliniko.com/features/appointments/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Automated appointment reminders",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "cliniko",
+  "capacidadId": "cap.capacity_and_time_slots",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.cliniko.com/features/appointments/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Book more than one client into an appointment",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "cliniko",
+  "capacidadId": "cap.no_show_and_deposits",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://help.cliniko.com/en/articles/5315045-require-a-deposit-for-online-bookings",
+    "fechaConsulta": "2026-09-29",
+    "cita": "you can require a deposit at the time of booking",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "cliniko",
+  "capacidadId": "cap.embeddable_booking_widget",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.cliniko.com/features/appointments/online-bookings/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "online bookings can be embedded in most websites",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
  }
 ]

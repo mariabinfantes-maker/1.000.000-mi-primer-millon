@@ -193,7 +193,8 @@ describe("el caso de la peluquera, con los datos de hoy", () => {
 
   it("las 65 conservan su fila: el desplegable las lleva todas", () => {
     const todas = HERRAMIENTAS.map((h) => ajusteConLoQuePidio(EL_CASO, loQueSabemosDe(h.id)));
-    expect(todas).toHaveLength(65);
+    // 69 desde el 2026-09-29: BEWE, Bookitit, AgendaPro y Cliniko.
+    expect(todas).toHaveLength(69);
     for (const a of todas) expect(a.porNecesidad).toHaveLength(EL_CASO.length);
   });
 

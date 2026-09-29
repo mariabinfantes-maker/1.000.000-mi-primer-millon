@@ -1,0 +1,129 @@
+{
+  "nombre": "BEWE",
+  "paginaOficial": "https://www.bewe.ai/",
+  "urlPrecios": "https://www.bewe.ai/pricing",
+  "categoriaId": "reservas-citas",
+  "descripcion": "Programa que reúne agenda, contactos, caja y comunicaciones con clientes. Su asistente Linda puede gestionar citas desde el chat de la web e Instagram, y desde WhatsApp a partir del plan Growth.",
+  "problemasQueResuelve": [
+    "Necesito responder solicitudes de cita que llegan por distintos canales.",
+    "Quiero organizar los horarios de profesionales, salas y equipos.",
+    "Quiero conservar las conversaciones y citas de cada cliente."
+  ],
+  "casosDeUso": [
+    "Una peluquería combina corte, tinte y secado en una cita cuya duración se calcula con los servicios.",
+    "Un centro asigna horarios diferentes a profesionales, salas y máquinas.",
+    "Un negocio gestiona por chat cambios y cancelaciones de citas."
+  ],
+  "idealPara": "Pequeñas y medianas empresas de servicios, belleza, bienestar, salud, educación y comercio.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "belleza",
+    "bienestar y salud",
+    "educación",
+    "comercio",
+    "servicios profesionales"
+  ],
+  "noRecomendadaPara": "El plan Starter no está pensado para equipos que necesitan varias agendas o atención por WhatsApp.",
+  "casosNoRecomendados": [
+    "Starter sólo incluye una agenda y no incluye WhatsApp.",
+    "WhatsApp requiere el plan Growth."
+  ],
+  "funcionesPrincipales": [
+    "Agenda por profesional, sala o equipo",
+    "Citas con varios servicios y cálculo de duración",
+    "Citas recurrentes, descansos y bloqueos",
+    "Gestión de citas mediante Linda",
+    "Fichas de clientes con historial de interacciones",
+    "Campañas de comunicación",
+    "Registro de ingresos, gastos y caja",
+    "Página web del negocio"
+  ],
+  "integraciones": [
+    "Instagram",
+    "WhatsApp desde Growth",
+    "Facebook para publicación de contenido"
+  ],
+  "integracionesPrincipales": [
+    "Instagram",
+    "WhatsApp desde Growth",
+    "Facebook para publicación de contenido"
+  ],
+  "precioInicial": "Desde 29 $/mes",
+  "modeloDePrecio": [
+    "suscripcion_mensual"
+  ],
+  "tienePlanGratuito": false,
+  "preciosComprobados": {
+    "fecha": "2026-09-28",
+    "url": "https://www.bewe.ai/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-28",
+    "url": "https://www.bewe.ai/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Starter",
+        "mensual": "29 $",
+        "anual": null,
+        "cita": "$29.00/mes"
+      },
+      {
+        "nombre": "Growth",
+        "mensual": "59 $",
+        "anual": null,
+        "cita": "$59.00/mes"
+      },
+      {
+        "nombre": "Pro",
+        "mensual": "89 $",
+        "anual": null,
+        "cita": "$89.00/mes"
+      }
+    ]
+  },
+  "idiomasDisponibles": [
+    "es"
+  ],
+  "disponibleEnEspanol": true,
+  "puntuaciones": {
+    "nivelTecnicoRequerido": null,
+    "facilidadImplementacion": null,
+    "fiabilidad": null,
+    "atencionAlCliente": null,
+    "facilidadDeUso": null,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Su guía de arranque describe seis etapas que incluyen registro, diagnóstico y acceso, lo que no equivale a seis pasos de implantación completa. Documenta la configuración manual de jornadas y descansos. Su tarifa indica que no hay cuota de instalación y que Pro incluye acompañamiento el primer mes. Su página de novedades documenta contacto por Linda y por correo, pero no permite confirmar horarios ni cobertura humana por plan. No se encontró compromiso de disponibilidad ni notas desglosadas de G2 o Capterra. Las siete quedan sin valorar.",
+  "ventajas": [
+    "Permite definir horarios propios para personas, salas y equipos.",
+    "Relaciona cambios de cita e incidencias con la ficha del cliente.",
+    "Puede gestionar citas desde los canales de conversación documentados."
+  ],
+  "inconvenientes": [
+    "Starter incluye una agenda; Growth admite cinco empleados con agenda y Pro no fija ese límite.",
+    "WhatsApp requiere Growth o Pro.",
+    "Las conversaciones, envíos e imágenes tienen límites mensuales y los cupos no se acumulan.",
+    "La plataforma anterior y la nueva conviven: el anuncio mantiene soporte para la anterior hasta el 31 de diciembre de 2026."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": "España",
+    "anioFundacion": null,
+    "tamanoAproximado": null
+  },
+  "id": "bewe",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-29",
+  "fechaUltimaRevision": "2026-09-29",
+  "problemasIds": [
+    "organizar-empresa",
+    "conseguir-clientes",
+    "ahorrar-tiempo"
+  ]
+}

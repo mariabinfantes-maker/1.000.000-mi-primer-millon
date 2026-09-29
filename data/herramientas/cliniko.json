@@ -1,0 +1,100 @@
+{
+  "nombre": "Cliniko",
+  "paginaOficial": "https://www.cliniko.com/",
+  "categoriaId": "clinicas-salud",
+  "descripcion": "Software de gestión para clínicas y profesionales sanitarios. Reúne agenda, reservas online, documentación clínica, facturación, pagos e informes.",
+  "problemasQueResuelve": [
+    "Necesito gestionar las citas de mi consulta y permitir que los pacientes reserven online.",
+    "Quiero guardar las notas de tratamiento y los documentos de cada paciente en un mismo sistema.",
+    "Necesito relacionar las facturas y los pagos con el historial del paciente."
+  ],
+  "casosDeUso": [
+    "Organizar las citas y las reservas online de una consulta.",
+    "Crear plantillas de notas de tratamiento y consultar la documentación del paciente.",
+    "Registrar facturas, pagos y gastos de la clínica.",
+    "Gestionar varias sedes desde una misma cuenta."
+  ],
+  "idealPara": "Clínicas y profesionales de salud, rehabilitación y terapias.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200"
+  ],
+  "industriasIdeales": [
+    "clínicas",
+    "fisioterapia",
+    "terapias"
+  ],
+  "noRecomendadaPara": "No encaja si es imprescindible disponer de una aplicación móvil nativa: el fabricante afirma que no la ofrece, aunque el sistema se puede utilizar desde el navegador del móvil.",
+  "casosNoRecomendados": [
+    "El paciente puede cancelar, pero no reprogramar su propia cita.",
+    "Los SMS se pagan aparte: la tarifa consultada indica 0,10 USD por mensaje.",
+    "No ofrece una aplicación móvil nativa; el acceso móvil se realiza mediante su versión web."
+  ],
+  "funcionesPrincipales": [
+    "Agenda, reservas online y citas recurrentes.",
+    "Notas de tratamiento personalizables y archivos del paciente.",
+    "Facturas, pagos, gastos e impuestos.",
+    "Informes de actividad de la clínica.",
+    "Gestión de varias sedes."
+  ],
+  "integraciones": [
+    "Mailchimp",
+    "Xero",
+    "Physitrack"
+  ],
+  "integracionesPrincipales": [
+    "Mailchimp: sincronización de datos de pacientes para comunicaciones.",
+    "Xero: conexión de información de facturación y pagos.",
+    "Physitrack: herramienta de ejercicios incluida en el catálogo oficial de aplicaciones conectadas."
+  ],
+  "precioInicial": "Cliniko is free to use for registered charities or educational institutions.",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual"
+  ],
+  "tienePlanGratuito": true,
+  "preciosComprobados": {
+    "url": "https://www.cliniko.com/pricing/",
+    "fecha": "2026-09-29",
+    "cita": "1 practitioner […] 26 to 200 practitioners […] Every Cliniko feature […] Unlimited admin users […] Unlimited locations […] SMS credits are 10¢ per message."
+  },
+  "idiomasDisponibles": [
+    "en"
+  ],
+  "tieneAppMovil": false,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "nivelTecnicoRequerido": null,
+    "facilidadImplementacion": null,
+    "fiabilidad": null,
+    "atencionAlCliente": null,
+    "facilidadDeUso": null,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Información obtenida de páginas oficiales, tarifas, documentación técnica y artículos de ayuda abiertos. La descripción, los problemas y los casos de uso son reformulaciones de funciones documentadas, no testimonios de clientes. Las integraciones enumeradas son una selección comprobada, no un listado exhaustivo ni un ranking. La cifra 99 corresponde al contador del catálogo de aplicaciones conectadas; no implica 99 integraciones desarrolladas por Cliniko. TieneAppMovil se refiere a una aplicación nativa. Los títulos HTML de las páginas de funciones y preguntas frecuentes son simplemente Cliniko; sus encabezados visibles son Features y Frequently asked questions. Todas las puntuaciones quedan sin valorar porque no he realizado pruebas de uso ni mediciones independientes.",
+  "ventajas": [
+    "Todas las suscripciones incluyen el conjunto de funciones de Cliniko.",
+    "Incluye usuarios administrativos y sedes sin límite publicado.",
+    "Dispone de una API oficial con documentación pública."
+  ],
+  "inconvenientes": [
+    "Los SMS se pagan aparte: la tarifa consultada indica 0,10 USD por mensaje.",
+    "No ofrece una aplicación móvil nativa; el acceso móvil se realiza mediante su versión web."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": "Australia",
+    "anioFundacion": 2011,
+    "tamanoAproximado": null
+  },
+  "id": "cliniko",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-29",
+  "fechaUltimaRevision": "2026-09-29",
+  "urlPrecios": "https://www.cliniko.com/pricing/",
+  "problemasIds": [
+    "organizar-empresa",
+    "ahorrar-tiempo"
+  ]
+}

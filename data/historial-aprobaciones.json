@@ -528,5 +528,25 @@
     "estadoAfiliacion": null,
     "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Criterio de calidad: quedan 1 advertencia(s) sin resolver: Cómo cobra, en corto: El fabricante cobra por TRAMOS de usuarios (1 / 2-15 / +15), no por usuario suelto. | Examen de entrada: Sólo 0 capacidades verificadas; hacen falta 3. Sin esto no sabemos qué hace. | Examen de entrada: El precio no tiene fuente guardada (página y fecha).",
     "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T16:19:29.858Z",
+    "herramientaId": "agendapro",
+    "nombreHerramienta": "AgendaPro",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 54,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Examen de entrada: El precio no tiene fuente guardada (página y fecha).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T16:19:30.498Z",
+    "herramientaId": "cliniko",
+    "nombreHerramienta": "Cliniko",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 52,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Examen de entrada: El precio no tiene fuente guardada (página y fecha).",
+    "aprobacionCeo": true
   }
 ]

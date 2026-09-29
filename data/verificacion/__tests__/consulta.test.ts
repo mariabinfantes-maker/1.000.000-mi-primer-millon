@@ -159,9 +159,15 @@ describe("sobre los 1.547 registros reales", () => {
     // 3.880 desde el 2026-09-24: las 808 comprobaciones de las cuatro necesidades
     // que bloqueaban a nueve oficios. Se incorporaron porque cada pasada cuesta
     // dinero real y, si el resultado no llega hasta aquí, no cambia nada.
-    expect(registros.length).toBe(3884);
+    //
+    // 3.908 y 891 desde el 2026-09-29 por la tarde: entran BEWE, Bookitit,
+    // AgendaPro y Cliniko, autorizadas por la propietaria («sube las 6 al
+    // catálogo»), con los 24 registros de sus capacidades de reservas. Ya
+    // estaban investigadas con cita y dirección desde el 28 y el 29; lo que
+    // faltaba era archivarlas, y eso hace `cli-archivar-reservas.ts`.
+    expect(registros.length).toBe(3908);
     const verificados = registros.filter((r) => puerto.estadoDe(r.herramientaId, r.capacidadId).estado === "demostrada");
-    expect(verificados.length).toBe(867);
+    expect(verificados.length).toBe(891);
   });
 
   /**
@@ -177,7 +183,9 @@ describe("sobre los 1.547 registros reales", () => {
    */
   it("las 65 herramientas tienen al menos una capacidad demostrada", () => {
     const herramientas = [...new Set(registros.map((r) => r.herramientaId))];
-    expect(herramientas.length).toBe(65);
+    // 69 desde el 2026-09-29: las cuatro promovidas esa tarde traen sus
+    // capacidades archivadas, así que ninguna entra sin saber qué hace.
+    expect(herramientas.length).toBe(69);
     expect(herramientas.filter((id) => puerto.capacidadesVerificadasDe(id).length === 0)).toEqual([]);
   });
 

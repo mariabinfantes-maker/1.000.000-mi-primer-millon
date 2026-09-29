@@ -82,8 +82,13 @@ describe("la puntuación guardada en cada ficha", () => {
    * aquí la lista exacta para que no crezca en silencio: si mañana entra una
    * sexta ficha sin análisis, esta prueba falla y obliga a decidir.
    */
-  it("las fichas sin analisisAtlas siguen siendo exactamente estas cinco", () => {
+  it("las fichas sin analisisAtlas siguen siendo exactamente estas nueve", () => {
     const sinAnalisis = herramientas.filter((h) => !h.analisisAtlas).map((h) => h.id).sort();
-    expect(sinAnalisis).toEqual(["bitrix24", "gohighlevel", "hubspot", "odoo", "zoho-one"]);
+    // Las cuatro de reservas del 2026-09-29 se suman a las cinco que ya
+    // estaban: ninguna trae `analisisAtlas`, y no se les inventa uno.
+    expect(sinAnalisis).toEqual([
+      "agendapro", "bewe", "bitrix24", "bookitit", "cliniko",
+      "gohighlevel", "hubspot", "odoo", "zoho-one",
+    ]);
   });
 });

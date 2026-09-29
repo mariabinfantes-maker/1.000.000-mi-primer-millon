@@ -82,7 +82,12 @@ for (const id of LAS_CINCO) {
   const datos: Record<string, unknown> = {
     nombre: h.nombre ?? g.nombre,
     paginaOficial: h.paginaOficial ?? g.web,
-    urlPrecios: h.urlPrecios,
+    /**
+     * La dirección de la tarifa. Si la ficha no la trae, se usa la de la
+     * propia prueba de tarifa: es la página que se abrió de verdad, y el
+     * catálogo exige que el recibo y este campo apunten al mismo sitio.
+     */
+    urlPrecios: h.urlPrecios ?? (h.pruebas ?? []).find((x: any) => x.tipo === "tarifa_oficial")?.url,
     categoriaId: h.categoriaId,
     descripcion: h.descripcion,
     problemasQueResuelve: h.problemasQueResuelve,
@@ -117,6 +122,18 @@ for (const id of LAS_CINCO) {
     precioInicial: h.precioInicial ?? e.precioInicial ?? g.precioMasBajo?.cita,
     modeloDePrecio: (h.modeloDePrecio ?? ["suscripcion_mensual"]).filter((m: string) => MODELO.includes(m)),
     tienePlanGratuito: h.tienePlanGratuito ?? e.tienePlanGratuito,
+    /**
+     * EL RECIBO DEL PRECIO, que este constructor se dejaba y por eso AgendaPro
+     * y Cliniko no pasaban el examen de entrada.
+     *
+     * No se inventa: se saca de la propia prueba que GPT ya entregó, la que
+     * lleva `tipo: "tarifa_oficial"`. Si no hay ninguna, se queda sin recibo y
+     * el examen lo dirá, que para eso está.
+     */
+    preciosComprobados: (() => {
+      const p = (h.pruebas ?? []).find((x: any) => x.tipo === "tarifa_oficial" && x.url);
+      return p ? { url: p.url, fecha: h.fecha ?? "2026-09-29", cita: p.cita } : undefined;
+    })(),
     idiomasDisponibles: h.idiomasDisponibles ?? g.idiomaDelProducto,
     /**
      * SIN DEDUCIR. Antes se ponía `true` si la lista de idiomas incluía «es».
@@ -139,6 +156,18 @@ for (const id of LAS_CINCO) {
     ventajas: h.ventajas,
     inconvenientes: h.inconvenientes,
     informacionEmpresa: h.informacionEmpresa,
+    /**
+     * EL HUECO, DICHO. Ninguna de éstas trae `objetivo`, y el catálogo tiene
+     * desde el 2026-08-27 un campo para eso: `objetivoPendienteDeInvestigacion`.
+     * Nació porque 38 de 56 fichas se habían quedado sin objetivo y, como la
+     * puerta «por objetivo» filtra estricto, ese 68% era invisible para quien
+     * entraba por ahí — y no había forma de distinguir «aún no investigado»
+     * de «no encaja».
+     *
+     * Se marca `true`, que es lo que ese campo significa: pendiente, y en la
+     * cola del Researcher. No es un relleno: es el hueco declarándose.
+     */
+    objetivoPendienteDeInvestigacion: true,
   };
 
   const propuesta: HerramientaPropuesta = {
