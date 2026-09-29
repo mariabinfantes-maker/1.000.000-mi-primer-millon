@@ -42,6 +42,8 @@ const propuestaValida: HerramientaPropuesta = {
       nivelTecnicoRequerido: 3,
     },
     metodologiaValoracion: "Basada en la documentación pública, pendiente de contrastar con uso real.",
+    // El examen de entrada (2026-09-29) pide el precio con su página y su fecha.
+    preciosComprobados: { fecha: "2026-09-28", url: "https://ejemplo.com/precios" },
   },
   // confidenceLevel "high" y puntuaciones altas: por encima del umbral del criterio de calidad
   // (agents/atlas-researcher/criteriosCalidad.ts) sin necesidad de reputación externa — los casos
@@ -54,6 +56,26 @@ const propuestaValida: HerramientaPropuesta = {
   advertencias: [],
 };
 
+/** Todas las herramientas que estas pruebas intentan promover. */
+const IDS_DE_PRUEBA = [
+  "herramienta-afiliacion-media",
+  "herramienta-categoria-mala",
+  "herramienta-confianza-alta",
+  "herramienta-de-prueba",
+  "herramienta-historial-media",
+  "herramienta-incompleta",
+  "herramienta-mediocre",
+  "herramienta-rechazada",
+  "herramienta-sin-afiliados",
+  "herramienta-sin-decision",
+  "hubspot",
+  "hubspot-marketing-hub",
+  "hubspot-sin-justificar",
+  "sin-afiliados-autorizada",
+  "sin-afiliados-estado-viejo",
+  "sin-afiliados-solo-decision",
+];
+
 describe.skipIf(!postgresDisponible())("promoverBorrador", () => {
   let dirBorradores: string;
   let dirDatos: string;
@@ -63,6 +85,29 @@ describe.skipIf(!postgresDisponible())("promoverBorrador", () => {
     dirBorradores = fs.mkdtempSync(path.join(os.tmpdir(), "atlas-promover-borradores-"));
     dirDatos = fs.mkdtempSync(path.join(os.tmpdir(), "atlas-promover-datos-"));
     rutaHistorial = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "atlas-promover-historial-")), "historial-aprobaciones.json");
+    /**
+     * El examen de entrada pregunta primero «¿qué hace?», y eso se responde
+     * con capacidades verificadas en `data/verificacion/registros.json`, no
+     * con lo que diga la web comercial.
+     *
+     * Se siembran tres para cada herramienta que estas pruebas promueven, de
+     * forma que ninguna falle por un motivo que no es el que está probando.
+     * Las que comprueban que el examen SÍ para tienen su propio caso, en
+     * `examenDeEntrada.test.ts`.
+     */
+    fs.mkdirSync(path.join(dirDatos, "verificacion"), { recursive: true });
+    const CAPS = ["cap.task_management", "cap.customer_contact_records", "cap.lead_capture"];
+    fs.writeFileSync(
+      path.join(dirDatos, "verificacion", "registros.json"),
+      JSON.stringify(
+        IDS_DE_PRUEBA.flatMap((herramientaId) =>
+          CAPS.map((capacidadId) => ({ herramientaId, capacidadId, estado: "verificado" }))
+        ),
+        null,
+        1
+      ),
+      "utf8"
+    );
     await limpiarTablasDePrueba();
   });
 
@@ -366,7 +411,13 @@ describe.skipIf(!postgresDisponible())("promoverBorrador", () => {
     if (!resultado.ok) expect(resultado.errores.some((e) => e.includes("justificacionAnulacion"))).toBe(true);
   });
 
-  it("falla si la Puntuación Molnip queda por debajo del umbral de calidad (regla aprobada el 2026-08-18)", async () => {
+  /**
+   * DESCONECTADA (2026-09-29). Vigilaba el umbral de 80/100, sustituido por el
+   * examen de entrada. No se borra: guarda por qué existió aquel umbral y qué
+   * comprobaba. `examenDeEntrada.test.ts` vigila lo que rige ahora. Si el
+   * umbral vuelve a conectarse en `promover.ts`, se le quita el `.skip`.
+   */
+  it.skip("falla si la Puntuación Molnip queda por debajo del umbral de calidad (regla aprobada el 2026-08-18)", async () => {
     const propuestaMediocre: HerramientaPropuesta = {
       ...propuestaValida,
       datos: {

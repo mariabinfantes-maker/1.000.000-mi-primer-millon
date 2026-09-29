@@ -11,6 +11,8 @@ import { leerBorrador } from "./borrador";
 import { comprobarAutorizacion } from "./autorizacionAfiliacion";
 import { decidirEstadoAfiliacion } from "./estadoAfiliacion";
 import { evaluarCriteriosDeCalidad } from "./criteriosCalidad";
+import { examinarParaEntrar } from "./examenDeEntrada";
+import { contarCapacidadesVerificadas } from "./capacidadesVerificadas";
 import { leerDecision } from "./decision";
 import { generarIdCuenta } from "@/agents/atlas-affiliate-manager/estrategiaAfiliacion";
 import { registrarEnHistorial } from "./historialAprobaciones";
@@ -179,13 +181,46 @@ export async function promoverBorrador(id: string, opciones: OpcionesPromocion =
       }
     }
 
-    const resultadoCalidad = evaluarCriteriosDeCalidad(herramienta, datosAfiliados, borrador.metadatos);
-    if (!resultadoCalidad.ok) {
-      errores.push(...resultadoCalidad.errores.map((e) => `Criterio de calidad: ${e}`));
-    } else {
-      calidadSuperada = true;
-      verificacionAfiliacionPendiente = resultadoCalidad.verificacionAfiliacionPendiente;
+    /**
+     * EL EXAMEN DE ENTRADA (propietaria, 2026-09-29).
+     *
+     * Sustituye al umbral de 80/100 de `evaluarCriteriosDeCalidad`, que no se
+     * borra: sigue ahí, con su porqué, y se vuelve a llamar desde aquí si
+     * algún día hace falta. Lo que medía el 80 y por qué dejó de valer está
+     * escrito entero en `examenDeEntrada.ts`.
+     *
+     * En corto: el 80 se calculaba con la nota de G2/Capterra y las siete
+     * valoraciones que nos poníamos nosotros. Lo aprobaba el 92 % del catálogo
+     * y sólo lo podían aprobar las herramientas grandes e internacionales,
+     * porque G2 y Capterra son del mercado en inglés. El examen nuevo pregunta
+     * qué sabemos de ella y podemos demostrar.
+     *
+     * La confianza de la investigación y sus advertencias siguen bloqueando:
+     * eso no era el umbral, es otra cosa, y sigue valiendo.
+     */
+    const confianza = borrador.metadatos?.confianza;
+    if (confianza === "baja") {
+      errores.push('Criterio de calidad: la investigación tiene confianza "baja" — complétala antes de promover.');
     }
+    const advertencias = borrador.metadatos?.advertencias ?? [];
+    if (advertencias.length > 0) {
+      errores.push(`Criterio de calidad: quedan ${advertencias.length} advertencia(s) sin resolver: ${advertencias.join("; ")}`);
+    }
+
+    const examen = examinarParaEntrar(herramienta, {
+      capacidadesVerificadas: contarCapacidadesVerificadas(id, dirDatos),
+    });
+    if (!examen.ok) {
+      errores.push(...examen.errores.map((e) => `Examen de entrada: ${e}`));
+    }
+
+    if (confianza !== "baja" && advertencias.length === 0 && examen.ok) {
+      calidadSuperada = true;
+      verificacionAfiliacionPendiente = datosAfiliados.confidenceLevel === "medium";
+    }
+
+    // Desconectado con el umbral de 80. Se conserva para poder volver.
+    void evaluarCriteriosDeCalidad;
   }
 
   const idsExistentes = new Set(catalogoExistente.map((h) => h.id));
