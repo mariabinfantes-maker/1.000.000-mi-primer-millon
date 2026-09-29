@@ -38,7 +38,20 @@ const LAS_CINCO = ["agendapro", "cliniko", "jane", "square-appointments", "sched
 const ficha = new Map<string, any>();
 for (const f of ["reservas-17-2026-09-29/tanda-4.json", "reservas-17-2026-09-29/tanda-5.json",
                  "lo-que-falta-2026-09-29/entrega-1.json", "lo-que-falta-2026-09-29/entrega-2.json"]) {
-  for (const h of leer(f).herramientas ?? []) ficha.set(h.id, { ...(ficha.get(h.id) ?? {}), ...h });
+  for (const h of leer(f).herramientas ?? []) {
+    const antes = ficha.get(h.id) ?? {};
+    /**
+     * Las listas de PRUEBAS se suman, no se sustituyen.
+     *
+     * Square y Schedulista se investigaron dos veces y cada entrega trae sus
+     * propias pruebas. Machacando la lista se perdía la de tarifa de la tanda
+     * 4 y Schedulista se quedaba sin recibo del precio, con el precio delante.
+     */
+    ficha.set(h.id, { ...antes, ...h,
+      pruebas: [...(antes.pruebas ?? []), ...(h.pruebas ?? []), ...(h.fuentesDatosGenerales ?? [])],
+      paginasQueAbriste: [...new Set([...(antes.paginasQueAbriste ?? []), ...(h.paginasQueAbriste ?? [])])],
+    });
+  }
 }
 /** El tamaño y los límites, de las tandas 1 a 3. */
 const extra = new Map<string, any>();
@@ -70,14 +83,34 @@ for (const id of LAS_CINCO) {
    * `casosNoRecomendados` son los LÍMITES, no sectores excluidos: qué topa
    * aunque seas su cliente. Corrección de la propietaria, 2026-09-28.
    */
+  const advertencias: string[] = [];
+  if (!h.idiomasDisponibles?.length && !g.idiomaDelProducto?.length) advertencias.push("Los idiomas no están demostrados.");
+
+  /**
+   * CÓMO COBRA VA A LA FICHA, NO A UNA ADVERTENCIA.
+   *
+   * `modeloDePrecio` sólo sabe decir seis cosas, y algunas herramientas cobran
+   * de otra manera: Square por punto de venta, Schedulista por tramos de
+   * usuarios. Antes eso se guardaba como advertencia del borrador para no
+   * perderlo, y salía mal por los dos lados: no lo veía el cliente, que es
+   * quien lo necesita antes de contratar, y bloqueaba la promoción, porque el
+   * criterio de calidad no promueve con advertencias abiertas. A Schedulista
+   * la dejó fuera del catálogo el 2026-09-29.
+   *
+   * Va a `inconvenientes`, que es la lista que sale en la ficha pública, y que
+   * no es una lista de defectos sino de lo que hay que tener en cuenta. Ahí
+   * cumple su función. Decisión de la propietaria del 2026-09-29.
+   */
+  const comoCobra = h.notaDelPrecio
+    ? [h.notaDelPrecio.replace(/^El fabricante cobra/, "Se cobra").replace(/^Además de la cuota, Square cobra/, "Además de la cuota se cobra")]
+    : [];
+
+
   const limites: string[] = [
     ...(e.limites ?? []).map((l: any) => (typeof l === "string" ? l : l.texto)),
     ...(h.inconvenientes ?? []),
+    ...comoCobra,
   ].filter(Boolean);
-
-  const advertencias: string[] = [];
-  if (!h.idiomasDisponibles?.length && !g.idiomaDelProducto?.length) advertencias.push("Los idiomas no están demostrados.");
-  if (h.notaDelPrecio) advertencias.push(`Cómo cobra, en corto: ${h.notaDelPrecio}`);
 
   const datos: Record<string, unknown> = {
     nombre: h.nombre ?? g.nombre,
@@ -154,7 +187,7 @@ for (const id of LAS_CINCO) {
     puntuaciones: h.puntuaciones,
     metodologiaValoracion: h.metodologiaValoracion,
     ventajas: h.ventajas,
-    inconvenientes: h.inconvenientes,
+    inconvenientes: [...(h.inconvenientes ?? []), ...comoCobra],
     informacionEmpresa: h.informacionEmpresa,
     /**
      * EL HUECO, DICHO. Ninguna de éstas trae `objetivo`, y el catálogo tiene
@@ -166,6 +199,10 @@ for (const id of LAS_CINCO) {
      *
      * Se marca `true`, que es lo que ese campo significa: pendiente, y en la
      * cola del Researcher. No es un relleno: es el hueco declarándose.
+     *
+     * Y se quita en cuanto la ficha recibe sus `problemasIds`: el Curador
+     * comprueba que nadie tenga objetivo Y esté pendiente a la vez, porque
+     * entonces la deuda deja de ser medible.
      */
     objetivoPendienteDeInvestigacion: true,
   };

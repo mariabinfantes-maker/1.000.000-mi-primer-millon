@@ -80872,5 +80872,133 @@
   ],
   "confianza": "alta",
   "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "schedulista",
+  "capacidadId": "cap.per_resource_booking_calendar",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://support.schedulista.com/en/articles/397026-getting-started-with-schedulista",
+    "fechaConsulta": "2026-09-28",
+    "cita": "Each service provider has a calendar showing all of their past and future appointments.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-28"
+ },
+ {
+  "herramientaId": "schedulista",
+  "capacidadId": "cap.online_self_service_booking",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.schedulista.com/features",
+    "fechaConsulta": "2026-09-29",
+    "cita": "clients can schedule with your business, 24/7.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "schedulista",
+  "capacidadId": "cap.customer_appointment_reminders",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://support.schedulista.com/en/articles/2814392-getting-started-guide-section-4-client-notifications",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Schedulista automatically sends appointment confirmations and reminders to clients by email.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "schedulista",
+  "capacidadId": "cap.booking_cancellation_and_rescheduling",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://support.schedulista.com/en/articles/2322989-how-can-a-client-reschedule-their-appointment-online",
+    "fechaConsulta": "2026-09-29",
+    "cita": "to reschedule or cancel the appointment online.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "schedulista",
+  "capacidadId": "cap.capacity_and_time_slots",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://support.schedulista.com/en/articles/365829-creating-a-class-or-event",
+    "fechaConsulta": "2026-09-29",
+    "cita": "You set the maximum capacity of the class from 1 up to 200 people.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "schedulista",
+  "capacidadId": "cap.no_show_and_deposits",
+  "estado": "verificado",
+  "profundidad": "integracion",
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://support.schedulista.com/en/articles/379739-how-do-i-take-a-deposit",
+    "fechaConsulta": "2026-09-29",
+    "cita": "take a deposit from a client for a service when they schedule their appointment",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29",
+  "integraCon": "Stripe"
+ },
+ {
+  "herramientaId": "schedulista",
+  "capacidadId": "cap.embeddable_booking_widget",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://support.schedulista.com/en/articles/377086-embed-the-schedulista-scheduler-widget-on-your-website",
+    "fechaConsulta": "2026-09-29",
+    "cita": "You can embed a scheduler on your website so your clients can book appointments without having to leave your site.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
  }
 ]

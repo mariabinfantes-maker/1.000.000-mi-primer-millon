@@ -568,5 +568,25 @@
     "estadoAfiliacion": "confirmada",
     "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Atlas Curator: \"Archivex\" y \"Hive\" tienen nombres muy parecidos — revisa si son la misma herramienta. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces. | \"archivex\" ya existe en el catálogo real: promoverlo lo sobrescribiría. Revísalo a mano si es intencionado.",
     "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T18:15:12.552Z",
+    "herramientaId": "schedulista",
+    "nombreHerramienta": "Schedulista",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 54,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Examen de entrada: Sólo 0 capacidades verificadas; hacen falta 3. Sin esto no sabemos qué hace. | Examen de entrada: El precio no tiene fuente guardada (página y fecha).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T18:15:58.173Z",
+    "herramientaId": "schedulista",
+    "nombreHerramienta": "Schedulista",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 54,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: \"schedulista\" ya existe en el catálogo real: promoverlo lo sobrescribiría. Revísalo a mano si es intencionado.",
+    "aprobacionCeo": true
   }
 ]

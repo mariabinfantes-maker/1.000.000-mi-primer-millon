@@ -50,7 +50,7 @@ const OCHO = new Set([
 ]);
 const CATEGORIAS_DE_RESERVAS = new Set(["reservas-citas", "clinicas-salud", "formacion-academias", "agenda-planificacion"]);
 
-type Hallazgo = { capacidadId: string; cita?: string; url?: string; profundidad?: string; planMinimo?: string | null; planEstado?: string; fecha: string };
+type Hallazgo = { capacidadId: string; cita?: string; url?: string; profundidad?: string; integraCon?: string; planMinimo?: string | null; planEstado?: string; fecha: string };
 const porHerramienta = new Map<string, Hallazgo[]>();
 const mete = (id: string, h: Hallazgo) => {
   const ya = porHerramienta.get(id) ?? [];
@@ -88,6 +88,8 @@ for (const f of ["crudo/tanda-1-crudo.json", "crudo/tanda-2-crudo.json", "crudo/
       // Sin cita no hay registro: lo dice el esquema y no se fuerza.
       if (!cita || !url) { sinCita.push(`${h.id}/${c.capacidadId ?? c.id}`); continue; }
       mete(h.id, { capacidadId: c.capacidadId ?? c.id, cita, url, profundidad: c.profundidad,
+                   // Obligatorio cuando la profundidad es `integracion`: con qué se integra.
+                   integraCon: c.integraCon ?? undefined,
                    planMinimo: c.planMinimo, planEstado: c.planEstado, fecha: "2026-09-29" });
     }
     for (const c of h.capacidadesVerificadas ?? []) sinCita.push(`${h.id}/${c}`);
@@ -151,10 +153,24 @@ for (const [id, hs] of porHerramienta) {
     nuevos.push({
       herramientaId: id, capacidadId: h.capacidadId, estado: "verificado", profundidad,
       ...(esConvencion ? { profundidadEsConvencion: true } : {}),
-      planEstado: h.planEstado ?? "desconocido",
-      ...(h.planEstado === "verificado" && h.planMinimo ? { planMinimo: h.planMinimo } : {}),
+      ...(profundidad === "integracion" && h.integraCon ? { integraCon: h.integraCon } : {}),
+      /**
+       * EL PLAN SIEMPRE `desconocido` AQUÍ, aunque la investigación lo nombre.
+       *
+       * El esquema pide, para darlo por verificado, una fuente aparte con
+       * `rol: "plan_consultado"` cuya cita nombre el plan. Este archivo sólo
+       * trae la fuente de la capacidad, así que copiar el `planEstado` de la
+       * investigación afirmaba un plan sin la prueba que lo sostiene: siete
+       * registros de Schedulista salieron así el 2026-09-29.
+       *
+       * «Un plan que no se ha demostrado no se nombra: nombrarlo sería
+       * afirmarlo.» El plan no se pierde —sigue en `data/investigacion/`— y
+       * entra el día que se archive con su fuente.
+       */
+      planEstado: "desconocido",
       fuentes: [{ tipo: "pagina_oficial", url: h.url, fechaConsulta: h.fecha, cita: h.cita, rol: "capacidad" }],
       confianza: "alta",
+      // 12 meses: sin plan nombrado, el esquema no pide los 6.
       proximaRevision: h.fecha.replace(/^2026/, "2027"),
     });
   }
@@ -194,7 +210,17 @@ arr.push(...aAnadir);
 const enCatalogoAhora = new Set(
   fs.readdirSync(path.join(D, "herramientas")).filter((f) => f.endsWith(".json")).map((f) => f.replace(/\.json$/, ""))
 );
-const colgando = arr.filter((r: any) => !enCatalogoAhora.has(r.herramientaId));
+/**
+ * La limpieza es un paso APARTE, con `--limpiar`, y no parte del archivado.
+ *
+ * Corriendo siempre se llevaba por delante los registros de la que estaba a
+ * punto de promoverse: se archivaban, se limpiaban en la misma pasada y la
+ * promoción volvía a encontrar cero. El orden bueno es archivar, promover y
+ * entonces limpiar lo que se quedó sin ficha.
+ */
+const colgando = process.argv.includes("--limpiar")
+  ? arr.filter((r: any) => !enCatalogoAhora.has(r.herramientaId))
+  : [];
 if (colgando.length) {
   const de = [...new Set(colgando.map((r: any) => r.herramientaId))];
   console.log(`   ${colgando.length} registros retirados por no tener ficha todavía: ${de.join(", ")}`);
