@@ -56,6 +56,14 @@ describe("el aislamiento de la verificación", () => {
       path.join("agents", "atlas-advisor", "asesor", "aconsejar.ts"),
       "F3, 2026-09-24: redacta el consejo, y toda afirmación sobre una herramienta tiene que salir de datos verificados. Recibe el puerto por parámetro y no lee `registros.json`.",
     ],
+    [
+      path.join("agents", "atlas-researcher", "capacidadesVerificadas.ts"),
+      "2026-09-29: el examen de entrada al catálogo pregunta primero «¿qué hace esta herramienta?», y eso no se responde con su web comercial sino con lo verificado. Este módulo sólo CUENTA los registros de un id; no lee capacidades, ni citas, ni las pasa a nadie. Es el único sitio de la promoción que toca la verificación, a propósito.",
+    ],
+    [
+      path.join("agents", "atlas-researcher", "__tests__", "promover.test.ts"),
+      "2026-09-29: la prueba de promoción SIEMBRA su propio registros.json en un directorio temporal, para que el examen de entrada tenga qué contar. No lee el fichero real del repositorio.",
+    ],
   ]);
   const EXENTOS = new Set(AUTORIZADOS.keys());
 
@@ -118,6 +126,8 @@ describe("el aislamiento de la verificación", () => {
       path.join("agents", "atlas-advisor", "asesor", "aclarar.ts"),
       path.join("agents", "atlas-advisor", "asesor", "oficios.ts"),
       path.join("agents", "atlas-advisor", "asesor", "aconsejar.ts"),
+      path.join("agents", "atlas-researcher", "capacidadesVerificadas.ts"),
+      path.join("agents", "atlas-researcher", "__tests__", "promover.test.ts"),
     ]);
   });
 
