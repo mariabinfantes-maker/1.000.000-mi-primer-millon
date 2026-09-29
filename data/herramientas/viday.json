@@ -1,0 +1,150 @@
+{
+  "nombre": "ViDay",
+  "paginaOficial": "https://viday.es/",
+  "urlPrecios": "https://viday.es/precios/",
+  "categoriaId": "reservas-citas",
+  "descripcion": "Programa para gestionar citas individuales, clases, clientes y pagos. Incluye una aplicación para el equipo y otra con la marca del negocio para que sus clientes reserven y gestionen sus citas.",
+  "problemasQueResuelve": [
+    "Necesito organizar citas y clases desde el mismo sitio.",
+    "Quiero gestionar bonos y listas de espera.",
+    "Quiero que mis clientes consulten disponibilidad y reserven por internet."
+  ],
+  "casosDeUso": [
+    "Un estudio de pilates administra clases, bonos y listas de espera.",
+    "Una consulta de fisioterapia organiza sesiones y documentación de pacientes.",
+    "Un centro con varios profesionales gestiona sus reservas desde el móvil."
+  ],
+  "idealPara": "Negocios de salud, deporte, bienestar, estética y formación que trabajan con citas o clases.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "fisioterapia",
+    "pilates y yoga",
+    "gimnasios",
+    "peluquerías",
+    "centros de estética",
+    "academias",
+    "autoescuelas",
+    "talleres"
+  ],
+  "noRecomendadaPara": "No está pensada para negocios fuera de la salud, el bienestar, la estética y la formación.",
+  "casosNoRecomendados": [
+    "El plan Empresa incluye hasta tres CIFs con contabilidades separadas.",
+    "Los profesionales adicionales del plan Empresa se cobran aparte."
+  ],
+  "funcionesPrincipales": [
+    "Reservas individuales y grupales",
+    "Bonos, membresías y listas de espera",
+    "Aplicación para clientes y ViDay Manager para profesionales",
+    "Recordatorios de citas",
+    "Historiales y consentimientos digitales",
+    "Pagos, caja y control de gastos según el plan",
+    "Gestión de varios negocios en el plan Empresa"
+  ],
+  "integraciones": [
+    "Google Calendar",
+    "Stripe",
+    "Urban Sports Club",
+    "Wellhub",
+    "Google Drive",
+    "Redsys",
+    "CashDro",
+    "360nrs",
+    "WooCommerce",
+    "Dialoga",
+    "Messagebird"
+  ],
+  "integracionesPrincipales": [
+    "Google Calendar",
+    "Stripe",
+    "Urban Sports Club",
+    "Wellhub"
+  ],
+  "precioInicial": "Desde 39 €/mes + IVA (35,10 €/mes con pago anual)",
+  "modeloDePrecio": [
+    "suscripcion_mensual"
+  ],
+  "tienePlanGratuito": false,
+  "preciosComprobados": {
+    "fecha": "2026-09-28",
+    "url": "https://viday.es/precios/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-28",
+    "url": "https://viday.es/precios/",
+    "moneda": "EUR",
+    "planes": [
+      {
+        "nombre": "Individual Estándar",
+        "mensual": "39 € + IVA",
+        "anual": "35,10 €/mes con pago anual",
+        "cita": "€39 /mes · €35,10 /mes"
+      },
+      {
+        "nombre": "Individual Pro",
+        "mensual": "59 € + IVA",
+        "anual": "53,10 €/mes con pago anual",
+        "cita": "€59 /mes · €53,10 /mes"
+      },
+      {
+        "nombre": "Equipo Estándar",
+        "mensual": "44 € + IVA",
+        "anual": "39,60 €/mes con pago anual",
+        "cita": "€44 /mes · €39,60 /mes"
+      },
+      {
+        "nombre": "Equipo Pro",
+        "mensual": "75 € + IVA",
+        "anual": "67,50 €/mes con pago anual",
+        "cita": "€75 /mes · €67,50 /mes"
+      },
+      {
+        "nombre": "Empresa",
+        "mensual": "129 € + IVA",
+        "anual": "116,10 €/mes con pago anual",
+        "cita": "€129 /mes · €116,10 /mes"
+      }
+    ]
+  },
+  "idiomasDisponibles": [
+    "es"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "puntuaciones": {
+    "nivelTecnicoRequerido": null,
+    "facilidadImplementacion": null,
+    "fiabilidad": null,
+    "atencionAlCliente": null,
+    "facilidadDeUso": null,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Su guía oficial documenta acceso por navegador y app para profesionales. Sus preguntas frecuentes incluyen migración, formación y puesta en marcha, y afirman que el 90 % de los negocios están operativos en dos semanas, con gestor asignado, correo y chat desde España. Describen la implantación y los canales, pero no establecen una correspondencia objetiva con una nota de 1 a 10. No se encontró compromiso de disponibilidad, histórico de caídas ni notas desglosadas de G2 o Capterra. Las siete quedan sin valorar.",
+  "ventajas": [
+    "Combina reservas individuales con clases y listas de espera.",
+    "Ofrece reserva mediante enlace sin obligar al cliente a descargar la aplicación.",
+    "Dispone de conexiones con plataformas de actividad deportiva y pasarelas de pago."
+  ],
+  "inconvenientes": [
+    "Los precios excluyen IVA y las modalidades de equipo añaden costes por profesionales adicionales.",
+    "Los importes anuales son equivalentes mensuales con contratación anual, no el total del año.",
+    "Las integraciones, los pagos y los historiales dependen del plan: aparecen en Pro."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": "España",
+    "anioFundacion": null,
+    "tamanoAproximado": null
+  },
+  "id": "viday",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-29",
+  "fechaUltimaRevision": "2026-09-29",
+  "problemasIds": [
+    "organizar-empresa",
+    "ahorrar-tiempo",
+    "conseguir-clientes"
+  ]
+}

@@ -21,6 +21,12 @@ import type { HerramientaPropuesta } from "@/agents/atlas-researcher/tipos";
 const D = path.join(process.cwd(), "data", "investigacion");
 const ficha = JSON.parse(fs.readFileSync(path.join(D, "reservas-espanolas-2026-09-29", "ficha-completa.json"), "utf8"));
 const extra = JSON.parse(fs.readFileSync(path.join(D, "reservas-espanolas-2026-09-29", "capacidades-y-limites.json"), "utf8"));
+/** Ver la nota del mismo nombre en `cli-borradores-reservas-2.ts`. */
+const inverso = new Map<string, string>(
+  JSON.parse(fs.readFileSync(path.join(D, "sectores-derivados-2026-09-29", "sectores.json"), "utf8")).herramientas
+    .filter((s: any) => s.noRecomendadaPara)
+    .map((s: any) => [s.id, s.noRecomendadaPara])
+);
 const porId = new Map<string, any>(extra.herramientas.map((h: any) => [h.id, h]));
 
 for (const h of ficha.herramientas) {
@@ -60,7 +66,7 @@ for (const h of ficha.herramientas) {
      * Si no consta, se queda vacío y el validador protesta. Que proteste: eso
      * es el hueco enseñándose, no un fallo.
      */
-    noRecomendadaPara: h.noRecomendadaPara,
+    noRecomendadaPara: h.noRecomendadaPara ?? inverso.get(h.id),
     casosNoRecomendados: limites,
     funcionesPrincipales: h.funcionesPrincipales,
     integraciones: h.integraciones,

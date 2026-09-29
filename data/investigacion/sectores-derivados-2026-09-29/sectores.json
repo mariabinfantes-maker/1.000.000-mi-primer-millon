@@ -253,7 +253,9 @@
    "fraseOriginal": "Empresas de servicios y comercios que reservan personal, salas y otros recursos.",
    "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
    "urlDeLaHerramienta": "https://www.timify.com/",
-   "hayQueMirarlo": true
+   "hayQueMirarlo": true,
+   "noRecomendadaPara": "No está pensada para quien no necesite reservar recursos —personal, salas o equipos— además de horas.",
+   "deDondeSaleNoRecomendadaPara": "Invertido de `fraseOriginal`, por la regla de la propietaria del 2026-09-28. No es un defecto ni un juicio."
   },
   {
    "id": "teachworks",
@@ -342,7 +344,9 @@
    ],
    "fraseOriginal": "Peluquerías, barberías, salones y profesionales de belleza y bienestar.",
    "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
-   "urlDeLaHerramienta": "https://biz.booksy.com/"
+   "urlDeLaHerramienta": "https://biz.booksy.com/",
+   "noRecomendadaPara": "No está pensada para negocios fuera de la peluquería, la barbería y la estética.",
+   "deDondeSaleNoRecomendadaPara": "Invertido de `fraseOriginal`, por la regla de la propietaria del 2026-09-28. No es un defecto ni un juicio."
   },
   {
    "id": "treatwell",
@@ -368,7 +372,9 @@
    "fraseOriginal": "Negocios de servicios con citas, personal y cobro en punto de venta.",
    "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
    "urlDeLaHerramienta": "https://squareup.com/es/es/appointments",
-   "hayQueMirarlo": true
+   "hayQueMirarlo": true,
+   "noRecomendadaPara": "No está pensada para quien no cobre en el momento de la cita: su fuerte es unir reserva y cobro.",
+   "deDondeSaleNoRecomendadaPara": "Invertido de `fraseOriginal`, por la regla de la propietaria del 2026-09-28. No es un defecto ni un juicio."
   },
   {
    "id": "schedulista",

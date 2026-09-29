@@ -29,7 +29,7 @@ describe("el plan de verificación", () => {
     // 69 desde el 2026-09-29: las cuatro de reservas que autorizó la
     // propietaria esa tarde. El plan sigue congelado en 62; la deuda se ve
     // en la prueba de abajo, que las nombra una a una.
-    expect(catalogo.length).toBe(71);
+    expect(catalogo.length).toBe(76);
   });
 
   it("ninguna herramienta se repite", () => {
@@ -43,13 +43,13 @@ describe("el plan de verificación", () => {
    * y se cierre cuando se les asigne lote.
    *
    * Las tres primeras son del 2026-09-17: Hotmart, Thinkific y Teachable. Las
-   * seis de reservas son del 2026-09-29 —BEWE, Bookitit, AgendaPro,
+   * once de reservas son del 2026-09-29 —BEWE, Bookitit, AgendaPro,
    * Cliniko, Archivex y Schedulista—; sus capacidades sí están verificadas y archivadas, lo que les
    * falta es lote en el plan de F2.
    */
   it("las únicas que se quedan fuera son las promovidas después de congelarlo", () => {
     expect(catalogo.filter((id) => !asignadas.includes(id)).sort()).toEqual(
-      ["agendapro", "archivex", "bewe", "bookitit", "cliniko", "hotmart", "schedulista", "teachable", "thinkific"]
+      ["agendapro", "archivex", "bewe", "bookitit", "booksy", "cliniko", "hotmart", "nubimed", "schedulista", "square-appointments", "teachable", "thinkific", "timify", "viday"]
     );
   });
 

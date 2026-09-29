@@ -81000,5 +81000,625 @@
   ],
   "confianza": "alta",
   "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "nubimed",
+  "capacidadId": "cap.per_resource_booking_calendar",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://celn.zendesk.com/hc/es/articles/25478836453788-Configurar-profesionales",
+    "fechaConsulta": "2026-09-28",
+    "cita": "Los huecos que se ofrecen al paciente se calculan a partir del horario de trabajo del profesional.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-28"
+ },
+ {
+  "herramientaId": "nubimed",
+  "capacidadId": "cap.online_self_service_booking",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.nubimed.com/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Tus pacientes podrán solicitar una cita las 24h del día.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "nubimed",
+  "capacidadId": "cap.customer_appointment_reminders",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.nubimed.com/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Podrás configurar todo tipo de notificaciones para tus pacientes : recordatorios de cita",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "nubimed",
+  "capacidadId": "cap.booking_cancellation_and_rescheduling",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.nubimed.com/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Los propios pacientes también podrán confirmar o cancelar sus citas desde estos recordatorios, sin necesidad de hablar con el personal de la clínica.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "viday",
+  "capacidadId": "cap.per_resource_booking_calendar",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://intercom.help/viday/es/articles/14086225-nueva-interfaz-como-modificar-el-horario-especifico-de-un-profesional-o-sala-para-que-no-se-pueda-reservar",
+    "fechaConsulta": "2026-09-28",
+    "cita": "Aprenderemos cómo modificar el horario específico de un trabajador o sala desde el calendario",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-28"
+ },
+ {
+  "herramientaId": "viday",
+  "capacidadId": "cap.online_self_service_booking",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://viday.es/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "tus clientes pueden consultar disponibilidad y reservar en cualquier momento",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "viday",
+  "capacidadId": "cap.customer_appointment_reminders",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://viday.es/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "El sistema envía recordatorios automáticos de citas o clases",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "viday",
+  "capacidadId": "cap.booking_cancellation_and_rescheduling",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://viday.es/app-gestion-negocios/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Tus clientes reservan, modifican o cancelan sus reservas en cualquier momento.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "viday",
+  "capacidadId": "cap.capacity_and_time_slots",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://viday.es/clases-grupales/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "controlar plazas disponibles",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "viday",
+  "capacidadId": "cap.booking_waitlist",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://viday.es/clases-grupales/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "La lista de espera notifica automáticamente al siguiente cliente disponible.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "timify",
+  "capacidadId": "cap.per_resource_booking_calendar",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.timify.com/en/support/3037200-the-timify-handbook/",
+    "fechaConsulta": "2026-09-28",
+    "cita": "Set the working and booking times for the resource.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-28"
+ },
+ {
+  "herramientaId": "timify",
+  "capacidadId": "cap.online_self_service_booking",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.timify.com/es/plans/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Por defecto, los clientes pueden reservar como invitados, a través de su cuenta de Facebook o registrándose en TIMIFY.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "timify",
+  "capacidadId": "cap.customer_appointment_reminders",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.timify.com/es/plans/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Recordatorios de reserva se envían automáticamente por correo electrónico. Si lo desea, también puede enviar recordatorios por SMS con un coste adicional.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "timify",
+  "capacidadId": "cap.booking_cancellation_and_rescheduling",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.timify.com/es/plans/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Los clientes pueden cancelar y reprogramar una reserva ellos mismos según sus especificaciones.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "timify",
+  "capacidadId": "cap.capacity_and_time_slots",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.timify.com/es/plans/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Reserva de franjas horarias",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "timify",
+  "capacidadId": "cap.booking_waitlist",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.timify.com/en/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Inform customers on the waitlist about earlier available slots.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "timify",
+  "capacidadId": "cap.embeddable_booking_widget",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://www.timify.com/es/plans/",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Widget de reservas para integraciones iframe y overlay",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "booksy",
+  "capacidadId": "cap.per_resource_booking_calendar",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://biz.booksy.com/es-es/funcionalidades",
+    "fechaConsulta": "2026-09-28",
+    "cita": "Crea un perfil a cada empleado para asignarle servicios, establecer sus horarios y permitirle gestionar sus citas en la app de Booksy.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-28"
+ },
+ {
+  "herramientaId": "booksy",
+  "capacidadId": "cap.online_self_service_booking",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://biz.booksy.com/es-es/precios",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Reservas online 24/7",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "booksy",
+  "capacidadId": "cap.customer_appointment_reminders",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://biz.booksy.com/es-es/funcionalidades/proteccion-contra-ausencias",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Recordatorios Automáticos Gratuitos",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "booksy",
+  "capacidadId": "cap.booking_cancellation_and_rescheduling",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://biz.booksy.com/es-es/funcionalidades/app-para-clientes",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Reprogramar, cancelar o volver a reservar por su cuenta",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "booksy",
+  "capacidadId": "cap.capacity_and_time_slots",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://biz.booksy.com/es-es/funcionalidades/calendario-y-programacion",
+    "fechaConsulta": "2026-09-29",
+    "cita": "incorpora un intervalo de tiempo entre las citas",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "booksy",
+  "capacidadId": "cap.no_show_and_deposits",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://biz.booksy.com/es-es/funcionalidades/proteccion-contra-ausencias",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Cobraremos las cancelaciones y prepagos en la tarjeta registrada del cliente.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "booksy",
+  "capacidadId": "cap.booking_waitlist",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://biz.booksy.com/es-us/funciones/reservas-en-linea",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Los clientes pueden añadirse a tu lista de espera y recibir una notificación si se libera un espacio.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "booksy",
+  "capacidadId": "cap.embeddable_booking_widget",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://biz.booksy.com/es-es/funcionalidades",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Añade un widget de reservas para recibir reservas a través de tu web.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "square-appointments",
+  "capacidadId": "cap.per_resource_booking_calendar",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "profundidadEsConvencion": true,
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://developer.squareup.com/docs/bookings-api/onboard-to-the-api?preview=true",
+    "fechaConsulta": "2026-09-28",
+    "cita": "services the staff member can provide, whether customers can choose the staff member during an online booking, the staff member's hours",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-28"
+ },
+ {
+  "herramientaId": "square-appointments",
+  "capacidadId": "cap.online_self_service_booking",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://squareup.com/es/es/appointments",
+    "fechaConsulta": "2026-09-29",
+    "cita": "tus clientes podrán hacer reservas online",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "square-appointments",
+  "capacidadId": "cap.customer_appointment_reminders",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://squareup.com/help/es/es/article/6729-customer-confirmations-with-square-appointments",
+    "fechaConsulta": "2026-09-29",
+    "cita": "por correo electrónico o SMS […] para que se envíen recordatorios automáticamente.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "square-appointments",
+  "capacidadId": "cap.booking_cancellation_and_rescheduling",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://squareup.com/help/es/es/article/5493-set-a-custom-cancellation-policy-with-square-appointments",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Los clientes pueden cambiar o cancelar sus citas antes de la hora límite.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "square-appointments",
+  "capacidadId": "cap.capacity_and_time_slots",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://squareup.com/help/es/es/article/5351-manage-your-square-appointments-account-settings",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Elige los intervalos en los que se pueden programar las citas:",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "square-appointments",
+  "capacidadId": "cap.no_show_and_deposits",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://squareup.com/es/es/appointments/features",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Política de cancelación y comisión por ausencia",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "square-appointments",
+  "capacidadId": "cap.booking_waitlist",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://squareup.com/help/es/es/article/7923-waitlist-with-square-appointments",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Inscríbete en la lista de espera […] Enviar a mis clientes una notificación cuando haya una vacante. […] planes Plus y Prémium",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
+ },
+ {
+  "herramientaId": "square-appointments",
+  "capacidadId": "cap.embeddable_booking_widget",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "pagina_oficial",
+    "url": "https://squareup.com/es/es/appointments/features",
+    "fechaConsulta": "2026-09-29",
+    "cita": "reservas directamente desde tu web añadiendo un widget de reservas",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
  }
 ]

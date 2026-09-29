@@ -68,6 +68,16 @@ for (const f of ["reservas-17-2026-09-29/tanda-1.json", "reservas-17-2026-09-29/
   for (const [id, v] of Object.entries(j.losDosPendientes ?? {})) extra.set(id, { ...(extra.get(id) ?? {}), ...(v as object) });
 }
 /** El sector, derivado de lo ya leído el 28. */
+/**
+ * `noRecomendadaPara` derivado: para quién NO está pensada sale por descarte
+ * de saber para quién sí. Regla de la propietaria del 2026-09-28. Vive en
+ * `sectores-derivados` junto a la frase original de la que se invirtió.
+ */
+const inverso = new Map<string, string>(
+  leer("sectores-derivados-2026-09-29/sectores.json").herramientas
+    .filter((s: any) => s.noRecomendadaPara)
+    .map((s: any) => [s.id, s.noRecomendadaPara])
+);
 const sector = new Map<string, string[]>(
   leer("sectores-derivados-2026-09-29/sectores.json").herramientas.map((s: any) => [s.id, s.industriasIdeales])
 );
@@ -151,7 +161,7 @@ for (const id of LAS_CINCO) {
      * Si no consta, se queda vacío y el validador protesta. Que proteste: eso
      * es el hueco enseñándose, no un fallo.
      */
-    noRecomendadaPara: h.noRecomendadaPara,
+    noRecomendadaPara: h.noRecomendadaPara ?? inverso.get(id),
     casosNoRecomendados: limites,
     funcionesPrincipales: h.funcionesPrincipales,
     integraciones: h.integraciones,
