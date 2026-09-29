@@ -70,7 +70,8 @@ for (const h of ficha.herramientas) {
     datos: datos as never,
     // La afiliación está aparcada desde el 2026-09-17: ni se investiga ni se menciona.
     datosAfiliados: {},
-    camposFaltantes: ["curvaDeAprendizaje", "puntuaciones (seis de siete)", "reputacion"],
+    // Lo que falta a propósito: no se puede demostrar, así que no se inventa.
+    camposFaltantes: ["curvaDeAprendizaje", "puntuaciones", "reputacion"],
     fuentes: [h.paginaOficial, h.urlPrecios],
     confianza: "alta",
     advertencias: [],
