@@ -1,14 +1,14 @@
-# Encargo único: la ficha completa de las 17 de reservas
+# Encargo único: la ficha completa de las 15 de reservas
 
 **Uno solo, y completo.** Sustituye a los encargos por tandas, que pedían de
 menos y obligaban a volver. Copia todo lo que va debajo de la línea.
 
 ---
-Eres un investigador. Necesito completar la ficha de catálogo de 17 herramientas de reservas y citas. Todo tiene que salir de la web oficial del fabricante, abierta por ti.
+Eres un investigador. Necesito completar la ficha de catálogo de 15 herramientas de reservas y citas. Todo tiene que salir de la web oficial del fabricante, abierta por ti.
 
 **Es un encargo único: no habrá una segunda ronda.** Si algo no lo puedes comprobar, ponlo a `null` y dime por qué; eso es una respuesta válida y me sirve. Lo que no me sirve es tener que volver a pedírtelo.
 
-## Las 17, y qué tengo ya de cada una
+## Las 15, y qué tengo ya de cada una
 
 De **catorce** ya tengo comprobadas sus funciones, su tamaño de empresa, sus límites y su precio. **De ésas sólo necesito la ficha** (el bloque de abajo llamado «La ficha»).
 
@@ -35,18 +35,17 @@ De **SimplyBook.me** necesito la ficha **y además el tamaño de empresa**:
 SimplyBook.me        https://simplybook.me/
 ```
 
-De estas **dos** no tengo nada: necesito la ficha **y además las siete funciones, el tamaño, los límites y el precio**:
-
-```
-Square Appointments  https://squareup.com/es/es/appointments
-Schedulista          https://www.schedulista.com/
-```
+**Square Appointments y Schedulista ya están hechas** (2026-09-29) y salen de este encargo. No las investigues.
 
 ---
 
-## LA FICHA — lo que necesito de las 17
+## LA FICHA — lo que necesito de las 15
 
 Todo esto, de cada una:
+
+**`categoriaId`** — elige UNA de esta lista, escrita tal cual:
+`reservas-citas`, `clinicas-salud`, `formacion-academias`, `agenda-planificacion`, `plataformas-todo-en-uno`, `marketing-email`, `crm`.
+**No lo dejes vacío y no te inventes otra**: si ninguna encaja bien, pon la más cercana y dilo en `loQueNoPudeComprobar`.
 
 **`descripcion`** — Dos o tres frases que entienda alguien que no sabe de software. Qué es y para qué sirve. Sin tecnicismos y sin lenguaje de folleto.
 
@@ -108,35 +107,12 @@ Su FAQ dice *«The number of staff members and service providers depends on the 
 
 ---
 
-## ADEMÁS, sólo para Square Appointments y Schedulista
+## Las fuentes: cómo se cita
 
-### Las siete funciones, una por una
+Cada cita lleva un **`tipo` de fuente**, de esta lista y sin inventar otros:
+`pagina_oficial`, `documentacion`, `tarifa_oficial`, `prueba_directa`, `nota_de_version`, `fuente_secundaria`.
 
-**Ya tengo comprobadas la agenda por profesional y que el cliente elija con quién**, así que ésas no hacen falta.
-
-- `cap.online_self_service_booking` — **Reserva online por la propia persona.** El cliente reserva él solo, sin llamar ni escribir.
-- `cap.customer_appointment_reminders` — **Recordatorios automáticos.** Avisar de una cita ya reservada, por SMS, correo o WhatsApp.
-- `cap.booking_cancellation_and_rescheduling` — **Cancelar y cambiar la cita**, el cliente por su cuenta. **Hacen falta las dos cosas**: si sólo puede cancelar, va `descartado` con su cita.
-- `cap.capacity_and_time_slots` — **Aforo, turnos y franjas.** Cuántas personas caben en una sesión, duración de cada hueco, descansos.
-- `cap.no_show_and_deposits` — **Ausencias y depósitos.** Cobrar una señal al reservar, o penalizar al que no aparece.
-- `cap.booking_waitlist` — **Lista de espera.** El cliente se apunta **y le avisan** cuando se libere. Una lista que gestiona el personal a mano no cuenta.
-- `cap.embeddable_booking_widget` — **Insertar la reserva en tu propia web.** Un trozo de código para el calendario en la web del negocio. **Un botón que lleva a otra página no cuenta.**
-
-Cada una con **tres estados posibles**:
-
-- `verificado` — lo leíste, con cita literal.
-- `no_consta` — abriste páginas y no lo encontraste. **No significa que no lo tenga.**
-- `descartado` — **el fabricante dice que NO lo tiene**, con esas palabras. Lleva cita igual.
-
-### El tamaño, el límite y el precio
-
-- **Tamaño**: igual que arriba, desde sus planes, con la cita.
-- **Qué límite tiene, aunque seas su cliente.** Esto **no** son sectores excluidos. Es con qué se va a dar de bruces alguien que SÍ es su cliente: topes de plan, licencias por sede, funciones anunciadas y no disponibles, límites de reservas, cargos por persona adicional, países donde no funciona.
-- **Precio y plan gratuito.** ¿Tiene plan gratuito permanente? **Una prueba de 15 o 30 días no lo es.** Si su tarifa niega la prueba pero no dice nada de un plan permanente, ponlo a `null`, no a `false`.
-
-**De Square Appointments**: su tarifa española dice «0 € por un único punto de venta». Dime qué incluye ese plan: ¿cuántos empleados con agenda? ¿Cuántos locales? ¿Y qué cuestan los de pago en España, en euros?
-
-**De Schedulista**: tengo que su plan individual son 19 $/mes y otro de 39 $/mes para 2–15 empleados. Confírmalo con su cita. Y confírmame si sigue siendo verdad que **la parte de gestión está en inglés** aunque las reservas estén en español.
+Y una cosa que decide cuánto vale lo que me cuentas: **una comparativa, un directorio o una reseña nunca sostiene un dato como demostrado.** Sólo la web del fabricante, su documentación, su tarifa o una prueba directa.
 
 ---
 
@@ -162,7 +138,7 @@ Por eso cada cita va con dos pruebas de que estuviste allí: el **título exacto
 
 ## Cómo quiero la respuesta
 
-Ve por tandas de cuatro o cinco herramientas para no atragantarte, pero **no pares hasta las 17**. Al final de cada tanda, sólo este JSON:
+Ve por tandas de cuatro o cinco herramientas para no atragantarte, pero **no pares hasta las 15**. Al final de cada tanda, sólo este JSON:
 
 ```json
 {
@@ -173,6 +149,7 @@ Ve por tandas de cuatro o cinco herramientas para no atragantarte, pero **no par
       "nombre": "AgendaPro",
       "paginaOficial": "https://agendapro.com/",
       "urlPrecios": "https://...",
+      "categoriaId": "reservas-citas",
 
       "descripcion": "Dos o tres frases claras.",
       "problemasQueResuelve": ["En primera persona del cliente."],
@@ -238,19 +215,4 @@ Y para **SimplyBook.me** añade en su objeto:
 "oNoLoPublican": false
 ```
 
-Y para **Square Appointments** y **Schedulista** añade además:
 
-```json
-"capacidades": [
-  { "id": "cap.online_self_service_booking", "estado": "verificado", "cita": "...", "url": "...", "tituloDeLaPagina": "...", "fraseDeAlLado": "..." }
-],
-"segmentosIdeales": ["1-10"],
-"porQueEseTamano": "Cita de la tarifa.",
-"limites": [ { "texto": "Qué topa.", "cita": "...", "url": "..." } ],
-"tienePlanGratuito": true,
-"citaPlanGratuito": "...",
-"queIncluyeElGratuito": "Cuántos empleados, cuántos locales, qué queda fuera.",
-"precio": { "precioInicial": "...", "moneda": "EUR", "cita": "...", "url": "...", "deDondeSale": "página de tarifas | blog del fabricante" }
-```
-
-Las siete capacidades tienen que aparecer todas en esas dos, aunque sea con `no_consta`.
