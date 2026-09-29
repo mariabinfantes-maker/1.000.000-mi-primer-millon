@@ -72,7 +72,7 @@
     "Slack"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde 4€/usuario/mes (facturado anualmente) o versión gratuita limitada",
+  "precioInicial": "Gratis hasta 5 usuarios. Desde 4 $/usuario/mes pagando el año.",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -142,10 +142,45 @@
   "id": "zoho-projects",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-19",
-  "fechaUltimaRevision": "2026-08-19",
+  "fechaUltimaRevision": "2026-09-29",
   "tipoProducto": "especializada",
   "problemasIds": [
     "organizar-empresa"
   ],
-  "tipoPlanGratuito": "indefinido"
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-29",
+    "url": "https://www.zoho.com/projects/zohoprojects-pricing.html"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-29",
+    "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 $",
+        "anual": "0 $",
+        "cita": "FREE US$0 Up to 5 users"
+      },
+      {
+        "nombre": "Premium",
+        "mensual": "5 $",
+        "anual": "4 $",
+        "cita": "PREMIUM US$5 /user/month"
+      },
+      {
+        "nombre": "Enterprise",
+        "mensual": "10 $",
+        "anual": "9 $",
+        "cita": "ENTERPRISE US$10 /user/month"
+      },
+      {
+        "nombre": "Ultimate",
+        "mensual": "15 $",
+        "anual": "14 $",
+        "cita": "ULTIMATE US$15 /user/month"
+      }
+    ]
+  }
 }
