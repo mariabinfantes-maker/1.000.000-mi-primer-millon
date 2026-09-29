@@ -64,6 +64,10 @@ describe("el aislamiento de la verificación", () => {
       path.join("agents", "atlas-researcher", "__tests__", "promover.test.ts"),
       "2026-09-29: la prueba de promoción SIEMBRA su propio registros.json en un directorio temporal, para que el examen de entrada tenga qué contar. No lee el fichero real del repositorio.",
     ],
+    [
+      path.join("agents", "atlas-curator", "cli-examen-catalogo.ts"),
+      "2026-09-29: pasa el examen de entrada a las 65 que ya están dentro, para escribir qué le falta a cada una. Sólo CUENTA capacidades, por `contarCapacidadesVerificadas`, la misma puerta que usa la promoción. No lee registros ni citas, y no escribe nada en el catálogo.",
+    ],
   ]);
   const EXENTOS = new Set(AUTORIZADOS.keys());
 
@@ -128,6 +132,7 @@ describe("el aislamiento de la verificación", () => {
       path.join("agents", "atlas-advisor", "asesor", "aconsejar.ts"),
       path.join("agents", "atlas-researcher", "capacidadesVerificadas.ts"),
       path.join("agents", "atlas-researcher", "__tests__", "promover.test.ts"),
+      path.join("agents", "atlas-curator", "cli-examen-catalogo.ts"),
     ]);
   });
 

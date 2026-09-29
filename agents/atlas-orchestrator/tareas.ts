@@ -122,6 +122,7 @@ export const TAREA_IDS = [
   "informe-curador",
   "informe-historial",
   "generar-informe",
+  "examen-catalogo",
   "verificar-datos",
   "verificar-revenue",
   "verificar-enlaces-afiliados",
@@ -241,6 +242,21 @@ export const TAREAS: readonly Tarea[] = [
       banderas: [{ nombre: "todos", descripcion: "todos los borradores pendientes, en vez de una lista de ids" }],
       exigeAlguno: true,
     },
+  },
+  {
+    /**
+     * Mide las 65 que YA están dentro contra el examen de entrada, y escribe
+     * qué le falta a cada una. No echa a nadie ni toca ninguna ficha: es una
+     * lista de en qué gastar la siguiente investigación.
+     */
+    id: "examen-catalogo",
+    script: "examen-catalogo",
+    modulo: "agents/atlas-curator/cli-examen-catalogo.ts",
+    descripcion: "Qué le falta a cada ficha para pasar el examen de entrada",
+    carril: "libre",
+    motivo: "ninguno",
+    cadencia: "cada_ejecucion",
+    argumentos: SIN_ARGUMENTOS,
   },
   {
     id: "verificar-datos",

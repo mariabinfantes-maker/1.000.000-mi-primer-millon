@@ -36,7 +36,8 @@
     "migrar-taxonomia": "tsx scripts/migrar-taxonomia.ts",
     "convertir-verificacion": "tsx data/verificacion/cli-convertir.ts",
     "repesca-verificacion": "tsx data/verificacion/cli-repesca.ts",
-    "orquestar": "tsx agents/atlas-orchestrator/cli-orquestar.ts"
+    "orquestar": "tsx agents/atlas-orchestrator/cli-orquestar.ts",
+    "examen-catalogo": "tsx agents/atlas-curator/cli-examen-catalogo.ts"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.2",
