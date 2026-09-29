@@ -152,14 +152,16 @@ describe("sobre los 1.547 registros reales", () => {
     // 1.541 del 2026-09-23, cuando la propietaria autorizó incorporar las dos
     // pasadas de verificación por casas. De los nuevos, 193 demuestran una
     // capacidad y el resto son «no consta» con dónde se miró anotado.
-    // 3.881 desde el 2026-09-29: entra el registro de Teachable que llevaba
-    // bloqueado desde septiembre, al demostrarse su profundidad.
+    // 3.884 desde el 2026-09-29: entran los cuatro registros de Teachable. El
+    // primero llevaba bloqueado desde septiembre por su profundidad; los otros
+    // tres salen de preguntarle por fin qué hace, con el mismo molde que a
+    // Thinkific y Hotmart.
     // 3.880 desde el 2026-09-24: las 808 comprobaciones de las cuatro necesidades
     // que bloqueaban a nueve oficios. Se incorporaron porque cada pasada cuesta
     // dinero real y, si el resultado no llega hasta aquí, no cambia nada.
-    expect(registros.length).toBe(3881);
+    expect(registros.length).toBe(3884);
     const verificados = registros.filter((r) => puerto.estadoDe(r.herramientaId, r.capacidadId).estado === "demostrada");
-    expect(verificados.length).toBe(864);
+    expect(verificados.length).toBe(867);
   });
 
   /**

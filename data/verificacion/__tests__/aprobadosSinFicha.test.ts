@@ -77,11 +77,15 @@ describe("los tres registros aprobados, ya incorporados", () => {
     expect(doc.registroBloqueado.profundidad).toBeNull();
 
     const suyos = registros.filter((r) => r.herramientaId === "teachable");
-    expect(suyos).toHaveLength(1);
-    expect(suyos[0].capacidadId).toBe("cap.payment_collection");
-    expect(suyos[0].profundidad).toBe("nativa");
-    expect(suyos[0].estado).toBe("verificado");
-    expect(suyos[0].fuentes.some((f: { cita?: string }) => f.cita?.includes("native gateway"))).toBe(true);
+    const cobrar = suyos.find((r) => r.capacidadId === "cap.payment_collection")!;
+    expect(cobrar).toBeDefined();
+    expect(cobrar.profundidad).toBe("nativa");
+    expect(cobrar.estado).toBe("verificado");
+    expect(cobrar.fuentes.some((f: { cita?: string }) => f.cita?.includes("native gateway"))).toBe(true);
+
+    // Y el día que se desbloqueó se le preguntó por fin qué más hace: mientras
+    // estuvo bloqueada era la única del catálogo sin responder a eso.
+    expect(suyos.length).toBeGreaterThanOrEqual(3);
     expect(catalogo).toContain("teachable");
   });
 
