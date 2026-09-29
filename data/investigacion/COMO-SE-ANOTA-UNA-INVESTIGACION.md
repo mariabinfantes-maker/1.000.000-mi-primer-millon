@@ -96,3 +96,41 @@ Las dos últimas nunca se resumen como la primera.
 
 **Lo que falta es un dato que no fuimos a buscar, no un defecto de la
 herramienta.** Se escribe así, siempre. «Molnip avisa; no dicta sentencia.»
+
+---
+
+## 8. Lo crudo se guarda ANTES que el resumen
+
+**Añadido el 2026-09-29, el mismo día, después de volver a fallar.**
+
+Un resumen es una opinión sobre qué importaba. Lo crudo no opina.
+
+De las tres tandas de las diecisiete herramientas de reservas guardé mi propio
+resumen y tiré, sin darme cuenta, **la cita literal, la dirección, el título de
+la página y la frase de al lado de cada capacidad**. Cerca de cien pruebas.
+Conservé sólo los identificadores —`cap.online_self_service_booking`—, que es
+justo la parte que no demuestra nada.
+
+Lo mismo con la ficha completa de las cinco españolas: llegó el 28, la usé para
+medir y **no la escribí en ningún sitio**. Se recuperó de la conversación.
+
+> **«Se hace y tú la dejas perder.»**
+
+Por eso:
+
+- La respuesta llega → **se guarda tal cual, en `crudo/`, antes de mirarla**.
+- Después, si hace falta, se escribe el resumen al lado. **El resumen nunca
+  sustituye a lo crudo.**
+- Y cada carpeta `crudo/` lleva un `LEEME.md` que dice de dónde salió.
+
+Lo que se recuperó así el 2026-09-29, de esta misma conversación:
+
+| | |
+|---|---|
+| Las tres tandas de las 17 | 127 citas con su dirección, título y frase de al lado |
+| Las capacidades de las cinco españolas | 35 citas |
+| La ficha completa de las cinco | 27 campos por herramienta |
+| Teachable: capacidades y profundidad | 15 citas |
+
+No se perdió nada porque la conversación seguía abierta. **La próxima vez
+puede no estarlo.**
