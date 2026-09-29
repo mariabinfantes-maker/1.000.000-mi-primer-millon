@@ -468,5 +468,65 @@
     "estadoAfiliacion": null,
     "observaciones": "Aprobado por la propietaria el 2026-09-17, tras la revisión cita a cita bajo las nueve reglas de evidencia y la corrección de los datos inventados del borrador. Motivos del bloqueo: [data/herramientas/borradores/teachable.json] no es una Herramienta válida:\n  - \"disponibilidadGeografica\" debe ser un array no vacío",
     "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T16:11:15.732Z",
+    "herramientaId": "archivex",
+    "nombreHerramienta": "Archivex",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 52,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Atlas Curator: \"Archivex\" y \"Hive\" tienen nombres muy parecidos — revisa si son la misma herramienta. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces. | Examen de entrada: Sólo 0 capacidades verificadas; hacen falta 3. Sin esto no sabemos qué hace.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T16:11:16.439Z",
+    "herramientaId": "bewe",
+    "nombreHerramienta": "BEWE",
+    "resultado": "rechazada",
+    "puntuacionMolnip": null,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Examen de entrada: Sólo 0 capacidades verificadas; hacen falta 3. Sin esto no sabemos qué hace.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T16:11:17.087Z",
+    "herramientaId": "bookitit",
+    "nombreHerramienta": "Bookitit",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 54,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Examen de entrada: Sólo 0 capacidades verificadas; hacen falta 3. Sin esto no sabemos qué hace.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T16:11:17.706Z",
+    "herramientaId": "agendapro",
+    "nombreHerramienta": "AgendaPro",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 54,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Examen de entrada: Sólo 0 capacidades verificadas; hacen falta 3. Sin esto no sabemos qué hace. | Examen de entrada: El precio no tiene fuente guardada (página y fecha).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T16:11:18.360Z",
+    "herramientaId": "cliniko",
+    "nombreHerramienta": "Cliniko",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 52,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Examen de entrada: Sólo 0 capacidades verificadas; hacen falta 3. Sin esto no sabemos qué hace. | Examen de entrada: El precio no tiene fuente guardada (página y fecha).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T16:11:18.995Z",
+    "herramientaId": "schedulista",
+    "nombreHerramienta": "Schedulista",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 54,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Criterio de calidad: quedan 1 advertencia(s) sin resolver: Cómo cobra, en corto: El fabricante cobra por TRAMOS de usuarios (1 / 2-15 / +15), no por usuario suelto. | Examen de entrada: Sólo 0 capacidades verificadas; hacen falta 3. Sin esto no sabemos qué hace. | Examen de entrada: El precio no tiene fuente guardada (página y fecha).",
+    "aprobacionCeo": true
   }
 ]
