@@ -80216,5 +80216,37 @@
   "confianza": "baja",
   "proximaRevision": "2027-09-24",
   "nota": "Se leyeron la página oficial y la de precios el 2026-09-24 buscando «Inspecciones, listas de comprobación y no conformidades»; ninguna de las dos la nombra. No se consultaron otras páginas suyas."
+ },
+ {
+  "herramientaId": "teachable",
+  "capacidadId": "cap.payment_collection",
+  "estado": "verificado",
+  "profundidad": "nativa",
+  "planEstado": "desconocido",
+  "fuentes": [
+   {
+    "tipo": "documentacion",
+    "url": "https://support.teachable.com/en/articles/15624639-set-up-teachable-payments-and-start-selling",
+    "fechaConsulta": "2026-09-29",
+    "cita": "Teachable Payments is Teachable's native gateway, built on Stripe's infrastructure.",
+    "rol": "capacidad"
+   },
+   {
+    "tipo": "documentacion",
+    "url": "https://support.teachable.com/en/articles/15624639-set-up-teachable-payments-and-start-selling",
+    "fechaConsulta": "2026-09-29",
+    "cita": "In available markets, Teachable Payments is the default payment gateway.",
+    "rol": "capacidad"
+   },
+   {
+    "tipo": "documentacion",
+    "url": "https://support.teachable.com/en/articles/11682476-price-your-products",
+    "fechaConsulta": "2026-09-16",
+    "cita": "Teachable uses Stripe, which charges students in your specified currency.",
+    "rol": "capacidad"
+   }
+  ],
+  "confianza": "alta",
+  "proximaRevision": "2027-09-29"
  }
 ]

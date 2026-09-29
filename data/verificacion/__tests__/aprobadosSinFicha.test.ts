@@ -54,14 +54,34 @@ describe("los tres registros aprobados, ya incorporados", () => {
   });
 
   /**
-   * La condición de la propietaria, en una prueba: Teachable no puede
-   * presentarse con profundidad nativa ni activar usos que nadie ha
-   * demostrado. La forma más simple de garantizarlo es que no tenga ningún
-   * registro mientras su profundidad siga pendiente.
+   * La condición de la propietaria, en una prueba: Teachable no podía
+   * presentarse con profundidad nativa ni activar usos que nadie hubiera
+   * demostrado, así que no tenía ningún registro mientras su profundidad
+   * siguiera pendiente.
+   *
+   * SE RESOLVIÓ EL 2026-09-29, y era el único camino previsto para
+   * levantarlo: apareció la evidencia específica que faltaba. Teachable
+   * Payments es la pasarela del propio Teachable —«Teachable Payments is
+   * Teachable's native gateway, built on Stripe's infrastructure»—, viene de
+   * serie en los países donde está, España incluida, y no exige abrir cuenta
+   * en ningún otro sitio. Rastro completo en
+   * `data/investigacion/teachable-profundidad-2026-09-29/`.
+   *
+   * La prueba no se borra ni se relaja: se le da la vuelta. Ahora vigila que
+   * el registro esté escrito con la profundidad demostrada, y que la copia
+   * del bloqueo se conserve con su `profundidad: null` para que se siga
+   * viendo qué era exactamente lo que faltaba.
    */
-  it("Teachable sigue sin registro, y su profundidad sigue sin demostrarse", () => {
+  it("Teachable ya tiene su registro, con la profundidad que faltaba", () => {
+    // La copia del bloqueo se conserva tal cual estaba: era lo que faltaba.
     expect(doc.registroBloqueado.profundidad).toBeNull();
-    expect(registros.filter((r) => r.herramientaId === "teachable")).toEqual([]);
+
+    const suyos = registros.filter((r) => r.herramientaId === "teachable");
+    expect(suyos).toHaveLength(1);
+    expect(suyos[0].capacidadId).toBe("cap.payment_collection");
+    expect(suyos[0].profundidad).toBe("nativa");
+    expect(suyos[0].estado).toBe("verificado");
+    expect(suyos[0].fuentes.some((f: { cita?: string }) => f.cita?.includes("native gateway"))).toBe(true);
     expect(catalogo).toContain("teachable");
   });
 

@@ -152,12 +152,14 @@ describe("sobre los 1.547 registros reales", () => {
     // 1.541 del 2026-09-23, cuando la propietaria autorizó incorporar las dos
     // pasadas de verificación por casas. De los nuevos, 193 demuestran una
     // capacidad y el resto son «no consta» con dónde se miró anotado.
+    // 3.881 desde el 2026-09-29: entra el registro de Teachable que llevaba
+    // bloqueado desde septiembre, al demostrarse su profundidad.
     // 3.880 desde el 2026-09-24: las 808 comprobaciones de las cuatro necesidades
     // que bloqueaban a nueve oficios. Se incorporaron porque cada pasada cuesta
     // dinero real y, si el resultado no llega hasta aquí, no cambia nada.
-    expect(registros.length).toBe(3880);
+    expect(registros.length).toBe(3881);
     const verificados = registros.filter((r) => puerto.estadoDe(r.herramientaId, r.capacidadId).estado === "demostrada");
-    expect(verificados.length).toBe(863);
+    expect(verificados.length).toBe(864);
   });
 
   /**
@@ -165,9 +167,15 @@ describe("sobre los 1.547 registros reales", () => {
    * no tiene ningún registro, porque su profundidad sigue pendiente. Es una
    * ausencia decidida, no un olvido.
    */
-  it("64 de las 65 herramientas tienen al menos una capacidad demostrada", () => {
+  /**
+   * Eran 64 de 65: Teachable no tenía ninguna, por la condición escrita de la
+   * propietaria. Desde el 2026-09-29 son las 65, al demostrarse la profundidad
+   * que faltaba. Teachable sigue teniendo UNA sola: es la única a la que nunca
+   * se le preguntó por el resto.
+   */
+  it("las 65 herramientas tienen al menos una capacidad demostrada", () => {
     const herramientas = [...new Set(registros.map((r) => r.herramientaId))];
-    expect(herramientas.length).toBe(64);
+    expect(herramientas.length).toBe(65);
     expect(herramientas.filter((id) => puerto.capacidadesVerificadasDe(id).length === 0)).toEqual([]);
   });
 

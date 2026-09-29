@@ -18,17 +18,19 @@ import { getTodasLasHerramientas } from "@/data/repositorio";
  * investigación. Es una lista de tareas, no un juicio: lo que falta es un dato
  * que no fuimos a buscar, no un defecto de la herramienta.
  *
- * TEACHABLE NO CUENTA COMO FALLO. Su cero de capacidades es una condición
- * escrita de la propietaria —queda fuera de la verificación entera mientras
- * siga pendiente la profundidad de `teachable/cap.payment_collection`—, no un
- * descuido. Sale aparte, marcada, para que nadie la «arregle» sin querer.
+ * APARTADAS existe para las herramientas que no se miden por una decisión
+ * escrita, no por un descuido: salen aparte y marcadas, para que nadie las
+ * «arregle» sin querer.
+ *
+ * Está vacío desde el 2026-09-29. Lo estrenó Teachable, que quedaba fuera de
+ * la verificación entera mientras siguiera pendiente la profundidad de
+ * `teachable/cap.payment_collection` —si cobra por sí misma o hace falta traer
+ * un Stripe propio—. Se resolvió ese día: `nativa`, con la palabra del
+ * fabricante, «Teachable Payments is Teachable's native gateway». El rastro
+ * está en `data/investigacion/teachable-profundidad-2026-09-29/` y el cierre
+ * del bloqueo en `data/verificacion/_registros-aprobados-sin-ficha.json`.
  */
-const APARTADAS = new Map([
-  [
-    "teachable",
-    "Fuera de la verificación por decisión escrita de la propietaria, mientras siga pendiente la profundidad de `teachable/cap.payment_collection`. Su evidencia está guardada en `data/verificacion/_registros-aprobados-sin-ficha.json`.",
-  ],
-]);
+const APARTADAS = new Map<string, string>([]);
 
 function main() {
   const herramientas = getTodasLasHerramientas();

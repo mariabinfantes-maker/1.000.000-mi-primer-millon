@@ -1,0 +1,34 @@
+{
+ "comoSeInvestigo": {
+  "quienMiro": "GPT con navegación, encargado por la propietaria. Antes lo intentó Claude con el lector de Gemini y no consiguió abrir ninguno de los artículos de pasarelas: las direcciones que obtuvo de cuatro búsquedas distintas no existían.",
+  "cuando": "2026-09-29",
+  "quePregunto": "¿Puede un profesor cobrar a sus alumnos usando sólo lo que Teachable trae de serie, o tiene que abrirse por su cuenta un Stripe o un PayPal y conectarlo? Se pidió cita literal, distinguir propia / de otro / las dos, y decir qué páginas se abrieron y cuáles no.",
+  "paginasQueSeAbrieron": [
+   "https://support.teachable.com/en/articles/15624639-set-up-teachable-payments-and-start-selling",
+   "https://support.teachable.com/en/articles/15646505-from-teachable-pay-to-teachable-payments-what-s-changing",
+   "https://support.teachable.com/en/articles/15627175-get-paid-with-teachable-payments",
+   "https://support.teachable.com/en/articles/11682476-price-your-products",
+   "https://support.teachable.com/en/articles/11682555-teachable-pay"
+  ],
+  "paginasQueNoSeAbrieron": [
+   "https://support.teachable.com/en/articles/11682557-monthly-payment-gateway — pedía iniciar sesión",
+   "https://support.teachable.com/en/articles/11682558-custom-payment-gateways — pedía iniciar sesión",
+   "https://support.teachable.com/en/articles/11682554-get-started-with-payments — pedía iniciar sesión"
+  ],
+  "loQueNoSePudoComprobar": "El contenido de los tres artículos antiguos. No se ha usado como prueba. La documentación actual sí confirma que el Monthly Payment Gateway ya no se ofrece a escuelas nuevas y que teachable:pay pasó a llamarse Teachable Payments.",
+  "abiertoPorNosotrosOContadoPorOtro": "lo_dice_otro",
+  "porQueLoDiceOtro": "Desde aquí sólo se abre `11682476-price-your-products`, que ya se había leído en septiembre. Los artículos decisivos los abrió GPT, no nosotros. La cita de Stripe de esa página, que sí hemos leído, coincide con lo que dicen los demás."
+ },
+ "pregunta": "¿Cómo cubre Teachable la capacidad de cobrar (cap.payment_collection)?",
+ "respuesta": "nativa",
+ "porQue": "Teachable Payments es la pasarela del propio Teachable, viene activada de serie en los países donde está —España entre ellos— y no exige que el profesor abra ninguna cuenta en otro sitio. Además permite conectar tu propio Stripe si lo prefieres, pero eso es una alternativa, no el camino.",
+ "pruebas": [
+  {"afirma":"Es una pasarela del propio Teachable.","cita":"Teachable Payments is Teachable's native gateway, built on Stripe's infrastructure.","url":"https://support.teachable.com/en/articles/15624639-set-up-teachable-payments-and-start-selling"},
+  {"afirma":"Viene de serie.","cita":"In available markets, Teachable Payments is the default payment gateway.","url":"https://support.teachable.com/en/articles/15624639-set-up-teachable-payments-and-start-selling"},
+  {"afirma":"España está entre los países donde funciona.","cita":"Singapore | Slovakia | Slovenia | Spain","url":"https://support.teachable.com/en/articles/15624639-set-up-teachable-payments-and-start-selling"},
+  {"afirma":"Lo lleva todo Teachable y el dinero llega al banco del profesor.","cita":"It handles payment processing, payouts, tax, fraud protection, and student subscription management — all within your Teachable admin. Funds settle directly to your bank account in your local currency.","url":"https://support.teachable.com/en/articles/15624639-set-up-teachable-payments-and-start-selling"},
+  {"afirma":"Conectar tu propio Stripe es la ALTERNATIVA, no el camino.","cita":"CPG allows creators to connect their own existing Stripe Standard account directly to Teachable.","url":"https://support.teachable.com/en/articles/15624639-set-up-teachable-payments-and-start-selling"},
+  {"afirma":"Coincide con lo que ya habíamos leído nosotros en septiembre.","cita":"Teachable uses Stripe, which charges students in your specified currency.","url":"https://support.teachable.com/en/articles/11682476-price-your-products"}
+ ],
+ "elLimiteQueSaleDeAqui": "Si tu país no está en la lista de Teachable Payments, te mandan a conectar tu propio Stripe. Cita: «If your country is not supported by Teachable Payments, you'll be automatically routed to CPG onboarding when you select your country in Sales > Payment Settings.» No afecta a España."
+}
