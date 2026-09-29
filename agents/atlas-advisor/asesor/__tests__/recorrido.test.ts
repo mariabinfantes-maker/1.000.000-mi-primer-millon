@@ -32,6 +32,15 @@ describe("el recorrido completo", () => {
     expect(cabezas.size).toBeGreaterThan(1);
   });
 
+  /**
+   * Quince segundos, no cinco. No es que la prueba se haya vuelto lenta: es
+   * que recorre el catálogo entero por cada pregunta y cada caso, y el
+   * catálogo pasó de 65 a 78 fichas el 2026-09-29. Con 65 tardaba 4,x s y con
+   * 78 se pasó de 5 s.
+   *
+   * Se sube el margen, no se recorta lo que comprueba: sigue mirando todos
+   * los casos contra todas las candidatas, que es lo que hace que valga.
+   */
   it("sólo se pregunta lo que mueve el resultado", () => {
     for (const caso of CASOS) {
       const base = buscar(caso.trae).soluciones.slice(0, 3).map((s) => s.partes.map((p) => p.herramientaId).join("+")).join("|");
@@ -70,5 +79,5 @@ describe("el recorrido completo", () => {
         expect(mueve, p.dimension.pregunta).toBe(true);
       }
     }
-  });
+  }, 15_000);
 });

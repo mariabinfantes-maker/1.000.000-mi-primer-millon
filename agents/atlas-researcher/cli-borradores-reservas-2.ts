@@ -80,6 +80,18 @@ const inverso = new Map<string, string>(
     .filter((s: any) => s.noRecomendadaPara)
     .map((s: any) => [s.id, s.noRecomendadaPara])
 );
+/**
+ * Hallazgos sueltos: un campo que bloqueaba a una herramienta y se buscó
+ * aparte. Cada uno en su carpeta, con su prueba y por qué se pudo afirmar.
+ */
+const sueltos = new Map<string, boolean>();
+{
+  const raiz = path.join(D, "jane-plan-gratuito-2026-09-29", "hallazgo.json");
+  if (fs.existsSync(raiz)) {
+    const j = JSON.parse(fs.readFileSync(raiz, "utf8"));
+    sueltos.set(j.herramientaId, j.respuesta);
+  }
+}
 const sector = new Map<string, string[]>(
   leer("sectores-derivados-2026-09-29/sectores.json").herramientas.map((s: any) => [s.id, s.industriasIdeales])
 );
@@ -178,7 +190,12 @@ for (const id of LAS_CINCO) {
     curvaDeAprendizaje: h.curvaDeAprendizaje ?? undefined,
     precioInicial: h.precioInicial ?? e.precioInicial ?? g.precioMasBajo?.cita,
     modeloDePrecio: (h.modeloDePrecio ?? ["suscripcion_mensual"]).filter((m: string) => MODELO.includes(m)),
-    tienePlanGratuito: h.tienePlanGratuito ?? e.tienePlanGratuito,
+    /**
+     * Y, en último lugar, lo comprobado a mano: cuando una herramienta se
+     * queda fuera SÓLO por este campo, se busca expresamente y el hallazgo
+     * vive en su propia carpeta de investigación. Jane fue el primer caso.
+     */
+    tienePlanGratuito: h.tienePlanGratuito ?? e.tienePlanGratuito ?? sueltos.get(id),
     /**
      * EL RECIBO DEL PRECIO, que este constructor se dejaba y por eso AgendaPro
      * y Cliniko no pasaban el examen de entrada.

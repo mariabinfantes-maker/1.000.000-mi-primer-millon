@@ -1,0 +1,26 @@
+{
+ "fecha": "2026-09-29",
+ "herramientaId": "jane",
+ "campo": "tienePlanGratuito",
+ "respuesta": false,
+ "comoSeInvestigo": {
+  "porQueHizoFalta": "Era el ÚNICO campo que le faltaba a Jane para entrar. GPT lo buscó dos veces —tanda 3 y entrega 2— y lo dejó en null las dos; no lo encontró, que no es lo mismo que no existir.",
+  "quien": "Gemini 3.7 flash con url_context, desde el contenedor. Dos llamadas, preguntando lo mismo desde ángulos distintos para no fiarse de una sola lectura.",
+  "porQueGemini": "La política de red de este contenedor sólo deja salir a generativelanguage.googleapis.com; WebFetch devuelve EGRESS_BLOCKED. Es la única vía, y aquí son dos llamadas, no una pasada.",
+  "primeraPregunta": "¿El plan Balance es gratuito o cuesta dinero? → «USD $54 / month».",
+  "segundaPregunta": "¿Hay algún plan que cueste 0 en toda la tabla? → los tres llevan precio: Balance 54 $, Practice 79 $, Thrive 99 $.",
+  "porQueSePuedeAfirmar": "Un `false` normalmente exigiría que el fabricante dijera «no tenemos plan gratuito», y aquí lo dice de la prueba: «We do not have a free trial». Además la tabla enumera sus tres planes y los tres tienen precio. No es ausencia de mención: es una tabla completa sin ninguna fila a cero."
+ },
+ "prueba": {
+  "cita": "We do not have a free trial, but we have a few different ways to help you explore if Jane is a fit for you",
+  "url": "https://jane.app/pricing",
+  "tipo": "tarifa_oficial",
+  "tituloDeLaPagina": "Pricing - Jane App - Jane App",
+  "fraseDeAlLado": "Manage your private practice with beautifully designed software and a team who cares about your success."
+ },
+ "planes": [
+  { "nombre": "Balance", "precio": "USD $54 / month", "nota": "Un profesional, máximo 20 citas al mes." },
+  { "nombre": "Practice", "precio": "USD $79 / month" },
+  { "nombre": "Thrive", "precio": "USD $99 / month" }
+ ]
+}
