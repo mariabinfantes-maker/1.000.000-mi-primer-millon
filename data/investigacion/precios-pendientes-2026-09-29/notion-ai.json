@@ -1,0 +1,7 @@
+{
+ "id": "notion-ai",
+ "nombre": "Notion AI",
+ "url": "https://www.notion.com/pricing",
+ "recuperada": true,
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"moneda\": \"USD\",\n  \"precioInicial\": \"$10per member / month\",\n  \"planes\": [\n    {\n      \"nombre\": \"Free\",\n      \"mensual\": \"$0per member / month\",\n      \"anual\": null,\n      \"cita\": \"$0per member / month\"\n    },\n    {\n      \"nombre\": \"Plus\",\n      \"mensual\": \"$10per member / month\",\n      \"anual\": null,\n      \"cita\": \"$10per member / month\"\n    },\n    {\n      \"nombre\": \"Business\",\n      \"mensual\": \"$20per member / month\",\n      \"anual\": null,\n      \"cita\": \"$20per member / month\"\n    },\n    {\n      \"nombre\": \"Enterprise\",\n      \"mensual\": \"Custom pricing\",\n      \"anual\": null,\n      \"cita\": \"Custom pricing\"\n    }\n  ]\n}\n```"
+}

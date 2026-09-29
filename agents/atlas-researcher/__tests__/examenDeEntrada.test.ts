@@ -59,3 +59,36 @@ describe("examen de entrada al catálogo", () => {
     expect(r.comprobado).toHaveLength(5);
   });
 });
+
+/**
+ * El precio puede venir demostrado por dos caminos, y el examen tiene que
+ * aceptar los dos. Su primera versión sólo miraba `preciosComprobados` y
+ * suspendió a tres fichas que llevaban el recibo en `planesComprobados`
+ * desde el 2026-09-21.
+ */
+describe("la fuente del precio", () => {
+  const base = {
+    id: "ejemplo",
+    idiomasDisponibles: ["es"],
+    industriasIdeales: ["fisioterapia"],
+    segmentosIdeales: ["1-10"],
+    casosNoRecomendados: ["Una sola licencia no cubre varias sedes."],
+  } as unknown as Herramienta;
+
+  it("vale `preciosComprobados`", () => {
+    const h = { ...base, preciosComprobados: { fecha: "2026-09-29", url: "https://x.es/precios" } } as Herramienta;
+    expect(examinarParaEntrar(h, { capacidadesVerificadas: 3 }).ok).toBe(true);
+  });
+
+  it("vale también `planesComprobados`, que trae el mismo recibo y además la cita de cada plan", () => {
+    const h = {
+      ...base,
+      planesComprobados: { fecha: "2026-09-21", url: "https://x.es/pricing", moneda: "EUR", planes: [] },
+    } as unknown as Herramienta;
+    expect(examinarParaEntrar(h, { capacidadesVerificadas: 3 }).ok).toBe(true);
+  });
+
+  it("sin ninguno de los dos, para", () => {
+    expect(examinarParaEntrar(base, { capacidadesVerificadas: 3 }).ok).toBe(false);
+  });
+});

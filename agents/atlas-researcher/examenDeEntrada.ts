@@ -65,10 +65,26 @@ export function examinarParaEntrar(herramienta: Herramienta, datos: DatosDelExam
     );
   }
 
-  // 2. CUÁNTO CUESTA, con la página que se abrió y el día que se abrió. Un
-  //    precio sin fuente envejece sin que nos enteremos.
-  if (herramienta.preciosComprobados?.url && herramienta.preciosComprobados?.fecha) {
-    comprobado.push(`Sabemos cuánto cuesta: comprobado el ${herramienta.preciosComprobados.fecha}.`);
+  /**
+   * 2. CUÁNTO CUESTA, con la página que se abrió y el día que se abrió. Un
+   *    precio sin fuente envejece sin que nos enteremos.
+   *
+   * Vale cualquiera de los dos campos, y no da igual cuál se mire: la primera
+   * versión de este examen sólo miraba `preciosComprobados` y suspendió a
+   * Notion AI, Odoo y Zoho CRM, que llevaban el precio demostrado desde el
+   * 2026-09-21 en `planesComprobados` —el mismo recibo, y además con la cita
+   * de cada plan—. Fallo del examen, no de las fichas.
+   */
+  const fuenteDelPrecio =
+    (herramienta.preciosComprobados?.url && herramienta.preciosComprobados?.fecha
+      ? herramienta.preciosComprobados
+      : undefined) ??
+    (herramienta.planesComprobados?.url && herramienta.planesComprobados?.fecha
+      ? herramienta.planesComprobados
+      : undefined);
+
+  if (fuenteDelPrecio) {
+    comprobado.push(`Sabemos cuánto cuesta: comprobado el ${fuenteDelPrecio.fecha}.`);
   } else {
     errores.push("El precio no tiene fuente guardada (página y fecha).");
   }

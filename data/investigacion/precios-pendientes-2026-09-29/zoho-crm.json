@@ -1,0 +1,7 @@
+{
+ "id": "zoho-crm",
+ "nombre": "Zoho CRM",
+ "url": "https://www.zoho.com/crm/pricing.html",
+ "recuperada": true,
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"moneda\": \"USD\",\n  \"precioInicial\": \"Forever free, for 3 users\",\n  \"planes\": [\n    {\n      \"nombre\": \"Free\",\n      \"mensual\": \"Free\",\n      \"anual\": \"Free\",\n      \"cita\": \"Forever free, for 3 users\"\n    },\n    {\n      \"nombre\": \"Standard\",\n      \"mensual\": null,\n      \"anual\": null,\n      \"cita\": \"Standard/user/month\"\n    },\n    {\n      \"nombre\": \"Professional\",\n      \"mensual\": null,\n      \"anual\": null,\n      \"cita\": \"Professional/user/month\"\n    },\n    {\n      \"nombre\": \"Enterprise\",\n      \"mensual\": null,\n      \"anual\": null,\n      \"cita\": \"Enterprise/user/month\"\n    },\n    {\n      \"nombre\": \"Bigin Express\",\n      \"mensual\": null,\n      \"anual\": null,\n      \"cita\": \"Bigin Express/user/month\"\n    },\n    {\n      \"nombre\": \"Zoho CRM Plus\",\n      \"mensual\": null,\n      \"anual\": null,\n      \"cita\": \"Starts at $20/user/month\"\n    }\n  ]\n}\n```"
+}

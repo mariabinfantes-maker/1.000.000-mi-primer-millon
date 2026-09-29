@@ -1,0 +1,7 @@
+{
+ "id": "odoo",
+ "nombre": "Odoo",
+ "url": "https://www.odoo.com/pricing",
+ "recuperada": true,
+ "texto": "{\n  \"abierta\": true,\n  \"moneda\": \"USD\",\n  \"precioInicial\": \"You are not dreaming!\",\n  \"planes\": [\n    {\n      \"nombre\": \"One App Free\",\n      \"mensual\": \"$ 0\",\n      \"anual\": \"$ 0\",\n      \"cita\": \"One App Free $ 0 One app, unlimited users Odoo Online\"\n    },\n    {\n      \"nombre\": \"Standard\",\n      \"mensual\": \"US$ 31.10 / user / month\",\n      \"anual\": \"$ 24.90 / user / month\",\n      \"cita\": \"Standard $ 24 .90 31 .10 US$ 31.10 US$ 38.90 * / user / month All apps Odoo Online\"\n    },\n    {\n      \"nombre\": \"Custom\",\n      \"mensual\": \"US$ 61.10 / user / month\",\n      \"anual\": \"$ 49.00 / user / month\",\n      \"cita\": \"Custom $ 49 .00 61 .10 US$ 61.00 US$ 76.20 * / user / month All apps Odoo Online / Odoo.sh** / On-premise Odoo Studio / Agentic AI Multi-Company External API\"\n    }\n  ]\n}"
+}

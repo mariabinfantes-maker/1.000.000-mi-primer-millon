@@ -1,0 +1,7 @@
+{
+ "id": "zoho-one",
+ "nombre": "Zoho One",
+ "url": "https://www.zoho.com/one/pricing.html",
+ "recuperada": true,
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"moneda\": \"USD\",\n  \"precioInicial\": \"US$90/user/month billed annually\",\n  \"planes\": [\n    {\n      \"nombre\": \"Flexible user pricing\",\n      \"mensual\": null,\n      \"anual\": \"US$90/user/month\",\n      \"cita\": \"Flexible user pricingUS$90/user/month billed annually\"\n    }\n  ]\n}\n```"
+}
