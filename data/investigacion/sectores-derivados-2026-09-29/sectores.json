@@ -1,0 +1,403 @@
+{
+ "fecha": "2026-09-29",
+ "herramientas": [
+  {
+   "id": "nubimed",
+   "nombre": "Nubimed",
+   "industriasIdeales": [
+    "clínicas",
+    "consultas médicas"
+   ],
+   "fraseOriginal": "Clínicas y consultas de profesionales sanitarios.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://www.nubimed.com/",
+   "noRecomendadaPara": "No está pensada para negocios fuera del ámbito sanitario.",
+   "deDondeSaleNoRecomendadaPara": "Invertido de `fraseOriginal`, por la regla de la propietaria del 2026-09-28: para quién no está pensada sale por descarte de saber para quién sí. No es un defecto de la herramienta ni un juicio."
+  },
+  {
+   "id": "clinic-cloud",
+   "nombre": "Clinic Cloud",
+   "industriasIdeales": [
+    "clínicas",
+    "centros médicos"
+   ],
+   "fraseOriginal": "Clínicas y centros médicos que gestionan pacientes, citas e historias clínicas.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://clinic-cloud.com/"
+  },
+  {
+   "id": "dricloud",
+   "nombre": "DriCloud",
+   "industriasIdeales": [
+    "consultas médicas",
+    "clínicas",
+    "centros médicos",
+    "hospitales"
+   ],
+   "fraseOriginal": "Consultas, clínicas, centros médicos y hospitales.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://dricloud.com/"
+  },
+  {
+   "id": "archivex",
+   "nombre": "Archivex",
+   "industriasIdeales": [
+    "clínicas",
+    "consultas médicas"
+   ],
+   "fraseOriginal": "Clínicas y consultas que necesitan agenda, historia clínica y gestión administrativa.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://archivex.io/"
+  },
+  {
+   "id": "viday",
+   "nombre": "ViDay",
+   "industriasIdeales": [
+    "centros de salud",
+    "centros de bienestar",
+    "centros de estética",
+    "academias",
+    "talleres",
+    "autoescuelas"
+   ],
+   "fraseOriginal": "Centros de salud y bienestar, estética, academias, talleres y autoescuelas.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://viday.es/",
+   "noRecomendadaPara": "No está pensada para negocios fuera de la salud, el bienestar, la estética y la formación.",
+   "deDondeSaleNoRecomendadaPara": "Invertido de `fraseOriginal`, por la regla de la propietaria del 2026-09-28: para quién no está pensada sale por descarte de saber para quién sí. No es un defecto de la herramienta ni un juicio."
+  },
+  {
+   "id": "koibox",
+   "nombre": "Koibox",
+   "industriasIdeales": [
+    "peluquerías",
+    "barberías",
+    "centros de estética",
+    "centros de belleza"
+   ],
+   "fraseOriginal": "Peluquerías, barberías y centros de estética y belleza.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://koibox.cloud/"
+  },
+  {
+   "id": "flowww",
+   "nombre": "flowww",
+   "industriasIdeales": [
+    "medicina estética",
+    "centros de belleza",
+    "centros de salud"
+   ],
+   "fraseOriginal": "Negocios de medicina estética, belleza y salud.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://www.flowww.es/"
+  },
+  {
+   "id": "bewe",
+   "nombre": "BEWE",
+   "industriasIdeales": [
+    "centros de belleza",
+    "centros de bienestar",
+    "gimnasios",
+    "centros de salud"
+   ],
+   "fraseOriginal": "Negocios de servicios: belleza, bienestar, fitness y salud, en España y Latinoamérica.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://www.bewe.ai/"
+  },
+  {
+   "id": "bookitit",
+   "nombre": "Bookitit",
+   "industriasIdeales": [
+    "centros sanitarios",
+    "centros deportivos",
+    "centros de belleza",
+    "academias",
+    "servicios profesionales",
+    "talleres"
+   ],
+   "fraseOriginal": "Centros sanitarios, deportivos y de belleza, academias, servicios profesionales y talleres.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://www.bookitit.com/es/"
+  },
+  {
+   "id": "agendapro",
+   "nombre": "AgendaPro",
+   "industriasIdeales": [
+    "centros de belleza",
+    "centros de bienestar",
+    "centros de salud"
+   ],
+   "fraseOriginal": "Negocios de belleza, bienestar y salud que gestionan citas, servicios y clientes.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://agendapro.com/"
+  },
+  {
+   "id": "reservo",
+   "nombre": "Reservo",
+   "industriasIdeales": [
+    "centros de salud",
+    "consultas médicas"
+   ],
+   "fraseOriginal": "Profesionales y centros de salud que necesitan gestionar pacientes y reservas.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://reservo.cl/",
+   "hayQueMirarlo": true
+  },
+  {
+   "id": "qvet",
+   "nombre": "QVET",
+   "industriasIdeales": [
+    "clínicas veterinarias",
+    "hospitales veterinarios"
+   ],
+   "fraseOriginal": "Clínicas y hospitales veterinarios.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://qvet.net/"
+  },
+  {
+   "id": "gesden-g5",
+   "nombre": "Gesden G5",
+   "industriasIdeales": [
+    "clínicas dentales"
+   ],
+   "fraseOriginal": "Clínicas dentales y grupos de clínicas odontológicas.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://www.infomedsoftware.com/"
+  },
+  {
+   "id": "setmore",
+   "nombre": "Setmore",
+   "industriasIdeales": [
+    "despachos jurídicos",
+    "automoción",
+    "centros de salud",
+    "centros de belleza",
+    "academias"
+   ],
+   "fraseOriginal": "Negocios con citas: jurídico, automoción, salud, belleza y formación.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://www.setmore.com/"
+  },
+  {
+   "id": "acuity-scheduling",
+   "nombre": "Acuity Scheduling",
+   "industriasIdeales": [
+    "centros de belleza",
+    "consultoría",
+    "centros de bienestar",
+    "gimnasios",
+    "artes",
+    "academias"
+   ],
+   "fraseOriginal": "Profesionales de belleza, consultoría, bienestar, fitness, artes y educación.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://www.acuityscheduling.com/"
+  },
+  {
+   "id": "simplybook-me",
+   "nombre": "SimplyBook.me",
+   "industriasIdeales": [
+    "centros de salud",
+    "centros de belleza",
+    "academias",
+    "centros deportivos",
+    "servicios profesionales"
+   ],
+   "fraseOriginal": "Servicios de salud, belleza, educación, deporte y atención profesional.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://simplybook.me/"
+  },
+  {
+   "id": "zoho-bookings",
+   "nombre": "Zoho Bookings",
+   "industriasIdeales": [
+    "servicios profesionales"
+   ],
+   "fraseOriginal": "Profesionales y equipos con citas individuales, sesiones colectivas y servicios reservables.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://www.zoho.com/bookings/",
+   "hayQueMirarlo": true
+  },
+  {
+   "id": "reservio",
+   "nombre": "Reservio",
+   "industriasIdeales": [
+    "centros de belleza",
+    "centros de bienestar",
+    "gimnasios",
+    "clínicas"
+   ],
+   "fraseOriginal": "Belleza, bienestar, fitness y clínicas que ofrecen citas o eventos.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://www.reservio.com/"
+  },
+  {
+   "id": "bookeo-appointments",
+   "nombre": "Bookeo Appointments",
+   "industriasIdeales": [
+    "peluquerías",
+    "servicios profesionales"
+   ],
+   "fraseOriginal": "Negocios con servicios por cita, incluidos salones y equipos de profesionales.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://www.bookeo.com/appointments/",
+   "hayQueMirarlo": true
+  },
+  {
+   "id": "timify",
+   "nombre": "TIMIFY",
+   "industriasIdeales": [
+    "empresas de servicios",
+    "comercios"
+   ],
+   "fraseOriginal": "Empresas de servicios y comercios que reservan personal, salas y otros recursos.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://www.timify.com/",
+   "hayQueMirarlo": true
+  },
+  {
+   "id": "teachworks",
+   "nombre": "Teachworks",
+   "industriasIdeales": [
+    "academias",
+    "clases particulares",
+    "escuelas de música",
+    "escuelas de idiomas"
+   ],
+   "fraseOriginal": "Academias, tutorías, escuelas de música e idiomas.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://www.teachworks.com/"
+  },
+  {
+   "id": "tutorbird",
+   "nombre": "TutorBird",
+   "industriasIdeales": [
+    "clases particulares",
+    "academias"
+   ],
+   "fraseOriginal": "Tutores particulares y empresas con varios docentes.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://www.tutorbird.com/"
+  },
+  {
+   "id": "cliniko",
+   "nombre": "Cliniko",
+   "industriasIdeales": [
+    "clínicas",
+    "fisioterapia",
+    "terapias"
+   ],
+   "fraseOriginal": "Clínicas y profesionales de salud, rehabilitación y terapias.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://www.cliniko.com/"
+  },
+  {
+   "id": "jane",
+   "nombre": "Jane",
+   "industriasIdeales": [
+    "fisioterapia",
+    "quiropráctica",
+    "masaje",
+    "acupuntura"
+   ],
+   "fraseOriginal": "Consultas y clínicas de fisioterapia, quiropráctica, masaje y acupuntura.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://jane.app/"
+  },
+  {
+   "id": "pabau",
+   "nombre": "Pabau",
+   "industriasIdeales": [
+    "clínicas",
+    "medicina estética",
+    "dermatología",
+    "cirugía",
+    "centros de bienestar"
+   ],
+   "fraseOriginal": "Clínicas médicas, de estética, dermatología, cirugía y bienestar.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://pabau.com/"
+  },
+  {
+   "id": "fresha",
+   "nombre": "Fresha",
+   "industriasIdeales": [
+    "peluquerías",
+    "barberías",
+    "centros de belleza",
+    "centros de bienestar"
+   ],
+   "fraseOriginal": "Peluquerías, barberías y negocios de belleza y bienestar.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://www.fresha.com/"
+  },
+  {
+   "id": "booksy",
+   "nombre": "Booksy",
+   "industriasIdeales": [
+    "peluquerías",
+    "barberías",
+    "centros de belleza",
+    "centros de bienestar"
+   ],
+   "fraseOriginal": "Peluquerías, barberías, salones y profesionales de belleza y bienestar.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://biz.booksy.com/"
+  },
+  {
+   "id": "treatwell",
+   "nombre": "Treatwell",
+   "industriasIdeales": [
+    "peluquerías",
+    "barberías",
+    "centros de uñas",
+    "centros de estética",
+    "masaje",
+    "spa"
+   ],
+   "fraseOriginal": "Peluquerías, barberías y centros de uñas, estética, masajes y spa.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://www.treatwell.es/partners/"
+  },
+  {
+   "id": "square-appointments",
+   "nombre": "Square Appointments",
+   "industriasIdeales": [
+    "servicios profesionales"
+   ],
+   "fraseOriginal": "Negocios de servicios con citas, personal y cobro en punto de venta.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://squareup.com/es/es/appointments",
+   "hayQueMirarlo": true
+  },
+  {
+   "id": "schedulista",
+   "nombre": "Schedulista",
+   "industriasIdeales": [
+    "consultoría",
+    "despachos jurídicos",
+    "asesorías",
+    "clases particulares",
+    "centros de belleza",
+    "centros de bienestar"
+   ],
+   "fraseOriginal": "Negocios con citas: consultores, abogados, contables, docentes, belleza y bienestar.",
+   "deDondeSale": "paraQuienEstaPensada del barrido del 2026-09-28",
+   "urlDeLaHerramienta": "https://www.schedulista.com/"
+  }
+ ],
+ "comoSeHizo": {
+  "queEs": "Derivación, NO investigación nueva. Se parte en lista la frase que el barrido del 28 ya había leído en la web del fabricante.",
+  "regla": "Sólo entran sectores NOMBRADOS en la frase. Ninguno añadido por deducción.",
+  "laFraseSeGuarda": "Cada entrada lleva `fraseOriginal` entera, para poder revisar la partición sin volver a investigar.",
+  "loQueNoTiene": "La frase original no traía URL propia en el barrido del 28: iba junto al resto de lo leído de cada herramienta. El recibo es el barrido, no una página concreta.",
+  "aRevisar": [
+   "reservo — la frase no nombra sectores concretos: «Profesionales y centros de salud que necesitan gestionar pacientes y reservas.»",
+   "zoho-bookings — la frase no nombra sectores concretos: «Profesionales y equipos con citas individuales, sesiones colectivas y servicios reservables.»",
+   "bookeo-appointments — la frase no nombra sectores concretos: «Negocios con servicios por cita, incluidos salones y equipos de profesionales.»",
+   "timify — la frase no nombra sectores concretos: «Empresas de servicios y comercios que reservan personal, salas y otros recursos.»",
+   "square-appointments — la frase no nombra sectores concretos: «Negocios de servicios con citas, personal y cobro en punto de venta.»"
+  ],
+  "noRecomendadaPara": "Derivado sólo para Nubimed y ViDay, las dos a las que el validador se lo exigía y cuya frase nombra un ámbito cerrado. Al resto no se les toca: inventar un «no está pensada para» donde la frase es vaga sería exactamente el juicio que la visión prohíbe."
+ }
+}
