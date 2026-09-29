@@ -45,7 +45,17 @@ motor decide si una herramienta le sirve a una autónoma sola o a una clínica d
 treinta. Ponerlo vacío no es «enseñar el hueco»: es que la herramienta entre y
 no se coloque nunca.
 
-## Decide la propietaria
+## DECIDIDO: B. Se queda fuera
+
+**La propietaria, 2026-09-30: «déjala fuera».** No entra al catálogo.
+
+No se borra nada: el borrador sigue en `data/borradores/herramientas/clinic-cloud.json`
+y sus 5 registros de capacidad siguen en `registros.json`. Entra el día que
+alguien publique cuántos usuarios caben, sin repetir la investigación.
+
+---
+
+*Lo que se planteó, para que no se vuelva a preguntar:*
 
 **A. Derivarlo de las agendas, y dejar escrito que es una derivación.**
 Una agenda en una clínica es el calendario de un profesional, y el límite de
