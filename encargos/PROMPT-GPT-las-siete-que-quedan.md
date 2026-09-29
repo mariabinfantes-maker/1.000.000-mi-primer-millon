@@ -104,6 +104,7 @@ Hay un artículo que se llama literalmente `show-an-employee-s-profile-in-the-bo
 Las ocho, en las siete herramientas. **Ninguna se salta.** Si de una no encuentras nada, se responde igual con `desconocido` y dónde miraste. *(La lista se fija entera de antemano a propósito: eligiendo sobre la marcha se estrecha justo donde la prueba incomoda.)*
 
 1. **`cap.per_resource_booking_calendar` — Agenda por profesional o recurso.** Agenda separada por profesional, sala, sillón o máquina, con sus horarios y servicios. *(Ya está en cuatro.)*
+   **Aunque ya esté comprobada, devuélvela igual en la lista.** En la última entrega la diste por sabida y no la incluiste, y entonces la lista viene con siete objetos en vez de ocho y parece que falta una.
 2. **`cap.online_self_service_booking` — Reserva online por la propia persona.** El cliente coge hora solo, sin llamar, a cualquier hora.
 3. **`cap.customer_appointment_reminders` — Recordatorios automáticos.** **Dime el canal** (SMS, correo, WhatsApp) y **si se paga aparte**.
 4. **`cap.booking_cancellation_and_rescheduling` — Cancelar y cambiar la cita**, el cliente por su cuenta. **Hacen falta las dos**: si sólo cancela, dilo así.
@@ -121,6 +122,8 @@ Búscala en el recorrido de reserva, en la ayuda sobre «reserva online» o «ci
 ### Cómo se responde cada capacidad
 
 **`estado`**: `verificado` (lo leíste, con cita) · `desconocido` (buscaste y no hay prueba — **no significa que no lo tenga**, y obliga a decir dónde miraste) · `descartado` (**el fabricante dice que NO**, con cita igual).
+
+**Son esas tres palabras y ninguna más.** En la última entrega escribiste `no_consta`, que no existe en el esquema y hay que traducir a mano. Lo que querías decir es `desconocido`: es exactamente eso, «buscado y no encontrado», y no da por supuesto que falte.
 
 **`profundidad`**, obligatoria si es `verificado`: `nativa` (es el producto) · `modulo` (dentro de una suite, a veces aparte) · `integracion` (**sólo conectando otra herramienta** — di cuál en `integraCon`) · `no_disponible`.
 
@@ -141,6 +144,10 @@ Búscala en el recorrido de reserva, en la ayuda sobre «reserva online» o «ci
 **`limites`** — **No son sectores excluidos.** Es con qué se da de bruces alguien que SÍ es su cliente: topes de plan, **una licencia por cada centro**, funciones anunciadas y no disponibles, cargo por profesional añadido, países donde no funciona, puesta en marcha aparte.
 
 **`precioInicial`** — El plan más barato de verdad, con lo que incluye. **Dime la moneda que ves y NO conviertas nada.** Si la tarifa no enseña cifras es JavaScript: busca el fichero del selector.
+
+**`citaDelPrecio` no es opcional y no es cualquier frase de la página de tarifas: son las cifras.** Es el recibo que se publica debajo del precio, y lo que se enseña a quien pregunte de dónde sale. Tu última entrega lo hizo bien —`«0€/mes […] 15€*/mes […] 30€*/mes»`—; la frase de al lado y el título van aparte y no sirven de recibo.
+
+**Y si la misma página te da una moneda distinta según cuándo la abras, dilo.** Ya ha pasado: una tarifa que leída un día decía CAD y otro USD, con la misma cifra. Es un dato, no un estorbo.
 **`tienePlanGratuito`** — `true` sólo si es **permanente**. Una prueba de 15 o 30 días NO lo es. Si sólo hay prueba, `null`, no `false`.
 **Y una excepción que aprendimos con Jane:** si la tarifa enseña **la tabla entera de planes y ninguno está a cero**, o dicen con sus palabras que no hay plan gratuito, entonces sí es `false` — y me pones la cita. `false` sin tabla completa ni cita, no.
 

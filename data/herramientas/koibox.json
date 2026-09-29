@@ -78,10 +78,14 @@
   "preciosComprobados": {
     "url": "https://koibox.cloud/pricing/",
     "fecha": "2026-09-29",
-    "cita": "Mailchimp, Brevo, Paypal y Stripe"
+    "cita": "0€/mes […] 15€*/mes […] 30€*/mes […] 40€*/mes […] 55€*/mes"
   },
   "idiomasDisponibles": [
-    "es"
+    "es",
+    "en",
+    "pt",
+    "it",
+    "fr"
   ],
   "tieneAppMovil": true,
   "tieneApiPublica": true,

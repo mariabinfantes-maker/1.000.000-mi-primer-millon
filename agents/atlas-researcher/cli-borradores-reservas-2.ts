@@ -200,13 +200,31 @@ for (const id of LAS_CINCO) {
      * EL RECIBO DEL PRECIO, que este constructor se dejaba y por eso AgendaPro
      * y Cliniko no pasaban el examen de entrada.
      *
-     * No se inventa: se saca de la propia prueba que GPT ya entregó, la que
-     * lleva `tipo: "tarifa_oficial"`. Si no hay ninguna, se queda sin recibo y
-     * el examen lo dirá, que para eso está.
+     * CORREGIDO el 2026-09-29, al reprocesar Koibox. La versión anterior
+     * cogía la primera prueba con `tipo: "tarifa_oficial"`, y ésa NO es la
+     * cita del precio: es cualquier cosa que se leyera en la página de
+     * tarifas. En Koibox la página de tarifas sirvió de prueba para las
+     * integraciones, y el recibo del precio acabó diciendo «Mailchimp,
+     * Brevo, Paypal y Stripe». La fecha y la dirección eran correctas; lo
+     * que enseñaba no demostraba ningún precio.
+     *
+     * GPT ya entrega `citaDelPrecio` y `urlDelPrecio`, que son exactamente
+     * eso. Se usan primero. La prueba `tarifa_oficial` queda de reserva, y
+     * sólo si su cita menciona alguna cifra o moneda: un recibo que no
+     * enseña un precio es peor que no tener recibo, porque parece que sí.
      */
     preciosComprobados: (() => {
-      const p = (h.pruebas ?? []).find((x: any) => x.tipo === "tarifa_oficial" && x.url);
-      return p ? { url: p.url, fecha: h.fecha ?? "2026-09-29", cita: p.cita } : undefined;
+      const fecha = h.fecha ?? "2026-09-29";
+      const deTarifa = (h.pruebas ?? []).find((x: any) => x.tipo === "tarifa_oficial" && x.url);
+      const url = h.urlDelPrecio ?? h.urlPrecios ?? deTarifa?.url;
+      if (!url) return undefined;
+
+      if (h.citaDelPrecio) return { url, fecha, cita: h.citaDelPrecio };
+
+      // Reserva: sólo vale si de verdad enseña una cifra o una moneda.
+      const cita = deTarifa?.cita ?? "";
+      const ensenaUnPrecio = /[0-9]|[€$£]|gratis|gratuit|free/i.test(cita);
+      return { url, fecha, cita: ensenaUnPrecio ? cita : undefined };
     })(),
     idiomasDisponibles: h.idiomasDisponibles ?? g.idiomaDelProducto,
     /**
