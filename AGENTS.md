@@ -21,9 +21,29 @@ Manda sobre todo lo demás. Está completa en `ATLAS.md`, sección «La visión 
 Molnip»; esto es lo mínimo para no proponer algo que la contradiga.
 
 **Molnip no es un directorio ni un comparador: es un asesor tecnológico
-cercano.** Tiene que ayudar igual a una autónoma que sólo sabe describir su
-problema —«soy peluquera y pierdo citas»— que a una empresa que sabe
+cercano.** Tiene que ayudar igual a quien sólo sabe describir su problema
+—«quiero que los clientes reserven sin llamar por teléfono»— que a quien sabe
 exactamente qué busca. **La carga de entender es de Molnip, no de la persona.**
+
+> **La peluquera está desactivada como ejemplo (2026-09-30).** Durante meses
+> esta línea decía «soy peluquera y pierdo citas», y era lo primero que leía
+> cualquiera al entrar: por eso todo el mundo razonaba desde ella. La
+> propietaria ya lo había pedido una vez para la pantalla —«quiero que olvides
+> el diseño con la peluquera o el albañil»— y aquí no se aplicó.
+>
+> **Qué reemplaza y por qué.** No cambia la regla, que sigue entera: la carga
+> de entender es de Molnip. Lo que cambia es el ejemplo. Un retrato de oficio
+> dice a quién servimos, y **ése no es el cliente que paga**; una situación de
+> negocio enseña sólo cómo se escribe aquí, y vale igual para un taller, una
+> clínica o una agencia. La frase nueva es una de las tres que ya están en la
+> pantalla del asesor, aprobadas por la propietaria.
+>
+> **No se ha borrado de ninguna otra parte.** En `ATLAS.md` sigue dentro de la
+> visión citada con las palabras de la propietaria, que es registro histórico
+> y no se reescribe. Y en el motor y las pruebas sigue siendo el nombre de un
+> caso que funciona —`sinRecomendacion.test.ts`, `puertaDeEvidencia.test.ts`—:
+> ahí no dice a quién servimos, dice qué se probó. Tocarlo sería romper
+> trabajo que no sobra.
 
 Cinco reglas que se derivan y que no se negocian:
 
