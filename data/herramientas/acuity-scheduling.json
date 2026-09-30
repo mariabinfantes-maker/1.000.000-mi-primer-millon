@@ -1,0 +1,136 @@
+{
+  "nombre": "Acuity Scheduling",
+  "paginaOficial": "https://www.acuityscheduling.com/",
+  "urlPrecios": "https://www.acuityscheduling.com/pricing",
+  "categoriaId": "reservas-citas",
+  "descripcion": "Acuity Scheduling es una plataforma de gestión y reserva de citas online diseñada para automatizar la agenda de servicios y consultas. Permite a los clientes elegir horarios disponibles en tiempo real, rellenar formularios previos y abonar citas o comprar bonos por internet sin cruzar llamadas ni mensajes.",
+  "problemasQueResuelve": [
+    "«Pierdo clientes y tiempo respondiendo mensajes de WhatsApp o llamadas para cuadrar un hueco en la agenda.»",
+    "«Los clientes se olvidan de las citas a las que se apuntaron y me dejan colgado sin avisar.»",
+    "«Tardo mucho en cobrar por adelantado o pedir las señales de los servicios antes de confirmar una reserva.»",
+    "«Me cuesta organizar los horarios cuando los clientes están en zonas horarias distintas o cuando tengo varios empleados.»"
+  ],
+  "casosDeUso": [
+    "Peluquerías, centros de estética y spas que necesitan que sus clientes reserven tratamientos y paguen fianza online.",
+    "Consultores, psicólogos o asesores que agendan sesiones individuales por videoconferencia con cobro previo.",
+    "Estudios de yoga, fitness o talleres formativos que gestionan clases grupales con aforo limitado y venta de bonos.",
+    "Profesionales sanitarios o de acupuntura que necesitan formularios de historial médico (intake forms) antes de la consulta."
+  ],
+  "idealPara": "Profesionales y negocios de belleza, consultoría, bienestar, fitness, artes y educación.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "centros de belleza",
+    "consultoría",
+    "centros de bienestar",
+    "gimnasios",
+    "artes",
+    "academias"
+  ],
+  "noRecomendadaPara": "No está pensada para quien no trabaje con cita previa: todo gira alrededor de la agenda y la página de reservas.",
+  "casosNoRecomendados": [
+    "El plan Starter incluye un único calendario; para gestionar calendarios por empleado o sede adicional es necesario contratar planes superiores (hasta 6 en Standard o hasta 36 en Premium).",
+    "Cada calendario dentro de una cuenta solo puede conectarse a un único proveedor de videoconferencia a la vez.",
+    "Existe un límite máximo de 25 webhooks por colaborador en la cuenta.",
+    "No dispone de un plan gratuito permanente; únicamente ofrece una prueba gratuita de 7 días (o 14 días si se asocia a Squarespace).",
+    "El plan de entrada (Starter) está limitado a 1 único calendario y no incluye avisos por SMS ni venta de paquetes o suscripciones.",
+    "La eliminación de la marca de agua «Powered by Acuity Scheduling» y el acceso a la API/CSS avanzado requieren contratar planes superiores."
+  ],
+  "funcionesPrincipales": [
+    "Página de reservas online personalizable e integrable en páginas web mediante enlace o código embebido.",
+    "Sincronización bidireccional de calendario con Google Calendar, Outlook, Office 365 e iCloud.",
+    "Envío automatizado de confirmaciones y recordatorios por correo electrónico y mensajes de texto SMS.",
+    "Cobro integrado de servicios, depósitos, propinas o bonos a través de pasarelas de pago.",
+    "Formularios de admisión (intake forms) personalizados que el cliente responde en el momento de reservar.",
+    "Ajuste automático de franja horaria según la ubicación del cliente.",
+    "Creación de lista de espera automática para avisar a clientes cuando se libera una cita cancelada.",
+    "Venta y gestión de paquetes de sesiones múltiples, tarjetas de regalo y membresías con cobro recurrente."
+  ],
+  "integraciones": [
+    "Stripe",
+    "Square",
+    "PayPal",
+    "Google Calendar",
+    "Outlook",
+    "iCloud",
+    "Zoom",
+    "Google Meet",
+    "GoToMeeting",
+    "Squarespace",
+    "Mailchimp",
+    "ActiveCampaign",
+    "Kit",
+    "AWeber",
+    "Constant Contact",
+    "Drip",
+    "Simplero",
+    "QuickBooks",
+    "FreshBooks",
+    "Xero",
+    "Wufoo",
+    "Zapier"
+  ],
+  "integracionesPrincipales": [
+    "Stripe",
+    "Square",
+    "PayPal",
+    "Google Calendar",
+    "Zoom",
+    "Google Meet",
+    "QuickBooks",
+    "Mailchimp",
+    "Zapier"
+  ],
+  "curvaDeAprendizaje": "muy_facil",
+  "precioInicial": "$16/ month",
+  "modeloDePrecio": [
+    "suscripcion_mensual"
+  ],
+  "tienePlanGratuito": false,
+  "preciosComprobados": {
+    "url": "https://www.acuityscheduling.com/pricing",
+    "fecha": "2026-09-30",
+    "cita": "$16/ month"
+  },
+  "idiomasDisponibles": [
+    "en"
+  ],
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9.2,
+    "nivelTecnicoRequerido": 2,
+    "facilidadImplementacion": 9,
+    "atencionAlCliente": 7.5,
+    "fiabilidad": 9.5,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Análisis documental y recopilación de especificaciones técnicas a partir de la web oficial de Acuity Scheduling, su centro de ayuda de soporte oficial de Squarespace/Acuity y la documentación de su API para desarrolladores. La nota de facilidad de uso NO es nuestra: sale de la ficha de reseñas que se abrió —En Capterra (capterra.com) obtiene una calificación de «Ease of Use» de 4.6/5 basada en 5.767 reseñas, y en G2 (g2.com) registra una nota de «Ease of — leída el 2026-09-30. El resto de notas son valoraciones documentales con sus hechos escritos al lado, no puntuaciones del fabricante ni reseñas.",
+  "ventajas": [
+    "Dispone de pasarelas de pago directas (Stripe, Square y PayPal) para cobrar la sesión completa o una fianza durante la reserva.",
+    "Genera enlaces automáticos para videoconferencias individuales o grupales (Zoom, Google Meet, GoToMeeting) al concertar la cita.",
+    "Soporta tanto citas individuales como eventos y clases grupales con control de plazas.",
+    "Ofrece compatibilidad y acuerdo BAA para normativa sanitaria HIPAA en sus planes superiores."
+  ],
+  "inconvenientes": [
+    "No dispone de un plan gratuito permanente; únicamente ofrece una prueba gratuita de 7 días (o 14 días si se asocia a Squarespace).",
+    "El plan de entrada (Starter) está limitado a 1 único calendario y no incluye avisos por SMS ni venta de paquetes o suscripciones.",
+    "La eliminación de la marca de agua «Powered by Acuity Scheduling» y el acceso a la API/CSS avanzado requieren contratar planes superiores."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": "Estados Unidos",
+    "anioFundacion": 2006,
+    "tamanoAproximado": null
+  },
+  "id": "acuity-scheduling",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-30",
+  "fechaUltimaRevision": "2026-09-30",
+  "problemasIds": [
+    "ahorrar-tiempo",
+    "organizar-empresa"
+  ]
+}

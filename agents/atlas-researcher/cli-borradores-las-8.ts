@@ -25,7 +25,9 @@ import { escribirBorrador } from "@/agents/atlas-researcher/borrador";
 import type { HerramientaPropuesta } from "@/agents/atlas-researcher/tipos";
 
 const D = path.join(process.cwd(), "data", "investigacion");
-const NUEVO = path.join(D, "las-8-2026-09-30", "crudo");
+const NUEVO = fs.existsSync(path.join(D, "las-6-2026-09-30", "crudo"))
+  ? path.join(D, "las-6-2026-09-30", "crudo")
+  : path.join(D, "las-8-2026-09-30", "crudo");
 const MODELO = ["freemium", "suscripcion_mensual", "suscripcion_anual", "pago_unico", "por_usuario", "a_medida"];
 const norm = (s: string) => String(s).toLowerCase().replace(/[^a-z0-9]/g, "");
 
@@ -50,7 +52,24 @@ for (const id of nuevas.keys()) antes[id] = {};
     let j: any;
     try { j = JSON.parse(fs.readFileSync(p, "utf8")); } catch { return; }
     for (const h of Array.isArray(j.herramientas) ? j.herramientas : []) {
-      const id = [...nuevas.keys()].find((k) => norm(k) === norm(h.id ?? "") || norm(k) === norm(h.nombre ?? ""));
+      /**
+       * Se casa por id Y POR NOMBRE, y en las dos direcciones.
+       *
+       * El barrido del 28 guardó a Bookeo como «Bookeo Appointments»: con
+       * `norm(k) === norm(h.nombre)` no casaba —«bookeo» no es
+       * «bookeoappointments»— y la herramienta se quedaba sin su idioma, sus
+       * sectores y su tamaño, que sí estaban guardados. Se cayó en el examen
+       * por eso, no por falta de investigación.
+       */
+      const id = [...nuevas.keys()].find((k) => {
+        const kn = norm(k), hi = norm(h.id ?? ""), hn = norm(h.nombre ?? "");
+        if (kn === hi || kn === hn) return true;
+        // «bookeo» contra «bookeo-appointments», venga en el id o en el nombre.
+        for (const otro of [hi, hn]) {
+          if (otro && (otro.startsWith(kn) || kn.startsWith(otro))) return true;
+        }
+        return false;
+      });
       if (!id) continue;
       for (const k of Object.keys(h)) {
         if (h[k] != null && (!Array.isArray(h[k]) || h[k].length)) antes[id][k] = h[k];
@@ -99,14 +118,15 @@ for (const [id, h] of nuevas) {
     integraciones: h.integraciones,
     integracionesPrincipales: h.integracionesPrincipales,
     curvaDeAprendizaje: h.curvaDeAprendizaje ?? undefined,
-    precioInicial: h.precioInicial,
+    /** Si la entrega nueva no trae precio, vale el que ya estaba comprobado. */
+    precioInicial: h.precioInicial ?? a.precioInicial ?? a.precioMasBajo?.cita,
     modeloDePrecio: (h.modeloDePrecio ?? ["suscripcion_mensual"]).filter((m: string) => MODELO.includes(m)),
     tienePlanGratuito: h.tienePlanGratuito ?? a.tienePlanGratuito ?? undefined,
     /** El recibo: `citaDelPrecio` son las cifras; sin cifra, sólo fecha y dirección. */
     preciosComprobados: (() => {
-      const url = h.urlDelPrecio ?? h.urlPrecios;
+      const url = h.urlDelPrecio ?? h.urlPrecios ?? a.precioMasBajo?.url;
       if (!url) return undefined;
-      const cita = h.citaDelPrecio ?? "";
+      const cita = h.citaDelPrecio ?? a.precioMasBajo?.cita ?? "";
       const ensenaUnPrecio = /[0-9]|[€$£]|gratis|gratuit|free/i.test(cita);
       return { url, fecha: fechaEntrega, ...(ensenaUnPrecio ? { cita } : {}) };
     })(),

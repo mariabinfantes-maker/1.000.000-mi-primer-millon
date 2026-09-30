@@ -1,0 +1,130 @@
+{
+  "nombre": "Zoho Bookings",
+  "paginaOficial": "https://www.zoho.com/bookings/",
+  "urlPrecios": "https://www.zoho.com/bookings/pricing.html",
+  "categoriaId": "reservas-citas",
+  "descripcion": "Zoho Bookings es una aplicación en la nube que permite a profesionales y empresas automatizar la reserva de citas individuales, grupales y alquiler de recursos. Ofrece sincronización bidireccional de calendarios, cobros integrados de anticipos y páginas de reserva personalizadas.",
+  "problemasQueResuelve": [
+    "Pierdo mucho tiempo enviando correos y mensajes de ida y vuelta para cuadrar un hueco libre con mis clientes.",
+    "Tengo clientes que no se presentan a la cita porque se olvidan si no les mando un recordatorio manual.",
+    "Me solapan reuniones porque mi agenda de Google o Microsoft no está sincronizada con las reservas de mi web.",
+    "Tengo que reclamar cobros manualmente después de prestar un servicio en lugar de cobrar la señal o el importe total por adelantado."
+  ],
+  "casosDeUso": [
+    "Consultores y profesionales independientes que comparten un enlace directo o por WhatsApp para agendar videollamadas individuales.",
+    "Clínicas y centros de estética que necesitan asignar citas a distintos miembros del equipo según disponibilidad y ubicación.",
+    "Academias y formadores que programan clases grupales o talleres con un aforo limitado.",
+    "Empresas de alquiler de espacios o salas de reuniones que gestionan la reserva de equipamiento o salas por franjas horarias."
+  ],
+  "idealPara": "Profesionales y equipos que ofrecen citas individuales, sesiones colectivas y servicios reservables.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "servicios profesionales"
+  ],
+  "noRecomendadaPara": "No está pensada para quien no use ya el resto de Zoho: su fuerte es encajar con las demás piezas de esa suite.",
+  "casosNoRecomendados": [
+    "El plan Free permite únicamente 1 espacio de trabajo y 1 evento; el plan Basic 1 espacio con eventos ilimitados, y el plan Premium incluye 3 espacios de trabajo.",
+    "Las llamadas a la API están limitadas según el plan: 250 llamadas al día por usuario en el plan Free, 1.000 en el plan Basic y 3.000 en el plan Premium.",
+    "El plan gratuito solo admite un usuario y 1 tipo de evento/servicio.",
+    "Para configuraciones avanzadas de flujos automatizados fuera de lo estándar se requiere el lenguaje de scripting propio de Zoho (Deluge).",
+    "El envío de notificaciones por SMS y WhatsApp conlleva costes de mensajería independientes de la suscripción del software."
+  ],
+  "funcionesPrincipales": [
+    "Página de reservas pública personalizable e integrable en páginas web o compartible por enlace directo.",
+    "Sincronización bidireccional de calendario con Google Calendar, Outlook, Zoho Calendar y Zoho CRM.",
+    "Generación automática de enlaces de videollamada para Zoom, Microsoft Teams, Google Meet y Zoho Meeting.",
+    "Cobro de pagos completos o depósitos por adelantado mediante pasarelas de pago como Stripe y PayPal.",
+    "Envío automatizado de confirmaciones y recordatorios a clientes por correo electrónico, SMS y WhatsApp.",
+    "Gestión de espacios de trabajo (Workspaces) para organizar sucursales, departamentos o distintos centros de atención.",
+    "Configuración de límites de citas, tiempos de preparación (buffer times) y reglas de reparto equitativo (Round Robin)."
+  ],
+  "integraciones": [
+    "Google Calendar",
+    "Outlook Calendar",
+    "Zoho Calendar",
+    "Zoho CRM",
+    "Bigin by Zoho CRM",
+    "Zoho Desk",
+    "Zoho SalesIQ",
+    "Zoho Books",
+    "Zoho Meeting",
+    "Zoho Flow",
+    "Zoho Assist",
+    "Zoom",
+    "Microsoft Teams",
+    "Google Meet",
+    "Stripe",
+    "PayPal",
+    "Razorpay",
+    "Authorize.Net",
+    "WhatsApp",
+    "Zapier"
+  ],
+  "integracionesPrincipales": [
+    "Google Calendar",
+    "Outlook Calendar",
+    "Zoho CRM",
+    "Stripe",
+    "PayPal",
+    "Zoom",
+    "Microsoft Teams",
+    "Google Meet",
+    "WhatsApp"
+  ],
+  "curvaDeAprendizaje": "facil",
+  "precioInicial": "Forever Free Plan a $0 para 1 usuario (reuniones online y sincronización de calendario); plan de pago Basic desde $6/usuario/mes con facturación anual ($8/usuario/mes facturación mensual) que incluye espacios de trabajo y notificaciones.",
+  "modeloDePrecio": [
+    "suscripcion_mensual"
+  ],
+  "tienePlanGratuito": true,
+  "preciosComprobados": {
+    "url": "https://www.zoho.com/bookings/pricing.html",
+    "fecha": "2026-09-30",
+    "cita": "Forever Free Plan: One user | Online meetings | Notification emails and reminders. Two-way calendar sync. / BASIC US$6per user/month billed annually ($8/user/month billed monthly)."
+  },
+  "idiomasDisponibles": [
+    "es",
+    "en"
+  ],
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "nivelTecnicoRequerido": 2,
+    "facilidadImplementacion": 9,
+    "atencionAlCliente": 8,
+    "fiabilidad": 9,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Análisis documental directo de los portales web oficiales de Zoho Bookings, incluyendo su documentación de producto, comparativas de planes, páginas de características de integración y manuales de ayuda de la API. La nota de facilidad de uso NO es nuestra: sale de la ficha de reseñas que se abrió —Capterra (capterra.com) le otorga una puntuación de «Ease of Use» de 4.5/5 basada en 47 reseñas verificadas.— leída el 2026-09-30. El resto de notas son valoraciones documentales con sus hechos escritos al lado, no puntuaciones del fabricante ni reseñas.",
+  "ventajas": [
+    "Dispone de un plan gratuito para un usuario individual con sincronización de calendario y videollamadas.",
+    "Permite cobrar depósitos o importes completos antes de confirmar la reserva para reducir ausencias.",
+    "Integración nativa directa con todo el ecosistema de aplicaciones de Zoho (CRM, Desk, Books, Flow).",
+    "Soporta reservas colectivas, clases grupales y gestión de alquiler de recursos materiales o salas."
+  ],
+  "inconvenientes": [
+    "El plan gratuito solo admite un usuario y 1 tipo de evento/servicio.",
+    "Para configuraciones avanzadas de flujos automatizados fuera de lo estándar se requiere el lenguaje de scripting propio de Zoho (Deluge).",
+    "El envío de notificaciones por SMS y WhatsApp conlleva costes de mensajería independientes de la suscripción del software."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": "India",
+    "anioFundacion": 1996,
+    "tamanoAproximado": "18.000+ empleados"
+  },
+  "id": "zoho-bookings",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-30",
+  "fechaUltimaRevision": "2026-09-30",
+  "problemasIds": [
+    "ahorrar-tiempo",
+    "organizar-empresa"
+  ]
+}

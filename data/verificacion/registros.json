@@ -82566,5 +82566,670 @@
     ],
     "confianza": "alta",
     "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "acuity-scheduling",
+    "capacidadId": "cap.online_self_service_booking",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.acuityscheduling.com/pricing/",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Client self-scheduling",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "acuity-scheduling",
+    "capacidadId": "cap.customer_appointment_reminders",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.acuityscheduling.com/features",
+        "fechaConsulta": "2026-09-29",
+        "cita": "You can send automated SMS reminders to reduce no-shows. You can also send confirmation, reminder, and follow-up emails to keep your clients on the same page.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "acuity-scheduling",
+    "capacidadId": "cap.booking_cancellation_and_rescheduling",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.acuityscheduling.com/features",
+        "fechaConsulta": "2026-09-29",
+        "cita": "With Acuity, you can give customers the ability to book, reschedule, or cancel appointments all on their own.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "acuity-scheduling",
+    "capacidadId": "cap.capacity_and_time_slots",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.acuityscheduling.com/features",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Optimize your schedule with settings to reduce booking gaps, block personal time, and add buffers between appointments. Control appointment start times by setting intervals.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "acuity-scheduling",
+    "capacidadId": "cap.no_show_and_deposits",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.acuityscheduling.com/pricing/",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Accept payments and deposits through Stripe, Square, PayPal, or Venmo",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "acuity-scheduling",
+    "capacidadId": "cap.booking_waitlist",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.acuityscheduling.com/pricing/",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Clients join a waitlist for fully booked times. When a spot opens, they're notified to grab it.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "acuity-scheduling",
+    "capacidadId": "cap.embeddable_booking_widget",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.acuityscheduling.com/features",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Yes! Acuity Scheduling can be easily added to your website, whether you use a Squarespace website or another website provider. Simply embed your scheduler into your site to start accepting bookings.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "simplybook-me",
+    "capacidadId": "cap.online_self_service_booking",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://simplybook.me/en/booking-system-features-and-integrations",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Keep your booking channels open 24/7 and let your clients book their appointments via multiple channels like your booking website, business website, Facebook, Instagram or Google Business Profile.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "simplybook-me",
+    "capacidadId": "cap.customer_appointment_reminders",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://simplybook.me/en/booking-system-features-and-integrations",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Customize all reminders and notifications to your clients. Send tailored messages via email or SMS through the system and use tags to differentiate between clients",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "simplybook-me",
+    "capacidadId": "cap.booking_cancellation_and_rescheduling",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://simplybook.me/en/faq",
+        "fechaConsulta": "2026-09-29",
+        "cita": "The client app allows your customers to easily book, reschedule or cancel appointments as well as seeing their booking history and more.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "simplybook-me",
+    "capacidadId": "cap.capacity_and_time_slots",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://simplybook.me/en/faq",
+        "fechaConsulta": "2026-09-29",
+        "cita": "You can also create event for specific date and set the number of people who can come to that event. You can offer both group services and individual ones with our booking system.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "simplybook-me",
+    "capacidadId": "cap.no_show_and_deposits",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://simplybook.me/en/booking-system-features-and-integrations",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Eliminate last-minute cancellations by charging a deposit upfront.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "simplybook-me",
+    "capacidadId": "cap.booking_waitlist",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://simplybook.me/en/booking-system-features-and-integrations",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Are you fully booked? Let your clients sign up for your waiting list!",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "simplybook-me",
+    "capacidadId": "cap.embeddable_booking_widget",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://simplybook.me/en/booking-system-features",
+        "fechaConsulta": "2026-09-29",
+        "cita": "If you want to accept bookings online, and already have your own website, you can add booking functionality to it by using SimplyBook.me widgets. They are easily customisable and can, therefore, fit perfectly into your website design.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "zoho-bookings",
+    "capacidadId": "cap.online_self_service_booking",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://help.zoho.com/portal/en/kb/bookings/introduction-to-zoho-bookings/articles/bookings-introduction",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Eliminating the need to call or email, as well as going back and forth to finalize the time",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "zoho-bookings",
+    "capacidadId": "cap.customer_appointment_reminders",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://help.zoho.com/portal/en/kb/bookings/introduction-to-zoho-bookings/articles/bookings-introduction",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Sending automated reminders and notifications",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "zoho-bookings",
+    "capacidadId": "cap.booking_cancellation_and_rescheduling",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://help.zoho.com/portal/en/kb/bookings/introduction-to-zoho-bookings/articles/bookings-introduction",
+        "fechaConsulta": "2026-09-29",
+        "cita": "They can reschedule or cancel with a few clicks.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "zoho-bookings",
+    "capacidadId": "cap.capacity_and_time_slots",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://help.zoho.com/portal/en/kb/bookings/introduction-to-zoho-bookings/articles/bookings-introduction",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Define the duration for each meeting, set the price or make it free, define buffer duration between the meetings, and assign staff for the meeting.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "zoho-bookings",
+    "capacidadId": "cap.embeddable_booking_widget",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://help.zoho.com/portal/en/kb/bookings/introduction-to-zoho-bookings/articles/bookings-quickstart-guide",
+        "fechaConsulta": "2026-09-29",
+        "cita": "The Booking page URL it the URL to your booking page. This URL can be shared to customers or the booking page can be embedded as a widget on to a website.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "reservio",
+    "capacidadId": "cap.online_self_service_booking",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://help.reservio.com/en/articles/8512930-how-to-make-bookings-on-reservio",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Clients can easily book appointments themselves by visiting this page.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "reservio",
+    "capacidadId": "cap.customer_appointment_reminders",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://help.reservio.com/en/articles/5661254-how-to-set-up-text-message-sms-and-email-notifications-for-clients",
+        "fechaConsulta": "2026-09-29",
+        "cita": "The system allows sending the following types of reminders to your clients:",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "reservio",
+    "capacidadId": "cap.capacity_and_time_slots",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://help.reservio.com/en/articles/6533891-class-capacity",
+        "fechaConsulta": "2026-09-29",
+        "cita": "When creating individual classes, you can set the capacity of the class, i.e. how many people can book the class.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "reservio",
+    "capacidadId": "cap.no_show_and_deposits",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://help.reservio.com/en/articles/6534088-dealing-with-no-shows",
+        "fechaConsulta": "2026-09-29",
+        "cita": "You can block these forgetful clients and then focus on more responsible clients who bring you more revenue.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "reservio",
+    "capacidadId": "cap.embeddable_booking_widget",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://help.reservio.com/en/articles/5663960-how-to-add-a-booking-form-to-your-website",
+        "fechaConsulta": "2026-09-29",
+        "cita": "All plans of our booking software allow the integration of your Booking Website with your website via iframe.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "bookeo",
+    "capacidadId": "cap.online_self_service_booking",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.bookeo.com/appointments/",
+        "fechaConsulta": "2026-09-29",
+        "cita": "With Bookeo, your clients can quickly view your real-time availability, schedule appointments, and make payments anytime, anywhere, on any device.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "bookeo",
+    "capacidadId": "cap.customer_appointment_reminders",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.bookeo.com/appointments/",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Reduce no-shows with automatic text and email reminders before appointments.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "bookeo",
+    "capacidadId": "cap.booking_cancellation_and_rescheduling",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.bookeo.com/appointments/",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Let clients reschedule or cancel appointments online, hassle-free, without calling you.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "bookeo",
+    "capacidadId": "cap.capacity_and_time_slots",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.bookeo.com/appointments/",
+        "fechaConsulta": "2026-09-29",
+        "cita": "With Bookeo, you can set different durations and prices for your appointments. Even scheduling combined services and workshops are a snap.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "bookeo",
+    "capacidadId": "cap.no_show_and_deposits",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.bookeo.com/appointments/",
+        "fechaConsulta": "2026-09-29",
+        "cita": "You can choose to mark deposits as non-refundable, helping to enforce your cancellation policies and safeguard your time against last-minute changes. Clients can pay in full, leave a deposit, or pay later.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "bookeo",
+    "capacidadId": "cap.booking_waitlist",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://support.bookeo.com/hc/en-us/articles/360017919312-How-do-waiting-lists-work",
+        "fechaConsulta": "2026-09-29",
+        "cita": "You can enable waiting lists for your classes/tours/games, so your customers can join a waiting list if a class/tour/game is fully booked and be automatically notified when seats become available for bookings.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "bookeo",
+    "capacidadId": "cap.embeddable_booking_widget",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.bookeo.com/appointments/",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Website-integrated: Embed Bookeo's widget into your website. Your clients stay on your site throughout the booking experience, with no pop-ups or overlays.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "teachworks",
+    "capacidadId": "cap.online_self_service_booking",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.teachworks.com/features/automation",
+        "fechaConsulta": "2026-09-29",
+        "cita": "With the Website Booking Plugin, clients can book lessons, join open classes, and enroll in courses directly from your website, 24/7.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "teachworks",
+    "capacidadId": "cap.customer_appointment_reminders",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.teachworks.com/features/automation",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Some notifications include: Lesson Reminder Emails ... Welcome SMS messages and SMS Lesson Reminders",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "teachworks",
+    "capacidadId": "cap.capacity_and_time_slots",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.teachworks.com/studio-and-class-management-software",
+        "fechaConsulta": "2026-09-29",
+        "cita": "By setting maximum student capacities per session, the platform automatically prevents online overbooking based on your physical space limits.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "teachworks",
+    "capacidadId": "cap.embeddable_booking_widget",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.teachworks.com/addons/website-booking",
+        "fechaConsulta": "2026-09-29",
+        "cita": "This add-on allows you to embed a booking button directly on your website.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
   }
 ]

@@ -1,0 +1,128 @@
+{
+  "nombre": "Reservio",
+  "paginaOficial": "https://www.reservio.com/",
+  "categoriaId": "reservas-citas",
+  "descripcion": "Reservio es un programa de gestión de citas y reservas online que permite a los negocios recibir solicitudes de clientes las 24 horas del día. Centraliza la agenda del equipo, el historial de clientes y la disponibilidad en una sola herramienta accesible desde la web y el móvil. Además, automatiza los avisos y facilita el cobro anticipado para evitar huecos en la agenda y reducir el trabajo administrativo.",
+  "problemasQueResuelve": [
+    "Pierdo clientes porque me llaman cuando estoy ocupado atendiendo o fuera del horario comercial y no puedo coger el teléfono.",
+    "Sufro pérdidas económicas cuando los clientes se olvidan de su cita y dejan el hueco sin avisar.",
+    "Me vuelvo loco cuadrando los horarios y turnos de varios empleados con calendarios de papel o mensajes cruzados.",
+    "Paso demasiado tiempo confirmando citas y recordando horarios manualmente en vez de centrarme en dar mi servicio."
+  ],
+  "casosDeUso": [
+    "Peluquerías y centros de estética que permiten al cliente reservar corte, tinte o manicura eligiendo al profesional y su horario disponible.",
+    "Estudios de yoga o gimnasios que gestionan el registro de alumnos y el aforo máximo de sus clases y talleres grupales.",
+    "Consultas de fisioterapia y clínicas privadas que coordinan citas individuales con envío automático de recordatorios antes de cada sesión.",
+    "Profesores particulares y academias de formación que programan tutorías, reservan aulas y cobran sesiones por adelantado."
+  ],
+  "idealPara": "Negocios de belleza, bienestar, fitness y clínicas que ofrecen citas o eventos.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "centros de belleza",
+    "centros de bienestar",
+    "gimnasios",
+    "clínicas"
+  ],
+  "noRecomendadaPara": "No está pensada para quien no trabaje con cita previa: todo gira alrededor de la agenda y la página de reservas.",
+  "casosNoRecomendados": [
+    "El plan Free permite un máximo de 40 reservas en un periodo móvil de 30 días.",
+    "El plan Starter admite hasta 200 reservas por periodo de 30 días.",
+    "El plan Standard amplía la capacidad hasta 500 reservas cada 30 días.",
+    "El plan Pro ofrece reservas ilimitadas, acceso a API y marca blanca.",
+    "Los límites de volumen de reservas operan en ciclos móviles y no por mes de calendario.",
+    "El límite de reservas no se reinicia a final de mes, sino que se calcula en una ventana continua móvil de 30 días.",
+    "Los recordatorios por mensaje SMS tienen coste adicional y se facturan mediante paquetes separados según la moneda y país.",
+    "El acceso a la API y la opción de retirar el logotipo o marca de Reservio requieren contratar el plan Pro o superior.",
+    "Las transacciones con pagos por internet conllevan una comisión por operación bajo el modelo MIF++ a partir del 2,90 % + 0,35 $."
+  ],
+  "funcionesPrincipales": [
+    "Página web personalizada de reservas para aceptar citas de clientes 24/7",
+    "Calendario inteligente con vista de agenda por empleado y sincronización de horarios",
+    "Envío automatizado de recordatorios y confirmaciones por SMS y correo electrónico",
+    "Pasarela para cobros online, prepagos y gestión de ventas de servicios",
+    "Programación de eventos grupales, clases recurrentes y control de aforo",
+    "Ficha centralizada de clientes con historial de citas anteriores y notas",
+    "Venta y control de pases, membresías periódicas y programas de fidelidad",
+    "Aplicación móvil para administrar la agenda y recibir avisos en tiempo real"
+  ],
+  "integraciones": [
+    "Google Calendar",
+    "Outlook",
+    "iCal",
+    "Google Contacts",
+    "WordPress",
+    "Slevomat",
+    "Apple Pay",
+    "Google Pay",
+    "Visa",
+    "Mastercard",
+    "Maestro",
+    "Carte Bancaire",
+    "Bancontact"
+  ],
+  "integracionesPrincipales": [
+    "Google Calendar",
+    "Outlook",
+    "iCal",
+    "WordPress",
+    "Apple Pay",
+    "Google Pay"
+  ],
+  "curvaDeAprendizaje": "muy_facil",
+  "precioInicial": "Free",
+  "modeloDePrecio": [
+    "suscripcion_mensual"
+  ],
+  "tienePlanGratuito": true,
+  "preciosComprobados": {
+    "url": "https://www.reservio.com/pricing",
+    "fecha": "2026-09-30",
+    "cita": "Free"
+  },
+  "idiomasDisponibles": [
+    "es",
+    "en"
+  ],
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9.4,
+    "nivelTecnicoRequerido": 2,
+    "facilidadImplementacion": 9,
+    "atencionAlCliente": 7,
+    "fiabilidad": 9.9,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Análisis documental directo de las características, listas de precios, base de conocimiento y documentación técnica publicadas en el sitio web y centro de ayuda oficial de Reservio. La nota de facilidad de uso NO es nuestra: sale de la ficha de reseñas que se abrió —Capterra (capterra.com) le otorga una calificación de «Ease of Use» de 4.7 sobre 5 basada en 142 reseñas verificadas.— leída el 2026-09-30. El resto de notas son valoraciones documentales con sus hechos escritos al lado, no puntuaciones del fabricante ni reseñas.",
+  "ventajas": [
+    "Dispone de un plan gratuito permanente que incluye hasta 40 reservas cada 30 días, página web de reservas y app móvil.",
+    "Sincroniza la agenda de citas con calendarios externos como Google Calendar, Outlook e iCal mediante estándar ICS.",
+    "Incorpora pasarela de pagos en línea y sistema de cobro TPV con soporte para tarjetas de crédito, Apple Pay y Google Pay.",
+    "Automatiza el envío de recordatorios y confirmaciones por correo electrónico en todos los planes para reducir citas perdidas."
+  ],
+  "inconvenientes": [
+    "El límite de reservas no se reinicia a final de mes, sino que se calcula en una ventana continua móvil de 30 días.",
+    "Los recordatorios por mensaje SMS tienen coste adicional y se facturan mediante paquetes separados según la moneda y país.",
+    "El acceso a la API y la opción de retirar el logotipo o marca de Reservio requieren contratar el plan Pro o superior.",
+    "Las transacciones con pagos por internet conllevan una comisión por operación bajo el modelo MIF++ a partir del 2,90 % + 0,35 $."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": "República Checa",
+    "anioFundacion": 2012,
+    "tamanoAproximado": "11-50 empleados"
+  },
+  "id": "reservio",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-30",
+  "fechaUltimaRevision": "2026-09-30",
+  "urlPrecios": "https://www.reservio.com/pricing",
+  "problemasIds": [
+    "ahorrar-tiempo",
+    "organizar-empresa",
+    "conseguir-clientes"
+  ]
+}

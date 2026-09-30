@@ -1,0 +1,123 @@
+{
+  "nombre": "Teachworks",
+  "paginaOficial": "https://teachworks.com/",
+  "urlPrecios": "https://www.teachworks.com/pricing",
+  "categoriaId": "formacion-academias",
+  "descripcion": "Teachworks es un software de gestión en la nube diseñado para academias de tutoría, escuelas de música, idiomas y autoescuelas. Centraliza la planificación de clases, la facturación a familias, el cálculo de nóminas docentes y el control de asistencia.",
+  "problemasQueResuelve": [
+    "«Paso horas cuadrando los horarios y las aulas de varios profesores para que no se solapen las clases.»",
+    "«A fin de mes pierdo días calculando a mano cuántas horas ha impartido cada profesor para preparar las nóminas.»",
+    "«Cobrar las cuotas y emitir facturas a cada familia una por una me quita demasiado tiempo y genera errores.»",
+    "«Los alumnos faltan o se confunden de hora porque no tengo una forma automática de enviarles recordatorios.»"
+  ],
+  "casosDeUso": [
+    "Centros de refuerzo escolar y preparación de exámenes que necesitan gestionar clases individuales o grupales y facturar por paquete o por horas.",
+    "Escuelas de música que requieren organizar profesores, asignación de instrumentos o salas y cobro de cuotas mensuales.",
+    "Autoescuelas que necesitan coordinar las clases prácticas en vehículos, instructores y seguimiento del progreso del alumno.",
+    "Academias de idiomas con múltiples profesores que imparten clases presenciales u online y requieren portales de acceso para docentes y alumnos."
+  ],
+  "idealPara": "Academias, empresas de tutoría, escuelas de música, idiomas y otras actividades docentes.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "academias",
+    "clases particulares",
+    "escuelas de música",
+    "escuelas de idiomas"
+  ],
+  "noRecomendadaPara": "No está pensada para negocios fuera de la enseñanza y las academias.",
+  "casosNoRecomendados": [
+    "El plan Starter no incluye acceso a la API del sistema.",
+    "Todos los planes cobran un coste variable adicional por cada lección programada por alumno al mes.",
+    "La prueba gratuita tiene una duración estricta de 21 días y no existe plan gratuito permanente.",
+    "El coste mensual fluctúa según el volumen de actividad, ya que aplica un recargo por cada lección impartida además de la cuota fija.",
+    "No dispone de aplicación móvil nativa para descargar en tiendas de apps; el acceso se realiza a través del navegador web.",
+    "El acceso a la API para desarrolladores está bloqueado en el plan inicial (Starter) y requiere contratar al menos el plan Growth."
+  ],
+  "funcionesPrincipales": [
+    "Calendario inteligente con detección de conflictos de horarios, aulas y disponibilidad de profesores.",
+    "Facturación y cobros automáticos mediante tarjeta de crédito conectada a pasarelas de pago.",
+    "Cálculo automatizado de nóminas y horas trabajadas por los profesores según las clases impartidas.",
+    "Portal de autoservicio para profesores, tutores y estudiantes con historial y notas de seguimiento.",
+    "Recordatorios automatizados de clases por correo electrónico y SMS.",
+    "Gestión de múltiples sedes mediante una cuenta centralizada (Master Account).",
+    "Integración con más de 80 complementos y herramientas externas como Stripe, QuickBooks o calendarios."
+  ],
+  "integraciones": [
+    "Stripe",
+    "QuickBooks Online",
+    "Zapier",
+    "Google Calendar",
+    "Mailchimp",
+    "Microsoft Excel",
+    "Microsoft Outlook",
+    "Apple Calendar",
+    "Lessonspace",
+    "Pencil Spaces",
+    "Zoom",
+    "Google Meet",
+    "Skype"
+  ],
+  "integracionesPrincipales": [
+    "Stripe",
+    "QuickBooks Online",
+    "Zapier",
+    "Google Calendar",
+    "Mailchimp",
+    "Zoom"
+  ],
+  "curvaDeAprendizaje": "facil",
+  "precioInicial": "Plan Starter: 16.49 USD/mes de cuota base más 0.320 USD adicionales por cada clase por estudiante ('student lesson'). Incluye alumnos ilimitados, profesores ilimitados, cuentas de usuario ilimitadas, emails ilimitados (con política de uso razonable), soporte al cliente y más de 70 integraciones y add-ons (excluyendo API).",
+  "modeloDePrecio": [
+    "suscripcion_mensual"
+  ],
+  "tienePlanGratuito": false,
+  "preciosComprobados": {
+    "url": "https://www.teachworks.com/pricing",
+    "fecha": "2026-09-30",
+    "cita": "Starter: $16.49 /mo + $0.320 per student lesson monthly"
+  },
+  "idiomasDisponibles": [
+    "en"
+  ],
+  "tieneAppMovil": false,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "nivelTecnicoRequerido": 2,
+    "facilidadImplementacion": 8,
+    "atencionAlCliente": 7,
+    "fiabilidad": null,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Análisis documental directo de la página oficial de Teachworks, su tabla de precios, base de conocimientos y especificaciones públicas de producto, sin recurrir a agregadores de opiniones. La nota de facilidad de uso NO es nuestra: sale de la ficha de reseñas que se abrió —Capterra le otorga una nota de «Ease of Use» de 4.5/5 (equivalente a 9/10) respaldada por 65 a 67 reseñas de usuarios verificados.— leída el 2026-09-30. El resto de notas son valoraciones documentales con sus hechos escritos al lado, no puntuaciones del fabricante ni reseñas. AVISO: en Teachworks el número de reseñas se leyó como un rango, «65 a 67», lo que no es propio de una página; la nota se conserva y el contador se toma con reserva.",
+  "ventajas": [
+    "No impone límites en el número de alumnos, profesores o cuentas de usuario registradas en ninguno de sus planes.",
+    "Calcula automáticamente el pago a los profesores a partir del registro de asistencia y las clases programadas en el calendario.",
+    "Ofrece más de 80 extensiones y complementos gratuitos para activar únicamente las funciones que el centro necesita.",
+    "Incluye soporte multilingüe en su plataforma y asistente con cobertura en más de 40 idiomas."
+  ],
+  "inconvenientes": [
+    "El coste mensual fluctúa según el volumen de actividad, ya que aplica un recargo por cada lección impartida además de la cuota fija.",
+    "No dispone de aplicación móvil nativa para descargar en tiendas de apps; el acceso se realiza a través del navegador web.",
+    "El acceso a la API para desarrolladores está bloqueado en el plan inicial (Starter) y requiere contratar al menos el plan Growth."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": "Canadá",
+    "anioFundacion": 2014,
+    "tamanoAproximado": null
+  },
+  "id": "teachworks",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-30",
+  "fechaUltimaRevision": "2026-09-30",
+  "problemasIds": [
+    "organizar-empresa",
+    "ahorrar-tiempo"
+  ]
+}

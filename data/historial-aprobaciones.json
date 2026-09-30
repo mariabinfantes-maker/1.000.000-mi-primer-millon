@@ -628,5 +628,95 @@
     "estadoAfiliacion": "confirmada",
     "observaciones": "Autorizado por la propietaria el 2026-09-30 con «sí y sigue», sobre la entrega de GPT de DriCloud y flowww de ese día. Ella pidió expresamente que se analizara y guardara la entrega antes de seguir con otra cosa. Motivos del bloqueo: \"dricloud\" ya existe en el catálogo real: promoverlo lo sobrescribiría. Revísalo a mano si es intencionado.",
     "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T07:25:10.126Z",
+    "herramientaId": "acuity-scheduling",
+    "nombreHerramienta": "acuity-scheduling",
+    "resultado": "rechazada",
+    "puntuacionMolnip": null,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado el 2026-09-30: la propietaria dijo «busca tú lo que falta» después de que GPT dejara estas seis en pendientes. El texto de la ficha lo buscó Claude con Gemini; las capacidades, el precio, los sectores y el tamaño ya estaban verificados y archivados del 2026-09-29. Motivos del bloqueo: [data/herramientas/borradores/acuity-scheduling.json] no es una Herramienta válida:\n  - falta el objeto \"puntuaciones\"",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T07:25:10.681Z",
+    "herramientaId": "simplybook-me",
+    "nombreHerramienta": "simplybook-me",
+    "resultado": "rechazada",
+    "puntuacionMolnip": null,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado el 2026-09-30: la propietaria dijo «busca tú lo que falta» después de que GPT dejara estas seis en pendientes. El texto de la ficha lo buscó Claude con Gemini; las capacidades, el precio, los sectores y el tamaño ya estaban verificados y archivados del 2026-09-29. Motivos del bloqueo: [data/herramientas/borradores/simplybook-me.json] no es una Herramienta válida:\n  - falta el objeto \"puntuaciones\"",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T07:25:11.281Z",
+    "herramientaId": "zoho-bookings",
+    "nombreHerramienta": "zoho-bookings",
+    "resultado": "rechazada",
+    "puntuacionMolnip": null,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado el 2026-09-30: la propietaria dijo «busca tú lo que falta» después de que GPT dejara estas seis en pendientes. El texto de la ficha lo buscó Claude con Gemini; las capacidades, el precio, los sectores y el tamaño ya estaban verificados y archivados del 2026-09-29. Motivos del bloqueo: [data/herramientas/borradores/zoho-bookings.json] no es una Herramienta válida:\n  - falta el campo de texto \"precioInicial\"\n  - falta el objeto \"puntuaciones\"",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T07:25:11.770Z",
+    "herramientaId": "reservio",
+    "nombreHerramienta": "reservio",
+    "resultado": "rechazada",
+    "puntuacionMolnip": null,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado el 2026-09-30: la propietaria dijo «busca tú lo que falta» después de que GPT dejara estas seis en pendientes. El texto de la ficha lo buscó Claude con Gemini; las capacidades, el precio, los sectores y el tamaño ya estaban verificados y archivados del 2026-09-29. Motivos del bloqueo: [data/herramientas/borradores/reservio.json] no es una Herramienta válida:\n  - falta el objeto \"puntuaciones\"",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T07:25:12.316Z",
+    "herramientaId": "bookeo",
+    "nombreHerramienta": "bookeo",
+    "resultado": "rechazada",
+    "puntuacionMolnip": null,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado el 2026-09-30: la propietaria dijo «busca tú lo que falta» después de que GPT dejara estas seis en pendientes. El texto de la ficha lo buscó Claude con Gemini; las capacidades, el precio, los sectores y el tamaño ya estaban verificados y archivados del 2026-09-29. Motivos del bloqueo: [data/herramientas/borradores/bookeo.json] no es una Herramienta válida:\n  - falta el objeto \"puntuaciones\"",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T07:25:12.860Z",
+    "herramientaId": "teachworks",
+    "nombreHerramienta": "teachworks",
+    "resultado": "rechazada",
+    "puntuacionMolnip": null,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado el 2026-09-30: la propietaria dijo «busca tú lo que falta» después de que GPT dejara estas seis en pendientes. El texto de la ficha lo buscó Claude con Gemini; las capacidades, el precio, los sectores y el tamaño ya estaban verificados y archivados del 2026-09-29. Motivos del bloqueo: [data/herramientas/borradores/teachworks.json] no es una Herramienta válida:\n  - falta el campo de texto \"precioInicial\"\n  - falta el objeto \"puntuaciones\"",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T07:28:34.308Z",
+    "herramientaId": "zoho-bookings",
+    "nombreHerramienta": "Zoho Bookings",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 92,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Autorizado el 2026-09-30: la propietaria dijo «busca tú lo que falta» después de que GPT dejara estas seis en pendientes. El texto de la ficha lo buscó Claude con Gemini; las capacidades, el precio, los sectores y el tamaño ya estaban verificados y archivados del 2026-09-29. Motivos del bloqueo: Atlas Curator: \"Zoho Bookings\" y \"Zoho CRM\" comparten el mismo dominio (zoho.com) en su página oficial. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces. | Atlas Curator: \"Zoho Bookings\" y \"Zoho One\" comparten el mismo dominio (zoho.com) en su página oficial. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces. | Atlas Curator: \"Zoho Bookings\" y \"Zoho Projects\" comparten el mismo dominio (zoho.com) en su página oficial. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T07:28:43.081Z",
+    "herramientaId": "teachworks",
+    "nombreHerramienta": "Teachworks",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 82,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Autorizado el 2026-09-30: la propietaria dijo «busca tú lo que falta» después de que GPT dejara estas seis en pendientes. El texto de la ficha lo buscó Claude con Gemini; las capacidades, el precio, los sectores y el tamaño ya estaban verificados y archivados del 2026-09-29. Motivos del bloqueo: \"teachworks\" ya existe en el catálogo real: promoverlo lo sobrescribiría. Revísalo a mano si es intencionado.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T07:28:48.433Z",
+    "herramientaId": "zoho-bookings",
+    "nombreHerramienta": "Zoho Bookings",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 92,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Autorizado el 2026-09-30: la propietaria dijo «busca tú lo que falta» después de que GPT dejara estas seis en pendientes. El texto de la ficha lo buscó Claude con Gemini; las capacidades, el precio, los sectores y el tamaño ya estaban verificados y archivados del 2026-09-29. Motivos del bloqueo: Atlas Curator: \"Zoho Bookings\" y \"Zoho CRM\" comparten el mismo dominio (zoho.com) en su página oficial. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces. | Atlas Curator: \"Zoho Bookings\" y \"Zoho One\" comparten el mismo dominio (zoho.com) en su página oficial. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces. | Atlas Curator: \"Zoho Bookings\" y \"Zoho Projects\" comparten el mismo dominio (zoho.com) en su página oficial. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces.",
+    "aprobacionCeo": true
   }
 ]

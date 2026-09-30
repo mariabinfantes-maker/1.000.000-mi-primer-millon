@@ -82,13 +82,13 @@ describe("la puntuación guardada en cada ficha", () => {
    * aquí la lista exacta para que no crezca en silencio: si mañana entra una
    * sexta ficha sin análisis, esta prueba falla y obliga a decidir.
    */
-  it("las fichas sin analisisAtlas siguen siendo exactamente estas veinticuatro", () => {
+  it("las fichas sin analisisAtlas siguen siendo exactamente estas veintiocho", () => {
     const sinAnalisis = herramientas.filter((h) => !h.analisisAtlas).map((h) => h.id).sort();
     // Las trece de reservas del 2026-09-29 y DriCloud y flowww del 30 se
     // suman a las cinco que ya estaban: ninguna trae `analisisAtlas`, y no se
     // les inventa uno. Es un hueco declarado, no un descuido.
     expect(sinAnalisis).toEqual(
-      ["agendapro", "archivex", "bewe", "bitrix24", "bookitit", "booksy", "cliniko", "dricloud", "flowww", "fresha", "gohighlevel", "hubspot", "jane", "koibox", "nubimed", "odoo", "pabau", "reservo", "schedulista", "setmore", "square-appointments", "timify", "viday", "zoho-one"]
+      ["acuity-scheduling", "agendapro", "archivex", "bewe", "bitrix24", "bookeo", "bookitit", "booksy", "cliniko", "dricloud", "flowww", "fresha", "gohighlevel", "hubspot", "jane", "koibox", "nubimed", "odoo", "pabau", "reservio", "reservo", "schedulista", "setmore", "simplybook-me", "square-appointments", "teachworks", "timify", "viday", "zoho-bookings", "zoho-one"]
     );
   });
 });

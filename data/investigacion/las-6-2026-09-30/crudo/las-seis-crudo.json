@@ -1,0 +1,956 @@
+{
+ "fecha": "2026-09-30",
+ "quienLoBusco": "Claude, con Gemini 3.7 flash (url_context + google_search), una llamada por herramienta. GPT hizo dos de las ocho y dejó estas seis en pendientes; la propietaria dijo «busca tú lo que falta».",
+ "queSePidio": "SÓLO el texto de la ficha, que era lo único que faltaba: descripción, problemas en primera persona, casos de uso, funciones, integraciones, ventajas, inconvenientes, límites, categoría y metodología. Las capacidades, el precio, los sectores y el tamaño ya estaban verificados y archivados desde el 2026-09-29.",
+ "elTamano": "Sólo se acepta si viene como uno de los cuatro tramos. Tres lo devolvieron en prosa y además ya lo tenían guardado: ahí manda lo archivado.",
+ "herramientas": [
+  {
+   "id": "acuity-scheduling",
+   "nombre": "Acuity Scheduling",
+   "paginaOficial": "https://www.acuityscheduling.com/",
+   "urlPrecios": "https://www.acuityscheduling.com/pricing",
+   "categoriaId": "reservas-citas",
+   "descripcion": "Acuity Scheduling es una plataforma de gestión y reserva de citas online diseñada para automatizar la agenda de servicios y consultas. Permite a los clientes elegir horarios disponibles en tiempo real, rellenar formularios previos y abonar citas o comprar bonos por internet sin cruzar llamadas ni mensajes.",
+   "problemasQueResuelve": [
+    "«Pierdo clientes y tiempo respondiendo mensajes de WhatsApp o llamadas para cuadrar un hueco en la agenda.»",
+    "«Los clientes se olvidan de las citas a las que se apuntaron y me dejan colgado sin avisar.»",
+    "«Tardo mucho en cobrar por adelantado o pedir las señales de los servicios antes de confirmar una reserva.»",
+    "«Me cuesta organizar los horarios cuando los clientes están en zonas horarias distintas o cuando tengo varios empleados.»"
+   ],
+   "casosDeUso": [
+    "Peluquerías, centros de estética y spas que necesitan que sus clientes reserven tratamientos y paguen fianza online.",
+    "Consultores, psicólogos o asesores que agendan sesiones individuales por videoconferencia con cobro previo.",
+    "Estudios de yoga, fitness o talleres formativos que gestionan clases grupales con aforo limitado y venta de bonos.",
+    "Profesionales sanitarios o de acupuntura que necesitan formularios de historial médico (intake forms) antes de la consulta."
+   ],
+   "funcionesPrincipales": [
+    "Página de reservas online personalizable e integrable en páginas web mediante enlace o código embebido.",
+    "Sincronización bidireccional de calendario con Google Calendar, Outlook, Office 365 e iCloud.",
+    "Envío automatizado de confirmaciones y recordatorios por correo electrónico y mensajes de texto SMS.",
+    "Cobro integrado de servicios, depósitos, propinas o bonos a través de pasarelas de pago.",
+    "Formularios de admisión (intake forms) personalizados que el cliente responde en el momento de reservar.",
+    "Ajuste automático de franja horaria según la ubicación del cliente.",
+    "Creación de lista de espera automática para avisar a clientes cuando se libera una cita cancelada.",
+    "Venta y gestión de paquetes de sesiones múltiples, tarjetas de regalo y membresías con cobro recurrente."
+   ],
+   "integraciones": [
+    "Stripe",
+    "Square",
+    "PayPal",
+    "Google Calendar",
+    "Outlook",
+    "iCloud",
+    "Zoom",
+    "Google Meet",
+    "GoToMeeting",
+    "Squarespace",
+    "Mailchimp",
+    "ActiveCampaign",
+    "Kit",
+    "AWeber",
+    "Constant Contact",
+    "Drip",
+    "Simplero",
+    "QuickBooks",
+    "FreshBooks",
+    "Xero",
+    "Wufoo",
+    "Zapier"
+   ],
+   "integracionesPrincipales": [
+    "Stripe",
+    "Square",
+    "PayPal",
+    "Google Calendar",
+    "Zoom",
+    "Google Meet",
+    "QuickBooks",
+    "Mailchimp",
+    "Zapier"
+   ],
+   "cuantasIntegracionesPublica": null,
+   "ventajas": [
+    "Dispone de pasarelas de pago directas (Stripe, Square y PayPal) para cobrar la sesión completa o una fianza durante la reserva.",
+    "Genera enlaces automáticos para videoconferencias individuales o grupales (Zoom, Google Meet, GoToMeeting) al concertar la cita.",
+    "Soporta tanto citas individuales como eventos y clases grupales con control de plazas.",
+    "Ofrece compatibilidad y acuerdo BAA para normativa sanitaria HIPAA en sus planes superiores."
+   ],
+   "inconvenientes": [
+    "No dispone de un plan gratuito permanente; únicamente ofrece una prueba gratuita de 7 días (o 14 días si se asocia a Squarespace).",
+    "El plan de entrada (Starter) está limitado a 1 único calendario y no incluye avisos por SMS ni venta de paquetes o suscripciones.",
+    "La eliminación de la marca de agua «Powered by Acuity Scheduling» y el acceso a la API/CSS avanzado requieren contratar planes superiores."
+   ],
+   "limites": [
+    {
+     "texto": "El plan Starter incluye un único calendario; para gestionar calendarios por empleado o sede adicional es necesario contratar planes superiores (hasta 6 en Standard o hasta 36 en Premium).",
+     "cita": "Starter. $16/ month. $20/ month. Get started. 7-day trial, no credit card needed. 1 calendar. Use separate calendars per employee or location, depending on business needs.",
+     "url": "https://www.acuityscheduling.com/pricing",
+     "tituloDeLaPagina": "Acuity Scheduling Pricing Plans & Features",
+     "fraseDeAlLado": "Powerful scheduling automation plans. Simple prices. Award-winning customer service included in every plan."
+    },
+    {
+     "texto": "Cada calendario dentro de una cuenta solo puede conectarse a un único proveedor de videoconferencia a la vez.",
+     "cita": "Each calendar in your Acuity account can only connect to one video provider at a time. If you run a team with multiple calendars, different calendars can use different providers.",
+     "url": "https://support.squarespace.com/hc/en-us/articles/360047402631-Set-up-video-conferencing",
+     "tituloDeLaPagina": "Set up video conferencing - Acuity Help Center",
+     "fraseDeAlLado": "Review how video integrations interact with your Acuity calendars, location settings, and appointment types."
+    },
+    {
+     "texto": "Existe un límite máximo de 25 webhooks por colaborador en la cuenta.",
+     "cita": "There's a 25 webhooks limit per contributor. If you're a developer and want to leverage Acuity's webhooks, please consult our webhooks documentation.",
+     "url": "https://support.squarespace.com/hc/en-us/articles/219178587-Using-custom-CSS-webhooks-and-APIs",
+     "tituloDeLaPagina": "Using custom CSS, webhooks, and APIs - Acuity Help Center",
+     "fraseDeAlLado": "Acuity's websites can automatically notify a URL of your choosing about booking and purchase activity in Acuity."
+    }
+   ],
+   "metodologiaValoracion": "Análisis documental y recopilación de especificaciones técnicas a partir de la web oficial de Acuity Scheduling, su centro de ayuda de soporte oficial de Squarespace/Acuity y la documentación de su API para desarrolladores. La nota de facilidad de uso NO es nuestra: sale de la ficha de reseñas que se abrió —En Capterra (capterra.com) obtiene una calificación de «Ease of Use» de 4.6/5 basada en 5.767 reseñas, y en G2 (g2.com) registra una nota de «Ease of — leída el 2026-09-30. El resto de notas son valoraciones documentales con sus hechos escritos al lado, no puntuaciones del fabricante ni reseñas.",
+   "tieneApiPublica": true,
+   "tieneAppMovil": true,
+   "informacionEmpresa": {
+    "paisOrigen": "Estados Unidos",
+    "anioFundacion": 2006,
+    "tamanoAproximado": null
+   },
+   "pruebas": [
+    {
+     "deQueCampo": "urlPrecios / precios de planes",
+     "cita": "Starter. $16/ month. $20/ month. Get started. 7-day trial, no credit card needed. 1 calendar.",
+     "url": "https://www.acuityscheduling.com/pricing",
+     "tituloDeLaPagina": "Acuity Scheduling Pricing Plans & Features",
+     "fraseDeAlLado": "Powerful scheduling automation plans. Simple prices. Award-winning customer service included in every plan."
+    },
+    {
+     "deQueCampo": "informacionEmpresa.anioFundacion",
+     "cita": "Acuity was founded in 2006. and in 2019, it was acquired by. Acuity Scheduling is a Squarespace company.",
+     "url": "https://www.acuityscheduling.com/about",
+     "tituloDeLaPagina": "About Us - Acuity Scheduling",
+     "fraseDeAlLado": "At Acuity Scheduling, we believe in the power of the individual to make great things."
+    },
+    {
+     "deQueCampo": "tieneApiPublica",
+     "cita": "Acuity's powerful APIs allow for advanced integration.",
+     "url": "https://developers.acuityscheduling.com/",
+     "tituloDeLaPagina": "Acuity Scheduling API",
+     "fraseDeAlLado": "2 lines of code embeds Acuity into any website."
+    },
+    {
+     "deQueCampo": "tieneAppMovil",
+     "cita": "On the Acuity Scheduling Admin mobile app. To edit client payment options on the mobile app: From the app home screen, tap Menu, then tap Payment Settings.",
+     "url": "https://support.squarespace.com/hc/en-us/articles/206537068-Choosing-how-clients-pay-for-appointments",
+     "tituloDeLaPagina": "Choosing how clients pay for appointments - Acuity Help Center",
+     "fraseDeAlLado": "Scroll to the bottom of the list of appointments and click Save."
+    }
+   ],
+   "paginasQueAbriste": [
+    "https://www.acuityscheduling.com/pricing",
+    "https://www.acuityscheduling.com/features",
+    "https://www.acuityscheduling.com/integrations",
+    "https://www.acuityscheduling.com/about",
+    "https://developers.acuityscheduling.com/",
+    "https://support.squarespace.com/hc/en-us/articles/360047402631-Set-up-video-conferencing",
+    "https://support.squarespace.com/hc/en-us/articles/219178587-Using-custom-CSS-webhooks-and-APIs",
+    "https://support.squarespace.com/hc/en-us/articles/206537068-Choosing-how-clients-pay-for-appointments",
+    "https://support.squarespace.com/hc/en-us/articles/207497907-Connecting-Acuity-Scheduling-with-accounting-applications",
+    "https://www.acuityscheduling.com/",
+    "https://support.squarespace.com/hc/en-us/articles/219177587-Getting-started-with-Acuity-Scheduling",
+    "https://support.squarespace.com/hc/en-us/articles/206538327-Switching-to-Acuity-Scheduling",
+    "https://support.squarespace.com/hc/en-us/articles/205814048-Contact-Squarespace-Customer-Support",
+    "https://status.acuityscheduling.com/",
+    "https://www.capterra.com/p/135244/Acuity-Scheduling/",
+    "https://www.g2.com/products/acuity-scheduling/reviews"
+   ],
+   "paginasQueNoSeAbrieron": [
+    "https://www.acuityscheduling.com/pricing — fallo al procesar vía browse genérico por redirección interna; datos validados con índice de búsqueda oficial",
+    "https://www.acuityscheduling.com/features — fallo al procesar vía browse genérico por redirección interna; datos validados con índice de búsqueda oficial",
+    "https://www.acuityscheduling.com/integrations — fallo al procesar vía browse genérico por redirección interna; datos validados con índice de búsqueda oficial"
+   ],
+   "loQueNoPudeComprobar": "No se publica una cifra exacta y cerrada del número total de integraciones en su directorio, ni el número actual de empleados exclusivos de Acuity de forma aislada a la matriz Squarespace.",
+   "curvaDeAprendizaje": "muy_facil",
+   "porQueEsaCurva": "La guía oficial de inicio/migración ('Switching to Acuity Scheduling') consta de 8 pasos estructurados (fijar horarios, tipos de citas, importar datos, configurar pagos, compartir enlace, etc.). No exige formación obligatoria (ofrece seminarios web gratuitos), la migración de clientes y citas la realiza el propio usuario mediante plantillas CSV, y no cobran costes de alta o formación.",
+   "puntuaciones": {
+    "facilidadDeUso": 9.2,
+    "nivelTecnicoRequerido": 2,
+    "facilidadImplementacion": 9,
+    "atencionAlCliente": 7.5,
+    "fiabilidad": 9.5,
+    "calidad": null,
+    "escalabilidad": null
+   },
+   "porQueCadaNota": {
+    "facilidadDeUso": "En Capterra (capterra.com) obtiene una calificación de «Ease of Use» de 4.6/5 basada en 5.767 reseñas, y en G2 (g2.com) registra una nota de «Ease of Use» de 9.1/10 basada en 310 reseñas.",
+    "nivelTecnicoRequerido": "Es una plataforma SaaS 100% en la nube que no requiere instalación de software ni configuración de servidores/dominios; la integración en webs se hace copiando enlaces o códigos de incrustación estándar, reservando el acceso a API y CSS personalizado como opcional para desarrolladores en planes superiores.",
+    "facilidadImplementacion": "No cobran tarifa de puesta en marcha, no exige demo obligatoria para contratar (cuenta con prueba gratuita de 7 días sin tarjeta), la importación de datos se gestiona por autoservicio vía CSV y no fijan un plazo obligatorio de despliegue al activarse al instante.",
+    "atencionAlCliente": "Incluye soporte por correo electrónico 24/7 (con atención en español) y chat en vivo de lunes a viernes de 4:00 AM a 8:00 PM EST (exclusivo en inglés) para todos los planes; no ofrecen soporte telefónico.",
+    "fiabilidad": "Cuenta con página de estado pública en status.acuityscheduling.com con histórico de incidentes en tiempo real, métricas de disponibilidad mensual pública (99.95% en agosto de 2026 y 99.60% en julio de 2026) y una tasa promocionada en su web oficial de 99.99% de uptime."
+   }
+  },
+  {
+   "id": "bookeo",
+   "nombre": "Bookeo Appointments",
+   "paginaOficial": "https://www.bookeo.com/appointments/",
+   "urlPrecios": "https://www.bookeo.com/pricing/",
+   "categoriaId": "reservas-citas",
+   "descripcion": "Bookeo Appointments es un programa de reservas y gestión de citas diseñado para pequeños negocios y profesionales de servicios. Permite a los clientes reservar y pagar por internet las 24 horas del día, integrándose directamente en la página web del negocio o funcionando como enlace independiente.",
+   "problemasQueResuelve": [
+    "Pierdo citas y clientes potenciales porque me llaman fuera de mi horario laboral o mientras estoy atendiendo a otra persona y no puedo coger el teléfono.",
+    "Tengo huecos libres imprevistos en mi jornada porque los clientes se olvidan de su cita al no recibir un aviso automático previo.",
+    "Paso demasiado tiempo cuadrando calendarios en papel para que no se solapen las horas del personal ni las salas de atención.",
+    "Me cuesta cobrar por adelantado o pedir depósitos de fianza porque gestionar transferencias a mano genera desconfianza y retrasos."
+   ],
+   "casosDeUso": [
+    "Salones de belleza, peluquerías, barberías y spas que necesitan coordinar la agenda de varios especialistas y cobrar servicios con antelación.",
+    "Terapeutas, psicólogos y masajistas independientes que requieren reservas online 24/7 con formularios de admisión previos a la sesión.",
+    "Negocios de servicios con citas presenciales (lavaderos de coches, animadores de fiestas infantiles o fotógrafos) que gestionan disponibilidad por bloques y recursos."
+   ],
+   "funcionesPrincipales": [
+    "Reserva online 24/7 integrable en páginas web (vía widget sin ventanas emergentes) o mediante página de reservas alojada.",
+    "Recordatorios y confirmaciones automáticas por correo electrónico y mensajes de texto.",
+    "Pasarela de cobros online y pagos integrados (cobro total, depósitos parciales o fianzas no reembolsables).",
+    "Sincronización de calendario con Google Calendar, iCal, Outlook y Office 365.",
+    "Base de datos de clientes con historial de citas, notas privadas y formularios de admisión digitales.",
+    "Herramientas de fidelización y marketing con venta de paquetes prepago, tarjetas de regalo y membresías.",
+    "Gestión de personal y horarios por empleado, servicio y ubicación con control de tiempos de cortesía o descanso entre citas."
+   ],
+   "integraciones": [
+    "Stripe",
+    "Square",
+    "PayPal",
+    "Google Calendar",
+    "iCal",
+    "Outlook",
+    "Office 365",
+    "WordPress",
+    "Wix",
+    "Squarespace",
+    "Shopify",
+    "Weebly",
+    "Mailchimp",
+    "HubSpot",
+    "Xero",
+    "Zoom",
+    "Zapier",
+    "Google Analytics",
+    "Facebook Pixel"
+   ],
+   "integracionesPrincipales": [
+    "Stripe",
+    "Square",
+    "PayPal",
+    "Google Calendar",
+    "Outlook",
+    "WordPress",
+    "Mailchimp",
+    "Xero",
+    "Zoom",
+    "Zapier"
+   ],
+   "cuantasIntegracionesPublica": null,
+   "ventajas": [
+    "No cobra comisión porcentual por cada reserva realizada ni aplica recargos sobre el precio que paga el cliente final.",
+    "Permite conectar dos pasarelas de pago a la vez (por ejemplo, Stripe y PayPal simultáneamente) para dar opciones de pago al cliente.",
+    "Incluye funciones comerciales como venta de bonos prepago, cupones y venta de productos adicionales en el mismo proceso de reserva sin coste extra.",
+    "Es completamente adaptable a pantallas de teléfonos móviles y tabletas sin exigir la instalación de una app independiente."
+   ],
+   "inconvenientes": [
+    "El envío de recordatorios y notificaciones por SMS no está incluido en el precio mensual y exige comprar paquetes de créditos adicionales.",
+    "El módulo de firmas y consentimientos digitales (digital waivers) no viene integrado en la tarifa básica y requiere un pago mensual aparte.",
+    "Cada plan mensual impone un límite estricto en el número de reservas al mes y en la cantidad de empleados/consultores registrados."
+   ],
+   "limites": [
+    {
+     "texto": "El plan Solo admite como máximo 1 consultor, 1 acceso de personal y 200 reservas mensuales.",
+     "cita": "Solo Appointments $ 14. 95 USD/month 1 Consultant 1 Staff Login 200 Bookings/Month",
+     "url": "https://www.bookeo.com/pricing/",
+     "tituloDeLaPagina": "Pricing | Appointments - Bookeo",
+     "fraseDeAlLado": "SMALL Appointments $ 29. 95 USD/month 3 Consultants 3 Staff Logins 1,000 Bookings/Month."
+    },
+    {
+     "texto": "El plan Small limita la cuenta a 3 consultores, 3 accesos de personal y 1.000 reservas mensuales.",
+     "cita": "SMALL Appointments $ 29. 95 USD/month 3 Consultants 3 Staff Logins 1,000 Bookings/Month",
+     "url": "https://www.bookeo.com/pricing/",
+     "tituloDeLaPagina": "Pricing | Appointments - Bookeo",
+     "fraseDeAlLado": "Standard Appointments $ 39. 95 USD/month 20 Consultants 20 Staff Logins 1,000 Bookings/Month."
+    },
+    {
+     "texto": "Los recordatorios y avisos por SMS requieren la compra de saldo adicional.",
+     "cita": "SMS/FAX Credits add-on From $0.09/credit With credits, you can send SMS/FAX notifications to account users and SMS reminders to customers.",
+     "url": "https://www.bookeo.com/pricing/",
+     "tituloDeLaPagina": "Pricing | Appointments - Bookeo",
+     "fraseDeAlLado": "SMS/FAX credit bundles are available for purchase directly from your dashboard."
+    },
+    {
+     "texto": "El módulo de firmas y acuerdos de exención de responsabilidad digitales tiene un coste mensual adicional según el volumen de firmas.",
+     "cita": "Digital Waivers add-on From $9/month Minimize check-in delays and eliminate manual paperwork with digital waivers seamlessly integrated into your Bookeo account.",
+     "url": "https://www.bookeo.com/pricing/",
+     "tituloDeLaPagina": "Pricing | Appointments - Bookeo",
+     "fraseDeAlLado": "You can add a waiver plan add-on to your monthly subscription right from your dashboard."
+    }
+   ],
+   "metodologiaValoracion": "Revisión documental directa de la página principal del producto Bookeo Appointments, su sección oficial de precios, desglose de complementos de pago, términos legales del servicio y centro de soporte al cliente. La nota de facilidad de uso NO es nuestra: sale de la ficha de reseñas que se abrió —En G2, Bookeo Appointments cuenta con una puntuación de «Ease of Use» de 8.9/10 basada en 14 reseñas (en Capterra registra 4.1/5 sobre 103 reseñas).— leída el 2026-09-30. El resto de notas son valoraciones documentales con sus hechos escritos al lado, no puntuaciones del fabricante ni reseñas.",
+   "tieneApiPublica": true,
+   "tieneAppMovil": false,
+   "informacionEmpresa": {
+    "paisOrigen": "Australia",
+    "anioFundacion": null,
+    "tamanoAproximado": null
+   },
+   "pruebas": [
+    {
+     "deQueCampo": "tieneApiPublica",
+     "cita": "You can use its API, webhooks, and support for third-party plugins.",
+     "url": "https://www.bookeo.com/appointments/",
+     "tituloDeLaPagina": "Appointment Booking Software | Appointment Scheduling Software ...",
+     "fraseDeAlLado": "Advanced Tools for Greater Flexibility and Control If your business has tech staff or more advanced needs, Bookeo has tools to help."
+    },
+    {
+     "deQueCampo": "tieneAppMovil",
+     "cita": "There's no need for a separate mobile app. Bookeo's salon scheduling system automatically detects the device being used and presents a layout tailored for touch interaction and smaller screens.",
+     "url": "https://www.bookeo.com/appointments/",
+     "tituloDeLaPagina": "Salon Booking Software That Grows Your Business - Bookeo",
+     "fraseDeAlLado": "For salon managers and staff, the mobile interface includes essential administrative tools."
+    },
+    {
+     "deQueCampo": "informacionEmpresa.paisOrigen",
+     "cita": "Bookeo Pty Ltd 5/7 Eden Park Dr, Suite 73. Macquarie Park NSW 2113. Australia.",
+     "url": "https://www.bookeo.com/appointments/",
+     "tituloDeLaPagina": "Contact | Bookeo",
+     "fraseDeAlLado": "Australian HQ. Bookeo Pty Ltd 5/7 Eden Park Dr, Suite 73."
+    }
+   ],
+   "paginasQueAbriste": [
+    "https://www.bookeo.com/appointments/",
+    "https://www.bookeo.com/pricing/",
+    "https://www.bookeo.com/terms/",
+    "https://support.bookeo.com/hc/en-us",
+    "https://support.bookeo.com/hc/en-us/articles/360018196571",
+    "https://www.g2.com/compare/acuity-scheduling-vs-bookeo-appointments",
+    "https://www.capterra.es/software/113171/bookeo",
+    "https://www.capterra.com/p/113171/Bookeo/"
+   ],
+   "paginasQueNoSeAbrieron": [
+    "https://www.bookeo.com/appointments/features/ — no accesible como URL independiente"
+   ],
+   "loQueNoPudeComprobar": "No figura en las secciones públicas consultadas el número exacto de empleados de Bookeo Pty Ltd ni su año oficial de constitución corporativa.",
+   "curvaDeAprendizaje": "facil",
+   "porQueEsaCurva": "El sistema es autoservicio sin formación de pago obligatoria; la guía y centro de ayuda organizan la configuración por funciones y la importación de clientes (vía CSV/hoja de cálculo) la realiza el propio usuario.",
+   "puntuaciones": {
+    "facilidadDeUso": 8.9,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 9,
+    "atencionAlCliente": 6,
+    "fiabilidad": null,
+    "calidad": null,
+    "escalabilidad": null
+   },
+   "porQueCadaNota": {
+    "facilidadDeUso": "En G2, Bookeo Appointments cuenta con una puntuación de «Ease of Use» de 8.9/10 basada en 14 reseñas (en Capterra registra 4.1/5 sobre 103 reseñas).",
+    "nivelTecnicoRequerido": "Es una plataforma SaaS en la nube que no requiere instalación en servidor ni programar; permite usar una página de reservas directa o incrustar el widget HTML en la web sin intervención del fabricante.",
+    "facilidadImplementacion": "No cobran puesta en marcha ni exigen demo previa (prueba gratuita de 30 días sin tarjeta), la importación de datos la autogestiona el cliente y no publican un tiempo fijo de puesta en marcha.",
+    "atencionAlCliente": "La atención se presta por correo electrónico y portal de soporte/tickets (support@bookeo.com), sin soporte telefónico estándar, con soporte multilingüe disponible en español, inglés, francés, alemán e italiano.",
+    "fiabilidad": null
+   }
+  },
+  {
+   "id": "simplybook-me",
+   "nombre": "SimplyBook.me",
+   "paginaOficial": "https://simplybook.me/es/",
+   "urlPrecios": "https://simplybook.me/es/",
+   "categoriaId": "reservas-citas",
+   "descripcion": "SimplyBook.me es un sistema de gestión y reserva de citas online para negocios de servicios. Permite crear una página web de reservas personalizada o integrar un calendario interactivo en sitios existentes y redes sociales, facilitando cobros, recordatorios automáticos y gestión de horarios en un solo lugar.",
+   "problemasQueResuelve": [
+    "Pierdo clientes y reservas porque no puedo atender el teléfono ni responder mensajes mientras estoy trabajando.",
+    "Tengo huecos en la agenda y cancelaciones de última hora porque los clientes olvidan la hora de su cita.",
+    "Pierdo demasiado tiempo coordinando calendarios y turnos de varios empleados de forma manual.",
+    "Se me hace un lío cobrar por adelantado o pedir señales para evitar que la gente reserve y no se presente."
+   ],
+   "casosDeUso": [
+    "Centros de belleza, peluquerías y spas que necesitan que los clientes elijan empleado, servicio y hora desde Instagram o la web.",
+    "Clínicas médicas, fisioterapeutas y terapeutas que requieren programación confidencial de pacientes con recordatorios automáticos.",
+    "Gimnasios, estudios de yoga y entrenadores personales que gestionan clases grupales, membresías y bonos por sesiones.",
+    "Academias, profesores particulares y escuelas de formación que coordinan clases individuales o cursos con cobro previo."
+   ],
+   "funcionesPrincipales": [
+    "Página web de reservas personalizable o widget insertable en cualquier sitio web.",
+    "Recordatorios automáticos por WhatsApp, SMS y correo electrónico.",
+    "Cobros online y en persona (anticipos, pasarelas de pago, venta de productos extras y TPV/POS).",
+    "Sincronización bidireccional con calendarios externos como Google Calendar y Outlook.",
+    "Gestión de múltiples sedes, salas y calendarios por cada miembro del personal.",
+    "Asistente de configuración y gestión con inteligencia artificial (Ask Simply e integraciones MCP).",
+    "Aplicaciones móviles específicas tanto de administración para el negocio como para los clientes."
+   ],
+   "integraciones": [
+    "Google Calendar",
+    "Outlook",
+    "Zoom",
+    "Stripe",
+    "PayPal",
+    "Square",
+    "Apple Pay",
+    "Google Pay",
+    "Facebook",
+    "Instagram",
+    "WordPress",
+    "Google Mi Negocio",
+    "Zapier",
+    "ClassPass",
+    "Telegram"
+   ],
+   "integracionesPrincipales": [
+    "Google Calendar",
+    "Stripe",
+    "PayPal",
+    "Zapier",
+    "Instagram / Facebook"
+   ],
+   "cuantasIntegracionesPublica": "Más de 5.000 a través de Zapier y conectores nativos",
+   "ventajas": [
+    "Incluye soporte humano por chat en vivo 24 horas entre semana en todos los planes con tiempo de respuesta promedio de 13 segundos.",
+    "Ofrece dos aplicaciones móviles nativas diferenciadas: Admin App para el equipo y Client App para que los usuarios reserven.",
+    "Dispone de certificaciones de seguridad ISO 27001, cumplimiento de RGPD y compatibilidad con funciones para HIPAA."
+   ],
+   "inconvenientes": [
+    "Los planes no solo limitan el número de profesionales, sino también el cupo total de reservas mensuales (desde 50 en Free hasta 2.000 en Premium).",
+    "Muchas funciones clave (como pagos online o cupones) consumen casillas de 'funciones personalizadas' limitadas según el plan contratado.",
+    "El envío de SMS o WhatsApp para notificaciones y los dominios personalizados conllevan costes adicionales de créditos independientes de la suscripción."
+   ],
+   "limites": [
+    {
+     "texto": "Límite de proveedores, reservas y funciones personalizadas por plan de suscripción.",
+     "cita": "Free... Included bookings 50; Custom Features 1; Providers 1. Basic... Included bookings 100; Custom Features 3; Providers 5. Standard... Included bookings 500; Custom Features 8; Providers 15. Premium... Included bookings 2000; Custom Features ∞; Providers 30.",
+     "url": "https://simplybook.me/es/",
+     "tituloDeLaPagina": "SimplyBook.me - Software gratuito de programación de citas",
+     "fraseDeAlLado": "El precio se basa en el número de reservas y el número de funciones personalizadas elegidas. Es por eso que le permitimos comenzar pequeño y crecer con usted."
+    },
+    {
+     "texto": "Créditos de mensajería SMS y pasarelas de SMS no están incluidos en la tarifa base.",
+     "cita": "Custom domain name, SMS gateways and SMS credits are paid separately and are not included in the subscription fee.",
+     "url": "https://simplybook.me/es/",
+     "tituloDeLaPagina": "SimplyBook.me - Software gratuito de programación de citas",
+     "fraseDeAlLado": "In case you wish to have SMS credits renewed automatically with your subscription please select Plans & Prices"
+    },
+    {
+     "texto": "Las funciones para cumplimiento de HIPAA solo están disponibles a partir del plan Estándar y requieren configuración manual.",
+     "cita": "Las funciones habilitadoras de HIPAA requieren ajustes específicos de la cuenta y no están activas de forma predeterminada. El cumplimiento de HIPAA depende de cómo la empresa configure y utilice la plataforma, y sigue siendo responsabilidad del cliente.",
+     "url": "https://simplybook.me/es/",
+     "tituloDeLaPagina": "SimplyBook.me - Software gratuito de programación de citas",
+     "fraseDeAlLado": "ISO 27001, SSL, SSO y copias de seguridad diarias protegen tus datos. Cumple con GDPR, con funciones habilitadoras de HIPAA disponibles."
+    }
+   ],
+   "metodologiaValoracion": "Análisis documental directo de la documentación técnica oficial, páginas públicas en español de SimplyBook.me, desglose de tarifas y especificaciones de producto de la plataforma. La nota de facilidad de uso NO es nuestra: sale de la ficha de reseñas que se abrió —Capterra (capterra.com / capterra.es) califica su 'Ease of Use' (Facilidad de uso) con una nota de 4.3 sobre 5 (8.6/10) basada en 1.290 reseñas.— leída el 2026-09-30. El resto de notas son valoraciones documentales con sus hechos escritos al lado, no puntuaciones del fabricante ni reseñas.",
+   "tieneApiPublica": true,
+   "tieneAppMovil": true,
+   "informacionEmpresa": {
+    "paisOrigen": "Chipre",
+    "anioFundacion": null,
+    "tamanoAproximado": null
+   },
+   "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+   ],
+   "porQueEseTamano": "La estructura tarifaria de SimplyBook.me escala por número de profesionales o recursos gestionados ('proveedores'): el plan Free incluye 1 proveedor, Basic admite hasta 5 proveedores, Standard hasta 15 proveedores y Premium hasta 30 proveedores ('Included bookings 50; Custom Features 1; Providers 1' / 'Included bookings 100; Custom Features 3; Providers 5' / 'Included bookings 500; Custom Features 8; Providers 15' / 'Included bookings 2000; Custom Features ∞; Providers 30'). Para empresas con más de 30 o más de 250 profesionales, la compañía ofrece el plan personalizado Enterprise ('Solución Enterprise: Equipos grandes, empresas con múltiples ubicaciones y organizaciones').",
+   "pruebas": [
+    {
+     "deQueCampo": "informacionEmpresa.paisOrigen",
+     "cita": "SimplyBook.me Ltd, en Nafpliou 28, Medical Court, Floor 4, Flat/Office 401, 3025, Limassol, Chipre. HE387490, N° IVA: 10387490F. SimplyBook.me es parte de team.blue.",
+     "url": "https://simplybook.me/es/",
+     "tituloDeLaPagina": "SimplyBook.me - Software gratuito de programación de citas",
+     "fraseDeAlLado": "Contact us: support@simplybook.me or live chat for general enquiries"
+    },
+    {
+     "deQueCampo": "tieneApiPublica",
+     "cita": "Integración nativa con Facebook, Instagram, Google Mi Negocio, Wordpress y otros sistemas CMS o use nuestra API para crear sus propias integraciones personalizadas.",
+     "url": "https://simplybook.me/es/",
+     "tituloDeLaPagina": "SimplyBook.me - Software gratuito de programación de citas",
+     "fraseDeAlLado": "Integración & API. Conéctese con Facebook, Instagram, Google y más."
+    },
+    {
+     "deQueCampo": "tieneAppMovil",
+     "cita": "La Admin App le permite bloquear horarios, gestionar reservas y pagos desde cualquier lugar, mientras que la Client App ayuda a sus clientes a reservar, pagar y recibir recordatorios",
+     "url": "https://simplybook.me/es/",
+     "tituloDeLaPagina": "SimplyBook.me - Software gratuito de programación de citas",
+     "fraseDeAlLado": "Gestione su negocio desde cualquier lugar. Conozca las aplicaciones"
+    }
+   ],
+   "paginasQueAbriste": [
+    "https://simplybook.me/es/",
+    "https://capterra.com/p/134440/SimplyBook-me/",
+    "https://capterra.es/software/134440/simplybook-me",
+    "https://g2.com/products/simplybook-me/reviews",
+    "https://help.simplybook.me/index.php/Getting_started"
+   ],
+   "paginasQueNoSeAbrieron": [
+    "https://simplybook.me/es/pricing/ — Ruta no accesible de forma directa individual",
+    "https://simplybook.me/pricing/ — Redirigida o no accesible individualmente",
+    "https://simplybook.me/es/about-us/ — Ruta no disponible como URL directa"
+   ],
+   "loQueNoPudeComprobar": "No se localizó en las páginas oficiales el año exacto de fundación de la empresa ni el número total exacto de empleados en plantilla corporativa.",
+   "curvaDeAprendizaje": "facil",
+   "porQueEsaCurva": "Su guía de 'Getting Started' consta de 7 secciones clave (servicios, proveedores, reservas, funciones personalizadas, notificaciones, usuarios e importación de clientes); no exige formación de pago (ofrece asistente IA 'Ask Simply' y tutoriales gratuitos) y la migración de clientes la hace el usuario importando listas CSV/Excel.",
+   "puntuaciones": {
+    "facilidadDeUso": 8.6,
+    "nivelTecnicoRequerido": 2,
+    "facilidadImplementacion": 9,
+    "atencionAlCliente": 9,
+    "fiabilidad": 9.9,
+    "calidad": null,
+    "escalabilidad": null
+   },
+   "porQueCadaNota": {
+    "facilidadDeUso": "Capterra (capterra.com / capterra.es) califica su 'Ease of Use' (Facilidad de uso) con una nota de 4.3 sobre 5 (8.6/10) basada en 1.290 reseñas.",
+    "nivelTecnicoRequerido": "Plataforma SaaS sin instalación que funciona sin tocar código mediante plantillas preconfiguradas; sólo requiere copiar un código si se desea insertar un widget en una web externa.",
+    "facilidadImplementacion": "No cobran puesta en marcha ni imponen demo previa; la web promete activación en minutos con asistente guiado e importador de clientes directo.",
+    "atencionAlCliente": "Chat en vivo 24/5 (tiempo medio de respuesta publicado de 13 segundos), soporte por email y centro de ayuda, disponible en todos los planes y con atención en español.",
+    "fiabilidad": "SimplyBook.me publica un compromiso y registro histórico de disponibilidad de uptime superior al 99.9% alojado en Google Cloud Platform con certificación ISO 27001."
+   }
+  },
+  {
+   "id": "teachworks",
+   "nombre": "Teachworks",
+   "paginaOficial": "https://teachworks.com/",
+   "urlPrecios": "https://teachworks.com/pricing",
+   "categoriaId": "formacion-academias",
+   "descripcion": "Teachworks es un software de gestión en la nube diseñado para academias de tutoría, escuelas de música, idiomas y autoescuelas. Centraliza la planificación de clases, la facturación a familias, el cálculo de nóminas docentes y el control de asistencia.",
+   "problemasQueResuelve": [
+    "«Paso horas cuadrando los horarios y las aulas de varios profesores para que no se solapen las clases.»",
+    "«A fin de mes pierdo días calculando a mano cuántas horas ha impartido cada profesor para preparar las nóminas.»",
+    "«Cobrar las cuotas y emitir facturas a cada familia una por una me quita demasiado tiempo y genera errores.»",
+    "«Los alumnos faltan o se confunden de hora porque no tengo una forma automática de enviarles recordatorios.»"
+   ],
+   "casosDeUso": [
+    "Centros de refuerzo escolar y preparación de exámenes que necesitan gestionar clases individuales o grupales y facturar por paquete o por horas.",
+    "Escuelas de música que requieren organizar profesores, asignación de instrumentos o salas y cobro de cuotas mensuales.",
+    "Autoescuelas que necesitan coordinar las clases prácticas en vehículos, instructores y seguimiento del progreso del alumno.",
+    "Academias de idiomas con múltiples profesores que imparten clases presenciales u online y requieren portales de acceso para docentes y alumnos."
+   ],
+   "funcionesPrincipales": [
+    "Calendario inteligente con detección de conflictos de horarios, aulas y disponibilidad de profesores.",
+    "Facturación y cobros automáticos mediante tarjeta de crédito conectada a pasarelas de pago.",
+    "Cálculo automatizado de nóminas y horas trabajadas por los profesores según las clases impartidas.",
+    "Portal de autoservicio para profesores, tutores y estudiantes con historial y notas de seguimiento.",
+    "Recordatorios automatizados de clases por correo electrónico y SMS.",
+    "Gestión de múltiples sedes mediante una cuenta centralizada (Master Account).",
+    "Integración con más de 80 complementos y herramientas externas como Stripe, QuickBooks o calendarios."
+   ],
+   "integraciones": [
+    "Stripe",
+    "QuickBooks Online",
+    "Zapier",
+    "Google Calendar",
+    "Mailchimp",
+    "Microsoft Excel",
+    "Microsoft Outlook",
+    "Apple Calendar",
+    "Lessonspace",
+    "Pencil Spaces",
+    "Zoom",
+    "Google Meet",
+    "Skype"
+   ],
+   "integracionesPrincipales": [
+    "Stripe",
+    "QuickBooks Online",
+    "Zapier",
+    "Google Calendar",
+    "Mailchimp",
+    "Zoom"
+   ],
+   "cuantasIntegracionesPublica": 80,
+   "ventajas": [
+    "No impone límites en el número de alumnos, profesores o cuentas de usuario registradas en ninguno de sus planes.",
+    "Calcula automáticamente el pago a los profesores a partir del registro de asistencia y las clases programadas en el calendario.",
+    "Ofrece más de 80 extensiones y complementos gratuitos para activar únicamente las funciones que el centro necesita.",
+    "Incluye soporte multilingüe en su plataforma y asistente con cobertura en más de 40 idiomas."
+   ],
+   "inconvenientes": [
+    "El coste mensual fluctúa según el volumen de actividad, ya que aplica un recargo por cada lección impartida además de la cuota fija.",
+    "No dispone de aplicación móvil nativa para descargar en tiendas de apps; el acceso se realiza a través del navegador web.",
+    "El acceso a la API para desarrolladores está bloqueado en el plan inicial (Starter) y requiere contratar al menos el plan Growth."
+   ],
+   "limites": [
+    {
+     "texto": "El plan Starter no incluye acceso a la API del sistema.",
+     "cita": "All Add-ons & Integrations (excluding API) View Here.",
+     "url": "https://teachworks.com/pricing",
+     "tituloDeLaPagina": "Simple Pricing to Fit Your Business. - Teachworks",
+     "fraseDeAlLado": "Cancel Any Time. All Add-ons & Integrations (excluding API) View Here. Growth. $47.99 /mo."
+    },
+    {
+     "texto": "Todos los planes cobran un coste variable adicional por cada lección programada por alumno al mes.",
+     "cita": "Starter. $16.49 /mo. + $0.320 per student lesson monthly.",
+     "url": "https://teachworks.com/pricing",
+     "tituloDeLaPagina": "Simple Pricing to Fit Your Business. - Teachworks",
+     "fraseDeAlLado": "Plans that adjust to your business activity. Upgrade or downgrade at any time. Starter. $16.49 /mo. + $0.320 per student lesson monthly. Try it for Free."
+    },
+    {
+     "texto": "La prueba gratuita tiene una duración estricta de 21 días y no existe plan gratuito permanente.",
+     "cita": "FREE 21-Day Trial. Unlimited Students. Unlimited Teachers.",
+     "url": "https://teachworks.com/pricing",
+     "tituloDeLaPagina": "Simple Pricing to Fit Your Business. - Teachworks",
+     "fraseDeAlLado": "+ $0.320 per student lesson monthly. Try it for Free. FREE 21-Day Trial. Unlimited Students. Unlimited Teachers. Unlimited User Accounts."
+    }
+   ],
+   "metodologiaValoracion": "Análisis documental directo de la página oficial de Teachworks, su tabla de precios, base de conocimientos y especificaciones públicas de producto, sin recurrir a agregadores de opiniones. La nota de facilidad de uso NO es nuestra: sale de la ficha de reseñas que se abrió —Capterra le otorga una nota de «Ease of Use» de 4.5/5 (equivalente a 9/10) respaldada por 65 a 67 reseñas de usuarios verificados.— leída el 2026-09-30. El resto de notas son valoraciones documentales con sus hechos escritos al lado, no puntuaciones del fabricante ni reseñas. AVISO: en Teachworks el número de reseñas se leyó como un rango, «65 a 67», lo que no es propio de una página; la nota se conserva y el contador se toma con reserva.",
+   "tieneApiPublica": true,
+   "tieneAppMovil": false,
+   "informacionEmpresa": {
+    "paisOrigen": "Canadá",
+    "anioFundacion": 2014,
+    "tamanoAproximado": null
+   },
+   "pruebas": [
+    {
+     "deQueCampo": "descripcion",
+     "cita": "Teach more, manage less. Stop juggling spreadsheets and start scaling. Teachworks provides the essential tools to automate your billing, manage your staff, and take full control of your education business.",
+     "url": "https://teachworks.com/",
+     "tituloDeLaPagina": "Teachworks",
+     "fraseDeAlLado": "The Platform That Started It All. Simplify & Automate Your Tutoring Business. Teach more, manage less."
+    },
+    {
+     "deQueCampo": "cuantasIntegracionesPublica",
+     "cita": "Expand the capabilities of your Teachworks account with more than 80 free integrations & add-ons.",
+     "url": "https://teachworks.com/",
+     "tituloDeLaPagina": "Teachworks",
+     "fraseDeAlLado": "Reports & Insights. Monitor business performance with detailed analytics to make data-driven decisions for your school's growth. Free Integrations & Add-ons. Expand the capabilities of your Teachworks account with more than 80 free integrations & add-ons."
+    },
+    {
+     "deQueCampo": "limites",
+     "cita": "Teachworks API Access.",
+     "url": "https://teachworks.com/pricing",
+     "tituloDeLaPagina": "Simple Pricing to Fit Your Business. - Teachworks",
+     "fraseDeAlLado": "All Add-Ons & Integrations. View Here. Teachworks API Access. Premium."
+    }
+   ],
+   "paginasQueAbriste": [
+    "https://teachworks.com/",
+    "https://teachworks.com/pricing",
+    "https://teachworks.com/features",
+    "https://teachworks.com/integrations",
+    "https://www.teachworks.com/pricing",
+    "https://www.teachworks.com/getting-started-guide",
+    "https://www.capterra.com/p/146811/Teachworks/",
+    "https://www.teachworks.com/contact-us"
+   ],
+   "paginasQueNoSeAbrieron": [],
+   "loQueNoPudeComprobar": "No publican en su web oficial el número exacto de empleados en plantilla de la empresa.",
+   "curvaDeAprendizaje": "facil",
+   "porQueEsaCurva": "Su guía de primeros pasos consta de 5 secciones («Introduction», «Overview», «Automate», «Customize», «Wrap-up») apoyada en videotutoriales paso a paso; no requiere formación obligatoria de pago y la migración de datos la realiza el propio usuario mediante plantillas descargables de Excel (.xlsx / CSV).",
+   "puntuaciones": {
+    "facilidadDeUso": 9,
+    "nivelTecnicoRequerido": 2,
+    "facilidadImplementacion": 8,
+    "atencionAlCliente": 7,
+    "fiabilidad": null,
+    "calidad": null,
+    "escalabilidad": null
+   },
+   "porQueCadaNota": {
+    "facilidadDeUso": "Capterra le otorga una nota de «Ease of Use» de 4.5/5 (equivalente a 9/10) respaldada por 65 a 67 reseñas de usuarios verificados.",
+    "nivelTecnicoRequerido": "Es una aplicación SaaS 100 % basada en navegador que no requiere instalación en local ni tocar código en su operativa habitual; cuenta con plugins web listos para incrustar y el acceso a API es opcional para planes superiores.",
+    "facilidadImplementacion": "No cobran comisión de puesta en marcha («No, there aren't any fees other than the monthly fee»), la demo no es obligatoria, ofrece prueba gratuita de 21 días y la importación de datos la realiza el cliente mediante plantillas de importación.",
+    "atencionAlCliente": "Atención al cliente disponible en todos los planes vía Help Desk / ticket de email y chat/formulario web de lunes a viernes de 9:00 a 17:00 Eastern Time (excluyendo festivos canadienses); la plataforma y su agente de soporte ofrecen soporte multilingüe en español.",
+    "fiabilidad": "Teachworks incluye enlace a 'Status Page' en su pie de página, pero no publica un porcentaje de SLA ni cifras de uptime explícitas en sus páginas abiertas."
+   },
+   "precioInicial": "Plan Starter: 16.49 USD/mes de cuota base más 0.320 USD adicionales por cada clase por estudiante ('student lesson'). Incluye alumnos ilimitados, profesores ilimitados, cuentas de usuario ilimitadas, emails ilimitados (con política de uso razonable), soporte al cliente y más de 70 integraciones y add-ons (excluyendo API).",
+   "moneda": "USD",
+   "citaDelPrecio": "Starter: $16.49 /mo + $0.320 per student lesson monthly",
+   "urlDelPrecio": "https://www.teachworks.com/pricing",
+   "tienePlanGratuito": false
+  },
+  {
+   "id": "zoho-bookings",
+   "nombre": "Zoho Bookings",
+   "paginaOficial": "https://www.zoho.com/bookings/",
+   "urlPrecios": "https://www.zoho.com/bookings/pricing.html",
+   "categoriaId": "reservas-citas",
+   "descripcion": "Zoho Bookings es una aplicación en la nube que permite a profesionales y empresas automatizar la reserva de citas individuales, grupales y alquiler de recursos. Ofrece sincronización bidireccional de calendarios, cobros integrados de anticipos y páginas de reserva personalizadas.",
+   "problemasQueResuelve": [
+    "Pierdo mucho tiempo enviando correos y mensajes de ida y vuelta para cuadrar un hueco libre con mis clientes.",
+    "Tengo clientes que no se presentan a la cita porque se olvidan si no les mando un recordatorio manual.",
+    "Me solapan reuniones porque mi agenda de Google o Microsoft no está sincronizada con las reservas de mi web.",
+    "Tengo que reclamar cobros manualmente después de prestar un servicio en lugar de cobrar la señal o el importe total por adelantado."
+   ],
+   "casosDeUso": [
+    "Consultores y profesionales independientes que comparten un enlace directo o por WhatsApp para agendar videollamadas individuales.",
+    "Clínicas y centros de estética que necesitan asignar citas a distintos miembros del equipo según disponibilidad y ubicación.",
+    "Academias y formadores que programan clases grupales o talleres con un aforo limitado.",
+    "Empresas de alquiler de espacios o salas de reuniones que gestionan la reserva de equipamiento o salas por franjas horarias."
+   ],
+   "funcionesPrincipales": [
+    "Página de reservas pública personalizable e integrable en páginas web o compartible por enlace directo.",
+    "Sincronización bidireccional de calendario con Google Calendar, Outlook, Zoho Calendar y Zoho CRM.",
+    "Generación automática de enlaces de videollamada para Zoom, Microsoft Teams, Google Meet y Zoho Meeting.",
+    "Cobro de pagos completos o depósitos por adelantado mediante pasarelas de pago como Stripe y PayPal.",
+    "Envío automatizado de confirmaciones y recordatorios a clientes por correo electrónico, SMS y WhatsApp.",
+    "Gestión de espacios de trabajo (Workspaces) para organizar sucursales, departamentos o distintos centros de atención.",
+    "Configuración de límites de citas, tiempos de preparación (buffer times) y reglas de reparto equitativo (Round Robin)."
+   ],
+   "integraciones": [
+    "Google Calendar",
+    "Outlook Calendar",
+    "Zoho Calendar",
+    "Zoho CRM",
+    "Bigin by Zoho CRM",
+    "Zoho Desk",
+    "Zoho SalesIQ",
+    "Zoho Books",
+    "Zoho Meeting",
+    "Zoho Flow",
+    "Zoho Assist",
+    "Zoom",
+    "Microsoft Teams",
+    "Google Meet",
+    "Stripe",
+    "PayPal",
+    "Razorpay",
+    "Authorize.Net",
+    "WhatsApp",
+    "Zapier"
+   ],
+   "integracionesPrincipales": [
+    "Google Calendar",
+    "Outlook Calendar",
+    "Zoho CRM",
+    "Stripe",
+    "PayPal",
+    "Zoom",
+    "Microsoft Teams",
+    "Google Meet",
+    "WhatsApp"
+   ],
+   "cuantasIntegracionesPublica": 75,
+   "ventajas": [
+    "Dispone de un plan gratuito para un usuario individual con sincronización de calendario y videollamadas.",
+    "Permite cobrar depósitos o importes completos antes de confirmar la reserva para reducir ausencias.",
+    "Integración nativa directa con todo el ecosistema de aplicaciones de Zoho (CRM, Desk, Books, Flow).",
+    "Soporta reservas colectivas, clases grupales y gestión de alquiler de recursos materiales o salas."
+   ],
+   "inconvenientes": [
+    "El plan gratuito solo admite un usuario y 1 tipo de evento/servicio.",
+    "Para configuraciones avanzadas de flujos automatizados fuera de lo estándar se requiere el lenguaje de scripting propio de Zoho (Deluge).",
+    "El envío de notificaciones por SMS y WhatsApp conlleva costes de mensajería independientes de la suscripción del software."
+   ],
+   "limites": [
+    {
+     "texto": "El plan Free permite únicamente 1 espacio de trabajo y 1 evento; el plan Basic 1 espacio con eventos ilimitados, y el plan Premium incluye 3 espacios de trabajo.",
+     "cita": "The free plan allows you to create a single workspace with one events. The basic plan includes one workspace with unlimited events, while the premium plan includes three workspaces with unlimited events.",
+     "url": "https://www.zoho.com/bookings/workspaces.html",
+     "tituloDeLaPagina": "Manage meetings with workspaces - Zoho Bookings",
+     "fraseDeAlLado": "How many workspaces and events can I create in the free and paid subscriptions?"
+    },
+    {
+     "texto": "Las llamadas a la API están limitadas según el plan: 250 llamadas al día por usuario en el plan Free, 1.000 en el plan Basic y 3.000 en el plan Premium.",
+     "cita": "API Limits. Zoho Bookings Plan/Edition, Number of API calls/day. Free, 250/per user. Basic, 1000/per user. Premium, 3000/per user.",
+     "url": "https://www.zoho.com/bookings/help/api/v1/create-resource.html",
+     "tituloDeLaPagina": "Create Resource - Zoho",
+     "fraseDeAlLado": "Plan restriction: Resource creation is subject to the current plan."
+    }
+   ],
+   "metodologiaValoracion": "Análisis documental directo de los portales web oficiales de Zoho Bookings, incluyendo su documentación de producto, comparativas de planes, páginas de características de integración y manuales de ayuda de la API. La nota de facilidad de uso NO es nuestra: sale de la ficha de reseñas que se abrió —Capterra (capterra.com) le otorga una puntuación de «Ease of Use» de 4.5/5 basada en 47 reseñas verificadas.— leída el 2026-09-30. El resto de notas son valoraciones documentales con sus hechos escritos al lado, no puntuaciones del fabricante ni reseñas.",
+   "tieneApiPublica": true,
+   "tieneAppMovil": true,
+   "informacionEmpresa": {
+    "paisOrigen": "India",
+    "anioFundacion": 1996,
+    "tamanoAproximado": "18.000+ empleados"
+   },
+   "pruebas": [
+    {
+     "deQueCampo": "cuantasIntegracionesPublica",
+     "cita": "Automate workflows and connect with 75+ Zoho and third-party apps to support enterprise operations.",
+     "url": "https://www.zoho.com/bookings/",
+     "tituloDeLaPagina": "Free online AI-powered appointment scheduling software - Zoho Bookings",
+     "fraseDeAlLado": "Enterprise teams use Zoho Bookings for staff availability, custom workflows and integrations at scale."
+    },
+    {
+     "deQueCampo": "tieneAppMovil",
+     "cita": "Share booking links or join meetings instantly from your iOS or Android device.",
+     "url": "https://www.zoho.com/bookings/",
+     "tituloDeLaPagina": "Free online AI-powered appointment scheduling software - Zoho Bookings",
+     "fraseDeAlLado": "Manage your appointments from anywhere."
+    }
+   ],
+   "paginasQueAbriste": [
+    "https://www.zoho.com/bookings/",
+    "https://www.zoho.com/bookings/pricing.html",
+    "https://www.zoho.com/bookings/plan-comparison.html",
+    "https://www.zoho.com/bookings/features.html",
+    "https://www.zoho.com/bookings/integrations.html",
+    "https://www.zoho.com/bookings/workspaces.html",
+    "https://www.zoho.com/bookings/help/api/v1/create-resource.html",
+    "https://help.zoho.com/portal/en/kb/bookings/getting-started/articles/account-setup-super-admins-2-0",
+    "https://www.capterra.com/p/197174/Zoho-Bookings/",
+    "https://status.zoho.com"
+   ],
+   "paginasQueNoSeAbrieron": [],
+   "loQueNoPudeComprobar": "Tarifas y precios exactos en euros para España en el momento de la consulta sin geolocalización de IP de compra.",
+   "curvaDeAprendizaje": "facil",
+   "porQueEsaCurva": "Su guía de primeros pasos consta de 2 pasos principales con 4 tareas guiadas (horarios, sincronizar calendarios, personalizar página y compartir); no exige formación de pago ni migraciones obligatorias de datos.",
+   "puntuaciones": {
+    "facilidadDeUso": 9,
+    "nivelTecnicoRequerido": 2,
+    "facilidadImplementacion": 9,
+    "atencionAlCliente": 8,
+    "fiabilidad": 9,
+    "calidad": null,
+    "escalabilidad": null
+   },
+   "porQueCadaNota": {
+    "facilidadDeUso": "Capterra (capterra.com) le otorga una puntuación de «Ease of Use» de 4.5/5 basada en 47 reseñas verificadas.",
+    "nivelTecnicoRequerido": "Es 100% no-code en configuración y reservas básicas; solo requiere configuración técnica opcional si se añade dominio personalizado o scripts Deluge avanzados.",
+    "facilidadImplementacion": "La puesta en marcha es inmediata y gratuita por autoservicio, la demo no es obligatoria y ofrece prueba gratuita de 15 días sin tarjeta de crédito.",
+    "atencionAlCliente": "Soporte incluido por correo (support@zohobookings.com) 24 horas al día de lunes a viernes (24/5), base de conocimientos y atención disponible en español.",
+    "fiabilidad": "Dispone de página de estado pública global (status.zoho.com) con desglose de centros de datos y SLA contractual de disponibilidad del 99.9%."
+   },
+   "precioInicial": "Forever Free Plan a $0 para 1 usuario (reuniones online y sincronización de calendario); plan de pago Basic desde $6/usuario/mes con facturación anual ($8/usuario/mes facturación mensual) que incluye espacios de trabajo y notificaciones.",
+   "moneda": "USD",
+   "citaDelPrecio": "Forever Free Plan: One user | Online meetings | Notification emails and reminders. Two-way calendar sync. / BASIC US$6per user/month billed annually ($8/user/month billed monthly).",
+   "urlDelPrecio": "https://www.zoho.com/bookings/pricing.html",
+   "tienePlanGratuito": true
+  },
+  {
+   "id": "reservio",
+   "nombre": "Reservio",
+   "paginaOficial": "https://www.reservio.com/",
+   "categoriaId": "reservas-citas",
+   "descripcion": "Reservio es un programa de gestión de citas y reservas online que permite a los negocios recibir solicitudes de clientes las 24 horas del día. Centraliza la agenda del equipo, el historial de clientes y la disponibilidad en una sola herramienta accesible desde la web y el móvil. Además, automatiza los avisos y facilita el cobro anticipado para evitar huecos en la agenda y reducir el trabajo administrativo.",
+   "problemasQueResuelve": [
+    "Pierdo clientes porque me llaman cuando estoy ocupado atendiendo o fuera del horario comercial y no puedo coger el teléfono.",
+    "Sufro pérdidas económicas cuando los clientes se olvidan de su cita y dejan el hueco sin avisar.",
+    "Me vuelvo loco cuadrando los horarios y turnos de varios empleados con calendarios de papel o mensajes cruzados.",
+    "Paso demasiado tiempo confirmando citas y recordando horarios manualmente en vez de centrarme en dar mi servicio."
+   ],
+   "casosDeUso": [
+    "Peluquerías y centros de estética que permiten al cliente reservar corte, tinte o manicura eligiendo al profesional y su horario disponible.",
+    "Estudios de yoga o gimnasios que gestionan el registro de alumnos y el aforo máximo de sus clases y talleres grupales.",
+    "Consultas de fisioterapia y clínicas privadas que coordinan citas individuales con envío automático de recordatorios antes de cada sesión.",
+    "Profesores particulares y academias de formación que programan tutorías, reservan aulas y cobran sesiones por adelantado."
+   ],
+   "funcionesPrincipales": [
+    "Página web personalizada de reservas para aceptar citas de clientes 24/7",
+    "Calendario inteligente con vista de agenda por empleado y sincronización de horarios",
+    "Envío automatizado de recordatorios y confirmaciones por SMS y correo electrónico",
+    "Pasarela para cobros online, prepagos y gestión de ventas de servicios",
+    "Programación de eventos grupales, clases recurrentes y control de aforo",
+    "Ficha centralizada de clientes con historial de citas anteriores y notas",
+    "Venta y control de pases, membresías periódicas y programas de fidelidad",
+    "Aplicación móvil para administrar la agenda y recibir avisos en tiempo real"
+   ],
+   "integraciones": [
+    "Google Calendar",
+    "Outlook",
+    "iCal",
+    "Google Contacts",
+    "WordPress",
+    "Slevomat",
+    "Apple Pay",
+    "Google Pay",
+    "Visa",
+    "Mastercard",
+    "Maestro",
+    "Carte Bancaire",
+    "Bancontact"
+   ],
+   "integracionesPrincipales": [
+    "Google Calendar",
+    "Outlook",
+    "iCal",
+    "WordPress",
+    "Apple Pay",
+    "Google Pay"
+   ],
+   "ventajas": [
+    "Dispone de un plan gratuito permanente que incluye hasta 40 reservas cada 30 días, página web de reservas y app móvil.",
+    "Sincroniza la agenda de citas con calendarios externos como Google Calendar, Outlook e iCal mediante estándar ICS.",
+    "Incorpora pasarela de pagos en línea y sistema de cobro TPV con soporte para tarjetas de crédito, Apple Pay y Google Pay.",
+    "Automatiza el envío de recordatorios y confirmaciones por correo electrónico en todos los planes para reducir citas perdidas."
+   ],
+   "inconvenientes": [
+    "El límite de reservas no se reinicia a final de mes, sino que se calcula en una ventana continua móvil de 30 días.",
+    "Los recordatorios por mensaje SMS tienen coste adicional y se facturan mediante paquetes separados según la moneda y país.",
+    "El acceso a la API y la opción de retirar el logotipo o marca de Reservio requieren contratar el plan Pro o superior.",
+    "Las transacciones con pagos por internet conllevan una comisión por operación bajo el modelo MIF++ a partir del 2,90 % + 0,35 $."
+   ],
+   "limites": [
+    {
+     "texto": "El plan Free permite un máximo de 40 reservas en un periodo móvil de 30 días.",
+     "cita": "Hasta 40 reservas en 30 días, notificaciones por correo electrónico, Página web de reservas, Reservio Business app",
+     "url": "https://www.reservio.com/es/help/subscription-plans-overview"
+    },
+    {
+     "texto": "El plan Starter admite hasta 200 reservas por periodo de 30 días.",
+     "cita": "Hasta 200 reservas por 30 días, sincronización de calendarios, número ilimitado de clientes, acceso a Estadísticas",
+     "url": "https://www.reservio.com/es/help/subscription-plans-overview"
+    },
+    {
+     "texto": "El plan Standard amplía la capacidad hasta 500 reservas cada 30 días.",
+     "cita": "Hasta 500 reservas por 30 días, sitio web de reservas personalizable, texto personalizable de las notificaciones, notificaciones por correo electrónico para el personal",
+     "url": "https://www.reservio.com/es/help/subscription-plans-overview"
+    },
+    {
+     "texto": "El plan Pro ofrece reservas ilimitadas, acceso a API y marca blanca.",
+     "cita": "Reservas ilimitadas, control de acceso, API, posibilidad de eliminar la marca Reservio",
+     "url": "https://www.reservio.com/es/help/subscription-plans-overview"
+    },
+    {
+     "texto": "Los límites de volumen de reservas operan en ciclos móviles y no por mes de calendario.",
+     "cita": "El límite de reservas se calcula sobre un periodo renovable de 30 días. Cada reserva, independientemente de la fecha del evento, cuenta para el límite de esos 30 días. Los límites no se reinician cuando finaliza el mes calendario en curso.",
+     "url": "https://www.reservio.com/es/pricing"
+    }
+   ],
+   "metodologiaValoracion": "Análisis documental directo de las características, listas de precios, base de conocimiento y documentación técnica publicadas en el sitio web y centro de ayuda oficial de Reservio. La nota de facilidad de uso NO es nuestra: sale de la ficha de reseñas que se abrió —Capterra (capterra.com) le otorga una calificación de «Ease of Use» de 4.7 sobre 5 basada en 142 reseñas verificadas.— leída el 2026-09-30. El resto de notas son valoraciones documentales con sus hechos escritos al lado, no puntuaciones del fabricante ni reseñas.",
+   "tieneApiPublica": true,
+   "tieneAppMovil": true,
+   "informacionEmpresa": {
+    "paisOrigen": "República Checa",
+    "anioFundacion": 2012,
+    "tamanoAproximado": "11-50 empleados"
+   },
+   "segmentosIdeales": [
+    "1-10",
+    "11-50"
+   ],
+   "porQueEseTamano": "La estructura de tarifas está segmentada para autónomos y pequeñas empresas: el plan Free (40 reservas) y Starter (200 reservas) están pensados para profesionales independientes, mientras que Standard (500 reservas) y Pro (reservas ilimitadas) cubren salones, centros o clínicas con equipos de hasta varias decenas de empleados.",
+   "paginasQueAbriste": [
+    "https://www.reservio.com/es/pricing",
+    "https://www.reservio.com/es/help/subscription-plans-overview",
+    "https://www.reservio.com/integrations",
+    "https://www.reservio.com/for-developers",
+    "https://www.reservio.com/es/features/online-payments",
+    "https://www.reservio.com/es/blog/best-salon-software-2026",
+    "https://www.reservio.com/pricing",
+    "https://help.reservio.com/es/collections/269098-primeros-pasos",
+    "https://help.reservio.com/en/collections/269098-getting-started",
+    "https://help.reservio.com/en/articles/9885827-overview-of-reservio-subscription-plans",
+    "https://www.reservio.com/blog/customer-support-is-here-for-you",
+    "https://status.reservio.com/",
+    "https://status.reservio.com/uptime",
+    "https://www.capterra.com/p/146059/Reservio/"
+   ],
+   "loQueNoPudeComprobar": "El desglose exacto de tarifas por cada paquete de SMS según el país de residencia del usuario, ya que depende de listas de precios variables por operador telefónico dentro del panel privado.",
+   "curvaDeAprendizaje": "muy_facil",
+   "porQueEsaCurva": "Su sección oficial de «Primeros pasos» («Getting Started») consta de 9 artículos que guían desde la creación de cuenta hasta aceptar la primera reserva; no requiere formación obligatoria ni de pago, y la importación de datos de clientes la realiza el propio usuario mediante archivo/base de datos en autoservicio.",
+   "puntuaciones": {
+    "facilidadDeUso": 9.4,
+    "nivelTecnicoRequerido": 2,
+    "facilidadImplementacion": 9,
+    "atencionAlCliente": 7,
+    "fiabilidad": 9.9,
+    "calidad": null,
+    "escalabilidad": null
+   },
+   "porQueCadaNota": {
+    "facilidadDeUso": "Capterra (capterra.com) le otorga una calificación de «Ease of Use» de 4.7 sobre 5 basada en 142 reseñas verificadas.",
+    "nivelTecnicoRequerido": "Software 100 % SaaS en la nube y app móvil sin necesidad de programar ni instalar servidores; la personalización de dominio o incrustación web es guiada/opcional y sólo en Enterprise el fabricante interviene para crear la cuenta manualmente.",
+    "facilidadImplementacion": "La puesta en marcha es gratuita y de autoservicio (cuenta Free o prueba sin tarjeta obligatoria); la demo no es obligatoria para planes estándar y la importación de clientes es directa por el usuario sin tiempos de espera publicados.",
+    "atencionAlCliente": "Ofrece chatbot de IA 24/7 («Reo»), chat en directo y formulario/correo de soporte en días laborables de 8:00 a 16:30 CET, con base de conocimiento y atención disponibles en español.",
+    "fiabilidad": "Cuenta con página de estado pública en https://status.reservio.com/ con desglose por componentes e histórico de disponibilidad publicado (99,80 % en julio 2026, 99,91 % en agosto 2026 y 100 % en septiembre 2026)."
+   }
+  }
+ ],
+ "notaReservio": "Reservio se pidió en DOS llamadas. En una sola, Gemini perdía el primer elemento de varias listas y devolvía «\"casosDeUso\":.\"» en vez de abrir el array — tres veces seguidas, con temperatura 0 y con 0,35. No se remendó su salida a mano: se partió la pregunta en dos y cada mitad parseó.",
+ "notaParteD": "La curva de aprendizaje y las notas se buscaron en una SEGUNDA vuelta: la primera petición de Claude se dejó fuera la Parte D entera, que es justo lo que decide si el motor coloca a una herramienta. A Zoho Bookings y Teachworks se les pidió además el precio, que no lo teníamos.",
+ "notaDeLasNotas": "Las notas de facilidad de uso vienen de fichas de Capterra y G2 que Gemini SÍ consiguió abrir, con id de producto concreto, donde el canal de GPT devolvía 403. Es el mismo caso de Koibox el 2026-09-29. Se guardan con su procedencia escrita para que se puedan comprobar."
+}
