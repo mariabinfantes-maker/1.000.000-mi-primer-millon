@@ -67,3 +67,31 @@ describe("«ver más» enseña de verdad lo que promete", () => {
     }
   });
 });
+
+/**
+ * LA REGLA DE LA PROPIETARIA, 2026-09-30: «si tenemos 90 herramientas, tiene
+ * que mostrar las 90 putas herramientas».
+ *
+ * Y tiene razón: una herramienta que está en el catálogo y no se puede
+ * alcanzar por ningún camino es trabajo tirado. Esta prueba existe para que
+ * nadie vuelva a poner un tope que esconda parte del catálogo — pasó con un
+ * tope de 20 que dejaba fuera a Zoho Bookings, la 25ª de 34 que cubrían lo
+ * mismo.
+ */
+describe("ninguna herramienta del catálogo se queda sin poder verse", () => {
+  it("las 90 aparecen en algún caso", async () => {
+    const { getNecesidades } = await import("@/data/vocabulario/necesidades");
+    const { getTodasLasHerramientas } = await import("@/data/repositorio");
+    const vistas = new Set<string>();
+    for (const n of getNecesidades()) {
+      const r = aconsejar([{ necesidad: n, importancia: "imprescindible" }] as never);
+      for (const cam of r.caminos)
+        for (const o of [...cam.opciones, ...cam.masOpciones, ...cam.parciales])
+          for (const p of o.piezas) vistas.add(p.herramientaId);
+    }
+    const activas = getTodasLasHerramientas().filter((h) => h.estado === "activo");
+    const fuera = activas.filter((h) => !vistas.has(h.id)).map((h) => h.id);
+    expect(fuera).toEqual([]);
+    expect(vistas.size).toBeGreaterThanOrEqual(activas.length);
+  });
+});

@@ -239,11 +239,24 @@ const A_LA_VISTA = 4;
 const PARCIALES_A_LA_VISTA = 8;
 
 /**
- * Cuántas se materializan al desplegar «ver más». No son todas cuando hay
- * trescientas parejas posibles: eso vuelve a ser el listado. Pero son las
- * suficientes para explorar, y las que quedan detrás se siguen contando.
+ * NINGUNA HERRAMIENTA DEL CATÁLOGO PUEDE QUEDAR FUERA DE ALCANCE.
+ *
+ * Esto era un tope de 20, y con él Zoho Bookings no aparecía nunca: demuestra
+ * «que reserven solos», que la demuestran 34, y se quedaba la 25ª. La
+ * propietaria, 2026-09-30: «si tenemos 90 herramientas, tiene que mostrar las
+ * 90». Y lleva razón: una herramienta que está en el catálogo y no se puede
+ * alcanzar por ningún camino es trabajo tirado.
+ *
+ * Así que el camino «todo en un sitio» —donde cada herramienta aparece sola,
+ * cubra todo o cubra una parte— **no tiene tope**: se construyen todas. Como
+ * mucho son 90, que es el catálogo entero.
+ *
+ * Las COMBINACIONES sí lo tienen, y no es lo mismo: de 90 herramientas salen
+ * cientos de parejas, y cada herramienta de una pareja ya aparece ella sola
+ * más arriba. Topar ahí no esconde ninguna herramienta; topar en las solas, sí.
  */
-const MAS_A_LA_VISTA = 20;
+const SIN_TOPE = Number.POSITIVE_INFINITY;
+const COMBINACIONES_AL_DESPLEGAR = 20;
 
 /**
  * CUÁNTAS SE ENSEÑAN: ESTÁ EN DISEÑO, NO DECIDIDO.
@@ -756,11 +769,22 @@ export function aconsejar(
    * El bloque de un camino: las 4 de delante, las que se despliegan detrás
    * —ordenadas por cercanía— y la cuenta de las que aún quedan.
    */
-  const reparto = (suyas: Solucion[]) => {
+  const reparto = (suyas: Solucion[], tope: number) => {
     const delante = suyas.slice(0, A_LA_VISTA).map((s) => aPieza(s, fichas, delCaso, puerto));
     const cola = suyas.slice(A_LA_VISTA);
-    const masOpciones = ordenarPorCercania(cola.slice(0, MAS_A_LA_VISTA).map((s) => aPieza(s, fichas, delCaso, puerto)));
-    return { opciones: delante, masOpciones, hayMas: Math.max(0, cola.length - MAS_A_LA_VISTA) };
+    const cuantas = Number.isFinite(tope) ? Math.min(cola.length, tope) : cola.length;
+    /**
+     * Ordenar por cercanía cuesta caro cuando son muchas —vuelve a desempatar
+     * una y otra vez—, así que se ordenan las 20 primeras y el resto conserva
+     * el orden de la búsqueda, que ya va por cuánto cubre. Ninguna se pierde:
+     * lo que cambia es sólo cuánto afinamos el orden de la cola larga.
+     */
+    const enPiezas = cola.slice(0, cuantas).map((s) => aPieza(s, fichas, delCaso, puerto));
+    const masOpciones = [
+      ...ordenarPorCercania(enPiezas.slice(0, COMBINACIONES_AL_DESPLEGAR)),
+      ...enPiezas.slice(COMBINACIONES_AL_DESPLEGAR),
+    ];
+    return { opciones: delante, masOpciones, hayMas: Math.max(0, cola.length - cuantas) };
   };
 
   const alDia = mejoresPorTamano;
@@ -778,15 +802,17 @@ export function aconsejar(
             forma: "todo-en-uno",
             titulo: "Todo en un sitio",
             queImplica: `Una sola herramienta se encarga de ${queCubre.map((c) => `«${c}»`).join(" y de ")}. Un programa que aprender y una cuota.`,
-            ...reparto(suyas),
-            parciales: parciales.slice(0, PARCIALES_A_LA_VISTA).map((s) => aPieza(s, fichas, delCaso, puerto)),
-            hayMasParciales: Math.max(0, parciales.length - PARCIALES_A_LA_VISTA),
+            ...reparto(suyas, SIN_TOPE),
+            // Sin tope tampoco aquí: una herramienta que cubre una parte sigue
+            // siendo una herramienta del catálogo, y tiene que poder verse.
+            parciales: parciales.map((s) => aPieza(s, fichas, delCaso, puerto)),
+            hayMasParciales: 0,
           }
         : {
             forma: "por-separado",
             titulo: "Por separado",
             queImplica: `Cada herramienta hace una parte. Suelen ser más finas en lo suyo, y son dos programas y dos cuotas.`,
-            ...reparto(suyas),
+            ...reparto(suyas, COMBINACIONES_AL_DESPLEGAR),
             parciales: parciales.slice(0, PARCIALES_A_LA_VISTA).map((s) => aPieza(s, fichas, delCaso, puerto)),
             hayMasParciales: Math.max(0, parciales.length - PARCIALES_A_LA_VISTA),
           }
