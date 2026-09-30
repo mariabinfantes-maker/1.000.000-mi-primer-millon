@@ -82091,5 +82091,252 @@
     "confianza": "alta",
     "nota": "El manual explica la incrustación en la página propia y parámetros de personalización de colores. El blog del fabricante también distingue expresamente el iframe de abrir la reserva en una pestaña nueva.",
     "proximaRevision": "2027-09-30"
+  },
+  {
+    "herramientaId": "pabau",
+    "capacidadId": "cap.online_self_service_booking",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://pabau.com/features/online-booking-software/",
+        "fechaConsulta": "2026-09-29",
+        "cita": "clients can book appointments",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "pabau",
+    "capacidadId": "cap.customer_appointment_reminders",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://pabau.com/features/online-booking-software/",
+        "fechaConsulta": "2026-09-29",
+        "cita": "automatic email reminders, automatic SMS reminders",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "pabau",
+    "capacidadId": "cap.booking_cancellation_and_rescheduling",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://pabau.com/features/patient-portal-software/",
+        "fechaConsulta": "2026-09-29",
+        "cita": "they can also reschedule or cancel directly from the portal",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "pabau",
+    "capacidadId": "cap.capacity_and_time_slots",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://pabau.com/features/medical-scheduling-software/",
+        "fechaConsulta": "2026-09-29",
+        "cita": "The calendar automatically checks staff availability, room capacity, service duration, and appointment type before confirming bookings.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "pabau",
+    "capacidadId": "cap.no_show_and_deposits",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://pabau.com/features/online-booking-software/",
+        "fechaConsulta": "2026-09-29",
+        "cita": "setting deposits",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "pabau",
+    "capacidadId": "cap.booking_waitlist",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://pabau.com/features/waitlist-software/",
+        "fechaConsulta": "2026-09-29",
+        "cita": "they can join the waitlist directly through your online booking portal […] your team sends them a dedicated notification",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "fresha",
+    "capacidadId": "cap.online_self_service_booking",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.fresha.com/for-business/features/scheduling",
+        "fechaConsulta": "2026-09-29",
+        "cita": "clients book 24/7",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "fresha",
+    "capacidadId": "cap.customer_appointment_reminders",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.fresha.com/pricing",
+        "fechaConsulta": "2026-09-29",
+        "cita": "automated booking reminders via email and SMS",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "fresha",
+    "capacidadId": "cap.booking_cancellation_and_rescheduling",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://terms.fresha.com/terms-service",
+        "fechaConsulta": "2026-09-29",
+        "cita": "rescheduling and cancelling appointments, provided through the Fresha Platform",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "fresha",
+    "capacidadId": "cap.capacity_and_time_slots",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.fresha.com/help-center/knowledge-base/catalog/76-set-advanced-pricing-and-durations-",
+        "fechaConsulta": "2026-09-29",
+        "cita": "customise the pricing and duration for each location and team member",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "fresha",
+    "capacidadId": "cap.no_show_and_deposits",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.fresha.com/for-business/features/scheduling",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Secure every booking with card confirmation or a deposit",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "fresha",
+    "capacidadId": "cap.booking_waitlist",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.fresha.com/help-center/knowledge-base/calendar/259-set-up-and-manage-your-waitlist",
+        "fechaConsulta": "2026-09-29",
+        "cita": "clients can join the waitlist and will be notified if a spot becomes available",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "fresha",
+    "capacidadId": "cap.embeddable_booking_widget",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://terms.fresha.com/partner-terms",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Fresha Widget means our partner web interface […] which you can embed on your own website",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
   }
 ]

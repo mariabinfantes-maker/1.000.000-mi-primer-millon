@@ -1,0 +1,35 @@
+{
+  "fecha": "2026-09-30",
+  "porQueHizoFalta": "Pabau y Fresha llevaban días con su ficha casi entera guardada en data/investigacion y nunca se montó. Les faltaban tres campos, y dos eran el mismo dato con otro nombre: paginaOficial estaba como `web` e idealPara como `paraQuienEstaPensada`, del barrido del 2026-09-28. El tercero, el precio, era el único hueco real: GPT lo dejó en null a propósito diciendo «no afirmo que no lo publiquen: no conseguí visualizar esas cifras».",
+  "quien": "Gemini 3.7 flash con url_context y google_search, dos llamadas, una por herramienta.",
+  "herramientas": [
+    {
+      "id": "pabau",
+      "resultado": "NO PUBLICAN PRECIOS",
+      "porQueEsUnDatoYNoUnHueco": "Confirmado por dos lectores distintos. GPT no consiguió ver cifras y Gemini encuentra la razón escrita en la propia tarifa: los cinco planes existen con su número de usuarios, y ninguno lleva importe. Que una herramienta te obligue a una llamada para saber lo que cuesta es exactamente lo que un cliente necesita saber antes de perder esa llamada.",
+      "planes": ["Solo, 1 usuario", "Team, 2-3", "Medium, 4-5", "Group, 6-15", "Enterprise, 16+"],
+      "citaLiteral": "*Our pricing depends on where you're located and the number of users you'll need on the system.",
+      "fraseDeAlLado": "A quick demo call lets us confirm the right plan, share accurate pricing, and walk you through onboarding — with no obligation to proceed.",
+      "url": "https://pabau.com/pricing/",
+      "tituloDeLaPagina": "Pabau Pricing | All-in-One Practice Management Software Plans | Pabau",
+      "hayPlanGratuitoPermanente": false
+    },
+    {
+      "id": "fresha",
+      "resultado": "SÍ PUBLICAN",
+      "planes": [
+        { "nombre": "Independent", "precio": "$19.95 per month", "incluye": "Una columna de agenda, 100 mensajes y 50 correos de marketing gratis, soporte por correo y chat." },
+        { "nombre": "Team", "precio": "$14.95 per team member monthly", "incluye": "Varias columnas de agenda, 100 mensajes y 50 correos por miembro, soporte por teléfono, chat y correo." },
+        { "nombre": "Enterprise", "precio": "Custom rates", "incluye": "Para negocios de más de 20 miembros." }
+      ],
+      "comoCobra": "Suscripción mensual por miembro del equipo reservable, más comisiones: 20% una sola vez (mínimo 6 $) en la primera visita de clientes captados por su directorio, 2,79% + 0,20 $ por pago online y 2,29% + 0,20 $ por pago presencial.",
+      "citaLiteral": "Independent: $19.95 per month | Team: $14.95 per team member monthly | Fresha marketplace - New clients: 20% one-time commission Minimum fee of $6 per client applies | Online payments: 2.79% + $0.20 per transaction | In-person payments: 2.29% + $0.20 per transaction",
+      "fraseDeAlLado": "Pricing Software that grows with your business. As you expand we charge for each bookable team member.",
+      "url": "https://www.fresha.com/for-business/pricing",
+      "tituloDeLaPagina": "Salon Software and Booking System | Pricing - Fresha",
+      "hayPlanGratuitoPermanente": false,
+      "ojo": "La moneda que se lee es el dólar. No se convierte."
+    }
+  ],
+  "loQueNoSeHace": "No se inventa un precio para Pabau. `precioInicial` dirá que no lo publican, con la cita, porque eso es lo que se sabe. El recibo apunta a su tarifa, que sí se abrió: la fecha y la dirección son ciertas aunque no haya cifra."
+}

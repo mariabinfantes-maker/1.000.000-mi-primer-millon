@@ -231,7 +231,7 @@ describe("y los 1.547 registros de hoy no cambian de comportamiento", () => {
     // catálogo»), con los 24 registros de sus capacidades de reservas. Ya
     // estaban investigadas con cita y dirección desde el 28 y el 29; lo que
     // faltaba era archivarlas, y eso hace `cli-archivar-reservas.ts`.
-    expect(demostradas.length).toBe(962);
+    expect(demostradas.length).toBe(975);
   });
 
   it("y ninguno cae en el estado nuevo", () => {

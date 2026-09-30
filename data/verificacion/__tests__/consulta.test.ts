@@ -165,9 +165,9 @@ describe("sobre los 1.547 registros reales", () => {
     // catálogo»), con los 24 registros de sus capacidades de reservas. Ya
     // estaban investigadas con cita y dirección desde el 28 y el 29; lo que
     // faltaba era archivarlas, y eso hace `cli-archivar-reservas.ts`.
-    expect(registros.length).toBe(3979);
+    expect(registros.length).toBe(3992);
     const verificados = registros.filter((r) => puerto.estadoDe(r.herramientaId, r.capacidadId).estado === "demostrada");
-    expect(verificados.length).toBe(962);
+    expect(verificados.length).toBe(975);
   });
 
   /**
@@ -185,7 +185,7 @@ describe("sobre los 1.547 registros reales", () => {
     const herramientas = [...new Set(registros.map((r) => r.herramientaId))];
     // 69 desde el 2026-09-29: las cuatro promovidas esa tarde traen sus
     // capacidades archivadas, así que ninguna entra sin saber qué hace.
-    expect(herramientas.length).toBe(80);
+    expect(herramientas.length).toBe(82);
     expect(herramientas.filter((id) => puerto.capacidadesVerificadasDe(id).length === 0)).toEqual([]);
   });
 
