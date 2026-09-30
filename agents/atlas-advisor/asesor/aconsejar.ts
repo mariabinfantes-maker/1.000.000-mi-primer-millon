@@ -636,11 +636,26 @@ function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempat
   if (gratis.length === 1) {
     return { elegida: gratis[0], desempate: {
       criterio: "plan-gratuito",
-      // «De las N» sólo cuando N son todas las que empataron; si el idioma ya
-      // había recortado, se dice entre cuáles para no afirmar de más.
-      porQue: `Me decido por ${nombreDe(gratis[0])} porque es la única ${
-        quedan1.length === candidatas.length ? `de las ${quedan1.length}` : `de las ${quedan1.length} que están en español`
-      } con plan gratuito: puedes probarla antes de pagar nada.`,
+      /**
+       * REDACCIÓN DE LA PROPIETARIA, 2026-09-30: «Empezaría por Koibox
+       * porque, entre las que están en español, es la única con plan
+       * gratuito.»
+       *
+       * Qué reemplaza y por qué. Antes decía «Me decido por X porque es la
+       * única de las N que están en español con plan gratuito: puedes
+       * probarla antes de pagar nada». Dos cosas: «empezaría por» es lo que
+       * ya dice el titular de la tarjeta, y la condición para decir «que
+       * están en español» miraba si quedaban menos que al principio —lo que
+       * también pasa cuando lo que recortó fue el número de piezas—, así que
+       * podía afirmar el español de un grupo que sólo era «sin confirmar».
+       * Ahora «en español» se dice sólo si ese grupo está confirmado.
+       */
+      porQue:
+        mejorIdioma === ORDEN_DEL_ESPANOL.confirmado
+          ? `Empezaría por ${nombreDe(gratis[0])} porque, entre las que están en español, es la única con plan gratuito.`
+          : quedan1.length === opciones.length
+            ? `Empezaría por ${nombreDe(gratis[0])} porque es la única de las ${opciones.length} con plan gratuito.`
+            : `Empezaría por ${nombreDe(gratis[0])} porque, entre las que quedan después de mirar el idioma, es la única con plan gratuito.`,
     } };
   }
   const quedan2 = gratis.length > 1 ? gratis : quedan1;

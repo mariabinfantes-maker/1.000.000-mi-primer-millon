@@ -36,8 +36,14 @@ import { titular, type Abierta } from "./TarjetaDelConsejo";
  *    resuelve con cita, precio con fecha, idioma con recibo, lo que falta por
  *    confirmar. Si un sitio queda vacío, queda vacío.
  *  - LO QUE SE COMPARTE SE DICE COMO COMPARTIDO; LO QUE DECIDIÓ, COMO LO
- *    ÚNICO QUE DECIDIÓ. «Las seis lo hacen igual de bien… me decido por
- *    Koibox porque es la única de las seis con plan gratuito.»
+ *    ÚNICO QUE DECIDIÓ. «Hay 6 herramientas que cubren las tres necesidades
+ *    que me has contado. Empezaría por Koibox porque, entre las que están
+ *    en español, es la única con plan gratuito.»
+ *  - CUBRIR NO ES HACERLO IGUAL DE BIEN. Esta pantalla decía «las 6 lo hacen
+ *    igual de bien». El motor sabe que las seis cubren lo pedido con
+ *    evidencia; no mide lo bien que lo hace cada una. Propietaria,
+ *    2026-09-30: «no diría "igual de bien"». Se dice lo que se sabe: que
+ *    cubren.
  *  - NINGUNA ALTERNATIVA AFIRMA SER «LA MÁS BARATA». Su precio se dice tal
  *    cual lo publica su tarifa; ninguno se compara con otro.
  */
@@ -120,6 +126,15 @@ function precioCorto(opcion: Opcion): { cifra: string; nota?: string } {
 function loQueDistingue(opcion: Opcion, entreEllas: Opcion[]): string[] {
   const suyos = [...new Set(opcion.piezas.flatMap((p) => p.ademas))];
   return suyos.filter((e) => !entreEllas.every((o) => o.piezas.some((p) => p.ademas.includes(e))));
+}
+
+const EN_LETRA = ["cero", "una", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez"];
+
+/** «la necesidad», «las tres necesidades»: cuántas cosas pidió, dicho como se habla. */
+function cuantasNecesidades(opcion: Opcion): string {
+  const n = new Set(opcion.piezas.flatMap((p) => p.cubre)).size;
+  if (n <= 1) return "la necesidad";
+  return `las ${EN_LETRA[n] ?? n} necesidades`;
 }
 
 const PLAN_SIN_TARIFA = /^En qué plan entra «.+»: lo hemos visto en su página, pero no en qué tarifa\.$/;
@@ -267,7 +282,9 @@ function Tarjeta({
         <Antetitulo>{esPrincipal ? "Por qué te la recomiendo" : "Por qué la he incluido"}</Antetitulo>
         <ul className="list-disc space-y-1 pl-[18px] text-sm leading-relaxed text-slate-800">
           {esPrincipal && cuantas > 1 && opcion.piezas.length === 1 && opcion.noCubre.length === 0 && (
-            <li>Las {cuantas} que lo resuelven todo lo hacen igual de bien con lo que me has contado.</li>
+            <li>
+              Hay {cuantas} herramientas que cubren {cuantasNecesidades(opcion)} que me has contado.
+            </li>
           )}
           {esPrincipal && opcion.desempate?.porQue && <li>{opcion.desempate.porQue}</li>}
           {!esPrincipal && (
@@ -421,7 +438,7 @@ export default function ConsejoDelAsesor({
             Todavía no te digo cuál
           </span>
           <p className="mt-3 font-display text-[22px] font-bold leading-[1.15] tracking-tight text-slate-900">
-            Varias lo resuelven igual de bien con lo que me has contado.
+            Varias cubren todo lo que me has contado.
           </p>
           <p className="mt-2 leading-relaxed text-slate-800">{loQueNecesitoSaber}</p>
         </section>
