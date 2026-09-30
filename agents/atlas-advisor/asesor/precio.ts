@@ -50,7 +50,7 @@ export type ImporteComparable = {
   plan: string;
 };
 
-type Plan = { nombre: string; mensual?: string; anual?: string; cita: string };
+type Plan = { nombre: string; mensual?: string | null; anual?: string | null; cita?: string | null };
 
 /** «por usuario», «/user», «per seat»… Lo dice la cita, no lo deducimos. */
 const POR_USUARIO = /(por|per|\/)\s*(usuario|user|puesto|seat|miembro|member|profesional|empleado)|usuario\s*\/\s*mes|user\s*\/\s*month/i;
@@ -60,8 +60,11 @@ const POR_USUARIO = /(por|per|\/)\s*(usuario|user|puesto|seat|miembro|member|pro
  * «Desde 9 €», «9 € + IVA por reserva» o «199 €/año el primer año» son
  * condiciones, no cifras comparables, y por eso caen aquí.
  */
-function cantidadDe(texto: string | undefined): number | null {
-  if (texto === undefined) return null;
+function cantidadDe(texto: string | null | undefined): number | null {
+  // `null` además de `undefined`: la tarifa de un plan puede venir explícitamente
+  // vacía —«no publican este precio»— y no es lo mismo que no traer el campo.
+  // Reventó con un plan real el 2026-09-30, después de escribir esto.
+  if (texto === undefined || texto === null) return null;
   const t = texto.trim();
   if (/desde|hasta|a partir|consult|contact|presupuesto|según|seg[uú]n/i.test(t)) return null;
   const m = t.match(/^(?:€|\$|US\$|EUR|USD)?\s*(\d{1,6}(?:[.,]\d{1,2})?)\s*(?:€|\$|US\$|EUR|USD)?$/);

@@ -7,7 +7,7 @@ import { buscar } from "../buscar";
 const imp = (id: string): NecesidadDelCaso => ({ necesidad: getNecesidad(id)!, importancia: "imprescindible" });
 
 const CASOS = [
-  { quien: "peluquería: citas + facturar", trae: [imp("nec.que-reserven-solos"), imp("nec.emitir-una-factura-legal")] },
+  { quien: "citas + facturar", trae: [imp("nec.que-reserven-solos"), imp("nec.emitir-una-factura-legal")] },
   { quien: "reformas: presupuesto + facturar", trae: [imp("nec.presupuestar-rapido"), imp("nec.emitir-una-factura-legal")] },
   { quien: "diseñadora: horas + facturar", trae: [imp("nec.saber-cuanto-tiempo-echo"), imp("nec.emitir-una-factura-legal")] },
 ];

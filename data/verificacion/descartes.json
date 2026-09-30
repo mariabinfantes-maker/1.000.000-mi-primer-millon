@@ -2384,5 +2384,54 @@
     "motivo": "sin plan mínimo",
     "cita": "Create policies, track time and attendance, and archive performance reviews.",
     "urlCitada": "https://www.zoho.com/one/"
+  },
+  {
+    "herramientaId": "koibox",
+    "capacidadId": "cap.invoicing",
+    "motivo": "sin plan mínimo",
+    "cita": "Emitirás facturas cumpliendo con todos los requisitos legales vigentes de forma transparente y automatizada.",
+    "urlCitada": "https://koibox.cloud/"
+  },
+  {
+    "herramientaId": "dricloud",
+    "capacidadId": "cap.invoicing",
+    "motivo": "sin plan mínimo",
+    "cita": "Sí. Las facturas salen ya verificables según VeriFactu, y con TicketBAI si estás en el País Vasco. Es automático: tú facturas como siempre y DriCloud se encarga del cumplimiento con Hacienda.",
+    "urlCitada": "https://dricloud.com/precios/"
+  },
+  {
+    "herramientaId": "pabau",
+    "capacidadId": "cap.invoicing",
+    "motivo": "sin plan mínimo",
+    "cita": "Yes. Every plan includes full access to the platform: scheduling, online booking, clinical records, forms, payments, invoicing, marketing tools, inventory, reporting, and a shared inbox for email and SMS.",
+    "urlCitada": "https://pabau.com/pricing/"
+  },
+  {
+    "herramientaId": "jane",
+    "capacidadId": "cap.invoicing",
+    "motivo": "cita breve sin revisar",
+    "cita": "Invoices & Receipts",
+    "urlCitada": "https://jane.app/pricing"
+  },
+  {
+    "herramientaId": "bookitit",
+    "capacidadId": "cap.invoicing",
+    "motivo": "sin plan mínimo",
+    "cita": "Con Bookitit lo tiene todo en la misma herramienta: en una sencilla tabla verá a sus clientes, el servicio reservado, el coste y si el pago está pendiente o completado, puede imprimir el ticket o factura, y también puede enviar por email el resguardo del servicio.",
+    "urlCitada": "https://www.bookitit.com/es/"
+  },
+  {
+    "herramientaId": "archivex",
+    "capacidadId": "cap.invoicing",
+    "motivo": "sin plan mínimo",
+    "cita": "Controla cada factura, cobro y presupuesto de tu clínica, potencia tu negocio y simplifica las tareas más complejas.",
+    "urlCitada": "https://archivex.io/precios"
+  },
+  {
+    "herramientaId": "viday",
+    "capacidadId": "cap.invoicing",
+    "motivo": "sin plan mínimo",
+    "cita": "Puedes gestionar tus facturas y pagos desde el propio sistema.",
+    "urlCitada": "https://viday.es/"
   }
 ]

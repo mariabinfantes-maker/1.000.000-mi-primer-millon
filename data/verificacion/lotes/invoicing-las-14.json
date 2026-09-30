@@ -1,0 +1,150 @@
+{
+  "id": "invoicing-las-14",
+  "nombre": "¿Facturan? Las 14 de reservas y clínica",
+  "motivo": "Una clínica dental que pierde pacientes por el teléfono y lleva las facturas a mano recibe hoy Agiled, HoneyBook y Keap —tres genéricas estadounidenses— porque son las únicas con reservas Y facturas demostradas. Koibox, Cliniko, DriCloud, flowww o Nubimed llevan su agenda mucho mejor, pero de su facturación NO CONSTA NADA, y quedan detrás. No consta porque nadie lo preguntó: los encargos anteriores pedían ocho capacidades y las ocho eran de reservas. Comprobado: cero menciones de cap.invoicing para estas catorce en los 4.039 registros y en todas las carpetas de investigación. Siete lo dicen en su propia ficha, pero ese texto es de la primera redacción y no tiene fuente guardada, así que no se puede publicar como demostrado. UNA sola capacidad, ninguna ficha nueva, ningún precio.",
+  "fecha": "2026-09-30",
+  "topeDePeticiones": 60,
+  "peticionesPorMinuto": 5,
+  "herramientas": [
+    {
+      "herramientaId": "koibox",
+      "criterio": "Sólo cap.invoicing. Sin pista previa: su ficha no menciona facturación. Cobrar, TPV o pasarela de pago NO demuestran que emita facturas; exportar a un programa de contabilidad es integración, no nativa.",
+      "capacidadIds": [
+        "cap.invoicing"
+      ],
+      "usoIds": [],
+      "recorridoIds": [],
+      "idioma": false
+    },
+    {
+      "herramientaId": "flowww",
+      "criterio": "Sólo cap.invoicing. Su ficha dice «Facturación y ventas», pero sin fuente guardada. Cobrar, TPV o pasarela de pago NO demuestran que emita facturas; exportar a un programa de contabilidad es integración, no nativa.",
+      "capacidadIds": [
+        "cap.invoicing"
+      ],
+      "usoIds": [],
+      "recorridoIds": [],
+      "idioma": false
+    },
+    {
+      "herramientaId": "dricloud",
+      "criterio": "Sólo cap.invoicing. Su ficha dice «…historias clínicas, documentos y facturación», sin fuente. Cobrar, TPV o pasarela de pago NO demuestran que emita facturas; exportar a un programa de contabilidad es integración, no nativa.",
+      "capacidadIds": [
+        "cap.invoicing"
+      ],
+      "usoIds": [],
+      "recorridoIds": [],
+      "idioma": false
+    },
+    {
+      "herramientaId": "nubimed",
+      "criterio": "Sólo cap.invoicing. Su ficha dice «Facturación y firma digital en el plan Premium», sin fuente; confirmar si es de ese plan. Cobrar, TPV o pasarela de pago NO demuestran que emita facturas; exportar a un programa de contabilidad es integración, no nativa.",
+      "capacidadIds": [
+        "cap.invoicing"
+      ],
+      "usoIds": [],
+      "recorridoIds": [],
+      "idioma": false
+    },
+    {
+      "herramientaId": "bewe",
+      "criterio": "Sólo cap.invoicing. Sin pista previa: su ficha no menciona facturación. Cobrar, TPV o pasarela de pago NO demuestran que emita facturas; exportar a un programa de contabilidad es integración, no nativa.",
+      "capacidadIds": [
+        "cap.invoicing"
+      ],
+      "usoIds": [],
+      "recorridoIds": [],
+      "idioma": false
+    },
+    {
+      "herramientaId": "cliniko",
+      "criterio": "Sólo cap.invoicing. Su ficha dice «…documentación clínica, facturación, pagos e informes», sin fuente. Cobrar, TPV o pasarela de pago NO demuestran que emita facturas; exportar a un programa de contabilidad es integración, no nativa.",
+      "capacidadIds": [
+        "cap.invoicing"
+      ],
+      "usoIds": [],
+      "recorridoIds": [],
+      "idioma": false
+    },
+    {
+      "herramientaId": "pabau",
+      "criterio": "Sólo cap.invoicing. Su ficha dice «Pagos y facturación», sin fuente. Cobrar, TPV o pasarela de pago NO demuestran que emita facturas; exportar a un programa de contabilidad es integración, no nativa.",
+      "capacidadIds": [
+        "cap.invoicing"
+      ],
+      "usoIds": [],
+      "recorridoIds": [],
+      "idioma": false
+    },
+    {
+      "herramientaId": "jane",
+      "criterio": "Sólo cap.invoicing. Su ficha dice «…documentación clínica, facturación, pagos», sin fuente. Cobrar, TPV o pasarela de pago NO demuestran que emita facturas; exportar a un programa de contabilidad es integración, no nativa.",
+      "capacidadIds": [
+        "cap.invoicing"
+      ],
+      "usoIds": [],
+      "recorridoIds": [],
+      "idioma": false
+    },
+    {
+      "herramientaId": "bookitit",
+      "criterio": "Sólo cap.invoicing. Sin pista previa: su ficha no menciona facturación. Cobrar, TPV o pasarela de pago NO demuestran que emita facturas; exportar a un programa de contabilidad es integración, no nativa.",
+      "capacidadIds": [
+        "cap.invoicing"
+      ],
+      "usoIds": [],
+      "recorridoIds": [],
+      "idioma": false
+    },
+    {
+      "herramientaId": "archivex",
+      "criterio": "Sólo cap.invoicing. Su ficha dice «Facturación, cobros y control de caja», sin fuente. Cobrar, TPV o pasarela de pago NO demuestran que emita facturas; exportar a un programa de contabilidad es integración, no nativa.",
+      "capacidadIds": [
+        "cap.invoicing"
+      ],
+      "usoIds": [],
+      "recorridoIds": [],
+      "idioma": false
+    },
+    {
+      "herramientaId": "viday",
+      "criterio": "Sólo cap.invoicing. Sin pista previa: su ficha no menciona facturación. Cobrar, TPV o pasarela de pago NO demuestran que emita facturas; exportar a un programa de contabilidad es integración, no nativa.",
+      "capacidadIds": [
+        "cap.invoicing"
+      ],
+      "usoIds": [],
+      "recorridoIds": [],
+      "idioma": false
+    },
+    {
+      "herramientaId": "agendapro",
+      "criterio": "Sólo cap.invoicing. Sin pista previa: su ficha no menciona facturación. Cobrar, TPV o pasarela de pago NO demuestran que emita facturas; exportar a un programa de contabilidad es integración, no nativa.",
+      "capacidadIds": [
+        "cap.invoicing"
+      ],
+      "usoIds": [],
+      "recorridoIds": [],
+      "idioma": false
+    },
+    {
+      "herramientaId": "booksy",
+      "criterio": "Sólo cap.invoicing. Sin pista previa: su ficha no menciona facturación. Cobrar, TPV o pasarela de pago NO demuestran que emita facturas; exportar a un programa de contabilidad es integración, no nativa.",
+      "capacidadIds": [
+        "cap.invoicing"
+      ],
+      "usoIds": [],
+      "recorridoIds": [],
+      "idioma": false
+    },
+    {
+      "herramientaId": "reservo",
+      "criterio": "Sólo cap.invoicing. Sin pista previa: su ficha no menciona facturación. Cobrar, TPV o pasarela de pago NO demuestran que emita facturas; exportar a un programa de contabilidad es integración, no nativa.",
+      "capacidadIds": [
+        "cap.invoicing"
+      ],
+      "usoIds": [],
+      "recorridoIds": [],
+      "idioma": false
+    }
+  ]
+}

@@ -26,7 +26,7 @@ import { USOS } from "../usos";
  *
  * `cap.online_self_service_booking` NO distingue las dos cosas. Reclaim.ai
  * agenda reuniones; Pipedrive, llamadas de venta. Demostrar la capacidad no
- * demuestra que sirva para una peluquería, y **de los 1.547 registros, CERO
+ * demuestra que sirva para dar cita a un servicio, y **de los 1.547 registros, CERO
  * tienen un uso comprobado**. Así que no son cuatro que resuelven: son cuatro
  * CANDIDATAS, y el límite se dice.
  *
@@ -92,19 +92,42 @@ const EL_CASO: NecesidadDelCaso[] = [
 
 const SOLO_LO_QUE_DIJO: NecesidadDelCaso[] = EL_CASO.slice(0, 2);
 
-describe("el caso de la peluquera, con los datos de hoy", () => {
+/**
+ * El nombre de este caso era «el caso de la peluquera» y se cambia el
+ * 2026-09-30 por orden de la propietaria, que ya había desactivado ese ejemplo
+ * en `AGENTS.md` y se lo seguía encontrando aquí. Lo que se prueba no ha
+ * cambiado ni una línea: son las mismas tres necesidades —reservas, factura y
+ * agenda— con los mismos datos.
+ *
+ * La cita suya de arriba SÍ se deja tal cual: son sus palabras, y las palabras
+ * de alguien no se reescriben para que encajen con una decisión posterior.
+ */
+describe("reservas, factura y agenda, con los datos de hoy", () => {
   const candidatas = HERRAMIENTAS.filter((h) => {
     const a = ajusteConLoQuePidio(SOLO_LO_QUE_DIJO, loQueSabemosDe(h.id));
     return a.resuelveImprescindibles === a.deImprescindibles;
   });
 
+  /**
+   * 11 desde el 2026-09-30, y antes eran 4 —Agiled, HoneyBook, Keap y
+   * Nutshell, las cuatro estadounidenses—. Entran siete españolas de clínica y
+   * salón al preguntarle por fin a catorce herramientas si FACTURAN: nadie se
+   * lo había preguntado, porque los encargos anteriores pedían ocho
+   * capacidades y las ocho eran de reservas.
+   *
+   * Esta lista no se escribe a mano: si crece, es que el catálogo o la
+   * evidencia han crecido, y hay que mirar que sea por eso.
+   */
   it("las candidatas salen de los datos, no de una lista escrita a mano", () => {
-    expect(candidatas.map((h) => h.nombre).sort()).toEqual(["Agiled", "HoneyBook", "Keap", "Nutshell"]);
+    expect(candidatas.map((h) => h.nombre).sort()).toEqual([
+      "Agiled", "Archivex", "Bookitit", "DriCloud", "HoneyBook",
+      "Keap", "Koibox", "Nubimed", "Nutshell", "Pabau", "ViDay",
+    ]);
   });
 
   /**
    * LA PRUEBA QUE IMPIDE LA PROMESA DE MÁS. Mientras ninguna demuestre el uso,
-   * ninguna puede presentarse como que resuelve lo de una peluquería.
+   * ninguna puede presentarse como que resuelve dar cita a un servicio.
    */
   it("ninguna candidata tiene comprobado que la reserva sirva para un servicio", () => {
     for (const h of candidatas) {
@@ -174,13 +197,38 @@ describe("el caso de la peluquera, con los datos de hoy", () => {
    * «cuatro que valen» a «cuatro por comprobar y una cosa que no sabemos de
    * nadie». Eso es asesorar; lo otro era rellenar.
    */
-  it("con la agenda dentro, ninguna llega a resolverlo todo, y se dice", () => {
+  /**
+   * ESTO ES LO QUE CAMBIÓ, Y ES EL MOTIVO DE TODO EL TRABAJO.
+   *
+   * Hasta el 2026-09-30 esta prueba decía «con la agenda dentro, NINGUNA llega
+   * a resolverlo todo», y era verdad: las cuatro candidatas eran genéricas
+   * estadounidenses y a las cuatro les faltaba la agenda por profesional. Por
+   * eso una clínica dental recibía Agiled, HoneyBook y Keap —ésta a 299 $/mes—
+   * con un «sin confirmar: agenda» en las tres tarjetas.
+   *
+   * Hoy SEIS lo resuelven entero y las seis son españolas: Koibox (con plan
+   * gratuito), Bookitit, Nubimed, DriCloud, Archivex y ViDay. Las cinco que
+   * siguen a 2 de 3 son las de antes, que no tienen la agenda.
+   *
+   * Lo que se comprueba aquí ya no es «ninguna puede», sino que cada una diga
+   * la verdad de lo suyo: la que resuelve las tres no deja nada sin comprobar,
+   * y la que resuelve dos lo dice en vez de callarlo. Y NINGUNA tiene un
+   * `leFaltan`: seguimos sin afirmar de nadie que no haga algo.
+   */
+  it("cada candidata dice exactamente lo que resuelve y lo que no", () => {
+    const completas: string[] = [];
     for (const h of candidatas) {
       const a = ajusteConLoQuePidio(EL_CASO, loQueSabemosDe(h.id));
-      expect(a.resuelveImprescindibles).toBeLessThan(a.deImprescindibles);
-      expect(a.sinComprobar).toBeGreaterThan(0);
+      if (a.resuelveImprescindibles === a.deImprescindibles) {
+        completas.push(h.nombre);
+        expect(a.sinComprobar, `${h.nombre} lo resuelve todo y aun así deja algo sin comprobar`).toBe(0);
+      } else {
+        expect(a.sinComprobar, `${h.nombre} no lo resuelve todo y no lo dice`).toBeGreaterThan(0);
+      }
+      // «No consta» nunca se convierte en «no lo tiene», resuelva lo que resuelva.
       expect(a.leFaltan).toBe(0);
     }
+    expect(completas.sort()).toEqual(["Archivex", "Bookitit", "DriCloud", "Koibox", "Nubimed", "ViDay"]);
   });
 
   /** El esfuerzo cuelga de la necesidad, no de la marca: vale para cualquiera. */
