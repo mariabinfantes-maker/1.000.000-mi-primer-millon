@@ -31,5 +31,8 @@ export {
   construirPromptDeContinuacion,
   describirCambios,
   hayCambios,
+  conLaAclaracion,
 } from "./continuar";
+export { significadosDe, aclaracionesDe } from "./ambiguos";
+export type { Aclaracion } from "./ambiguos";
 export type { EstadoDelCaso, Cambios, Continuacion } from "./continuar";

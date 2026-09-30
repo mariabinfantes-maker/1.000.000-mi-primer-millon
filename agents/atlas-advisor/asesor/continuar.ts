@@ -2,6 +2,15 @@ import { getNecesidad, getNecesidades, type Importancia, type NecesidadDelCaso }
 import { getDimensiones } from "@/data/vocabulario/asesor";
 import { conLaRespuesta } from "./caso";
 import type { LectorDeTexto } from "./entender";
+import {
+  aclaracionesDe,
+  ambiguosQueNoSeSostienen,
+  esSignificadoDe,
+  significadosDe,
+  sinLoQueSePregunta,
+  INSTRUCCION_DE_AMBIGUOS,
+  type Aclaracion,
+} from "./ambiguos";
 
 /**
  * SEGUIR LA CONVERSACIÓN SIN EMPEZAR DE CERO.
@@ -138,13 +147,20 @@ export type Continuacion = {
   cambios: Cambios;
   /** Lo que no se ha podido interpretar con seguridad. Nunca vacía el caso. */
   noEntendido: string[];
+  /** Palabras que el vocabulario sabe leer de varias formas: se pregunta «¿para qué?». Ver `ambiguos.ts`. */
+  aclaraciones: Aclaracion[];
 };
 
 export function hayCambios(c: Cambios): boolean {
   return c.anadidas.length + c.quitadas.length + c.respuestas.length > 0;
 }
 
-export function construirPromptDeContinuacion(texto: string, estado: EstadoDelCaso, preguntaAbierta?: string): string {
+export function construirPromptDeContinuacion(
+  texto: string,
+  estado: EstadoDelCaso,
+  preguntaAbierta?: string,
+  aclaracionAbierta?: string
+): string {
   const caso = casoDe(estado);
   const suyas = caso.filter((n) => !n.salioDeUnaPregunta).map((n) => `[${n.necesidad.id}] ${n.necesidad.titulo}`);
   const contestadas = estado.respuestas
@@ -155,6 +171,8 @@ export function construirPromptDeContinuacion(texto: string, estado: EstadoDelCa
     })
     .filter(Boolean);
   const abierta = preguntaAbierta ? getDimensiones().find((d) => d.id === preguntaAbierta) : undefined;
+  const enElCaso = new Set(caso.map((n) => n.necesidad.id));
+  const paraQue = aclaracionAbierta ? significadosDe(aclaracionAbierta, enElCaso) : [];
   const catalogo = getNecesidades()
     .map((n) => `[${n.id}] ${n.titulo} — lo dice así: ${n.loQueDice.join(" / ")}`)
     .join("\n");
@@ -171,7 +189,7 @@ ${suyas.length ? suyas.map((s) => `- ${s}`).join("\n") : "- (ninguna)"}
 
 Preguntas que ya ha contestado:
 ${contestadas.length ? contestadas.map((s) => `- ${s}`).join("\n") : "- (ninguna)"}
-${abierta ? `\nAcaba de decir que te va a explicar esto con sus palabras: «${abierta.pregunta}» [${abierta.id}]. Si su mensaje lo contesta, devuelve la respuesta de esa pregunta que le corresponda.\n` : ""}
+${abierta ? `\nAcaba de decir que te va a explicar esto con sus palabras: «${abierta.pregunta}» [${abierta.id}]. Si su mensaje lo contesta, devuelve la respuesta de esa pregunta que le corresponda.\n` : ""}${paraQue.length ? `\nLe acabas de preguntar para qué quiere usar «${aclaracionAbierta}». Si su mensaje lo dice, añade la necesidad que corresponda de éstas: ${paraQue.map((o) => `[${o.id}] ${o.titulo}`).join(" / ")}.\n` : ""}
 Ahora escribe esto:
 
 """
@@ -190,6 +208,7 @@ Devuelve SÓLO este JSON, sin nada alrededor:
 {"anade":[{"id":"<id de necesidad>","porQue":"la parte de SU mensaje que lo dice"}],
  "quita":[{"id":"<id de una necesidad que YA ha contado>","porQue":"la parte de SU mensaje donde dice que no la necesita"}],
  "respuestas":[{"dimensionId":"<id de pregunta>","respuestaId":"<id de respuesta>","porQue":"la parte de SU mensaje que lo dice"}],
+ "ambiguos":[{"termino":"<palabra exacta de su mensaje>"}],
  "noEntendido":["partes de su mensaje que no sabes convertir en nada de las listas"],
  "circunstancias":["datos nuevos de su negocio: oficio, cuánta gente, dónde..."]}
 
@@ -197,6 +216,7 @@ REGLAS QUE MANDAN:
 - "porQue" es un trozo LITERAL de su mensaje. Si no puedes citarlo, no lo incluyas.
 - Si corrige algo que contestó antes («no, en realidad...»), devuelve la respuesta NUEVA de esa misma pregunta.
 - "quita" sólo si dice claramente que ya no necesita algo que había contado. Nunca lo deduzcas.
+${INSTRUCCION_DE_AMBIGUOS}
 - No le atribuyas nada que no diga este mensaje. Si dudas, va a "noEntendido": es un resultado válido.
 - No inventes ids. No escribas consejos ni nombres de productos.`;
 }
@@ -229,6 +249,7 @@ export function leerContinuacion(
   preguntaAbierta?: string
 ): Continuacion {
   const d = (cruda ?? {}) as {
+    ambiguos?: unknown[];
     anade?: { id?: string; porQue?: string }[];
     quita?: { id?: string; porQue?: string }[];
     respuestas?: { dimensionId?: string; respuestaId?: string; porQue?: string }[];
@@ -289,21 +310,50 @@ export function leerContinuacion(
     .slice(0, 4);
   nuevo = { ...nuevo, circunstancias: [...nuevo.circunstancias, ...circunstancias].slice(0, 12) };
 
-  // Nada que cambie el caso y nada señalado: el mensaje entero queda sin
-  // entender. Callarlo sería fingir que se ha tenido en cuenta.
-  if (!hayCambios(cambios) && noEntendido.length === 0) noEntendido.push(texto);
+  // Lo que el vocabulario sabe leer de varias formas se pregunta, y deja de
+  // contarse como «no entendido».
+  const aclaraciones = aclaracionesDe(texto, d.ambiguos, new Set(casoDe(nuevo).map((n) => n.necesidad.id)), new Set(cambios.anadidas));
+  const quedaSinEntender = [
+    ...sinLoQueSePregunta(noEntendido, aclaraciones),
+    ...ambiguosQueNoSeSostienen(texto, d.ambiguos, aclaraciones),
+  ];
 
-  return { estado: nuevo, cambios, noEntendido: [...new Set(noEntendido)] };
+  // Nada que cambie el caso, nada que preguntar y nada señalado: el mensaje
+  // entero queda sin entender. Callarlo sería fingir que se ha tenido en cuenta.
+  if (!hayCambios(cambios) && quedaSinEntender.length === 0 && aclaraciones.length === 0) quedaSinEntender.push(texto);
+
+  return { estado: nuevo, cambios, noEntendido: [...new Set(quedaSinEntender)], aclaraciones };
 }
 
 export async function continuar(
   texto: string,
   estado: EstadoDelCaso,
   leer: LectorDeTexto,
-  preguntaAbierta?: string
+  preguntaAbierta?: string,
+  aclaracionAbierta?: string
 ): Promise<Continuacion> {
-  const cruda = await leer(construirPromptDeContinuacion(texto, estado, preguntaAbierta)).catch(() => ({}));
+  const cruda = await leer(construirPromptDeContinuacion(texto, estado, preguntaAbierta, aclaracionAbierta)).catch(() => ({}));
   return leerContinuacion(texto, cruda, estado, preguntaAbierta);
+}
+
+/**
+ * ELIGIÓ UNA DE LAS OPCIONES DE «¿PARA QUÉ?». Entra en el mismo estado, como
+ * algo que ella ha contado —lo ha dicho ella, eligiéndolo—, y nada de lo
+ * anterior se toca. Una opción que no es un significado de esa palabra no
+ * cambia nada: lo que llega del navegador se comprueba.
+ */
+export function conLaAclaracion(estado: EstadoDelCaso, termino: string, necesidadId: string): Continuacion {
+  const vacia: Cambios = { anadidas: [], quitadas: [], respuestas: [] };
+  const yaEsta = casoDe(estado).some((n) => n.necesidad.id === necesidadId);
+  if (!esSignificadoDe(termino, necesidadId) || yaEsta) {
+    return { estado, cambios: vacia, noEntendido: [], aclaraciones: [] };
+  }
+  return {
+    estado: { ...estado, necesidades: [...estado.necesidades, { id: necesidadId, importancia: "imprescindible" }] },
+    cambios: { ...vacia, anadidas: [necesidadId] },
+    noEntendido: [],
+    aclaraciones: [],
+  };
 }
 
 /**

@@ -18,6 +18,7 @@ import {
   continuar,
   describirCambios,
   hayCambios,
+  conLaAclaracion,
   type EstadoDelCaso,
   type PreguntaUtil,
 } from "@/agents/atlas-advisor/asesor";
@@ -80,6 +81,10 @@ export async function POST(peticion: Request) {
     estado?: unknown;
     /** La pregunta a la que dijo «te lo explico yo», si su mensaje la contesta. */
     preguntaAbierta?: string;
+    /** La palabra de la que Molnip acaba de preguntar «¿para qué?», si su mensaje lo contesta. */
+    aclaracionAbierta?: string;
+    /** Eligió uno de los «¿para qué?» con un botón. */
+    aclarada?: { termino?: string; necesidadId?: string };
   };
   const yaContestadas = new Set(cuerpo.respondidas ?? []);
   const sinRepetir = (ps: ReturnType<typeof aclarar>) => ps.filter((p) => !yaContestadas.has(p.dimension.id));
@@ -100,6 +105,13 @@ export async function POST(peticion: Request) {
       });
       return NextResponse.json({ ...conElCaso(nuevo, texto), leyoLaIA: false });
     }
+    // Eligió para qué quiere algo: entra en el mismo estado, sin llamar al modelo.
+    if (cuerpo.aclarada?.termino && cuerpo.aclarada.necesidadId) {
+      const c = conLaAclaracion(estado, cuerpo.aclarada.termino, cuerpo.aclarada.necesidadId);
+      const continuacion = { estado: c.estado, lineas: describirCambios(c.cambios), noEntendido: [], aclaraciones: [], sinCambios: !hayCambios(c.cambios) };
+      if (continuacion.sinCambios) return NextResponse.json({ continuacion });
+      return NextResponse.json({ ...conElCaso(c.estado, texto), continuacion, leyoLaIA: false });
+    }
     if (!texto) return NextResponse.json({ error: "Cuéntame algo primero." }, { status: 400 });
     if (!HAY_IA) {
       return NextResponse.json({
@@ -107,14 +119,21 @@ export async function POST(peticion: Request) {
           estado,
           lineas: [],
           noEntendido: [texto],
+          aclaraciones: [],
           sinCambios: true,
           sinIA: true,
         },
       });
     }
     const proveedor = crearProveedorGemini();
-    const c = await continuar(texto, estado, (prompt) => proveedor.generarJson(prompt), cuerpo.preguntaAbierta);
-    const continuacion = { estado: c.estado, lineas: describirCambios(c.cambios), noEntendido: c.noEntendido, sinCambios: !hayCambios(c.cambios) };
+    const c = await continuar(texto, estado, (prompt) => proveedor.generarJson(prompt), cuerpo.preguntaAbierta, cuerpo.aclaracionAbierta);
+    const continuacion = {
+      estado: c.estado,
+      lineas: describirCambios(c.cambios),
+      noEntendido: c.noEntendido,
+      aclaraciones: c.aclaraciones,
+      sinCambios: !hayCambios(c.cambios),
+    };
     if (continuacion.sinCambios) return NextResponse.json({ continuacion });
     return NextResponse.json({ ...conElCaso(c.estado, texto), continuacion, leyoLaIA: true });
   }

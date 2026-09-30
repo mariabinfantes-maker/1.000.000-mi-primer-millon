@@ -77,6 +77,32 @@ describe("la ruta del asesor, a mitad de conversación", () => {
     expect(cinco.continuacion).toMatchObject({ sinCambios: true, noEntendido: ["lo del tema ese"], estado: cuatro.estado });
   }, 60_000);
 
+  it("«¿Para qué quieres usar WhatsApp?»: se pregunta sin tocar el caso, y la elección entra en el mismo estado", async () => {
+    const estado = {
+      necesidades: [
+        { id: "nec.que-reserven-solos", importancia: "imprescindible" },
+        { id: "nec.emitir-una-factura-legal", importancia: "imprescindible" },
+      ],
+      respuestas: [{ dimensionId: CITAS, respuestaId: "elige-el-cliente" }],
+      circunstancias: ["clínica dental"],
+    };
+    cola.push({ ambiguos: [{ termino: "WhatsApp" }] });
+    const pregunta = await pedir({ texto: "También necesito WhatsApp", estado });
+    expect(pregunta.consejo).toBeUndefined();
+    expect(pregunta.continuacion.sinCambios).toBe(true);
+    expect(pregunta.continuacion.noEntendido).toEqual([]);
+    expect(pregunta.continuacion.aclaraciones[0].opciones.map((o: { titulo: string }) => o.titulo)).toContain(
+      "Responder por donde me escriban sin perder a nadie"
+    );
+
+    const elegida = await pedir({ estado: pregunta.continuacion.estado, aclarada: { termino: "WhatsApp", necesidadId: "nec.responder-por-donde-escriban" } });
+    const caso = elegida.comprension.necesidades.map((n: { necesidad: { id: string } }) => n.necesidad.id).sort();
+    expect(caso).toEqual(["nec.emitir-una-factura-legal", "nec.mi-agenda", "nec.que-reserven-solos", "nec.responder-por-donde-escriban"]);
+    expect(elegida.estado.respuestas).toEqual(estado.respuestas);
+    expect(elegida.estado.circunstancias).toEqual(["clínica dental"]);
+    expect(elegida.continuacion.lineas).toEqual(["Añado «responder por donde me escriban sin perder a nadie»."]);
+  });
+
   it("«Te explico cómo lo hacemos»: el mensaje contesta la pregunta abierta por el mismo camino", async () => {
     const estado = { necesidades: [{ id: "nec.que-reserven-solos", importancia: "imprescindible" }], respuestas: [], circunstancias: [] };
     cola.push({ respuestas: [{ dimensionId: CITAS, respuestaId: "elige-el-cliente", porQue: "cada paciente escoge dentista" }] });
