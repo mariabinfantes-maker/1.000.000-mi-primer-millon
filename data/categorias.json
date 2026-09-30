@@ -93,7 +93,7 @@
     "id": "clinicas-salud",
     "nombre": "Clínicas y salud",
     "descripcion": "Programas para consultas y centros sanitarios: historia clínica, imagen médica y receta electrónica.",
-    "estado": "pendiente"
+    "estado": "publica"
   },
   {
     "id": "software-sectorial",
