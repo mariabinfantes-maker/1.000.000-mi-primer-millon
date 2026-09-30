@@ -46,7 +46,16 @@ export type Opcion = {
   /** Lo que esta opción NO le resuelve, en nombres cortos. Se dice siempre. */
   noCubre: string[];
 };
-export type Camino = { forma: string; titulo: string; queImplica: string; opciones: Opcion[]; hayMas: number };
+export type Camino = {
+  forma: string; titulo: string; queImplica: string;
+  opciones: Opcion[];
+  /** Las demás que cubren lo mismo, ya construidas y ordenadas por cercanía. */
+  masOpciones: Opcion[];
+  hayMas: number;
+  /** Las que resuelven sólo una parte. Cada una trae su `noCubre`. */
+  parciales: Opcion[];
+  hayMasParciales: number;
+};
 
 /** La receta única de tarjeta de MOLNIP VISUAL v1. 30 apariciones idénticas. */
 const TARJETA = "rounded-2xl border border-slate-200/80 bg-white";
@@ -171,14 +180,17 @@ function tituloDelCamino(forma: string, cuantas: number) {
 const ICONO_CAMINO: Record<string, LucideIcon> = { "todo-en-uno": CalendarCheck, "por-separado": LayoutGrid };
 
 /** Las herramientas de un camino, TODAS del mismo tamaño. Ninguna es la dueña. */
-function Candidatas({ opciones, hayMas }: { opciones: Opcion[]; hayMas: number }) {
+function Candidatas({ opciones, masOpciones, hayMas, parciales, hayMasParciales }: {
+  opciones: Opcion[]; masOpciones: Opcion[]; hayMas: number; parciales: Opcion[]; hayMasParciales: number;
+}) {
+  const todasLasQueCubren = [...opciones, ...masOpciones];
   return (
     <>
       <p className="mt-4 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
-        {opciones.length > 1 ? `${opciones.length + hayMas} lo hacen igual de bien` : "Con esta herramienta"}
+        {todasLasQueCubren.length > 1 ? `${todasLasQueCubren.length + hayMas} lo hacen igual de bien` : "Con esta herramienta"}
       </p>
       <ul className="mt-2 space-y-2">
-        {opciones.map((o, j) => (
+        {todasLasQueCubren.map((o, j) => (
           <li key={j} className={`${TARJETA} px-4 py-3`}>
             <p className="font-semibold text-slate-900">{o.piezas.map((p) => p.nombre).join("  +  ")}</p>
             {o.laConexionNoEstaComprobada && (
@@ -189,6 +201,33 @@ function Candidatas({ opciones, hayMas }: { opciones: Opcion[]; hayMas: number }
         ))}
         {hayMas > 0 && <li className="px-1 text-sm text-slate-600">Y {hayMas} más que también lo cubren.</li>}
       </ul>
+      {/*
+        Las que resuelven sólo una parte, en su propio bloque y con su propio
+        titular. Nunca dentro de «lo hacen igual de bien», porque no lo hacen
+        igual de bien: hacen menos, y eso puede valer o no valer según lo que
+        ella ya tenga resuelto.
+      */}
+      {parciales.length > 0 && (
+        <>
+          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
+            Resuelven una parte
+          </p>
+          <ul className="mt-2 space-y-2">
+            {parciales.map((o, j) => (
+              <li key={j} className={`${TARJETA} px-4 py-3`}>
+                <p className="font-semibold text-slate-900">{o.piezas.map((p) => p.nombre).join("  +  ")}</p>
+                <p className="mt-0.5 text-sm text-slate-600">
+                  Resuelve {o.piezas.flatMap((p) => p.cubreEnCorto).join(" y ")}.
+                  {o.noCubre.length > 0 && ` No resuelve ${o.noCubre.join(" ni ")}.`}
+                </p>
+              </li>
+            ))}
+            {hayMasParciales > 0 && (
+              <li className="px-1 text-sm text-slate-600">Y {hayMasParciales} más que resuelven una parte.</li>
+            )}
+          </ul>
+        </>
+      )}
     </>
   );
 }
@@ -242,7 +281,7 @@ export function VarianteA({ caminos, quePide }: { caminos: Camino[]; quePide: st
             {activo && (
               <>
                 <p className="mt-3 text-sm leading-relaxed text-slate-600">{cam.queImplica}</p>
-                <Candidatas opciones={cam.opciones} hayMas={cam.hayMas} />
+                <Candidatas opciones={cam.opciones} masOpciones={cam.masOpciones} hayMas={cam.hayMas} parciales={cam.parciales} hayMasParciales={cam.hayMasParciales} />
               </>
             )}
           </section>
@@ -292,7 +331,7 @@ export function VarianteB({ caminos, quePide }: { caminos: Camino[]; quePide: st
             </div>
           </div>
           <p className="mt-3 text-sm leading-relaxed text-slate-600">{cam.queImplica}</p>
-          <Candidatas opciones={cam.opciones} hayMas={cam.hayMas} />
+          <Candidatas opciones={cam.opciones} masOpciones={cam.masOpciones} hayMas={cam.hayMas} parciales={cam.parciales} hayMasParciales={cam.hayMasParciales} />
         </section>
       ))}
 

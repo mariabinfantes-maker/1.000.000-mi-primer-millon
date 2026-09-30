@@ -190,12 +190,60 @@ export type Camino = {
    * despliega podrá verlas todas las que hemos podido verificar»—.
    */
   opciones: { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[] }[];
-  /** Cuántas más hay detrás del desplegable. Cero cuando no hay ninguna. */
+  /**
+   * LAS DEMÁS QUE CUBREN LO MISMO, de verdad y no sólo contadas.
+   *
+   * `hayMas` era sólo un número: las opciones de detrás no se construían, así
+   * que el «Dímelo y te las enseño todas» de la pantalla era una promesa que
+   * los datos no podían cumplir. La propietaria lo dijo así el 2026-09-30:
+   * «cinco sitios en pantalla no deberían convertirse en cinco únicas
+   * opciones accesibles».
+   *
+   * Van ordenadas por cercanía a lo que ella pidió —el mismo desempate,
+   * aplicado una y otra vez—, no por el alfabeto.
+   */
+  masOpciones: { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[] }[];
+  /** Cuántas quedan aún detrás de `opciones` y `masOpciones`. Cero casi siempre. */
   hayMas: number;
+  /**
+   * LAS QUE CUBREN SÓLO UNA PARTE, detrás del «ver más» y nunca delante.
+   *
+   * Antes no existían: `mejoresPorTamano` se queda con la mejor de cada
+   * tamaño, y todo lo que cubriera menos se tiraba ahí mismo, así que no
+   * llegaba ni al desplegable. Medido el 2026-09-29: de 90 herramientas, 20 no
+   * aparecían NUNCA en 1.891 casos.
+   *
+   * La propietaria, 2026-09-30: «una herramienta que resuelve sólo las
+   * reservas puede interesar si la persona conserva su facturación actual; no
+   * debe presentarse como si resolviera ambas». Las dos mitades, otra vez:
+   * está, y está dicho lo que no hace.
+   *
+   * Por eso van en su propio sitio y no mezcladas en `opciones`: el
+   * desplegable de arriba dice «y N más que también lo cubren», y de éstas eso
+   * sería mentira. Cada una trae su `noCubre` y su `faltaPorConfirmar`, que es
+   * donde se cuenta el alcance.
+   */
+  parciales: { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[] }[];
+  /** Cuántas parciales más hay por detrás de las que se enseñan. */
+  hayMasParciales: number;
 };
 
 /** Cuántas se enseñan sin desplegar. */
 const A_LA_VISTA = 4;
+
+/**
+ * Cuántas PARCIALES se enseñan al desplegar. Menos que las completas, a
+ * propósito: son otra cosa —resuelven un trozo— y una lista larga de trozos
+ * vuelve a ser el listado del que Molnip huye. Las demás se cuentan.
+ */
+const PARCIALES_A_LA_VISTA = 8;
+
+/**
+ * Cuántas se materializan al desplegar «ver más». No son todas cuando hay
+ * trescientas parejas posibles: eso vuelve a ser el listado. Pero son las
+ * suficientes para explorar, y las que quedan detrás se siguen contando.
+ */
+const MAS_A_LA_VISTA = 20;
 
 /**
  * CUÁNTAS SE ENSEÑAN: ESTÁ EN DISEÑO, NO DECIDIDO.
@@ -666,11 +714,33 @@ export function aconsejar(
 
   // Los caminos se agrupan por FORMA. Entra la mejor de cada tamaño, así que
   // «todo en un sitio» sigue existiendo aunque cubra menos que un apilamiento.
+  /**
+   * LO QUE CUBRE MENOS SIGUE EXISTIENDO. Todo lo que `mejoresPorTamano` deja
+   * fuera por cubrir menos que el techo de su tamaño. No compite por el primer
+   * puesto —eso no cambia— pero se puede ver, que es distinto.
+   */
+  const parcialesPorForma = (forma: "una_sola" | "varias") =>
+    r.soluciones
+      .filter((s) => s.forma === forma && !mejoresPorTamano.includes(s))
+      .sort((a, b) => b.cubreImprescindibles - a.cubreImprescindibles || b.cubreDeseables - a.cubreDeseables);
+
+  /**
+   * El bloque de un camino: las 4 de delante, las que se despliegan detrás
+   * —ordenadas por cercanía— y la cuenta de las que aún quedan.
+   */
+  const reparto = (suyas: Solucion[]) => {
+    const delante = suyas.slice(0, A_LA_VISTA).map((s) => aPieza(s, fichas, delCaso, puerto));
+    const cola = suyas.slice(A_LA_VISTA);
+    const masOpciones = ordenarPorCercania(cola.slice(0, MAS_A_LA_VISTA).map((s) => aPieza(s, fichas, delCaso, puerto)));
+    return { opciones: delante, masOpciones, hayMas: Math.max(0, cola.length - MAS_A_LA_VISTA) };
+  };
+
   const alDia = mejoresPorTamano;
   const caminos: Camino[] = [];
   for (const forma of ["una_sola", "varias"] as const) {
     const suyas = alDia.filter((s) => s.forma === forma);
-    if (suyas.length === 0) continue;
+    const parciales = parcialesPorForma(forma);
+    if (suyas.length === 0 && parciales.length === 0) continue;
     const queCubre = delCaso
       .filter((n) => n.importancia === "imprescindible")
       .map((n) => n.necesidad.titulo.toLowerCase());
@@ -680,15 +750,17 @@ export function aconsejar(
             forma: "todo-en-uno",
             titulo: "Todo en un sitio",
             queImplica: `Una sola herramienta se encarga de ${queCubre.map((c) => `«${c}»`).join(" y de ")}. Un programa que aprender y una cuota.`,
-            opciones: suyas.slice(0, A_LA_VISTA).map((s) => aPieza(s, fichas, delCaso, puerto)),
-            hayMas: Math.max(0, suyas.length - A_LA_VISTA),
+            ...reparto(suyas),
+            parciales: parciales.slice(0, PARCIALES_A_LA_VISTA).map((s) => aPieza(s, fichas, delCaso, puerto)),
+            hayMasParciales: Math.max(0, parciales.length - PARCIALES_A_LA_VISTA),
           }
         : {
             forma: "por-separado",
             titulo: "Por separado",
             queImplica: `Cada herramienta hace una parte. Suelen ser más finas en lo suyo, y son dos programas y dos cuotas.`,
-            opciones: suyas.slice(0, A_LA_VISTA).map((s) => aPieza(s, fichas, delCaso, puerto)),
-            hayMas: Math.max(0, suyas.length - A_LA_VISTA),
+            ...reparto(suyas),
+            parciales: parciales.slice(0, PARCIALES_A_LA_VISTA).map((s) => aPieza(s, fichas, delCaso, puerto)),
+            hayMasParciales: Math.max(0, parciales.length - PARCIALES_A_LA_VISTA),
           }
     );
   }

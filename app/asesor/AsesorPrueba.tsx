@@ -462,9 +462,9 @@ export default function AsesorPrueba() {
                     >
                       {abierto === cam.forma
                         ? "Ocultar"
-                        : cam.opciones.length + cam.hayMas === 1
+                        : cam.opciones.length + cam.masOpciones.length + cam.hayMas === 1
                           ? "Ver con qué"
-                          : `Ver con qué (${cam.opciones.length + cam.hayMas})`}
+                          : `Ver con qué (${cam.opciones.length + cam.masOpciones.length + cam.hayMas})`}
                     </button>
                     {abierto === cam.forma && (
                       <ul className="mt-3 space-y-2">
@@ -486,9 +486,63 @@ export default function AsesorPrueba() {
                             )}
                           </li>
                         ))}
+                        {/*
+                          Las demás que cubren lo mismo, de verdad y no sólo
+                          contadas. Antes aquí había una cuenta y un «dímelo y
+                          te las enseño todas» que los datos no podían cumplir:
+                          las de detrás ni se construían. Propietaria,
+                          2026-09-30: «cinco sitios en pantalla no deberían
+                          convertirse en cinco únicas opciones accesibles».
+                        */}
+                        {cam.masOpciones.map((o, j) => (
+                          <li key={`mas-${j}`} className="rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200">
+                            <p className="font-semibold text-slate-900">{o.piezas.map((p) => p.nombre).join("  +  ")}</p>
+                            {o.piezas.length > 1 && (
+                              <p className="text-sm text-slate-600">
+                                {o.piezas.map((p) => `${p.nombre} pone ${p.cubre.join(" y ").toLowerCase()}`).join(" · ")}
+                              </p>
+                            )}
+                            {o.laConexionNoEstaComprobada && (
+                              <p className="mt-1 text-sm text-slate-500">
+                                No hemos comprobado que se entiendan entre sí; sabemos lo que hace cada una por separado.
+                              </p>
+                            )}
+                          </li>
+                        ))}
                         {cam.hayMas > 0 && (
                           <li className="px-1 text-sm text-slate-600">
                             Y {cam.hayMas} más que también lo cubren. Dímelo y te las enseño todas.
+                          </li>
+                        )}
+                        {/*
+                          Y las que resuelven SÓLO UNA PARTE. Van al final y
+                          separadas, nunca mezcladas con las de arriba, y cada
+                          una dice qué no resuelve. «Una herramienta que
+                          resuelve sólo las reservas puede interesar si la
+                          persona conserva su facturación actual; no debe
+                          presentarse como si resolviera ambas» (propietaria,
+                          2026-09-30).
+                        */}
+                        {cam.parciales.length > 0 && (
+                          <li className="px-1 pt-2 text-sm font-semibold text-slate-700">
+                            Resuelven una parte
+                            <span className="block font-normal text-slate-600">
+                              Te pueden servir si eso otro ya lo tienes resuelto.
+                            </span>
+                          </li>
+                        )}
+                        {cam.parciales.map((o, j) => (
+                          <li key={`parcial-${j}`} className="rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200">
+                            <p className="font-semibold text-slate-900">{o.piezas.map((p) => p.nombre).join("  +  ")}</p>
+                            <p className="text-sm text-slate-600">
+                              Resuelve {o.piezas.flatMap((p) => p.cubreEnCorto).join(" y ")}.
+                              {o.noCubre.length > 0 && ` No resuelve ${o.noCubre.join(" ni ")}.`}
+                            </p>
+                          </li>
+                        ))}
+                        {cam.hayMasParciales > 0 && (
+                          <li className="px-1 text-sm text-slate-600">
+                            Y {cam.hayMasParciales} más que resuelven una parte.
                           </li>
                         )}
                       </ul>
