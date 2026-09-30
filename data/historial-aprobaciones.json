@@ -598,5 +598,35 @@
     "estadoAfiliacion": null,
     "observaciones": "Autorizado en la tanda de las 8 cortadas, 2026-09-29. Primera con facilidadDeUso demostrada: Capterra 4,9/5 sobre 18 reseñas. Motivos del bloqueo: Examen de entrada: Sólo 1 capacidades verificadas; hacen falta 3. Sin esto no sabemos qué hace.",
     "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T00:11:06.668Z",
+    "herramientaId": "dricloud",
+    "nombreHerramienta": "dricloud",
+    "resultado": "rechazada",
+    "puntuacionMolnip": null,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-30 con «sí y sigue», sobre la entrega de GPT de DriCloud y flowww de ese día. Ella pidió expresamente que se analizara y guardara la entrega antes de seguir con otra cosa. Motivos del bloqueo: [data/herramientas/borradores/dricloud.json] no es una Herramienta válida:\n  - falta el campo de texto \"noRecomendadaPara\"",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T00:11:07.418Z",
+    "herramientaId": "flowww",
+    "nombreHerramienta": "flowww",
+    "resultado": "rechazada",
+    "puntuacionMolnip": null,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-30 con «sí y sigue», sobre la entrega de GPT de DriCloud y flowww de ese día. Ella pidió expresamente que se analizara y guardara la entrega antes de seguir con otra cosa. Motivos del bloqueo: [data/herramientas/borradores/flowww.json] no es una Herramienta válida:\n  - falta el campo de texto \"noRecomendadaPara\"",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T00:11:58.669Z",
+    "herramientaId": "dricloud",
+    "nombreHerramienta": "DriCloud",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 74,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Autorizado por la propietaria el 2026-09-30 con «sí y sigue», sobre la entrega de GPT de DriCloud y flowww de ese día. Ella pidió expresamente que se analizara y guardara la entrega antes de seguir con otra cosa. Motivos del bloqueo: \"dricloud\" ya existe en el catálogo real: promoverlo lo sobrescribiría. Revísalo a mano si es intencionado.",
+    "aprobacionCeo": true
   }
 ]

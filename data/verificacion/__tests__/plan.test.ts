@@ -26,10 +26,9 @@ describe("el plan de verificación", () => {
 
   it("sigue cubriendo las 62 fichas que existían cuando se congeló", () => {
     expect(asignadas.length).toBe(62);
-    // 69 desde el 2026-09-29: las cuatro de reservas que autorizó la
-    // propietaria esa tarde. El plan sigue congelado en 62; la deuda se ve
-    // en la prueba de abajo, que las nombra una a una.
-    expect(catalogo.length).toBe(78);
+    // 80 desde el 2026-09-30, con DriCloud y flowww. El plan sigue congelado
+    // en 62; la deuda se ve en la prueba de abajo, que las nombra una a una.
+    expect(catalogo.length).toBe(80);
   });
 
   it("ninguna herramienta se repite", () => {
@@ -43,13 +42,15 @@ describe("el plan de verificación", () => {
    * y se cierre cuando se les asigne lote.
    *
    * Las tres primeras son del 2026-09-17: Hotmart, Thinkific y Teachable. Las
-   * once de reservas son del 2026-09-29 —BEWE, Bookitit, AgendaPro,
-   * Cliniko, Archivex y Schedulista—; sus capacidades sí están verificadas y archivadas, lo que les
-   * falta es lote en el plan de F2.
+   * trece de reservas son del 2026-09-29 —Nubimed, Archivex, ViDay, BEWE,
+   * Bookitit, AgendaPro, Cliniko, Schedulista, TIMIFY, Booksy, Square
+   * Appointments, Koibox y Jane—, y DriCloud y flowww son del 2026-09-30.
+   * Sus capacidades sí están verificadas y archivadas; lo que les falta es
+   * lote en el plan de F2.
    */
   it("las únicas que se quedan fuera son las promovidas después de congelarlo", () => {
     expect(catalogo.filter((id) => !asignadas.includes(id)).sort()).toEqual(
-      ["agendapro", "archivex", "bewe", "bookitit", "booksy", "cliniko", "hotmart", "jane", "koibox", "nubimed", "schedulista", "square-appointments", "teachable", "thinkific", "timify", "viday"]
+      ["agendapro", "archivex", "bewe", "bookitit", "booksy", "cliniko", "dricloud", "flowww", "hotmart", "jane", "koibox", "nubimed", "schedulista", "square-appointments", "teachable", "thinkific", "timify", "viday"]
     );
   });
 

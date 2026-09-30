@@ -1,0 +1,23 @@
+{
+  "fecha": "2026-09-30",
+  "queEsEsto": "`noRecomendadaPara` DERIVADO de `industriasIdeales`, no investigado. GPT lo devolvió en null porque no encontró al fabricante diciendo para quién NO está pensada su herramienta, y hace bien: casi nadie lo publica. La regla de la propietaria del 2026-09-28 es que ese campo NO es un defecto: es para quién no está pensada, y sale por descarte de saber para quién sí. Mismo método y misma voz que `sectores-derivados-2026-09-29`.",
+  "noEsUnRelleno": "La frase no afirma nada que no esté ya afirmado: si sus sectores son la consulta médica y la fisioterapia, decir que no está pensada para una peluquería es la misma información dicha del revés. Lo que NO se hace aquí es meter un límite de plan en este campo — eso va a `casosNoRecomendados`.",
+  "herramientas": [
+    {
+      "id": "dricloud",
+      "industriasIdeales": ["consultas médicas", "clínicas de fisioterapia", "consultas de psicología", "centros médicos"],
+      "fraseOriginal": "Consultas médicas y clínicas que necesitan combinar agenda, información clínica y gestión administrativa.",
+      "deDondeSale": "idealPara e industriasIdeales de la entrega de GPT del 2026-09-30",
+      "noRecomendadaPara": "No está pensada para negocios fuera del ámbito sanitario.",
+      "porQueEsaFrase": "Sus cuatro sectores son sanitarios. Es la misma inversión que se aplicó a Nubimed, que tiene el mismo caso."
+    },
+    {
+      "id": "flowww",
+      "industriasIdeales": ["medicina estética", "centros de estética", "peluquerías", "centros de bienestar", "clínicas de salud"],
+      "fraseOriginal": "Clínicas de medicina estética y negocios de belleza o salud que necesitan coordinar reservas, pacientes, ventas y personal.",
+      "deDondeSale": "idealPara e industriasIdeales de la entrega de GPT del 2026-09-30",
+      "noRecomendadaPara": "No está pensada para negocios fuera de la estética, la belleza, el bienestar y la salud.",
+      "porQueEsaFrase": "Cinco sectores que cubren esas cuatro cosas. No se estrecha a «estética» sola porque su propia descripción incluye salud y bienestar."
+    }
+  ]
+}

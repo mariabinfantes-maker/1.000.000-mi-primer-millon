@@ -81844,5 +81844,252 @@
     ],
     "confianza": "alta",
     "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "dricloud",
+    "capacidadId": "cap.per_resource_booking_calendar",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://dricloud.com/cita-medica-online/",
+        "fechaConsulta": "2026-09-30",
+        "cita": "Cada profesional decide sus horarios y tipos de cita disponibles online",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "nota": "Cada profesional configura la disponibilidad que ofrece online. La elección del profesional por el paciente se documenta separadamente.",
+    "proximaRevision": "2027-09-30"
+  },
+  {
+    "herramientaId": "dricloud",
+    "capacidadId": "cap.online_self_service_booking",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://dricloud.com/cita-medica-online/",
+        "fechaConsulta": "2026-09-30",
+        "cita": "Tus pacientes reservan solos",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "nota": "Reserva por el paciente desde internet; la página indica disponibilidad permanente y sincronización con la agenda.",
+    "proximaRevision": "2027-09-30"
+  },
+  {
+    "herramientaId": "dricloud",
+    "capacidadId": "cap.customer_appointment_reminders",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://dricloud.com/descargas/portal-paciente.pdf",
+        "fechaConsulta": "2026-09-30",
+        "cita": "El paciente recibe dos emails recordatorios de cita de forma automática",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "nota": "Correo y notificaciones push gratuitos; SMS y WhatsApp con los cargos recogidos en limites. El manual describe un correo al crear la cita y otro el día anterior.",
+    "proximaRevision": "2027-09-30"
+  },
+  {
+    "herramientaId": "dricloud",
+    "capacidadId": "cap.booking_cancellation_and_rescheduling",
+    "estado": "verificado",
+    "profundidad": "modulo",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://dricloud.com/portal-paciente/",
+        "fechaConsulta": "2026-09-30",
+        "cita": "Pedir, cambiar o cancelar sus citas viendo la disponibilidad real",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "nota": "El portal permite ambas acciones al paciente. No asigno un plan mínimo por la contradicción entre la tarifa y la página del portal sobre su inclusión.",
+    "proximaRevision": "2027-09-30"
+  },
+  {
+    "herramientaId": "dricloud",
+    "capacidadId": "cap.capacity_and_time_slots",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://dricloud.com/agenda-clinica/",
+        "fechaConsulta": "2026-09-30",
+        "cita": "Duraciones predefinidas por tipo de consulta",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "nota": "Verificada la duración configurable por tipo de consulta. Esta prueba no acredita un aforo automático ni descansos entre citas.",
+    "proximaRevision": "2027-09-30"
+  },
+  {
+    "herramientaId": "dricloud",
+    "capacidadId": "cap.embeddable_booking_widget",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://dricloud.com/descargas/cita-online.pdf",
+        "fechaConsulta": "2026-09-30",
+        "cita": "copia y pega el código en tu página web",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "nota": "La página 4 del manual muestra un iframe, no solo un enlace. El manual también documenta la personalización de servicios y profesionales.",
+    "proximaRevision": "2027-09-30"
+  },
+  {
+    "herramientaId": "flowww",
+    "capacidadId": "cap.per_resource_booking_calendar",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.flowww.es/flowww-saas",
+        "fechaConsulta": "2026-09-30",
+        "cita": "visual por doctor",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "nota": "Agenda por profesional. La documentación también contempla espacios y recursos; la elección del profesional por el paciente se acredita aparte.",
+    "proximaRevision": "2027-09-30"
+  },
+  {
+    "herramientaId": "flowww",
+    "capacidadId": "cap.online_self_service_booking",
+    "estado": "verificado",
+    "profundidad": "modulo",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.flowww.es/flowww-app",
+        "fechaConsulta": "2026-09-30",
+        "cita": "reserva y gestión de citas 24/7",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "nota": "Documentada mediante la aplicación para pacientes y flowww web. Son complementos de la plataforma; no los doy por incluidos en la licencia inicial.",
+    "proximaRevision": "2027-09-30"
+  },
+  {
+    "herramientaId": "flowww",
+    "capacidadId": "cap.customer_appointment_reminders",
+    "estado": "verificado",
+    "profundidad": "modulo",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.flowww.es/flowww-book",
+        "fechaConsulta": "2026-09-30",
+        "cita": "automáticos 24 horas antes de su visita, a través de whatsapp o sms",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "nota": "flowww book documenta recordatorios automáticos por WhatsApp o SMS antes de la cita. Hay cuotas de complementos y el fabricante documenta consumo de saldo en WhatsApp. No pude comprobar una tarifa vigente por SMS o por mensaje de WhatsApp.",
+    "proximaRevision": "2027-09-30"
+  },
+  {
+    "herramientaId": "flowww",
+    "capacidadId": "cap.booking_cancellation_and_rescheduling",
+    "estado": "verificado",
+    "profundidad": "modulo",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.flowww.es/flowww-book",
+        "fechaConsulta": "2026-09-30",
+        "cita": "confirmar, cancelar o reagendar su cita",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "nota": "El paciente puede realizar ambas acciones desde el recordatorio, sin llamar a la clínica. La capacidad está descrita para flowww book.",
+    "proximaRevision": "2027-09-30"
+  },
+  {
+    "herramientaId": "flowww",
+    "capacidadId": "cap.capacity_and_time_slots",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.flowww.es/hubfs/PDF/Agenda_FLOWww_ES.pdf",
+        "fechaConsulta": "2026-09-30",
+        "cita": "cada SLOTS corresponde a 10 o 15 minutos de tratamiento.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "nota": "El manual documenta franjas de diez o quince minutos. La ayuda actual de flowww me también permite modificar la duración y crear citas múltiples. No presupongo un límite de aforo automático configurable.",
+    "proximaRevision": "2027-09-30"
+  },
+  {
+    "herramientaId": "flowww",
+    "capacidadId": "cap.no_show_and_deposits",
+    "estado": "verificado",
+    "profundidad": "modulo",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.flowww.es/flowww-web",
+        "fechaConsulta": "2026-09-30",
+        "cita": "el abono de fianzas al reservar determinados servicios.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "nota": "flowww web describe fianzas al reservar determinados servicios. No asigno Star como mínimo únicamente porque su tabla incluya anticipos: falta demostrar que esa fila sea el requisito de esta reserva online concreta.",
+    "proximaRevision": "2027-09-30"
+  },
+  {
+    "herramientaId": "flowww",
+    "capacidadId": "cap.embeddable_booking_widget",
+    "estado": "verificado",
+    "profundidad": "modulo",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.flowww.es/hubfs/MANUAL%20-%20Integracio%CC%81n%20de%20citas%20online%20en%20Facebook%20y%20pa%CC%81gina%20web_espan%CC%83ol%285%29_compressed.pdf",
+        "fechaConsulta": "2026-09-30",
+        "cita": "se debe embeber en un IFRAME, DIV o una ventana emergente",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "nota": "El manual explica la incrustación en la página propia y parámetros de personalización de colores. El blog del fabricante también distingue expresamente el iframe de abrir la reserva en una pestaña nueva.",
+    "proximaRevision": "2027-09-30"
   }
 ]

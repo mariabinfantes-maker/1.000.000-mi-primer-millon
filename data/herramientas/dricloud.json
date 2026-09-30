@@ -1,0 +1,114 @@
+{
+  "nombre": "DriCloud",
+  "paginaOficial": "https://dricloud.com/",
+  "urlPrecios": "https://dricloud.com/precios/",
+  "categoriaId": "clinicas-salud",
+  "descripcion": "Programa para gestionar citas, historias clínicas, documentos y facturación de una consulta o clínica. Incluye herramientas para que los pacientes reserven y gestionen sus citas por internet.",
+  "problemasQueResuelve": [
+    "Pierdo tiempo atendiendo llamadas para dar o cambiar citas.",
+    "Tengo las citas, los documentos y las facturas del paciente separados.",
+    "Necesito organizar los horarios de varios profesionales."
+  ],
+  "casosDeUso": [
+    "Una consulta permite reservar por internet fuera de su horario de atención.",
+    "Recepción organiza citas con distinta duración según el tipo de visita.",
+    "Un paciente cambia su cita y descarga documentos desde su portal."
+  ],
+  "idealPara": "Consultas médicas y clínicas que necesitan combinar agenda, información clínica y gestión administrativa.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "consultas médicas",
+    "clínicas de fisioterapia",
+    "consultas de psicología",
+    "centros médicos"
+  ],
+  "noRecomendadaPara": "No está pensada para negocios fuera del ámbito sanitario.",
+  "casosNoRecomendados": [
+    "Los SMS cuestan 0,09 € por envío; WhatsApp cuesta 35 € al mes y el proveedor externo puede aplicar cargos adicionales.",
+    "Para facturar con varias empresas, la ayuda exige varias instancias del programa.",
+    "La migración asistida por el proveedor tiene presupuesto separado; la migración que realiza el propio cliente se describe como gratuita.",
+    "El cobro se procesa en dólares estadounidenses aunque la tarifa consultada muestre euros.",
+    "Los precios se muestran en euros, pero el fabricante declara que procesa el cobro en USD.",
+    "Los SMS y WhatsApp tienen cargos adicionales.",
+    "La migración realizada por el proveedor se presupuesta aparte.",
+    "La documentación exige instancias separadas para facturar con varias empresas.",
+    "EUR es la moneda mostrada, no la moneda declarada de cobro: este se procesa en USD. No he convertido importes. La cifra mensual publicada y el total anual no coinciden al multiplicar por doce; conservo ambas tal como aparecen. La tabla completa contiene cinco planes de pago. El portal del paciente figura como complemento en ESENCIAL, aunque su página funcional lo presenta incluido en todos los planes."
+  ],
+  "funcionesPrincipales": [
+    "Agenda por profesional y recurso",
+    "Reserva online",
+    "Recordatorios de citas",
+    "Historia clínica",
+    "Portal del paciente",
+    "Facturación",
+    "Telemedicina"
+  ],
+  "integraciones": [
+    "Stripe",
+    "PayPal",
+    "Google Calendar",
+    "REMPe",
+    "Sage 50 Cloud"
+  ],
+  "integracionesPrincipales": [
+    "Stripe",
+    "Google Calendar",
+    "REMPe"
+  ],
+  "curvaDeAprendizaje": "media",
+  "precioInicial": "ESENCIAL: la tarifa muestra 42 € al mes con facturación anual de 510 €, impuestos incluidos, para un profesional.",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "a_medida"
+  ],
+  "tienePlanGratuito": false,
+  "preciosComprobados": {
+    "url": "https://dricloud.com/precios/",
+    "fecha": "2026-09-30",
+    "cita": "42 € […] 510 € al año […] 92 € […] 129 € […] 249 € […] 497 €"
+  },
+  "idiomasDisponibles": [
+    "es"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": null,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 7,
+    "atencionAlCliente": null,
+    "fiabilidad": null,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Revisión de tarifas, páginas funcionales, formación, condiciones y manuales oficiales. También recorrí el ejemplo de reserva enlazado en el manual, sin introducir datos personales ni reservar. Las notas técnicas y de implantación son valoraciones documentales con sus criterios explícitos; no son puntuaciones del fabricante ni resultados de una implantación real. Los errores de acceso a reseñas no se interpretan como ausencia de reseñas.",
+  "ventajas": [
+    "El paciente puede cambiar y cancelar sus citas desde el portal.",
+    "La reserva se puede insertar mediante un iframe en la web del negocio.",
+    "Publica planes con cantidades concretas de usuarios y una oferta para organizaciones de hasta 300 personas."
+  ],
+  "inconvenientes": [
+    "Los precios se muestran en euros, pero el fabricante declara que procesa el cobro en USD.",
+    "Los SMS y WhatsApp tienen cargos adicionales.",
+    "La migración realizada por el proveedor se presupuesta aparte.",
+    "La documentación exige instancias separadas para facturar con varias empresas.",
+    "EUR es la moneda mostrada, no la moneda declarada de cobro: este se procesa en USD. No he convertido importes. La cifra mensual publicada y el total anual no coinciden al multiplicar por doce; conservo ambas tal como aparecen. La tabla completa contiene cinco planes de pago. El portal del paciente figura como complemento en ESENCIAL, aunque su página funcional lo presenta incluido en todos los planes."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": "España",
+    "anioFundacion": 2012,
+    "tamanoAproximado": "23 profesionales, según su página corporativa."
+  },
+  "objetivoPendienteDeInvestigacion": true,
+  "id": "dricloud",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-30",
+  "fechaUltimaRevision": "2026-09-30"
+}

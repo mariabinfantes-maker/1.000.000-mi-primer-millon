@@ -33,6 +33,19 @@ const MODELO = ["freemium", "suscripcion_mensual", "suscripcion_anual", "pago_un
 const traducirEstado = (e: string | null | undefined) =>
   e === "no_consta" || e == null ? "desconocido" : e;
 
+/** Las inversiones de `noRecomendadaPara`, derivadas y escritas aparte. */
+const inversiones = new Map<string, string>();
+for (const d of fs.readdirSync(path.join(process.cwd(), "data", "investigacion"))
+  .filter((x) => x.startsWith("sectores-derivados-"))) {
+  for (const f of fs.readdirSync(path.join(process.cwd(), "data", "investigacion", d))
+    .filter((x) => x.endsWith(".json"))) {
+    const j = JSON.parse(fs.readFileSync(path.join(process.cwd(), "data", "investigacion", d, f), "utf8"));
+    for (const h of j.herramientas ?? []) {
+      if (h.id && h.noRecomendadaPara) inversiones.set(h.id, h.noRecomendadaPara);
+    }
+  }
+}
+
 const ficheros = fs.existsSync(CARPETA)
   ? fs.readdirSync(CARPETA).filter((f) => f.endsWith("-crudo.json"))
   : [];
@@ -88,8 +101,21 @@ for (const f of ficheros) {
       idealPara: h.idealPara,
       segmentosIdeales: h.segmentosIdeales ?? undefined,
       industriasIdeales: h.industriasIdeales,
-      // SIN RELLENO: si no consta, se queda vacío y el validador protesta.
-      noRecomendadaPara: h.noRecomendadaPara ?? undefined,
+      /**
+       * SIN RELLENO, pero SÍ derivado — y no es lo mismo.
+       *
+       * GPT lo devuelve en `null` porque casi ningún fabricante publica para
+       * quién NO está pensada su herramienta. La regla de la propietaria del
+       * 2026-09-28 dice que ese campo sale POR DESCARTE de saber para quién
+       * sí: si sus sectores son la consulta médica y la fisioterapia, decir
+       * que no está pensada para una peluquería es la misma información del
+       * revés, no una invención.
+       *
+       * La inversión se escribe a mano en `sectores-derivados-<fecha>` con su
+       * porqué, igual que el 29, y se lee de ahí. Lo que NO entra aquí es un
+       * límite de plan: eso va a `casosNoRecomendados`.
+       */
+      noRecomendadaPara: h.noRecomendadaPara ?? inversiones.get(id),
       casosNoRecomendados: limites,
       funcionesPrincipales: h.funcionesPrincipales,
       integraciones: h.integraciones,

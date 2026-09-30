@@ -21,12 +21,16 @@
  *    no es la que el esquema pide. El plan que dijo queda en la nota para no
  *    perderlo.
  *
- * 3. **Sólo se archiva lo de herramientas que ESTÁN en el catálogo.**
+ * 3. **Sólo se archiva lo de herramientas que ESTÁN en el catálogo, o que
+ *    tienen su decisión `aprobado`.**
  *    Añadido el 2026-09-30, después de archivar cinco registros de Clinic
  *    Cloud y que el validador los rechazara con «la herramienta no existe»:
- *    se había investigado bien, pero la propietaria la dejó fuera. El
- *    registro sólo vale si su ficha existe, así que aquí se comprueba antes
- *    y lo que no pasa se dice, no se escribe a medias.
+ *    se había investigado bien, pero la propietaria la dejó fuera.
+ *
+ *    La excepción de «aprobado» rompe el huevo y la gallina: el examen de
+ *    entrada cuenta los registros para poder promover, y los registros
+ *    necesitaban la ficha ya promovida. Con la decisión aprobada de la
+ *    propietaria delante, se archiva y después se promueve.
  *
  * 4. **`profundidad` NO se inventa.** El encargo del 2026-09-30 la pide
  *    obligatoria en todo `verificado`, así que aquí viene leída. Si faltara,
@@ -41,6 +45,18 @@ const RUTA = path.join(D, "verificacion", "registros.json");
 const escribir = process.argv.includes("--escribir");
 
 const registros: any[] = JSON.parse(fs.readFileSync(RUTA, "utf8"));
+/**
+ * Las que la propietaria ya autorizó. Sin ficha todavía, pero con su decisión
+ * escrita: el registro se archiva para que el examen pueda contarlo.
+ */
+const DEC = path.join(D, "borradores", "decisiones");
+const aprobadas = new Set(
+  (fs.existsSync(DEC) ? fs.readdirSync(DEC) : [])
+    .filter((f) => f.endsWith(".json"))
+    .filter((f) => JSON.parse(fs.readFileSync(path.join(DEC, f), "utf8")).decision === "aprobado")
+    .map((f) => f.replace(/\.json$/, ""))
+);
+
 /** Las que tienen ficha en el catálogo. Sin ficha, el registro no es válido. */
 const enCatalogo = new Set(
   fs.readdirSync(path.join(D, "herramientas"))
@@ -61,7 +77,10 @@ for (const f of fs.readdirSync(CARPETA).filter((x) => x.endsWith("-crudo.json"))
       if (estado !== "verificado") continue;
 
       const clave = `${h.id}|${c.capacidadId}`;
-      if (!enCatalogo.has(h.id)) { saltados.push(clave + " (su ficha no está en el catálogo todavía)"); continue; }
+      if (!enCatalogo.has(h.id) && !aprobadas.has(h.id)) {
+        saltados.push(clave + " (sin ficha en el catálogo y sin decisión aprobada)");
+        continue;
+      }
       if (yaEstan.has(clave)) { saltados.push(clave + " (ya estaba)"); continue; }
       if (!c.profundidad) { saltados.push(clave + " (sin profundidad)"); continue; }
       if (!(c.fuentes ?? []).length) { saltados.push(clave + " (sin fuente)"); continue; }
