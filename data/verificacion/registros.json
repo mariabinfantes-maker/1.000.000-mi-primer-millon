@@ -83231,5 +83231,318 @@
     ],
     "confianza": "alta",
     "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "koibox",
+    "capacidadId": "cap.invoicing",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://koibox.cloud/",
+        "fechaConsulta": "2026-09-30",
+        "cita": "Emitirás facturas cumpliendo con todos los requisitos legales vigentes de forma transparente y automatizada.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://koibox.cloud/pricing/",
+        "fechaConsulta": "2026-09-30",
+        "rol": "plan_consultado"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-30",
+    "nota": "Permite la emisión de facturas dentro del sistema."
+  },
+  {
+    "herramientaId": "flowww",
+    "capacidadId": "cap.invoicing",
+    "estado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.flowww.es/precios",
+        "fechaConsulta": "2026-09-30"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.flowww.es/",
+        "fechaConsulta": "2026-09-30"
+      }
+    ],
+    "confianza": "baja",
+    "proximaRevision": "2027-09-30",
+    "nota": "Se menciona 'Facturación a prueba de errores' y 'Facturación y ventas', pero no se detalla explícitamente la emisión de facturas con numeración ni gestión de su estado."
+  },
+  {
+    "herramientaId": "dricloud",
+    "capacidadId": "cap.invoicing",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://dricloud.com/precios/",
+        "fechaConsulta": "2026-09-30",
+        "cita": "Sí. Las facturas salen ya verificables según VeriFactu, y con TicketBAI si estás en el País Vasco. Es automático: tú facturas como siempre y DriCloud se encarga del cumplimiento con Hacienda.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://dricloud.com/precios/",
+        "fechaConsulta": "2026-09-30",
+        "rol": "plan_consultado"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-30",
+    "nota": "Facturación y facturación electrónica nativa incluidas desde el plan base."
+  },
+  {
+    "herramientaId": "nubimed",
+    "capacidadId": "cap.invoicing",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planMinimo": "PREMIUM",
+    "planEstado": "verificado",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.nubimed.com/planes-precios/",
+        "fechaConsulta": "2026-09-30",
+        "cita": "Contabilidad y Facturación (Ticket BAI / Verifactu)",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.nubimed.com/planes-precios/",
+        "fechaConsulta": "2026-09-30",
+        "cita": "Contabilidad y Facturación (Ticket BAI / Verifactu) — PREMIUM",
+        "rol": "plan"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-03-30",
+    "nota": "Funcionalidad incluida a partir del plan PREMIUM."
+  },
+  {
+    "herramientaId": "bewe",
+    "capacidadId": "cap.invoicing",
+    "estado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.bewe.ai/pricing",
+        "fechaConsulta": "2026-09-30"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.bewe.ai/",
+        "fechaConsulta": "2026-09-30"
+      }
+    ],
+    "confianza": "baja",
+    "proximaRevision": "2027-09-30",
+    "nota": "Buscado en bewe.ai y bewe.ai/pricing sobre emisión de facturas, numeración o estado de facturas, pero solo se documenta caja, registro de ingresos/gastos, arqueo y cobro de citas."
+  },
+  {
+    "herramientaId": "cliniko",
+    "capacidadId": "cap.invoicing",
+    "estado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.cliniko.com/pricing/",
+        "fechaConsulta": "2026-09-30"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.cliniko.com/",
+        "fechaConsulta": "2026-09-30"
+      }
+    ],
+    "confianza": "baja",
+    "proximaRevision": "2027-09-30",
+    "nota": "Se buscó información sobre la emisión, numeración y gestión del estado de facturas, pero la página solo menciona 'invoices' de manera genérica."
+  },
+  {
+    "herramientaId": "pabau",
+    "capacidadId": "cap.invoicing",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://pabau.com/pricing/",
+        "fechaConsulta": "2026-09-30",
+        "cita": "Yes. Every plan includes full access to the platform: scheduling, online booking, clinical records, forms, payments, invoicing, marketing tools, inventory, reporting, and a shared inbox for email and SMS.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://pabau.com/pricing/",
+        "fechaConsulta": "2026-09-30",
+        "rol": "plan_consultado"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-30",
+    "nota": "Pabau documenta la funcionalidad de facturación (invoicing) accesible en todos los planes."
+  },
+  {
+    "herramientaId": "jane",
+    "capacidadId": "cap.invoicing",
+    "estado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://jane.app/pricing",
+        "fechaConsulta": "2026-09-30",
+        "cita": "Invoices & Receipts"
+      }
+    ],
+    "confianza": "baja",
+    "proximaRevision": "2027-09-30",
+    "nota": "La cita \"Invoices & Receipts\" es demasiado corta para darse por explicada sola y nadie la ha revisado todavía."
+  },
+  {
+    "herramientaId": "bookitit",
+    "capacidadId": "cap.invoicing",
+    "estado": "verificado",
+    "profundidad": "modulo",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://www.bookitit.com/es/",
+        "fechaConsulta": "2026-09-30",
+        "cita": "Con Bookitit lo tiene todo en la misma herramienta: en una sencilla tabla verá a sus clientes, el servicio reservado, el coste y si el pago está pendiente o completado, puede imprimir el ticket o factura, y también puede enviar por email el resguardo del servicio.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://www.bookitit.com/es/tarifas/",
+        "fechaConsulta": "2026-09-30",
+        "rol": "plan_consultado"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-30",
+    "nota": "Permite imprimir la factura y gestionarla desde su módulo de facturación."
+  },
+  {
+    "herramientaId": "archivex",
+    "capacidadId": "cap.invoicing",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://archivex.io/precios",
+        "fechaConsulta": "2026-09-30",
+        "cita": "Controla cada factura, cobro y presupuesto de tu clínica, potencia tu negocio y simplifica las tareas más complejas.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://archivex.io/precios",
+        "fechaConsulta": "2026-09-30",
+        "rol": "plan_consultado"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-30",
+    "nota": "Archivex permite controlar y gestionar facturas."
+  },
+  {
+    "herramientaId": "viday",
+    "capacidadId": "cap.invoicing",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://viday.es/",
+        "fechaConsulta": "2026-09-30",
+        "cita": "Puedes gestionar tus facturas y pagos desde el propio sistema.",
+        "rol": "capacidad"
+      },
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://viday.es/precios/",
+        "fechaConsulta": "2026-09-30",
+        "rol": "plan_consultado"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-30",
+    "nota": "Se indica la gestión de facturas en el sistema, adaptado a Verifactu y TicketBAI a partir del plan Pro."
+  },
+  {
+    "herramientaId": "agendapro",
+    "capacidadId": "cap.invoicing",
+    "estado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://agendapro.com/es-es/planes",
+        "fechaConsulta": "2026-09-30"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://agendapro.com/",
+        "fechaConsulta": "2026-09-30"
+      }
+    ],
+    "confianza": "baja",
+    "proximaRevision": "2027-09-30",
+    "nota": "Se buscó emisión de facturas con control de numeración y estado. En las páginas solo se menciona 'Facturación electrónica' como producto adicional 'Próximamente' o según ubicación, sin detallar la gestión de numeración ni estados."
+  },
+  {
+    "herramientaId": "booksy",
+    "capacidadId": "cap.invoicing",
+    "estado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://biz.booksy.com/es-es/precios",
+        "fechaConsulta": "2026-09-30"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://biz.booksy.com/",
+        "fechaConsulta": "2026-09-30"
+      }
+    ],
+    "confianza": "baja",
+    "proximaRevision": "2027-09-30",
+    "nota": "No se menciona la emisión, numeración ni gestión del estado de facturas en las páginas analizadas."
+  },
+  {
+    "herramientaId": "reservo",
+    "capacidadId": "cap.invoicing",
+    "estado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "tarifa_oficial",
+        "url": "https://reservo.cl/cl/",
+        "fechaConsulta": "2026-09-30"
+      },
+      {
+        "tipo": "pagina_oficial",
+        "url": "https://reservo.cl/",
+        "fechaConsulta": "2026-09-30"
+      }
+    ],
+    "confianza": "baja",
+    "proximaRevision": "2027-09-30",
+    "nota": "Las páginas mencionan 'boleta electrónica', 'boleta de honorarios electrónica' y la palabra genérica 'facturación', pero no documentan explícitamente la emisión de facturas ni la gestión de su numeración y estado."
   }
 ]

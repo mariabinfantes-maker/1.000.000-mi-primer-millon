@@ -196,7 +196,7 @@ describe("«no consta» no es «no lo tiene»", () => {
     // catálogo»), con los 24 registros de sus capacidades de reservas. Ya
     // estaban investigadas con cita y dirección desde el 28 y el 29; lo que
     // faltaba era archivarlas, y eso hace `cli-archivar-reservas.ts`.
-    expect(registros.length).toBe(4039);
+    expect(registros.length).toBe(4053);
     const malas = registros
       .map((r) => describir(evidenciaDeRegistro(r.herramientaId, r.capacidadId, r), r.capacidadId))
       .filter(afirmaAusencia);

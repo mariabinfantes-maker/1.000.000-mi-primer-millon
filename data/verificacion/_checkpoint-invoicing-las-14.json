@@ -1,0 +1,672 @@
+{
+  "usos:invoicing-las-14:koibox": {
+    "herramientaId": "koibox",
+    "nombre": "Koibox",
+    "fechaConsulta": "2026-09-30",
+    "urlsSolicitadas": [
+      "https://koibox.cloud/pricing/",
+      "https://koibox.cloud/"
+    ],
+    "urlsRecuperadas": [
+      {
+        "url": "https://koibox.cloud/pricing/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://koibox.cloud/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://koibox.cloud/pricing/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://koibox.cloud/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      }
+    ],
+    "capacidadesPedidas": [
+      "cap.invoicing"
+    ],
+    "respuestas": [
+      {
+        "capacidadId": "cap.invoicing",
+        "veredicto": "si",
+        "profundidad": "nativa",
+        "integraCon": null,
+        "planMinimo": null,
+        "urlFuente": "https://koibox.cloud/",
+        "cita": "Emitirás facturas cumpliendo con todos los requisitos legales vigentes de forma transparente y automatizada.",
+        "nota": "Permite la emisión de facturas dentro del sistema.",
+        "usos": [],
+        "planUrlFuente": "https://koibox.cloud/pricing/",
+        "planCita": "Revisados los planes y la tabla comparativa en https://koibox.cloud/pricing/ y el sitio principal https://koibox.cloud/. Se menciona la emisión de facturas en las preguntas frecuentes («Emitirás facturas cumpliendo con todos los requisitos legales vigentes...»), pero en ninguna parte se especifica ni existe una fila o texto explícito que vincule la función de facturación con un plan concreto."
+      }
+    ],
+    "sinRespuesta": [],
+    "usosPedidos": [],
+    "recorridosPedidos": [],
+    "idiomaPedido": false
+  },
+  "usos:invoicing-las-14:flowww": {
+    "herramientaId": "flowww",
+    "nombre": "flowww",
+    "fechaConsulta": "2026-09-30",
+    "urlsSolicitadas": [
+      "https://www.flowww.es/precios",
+      "https://www.flowww.es/"
+    ],
+    "urlsRecuperadas": [
+      {
+        "url": "https://www.flowww.es/precios",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://www.flowww.es/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      }
+    ],
+    "capacidadesPedidas": [
+      "cap.invoicing"
+    ],
+    "respuestas": [
+      {
+        "capacidadId": "cap.invoicing",
+        "veredicto": "no_documentado",
+        "profundidad": null,
+        "integraCon": null,
+        "planMinimo": null,
+        "urlFuente": "https://www.flowww.es/precios",
+        "cita": null,
+        "nota": "Se menciona 'Facturación a prueba de errores' y 'Facturación y ventas', pero no se detalla explícitamente la emisión de facturas con numeración ni gestión de su estado.",
+        "usos": []
+      }
+    ],
+    "sinRespuesta": [],
+    "usosPedidos": [],
+    "recorridosPedidos": [],
+    "idiomaPedido": false
+  },
+  "usos:invoicing-las-14:dricloud": {
+    "herramientaId": "dricloud",
+    "nombre": "DriCloud",
+    "fechaConsulta": "2026-09-30",
+    "urlsSolicitadas": [
+      "https://dricloud.com/precios/",
+      "https://dricloud.com/"
+    ],
+    "urlsRecuperadas": [
+      {
+        "url": "https://dricloud.com/precios/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://dricloud.com/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://dricloud.com/precios/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://dricloud.com/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      }
+    ],
+    "capacidadesPedidas": [
+      "cap.invoicing"
+    ],
+    "respuestas": [
+      {
+        "capacidadId": "cap.invoicing",
+        "veredicto": "si",
+        "profundidad": "nativa",
+        "integraCon": null,
+        "planMinimo": null,
+        "urlFuente": "https://dricloud.com/precios/",
+        "cita": "Sí. Las facturas salen ya verificables según VeriFactu, y con TicketBAI si estás en el País Vasco. Es automático: tú facturas como siempre y DriCloud se encarga del cumplimiento con Hacienda.",
+        "nota": "Facturación y facturación electrónica nativa incluidas desde el plan base.",
+        "usos": [],
+        "planUrlFuente": "https://dricloud.com/precios/",
+        "planCita": "Se revisaron la tabla comparativa y el texto oficial de planes en https://dricloud.com/precios/ y https://dricloud.com/. La tabla de precios no incluye una fila para facturación y las alusiones del texto señalan de forma general que «Todos los planes incluyen historia clínica con IA, agenda, facturación electrónica...», sin nombrar de forma explícita un plan concreto en la frase ni relacionarlo en formato fila y encabezado de columna."
+      }
+    ],
+    "sinRespuesta": [],
+    "usosPedidos": [],
+    "recorridosPedidos": [],
+    "idiomaPedido": false
+  },
+  "usos:invoicing-las-14:nubimed": {
+    "herramientaId": "nubimed",
+    "nombre": "Nubimed",
+    "fechaConsulta": "2026-09-30",
+    "urlsSolicitadas": [
+      "https://www.nubimed.com/planes-precios/",
+      "https://www.nubimed.com/"
+    ],
+    "urlsRecuperadas": [
+      {
+        "url": "https://www.nubimed.com/planes-precios/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://www.nubimed.com/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://www.nubimed.com/planes-precios/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://www.nubimed.com/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      }
+    ],
+    "capacidadesPedidas": [
+      "cap.invoicing"
+    ],
+    "respuestas": [
+      {
+        "capacidadId": "cap.invoicing",
+        "veredicto": "si",
+        "profundidad": "nativa",
+        "integraCon": null,
+        "planMinimo": "PREMIUM",
+        "urlFuente": "https://www.nubimed.com/planes-precios/",
+        "cita": "Contabilidad y Facturación (Ticket BAI / Verifactu)",
+        "nota": "Funcionalidad incluida a partir del plan PREMIUM.",
+        "usos": [],
+        "planUrlFuente": "https://www.nubimed.com/planes-precios/",
+        "planCita": "Contabilidad y Facturación (Ticket BAI / Verifactu) — PREMIUM"
+      }
+    ],
+    "sinRespuesta": [],
+    "usosPedidos": [],
+    "recorridosPedidos": [],
+    "idiomaPedido": false
+  },
+  "usos:invoicing-las-14:bewe": {
+    "herramientaId": "bewe",
+    "nombre": "BEWE",
+    "fechaConsulta": "2026-09-30",
+    "urlsSolicitadas": [
+      "https://www.bewe.ai/pricing",
+      "https://www.bewe.ai/"
+    ],
+    "urlsRecuperadas": [
+      {
+        "url": "https://www.bewe.ai/pricing",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://www.bewe.ai/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      }
+    ],
+    "capacidadesPedidas": [
+      "cap.invoicing"
+    ],
+    "respuestas": [
+      {
+        "capacidadId": "cap.invoicing",
+        "veredicto": "no_documentado",
+        "profundidad": null,
+        "integraCon": null,
+        "planMinimo": null,
+        "urlFuente": null,
+        "cita": null,
+        "nota": "Buscado en bewe.ai y bewe.ai/pricing sobre emisión de facturas, numeración o estado de facturas, pero solo se documenta caja, registro de ingresos/gastos, arqueo y cobro de citas.",
+        "usos": []
+      }
+    ],
+    "sinRespuesta": [],
+    "usosPedidos": [],
+    "recorridosPedidos": [],
+    "idiomaPedido": false
+  },
+  "usos:invoicing-las-14:cliniko": {
+    "herramientaId": "cliniko",
+    "nombre": "Cliniko",
+    "fechaConsulta": "2026-09-30",
+    "urlsSolicitadas": [
+      "https://www.cliniko.com/pricing/",
+      "https://www.cliniko.com/"
+    ],
+    "urlsRecuperadas": [
+      {
+        "url": "https://www.cliniko.com/pricing/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://www.cliniko.com/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      }
+    ],
+    "capacidadesPedidas": [
+      "cap.invoicing"
+    ],
+    "respuestas": [
+      {
+        "capacidadId": "cap.invoicing",
+        "veredicto": "no_documentado",
+        "profundidad": null,
+        "integraCon": null,
+        "planMinimo": null,
+        "urlFuente": "https://www.cliniko.com/",
+        "cita": null,
+        "nota": "Se buscó información sobre la emisión, numeración y gestión del estado de facturas, pero la página solo menciona 'invoices' de manera genérica.",
+        "usos": []
+      }
+    ],
+    "sinRespuesta": [],
+    "usosPedidos": [],
+    "recorridosPedidos": [],
+    "idiomaPedido": false
+  },
+  "usos:invoicing-las-14:pabau": {
+    "herramientaId": "pabau",
+    "nombre": "Pabau",
+    "fechaConsulta": "2026-09-30",
+    "urlsSolicitadas": [
+      "https://pabau.com/pricing/",
+      "https://pabau.com/"
+    ],
+    "urlsRecuperadas": [
+      {
+        "url": "https://pabau.com/pricing/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://pabau.com/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://pabau.com/pricing/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://pabau.com/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      }
+    ],
+    "capacidadesPedidas": [
+      "cap.invoicing"
+    ],
+    "respuestas": [
+      {
+        "capacidadId": "cap.invoicing",
+        "veredicto": "si",
+        "profundidad": "nativa",
+        "integraCon": null,
+        "planMinimo": null,
+        "urlFuente": "https://pabau.com/pricing/",
+        "cita": "Yes. Every plan includes full access to the platform: scheduling, online booking, clinical records, forms, payments, invoicing, marketing tools, inventory, reporting, and a shared inbox for email and SMS.",
+        "nota": "Pabau documenta la funcionalidad de facturación (invoicing) accesible en todos los planes.",
+        "usos": [],
+        "planUrlFuente": "https://pabau.com/pricing/",
+        "planCita": "Se revisó la página de precios (https://pabau.com/pricing/). La tabla de características compara la plataforma base ('Standard') con los complementos ('Add-ons'), pero no incluye los planes por tamaño de equipo (Solo, Team, Medium, etc.) como encabezados de columna. Además, frases como 'Every plan includes full access to the Pabau platform: ... invoicing' no nombran un plan concreto específico, por lo que no se puede situar la capacidad según las reglas."
+      }
+    ],
+    "sinRespuesta": [],
+    "usosPedidos": [],
+    "recorridosPedidos": [],
+    "idiomaPedido": false
+  },
+  "usos:invoicing-las-14:jane": {
+    "herramientaId": "jane",
+    "nombre": "Jane",
+    "fechaConsulta": "2026-09-30",
+    "urlsSolicitadas": [
+      "https://jane.app/pricing",
+      "https://jane.app/"
+    ],
+    "urlsRecuperadas": [
+      {
+        "url": "https://jane.app/pricing",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://jane.app/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://jane.app/pricing",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://jane.app/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      }
+    ],
+    "capacidadesPedidas": [
+      "cap.invoicing"
+    ],
+    "respuestas": [
+      {
+        "capacidadId": "cap.invoicing",
+        "veredicto": "si",
+        "profundidad": "nativa",
+        "integraCon": null,
+        "planMinimo": "Balance",
+        "urlFuente": "https://jane.app/pricing",
+        "cita": "Invoices & Receipts",
+        "nota": "Incluido de forma nativa en todos los planes desde el plan base Balance.",
+        "usos": [],
+        "planUrlFuente": "https://jane.app/pricing",
+        "planCita": "Invoices — Balance"
+      }
+    ],
+    "sinRespuesta": [],
+    "usosPedidos": [],
+    "recorridosPedidos": [],
+    "idiomaPedido": false
+  },
+  "usos:invoicing-las-14:bookitit": {
+    "herramientaId": "bookitit",
+    "nombre": "Bookitit",
+    "fechaConsulta": "2026-09-30",
+    "urlsSolicitadas": [
+      "https://www.bookitit.com/es/tarifas/",
+      "https://www.bookitit.com/es/"
+    ],
+    "urlsRecuperadas": [
+      {
+        "url": "https://www.bookitit.com/es/tarifas/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://www.bookitit.com/es/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://www.bookitit.com/es/tarifas/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://www.bookitit.com/es/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      }
+    ],
+    "capacidadesPedidas": [
+      "cap.invoicing"
+    ],
+    "respuestas": [
+      {
+        "capacidadId": "cap.invoicing",
+        "veredicto": "si",
+        "profundidad": "modulo",
+        "integraCon": null,
+        "planMinimo": null,
+        "urlFuente": "https://www.bookitit.com/es/",
+        "cita": "Con Bookitit lo tiene todo en la misma herramienta: en una sencilla tabla verá a sus clientes, el servicio reservado, el coste y si el pago está pendiente o completado, puede imprimir el ticket o factura, y también puede enviar por email el resguardo del servicio.",
+        "nota": "Permite imprimir la factura y gestionarla desde su módulo de facturación.",
+        "usos": [],
+        "planUrlFuente": "https://www.bookitit.com/es/tarifas/",
+        "planCita": "Se revisaron las páginas de tarifas y principal de Bookitit. La herramienta aplica un modelo de cobro según el número de agendas contratadas y no presenta una tabla comparativa de planes por columnas ni frases oficiales que asocien el módulo de facturación a un nombre de plan concreto."
+      }
+    ],
+    "sinRespuesta": [],
+    "usosPedidos": [],
+    "recorridosPedidos": [],
+    "idiomaPedido": false
+  },
+  "usos:invoicing-las-14:archivex": {
+    "herramientaId": "archivex",
+    "nombre": "Archivex",
+    "fechaConsulta": "2026-09-30",
+    "urlsSolicitadas": [
+      "https://archivex.io/precios",
+      "https://archivex.io/"
+    ],
+    "urlsRecuperadas": [
+      {
+        "url": "https://archivex.io/precios",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://archivex.io/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://archivex.io/precios",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://archivex.io/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      }
+    ],
+    "capacidadesPedidas": [
+      "cap.invoicing"
+    ],
+    "respuestas": [
+      {
+        "capacidadId": "cap.invoicing",
+        "veredicto": "si",
+        "profundidad": "nativa",
+        "integraCon": null,
+        "planMinimo": null,
+        "urlFuente": "https://archivex.io/precios",
+        "cita": "Controla cada factura, cobro y presupuesto de tu clínica, potencia tu negocio y simplifica las tareas más complejas.",
+        "nota": "Archivex permite controlar y gestionar facturas.",
+        "usos": [],
+        "planUrlFuente": "https://archivex.io/precios",
+        "planCita": "Se revisaron https://archivex.io/precios y la página principal. La función de gestión de facturas/contabilidad aparece bajo 'Más de 90 características incluidas en todos los planes', sin nombrarse explícitamente un plan concreto (como Plan S) en una fila con su encabezado ni en una frase oficial directa que vincule la capacidad a un plan por su nombre."
+      }
+    ],
+    "sinRespuesta": [],
+    "usosPedidos": [],
+    "recorridosPedidos": [],
+    "idiomaPedido": false
+  },
+  "usos:invoicing-las-14:viday": {
+    "herramientaId": "viday",
+    "nombre": "ViDay",
+    "fechaConsulta": "2026-09-30",
+    "urlsSolicitadas": [
+      "https://viday.es/precios/",
+      "https://viday.es/"
+    ],
+    "urlsRecuperadas": [
+      {
+        "url": "https://viday.es/precios/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://viday.es/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://viday.es/precios/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://viday.es/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      }
+    ],
+    "capacidadesPedidas": [
+      "cap.invoicing"
+    ],
+    "respuestas": [
+      {
+        "capacidadId": "cap.invoicing",
+        "veredicto": "si",
+        "profundidad": "nativa",
+        "integraCon": null,
+        "planMinimo": null,
+        "urlFuente": "https://viday.es/",
+        "cita": "Puedes gestionar tus facturas y pagos desde el propio sistema.",
+        "nota": "Se indica la gestión de facturas en el sistema, adaptado a Verifactu y TicketBAI a partir del plan Pro.",
+        "usos": [],
+        "planUrlFuente": "https://viday.es/precios/",
+        "planCita": "Se revisaron las páginas de precios e inicio (https://viday.es/precios/ y https://viday.es/). Aunque en la sección de preguntas frecuentes se indica que se pueden gestionar facturas desde el sistema y en el plan Pro se menciona 'VERIFACTU incluido', no existe ninguna fila de la tabla de precios ni frase oficial que relacione expresamente la función de emisión/gestión de facturas con un plan concreto."
+      }
+    ],
+    "sinRespuesta": [],
+    "usosPedidos": [],
+    "recorridosPedidos": [],
+    "idiomaPedido": false
+  },
+  "usos:invoicing-las-14:agendapro": {
+    "herramientaId": "agendapro",
+    "nombre": "AgendaPro",
+    "fechaConsulta": "2026-09-30",
+    "urlsSolicitadas": [
+      "https://agendapro.com/es-es/planes",
+      "https://agendapro.com/"
+    ],
+    "urlsRecuperadas": [
+      {
+        "url": "https://agendapro.com/es-es/planes",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://agendapro.com/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      }
+    ],
+    "capacidadesPedidas": [
+      "cap.invoicing"
+    ],
+    "respuestas": [
+      {
+        "capacidadId": "cap.invoicing",
+        "veredicto": "no_documentado",
+        "profundidad": null,
+        "integraCon": null,
+        "planMinimo": null,
+        "urlFuente": "https://agendapro.com/es-es/planes",
+        "cita": null,
+        "nota": "Se buscó emisión de facturas con control de numeración y estado. En las páginas solo se menciona 'Facturación electrónica' como producto adicional 'Próximamente' o según ubicación, sin detallar la gestión de numeración ni estados.",
+        "usos": []
+      }
+    ],
+    "sinRespuesta": [],
+    "usosPedidos": [],
+    "recorridosPedidos": [],
+    "idiomaPedido": false
+  },
+  "usos:invoicing-las-14:booksy": {
+    "herramientaId": "booksy",
+    "nombre": "Booksy",
+    "fechaConsulta": "2026-09-30",
+    "urlsSolicitadas": [
+      "https://biz.booksy.com/es-es/precios",
+      "https://biz.booksy.com/"
+    ],
+    "urlsRecuperadas": [
+      {
+        "url": "https://biz.booksy.com/es-es/precios",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://biz.booksy.com/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      }
+    ],
+    "capacidadesPedidas": [
+      "cap.invoicing"
+    ],
+    "respuestas": [
+      {
+        "capacidadId": "cap.invoicing",
+        "veredicto": "no_documentado",
+        "profundidad": null,
+        "integraCon": null,
+        "planMinimo": null,
+        "urlFuente": null,
+        "cita": null,
+        "nota": "No se menciona la emisión, numeración ni gestión del estado de facturas en las páginas analizadas.",
+        "usos": []
+      }
+    ],
+    "sinRespuesta": [],
+    "usosPedidos": [],
+    "recorridosPedidos": [],
+    "idiomaPedido": false
+  },
+  "usos:invoicing-las-14:reservo": {
+    "herramientaId": "reservo",
+    "nombre": "Reservo",
+    "fechaConsulta": "2026-09-30",
+    "urlsSolicitadas": [
+      "https://reservo.cl/cl/",
+      "https://reservo.cl/"
+    ],
+    "urlsRecuperadas": [
+      {
+        "url": "https://reservo.cl/cl/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      },
+      {
+        "url": "https://reservo.cl/",
+        "estado": "URL_RETRIEVAL_STATUS_SUCCESS",
+        "recuperada": true
+      }
+    ],
+    "capacidadesPedidas": [
+      "cap.invoicing"
+    ],
+    "respuestas": [
+      {
+        "capacidadId": "cap.invoicing",
+        "veredicto": "no_documentado",
+        "profundidad": null,
+        "integraCon": null,
+        "planMinimo": null,
+        "urlFuente": null,
+        "cita": null,
+        "nota": "Las páginas mencionan 'boleta electrónica', 'boleta de honorarios electrónica' y la palabra genérica 'facturación', pero no documentan explícitamente la emisión de facturas ni la gestión de su numeración y estado.",
+        "usos": []
+      }
+    ],
+    "sinRespuesta": [],
+    "usosPedidos": [],
+    "recorridosPedidos": [],
+    "idiomaPedido": false
+  }
+}
