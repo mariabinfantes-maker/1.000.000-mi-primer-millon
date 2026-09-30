@@ -408,7 +408,9 @@ export default function ConsejoDelAsesor({
       .filter((o) => o.piezas.length === 1 && o.noCubre.length === 0)
       .map(idDe)
   ).size;
-  const todo = principal ? principal.noCubre.length === 0 : false;
+  // Sin principal —empate— también puede haber herramientas que lo cubren
+  // todo: decía «34 son las que más se acercan» cuando las 34 lo cubrían.
+  const todo = principal ? principal.noCubre.length === 0 : cuantas > 0;
 
   return (
     <div className="space-y-5">
@@ -438,7 +440,7 @@ export default function ConsejoDelAsesor({
             Todavía no te digo cuál
           </span>
           <p className="mt-3 font-display text-[22px] font-bold leading-[1.15] tracking-tight text-slate-900">
-            Varias cubren todo lo que me has contado.
+            {cuantas > 0 ? "Varias cubren todo lo que me has contado." : "Varias cubren una parte de lo que me has contado."}
           </p>
           <p className="mt-2 leading-relaxed text-slate-800">{loQueNecesitoSaber}</p>
         </section>

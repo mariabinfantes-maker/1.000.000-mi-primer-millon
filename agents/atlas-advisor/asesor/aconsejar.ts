@@ -704,7 +704,32 @@ function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempat
   }
 
   // No se enseñan las dos. Se dice que no se puede elegir y se pregunta.
-  return { empate: `${quedan3.length > 1 ? quedan3.length : opciones.length} salen igual de bien con lo que me has contado, y no tengo con qué decidir entre ellas. Dime qué presupuesto manejas al mes y si trabajas sola o con más personas, y te digo cuál.` };
+  /**
+   * «CUBREN», NO «SALEN IGUAL DE BIEN». Propietaria, 2026-09-30: «el motor no
+   * mide qué tan bien realiza cada herramienta una tarea, así que no quiero
+   * que Molnip utilice "igual de bien" en ningún punto de esta experiencia».
+   * Antes decía «N salen igual de bien con lo que me has contado». Sólo cambia
+   * la frase: el empate y la pregunta siguen siendo los mismos.
+   *
+   * Y dice DOS números cuando son dos. N contaba las que quedan empatadas
+   * después de idioma, plan gratuito y precio; con «N cubren todo», una
+   * reserva que cubren 34 decía «6 cubren», y eso es falso. Ahora: cuántas
+   * cubren, y entre cuántas de ellas no puede decidir.
+   */
+  const cuantasEmpatan = quedan3.length > 1 ? quedan3.length : opciones.length;
+  // Empatan por CUÁNTAS cosas cubren, no por cuáles: dos pueden cubrir una
+  // cada una y ser cosas distintas. Así que, si no lo cubren todo, se dice
+  // el recuento y no «lo mismo».
+  const cubiertas = new Set(opciones[0].piezas.flatMap((p) => p.cubre)).size;
+  const pedidas = cubiertas + opciones[0].noCubre.length;
+  const loQue = opciones.every((o) => o.noCubre.length === 0)
+    ? "todo lo que me has contado"
+    : `${cubiertas} de las ${pedidas} cosas que me has contado`;
+  const cubren = `${opciones.length} ${opciones.length === 1 ? "herramienta cubre" : "herramientas cubren"} ${loQue}`;
+  const sinDecidir = cuantasEmpatan === opciones.length
+    ? `${cubren}, y no tengo con qué decidir entre ellas.`
+    : `${cubren}. Mirando idioma, plan gratuito y precio me quedan ${cuantasEmpatan}, y entre esas no tengo con qué decidir.`;
+  return { empate: `${sinDecidir} Dime qué presupuesto manejas al mes y si trabajas sola o con más personas, y te digo cuál.` };
 }
 
 
