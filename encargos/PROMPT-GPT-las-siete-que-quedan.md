@@ -1,3 +1,9 @@
+> **OBSOLETO — 2026-09-30.** Este encargo nombra herramientas que la
+> propietaria descartó totalmente ese día: Clinic Cloud, QVET, Gesden G5,
+> TutorBird y Treatwell. **No se manda.** El encargo vigente es
+> `PROMPT-GPT-las-8-solo-ficha.md`, y la cuenta real es 82 + 8 = 90.
+> El porqué, en `data/investigacion/descartadas-2026-09-30/DESCARTADAS.md`.
+
 # Las 7 que quedan de las cortadas — encargo completo
 
 Hereda de `PROMPT-GPT-las-8-cortadas.md`, que **quedó probado**: Koibox entró en

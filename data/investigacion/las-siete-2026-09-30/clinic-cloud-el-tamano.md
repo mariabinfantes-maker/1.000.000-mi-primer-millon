@@ -49,9 +49,14 @@ no se coloque nunca.
 
 **La propietaria, 2026-09-30: «déjala fuera».** No entra al catálogo.
 
+**Y el 2026-09-30, más tarde, DESCARTADA DEL TODO** junto con QVET, Gesden
+G5, TutorBird y Treatwell: «no aportan nada nuevo al catálogo y nos están
+retrasando». No es trabajo pendiente, no se nombra en ningún encargo y no
+entra en ninguna cuenta.
+
 No se borra nada: el borrador sigue en `data/borradores/herramientas/clinic-cloud.json`
-y sus 5 registros de capacidad siguen en `registros.json`. Entra el día que
-alguien publique cuántos usuarios caben, sin repetir la investigación.
+y sus 5 registros en `clinic-cloud-registros-desconectados.json`. Pero no se
+vuelve a sacar. Ver `data/investigacion/descartadas-2026-09-30/DESCARTADAS.md`.
 
 ---
 
