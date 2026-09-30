@@ -100,7 +100,25 @@ export type CurvaDeAprendizaje = "muy_facil" | "facil" | "media" | "dificil";
  * Opcional a propósito: las cuatro categorías históricas no lo declaraban,
  * y `undefined` se trata como "publica" para no romperlas.
  */
-export type EstadoCategoria = "publica" | "pendiente";
+/**
+ * En qué punto está una casa.
+ *
+ *  - `publica`    — tiene página, entra en el sitemap y se ofrece como puerta.
+ *  - `pendiente`  — declarada y esperando: le falta algo para abrirse, casi
+ *                   siempre herramientas. «Clínicas y salud» estuvo aquí hasta
+ *                   que entraron las suyas.
+ *  - `desconectada` — **ya no espera nada.** Se dejó de usar por una decisión
+ *                   escrita y se queda donde está, con su porqué, por si vuelve
+ *                   a hacer falta. No se borra: «lo que no debe usarse se apaga
+ *                   y se queda donde está, con una nota de por qué».
+ *
+ * El tercero nace el 2026-09-30, por esto de la propietaria: «no tenemos que
+ * mostrar algo que nadie decidió que debería existir y sin embargo molesta
+ * porque parece algo pendiente». `software-sectorial` llevaba desconectada
+ * desde el 24 de septiembre y el único estado que había para decirlo era
+ * `pendiente`, que significa lo contrario: que hay trabajo esperando.
+ */
+export type EstadoCategoria = "publica" | "pendiente" | "desconectada";
 
 export type Categoria = {
   id: string;

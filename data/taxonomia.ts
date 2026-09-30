@@ -105,6 +105,26 @@ export function esCategoriaPublica(categoria: Categoria): boolean {
 }
 
 /**
+ * Una casa DESCONECTADA no espera nada y no cuenta como trabajo pendiente.
+ *
+ * Sigue en `categorias.json` con su descripción y su porqué —no se borra—,
+ * pero quien haga inventario de lo que falta tiene que saltársela. Si no, sale
+ * eternamente en los informes como si alguien tuviera que abrirla algún día, y
+ * eso es ruido: nadie decidió que debiera existir.
+ *
+ * *(Propietaria, 2026-09-30: «no tenemos que mostrar algo que nadie decidió
+ * que debería existir y sin embargo molesta porque parece algo pendiente».)*
+ */
+export function esCategoriaDesconectada(categoria: Categoria): boolean {
+  return categoria.estado === "desconectada";
+}
+
+/** Las casas que cuentan: las publicadas y las que de verdad esperan algo. */
+export function categoriasVivas(categorias: readonly Categoria[]): Categoria[] {
+  return categorias.filter((c) => !esCategoriaDesconectada(c));
+}
+
+/**
  * ─────────────────────────────────────────────────────────────────────
  * Eje fino: subtipos dentro de una categoría
  * ─────────────────────────────────────────────────────────────────────

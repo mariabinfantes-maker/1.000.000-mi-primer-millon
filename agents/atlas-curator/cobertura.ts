@@ -1,5 +1,5 @@
 import type { Categoria, Herramienta } from "@/data/esquema";
-import { MARCO_CATEGORIAS_MINIMO, cubreCategoria, esCategoriaPublica } from "@/data/taxonomia";
+import { MARCO_CATEGORIAS_MINIMO, categoriasVivas, cubreCategoria, esCategoriaPublica } from "@/data/taxonomia";
 import { detectarIncoherenciasEnCatalogo } from "./coherencia";
 import { detectarProblemasDeValidezEnCatalogo } from "./validez";
 
@@ -148,7 +148,14 @@ export function evaluarCobertura(
   const porcentaje = opciones.porcentajeSobrerrepresentacion ?? PORCENTAJE_SOBRERREPRESENTACION_POR_DEFECTO;
   const totalActivas = herramientas.filter((h) => h.estado === "activo").length;
 
-  const evaluadas: CoberturaCategoria[] = categorias.map((categoria) => {
+  /**
+   * Las desconectadas no entran en el inventario de lo que falta.
+   *
+   * Una casa desconectada se dejó de usar por una decisión escrita y no espera
+   * nada de nadie. Contarla como «vacía» la convierte en trabajo pendiente
+   * eterno en todos los informes, y no lo es.
+   */
+  const evaluadas: CoberturaCategoria[] = categoriasVivas(categorias).map((categoria) => {
     const numeroHerramientas = contarActivas(herramientas, categoria.id);
 
     // El orden importa: primero lo que impide enseñar la categoría
