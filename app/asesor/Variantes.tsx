@@ -40,7 +40,7 @@ export type Coste = {
   espanol: { panel: EstadoDelEspanol; paginaDeCliente: EstadoDelEspanol };
 };
 export type Pieza = {
-  herramientaId: string; nombre: string; cubre: string[]; cubreEnCorto: string[]; ademas: string[]; casas: string[];
+  herramientaId: string; nombre: string; logoUrl?: string; cubre: string[]; cubreEnCorto: string[]; ademas: string[]; casas: string[];
   queResuelve: QueResuelve[]; coste: Coste; faltaPorConfirmar: string[];
 };
 export type Opcion = {

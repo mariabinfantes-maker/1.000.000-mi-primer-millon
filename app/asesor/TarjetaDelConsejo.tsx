@@ -40,6 +40,14 @@ import { type Camino, type Opcion } from "./Variantes";
  * frase: «en un mismo sitio», «en dos herramientas».
  */
 
+/**
+ * DESCONECTADA EL 2026-09-30, NO BORRADA. La sustituye `ConsejoDelAsesor`,
+ * que se alimenta de la decisión del motor (`loQueHaria` + `alternativas`) en
+ * vez del orden de la búsqueda. Este componente enseñaba como primera fila la
+ * primera de `caminos[0].opciones` —Archivex, por el alfabeto— mientras el
+ * consejo hablaba de Koibox, que es la que el motor eligió. `titular`,
+ * `queResuelve` y `Abierta` se siguen usando desde aquí.
+ */
 const TARJETA = "rounded-2xl border border-slate-200/80 bg-white";
 
 export type Abierta = { opcion: Opcion; titular: string; porQue?: string };

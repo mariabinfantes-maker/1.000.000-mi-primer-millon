@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { VarianteA, VarianteB, mayuscula, type Camino as CaminoDetallado } from "./Variantes";
+import ConsejoDelAsesor from "./ConsejoDelAsesor";
 import TarjetaDelConsejo, { type Abierta } from "./TarjetaDelConsejo";
 import FichaDeUnaOpcion from "./FichaDeUnaOpcion";
 import Boton from "@/components/ui/Boton";
@@ -32,6 +33,9 @@ type Camino = CaminoDetallado;
 type Consejo = {
   caminos: Camino[];
   loQueHaria: (Opcion & { desempate?: { criterio: string; porQue: string } }) | null;
+  /** Las demás que cubren lo mismo, de más cerca a más lejos, y cuántas quedan detrás. */
+  alternativas: Opcion[];
+  masAlternativas: number;
   /** Qué falta por saber cuando ninguna gana. Antes se devolvía y no se enseñaba. */
   loQueNecesitoSaber?: string | null;
   sinComprobar: string[];
@@ -437,12 +441,13 @@ export default function AsesorPrueba() {
                     Una primera selección, a falta de tu respuesta.
                   </p>
                 )}
-                <TarjetaDelConsejo
+                <ConsejoDelAsesor
+                  loQueHaria={c.loQueHaria}
+                  alternativas={c.alternativas ?? []}
+                  masAlternativas={c.masAlternativas ?? 0}
                   caminos={c.caminos}
-                  porQue={c.loQueHaria?.desempate?.porQue}
                   loQueNecesitoSaber={c.loQueNecesitoSaber}
                   dondeSeBusco={c.dondeSeBusco}
-                  quePide={r?.comprension?.necesidades.map((n) => n.necesidad.enCorto) ?? []}
                   sinConfirmarEnNinguna={c.sinConfirmarEnNinguna}
                   alAbrir={setAbierta}
                 />

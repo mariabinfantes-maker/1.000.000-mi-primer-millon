@@ -128,6 +128,12 @@ export type Coste = {
 export type Pieza = {
   herramientaId: string;
   nombre: string;
+  /**
+   * El logo oficial, si la ficha lo tiene. Hoy ninguna de las 90 lo tiene: el
+   * campo existe desde el principio y está vacío. La pantalla pinta la inicial
+   * mientras falte, y el logo cuando llegue, sin cambiar nada más.
+   */
+  logoUrl?: string;
   /** Necesidades suyas que esta pieza cubre, con el título que ella entiende. */
   cubre: string[];
   /**
@@ -457,6 +463,7 @@ function aPieza(
       return {
         herramientaId: p.herramientaId,
         nombre: h?.nombre ?? p.herramientaId,
+        logoUrl: h?.logoUrl,
         ademas,
         cubre: p.cubre.map((id) => getNecesidad(id)?.titulo ?? id),
         cubreEnCorto: p.cubre.map((id) => getNecesidad(id)?.enCorto ?? id),
@@ -612,7 +619,15 @@ function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempat
       //
       // Y dice «de las que te valen» y no «de las tres» porque las que valen no
       // son siempre tres: el número salía de un caso concreto y se quedó escrito.
-      porQue: `Y es la única de las que te valen que está en español confirmado; de las demás no nos consta que puedas trabajar en tu idioma.`,
+      /**
+       * LO QUE DECIDIÓ SE DICE COMO LO QUE DECIDIÓ, Y ENTRE CUÁNTAS.
+       * Antes decía «tiene plan gratuito» y se leía como el motivo entero
+       * —«la recomienda porque es gratis»— cuando el motivo entero lo
+       * comparten todas las que llegaron aquí. Propietaria, 2026-09-30: «da a
+       * entender que esa siguiente opción no lo tiene». Ahora la frase nombra
+       * la comparación exacta que el motor sostiene: «la única de las N con…».
+       */
+      porQue: `Me decido por ${nombreDe(enEspanol[0])} porque es la única de las ${opciones.length} con el programa en español confirmado; de las demás no nos consta.`,
     } };
   }
   const quedan1 = enEspanol.length > 0 ? enEspanol : opciones;
@@ -621,7 +636,11 @@ function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempat
   if (gratis.length === 1) {
     return { elegida: gratis[0], desempate: {
       criterio: "plan-gratuito",
-      porQue: `${nombreDe(gratis[0])} tiene plan gratuito, así que puedes probarla antes de pagar nada.`,
+      // «De las N» sólo cuando N son todas las que empataron; si el idioma ya
+      // había recortado, se dice entre cuáles para no afirmar de más.
+      porQue: `Me decido por ${nombreDe(gratis[0])} porque es la única ${
+        quedan1.length === candidatas.length ? `de las ${quedan1.length}` : `de las ${quedan1.length} que están en español`
+      } con plan gratuito: puedes probarla antes de pagar nada.`,
     } };
   }
   const quedan2 = gratis.length > 1 ? gratis : quedan1;
@@ -665,7 +684,7 @@ function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempat
   if (curva.length > 1 && curva[0].c < curva[1].c && curva[0].c < 9) {
     return { elegida: curva[0].o, desempate: {
       criterio: "curva",
-      porQue: `Las dos te sirven, pero ${nombreDe(curva[0].o)} se aprende antes. Para empezar, eso vale más que cualquier función de más.`,
+      porQue: `De las ${quedan3.length}, ${nombreDe(curva[0].o)} es la que se aprende antes. Para empezar, eso vale más que cualquier función de más.`,
     } };
   }
 
