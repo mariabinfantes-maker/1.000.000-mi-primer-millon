@@ -313,6 +313,22 @@ export type Consejo = {
    * preguntas.
    */
   loQueNecesitoSaber: string | null;
+  /**
+   * LAS QUE EMPATAN, EXACTAMENTE. Sólo con empate; vacío en los demás casos.
+   *
+   * Es el mismo conjunto sobre el que razonó `elegirUna` y cuyo número dice
+   * `loQueNecesitoSaber` («me quedan 6»). Antes el motor devolvía sólo la
+   * frase, y la pantalla enseñaba las tres primeras de la búsqueda, que van
+   * por orden alfabético: en 611 de 819 empates salía al menos una que no
+   * estaba entre las empatadas. Propietaria, 2026-09-30: «las herramientas
+   * que enseñe inmediatamente debajo tienen que pertenecer necesariamente a
+   * esas 6».
+   *
+   * No cambia cómo decide el motor: cambia qué devuelve. Van en el orden en
+   * que llegaron a `elegirUna`, sin ordenarlas otra vez: no hay razón para
+   * poner una por delante y no se inventa.
+   */
+  empatadas: Opcion[];
   /** Por qué: qué necesidad suya resuelve cada pieza. */
   porQue: string[];
   /**
@@ -556,7 +572,7 @@ export function ordenarPorCercania(opciones: Opcion[]): Opcion[] {
   return orden;
 }
 
-function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempate } | { empate: string } {
+function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempate } | { empate: string; entre: Opcion[] } {
   let opciones = candidatas;
   if (opciones.length === 1) {
     return { elegida: opciones[0], desempate: { criterio: "unica", porQue: "Es la única que cubre lo que me has contado." } };
@@ -729,7 +745,8 @@ function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempat
   const sinDecidir = cuantasEmpatan === opciones.length
     ? `${cubren}, y no tengo con qué decidir entre ellas.`
     : `${cubren}. Mirando idioma, plan gratuito y precio me quedan ${cuantasEmpatan}, y entre esas no tengo con qué decidir.`;
-  return { empate: `${sinDecidir} Dime qué presupuesto manejas al mes y si trabajas sola o con más personas, y te digo cuál.` };
+  // `entre` es el conjunto cuyo número acaba de decir la frase, ni una más.
+  return { entre: cuantasEmpatan === opciones.length ? opciones : quedan3, empate: `${sinDecidir} Dime qué presupuesto manejas al mes y si trabajas sola o con más personas, y te digo cuál.` };
 }
 
 
@@ -771,7 +788,7 @@ export function aconsejar(
   if (r.soluciones.length === 0) {
     // Decir que no es un resultado válido. Es la forma `no-cubierto` del
     // esqueleto, y existe para no rellenar con lo que haya.
-    return { caminos: [], loQueHaria: null, loQueNecesitoSaber: null, porQue: [], alternativas: [], masAlternativas: 0, sinComprobar, sinConfirmarEnNinguna, dondeSeBusco };
+    return { caminos: [], loQueHaria: null, loQueNecesitoSaber: null, empatadas: [], porQue: [], alternativas: [], masAlternativas: 0, sinComprobar, sinConfirmarEnNinguna, dondeSeBusco };
   }
 
   const mejor = r.soluciones[0];
@@ -889,7 +906,7 @@ export function aconsejar(
     if (mejor.cubreImprescindibles < mejor.deImprescindibles) {
       sinComprobar.push(`De lo que me has contado, lo que he encontrado cubre ${mejor.cubreImprescindibles} de ${mejor.deImprescindibles} cosas.`);
     }
-    return { caminos, loQueHaria: null, loQueNecesitoSaber: elegida.empate, porQue: [], alternativas: [], masAlternativas: 0, sinComprobar, sinConfirmarEnNinguna, dondeSeBusco };
+    return { caminos, loQueHaria: null, loQueNecesitoSaber: elegida.empate, empatadas: elegida.entre, porQue: [], alternativas: [], masAlternativas: 0, sinComprobar, sinConfirmarEnNinguna, dondeSeBusco };
   }
 
   const loQueHaria = { ...elegida.elegida, desempate: elegida.desempate };
@@ -912,7 +929,7 @@ export function aconsejar(
       `De lo que me has contado, esto cubre ${mejor.cubreImprescindibles} de ${mejor.deImprescindibles} cosas.`
     );
   }
-  return { caminos, loQueHaria, loQueNecesitoSaber: null, porQue, alternativas, masAlternativas, sinComprobar, sinConfirmarEnNinguna, dondeSeBusco };
+  return { caminos, loQueHaria, loQueNecesitoSaber: null, empatadas: [], porQue, alternativas, masAlternativas, sinComprobar, sinConfirmarEnNinguna, dondeSeBusco };
 }
 
 /** Las reglas de presentación que este módulo tiene que respetar, para poder probarlas. */

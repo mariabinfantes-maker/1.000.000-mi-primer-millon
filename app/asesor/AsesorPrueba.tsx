@@ -36,6 +36,8 @@ type Consejo = {
   /** Las demás que cubren lo mismo, de más cerca a más lejos, y cuántas quedan detrás. */
   alternativas: Opcion[];
   masAlternativas: number;
+  /** Las que empatan, exactamente. Vacío si hay recomendación. */
+  empatadas?: Opcion[];
   /** Qué falta por saber cuando ninguna gana. Antes se devolvía y no se enseñaba. */
   loQueNecesitoSaber?: string | null;
   sinComprobar: string[];
@@ -444,6 +446,7 @@ export default function AsesorPrueba() {
                 <ConsejoDelAsesor
                   loQueHaria={c.loQueHaria}
                   alternativas={c.alternativas ?? []}
+                  empatadas={c.empatadas ?? []}
                   masAlternativas={c.masAlternativas ?? 0}
                   caminos={c.caminos}
                   loQueNecesitoSaber={c.loQueNecesitoSaber}

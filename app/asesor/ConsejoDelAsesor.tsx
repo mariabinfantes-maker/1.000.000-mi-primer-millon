@@ -6,6 +6,7 @@ import Boton from "@/components/ui/Boton";
 import SimboloMolnip from "@/components/ui/SimboloMolnip";
 import { mayuscula, type Camino, type Opcion, type Pieza } from "./Variantes";
 import { titular, type Abierta } from "./TarjetaDelConsejo";
+import { DE_TRES_EN_TRES, idDe, queSeEnsena } from "./queSeEnsena";
 
 /**
  * LA PANTALLA DEL CONSEJO, tal como la aprobó la propietaria el 2026-09-30.
@@ -59,7 +60,6 @@ function enumerar(cosas: string[]): string {
 }
 
 const nombreDe = (o: Opcion) => o.piezas.map((p) => p.nombre).join(" + ");
-const idDe = (o: Opcion) => o.piezas.map((p) => p.herramientaId).join("+");
 const cubreEnCorto = (o: Opcion) => [...new Set(o.piezas.flatMap((p) => p.cubreEnCorto))];
 
 /**
@@ -352,13 +352,13 @@ function HeComparado({ herramientas, cuantas, todo }: { herramientas: number; cu
   );
 }
 
-const DE_TRES_EN_TRES = 3;
-
 export default function ConsejoDelAsesor({
-  loQueHaria, alternativas, caminos, loQueNecesitoSaber, dondeSeBusco, sinConfirmarEnNinguna = [], alAbrir,
+  loQueHaria, alternativas, caminos, empatadas = [], loQueNecesitoSaber, dondeSeBusco, sinConfirmarEnNinguna = [], alAbrir,
 }: {
   loQueHaria: Elegida | null;
   alternativas: Opcion[];
+  /** Las que empatan, exactamente: el conjunto sobre el que razonó el motor. */
+  empatadas?: Opcion[];
   masAlternativas: number;
   caminos: Camino[];
   loQueNecesitoSaber?: string | null;
@@ -370,32 +370,22 @@ export default function ConsejoDelAsesor({
   const [abierta, setAbierta] = useState<string | null>(null);
   const [explorando, setExplorando] = useState(false);
   const [visibles, setVisibles] = useState(DE_TRES_EN_TRES);
+  const [delGrupo, setDelGrupo] = useState(DE_TRES_EN_TRES);
   const [parcialesVisibles, setParcialesVisibles] = useState(0);
 
   if (caminos.length === 0) return null;
 
   const alternar = (o: Opcion) => setAbierta((a) => (a === idDe(o) ? null : idDe(o)));
 
-  // Las dos alternativas de delante, y todo lo demás detrás de «explorar».
+  // Qué va en cada sitio lo decide `queSeEnsena`, la misma función que
+  // prueba `empatadas.test.ts` con los 1.891 casos del motor.
   const principal = loQueHaria;
   const dosAlternativas = alternativas.slice(0, 2);
   const enPantalla = [...(principal ? [principal] : []), ...dosAlternativas];
-  const yaSeVen = new Set(enPantalla.map(idDe));
-  const restantes: Opcion[] = [];
-  for (const o of [...alternativas.slice(2), ...caminos.flatMap((c) => [...c.opciones, ...c.masOpciones])]) {
-    const id = idDe(o);
-    if (yaSeVen.has(id)) continue;
-    yaSeVen.add(id);
-    restantes.push(o);
-  }
-  const parciales: Opcion[] = [];
-  const idsParciales = new Set<string>();
-  for (const o of caminos.flatMap((c) => c.parciales)) {
-    const id = idDe(o);
-    if (idsParciales.has(id) || yaSeVen.has(id)) continue;
-    idsParciales.add(id);
-    parciales.push(o);
-  }
+  const { filas, quedanEnElGrupo, esEmpate, restantes, parciales } = queSeEnsena(
+    { loQueHaria, alternativas, caminos, empatadas, loQueNecesitoSaber, sinConfirmarEnNinguna },
+    delGrupo
+  );
   /**
    * «6 encajan con todo lo que necesitas» cuenta HERRAMIENTAS, no
    * combinaciones: las que lo resuelven todo ellas solas. Contar también las
@@ -447,17 +437,33 @@ export default function ConsejoDelAsesor({
       ) : null}
 
       {/*
-        Sin principal —empate o algo sin confirmar—, las que empatan salen
-        como filas compactas, todas abribles, y ninguna con el dorado.
+        Sin principal, las filas salen compactas, todas abribles y ninguna con
+        el dorado. En un empate son SÓLO las empatadas —las que la frase de
+        arriba acaba de contar— y en el orden en que las trae el motor.
       */}
-      {!principal && (
+      {!principal && filas.length > 0 && (
         <div className="space-y-2">
-          {caminos.flatMap((c) => c.opciones).slice(0, DE_TRES_EN_TRES).map((o) => (
+          {/*
+            Redacción de la propietaria, 2026-09-30. Explica por qué no hay una
+            primera recomendación, en la voz del asesor y no como un aviso sobre
+            el orden de una lista.
+          */}
+          {esEmpate && (
+            <p className="text-sm leading-relaxed text-slate-600">
+              Entre estas opciones no tengo una razón suficiente para poner una por delante de otra.
+            </p>
+          )}
+          {filas.map((o) => (
             <Tarjeta
               key={idDe(o)} opcion={o} papel="alternativa" abierta={abierta === idDe(o)} alAlternar={() => alternar(o)}
-              entreEllas={caminos.flatMap((c) => c.opciones).slice(0, DE_TRES_EN_TRES)} principal={null} cuantas={cuantas} alAbrir={alAbrir}
+              entreEllas={filas} principal={null} cuantas={cuantas} alAbrir={alAbrir}
             />
           ))}
+          {quedanEnElGrupo > 0 && (
+            <Boton variante="fantasma" onClick={() => setDelGrupo(delGrupo + DE_TRES_EN_TRES)}>
+              Ver {Math.min(DE_TRES_EN_TRES, quedanEnElGrupo)} más
+            </Boton>
+          )}
         </div>
       )}
 
