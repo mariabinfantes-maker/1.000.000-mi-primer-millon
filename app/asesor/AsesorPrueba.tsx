@@ -441,6 +441,7 @@ export default function AsesorPrueba() {
                   caminos={c.caminos}
                   porQue={c.loQueHaria?.desempate?.porQue}
                   loQueNecesitoSaber={c.loQueNecesitoSaber}
+                  dondeSeBusco={c.dondeSeBusco}
                   quePide={r?.comprension?.necesidades.map((n) => n.necesidad.enCorto) ?? []}
                   sinConfirmarEnNinguna={c.sinConfirmarEnNinguna}
                   alAbrir={setAbierta}

@@ -199,8 +199,17 @@ function Fila({ opcion, forma, entreEllas, alAbrir }: { opcion: Opcion; forma: s
   );
 }
 
+/** «He mirado 90 herramientas en 16 familias.» Ni una cifra más: es respaldo, no un alarde. */
+function DondeSeBusco({ herramientas, casas }: { herramientas: number; casas: number }) {
+  return (
+    <p className="mt-2 text-sm text-brand-900/70">
+      He mirado {herramientas} herramientas en {casas} {casas === 1 ? "familia" : "familias"} distintas.
+    </p>
+  );
+}
+
 export default function TarjetaDelConsejo({
-  caminos, porQue, loQueNecesitoSaber, quePide, sinConfirmarEnNinguna = [], alAbrir,
+  caminos, porQue, loQueNecesitoSaber, dondeSeBusco, quePide, sinConfirmarEnNinguna = [], alAbrir,
 }: {
   caminos: Camino[];
   /**
@@ -224,6 +233,16 @@ export default function TarjetaDelConsejo({
    * válido»—. Callarse no lo es.
    */
   loQueNecesitoSaber?: string | null;
+  /**
+   * DÓNDE SE BUSCÓ. El motor lo cuenta en cada consulta —cuántas herramientas
+   * se miraron y en cuántas casas— y no se enseñaba en ninguna pantalla.
+   *
+   * Es lo que sostiene el consejo: sin esto, «empezaría por X» es una opinión;
+   * con esto, es el resultado de haber mirado noventa. Y sostiene también lo
+   * contrario, que es lo que más cuesta creer: cuando Molnip dice que no lo
+   * encuentra, esto dice entre cuántas no lo encontró.
+   */
+  dondeSeBusco?: { herramientas: number; casas: number };
   /** Lo que ella ha contado, para que se vea que Molnip lo tiene presente. */
   quePide?: string[];
   alAbrir: (a: Abierta) => void;
@@ -333,6 +352,7 @@ export default function TarjetaDelConsejo({
               Puedes explorarlas por lo que aportan. Para recomendarte una para el conjunto de lo que necesitas, falta
               resolver ese punto.
             </p>
+            {dondeSeBusco && <DondeSeBusco {...dondeSeBusco} />}
           </div>
         </div>
       ) : !porQue && loQueNecesitoSaber ? (
@@ -341,6 +361,7 @@ export default function TarjetaDelConsejo({
           <div>
             <p className="font-display text-base font-bold text-brand-900">Todavía no te digo cuál</p>
             <p className="mt-1 leading-relaxed text-brand-900">{loQueNecesitoSaber}</p>
+            {dondeSeBusco && <DondeSeBusco {...dondeSeBusco} />}
           </div>
         </div>
       ) : (
@@ -355,6 +376,7 @@ export default function TarjetaDelConsejo({
                 {enumerar(cubreEnCorto(alaVista[0].opcion))}
                 {alaVista[0].opcion.piezas.length === 1 ? " desde un mismo sitio" : ""}. {porQue}
               </p>
+              {dondeSeBusco && <DondeSeBusco {...dondeSeBusco} />}
               {laOtraConAlgo && (
                 <p className="mt-2 leading-relaxed text-brand-900">
                   De las tres, {laOtraConAlgo.extra.toLowerCase()} sólo lo hemos comprobado en{" "}
