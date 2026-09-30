@@ -1,0 +1,5 @@
+{
+ "id": "teachable",
+ "nombre": "Teachable",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/153106/Teachable/\",\n    \"notaGeneral\": 4.2,\n    \"facilidadDeUso\": 4.2,\n    \"escala\": 5.0,\n    \"numeroDeResenas\": 185,\n    \"cita\": \"Overall Rating: 4.2 (185). Ease of Use. 4.2.\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/teachable/reviews\",\n    \"notaGeneral\": 3.8,\n    \"facilidadDeUso\": null,\n    \"escala\": 5.0,\n    \"numeroDeResenas\": 52,\n    \"cita\": \"Teachable Reviews (52). 3.8. 52 reviews.\"\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/153106/Teachable/\",\n    \"https://www.capterra.com/p/153106/Teachable/reviews/\",\n    \"https://www.capterra.es/\",\n    \"https://www.capterra.co.uk/\",\n    \"https://www.capterra.ie/\",\n    \"https://www.g2.com/products/teachable/reviews\"\n  ]\n}\n```"
+}

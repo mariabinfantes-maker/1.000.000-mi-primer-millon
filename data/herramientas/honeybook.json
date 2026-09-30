@@ -110,7 +110,18 @@
         "numeroResenas": 800,
         "enlace": "https://www.trustpilot.com/review/honeybook.com"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/162024/HoneyBook/reviews/",
+      "cita": "Reviews of HoneyBook. Ease of use. 4.6. — leido 4.7/5 con 689 reseñas. Confirma el 4.8 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/honeybook/reviews",
+      "cita": "Ease of Use. HoneyBook. 8.8. 8.8 182. — leido 4.5/5 con 182 reseñas. Confirma el 4.5 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Experiencia de cliente impecable y estética en propuestas y cobros.",

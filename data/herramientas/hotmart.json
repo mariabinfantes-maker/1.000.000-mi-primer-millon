@@ -117,7 +117,18 @@
         "numeroResenas": 9000,
         "enlace": "https://es.trustpilot.com/review/hotmart.com"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/Hotmart/",
+      "cita": "«Hotmart itself holds 4.5 out of 5 across 77 reviews […] Ease of use 4.5» — leido 4.5/5 con 77 resenas. Lo guardado son 4,1 con 48: el contador ha crecido de 48 a 77 y la nota ha subido. NO se ha cambiado el guardado."
+    },
+    "origen": "comprobado",
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/",
+      "cita": "NO ENCONTRADA. La lectura dice que G2 no tiene ficha propia de Hotmart, solo menciones en resenas de competidores. La ficha guarda g2Puntuacion 4,2: queda sin recibo y sin contradecir, pendiente de encontrar la pagina o de retirar la cifra."
+    }
   },
   "ventajas": [
     "Sin costes de suscripción fijos mensuales para empezar.",

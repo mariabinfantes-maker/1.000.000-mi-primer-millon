@@ -123,7 +123,18 @@
         "numeroResenas": 640,
         "enlace": "https://www.trustpilot.com/review/thinkific.com"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.es/software/147348/thinkific",
+      "cita": "Thinkific. 4,4 (207) Opiniones. ... 4,4 (207). 4,2 (207). 4,2 (207). VS. Precio inicial. Opciones de precios. Facilidad  — leido 4.4/5 con 207 reseñas. Confirma el 4.6 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/thinkific/reviews",
+      "cita": "Thinkific Reviews (405). View 2 Video Reviews. 4.5. 405 reviews. ... Pros & Cons. Generated from real user reviews. Ease — leido 4.5/5 con 405 reseñas. Confirma el 4.7 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "0% de comisión por transacción en los planes de pago.",

@@ -1,0 +1,5 @@
+{
+ "id": "nubimed",
+ "nombre": "Nubimed",
+ "texto": "```json\n{\n  \"abierta\": false,\n  \"capterra\": {\n    \"url\": null,\n    \"notaGeneral\": null,\n    \"facilidadDeUso\": null,\n    \"escala\": null,\n    \"numeroDeResenas\": null,\n    \"cita\": null\n  },\n  \"g2\": {\n    \"url\": null,\n    \"notaGeneral\": null,\n    \"facilidadDeUso\": null,\n    \"escala\": null,\n    \"numeroDeResenas\": null,\n    \"cita\": null\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com (búsqueda de ficha de Nubimed - no encontrada)\",\n    \"https://www.capterra.es (búsqueda de ficha de Nubimed - no encontrada)\",\n    \"https://www.capterra.ie (búsqueda de ficha de Nubimed - no encontrada)\",\n    \"https://www.capterra.co.uk (búsqueda de ficha de Nubimed - no encontrada)\",\n    \"https://www.g2.com (búsqueda de ficha de Nubimed - no encontrada)\"\n  ]\n}\n```"
+}

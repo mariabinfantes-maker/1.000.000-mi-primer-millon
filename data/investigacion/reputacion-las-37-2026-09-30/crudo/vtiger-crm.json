@@ -1,0 +1,5 @@
+{
+ "id": "vtiger-crm",
+ "nombre": "Vtiger CRM",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/132478/Vtiger-CRM/\",\n    \"notaGeneral\": 4.3,\n    \"facilidadDeUso\": 4.2,\n    \"escala\": 5,\n    \"numeroDeResenas\": 337,\n    \"cita\": \"Ease Of Use. 4.2 (337).\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/vtiger-all-in-one-crm/reviews\",\n    \"notaGeneral\": 4.3,\n    \"facilidadDeUso\": 8.2,\n    \"escala\": 10,\n    \"numeroDeResenas\": 361,\n    \"cita\": \"Ease of Use. 8.2. 8.2 361.\"\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/132478/Vtiger-CRM/\",\n    \"https://www.capterra.es\",\n    \"https://www.capterra.co.uk\",\n    \"https://www.capterra.ie\",\n    \"https://www.g2.com/products/vtiger-all-in-one-crm/reviews\",\n    \"https://www.g2.com/compare/suitecrm-vs-vtiger-all-in-one-crm\"\n  ]\n}\n```"
+}

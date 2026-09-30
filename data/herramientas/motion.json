@@ -102,7 +102,18 @@
         "numeroResenas": 180,
         "enlace": "https://www.producthunt.com/products/motion-2"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/211997/Motion/",
+      "cita": "Ease Of Use 4.2 (89) — leido 4.3/5 con 89 reseñas. Confirma el 4.3 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/motion/reviews",
+      "cita": "leido 4.1/5 con 157 reseñas. Confirma el 4.2 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Ahorra tiempo reconstruyendo el calendario automáticamente cuando surgen imprevistos.",

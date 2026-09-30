@@ -103,7 +103,18 @@
     "g2Puntuacion": 4.7,
     "g2NumeroResenas": 80,
     "capterraPuntuacion": 4.6,
-    "capterraNumeroResenas": 200
+    "capterraNumeroResenas": 200,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/155099/Zenkit/reviews/",
+      "cita": "Zenkit. 4.6 (235). [...] Reviews of Zenkit. Ease of use. 4.5. — leido 4.6/5 con 235 reseñas. Confirma el 4.6 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/zenkit/reviews",
+      "cita": "Ease of Use. Zenkit. 8.8. 8.8 81. — leido 4.7/5 con 81 reseñas. Confirma el 4.7 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Transición fluida e instantánea entre mapas mentales, tableros Kanban, listas y tablas.",

@@ -106,7 +106,18 @@
     "g2Puntuacion": 4.6,
     "g2NumeroResenas": 580,
     "capterraPuntuacion": 4.7,
-    "capterraNumeroResenas": 480
+    "capterraNumeroResenas": 480,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/120550/Paymo/",
+      "cita": "Overall rating. Based on 686 user reviews. 4.7. ... Features4.5. Value for Money4.6. Ease of Use4.6. Customer Service4.7 — leido 4.7/5 con 686 reseñas. Confirma el 4.7 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/paymo/reviews",
+      "cita": "Ease of Use. Paymo. 9.0. 9.0 528. — leido 4.6/5 con 528 reseñas. Confirma el 4.6 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Combinación nativa fluida de control de tiempo, proyectos y facturación sin depender de plugins de terceros.",

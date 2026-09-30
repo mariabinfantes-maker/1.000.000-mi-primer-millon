@@ -102,7 +102,18 @@
     "g2Puntuacion": 4.5,
     "g2NumeroResenas": 310,
     "capterraPuntuacion": 4.5,
-    "capterraNumeroResenas": 1350
+    "capterraNumeroResenas": 1350,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/118334/Capsule/",
+      "cita": "Overall rating. Based on 168 user reviews. 4.5. [...] Ease Of Use. 4.6 (164). — leido 4.5/5 con 164 reseñas. Confirma el 4.5 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/capsule-crm/reviews",
+      "cita": "Ratings. Meets Requirements. Capsule CRM. 9.0. 9.0 431. Coevera. 9.1. 9.1 376. Ease of Use. Capsule CRM. 9.4. 9.4 457. — leido 4.7/5 con 457 reseñas. Confirma el 4.5 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Interfaz de usuario excepcionalmente clara, moderna e intuitiva.",

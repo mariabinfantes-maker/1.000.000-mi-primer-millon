@@ -118,7 +118,18 @@
         "numeroResenas": 80,
         "enlace": "https://www.trustradius.com/products/vtiger-crm/reviews"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/132478/Vtiger-CRM/",
+      "cita": "Ease Of Use. 4.2 (337). — leido 4.3/5 con 337 reseñas. Confirma el 4.3 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/vtiger-all-in-one-crm/reviews",
+      "cita": "Ease of Use. 8.2. 8.2 361. — leido 4.3/5 con 361 reseñas. Confirma el 4.3 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Excelente relación calidad-precio ofreciendo funciones de ventas, marketing y atención en un solo paquete",

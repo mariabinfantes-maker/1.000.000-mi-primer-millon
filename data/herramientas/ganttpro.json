@@ -101,7 +101,18 @@
     "g2Puntuacion": 4.8,
     "g2NumeroResenas": 480,
     "capterraPuntuacion": 4.8,
-    "capterraNumeroResenas": 470
+    "capterraNumeroResenas": 470,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/153164/GanttPRO/reviews/",
+      "cita": "Reviews of GanttPRO. Ease of use. 4.8. Customer Service. 4.8 — leido 4.8/5 con 559 reseñas. Confirma el 4.8 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/ganttpro/reviews",
+      "cita": "Ease of use: GanttPRO scores 9.4 and has 50 all-time mentions for ease of use — leido 4.8/5 con 588 reseñas. Confirma el 4.8 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Interfaz visual sumamente intuitiva y fácil de adoptar rápidamente por todo el equipo.",

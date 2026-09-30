@@ -100,7 +100,18 @@
     "g2Puntuacion": 4.7,
     "g2NumeroResenas": 1100,
     "capterraPuntuacion": 4.7,
-    "capterraNumeroResenas": 160
+    "capterraNumeroResenas": 160,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/135967/Close-io/",
+      "cita": "Close. 4.7 (164). Ease of Use. 4.6. — leido 4.7/5 con 164 reseñas. Confirma el 4.7 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/close/reviews",
+      "cita": "Close. By Close. 4.7/5(2,102). 4.7 out of 5 stars. — leido 4.7/5 con 2102 reseñas. Confirma el 4.7 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Velocidad y fluidez de uso excepcionales comparado con CRMs tradicionales",

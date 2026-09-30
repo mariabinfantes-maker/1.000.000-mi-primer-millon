@@ -97,7 +97,18 @@
     "g2Puntuacion": 4.6,
     "g2NumeroResenas": 530,
     "capterraPuntuacion": 4.7,
-    "capterraNumeroResenas": 600
+    "capterraNumeroResenas": 600,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/178716/EngageBay/",
+      "cita": "Ease Of Use. 4.5 (912). — leido 4.6/5 con 912 reseñas. Confirma el 4.7 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/engagebay/reviews",
+      "cita": "Ease of Use. EngageBay. 9.1. 9.1 655. — leido 4.6/5 con 655 reseñas. Confirma el 4.6 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Excelente relación calidad-precio frente a alternativas como HubSpot o ActiveCampaign",

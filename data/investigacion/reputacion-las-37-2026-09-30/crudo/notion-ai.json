@@ -1,0 +1,5 @@
+{
+ "id": "notion-ai",
+ "nombre": "Notion AI",
+ "texto": "```json\n{\n  \"abierta\": false,\n  \"capterra\": {\n    \"url\": null,\n    \"notaGeneral\": null,\n    \"facilidadDeUso\": null,\n    \"escala\": null,\n    \"numeroDeResenas\": null,\n    \"cita\": null\n  },\n  \"g2\": {\n    \"url\": null,\n    \"notaGeneral\": null,\n    \"facilidadDeUso\": null,\n    \"escala\": null,\n    \"numeroDeResenas\": null,\n    \"cita\": null\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com (búsqueda de ficha independiente 'Notion AI' no encontrada)\",\n    \"https://www.capterra.es (búsqueda de ficha independiente 'Notion AI' no encontrada)\",\n    \"https://www.capterra.ie (búsqueda de ficha independiente 'Notion AI' no encontrada)\",\n    \"https://www.capterra.co.uk (búsqueda de ficha independiente 'Notion AI' no encontrada)\",\n    \"https://www.g2.com/products/notion-ai/reviews (no existe ficha de reseñas de Notion AI)\",\n    \"https://www.g2.com/products/notion-ai-agents (página de catálogo en AI Marketplace sin reseñas ni desglose de Facilidad de Uso)\"\n  ]\n}\n```"
+}

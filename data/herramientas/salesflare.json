@@ -99,7 +99,18 @@
     "g2Puntuacion": 4.8,
     "g2NumeroResenas": 240,
     "capterraPuntuacion": 4.7,
-    "capterraNumeroResenas": 130
+    "capterraNumeroResenas": 130,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/152960/Salesflare/",
+      "cita": "Ease Of Use. 4.6 (136). — leido 4.7/5 con 136 reseñas. Confirma el 4.7 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/salesflare/reviews",
+      "cita": "Ease of Use. 9.3. 230. — leido 4.8/5 con 230 reseñas. Confirma el 4.8 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Automatización excepcional que elimina casi el 100% de la entrada manual de datos",

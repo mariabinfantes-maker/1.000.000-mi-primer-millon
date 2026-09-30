@@ -100,7 +100,18 @@
     "g2Puntuacion": 4.7,
     "g2NumeroResenas": 8400,
     "capterraPuntuacion": 4.7,
-    "capterraNumeroResenas": 7100
+    "capterraNumeroResenas": 7100,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/178116/Grammarly-Business/",
+      "cita": "Ease Of Use. 4.8 (7,224). — leido 4.7/5 con 7224 reseñas. Confirma el 4.7 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/grammarly/reviews",
+      "cita": "Ease of Use. Grammarly. 9.3. 9.3 10,873. — leido 4.7/5 con 10873 reseñas. Confirma el 4.7 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Integración fluida y casi invisible en navegadores, aplicaciones de escritorio y móviles",

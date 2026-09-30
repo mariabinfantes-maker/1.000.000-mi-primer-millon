@@ -107,7 +107,18 @@
         "numeroResenas": 2000,
         "enlace": "https://www.trustpilot.com/review/clickfunnels.com"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/147605/ClickFunnels/",
+      "cita": "Ease Of Use. 4.3 (663). — leido 4.5/5 con 663 reseñas. Confirma el 4.5 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/clickfunnels/reviews",
+      "cita": "ClickFunnels Reviews (416). View 3 Video Reviews. 4.6. 417 reviews. — leido 4.6/5 con 417 reseñas. Confirma el 4.6 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Altamente enfocado en la conversión financiera directa y el aumento del valor medio del pedido (AOV)",

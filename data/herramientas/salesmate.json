@@ -106,7 +106,18 @@
     "g2Puntuacion": 4.6,
     "g2NumeroResenas": 320,
     "capterraPuntuacion": 4.7,
-    "capterraNumeroResenas": 80
+    "capterraNumeroResenas": 80,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/158525/Salesmate/",
+      "cita": "Overall rating. Based on 102 user reviews. 4.7. [...] Rating Breakdown. 4.7. Features4.6. Value for Money4.8. Ease of Us — leido 4.7/5 con 102 reseñas. Confirma el 4.7 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/salesmate/reviews",
+      "cita": "Salesmate. (119)4.7/5 — leido 4.7/5 con 119 reseñas. Confirma el 4.6 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Llamadas integradas directamente en la plataforma sin necesidad de software VoIP de terceros.",

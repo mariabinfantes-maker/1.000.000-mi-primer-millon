@@ -106,7 +106,18 @@
         "numeroResenas": 1200,
         "enlace": "https://www.producthunt.com/products/gamma-2"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://gamma.app",
+      "cita": "NO SE PUDO COMPROBAR. La busqueda devolvio fichas tituladas «Gamma-AI» con 4 resenas en Capterra y 39 en G2, y en dos intentos dio DOS ids distintos de Capterra (10014299 y 10022394). Lo guardado son 50 resenas en Capterra y 80 en G2: no es la misma pagina. El dato guardado NO queda contradicho; lo que falta es volver a encontrar su ficha."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://gamma.app",
+      "cita": "NO SE PUDO COMPROBAR. La busqueda devolvio fichas tituladas «Gamma-AI» con 4 resenas en Capterra y 39 en G2, y en dos intentos dio DOS ids distintos de Capterra (10014299 y 10022394). Lo guardado son 50 resenas en Capterra y 80 en G2: no es la misma pagina. El dato guardado NO queda contradicho; lo que falta es volver a encontrar su ficha."
+    },
+    "origen": "redaccion-inicial"
   },
   "ventajas": [
     "Generación veloz de contenido bien maquetado mediante inteligencia artificial.",

@@ -1,0 +1,5 @@
+{
+ "id": "close",
+ "nombre": "Close",
+ "texto": "```json\n{\n \"abierta\": true,\n \"capterra\": {\n  \"url\": \"https://www.capterra.com/p/135967/Close-io/\",\n  \"notaGeneral\": 4.7,\n  \"facilidadDeUso\": 4.6,\n  \"escala\": 5,\n  \"numeroDeResenas\": 164,\n  \"cita\": \"Close. 4.7 (164). Ease of Use. 4.6.\"\n },\n \"g2\": {\n  \"url\": \"https://www.g2.com/products/close/reviews\",\n  \"notaGeneral\": 4.7,\n  \"facilidadDeUso\": null,\n  \"escala\": 5,\n  \"numeroDeResenas\": 2102,\n  \"cita\": \"Close. By Close. 4.7/5(2,102). 4.7 out of 5 stars.\"\n },\n \"dondeMire\": [\n  \"https://www.capterra.com/p/135967/Close-io/\",\n  \"https://www.capterra.es/p/135967/Close-io/\",\n  \"https://www.capterra.ie/p/135967/Close-io/\",\n  \"https://www.capterra.co.uk/p/135967/Close-io/\",\n  \"https://www.g2.com/products/close/reviews\"\n ]\n}\n```"
+}

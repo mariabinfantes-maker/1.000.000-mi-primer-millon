@@ -1,0 +1,5 @@
+{
+ "id": "koibox",
+ "nombre": "Koibox",
+ "texto": "```json\n{\n \"abierta\": true,\n \"capterra\": {\n  \"url\": \"https://www.capterra.com/p/212628/Koibox/\",\n  \"notaGeneral\": 4.8,\n  \"facilidadDeUso\": 4.9,\n  \"escala\": 5,\n  \"numeroDeResenas\": 18,\n  \"cita\": \"Ease Of Use. 4.9 (18).\"\n },\n \"g2\": {\n  \"url\": null,\n  \"notaGeneral\": null,\n  \"facilidadDeUso\": null,\n  \"escala\": null,\n  \"numeroDeResenas\": null,\n  \"cita\": null\n },\n \"dondeMire\": [\n  \"https://www.capterra.com/p/212628/Koibox/\",\n  \"https://www.capterra.es/software/212628/koibox\",\n  \"https://www.capterra.ie/software/212628/koibox\",\n  \"https://www.capterra.co.uk/software/212628/koibox\",\n  \"https://www.g2.com/products/koibox/reviews (no existe ficha de producto con reseñas activas)\",\n  \"https://www.g2.com/products/koibox/competitors/alternatives (solo página de alternativas sin ficha/puntuación de Koibox)\"\n ]\n}\n```"
+}

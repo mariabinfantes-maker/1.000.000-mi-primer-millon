@@ -1,0 +1,5 @@
+{
+ "id": "krisp",
+ "nombre": "Krisp",
+ "texto": "```json\n{\n \"abierta\": true,\n \"capterra\": {\n  \"url\": \"https://www.capterra.com/p/202466/Krisp/\",\n  \"notaGeneral\": 4.5,\n  \"facilidadDeUso\": 4.7,\n  \"escala\": 5.0,\n  \"numeroDeResenas\": 11,\n  \"cita\": \"Ease Of Use. 4.7 (11).\"\n },\n \"g2\": {\n  \"url\": \"https://www.g2.com/products/krisp/reviews\",\n  \"notaGeneral\": 4.7,\n  \"facilidadDeUso\": 9.2,\n  \"escala\": 10.0,\n  \"numeroDeResenas\": 1076,\n  \"cita\": \"Ease of Use ... Krisp. 9.2. 9.2 1,076.\"\n },\n \"dondeMire\": [\n  \"https://www.capterra.com/p/202466/Krisp/\",\n  \"https://www.capterra.es/\",\n  \"https://www.capterra.ie/\",\n  \"https://www.capterra.co.uk/\",\n  \"https://www.g2.com/products/krisp/reviews\",\n  \"https://www.g2.com/products/krisp/pros-and-cons\"\n ]\n}\n```"
+}

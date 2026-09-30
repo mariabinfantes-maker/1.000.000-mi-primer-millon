@@ -96,7 +96,18 @@
     "g2Puntuacion": 4.5,
     "g2NumeroResenas": 500,
     "capterraPuntuacion": 4.7,
-    "capterraNumeroResenas": 370
+    "capterraNumeroResenas": 370,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.co.uk/compare/201202/descript-vs-wondershare-democreator",
+      "cita": "Ratings. Overall. 4.6 (183) Reviews. Ease of Use. 4.4 (183) Reviews. — leido 4.6/5 con 183 reseñas. Confirma el 4.7 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/compare/descript-vs-resemble-ai",
+      "cita": "Ease of Use. Descript. 8.5. 8.5 760. — leido 4.6/5 con 760 reseñas. Confirma el 4.5 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Permite editar proyectos de audio y vídeo con la misma facilidad que editar un texto en Google Docs.",

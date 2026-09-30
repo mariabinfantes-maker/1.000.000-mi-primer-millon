@@ -113,7 +113,18 @@
         "numeroResenas": 30,
         "enlace": "https://www.trustradius.com/products/scoro/reviews"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/149811/Scoro/",
+      "cita": "Reviews of Scoro. Ease of use. 4.4. — leido 4.5/5 con 263 reseñas. Confirma el 4.6 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/scoro/reviews",
+      "cita": "Ease of Use. Scoro. 8.8. 8.8 404. — leido 4.5/5 con 404 reseñas. Confirma el 4.5 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Solución verdaderamente integral que reemplaza CRM, gestor de proyectos y software de facturación",

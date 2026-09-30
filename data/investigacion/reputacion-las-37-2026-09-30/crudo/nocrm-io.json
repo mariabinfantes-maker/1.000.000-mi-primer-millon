@@ -1,0 +1,5 @@
+{
+ "id": "nocrm-io",
+ "nombre": "noCRM.io",
+ "texto": "```json\n{\n \"abierta\": true,\n \"capterra\": {\n   \"url\": \"https://www.capterra.com/p/144678/noCRM/\",\n   \"notaGeneral\": 4.6,\n   \"facilidadDeUso\": 4.8,\n   \"escala\": \"5\",\n   \"numeroDeResenas\": 494,\n   \"cita\": \"noCRM 4.6 (494) ... Ease of Use. 4.8\"\n },\n \"g2\": {\n   \"url\": \"https://www.g2.com/products/nocrm-io/reviews\",\n   \"notaGeneral\": 4.7,\n   \"facilidadDeUso\": 9.3,\n   \"escala\": \"10\",\n   \"numeroDeResenas\": 83,\n   \"cita\": \"Ratings ... Ease of Use ... 9.3. 83\"\n },\n \"dondeMire\": [\n   \"https://www.capterra.com/p/144678/noCRM/\",\n   \"https://www.capterra.es/software/144678/you-dont-need-a-crm\",\n   \"https://www.capterra.co.uk\",\n   \"https://www.capterra.ie\",\n   \"https://www.g2.com/products/nocrm-io/reviews\",\n   \"https://www.g2.com/compare/kommo-vs-nocrm-io\"\n ]\n}\n```"
+}

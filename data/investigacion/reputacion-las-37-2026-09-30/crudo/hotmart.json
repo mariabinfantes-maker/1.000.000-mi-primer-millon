@@ -1,0 +1,5 @@
+{
+ "id": "hotmart",
+ "nombre": "Hotmart",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/178878/Hotmart/\",\n    \"notaGeneral\": 4.5,\n    \"facilidadDeUso\": 4.5,\n    \"escala\": 5,\n    \"numeroDeResenas\": 77,\n    \"cita\": \"Hotmart itself holds 4.5 out of 5 across 77 reviews. Hotmart logo · Hotmart · 4.5(77). Ease of use 4.5; Customer service 4.0; Features 4.4; Value for money 4.3. Ease of use. 4.5(77).\"\n  },\n  \"g2\": {\n    \"url\": null,\n    \"notaGeneral\": null,\n    \"facilidadDeUso\": null,\n    \"escala\": null,\n    \"numeroDeResenas\": null,\n    \"cita\": null\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/178878/Hotmart/\",\n    \"https://www.capterra.es\",\n    \"https://www.capterra.ie\",\n    \"https://www.capterra.co.uk\",\n    \"https://www.g2.com/products/hotmart\"\n  ]\n}\n```"
+}

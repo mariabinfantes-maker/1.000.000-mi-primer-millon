@@ -94,7 +94,18 @@
     "g2Puntuacion": 4.9,
     "g2NumeroResenas": 580,
     "capterraPuntuacion": 4.8,
-    "capterraNumeroResenas": 530
+    "capterraNumeroResenas": 530,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/106361/Less-Annoying-CRM/reviews/",
+      "cita": "Reviews of Less Annoying CRM. Ease of use. 4.9. — leido 4.8/5 con 659 reseñas. Confirma el 4.8 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/less-annoying-crm/reviews",
+      "cita": "Ratings. Meets Requirements. 9.2. 10. 9.4. 555. Ease of Use. 8.7. 9. 9.8. 557. — leido 4.9/5 con 557 reseñas. Confirma el 4.9 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Interfaz extraordinariamente limpia, intuitiva y fácil de configurar en minutos",

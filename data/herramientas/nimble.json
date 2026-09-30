@@ -97,7 +97,18 @@
     "g2Puntuacion": 4.5,
     "g2NumeroResenas": 1050,
     "capterraPuntuacion": 4.4,
-    "capterraNumeroResenas": 1850
+    "capterraNumeroResenas": 1850,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/118314/Nimble/reviews/",
+      "cita": "Reviews of Nimble. Ease of use. 4.3. Customer Service. 4.3. — leido 4.4/5 con 1480 reseñas. Confirma el 4.4 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/nimble/reviews",
+      "cita": "Ease of Use. NetSuite. 7.5. 7.5 4,182. Nimble CRM. 8.9. 8.9 948. — leido 4.5/5 con 948 reseñas. Confirma el 4.5 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Extensión Nimble Prospector sumamente potente para trabajar desde cualquier pestaña web o buzón de correo",

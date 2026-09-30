@@ -104,7 +104,18 @@
     "g2Puntuacion": 4.8,
     "g2NumeroResenas": 85,
     "capterraPuntuacion": 4.8,
-    "capterraNumeroResenas": 20
+    "capterraNumeroResenas": 20,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/214309/Reclaim/",
+      "cita": "Ease Of Use. 4.6 (10). — leido 4.7/5 con 10 reseñas. Confirma el 4.8 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/reclaim-ai/reviews",
+      "cita": "Reclaim.ai Reviews (144). View 1 Video Reviews. 4.8. 144 reviews. Pros & Cons. Generated from real user reviews. Time-sa — leido 4.8/5 con 144 reseñas. Confirma el 4.8 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Excelente automatización para reajustar reuniones y tareas sin intervención manual",

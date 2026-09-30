@@ -1,0 +1,5 @@
+{
+ "id": "reclaim-ai",
+ "nombre": "Reclaim.ai",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/214309/Reclaim/\",\n    \"notaGeneral\": 4.7,\n    \"facilidadDeUso\": 4.6,\n    \"escala\": \"5\",\n    \"numeroDeResenas\": 10,\n    \"cita\": \"Ease Of Use. 4.6 (10).\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/reclaim-ai/reviews\",\n    \"notaGeneral\": 4.8,\n    \"facilidadDeUso\": null,\n    \"escala\": \"5\",\n    \"numeroDeResenas\": 144,\n    \"cita\": \"Reclaim.ai Reviews (144). View 1 Video Reviews. 4.8. 144 reviews. Pros & Cons. Generated from real user reviews. Time-saving (58) Scheduling (58) Ease of Use (53)\"\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/214309/Reclaim/\",\n    \"https://www.capterra.co.uk/p/214309/Reclaim/\",\n    \"https://www.capterra.es/\",\n    \"https://www.capterra.ie/\",\n    \"https://www.g2.com/products/reclaim-ai/reviews\"\n  ]\n}\n```"
+}

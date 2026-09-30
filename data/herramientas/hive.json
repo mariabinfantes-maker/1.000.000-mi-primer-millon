@@ -116,7 +116,18 @@
         "numeroResenas": 80,
         "enlace": "https://www.trustradius.com/products/hive/reviews"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/162788/Hive/reviews/",
+      "cita": "Reviews of Hive. Ease of use. 4.4. — leido 4.4/5 con 219 reseñas. Confirma el 4.5 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/hive-hive-hive/reviews",
+      "cita": "Ease of Use. Hive. 9.1. 9.1 552. — leido 4.6/5 con 552 reseñas. Confirma el 4.6 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Soporte nativo para múltiples vistas flexibles sin necesidad de plugins.",

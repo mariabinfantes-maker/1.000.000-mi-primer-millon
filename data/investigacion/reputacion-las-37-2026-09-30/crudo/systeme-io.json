@@ -1,0 +1,5 @@
+{
+ "id": "systeme-io",
+ "nombre": "Systeme.io",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/204207/systeme-io/reviews/\",\n    \"notaGeneral\": 4.8,\n    \"facilidadDeUso\": 4.6,\n    \"escala\": 5,\n    \"numeroDeResenas\": 2129,\n    \"cita\": \"Reviews of Systeme.io\\n\\n Ease of use\\n\\n 4.6\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/systeme-io/reviews\",\n    \"notaGeneral\": 4.8,\n    \"facilidadDeUso\": null,\n    \"escala\": 5,\n    \"numeroDeResenas\": 751,\n    \"cita\": \"Systeme.io\\n\\n By Systeme.io\\n\\n 4.8/5(751)\"\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/204207/systeme-io/reviews/\",\n    \"https://www.capterra.es/software/204207/systeme-io\",\n    \"https://www.capterra.co.uk/software/204207/systeme-io\",\n    \"https://www.capterra.ie/software/204207/systeme-io\",\n    \"https://www.g2.com/products/systeme-io/reviews\"\n  ]\n}\n```"
+}

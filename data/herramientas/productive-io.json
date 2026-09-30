@@ -103,7 +103,18 @@
     "g2Puntuacion": 4.6,
     "g2NumeroResenas": 170,
     "capterraPuntuacion": 4.6,
-    "capterraNumeroResenas": 80
+    "capterraNumeroResenas": 80,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/162817/Productive/",
+      "cita": "Productive. 4.6 (108). Provider data verified by our Software Research team, and reviews moderated by our Reviews Verifi — leido 4.6/5 con 108 reseñas. Confirma el 4.6 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/productive/reviews",
+      "cita": "Productive. 4.6/5(76) [...] Ratings. Meets Requirements. 8.8. 60. Worksection. 9.3. 96. Ease of Use. 8.8. 62. — leido 4.6/5 con 62 reseñas. Confirma el 4.6 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Excelente capacidad para medir la rentabilidad de cada proyecto en tiempo real",

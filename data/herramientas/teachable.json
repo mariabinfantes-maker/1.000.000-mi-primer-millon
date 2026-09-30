@@ -107,7 +107,18 @@
     "g2Puntuacion": 4,
     "g2NumeroResenas": 620,
     "capterraPuntuacion": 4.4,
-    "capterraNumeroResenas": 310
+    "capterraNumeroResenas": 310,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/153106/Teachable/",
+      "cita": "Overall Rating: 4.2 (185). Ease of Use. 4.2. — leido 4.2/5 con 185 reseñas. Confirma el 4.4 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/teachable/reviews",
+      "cita": "Teachable Reviews (52). 3.8. 52 reviews. — leido 3.8/5 con 52 reseñas. Confirma el 4 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Teachable Pay asume la recaudación y remisión del IVA y taxes de ventas globales.",

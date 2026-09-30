@@ -1,0 +1,5 @@
+{
+ "id": "paymo",
+ "nombre": "Paymo",
+ "texto": "```json\n{\n \"abierta\": true,\n \"capterra\": {\n   \"url\": \"https://www.capterra.com/p/120550/Paymo/\",\n   \"notaGeneral\": 4.7,\n   \"facilidadDeUso\": 4.6,\n   \"escala\": 5,\n   \"numeroDeResenas\": 686,\n   \"cita\": \"Overall rating. Based on 686 user reviews. 4.7. ... Features4.5. Value for Money4.6. Ease of Use4.6. Customer Service4.7.\"\n },\n \"g2\": {\n   \"url\": \"https://www.g2.com/products/paymo/reviews\",\n   \"notaGeneral\": 4.6,\n   \"facilidadDeUso\": 9.0,\n   \"escala\": 10,\n   \"numeroDeResenas\": 528,\n   \"cita\": \"Ease of Use. Paymo. 9.0. 9.0 528.\"\n },\n \"dondeMire\": [\n   \"https://www.capterra.com/p/120550/Paymo/\",\n   \"https://www.capterra.es\",\n   \"https://www.capterra.co.uk\",\n   \"https://www.capterra.ie\",\n   \"https://www.g2.com/products/paymo/reviews\"\n ]\n}\n```"
+}

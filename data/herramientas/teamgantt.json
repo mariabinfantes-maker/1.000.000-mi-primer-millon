@@ -105,7 +105,18 @@
         "numeroResenas": 75,
         "enlace": "https://www.trustradius.com/products/teamgantt/reviews"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/135048/TeamGantt/reviews/",
+      "cita": "Reviews of TeamGantt. Ease of use. 4.5. — leido 4.6/5 con 204 reseñas. Confirma el 4.6 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/teamgantt/reviews",
+      "cita": "Ease of Use. 8.6. 133. 9.2. 764. — leido 4.8/5 con 764 reseñas. Confirma el 4.8 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Interfaz sumamente intuitiva y visual que requiere mínimo entrenamiento.",

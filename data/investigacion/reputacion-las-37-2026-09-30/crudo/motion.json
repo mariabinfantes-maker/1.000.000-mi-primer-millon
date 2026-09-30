@@ -1,0 +1,5 @@
+{
+ "id": "motion",
+ "nombre": "Motion",
+ "texto": "```json\n{\n \"abierta\": true,\n \"capterra\": {\n  \"url\": \"https://www.capterra.com/p/211997/Motion/\",\n  \"notaGeneral\": 4.3,\n  \"facilidadDeUso\": 4.2,\n  \"escala\": 5.0,\n  \"numeroDeResenas\": 89,\n  \"cita\": \"Ease Of Use 4.2 (89)\"\n },\n \"g2\": {\n  \"url\": \"https://www.g2.com/products/motion/reviews\",\n  \"notaGeneral\": 4.1,\n  \"facilidadDeUso\": null,\n  \"escala\": 5.0,\n  \"numeroDeResenas\": 157,\n  \"cita\": null\n },\n \"dondeMire\": [\n  \"https://www.capterra.com/p/211997/Motion/\",\n  \"https://www.capterra.es\",\n  \"https://www.capterra.co.uk\",\n  \"https://www.capterra.ie\",\n  \"https://www.g2.com/products/motion/reviews\"\n ]\n}\n```"
+}

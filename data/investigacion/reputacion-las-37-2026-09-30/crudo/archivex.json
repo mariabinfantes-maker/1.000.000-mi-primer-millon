@@ -1,0 +1,5 @@
+{
+ "id": "archivex",
+ "nombre": "Archivex",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/262529/Archivex/\",\n    \"notaGeneral\": null,\n    \"facilidadDeUso\": null,\n    \"escala\": null,\n    \"numeroDeResenas\": 0,\n    \"cita\": \"Archivex. 0.0 (0).\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/archivex/reviews\",\n    \"notaGeneral\": null,\n    \"facilidadDeUso\": null,\n    \"escala\": null,\n    \"numeroDeResenas\": null,\n    \"cita\": null\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/262529/Archivex/\",\n    \"https://www.capterra.es/software/262529/archivex\",\n    \"https://www.capterra.co.uk/software/archivex\",\n    \"https://www.capterra.ie/software/archivex\",\n    \"https://www.g2.com/products/archivex/reviews\"\n  ]\n}\n```"
+}

@@ -1,0 +1,5 @@
+{
+ "id": "capsule-crm",
+ "nombre": "Capsule CRM",
+ "texto": "```json\n{\n \"abierta\": true,\n \"capterra\": {\n  \"url\": \"https://www.capterra.com/p/118334/Capsule/\",\n  \"notaGeneral\": 4.5,\n  \"facilidadDeUso\": 4.6,\n  \"escala\": 5,\n  \"numeroDeResenas\": 164,\n  \"cita\": \"Overall rating. Based on 168 user reviews. 4.5. [...] Ease Of Use. 4.6 (164).\"\n },\n \"g2\": {\n  \"url\": \"https://www.g2.com/products/capsule-crm/reviews\",\n  \"notaGeneral\": 4.7,\n  \"facilidadDeUso\": 9.4,\n  \"escala\": 10,\n  \"numeroDeResenas\": 457,\n  \"cita\": \"Ratings. Meets Requirements. Capsule CRM. 9.0. 9.0 431. Coevera. 9.1. 9.1 376. Ease of Use. Capsule CRM. 9.4. 9.4 457.\"\n },\n \"dondeMire\": [\n  \"https://www.capterra.com/p/118334/Capsule/\",\n  \"https://www.capterra.es/software/118334/capsule\",\n  \"https://www.capterra.ie/software/118334/capsule\",\n  \"https://www.capterra.co.uk/software/118334/capsule\",\n  \"https://www.g2.com/products/capsule-crm/reviews\"\n ]\n}\n```"
+}

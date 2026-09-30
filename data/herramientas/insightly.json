@@ -116,7 +116,18 @@
         "numeroResenas": 250,
         "enlace": "https://www.trustradius.com/products/insightly/reviews"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.co.uk",
+      "cita": "Ratings. Overall. 4.0 (654) Reviews. Ease of Use. 4.0 (654) Reviews. — leido 4/5 con 654 reseñas. Confirma el 4.2 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/insightly-crm/reviews",
+      "cita": "Ratings. Meets Requirements. Insightly CRM. 8.2. 8.2 804. Ease of Use. Insightly CRM. 8.4. 8.4 809. — leido 4.2/5 con 809 reseñas. Confirma el 4.2 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Integración nativa fluida entre las etapas de ventas (CRM) y la entrega del trabajo (gestión de proyectos).",

@@ -1,0 +1,5 @@
+{
+ "id": "honeybook",
+ "nombre": "HoneyBook",
+ "texto": "```json\n{\n \"abierta\": true,\n \"capterra\": {\n  \"url\": \"https://www.capterra.com/p/162024/HoneyBook/reviews/\",\n  \"notaGeneral\": 4.7,\n  \"facilidadDeUso\": 4.6,\n  \"escala\": \"5\",\n  \"numeroDeResenas\": 689,\n  \"cita\": \"Reviews of HoneyBook. Ease of use. 4.6.\"\n },\n \"g2\": {\n  \"url\": \"https://www.g2.com/products/honeybook/reviews\",\n  \"notaGeneral\": 4.5,\n  \"facilidadDeUso\": 8.8,\n  \"escala\": \"10\",\n  \"numeroDeResenas\": 182,\n  \"cita\": \"Ease of Use. HoneyBook. 8.8. 8.8 182.\"\n },\n \"dondeMire\": [\n  \"https://www.capterra.com/p/162024/HoneyBook/reviews/\",\n  \"https://www.capterra.es/software/162024/honeybook\",\n  \"https://www.capterra.ie/software/162024/honeybook\",\n  \"https://www.capterra.co.uk/p/162024/HoneyBook/\",\n  \"https://www.g2.com/products/honeybook/reviews\"\n ]\n}\n```"
+}

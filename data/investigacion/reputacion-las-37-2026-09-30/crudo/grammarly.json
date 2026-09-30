@@ -1,0 +1,5 @@
+{
+ "id": "grammarly",
+ "nombre": "Grammarly",
+ "texto": "```json\n{\n \"abierta\": true,\n \"capterra\": {\n   \"url\": \"https://www.capterra.com/p/178116/Grammarly-Business/\",\n   \"notaGeneral\": 4.7,\n   \"facilidadDeUso\": 4.8,\n   \"escala\": \"5\",\n   \"numeroDeResenas\": 7224,\n   \"cita\": \"Ease Of Use. 4.8 (7,224).\"\n },\n \"g2\": {\n   \"url\": \"https://www.g2.com/products/grammarly/reviews\",\n   \"notaGeneral\": 4.7,\n   \"facilidadDeUso\": 9.3,\n   \"escala\": \"10\",\n   \"numeroDeResenas\": 10873,\n   \"cita\": \"Ease of Use. Grammarly. 9.3. 9.3 10,873.\"\n },\n \"dondeMire\": [\n   \"https://www.capterra.com/p/178116/Grammarly-Business/\",\n   \"https://www.capterra.es\",\n   \"https://www.capterra.ie\",\n   \"https://www.capterra.co.uk\",\n   \"https://www.g2.com/products/grammarly/reviews\"\n ]\n}\n```"
+}

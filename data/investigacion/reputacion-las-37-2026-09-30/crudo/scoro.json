@@ -1,0 +1,5 @@
+{
+ "id": "scoro",
+ "nombre": "Scoro",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/149811/Scoro/\",\n    \"notaGeneral\": 4.5,\n    \"facilidadDeUso\": 4.4,\n    \"escala\": \"1-5\",\n    \"numeroDeResenas\": 263,\n    \"cita\": \"Reviews of Scoro. Ease of use. 4.4.\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/scoro/reviews\",\n    \"notaGeneral\": 4.5,\n    \"facilidadDeUso\": 8.8,\n    \"escala\": \"1-10\",\n    \"numeroDeResenas\": 404,\n    \"cita\": \"Ease of Use. Scoro. 8.8. 8.8 404.\"\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/149811/Scoro/\",\n    \"https://www.capterra.es/software/149811/scoro\",\n    \"https://www.capterra.co.uk/software/149811/scoro\",\n    \"https://www.capterra.ie/software/149811/scoro\",\n    \"https://www.g2.com/products/scoro/reviews\",\n    \"https://www.g2.com/compare/scoro-vs-monday-ai-work-platform\"\n  ]\n}\n```"
+}
