@@ -178,7 +178,7 @@ describe("el uso sin confirmar", () => {
     expect(() => textoDeUsoSinConfirmar("inventado")).toThrow();
   });
 
-  it("las dos filas de servicios están donde una peluquera entra: Ahorrar tiempo, Atención y Automatizar", () => {
+  it("las dos filas de servicios están donde entra quien da cita: Ahorrar tiempo, Atención y Automatizar", () => {
     for (const objetivo of ["ahorrar-tiempo", "atencion-cliente"]) {
       const ids = preguntaParaObjetivo(objetivo)!.familias.flatMap((f) => f.filas.map((x) => x.id));
       expect(ids, objetivo).toEqual(expect.arrayContaining(["servicio-reserva", "servicio-recordatorios"]));

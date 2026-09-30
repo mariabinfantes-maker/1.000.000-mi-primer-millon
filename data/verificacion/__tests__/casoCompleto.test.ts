@@ -26,7 +26,7 @@ import { USOS } from "../usos";
  *
  * `cap.online_self_service_booking` NO distingue las dos cosas. Reclaim.ai
  * agenda reuniones; Pipedrive, llamadas de venta. Demostrar la capacidad no
- * demuestra que sirva para una peluquería, y **de los 1.547 registros, CERO
+ * demuestra que sirva para dar cita a un servicio, y **de los 1.547 registros, CERO
  * tienen un uso comprobado**. Así que no son cuatro que resuelven: son cuatro
  * CANDIDATAS, y el límite se dice.
  *
@@ -92,7 +92,17 @@ const EL_CASO: NecesidadDelCaso[] = [
 
 const SOLO_LO_QUE_DIJO: NecesidadDelCaso[] = EL_CASO.slice(0, 2);
 
-describe("el caso de la peluquera, con los datos de hoy", () => {
+/**
+ * El nombre de este caso era «el caso de la peluquera» y se cambia el
+ * 2026-09-30 por orden de la propietaria, que ya había desactivado ese ejemplo
+ * en `AGENTS.md` y se lo seguía encontrando aquí. Lo que se prueba no ha
+ * cambiado ni una línea: son las mismas tres necesidades —reservas, factura y
+ * agenda— con los mismos datos.
+ *
+ * La cita suya de arriba SÍ se deja tal cual: son sus palabras, y las palabras
+ * de alguien no se reescriben para que encajen con una decisión posterior.
+ */
+describe("reservas, factura y agenda, con los datos de hoy", () => {
   const candidatas = HERRAMIENTAS.filter((h) => {
     const a = ajusteConLoQuePidio(SOLO_LO_QUE_DIJO, loQueSabemosDe(h.id));
     return a.resuelveImprescindibles === a.deImprescindibles;
@@ -117,7 +127,7 @@ describe("el caso de la peluquera, con los datos de hoy", () => {
 
   /**
    * LA PRUEBA QUE IMPIDE LA PROMESA DE MÁS. Mientras ninguna demuestre el uso,
-   * ninguna puede presentarse como que resuelve lo de una peluquería.
+   * ninguna puede presentarse como que resuelve dar cita a un servicio.
    */
   it("ninguna candidata tiene comprobado que la reserva sirva para un servicio", () => {
     for (const h of candidatas) {

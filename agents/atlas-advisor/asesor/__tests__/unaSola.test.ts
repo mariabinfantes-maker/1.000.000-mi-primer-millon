@@ -52,7 +52,7 @@ const imp = (id: string): NecesidadDelCaso => ({ necesidad: getNecesidad(id)!, i
 describe.skip("la regla de la casa: una sola, o ninguna y una pregunta", () => {
   const CASOS: { quien: string; trae: NecesidadDelCaso[] }[] = [
     ...getOficios().map((o) => ({ quien: o.nombre, trae: loQueTraeUnOficio(o.id) })),
-    { quien: "peluquería: citas + facturar", trae: [imp("nec.que-reserven-solos"), imp("nec.emitir-una-factura-legal")] },
+    { quien: "citas + facturar", trae: [imp("nec.que-reserven-solos"), imp("nec.emitir-una-factura-legal")] },
     { quien: "reformas: presupuesto + facturar", trae: [imp("nec.presupuestar-rapido"), imp("nec.emitir-una-factura-legal")] },
     { quien: "sólo la factura obligatoria", trae: [imp("nec.la-factura-obligatoria")] },
   ];

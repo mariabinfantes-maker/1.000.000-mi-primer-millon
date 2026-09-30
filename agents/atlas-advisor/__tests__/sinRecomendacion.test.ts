@@ -32,7 +32,13 @@ function recomendarDesdeTextoLibre(texto: string, extra: Record<string, unknown>
   );
 }
 
-describe("el caso de la peluquera", () => {
+/**
+ * El nombre era «el caso de la peluquera» y se cambia el 2026-09-30 por orden
+ * de la propietaria. La FRASE de abajo NO se toca: es la entrada que se prueba
+ * —el texto que escribiría una persona—, no una etiqueta nuestra, y cambiarla
+ * cambiaría lo que esta prueba mide.
+ */
+describe("el caso de quien pierde citas", () => {
   const FRASE = "Soy peluquera, estoy perdiendo citas";
 
   it("no recomienda nada, en vez de recomendar cualquier cosa", () => {
