@@ -11,6 +11,13 @@ import {
   espanolDe,
   type EspanolDeUnaHerramienta,
 } from "./espanol";
+import {
+  comoSeDice,
+  importeDelPlanQueCubre,
+  sonComparables,
+  sumar,
+  type ImporteComparable,
+} from "./precio";
 
 /**
  * El paso 4 del asesor: ACONSEJAR.
@@ -107,6 +114,15 @@ export type Coste = {
    * `espanol.ts`; aquí sólo viaja el estado, sin resolverlo en un sí/no.
    */
   espanol: EspanolDeUnaHerramienta;
+  /**
+   * El precio DEL PLAN QUE CUBRE LO QUE PIDIÓ, cuando se puede comparar con
+   * el de al lado: misma moneda, misma periodicidad y la misma forma de
+   * cobrar. `null` cuando no se puede, que es lo normal —de 57 fichas con
+   * tarifa comprobada, 45 están en dólares y 12 en euros—. El porqué está en
+   * `precio.ts`; `desde` sigue siendo el texto de la tarifa, tal cual, y es
+   * lo que se enseña.
+   */
+  importe: ImporteComparable | null;
 };
 
 export type Pieza = {
@@ -295,6 +311,14 @@ function aPieza(
       const h = fichas.get(p.herramientaId);
       const queResuelve: QueResuelve[] = [];
       const faltaPorConfirmar: string[] = [];
+      /**
+       * Los planes que F2 demostró para lo que ella pidió. Si esta pieza cubre
+       * dos necesidades y cada una vive en un plan distinto, no sabemos cuál
+       * de los dos incluye al otro —el esquema no ordena los escalones—, así
+       * que no hay precio comparable y el precio no decidirá. Inventar aquí el
+       * «mayor» sería adivinar la tarifa de otro.
+       */
+      const planesQueCubren = new Set<string>();
 
       for (const id of p.cubre) {
         const nec = getNecesidad(id);
@@ -305,6 +329,7 @@ function aPieza(
           const ev = puerto.estadoDe(p.herramientaId, cap);
           if (ev.estado !== "demostrada" || !ev.fuente) continue;
           cita = { necesidad: nec.titulo, loQueTeCuesta: nec.loQueTeCuesta, url: ev.fuente.url, fecha: ev.fuente.fechaConsulta };
+          if (ev.plan?.certeza === "verificado" && ev.plan.nombre) planesQueCubren.add(ev.plan.nombre);
           if (ev.plan?.certeza !== "verificado") {
             faltaPorConfirmar.push(`En qué plan entra «${nec.titulo.toLowerCase()}»: lo hemos visto en su página, pero no en qué tarifa.`);
           }
@@ -356,6 +381,9 @@ function aPieza(
           tienePlanGratuito: h?.tienePlanGratuito,
           curva: h?.curvaDeAprendizaje,
           espanol: espanolDe(h),
+          importe: planesQueCubren.size === 1
+            ? importeDelPlanQueCubre(h, [...planesQueCubren][0])
+            : null,
         },
         faltaPorConfirmar: [...new Set(faltaPorConfirmar)],
       };
@@ -389,15 +417,16 @@ const CURVA_ORDEN: Record<string, number> = { muy_facil: 0, facil: 1, media: 2, 
 
 type Opcion = { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[] };
 
-/** El precio de entrada de una solución entera. Suma sus piezas. */
-function euros(o: Opcion): number | null {
-  let total = 0;
-  for (const p of o.piezas) {
-    const m = String(p.coste.desde ?? "").match(/(\d+(?:[.,]\d+)?)/);
-    if (!m) return null;
-    total += parseFloat(m[1].replace(",", "."));
-  }
-  return total;
+/**
+ * Lo que cuesta una solución entera, cuando se puede decir.
+ *
+ * Antes esto era `euros()`, y no eran euros: cogía el primer número del texto
+ * libre de la tarifa y lo sumaba, así que «$9 USD/mes» le ganaba a «15,90 €».
+ * Ahora suma importes que de verdad se pueden sumar, o devuelve `null`. El
+ * porqué entero está en `precio.ts`.
+ */
+function importeDe(o: Opcion): ImporteComparable | null {
+  return sumar(o.piezas.map((p) => p.coste.importe));
 }
 
 const nombreDe = (o: Opcion) => o.piezas.map((p) => p.nombre).join(" + ");
@@ -508,17 +537,38 @@ function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempat
   }
   const quedan2 = gratis.length > 1 ? gratis : quedan1;
 
+  /**
+   * EL PRECIO SÓLO DECIDE CUANDO SE PUEDE COMPARAR DE VERDAD.
+   *
+   * Hacen falta las tres cosas a la vez, y si falla una el precio se retira
+   * del desempate en lugar de inventarse un ganador:
+   *
+   *  1. TODAS tienen importe del plan que cubre lo que pidió. Si a una le
+   *     falta, no se compara a las demás entre ellas: la que falta podría ser
+   *     justo la más barata, y dejarla fuera sería castigarla por un hueco
+   *     NUESTRO.
+   *  2. Todas en la misma moneda, la misma periodicidad y la misma forma de
+   *     cobrar. Aquí no se convierten divisas —la propietaria lo dijo
+   *     expresamente: «no hace falta montar ahora un sistema de cambio de
+   *     divisas»—; se reconoce que no son comparables y punto.
+   *  3. Una es estrictamente más barata que la siguiente.
+   */
   const conPrecio = quedan2
-    .map((o) => ({ o, e: euros(o) }))
-    .filter((x): x is { o: Opcion; e: number } => x.e !== null)
-    .sort((a, b) => a.e - b.e);
-  if (conPrecio.length > 1 && conPrecio[0].e < conPrecio[1].e) {
-    return { elegida: conPrecio[0].o, desempate: {
+    .map((o) => ({ o, i: importeDe(o) }))
+    .filter((x): x is { o: Opcion; i: ImporteComparable } => x.i !== null)
+    .sort((a, b) => a.i.cantidad - b.i.cantidad);
+  const elPrecioPuedeDecidir =
+    conPrecio.length === quedan2.length && sonComparables(conPrecio.map((x) => x.i));
+  if (elPrecioPuedeDecidir && conPrecio.length > 1 && conPrecio[0].i.cantidad < conPrecio[1].i.cantidad) {
+    const g = conPrecio[0];
+    return { elegida: g.o, desempate: {
       criterio: "precio",
-      porQue: `Cubriendo lo mismo, ${nombreDe(conPrecio[0].o)} es la más barata para empezar. Míralo en su tarifa antes de decidir: los precios cambian.`,
+      porQue: `Cubriendo lo mismo, ${nombreDe(g.o)} es la más barata: ${comoSeDice(g.i)} con el plan ${g.i.plan}, que es el que incluye lo que me has pedido. Míralo en su tarifa antes de decidir: los precios cambian.`,
     } };
   }
-  const quedan3 = conPrecio.length > 1 ? conPrecio.filter((x) => x.e === conPrecio[0].e).map((x) => x.o) : quedan2;
+  const quedan3 = elPrecioPuedeDecidir && conPrecio.length > 1
+    ? conPrecio.filter((x) => x.i.cantidad === conPrecio[0].i.cantidad).map((x) => x.o)
+    : quedan2;
 
   const curva = quedan3
     .map((o) => ({ o, c: Math.max(...o.piezas.map((p) => CURVA_ORDEN[p.coste.curva ?? ""] ?? 9)) }))
