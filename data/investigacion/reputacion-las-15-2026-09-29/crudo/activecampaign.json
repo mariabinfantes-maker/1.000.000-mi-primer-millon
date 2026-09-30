@@ -1,0 +1,5 @@
+{
+ "id": "activecampaign",
+ "nombre": "ActiveCampaign",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/65330/ActiveCampaign/\",\n    \"notaGeneral\": 4.6,\n    \"facilidadDeUso\": 4.2,\n    \"escala\": 5,\n    \"numeroDeResenas\": 2537,\n    \"cita\": \"Ease Of Use 4.2 (2,537)\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/activecampaign/reviews\",\n    \"notaGeneral\": 4.4,\n    \"facilidadDeUso\": null,\n    \"escala\": null,\n    \"numeroDeResenas\": null,\n    \"cita\": null\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/65330/ActiveCampaign/\",\n    \"https://www.capterra.com/p/65330/ActiveCampaign/reviews/\",\n    \"https://www.capterra.es/software/65330/activecampaign\",\n    \"https://www.capterra.co.uk\",\n    \"https://www.capterra.ie\",\n    \"https://www.g2.com/products/activecampaign/reviews\"\n  ]\n}\n```"
+}

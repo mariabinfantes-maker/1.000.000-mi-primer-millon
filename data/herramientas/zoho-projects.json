@@ -108,7 +108,18 @@
     "g2Puntuacion": 4.3,
     "g2NumeroResenas": 3600,
     "capterraPuntuacion": 4.3,
-    "capterraNumeroResenas": 4200
+    "capterraNumeroResenas": 4200,
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.com/p/169455/Zoho-Projects/",
+      "cita": "Zoho Projects. 4.5 (872) ... Reviews of Zoho Projects. Ease of use. 4.3. — leido 4.5/5 con 872 reseñas. Confirma el 4.3 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.g2.com/products/zoho-projects/reviews",
+      "cita": "leido 4.4/5. Confirma el 4.3 guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Excelente relación calidad-precio en comparación con la competencia.",

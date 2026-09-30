@@ -112,7 +112,18 @@
     "g2Puntuacion": 4.3,
     "g2NumeroResenas": 10100,
     "capterraPuntuacion": 4.5,
-    "capterraNumeroResenas": 12500
+    "capterraNumeroResenas": 12500,
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.com/p/121172/Asana/",
+      "cita": "Ease Of Use\n\n 4.4 (12,319) — leido 4.5/5 con 12319 reseñas. Confirma el 4.5 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.g2.com/products/asana/reviews",
+      "cita": "leido 4.4/5 con 13992 reseñas. Confirma el 4.3 guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Interfaz de usuario intuitiva, atractiva y fácil de usar desde el primer día.",

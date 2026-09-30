@@ -115,7 +115,18 @@
         "numeroResenas": 2800,
         "enlace": "https://www.trustradius.com/products/smartsheet/reviews"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.com/p/57662/Smartsheet/reviews/",
+      "cita": "Reviews of Smartsheet\n\n Ease of use\n\n 4.3 — leido 4.5/5 con 3552 reseñas. Confirma el 4.5 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.g2.com/products/smartsheet/reviews",
+      "cita": "leido 4.4/5 con 19306 reseñas. Confirma el 4.4 guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Interfaz familiar tipo Excel combinada con la potencia de un gestor de proyectos profesional.",

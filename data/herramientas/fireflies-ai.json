@@ -115,7 +115,18 @@
         "numeroResenas": 150,
         "enlace": "https://www.trustpilot.com/review/fireflies.ai"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.com/p/204218/Fireflies/reviews/",
+      "cita": "Reviews of Fireflies. Ease of use. 4.8. — leido 4.9/5 con 735 reseñas. Confirma el 4.8 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.g2.com/products/fireflies-ai/reviews",
+      "cita": "leido 4.7/5 con 706 reseñas. Confirma el 4.8 guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Ecosistema completo de integraciones nativas con los principales CRM y gestores de videollamadas",

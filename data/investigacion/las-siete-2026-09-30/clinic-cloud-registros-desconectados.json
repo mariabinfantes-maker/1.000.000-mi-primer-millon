@@ -1,0 +1,118 @@
+{
+  "porQue": "Clinic Cloud se quedó fuera del catálogo el 2026-09-30 por decisión de la propietaria: su tarifa no publica usuarios y sin tamaño no entra. Estos 5 registros de capacidad están VERIFICADOS con cita y dirección, y se sacan de registros.json sólo porque el validador exige que la herramienta exista en el catálogo. NO SE BORRAN: el día que entre, se devuelven tal cual y no hay que volver a investigar nada.",
+  "fecha": "2026-09-30",
+  "registros": [
+    {
+      "herramientaId": "clinic-cloud",
+      "capacidadId": "cap.online_self_service_booking",
+      "estado": "verificado",
+      "profundidad": "integracion",
+      "integraCon": "Doctoralia",
+      "planEstado": "desconocido",
+      "fuentes": [
+        {
+          "tipo": "documentacion",
+          "url": "https://clinic-cloud.com/faq/doctoralia/como-permitir-que-tus-pacientes-reserven-cita-online-desde-cualquier-canal-doctoralia",
+          "fechaConsulta": "2026-09-30",
+          "cita": "El paciente accede y ve tu disponibilidad en tiempo real. […] Selecciona fecha y hora.",
+          "rol": "capacidad"
+        },
+        {
+          "tipo": "tarifa_oficial",
+          "url": "https://clinic-cloud.com/tarifas",
+          "fechaConsulta": "2026-09-30",
+          "cita": "reserva online 24/7 (Doctoralia)",
+          "rol": "capacidad"
+        }
+      ],
+      "confianza": "alta",
+      "nota": "La reserva se realiza mediante Doctoralia y se registra automáticamente en Clinic Cloud. La ayuda distingue funciones adicionales del plan PRO de Doctoralia; no lo confundo con el plan Pro de Clinic Cloud. Plan que nombró la tarifa: Mini.",
+      "proximaRevision": "2027-09-30"
+    },
+    {
+      "herramientaId": "clinic-cloud",
+      "capacidadId": "cap.customer_appointment_reminders",
+      "estado": "verificado",
+      "profundidad": "nativa",
+      "planEstado": "desconocido",
+      "fuentes": [
+        {
+          "tipo": "documentacion",
+          "url": "https://clinic-cloud.com/faq/configuracion-centro/configuraci%C3%B3n-clinic-cloud",
+          "fechaConsulta": "2026-09-30",
+          "cita": "podemos programar los recordatorios de cita para que se envíen de manera automática, via email y SMS.",
+          "rol": "capacidad"
+        }
+      ],
+      "confianza": "alta",
+      "nota": "Verificados los recordatorios automáticos por email y SMS del propio programa. Los SMS necesitan crédito; no se presupone envío ilimitado. Plan que nombró la tarifa: Mini.",
+      "proximaRevision": "2027-09-30"
+    },
+    {
+      "herramientaId": "clinic-cloud",
+      "capacidadId": "cap.booking_cancellation_and_rescheduling",
+      "estado": "verificado",
+      "profundidad": "integracion",
+      "integraCon": "Doctoralia",
+      "planEstado": "desconocido",
+      "fuentes": [
+        {
+          "tipo": "documentacion",
+          "url": "https://clinic-cloud.com/faq/agenda-y-comunicaciones/calendario-online-en-p%C3%A1gina-web-de-cl%C3%ADnica",
+          "fechaConsulta": "2026-09-30",
+          "cita": "modificar o cancelar su cita desde las notificaciones recibidas.",
+          "rol": "capacidad"
+        }
+      ],
+      "confianza": "alta",
+      "nota": "La guía confirma que el paciente puede modificar y cancelar desde las notificaciones de la reserva. No detalla en esa página el plan mínimo ni todas las restricciones temporales.",
+      "proximaRevision": "2027-09-30"
+    },
+    {
+      "herramientaId": "clinic-cloud",
+      "capacidadId": "cap.capacity_and_time_slots",
+      "estado": "verificado",
+      "profundidad": "nativa",
+      "planEstado": "desconocido",
+      "fuentes": [
+        {
+          "tipo": "pagina_oficial",
+          "url": "https://clinic-cloud.com/agenda",
+          "fechaConsulta": "2026-09-30",
+          "cita": "Gestiona grupos recurrentes y su aforo para sesiones grupales de forma sencilla.",
+          "rol": "capacidad"
+        },
+        {
+          "tipo": "documentacion",
+          "url": "https://clinic-cloud.com/faq/agenda-y-comunicaciones/configuracion-de-agendas",
+          "fechaConsulta": "2026-09-30",
+          "cita": "Si lo configuras en 30 minutos, no podrás dar una cita a y cuarto.",
+          "rol": "capacidad"
+        }
+      ],
+      "confianza": "alta",
+      "nota": "Pro incorpora gestión de grupos. Se verifican aforo, horarios e intervalos de agenda. El aforo es informativo y puede sobrepasarse. No he demostrado un descanso automático obligatorio entre todas las citas. Plan que nombró la tarifa: Pro.",
+      "proximaRevision": "2027-09-30"
+    },
+    {
+      "herramientaId": "clinic-cloud",
+      "capacidadId": "cap.embeddable_booking_widget",
+      "estado": "verificado",
+      "profundidad": "integracion",
+      "integraCon": "Doctoralia",
+      "planEstado": "desconocido",
+      "fuentes": [
+        {
+          "tipo": "documentacion",
+          "url": "https://clinic-cloud.com/faq/agenda-y-comunicaciones/calendario-online-en-p%C3%A1gina-web-de-cl%C3%ADnica",
+          "fechaConsulta": "2026-09-30",
+          "cita": "Genera el código HTML",
+          "rol": "capacidad"
+        }
+      ],
+      "confianza": "alta",
+      "nota": "La guía explica cómo generar e insertar HTML en la web. Entre los formatos incluye profesionales con sus agendas, además de botones y enlaces. La verificación se refiere al formato que muestra las agendas, no al simple botón.",
+      "proximaRevision": "2027-09-30"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+ "id": "agiled",
+ "nombre": "Agiled",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/204217/Agiled/\",\n    \"notaGeneral\": 4.7,\n    \"facilidadDeUso\": 4.6,\n    \"escala\": 5.0,\n    \"numeroDeResenas\": 350,\n    \"cita\": \"Ease Of Use. 4.6 (350).\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/agiled/reviews\",\n    \"notaGeneral\": 4.7,\n    \"facilidadDeUso\": 8.9,\n    \"escala\": 10.0,\n    \"numeroDeResenas\": 190,\n    \"cita\": \"Ease of Use. 8.9. 190.\"\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com\",\n    \"https://www.capterra.es\",\n    \"https://www.capterra.co.uk\",\n    \"https://www.capterra.ie\",\n    \"https://www.capterra.com/p/204217/Agiled/\",\n    \"https://www.g2.com\",\n    \"https://www.g2.com/products/agiled/reviews\",\n    \"https://www.g2.com/compare/agiled-vs-edworking\"\n  ]\n}\n```"
+}

@@ -114,7 +114,18 @@
         "numeroResenas": 1100,
         "enlace": "https://www.trustradius.com/products/wrike/reviews"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.com/p/76113/Wrike/",
+      "cita": "Overall rating. Based on 3,040 user reviews. 4.4. [...] Ease of use. 4.2. — leido 4.4/5 con 3040 reseñas. Confirma el 4.3 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.g2.com/products/wrike/reviews",
+      "cita": "leido 4.2/5 con 3732 reseñas. Confirma el 4.2 guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Altamente configurable y adaptable a procesos complejos de negocio",

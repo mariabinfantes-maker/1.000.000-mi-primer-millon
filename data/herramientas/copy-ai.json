@@ -97,7 +97,13 @@
     "g2Puntuacion": 4.7,
     "g2NumeroResenas": 1800,
     "capterraPuntuacion": 4.5,
-    "capterraNumeroResenas": 600
+    "capterraNumeroResenas": 600,
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.com/p/236813/CopyAI/",
+      "cita": "Ease Of Use\n\n 4.6 (67) — leido 4.4/5 con 67 reseñas. Confirma el 4.5 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Interfaz muy intuitiva y sencilla de usar desde el primer día",

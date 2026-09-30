@@ -1,0 +1,5 @@
+{
+ "id": "nifty",
+ "nombre": "Nifty",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/178496/Nifty/reviews/\",\n    \"notaGeneral\": 4.6,\n    \"facilidadDeUso\": 4.5,\n    \"escala\": \"1-5\",\n    \"numeroDeResenas\": 440,\n    \"cita\": \"Reviews of Nifty. Ease of use. 4.5. Customer Service. 4.5.\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/nifty/reviews\",\n    \"notaGeneral\": 4.7,\n    \"facilidadDeUso\": null,\n    \"escala\": \"1-5\",\n    \"numeroDeResenas\": 442,\n    \"cita\": \"Users consistently praise Nifty for its intuitive design and ease of use, making project management straightforward and efficient.\"\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/178496/Nifty/reviews/\",\n    \"https://www.capterra.es/software/178496/nifty\",\n    \"https://www.capterra.co.uk/software/178496/nifty\",\n    \"https://www.capterra.ie/\",\n    \"https://www.g2.com/products/nifty/reviews\"\n  ]\n}\n```"
+}

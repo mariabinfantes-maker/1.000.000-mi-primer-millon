@@ -114,7 +114,18 @@
         "numeroResenas": 2800,
         "enlace": "https://www.trustradius.com/products/monday-com/reviews"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.com/p/147657/monday-com/",
+      "cita": "Overall rating. Based on 6,118 user reviews. 4.6. [...] Ease of use 4.5 — leido 4.6/5 con 6118 reseñas. Confirma el 4.6 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.g2.com/products/monday-ai-work-platform/reviews",
+      "cita": "leido 4.7/5 con 17238 reseñas. Confirma el 4.7 guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Interfaz de usuario excepcionalmente intuitiva, colorida y fácil de adoptar",

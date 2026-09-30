@@ -107,7 +107,18 @@
     "g2Puntuacion": 4.6,
     "g2NumeroResenas": 45,
     "capterraPuntuacion": 4.7,
-    "capterraNumeroResenas": 320
+    "capterraNumeroResenas": 320,
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.com/p/204217/Agiled/",
+      "cita": "Ease Of Use. 4.6 (350). — leido 4.7/5 con 350 reseñas. Confirma el 4.7 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.g2.com/products/agiled/reviews",
+      "cita": "leido 4.7/5 con 190 reseñas. Confirma el 4.6 guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Amplia variedad de funcionalidades integradas a un coste reducido frente a adquirir herramientas por separado.",

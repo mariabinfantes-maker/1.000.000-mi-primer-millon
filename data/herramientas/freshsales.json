@@ -110,7 +110,18 @@
         "numeroResenas": 200,
         "enlace": "https://www.trustradius.com/products/freshsales/reviews"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.com/p/153676/Freshsales/",
+      "cita": "Ease of Use. 4.2. Customer Service. 4.1. Reviews Sentiment. User 1. User 2. User 3. Based on 622 reviews. — leido 4.5/5 con 622 reseñas. Confirma el 4.5 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.g2.com/products/freshsales/reviews",
+      "cita": "leido 4.5/5 con 1061 reseñas. Confirma el 4.5 guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Excelente interfaz de usuario, moderna y de rápida adopción",

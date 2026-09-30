@@ -111,7 +111,18 @@
     "g2Puntuacion": 4,
     "g2NumeroResenas": 340,
     "capterraPuntuacion": 4.1,
-    "capterraNumeroResenas": 500
+    "capterraNumeroResenas": 500,
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.com/p/135003/Agile-CRM/",
+      "cita": "Overall rating. Based on 526 user reviews. 4.1. ... Ease of Use4.0. — leido 4.1/5 con 526 reseñas. Confirma el 4.1 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.g2.com/products/agile-crm/reviews",
+      "cita": "leido 4/5 con 323 reseñas. Confirma el 4 guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Excelente relación calidad-precio en comparación con la competencia directa.",

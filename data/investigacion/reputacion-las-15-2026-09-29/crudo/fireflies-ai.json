@@ -1,0 +1,5 @@
+{
+ "id": "fireflies-ai",
+ "nombre": "Fireflies.ai",
+ "texto": "```json\n{\n \"abierta\": true,\n \"capterra\": {\n  \"url\": \"https://www.capterra.com/p/204218/Fireflies/reviews/\",\n  \"notaGeneral\": 4.9,\n  \"facilidadDeUso\": 4.8,\n  \"escala\": \"5\",\n  \"numeroDeResenas\": 735,\n  \"cita\": \"Reviews of Fireflies. Ease of use. 4.8.\"\n },\n \"g2\": {\n  \"url\": \"https://www.g2.com/products/fireflies-ai/reviews\",\n  \"notaGeneral\": 4.7,\n  \"facilidadDeUso\": 9.3,\n  \"escala\": \"10\",\n  \"numeroDeResenas\": 706,\n  \"cita\": \"Ease of Use. Fireflies.ai. 9.3. 9.3 706.\"\n },\n \"dondeMire\": [\n  \"https://www.capterra.com/p/204218/Fireflies/\",\n  \"https://www.capterra.com/p/204218/Fireflies/reviews/\",\n  \"https://www.capterra.es/software/204218/fireflies\",\n  \"https://www.capterra.ie/software/204218/fireflies\",\n  \"https://www.capterra.co.uk/software/204218/fireflies\",\n  \"https://www.g2.com/products/fireflies-ai/reviews\",\n  \"https://www.g2.com/compare/fireflies-ai-vs-meetgeek\"\n ]\n}\n```"
+}
