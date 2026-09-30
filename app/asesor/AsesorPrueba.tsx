@@ -32,6 +32,8 @@ type Camino = CaminoDetallado;
 type Consejo = {
   caminos: Camino[];
   loQueHaria: (Opcion & { desempate?: { criterio: string; porQue: string } }) | null;
+  /** Qué falta por saber cuando ninguna gana. Antes se devolvía y no se enseñaba. */
+  loQueNecesitoSaber?: string | null;
   sinComprobar: string[];
   sinConfirmarEnNinguna: string[];
   dondeSeBusco: { herramientas: number; casas: number };
@@ -438,6 +440,7 @@ export default function AsesorPrueba() {
                 <TarjetaDelConsejo
                   caminos={c.caminos}
                   porQue={c.loQueHaria?.desempate?.porQue}
+                  loQueNecesitoSaber={c.loQueNecesitoSaber}
                   quePide={r?.comprension?.necesidades.map((n) => n.necesidad.enCorto) ?? []}
                   sinConfirmarEnNinguna={c.sinConfirmarEnNinguna}
                   alAbrir={setAbierta}

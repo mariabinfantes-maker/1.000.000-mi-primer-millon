@@ -200,7 +200,7 @@ function Fila({ opcion, forma, entreEllas, alAbrir }: { opcion: Opcion; forma: s
 }
 
 export default function TarjetaDelConsejo({
-  caminos, porQue, quePide, sinConfirmarEnNinguna = [], alAbrir,
+  caminos, porQue, loQueNecesitoSaber, quePide, sinConfirmarEnNinguna = [], alAbrir,
 }: {
   caminos: Camino[];
   /**
@@ -211,6 +211,19 @@ export default function TarjetaDelConsejo({
   sinConfirmarEnNinguna?: string[];
   /** Por qué Molnip miraría ésa primero. Es donde se moja. */
   porQue?: string;
+  /**
+   * LO QUE FALTA POR SABER PARA PODER ELEGIR.
+   *
+   * Viene de `loQueNecesitoSaber`, que el motor ya devolvía y que NADIE
+   * enseñaba: cuando ninguna gana, `porQue` es `undefined` y este bloque
+   * entero desaparecía. La persona veía la lista y ya no veía el consejo, sin
+   * que nada le dijera por qué. Medido el 2026-09-30: pasaba en 819 de 1.891
+   * casos.
+   *
+   * No decir cuál es un resultado válido —«decir que no es un resultado
+   * válido»—. Callarse no lo es.
+   */
+  loQueNecesitoSaber?: string | null;
   /** Lo que ella ha contado, para que se vea que Molnip lo tiene presente. */
   quePide?: string[];
   alAbrir: (a: Abierta) => void;
@@ -320,6 +333,14 @@ export default function TarjetaDelConsejo({
               Puedes explorarlas por lo que aportan. Para recomendarte una para el conjunto de lo que necesitas, falta
               resolver ese punto.
             </p>
+          </div>
+        </div>
+      ) : !porQue && loQueNecesitoSaber ? (
+        <div className="flex gap-3 rounded-2xl bg-brand-50 p-5 ring-1 ring-brand-100">
+          <SimboloMolnip className="mt-0.5 h-8 w-8 shrink-0 rounded-xl" />
+          <div>
+            <p className="font-display text-base font-bold text-brand-900">Todavía no te digo cuál</p>
+            <p className="mt-1 leading-relaxed text-brand-900">{loQueNecesitoSaber}</p>
           </div>
         </div>
       ) : (
