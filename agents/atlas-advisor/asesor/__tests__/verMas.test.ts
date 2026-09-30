@@ -38,6 +38,26 @@ describe("«ver más» enseña de verdad lo que promete", () => {
     }
   });
 
+  /**
+   * «No resuelve facturas» sólo cuando está demostrado que no las hace. Hoy,
+   * de «emitir una factura en condiciones», hay 14 demostradas, 76 sin
+   * constar y CERO ausencias demostradas: así que todo lo que falta es «sin
+   * confirmar», y escribirlo como un «no» sería inventarles una carencia.
+   * *(Propietaria, 2026-09-30.)*
+   */
+  it("lo que falta se dice «sin confirmar», no «no lo hace», salvo que esté demostrado", () => {
+    const r = aconsejar(caso("nec.que-reserven-solos", "nec.emitir-una-factura-legal"));
+    const cam = r.caminos.find((c) => c.forma === "todo-en-uno")!;
+    expect(cam.parciales.length).toBeGreaterThan(0);
+    for (const o of cam.parciales) {
+      // Las dos listas juntas son exactamente lo que no cubre: nada se pierde.
+      expect([...o.noLoHace, ...o.sinConfirmar].sort()).toEqual([...o.noCubre].sort());
+      // Y hoy no hay ninguna ausencia demostrada, así que ninguna dice «no lo hace».
+      expect(o.noLoHace).toEqual([]);
+      expect(o.sinConfirmar.length).toBeGreaterThan(0);
+    }
+  });
+
   /** Lo que se cuenta detrás es lo que de verdad queda, no lo ya enseñado. */
   it("la cuenta de «y N más» no incluye las que ya se enseñan", () => {
     const r = aconsejar(caso("nec.que-reserven-solos"));

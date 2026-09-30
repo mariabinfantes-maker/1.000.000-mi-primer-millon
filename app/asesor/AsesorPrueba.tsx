@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { VarianteA, VarianteB, type Camino as CaminoDetallado } from "./Variantes";
+import { VarianteA, VarianteB, mayuscula, type Camino as CaminoDetallado } from "./Variantes";
 import TarjetaDelConsejo, { type Abierta } from "./TarjetaDelConsejo";
 import FichaDeUnaOpcion from "./FichaDeUnaOpcion";
 import Boton from "@/components/ui/Boton";
@@ -534,9 +534,20 @@ export default function AsesorPrueba() {
                         {cam.parciales.map((o, j) => (
                           <li key={`parcial-${j}`} className="rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200">
                             <p className="font-semibold text-slate-900">{o.piezas.map((p) => p.nombre).join("  +  ")}</p>
+                            {/*
+                              «No resuelve» SÓLO cuando está demostrado que no
+                              lo hace. Lo demás es «sin confirmar», que es lo
+                              que de verdad nos consta: hoy, de «emitir una
+                              factura en condiciones», hay 14 demostradas, 76
+                              sin constar y CERO ausencias demostradas.
+                              Escribir «no resuelve facturas» de esas 76 sería
+                              inventarles una carencia (propietaria,
+                              2026-09-30).
+                            */}
                             <p className="text-sm text-slate-600">
                               Resuelve {o.piezas.flatMap((p) => p.cubreEnCorto).join(" y ")}.
-                              {o.noCubre.length > 0 && ` No resuelve ${o.noCubre.join(" ni ")}.`}
+                              {o.noLoHace.length > 0 && ` No resuelve ${o.noLoHace.join(" ni ")}.`}
+                              {o.sinConfirmar.length > 0 && ` ${mayuscula(o.sinConfirmar.join(" y "))}: sin confirmar.`}
                             </p>
                           </li>
                         ))}

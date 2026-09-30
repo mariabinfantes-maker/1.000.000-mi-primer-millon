@@ -29,6 +29,9 @@ import Boton from "@/components/ui/Boton";
 
 import type { EstadoDelEspanol } from "@/agents/atlas-advisor/asesor/espanol";
 
+/** Primera letra en mayúscula. «facturas» empieza frase y tiene que leerse como tal. */
+export const mayuscula = (t: string) => (t ? t[0].toUpperCase() + t.slice(1) : t);
+
 export type QueResuelve = { necesidad: string; loQueTeCuesta?: string; url?: string; fecha?: string };
 export type Coste = {
   desdeCorto?: string;
@@ -45,6 +48,10 @@ export type Opcion = {
   laConexionNoEstaComprobada: boolean;
   /** Lo que esta opción NO le resuelve, en nombres cortos. Se dice siempre. */
   noCubre: string[];
+  /** Lo que está DEMOSTRADO que no hace. Casi siempre vacío, y eso es correcto. */
+  noLoHace: string[];
+  /** Lo que no se cubre porque nadie lo ha confirmado. No es lo mismo que un «no». */
+  sinConfirmar: string[];
 };
 export type Camino = {
   forma: string; titulo: string; queImplica: string;
@@ -218,7 +225,8 @@ function Candidatas({ opciones, masOpciones, hayMas, parciales, hayMasParciales 
                 <p className="font-semibold text-slate-900">{o.piezas.map((p) => p.nombre).join("  +  ")}</p>
                 <p className="mt-0.5 text-sm text-slate-600">
                   Resuelve {o.piezas.flatMap((p) => p.cubreEnCorto).join(" y ")}.
-                  {o.noCubre.length > 0 && ` No resuelve ${o.noCubre.join(" ni ")}.`}
+                  {o.noLoHace.length > 0 && ` No resuelve ${o.noLoHace.join(" ni ")}.`}
+                  {o.sinConfirmar.length > 0 && ` ${mayuscula(o.sinConfirmar.join(" y "))}: sin confirmar.`}
                 </p>
               </li>
             ))}

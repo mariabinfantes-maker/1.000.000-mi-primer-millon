@@ -189,7 +189,7 @@ export type Camino = {
    * ella quiere —la regla del desplegable, acordada tiempo atrás: «si
    * despliega podrá verlas todas las que hemos podido verificar»—.
    */
-  opciones: { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[] }[];
+  opciones: { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[]; noLoHace: string[]; sinConfirmar: string[] }[];
   /**
    * LAS DEMÁS QUE CUBREN LO MISMO, de verdad y no sólo contadas.
    *
@@ -202,7 +202,7 @@ export type Camino = {
    * Van ordenadas por cercanía a lo que ella pidió —el mismo desempate,
    * aplicado una y otra vez—, no por el alfabeto.
    */
-  masOpciones: { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[] }[];
+  masOpciones: { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[]; noLoHace: string[]; sinConfirmar: string[] }[];
   /** Cuántas quedan aún detrás de `opciones` y `masOpciones`. Cero casi siempre. */
   hayMas: number;
   /**
@@ -223,7 +223,7 @@ export type Camino = {
    * sería mentira. Cada una trae su `noCubre` y su `faltaPorConfirmar`, que es
    * donde se cuenta el alcance.
    */
-  parciales: { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[] }[];
+  parciales: { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[]; noLoHace: string[]; sinConfirmar: string[] }[];
   /** Cuántas parciales más hay por detrás de las que se enseñan. */
   hayMasParciales: number;
 };
@@ -303,7 +303,7 @@ export type Consejo = {
    * Recortadas a unas pocas. El boceto de la propietaria enseña tres, y tiene
    * razón: catorce filas no son opciones, son el listado otra vez.
    */
-  alternativas: { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[] }[];
+  alternativas: { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[]; noLoHace: string[]; sinConfirmar: string[] }[];
   /** Cuántas más hay detrás, para el desplegable. */
   masAlternativas: number;
   /**
@@ -340,7 +340,7 @@ function aPieza(
   fichas: Map<string, ReturnType<typeof getTodasLasHerramientas>[number]>,
   delCaso: readonly NecesidadDelCaso[],
   puerto: PuertoDeEvidencia
-): { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[] } {
+): { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[]; noLoHace: string[]; sinConfirmar: string[] } {
   /**
    * Lo que esta solución NO le resuelve, con sus nombres cortos.
    *
@@ -350,11 +350,39 @@ function aPieza(
    * la pantalla, y no en letra pequeña.
    */
   const cubiertas = new Set(s.partes.flatMap((p) => p.cubre));
-  const noCubre = delCaso
-    .filter((n) => n.importancia === "imprescindible" && !cubiertas.has(n.necesidad.id))
-    .map((n) => n.necesidad.enCorto);
+  const fuera = delCaso.filter((n) => n.importancia === "imprescindible" && !cubiertas.has(n.necesidad.id));
+  const noCubre = fuera.map((n) => n.necesidad.enCorto);
+
+  /**
+   * «NO LO HACE» Y «NO NOS CONSTA» NO SON LO MISMO, Y AQUÍ SE SEPARAN.
+   *
+   * `noCubre` dice sólo que esta solución no cubre esa necesidad, y eso tiene
+   * dos causas muy distintas: que alguien abriera la página y demostrara que
+   * no lo hace (`ausencia_demostrada`), o que nadie lo haya confirmado
+   * (`no_consta`). Escribir «No resuelve facturas» de las dos es afirmar algo
+   * que no nos consta, y es justo lo que Molnip no hace.
+   *
+   * Medido el 2026-09-30 sobre «emitir una factura en condiciones»: de las 90
+   * herramientas, 14 demostradas y 76 «no consta». Ausencias demostradas,
+   * CERO. Así que hoy casi todo lo que no se cubre es «sin confirmar», y
+   * decirlo de otra forma sería inventarse una carencia.
+   *
+   * *(Propietaria, 2026-09-30: «"no resuelve facturas" sólo cuando está
+   * demostrado; si falta información, "facturación sin confirmar"».)*
+   */
+  const noLoHace: string[] = [];
+  const sinConfirmar: string[] = [];
+  for (const n of fuera) {
+    const demostradoQueNo = n.necesidad.imprescindibles.some((cap) =>
+      s.partes.some((p) => puerto.estadoDe(p.herramientaId, cap).estado === "ausencia_demostrada")
+    );
+    (demostradoQueNo ? noLoHace : sinConfirmar).push(n.necesidad.enCorto);
+  }
+
   return {
     noCubre,
+    noLoHace,
+    sinConfirmar,
     piezas: s.partes.map((p) => {
       const h = fichas.get(p.herramientaId);
       const queResuelve: QueResuelve[] = [];
@@ -463,7 +491,7 @@ function aPieza(
  */
 const CURVA_ORDEN: Record<string, number> = { muy_facil: 0, facil: 1, media: 2, dificil: 3 };
 
-type Opcion = { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[] };
+type Opcion = { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[]; noLoHace: string[]; sinConfirmar: string[] };
 
 /**
  * Lo que cuesta una solución entera, cuando se puede decir.
