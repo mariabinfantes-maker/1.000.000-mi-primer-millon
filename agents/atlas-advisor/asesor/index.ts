@@ -18,3 +18,18 @@ export { necesidadesDeLaLista, necesidadesQueSePuedenElegir, conLaRespuesta } fr
 export { getOficios, getOficio, loQueTraeUnOficio, erroresDeOficios, estadoDeUnOficio, aQuienServimos } from "./oficios";
 export type { Oficio, EstadoDeUnOficio } from "./oficios";
 export type { CasoDeUnaPersona } from "./caso";
+export {
+  ESTADO_VACIO,
+  estadoDesde,
+  estadoLimpio,
+  casoDe,
+  conUnaRespuesta,
+  preguntasContestadas,
+  ultimaRespuestaDicha,
+  continuar,
+  leerContinuacion,
+  construirPromptDeContinuacion,
+  describirCambios,
+  hayCambios,
+} from "./continuar";
+export type { EstadoDelCaso, Cambios, Continuacion } from "./continuar";

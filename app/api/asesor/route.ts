@@ -9,6 +9,16 @@ import {
   necesidadesDeLaLista,
   conLaRespuesta,
   necesidadesQueSePuedenElegir,
+  estadoDesde,
+  estadoLimpio,
+  casoDe,
+  conUnaRespuesta,
+  preguntasContestadas,
+  ultimaRespuestaDicha,
+  continuar,
+  describirCambios,
+  hayCambios,
+  type EstadoDelCaso,
   type PreguntaUtil,
 } from "@/agents/atlas-advisor/asesor";
 import { crearProveedorGemini } from "@/agents/compartido/proveedores/gemini";
@@ -62,11 +72,60 @@ export async function POST(peticion: Request) {
      * «no» también es contestar.
      */
     respondidas?: string[];
+    /**
+     * EL CASO QUE YA SE CONOCE, en su forma estructurada: lo que contó, lo
+     * que contestó y los datos sueltos. Con él, cada mensaje nuevo se lee
+     * dentro del caso y no como una consulta desde cero. Ver `continuar.ts`.
+     */
+    estado?: unknown;
+    /** La pregunta a la que dijo «te lo explico yo», si su mensaje la contesta. */
+    preguntaAbierta?: string;
   };
   const yaContestadas = new Set(cuerpo.respondidas ?? []);
   const sinRepetir = (ps: ReturnType<typeof aclarar>) => ps.filter((p) => !yaContestadas.has(p.dimension.id));
   const texto = (cuerpo.texto ?? "").trim();
 
+  /**
+   * LA CONVERSACIÓN SIGUE. Con estado, nada empieza de cero: un botón aplica
+   * su respuesta al caso, y un mensaje escrito se lee dentro del caso. Si el
+   * mensaje no cambia nada, se devuelve SÓLO eso, y la página conserva el
+   * consejo que ya tenía: un mensaje no entendido nunca vacía el caso.
+   */
+  if (cuerpo.estado) {
+    const estado = estadoLimpio(cuerpo.estado);
+    if (cuerpo.respondida?.dimensionId && cuerpo.respondida.respuestaId) {
+      const nuevo = conUnaRespuesta(estado, {
+        dimensionId: cuerpo.respondida.dimensionId,
+        respuestaId: cuerpo.respondida.respuestaId,
+      });
+      return NextResponse.json({ ...conElCaso(nuevo, texto), leyoLaIA: false });
+    }
+    if (!texto) return NextResponse.json({ error: "Cuéntame algo primero." }, { status: 400 });
+    if (!HAY_IA) {
+      return NextResponse.json({
+        continuacion: {
+          estado,
+          lineas: [],
+          noEntendido: [texto],
+          sinCambios: true,
+          sinIA: true,
+        },
+      });
+    }
+    const proveedor = crearProveedorGemini();
+    const c = await continuar(texto, estado, (prompt) => proveedor.generarJson(prompt), cuerpo.preguntaAbierta);
+    const continuacion = { estado: c.estado, lineas: describirCambios(c.cambios), noEntendido: c.noEntendido, sinCambios: !hayCambios(c.cambios) };
+    if (continuacion.sinCambios) return NextResponse.json({ continuacion });
+    return NextResponse.json({ ...conElCaso(c.estado, texto), continuacion, leyoLaIA: true });
+  }
+
+  /*
+   * DESCONECTADO EL 2026-09-30, NO BORRADO. Era el camino de los botones:
+   * recibía la lista plana de necesidades y la respuesta, y no guardaba de
+   * qué respuesta venía cada cosa, así que una respuesta no se podía
+   * corregir. La página ya manda `estado` y entra por arriba. Se deja por si
+   * algo lo llama todavía.
+   */
   // Contestó una pregunta: se continúa desde lo que ya se sabía, sin volver a
   // llamar al modelo ni pedirle que repita su historia.
   if (cuerpo.respondida?.respuestaId && cuerpo.necesidadesPrevias?.length) {
@@ -89,6 +148,7 @@ export async function POST(peticion: Request) {
         comprension: { loQueDijo: "", necesidades: delCaso, noEntendido: [], circunstancias: [] },
         preguntas: aclarar(delCaso).map(resumir),
         consejo: aconsejar(delCaso),
+        estado: estadoDesde(delCaso),
         leyoLaIA: false,
         porOficio: true,
       });
@@ -104,6 +164,7 @@ export async function POST(peticion: Request) {
       comprension: { loQueDijo: texto, necesidades: delCaso, noEntendido: [], circunstancias: [] },
       preguntas: aclarar(delCaso).map(resumir),
       consejo: aconsejar(delCaso),
+      estado: estadoDesde(delCaso),
       leyoLaIA: false,
     });
   }
@@ -119,8 +180,28 @@ export async function POST(peticion: Request) {
     comprension,
     preguntas: aclarar(comprension.necesidades).map(resumir),
     consejo: aconsejar(comprension.necesidades),
+    estado: estadoDesde(comprension.necesidades, comprension.circunstancias),
     leyoLaIA: true,
   });
+}
+
+/**
+ * Todo lo que la página necesita a partir del estado: el caso calculado, las
+ * preguntas que quedan, el consejo y lo último que contestó. `yaRespondio`
+ * sigue significando lo mismo que antes: con una respuesta dada, no se vuelve
+ * a preguntar.
+ */
+function conElCaso(estado: EstadoDelCaso, texto: string) {
+  const delCaso = casoDe(estado);
+  const contestadas = new Set(preguntasContestadas(estado));
+  return {
+    comprension: { loQueDijo: texto, necesidades: delCaso, noEntendido: [], circunstancias: estado.circunstancias },
+    preguntas: aclarar(delCaso).filter((p) => !contestadas.has(p.dimension.id)).map(resumir),
+    consejo: aconsejar(delCaso),
+    estado,
+    yaRespondio: estado.respuestas.length > 0,
+    ultimaRespuesta: ultimaRespuestaDicha(estado),
+  };
 }
 
 function resumir(p: PreguntaUtil) {
