@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Thinkific Partner Program",
+  "affiliatePlatform": "PartnerStack",
+  "affiliateUrl": "https://www.thinkific.com/partners/",
+  "commission": "30 % recurrente de por vida en los planes de pago mensuales o anuales; los planes Plus reciben 150 USD al mes en lugar del 30 %.",
+  "cookieDuration": "90 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, Transferencia bancaria",
+  "payoutFrequency": "El día 13 de cada mes, tras una retención de 30 días.",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://www.thinkific.com/partners/",
+  "lastAffiliateCheck": "2026-09-16",
+  "herramientaId": "thinkific"
+}

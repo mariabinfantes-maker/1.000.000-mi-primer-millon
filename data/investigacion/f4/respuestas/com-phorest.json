@@ -1,0 +1,43 @@
+{
+ "pedida": "https://www.phorest.com/us/refer-to-phorest/",
+ "leidas": [
+  "https://www.phorest.com/us/refer-to-phorest/"
+ ],
+ "datos": {
+  "programa_existe": "si",
+  "tipo": "referidos_clientes",
+  "cita_tipo": "Just have your Phorest ID ready, along with the details of the business you'd like to refer.",
+  "comision": {
+   "v": "si",
+   "cita": "Earn an Amazon gift card for $150 as our way of saying thanks!"
+  },
+  "recurrencia": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "cookie": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "condiciones": {
+   "v": "si",
+   "cita": "If they go live with Phorest, you'll receive an Amazon gift card for $150 as a thank you."
+  },
+  "abierto_desde_espana": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "promociona_producto_para_negocios": {
+   "v": "si",
+   "cita": "Recommend us to someone in your professional network who would benefit from a smarter, more powerful way to run their business."
+  },
+  "activo": {
+   "v": "si",
+   "cita": "Get rewarded every time you successfully refer a peer or partner to Phorest."
+  },
+  "red_de_afiliacion": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

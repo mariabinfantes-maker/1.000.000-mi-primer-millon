@@ -4,6 +4,9 @@
   "urlPrecios": "https://www.synthesia.io/pricing",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "Synthesia es una plataforma de generación de video mediante inteligencia artificial que permite crear videos profesionales a partir de texto utilizando avatares fotorrealistas y locuciones sintéticas. Está orientada principalmente a la creación de contenido de formación corporativa, onboarding, comunicaciones internas y marketing sin requerir cámaras, estudios ni actores.",
   "informacionEmpresa": {
     "anioFundacion": 2017,
@@ -66,7 +69,7 @@
     "Docebo"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde 18$/mes (facturado anualmente) o 22$/mes (facturado mensualmente)",
+  "precioInicial": "Gratis (1.200 créditos y hasta 10 minutos de vídeo al mes). De pago desde $29/mes",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -124,12 +127,11 @@
     ],
     "tipoNegocioIdeal": "Departamentos de Formación y L&D corporativo, Recursos Humanos y agencias de marketing digital",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 96,
+    "puntuacion": 93,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.8/10.",
       "G2: 4.7/5 (1450 reseñas).",
       "Capterra: 4.7/5 (240 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública."
     ]
   },
@@ -141,5 +143,10 @@
   "problemasIds": [
     "ahorrar-tiempo"
   ],
-  "subtipoId": "video"
+  "subtipoId": "video",
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.synthesia.io/pricing"
+  }
 }

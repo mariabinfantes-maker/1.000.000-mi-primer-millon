@@ -1,0 +1,13 @@
+{
+ "id": "wrike",
+ "nombre": "Wrike",
+ "urls": [
+  "https://www.wrike.com",
+  "https://www.wrike.com/price/"
+ ],
+ "texto": "```json\n{\n  \"servicios\": [\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Project & task management\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Wrike Copilot answers questions, summarizes work, and keeps your team moving without the back‑and‑forth.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Connect Wrike to your apps, build no-code automations, and run end-to-end workflows from one secure platform.\"\n    }\n  ],\n  \"esDe\": \"gestion-proyectos\",\n  \"sector\": null\n}\n```",
+ "leidas": [
+  "OK https://www.wrike.com/",
+  "OK https://www.wrike.com/price/"
+ ]
+}

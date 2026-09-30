@@ -1,0 +1,130 @@
+{
+  "nombre": "Bookeo Appointments",
+  "paginaOficial": "https://www.bookeo.com/appointments/",
+  "urlPrecios": "https://www.bookeo.com/pricing/",
+  "categoriaId": "reservas-citas",
+  "descripcion": "Bookeo Appointments es un programa de reservas y gestión de citas diseñado para pequeños negocios y profesionales de servicios. Permite a los clientes reservar y pagar por internet las 24 horas del día, integrándose directamente en la página web del negocio o funcionando como enlace independiente.",
+  "problemasQueResuelve": [
+    "Pierdo citas y clientes potenciales porque me llaman fuera de mi horario laboral o mientras estoy atendiendo a otra persona y no puedo coger el teléfono.",
+    "Tengo huecos libres imprevistos en mi jornada porque los clientes se olvidan de su cita al no recibir un aviso automático previo.",
+    "Paso demasiado tiempo cuadrando calendarios en papel para que no se solapen las horas del personal ni las salas de atención.",
+    "Me cuesta cobrar por adelantado o pedir depósitos de fianza porque gestionar transferencias a mano genera desconfianza y retrasos."
+  ],
+  "casosDeUso": [
+    "Salones de belleza, peluquerías, barberías y spas que necesitan coordinar la agenda de varios especialistas y cobrar servicios con antelación.",
+    "Terapeutas, psicólogos y masajistas independientes que requieren reservas online 24/7 con formularios de admisión previos a la sesión.",
+    "Negocios de servicios con citas presenciales (lavaderos de coches, animadores de fiestas infantiles o fotógrafos) que gestionan disponibilidad por bloques y recursos."
+  ],
+  "idealPara": "Negocios con servicios por cita, incluidos salones y equipos de profesionales.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200"
+  ],
+  "industriasIdeales": [
+    "peluquerías",
+    "servicios profesionales"
+  ],
+  "noRecomendadaPara": "No está pensada para quien no trabaje con cita previa ni con plazas por sesión.",
+  "casosNoRecomendados": [
+    "El plan Solo admite como máximo 1 consultor, 1 acceso de personal y 200 reservas mensuales.",
+    "El plan Small limita la cuenta a 3 consultores, 3 accesos de personal y 1.000 reservas mensuales.",
+    "Los recordatorios y avisos por SMS requieren la compra de saldo adicional.",
+    "El módulo de firmas y acuerdos de exención de responsabilidad digitales tiene un coste mensual adicional según el volumen de firmas.",
+    "El envío de recordatorios y notificaciones por SMS no está incluido en el precio mensual y exige comprar paquetes de créditos adicionales.",
+    "El módulo de firmas y consentimientos digitales (digital waivers) no viene integrado en la tarifa básica y requiere un pago mensual aparte.",
+    "Cada plan mensual impone un límite estricto en el número de reservas al mes y en la cantidad de empleados/consultores registrados."
+  ],
+  "funcionesPrincipales": [
+    "Reserva online 24/7 integrable en páginas web (vía widget sin ventanas emergentes) o mediante página de reservas alojada.",
+    "Recordatorios y confirmaciones automáticas por correo electrónico y mensajes de texto.",
+    "Pasarela de cobros online y pagos integrados (cobro total, depósitos parciales o fianzas no reembolsables).",
+    "Sincronización de calendario con Google Calendar, iCal, Outlook y Office 365.",
+    "Base de datos de clientes con historial de citas, notas privadas y formularios de admisión digitales.",
+    "Herramientas de fidelización y marketing con venta de paquetes prepago, tarjetas de regalo y membresías.",
+    "Gestión de personal y horarios por empleado, servicio y ubicación con control de tiempos de cortesía o descanso entre citas."
+  ],
+  "integraciones": [
+    "Stripe",
+    "Square",
+    "PayPal",
+    "Google Calendar",
+    "iCal",
+    "Outlook",
+    "Office 365",
+    "WordPress",
+    "Wix",
+    "Squarespace",
+    "Shopify",
+    "Weebly",
+    "Mailchimp",
+    "HubSpot",
+    "Xero",
+    "Zoom",
+    "Zapier",
+    "Google Analytics",
+    "Facebook Pixel"
+  ],
+  "integracionesPrincipales": [
+    "Stripe",
+    "Square",
+    "PayPal",
+    "Google Calendar",
+    "Outlook",
+    "WordPress",
+    "Mailchimp",
+    "Xero",
+    "Zoom",
+    "Zapier"
+  ],
+  "curvaDeAprendizaje": "facil",
+  "precioInicial": "€ 10\n95       EUR/month",
+  "modeloDePrecio": [
+    "suscripcion_mensual"
+  ],
+  "tienePlanGratuito": false,
+  "preciosComprobados": {
+    "url": "https://www.bookeo.com/pricing/",
+    "fecha": "2026-09-30",
+    "cita": "€ 10\n95       EUR/month"
+  },
+  "idiomasDisponibles": [
+    "en"
+  ],
+  "tieneAppMovil": false,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 8.9,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 9,
+    "atencionAlCliente": 6,
+    "fiabilidad": null,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Revisión documental directa de la página principal del producto Bookeo Appointments, su sección oficial de precios, desglose de complementos de pago, términos legales del servicio y centro de soporte al cliente. La nota de facilidad de uso NO es nuestra: sale de la ficha de reseñas que se abrió —En G2, Bookeo Appointments cuenta con una puntuación de «Ease of Use» de 8.9/10 basada en 14 reseñas (en Capterra registra 4.1/5 sobre 103 reseñas).— leída el 2026-09-30. El resto de notas son valoraciones documentales con sus hechos escritos al lado, no puntuaciones del fabricante ni reseñas.",
+  "ventajas": [
+    "No cobra comisión porcentual por cada reserva realizada ni aplica recargos sobre el precio que paga el cliente final.",
+    "Permite conectar dos pasarelas de pago a la vez (por ejemplo, Stripe y PayPal simultáneamente) para dar opciones de pago al cliente.",
+    "Incluye funciones comerciales como venta de bonos prepago, cupones y venta de productos adicionales en el mismo proceso de reserva sin coste extra.",
+    "Es completamente adaptable a pantallas de teléfonos móviles y tabletas sin exigir la instalación de una app independiente."
+  ],
+  "inconvenientes": [
+    "El envío de recordatorios y notificaciones por SMS no está incluido en el precio mensual y exige comprar paquetes de créditos adicionales.",
+    "El módulo de firmas y consentimientos digitales (digital waivers) no viene integrado en la tarifa básica y requiere un pago mensual aparte.",
+    "Cada plan mensual impone un límite estricto en el número de reservas al mes y en la cantidad de empleados/consultores registrados."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": "Australia",
+    "anioFundacion": null,
+    "tamanoAproximado": null
+  },
+  "id": "bookeo",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-30",
+  "fechaUltimaRevision": "2026-09-30",
+  "problemasIds": [
+    "organizar-empresa",
+    "ahorrar-tiempo"
+  ]
+}

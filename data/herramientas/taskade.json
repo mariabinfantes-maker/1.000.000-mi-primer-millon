@@ -4,6 +4,18 @@
   "urlPrecios": "https://www.taskade.com/pricing",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "comercio-electronico",
+    "creacion-web-hosting",
+    "crm",
+    "facturacion-contabilidad",
+    "firma-gestion-documental",
+    "gestion-proyectos",
+    "marketing-email",
+    "recursos-humanos"
+  ],
   "subtipoId": "espacio-trabajo",
   "tipoProducto": "especializada",
   "problemasIds": [
@@ -68,7 +80,7 @@
     "API REST"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Gratis (proyectos ilimitados, hasta 5 miembros y 3.000 créditos de IA iniciales). Plan Starter desde 6$/mes.",
+  "precioInicial": "Gratis para 2 usuarios, con 3 aplicaciones y 6.000 créditos. De pago desde $10/mes",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
@@ -121,12 +133,11 @@
     ],
     "tipoNegocioIdeal": "Equipos pequeños que quieren IA integrada en su espacio de trabajo con coste de entrada bajo",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 92,
+    "puntuacion": 89,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 7.7/10.",
       "G2: 4.7/5.",
       "Capterra: 4.7/5.",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -134,5 +145,40 @@
   "id": "taskade",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-09-02",
-  "fechaUltimaRevision": "2026-09-02"
+  "fechaUltimaRevision": "2026-09-02",
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.taskade.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.taskade.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 $/mes",
+        "cita": "$0"
+      },
+      {
+        "nombre": "Pro",
+        "mensual": "20 $/mes",
+        "anual": "10 $/mes",
+        "cita": "$20 / $10, incluye 10 usuarios"
+      },
+      {
+        "nombre": "Business",
+        "mensual": "50 $/mes",
+        "anual": "25 $/mes",
+        "cita": "$50 / $25, usuarios ilimitados"
+      },
+      {
+        "nombre": "Max",
+        "mensual": "200 $/mes",
+        "anual": "100 $/mes",
+        "cita": "$200 / $100"
+      }
+    ]
+  }
 }

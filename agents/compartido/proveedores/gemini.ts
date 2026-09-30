@@ -35,6 +35,18 @@ type RespuestaGemini = {
   error?: { message?: string };
 };
 
+/**
+ * En el entorno remoto donde se lanzan los lotes, la clave NO existe en
+ * ninguna variable: la inyecta el proxy de red en cada petición, y un valor
+ * de relleno en `?key=` la anularía (Google lee el parámetro antes que la
+ * cabecera). Con esta variable, explícita y sólo para ese entorno, la
+ * dirección se pide sin clave y la pone el proxy. En el servidor de Vercel y
+ * en el ordenador de la propietaria no está activada y todo sigue igual.
+ */
+function claveLaPoneElProxy(): boolean {
+  return process.env.GEMINI_CLAVE_INYECTADA_POR_PROXY === "true";
+}
+
 function clave(): string {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
@@ -50,7 +62,9 @@ async function pedir(cuerpo: unknown): Promise<RespuestaGemini> {
    * catch y saldría como «no se ha podido contactar», que es mentira: no se
    * ha intentado. Las pruebas lo cazaron al refactorizar esto.
    */
-  const url = `${URL_BASE}/${modelo}:generateContent?key=${clave()}`;
+  const url = claveLaPoneElProxy()
+    ? `${URL_BASE}/${modelo}:generateContent`
+    : `${URL_BASE}/${modelo}:generateContent?key=${clave()}`;
 
   let respuesta: Response;
   try {

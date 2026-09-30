@@ -1,8 +1,16 @@
 {
   "nombre": "Kartra",
   "paginaOficial": "https://www.kartra.com",
-  "urlPrecios": "https://www.kartra.com/pricing/",
+  "urlPrecios": "https://kartra.com/plans-and-pricing/",
   "categoriaId": "plataformas-todo-en-uno",
+  "categoriasSecundarias": [
+    "asistentes-ia",
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "creacion-web-hosting",
+    "crm",
+    "marketing-email"
+  ],
   "descripcion": "Kartra es una plataforma integral de marketing digital y ventas en línea diseñada para automatizar embudos, alojar cursos, gestionar listas de correo electrónico y vender productos o servicios. Combina CRM, hospedaje de vídeo, creador de sitios web y sistema de membresías sin necesidad de integrar múltiples herramientas de terceros.",
   "informacionEmpresa": {
     "anioFundacion": 2018,
@@ -71,12 +79,12 @@
     "Twilio"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde $119/mes",
+  "precioInicial": "Desde $52/mes (facturación anual) o $59 al mes",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Growth a $229/mes (o $189/mes con facturación anual)",
   "idiomasDisponibles": [
     "Inglés"
@@ -98,7 +106,18 @@
     "g2Puntuacion": 4,
     "g2NumeroResenas": 55,
     "capterraPuntuacion": 4.5,
-    "capterraNumeroResenas": 160
+    "capterraNumeroResenas": 160,
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.com/p/177699/Kartra/",
+      "cita": "Kartra. 4.5 (168). [...] Ease Of Use. 4.0 (168). — leido 4.5/5 con 168 reseñas. Confirma el 4.5 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.g2.com/products/kartra/reviews",
+      "cita": "leido 3.9/5 con 62 reseñas. Confirma el 4 guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Incluye alojamiento de vídeos sin coste adicional de plataformas como Vimeo o Wistia.",
@@ -136,5 +155,24 @@
   "tipoProducto": "suite",
   "problemasIds": [
     "conseguir-clientes"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://kartra.com/plans-and-pricing/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://kartra.com/plans-and-pricing/",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Essentials",
+        "mensual": "59 $/mes",
+        "anual": "52 $/mes",
+        "cita": "$59 / $52"
+      }
+    ]
+  }
 }

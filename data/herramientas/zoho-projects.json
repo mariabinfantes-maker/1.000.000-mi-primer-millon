@@ -4,6 +4,12 @@
   "urlPrecios": "https://www.zoho.com/projects/zohoprojects-pricing.html",
   "logoUrl": null,
   "categoriaId": "gestion-proyectos",
+  "categoriasSecundarias": [
+    "asistentes-ia",
+    "automatizacion-integraciones",
+    "facturacion-contabilidad",
+    "firma-gestion-documental"
+  ],
   "descripcion": "Zoho Projects es una solución de gestión de proyectos basada en la nube que permite a las empresas planificar, realizar seguimiento y colaborar de manera eficiente. Ofrece diagramas de Gantt, control de tiempos, gestión de incidencias y hojas de horas integradas. Es especialmente valorada por su alta conectividad con el resto del ecosistema de aplicaciones de Zoho.",
   "informacionEmpresa": {
     "anioFundacion": 1996,
@@ -66,7 +72,7 @@
     "Slack"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde 4€/usuario/mes (facturado anualmente) o versión gratuita limitada",
+  "precioInicial": "Gratis hasta 5 usuarios. Desde 4 $/usuario/mes pagando el año.",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -102,7 +108,18 @@
     "g2Puntuacion": 4.3,
     "g2NumeroResenas": 3600,
     "capterraPuntuacion": 4.3,
-    "capterraNumeroResenas": 4200
+    "capterraNumeroResenas": 4200,
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.com/p/169455/Zoho-Projects/",
+      "cita": "Zoho Projects. 4.5 (872) ... Reviews of Zoho Projects. Ease of use. 4.3. — leido 4.5/5 con 872 reseñas. Confirma el 4.3 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.g2.com/products/zoho-projects/reviews",
+      "cita": "leido 4.4/5. Confirma el 4.3 guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Excelente relación calidad-precio en comparación con la competencia.",
@@ -124,12 +141,11 @@
     ],
     "tipoNegocioIdeal": "Servicios profesionales, agencias y empresas con uso de la suite Zoho",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 92,
+    "puntuacion": 89,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.4/10.",
       "G2: 4.3/5 (3600 reseñas).",
       "Capterra: 4.3/5 (4200 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -137,9 +153,45 @@
   "id": "zoho-projects",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-19",
-  "fechaUltimaRevision": "2026-08-19",
+  "fechaUltimaRevision": "2026-09-29",
   "tipoProducto": "especializada",
   "problemasIds": [
     "organizar-empresa"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-29",
+    "url": "https://www.zoho.com/projects/zohoprojects-pricing.html"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-29",
+    "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 $",
+        "anual": "0 $",
+        "cita": "FREE US$0 Up to 5 users"
+      },
+      {
+        "nombre": "Premium",
+        "mensual": "5 $",
+        "anual": "4 $",
+        "cita": "PREMIUM US$5 /user/month"
+      },
+      {
+        "nombre": "Enterprise",
+        "mensual": "10 $",
+        "anual": "9 $",
+        "cita": "ENTERPRISE US$10 /user/month"
+      },
+      {
+        "nombre": "Ultimate",
+        "mensual": "15 $",
+        "anual": "14 $",
+        "cita": "ULTIMATE US$15 /user/month"
+      }
+    ]
+  }
 }

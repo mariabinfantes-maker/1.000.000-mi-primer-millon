@@ -1,0 +1,15 @@
+{
+ "id": "taskade__casa-atencion-cliente",
+ "nombre": "Taskade",
+ "url": "https://www.taskade.com",
+ "preguntas": [
+  {
+   "q": "casa:atencion-cliente",
+   "por": "lo declara su página y F2 no lo ha comprobado"
+  }
+ ],
+ "texto": "{\"resultados\":[{\"id\":\"cap.shared_inbox\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.support_ticketing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.website_live_chat\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.whatsapp_customer_channel\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.public_help_center\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.canned_responses\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.support_chatbot\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.customer_satisfaction_surveys\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.taskade.com/"
+ ]
+}

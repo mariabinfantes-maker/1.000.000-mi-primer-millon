@@ -1,0 +1,17 @@
+{
+ "id": "productive-io__firma-gestion-documental",
+ "herramientaId": "productive-io",
+ "nombre": "Productive",
+ "casa": "firma-gestion-documental",
+ "nombreCasa": "Firma electrónica y gestión documental",
+ "urls": [
+  "https://productive.io/",
+  "https://productive.io/pricing/"
+ ],
+ "cita": "Create and collaborate on documents directly within projects to keep all project information centralized.",
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.collaborative_document_editing\",\n      \"estado\": \"si\",\n      \"cita\": \"Create and collaborate on documents directly within projects to keep all project information centralized.\",\n      \"url\": \"https://productive.io/pricing/\"\n    },\n    {\n      \"id\": \"cap.internal_knowledge_workspace\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.file_storage\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.document_templates\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.workspace_wide_search\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.document_version_history\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.electronic_signature\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://productive.io/",
+  "OK https://productive.io/pricing/"
+ ]
+}

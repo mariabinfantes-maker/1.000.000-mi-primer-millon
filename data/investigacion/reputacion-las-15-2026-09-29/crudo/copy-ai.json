@@ -1,0 +1,5 @@
+{
+ "id": "copy-ai",
+ "nombre": "Copy.ai",
+ "texto": "```json\n{\n \"abierta\": true,\n \"capterra\": {\n   \"url\": \"https://www.capterra.com/p/236813/CopyAI/\",\n   \"notaGeneral\": 4.4,\n   \"facilidadDeUso\": 4.6,\n   \"escala\": \"5\",\n   \"numeroDeResenas\": 67,\n   \"cita\": \"Ease Of Use\\n\\n 4.6 (67)\"\n },\n \"g2\": {\n   \"url\": null,\n   \"notaGeneral\": null,\n   \"facilidadDeUso\": null,\n   \"escala\": null,\n   \"numeroDeResenas\": null,\n   \"cita\": null\n },\n \"dondeMire\": [\n   \"https://www.capterra.com/p/236813/CopyAI/\",\n   \"https://www.capterra.es\",\n   \"https://www.capterra.ie\",\n   \"https://www.capterra.co.uk\",\n   \"https://www.g2.com/products/copy-ai/reviews\",\n   \"https://www.g2.com/products/copy-ai\"\n ]\n}\n```"
+}

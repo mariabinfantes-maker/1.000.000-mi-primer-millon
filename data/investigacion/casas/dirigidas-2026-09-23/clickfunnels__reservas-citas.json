@@ -1,0 +1,17 @@
+{
+ "id": "clickfunnels__reservas-citas",
+ "herramientaId": "clickfunnels",
+ "nombre": "ClickFunnels",
+ "casa": "reservas-citas",
+ "nombreCasa": "Reservas y citas",
+ "urls": [
+  "https://www.clickfunnels.com",
+  "https://www.clickfunnels.com/pricing"
+ ],
+ "cita": "Easy appointment booking and meeting follow-ups.",
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.online_self_service_booking\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.per_resource_booking_calendar\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.customer_appointment_reminders\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.booking_cancellation_and_rescheduling\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.capacity_and_time_slots\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.no_show_and_deposits\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.room_and_equipment_booking\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.booking_waitlist\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.embeddable_booking_widget\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://www.clickfunnels.com/",
+  "OK https://www.clickfunnels.com/pricing"
+ ]
+}

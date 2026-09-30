@@ -4,6 +4,9 @@
   "urlPrecios": "https://www.teamgantt.com/pricing",
   "logoUrl": "",
   "categoriaId": "gestion-proyectos",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "TeamGantt es un software de gestión de proyectos enfocado en diagramas de Gantt visuales e intuitivos. Permite planificar, programar y gestionar proyectos mediante una interfaz sencilla de arrastrar y soltar, facilitando la colaboración en tiempo real y el control de la carga de trabajo.",
   "informacionEmpresa": {
     "anioFundacion": 2009,
@@ -65,7 +68,7 @@
     "Google Drive"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde 19 $/usuario/mes",
+  "precioInicial": "Gratis para 1 usuario, con 1 proyecto y 40 tareas. De pago desde $24/mes o $240 al año",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -102,7 +105,18 @@
         "numeroResenas": 75,
         "enlace": "https://www.trustradius.com/products/teamgantt/reviews"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/135048/TeamGantt/reviews/",
+      "cita": "Reviews of TeamGantt. Ease of use. 4.5. — leido 4.6/5 con 204 reseñas. Confirma el 4.6 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/teamgantt/reviews",
+      "cita": "Ease of Use. 8.6. 133. 9.2. 764. — leido 4.8/5 con 764 reseñas. Confirma el 4.8 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Interfaz sumamente intuitiva y visual que requiere mínimo entrenamiento.",
@@ -124,12 +138,11 @@
     ],
     "tipoNegocioIdeal": "Agencias de marketing, estudios de diseño y Pymes de servicios profesionales",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 94,
+    "puntuacion": 91,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.0/10.",
       "G2: 4.8/5 (850 reseñas).",
       "Capterra: 4.6/5 (1000 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -141,5 +154,22 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "organizar-empresa"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.teamgantt.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.teamgantt.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Personal",
+        "mensual": "0 $",
+        "cita": "Personal plan is free forever"
+      }
+    ]
+  }
 }

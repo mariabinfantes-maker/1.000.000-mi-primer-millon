@@ -1,0 +1,119 @@
+{
+  "nombre": "TIMIFY",
+  "paginaOficial": "https://www.timify.com/",
+  "urlPrecios": "https://www.timify.com/es/plans/",
+  "categoriaId": "reservas-citas",
+  "descripcion": "Sistema de reservas online y calendario compartido para organizar citas y gestionar personal, salas y equipos. Permite programar servicios individuales o grupales, presenciales o por videoconferencia.",
+  "problemasQueResuelve": [
+    "Necesito que mis clientes reserven servicios por internet.",
+    "Necesito coordinar la disponibilidad del personal, las salas y los equipos que requiere cada cita.",
+    "Necesito organizar sesiones individuales y actividades con varios participantes."
+  ],
+  "casosDeUso": [
+    "Reservar una consulta presencial o por videoconferencia.",
+    "Asignar a un servicio los empleados y la sala que necesita.",
+    "Organizar cursos o eventos grupales y gestionar sus participantes."
+  ],
+  "idealPara": "Empresas de servicios y comercios que reservan personal, salas y otros recursos.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "empresas de servicios",
+    "comercios"
+  ],
+  "noRecomendadaPara": "No está pensada para quien no necesite reservar recursos —personal, salas o equipos— además de horas.",
+  "casosNoRecomendados": [
+    "La licencia se contrata POR SEDE, y el precio depende de cuántos recursos tenga.",
+    "Los recordatorios por SMS cuestan aparte.",
+    "Cada sede necesita su propia licencia.",
+    "Las aplicaciones de gestión se presentan como parte del plan Premium.",
+    "Para utilizar la plataforma de desarrolladores hay que solicitar acceso.",
+    "La tarifa consultada muestra euros. Se contrata una licencia por sede y el importe depende de los recursos que necesitan reservas, incluidos empleados, salas y equipos. Hay modalidades mensual y anual, y los precios de pago excluyen IVA. La extracción mezcla varias cifras del selector dinámico; no asigno un importe concreto a una configuración que no pude comprobar."
+  ],
+  "funcionesPrincipales": [
+    "Reserva online de servicios individuales y grupales.",
+    "Calendario compartido del equipo.",
+    "Gestión de recursos humanos y físicos.",
+    "Planificación de turnos, vacaciones y ausencias.",
+    "Sincronización con calendarios externos."
+  ],
+  "integraciones": [
+    "Google Calendar",
+    "Microsoft Office 365 Calendar",
+    "Zoom",
+    "Zapier"
+  ],
+  "integracionesPrincipales": [
+    "Google Calendar",
+    "Microsoft Office 365 Calendar",
+    "Zoom",
+    "Zapier"
+  ],
+  "precioInicial": "€0.00",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual"
+  ],
+  "tienePlanGratuito": true,
+  "preciosComprobados": {
+    "url": "https://www.timify.com/es/plans/",
+    "fecha": "2026-09-29"
+  },
+  "idiomasDisponibles": [
+    "de",
+    "en",
+    "fr",
+    "it",
+    "es",
+    "ca",
+    "nl",
+    "da",
+    "nn",
+    "fi",
+    "sv",
+    "bg",
+    "pl",
+    "et",
+    "cy"
+  ],
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "nivelTecnicoRequerido": null,
+    "facilidadImplementacion": null,
+    "fiabilidad": null,
+    "atencionAlCliente": null,
+    "facilidadDeUso": null,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Investigación documental de páginas oficiales abiertas. Las descripciones, problemas y casos de uso son paráfrasis de funciones documentadas. Las integraciones enumeradas son una selección comprobada, no un inventario completo ni una clasificación. No he probado el producto ni evaluado su soporte o rendimiento: todas las puntuaciones quedan en null.",
+  "ventajas": [
+    "Permite coordinar en una reserva tanto personas como recursos físicos.",
+    "Ofrece aplicaciones de gestión para móvil.",
+    "Dispone de documentación pública de API y webhooks para desarrollar integraciones."
+  ],
+  "inconvenientes": [
+    "Cada sede necesita su propia licencia.",
+    "Las aplicaciones de gestión se presentan como parte del plan Premium.",
+    "Para utilizar la plataforma de desarrolladores hay que solicitar acceso.",
+    "La tarifa consultada muestra euros. Se contrata una licencia por sede y el importe depende de los recursos que necesitan reservas, incluidos empleados, salas y equipos. Hay modalidades mensual y anual, y los precios de pago excluyen IVA. La extracción mezcla varias cifras del selector dinámico; no asigno un importe concreto a una configuración que no pude comprobar."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": null,
+    "anioFundacion": 2012,
+    "tamanoAproximado": null
+  },
+  "id": "timify",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-29",
+  "fechaUltimaRevision": "2026-09-29",
+  "problemasIds": [
+    "organizar-empresa",
+    "ahorrar-tiempo"
+  ]
+}

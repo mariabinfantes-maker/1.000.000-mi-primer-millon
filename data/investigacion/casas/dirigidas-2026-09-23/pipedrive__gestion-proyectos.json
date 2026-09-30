@@ -1,0 +1,17 @@
+{
+ "id": "pipedrive__gestion-proyectos",
+ "herramientaId": "pipedrive",
+ "nombre": "Pipedrive",
+ "casa": "gestion-proyectos",
+ "nombreCasa": "Gestión de proyectos",
+ "urls": [
+  "https://www.pipedrive.com",
+  "https://www.pipedrive.com/es/pricing"
+ ],
+ "cita": "Entrega proyectos y alcanza tus metas más rápido",
+ "texto": "{\"resultados\":[{\"id\":\"cap.team_messaging\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.video_meetings\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.task_management\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.project_planning\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.gantt_and_dependencies\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.kanban_boards\",\"estado\":\"si\",\"cita\":\"Pipedrive's kanban-style dashboard lets you visualize your sales funnel.\",\"url\":\"https://www.pipedrive.com\"},{\"id\":\"cap.time_tracking\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.team_workload_planning\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.personal_calendar_planning\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.automatic_rescheduling\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.case_file_management\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.pipedrive.com/",
+  "OK https://www.pipedrive.com/es/pricing"
+ ]
+}

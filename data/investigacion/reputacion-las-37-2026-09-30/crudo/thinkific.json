@@ -1,0 +1,5 @@
+{
+ "id": "thinkific",
+ "nombre": "Thinkific",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.es/software/147348/thinkific\",\n    \"notaGeneral\": 4.4,\n    \"facilidadDeUso\": 4.4,\n    \"escala\": 5,\n    \"numeroDeResenas\": 207,\n    \"cita\": \"Thinkific. 4,4 (207) Opiniones. ... 4,4 (207). 4,2 (207). 4,2 (207). VS. Precio inicial. Opciones de precios. Facilidad de uso.\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/thinkific/reviews\",\n    \"notaGeneral\": 4.5,\n    \"facilidadDeUso\": null,\n    \"escala\": 5,\n    \"numeroDeResenas\": 405,\n    \"cita\": \"Thinkific Reviews (405). View 2 Video Reviews. 4.5. 405 reviews. ... Pros & Cons. Generated from real user reviews. Ease of Use (92)\"\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.es/software/147348/thinkific\",\n    \"https://www.capterra.com/p/147348/Thinkific/\",\n    \"https://www.capterra.ie\",\n    \"https://www.capterra.co.uk\",\n    \"https://www.g2.com/products/thinkific/reviews\"\n  ]\n}\n```"
+}

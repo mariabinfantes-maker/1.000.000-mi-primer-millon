@@ -1,0 +1,15 @@
+{
+ "id": "nocrm-io",
+ "nombre": "noCRM.io",
+ "url": "https://www.nocrm.io/es",
+ "preguntas": [
+  {
+   "q": "firma",
+   "por": "F2 le verificó presupuestos: firmar el presupuesto es el paso siguiente"
+  }
+ ],
+ "texto": "{\"resultados\":[{\"id\":\"cap.electronic_signature\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.nocrm.io/es"
+ ]
+}

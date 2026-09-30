@@ -1,0 +1,15 @@
+{
+ "id": "productive-io",
+ "nombre": "Productive",
+ "url": "https://productive.io/",
+ "preguntas": [
+  {
+   "q": "firma",
+   "por": "su página ya declara firma o gestión documental"
+  }
+ ],
+ "texto": "{\"resultados\":[{\"id\":\"cap.electronic_signature\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://productive.io/"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "id": "doctoralia",
+ "nombre": "Doctoralia",
+ "url": "https://pro.doctoralia.co/es-co/recursos/preguntas-frecuentes/como-configurar-la-reserva-online-de-cita",
+ "recuperada": false,
+ "texto": "```json\n{\n  \"abierta\": false,\n  \"agendaPorProfesional\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"eligeElCliente\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"enEspanol\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  }\n}\n```"
+}

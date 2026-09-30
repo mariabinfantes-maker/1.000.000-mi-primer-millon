@@ -1,0 +1,7 @@
+{
+ "id": "acuity-scheduling",
+ "nombre": "Acuity Scheduling (Squarespace)",
+ "url": "https://help.acuityscheduling.com/hc/es/articles/16676918663821-Configuraci%C3%B3n-y-edici%C3%B3n-de-tu-disponibilidad-b%C3%A1sica",
+ "recuperada": false,
+ "texto": "```json\n{\n  \"abierta\": false,\n  \"agendaPorProfesional\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"eligeElCliente\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"enEspanol\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  }\n}\n```"
+}

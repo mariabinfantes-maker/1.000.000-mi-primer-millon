@@ -43,26 +43,42 @@ describe("calcularPuntuacionAtlas", () => {
     expect(resultado!.motivos.some((m) => m.includes("320 reseñas"))).toBe(true);
   });
 
-  it("añade un pequeño extra por plan gratuito, API pública y app móvil", () => {
+  it("añade un pequeño extra por API pública y app móvil", () => {
     const sinExtras = calcularPuntuacionAtlas({ puntuaciones: puntuacionesCompletas })!;
     const conExtras = calcularPuntuacionAtlas({
       puntuaciones: puntuacionesCompletas,
-      tienePlanGratuito: true,
       tieneApiPublica: true,
       tieneAppMovil: true,
     })!;
 
     expect(conExtras.puntuacion).toBeGreaterThan(sinExtras.puntuacion);
-    expect(conExtras.motivos).toContain("Tiene plan gratuito.");
     expect(conExtras.motivos).toContain("Ofrece una API pública.");
     expect(conExtras.motivos).toContain("Dispone de app móvil.");
   });
 
+  /**
+   * El plan gratuito ya NO puntúa, y esta prueba existe para que no vuelva.
+   *
+   * Lo tienen 64 de las 65 fichas del catálogo, así que no distinguía nada, y
+   * estaba guardado como mérito —«Tiene plan gratuito.»— entre las notas de
+   * calidad y la reputación, como si fuera una virtud de la herramienta.
+   * Decisión de la propietaria (2026-09-18): «estamos endiosando lo gratis».
+   * Sigue viéndose en la tarjeta y en la ficha; lo que no hace es ordenar.
+   */
+  it("el plan gratuito no suma ni aparece como mérito", () => {
+    const sinPlan = calcularPuntuacionAtlas({ puntuaciones: puntuacionesCompletas })!;
+    const conPlan = calcularPuntuacionAtlas({ puntuaciones: puntuacionesCompletas, tienePlanGratuito: true })!;
+
+    expect(conPlan.puntuacion).toBe(sinPlan.puntuacion);
+    expect(conPlan.motivos).not.toContain("Tiene plan gratuito.");
+    expect(conPlan.motivos.join(" ")).not.toMatch(/gratuit/i);
+  });
+
   it("calcula algo razonable a partir solo de señales de producto, sin puntuaciones ni reputación", () => {
-    const resultado = calcularPuntuacionAtlas({ tienePlanGratuito: true });
+    const resultado = calcularPuntuacionAtlas({ tieneApiPublica: true });
 
     expect(resultado).not.toBeNull();
-    expect(resultado!.puntuacion).toBe(53); // base neutra (50) + 3 del plan gratuito
+    expect(resultado!.puntuacion).toBe(52); // base neutra (50) + 2 de la API pública
   });
 
   it("nunca devuelve una puntuación fuera de 0-100", () => {

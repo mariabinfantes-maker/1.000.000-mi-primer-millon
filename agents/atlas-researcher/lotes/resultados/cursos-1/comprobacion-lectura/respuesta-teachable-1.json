@@ -1,0 +1,47 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "[\n  {\n    \"id\": \"teachable-cobro\",\n    \"encontrada\": true,\n    \"citaLocalizada\": \"Teachable uses Stripe, which charges students in your specified currency.\",\n    \"anterior\": \"Foreign transaction fee (international business location)\",\n    \"posterior\": \"Price: Free\",\n    \"seccion\": \"Pricing currency and fees\",\n    \"textoRelacionado\": null\n  }\n]",
+            "thoughtSignature": "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"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0,
+      "urlContextMetadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://support.teachable.com/en/articles/11682476-price-your-products",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      }
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 607,
+    "candidatesTokenCount": 134,
+    "totalTokenCount": 5259,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 607
+      }
+    ],
+    "toolUsePromptTokenCount": 3345,
+    "toolUsePromptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3345
+      }
+    ],
+    "thoughtsTokenCount": 1173,
+    "serviceTier": "standard"
+  },
+  "modelVersion": "gemini-3.6-flash",
+  "responseId": "ufiqaofvLYHujrEPoPGeiAg"
+}

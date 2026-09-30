@@ -203,18 +203,35 @@ describe("la puerta no lo deja pasar", () => {
   });
 });
 
-describe("y los 1.544 registros de hoy no cambian de comportamiento", () => {
+describe("y los 1.547 registros de hoy no cambian de comportamiento", () => {
   const registros = getRegistros();
 
   it("no hay ni un registro con ausencia demostrada", () => {
     expect(registros.filter((r) => r.profundidad === "no_disponible")).toEqual([]);
   });
 
-  it("los 659 verificados siguen siendo capacidad demostrada", () => {
+  it("los 867 verificados siguen siendo capacidad demostrada", () => {
     const demostradas = registros.filter(
       (r) => evidenciaDeRegistro(r.herramientaId, r.capacidadId, r).estado === "demostrada"
     );
-    expect(demostradas.length).toBe(659);
+    // 659 de F2, los tres del 2026-09-17 y 193 de las dos pasadas del
+    // 2026-09-23 (la de la firma y las 150 dirigidas). Ninguno de los nuevos
+    // cambia el comportamiento que vigila esta prueba: siguen siendo
+    // capacidad demostrada y ninguno es una ausencia.
+    // 3.884 desde el 2026-09-29: entran los cuatro registros de Teachable. El
+    // primero llevaba bloqueado desde septiembre por su profundidad; los otros
+    // tres salen de preguntarle por fin qué hace, con el mismo molde que a
+    // Thinkific y Hotmart.
+    // 3.880 desde el 2026-09-24: las 808 comprobaciones de las cuatro necesidades
+    // que bloqueaban a nueve oficios. Se incorporaron porque cada pasada cuesta
+    // dinero real y, si el resultado no llega hasta aquí, no cambia nada.
+    //
+    // 3.908 y 891 desde el 2026-09-29 por la tarde: entran BEWE, Bookitit,
+    // AgendaPro, Cliniko, Archivex, Schedulista y las cinco del cierre, autorizadas por la propietaria («sube las 6 al
+    // catálogo»), con los 24 registros de sus capacidades de reservas. Ya
+    // estaban investigadas con cita y dirección desde el 28 y el 29; lo que
+    // faltaba era archivarlas, y eso hace `cli-archivar-reservas.ts`.
+    expect(demostradas.length).toBe(1022);
   });
 
   it("y ninguno cae en el estado nuevo", () => {

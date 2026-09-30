@@ -232,6 +232,14 @@ const criterioIntegraciones: Criterio = (herramienta, { integracionesNecesarias 
   };
 };
 
+/**
+ * Puntos del criterio de idioma cuando la ficha CONFIRMA el idioma. Está
+ * exportado porque la vista necesita distinguir «confirmado» de «no lo hemos
+ * confirmado» para decírselo a la persona, y comparar contra un número suelto
+ * repartido por dos archivos es cómo se pierden esas distinciones.
+ */
+export const PUNTOS_IDIOMA_CONFIRMADO = 5;
+
 const criterioIdioma: Criterio = (herramienta, { idiomaNecesario }) => {
   if (!idiomaNecesario || idiomaNecesario.trim() === "") {
     return { criterio: "idioma", etiqueta: "Idioma", puntos: 0, explicacion: "" };
@@ -242,7 +250,7 @@ const criterioIdioma: Criterio = (herramienta, { idiomaNecesario }) => {
     return {
       criterio: "idioma",
       etiqueta: "Idioma",
-      puntos: 5,
+      puntos: PUNTOS_IDIOMA_CONFIRMADO,
       explicacion: `Disponible en ${idiomaNecesario}.`,
     };
   }

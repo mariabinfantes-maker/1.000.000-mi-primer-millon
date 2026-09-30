@@ -1,0 +1,5 @@
+{
+ "id": "bewe",
+ "nombre": "BEWE",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/162817/Bewe/\",\n    \"notaGeneral\": 4.5,\n    \"facilidadDeUso\": 4.6,\n    \"escala\": 5.0,\n    \"numeroDeResenas\": 115,\n    \"cita\": \"Bewe · 4.5 (115). Overall. 4.5. Ease of Use. 4.6. Customer Service. 4.5. Features. 4.4. Value for Money. 4.3.\"\n  },\n  \"g2\": {\n    \"url\": null,\n    \"notaGeneral\": null,\n    \"facilidadDeUso\": null,\n    \"escala\": null,\n    \"numeroDeResenas\": null,\n    \"cita\": null\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/162817/Bewe/\",\n    \"https://www.capterra.es/software/162817/bewe\",\n    \"https://www.capterra.ie\",\n    \"https://www.capterra.co.uk\",\n    \"https://www.g2.com (búsqueda de ficha de Bewe: no encontrada / sin perfil activo con reseñas)\"\n  ]\n}\n```"
+}

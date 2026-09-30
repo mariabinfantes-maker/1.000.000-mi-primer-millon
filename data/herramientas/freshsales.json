@@ -1,7 +1,7 @@
 {
   "nombre": "Freshsales",
   "paginaOficial": "https://www.freshworks.com/crm/sales/",
-  "urlPrecios": "https://www.freshworks.com/crm/sales/pricing/",
+  "urlPrecios": "https://www.freshworks.com/crm/pricing/",
   "categoriaId": "plataformas-todo-en-uno",
   "descripcion": "Freshsales es una plataforma de gestión de relaciones con clientes (CRM) enfocada en automatizar el proceso de ventas e impulsar los ingresos. Ofrece funciones de telefonía integrada, seguimiento de correos electrónicos, secuencias de ventas y cualificación de leads mediante inteligencia artificial (Freddy AI).",
   "informacionEmpresa": {
@@ -66,7 +66,7 @@
     "Microsoft Outlook"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde 15$/usuario/mes (facturación anual)",
+  "precioInicial": "Desde $9/usuario/mes (facturación anual)",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -110,7 +110,18 @@
         "numeroResenas": 200,
         "enlace": "https://www.trustradius.com/products/freshsales/reviews"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.com/p/153676/Freshsales/",
+      "cita": "Ease of Use. 4.2. Customer Service. 4.1. Reviews Sentiment. User 1. User 2. User 3. Based on 622 reviews. — leido 4.5/5 con 622 reseñas. Confirma el 4.5 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.g2.com/products/freshsales/reviews",
+      "cita": "leido 4.5/5 con 1061 reseñas. Confirma el 4.5 guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Excelente interfaz de usuario, moderna y de rápida adopción",
@@ -132,12 +143,11 @@
     ],
     "tipoNegocioIdeal": "Pymes B2B y startups en crecimiento",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 93,
+    "puntuacion": 90,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.2/10.",
       "G2: 4.5/5 (1150 reseñas).",
       "Capterra: 4.5/5 (600 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -145,7 +155,7 @@
   "id": "freshsales",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-03",
-  "fechaUltimaRevision": "2026-08-05",
+  "fechaUltimaRevision": "2026-09-17",
   "problemasIds": [
     "conseguir-clientes"
   ],
@@ -157,6 +167,14 @@
   ],
   "tipoProducto": "suite",
   "categoriasSecundarias": [
+    "asistentes-ia",
+    "automatizacion-integraciones",
     "crm"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 21,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.freshworks.com/crm/pricing/"
+  }
 }

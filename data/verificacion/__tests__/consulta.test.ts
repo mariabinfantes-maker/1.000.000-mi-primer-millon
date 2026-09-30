@@ -108,7 +108,7 @@ describe("el índice de la verificación", () => {
   });
 });
 
-describe("sobre los 1.544 registros reales", () => {
+describe("sobre los 1.547 registros reales", () => {
   const registros = getRegistros();
   const puerto = getPuertoDeEvidencia();
 
@@ -148,14 +148,44 @@ describe("sobre los 1.544 registros reales", () => {
   });
 
   it("las cuentas cuadran con lo que cerró F2", () => {
-    expect(registros.length).toBe(1544);
+    // 1.544 de F2, los tres aprobados el 2026-09-17 con prueba de lectura y
+    // 1.541 del 2026-09-23, cuando la propietaria autorizó incorporar las dos
+    // pasadas de verificación por casas. De los nuevos, 193 demuestran una
+    // capacidad y el resto son «no consta» con dónde se miró anotado.
+    // 3.884 desde el 2026-09-29: entran los cuatro registros de Teachable. El
+    // primero llevaba bloqueado desde septiembre por su profundidad; los otros
+    // tres salen de preguntarle por fin qué hace, con el mismo molde que a
+    // Thinkific y Hotmart.
+    // 3.880 desde el 2026-09-24: las 808 comprobaciones de las cuatro necesidades
+    // que bloqueaban a nueve oficios. Se incorporaron porque cada pasada cuesta
+    // dinero real y, si el resultado no llega hasta aquí, no cambia nada.
+    //
+    // 3.908 y 891 desde el 2026-09-29 por la tarde: entran BEWE, Bookitit,
+    // AgendaPro y Cliniko, autorizadas por la propietaria («sube las 6 al
+    // catálogo»), con los 24 registros de sus capacidades de reservas. Ya
+    // estaban investigadas con cita y dirección desde el 28 y el 29; lo que
+    // faltaba era archivarlas, y eso hace `cli-archivar-reservas.ts`.
+    expect(registros.length).toBe(4039);
     const verificados = registros.filter((r) => puerto.estadoDe(r.herramientaId, r.capacidadId).estado === "demostrada");
-    expect(verificados.length).toBe(659);
+    expect(verificados.length).toBe(1022);
   });
 
-  it("las 62 herramientas tienen al menos una capacidad demostrada", () => {
+  /**
+   * 64 y no 65: Teachable está en el catálogo desde el 2026-09-17 y todavía
+   * no tiene ningún registro, porque su profundidad sigue pendiente. Es una
+   * ausencia decidida, no un olvido.
+   */
+  /**
+   * Eran 64 de 65: Teachable no tenía ninguna, por la condición escrita de la
+   * propietaria. Desde el 2026-09-29 son las 65, al demostrarse la profundidad
+   * que faltaba. Teachable sigue teniendo UNA sola: es la única a la que nunca
+   * se le preguntó por el resto.
+   */
+  it("las 65 herramientas tienen al menos una capacidad demostrada", () => {
     const herramientas = [...new Set(registros.map((r) => r.herramientaId))];
-    expect(herramientas.length).toBe(62);
+    // 69 desde el 2026-09-29: las cuatro promovidas esa tarde traen sus
+    // capacidades archivadas, así que ninguna entra sin saber qué hace.
+    expect(herramientas.length).toBe(90);
     expect(herramientas.filter((id) => puerto.capacidadesVerificadasDe(id).length === 0)).toEqual([]);
   });
 

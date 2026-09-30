@@ -1,0 +1,129 @@
+{
+  "nombre": "Nubimed",
+  "paginaOficial": "https://www.nubimed.com/",
+  "urlPrecios": "https://www.nubimed.com/planes-precios/",
+  "categoriaId": "reservas-citas",
+  "descripcion": "Programa para organizar las citas, las fichas de pacientes y la administración de una clínica. Permite configurar la agenda de cada profesional y gestionar solicitudes de cita por internet.",
+  "problemasQueResuelve": [
+    "Necesito consultar los huecos de cada profesional.",
+    "Quiero reunir las citas y la documentación de mis pacientes.",
+    "Quiero enviar recordatorios de las próximas consultas."
+  ],
+  "casosDeUso": [
+    "Una clínica organiza las citas por profesional y gabinete.",
+    "Una consulta registra la evolución del paciente en su historia clínica.",
+    "Recepción consulta una cita y accede desde ella a la ficha del paciente."
+  ],
+  "idealPara": "Clínicas y consultas que necesitan combinar agenda, historia clínica y administración.",
+  "segmentosIdeales": [
+    "1-10"
+  ],
+  "industriasIdeales": [
+    "clínicas dentales",
+    "fisioterapia",
+    "psicología",
+    "nutrición",
+    "medicina estética"
+  ],
+  "noRecomendadaPara": "No está pensada para negocios fuera del ámbito sanitario.",
+  "casosNoRecomendados": [
+    "Las agendas profesionales adicionales se cobran aparte.",
+    "Los recordatorios por SMS tienen coste adicional.",
+    "El almacenamiento incluido está limitado a 25 GB."
+  ],
+  "funcionesPrincipales": [
+    "Agendas configurables por profesional y disponibilidad por gabinete",
+    "Portal de cita online",
+    "Historias clínicas personalizables",
+    "Citas recurrentes y seguimiento de la sala de espera",
+    "Recordatorios por correo y SMS",
+    "Facturación y firma digital en el plan Premium"
+  ],
+  "integraciones": [
+    "Google Calendar",
+    "Doctoralia",
+    "SEOGA"
+  ],
+  "integracionesPrincipales": [
+    "Doctoralia",
+    "SEOGA",
+    "Google Calendar"
+  ],
+  "precioInicial": "27,40€ al mes + IVA",
+  "modeloDePrecio": [
+    "suscripcion_mensual"
+  ],
+  "tienePlanGratuito": false,
+  "preciosComprobados": {
+    "fecha": "2026-09-28",
+    "url": "https://www.nubimed.com/planes-precios/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-28",
+    "url": "https://www.nubimed.com/planes-precios/",
+    "moneda": "EUR",
+    "planes": [
+      {
+        "nombre": "LITE",
+        "mensual": "27,40 € + IVA",
+        "anual": null,
+        "cita": "27,40€ al mes + IVA"
+      },
+      {
+        "nombre": "PREMIUM",
+        "mensual": "50,10 € + IVA",
+        "anual": null,
+        "cita": "50,10€ al mes + IVA"
+      },
+      {
+        "nombre": "MULTICENTRO",
+        "mensual": null,
+        "anual": null,
+        "cita": "Consultar"
+      }
+    ]
+  },
+  "idiomasDisponibles": [
+    "es",
+    "en",
+    "ca",
+    "fr",
+    "de"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "puntuaciones": {
+    "nivelTecnicoRequerido": 1,
+    "facilidadImplementacion": null,
+    "fiabilidad": null,
+    "atencionAlCliente": null,
+    "facilidadDeUso": null,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Nivel técnico = 1 porque sus preguntas frecuentes dicen que no requiere conocimientos informáticos ni instalación y que se accede con un navegador. Su página documenta formación, migración con prueba previa de los datos, y ayuda dentro del programa, correo y teléfono de lunes a viernes de 10:00 a 14:00; se conservan como hechos, sin convertirlos en nota. No se encontró compromiso de disponibilidad ni notas desglosadas de G2 o Capterra. Las otras seis quedan sin valorar.",
+  "ventajas": [
+    "Permite acceder a la ficha, al tratamiento y al cobro desde la cita.",
+    "La conexión con Doctoralia permite reflejar la disponibilidad de la clínica.",
+    "Los usuarios de recepción y administración no añaden coste por agenda."
+  ],
+  "inconvenientes": [
+    "Cada usuario adicional con agenda incrementa la cuota: 2,40 € + IVA en Lite y 5,10 € + IVA en Premium.",
+    "Los SMS cuestan 0,08 € + IVA cada uno.",
+    "La aplicación móvil documentada funciona mediante navegador y acceso directo; no se ha confirmado una aplicación nativa."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": "España",
+    "anioFundacion": null,
+    "tamanoAproximado": null
+  },
+  "id": "nubimed",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-29",
+  "fechaUltimaRevision": "2026-09-29",
+  "problemasIds": [
+    "organizar-empresa",
+    "ahorrar-tiempo",
+    "atencion-cliente"
+  ]
+}

@@ -1,0 +1,5 @@
+{
+ "id": "clickfunnels",
+ "nombre": "ClickFunnels",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/147605/ClickFunnels/\",\n    \"notaGeneral\": 4.5,\n    \"facilidadDeUso\": 4.3,\n    \"escala\": \"5\",\n    \"numeroDeResenas\": 663,\n    \"cita\": \"Ease Of Use. 4.3 (663).\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/clickfunnels/reviews\",\n    \"notaGeneral\": 4.6,\n    \"facilidadDeUso\": null,\n    \"escala\": \"5\",\n    \"numeroDeResenas\": 417,\n    \"cita\": \"ClickFunnels Reviews (416). View 3 Video Reviews. 4.6. 417 reviews.\"\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/147605/ClickFunnels/\",\n    \"https://www.capterra.es/software/147605/clickfunnels\",\n    \"https://www.capterra.ie\",\n    \"https://www.capterra.co.uk\",\n    \"https://www.g2.com/products/clickfunnels/reviews\"\n  ]\n}\n```"
+}

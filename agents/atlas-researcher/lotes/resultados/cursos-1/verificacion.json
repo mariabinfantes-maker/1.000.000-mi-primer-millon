@@ -1,0 +1,257 @@
+{
+  "metodo": "Buscador restringido a los dominios oficiales (la lectura directa de las páginas está bloqueada desde el entorno remoto). Las citas son las frases que devolvió el buscador a partir de esas páginas, no una lectura literal de la página: pendientes de cita literal antes de entrar en ninguna ficha. Lo que el buscador no devolvió queda como desconocido.",
+  "fecha": "2026-09-16",
+  "herramientas": {
+    "thinkific": [
+      {
+        "campo": "tienePlanGratuito",
+        "segunBorrador": true,
+        "verificado": false,
+        "estado": "corregido",
+        "fuente": "https://www.thinkific.com/pricing/",
+        "fechaConsulta": "2026-09-16",
+        "cita": "There is no free plan, but all plans except Plus come with a 30-day free trial.",
+        "nota": "El borrador afirmaba «plan gratuito limitado». No existe: hay prueba de 30 días."
+      },
+      {
+        "campo": "precioInicial",
+        "segunBorrador": "Planes de pago desde 36$/mes (facturación anual)",
+        "verificado": "Basic 54 $/mes, Start 109 $/mes, Grow 219 $/mes; hasta 25 % menos con pago anual; subida de ~10 % en Basic, Start y Grow desde el 13-08-2026",
+        "estado": "desconocido",
+        "fuente": "https://support.thinkific.com/hc/en-us/articles/360030721393-How-much-does-Thinkific-cost",
+        "fechaConsulta": "2026-09-16",
+        "cita": "Basic ($54/month), Start ($109/month), and Grow ($219/month). Starting August 13, 2026, Thinkific is increasing prices by approximately 10% on Basic, Start, Grow",
+        "nota": "Los importes vigentes hoy no se pudieron leer en la página de precios; los citados pueden haber subido ya. El «36 $» del borrador no aparece en ninguna fuente."
+      },
+      {
+        "campo": "idiomasDisponibles (interfaz de alumnos)",
+        "segunBorrador": [
+          "Inglés",
+          "Español",
+          "Francés",
+          "Alemán",
+          "Portugués",
+          "Italiano"
+        ],
+        "verificado": "Lista oficial de más de 40 idiomas de la interfaz de alumnos, incluido Spanish (Mexican and Spain); sólo traduce el texto por defecto del sitio, no el contenido de los cursos",
+        "estado": "verificado",
+        "fuente": "https://support.thinkific.com/hc/en-us/articles/360030358914-Support-Multiple-Languages",
+        "fechaConsulta": "2026-09-16",
+        "cita": "Thinkific supports … Spanish (Mexican and Spain) … Language settings do not apply to any custom text included within course lessons and site pages."
+      },
+      {
+        "campo": "idioma del panel de administración y del soporte",
+        "segunBorrador": null,
+        "verificado": null,
+        "estado": "desconocido",
+        "fuente": "https://support.thinkific.com/hc/en-us/articles/360030358914-Support-Multiple-Languages",
+        "fechaConsulta": "2026-09-16",
+        "cita": null,
+        "nota": "La fuente sólo habla de la interfaz de alumnos."
+      },
+      {
+        "campo": "afiliacion.commission",
+        "segunBorrador": "30% de comisión recurrente de por vida por cada usuario referido",
+        "verificado": "30 % recurrente mientras el referido siga pagando; 150 $/mes fijos en el plan Plus",
+        "estado": "verificado",
+        "fuente": "https://support.thinkific.com/hc/en-us/articles/360030718573-Become-a-Thinkific-Affiliate",
+        "fechaConsulta": "2026-09-16",
+        "cita": "30% recurring commission on all paid plans for as long as the new subscriber pays for Thinkific. Plus plans receive a recurring commission of $150 per month instead of the 30%."
+      },
+      {
+        "campo": "afiliacion.cookieDuration",
+        "segunBorrador": "90 días",
+        "verificado": "90 días",
+        "estado": "verificado",
+        "fuente": "https://support.thinkific.com/hc/en-us/articles/360030718573-Become-a-Thinkific-Affiliate",
+        "fechaConsulta": "2026-09-16",
+        "cita": "This cookie is valid for 90 days."
+      },
+      {
+        "campo": "afiliacion.affiliatePlatform",
+        "segunBorrador": "PartnerStack",
+        "verificado": "PartnerStack",
+        "estado": "verificado",
+        "fuente": "https://support.thinkific.com/hc/en-us/articles/360039676833-How-to-Use-PartnerStack",
+        "fechaConsulta": "2026-09-16",
+        "cita": "The Thinkific Affiliate program runs on the PartnerStack affiliate platform."
+      },
+      {
+        "campo": "afiliacion.payoutFrequency",
+        "segunBorrador": "Mensual",
+        "verificado": "Retención de 30 días y pago el día 13 de cada mes",
+        "estado": "verificado",
+        "fuente": "https://support.thinkific.com/hc/en-us/articles/360030718573-Become-a-Thinkific-Affiliate",
+        "fechaConsulta": "2026-09-16",
+        "cita": "Commissions are subject to a 30 day hold, after which they will be paid out on the 13th of the month"
+      },
+      {
+        "campo": "afiliacion.approvalRequired",
+        "segunBorrador": true,
+        "verificado": null,
+        "estado": "desconocido",
+        "fuente": "https://www.thinkific.com/affiliates/",
+        "fechaConsulta": "2026-09-16",
+        "cita": null,
+        "nota": "El buscador no devolvió nada sobre aprobación previa."
+      }
+    ],
+    "teachable": [
+      {
+        "campo": "tienePlanGratuito",
+        "segunBorrador": true,
+        "verificado": false,
+        "estado": "corregido",
+        "fuente": "https://support.teachable.com/en/articles/11682410-new-teachable-plans-in-june-2025",
+        "fechaConsulta": "2026-09-16",
+        "cita": "Starting on June 15, 2025, Teachable retired their Basic, Pro, and Pro+ plans and introduced four new plans … Starter, Builder, Growth, and Advanced … seven-day free trial",
+        "nota": "El borrador decía «desde 0 $/mes, plan gratuito con comisión». La página de planes de 2025 no ofrece plan gratuito: prueba de 7 días. El artículo de tarifas todavía menciona «Free plan users pay $1 + 10%»: si sigue abierto a cuentas nuevas, desconocido."
+      },
+      {
+        "campo": "precioInicial",
+        "segunBorrador": "Desde 0$/mes",
+        "verificado": "Starter 39 $/mes con 7,5 % de comisión por venta y un producto publicado; Builder 89 $/mes sin comisión; Growth 189 $/mes; Advanced superior",
+        "estado": "verificado",
+        "fuente": "https://support.teachable.com/en/articles/11682410-new-teachable-plans-in-june-2025",
+        "fechaConsulta": "2026-09-16",
+        "cita": "The Starter plan costs $39/month with a 7.5% transaction fee and one published product. The Builder plan removes all transaction fees for $89/month. Growth and Advanced plans add automation, webhooks, and higher product limits at $189/month and above.",
+        "nota": "Pendiente de cita literal de la página de precios."
+      },
+      {
+        "campo": "idiomasDisponibles (interfaz de alumnos)",
+        "segunBorrador": [
+          "Inglés"
+        ],
+        "verificado": "Interfaz de alumnos en inglés, árabe, español, francés, alemán, portugués, italiano, japonés, tailandés, chino y turco",
+        "estado": "corregido",
+        "fuente": "https://support.teachable.com/en/articles/11682512-how-do-i-translate-my-school",
+        "fechaConsulta": "2026-09-16",
+        "cita": "Teachable supports English, Arabic, Spanish, French, German, Portuguese, Italian, Japanese, Thai, Chinese (Traditional and Simplified), and Turkish. These language settings only affect the student experience, while the admin experience is not translated.",
+        "nota": "El borrador decía sólo inglés. Matiz decisivo: lo traducible es lo que ve el alumno; el panel de quien administra sólo está en inglés."
+      },
+      {
+        "campo": "idioma del panel de administración",
+        "segunBorrador": null,
+        "verificado": "Sólo inglés",
+        "estado": "verificado",
+        "fuente": "https://support.teachable.com/en/articles/11682512-how-do-i-translate-my-school",
+        "fechaConsulta": "2026-09-16",
+        "cita": "the admin experience is not translated"
+      },
+      {
+        "campo": "idioma del soporte",
+        "segunBorrador": null,
+        "verificado": null,
+        "estado": "desconocido",
+        "fuente": "https://support.teachable.com/en/",
+        "fechaConsulta": "2026-09-16",
+        "cita": null
+      },
+      {
+        "campo": "afiliacion.commission",
+        "segunBorrador": "Hasta 30% de comisión recurrente",
+        "verificado": "30 % recurrente, sólo durante el primer año del referido",
+        "estado": "corregido",
+        "fuente": "https://www.teachable.com/partners",
+        "fechaConsulta": "2026-09-16",
+        "cita": "With a 30-day cookie, you make a 30% commission when anyone purchases a Teachable subscription. You continue to get the commission for the first year they're on the platform.",
+        "nota": "El borrador omitía la duración: no es de por vida, es el primer año."
+      },
+      {
+        "campo": "afiliacion.cookieDuration",
+        "segunBorrador": "30 días",
+        "verificado": "30 días",
+        "estado": "verificado",
+        "fuente": "https://www.teachable.com/partners",
+        "fechaConsulta": "2026-09-16",
+        "cita": "With a 30-day cookie"
+      },
+      {
+        "campo": "afiliacion.approvalRequired",
+        "segunBorrador": true,
+        "verificado": true,
+        "estado": "verificado",
+        "fuente": "https://www.teachable.com/partners",
+        "fechaConsulta": "2026-09-16",
+        "cita": "Applications are reviewed within 2-3 business days and applicants will be notified if they're a good fit for the program."
+      },
+      {
+        "campo": "afiliacion.affiliatePlatform",
+        "segunBorrador": "Impact",
+        "verificado": null,
+        "estado": "desconocido",
+        "fuente": "https://www.teachable.com/partners",
+        "fechaConsulta": "2026-09-16",
+        "cita": null,
+        "nota": "El buscador no nombró la plataforma; los enlaces de la página de precios llevan parámetros de Impact y de PartnerStack, y eso no basta para afirmarlo."
+      }
+    ],
+    "hotmart": [
+      {
+        "campo": "precioInicial",
+        "segunBorrador": "Sin cuota mensual (9,90% + comisión por transacción realizada)",
+        "verificado": "Sin cuota mensual ni inscripción; 9,90 % + 0,50 € por venta si el producto cuesta más de 15 €, o + 0,10 € si cuesta 15 € o menos",
+        "estado": "verificado",
+        "fuente": "https://help.hotmart.com/es/article/-cuales-son-las-tarifas-que-hotmart-cobra-por-sus-servicios-/208298448",
+        "fechaConsulta": "2026-09-16",
+        "cita": "Si tu producto cuesta más de 15 euros, pagarás 9,90% + 0.50 céntimos; si vale 15 euros o menos, pagarás 9,90% + 0.10 céntimos."
+      },
+      {
+        "campo": "tienePlanGratuito",
+        "segunBorrador": true,
+        "verificado": true,
+        "estado": "verificado",
+        "fuente": "https://hotmart.com/es/blog/hay-que-pagarle-algo-hotmart",
+        "fechaConsulta": "2026-09-16",
+        "cita": "No tendrás que realizar ninguna inversión inicial y solo pagas si vendes.",
+        "nota": "No hay plan: hay comisión por venta. «Gratuito» significa sin cuota."
+      },
+      {
+        "campo": "idiomasDisponibles (plataforma)",
+        "segunBorrador": [
+          "es",
+          "pt",
+          "en",
+          "fr",
+          "de",
+          "it"
+        ],
+        "verificado": "Inglés, portugués de Brasil y español (España, Colombia, México y América Latina)",
+        "estado": "corregido",
+        "fuente": "https://help.hotmart.com/es/article/9370019666957/-como-cambiar-el-idioma-del-area-de-miembros-del-producto-que-compre-",
+        "fechaConsulta": "2026-09-16",
+        "cita": "Hotmart ofrece los siguientes idiomas: English, Português - Brasil, Español - España, Español - Colombia, Español - México y Español - América Latina.",
+        "nota": "Francés, alemán e italiano del borrador no aparecen en la fuente."
+      },
+      {
+        "campo": "idioma del soporte",
+        "segunBorrador": null,
+        "verificado": "Centro de ayuda en español",
+        "estado": "verificado",
+        "fuente": "https://help.hotmart.com/es",
+        "fechaConsulta": "2026-09-16",
+        "cita": "Central de Ayuda Hotmart (en español)",
+        "nota": "Que la atención personal sea en español no se ha confirmado; sólo el centro de ayuda."
+      },
+      {
+        "campo": "afiliacion (cobrar por recomendar la plataforma)",
+        "segunBorrador": "hasAffiliateProgram: true, hasta 80% por venta",
+        "verificado": "No consta ningún programa que pague por recomendar la plataforma Hotmart ni por referir productores",
+        "estado": "no_consta",
+        "fuente": "https://hotmart.com/en/affiliates",
+        "fechaConsulta": "2026-09-16",
+        "cita": "As a Hotmart affiliate, you can promote digital products from other creators and earn a commission on every sale you make … The commission is defined by the creator.",
+        "nota": "El «Programa de Afiliados» de Hotmart es otra cosa: un mercado en el que se promocionan los productos de los productores y cada productor fija la comisión (hasta el 80 %). No es cobrar por recomendar la herramienta. Dos búsquedas en el dominio oficial no encontraron un programa de referidos de la plataforma. Para Molnip, la afiliación de Hotmart queda como no consta, no como confirmada."
+      },
+      {
+        "campo": "afiliacion.commission",
+        "segunBorrador": "Hasta un 80% por venta del producto promocionado (definido por el productor)",
+        "verificado": "Correcto como descripción del mercado de productos de terceros; no aplica a recomendar Hotmart",
+        "estado": "verificado",
+        "fuente": "https://help.hotmart.com/en/article/360016601731/how-are-affiliate-commissions-determined-at-hotmart-",
+        "fechaConsulta": "2026-09-16",
+        "cita": "You can earn up to 80% commission for each sale depending on the product. The commission is defined by the creator."
+      }
+    ]
+  }
+}

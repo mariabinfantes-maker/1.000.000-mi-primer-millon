@@ -3,6 +3,13 @@
   "paginaOficial": "https://www.pipedrive.com",
   "urlPrecios": "https://www.pipedrive.com/es/pricing",
   "categoriaId": "crm",
+  "categoriasSecundarias": [
+    "asistentes-ia",
+    "automatizacion-integraciones",
+    "gestion-proyectos",
+    "marketing-email",
+    "reservas-citas"
+  ],
   "descripcion": "Pipedrive es una plataforma CRM enfocada en la gestión visual del embudo de ventas y la productividad comercial. Ayuda a los equipos a organizar sus prospectos, dar seguimiento a tratos en tiempo real y automatizar tareas repetitivas para acelerar el ciclo de venta.",
   "informacionEmpresa": {
     "anioFundacion": 2010,
@@ -63,13 +70,13 @@
     "Google Workspace"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde 14€/usuario/mes (pago anual)",
+  "precioInicial": "Desde $14/usuario/mes (facturación anual)",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Advanced a 29€/usuario/mes (facturación anual)",
   "idiomasDisponibles": [
     "Español",
@@ -145,5 +152,11 @@
     "email_marketing",
     "embudos_de_venta"
   ],
-  "tipoProducto": "especializada"
+  "tipoProducto": "especializada",
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.pipedrive.com/es/pricing"
+  }
 }

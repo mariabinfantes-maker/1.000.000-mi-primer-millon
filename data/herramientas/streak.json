@@ -4,6 +4,12 @@
   "urlPrecios": "https://www.streak.com/pricing",
   "logoUrl": "",
   "categoriaId": "crm",
+  "categoriasSecundarias": [
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "gestion-proyectos",
+    "recursos-humanos"
+  ],
   "descripcion": "Streak es una herramienta de gestión de relaciones con clientes (CRM) e integración de flujos de trabajo integrada directamente dentro de Gmail y Google Workspace. Permite gestionar embudos de ventas, contratación, soporte y proyectos sin salir de la bandeja de entrada de correo. Incluye potentes herramientas avanzadas de correo como seguimiento de lecturas, envío masivo de plantillas y fragmentos de texto.",
   "informacionEmpresa": {
     "anioFundacion": 2011,
@@ -63,7 +69,7 @@
     "Slack"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde 0 $/usuario/mes (Plan Free disponible)",
+  "precioInicial": "Gratis para siempre (50 combinaciones de correo al día). De pago desde $49/usuario/mes",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -123,12 +129,11 @@
     ],
     "tipoNegocioIdeal": "Startups, agencias y pequeñas empresas que operan 100% en Google Workspace",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 91,
+    "puntuacion": 88,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 7.8/10.",
       "G2: 4.5/5 (220 reseñas).",
       "Capterra: 4.5/5 (450 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -140,5 +145,29 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "conseguir-clientes"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.streak.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.streak.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Pro",
+        "mensual": "59 $/usuario/mes",
+        "anual": "49 $/usuario/mes",
+        "cita": "$59 / $49"
+      },
+      {
+        "nombre": "Pro+",
+        "mensual": "89 $/usuario/mes",
+        "anual": "69 $/usuario/mes",
+        "cita": "$89 / $69"
+      }
+    ]
+  }
 }

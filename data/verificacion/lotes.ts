@@ -1,6 +1,8 @@
+import fs from "node:fs";
 import path from "node:path";
 import type { SalidaHerramienta } from "./convertir";
 import type { PlanDeVerificacion, SeleccionPlausible } from "./esquema";
+import { getRecorrido, getUso } from "./usos";
 
 /**
  * Abrir un lote de F2 desde su selección congelada.
@@ -116,4 +118,101 @@ export function planesPendientes(entrada?: SalidaHerramienta): {
     if (r.cita) citaPrevia.set(r.capacidadId, r.cita);
   }
   return { capacidadIds, citaPrevia };
+}
+
+/**
+ * ── Lotes de usos (2026-09-16, tercera ronda) ──────────────────────────
+ *
+ * Un lote de usos NO es un lote del plan de F2: no parte de una selección
+ * plausible de veinticinco capacidades, sino de las pocas que hacen falta
+ * para un recorrido, con sus usos, sus recorridos y el idioma. Se congela y
+ * se firma igual —cada herramienta lleva su criterio y el lote su fecha—, y
+ * lleva escritos los límites de consumo que la propietaria fijó: tope de
+ * peticiones HTTP contando reintentos, peticiones por minuto, y parada al
+ * primer error de cuota.
+ */
+export type HerramientaDeLoteDeUsos = {
+  herramientaId: string;
+  /** Por qué estas capacidades, usos y recorridos, y no otros. */
+  criterio: string;
+  capacidadIds: string[];
+  usoIds: string[];
+  recorridoIds: string[];
+  idioma: boolean;
+};
+
+export type LoteDeUsos = {
+  /** kebab-case; nombra el checkpoint y la salida. */
+  id: string;
+  nombre: string;
+  motivo: string;
+  /** AAAA-MM-DD en que se congeló. */
+  fecha: string;
+  /** Peticiones HTTP como máximo en toda la ejecución, reintentos incluidos. */
+  topeDePeticiones: number;
+  peticionesPorMinuto: number;
+  herramientas: HerramientaDeLoteDeUsos[];
+};
+
+export function leerLoteDeUsos(ruta: string): LoteDeUsos {
+  return JSON.parse(fs.readFileSync(ruta, "utf8")) as LoteDeUsos;
+}
+
+/** Qué está mal en un lote de usos. Se comprueba ANTES de gastar nada. */
+export function erroresDeLoteDeUsos(
+  lote: LoteDeUsos,
+  herramientaIds: readonly string[],
+  capacidadIds: readonly string[]
+): string[] {
+  const e: string[] = [];
+  if (!/^[a-z0-9][a-z0-9-]*$/.test(lote.id ?? "")) e.push(`el id "${lote.id}" no es kebab-case`);
+  if (!lote.nombre?.trim()) e.push("sin nombre");
+  if (!lote.motivo?.trim()) e.push("sin motivo escrito");
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(lote.fecha ?? "")) e.push(`fecha inválida "${lote.fecha}"`);
+  if (!Number.isInteger(lote.topeDePeticiones) || lote.topeDePeticiones <= 0) e.push("el tope de peticiones tiene que ser un entero positivo");
+  if (!Number.isInteger(lote.peticionesPorMinuto) || lote.peticionesPorMinuto <= 0) e.push("las peticiones por minuto tienen que ser un entero positivo");
+  if (!lote.herramientas?.length) e.push("sin herramientas");
+  const vistas = new Set<string>();
+  for (const h of lote.herramientas ?? []) {
+    const donde = h.herramientaId;
+    if (vistas.has(donde)) e.push(`${donde}: aparece dos veces`);
+    vistas.add(donde);
+    if (!herramientaIds.includes(donde)) e.push(`${donde}: la herramienta no existe en el catálogo`);
+    if (!h.criterio?.trim()) e.push(`${donde}: sin criterio escrito, la lista se puede estrechar luego`);
+    if (!h.capacidadIds?.length) e.push(`${donde}: sin capacidades`);
+    for (const c of h.capacidadIds ?? []) if (!capacidadIds.includes(c)) e.push(`${donde}: la capacidad "${c}" no existe`);
+    if (new Set(h.capacidadIds ?? []).size !== (h.capacidadIds ?? []).length) e.push(`${donde}: capacidades repetidas`);
+    for (const u of h.usoIds ?? []) {
+      const uso = getUso(u);
+      if (!uso) e.push(`${donde}: el uso "${u}" no existe`);
+      else if (!(h.capacidadIds ?? []).includes(uso.capacidadId)) e.push(`${donde}: el uso "${u}" cuelga de ${uso.capacidadId}, que no está en sus capacidades`);
+    }
+    for (const r of h.recorridoIds ?? []) {
+      const rec = getRecorrido(r);
+      if (!rec) e.push(`${donde}: el recorrido "${r}" no existe`);
+      else {
+        for (const pieza of rec.piezas) {
+          if (!pieza.some((c) => (h.capacidadIds ?? []).includes(c))) {
+            e.push(`${donde}: el recorrido "${r}" necesita ${pieza.join(" o ")}, y no está en sus capacidades`);
+          }
+        }
+      }
+    }
+  }
+  return e;
+}
+
+/**
+ * Cuántas llamadas lógicas prevé un lote, y cuántas peticiones HTTP como
+ * máximo si cada una agota sus reintentos. Es lo que se le enseña a la
+ * propietaria antes de disparar, y lo que el tope tiene que cubrir.
+ *
+ * Por herramienta: los bloques de la primera pasada (capacidades, usos,
+ * recorridos e idioma van en la misma llamada) más, como máximo, los mismos
+ * bloques de la segunda (el plan de lo afirmado).
+ */
+export function peticionesPrevistas(lote: LoteDeUsos, porLlamada: number, reintentosPorLlamada = 3): { llamadas: number; maximoConReintentos: number } {
+  let llamadas = 0;
+  for (const h of lote.herramientas) llamadas += 2 * Math.ceil(h.capacidadIds.length / porLlamada);
+  return { llamadas, maximoConReintentos: llamadas * reintentosPorLlamada };
 }

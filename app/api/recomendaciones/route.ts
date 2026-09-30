@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getHerramientas, getProblemas } from "@/data/repositorio";
 import { getPuertaDeEvidencia, getPuertoDeEvidencia } from "@/data/verificacion/consulta";
+import { getUso } from "@/data/verificacion/usos";
 import {
   NINGUNA_DE_ESTAS,
   detectarProblemasPorTexto,
@@ -154,8 +155,20 @@ export async function POST(request: Request) {
     respuestas.necesidadElegida && respuestas.necesidadElegida !== NINGUNA_DE_ESTAS
       ? filaDeNecesidad(objetivoId, respuestas.necesidadElegida)
       : undefined;
+  /**
+   * El uso concreto de la fila, si lo pide, viaja sólo demostrado y con su
+   * etiqueta en palabras: la pantalla no puede leer la lista de usos, así
+   * que se le da aquí lo único que enseñará.
+   */
   const etiquetaDe = (herramientaId: string): EtiquetaEvidencia | undefined =>
-    fila ? etiquetaDeEvidencia(herramientaId, fila, (h, c) => getPuertoDeEvidencia().estadoDe(h, c)) : undefined;
+    fila
+      ? etiquetaDeEvidencia(
+          herramientaId,
+          fila,
+          (h, c) => getPuertoDeEvidencia().estadoDe(h, c),
+          (h, u) => ({ ...getPuertoDeEvidencia().usoDe(h, u), etiqueta: getUso(u)?.etiqueta })
+        )
+      : undefined;
 
   const token = generarTokenResultado({
     origenTipo,

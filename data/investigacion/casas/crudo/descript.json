@@ -1,0 +1,13 @@
+{
+ "id": "descript",
+ "nombre": "Descript",
+ "urls": [
+  "https://www.descript.com",
+  "https://www.descript.com/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Descript is an AI video and audio editor that lets you edit by editing text.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"API + MCP Edit video through code, or from inside your AI assistant\"\n    }\n  ],\n  \"esDe\": \"asistentes-ia\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.descript.com/",
+  "OK https://www.descript.com/pricing"
+ ]
+}

@@ -1,0 +1,100 @@
+{
+  "nombre": "Square Appointments",
+  "paginaOficial": "https://squareup.com/es/es/appointments",
+  "urlPrecios": "https://squareup.com/es/es/appointments/pricing",
+  "categoriaId": "reservas-citas",
+  "descripcion": "Sistema que combina reservas, agenda, gestión de clientes y cobros mediante el ecosistema de Square.",
+  "problemasQueResuelve": [
+    "Necesito gestionar las citas y cobrar desde un mismo sistema.",
+    "Quiero mantener los perfiles y el historial de mis clientes.",
+    "Necesito coordinar las cuentas de mi equipo."
+  ],
+  "casosDeUso": [
+    "Gestionar reservas y cobros de un negocio de servicios.",
+    "Administrar citas desde un móvil.",
+    "Conectar las reservas con aplicaciones o desarrollos propios."
+  ],
+  "idealPara": "Negocios de servicios con citas, desde profesionales individuales hasta equipos; la tarifa distingue funciones y puntos de venta.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "Peluquerías",
+    "Barberías",
+    "Servicios de estética"
+  ],
+  "noRecomendadaPara": "No está pensada para quien no cobre en el momento de la cita: su fuerte es unir reserva y cobro.",
+  "casosNoRecomendados": [
+    "El plan Gratuito se limita a un único punto de venta.",
+    "Plus y Prémium se cobran mensualmente por punto de venta.",
+    "Los pagos tienen comisiones de procesamiento.",
+    "Además de la cuota se cobra COMISIÓN POR TRANSACCIÓN. El vocabulario del catálogo no tiene ese valor y se conserva aquí para no perderlo."
+  ],
+  "funcionesPrincipales": [
+    "Reservas y agenda.",
+    "Cobros integrados.",
+    "Perfiles e historial de clientes.",
+    "Gestión de citas desde iOS y Android."
+  ],
+  "integraciones": [
+    "Wix",
+    "PrestaShop",
+    "Quaderno"
+  ],
+  "integracionesPrincipales": [
+    "Wix, PrestaShop y Quaderno aparecen expresamente como aplicaciones compatibles en la página de Citas Square."
+  ],
+  "precioInicial": "Gratuito: 0 € al mes para un punto de venta. Plus: 19 € + IVA al mes por punto de venta. Prémium: 49 € + IVA al mes por punto de venta.",
+  "modeloDePrecio": [
+    "suscripcion_mensual"
+  ],
+  "tienePlanGratuito": true,
+  "preciosComprobados": {
+    "url": "https://squareup.com/es/es/appointments/pricing",
+    "fecha": "2026-09-29",
+    "cita": "0 € […] 19 € + IVA […] 49 € + IVA"
+  },
+  "idiomasDisponibles": [
+    "es",
+    "en"
+  ],
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "nivelTecnicoRequerido": null,
+    "facilidadImplementacion": null,
+    "fiabilidad": null,
+    "atencionAlCliente": null,
+    "facilidadDeUso": null,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Tarifas y producto de España, con importes en EUR, junto con documentación oficial de la API. El año de fundación corresponde a Square como empresa, no al lanzamiento de Appointments. No traslado al producto la plantilla de su grupo empresarial. No se hicieron pruebas de uso ni se asignaron puntuaciones.",
+  "ventajas": [
+    "El plan Gratuito publica cuentas de empleados ilimitadas.",
+    "Dispone de una API documentada para reservas.",
+    "La aplicación móvil figura incluida en los tres planes."
+  ],
+  "inconvenientes": [
+    "El plan Gratuito se limita a un único punto de venta.",
+    "Plus y Prémium se cobran mensualmente por punto de venta.",
+    "Los pagos tienen comisiones de procesamiento.",
+    "Además de la cuota se cobra COMISIÓN POR TRANSACCIÓN. El vocabulario del catálogo no tiene ese valor y se conserva aquí para no perderlo."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": "Estados Unidos",
+    "anioFundacion": 2009,
+    "tamanoAproximado": null
+  },
+  "id": "square-appointments",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-29",
+  "fechaUltimaRevision": "2026-09-29",
+  "problemasIds": [
+    "organizar-empresa",
+    "ahorrar-tiempo"
+  ]
+}

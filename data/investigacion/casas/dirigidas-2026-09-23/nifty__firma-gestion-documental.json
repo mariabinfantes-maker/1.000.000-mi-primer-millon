@@ -1,0 +1,17 @@
+{
+ "id": "nifty__firma-gestion-documental",
+ "herramientaId": "nifty",
+ "nombre": "Nifty",
+ "casa": "firma-gestion-documental",
+ "nombreCasa": "Firma electrónica y gestión documental",
+ "urls": [
+  "https://niftypm.com",
+  "https://niftypm.com/pricing/"
+ ],
+ "cita": "Docs & Files Write and store everything in one place",
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.collaborative_document_editing\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.internal_knowledge_workspace\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.file_storage\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.document_templates\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.workspace_wide_search\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.document_version_history\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.electronic_signature\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://niftypm.com/",
+  "OK https://niftypm.com/pricing/"
+ ]
+}

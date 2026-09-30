@@ -1,0 +1,3822 @@
+[
+ {
+  "herramienta": "Agile CRM",
+  "id": "agile-crm",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.agilecrm.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Agile CRM",
+  "id": "agile-crm",
+  "cap": "cap.shared_inbox",
+  "etiqueta": "Bandeja compartida",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.agilecrm.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Agile CRM",
+  "id": "agile-crm",
+  "cap": "cap.support_ticketing",
+  "etiqueta": "Tickets e incidencias",
+  "estado": "si",
+  "cita": "Powerful ticketing feature to resolve customer queries quickly",
+  "url": "https://www.agilecrm.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Agile CRM",
+  "id": "agile-crm",
+  "cap": "cap.website_live_chat",
+  "etiqueta": "Chat en la web",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.agilecrm.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Agile CRM",
+  "id": "agile-crm",
+  "cap": "cap.whatsapp_customer_channel",
+  "etiqueta": "Atención por WhatsApp",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.agilecrm.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Agile CRM",
+  "id": "agile-crm",
+  "cap": "cap.public_help_center",
+  "etiqueta": "Centro de ayuda público",
+  "estado": "si",
+  "cita": "Enabling a self-service portal to help customers help themselves",
+  "url": "https://www.agilecrm.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Agile CRM",
+  "id": "agile-crm",
+  "cap": "cap.canned_responses",
+  "etiqueta": "Respuestas guardadas",
+  "estado": "si",
+  "cita": "Pre-formatted replies to ensure fast and consistent responses to common questions.",
+  "url": "https://www.agilecrm.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Agile CRM",
+  "id": "agile-crm",
+  "cap": "cap.support_chatbot",
+  "etiqueta": "Asistente automático de atención",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.agilecrm.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Agile CRM",
+  "id": "agile-crm",
+  "cap": "cap.customer_satisfaction_surveys",
+  "etiqueta": "Encuestas de satisfacción",
+  "estado": "si",
+  "cita": "Improve customer relations by querying and analyzing their feedback",
+  "url": "https://www.agilecrm.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Agiled",
+  "id": "agiled",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "si",
+  "cita": "Built-in e-signing with legally binding signatures",
+  "url": "https://agiled.app/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Agiled",
+  "id": "agiled",
+  "cap": "cap.shared_inbox",
+  "etiqueta": "Bandeja compartida",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://agiled.app/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Agiled",
+  "id": "agiled",
+  "cap": "cap.support_ticketing",
+  "etiqueta": "Tickets e incidencias",
+  "estado": "si",
+  "cita": "Built-in support ticketing for client requests",
+  "url": "https://agiled.app/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Agiled",
+  "id": "agiled",
+  "cap": "cap.website_live_chat",
+  "etiqueta": "Chat en la web",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://agiled.app/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Agiled",
+  "id": "agiled",
+  "cap": "cap.whatsapp_customer_channel",
+  "etiqueta": "Atención por WhatsApp",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://agiled.app/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Agiled",
+  "id": "agiled",
+  "cap": "cap.public_help_center",
+  "etiqueta": "Centro de ayuda público",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://agiled.app/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Agiled",
+  "id": "agiled",
+  "cap": "cap.canned_responses",
+  "etiqueta": "Respuestas guardadas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://agiled.app/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Agiled",
+  "id": "agiled",
+  "cap": "cap.support_chatbot",
+  "etiqueta": "Asistente automático de atención",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://agiled.app/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Agiled",
+  "id": "agiled",
+  "cap": "cap.customer_satisfaction_surveys",
+  "etiqueta": "Encuestas de satisfacción",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://agiled.app/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.shared_inbox",
+  "etiqueta": "Bandeja compartida",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.support_ticketing",
+  "etiqueta": "Tickets e incidencias",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.website_live_chat",
+  "etiqueta": "Chat en la web",
+  "estado": "si",
+  "cita": "Use our live chat widget to accept customer requests on your website",
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.whatsapp_customer_channel",
+  "etiqueta": "Atención por WhatsApp",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.public_help_center",
+  "etiqueta": "Centro de ayuda público",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.canned_responses",
+  "etiqueta": "Respuestas guardadas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.support_chatbot",
+  "etiqueta": "Asistente automático de atención",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.customer_satisfaction_surveys",
+  "etiqueta": "Encuestas de satisfacción",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.work_orders",
+  "etiqueta": "Órdenes de trabajo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.technician_dispatch",
+  "etiqueta": "Asignar y despachar técnicos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.field_job_capture",
+  "etiqueta": "Parte en el móvil: fotos y firma",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.route_planning",
+  "etiqueta": "Planificación de rutas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.serviced_asset_registry",
+  "etiqueta": "Historial por bien atendido del cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.service_contracts_and_sla",
+  "etiqueta": "Contratos de mantenimiento y compromisos de respuesta",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.inventory_tracking",
+  "etiqueta": "Existencias",
+  "estado": "si",
+  "cita": "Track, audit, and manage your stock across multiple warehouses",
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.stock_reorder_alerts",
+  "etiqueta": "Avisos de reposición",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.barcode_scanning",
+  "etiqueta": "Código de barras",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.purchase_orders",
+  "etiqueta": "Compras y proveedores",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.warehouse_and_locations",
+  "etiqueta": "Almacén, ubicaciones y multi-tienda",
+  "estado": "si",
+  "cita": "Track, audit, and manage your stock across multiple warehouses",
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.lot_and_expiry_traceability",
+  "etiqueta": "Lotes, caducidad y trazabilidad",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.bill_of_materials",
+  "etiqueta": "Escandallo o lista de materiales",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.production_orders",
+  "etiqueta": "Órdenes de fabricación",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.material_requirements_planning",
+  "etiqueta": "Planificación de materiales (MRP)",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Bitrix24",
+  "id": "bitrix24",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Canva",
+  "id": "canva",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.canva.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickFunnels",
+  "id": "clickfunnels",
+  "cap": "cap.shared_inbox",
+  "etiqueta": "Bandeja compartida",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.clickfunnels.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickFunnels",
+  "id": "clickfunnels",
+  "cap": "cap.support_ticketing",
+  "etiqueta": "Tickets e incidencias",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.clickfunnels.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickFunnels",
+  "id": "clickfunnels",
+  "cap": "cap.website_live_chat",
+  "etiqueta": "Chat en la web",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.clickfunnels.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickFunnels",
+  "id": "clickfunnels",
+  "cap": "cap.whatsapp_customer_channel",
+  "etiqueta": "Atención por WhatsApp",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.clickfunnels.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickFunnels",
+  "id": "clickfunnels",
+  "cap": "cap.public_help_center",
+  "etiqueta": "Centro de ayuda público",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.clickfunnels.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickFunnels",
+  "id": "clickfunnels",
+  "cap": "cap.canned_responses",
+  "etiqueta": "Respuestas guardadas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.clickfunnels.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickFunnels",
+  "id": "clickfunnels",
+  "cap": "cap.support_chatbot",
+  "etiqueta": "Asistente automático de atención",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.clickfunnels.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickFunnels",
+  "id": "clickfunnels",
+  "cap": "cap.customer_satisfaction_surveys",
+  "etiqueta": "Encuestas de satisfacción",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.clickfunnels.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickUp Brain",
+  "id": "clickup-brain",
+  "cap": "cap.text_generation",
+  "etiqueta": "Redactar textos",
+  "estado": "si",
+  "cita": "Write copy",
+  "url": "https://clickup.com/ai",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickUp Brain",
+  "id": "clickup-brain",
+  "cap": "cap.text_correction",
+  "etiqueta": "Corregir y pulir textos",
+  "estado": "si",
+  "cita": "Proofread content",
+  "url": "https://clickup.com/ai",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickUp Brain",
+  "id": "clickup-brain",
+  "cap": "cap.translation",
+  "etiqueta": "Traducir",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com/ai",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickUp Brain",
+  "id": "clickup-brain",
+  "cap": "cap.presentation_building",
+  "etiqueta": "Presentaciones",
+  "estado": "si",
+  "cita": "Presentation-ready in one prompt",
+  "url": "https://clickup.com/ai",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickUp Brain",
+  "id": "clickup-brain",
+  "cap": "cap.graphic_design",
+  "etiqueta": "Diseño gráfico",
+  "estado": "si",
+  "cita": "Design logos",
+  "url": "https://clickup.com/ai",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickUp Brain",
+  "id": "clickup-brain",
+  "cap": "cap.video_editing",
+  "etiqueta": "Edición de vídeo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com/ai",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickUp Brain",
+  "id": "clickup-brain",
+  "cap": "cap.ai_video_generation",
+  "etiqueta": "Generar vídeo con IA",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com/ai",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickUp Brain",
+  "id": "clickup-brain",
+  "cap": "cap.audio_editing",
+  "etiqueta": "Edición de audio y pódcast",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com/ai",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickUp Brain",
+  "id": "clickup-brain",
+  "cap": "cap.audio_transcription",
+  "etiqueta": "Transcribir audio",
+  "estado": "si",
+  "cita": "Transcribe audio",
+  "url": "https://clickup.com/ai",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickUp Brain",
+  "id": "clickup-brain",
+  "cap": "cap.meeting_notes",
+  "etiqueta": "Actas y resúmenes de reunión",
+  "estado": "si",
+  "cita": "Brain is taking notes",
+  "url": "https://clickup.com/ai",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickUp Brain",
+  "id": "clickup-brain",
+  "cap": "cap.audio_noise_removal",
+  "etiqueta": "Limpiar el sonido",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com/ai",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickUp Brain",
+  "id": "clickup-brain",
+  "cap": "cap.subtitles",
+  "etiqueta": "Subtítulos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com/ai",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickUp Brain",
+  "id": "clickup-brain",
+  "cap": "cap.brand_kit",
+  "etiqueta": "Kit de marca",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com/ai",
+  "leidas": 1
+ },
+ {
+  "herramienta": "ClickUp",
+  "id": "clickup",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Copper",
+  "id": "copper",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copper.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "EngageBay",
+  "id": "engagebay",
+  "cap": "cap.shared_inbox",
+  "etiqueta": "Bandeja compartida",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.engagebay.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "EngageBay",
+  "id": "engagebay",
+  "cap": "cap.support_ticketing",
+  "etiqueta": "Tickets e incidencias",
+  "estado": "si",
+  "cita": "helpdesk ticketing",
+  "url": "https://www.engagebay.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "EngageBay",
+  "id": "engagebay",
+  "cap": "cap.website_live_chat",
+  "etiqueta": "Chat en la web",
+  "estado": "si",
+  "cita": "Free Live Chat Software",
+  "url": "https://www.engagebay.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "EngageBay",
+  "id": "engagebay",
+  "cap": "cap.whatsapp_customer_channel",
+  "etiqueta": "Atención por WhatsApp",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.engagebay.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "EngageBay",
+  "id": "engagebay",
+  "cap": "cap.public_help_center",
+  "etiqueta": "Centro de ayuda público",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.engagebay.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "EngageBay",
+  "id": "engagebay",
+  "cap": "cap.canned_responses",
+  "etiqueta": "Respuestas guardadas",
+  "estado": "si",
+  "cita": "Canned Responses",
+  "url": "https://www.engagebay.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "EngageBay",
+  "id": "engagebay",
+  "cap": "cap.support_chatbot",
+  "etiqueta": "Asistente automático de atención",
+  "estado": "si",
+  "cita": "EngageBay's AI Chatbot transforms customer support.",
+  "url": "https://www.engagebay.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "EngageBay",
+  "id": "engagebay",
+  "cap": "cap.customer_satisfaction_surveys",
+  "etiqueta": "Encuestas de satisfacción",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.engagebay.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Gamma",
+  "id": "gamma",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://gamma.app",
+  "leidas": 1
+ },
+ {
+  "herramienta": "GoHighLevel",
+  "id": "gohighlevel",
+  "cap": "cap.shared_inbox",
+  "etiqueta": "Bandeja compartida",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "GoHighLevel",
+  "id": "gohighlevel",
+  "cap": "cap.support_ticketing",
+  "etiqueta": "Tickets e incidencias",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "GoHighLevel",
+  "id": "gohighlevel",
+  "cap": "cap.website_live_chat",
+  "etiqueta": "Chat en la web",
+  "estado": "si",
+  "cita": "Consolidated conversation stream (SMS, Messenger, Instagram DM, Whatsapp, Livechat)",
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "GoHighLevel",
+  "id": "gohighlevel",
+  "cap": "cap.whatsapp_customer_channel",
+  "etiqueta": "Atención por WhatsApp",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "GoHighLevel",
+  "id": "gohighlevel",
+  "cap": "cap.public_help_center",
+  "etiqueta": "Centro de ayuda público",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "GoHighLevel",
+  "id": "gohighlevel",
+  "cap": "cap.canned_responses",
+  "etiqueta": "Respuestas guardadas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "GoHighLevel",
+  "id": "gohighlevel",
+  "cap": "cap.support_chatbot",
+  "etiqueta": "Asistente automático de atención",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "GoHighLevel",
+  "id": "gohighlevel",
+  "cap": "cap.customer_satisfaction_surveys",
+  "etiqueta": "Encuestas de satisfacción",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "HoneyBook",
+  "id": "honeybook",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.honeybook.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Hotmart",
+  "id": "hotmart",
+  "cap": "cap.online_store",
+  "etiqueta": "Tienda online",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Hotmart",
+  "id": "hotmart",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Hotmart",
+  "id": "hotmart",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Hotmart",
+  "id": "hotmart",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Hotmart",
+  "id": "hotmart",
+  "cap": "cap.returns_management",
+  "etiqueta": "Devoluciones y cambios",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Hotmart",
+  "id": "hotmart",
+  "cap": "cap.shipping_and_tracking",
+  "etiqueta": "Envíos, transportistas y seguimiento",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Hotmart",
+  "id": "hotmart",
+  "cap": "cap.external_channel_sync",
+  "etiqueta": "Sincronizar con portales y marketplaces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Hotmart",
+  "id": "hotmart",
+  "cap": "cap.prepaid_session_packages",
+  "etiqueta": "Bonos y paquetes de sesiones",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Hotmart",
+  "id": "hotmart",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Hotmart",
+  "id": "hotmart",
+  "cap": "cap.shared_inbox",
+  "etiqueta": "Bandeja compartida",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Hotmart",
+  "id": "hotmart",
+  "cap": "cap.support_ticketing",
+  "etiqueta": "Tickets e incidencias",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Hotmart",
+  "id": "hotmart",
+  "cap": "cap.website_live_chat",
+  "etiqueta": "Chat en la web",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Hotmart",
+  "id": "hotmart",
+  "cap": "cap.whatsapp_customer_channel",
+  "etiqueta": "Atención por WhatsApp",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Hotmart",
+  "id": "hotmart",
+  "cap": "cap.public_help_center",
+  "etiqueta": "Centro de ayuda público",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Hotmart",
+  "id": "hotmart",
+  "cap": "cap.canned_responses",
+  "etiqueta": "Respuestas guardadas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Hotmart",
+  "id": "hotmart",
+  "cap": "cap.support_chatbot",
+  "etiqueta": "Asistente automático de atención",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Hotmart",
+  "id": "hotmart",
+  "cap": "cap.customer_satisfaction_surveys",
+  "etiqueta": "Encuestas de satisfacción",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "HubSpot",
+  "id": "hubspot",
+  "cap": "cap.shared_inbox",
+  "etiqueta": "Bandeja compartida",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.hubspot.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "HubSpot",
+  "id": "hubspot",
+  "cap": "cap.support_ticketing",
+  "etiqueta": "Tickets e incidencias",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.hubspot.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "HubSpot",
+  "id": "hubspot",
+  "cap": "cap.website_live_chat",
+  "etiqueta": "Chat en la web",
+  "estado": "si",
+  "cita": "Free Live Chat Software",
+  "url": "https://www.hubspot.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "HubSpot",
+  "id": "hubspot",
+  "cap": "cap.whatsapp_customer_channel",
+  "etiqueta": "Atención por WhatsApp",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.hubspot.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "HubSpot",
+  "id": "hubspot",
+  "cap": "cap.public_help_center",
+  "etiqueta": "Centro de ayuda público",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.hubspot.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "HubSpot",
+  "id": "hubspot",
+  "cap": "cap.canned_responses",
+  "etiqueta": "Respuestas guardadas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.hubspot.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "HubSpot",
+  "id": "hubspot",
+  "cap": "cap.support_chatbot",
+  "etiqueta": "Asistente automático de atención",
+  "estado": "si",
+  "cita": "Resolve inquiries, take action in your CRM, and hand off with full context.",
+  "url": "https://www.hubspot.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "HubSpot",
+  "id": "hubspot",
+  "cap": "cap.customer_satisfaction_surveys",
+  "etiqueta": "Encuestas de satisfacción",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.hubspot.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Insightly",
+  "id": "insightly",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.insightly.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Insightly",
+  "id": "insightly",
+  "cap": "cap.shared_inbox",
+  "etiqueta": "Bandeja compartida",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.insightly.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Insightly",
+  "id": "insightly",
+  "cap": "cap.support_ticketing",
+  "etiqueta": "Tickets e incidencias",
+  "estado": "si",
+  "cita": "Let clients submit tickets through branded portals, email, or web forms.",
+  "url": "https://www.insightly.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Insightly",
+  "id": "insightly",
+  "cap": "cap.website_live_chat",
+  "etiqueta": "Chat en la web",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.insightly.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Insightly",
+  "id": "insightly",
+  "cap": "cap.whatsapp_customer_channel",
+  "etiqueta": "Atención por WhatsApp",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.insightly.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Insightly",
+  "id": "insightly",
+  "cap": "cap.public_help_center",
+  "etiqueta": "Centro de ayuda público",
+  "estado": "si",
+  "cita": "Get a dedicated client portal for articles, FAQs, product updates, forums, etc.",
+  "url": "https://www.insightly.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Insightly",
+  "id": "insightly",
+  "cap": "cap.canned_responses",
+  "etiqueta": "Respuestas guardadas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.insightly.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Insightly",
+  "id": "insightly",
+  "cap": "cap.support_chatbot",
+  "etiqueta": "Asistente automático de atención",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.insightly.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Insightly",
+  "id": "insightly",
+  "cap": "cap.customer_satisfaction_surveys",
+  "etiqueta": "Encuestas de satisfacción",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.insightly.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Kartra",
+  "id": "kartra",
+  "cap": "cap.shared_inbox",
+  "etiqueta": "Bandeja compartida",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.kartra.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Kartra",
+  "id": "kartra",
+  "cap": "cap.support_ticketing",
+  "etiqueta": "Tickets e incidencias",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.kartra.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Kartra",
+  "id": "kartra",
+  "cap": "cap.website_live_chat",
+  "etiqueta": "Chat en la web",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.kartra.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Kartra",
+  "id": "kartra",
+  "cap": "cap.whatsapp_customer_channel",
+  "etiqueta": "Atención por WhatsApp",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.kartra.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Kartra",
+  "id": "kartra",
+  "cap": "cap.public_help_center",
+  "etiqueta": "Centro de ayuda público",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.kartra.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Kartra",
+  "id": "kartra",
+  "cap": "cap.canned_responses",
+  "etiqueta": "Respuestas guardadas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.kartra.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Kartra",
+  "id": "kartra",
+  "cap": "cap.support_chatbot",
+  "etiqueta": "Asistente automático de atención",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.kartra.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Kartra",
+  "id": "kartra",
+  "cap": "cap.customer_satisfaction_surveys",
+  "etiqueta": "Encuestas de satisfacción",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.kartra.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "monday.com",
+  "id": "monday-com",
+  "cap": "cap.shared_inbox",
+  "etiqueta": "Bandeja compartida",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://monday.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "monday.com",
+  "id": "monday-com",
+  "cap": "cap.support_ticketing",
+  "etiqueta": "Tickets e incidencias",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://monday.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "monday.com",
+  "id": "monday-com",
+  "cap": "cap.website_live_chat",
+  "etiqueta": "Chat en la web",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://monday.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "monday.com",
+  "id": "monday-com",
+  "cap": "cap.whatsapp_customer_channel",
+  "etiqueta": "Atención por WhatsApp",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://monday.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "monday.com",
+  "id": "monday-com",
+  "cap": "cap.public_help_center",
+  "etiqueta": "Centro de ayuda público",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://monday.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "monday.com",
+  "id": "monday-com",
+  "cap": "cap.canned_responses",
+  "etiqueta": "Respuestas guardadas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://monday.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "monday.com",
+  "id": "monday-com",
+  "cap": "cap.support_chatbot",
+  "etiqueta": "Asistente automático de atención",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://monday.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "monday.com",
+  "id": "monday-com",
+  "cap": "cap.customer_satisfaction_surveys",
+  "etiqueta": "Encuestas de satisfacción",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://monday.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Motion",
+  "id": "motion",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.usemotion.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Nifty",
+  "id": "nifty",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Nifty",
+  "id": "nifty",
+  "cap": "cap.shared_inbox",
+  "etiqueta": "Bandeja compartida",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Nifty",
+  "id": "nifty",
+  "cap": "cap.support_ticketing",
+  "etiqueta": "Tickets e incidencias",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Nifty",
+  "id": "nifty",
+  "cap": "cap.website_live_chat",
+  "etiqueta": "Chat en la web",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Nifty",
+  "id": "nifty",
+  "cap": "cap.whatsapp_customer_channel",
+  "etiqueta": "Atención por WhatsApp",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Nifty",
+  "id": "nifty",
+  "cap": "cap.public_help_center",
+  "etiqueta": "Centro de ayuda público",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Nifty",
+  "id": "nifty",
+  "cap": "cap.canned_responses",
+  "etiqueta": "Respuestas guardadas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Nifty",
+  "id": "nifty",
+  "cap": "cap.support_chatbot",
+  "etiqueta": "Asistente automático de atención",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Nifty",
+  "id": "nifty",
+  "cap": "cap.customer_satisfaction_surveys",
+  "etiqueta": "Encuestas de satisfacción",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Nimble",
+  "id": "nimble",
+  "cap": "cap.shared_inbox",
+  "etiqueta": "Bandeja compartida",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nimble.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Nimble",
+  "id": "nimble",
+  "cap": "cap.support_ticketing",
+  "etiqueta": "Tickets e incidencias",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nimble.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Nimble",
+  "id": "nimble",
+  "cap": "cap.website_live_chat",
+  "etiqueta": "Chat en la web",
+  "estado": "si",
+  "cita": "chat live with your best website visitors.",
+  "url": "https://www.nimble.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Nimble",
+  "id": "nimble",
+  "cap": "cap.whatsapp_customer_channel",
+  "etiqueta": "Atención por WhatsApp",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nimble.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Nimble",
+  "id": "nimble",
+  "cap": "cap.public_help_center",
+  "etiqueta": "Centro de ayuda público",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nimble.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Nimble",
+  "id": "nimble",
+  "cap": "cap.canned_responses",
+  "etiqueta": "Respuestas guardadas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nimble.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Nimble",
+  "id": "nimble",
+  "cap": "cap.support_chatbot",
+  "etiqueta": "Asistente automático de atención",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nimble.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Nimble",
+  "id": "nimble",
+  "cap": "cap.customer_satisfaction_surveys",
+  "etiqueta": "Encuestas de satisfacción",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nimble.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "noCRM.io",
+  "id": "nocrm-io",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nocrm.io/es",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Nutshell",
+  "id": "nutshell",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "si",
+  "cita": "Create, send, track, and get signatures on quotes, invoices and contracts in your CRM",
+  "url": "https://www.nutshell.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.shared_inbox",
+  "etiqueta": "Bandeja compartida",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.support_ticketing",
+  "etiqueta": "Tickets e incidencias",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.website_live_chat",
+  "etiqueta": "Chat en la web",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.whatsapp_customer_channel",
+  "etiqueta": "Atención por WhatsApp",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.public_help_center",
+  "etiqueta": "Centro de ayuda público",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.canned_responses",
+  "etiqueta": "Respuestas guardadas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.support_chatbot",
+  "etiqueta": "Asistente automático de atención",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.customer_satisfaction_surveys",
+  "etiqueta": "Encuestas de satisfacción",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.work_orders",
+  "etiqueta": "Órdenes de trabajo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.technician_dispatch",
+  "etiqueta": "Asignar y despachar técnicos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.field_job_capture",
+  "etiqueta": "Parte en el móvil: fotos y firma",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.route_planning",
+  "etiqueta": "Planificación de rutas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.serviced_asset_registry",
+  "etiqueta": "Historial por bien atendido del cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.service_contracts_and_sla",
+  "etiqueta": "Contratos de mantenimiento y compromisos de respuesta",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.inventory_tracking",
+  "etiqueta": "Existencias",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.stock_reorder_alerts",
+  "etiqueta": "Avisos de reposición",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.barcode_scanning",
+  "etiqueta": "Código de barras",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.purchase_orders",
+  "etiqueta": "Compras y proveedores",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.warehouse_and_locations",
+  "etiqueta": "Almacén, ubicaciones y multi-tienda",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.lot_and_expiry_traceability",
+  "etiqueta": "Lotes, caducidad y trazabilidad",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.bill_of_materials",
+  "etiqueta": "Escandallo o lista de materiales",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.production_orders",
+  "etiqueta": "Órdenes de fabricación",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.material_requirements_planning",
+  "etiqueta": "Planificación de materiales (MRP)",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Odoo",
+  "id": "odoo",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Pipedrive",
+  "id": "pipedrive",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.pipedrive.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Productive",
+  "id": "productive-io",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://productive.io/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Salesmate",
+  "id": "salesmate",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.salesmate.io/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Salesmate",
+  "id": "salesmate",
+  "cap": "cap.shared_inbox",
+  "etiqueta": "Bandeja compartida",
+  "estado": "si",
+  "cita": "Team Inbox",
+  "url": "https://www.salesmate.io/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Salesmate",
+  "id": "salesmate",
+  "cap": "cap.support_ticketing",
+  "etiqueta": "Tickets e incidencias",
+  "estado": "si",
+  "cita": "Ticket Management",
+  "url": "https://www.salesmate.io/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Salesmate",
+  "id": "salesmate",
+  "cap": "cap.website_live_chat",
+  "etiqueta": "Chat en la web",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.salesmate.io/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Salesmate",
+  "id": "salesmate",
+  "cap": "cap.whatsapp_customer_channel",
+  "etiqueta": "Atención por WhatsApp",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.salesmate.io/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Salesmate",
+  "id": "salesmate",
+  "cap": "cap.public_help_center",
+  "etiqueta": "Centro de ayuda público",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.salesmate.io/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Salesmate",
+  "id": "salesmate",
+  "cap": "cap.canned_responses",
+  "etiqueta": "Respuestas guardadas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.salesmate.io/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Salesmate",
+  "id": "salesmate",
+  "cap": "cap.support_chatbot",
+  "etiqueta": "Asistente automático de atención",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.salesmate.io/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Salesmate",
+  "id": "salesmate",
+  "cap": "cap.customer_satisfaction_surveys",
+  "etiqueta": "Encuestas de satisfacción",
+  "estado": "si",
+  "cita": "CSAT / CES Surveys",
+  "url": "https://www.salesmate.io/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Streak",
+  "id": "streak",
+  "cap": "cap.shared_inbox",
+  "etiqueta": "Bandeja compartida",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.streak.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Streak",
+  "id": "streak",
+  "cap": "cap.support_ticketing",
+  "etiqueta": "Tickets e incidencias",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.streak.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Streak",
+  "id": "streak",
+  "cap": "cap.website_live_chat",
+  "etiqueta": "Chat en la web",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.streak.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Streak",
+  "id": "streak",
+  "cap": "cap.whatsapp_customer_channel",
+  "etiqueta": "Atención por WhatsApp",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.streak.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Streak",
+  "id": "streak",
+  "cap": "cap.public_help_center",
+  "etiqueta": "Centro de ayuda público",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.streak.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Streak",
+  "id": "streak",
+  "cap": "cap.canned_responses",
+  "etiqueta": "Respuestas guardadas",
+  "estado": "si",
+  "cita": "Reuse replies with snippets",
+  "url": "https://www.streak.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Streak",
+  "id": "streak",
+  "cap": "cap.support_chatbot",
+  "etiqueta": "Asistente automático de atención",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.streak.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Streak",
+  "id": "streak",
+  "cap": "cap.customer_satisfaction_surveys",
+  "etiqueta": "Encuestas de satisfacción",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.streak.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.email_campaigns",
+  "etiqueta": "Campañas de correo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.marketing_automation",
+  "etiqueta": "Automatización de marketing",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.landing_pages",
+  "etiqueta": "Páginas de captación",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.conversion_funnels",
+  "etiqueta": "Embudos de conversión",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.social_publishing",
+  "etiqueta": "Publicar en redes sociales",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.social_analytics",
+  "etiqueta": "Analítica de redes sociales",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.search_engine_optimization",
+  "etiqueta": "Posicionamiento en buscadores",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.paid_ads_management",
+  "etiqueta": "Campañas de publicidad de pago",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.loyalty_programs",
+  "etiqueta": "Fidelización y puntos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.work_orders",
+  "etiqueta": "Órdenes de trabajo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.technician_dispatch",
+  "etiqueta": "Asignar y despachar técnicos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.field_job_capture",
+  "etiqueta": "Parte en el móvil: fotos y firma",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.route_planning",
+  "etiqueta": "Planificación de rutas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.serviced_asset_registry",
+  "etiqueta": "Historial por bien atendido del cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.service_contracts_and_sla",
+  "etiqueta": "Contratos de mantenimiento y compromisos de respuesta",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.inventory_tracking",
+  "etiqueta": "Existencias",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.stock_reorder_alerts",
+  "etiqueta": "Avisos de reposición",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.barcode_scanning",
+  "etiqueta": "Código de barras",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.purchase_orders",
+  "etiqueta": "Compras y proveedores",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.warehouse_and_locations",
+  "etiqueta": "Almacén, ubicaciones y multi-tienda",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.lot_and_expiry_traceability",
+  "etiqueta": "Lotes, caducidad y trazabilidad",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.bill_of_materials",
+  "etiqueta": "Escandallo o lista de materiales",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.production_orders",
+  "etiqueta": "Órdenes de fabricación",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.material_requirements_planning",
+  "etiqueta": "Planificación de materiales (MRP)",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Systeme.io",
+  "id": "systeme-io",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.text_generation",
+  "etiqueta": "Redactar textos",
+  "estado": "si",
+  "cita": "TSK-Standard Everyday building and writing",
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.text_correction",
+  "etiqueta": "Corregir y pulir textos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.translation",
+  "etiqueta": "Traducir",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.presentation_building",
+  "etiqueta": "Presentaciones",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.graphic_design",
+  "etiqueta": "Diseño gráfico",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.video_editing",
+  "etiqueta": "Edición de vídeo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.ai_video_generation",
+  "etiqueta": "Generar vídeo con IA",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.audio_editing",
+  "etiqueta": "Edición de audio y pódcast",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.audio_transcription",
+  "etiqueta": "Transcribir audio",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.meeting_notes",
+  "etiqueta": "Actas y resúmenes de reunión",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.audio_noise_removal",
+  "etiqueta": "Limpiar el sonido",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.subtitles",
+  "etiqueta": "Subtítulos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.brand_kit",
+  "etiqueta": "Kit de marca",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.shared_inbox",
+  "etiqueta": "Bandeja compartida",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.support_ticketing",
+  "etiqueta": "Tickets e incidencias",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.website_live_chat",
+  "etiqueta": "Chat en la web",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.whatsapp_customer_channel",
+  "etiqueta": "Atención por WhatsApp",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.public_help_center",
+  "etiqueta": "Centro de ayuda público",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.canned_responses",
+  "etiqueta": "Respuestas guardadas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.support_chatbot",
+  "etiqueta": "Asistente automático de atención",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.customer_satisfaction_surveys",
+  "etiqueta": "Encuestas de satisfacción",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.work_orders",
+  "etiqueta": "Órdenes de trabajo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.technician_dispatch",
+  "etiqueta": "Asignar y despachar técnicos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.field_job_capture",
+  "etiqueta": "Parte en el móvil: fotos y firma",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.route_planning",
+  "etiqueta": "Planificación de rutas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.serviced_asset_registry",
+  "etiqueta": "Historial por bien atendido del cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.service_contracts_and_sla",
+  "etiqueta": "Contratos de mantenimiento y compromisos de respuesta",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.inventory_tracking",
+  "etiqueta": "Existencias",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.stock_reorder_alerts",
+  "etiqueta": "Avisos de reposición",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.barcode_scanning",
+  "etiqueta": "Código de barras",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.purchase_orders",
+  "etiqueta": "Compras y proveedores",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.warehouse_and_locations",
+  "etiqueta": "Almacén, ubicaciones y multi-tienda",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.lot_and_expiry_traceability",
+  "etiqueta": "Lotes, caducidad y trazabilidad",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.bill_of_materials",
+  "etiqueta": "Escandallo o lista de materiales",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.production_orders",
+  "etiqueta": "Órdenes de fabricación",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.material_requirements_planning",
+  "etiqueta": "Planificación de materiales (MRP)",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Taskade",
+  "id": "taskade",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Teachable",
+  "id": "teachable",
+  "cap": "cap.clinical_record",
+  "etiqueta": "Historia clínica",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://teachable.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Teachable",
+  "id": "teachable",
+  "cap": "cap.medical_imaging",
+  "etiqueta": "Imagen médica",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://teachable.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Teachable",
+  "id": "teachable",
+  "cap": "cap.electronic_prescription",
+  "etiqueta": "Receta electrónica",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://teachable.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Teachable",
+  "id": "teachable",
+  "cap": "cap.training_lms",
+  "etiqueta": "Impartir y seguir cursos",
+  "estado": "si",
+  "cita": "Quizzes and completion certificates",
+  "url": "https://teachable.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Teachable",
+  "id": "teachable",
+  "cap": "cap.student_enrollment",
+  "etiqueta": "Matrícula, inscripción y grupos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://teachable.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Teachable",
+  "id": "teachable",
+  "cap": "cap.academic_record",
+  "etiqueta": "Notas, asistencia y expediente académico",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://teachable.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Teamwork.com",
+  "id": "teamwork-com",
+  "cap": "cap.shared_inbox",
+  "etiqueta": "Bandeja compartida",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamwork.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Teamwork.com",
+  "id": "teamwork-com",
+  "cap": "cap.support_ticketing",
+  "etiqueta": "Tickets e incidencias",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamwork.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Teamwork.com",
+  "id": "teamwork-com",
+  "cap": "cap.website_live_chat",
+  "etiqueta": "Chat en la web",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamwork.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Teamwork.com",
+  "id": "teamwork-com",
+  "cap": "cap.whatsapp_customer_channel",
+  "etiqueta": "Atención por WhatsApp",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamwork.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Teamwork.com",
+  "id": "teamwork-com",
+  "cap": "cap.public_help_center",
+  "etiqueta": "Centro de ayuda público",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamwork.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Teamwork.com",
+  "id": "teamwork-com",
+  "cap": "cap.canned_responses",
+  "etiqueta": "Respuestas guardadas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamwork.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Teamwork.com",
+  "id": "teamwork-com",
+  "cap": "cap.support_chatbot",
+  "etiqueta": "Asistente automático de atención",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamwork.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Teamwork.com",
+  "id": "teamwork-com",
+  "cap": "cap.customer_satisfaction_surveys",
+  "etiqueta": "Encuestas de satisfacción",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamwork.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Thinkific",
+  "id": "thinkific",
+  "cap": "cap.clinical_record",
+  "etiqueta": "Historia clínica",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.thinkific.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Thinkific",
+  "id": "thinkific",
+  "cap": "cap.medical_imaging",
+  "etiqueta": "Imagen médica",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.thinkific.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Thinkific",
+  "id": "thinkific",
+  "cap": "cap.electronic_prescription",
+  "etiqueta": "Receta electrónica",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.thinkific.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Thinkific",
+  "id": "thinkific",
+  "cap": "cap.training_lms",
+  "etiqueta": "Impartir y seguir cursos",
+  "estado": "si",
+  "cita": "Quizzes, assignments, and certificates",
+  "url": "https://www.thinkific.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Thinkific",
+  "id": "thinkific",
+  "cap": "cap.student_enrollment",
+  "etiqueta": "Matrícula, inscripción y grupos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.thinkific.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Thinkific",
+  "id": "thinkific",
+  "cap": "cap.academic_record",
+  "etiqueta": "Notas, asistencia y expediente académico",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.thinkific.com",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.shared_inbox",
+  "etiqueta": "Bandeja compartida",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.support_ticketing",
+  "etiqueta": "Tickets e incidencias",
+  "estado": "si",
+  "cita": "A help desk handles customer support tickets and queries.",
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.website_live_chat",
+  "etiqueta": "Chat en la web",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.whatsapp_customer_channel",
+  "etiqueta": "Atención por WhatsApp",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.public_help_center",
+  "etiqueta": "Centro de ayuda público",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.canned_responses",
+  "etiqueta": "Respuestas guardadas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.support_chatbot",
+  "etiqueta": "Asistente automático de atención",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.customer_satisfaction_surveys",
+  "etiqueta": "Encuestas de satisfacción",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.work_orders",
+  "etiqueta": "Órdenes de trabajo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.technician_dispatch",
+  "etiqueta": "Asignar y despachar técnicos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.field_job_capture",
+  "etiqueta": "Parte en el móvil: fotos y firma",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.route_planning",
+  "etiqueta": "Planificación de rutas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.serviced_asset_registry",
+  "etiqueta": "Historial por bien atendido del cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.service_contracts_and_sla",
+  "etiqueta": "Contratos de mantenimiento y compromisos de respuesta",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.inventory_tracking",
+  "etiqueta": "Existencias",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.stock_reorder_alerts",
+  "etiqueta": "Avisos de reposición",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.barcode_scanning",
+  "etiqueta": "Código de barras",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.purchase_orders",
+  "etiqueta": "Compras y proveedores",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.warehouse_and_locations",
+  "etiqueta": "Almacén, ubicaciones y multi-tienda",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.lot_and_expiry_traceability",
+  "etiqueta": "Lotes, caducidad y trazabilidad",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.bill_of_materials",
+  "etiqueta": "Escandallo o lista de materiales",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.production_orders",
+  "etiqueta": "Órdenes de fabricación",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.material_requirements_planning",
+  "etiqueta": "Planificación de materiales (MRP)",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Vtiger CRM",
+  "id": "vtiger-crm",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.work_orders",
+  "etiqueta": "Órdenes de trabajo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.technician_dispatch",
+  "etiqueta": "Asignar y despachar técnicos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.field_job_capture",
+  "etiqueta": "Parte en el móvil: fotos y firma",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.route_planning",
+  "etiqueta": "Planificación de rutas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.serviced_asset_registry",
+  "etiqueta": "Historial por bien atendido del cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.service_contracts_and_sla",
+  "etiqueta": "Contratos de mantenimiento y compromisos de respuesta",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.inventory_tracking",
+  "etiqueta": "Existencias",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.stock_reorder_alerts",
+  "etiqueta": "Avisos de reposición",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.barcode_scanning",
+  "etiqueta": "Código de barras",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.purchase_orders",
+  "etiqueta": "Compras y proveedores",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.warehouse_and_locations",
+  "etiqueta": "Almacén, ubicaciones y multi-tienda",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.lot_and_expiry_traceability",
+  "etiqueta": "Lotes, caducidad y trazabilidad",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.bill_of_materials",
+  "etiqueta": "Escandallo o lista de materiales",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.production_orders",
+  "etiqueta": "Órdenes de fabricación",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.material_requirements_planning",
+  "etiqueta": "Planificación de materiales (MRP)",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.shared_inbox",
+  "etiqueta": "Bandeja compartida",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.support_ticketing",
+  "etiqueta": "Tickets e incidencias",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.website_live_chat",
+  "etiqueta": "Chat en la web",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.whatsapp_customer_channel",
+  "etiqueta": "Atención por WhatsApp",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.public_help_center",
+  "etiqueta": "Centro de ayuda público",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.canned_responses",
+  "etiqueta": "Respuestas guardadas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.support_chatbot",
+  "etiqueta": "Asistente automático de atención",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho CRM",
+  "id": "zoho-crm",
+  "cap": "cap.customer_satisfaction_surveys",
+  "etiqueta": "Encuestas de satisfacción",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.shared_inbox",
+  "etiqueta": "Bandeja compartida",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.support_ticketing",
+  "etiqueta": "Tickets e incidencias",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.website_live_chat",
+  "etiqueta": "Chat en la web",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.whatsapp_customer_channel",
+  "etiqueta": "Atención por WhatsApp",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.public_help_center",
+  "etiqueta": "Centro de ayuda público",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.canned_responses",
+  "etiqueta": "Respuestas guardadas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.support_chatbot",
+  "etiqueta": "Asistente automático de atención",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.customer_satisfaction_surveys",
+  "etiqueta": "Encuestas de satisfacción",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.customer_contact_records",
+  "etiqueta": "Fichas de cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.sales_pipeline",
+  "etiqueta": "Embudo de ventas y oportunidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.lead_capture",
+  "etiqueta": "Captación de contactos interesados",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.sales_forecasting",
+  "etiqueta": "Previsión de ventas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.client_portal",
+  "etiqueta": "Portal para el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.quotes_and_proposals",
+  "etiqueta": "Presupuestos y propuestas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.bill_of_quantities",
+  "etiqueta": "Presupuesto por partidas y mediciones",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.price_lists_and_rates",
+  "etiqueta": "Tarifas y listas de precios",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.contract_lifecycle",
+  "etiqueta": "Contratos vivos: vencimientos y renovaciones",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.work_orders",
+  "etiqueta": "Órdenes de trabajo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.technician_dispatch",
+  "etiqueta": "Asignar y despachar técnicos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.field_job_capture",
+  "etiqueta": "Parte en el móvil: fotos y firma",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.route_planning",
+  "etiqueta": "Planificación de rutas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.serviced_asset_registry",
+  "etiqueta": "Historial por bien atendido del cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.service_contracts_and_sla",
+  "etiqueta": "Contratos de mantenimiento y compromisos de respuesta",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.inventory_tracking",
+  "etiqueta": "Existencias",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.stock_reorder_alerts",
+  "etiqueta": "Avisos de reposición",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.barcode_scanning",
+  "etiqueta": "Código de barras",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.purchase_orders",
+  "etiqueta": "Compras y proveedores",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.warehouse_and_locations",
+  "etiqueta": "Almacén, ubicaciones y multi-tienda",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.lot_and_expiry_traceability",
+  "etiqueta": "Lotes, caducidad y trazabilidad",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.bill_of_materials",
+  "etiqueta": "Escandallo o lista de materiales",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.production_orders",
+  "etiqueta": "Órdenes de fabricación",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.material_requirements_planning",
+  "etiqueta": "Planificación de materiales (MRP)",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho One",
+  "id": "zoho-one",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 1
+ },
+ {
+  "herramienta": "Zoho Projects",
+  "id": "zoho-projects",
+  "cap": "cap.electronic_signature",
+  "etiqueta": "Firma electrónica de documentos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/projects/",
+  "leidas": 1
+ }
+]

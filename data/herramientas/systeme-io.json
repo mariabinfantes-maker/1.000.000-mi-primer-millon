@@ -60,7 +60,7 @@
     "Mercado Pago"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Gratis (Plan Freemium sin límite de tiempo)",
+  "precioInicial": "Gratis y sin caducidad (2.000 contactos, 3 embudos, 1 blog y 1 curso). De pago desde $17/mes",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -102,7 +102,18 @@
         "numeroResenas": 3800,
         "enlace": "https://www.trustpilot.com/review/systeme.io"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/204207/systeme-io/reviews/",
+      "cita": "Reviews of Systeme.io\n\n Ease of use\n\n 4.6 — leido 4.8/5 con 2129 reseñas. Confirma el 4.8 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/systeme-io/reviews",
+      "cita": "Systeme.io\n\n By Systeme.io\n\n 4.8/5(751) — leido 4.8/5 con 751 reseñas. Confirma el 4.8 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Plan gratuito sumamente completo y sin límite de prueba",
@@ -124,12 +135,11 @@
     ],
     "tipoNegocioIdeal": "Creadores de contenido e infoproductores",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 96,
+    "puntuacion": 93,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.2/10.",
       "G2: 4.8/5 (450 reseñas).",
       "Capterra: 4.8/5 (1500 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -150,6 +160,27 @@
   ],
   "tipoProducto": "suite",
   "categoriasSecundarias": [
-    "crm"
-  ]
+    "automatizacion-integraciones",
+    "creacion-web-hosting",
+    "crm",
+    "facturacion-contabilidad",
+    "marketing-email"
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://systeme.io/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://systeme.io/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 $",
+        "cita": "it costs nothing"
+      }
+    ]
+  }
 }

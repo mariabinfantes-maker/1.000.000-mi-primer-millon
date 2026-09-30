@@ -1,0 +1,5 @@
+{
+ "id": "productive-io",
+ "nombre": "Productive",
+ "texto": "```json\n{\n \"abierta\": true,\n \"capterra\": {\n  \"url\": \"https://www.capterra.com/p/162817/Productive/\",\n  \"notaGeneral\": 4.6,\n  \"facilidadDeUso\": 4.4,\n  \"escala\": 5.0,\n  \"numeroDeResenas\": 108,\n  \"cita\": \"Productive. 4.6 (108). Provider data verified by our Software Research team, and reviews moderated by our Reviews Verification team. Learn more. Last updated September 16th, 2026. Reviews of Productive. Ease of use. 4.4.\"\n },\n \"g2\": {\n  \"url\": \"https://www.g2.com/products/productive/reviews\",\n  \"notaGeneral\": 4.6,\n  \"facilidadDeUso\": 8.8,\n  \"escala\": 10.0,\n  \"numeroDeResenas\": 62,\n  \"cita\": \"Productive. 4.6/5(76) [...] Ratings. Meets Requirements. 8.8. 60. Worksection. 9.3. 96. Ease of Use. 8.8. 62.\"\n },\n \"dondeMire\": [\n  \"https://www.capterra.com/p/162817/Productive/\",\n  \"https://www.capterra.es/\",\n  \"https://www.capterra.co.uk/\",\n  \"https://www.capterra.ie/\",\n  \"https://www.g2.com/products/productive/reviews\"\n ]\n}\n```"
+}

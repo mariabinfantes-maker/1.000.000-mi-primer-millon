@@ -1,0 +1,74 @@
+{
+ "pedida": "https://www.shore.com/es/",
+ "urls": [
+  [
+   "https://www.shore.com/es",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "si",
+  "espana": "si",
+  "tipo_producto": "software",
+  "precio": {
+   "v": "si",
+   "cita": "Nuestros precios están dirigidos exclusivamente a profesionales y no incluyen el IVA."
+  },
+  "reserva_online_cliente": {
+   "v": "si",
+   "cita": "Reservas online, gestión de clientes y caja registradora para iPad"
+  },
+  "recordatorios_automaticos": {
+   "v": "si",
+   "cita": "Gestión de pacientes conforme al RGPD con recordatorios por SMS"
+  },
+  "cancelar_o_cambiar_cita": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "ficha_de_cliente": {
+   "v": "si",
+   "cita": "Gestiona citas y clientes online y lleva a cabo campañas de marketing exitosas."
+  },
+  "catalogo_de_servicios": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "agenda_por_profesional": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "cobro_online": {
+   "v": "si",
+   "cita": "Reservas online Pagos anticipados Gestión de clientes Campañas de marketing"
+  },
+  "tpv_mostrador": {
+   "v": "si",
+   "cita": "Agenda, automatización de marketing y caja registradora para iPad"
+  },
+  "senal_o_politica_ausencias": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "bonos_packs_sesiones": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "comisiones_o_propinas": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "widget_reserva_en_web_propia": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "inventario_stock": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "ficha_tecnica_servicio": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

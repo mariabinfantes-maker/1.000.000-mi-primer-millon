@@ -1,0 +1,144 @@
+{
+  "nombre": "FacturaDirecta",
+  "paginaOficial": "https://www.facturadirecta.com",
+  "urlPrecios": "https://www.facturadirecta.com/precios",
+  "logoUrl": "",
+  "categoriaId": "facturacion",
+  "categoriasSecundarias": [
+    "contabilidad"
+  ],
+  "subtipoId": null,
+  "subtiposSecundarios": [],
+  "tipoProducto": "especializada",
+  "descripcion": "FacturaDirecta es un software de facturación y contabilidad en la nube diseñado especialmente para autónomos y pequeñas empresas en España. Permite generar facturas, presupuestos, controlar gastos y automatizar la presentación de modelos de impuestos ante la Agencia Tributaria. Además, está completamente adaptado a las normativas de factura electrónica, Veri*Factu y TicketBAI.",
+  "informacionEmpresa": {
+    "anioFundacion": 2009,
+    "paisOrigen": "España",
+    "tamanoAproximado": "1-10 empleados"
+  },
+  "problemasQueResuelve": [
+    "Pérdida de tiempo en la creación manual de facturas, presupuestos y control de cobros.",
+    "Errores en el cálculo y presentación de modelos fiscales trimestrales y anuales (303, 130, 111, 390).",
+    "Dificultad para cumplir con las exigencias normativas como TicketBAI, FacturaE y Veri*Factu.",
+    "Falta de visibilidad sobre los gastos y el flujo de caja en tiempo real."
+  ],
+  "casosDeUso": [
+    "Generación y envío automatizado de facturas y presupuestos personalizados a clientes.",
+    "Conciliación bancaria mediante la vinculación directa con cuentas bancarias para sincronizar movimientos.",
+    "Generación automática de los modelos de impuestos para su presentación en la sede electrónica de la AEAT.",
+    "Digitalización de tickets y facturas de gastos mediante captura y lectura de datos."
+  ],
+  "idealPara": "Autónomos, profesionales independientes y pymes con sede en España que buscan un programa fácil para gestionar su facturación, impuestos y gastos sin complicaciones contables.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "Servicios profesionales",
+    "Consultoría",
+    "Agencias de marketing",
+    "Comercio minorista",
+    "Freelancers y trabajadores independientes"
+  ],
+  "noRecomendadaPara": "Grandes empresas o compañías internacionales que requieran contabilidad analítica compleja, gestión avanzada de inventarios en múltiples almacenes o consolidación de grupos fiscales.",
+  "casosNoRecomendados": [
+    "Empresas que operan fuera de la normativa fiscal e impositiva de España.",
+    "Empresas industriales que necesitan control detallado de líneas de producción, escandallos y logística avanzada."
+  ],
+  "funcionesPrincipales": [
+    "Creación y envío de facturas, presupuestos y albaranes",
+    "Cálculo y generación automática de modelos fiscales (IVA e IRPF)",
+    "Conciliación bancaria automatizada con entidades españolas",
+    "Soporte integral para FacturaE, Veri*Factu y TicketBAI",
+    "Gestión y digitalización de tickets de gasto",
+    "Cobro de facturas online integrado con pasarelas de pago"
+  ],
+  "modulosIncluidos": [],
+  "integraciones": [
+    "Stripe",
+    "PayPal",
+    "Zapier",
+    "Google Drive",
+    "Dropbox",
+    "Bancos españoles (vía agregación bancaria PSD2)"
+  ],
+  "integracionesPrincipales": [
+    "Stripe",
+    "PayPal",
+    "Zapier"
+  ],
+  "curvaDeAprendizaje": "muy_facil",
+  "precioInicial": "Desde 0€/mes (Plan Gratuito con límite de uso) o 10€/mes",
+  "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual",
+    "suscripcion_anual"
+  ],
+  "tienePlanGratuito": true,
+  "precioRecomendadoPymes": "Plan Profesional a 24€/mes (incluye modelos fiscales, conciliación bancaria y facturas ilimitadas)",
+  "disponibilidadGeografica": [
+    "ES"
+  ],
+  "idiomasDisponibles": [
+    "es",
+    "ca"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 8,
+    "fiabilidad": 9,
+    "atencionAlCliente": 8,
+    "escalabilidad": 6,
+    "nivelTecnicoRequerido": 2,
+    "facilidadImplementacion": 9
+  },
+  "metodologiaValoracion": "Puntuaciones basadas en el análisis de opiniones de usuarios verificados en plataformas como Capterra y Trustpilot, la evaluación de usabilidad de su prueba gratuita y el nivel de cumplimiento normativo en España.",
+  "reputacion": {
+    "capterraPuntuacion": 4.6,
+    "capterraNumeroResenas": 35,
+    "otrasFuentes": [
+      {
+        "fuente": "Trustpilot",
+        "puntuacion": 4.5,
+        "numeroResenas": 150,
+        "enlace": "https://es.trustpilot.com/review/facturadirecta.com"
+      }
+    ]
+  },
+  "ventajas": [
+    "Excelente adaptación a la normativa fiscal y legal española (Veri*Factu, TicketBAI, FacturaE).",
+    "Interfaz sumamente clara, intuitiva y ágil para usuarios sin conocimientos de contabilidad.",
+    "Automatización muy eficiente en el cálculo y generación de modelos tributarios para la AEAT.",
+    "Plan gratuito disponible para probar la herramienta o para volúmenes de facturación muy reducidos."
+  ],
+  "inconvenientes": [
+    "Capacidad limitada para la gestión avanzada de almacén e inventarios.",
+    "Enfocado casi exclusivamente al mercado y legislación de España.",
+    "Las opciones de personalización avanzada de informes y plantillas son reducidas."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Holded",
+      "Quipu",
+      "Anfix",
+      "Cuéntica"
+    ],
+    "tipoNegocioIdeal": "Autónomos y pequeñas pymes en España",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 94,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.2/10.",
+      "Capterra: 4.6/5 (35 reseñas).",
+      "Tiene plan gratuito.",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "facturadirecta",
+  "estado": "en_revision",
+  "fechaAltaEnAtlas": "2026-09-17",
+  "fechaUltimaRevision": "2026-09-17"
+}

@@ -3,6 +3,12 @@
   "paginaOficial": "https://www.zoho.com/crm/",
   "urlPrecios": "https://www.zoho.com/crm/pricing.html",
   "categoriaId": "crm",
+  "categoriasSecundarias": [
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "inventario-operaciones",
+    "marketing-email"
+  ],
   "descripcion": "Zoho CRM es una plataforma de gestión de relaciones con clientes basada en la nube que permite a empresas de todos los tamaños gestionar ventas, marketing y soporte técnico. Ofrece automatización de flujos de trabajo, análisis de rendimiento y un asistente impulsado por inteligencia artificial llamado Zia.",
   "informacionEmpresa": {
     "anioFundacion": 1996,
@@ -104,7 +110,18 @@
     "g2Puntuacion": 4.1,
     "g2NumeroResenas": 26000,
     "capterraPuntuacion": 4.3,
-    "capterraNumeroResenas": 6800
+    "capterraNumeroResenas": 6800,
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.co.uk/software/146059/zoho-crm",
+      "cita": "Ratings. Overall. 4.3 (6,999) Reviews. Ease of Use. 4.2 (6,999) Reviews. — leido 4.3/5 con 6999 reseñas. Confirma el 4.3 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.g2.com/products/zoho-crm/reviews",
+      "cita": "leido 4.1/5 con 2941 reseñas. Confirma el 4.1 guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Excelente relación calidad-precio en comparación con otros grandes competidores del mercado.",
@@ -126,12 +143,11 @@
     ],
     "tipoNegocioIdeal": "Pymes B2B y B2C que necesitan automatizar procesos de ventas complejos a un coste competitivo",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 90,
+    "puntuacion": 87,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.2/10.",
       "G2: 4.1/5 (26000 reseñas).",
       "Capterra: 4.3/5 (6800 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -143,5 +159,24 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "conseguir-clientes"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.zoho.com/crm/zohocrm-pricing.html",
+    "moneda": "EUR",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 €",
+        "cita": "Free forever for 3 users."
+      },
+      {
+        "nombre": "Standard",
+        "mensual": "20 €/usuario/mes",
+        "anual": "14 €/usuario/mes",
+        "cita": "€20 / €14"
+      }
+    ]
+  }
 }

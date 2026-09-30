@@ -1,0 +1,15 @@
+{
+ "id": "copper",
+ "nombre": "Copper",
+ "url": "https://www.copper.com",
+ "preguntas": [
+  {
+   "q": "firma",
+   "por": "F2 le verificó presupuestos: firmar el presupuesto es el paso siguiente"
+  }
+ ],
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.electronic_signature\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://www.copper.com/"
+ ]
+}

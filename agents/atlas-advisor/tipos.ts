@@ -58,7 +58,19 @@ export type RespuestasUsuario = {
   toleranciaCurvaAprendizaje?: CurvaDeAprendizaje;
   /** Integraciones imprescindibles (se comparan por texto contra integraciones/integracionesPrincipales). */
   integracionesNecesarias?: string[];
-  /** Idioma que necesita la herramienta, para el equipo o para los clientes. */
+  /**
+   * Dónde tiene el negocio la persona (`CodigoPais` de `lib/pais.ts`). Es la
+   * pregunta que se le hace de verdad; `idiomaNecesario` se deduce de aquí,
+   * porque preguntar por el idioma es preguntar por la solución. Guardarlo
+   * aparte permite usarlo después para moneda y facturación sin volver a
+   * pedírselo.
+   */
+  pais?: string;
+  /**
+   * Idioma que necesita la herramienta, para el equipo o para los clientes.
+   * Normalmente no lo rellena nadie a mano: lo deduce `conIdiomaDelPais` a
+   * partir de `pais`. Si viene puesto explícitamente, manda sobre el país.
+   */
   idiomaNecesario?: string;
   /**
    * Respuesta explícita a la pregunta "¿plataforma todo en uno o
@@ -161,6 +173,17 @@ export type PuertaDeEvidencia = {
    * Ninguno de los tres autoriza a decir que la herramienta no lo tiene.
    */
   loDemuestra(herramientaId: string, capacidadId: string): boolean;
+  /**
+   * El estado de un USO concreto (2026-09-16, tercera ronda). Aquí los tres
+   * estados sí se distinguen, porque el motor los trata distinto: un uso
+   * imprescindible sólo pasa con `demostrada`; una `ausencia_demostrada`
+   * aparta a la herramienta de ese uso aunque no sea imprescindible; y
+   * `no_consta` la deja como candidata, con el aviso de la fila.
+   *
+   * Opcional para que las puertas de prueba construidas a mano sigan
+   * valiendo. Sin él, ningún uso está demostrado: es lo mismo que «no consta».
+   */
+  estadoDeUso?(herramientaId: string, usoId: string): "demostrada" | "ausencia_demostrada" | "no_consta";
 };
 
 /**

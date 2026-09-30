@@ -1,0 +1,19 @@
+{
+ "id": "hotmart",
+ "nombre": "Hotmart",
+ "url": "https://hotmart.com/",
+ "preguntas": [
+  {
+   "q": "casa:comercio-electronico",
+   "por": "está en esa casa sólo por su portada, sin capacidad verificada"
+  },
+  {
+   "q": "casa:atencion-cliente",
+   "por": "lo declara su página y F2 no lo ha comprobado"
+  }
+ ],
+ "texto": "{\"resultados\":[{\"id\":\"cap.online_store\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.point_of_sale\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.offer_catalog\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.order_management\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.returns_management\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.shipping_and_tracking\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.external_channel_sync\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.prepaid_session_packages\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.menu_management\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.shared_inbox\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.support_ticketing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.website_live_chat\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.whatsapp_customer_channel\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.public_help_center\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.canned_responses\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.support_chatbot\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.customer_satisfaction_surveys\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://hotmart.com/en"
+ ]
+}

@@ -1,0 +1,43 @@
+{
+ "pedida": "https://turnito.app/",
+ "leidas": [
+  "https://turnito.app/"
+ ],
+ "datos": {
+  "programa_existe": "no_consta",
+  "tipo": "no_consta",
+  "cita_tipo": "",
+  "comision": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "recurrencia": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "cookie": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "condiciones": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "abierto_desde_espana": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "promociona_producto_para_negocios": {
+   "v": "si",
+   "cita": "Turnito es una plataforma diseñada para simplificar la gestión de turnos y citas en línea, ideal para profesionales y negocios que buscan optimizar su tiempo"
+  },
+  "activo": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "red_de_afiliacion": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

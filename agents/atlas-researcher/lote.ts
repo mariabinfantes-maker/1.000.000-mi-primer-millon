@@ -1,6 +1,8 @@
 import { investigarHerramienta } from "./agente";
 import { escribirBorrador, type BorradorEscrito } from "./borrador";
 import { generarId, idYaExiste } from "./id";
+import type { EstadoAfiliacion, PruebaDeAusencia } from "./estadoAfiliacion";
+import { registrarPendiente } from "./pendientes";
 import { prechequearAfiliados } from "./prechequeoAfiliados";
 import type { ProveedorIA } from "@/agents/compartido/proveedorIA";
 import type { SolicitudInvestigacion } from "./tipos";
@@ -19,8 +21,22 @@ export type CandidatoLote = SolicitudInvestigacion;
 
 export type ResultadoCandidatoLote =
   | { estado: "duplicado"; nombreHerramienta: string; id: string }
-  | { estado: "descartado_prechequeo"; nombreHerramienta: string; id: string; motivo: string }
-  | { estado: "descartado_investigacion"; nombreHerramienta: string; id: string; motivo: string }
+  /**
+   * Ni aceptada ni descartada: esperando a la propietaria.
+   *
+   * Sustituye a `descartado_prechequeo`, que caía sola y contradecía la
+   * política de «Herramientas sin afiliación». `afiliacion` distingue por
+   * qué está aquí — una ausencia demostrada y un "no consta" no son lo
+   * mismo y no deben leerse igual.
+   */
+  | {
+      estado: "pendiente_de_decision";
+      nombreHerramienta: string;
+      id: string;
+      afiliacion: Exclude<EstadoAfiliacion, "confirmada">;
+      motivo: string;
+      pruebaDeAusencia?: PruebaDeAusencia;
+    }
   | { estado: "fallido"; nombreHerramienta: string; id: string; error: string }
   | { estado: "aceptado"; nombreHerramienta: string; id: string; borrador: BorradorEscrito };
 
@@ -30,7 +46,8 @@ export type ResumenLote = {
     total: number;
     aceptados: number;
     duplicados: number;
-    descartados: number;
+    /** Esperando decisión de la propietaria sobre su afiliación. No son descartes. */
+    pendientes: number;
     fallidos: number;
   };
 };
@@ -57,6 +74,22 @@ export type OpcionesLote = {
   margenEsperaCuotaMs?: number;
   /** Espera fija tras un error de cuota cuando el proveedor no sugiere un tiempo concreto, en ms. Por defecto 60000. */
   esperaCuotaPorDefectoMs?: number;
+  /**
+   * Si se hace el prechequeo de afiliación antes de investigar. **Por defecto
+   * NO**, desde la decisión de la propietaria del 2026-09-17 («LA AFILIACIÓN
+   * SE APARCA», ATLAS.md): no se investiga, no se comprueba y no se menciona
+   * la afiliación de ninguna herramienta hasta que la web traiga tráfico.
+   *
+   * Con el prechequeo apagado, ninguna candidata se queda en
+   * `pendiente_de_decision` por su afiliación: si cubre una necesidad, se
+   * investiga y entra. Además se ahorra una llamada al proveedor por
+   * candidata, que es dinero de la propietaria.
+   *
+   * Se pone a `true` para volver al comportamiento anterior — y hay que
+   * hacerlo explícitamente, para que desaparcarlo sea una decisión y no un
+   * olvido.
+   */
+  prechequearAfiliacion?: boolean;
 };
 
 const CONCURRENCIA_POR_DEFECTO = 3;
@@ -220,6 +253,7 @@ export async function ejecutarLote(
       margenEsperaCuotaMs,
       esperaCuotaPorDefectoMs,
       dirBaseBorradores: opciones.dirBaseBorradores,
+      prechequearAfiliacion: opciones.prechequearAfiliacion ?? false,
     })
   );
 
@@ -232,9 +266,7 @@ export async function ejecutarLote(
       total: resultadosFinales.length,
       aceptados: resultadosFinales.filter((r) => r.estado === "aceptado").length,
       duplicados: resultadosFinales.filter((r) => r.estado === "duplicado").length,
-      descartados: resultadosFinales.filter(
-        (r) => r.estado === "descartado_prechequeo" || r.estado === "descartado_investigacion"
-      ).length,
+      pendientes: resultadosFinales.filter((r) => r.estado === "pendiente_de_decision").length,
       fallidos: resultadosFinales.filter((r) => r.estado === "fallido").length,
     },
   };
@@ -250,28 +282,87 @@ async function procesarCandidato(
     margenEsperaCuotaMs: number;
     esperaCuotaPorDefectoMs: number;
     dirBaseBorradores?: string;
+    prechequearAfiliacion: boolean;
   }
 ): Promise<ResultadoCandidatoLote> {
   const { reintentos, esperaBaseMs, margenEsperaCuotaMs, esperaCuotaPorDefectoMs } = opciones;
 
+  // La afiliación está aparcada (2026-09-17): sin prechequeo no se pregunta,
+  // no se gasta una llamada en ello y nadie se queda esperando una decisión
+  // que la propietaria ya tomó — si cubre una necesidad, se investiga.
+  if (!opciones.prechequearAfiliacion) {
+    return investigarYEscribir(candidato, id, proveedor, opciones);
+  }
+
+  // Un fallo del proveedor es transitorio y se reintenta; un estado de
+  // afiliación —cualquiera de los tres— es una respuesta, no un fallo.
+  // Antes esto se distinguía olfateando el texto del motivo; ahora lo dice
+  // el tipo.
   const prechequeo = await conReintentos(() => prechequearAfiliados(candidato.nombreHerramienta, proveedor), {
-    esFalloTransitorio: (r) => !r.tieneProgramaFiable && !r.motivo.includes("no supera el prechequeo"),
-    obtenerMensajeDeFallo: (r) => (r.tieneProgramaFiable ? "" : r.motivo),
+    esFalloTransitorio: (r) => !r.ok,
+    obtenerMensajeDeFallo: (r) => (r.ok ? "" : r.error),
     reintentos,
     esperaBaseMs,
     margenEsperaCuotaMs,
     esperaCuotaPorDefectoMs,
   });
 
-  if (!prechequeo.tieneProgramaFiable) {
-    if (prechequeo.motivo.includes("no supera el prechequeo")) {
-      return { estado: "descartado_prechequeo", nombreHerramienta: candidato.nombreHerramienta, id, motivo: prechequeo.motivo };
-    }
-    return { estado: "fallido", nombreHerramienta: candidato.nombreHerramienta, id, error: prechequeo.motivo };
+  if (!prechequeo.ok) {
+    return { estado: "fallido", nombreHerramienta: candidato.nombreHerramienta, id, error: prechequeo.error };
   }
 
+  // Ni "ausencia_demostrada" ni "no_consta" se investigan por su cuenta:
+  // se paran aquí, se guardan, y esperan. Gastar la investigación completa
+  // sería decidir por la propietaria que merece la pena seguir.
+  if (prechequeo.estado !== "confirmada") {
+    const afiliacion = prechequeo.estado;
+    registrarPendiente(
+      {
+        id,
+        nombreHerramienta: candidato.nombreHerramienta,
+        estado: afiliacion,
+        motivo: prechequeo.motivo,
+        datosAfiliados: prechequeo.datosAfiliados,
+        ...(prechequeo.pruebaDeAusencia ? { pruebaDeAusencia: prechequeo.pruebaDeAusencia } : {}),
+      },
+      { dirBase: opciones.dirBaseBorradores }
+    );
+    return {
+      estado: "pendiente_de_decision",
+      nombreHerramienta: candidato.nombreHerramienta,
+      id,
+      afiliacion,
+      motivo: prechequeo.motivo,
+      ...(prechequeo.pruebaDeAusencia ? { pruebaDeAusencia: prechequeo.pruebaDeAusencia } : {}),
+    };
+  }
+
+  return investigarYEscribir(candidato, id, proveedor, opciones);
+}
+
+/**
+ * La investigación completa y su borrador. Es el camino único cuando la
+ * afiliación está aparcada, y el final del camino cuando no lo está.
+ *
+ * Ya no hay descarte por afiliación aquí, así que cualquier `ok: false` es un
+ * fallo de verdad y se reintenta. Antes había que distinguirlo olfateando el
+ * prefijo "Descartada" del mensaje.
+ */
+async function investigarYEscribir(
+  candidato: CandidatoLote,
+  id: string,
+  proveedor: ProveedorIA,
+  opciones: {
+    reintentos: number;
+    esperaBaseMs: number;
+    margenEsperaCuotaMs: number;
+    esperaCuotaPorDefectoMs: number;
+    dirBaseBorradores?: string;
+  }
+): Promise<ResultadoCandidatoLote> {
+  const { reintentos, esperaBaseMs, margenEsperaCuotaMs, esperaCuotaPorDefectoMs } = opciones;
   const resultado = await conReintentos(() => investigarHerramienta(candidato, proveedor), {
-    esFalloTransitorio: (r) => !r.ok && !r.error.startsWith("Descartada"),
+    esFalloTransitorio: (r) => !r.ok,
     obtenerMensajeDeFallo: (r) => (r.ok ? "" : r.error),
     reintentos,
     esperaBaseMs,
@@ -280,14 +371,6 @@ async function procesarCandidato(
   });
 
   if (!resultado.ok) {
-    if (resultado.error.startsWith("Descartada")) {
-      return {
-        estado: "descartado_investigacion",
-        nombreHerramienta: candidato.nombreHerramienta,
-        id,
-        motivo: resultado.error,
-      };
-    }
     return { estado: "fallido", nombreHerramienta: candidato.nombreHerramienta, id, error: resultado.error };
   }
 

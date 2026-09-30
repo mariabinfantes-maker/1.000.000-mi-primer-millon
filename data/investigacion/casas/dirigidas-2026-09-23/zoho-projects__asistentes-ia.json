@@ -1,0 +1,17 @@
+{
+ "id": "zoho-projects__asistentes-ia",
+ "herramientaId": "zoho-projects",
+ "nombre": "Zoho Projects",
+ "casa": "asistentes-ia",
+ "nombreCasa": "Asistentes de IA y productividad",
+ "urls": [
+  "https://www.zoho.com/projects/",
+  "https://www.zoho.com/projects/zohoprojects-pricing.html"
+ ],
+ "cita": "AI that works hand-in-hand with your team",
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.text_generation\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.text_correction\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.translation\",\n      \"estado\": \"si\",\n      \"cita\": \"Zia Translate\",\n      \"url\": \"https://www.zoho.com/projects/zohoprojects-pricing.html\"\n    },\n    {\n      \"id\": \"cap.presentation_building\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.graphic_design\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.video_editing\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.ai_video_generation\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.audio_editing\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.audio_transcription\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.meeting_notes\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.audio_noise_removal\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.subtitles\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.brand_kit\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://www.zoho.com/projects/",
+  "OK https://www.zoho.com/projects/zohoprojects-pricing.html"
+ ]
+}

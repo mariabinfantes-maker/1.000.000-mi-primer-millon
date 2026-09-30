@@ -1,0 +1,25 @@
+{
+ "pedida": "https://estetical.es/tarifas/",
+ "leidas": [],
+ "urls": [
+  [
+   "https://estetical.es/tarifas/",
+   "URL_RETRIEVAL_STATUS_ERROR"
+  ],
+  [
+   "https://estetical.es/tarifas/",
+   "URL_RETRIEVAL_STATUS_ERROR"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "no_consta",
+  "espana": "no_consta",
+  "cita_espana": "",
+  "campos": {
+   "precio": {
+    "v": "no_consta",
+    "cita": ""
+   }
+  }
+ }
+}

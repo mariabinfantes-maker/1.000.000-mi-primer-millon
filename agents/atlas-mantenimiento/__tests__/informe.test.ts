@@ -43,7 +43,12 @@ describe("generarInformeMantenimientoHtml", () => {
   });
 
   it("muestra un mensaje explícito de 'nada que revisar' cuando no hay avisos, en vez de una tabla vacía", () => {
-    const html = generarInformeMantenimientoHtml({ herramientasDesactualizadas: [], cuentasDesactualizadas: [] });
+    const html = generarInformeMantenimientoHtml({
+      preciosSinComprobar: [],
+      preciosCaducados: [],
+      herramientasDesactualizadas: [],
+      cuentasDesactualizadas: [],
+    });
 
     expect(html).toContain("Nada que revisar");
   });

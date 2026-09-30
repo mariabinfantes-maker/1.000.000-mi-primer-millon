@@ -1,9 +1,14 @@
 {
   "nombre": "Notion AI",
   "paginaOficial": "https://www.notion.so/product/ai",
-  "urlPrecios": "https://www.notion.so/pricing",
+  "urlPrecios": "https://www.notion.com/pricing",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "firma-gestion-documental",
+    "gestion-proyectos"
+  ],
   "descripcion": "Notion AI es un asistente de inteligencia artificial integrado de forma nativa en el espacio de trabajo de Notion. Permite a los usuarios redactar borrador de textos, resumir documentos extensos, extraer acciones clave y consultar en lenguaje natural toda la base de conocimiento interna de la organización.",
   "informacionEmpresa": {
     "anioFundacion": 2013,
@@ -70,7 +75,7 @@
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Notion AI Add-on a 8€/usuario/mes (facturado anualmente) sobre cualquier plan pagado o gratuito de Notion.",
   "idiomasDisponibles": [
     "Español",
@@ -137,5 +142,24 @@
     "ahorrar-tiempo"
   ],
   "tipoProducto": "especializada",
-  "subtipoId": "espacio-trabajo"
+  "subtipoId": "espacio-trabajo",
+  "tipoPlanGratuito": "prueba",
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.notion.com/es-es/pricing",
+    "moneda": "EUR",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 €/miembro/mes",
+        "cita": "0 €, IA en prueba limitada"
+      },
+      {
+        "nombre": "Business",
+        "mensual": "23,50 €/miembro/mes",
+        "anual": "19,50 €/miembro/mes",
+        "cita": "23,50 € / 19,50 €"
+      }
+    ]
+  }
 }

@@ -1,0 +1,31 @@
+{
+ "pedida": "https://www.bewe.io/negocios/belleza/peluqueria",
+ "leidas": [
+  "https://www.bewe.ai/industries/beauty"
+ ],
+ "urls": [
+  [
+   "https://www.bewe.ai/industries/beauty",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "si",
+  "espana": "si",
+  "cita_espana": "Contacto +57 314 395 3180 ayuda@bewe.ai Madrid, España",
+  "campos": {
+   "reserva_online_cliente": {
+    "v": "no_consta",
+    "cita": ""
+   },
+   "recordatorios_automaticos": {
+    "v": "si",
+    "cita": "Yo solo apruebo. Linda hace el contenido para Instagram, las campañas y los recordatorios de cita."
+   },
+   "ficha_de_cliente": {
+    "v": "si",
+    "cita": "Ficha del cliente Se llena sola con cada conversación."
+   }
+  }
+ }
+}

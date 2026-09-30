@@ -40,6 +40,34 @@ describe("el aislamiento de la verificación", () => {
       path.join("agents", "atlas-orchestrator", "tareas.ts"),
       "El catálogo del Orchestrator NOMBRA los dos CLI de verificación como texto, para que el comando salga del código y nunca de la base de datos. No importa nada de aquí ni lee ningún registro.",
     ],
+    [
+      path.join("agents", "atlas-advisor", "asesor", "buscar.ts"),
+      "F3, 2026-09-24: el asesor busca atravesando las casas y sólo puede afirmar lo verificado, así que necesita el puerto de evidencia. Entra por `getPuertoDeEvidencia()`, la misma puerta de siempre, y no lee `registros.json` por su cuenta.",
+    ],
+    [
+      path.join("agents", "atlas-advisor", "asesor", "aclarar.ts"),
+      "F3, 2026-09-24: para saber si una pregunta cambia el consejo hay que simular sus respuestas contra el catálogo real. Usa el mismo `getPuertoDeEvidencia()` y sólo se lo pasa a `buscar`; no lee ningún registro.",
+    ],
+    [
+      path.join("agents", "atlas-advisor", "asesor", "oficios.ts"),
+      "F3, 2026-09-24: «a quién podemos servir» se calcula de la evidencia de AHORA y no de un número escrito a mano en un documento, que es donde se perdían las investigaciones. Entra por `getPuertoDeEvidencia()` y no lee `registros.json` por su cuenta.",
+    ],
+    [
+      path.join("agents", "atlas-advisor", "asesor", "aconsejar.ts"),
+      "F3, 2026-09-24: redacta el consejo, y toda afirmación sobre una herramienta tiene que salir de datos verificados. Recibe el puerto por parámetro y no lee `registros.json`.",
+    ],
+    [
+      path.join("agents", "atlas-researcher", "capacidadesVerificadas.ts"),
+      "2026-09-29: el examen de entrada al catálogo pregunta primero «¿qué hace esta herramienta?», y eso no se responde con su web comercial sino con lo verificado. Este módulo sólo CUENTA los registros de un id; no lee capacidades, ni citas, ni las pasa a nadie. Es el único sitio de la promoción que toca la verificación, a propósito.",
+    ],
+    [
+      path.join("agents", "atlas-researcher", "__tests__", "promover.test.ts"),
+      "2026-09-29: la prueba de promoción SIEMBRA su propio registros.json en un directorio temporal, para que el examen de entrada tenga qué contar. No lee el fichero real del repositorio.",
+    ],
+    [
+      path.join("agents", "atlas-curator", "cli-examen-catalogo.ts"),
+      "2026-09-29: pasa el examen de entrada a las 65 que ya están dentro, para escribir qué le falta a cada una. Sólo CUENTA capacidades, por `contarCapacidadesVerificadas`, la misma puerta que usa la promoción. No lee registros ni citas, y no escribe nada en el catálogo.",
+    ],
   ]);
   const EXENTOS = new Set(AUTORIZADOS.keys());
 
@@ -98,6 +126,13 @@ describe("el aislamiento de la verificación", () => {
       path.join("app", "api", "recomendaciones", "route.ts"),
       path.join("data", "vocabulario", "__tests__", "aislamiento.test.ts"),
       path.join("agents", "atlas-orchestrator", "tareas.ts"),
+      path.join("agents", "atlas-advisor", "asesor", "buscar.ts"),
+      path.join("agents", "atlas-advisor", "asesor", "aclarar.ts"),
+      path.join("agents", "atlas-advisor", "asesor", "oficios.ts"),
+      path.join("agents", "atlas-advisor", "asesor", "aconsejar.ts"),
+      path.join("agents", "atlas-researcher", "capacidadesVerificadas.ts"),
+      path.join("agents", "atlas-researcher", "__tests__", "promover.test.ts"),
+      path.join("agents", "atlas-curator", "cli-examen-catalogo.ts"),
     ]);
   });
 

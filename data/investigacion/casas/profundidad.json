@@ -1,0 +1,1650 @@
+[
+ {
+  "id": "agile-crm",
+  "nombre": "Agile CRM",
+  "cap": "cap.electronic_signature",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Document Signing Software"
+ },
+ {
+  "id": "agile-crm",
+  "nombre": "Agile CRM",
+  "cap": "cap.support_ticketing",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Powerful ticketing feature to resolve customer queries quickly"
+ },
+ {
+  "id": "agile-crm",
+  "nombre": "Agile CRM",
+  "cap": "cap.public_help_center",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Enabling a self-service portal to help customers help themselves"
+ },
+ {
+  "id": "agile-crm",
+  "nombre": "Agile CRM",
+  "cap": "cap.canned_responses",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Pre-formatted replies to ensure fast and consistent responses to common questions."
+ },
+ {
+  "id": "agile-crm",
+  "nombre": "Agile CRM",
+  "cap": "cap.customer_satisfaction_surveys",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Improve customer relations by querying and analyzing their feedback"
+ },
+ {
+  "id": "agile-crm",
+  "nombre": "Agile CRM",
+  "cap": "cap.task_management",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Manage your projects effectively with drag-and-drop task lists and more"
+ },
+ {
+  "id": "agile-crm",
+  "nombre": "Agile CRM",
+  "cap": "cap.recruiting",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Applicant Tracking System"
+ },
+ {
+  "id": "agile-crm",
+  "nombre": "Agile CRM",
+  "cap": "cap.online_self_service_booking",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Share your calendar online and automate scheduling, invites, and follow ups"
+ },
+ {
+  "id": "agiled",
+  "nombre": "Agiled",
+  "cap": "cap.electronic_signature",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Built-in e-signing with legally binding signatures"
+ },
+ {
+  "id": "agiled",
+  "nombre": "Agiled",
+  "cap": "cap.support_ticketing",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Built-in support ticketing for client requests"
+ },
+ {
+  "id": "agiled",
+  "nombre": "Agiled",
+  "cap": "cap.text_generation",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Draft emails, proposals, and reports in seconds"
+ },
+ {
+  "id": "bitrix24",
+  "nombre": "Bitrix24",
+  "cap": "cap.website_live_chat",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Use our live chat widget to accept customer requests on your website"
+ },
+ {
+  "id": "bitrix24",
+  "nombre": "Bitrix24",
+  "cap": "cap.inventory_tracking",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Track, audit, and manage your stock across multiple warehouses"
+ },
+ {
+  "id": "bitrix24",
+  "nombre": "Bitrix24",
+  "cap": "cap.warehouse_and_locations",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Track, audit, and manage your stock across multiple warehouses"
+ },
+ {
+  "id": "bitrix24",
+  "nombre": "Bitrix24",
+  "cap": "cap.electronic_signature",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Get estimates, invoices, payments, catalog, inventory, e-signature, CRM store"
+ },
+ {
+  "id": "bitrix24",
+  "nombre": "Bitrix24",
+  "cap": "cap.collaborative_document_editing",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Store, share and edit documents online easily with co-workers using company drive"
+ },
+ {
+  "id": "bitrix24",
+  "nombre": "Bitrix24",
+  "cap": "cap.internal_knowledge_workspace",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Work with knowledge bases, online documents, file storage, access permissions"
+ },
+ {
+  "id": "bitrix24",
+  "nombre": "Bitrix24",
+  "cap": "cap.file_storage",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Store, share and edit documents online easily with co-workers using company drive"
+ },
+ {
+  "id": "bitrix24",
+  "nombre": "Bitrix24",
+  "cap": "cap.capacity_and_time_slots",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Plan with company & personal calendar, open time slots, meeting room booking, calendar sync"
+ },
+ {
+  "id": "bitrix24",
+  "nombre": "Bitrix24",
+  "cap": "cap.room_and_equipment_booking",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Plan with company & personal calendar, open time slots, meeting room booking, calendar sync"
+ },
+ {
+  "id": "capsule-crm",
+  "nombre": "Capsule CRM",
+  "cap": "cap.task_management",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Tasks & Calendar Your working day — sorted."
+ },
+ {
+  "id": "capsule-crm",
+  "nombre": "Capsule CRM",
+  "cap": "cap.project_planning",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Projects Affordable project management."
+ },
+ {
+  "id": "capsule-crm",
+  "nombre": "Capsule CRM",
+  "cap": "cap.personal_calendar_planning",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Tasks & Calendar Your working day — sorted."
+ },
+ {
+  "id": "clickfunnels",
+  "nombre": "ClickFunnels",
+  "cap": "cap.hosting_and_domain",
+  "profundidad": "nativa",
+  "integraCon": null,
+  "cita": "All ClickFunnels plans include secure, unlimited hosting for all your digital content."
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "cap": "cap.text_generation",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Write copy"
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "cap": "cap.text_correction",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Proofread content"
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "cap": "cap.presentation_building",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Presentation-ready in one prompt"
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "cap": "cap.graphic_design",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Design logos"
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "cap": "cap.audio_transcription",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Transcribe audio"
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "cap": "cap.meeting_notes",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Brain is taking notes"
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "cap": "cap.text_generation",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Unlimited AI writing"
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "cap": "cap.collaborative_document_editing",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Collaborative Docs"
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "cap": "cap.file_storage",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "File Storage"
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "cap": "cap.workspace_wide_search",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Connected Search"
+ },
+ {
+  "id": "close",
+  "nombre": "Close",
+  "cap": "cap.text_generation",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Use AI to draft and edit emails directly within Close"
+ },
+ {
+  "id": "close",
+  "nombre": "Close",
+  "cap": "cap.text_correction",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Use AI to draft and edit emails directly within Close"
+ },
+ {
+  "id": "close",
+  "nombre": "Close",
+  "cap": "cap.audio_transcription",
+  "profundidad": "integracion",
+  "integraCon": "Zoom, Teams, Meet",
+  "cita": "Record, transcribe, and summarize all meetings synced to Close from Zoom, Teams, and Meet."
+ },
+ {
+  "id": "close",
+  "nombre": "Close",
+  "cap": "cap.meeting_notes",
+  "profundidad": "integracion",
+  "integraCon": "Zoom, Teams, Meet",
+  "cita": "Record, transcribe, and summarize all meetings synced to Close from Zoom, Teams, and Meet."
+ },
+ {
+  "id": "copper",
+  "nombre": "Copper",
+  "cap": "cap.text_generation",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Craft templates in your brand's voice for any use case."
+ },
+ {
+  "id": "copper",
+  "nombre": "Copper",
+  "cap": "cap.text_correction",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Make emails clearer or more engaging with AI-powered edits"
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "cap": "cap.support_ticketing",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "helpdesk ticketing"
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "cap": "cap.website_live_chat",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Free Live Chat Software"
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "cap": "cap.canned_responses",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Canned Responses"
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "cap": "cap.support_chatbot",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "EngageBay's AI Chatbot transforms customer support."
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "cap": "cap.task_management",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Task Management"
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "cap": "cap.email_campaigns",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "EngageBay makes it easy to send email campaigns on autopilot"
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "cap": "cap.marketing_automation",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Automate emails, track customer behavior, and close deals faster."
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "cap": "cap.landing_pages",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Landing Page Builder"
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "cap": "cap.social_publishing",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Social Post Scheduling"
+ },
+ {
+  "id": "freshsales",
+  "nombre": "Freshsales",
+  "cap": "cap.workflow_automation",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Eliminate manual effort and save time by automating repetitive, mundane tasks."
+ },
+ {
+  "id": "freshsales",
+  "nombre": "Freshsales",
+  "cap": "cap.ai_task_agents",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Freddy AI Agent $49/100 sessions"
+ },
+ {
+  "id": "freshsales",
+  "nombre": "Freshsales",
+  "cap": "cap.predictive_analytics",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Forecasting insights"
+ },
+ {
+  "id": "gamma",
+  "nombre": "Gamma",
+  "cap": "cap.website_builder",
+  "profundidad": "nativa",
+  "integraCon": null,
+  "cita": "Generate a shareable, hosted website in minutes — no developers needed."
+ },
+ {
+  "id": "gamma",
+  "nombre": "Gamma",
+  "cap": "cap.hosting_and_domain",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Publish up to 10 custom domains"
+ },
+ {
+  "id": "gohighlevel",
+  "nombre": "GoHighLevel",
+  "cap": "cap.website_live_chat",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Consolidated conversation stream (SMS, Messenger, Instagram DM, Whatsapp, Livechat)"
+ },
+ {
+  "id": "gohighlevel",
+  "nombre": "GoHighLevel",
+  "cap": "cap.invoicing",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Invoicing"
+ },
+ {
+  "id": "gohighlevel",
+  "nombre": "GoHighLevel",
+  "cap": "cap.payment_collection",
+  "profundidad": "integracion",
+  "integraCon": "Stripe, PayPal, NMI, Authorize.net, Square, Adyen, Razorpay",
+  "cita": "We integrate with all the most popular payment providers."
+ },
+ {
+  "id": "honeybook",
+  "nombre": "HoneyBook",
+  "cap": "cap.electronic_signature",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Collect eSignatures on contracts and forms."
+ },
+ {
+  "id": "honeybook",
+  "nombre": "HoneyBook",
+  "cap": "cap.document_templates",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Save and reuse your most common client emails and files."
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.public_help_center",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Asistencia 24 horas a través de IA o del Centro de ayuda."
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.support_chatbot",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Asistente que responde a las preguntas de tus alumnos con Hotmart Tutor."
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.translation",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Traducción automática del proceso de pago."
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.subtitles",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Subtítulos automáticos en +70 idiomas."
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.app_integrations",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "50+ integrations with the market's leading tools"
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.dashboards",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Analiza tus ventas y resultados en tiempo real"
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.custom_reports",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Custom reports for your business, always available so you can focus on what matters."
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.data_import_and_migration",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Transferimos tu lista de alumnos."
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.email_campaigns",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Campañas de correo electrónico completas con Hotmart Send."
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.landing_pages",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Páginas de ventas creadas en pocos clics con Hotmart Pages."
+ },
+ {
+  "id": "hubspot",
+  "nombre": "HubSpot",
+  "cap": "cap.website_live_chat",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Free Live Chat Software"
+ },
+ {
+  "id": "hubspot",
+  "nombre": "HubSpot",
+  "cap": "cap.support_chatbot",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Resolve inquiries, take action in your CRM, and hand off with full context."
+ },
+ {
+  "id": "insightly",
+  "nombre": "Insightly",
+  "cap": "cap.support_ticketing",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Let clients submit tickets through branded portals, email, or web forms."
+ },
+ {
+  "id": "insightly",
+  "nombre": "Insightly",
+  "cap": "cap.public_help_center",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Get a dedicated client portal for articles, FAQs, product updates, forums, etc."
+ },
+ {
+  "id": "insightly",
+  "nombre": "Insightly",
+  "cap": "cap.text_generation",
+  "profundidad": "nativa",
+  "integraCon": null,
+  "cita": "Automatically generate email replies."
+ },
+ {
+  "id": "kartra",
+  "nombre": "Kartra",
+  "cap": "cap.website_live_chat",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Help desk live chat"
+ },
+ {
+  "id": "kartra",
+  "nombre": "Kartra",
+  "cap": "cap.text_generation",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Kartra AI helps you write pages, emails, and sales copy"
+ },
+ {
+  "id": "kartra",
+  "nombre": "Kartra",
+  "cap": "cap.workflow_automation",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Powerful automation features and automation workflows"
+ },
+ {
+  "id": "kartra",
+  "nombre": "Kartra",
+  "cap": "cap.app_integrations",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Connect with your existing tools"
+ },
+ {
+  "id": "kartra",
+  "nombre": "Kartra",
+  "cap": "cap.public_api",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "API access"
+ },
+ {
+  "id": "kartra",
+  "nombre": "Kartra",
+  "cap": "cap.website_builder",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Quickly design pages with a user-friendly drag-and-drop, no code editor."
+ },
+ {
+  "id": "monday-com",
+  "nombre": "monday.com",
+  "cap": "cap.support_ticketing",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "IT agents catch tickets, resolve issues, and escalate risks"
+ },
+ {
+  "id": "monday-com",
+  "nombre": "monday.com",
+  "cap": "cap.text_generation",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Marketing agents write posts, run campaigns, and drive insights"
+ },
+ {
+  "id": "monday-com",
+  "nombre": "monday.com",
+  "cap": "cap.meeting_notes",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Schedule meetings, summarize calls, and extract action items."
+ },
+ {
+  "id": "monday-com",
+  "nombre": "monday.com",
+  "cap": "cap.customer_contact_records",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Organize all your team's leads, contacts, & deals"
+ },
+ {
+  "id": "monday-com",
+  "nombre": "monday.com",
+  "cap": "cap.customer_interaction_history",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "View every email, call, meeting, and note for each person in one unified timeline"
+ },
+ {
+  "id": "monday-com",
+  "nombre": "monday.com",
+  "cap": "cap.sales_pipeline",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Deals pipeline Kanban board with columns for New, Meeting, Proposal, and Won stages"
+ },
+ {
+  "id": "monday-com",
+  "nombre": "monday.com",
+  "cap": "cap.quotes_and_proposals",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Create and share unlimited customizable quotes & invoices"
+ },
+ {
+  "id": "monday-com",
+  "nombre": "monday.com",
+  "cap": "cap.email_campaigns",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Send and track mass emails to reach large audiences with personalized messages"
+ },
+ {
+  "id": "monday-com",
+  "nombre": "monday.com",
+  "cap": "cap.recruiting",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "HR agents can post roles, screen candidates, and schedule interviews"
+ },
+ {
+  "id": "motion",
+  "nombre": "Motion",
+  "cap": "cap.internal_knowledge_workspace",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Create docs — notes, processes, wikis, pages — all in one place"
+ },
+ {
+  "id": "motion",
+  "nombre": "Motion",
+  "cap": "cap.workspace_wide_search",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Instantly finds anything - docs, notes, project, task, communication"
+ },
+ {
+  "id": "nifty",
+  "nombre": "Nifty",
+  "cap": "cap.support_ticketing",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Capture tickets via forms and prioritize by urgency"
+ },
+ {
+  "id": "nifty",
+  "nombre": "Nifty",
+  "cap": "cap.text_generation",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Orbit plans projects, prioritizes tasks, drafts updates, and writes docs."
+ },
+ {
+  "id": "nifty",
+  "nombre": "Nifty",
+  "cap": "cap.sales_pipeline",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Pipeline visibility with live deal status and values"
+ },
+ {
+  "id": "nifty",
+  "nombre": "Nifty",
+  "cap": "cap.client_portal",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Give every client a branded workspace to see progress, approve work, and message your team."
+ },
+ {
+  "id": "nimble",
+  "nombre": "Nimble",
+  "cap": "cap.website_live_chat",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "then for $12 per month per team."
+ },
+ {
+  "id": "nimble",
+  "nombre": "Nimble",
+  "cap": "cap.text_generation",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Available as a $15/month company-wide upgrade."
+ },
+ {
+  "id": "nocrm-io",
+  "nombre": "noCRM.io",
+  "cap": "cap.audio_transcription",
+  "profundidad": "integracion",
+  "integraCon": "proveedor VoIP",
+  "cita": "Accede a resúmenes detallados o transcripciones generadas por IA directamente desde tu proveedor VoIP."
+ },
+ {
+  "id": "notion-ai",
+  "nombre": "Notion AI",
+  "cap": "cap.task_management",
+  "profundidad": "nativa",
+  "integraCon": null,
+  "cita": "Answer questions, prioritize tasks, and write reports—all while you sleep."
+ },
+ {
+  "id": "notion-ai",
+  "nombre": "Notion AI",
+  "cap": "cap.personal_calendar_planning",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Connect multiple Calendars to manage work and time together."
+ },
+ {
+  "id": "nutshell",
+  "nombre": "Nutshell",
+  "cap": "cap.electronic_signature",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Create, send, track, and get signatures on quotes, invoices and contracts in your CRM"
+ },
+ {
+  "id": "nutshell",
+  "nombre": "Nutshell",
+  "cap": "cap.text_generation",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Automate follow-ups, generate emails and campaigns, and keep outreach moving with less effort."
+ },
+ {
+  "id": "nutshell",
+  "nombre": "Nutshell",
+  "cap": "cap.audio_transcription",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Nutshell automatically transcribes, summarizes, and logs every call and meeting."
+ },
+ {
+  "id": "nutshell",
+  "nombre": "Nutshell",
+  "cap": "cap.meeting_notes",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Nutshell automatically transcribes, summarizes, and logs every call and meeting."
+ },
+ {
+  "id": "odoo",
+  "nombre": "Odoo",
+  "cap": "cap.website_live_chat",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Websites Website Builder eCommerce Blog Forum Live Chat eLearning"
+ },
+ {
+  "id": "paymo",
+  "nombre": "Paymo",
+  "cap": "cap.time_and_attendance",
+  "profundidad": "nativa",
+  "integraCon": null,
+  "cita": "Clock in from anywhere and access timesheets on the go"
+ },
+ {
+  "id": "paymo",
+  "nombre": "Paymo",
+  "cap": "cap.leave_management",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Manage time off and leave days."
+ },
+ {
+  "id": "pipedrive",
+  "nombre": "Pipedrive",
+  "cap": "cap.audio_transcription",
+  "profundidad": "nativa",
+  "integraCon": null,
+  "cita": "It records and transcribes your calls so you don't have to."
+ },
+ {
+  "id": "pipedrive",
+  "nombre": "Pipedrive",
+  "cap": "cap.meeting_notes",
+  "profundidad": "nativa",
+  "integraCon": null,
+  "cita": "You stay in the conversation, and Nova takes care of the notes."
+ },
+ {
+  "id": "pipedrive",
+  "nombre": "Pipedrive",
+  "cap": "cap.kanban_boards",
+  "profundidad": "nativa",
+  "integraCon": null,
+  "cita": "Pipedrive's kanban-style dashboard lets you visualize your sales funnel."
+ },
+ {
+  "id": "pipedrive",
+  "nombre": "Pipedrive",
+  "cap": "cap.email_campaigns",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Envía campañas increíbles de marketing por correo electrónico"
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.text_generation",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Ask anything in plain language to draft, summarize, and manage work inside Productive."
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.audio_transcription",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Joins your calls, captures transcripts, and turns action items into tasks automatically."
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.meeting_notes",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Joins your calls, captures transcripts, and turns action items into tasks automatically."
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.customer_contact_records",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Manage individual client contacts—store roles, emails, and phone numbers"
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.sales_pipeline",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Create, track, and progress client deals—from initial pitch to won or lost status."
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.sales_forecasting",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "See deal status, competition losses, and revenue projections — all in one place."
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.quotes_and_proposals",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Download your deal proposal as a branded PDF—using your selected template."
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.price_lists_and_rates",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Set up rate cards per organization."
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.collaborative_document_editing",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Create and collaborate on documents directly within projects to keep all project information centralized."
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.leave_management",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Track and manage all types of absences — including time off"
+ },
+ {
+  "id": "reclaim-ai",
+  "nombre": "Reclaim.ai",
+  "cap": "cap.text_generation",
+  "profundidad": "integracion",
+  "integraCon": "Zoom",
+  "cita": "Analyze connected Zoom meeting notes and transcripts to generate follow-up email or chat messages"
+ },
+ {
+  "id": "reclaim-ai",
+  "nombre": "Reclaim.ai",
+  "cap": "cap.meeting_notes",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Automatically generate recommended tasks through action items from your meetings"
+ },
+ {
+  "id": "salesmate",
+  "nombre": "Salesmate",
+  "cap": "cap.shared_inbox",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Team Inbox"
+ },
+ {
+  "id": "salesmate",
+  "nombre": "Salesmate",
+  "cap": "cap.support_ticketing",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Ticket Management"
+ },
+ {
+  "id": "salesmate",
+  "nombre": "Salesmate",
+  "cap": "cap.customer_satisfaction_surveys",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "CSAT / CES Surveys"
+ },
+ {
+  "id": "salesmate",
+  "nombre": "Salesmate",
+  "cap": "cap.text_generation",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Compose Emails"
+ },
+ {
+  "id": "salesmate",
+  "nombre": "Salesmate",
+  "cap": "cap.audio_transcription",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Call Transcriptions"
+ },
+ {
+  "id": "scoro",
+  "nombre": "Scoro",
+  "cap": "cap.customer_contact_records",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Client & contact management"
+ },
+ {
+  "id": "scoro",
+  "nombre": "Scoro",
+  "cap": "cap.sales_pipeline",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Sales pipeline"
+ },
+ {
+  "id": "scoro",
+  "nombre": "Scoro",
+  "cap": "cap.client_portal",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Customer portal"
+ },
+ {
+  "id": "scoro",
+  "nombre": "Scoro",
+  "cap": "cap.quotes_and_proposals",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Price proposals"
+ },
+ {
+  "id": "scoro",
+  "nombre": "Scoro",
+  "cap": "cap.price_lists_and_rates",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Price lists"
+ },
+ {
+  "id": "smartsheet",
+  "nombre": "Smartsheet",
+  "cap": "cap.translation",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Translate, summarize, categorize, and create new sheet data."
+ },
+ {
+  "id": "streak",
+  "nombre": "Streak",
+  "cap": "cap.canned_responses",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Reuse replies with snippets"
+ },
+ {
+  "id": "streak",
+  "nombre": "Streak",
+  "cap": "cap.recruiting",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Organize candidates and stages"
+ },
+ {
+  "id": "taskade",
+  "nombre": "Taskade",
+  "cap": "cap.text_generation",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "TSK-Standard Everyday building and writing"
+ },
+ {
+  "id": "taskade",
+  "nombre": "Taskade",
+  "cap": "cap.shared_inbox",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "View and manage all customer conversations in one place"
+ },
+ {
+  "id": "taskade",
+  "nombre": "Taskade",
+  "cap": "cap.support_chatbot",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Drop a script tag to add an AI assistant to any site"
+ },
+ {
+  "id": "taskade",
+  "nombre": "Taskade",
+  "cap": "cap.online_store",
+  "profundidad": "integracion",
+  "integraCon": "Stripe",
+  "cita": "Storefronts, inventory, Stripe invoicing"
+ },
+ {
+  "id": "taskade",
+  "nombre": "Taskade",
+  "cap": "cap.order_management",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Manage orders, stock, and customers."
+ },
+ {
+  "id": "taskade",
+  "nombre": "Taskade",
+  "cap": "cap.website_builder",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Build websites, landing pages, dashboards, client portals, and custom tools from simple prompts"
+ },
+ {
+  "id": "taskade",
+  "nombre": "Taskade",
+  "cap": "cap.hosting_and_domain",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Publish apps under your own domain (app.yourbrand.com)."
+ },
+ {
+  "id": "taskade",
+  "nombre": "Taskade",
+  "cap": "cap.sales_pipeline",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Sales pipeline dashboard See revenue, stages, and next steps."
+ },
+ {
+  "id": "taskade",
+  "nombre": "Taskade",
+  "cap": "cap.client_portal",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Build a Client Portal Your clients log in to their own space"
+ },
+ {
+  "id": "taskade",
+  "nombre": "Taskade",
+  "cap": "cap.payment_collection",
+  "profundidad": "integracion",
+  "integraCon": "Stripe",
+  "cita": "Stripe checkout wired into every Taskade Genesis app — no plumbing."
+ },
+ {
+  "id": "taskade",
+  "nombre": "Taskade",
+  "cap": "cap.landing_pages",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Build websites, landing pages, dashboards, client portals, and custom tools from simple prompts"
+ },
+ {
+  "id": "taskade",
+  "nombre": "Taskade",
+  "cap": "cap.employee_onboarding",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "New-hire onboarding hub"
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.training_lms",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Quizzes and completion certificates"
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.translation",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Built-in AI creation and translation tools"
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.subtitles",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Generate video subtitles and translate them into over 70 other languages"
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.app_integrations",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Intuitive 3rd-party app integrations"
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.public_api",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Developer-friendly tools like APIs and webhooks"
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.webhooks",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Webhooks"
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.custom_reports",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Custom reporting"
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.data_import_and_migration",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Bulk student imports"
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.online_store",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Sell globally with 35+ local payment methods and checkout experiences."
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.website_builder",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Site Builder"
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.payment_collection",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Sell globally with 35+ local payment methods and checkout experiences."
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.recurring_billing",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Build recurring revenue and stronger community with flexible subscription models."
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.tax_calculation_and_reporting",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Tax calculated and remitted automatically in 45+ countries"
+ },
+ {
+  "id": "teamwork-com",
+  "nombre": "Teamwork.com",
+  "cap": "cap.support_ticketing",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Handle tickets and project work together in one place"
+ },
+ {
+  "id": "teamwork-com",
+  "nombre": "Teamwork.com",
+  "cap": "cap.text_correction",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Adjust writing tone for updates via AI"
+ },
+ {
+  "id": "teamwork-com",
+  "nombre": "Teamwork.com",
+  "cap": "cap.quotes_and_proposals",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Build client ready quotes"
+ },
+ {
+  "id": "teamwork-com",
+  "nombre": "Teamwork.com",
+  "cap": "cap.price_lists_and_rates",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Set role-based & client rates"
+ },
+ {
+  "id": "thinkific",
+  "nombre": "Thinkific",
+  "cap": "cap.training_lms",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Quizzes, assignments, and certificates"
+ },
+ {
+  "id": "thinkific",
+  "nombre": "Thinkific",
+  "cap": "cap.workflow_automation",
+  "profundidad": "integracion",
+  "integraCon": "Zapier",
+  "cita": "Trigger workflows in other tools from Thinkific events."
+ },
+ {
+  "id": "thinkific",
+  "nombre": "Thinkific",
+  "cap": "cap.app_integrations",
+  "profundidad": "integracion",
+  "integraCon": "HubSpot, Salesforce",
+  "cita": "With tools like HubSpot and Salesforce for a seamless experience"
+ },
+ {
+  "id": "thinkific",
+  "nombre": "Thinkific",
+  "cap": "cap.public_api",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Connect Thinkific to your tools, or build something custom"
+ },
+ {
+  "id": "thinkific",
+  "nombre": "Thinkific",
+  "cap": "cap.webhooks",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Build custom integrations using APIs and webhooks."
+ },
+ {
+  "id": "thinkific",
+  "nombre": "Thinkific",
+  "cap": "cap.dashboards",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "See revenue, enrolments, and completion in one view"
+ },
+ {
+  "id": "thinkific",
+  "nombre": "Thinkific",
+  "cap": "cap.data_export",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Build exportable views of revenue, engagement, and learner performance"
+ },
+ {
+  "id": "thinkific",
+  "nombre": "Thinkific",
+  "cap": "cap.data_import_and_migration",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Enroll large groups of learners via CSV upload."
+ },
+ {
+  "id": "thinkific",
+  "nombre": "Thinkific",
+  "cap": "cap.online_store",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Full e-commerce payment processing is included."
+ },
+ {
+  "id": "thinkific",
+  "nombre": "Thinkific",
+  "cap": "cap.marketing_automation",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Drive and recapture sales with automated emails"
+ },
+ {
+  "id": "thinkific",
+  "nombre": "Thinkific",
+  "cap": "cap.landing_pages",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Use AI to quickly build a high-converting landing page"
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "cap": "cap.support_ticketing",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "A help desk handles customer support tickets and queries."
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "cap": "cap.work_orders",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Work Order Management"
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "cap": "cap.service_contracts_and_sla",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Service Contracts"
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "cap": "cap.inventory_tracking",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Inventory Management"
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "cap": "cap.purchase_orders",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Purchase Order Management"
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "cap": "cap.invoicing",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Invoicing"
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "cap": "cap.payment_collection",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Payment Tracking"
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "cap": "cap.recurring_billing",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Subscriptions"
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "cap": "cap.progress_and_milestone_billing",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Automated Time Tracking and Billing"
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "cap": "cap.team_messaging",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Direct messages, Comments and @Mentions"
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "cap": "cap.task_management",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Tasks & Milestones"
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "cap": "cap.project_planning",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Tasks & Milestones"
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "cap": "cap.gantt_and_dependencies",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Task dependencies (Finish to Start)"
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "cap": "cap.kanban_boards",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Kanban Board"
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "cap": "cap.time_tracking",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Automated Time Tracking and Billing"
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "cap": "cap.personal_calendar_planning",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Calendar and Events"
+ },
+ {
+  "id": "zoho-crm",
+  "nombre": "Zoho CRM",
+  "cap": "cap.purchase_orders",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Manage all your invoices, sales and purchase orders, products, and vendors."
+ },
+ {
+  "id": "zoho-crm",
+  "nombre": "Zoho CRM",
+  "cap": "cap.support_ticketing",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "convert problems into support tickets that your reps can follow."
+ },
+ {
+  "id": "zoho-crm",
+  "nombre": "Zoho CRM",
+  "cap": "cap.paid_ads_management",
+  "profundidad": "integracion",
+  "integraCon": "Google Ads",
+  "cita": "Manage Google Ads campaigns from within Zoho CRM."
+ },
+ {
+  "id": "zoho-one",
+  "nombre": "Zoho One",
+  "cap": "cap.inventory_tracking",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Manage orders and stock levels across multiple warehouses and channels."
+ },
+ {
+  "id": "zoho-one",
+  "nombre": "Zoho One",
+  "cap": "cap.warehouse_and_locations",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Manage orders and stock levels across multiple warehouses and channels."
+ },
+ {
+  "id": "zoho-one",
+  "nombre": "Zoho One",
+  "cap": "cap.online_store",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Build a website and sell online"
+ },
+ {
+  "id": "zoho-one",
+  "nombre": "Zoho One",
+  "cap": "cap.team_messaging",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Communicate instantly and seamlessly using one-to-one and group chats"
+ },
+ {
+  "id": "zoho-one",
+  "nombre": "Zoho One",
+  "cap": "cap.task_management",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Access project management tools like task lists, dashboards, and workflow rules."
+ },
+ {
+  "id": "zoho-one",
+  "nombre": "Zoho One",
+  "cap": "cap.project_planning",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Access project management tools like task lists, dashboards, and workflow rules."
+ },
+ {
+  "id": "zoho-one",
+  "nombre": "Zoho One",
+  "cap": "cap.gantt_and_dependencies",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Use Gantt charts, timesheets, and Kanban reports to track activity"
+ },
+ {
+  "id": "zoho-one",
+  "nombre": "Zoho One",
+  "cap": "cap.kanban_boards",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Use Gantt charts, timesheets, and Kanban reports to track activity"
+ },
+ {
+  "id": "zoho-one",
+  "nombre": "Zoho One",
+  "cap": "cap.time_tracking",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Use Gantt charts, timesheets, and Kanban reports to track activity"
+ },
+ {
+  "id": "zoho-projects",
+  "nombre": "Zoho Projects",
+  "cap": "cap.translation",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Zia Translate"
+ },
+ {
+  "id": "zoho-projects",
+  "nombre": "Zoho Projects",
+  "cap": "cap.file_storage",
+  "profundidad": "modulo",
+  "integraCon": null,
+  "cita": "Document Management: Store, manage, and share documents securely."
+ }
+]

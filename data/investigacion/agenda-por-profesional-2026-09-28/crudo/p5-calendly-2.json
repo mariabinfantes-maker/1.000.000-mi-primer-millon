@@ -1,0 +1,7 @@
+{
+ "id": "calendly",
+ "nombre": "Calendly",
+ "url": "https://help.calendly.com/hc/en-us/articles/16831517906711-How-to-set-up-a-team-page",
+ "recuperada": false,
+ "texto": "{\"abierta\": false, \"agendaPorProfesional\": {\"estado\": \"no_consta\", \"cita\": null}, \"eligeElCliente\": {\"estado\": \"no_consta\", \"cita\": null}, \"enEspanol\": {\"estado\": \"no_consta\", \"cita\": null}}"
+}

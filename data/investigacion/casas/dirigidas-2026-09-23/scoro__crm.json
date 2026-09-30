@@ -1,0 +1,17 @@
+{
+ "id": "scoro__crm",
+ "herramientaId": "scoro",
+ "nombre": "Scoro",
+ "casa": "crm",
+ "nombreCasa": "CRM y ventas",
+ "urls": [
+  "https://www.scoro.com/",
+  "https://www.scoro.com/pricing/"
+ ],
+ "cita": "Manage client relationships, track deals, and stay on top of your pipeline.",
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.customer_contact_records\",\n      \"estado\": \"si\",\n      \"cita\": \"Client & contact management\",\n      \"url\": \"https://www.scoro.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.customer_interaction_history\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.sales_pipeline\",\n      \"estado\": \"si\",\n      \"cita\": \"Sales pipeline\",\n      \"url\": \"https://www.scoro.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.lead_capture\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.sales_forecasting\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.client_portal\",\n      \"estado\": \"si\",\n      \"cita\": \"Customer portal\",\n      \"url\": \"https://www.scoro.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.quotes_and_proposals\",\n      \"estado\": \"si\",\n      \"cita\": \"Price proposals\",\n      \"url\": \"https://www.scoro.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.bill_of_quantities\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.price_lists_and_rates\",\n      \"estado\": \"si\",\n      \"cita\": \"Price lists\",\n      \"url\": \"https://www.scoro.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.electronic_signature\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.contract_lifecycle\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://www.scoro.com/",
+  "OK https://www.scoro.com/pricing/"
+ ]
+}

@@ -458,5 +458,265 @@
     "estadoAfiliacion": "pendiente_de_verificar",
     "observaciones": "Aprobado por la propietaria el 2026-09-02 para cerrar el subtipo espacio-trabajo. La propietaria autoriza ademas la anulacion justificada del aviso de casi-duplicado con ClickUp: mismo proveedor y dominio, pero producto de IA diferenciado y de pago separado, siguiendo el criterio ya aplicado a otros productos distintos del mismo proveedor (Zoho CRM frente a Zoho One) y el precedente de Notion AI. Aviso de Curator anulado explícitamente: \"ClickUp Brain\" y \"ClickUp\" comparten el mismo dominio (clickup.com) en su página oficial. Justificación: Anulacion autorizada expresamente por la propietaria el 2026-09-02. ClickUp Brain comparte proveedor y dominio con ClickUp, pero se incorpora como producto de IA diferenciado: es un complemento de pago separado (9 dolares/usuario/mes sobre un plan de pago de ClickUp), con su propia pagina de producto y su propio ambito de uso. Mismo criterio ya aplicado a otros productos distintos del mismo proveedor (Zoho CRM frente a Zoho One) y mismo precedente que Notion AI, que tiene ficha propia sin que Notion este en el catalogo.",
     "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-17T06:45:12.182Z",
+    "herramientaId": "teachable",
+    "nombreHerramienta": "teachable",
+    "resultado": "rechazada",
+    "puntuacionMolnip": null,
+    "estadoAfiliacion": null,
+    "observaciones": "Aprobado por la propietaria el 2026-09-17, tras la revisión cita a cita bajo las nueve reglas de evidencia y la corrección de los datos inventados del borrador. Motivos del bloqueo: [data/herramientas/borradores/teachable.json] no es una Herramienta válida:\n  - \"disponibilidadGeografica\" debe ser un array no vacío",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T16:11:15.732Z",
+    "herramientaId": "archivex",
+    "nombreHerramienta": "Archivex",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 52,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Atlas Curator: \"Archivex\" y \"Hive\" tienen nombres muy parecidos — revisa si son la misma herramienta. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces. | Examen de entrada: Sólo 0 capacidades verificadas; hacen falta 3. Sin esto no sabemos qué hace.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T16:11:16.439Z",
+    "herramientaId": "bewe",
+    "nombreHerramienta": "BEWE",
+    "resultado": "rechazada",
+    "puntuacionMolnip": null,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Examen de entrada: Sólo 0 capacidades verificadas; hacen falta 3. Sin esto no sabemos qué hace.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T16:11:17.087Z",
+    "herramientaId": "bookitit",
+    "nombreHerramienta": "Bookitit",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 54,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Examen de entrada: Sólo 0 capacidades verificadas; hacen falta 3. Sin esto no sabemos qué hace.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T16:11:17.706Z",
+    "herramientaId": "agendapro",
+    "nombreHerramienta": "AgendaPro",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 54,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Examen de entrada: Sólo 0 capacidades verificadas; hacen falta 3. Sin esto no sabemos qué hace. | Examen de entrada: El precio no tiene fuente guardada (página y fecha).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T16:11:18.360Z",
+    "herramientaId": "cliniko",
+    "nombreHerramienta": "Cliniko",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 52,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Examen de entrada: Sólo 0 capacidades verificadas; hacen falta 3. Sin esto no sabemos qué hace. | Examen de entrada: El precio no tiene fuente guardada (página y fecha).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T16:11:18.995Z",
+    "herramientaId": "schedulista",
+    "nombreHerramienta": "Schedulista",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 54,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Criterio de calidad: quedan 1 advertencia(s) sin resolver: Cómo cobra, en corto: El fabricante cobra por TRAMOS de usuarios (1 / 2-15 / +15), no por usuario suelto. | Examen de entrada: Sólo 0 capacidades verificadas; hacen falta 3. Sin esto no sabemos qué hace. | Examen de entrada: El precio no tiene fuente guardada (página y fecha).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T16:19:29.858Z",
+    "herramientaId": "agendapro",
+    "nombreHerramienta": "AgendaPro",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 54,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Examen de entrada: El precio no tiene fuente guardada (página y fecha).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T16:19:30.498Z",
+    "herramientaId": "cliniko",
+    "nombreHerramienta": "Cliniko",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 52,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Examen de entrada: El precio no tiene fuente guardada (página y fecha).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T18:06:07.449Z",
+    "herramientaId": "archivex",
+    "nombreHerramienta": "Archivex",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 52,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Aviso de Curator anulado explícitamente: \"Archivex\" y \"Hive\" tienen nombres muy parecidos — revisa si son la misma herramienta. Justificación: La propietaria confirma el 2026-09-29 que Archivex y Hive son herramientas distintas: «archivex y hive son distintas, súbela». Lo sostienen sus propias fichas — Hive es gestión de proyectos en hive.com; Archivex es gestión de clínicas con citas, pacientes e historias clínicas en archivex.io. El aviso del Curador era por parecido de nombre, no de producto. Motivos del bloqueo: Examen de entrada: Sólo 0 capacidades verificadas; hacen falta 3. Sin esto no sabemos qué hace.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T18:06:51.146Z",
+    "herramientaId": "archivex",
+    "nombreHerramienta": "Archivex",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 52,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Atlas Curator: \"Archivex\" y \"Hive\" tienen nombres muy parecidos — revisa si son la misma herramienta. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces. | \"archivex\" ya existe en el catálogo real: promoverlo lo sobrescribiría. Revísalo a mano si es intencionado.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T18:15:12.552Z",
+    "herramientaId": "schedulista",
+    "nombreHerramienta": "Schedulista",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 54,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: Examen de entrada: Sólo 0 capacidades verificadas; hacen falta 3. Sin esto no sabemos qué hace. | Examen de entrada: El precio no tiene fuente guardada (página y fecha).",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T18:15:58.173Z",
+    "herramientaId": "schedulista",
+    "nombreHerramienta": "Schedulista",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 54,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Autorizado por la propietaria el 2026-09-29: «sube las 6 al catálogo». Pasa el examen de entrada y el validador sin ningún relleno: todos sus campos vienen de investigación con cita y dirección. Motivos del bloqueo: \"schedulista\" ya existe en el catálogo real: promoverlo lo sobrescribiría. Revísalo a mano si es intencionado.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-29T19:53:18.682Z",
+    "herramientaId": "koibox",
+    "nombreHerramienta": "Koibox",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 93,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado en la tanda de las 8 cortadas, 2026-09-29. Primera con facilidadDeUso demostrada: Capterra 4,9/5 sobre 18 reseñas. Motivos del bloqueo: Examen de entrada: Sólo 1 capacidades verificadas; hacen falta 3. Sin esto no sabemos qué hace.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T00:11:06.668Z",
+    "herramientaId": "dricloud",
+    "nombreHerramienta": "dricloud",
+    "resultado": "rechazada",
+    "puntuacionMolnip": null,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-30 con «sí y sigue», sobre la entrega de GPT de DriCloud y flowww de ese día. Ella pidió expresamente que se analizara y guardara la entrega antes de seguir con otra cosa. Motivos del bloqueo: [data/herramientas/borradores/dricloud.json] no es una Herramienta válida:\n  - falta el campo de texto \"noRecomendadaPara\"",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T00:11:07.418Z",
+    "herramientaId": "flowww",
+    "nombreHerramienta": "flowww",
+    "resultado": "rechazada",
+    "puntuacionMolnip": null,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado por la propietaria el 2026-09-30 con «sí y sigue», sobre la entrega de GPT de DriCloud y flowww de ese día. Ella pidió expresamente que se analizara y guardara la entrega antes de seguir con otra cosa. Motivos del bloqueo: [data/herramientas/borradores/flowww.json] no es una Herramienta válida:\n  - falta el campo de texto \"noRecomendadaPara\"",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T00:11:58.669Z",
+    "herramientaId": "dricloud",
+    "nombreHerramienta": "DriCloud",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 74,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Autorizado por la propietaria el 2026-09-30 con «sí y sigue», sobre la entrega de GPT de DriCloud y flowww de ese día. Ella pidió expresamente que se analizara y guardara la entrega antes de seguir con otra cosa. Motivos del bloqueo: \"dricloud\" ya existe en el catálogo real: promoverlo lo sobrescribiría. Revísalo a mano si es intencionado.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T07:25:10.126Z",
+    "herramientaId": "acuity-scheduling",
+    "nombreHerramienta": "acuity-scheduling",
+    "resultado": "rechazada",
+    "puntuacionMolnip": null,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado el 2026-09-30: la propietaria dijo «busca tú lo que falta» después de que GPT dejara estas seis en pendientes. El texto de la ficha lo buscó Claude con Gemini; las capacidades, el precio, los sectores y el tamaño ya estaban verificados y archivados del 2026-09-29. Motivos del bloqueo: [data/herramientas/borradores/acuity-scheduling.json] no es una Herramienta válida:\n  - falta el objeto \"puntuaciones\"",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T07:25:10.681Z",
+    "herramientaId": "simplybook-me",
+    "nombreHerramienta": "simplybook-me",
+    "resultado": "rechazada",
+    "puntuacionMolnip": null,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado el 2026-09-30: la propietaria dijo «busca tú lo que falta» después de que GPT dejara estas seis en pendientes. El texto de la ficha lo buscó Claude con Gemini; las capacidades, el precio, los sectores y el tamaño ya estaban verificados y archivados del 2026-09-29. Motivos del bloqueo: [data/herramientas/borradores/simplybook-me.json] no es una Herramienta válida:\n  - falta el objeto \"puntuaciones\"",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T07:25:11.281Z",
+    "herramientaId": "zoho-bookings",
+    "nombreHerramienta": "zoho-bookings",
+    "resultado": "rechazada",
+    "puntuacionMolnip": null,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado el 2026-09-30: la propietaria dijo «busca tú lo que falta» después de que GPT dejara estas seis en pendientes. El texto de la ficha lo buscó Claude con Gemini; las capacidades, el precio, los sectores y el tamaño ya estaban verificados y archivados del 2026-09-29. Motivos del bloqueo: [data/herramientas/borradores/zoho-bookings.json] no es una Herramienta válida:\n  - falta el campo de texto \"precioInicial\"\n  - falta el objeto \"puntuaciones\"",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T07:25:11.770Z",
+    "herramientaId": "reservio",
+    "nombreHerramienta": "reservio",
+    "resultado": "rechazada",
+    "puntuacionMolnip": null,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado el 2026-09-30: la propietaria dijo «busca tú lo que falta» después de que GPT dejara estas seis en pendientes. El texto de la ficha lo buscó Claude con Gemini; las capacidades, el precio, los sectores y el tamaño ya estaban verificados y archivados del 2026-09-29. Motivos del bloqueo: [data/herramientas/borradores/reservio.json] no es una Herramienta válida:\n  - falta el objeto \"puntuaciones\"",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T07:25:12.316Z",
+    "herramientaId": "bookeo",
+    "nombreHerramienta": "bookeo",
+    "resultado": "rechazada",
+    "puntuacionMolnip": null,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado el 2026-09-30: la propietaria dijo «busca tú lo que falta» después de que GPT dejara estas seis en pendientes. El texto de la ficha lo buscó Claude con Gemini; las capacidades, el precio, los sectores y el tamaño ya estaban verificados y archivados del 2026-09-29. Motivos del bloqueo: [data/herramientas/borradores/bookeo.json] no es una Herramienta válida:\n  - falta el objeto \"puntuaciones\"",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T07:25:12.860Z",
+    "herramientaId": "teachworks",
+    "nombreHerramienta": "teachworks",
+    "resultado": "rechazada",
+    "puntuacionMolnip": null,
+    "estadoAfiliacion": null,
+    "observaciones": "Autorizado el 2026-09-30: la propietaria dijo «busca tú lo que falta» después de que GPT dejara estas seis en pendientes. El texto de la ficha lo buscó Claude con Gemini; las capacidades, el precio, los sectores y el tamaño ya estaban verificados y archivados del 2026-09-29. Motivos del bloqueo: [data/herramientas/borradores/teachworks.json] no es una Herramienta válida:\n  - falta el campo de texto \"precioInicial\"\n  - falta el objeto \"puntuaciones\"",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T07:28:34.308Z",
+    "herramientaId": "zoho-bookings",
+    "nombreHerramienta": "Zoho Bookings",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 92,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Autorizado el 2026-09-30: la propietaria dijo «busca tú lo que falta» después de que GPT dejara estas seis en pendientes. El texto de la ficha lo buscó Claude con Gemini; las capacidades, el precio, los sectores y el tamaño ya estaban verificados y archivados del 2026-09-29. Motivos del bloqueo: Atlas Curator: \"Zoho Bookings\" y \"Zoho CRM\" comparten el mismo dominio (zoho.com) en su página oficial. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces. | Atlas Curator: \"Zoho Bookings\" y \"Zoho One\" comparten el mismo dominio (zoho.com) en su página oficial. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces. | Atlas Curator: \"Zoho Bookings\" y \"Zoho Projects\" comparten el mismo dominio (zoho.com) en su página oficial. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T07:28:43.081Z",
+    "herramientaId": "teachworks",
+    "nombreHerramienta": "Teachworks",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 82,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Autorizado el 2026-09-30: la propietaria dijo «busca tú lo que falta» después de que GPT dejara estas seis en pendientes. El texto de la ficha lo buscó Claude con Gemini; las capacidades, el precio, los sectores y el tamaño ya estaban verificados y archivados del 2026-09-29. Motivos del bloqueo: \"teachworks\" ya existe en el catálogo real: promoverlo lo sobrescribiría. Revísalo a mano si es intencionado.",
+    "aprobacionCeo": true
+  },
+  {
+    "fechaHora": "2026-09-30T07:28:48.433Z",
+    "herramientaId": "zoho-bookings",
+    "nombreHerramienta": "Zoho Bookings",
+    "resultado": "rechazada",
+    "puntuacionMolnip": 92,
+    "estadoAfiliacion": "confirmada",
+    "observaciones": "Autorizado el 2026-09-30: la propietaria dijo «busca tú lo que falta» después de que GPT dejara estas seis en pendientes. El texto de la ficha lo buscó Claude con Gemini; las capacidades, el precio, los sectores y el tamaño ya estaban verificados y archivados del 2026-09-29. Motivos del bloqueo: Atlas Curator: \"Zoho Bookings\" y \"Zoho CRM\" comparten el mismo dominio (zoho.com) en su página oficial. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces. | Atlas Curator: \"Zoho Bookings\" y \"Zoho One\" comparten el mismo dominio (zoho.com) en su página oficial. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces. | Atlas Curator: \"Zoho Bookings\" y \"Zoho Projects\" comparten el mismo dominio (zoho.com) en su página oficial. Si de verdad son herramientas distintas, ajusta el nombre para diferenciarlas antes de promover; si es la misma, no la promuevas dos veces.",
+    "aprobacionCeo": true
   }
 ]

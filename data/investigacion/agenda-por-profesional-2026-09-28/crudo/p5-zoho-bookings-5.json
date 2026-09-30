@@ -1,0 +1,7 @@
+{
+ "id": "zoho-bookings",
+ "nombre": "Zoho Bookings",
+ "url": "https://help.zoho.com/portal/en/kb/articles/roles-and-permissions-in-zoho-bookings",
+ "recuperada": false,
+ "texto": "```json\n{\n  \"abierta\": false,\n  \"agendaPorProfesional\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"eligeElCliente\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"enEspanol\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  }\n}\n```"
+}

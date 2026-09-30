@@ -196,6 +196,10 @@ esta política, ese descarte debería pasar a ser una **derivación a la
 propietaria**, no un rechazo. No se toca todavía: queda anotado como trabajo
 por autorizar, y esta política es documental hasta entonces.
 
+> **Resuelto el 2026-09-12**, ver «El Researcher deja de descartar por
+> afiliación» al final de este documento. La política deja de ser sólo
+> documental: el código ya deriva en vez de rechazar.
+
 ## Objetivo del MVP
 
 En menos de 60 segundos un usuario debe poder:
@@ -778,9 +782,14 @@ cumple **todo** lo siguiente:
 Cualquier otro caso — afiliación "pendiente de verificar", aviso de
 Curator sin autorización previa, gate de calidad que falla por poco, o
 cualquier duda editorial — se sigue presentando al CEO para su aprobación
-explícita antes de tocar el catálogo real. Las descartadas automáticamente
-por el prechequeo de afiliados (sin programa fiable) no se presentan como
-candidatas, solo se reportan de forma transparente.
+explícita antes de tocar el catálogo real.
+
+> **Corregido el 2026-09-12.** Esta sección decía que las descartadas por el
+> prechequeo de afiliados «no se presentan como candidatas, solo se reportan
+> de forma transparente». Eso contradecía la política de «Herramientas sin
+> afiliación» igual que la hacía el código, y no estaba anotado en ningún
+> pendiente. Ya no hay descarte por afiliación: el prechequeo las deja en
+> `pendiente_de_decision` y **sí se presentan a la propietaria**.
 
 ### Atlas Revenue: recuperado como agente 11 de la arquitectura
 
@@ -3191,10 +3200,10 @@ ningún sprint. Ninguna urge; todas se olvidan si no están escritas.
 - **Cinco fichas sin `analisisAtlas`:** bitrix24, gohighlevel, hubspot, odoo y
   zoho-one. Son las mismas cinco sin facilidad de implementación.
 - **Los seis registros de afiliación en Neon** siguen sin crear.
-- **`tieneProgramaDeAfiliadosFiable()` sigue descartando** automáticamente las
+- ~~**`tieneProgramaDeAfiliadosFiable()` sigue descartando** automáticamente las
   herramientas sin programa de afiliación, y eso **contradice la política de
-  catálogo aprobada**. Está declarado como no implementado en AGENTS.md, pero la
-  contradicción sigue viva en el código.
+  catálogo aprobada**.~~ **Hecho el 2026-09-12**: ya no descarta. Ver «El
+  Researcher deja de descartar por afiliación».
 - **La clave de Gemini que quedó visible el 2026-09-07 hay que borrarla** en AI
   Studio. Era una clave de pruebas y **no está configurada en Vercel** (lo
   confirmó la propietaria), así que borrarla no rompe nada ni exige
@@ -4263,6 +4272,2826 @@ corta. No se reabre aquí.
   fichas. 18 no listan español y 5 no tienen el campo, y nadie lo comprobó.
 - **`text_generation`**: cuatro herramientas sostenidas por una nota, dos
   de ellas sin describir la capacidad. No se reabre F2.
+
+## El Researcher deja de descartar por afiliación (2026-09-12)
+
+Preparando la etapa 3 de F4 apareció que **el código contradecía la política
+de catálogo aprobada**. La política de «Herramientas sin afiliación» dice que
+una herramienta sin programa **se presenta a la propietaria**; el código la
+descartaba sola. La contradicción ya estaba anotada, pero no su tamaño: **no
+era un punto, eran tres**, más una frase de este mismo documento que la
+consagraba.
+
+`agente.ts` devolvía `ok: false` y tiraba una investigación entera ya pagada.
+`promover.ts` volvía a bloquear. Y `prechequeoAfiliados.ts` ni siquiera
+llegaba a investigar: `lote.ts` marcaba `descartado_prechequeo` y ahí moría.
+La función de cuatro líneas estaba copiada tres veces.
+
+**El defecto de fondo era el mismo de F2:** la condición `hasAffiliateProgram
+!== true` metía en el mismo saco el `false` demostrado y el `undefined` de una
+investigación que no encontró nada. De las quince candidatas de F4, **siete
+habrían caído por «no tener programa» cuando lo único cierto es que no se
+encontró**.
+
+### Tres estados, y una exigencia de prueba
+
+`estadoAfiliacion.ts` replica el patrón de `EstadoDeEvidencia` de F3 —el
+patrón, no el módulo: importar `data/verificacion` desde aquí habría hecho
+fallar su guarda de aislamiento, y esa guarda vale más que veinte líneas
+ahorradas—:
+
+- `confirmada` — programa activo y la investigación no se declara poco fiable.
+- `ausencia_demostrada` — **exige una cita literal de una página oficial** que
+  diga expresamente que no lo ofrecen. `hasAffiliateProgram: false` por sí
+  solo **no basta**: sin cita es `no_consta`.
+- `no_consta` — todo lo demás.
+
+**Ninguno de los tres descarta.** Los dos últimos dejan la candidata en
+`pendiente_de_decision`, con motivos separados, y **no disparan la
+investigación completa**: gastarla sería decidir por la propietaria que
+merece la pena seguir. El ahorro del prechequeo se conserva entero.
+
+Un fallo del proveedor ya no se confunde con una respuesta: devuelve `ok:
+false` y se reintenta. Antes acababa en descarte, que es lo contrario de lo
+que se sabe en ese momento.
+
+### Lo que sigue bloqueando
+
+La afiliación **sigue siendo la vía habitual y sigue bloqueando la promoción
+por defecto**. Lo que deja de ser es incondicional: la excepción de la
+política —cubre un hueco, o demuestra ventaja material— la abre la propietaria
+con una **autorización registrada** (`npm run autorizar-afiliacion`), atada a
+esa herramienta y al estado de afiliación exacto que tenga en ese momento. La
+decisión editorial aprobada sigue delante de todo.
+
+> **Corregido tras la revisión de la propietaria (2026-09-13).** La primera
+> versión abría la excepción con una bandera, `--admitir-sin-afiliacion`, y
+> exigía sólo que existiera una decisión «aprobado». La revisión encontró que
+> **una decisión editorial antigua, tomada por otro motivo, desbloqueaba la
+> afiliación**: era una firma reaprovechada, no una autorización. Ahora la
+> excepción exige un registro propio que nombra la herramienta, el estado
+> concreto y un motivo de al menos 20 caracteres; si el estado cambia, la
+> autorización caduca. La bandera ya no existe.
+
+El estado de afiliación **no se escribe en `advertencias`**: cualquier
+advertencia hace fallar `evaluarCriteriosDeCalidad`, y eso habría levantado un
+segundo bloqueo que la excepción no podría abrir, dejándola inservible. Son
+dos cosas distintas y se mantienen separadas.
+
+`npm run investigar-pendiente` cierra el ciclo: lista lo que espera y, con una
+decisión «aprobado» registrada, lanza la investigación completa. Sin ese
+comando, «esperar autorización» no tendría forma de terminar.
+
+### Los otros cuatro puntos de la revisión
+
+- **Repetir un lote ya no degrada la evidencia.** `registrarPendiente` fusiona
+  en vez de sobrescribir: conserva la fecha original de espera, apila cada
+  observación en un historial y **sólo cambia el estado vigente si la nueva
+  observación es más fuerte**. Una `ausencia_demostrada` con su cita oficial no
+  vuelve nunca a `no_consta` porque una pasada posterior no encontrara la
+  frase. Costó conseguir esa cita; perderla por repetir un lote era el peor de
+  los cinco defectos.
+- **`investigar-herramienta` también prechequea.** Era el único camino por el
+  que se podía gastar una investigación completa sin autorización. La regla
+  vale en los tres caminos o no vale.
+- **Los ids se validan en la frontera.** `pendientes.ts` y
+  `autorizacionAfiliacion.ts` rechazan cualquier id que no sea kebab-case antes
+  de construir una ruta: un `..` ya no escribe fuera de su carpeta.
+- **Escritura atómica y listado tolerante.** Se escribe a un temporal y se
+  renombra. Un fichero corrupto se reporta por su nombre y **no impide ver los
+  demás**: el listado es por donde la propietaria se entera de qué espera
+  decisión, y dejarla ciega por un fichero roto era el peor momento para
+  fallar.
+
+### Compatibilidad, comprobada antes de tocar nada
+
+`descartado_prechequeo` **no estaba persistido en ningún sitio**: sólo vivía
+en el código. `cli-lote.ts` no escribe a disco y no hay checkpoints. El único
+artefacto guardado, `historial-aprobaciones.json` (46 registros), usa
+`estadoAfiliacion: "confirmada" | "pendiente_de_verificar"`, que este cambio
+no toca. **No hizo falta migrar nada.**
+
+**Nada de esto altera ninguna recomendación.** Es entrada al catálogo, no
+salida al usuario: `independenciaAfiliacion.test.ts` sigue pasando sin
+tocarlo.
+
+## Usos, recorridos e idioma en la evidencia, y la reforma del Researcher recuperada (2026-09-16, tercera ronda)
+
+**Autorización de la propietaria:** «implementar los usos y recorridos de
+evidencia en una rama aislada y recuperar allí la reforma del Researcher para
+revisarla, partiendo de la base vigente». Sin lanzar lotes, fusionar ni
+desplegar. Rama `claude/evidencia-usos-recorridos`, desde `d7ebbb9`.
+
+**Lo que resuelve.** F2 demuestra capacidades y el motor filtra por
+capacidad; ninguna de las dos cosas sabe si «reserva online» sirve para un
+corte de pelo, si «automatización de marketing» manda un segundo mensaje
+cuando el cliente calla, o si «cobrar» entrega el curso solo. El aviso de
+«uso sin confirmar» de la opción B era una marca fija de la fila, igual para
+todas las herramientas, sin que ninguna pudiera demostrar lo contrario. La
+etapa 0 de «Vender más» (doce casos, versión 3) lo dejó como condición del
+primer lote: sin sitio donde guardar un uso comprobado, lo investigado no
+llegaría al motor.
+
+**Las decisiones, en orden:**
+
+- **Una lista cerrada de usos** (`data/verificacion/usos.ts`), cada uno
+  colgando de UNA capacidad activa del vocabulario; hay prueba. No es
+  vocabulario: F1 sigue congelado en 3.0.0. Siete usos hoy: los dos de las
+  filas de servicios (reserva de servicio, recordatorio de cita de servicio),
+  el recordatorio por WhatsApp, y los cuatro de los recorridos A y B. Y **dos
+  recorridos**: página, cobro y acceso al curso en el mismo plan; embudo con
+  aviso y seguimientos en el mismo plan.
+- **El registro de F2 puede llevar `usos`**, sólo si la capacidad está
+  verificada y disponible, con tres estados: `demostrado`, `no_consta`,
+  `no_lo_hace`. Los dos extremos exigen fuente de primera mano CON cita; el
+  del medio exige nota y no admite cita. **«No consta» nunca se convierte en
+  «no lo hace»**, igual que con las capacidades. Los 1.544 registros
+  anteriores no cambian.
+- **Recorridos e idiomas son registros aparte** (`recorridos.json`,
+  `idiomas.json`, hoy vacíos). El recorrido lleva las mismas certezas
+  separadas que la capacidad: si lo hace, y en qué plan; un plan sólo se
+  nombra si la cita lo nombra. El idioma se verifica **por separado para la
+  interfaz y para el soporte**, con códigos de dos letras y cita; **sin
+  registro queda como desconocido en las 62**, porque `disponibleEnEspanol`
+  en la ficha no es verificación. Condición de la propietaria.
+- **El puerto** responde `usoDe`, `recorridoDe` e `idiomaDe`; un uso sólo
+  puede estar demostrado si su capacidad lo está. **La puerta** expone
+  `estadoDeUso` con los tres estados sin colapsar: el motor los trata
+  distinto.
+- **Una fila puede pedir un uso** además de la capacidad
+  (`FilaDeNecesidad.uso: { id, imprescindible }`). Regla de la propietaria:
+  «si un uso es imprescindible y no está verificado, la herramienta no puede
+  recomendarse para resolverlo». Con `imprescindible: true` sólo pasa quien
+  lo demostró, y si nadie, se dice con las palabras de la fila. Con `false`
+  pasan las mismas que por la capacidad **salvo las que consta que NO hacen
+  el uso**: apartarlas de ese uso es la única lectura coherente de una
+  ausencia demostrada, y no se dice en voz alta. Las dos filas de servicios
+  quedan enlazadas a sus usos, **no imprescindibles**, como se aprobó: siguen
+  siendo candidatas hasta que un lote demuestre el uso en alguna. Hoy ninguna
+  fila es imprescindible.
+- **La tarjeta enseña el uso por herramienta.** Si esta herramienta lo ha
+  demostrado: «Uso confirmado en una fuente oficial: …», con lo anotado y la
+  fuente enlazada, y sin el aviso fijo, que ya no es verdad para ella. Las
+  confirmadas van primero como opciones y las demás debajo como candidatas.
+  La etiqueta viaja en el enlace sólo demostrada y con su texto en palabras:
+  la pantalla no puede leer la lista de usos y nunca enseña un id. Con los
+  datos de hoy no cambia ni una pantalla.
+- **El pipeline produce usos, recorridos e idioma** con las mismas puertas
+  que la capacidad (dirección leída, mismo dominio, cita literal, cita breve
+  sólo revisada, ahora por uso). Un recorrido sólo se demuestra si todas sus
+  piezas salieron afirmadas en la misma verificación. Lo degradado va a
+  `descartes-usos.json`, aparte, para que la repesca de capacidades no lo
+  confunda con un par a repetir.
+- **El arnés remoto gana el modo `usos`** con los límites de la propietaria
+  escritos en el propio lote y aplicados por el código: **tope de peticiones
+  HTTP contando reintentos** (40), **cinco por minuto** con ventana real de
+  sesenta segundos, y **parada al primer error de cuota sin reintentar**. El
+  lote se valida antes de gastar nada, y se enseña cuántas llamadas prevé.
+
+**El primer lote, congelado y sin lanzar.** `data/verificacion/lotes/usos-1.json`:
+Systeme.io (página, cobro, impartir cursos —que no estaba en su selección
+del lote 3 y se añade aquí, congelado antes de preguntar—) y seis CRM del
+recorrido B (ActiveCampaign, Insightly, Pipedrive, noCRM.io, EngageBay,
+Capsule), dos capacidades cada uno, con sus usos, recorrido e idioma: **14
+llamadas**. `usos-1-nuevas.json`: Hotmart, Thinkific y Teachable, **6
+llamadas**, que el validador rechaza hasta que existan como fichas. Y
+`agents/atlas-researcher/lotes/cursos-1.json` con las tres candidatas para
+el Researcher: **6 llamadas**, dos por candidata (prechequeo de afiliación y,
+tras la autorización de la propietaria, la investigación). **Veintiséis en
+total, no veintitrés:** el recuento de la etapa 0 contaba una llamada por
+candidata nueva y el código hace dos. Corregido en la página de los casos.
+El nivel de la cuenta de Gemini no se puede comprobar desde el entorno; se
+pide antes de disparar.
+
+**La reforma del Researcher (6a12144, 854fc98) está recuperada** en la misma
+rama, sin cambios de fondo. Lo único que faltaba: sus dos comandos no
+estaban clasificados en el Orchestrator y la prueba «todo script está
+clasificado» fallaba. `investigar-pendiente` pide permiso porque gasta
+dinero (con id llama al proveedor; sin id sólo lista, pero se clasifica por
+lo peor); `autorizar-afiliacion` pide permiso porque escribe datos. Son 26
+tareas: 8 libres, 18 con permiso.
+
+**Lo que se comprobó antes de dar nada por hecho.** Huella de las 810
+combinaciones del catálogo y el motor: `2aea9060…` intacta desde `d7ebbb9`.
+Las 2.520 combinaciones por categoría y las 600 por objetivo, idénticas. Suite
+completa: 1.978 pruebas en verde, con 55 nuevas. `tsc` limpio. Los seis
+errores de `eslint` son los mismos seis de producción (`any` en el arnés y en
+una prueba antiguos).
+
+**Después, cuando la propietaria lo decida:** al promover las tres fichas
+nuevas, `plan.test.ts` exige que las 62 herramientas estén asignadas a un
+lote de F2; habrá 65 y la prueba lo dirá. No se toca ahora.
+
+**Fuera de esta ronda, a propósito:** los avisos (caja, tabla en Neon,
+frase de privacidad), los productos propios, la pregunta de idioma en el
+cuestionario y la puerta «Quiero vender más». La verificación del idioma
+existe en los datos y en el puerto, y ninguna pantalla la lee todavía.
+
+### Primer disparo: el Researcher sobre las tres candidatas de cursos (2026-09-16)
+
+La propietaria confirmó que la cuenta de Gemini es **de pago, con 16 € de
+crédito**, y autorizó el primer disparo. Antes de lanzarlo hicieron falta
+dos cosas del entorno, no del producto: el `fetch` de Node no pasa por el
+proxy salvo con `NODE_USE_ENV_PROXY=1`, y el proveedor de Gemini metía la
+clave en la URL, donde un valor de relleno anula la que inyecta el proxy.
+El proveedor admite ahora `GEMINI_CLAVE_INYECTADA_POR_PROXY=true`, explícita
+y sólo para ese entorno; en Vercel y en el ordenador de la propietaria nada
+cambia, y las pruebas del proveedor siguen igual.
+
+**Resultado:** las tres candidatas —Hotmart, Thinkific, Teachable— pasaron el
+prechequeo con afiliación **confirmada** (programa propio, PartnerStack e
+Impact respectivamente, según lo que devolvió el modelo) y recibieron la
+investigación completa: **seis llamadas**, el máximo previsto. Tres
+borradores escritos en `data/borradores/`, que está fuera de git a
+propósito: quedan copiados en el cuaderno de la sesión y entregados a la
+propietaria, porque el entorno remoto es efímero. **Nada entra en el
+catálogo** hasta `aprobar-borrador` y `promover-borrador`, que son suyos.
+Cautela de siempre: la ficha y la afiliación las generó el modelo con las
+direcciones que declara en `metadatos`, y nadie ha comprobado aún esas
+fuentes; Teachable sale sólo en inglés según su borrador. El coste real del
+disparo se lee en la consola de Google y se anota aquí cuando la
+propietaria lo diga.
+
+### Los tres borradores, verificados contra fuentes oficiales (2026-09-16)
+
+La propietaria autorizó guardar y verificar; nada promovido. Los borradores,
+el registro de ejecución (sin secretos) y la verificación campo a campo
+están en `agents/atlas-researcher/lotes/resultados/cursos-1/`, marcados
+como pendientes de verificar. **Límite del método:** las páginas oficiales
+no se pueden leer desde el entorno remoto; se usó el buscador restringido a
+los dominios oficiales, así que las citas son las frases que devolvió el
+buscador y quedan pendientes de cita literal. Lo que no devolvió está como
+desconocido.
+
+**Lo que el modelo se inventó o confundió, y se corrige:**
+
+- **Thinkific no tiene plan gratuito**: prueba de 30 días. El borrador
+  decía «plan gratuito limitado» y «desde 36 $/mes»; los precios citados por
+  el soporte son 54, 109 y 219 $/mes, con subida del 10 % desde agosto de
+  2026, así que los importes vigentes quedan **desconocidos**. Afiliación
+  confirmada como decía: 30 % recurrente mientras el referido pague, 90 días
+  de cookie, PartnerStack.
+- **Teachable no tiene plan gratuito** desde junio de 2025: Starter 39 $/mes
+  con 7,5 % de comisión, Builder 89, Growth 189. Su comisión de afiliado del
+  30 % **dura sólo el primer año**, no de por vida. Y el idioma estaba al
+  revés: la interfaz **de los alumnos** sí está en español (y en otros
+  diez), pero **el panel de administración sólo en inglés**; el soporte,
+  desconocido.
+- **Hotmart**: el «Programa de Afiliados» que el modelo dio por afiliación
+  confirmada es **otra cosa**: un mercado donde se promocionan los productos
+  de los productores y cada productor fija su comisión (hasta el 80 %). No
+  es cobrar por recomendar la plataforma, y no consta ningún programa que lo
+  haga. Para Molnip la afiliación de Hotmart es **no consta**, no
+  confirmada: con la reforma del Researcher, eso la deja en espera de la
+  decisión de la propietaria. Precio verificado: sin cuota, 9,90 % + 0,50 €
+  por venta (o + 0,10 € si el producto cuesta 15 € o menos). Idiomas:
+  inglés, portugués y español; el francés, alemán e italiano del borrador no
+  aparecen.
+
+**La cuenta de las llamadas, aclarada.** Las 23 que se dijeron en la etapa
+0 contaban una llamada por candidata nueva; el código hace dos. El total
+son 26: 6 hechas (Researcher, el máximo, porque el modelo dio las tres
+afiliaciones por confirmadas), 14 del lote `usos-1` (siete herramientas, dos
+llamadas cada una, la selección cabe en un bloque), y 6 del lote
+`usos-1-nuevas` cuando las fichas existan. El máximo de 40 es **por
+disparo y en peticiones HTTP**: cada llamada puede ser hasta tres peticiones
+si falla y se reintenta, así que 14 llamadas son entre 14 y 42 peticiones y
+el tope de 40 sólo pararía el lote si casi todas fallaran dos veces; lo
+contestado se conserva y se reanuda. Comprobaciones pendientes que no gastan
+llamadas: la revisión a mano del cien por cien de las citas, y el coste real
+del primer disparo, que se lee en la consola de Google.
+
+**Las 62 fichas, dicho sin rodeos.** Las 62 se generaron con un modelo sin
+navegación y **ningún campo de ficha está verificado contra fuentes
+primarias**: ni precios, ni idiomas, ni plan gratuito, ni funciones. Lo
+que sí está verificado es otra capa, F2: 1.544 pares herramienta-capacidad
+preguntados a las páginas oficiales, de los que 659 están demostrados con
+cita y 885 quedaron como no consta; **las 62 tienen al menos una capacidad
+demostrada**, y ninguna ausencia demostrada. Lo que usa el motor: la puerta
+de evidencia (F2) decide **quién compite** en gestión de proyectos, en los
+seis subtipos de asistentes de IA y en las filas de la pregunta de
+aclaración; en CRM y en plataformas todo en uno —29 herramientas— no hay
+fila congelada y la puerta no aparta a nadie. Después, **el orden lo
+deciden los campos de la ficha** sin verificar: tamaño, precio y plan
+gratuito, facilidad, idioma según `idiomasDisponibles`, y las puntuaciones
+de calidad y fiabilidad. En la rejilla de 810 combinaciones más las filas de
+necesidad, 58 de las 62 aparecen alguna vez en un top; 4 nunca (ClickUp,
+ClickUp Brain, Smartsheet, Wrike). Tres cifras que miden el hueco: 37
+fichas dicen tener plan gratuito y F2 sólo ha demostrado un plan gratuito
+en 18; 18 fichas dicen no estar en español y nadie lo comprobó; el idioma
+verificado es 0 de 62. Esto es un informe: no se ha modificado ninguna
+ficha.
+
+## La lectura comprobada, y los cuatro registros aprobados (2026-09-16)
+
+La propietaria separó dos cosas que yo había juntado: **validar la lógica de
+una cita no es comprobar que la página la contenga**. Las trece afirmaciones
+del canal externo pasaban los validadores; leídas contra su cita, sólo cuatro
+se sostenían; y de esas cuatro, ninguna tenía su frase corroborada por una
+fuente independiente.
+
+**Las nueve reglas de evidencia** quedaron escritas en
+`agents/atlas-researcher/encargos/REGLAS-DE-EVIDENCIA.md` y valen para toda
+evidencia que entre en Molnip, venga de donde venga. La regla 1 —una cita no
+vale por tener palabras relacionadas— me obligó a retirar una que yo mismo
+había dado por buena.
+
+**La diferencia que faltaba nombrar.** El proveedor del Researcher devuelve
+qué direcciones descargó de verdad, y el conversor tira cualquier cita cuya
+dirección no conste como leída. Ese dato lo emite la herramienta de lectura,
+no el modelo. El canal externo no puede darlo, por bien que redacte.
+
+**La comprobación, autorizada y acotada:** tres llamadas, tope de seis. Las
+tres direcciones constan descargadas y las cinco frases aparecen carácter a
+carácter, con su sección y sus frases vecinas. La comparación literal la hizo
+el script, no el modelo. Lo más convincente no es mío: **dos proveedores
+independientes devolvieron la misma frase de 103 caracteres en español**, y
+es justo la que yo señalaba por parecer mi propia pregunta devuelta. El
+contexto trajo además una cita nueva que resuelve la profundidad nativa de la
+pasarela de Hotmart.
+
+**Aprobados cuatro registros de capacidad.** Tres se pueden escribir y uno
+no: Teachable se queda con la profundidad pendiente por decisión de la
+propietaria, y el esquema exige profundidad en todo registro verificado.
+
+**Y los tres tampoco han entrado todavía en `registros.json`**, por un
+motivo que conviene dejar escrito: **sus herramientas no están en el
+catálogo**, y F2 valida cada registro contra él. Escribirlos ahí sería
+saltarse la guarda que mantiene honesta la evidencia. Quedan preparados en
+`data/verificacion/_registros-aprobados-sin-ficha.json`, con una prueba que
+comprueba que son válidos en todo lo demás y que hoy fallan **sólo** por eso.
+Entran en el mismo paso en que se promuevan las fichas, sin volver a decidir
+nada.
+
+La frase de Hotmart sobre el acceso automático queda archivada como
+evidencia del uso en `_evidencia-pendiente-uso-hotmart.json`. **No registra
+que Hotmart imparta cursos ni desbloquea el recorrido**: el uso cuelga de una
+capacidad cuya única cita era un eslogan.
+
+Huella `2aea9060…` intacta. Nada fusionado ni desplegado.
+
+## Hotmart cerrado: la afiliación no decide qué se recomienda (2026-09-16)
+
+Decisión de producto de la propietaria, que zanja lo que la política dejaba
+abierto: **una herramienta útil entra en Molnip aunque no tenga programa de
+afiliación. La falta de afiliación sólo afecta a la monetización y nunca
+convierte una herramienta adecuada en descartada.** No se usa como criterio
+de orden, de descarte ni de exclusión, y sin enlace de afiliado se enseña el
+oficial.
+
+**Lo que ya estaba hecho, comprobado antes de tocar nada.** Cuatro de las
+cinco reglas ya se cumplían: el motor no lee ni un campo de afiliación y hay
+pruebas que lo sostienen; y la página de salida ya cae al enlace oficial
+cuando no hay afiliado, registrando cuál se usó. Lo único que faltaba era la
+guarda de esa caída, que ahora existe: si alguien la quita, falla una prueba.
+
+**Lo que sí bloqueaba era la entrada al catálogo, no la salida al usuario.**
+`promover.ts` exige una autorización registrada para promover una ficha sin
+afiliación confirmada. Hotmart la tiene desde hoy, con el motivo escrito,
+para el estado `no_consta` exacto; si ese estado cambiara, la autorización
+caduca sola y hay que volver a darla. Vive con los borradores corregidos,
+para que viaje con ellos al promoverlos.
+
+**Sus capacidades no se han tocado:** las demostradas siguen demostradas y
+las pendientes, pendientes. Cobrar entra con profundidad nativa; impartir
+cursos sigue sin demostrarse, y por eso el uso del acceso automático sigue
+archivado sin registrar y el recorrido sigue sin desbloquearse. No se
+investiga más su afiliación ni sus tarifas.
+
+**Una frase de AGENTS.md dejó de ser cierta y se ha corregido.** Decía que
+el código «sigue descartando automáticamente las herramientas sin un
+programa de afiliación fiable». Con la reforma del Researcher recuperada en
+esta rama, ya no: deriva a la propietaria. Dejarla habría hecho que cada
+sesión futura partiera de algo falso.
+
+## Tres fichas promovidas: el catálogo pasa de 62 a 65 (2026-09-17)
+
+Autorizado por la propietaria con condiciones. **Hotmart, Thinkific y
+Teachable** entran al catálogo, y con ellas los tres registros de capacidad
+que se aprobaron el día anterior tras comprobar la lectura de sus citas.
+`registros.json` pasa de 1.544 a 1.547; los verificados, de 659 a 662.
+
+**La promoción encontró tres defectos reales en las fichas**, y ninguno lo
+habría visto una revisión de texto:
+
+- **Teachable fue rechazada por el esquema:** su `disponibilidadGeografica`
+  era la cadena «GLOBAL» y tiene que ser un array. Corregido a la forma que
+  tienen las otras dos.
+- **La puntuación venía inflada.** Es un valor derivado y el modelo lo
+  escribió a mano: Thinkific tenía 96 y le tocan 93; Teachable, 89 y le
+  tocan 86. Recalculadas. Es exactamente el fallo que documentó
+  `puntuacionGuardada.test.ts` el 2026-09-02, repitiéndose con otro modelo.
+- **Hotmart declaraba dos categorías secundarias imposibles:**
+  «comercio-electronico», que existe pero está en estado pendiente, y
+  «embudos-de-venta», que no existe. Retiradas las dos.
+
+**Las tres entran sin objetivo, marcadas como deuda visible**
+(`objetivoPendienteDeInvestigacion`). Inventarles uno habría cambiado las
+recomendaciones por objetivo sin que nadie lo decidiera. Son 4 pendientes
+sobre 65, por debajo del 10 % que la garantía del Curator tolera.
+
+**El paso de afiliación no llegó a ejecutarse**: crea la fila de estrategia
+en Postgres y aquí no hay base de datos. No es un problema, es lo correcto:
+sin estrategia no hay enlace de afiliado, y la página de salida cae al
+enlace oficial. Ninguna de las tres tiene hoy un enlace de afiliado
+inventado.
+
+**Lo que cambia para quien usa Molnip.** De 1.650 combinaciones
+comparadas, **41 cambian de top**, y sólo en los tres sitios donde las
+nuevas capacidades aplican: «cobrar online» (21), la categoría de
+plataformas todo en uno (15) y «web o páginas de captación» (5). En ningún
+otro sitio se mueve nada.
+
+**Teachable no afirma nada.** Sin registro, no tiene capacidades
+demostradas, no pasa ninguna fila de necesidad, no lleva etiqueta de
+evidencia y no activa ningún uso. Compite en su categoría por su ficha,
+como cualquier otra, y su profundidad sigue pendiente.
+
+**La huella del catálogo cambia, y tiene que cambiar:** de `2aea9060…` a
+`86cc8076…`. Era el sello de las 62; ahora es el de las 65. Las 810
+combinaciones de la rejilla siguen siendo 810.
+
+**Las guardas de recuento se actualizaron con su motivo escrito**, no
+silenciadas. La más importante: el plan de F2 cubría «el catálogo entero» y
+ahora cubre las 62 que existían al congelarlo; las tres nuevas quedan fuera
+de todo lote y la prueba las nombra una a una, para que la deuda se vea y se
+cierre cuando se les asigne lote.
+
+Suite 1.990 en verde, `tsc` limpio, build correcta. Sin fusionar ni
+desplegar.
+
+## Las palabras de facturación, y por qué «cuentas» se quedó fuera (2026-09-17)
+
+La propietaria preguntó si un cliente puede llegar hoy a la facturación. **Sí,
+y por la puerta correcta:** «Organizar mi empresa» → familia «Dinero» →
+«Emitir facturas», que exige `cap.invoicing` y devuelve **doce de las 65**
+herramientas con cita literal. Lo que no existe es la puerta por categoría:
+«facturación y contabilidad» está en estado pendiente y no se enseña.
+
+El texto libre ya llegaba con «necesito hacer facturas», pero **no con
+«quiero facturar a mis clientes»**: la coincidencia es por subcadena y el
+verbo no es el sustantivo. Se añaden seis palabras a `organizar-empresa`:
+`facturar`, `facturación`, `contabilidad`, `llevar las cuentas`, `llevo las
+cuentas` y `cuadran las cuentas`.
+
+**«cuentas» a secas se probó y se descartó.** De siete frases reales cazaba
+seis, y tres eran falsos positivos: «las cuentas de Instagram», «cuentas de
+usuario», «cuentas de correo». Es el mismo error de encaminamiento que ya
+costó mandar «presupuestos» a Organizar y «no doy abasto» a Ahorrar tiempo.
+Por eso van las formas precisas. Hay prueba de las dos caras: las seis
+frases que deben llegar, y las dos que no deben.
+
+**Sobre si «siempre salen las mismas tres».** No. Sobre treinta perfiles de
+tamaño y presupuesto salen **once combinaciones distintas** de top-3. Zoho
+Projects aparece en 24, monday.com en 18, Agiled en 15, HoneyBook y Paymo en
+12, Teamwork.com en 6 y noCRM.io en 3. Una autónoma con presupuesto ajustado
+ve HoneyBook, Zoho Projects y Agiled; una empresa de más de 200 sin límite ve
+monday.com, Zoho Projects y Teamwork.com.
+
+**Y ahí está el argumento real para Holded:** ninguna de esas doce es un
+programa de facturación. Son CRM y gestores de proyectos que además facturan.
+El hueco no es «no tenemos nada», es «no tenemos nada pensado para esto».
+
+## «Quiero vender más» ya llega a una puerta (2026-09-17)
+
+Quedó anotado como decisión pendiente en la etapa cero y seguía sin hacerse:
+**ninguna de las formas de decirlo llegaba a ningún objetivo**. Ni «quiero
+vender más», ni «aumentar las ventas», ni «más ventas». Es el saludo más
+común que va a recibir Molnip y terminaba en «no lo he entendido».
+
+**La puerta existía; el problema era cómo se llama.** El objetivo
+`conseguir-clientes` se titula «Conseguir más clientes» y sus palabras clave
+eran «cerrar ventas», «embudo de ventas», «pipeline de ventas», «leads»:
+jerga de quien ya sabe. Se añaden seis formas de decirlo en cristiano.
+Prueba con las siete frases de entrada de los doce casos.
+
+**Lo que NO se ha tocado, y es decisión de la propietaria.** La descripción
+que se ve en el sitio dice «Atrae y convierte más **leads** en ventas».
+«Leads» es jerga, y la visión lo prohíbe expresamente: «si la explicación
+sólo la entiende quien ya sabía, no ha servido». Cambiar ese texto y, si
+procede, el título de la puerta, es copia de producto y no se toca sin ella.
+
+**El mapa que salió al mirarlo.** Molnip sabe responder a **62 de las 146**
+capacidades de su propio vocabulario; 84 tienen cero herramientas, y sólo 35
+se preguntan. Por áreas: hacer el trabajo, 67 %; base tecnológica, 61 %;
+conseguir y atender clientes, 41 %; **administrar el negocio, 17 %; mover
+producto, 5 %**. Molnip es bueno en lo que hace una agencia y flojo en lo que
+hace un negocio. Una peluquera, una ceramista o un taller viven casi enteros
+en las dos filas de abajo.
+
+## DIAGNÓSTICO DE PRODUCTO — léelo antes de proponer nada (2026-09-17)
+
+**Esto no es una anotación de trabajo: es una conclusión de la propietaria
+sobre el estado del producto.** Está escrita aquí porque la conversación en
+que se alcanzó se pierde, y sin esto cada sesión vuelve a preguntarle a ella
+qué falla, que es exactamente lo que no debe pasar. **No se reabre. Se parte
+de aquí.**
+
+### Lo que falla: sus cuatro frases, con los números que las confirman
+
+1. **«Recomienda siempre lo mismo a pesar del catálogo.»** Cierto. Un
+   autónomo que pide facturar sólo llega a ver **7 de las 12** herramientas
+   que pasan el filtro; cinco no las ve nunca. Con el mismo perfil ve
+   siempre las mismas tres, porque en esa ruta sólo se le pregunta tamaño y
+   presupuesto.
+2. **«Limita al cliente a saber qué necesita.»** Cierto, y es lo más grave
+   porque contradice la visión: la carga de entender es de Molnip. Las filas
+   del cuestionario son el vocabulario de capacidades disfrazado, y su
+   segunda frase es el campo `noEs`, escrito para el verificador. «Tener una
+   web no basta» no ayuda a nadie a elegir.
+3. **«Molnip no sabe de dinero: cree que dinero son tres preguntas.»**
+   Cierto. El vocabulario tiene **18 capacidades de dinero**; el cuestionario
+   ofrece cuatro. Las otras catorce —contabilidad, nóminas, gastos,
+   impuestos, factura electrónica obligatoria, tesorería, TPV— tienen **cero
+   herramientas**.
+4. **«Molnip no sabe de ventas: cree que vender son dos correos.»** Cierto.
+   **Ninguna pieza de "atraer" está verificada**: ni buscadores, ni anuncios,
+   ni ficha local, ni marketplace, ni encontrar contactos de empresas.
+La propietaria añadió una quinta cosa, y no hay que confundirla con las
+cuatro de arriba: **«si por lo menos fuera un diccionario bueno tendría
+alguna utilidad».** Es una observación sobre lo que Molnip podría estar
+aprovechando y no aprovecha, no un quinto defecto.
+
+*Lectura mía, no suya:* 65 herramientas en 4 familias es mal directorio, y
+el motor filtra y ordena sin opinar. Queda anotado como lectura para que no
+se confunda con lo que ella dijo.
+
+**El mapa completo:** Molnip responde a **62 de las 146** capacidades de su
+propio vocabulario. Por áreas: hacer el trabajo 67 %, base tecnológica 61 %,
+conseguir y atender clientes 41 %, **administrar el negocio 17 %, mover
+producto 5 %**. Es bueno en lo que hace una agencia y flojo en lo que hace un
+negocio. Además: 48 de 65 fichas ponen el precio en dólares y ninguna guarda
+de qué país es la empresa.
+
+### La causa, para no confundirla con los síntomas
+
+**Se construyó la verificación antes que el consejo.** Todo el esfuerzo fue
+en que Molnip no mienta, y eso funciona. Pero rigor aplicado a un catálogo
+estrecho y a un cuestionario de formulario produce algo honesto, preciso e
+inútil. No está roto: está incompleto en la mitad que se ve, y la mitad cara
+ya está hecha.
+
+### Qué se rescata — la pregunta que la propietaria repite y que hay que responder
+
+Dos cosas, y sólo dos:
+
+- **La evidencia verificada.** 662 pares con frase literal, fuente y fecha.
+  Ningún comparador tiene eso. Hoy está **escondida detrás de un cuestionario
+  que expulsa a la gente antes de llegar a ella**.
+- **El vocabulario.** 146 capacidades que ya saben que el dinero son 18 cosas
+  y que atraer no es convertir. Va **por delante** del catálogo y del
+  cuestionario, no por detrás.
+
+**Lo que NO se rescata tal cual:** el catálogo (estrecho y estadounidense),
+el cuestionario (pregunta por soluciones) y la capa de consejo (no existe).
+
+### Consecuencias para quien lea esto después
+
+- **No propongas mejoras de texto ni puertas nuevas como si arreglaran esto.**
+  Cambiar palabras clave o descripciones es maquillaje sobre el problema 2.
+- **No vuelvas a preguntarle a la propietaria qué falla.** Está arriba.
+- **El catálogo es lo lento** —se arregla investigando, no programando— y es
+  la raíz de los problemas 1, 3 y 4. Cualquier plan que no lo toque no
+  arregla el fondo.
+- **La decisión abierta**, y es de producto: estrechar la promesa a lo que el
+  catálogo sostiene, o mantenerla amplia mientras Molnip dice que no durante
+  meses. Mientras no se decida, cada pieza nueva es correcta y no suma.
+
+## ACUERDO DE RUMBO — camino A (2026-09-17)
+
+**Esto no es crónica de lo que se hizo: es el destino acordado.** Se escribe
+porque la propietaria señaló el problema de método — «hoy lo hablamos y
+llegamos a estas conclusiones y mañana vuelves a dirigirme ahí». **No se
+reabre en la siguiente sesión.** Sustituye a «la decisión abierta» del
+diagnóstico anterior: queda cerrada en el sentido de qué se hace primero,
+no en el de estrechar o no la promesa, que sigue viva.
+
+### Lo que dijo la propietaria (sus palabras)
+
+- «hace falta que el cliente pueda ver todas las herramientas»; «el cliente
+  puede elegir entre todas las herramientas especializadas o todo en uno y
+  que pueda verlas y elegir, aunque nosotros le informamos y acompañamos»
+- «hace falta que Molnip sea más concreto»
+- «vender más es un gran problema, ahí Molnip tiene una gran oportunidad;
+  las ventas son algo grande»
+- «el dinero es una gran entrada, Molnip la minimiza; eso no está bien, el
+  dinero es algo gigantesco»
+- «el diseño de página está fallando con las preguntas y las entradas»
+
+### Orden de trabajo acordado
+
+1. **Que Molnip sepa con quién habla** — país, idioma, moneda, si factura en
+   España.
+2. **Partir «dinero» en sus piezas reales**, no ampliarlo.
+3. **La página de todas las herramientas**, porque es un derecho del cliente.
+4. **«Vender más» al final**, cuando el catálogo pueda responderla sin
+   quedar mal.
+
+### Lo que no cambia
+
+Se siguen recomendando **tres con explicación**. Ver el catálogo entero es un
+**derecho del cliente, no la respuesta de Molnip**. Molnip no vuelve a ser un
+directorio.
+
+### Por qué este orden (lectura mía, no suya)
+
+Los pasos 1-3 **no necesitan investigación nueva** y avanzan mientras la
+evidencia corre en paralelo; el 4 sí la necesita —41 % de cobertura en
+conseguir clientes, 5 % en mover producto— y publicarlo antes repetiría
+«siempre las mismas tres» en la entrada más importante que hay.
+
+### Lo que cuesta cada camino (estimación mía, no compromiso)
+
+Camino A ≈ 8-10 sesiones + 5-7 lotes de investigación; camino B («vender más»
+primero) ≈ 9-11 sesiones + los mismos lotes, más 1-2 sesiones de retrabajo
+porque la entrada de ventas nacería sin saber país ni idioma. **El total es
+casi igual; lo que cambia es cuándo Molnip deja de fallar.** Y la evidencia
+es lo lento de los dos: al nivel de prueba de las nueve normas, un lote son
+tres herramientas.
+
+## LA AFILIACIÓN SE APARCA — decisión de la propietaria (2026-09-17)
+
+**Sus palabras:** «quitamos ya lo de afiliados, no quiero perder tiempo en eso;
+cuando la página funcione y traiga clic busco acuerdo o monetización. Por ahora
+hay que sacar adelante la web funcionando, recomendando, trayendo clic,
+vendiendo, y eso traerá dinero a largo plazo. He intentado hacer todo a la vez.»
+
+**Qué reemplaza y por qué.** No sustituye ninguna regla de afiliación: las
+mantiene todas. Lo que cambia es **el orden de trabajo**. Deja de investigarse,
+comprobarse y discutirse la afiliación de ninguna herramienta hasta que la web
+traiga tráfico. El motivo lo dio ella: la afiliación paga cuando alguien
+compra, y para eso primero tiene que llegar gente.
+
+**Qué NO significa, y es importante:**
+
+- **No se borra nada.** El sistema de afiliación, sus estados, sus
+  autorizaciones y sus pruebas se quedan como están. Están escritos y pasan.
+- **Las reglas siguen vigentes**: la afiliación nunca altera el resultado, no
+  se usa como criterio de orden, descarte ni exclusión, y sin enlace de
+  afiliado se enseña el oficial.
+- **Una herramienta útil entra igual.** Esta decisión no añade ninguna
+  condición nueva para entrar al catálogo: la quita.
+
+**Consecuencia práctica para quien trabaje aquí:** si una herramienta cubre una
+necesidad, se investiga y entra. **No se pregunta si tiene programa, no se
+busca, no se comprueba y no se menciona en los informes.** Cuando haya tráfico,
+la propietaria abrirá ese trabajo otra vez y entonces existirá el dato que hoy
+no hace falta.
+
+**Contexto que lo explica:** la afiliación ya costó una tarde entera con
+Hotmart —trece afirmaciones revisadas, cuatro sobrevivieron— sin que aquello
+cambiara ni una recomendación. La lección no fue que la revisión sobrara, sino
+que **se estaba investigando monetización antes que utilidad**.
+
+## ESTRECHAR LA PROMESA — propuesta mía, aprobada por la propietaria (2026-09-17)
+
+**Cierra la decisión que el DIAGNÓSTICO DE PRODUCTO dejaba abierta**
+—«estrechar la promesa a lo que el catálogo sostiene, o mantenerla amplia
+mientras Molnip dice que no durante meses»—. Se estrecha.
+
+**De quién es esto.** El planteamiento es mío; la propietaria lo aprobó
+escribir tal cual («escríbelo»). **No es una conclusión suya**, y no se le
+atribuye ninguna frase: lo que ella dijo en esa conversación fue que había
+intentado hacerlo todo a la vez. Si algún día lo quiere dicho de otra manera,
+manda su versión y ésta se sustituye.
+
+**Qué se decide.** Molnip deja de intentar ser bueno en todo a la vez y **gana
+un carril primero: el dinero de un autónomo o una pyme española, empezando por
+facturar.** Todo lo demás sigue existiendo y sigue siendo la visión; lo que
+cambia es que deja de competir por el tiempo.
+
+**Por qué ese carril y no otro** (lectura mía, contrastada con el repositorio):
+
+- Es donde **peor** contesta Molnip hoy: a quien pide «emitir facturas» le
+  devuelve Paymo y Zoho Projects —dos gestores de proyectos— y noCRM, un CRM.
+  Ninguno es un programa de facturación.
+- Es donde hay **búsqueda real en español**, y con una obligación legal
+  empujando (Verifactu, fechas por confirmar en la AEAT).
+- De las 34 candidatas de la barrida del dinero, **ninguna** estaba en el
+  catálogo: el hueco es enorme y nadie lo ha ocupado desde Molnip.
+
+**El orden de trabajo que se deriva, y que reemplaza a «hacerlo todo a la vez»:**
+
+1. **Que Molnip responda bien a una cosa.** Si llega tráfico antes de esto, se
+   va y no vuelve.
+2. **SEO después, no antes.** La maquinaria ya existe —blog, comparativas,
+   alternativas, el generador de contenido—; lo que no existe es contenido que
+   sea verdad. Posicionar 65 fichas sin verificar es traer gente a una tienda
+   vacía.
+3. **Los tres agentes sin diseñar, al final.** Son máquina interna: no traen
+   ni un clic.
+4. **La monetización, cuando haya tráfico** (ver «LA AFILIACIÓN SE APARCA»).
+
+**Lo que esto NO cambia:** la visión entera sigue en pie. Molnip sigue siendo
+un asesor, no un directorio; sigue diciendo que no cuando no cubre algo; y el
+camino A —saber con quién habla, partir el dinero, la página de todas las
+herramientas, vender más— sigue siendo el orden. Estrechar es elegir **por
+dónde se empieza**, no renunciar a dónde se llega.
+
+## EL PLAN GRATUITO NO VALE LO MISMO SI ES UNA PRUEBA (2026-09-17)
+
+> **El diagnóstico de esta sección sigue en pie; su remedio no.** Lo
+> sustituye «LO GRATIS ES UNA GANANCIA, NO UN EJE», unas horas después.
+> Los decimales se simularon y se revirtieron sin aplicar.
+
+**De quién es esto.** Lo señaló la propietaria al leer el informe de la tanda
+2, y es suyo: «plan gratuito por siempre o plan gratuito 20 días ahora puntúa
+igual, pero en un futuro lo armaremos con decimales, no con un punto entero,
+porque un plan gratuito tiene valor pero no debe alejar demasiado de una buena
+herramienta con un buen servicio sin plan por siempre — pero sí merece una
+distinción.»
+
+**Qué falla hoy.** `precioFrenteAlValor` (`criteriosRuta.ts`) da **8 puntos
+planos** a cualquier ficha con `tienePlanGratuito`, y siempre la misma frase:
+«puedes probarla a fondo con su plan gratuito antes de pagar nada». Se escribió
+cuando «gratuito» significaba *indefinido*. La escala está partida por el sitio
+equivocado: separa mucho «ninguno» de «prueba de 7 días» (0 frente a 8) y nada
+«prueba de 7 días» de «gratis para siempre» (8 y 8).
+
+**El caso que lo destapó.** En `crm/captura-sola`, Salesflare le saca a Nimble
+**3 puntos en calidad** (10 frente a 7) y Nimble le saca **8 por una prueba de
+14 días**. La prueba pesó casi el triple que hacer mejor el trabajo.
+Contradice «primero que sirva, después que encaje»: el plan gratuito es encaje,
+no servicio, y no puede mandar sobre él.
+
+**Cuándo se hace: inmediatamente después de la tanda 3 de precios.** No es un
+aplazamiento: es que hoy 17 de las 57 fichas con plan gratuito no declaran de
+qué clase es, y repesar ahora obligaría a inventarles una. 15 de esas 17 están
+en la tanda 3. Al cerrarla quedarán dos: Copy.ai (pendiente de clase) y Hotmart
+(su página no lo dice).
+
+**Y corre.** La tanda 2 pasó de 4 a 21 las fichas marcadas como «prueba», y a
+cada una le dio +8. El desajuste crece con cada tanda.
+
+**Qué NO se decide aquí.** Los números concretos los pone la propietaria cuando
+llegue el momento. Lo que queda fijado es: los tres estados son **indefinido /
+prueba / ninguno**, la diferencia se expresa **en decimales, no en saltos
+enteros**, y no tener plan para siempre **no puede hundir** a una herramienta
+que hace bien su trabajo. El motor ya puntúa en medios, así que no hay que
+tocar la maquinaria — sólo lo que vale cada estado.
+
+**Va con ello la frase que se enseña.** En el catálogo ya se distingue
+(«Gratis, indefinido» / «Gratis 7 días»); en la explicación de la
+recomendación, todavía no.
+
+## LO GRATIS ES UNA GANANCIA, NO UN EJE (2026-09-17, misma tarde)
+
+**Sustituye el remedio de la sección anterior, no su diagnóstico.** Sigue siendo
+cierto que los 8 puntos planos de `precioFrenteAlValor` están mal y que
+desordenaron recomendaciones. Lo que se cae es la solución que se había
+apuntado —repesarlo con decimales—, porque la pregunta de la que salía ya era
+la equivocada.
+
+**De quién es esto.** El giro es de la propietaria, y con sus palabras: «el
+cliente no entró y dijo tengo que arreglar mi empresa pero lo voy a hacer
+gratis. El problema real del cliente es arreglar su empresa; la herramienta
+gratis es una ganancia». Lo que va después de eso es desarrollo mío.
+
+**Cómo se llegó aquí, porque el recorrido importa.** Empecé preguntando
+«¿cuántos puntos vale un plan gratuito?». Esa pregunta ya daba por hecho que
+el plan gratuito es un eje. La propietaria lo sacó de la puntuación —bien— y
+propuso enseñar dos grupos, «las gratuitas que además sirven» y «las de pago
+que te ayudarán más». Yo desarrollé ese diseño durante un rato largo sin ver
+lo que tenía delante: **lo habíamos quitado del número y lo habíamos vuelto a
+meter como estructura de la pantalla.** Y ahí pesa más, no menos: si lo
+primero que ve la persona es la página partida en «gratis» y «de pago», el
+asunto de la página ha pasado a ser su bolsillo. Ella entró porque pierde
+citas.
+
+**Qué queda fijado.**
+
+1. **El plan gratuito es un rasgo de la herramienta, no un apartado de la
+   respuesta.** «Esta te resuelve lo de las citas, y además no te cuesta
+   nada» es una frase sobre su problema. «Sección: las gratuitas» es una
+   clasificación que la obliga a clasificarse antes de mirar.
+2. **El abanico sigue, pero se abre sobre las soluciones, no sobre los
+   precios.** La lista se ordena por lo que resuelve. El dinero viaja en cada
+   tarjeta, dicho claro, y cuando no cuesta nada se dice como lo que es: una
+   ganancia.
+3. **Desaparece el problema del grupo vacío.** No hay grupos que puedan
+   quedarse vacíos. Quedaba pendiente de hablar y ya no hace falta.
+4. **Una preferencia no obliga a inventar nada.** Que alguien prefiera algo
+   gratuito no nos obliga a fabricar una gratuita que sirva si no la hay.
+   Esto es de la propietaria y sigue en pie aunque cambie la forma.
+5. **El catálogo grande se enseña.** Que a alguien le sobren seis o no le
+   sobren depende de cómo se explique, y eso es trabajo nuestro. La regla de
+   las tres prohíbe rellenar con malas; no prohíbe enseñar las buenas.
+
+**La raíz, y por dónde se sigue.** El criterio se llama «Precio para lo que
+ofrece» y no mide ningún precio: mira una casilla de sí o no y la trata como
+si fuera un juicio sobre si la herramienta vale lo que cuesta. La pregunta
+real de una persona no es «¿es gratis?», es **«¿me compensa lo que me
+piden?»**, y para contestarla hay que cruzar el precio con lo que hace.
+
+Eso es lo siguiente, acordado con la propietaria: **saber si podemos decirle a
+alguien que 15 € al mes le compensan.** No cuánto vale lo gratis.
+
+Hasta que eso se resuelva no se toca `precioFrenteAlValor` ni la Puntuación
+Atlas: la simulación de los decimales se probó, se midió (9 de 70 consultas
+cambiaban de orden, ninguna entraba ni salía) y **se revirtió sin aplicar**.
+
+## ESTAMOS ENDIOSANDO LO GRATIS (2026-09-18)
+
+**Continúa «LO GRATIS ES UNA GANANCIA, NO UN EJE» y va más lejos.** Ayer se
+decidió que el plan gratuito no ordena. Hoy se quita también de los méritos, y
+se nombra lo que estaba tapando.
+
+**El título es de la propietaria**, y la frase entera también: «estamos
+endiosando lo gratis». Se escribe con sus palabras porque resume dos días de
+conversación mejor que cualquier explicación.
+
+### Los cinco altares
+
+El dato lo tienen **64 de las 65** herramientas del catálogo. Sólo Copper no.
+Un dato que tiene el 98 % no distingue nada, y aun así ocupa cinco sitios:
+
+1. `precioFrenteAlValor` — 8 puntos de unos 72 en la ruta especializada.
+2. `costeTotalFrenteAVarias` — mueve la ruta suite de 6 a 10.
+3. `calcularPuntuacionAtlas` — +3 sobre 100.
+4. **Y guardado como mérito**: «Tiene plan gratuito» aparece en
+   `motivosPuntuacion`, entre «G2: 4.8/5» y «Ofrece una API pública», como si
+   fuera una virtud de la herramienta. No lo es: es una decisión comercial del
+   fabricante para meterte dentro.
+5. El filtro propio en la página de todas las herramientas.
+
+Y un sexto, que conviene dejar escrito: **dos días de conversación.** El
+planteamiento equivocado fue mío y volvió tres veces —cuántos puntos vale,
+dos grupos en pantalla, si le compensa—. Las tres veces era buscar dónde puede
+Molnip juzgar por el cliente.
+
+### Por qué importa de verdad: la trampa
+
+Lo contó la propietaria por experiencia propia: los planes gratuitos enseñan
+lo que se puede hacer, pero al usarlos te frustras porque están muy limitados,
+y como ya metiste ahí tu tiempo y tus datos, acabas pagando **el que te tocó**
+y no el mejor. «Eso te quita la objetividad y no investigas lo suficiente.»
+
+**Los datos del repositorio dicen exactamente eso.** De las 662 capacidades
+verificadas con su cita, sabemos el plan exacto de 329:
+
+| | |
+|---|---|
+| Está en el plan gratuito | **60** |
+| Está sólo si pagas | **269** |
+
+**El 82 % de lo que estas herramientas saben hacer está detrás del muro.**
+
+De ahí sale la frase que da valor a Molnip y que no dice nadie más:
+
+> **«Sí, tiene plan gratuito. Pero lo que tú necesitas no está en él.»**
+
+No es una opinión ni un juicio sobre su bolsillo: es un hecho con la cita del
+fabricante delante. Y no lo puede averiguar sola — tendría que cruzar cada
+función con cada plan en 65 tarifas. **La decisión de verdad no es cuál
+compras, es dónde metes tus datos el primer día**, y para entonces ya no
+vuelves a mirar. Molnip llega antes de ese día.
+
+### Lo que se decide
+
+**La forma, en palabras de la propietaria:** «esta es la mejor en tu
+especialidad, y al lado o abajo una tarjeta que explique el plan comercial».
+
+1. **El consejo y las condiciones son dos cosas separadas en la pantalla.** La
+   recomendación dice cuál es la mejor para lo que busca. Al lado, lo que le
+   va a costar.
+2. **La recomendación no habla de dinero.** El dinero vive entero en la otra
+   tarjeta: precio, dónde se acaba lo gratuito, cuántos días de prueba, y si
+   lo que necesita entra o no en el plan gratuito.
+3. **La tarjeta acompaña, no compite.** Si pesa lo mismo que la
+   recomendación, hemos hecho un comparador de precios en dos cajas.
+4. **Lo gratis deja de ser un mérito.** Sale de `motivosPuntuacion` y pierde
+   los puntos en los tres sitios. Queda como información, igual que el idioma
+   o el precio.
+
+Razón técnica que lo respalda: **las dos tarjetas no envejecen igual.** Lo que
+la herramienta hace se comprobó con su cita y cambia despacio; lo que cuesta
+cambió en 20 de 22 fichas en dos días. Separarlas dice la verdad sobre cuánto
+fiarse de cada una — y da sitio al «precio comprobado el 17 de septiembre» y
+al «esto no hemos podido comprobarlo» que hacen falta para Zoho, Odoo y
+Notion AI.
+
+### Lo que queda destapado, y es lo gordo
+
+Con lo gratis fuera del altar se ve lo que tapaba: **en qué se apoya «esta es
+la mejor».**
+
+Hoy se apoya en `puntuaciones.calidad`, `puntuaciones.facilidadDeUso` y en
+cuántos elementos tiene `funcionesPrincipales`. Los dos criterios de más peso
+del motor —±14 y ±12— salen de ahí.
+
+**Y aquí hay que decirlo con precisión, porque la propietaria corrigió una
+frase mía y tenía razón:** ese modelo sin navegación **no se inventó nada**.
+Escribió con lo que sabía, sin poder guardar de dónde lo sacaba. Ayer quedó
+demostrado: Salesmate, Teachable, Thinkific, Teamwork.com y Vtiger coincidían
+exactamente con su web oficial.
+
+El problema no es de dónde salió el 9. Es de **qué clase de cosa es**:
+
+> **`calidad: 9` no es un dato, es una opinión. Y no es que no la hayamos
+> comprobado: es que no se puede comprobar.** No existe una página del
+> fabricante que diga «esta herramienta tiene un 9 de calidad». En cambio
+> «hace facturas electrónicas» sí, y está comprobado 662 veces con su cita.
+
+**Estamos eligiendo con opiniones teniendo hechos a mano.** Las 662
+capacidades verificadas hoy sólo hacen de portero —dejan pasar o no—, y no
+deciden quién es la mejor.
+
+Eso es lo siguiente. No es desconfiar del trabajo anterior: es usar lo que
+desde entonces hemos comprobado.
+
+## MOLNIP ES UN INTERMEDIARIO — 2026-09-21
+
+Esta sección no decide nada sobre la tarjeta, ni sobre la puntuación, ni
+sobre las fichas. Es el **porqué**, escrito para no tener que volver a
+llegar hasta aquí. Lo único que ya está aplicado es la quinta regla de la
+visión en `AGENTS.md` —«no somos jueces»—, que es la punta de esto.
+
+Salió de mirar la columna «DESVENTAJAS» de la tarjeta de recomendación, y
+acabó en un sitio bastante más grande.
+
+### Lo que había
+
+**206 pegas repartidas en 65 fichas**, 3,2 por herramienta, en rojo y con una
+× al lado, a dos columnas del mismo ancho que «VENTAJAS». Cruzadas contra
+todo lo que sí verificamos en septiembre:
+
+| | |
+|---|---|
+| desmentidas por nuestro propio dato | **0** |
+| redundantes — ciertas, y ya dichas mejor en otro sitio | **30** |
+| sin nada con que cruzarlas | **175** |
+
+Y de esas 175: **24** juicios sobre lo fácil que es de usar, **25**
+comparaciones de precio sin decir contra qué, **15** sobre el servicio de
+una empresa real, **11** sobre la calidad de su app o su traducción, y
+**100** afirmaciones concretas que F2 no cubrió.
+
+### Las tres reglas, en el orden en que las dijo la propietaria
+
+**1. Si no lo sabemos, no se dice.** Y el aviso no sirve de coartada.
+
+> «Esto es una suposición nuestra. Mejor no dar esa información tan potente,
+> por llamarla de alguna forma, ya que no la poseemos.»
+
+La propuesta que había sobre la mesa era conservarlas con una línea debajo:
+«esto es valoración nuestra, no lo hemos comprobado en su web». **No vale.**
+La persona lee la frase y ya no se la quita nadie; la letra pequeña llega
+tarde o no llega. Lo único que consigue el aviso es trasladarle a ella el
+riesgo de algo que hemos escrito nosotros. Es taparse las espaldas, no ser
+honrado.
+
+**2. Un adjetivo sin «para quién» está a medias.**
+
+> «¿Y para quién es abrumadora? ¿Para un principiante, para un experto…, o
+> simplemente es abrumadora según quién?»
+
+«Abrumadora» no es una propiedad de la herramienta: es una relación entre la
+herramienta y una persona. La misma pantalla es abrumadora para quien empieza
+y completa para quien lleva cinco años. Igual «cara» (¿con qué presupuesto?),
+«limitada» (¿frente a qué necesitas?) o «le falta profundidad» (¿para quién?).
+
+**Por eso no se arreglan comprobándolas.** Mandar a comprobar «¿esta interfaz
+abruma?» no tiene respuesta, como no la tiene «¿esta camisa es grande?». No
+están sin verificar: están incompletas.
+
+Y el mismo examen se lleva por delante las ventajas: «amplia variedad de
+funcionalidades» es una virtud para quien necesita seis cosas y un estorbo
+para quien necesita una.
+
+Lo que sí tiene Molnip y no tiene un directorio: **sabe para quién**. El
+cuestionario ya dijo que es una empresa de reformas de ocho personas que
+pierde facturas. Ésa es justo la mitad que a esas frases les falta. La
+versión buena de esa información no es una etiqueta pegada a la herramienta,
+es una frase dirigida a ella. Hoy no se puede escribir —haría falta saber
+cuánto hay que configurar y con qué nivel, y el campo que tenemos para eso no
+tiene fuente— pero ya sabemos qué forma tiene.
+
+**3. Molnip es un intermediario, y su único activo es que las dos partes le
+acepten en medio.**
+
+> «Si yo soy el dueño de un software, no dejo que Molnip me lo toque, porque
+> Molnip opina de lo que no sabe.»
+>
+> «Y Molnip es un intermediario.»
+
+Un intermediario no tiene producto ni clientes propios. Lo único que tiene es
+su sitio. El día que una de las dos partes deja de aceptarlo, no queda nada
+debajo. **Y un intermediario que opina ya no está en medio: se ha puesto de
+un lado, y encima sobre algo que no sabe.**
+
+Lo que normalmente se cuenta es que hay que elegir —o duro con las
+herramientas y sirves al cliente, o blando y sirves al fabricante—. **La
+regla rompe eso, porque no es blandura: es no inventar.** La clienta no se
+lleva un elogio inventado y el fabricante no se lleva una acusación
+inventada. Es la misma regla y les sirve a los dos.
+
+Con un efecto práctico: si la fama de Molnip es «sólo publican lo que pueden
+demostrar», al fabricante **le interesa** dar los datos, porque es su única
+forma de salir bien descrito. Hoy es al revés: esas 175 frases sin fuente son
+justo el motivo por el que no cogería el teléfono. Lo que parecía falta de
+información es, en parte, una puerta que cerramos nosotros.
+
+Lo único bueno del momento: **todavía no hay ninguna relación rota**, porque
+todavía no hay relación con ningún fabricante.
+
+### Lo que un intermediario sí vende
+
+Tres cosas, y ninguna necesita opinión:
+
+- **Trabajo que ella no hace.** No se lee 65 páginas de tarifas.
+- **Traducción.** «Soy peluquera y pierdo citas» convertido en lo que hace
+  falta que la herramienta haga.
+- **Comprobación.** «Fuimos, miramos, fue el 17 de septiembre, aquí tienes el
+  enlace.»
+
+Las tres se pueden hacer y las tres se pueden demostrar.
+
+### Lo que esto implica y queda pendiente de decidir
+
+No se decide aquí, pero hay que dejar escrito hacia dónde apunta, porque las
+reglas de arriba no dejan muchas salidas:
+
+- **Las pegas que son suposiciones no tienen sitio en la tarjeta.** Las que
+  son hechos concretos —«no permite asignar una tarea a dos personas»,
+  «límite de contactos según el plan»— no son suposiciones: son datos que
+  nadie ha comprobado *todavía*, y pueden volver el día que tengan fuente.
+- **`casosNoRecomendados` está en el mismo saco** y no se salva por sonar
+  mejor. Habría que mirar cuánto de eso es en realidad una forma de contar
+  `segmentosIdeales`, que sí es un campo; eso no sería suposición, sería un
+  dato bien contado.
+- **Un 88 sobre 100 es una opinión con decimales.** Es poner nota, y nadie le
+  ha dado a Molnip autoridad para calificar a nadie. Un intermediario
+  ordena —alguien tiene que salir primero— y enseña con qué ha ordenado; eso
+  no es lo mismo que publicar un número que parece medido. Enlaza con la
+  sección anterior, «`calidad: 9` no es un dato, es una opinión».
+- **`metodologiaValoracion` afirma algo que no hicimos.** 64 de las 65 fichas
+  publican, bajo el título «Cómo llegamos a esta valoración», que las notas
+  salen de «agregación de miles de opiniones verificadas en G2 y Capterra».
+  Nadie agregó nada. **Es la única afirmación falsa de todo esto que habla de
+  nosotros y no de ellos**, y por eso es la más urgente.
+
+Las dos cosas que ocuparon la mañana —las desventajas y la puntuación— eran
+la misma: **opinión disfrazada de dato. Una en párrafo y otra en número.**
+
+Y lo incómodo, dicho entero: las opiniones eran el atajo para parecer útiles
+sin serlo. Sin ellas hay que serlo de verdad, y eso es más trabajo.
+
+## QUÉ VE LA PERSONA CUANDO PREGUNTA — 2026-09-21
+
+**Esta sección se guarda literal, sin resumir.** La propietaria la rescató el
+2026-09-22 porque dos reescrituras posteriores le fueron quitando cosas: «te
+pegué la captura para que vieras lo que hablamos». Volver a escribir algo
+pierde piezas — es el mismo fallo que deja caducar los documentos. Así que aquí
+van las dos intervenciones tal cual se dijeron.
+
+### Lo que describió la propietaria
+
+> cuando un cliente hace una pregunta a molnip por ejemplo quiero hacer buenos
+> clip de un video o como mejorar mis videos molnip le muestra :
+> mira a nosotros llego esta informacion de estas herramientas
+> y le muestra lo que cada una hace . y le dice te la dejo de mas cerca a mas
+> lejana las que te pueden ayudar las primeras tres pero si despliega podrás
+> verlas todas las que hemos podido verificar
+
+### La respuesta, que es la que ella dio por buena
+
+> Eso es otra cosa distinta de lo que hay hoy, y encaja con todo lo de esta
+> mañana.
+>
+> Lo que estás describiendo, en piezas:
+>
+> **«A nosotros llegó esta información de estas herramientas».** Ésa es la voz
+> del intermediario. No «ésta es la mejor», no un 88. Es *esto es lo que nos
+> consta y te lo paso*. No hay veredicto que defender, y por tanto no hay nada
+> que un fabricante pueda discutirnos.
+>
+> **Enseñar lo que cada una hace.** Y ahí está lo bueno: eso es justo la capa
+> que sí está verificada —las capacidades, con su fuente y su fecha—. El
+> contenido de la pantalla pasa a ser lo único sólido que tenemos, en vez de
+> las notas.
+>
+> **De más cerca a más lejana.** Esto es lo que sustituye a la puntuación, y es
+> mucho mejor, porque **no es la misma afirmación**. «Ésta es mejor» es un
+> juicio sobre una empresa. «Ésta se parece más a lo que me has pedido» es una
+> medida entre lo que ella dijo y lo que la herramienta hace. Ninguna queda
+> mal: unas están más lejos de *su* necesidad, y eso no las hace peores.
+>
+> Y se puede calcular sin opinar. Es contar cuántas de sus necesidades cubre
+> cada una, de las que están comprobadas.
+>
+> **Las tres primeras, pero puede desplegarlas todas.** Eso quita el problema
+> de fondo que tenemos: hoy la persona ve tres y tiene que fiarse de que detrás
+> hay un criterio. Así ve tres **y el resto**, y puede comprobarnos. **El poder
+> pasa a ella**, que es lo que hace un asesor y no un escaparate.
+>
+> **«Todas las que hemos podido verificar».** Y eso dice el límite en voz alta.
+> No «todas las del mercado»: las que miramos. Convierte el trabajo de
+> septiembre en lo que se ve, en vez de en fontanería que nadie nota.
+>
+> ---
+>
+> Tres cosas honradas antes de que sigas:
+>
+> **Una.** Esto que acabas de describir **es el camino A**, llegando desde el
+> producto en vez de desde el plan. Que Molnip sepa con quién habla, la página
+> de todas las herramientas… está escrito y acordado. No estás abriendo un
+> frente nuevo: estás describiendo el destino con otras palabras. Eso es buena
+> señal, no mala.
+>
+> **Dos.** «De más cerca a más lejana» hoy no es lo que hace el motor: el orden
+> lo deciden en buena parte las siete notas. Cambiarlo a distancia-a-la-
+> necesidad es conectar el vocabulario al motor, que es F3, y tiene condiciones
+> escritas antes de tocarlo.
+>
+> **Tres, y es la que más me importa:** la frase «a nosotros nos llegó esta
+> información» es honrada **sólo si lo que viene detrás está comprobado**. Si
+> se usa para colar «nos llegó que el soporte es lento», es la misma mentira
+> con una voz más simpática. **La voz no arregla el contenido.**
+
+### El desplegable: dónde está la decisión
+
+**Recuperado el 2026-09-22 del histórico de la conversación.** La propietaria
+avisó de que esto se había perdido —«lo que me interesaba es lo del desplegable
+para que la persona pueda decidir por sí misma»— y tenía razón: estaba dicho
+días antes, con más fuerza que en el resumen de arriba, y no se había escrito
+en ninguna parte. Va literal.
+
+> hace falta que el cliente pueda ver todas las herramientas […] **que un
+> cliente reciba tres herramientas principales y que molnip explique por qué
+> esas herramientas ayudan está bien, pero el cliente puede elegir entre todas
+> las herramientas especializadas o todo en uno, y que pueda verlas y elegir.
+> Aunque nosotros le informamos y acompañamos, el cliente puede elegir.**
+
+Y la regla, dicha entera en otro momento:
+
+> **lo lógico es que sea el cliente quien decida si la herramienta le sirve o
+> no**, y en ese caso **presentar las herramientas antes de la puntuación** por
+> gratis ilimitado o gratis con un límite, y le decimos al cliente: estas
+> tienen este servicio que les sumaría puntos por esto.
+
+**Lo que esto quiere decir, y no es lo mismo que «un desplegable»:**
+
+**«Despliega y las ves todas» no es una comodidad de la pantalla. Es dónde está
+la decisión.** Las tres primeras son nuestra ayuda; el desplegable es su
+derecho. Molnip informa y acompaña — **elige ella**.
+
+**Y de ahí sale el orden de la pantalla, que es la consecuencia concreta:**
+
+> **Primero las herramientas y lo que hace cada una. Después nuestra
+> valoración.** No al revés. Si la nota va delante, ya hemos decidido por ella
+> antes de que mire.
+
+Se ven **todas**: especializadas y todo en uno, sin que el tipo de herramienta
+sea una puerta que cierra.
+
+**En la misma conversación, y también sin escribir hasta hoy**, dos cosas más
+de la propietaria que quedan anotadas aquí para no volver a perderlas:
+
+- «**el diseño de página está fallando con las preguntas y las entradas**».
+- «**el dinero es una gran entrada, y Molnip la minimiza. Eso no está bien: el
+  dinero es algo gigantesco.**» *(El camino A abrió después la puerta propia
+  del dinero con sus 16 necesidades; queda por ver si eso lo resuelve o si
+  seguía hablando de otra cosa.)*
+
+## LA CASA DE TRES HABITACIONES — 2026-09-22
+
+**Regla de la propietaria, con su ejemplo.** Corrige una idea mía: yo sostenía
+que ofrecer algo que no encaja del todo abría la puerta a recomendar siempre
+cualquier cosa, y que por eso hacía falta un umbral de «cuánto de cerca es
+suficiente». Ella lo desmontó así:
+
+> «¿Quién ha dicho que honradez es no dar opciones? Voy a comprar una casa de
+> dos habitaciones y no hay ninguna, pero el asesor me dice: **tengo esta de
+> tres, te sirve, es habitable, es buena y cómoda, pero te sobra una
+> habitación. Tú decides. Tal vez te guste tener otra habitación, pero te
+> costará.**»
+
+**No hace falta ningún umbral.** No se decide si ofrecer: se ofrece siempre, y
+se dice la diferencia.
+
+> **La honradez no está en dar o no dar la opción. Está en decir en qué se
+> diferencia de lo que pidió, y qué le cuesta esa diferencia.**
+
+La mentira sería decirle «ésta es la de dos que buscabas». Decirle «tengo una
+de tres y te sobra una habitación» es servicio, no venta.
+
+### Las cuatro partes, que van juntas o no vale
+
+1. **Que no es lo que pidió**, dicho antes que nada — «te sobra una
+   habitación», no enterrado al final.
+2. **Por qué aun así puede servirle** — «es habitable, buena y cómoda».
+3. **Qué cuesta la diferencia**, con su número.
+4. **Que decide ella** — «tú decides».
+
+### Y la cuarta parte de su ejemplo, que es la más fina
+
+**«Tal vez te guste tener otra habitación.»** El asesor no sólo avisa de lo
+que sobra: dice que quizá le convenga. Eso no es vender — es que **la
+diferencia puede ser buena o mala según quién sea, y eso no lo sabemos
+nosotros**. Es lo mismo que «un adjetivo sin *para quién* está a medias»
+(ver «MOLNIP ES UN INTERMEDIARIO»): que una herramienta haga de más es un
+hecho; si eso es bueno o malo lo decide quien va a pagarla.
+
+### En Molnip suena así
+
+> «No tengo nada que haga sólo lo que pides. Lo más cerca es **Agiled**, que
+> además trae CRM y proyectos. **Eso es más de lo que necesitas hoy** — puede
+> venirte bien para no llevar tres programas, o puede ser pagar por lo que no
+> usas. **Cuesta 24 $ al mes.**»
+
+### Dónde se aplica
+
+Nace de decidir que **las categorías se crean primero y las herramientas
+después** —«primero crear el problema, después la solución»—, lo que garantiza
+que habrá necesidades con poca o ninguna herramienta detrás. Esta regla dice
+qué hacer en ese momento, que va a ser a menudo.
+
+No sustituye a «decir que no es un resultado válido»: cuando no hay nada
+parecido, se dice que no hay nada. Lo que esta regla prohíbe es **callarse una
+opción existente por no saber explicar en qué se diferencia**.
+
+
+## QUÉ ES UN ASESOR — la vara de medir, 2026-09-22
+
+La propietaria trajo esta definición y dijo: **«esto es lo más cercano a lo
+que Molnip pretende hacer»**, y que era lo que llevaba días explicando con
+otras palabras sin dar con ellas.
+
+> **Un asesor es una persona o un servicio que utiliza sus conocimientos para
+> ayudarte a comprender una situación, valorar las opciones y tomar una
+> decisión adecuada a tus necesidades.**
+>
+> **Un buen asesor escucha, analiza, recomienda y explica por qué. También te
+> señala los riesgos y cuándo una opción no te conviene.**
+>
+> **Por ejemplo: no solo te muestra diez herramientas; te explica cuál encaja
+> con tu negocio y por qué.**
+
+**Se guarda como vara de medir, no como adorno.** Cualquier pantalla nueva se
+contrasta con los cuatro verbos: ¿escucha, analiza, recomienda, explica por
+qué? Si falla uno, falta algo.
+
+### Dónde está Molnip contra los cuatro verbos (2026-09-22)
+
+| | |
+|---|---|
+| **Escucha** | **No.** Ofrece puertas de un menú que escribimos nosotros. Es lo que más falta, y es la pieza que se midió barata: traducir lo que ella escribe a capacidades. |
+| **Analiza** | A medias. Filtra por capacidad verificada — eso sí es análisis. |
+| **Recomienda** | Sí, tres. |
+| **Explica por qué** | A medias. Hay un párrafo y la línea de evidencia, pero buena parte del «porqué» sale de campos sin fuente. |
+
+### Dos cosas que esta definición añade y que no estaban dichas
+
+**«Ayudarte a comprender una situación.»** Va ANTES de las opciones. Molnip
+hoy salta directo a herramientas y **no ayuda a nadie a entender su propio
+problema**. La peluquera que pierde citas quizá no sepa que lo suyo son
+recordatorios automáticos y no una agenda; eso es comprender la situación, y
+es lo primero que hace un asesor.
+
+Es la queja del 2026-09-16 por el otro lado: no era sólo que Molnip no la
+entienda a ella — **es que tampoco la ayuda a entenderse**.
+
+**«Cuándo una opción no te conviene.»** En personal: **«no te conviene»**, no
+«tiene desventajas». Un asesor sí avisa de lo malo — **pero de lo malo para
+ti**, no de lo malo en abstracto.
+
+Esa forma, en cuatro palabras, confirma lo que costó dos días encontrar en la
+sección «MOLNIP ES UN INTERMEDIARIO»: la pega se dice cuando es de esta
+persona, y entonces ya no necesita llamarse desventaja.
+
+
+## QUÉ LE DEBEMOS AL FABRICANTE — la otra mitad del contrato, 2026-09-22
+
+La sección anterior dice qué es un asesor para quien pregunta. Ésta dice qué
+tiene que ofrecerle Molnip **al dueño del software sobre el que asesora**. Las
+dos juntas son el contrato del intermediario: **lo que le debemos a ella y lo
+que le debemos a él.**
+
+Traído por la propietaria:
+
+> Al dueño del software sobre el que asesoramos debes ofrecerle:
+>
+> - **Conocimiento de su software:** comprender qué hace, para quién sirve y
+>   cuáles son sus límites.
+> - **Acceso a posibles compradores:** llegar a personas o negocios que
+>   necesitan ese producto.
+> - **Capacidad de explicar su valor:** mostrar cómo ayuda al comprador con una
+>   necesidad concreta.
+> - **Capacidad comercial:** resolver dudas, hacer demostraciones y acompañar
+>   la decisión de compra.
+> - **Buena representación:** cuidar su reputación y no prometer funciones o
+>   resultados que el software no ofrece.
+> - **Resultados medibles:** demostrar qué oportunidades y ventas generas.
+
+### Dónde está Molnip contra los seis (2026-09-22)
+
+**Lo que ya puede dar, y mejor que un directorio:**
+
+- **Conocimiento de su software.** Es F2 entero: 662 capacidades verificadas
+  con cita y fecha. Un directorio no sabe qué hace cada herramienta — sabe
+  cómo se describe a sí misma.
+- **Explicar su valor ante una necesidad concreta.** Dice «concreta», y eso es
+  el vocabulario: emparejar lo que hace con lo que alguien necesita.
+- **Buena representación.** *«No prometer funciones o resultados que el
+  software no ofrece»*: es todo lo de estos dos días, visto desde el otro
+  lado. Por qué sólo se dice lo comprobado y por qué «DESVENTAJAS» tenía que
+  irse. **La propietaria le puso aquí la razón comercial a lo que hasta hoy
+  se defendía sólo como honradez.**
+
+**Lo que no puede dar todavía, y es lo que más le importa a él:**
+
+- **Acceso a posibles compradores.** Cero tráfico.
+- **Resultados medibles.** Sin lo anterior no hay nada que medir, y sin números
+  no hay conversación comercial posible.
+
+### La capacidad comercial se construye con criterios, no con comerciales
+
+Aquí hubo una corrección de la propietaria. Yo leí «capacidad comercial» como
+lo que hace un distribuidor —demostraciones, empujar la venta— y avisé de que
+chocaba con estar en medio. Su respuesta:
+
+> **«La capacidad comercial la estamos creando con nuestros criterios y
+> decisiones.»**
+
+Y es cierto punto por punto, con lo ya construido:
+
+- **Resolver dudas** → la tarjeta «Lo que te va a costar». *¿Esto, a mí,
+  cuánto me cuesta?*, con su cifra y su fecha. Es la duda más grande de una
+  compra de software, y ya está contestada.
+- **Hacer demostraciones** → enseñar lo que cada herramienta **hace**,
+  verificado y con su fuente. No una demo por videollamada: la prueba de que
+  sirve.
+- **Acompañar la decisión** → el desplegable, «tú decides», y la casa de tres
+  habitaciones: la diferencia por delante, el coste al lado, decide ella.
+
+**Los seis se cumplen con decisiones de producto, no contratando comerciales.**
+
+Y eso es lo que resuelve la contradicción:
+
+> **Una capacidad comercial hecha de criterios no se corrompe.** Un vendedor
+> que acompaña una compra tiene un incentivo para cerrarla. Un criterio no
+> tiene incentivos. Por eso Molnip puede darle capacidad comercial al
+> fabricante **sin dejar de estar en medio**.
+
+### Y el orden entre los seis
+
+**La buena representación es la que hace posibles el acceso a compradores y
+los resultados medibles.** Un fabricante te da acceso a sus clientes porque se
+fía de cómo lo representas. **Lo que parece la parte ética es la que abre la
+puerta comercial.**
+
+## LO QUE MOLNIP SE DEBE A SÍ MISMO — la tercera cara, 2026-09-22
+
+Las dos secciones anteriores dicen qué le debemos a quien pregunta y qué le
+debemos al dueño del software. Falta la tercera, y **no es un tercer deber:**
+
+> **Lo que el asesor se debe a sí mismo es exactamente lo que le permite
+> cumplir con los otros dos.**
+
+- Si pierde la **independencia**, su consejo no le vale a ella y su
+  representación no le vale a él.
+- Si no puede **demostrar lo que dice**, ninguno de los dos puede apoyarse en
+  él.
+- Si no **gana dinero**, desaparece y no sirve a nadie.
+
+Por eso cuidar de Molnip no es egoísmo: **es la forma de cuidar a los otros
+dos.** Y ahí se resuelve lo que parecía una jerarquía incómoda —Molnip primero
+al decidir un cambio, el cliente primero cuando los tres no caben—. No
+competían: una es la condición, la otra es el destino.
+
+### Ganar dinero es una obligación, no una elección
+
+Palabras de la propietaria, dichas para corregir una postura mía:
+
+> **«Ganar dinero es una obligación para Molnip, no una elección, y tiene que
+> saber nadar en esas aguas.»**
+
+**La corrección era necesaria.** Durante toda esta conversación yo traté el
+dinero como el riesgo a gestionar y la honradez como el objetivo. Es al revés:
+**el dinero es la obligación, y la honradez es cómo se gana de forma
+sostenible.** Las dos posturas producen productos distintos.
+
+Lo que cambia, y no es teoría:
+
+- **Cerrar bien es parte de servir.** Si Molnip acierta con la herramienta y la
+  persona no actúa, no sirvió a nadie. **Una pantalla tan prudente que nadie
+  decide nada es un fallo, no una virtud.** Ya estaba dicho el 2026-09-21: «si
+  el producto es bueno hay que saber cerrar una venta».
+- **Medir no es sucio.** Es el sexto punto del contrato con el fabricante: sin
+  números no hay conversación comercial posible.
+- **«Saber nadar en esas aguas»** es conocerlas: cómo funciona un programa de
+  afiliación, qué espera un fabricante, cómo es una conversación de partner.
+  **Ser ingenuo en lo comercial no es inocencia, es incompetencia.**
+
+**Y la línea que no se mueve:** la afiliación nunca altera el resultado. Eso no
+es escrúpulo, es el producto. Pero **todo lo que rodea al resultado** —con qué
+claridad se presenta, qué fácil es actuar, cómo se mide— **es trabajo
+comercial y hay que hacerlo bien.**
+
+### El riesgo que hay que vigilar, dicho por quien lo provocó
+
+**El mayor peligro para Molnip no es que un fabricante lo compre. Es que se
+vuelva tan prudente que deje de decidir.**
+
+En dos días se quitó la nota, las pegas sin fuente, los adjetivos sin sujeto y
+las afirmaciones sin recibo. Todo correcto. **Pero el final de ese camino, si
+nadie lo para, es un sistema impecablemente honrado que enumera herramientas y
+no ayuda a nadie** — un directorio otra vez, sólo que con mejor conciencia.
+
+Decir que no es un resultado válido. **No decir nada, no.**
+
+La diferencia entre callarse por honradez y callarse por miedo no se ve desde
+fuera: sólo la marca el criterio.
+
+### Los seis, en corto
+
+1. **Independencia** — es lo único que vende.
+2. **Poder demostrar lo que afirma** — los recibos protegen primero a Molnip.
+3. **No mentirse a sí mismo** — lo de `metodologiaValoracion` no engañaba a
+   ningún fabricante: nos engañaba a nosotros.
+4. **Sostenerse** — un asesor que no cobra deja de asesorar. Obligación, no
+   elección.
+5. **Conocer sus límites y decirlos** — «todas las que hemos podido verificar».
+6. **Atreverse a concluir** — si no se moja, no es un asesor: es un buscador.
+
+## LAS PUERTAS SON NECESIDADES, NO CATEGORÍAS DE SOFTWARE — 2026-09-22
+
+Decisión de la propietaria. Cierra la pregunta de las categorías, que llevaba
+abierta desde «lo que hay que solucionar es lo de las categorías que nos
+solucionaría demasiadas cosas».
+
+### Lo que estaba mal
+
+Una categoría decía **qué es** una herramienta. Un CRM es un CRM. Eso sirve
+para un directorio y no sirve para asesorar, porque nadie llega diciendo qué
+es: llega diciendo qué le pasa.
+
+Y se veía en los datos. De las quince categorías declaradas, once estaban
+«vacías» según el informe del Curator. Pero no estaban vacías por falta de
+herramientas: **las 65 fichas llevaban entre todas sólo cuatro etiquetas**, así
+que los once cajones estaban vacíos porque nadie los había llenado nunca. Como
+el motor filtra de verdad por ese campo, publicar una de esas puertas habría
+llevado a la persona a una habitación sin nada dentro.
+
+Además, tres de las cuatro categorías públicas estaban nombradas en idioma de
+software —«Plataformas todo en uno», «CRM y ventas», «Asistentes de IA»—.
+Ninguna es el problema de nadie. Nadie se levanta con la necesidad de una
+plataforma todo en uno.
+
+### Lo que se decide
+
+**La categoría pasa a decir qué quiere conseguir la persona.** Tres niveles, y
+sólo dos se ven:
+
+```
+puerta     → lo que quiero conseguir        (6)
+necesidad  → el problema concreto           (61)
+capacidad  → lo que se verifica             (151, ya existían)
+```
+
+Las seis puertas, en voz de persona:
+
+1. **Vender más**
+2. **Controlar el dinero**
+3. **Que no se me pierda nada**
+4. **Cuidar al cliente que ya tengo**
+5. **Crear y publicar contenido**
+6. **Ganar tiempo**
+
+Tres reglas de construcción:
+
+- **Una necesidad puede colgar de dos puertas.** «Que reserven solos» es vender
+  más para quien pierde citas fuera de horario, y orden para quien tiene la
+  agenda hecha un lío. El mismo hecho, dos problemas.
+- **El sector no es una puerta: es el corte que las atraviesa todas.** Una
+  peluquera y un taller entran los dos por «que no se me pierda nada» y
+  necesitan cosas distintas. «Software sectorial» como cajón es un directorio.
+- **«Todo en uno» y «con IA» no son puertas.** Son respuestas, no preguntas.
+  Salen al final —«esto lo hace una sola herramienta que además hace lo
+  otro»—, nunca al principio.
+
+### El nombre técnico no desaparece: baja de rango
+
+Quien escribe «CRM» entra por *Vender más* y se le pregunta para qué, igual que
+a quien escribe «se me olvida llamar a la gente». Los nombres del sector pasan
+a ser `entradas` de una puerta.
+
+Pero **entender para qué lo necesita no puede convertirse en un peaje**. Quien
+ya sabe lo que busca tiene que poder pasar de largo; a quien no lo sabe, Molnip
+le lleva de la mano. Es la doble profundidad de la visión: sencilla para quien
+empieza, profunda para quien sabe más.
+
+### El asesor proactivo
+
+Palabras de la propietaria: *«Molnip debe ser un asesor proactivo: explorar lo
+que la persona pide y descubrir posibilidades útiles que todavía desconoce.»*
+
+Y el ejemplo con el que lo explicó, que es la casa de tres habitaciones llevada
+al software:
+
+> *«Busca dos habitaciones, pero una de tres puede encajar si la tercera le
+> sirve de despacho. Explícale qué gana, qué coste o esfuerzo adicional supone
+> y deja que decida. En software, tener funciones adicionales no descalifica
+> una alternativa.»*
+
+### Lo que sobra y lo que falta no pesan igual
+
+La frase que lo fija, suya: *«una alternativa con prestaciones adicionales y
+otra que carece de algo imprescindible no son equivalentes».*
+
+De ahí que cada necesidad tenga **dos listas y no una puntuación**:
+
+- `imprescindibles` → sin esto no le sirve. **Lo único que descalifica.**
+- `ayudan` → si lo trae, suma. Si no lo trae, es un aviso.
+
+Y nada penaliza por sobrar: lo que trae de más se cuenta aparte, para poder
+decirlo y que decida quien pregunta. `imprescindibles` se mantiene corto a
+propósito —casi siempre una sola, la que *es* la necesidad—, porque cada cosa
+que se añade ahí excluye herramientas, y excluir por criterios nuestros es lo
+contrario de lo que se pretende.
+
+Los cuatro estados de la verificación sobreviven enteros. Que **falte** algo
+imprescindible es ausencia demostrada y descalifica; que **no esté comprobado**
+sólo se dice. Confundirlos sería convertir «no nos consta» en «no lo tiene»,
+que es lo que las reglas de lectura de F2 prohíben desde el 2026-09-10.
+
+### El mínimo de tres alternativas queda sustituido
+
+`MINIMO_ALTERNATIVAS_POR_DEFECTO = 3` nació con este motivo escrito: «con dos
+sólo hay un duelo, y con una no hay nada que comparar». Es criterio de
+comparador, y **contradecía la visión que ya estaba escrita**: «tres
+recomendaciones es la consecuencia de que haya tres buenas, nunca un objetivo
+que rellenar».
+
+Decisión: *«No exijamos tres recomendaciones, pero tampoco nos detengamos en
+una si existen otras útiles. Ordénalas por cuánto ayudan a su caso, explicando
+qué resuelven, qué aportan y qué falta o no está comprobado.»*
+
+**El número deja de ser una puerta cerrada y pasa a ser parte de la frase:**
+
+| Lo que hay detrás | Lo que dice Molnip |
+|---|---|
+| Varias que sirven | Se ordenan por cuánto ayudan a este caso |
+| Una sola, demostrada | «Para esto sólo tenemos una comprobada. No te digo que sea la mejor que existe: es la única que hemos verificado nosotros» |
+| Nada exacto, algo cercano | «No tengo de dos. Tengo ésta de tres: es buena y habitable, te sobra una habitación y te va a costar más. Tú decides» |
+| Nada | «Esto no lo cubrimos». Decir que no es un resultado |
+
+El aviso es lo que hace honesta a la única. Sin aviso, una sola opción es un
+escaparate; con aviso, es un asesor diciendo lo que sabe y hasta dónde sabe.
+
+**`MINIMO_ALTERNATIVAS_POR_DEFECTO` no se borra.** Se queda donde está: deja de
+decidir si una categoría se publica y pasa a decidir con qué frase se abre. Se
+desconecta, no se elimina.
+
+### El orden de trabajo, y por qué es ése
+
+*«Primero las necesidades y categorías; después ubicamos las herramientas
+según su utilidad demostrada, sin excluirlas por su categoría de origen.»*
+
+Es «primero crear el problema, después la solución». Si se ubicaran antes las
+herramientas, el mapa saldría con la forma de lo que ya tenemos, y lo que ya
+tenemos son cuatro etiquetas heredadas. Y ubicarlas por utilidad demostrada y
+no por categoría de origen es lo que impide que una herramienta se quede fuera
+de una necesidad que cubre sólo porque nació llamándose otra cosa.
+
+### Dónde está, y qué NO hace todavía
+
+`data/vocabulario/necesidades.json` y `necesidades.ts`, con sus pruebas. Seis
+puertas, 61 necesidades y **las 151 capacidades colocadas, ninguna huérfana** —
+una capacidad sin necesidad sería trabajo verificado que nadie podría llegar a
+pedir.
+
+**Nadie lo lee todavía**, igual que el vocabulario, y a propósito. Conectarlo a
+la web o al motor es una decisión de la propietaria.
+
+Vive dentro de `data/vocabulario/` por una razón concreta: validar que una
+necesidad apunte a capacidades reales obliga a leer el vocabulario, y
+`aislamiento.test.ts` congela a propósito la lista de quién puede hacerlo
+—«ampliarla tiene que ser una decisión, no un descuido»—. Darle carpeta propia
+exigiría tocar esa lista, y esa decisión no es de quien escribe el mapa.
+
+### Las tres condiciones antes de conectarlo — 2026-09-22
+
+Dichas por la propietaria al revisar el mapa, y las tres corrigen algo que
+estaba mal escrito. Van antes de que esto toque el resultado.
+
+**Una. Mostrar no equivale a recomendar.** *«Si falta algo imprescindible,
+puede aparecer en el desplegable, pero indicando exactamente qué falta y cómo
+afecta a su caso.»*
+
+El módulo devolvía un booleano `sirve`, y un booleano sólo sabe decir sí o no.
+Con los datos de hoy eso era grave: hay **cero ausencias demostradas** en 1.547
+comprobaciones, así que `sirve` salía `true` para casi todo y se habría
+recomendado sobre «no sabemos nada malo de ella». Ahora hay tres estados
+—`recomendable`, `le_falta_algo`, `sin_comprobar`— y **ninguno significa «no
+aparece»**: recomendar exige haberlo comprobado; enseñar, no.
+
+**Dos. «No está pensada para esto» no significa «no lo hemos comprobado».**
+*«Hay que decir cuál de las dos situaciones conocemos, sin deducir una de la
+otra.»*
+
+Los dos estados ya iban separados en el dato, pero nada impedía contarlos con
+la misma frase. Ahora hay **una sola forma autorizada de ponerlo en palabras**
+—`describirElAjuste`—, igual que `describir()` en la verificación y por el
+mismo motivo: si la redacción se reparte por el código, las pruebas dejan de
+proteger nada. Y las pruebas exigen que la frase de «no lo sabemos» no afirme
+jamás una ausencia:
+
+> **no lo hace** → «Lo hemos comprobado: no hace *reserva online por la propia
+> persona*. Sin eso, *que puedan reservar sin llamarme* se te queda sin
+> resolver. No está pensada para esto.»
+>
+> **no lo sabemos** → «No nos consta que haga *reserva online por la propia
+> persona*, y es lo que hace falta para *que puedan reservar sin llamarme*. Lo
+> hemos buscado en su página y no ha quedado demostrado; **podría hacerlo
+> igualmente**.»
+
+Las dos nombran la necesidad que se cae, que es el «cómo afecta a su caso».
+«Le falta `cap.online_self_service_booking`» no le sirve a nadie.
+
+**Tres. Los extras aportan cuando tienen utilidad para esa persona.** *«La
+tercera habitación sirve si puede aprovecharla; tener más funciones no debería
+subir automáticamente una herramienta.»*
+
+Esto era un fallo de verdad. El recuento de extras era un **número**
+—`aportaDeMas`—, y un número se suma y ordena: la suite con cuarenta funciones
+habría adelantado a la que hace justo lo que hace falta, sin que nadie hubiera
+dicho que esas cuarenta le sirvan de algo. Y encima volvía a medir cuánto la
+hemos mirado nosotros, que es justo de lo que avisa
+`data/verificacion/cobertura.ts`.
+
+Ahora es una **lista** —`traeAdemas`— que se enseña para que juzgue ella, y no
+entra en la distancia. Hay una prueba que exige que añadir extras no mueva el
+recuento.
+
+Matiz que queda abierto y que no se resuelve solo: saber si un extra le sirve
+**a esta persona** exige preguntárselo o deducirlo del diagnóstico. Hoy Molnip
+no lo sabe, así que los nombra y calla. Nombrarlos ya es más de lo que hacía;
+puntuarlos sería inventar.
+
+### Dos correcciones más, y el primer caso completo — 2026-09-22
+
+**Cuatro estados, no tres.** *«"Sin comprobar" no siempre permite decir "lo
+hemos buscado en su página". Si nunca se investigó, debe decir "todavía no lo
+hemos comprobado".»*
+
+No era redacción: a la función le faltaba un dato de entrada. Recibía dos
+conjuntos —lo demostrado y lo descartado— y todo lo demás caía en un cajón al
+que se le había puesto la frase de la búsqueda. **Con los datos de hoy eso era
+falso en el 84 % de los casos**: 8.268 de 9.815 pares no se preguntaron nunca.
+El módulo de cobertura escrito esa misma mañana existía justo para separarlos,
+y tres horas después se volvieron a juntar en una frase.
+
+Ahora entran los cuatro estados y salen tres frases distintas:
+
+> **no lo hace** → «Lo hemos comprobado: no hace *reserva online*. Sin eso,
+> *que puedan reservar sin llamarme* se te queda sin resolver. No está pensada
+> para esto.»
+>
+> **buscado sin encontrar** → «Hemos buscado *reserva online* en su página y no
+> ha quedado demostrado; **podría hacerlo igualmente**.»
+>
+> **nunca preguntado** → «**Todavía no hemos comprobado** si hace *reserva
+> online*.»
+
+**Y los dos desconocidos NO penalizan.** *«Esa diferencia entre desconocidos no
+debería convertirse en una penalización.»* Comparten estado a propósito
+—`sin_comprobar`— para que puedan cambiar la frase y no puedan cambiar el
+orden. Que lo hayamos mirado y no saliera insinúa un poco la ausencia; que no
+lo hayamos mirado no dice nada. Ordenar por esa diferencia sería convertir una
+sospecha en un dato. Hay prueba.
+
+**«Sí, me ayudaría» no es «es imprescindible».** *«Puede ser una ventaja
+deseable. Convertirla automáticamente en requisito podría relegar una
+herramienta que resuelve perfectamente el problema principal.»*
+
+De ahí salen **dos niveles que no se mezclan nunca**, y ojo con no confundirlos
+con los de dentro de la necesidad:
+
+| | |
+|---|---|
+| `imprescindibles` / `ayudan` | **estructural**, dentro de la necesidad. Igual para todo el mundo |
+| `imprescindible` / `deseable` | **situacional**, de ESTA persona. Sale de la conversación |
+
+Se ordena primero por las imprescindibles y las deseables sólo desempatan: es
+«primero que sirva, después que encaje» un piso más arriba. Y queda anotado
+`salioDeUnaPregunta`, para poder enseñar «esto lo añadimos porque nos dijiste
+que sí» y para que se pueda quitar.
+
+**Las preguntas salen del caso, no de los extras de una herramienta.** *«Las
+preguntas deberían salir del caso de la persona y explorar después qué
+herramientas lo cubren, evitando que una suite marque la conversación por tener
+más extras.»* Invierte el diseño que se había propuesto —«esta herramienta
+tiene X, ¿te ayudaría?»— y lo arregla de raíz: si la pregunta nace de un
+producto, gana el que más funciones tenga.
+
+**Y la misma puerta es una pista, no una frontera.** *«Alguien entra por
+"Vender más" y puede beneficiarse de algo de "Ganar tiempo". Si lo prohibimos,
+volvemos a limitar el asesoramiento por nuestros cajones.»*
+
+#### El primer caso completo, con datos reales
+
+Pedido por la propietaria: *«ya toca comprobar cómo se traduce todo esto en una
+ayuda útil»*, antes de construir otro módulo aislado. Así que no se añadió
+maquinaria: se juntó la que había. Vive en
+`data/verificacion/__tests__/casoCompleto.test.ts`, que es el único sitio
+autorizado a leer los dos lados.
+
+El caso: *«pierdo citas porque estoy con las manos ocupadas y no cojo el
+teléfono, y las facturas las hago a mano en una libreta»*. Dos necesidades, las
+dos dichas por ella —la necesidad sale del diagnóstico, no del sector—. Y una
+pregunta adicional nacida de su caso, que entra como deseable.
+
+Con los datos de hoy salen **cuatro** herramientas que resuelven las dos
+imprescindibles: Agiled, HoneyBook, Keap y Nutshell. No están escritas a mano:
+salen de cruzar el mapa con la verificación, y cambian si cambia cualquiera de
+los dos. Las 65 conservan su fila en el desplegable.
+
+Lo que enseñó el ejemplo y no se veía en las pruebas sueltas: **de la deseable
+no sabemos nada en ninguna de las 65** —«agenda por profesional o recurso»
+tiene 65 de 65 sin preguntar—. Así que la pregunta se hace, se guarda, y la
+respuesta honrada es «todavía no lo hemos comprobado». Es exactamente lo que
+tenía que pasar, y es la prueba de que el sistema no inventa para rellenar.
+
+### El ejemplo prometía más de lo que demostraba — 2026-09-22
+
+Tres correcciones de la propietaria al primer caso completo. La primera es la
+grave, y el dato que la desmonta **ya estaba en el repositorio**.
+
+**Una. «Reserva online» no confirma que gestione citas de peluquería.** *«Ya
+encontramos esa diferencia con las reuniones y las llamadas.»*
+
+`data/verificacion/usos.ts` lo tiene escrito desde el 2026-09-16, y dice justo
+esto:
+
+> `uso.reserva_de_servicio` — «La persona elige un servicio concreto (un corte
+> de pelo, una sesión) con duración y precio propios y coge hora sola.»
+> **noEs:** «No es reservar una reunión o una llamada con alguien del equipo.»
+
+La capacidad `cap.online_self_service_booking` NO distingue las dos cosas.
+Reclaim.ai agenda reuniones; Pipedrive, llamadas de venta. Y **de los 1.547
+registros, CERO tienen un uso comprobado**. Así que «estas cuatro resuelven las
+dos necesidades» era una promesa sin respaldo.
+
+Corregido: son **candidatas**, y el límite se dice con todas las letras. Hay
+una prueba que impide presentarlas de otro modo mientras ninguna demuestre el
+uso.
+
+Es el mismo error de siempre en este proyecto: el trabajo estaba hecho, escrito
+y con su motivo delante, y no se leyó.
+
+**Dos. La pregunta mezclaba dos cosas y su «sí» no se podía interpretar.**
+«¿Sois varias o sólo tú? Si sois varias, te ayudaría que cada una tenga la
+suya.» Un sí a eso no dice a cuál de las dos contestó.
+
+Ahora son dos, y en el orden que manda: primero el HECHO de su negocio
+—«¿cuántas personas atendéis?»—, y sólo después la necesidad. Y de ahí sale lo
+que más importa: *«según cómo trabajen, eso podría ser imprescindible, no
+simplemente deseable»*. **La importancia no la ponemos nosotros: sale de lo que
+contesta.**
+
+Y cuesta lo que tiene que costar: al subir la agenda a imprescindible,
+**ninguna de las cuatro lo resuelve todo**, porque «agenda por profesional»
+tiene 65 de 65 sin preguntar. El resultado honrado pasa de «cuatro que valen» a
+«cuatro por comprobar, y una cosa que no sabemos de nadie». Eso es asesorar; lo
+otro era rellenar.
+
+**Tres. Faltaba el consejo.** *«"Imprescindibles 2 de 2" describe un recuento.
+La persona necesita entender: "tus clientes podrían reservar sin que atiendas
+el teléfono… esto exige configurar tus servicios y horarios; esto otro aún no
+lo hemos confirmado".»*
+
+De ahí sale `loQueTeCuesta` en la necesidad. Cuelga de la NECESIDAD y no de la
+herramienta a propósito: dar de alta tus servicios y tus horarios hay que
+hacerlo con cualquier programa de citas, así que no es una pega de ninguna
+marca ni un dato que verificar — es lo que va a tener que hacer ella, y
+callarlo sería vender humo. Sale de la casa de tres habitaciones: «explícale
+qué gana, qué coste o esfuerzo adicional supone y deja que decida».
+
+Escrito en 8 de las 61 necesidades. Que falte no significa que sea gratis:
+significa que todavía no se ha puesto.
+
+#### El resultado, en su voz
+
+    Hemos encontrado 4 candidatas: Agiled, HoneyBook, Keap, Nutshell.
+    Te las llamamos candidatas y no recomendaciones, y te digo por qué.
+
+    LO QUE SÍ SABEMOS
+    · Tus clientes podrían coger hora solos, sin que tengas que soltar
+      las tijeras. Lo hemos comprobado en la página de las cuatro.
+      Tendrás que dar de alta tus servicios con su duración y su precio,
+      y tus horarios. Es un rato de trabajo tuyo al principio.
+    · Podrías sacar las facturas desde el mismo sitio, sin la libreta.
+
+    LO QUE NO SABEMOS, Y ES IMPORTANTE PARA TI
+    · Sabemos que dejan coger hora por internet. NO hemos comprobado que
+      sirva para reservar un servicio con su duración y su precio — un
+      corte, un tinte. Algunas nacieron para concertar reuniones, que no
+      es lo mismo que tu silla. Es la diferencia entre que te valga y que
+      no te valga, así que no te la vamos a dar por buena sin mirarla.
+    · Lo de que cada una tenga su agenda todavía no lo hemos comprobado
+      en ninguna. No es que no lo hagan: es que no lo hemos mirado.
+
+    QUÉ HARÍAMOS NOSOTROS
+    Mirar primero si dejan montar servicios con duración y precio. Es la
+    pregunta que decide. Si quieres, lo comprobamos y te avisamos: es lo
+    que nos falta a nosotros, no a ti.
+
+**Queda pendiente y anotado:** esa redacción se compone hoy dentro del ejemplo.
+Cuando deje de ser un ejemplo tiene que mudarse a un sitio único y con pruebas,
+como `describirElAjuste`. Si la redacción se reparte por el código, las pruebas
+que impiden prometer de más dejan de proteger nada.
+
+### SE COMPROBÓ, Y NO QUEDÓ DEMOSTRADO — 2026-09-22
+
+La propietaria mandó dejar de retocar el ejemplo y hacer las comprobaciones de
+verdad: *«no des por hecho que serán diez minutos»*. Tenía razón en las dos
+cosas.
+
+#### Cómo se hizo, y una corrección al manual
+
+`COMO-EJECUTAR.md` dice que esto lo lanza la propietaria porque la clave de
+Gemini vive en su ordenador. **Eso ya no es del todo cierto**: el entorno
+remoto de Claude tiene acceso a `generativelanguage.googleapis.com` por el
+proxy, sin clave. Lo de su máquina sigue valiendo; lo que cambia es que desde
+aquí también se puede. El modelo, además, ya no es el del manual: es
+`gemini-3.6-flash`.
+
+Lo que costó, y no fueron diez minutos:
+
+1. **Primera vuelta tirada a la basura.** Se inventaron las subpáginas
+   —`/appointments`, `/scheduler`— y no existían. Salió «1 de 3 direcciones
+   leídas» y las ocho respuestas se dieron leyendo sólo la portada. Aceptar
+   eso habría sido verificar el aire.
+2. **No se pueden abrir las páginas desde aquí.** La política de red del
+   entorno sólo deja salir a Gemini, así que ni siquiera se podían mirar los
+   enlaces. Hubo que pedirle al propio modelo que leyera la navegación y
+   devolviera las direcciones buenas.
+3. **Segunda vuelta con las direcciones reales**, y tres que no se pudieron
+   leer hubo que reintentarlas aparte con otras páginas. Total: 22 llamadas
+   para 11 herramientas.
+
+#### El resultado
+
+**Las ocho del catálogo que demuestran reserva online: `no_consta` las ocho.**
+Agiled, HoneyBook, Keap, Nutshell, EngageBay, Motion, Pipedrive y Reclaim.ai.
+Todas con sus páginas leídas de verdad, y todas con la misma nota: programan
+**reuniones, llamadas y demos**, y ninguna demuestra que deje reservar un
+servicio con su duración y su precio.
+
+**Y aquí es donde hay que frenar, porque la primera redacción de esto no lo
+hizo.** Decía «el hueco deja de ser nuestro y pasa a ser del catálogo» y «lo
+hemos mirado y no está». Las dos frases convierten `no_consta` en «no lo hace»,
+que es la regla 3 de F2 rota por quien acababa de guardar bien el dato.
+
+Lo correcto, y lo único que sostiene la tabla:
+
+> **En las páginas consultadas de estas ocho herramientas no hemos podido
+> confirmar la reserva de servicios con duración y precio.**
+
+Ni una palabra más. No se sabe si lo hacen. Y el propio trabajo del mismo día
+lo demostró: **Booksy salió `no_consta` leyendo sus páginas de cliente, y
+`demostrado` en cuatro de los cinco pasos al leer `biz.booksy.com`.** No cambió
+la herramienta — cambió qué habíamos mirado. Un `no_consta` describe nuestra
+búsqueda, nunca el producto.
+
+Y como la propietaria avisó de que *«las cuatro primeras son el comienzo de la
+investigación, no su límite»*, se miró fuera del catálogo. La primera vuelta
+dio Fresha y SimplyBook.me como «demostrado», y **estaba mal en un caso**: la
+cita de Fresha era un **testimonio de cliente** en su portada. Un cliente
+hablando no es el fabricante.
+
+Así que se repitió con una regla añadida al prompt —«un testimonio o reseña NO
+es el fabricante; si la frase está entrecomillada como opinión de un usuario,
+el estado es no_consta»— y comprobando el RECORRIDO entero, los cinco pasos que
+hacen falta de verdad: elegir servicio, duración, precio, elegir profesional y
+coger un hueco libre.
+
+| Paso | Fresha | SimplyBook.me | Booksy |
+|---|---|---|---|
+| Elegir servicio | no consta | demostrado | demostrado |
+| Duración propia | no consta | demostrado | demostrado |
+| Precio propio | no consta | demostrado | demostrado |
+| Elegir profesional | no consta | demostrado | **no consta** |
+| Coger hueco libre | no consta | demostrado | demostrado |
+
+**Fresha se cae entera al quitarle el testimonio.** Con el texto del fabricante
+no queda demostrado ni un paso. No significa que no lo haga —es su negocio—:
+significa que la página que leímos no lo dice con sus palabras, y que hay que
+volver con páginas de producto.
+
+**Booksy cambió de respuesta al cambiar de página.** `no_consta` leyendo
+`booksy.com`, cuatro de cinco leyendo `biz.booksy.com`, que es donde habla del
+producto. La herramienta no cambió; cambió lo que miramos. Es la mejor prueba
+de por qué un `no_consta` nunca puede leerse como un «no lo hace».
+
+**SimplyBook.me sale entera, con un matiz que no se puede callar:** dos de los
+cinco pasos —elegir servicio y elegir profesional— se apoyan en la MISMA frase,
+y es sobre un asistente de IA que es una función añadida: «your clients can
+speak to an AI assistant that … helps them select the right service, time, and
+provider». Demuestra que la selección existe, pero por un camino que quizá no
+es el normal. Los otros tres sí son del producto base: «Set different service
+duration and buffer times», «Set prices for different services» y «allowing
+your clients to book appointments online 24/7».
+
+#### Lo que esto significa para el producto
+
+Lo que se puede decir, y nada más: **de las 65, ninguna tiene confirmada la
+reserva de un servicio con duración y precio.** Lo que NO se puede decir es que
+no exista ninguna: no se ha mirado en las 57 restantes, y en las ocho miradas
+el resultado es «no lo encontramos», no «no está».
+
+Aun así apunta a algo que la propietaria llevaba diciendo: **las 65 no bastan**,
+y no por número sino por forma. El catálogo está lleno de CRM y gestores de
+proyectos que programan reuniones. Confirmar que falta lo otro exige seguir
+mirando, y ya se sabe exactamente qué preguntar.
+
+**Lo que NO se ha hecho, y es decisión de la propietaria:** no se ha añadido
+ninguna herramienta al catálogo. Fresha, SimplyBook.me y Booksy son un
+hallazgo, según la regla de que si el catálogo no cubre una necesidad se buscan
+alternativas y **decide ella**.
+
+Los ocho registros de uso quedan escritos en `registros.json` con sus fuentes y
+sus notas, y la evidencia cruda en `_salida-usos-citas.json`. Dos pruebas que
+decían «todavía no se ha comprobado ningún uso» fallaron al hacerlo: que
+fallaran era la señal de que el lote se había lanzado. Están actualizadas a lo
+que se sabe ahora.
+
+### LA CASA ANTES DE LOS MUEBLES — 2026-09-23
+
+Regla de la propietaria, y corrige el rumbo de toda la ronda anterior:
+
+> *«Nunca debemos diseñar nuestra página pensando en las herramientas que
+> tenemos. Nosotros diseñamos nuestra casa, nuestro esqueleto, y ya buscaremos
+> con qué llenarla.»*
+
+Y el orden que se recupera:
+
+1. Diseñar el esqueleto: necesidades, preguntas, consejo y cómo se presentan
+   las alternativas.
+2. Definir qué debe resolver cada espacio, **independientemente del catálogo**.
+3. Investigar y colocar las herramientas que encajen, **dejando visible lo que
+   todavía no podamos cubrir**.
+
+#### Lo que se comprobó en el código, y no de memoria
+
+**El mapa de necesidades está limpio.** Contrastado contra los trece nombres
+del catálogo: cero coincidencias. Sus campos apuntan a capacidades, nunca a
+productos.
+
+**El recorrido de prueba del 2026-09-22 no lo estaba.** Nombra tres
+herramientas trece veces, tiene cuatro preguntas escritas a mano en el HTML y
+**no lee el mapa de necesidades ni una sola vez**. No es que se apoyara en el
+mapa y se desviara: el mapa no intervenía.
+
+#### El diagnóstico: a la casa le faltaba una planta
+
+| | |
+|---|---|
+| Necesidades | estaba, e independiente del catálogo |
+| **Preguntas** | **no existía** |
+| **Consejo** | **no existía** |
+| Presentación | a medias: el material sí, las reglas sólo en prosa aquí |
+
+La palabra «pregunta» aparecía cinco veces en el mapa y las cinco eran prosa
+dentro de un comentario. Al no haber de dónde sacar las preguntas, se
+improvisaron — y improvisarlas con tres herramientas delante las hizo con forma
+de herramienta. **El hueco del esqueleto es lo que dejó entrar al catálogo.**
+
+#### La regla que lo gobierna
+
+> *«No se pregunta algo simplemente porque el negocio lo tenga, sino porque su
+> respuesta cambia el consejo.»*
+
+Sin ella, evitar las preguntas sobre herramientas se convierte en un formulario
+interminable sobre la empresa. Por eso cada dimensión declara `queCambia`, es
+obligatorio y no puede venir vacío: **si no cambia nada, sobra**. Hay prueba.
+
+Y el orden, que es donde me torcí: **primero se conoce el negocio, y después se
+comparan los límites de las herramientas contra lo que ya sabemos.** Un tope no
+puede ser el motivo de una pregunta; sí puede ser lo que se hace con la
+respuesta. «¿Cuántas citas al mes?» estaba bien como pregunta y mal como
+motivo: el prototipo la explicaba diciendo «hay un plan barato con un tope de
+100 reservas». Eso es el catálogo explicándole a la clienta por qué le
+preguntamos.
+
+#### La prueba decisiva, escrita como prueba
+
+> Si quitamos ViDay y cambiamos el catálogo entero, las preguntas y el
+> razonamiento siguen teniendo sentido. Cambiarán las herramientas ofrecidas y
+> la cobertura; la casa sigue en pie.
+
+`asesor.test.ts` pasa las 65 del catálogo y las once candidatas de fuera contra
+cada pregunta, cada motivo y cada `queCambia`. Y una segunda prueba rechaza los
+motivos que se apoyan en un plan, un precio o un tope.
+
+#### Lo que hay, y lo que falta a la vista
+
+`data/vocabulario/asesor.json` — seis dimensiones, seis formas de consejo
+(incluidas «sólo tenemos una», «esto no lo cubrimos» y «esto no es tuyo») y
+ocho reglas de presentación, cada una con su motivo para que no se borre en
+cuanto estorbe.
+
+#### La precisión que evitó una purga
+
+Al escribir la prueba me pasé de frenada: prohibí la palabra «tope» en
+cualquier motivo. La propietaria lo corrigió el mismo día:
+
+> *«Hablar de límites en esa segunda parte es correcto: ahí ya estamos
+> valorando herramientas. No hace falta eliminar toda referencia al catálogo,
+> sino mantener el orden necesidad → diagnóstico → solución.»*
+
+Así que el orden deja de defenderse purgando y pasa a estar **en la
+estructura**: cada dimensión tiene dos campos separados.
+
+| | |
+|---|---|
+| `queCambiaEnElDiagnostico` | se escribe **sin mirar el catálogo**. Ahí no caben planes, topes ni precios |
+| `queComprobamosDespues` | ahí **sí**, porque en esa fase ya estamos valorando |
+
+La prueba que caza herramientas sólo revisa el primero. Y hay otra que exige
+que **alguna** dimensión hable de límites en el segundo, para que nadie vuelva
+a purgarlo creyendo que limpia.
+
+Desarrollada **una puerta entera**, «Que no se me pierda nada», que es donde
+cae la peluquera: **sus 20 necesidades tienen preguntas**, con diez dimensiones. Las otras cinco puertas están a cero **y hay una prueba que exige que ese
+estado se vea**, en vez de disimularlo — y el propio recorrido lo enseña, con
+una tabla de qué parte de la casa está construida.
+
+#### El recorrido, ya leyendo la casa
+
+`casa.html` no tiene ni una herramienta escrita a mano en su flujo: las diez
+preguntas, las veinte necesidades, las formas de consejo y las reglas de
+presentación **se generan desde `asesor.json` y `necesidades.json`**. Las
+herramientas entran sólo en la última fase, a llenar.
+
+Y el diagnóstico hace algo que el recorrido anterior no sabía hacer: **quita
+de en medio lo que no es suyo**. A quien sólo vende su tiempo no se le enseña
+control de existencias; a quien trabaja sola no se le habla de turnos ni de
+nóminas. Lo apartado se puede desplegar, con el motivo de por qué se apartó. El acuerdo fue cerrar el esqueleto y probar una puerta
+antes de extenderlo a las 61.
+
+Nadie lee esto todavía, igual que el vocabulario y por el mismo motivo.
+
+### CASI PEDIMOS PERDÓN — 2026-09-23
+
+La propietaria leyó el pie del recorrido:
+
+> *«Que no sabemos, dicho en claro. Lo de las herramientas sale de leer sus
+> páginas oficiales, no de usarlas… Éstas son las que hemos podido verificar,
+> no todas las que existen.»*
+
+Y dijo lo que era:
+
+> *«Casi pedimos perdón. Estamos dando una información que nadie nos pidió. Con
+> decir "es la información que hemos recogido en sus páginas".»*
+
+**Haber leído las páginas oficiales de 65 herramientas es el trabajo, no una
+carencia.** Contarlo pidiendo permiso convierte lo mejor que tenemos en una
+excusa. Y encima es información que la persona no ha pedido: le estamos
+explicando nuestro método cuando lo que quiere es saber qué le sirve.
+
+La regla `pres.el-limite-en-voz-alta` se sustituye por
+`pres.el-limite-sin-pedir-perdon`, y lleva dentro las dos listas:
+
+| Así no | Así sí |
+|---|---|
+| «No sabemos si…» | **«Esta es la información que hemos recogido en sus páginas.»** |
+| «No hemos podido comprobar todas…» | **«De esto no tenemos información.»** |
+| «Éstas son las que hemos podido verificar, no todas las que existen» | |
+| «Sale de leer sus páginas, no de usarlas» | |
+
+El límite se sigue diciendo —eso no cambia— pero **como procedencia, no como
+disculpa**. Hay pruebas que lo sostienen, incluida una que rechaza cualquier
+«lo sentimos», «por desgracia» o «sólo hemos podido» en las formas de consejo.
+
+#### Y la tarjeta, que llevaba a medias desde el 21 de septiembre
+
+Rediseñada con la misma idea. Cuatro bloques con rótulo, y ninguno se disculpa:
+
+    ViDay                                        85 €
+                                al mes, sin IVA, para 3
+    Plan Equipo Pro. Te resuelve 3 de las 5 cosas que necesitas.
+
+    LO QUE TE RESUELVE
+      · Que puedan reservar sin llamarte
+      · Tener la agenda bajo control
+
+    DE ESTO NO TENEMOS INFORMACIÓN
+      · Firmar sin imprimir ni escanear
+
+    A TENER EN CUENTA
+      Incluye 2 profesionales; cada uno más son 10 € al mes sin IVA
+
+    LO QUE TE VA A COSTAR A TI
+      Dar de alta tus servicios con su duración y su precio, y los horarios.
+
+    Esta es la información que hemos recogido en su página oficial.
+
+«De esto no tenemos información» sustituye a «no lo hemos comprobado»: dice lo
+mismo y no suena a fallo. Y el bloque de las desventajas sigue sin existir,
+como se decidió el 21 de septiembre — lo que hay es **«a tener en cuenta»**, y
+sólo aparece cuando algo del plan choca de verdad con lo que ella ha
+contestado.
+
+### Lo que queda vivo de las quince categorías
+
+No se borra ninguna. Cada una encuentra sitio: «CRM y ventas» pasa a ser
+entrada de *Vender más*; «Facturación y contabilidad» se parte en siete
+necesidades dentro de *Controlar el dinero*; «Reservas y citas» cuelga de dos
+puertas; «Plataformas todo en uno» deja de ser cajón porque ya existe el campo
+`tipoProducto`; «Software sectorial» deja de ser cajón y pasa a ser el corte.
+`categorias.json` no se toca hasta que la propietaria lo autorice.
+
+## 2026-09-23 — EL REPARTO POR CASAS, Y 1.541 REGISTROS NUEVOS EN F2
+
+**Qué se hizo.** Se investigaron las 65 herramientas activas contra sus
+páginas oficiales y se repartieron en las 15 casas de `data/categorias.json`.
+Después, dos pasadas de verificación, y la propietaria autorizó incorporar sus
+respuestas a `registros.json`.
+
+**La regla del reparto, en sus palabras:** «si una herramienta está en la casa
+de ventas será porque sirve a la casa de ventas, pero si también sirve a la
+casa de vídeo también estará en la sala de vídeo». Hoy cada ficha tiene una
+sola `categoriaId` y por eso las 65 viven en 4 casas de las 15. El reparto
+propuesto las pone en 3,3 de media. **Sigue sin aplicarse a las fichas.**
+
+**Dos reglas que ella corrigió el mismo día, y que mandan:**
+
+1. **Estar en una casa no dice «sirve». Dice qué cubre.** Que F2 verificara
+   algo del tema no basta: cada herramienta entra con la lista de lo que cubre
+   ahí y lo que no se ha comprobado. «En Firma y gestión documental, crear
+   documentos no demuestra que permita firmarlos.» Eso destapó un defecto:
+   `cap.electronic_signature` vive en el dominio `presupuestos` y no se le
+   había preguntado a ninguna de las 65.
+2. **«Todo en uno = seis casas o más» era un umbral inventado.** No medía si
+   una herramienta es una suite integrada: medía cuántas capacidades suyas
+   hemos investigado. Se retiró sin sustituirla por otro número.
+
+Y una tercera, sobre las casas vacías: **la casa existe porque responde a una
+necesidad, aunque el catálogo no la cubra.** Se llena verificando y también
+incorporando herramientas nuevas.
+
+**Lo que se verificó.** Dos pasadas, 1.972 respuestas con cita literal y URL,
+todas guardadas en `data/investigacion/casas/`:
+
+- La firma electrónica se preguntó a 22 candidatas elegidas por lógica, no a
+  las 65. **A las otras 44 no se les preguntó, y eso no es un dato sobre
+  ellas.** Resultado: 5 la demuestran.
+- Las 150 dirigidas —donde la herramienta ya decía hacerlo y faltaba el
+  recibo—: 84 confirman, 66 no dan nada. Odoo sale 8 veces entre los que no
+  dan nada porque su portada es un índice de aplicaciones: es un problema de
+  qué página leímos, no de Odoo.
+- Una pasada más para la **profundidad** de las 206 capacidades demostradas.
+  No se inventó: sin ella un registro verificado no es válido, y es la
+  distinción que evita que un calendario parezca un software de reservas.
+
+**Lo que cambió en `registros.json`:** de 1.547 a 3.088 registros, de 662 a
+855 verificados. 1.541 añadidos, 30 mejorados y **117 respetados**: un «no
+consta» nuevo nunca pisa lo que ya había.
+
+**Dos frenos que saltaron y se respetaron:**
+
+- **Teachable queda fuera entero.** Es una condición escrita de la propietaria
+  mientras la profundidad de `teachable/cap.payment_collection` siga
+  pendiente. Ahora hay evidencia suya en otra capacidad: eso es información
+  nueva para ella, no permiso para levantar el bloqueo.
+- **Las notas de los «no consta» hablan de la evidencia, no del producto.**
+  Dicen dónde se miró, nunca lo que la herramienta deja de hacer. Es la regla
+  que ella aplicó a mano el 2026-09-09.
+
+**Lo que cambió para quien pregunta.** Tres necesidades dejaron de llevar a
+«no lo cubrimos»: **tickets** (diez herramientas), **asistente automático de
+atención** (cuatro) y **cuota mensual** (una). La peluquera que preguntaba por
+tickets ya obtiene respuesta. No cambió el motor ni la regla: cambió lo que
+sabemos. Las marcas `sinCobertura` se quitaron, como pedía la prueba que las
+vigilaba.
+
+**Y lo que sigue sin cubrir nadie**, que es donde está el trabajo: la factura
+electrónica obligatoria, los impuestos, la contabilidad, ver si se llega a fin
+de mes, la agenda bajo control, que los clientes vuelvan, cobrar en el
+mostrador, turnos y fichajes. Quedan unos 7.400 pares que nadie ha preguntado
+nunca, con facturación e inventario a la cabeza.
+
+**Nota de aislamiento.** Los scripts de las pasadas viven en
+`data/verificacion/investigacion-casas/` y no junto a sus resultados, porque
+leen el vocabulario y la lista de autorizados está congelada a propósito. Se
+movió el código en lugar de tocar la guarda.
+
+---
+
+## 2026-09-24 — LAS CASAS SON OFICIOS, EL ASESOR, Y TRES CORRECCIONES
+
+**El valor del día está en lo que corrigió la propietaria, no en lo que se
+construyó.** Cada una de las tres correcciones costó una conversación entera y
+todas nacen del mismo defecto mío: coger algo provisional, declararlo cerrado
+y devolvérselo citado como si fuera el suelo. Ella lo dijo así: **«nos
+aferramos a algo como si fuera la verdad absoluta»**.
+
+### Lo que se construyó
+
+**El reparto, aplicado.** Las 65 fichas pasan de vivir en una casa a vivir en
+**5,0 de media** (máximo 14, Bitrix24). **Ninguna casa queda vacía.** Los
+sectores dejan de esconderse bajo «Software sectorial»: se abren con su
+nombre —«Formación y academias» pública, «Clínicas y salud» pendiente—, por
+su indicación: *«ya que son específicos, deberían especificar el sector»*. Son
+17 casas, 15 públicas.
+
+**El asesor (F3, bloque 6).** Cuatro pasos, dictados por ella: entender,
+aclarar lo que cambia el consejo, buscar atravesando las casas, aconsejar.
+Vive en `/asesor`, con noindex y sin enlazar; la web actual no cambia.
+
+- **Buscar no filtra por casa.** «Las casas organizan lo que Molnip conoce; no
+  deben limitar dónde busca una solución.» Facturar es una necesidad
+  compartida, no la casa de nadie.
+- **Aclarar no es decorativo.** Una pregunta sólo se hace si **cambia** el
+  consejo, y se comprueba simulando sus respuestas contra el catálogo real:
+  la peluquera recibe 1 pregunta de 10 posibles; el reformista, 8.
+- **Toda afirmación sobre una herramienta sale de datos verificados.** La IA
+  sólo haría el paso de entender.
+
+**Las 808 comprobaciones.** Las cuatro necesidades que bloqueaban a nueve
+oficios —agenda por profesional, TPV, historia clínica, protección de datos—.
+`registros.json` pasa de **3.088 a 3.880**, y de **855 a 863 verificados**.
+
+**A quién podemos servir: 5 de 15 oficios.** Taller mecánico, reformas,
+diseño por cuenta propia, asesoría y agencia. Y se calcula **con la evidencia
+de ahora**, no con un número escrito a mano: `estadoDeUnOficio()` lo deriva, y
+una prueba imprime el informe al ejecutarse. Nace de su aviso, que es una
+regla de método: *«hacemos una investigación y la dejamos encerrada donde
+luego no se conecta con la inteligencia de Molnip, y esa información queda
+perdida (...) cada vez que tú haces una pasada yo tengo que cargar Gemini.
+Todo tiene que ser útil porque si no es una pérdida de dinero sin fundamento.»*
+
+**Lo que habría que construir**, en `data/investigacion/lo-que-falta/`: ocho
+piezas con su definición y su `noEs`. La **agenda por profesional** desbloquea
+4 oficios y la demuestran 0 de 65; el **TPV y caja**, 3 oficios, 0 de 65;
+**historia clínica y protección de datos** van juntas o no sirven. Es lo que
+ella pidió para desarrollar un sistema propio de Molnip para esa gente.
+
+**Teachable volvió a colarse** en la pasada y su guarda lo cazó: 16 registros
+fuera. Es la segunda vez en dos días. El bloqueo sigue vigente.
+
+### Las tres correcciones de la propietaria
+
+**1. Los 15 oficios son una regla de medir, NO una decisión de a quién
+servimos.** Sus palabras: *«Molnip no tiene hoy 15 oficios, porque en ningún
+momento nadie definió que vamos a trabajar para estos 15. Simplemente tú has
+metido esa información ahí y la das por buena. Estamos mirando dónde somos
+más útiles, y si llega un momento que no somos útiles, también lo tenemos que
+ver.»* Sirven para medir, no son un menú ni un compromiso. En el código llegué
+a escribir «la puerta principal: entrar diciendo QUÉ ERES» — eso no lo decidió
+nadie, y ya está corregido en el comentario.
+
+**2. «Una recomendación, nunca una lista» NUNCA fue una regla.** La redacté
+yo; ella la matizó el mismo día con su boceto delante —«recibe una, pero se le
+enseñan las demás en orden de cercanía»— y yo me quedé con la mitad dura. Sus
+palabras al corregirlo: *«si no se podía mostrar sino una sola, se mostraba,
+pero no era la regla. Siempre podemos mostrar tres como mínimo.»*
+**Y pisaba una decisión escrita**: el ACUERDO DE RUMBO del 17 dice, bajo «Lo
+que no cambia», *«se siguen recomendando tres con explicación»*. No la
+consulté. También pisaba `MINIMO_ALTERNATIVAS_POR_DEFECTO = 3`.
+La guarda que la defendía (`unaSola.test.ts`) está **desconectada por orden
+suya**, con el motivo escrito dentro; el comportamiento no se tocó, porque
+cuántas se enseñan es diseño abierto.
+
+**3. «Nuestra página pide perdón por todo, parece una rata miedosa.»** Era
+medible: en una pantalla Molnip explicaba por qué preguntaba, que eso cambiaba
+el consejo, que lo había elegido ella y no lo había leído, cuántas
+herramientas miró, que no se quedó en la casa que parecía la suya, y siete
+veces que si algo no consta no significa que no exista.
+**La distinción que faltaba: decir lo que no sabemos es honestidad y se queda;
+explicar por qué preguntamos, cómo buscamos y cuánto miramos es Molnip
+hablando de Molnip, y sobra.** La página hablaba de nosotros en vez de su
+negocio.
+
+### El diseño: dónde quedó, y el listón
+
+La tarjeta se rehízo dos veces y **ninguna versión le vale**. El listón lo
+puso ella y es el criterio con el que hay que medir cualquier pantalla:
+
+> *«Si yo entro a una página donde tengo que entender la página, ya no quiero
+> entrar. Cuando yo me meto a internet a recibir una ayuda, no quiero
+> estudiar. Lo que a nosotros nos conviene es hacer nosotros el trabajo y
+> dárselo masticadito al cliente.»*
+
+Y su lectura del negocio, que es el porqué: *«necesitamos que el cliente se
+quede (...) esta gente es fácil, es intuitiva, compro por inercia, porque me
+fío de ellos, ellos ya hicieron el trabajo»*.
+
+**Lo que sí le gusta**, de su propio boceto: que el ojo sepa dónde mirar; que
+el color diga qué es cada cosa sin leer; que el titular sea el **resultado**
+—«Reservas y facturas juntas»— y no la marca; una línea por tarjeta y el resto
+detrás de un clic.
+
+**Dos hallazgos del final del día, y son los que mandan mañana:**
+
+1. **La tarjeta obliga a decidir.** «Opción A o B», «ver funciones, coste y
+   límites», «explorar más alternativas», «8 cosas que todavía no sé»: cada
+   una es una decisión que Molnip le devuelve. Era trabajo mío sin terminar,
+   disfrazado de transparencia.
+2. **La puerta por oficio es lo que rompe la tarjeta.** Su boceto parte de una
+   frase escrita con dos necesidades y cabe entera: «Reservas y facturas
+   juntas». Entrar por «soy peluquería» mete **diez** necesidades y el titular
+   degenera en «y 2 cosas más», que es un acertijo. Ninguna tarjeta es legible
+   con diez.
+
+**Cambios de texto ya hechos**: fuera las explicaciones sobre nosotros;
+«¿Cuántas personas atendéis a clientes?» pasa a **«¿Cuánta gente sois?»** (las
+respuestas siempre fueron «sólo yo», «somos entre dos y cinco»: la pregunta no
+encajaba con las suyas); y cada necesidad estrena **`enCorto`** —«reservas»,
+«facturas», «agenda»— para que el titular hable como ella. Tres pruebas lo
+sostienen; dos nombres míos se fueron de largo y los cazó la prueba.
+
+### EL FALLO ABIERTO, y es de producto
+
+**A 10 de los 15 oficios Molnip les dice que sí sin poder.** La tarjeta es
+idéntica tanto si podemos servirle como si no:
+
+| Oficio | Molnip le enseña | Le falta del núcleo |
+|---|---|---|
+| Peluquería | facturas, stock, reservas, mensajes | **la agenda y el cobro en mostrador** |
+| Clínica | reservas, facturas, seguridad, expedientes | **la historia clínica y la protección de datos** |
+| Tienda | stock, tienda online, facturas, campañas | **cobrar en el mostrador** |
+| Taller *(sí servimos)* | expedientes, presupuestos, facturas… | — |
+
+Choca de frente con una regla que ya estaba escrita en `AGENTS.md`: **«decir
+que no es un resultado válido»**. La regla existe y el dato existe
+—`estadoDeUnOficio` lo calcula—, pero **no llega a la pantalla**. La línea «8
+cosas que todavía no sé» suena a detalle, no a «esto que te trae aquí no te lo
+resuelvo». Sin decidir.
+
+### Una corrección menor, para que no se pierda de quién fue
+
+El desempate por **orden alfabético** era un fallo **mío**: Agiled salía
+primera casi siempre por empezar por A y parecía recomendada. **Lo detectó
+ella** —«Agiled parece la dueña de todo»—. El texto del repositorio lo contaba
+sin decir de quién era; ya lo dice.
+
+---
+
+## 2026-09-25 — DEJAR DE APILAR, Y CÓMO HABLA MOLNIP
+
+### Lo sencillo no se descarta por cubrir menos
+
+**Una regla mía, mal guardada, estaba deformando el producto entero.**
+`AGENTS.md` dice «primero que sirva, después que encaje» —comprueba que
+funcione antes de ordenar por precio o idioma—. Yo lo había convertido en
+«gana quien cubra más casillas», y justifiqué el filtro citando «tres es la
+consecuencia, no un objetivo», que habla de no rellenar con malas, no de
+tirar la buena por ser sencilla.
+
+Medido antes de tocar nada: **Molnip apilaba herramientas en 15 de 17 casos**,
+y en los oficios las sueltas llegaban a la lista **cero** veces —el filtro las
+descartaba antes de ordenar—. A una peluquera se le tiraba Agiled, que le
+resuelve las reservas y las facturas, por no cubrir además el stock y los
+turnos; en su lugar se le ofrecían tres programas apilados, tres cuotas y sin
+saber si se hablan entre ellos.
+
+Lo dijo la propietaria sin rodeos: *«siempre me pones algo que va a complicar
+al cliente. No le compliques la vida al cliente, por favor.»* Y después, el
+diagnóstico de fondo, que vale para todo lo demás: *«guardas cosas que luego
+te van a complicar; si guardas algo, fíjate de entender bien el contexto».*
+
+Tres cambios:
+
+1. El motor guarda **la mejor de cada tamaño**: la mejor suelta, la mejor
+   pareja, el mejor trío. Ninguna se descarta por sencilla y ninguna entra a
+   rellenar, porque sólo entra si es la mejor en lo suyo.
+2. **Cada opción dice lo que NO cubre**, con nombres cortos y en la fila. Es
+   la otra mitad: ofrecer algo sencillo sin esconder nada, y es «decir que no
+   es un resultado válido» llegando por fin a la pantalla.
+3. **La lista enseña herramientas sueltas.** Los apilamientos pasan a
+   «explorar», con lo que cuestan escrito al lado —cuántas cuotas, y si
+   sabemos que se conectan—. Si no hay ninguna suelta que sirva, encabezan
+   ellos.
+
+### La medición que explica por qué las pantallas se veían complicadas
+
+| Entra diciendo | Molnip encuentra |
+|---|---|
+| «Pierdo citas y facturo a mano» (2 necesidades) | **8 opciones**: Agiled 24 $/mes, HoneyBook 29 $/mes, Keap, Nutshell… |
+| «Soy taller mecánico» (10 necesidades) | **1 opción** |
+| «Soy asesoría» (10 necesidades) | **1 opción**, y son tres programas |
+
+Mismo diseño, distinta entrada. **La puerta por oficio no afea la tarjeta: le
+quita al asesor el margen para aconsejar.** Si sólo hay una salida no hay
+consejo, hay resignación. Confirma con números lo anotado el 24.
+
+### La pantalla, siguiendo sus bocetos
+
+De cuatro que dibujó señaló dos: «me gusta mucho cómo se ven la 1 y la 3».
+
+- **Pantalla 1, «abres una opción»**, construida. Abrir ya no despliega en el
+  sitio: lleva a una pantalla entera donde no hay nada que comparar. Dos datos
+  que llevaban semanas escritos y no salían a ninguna pantalla se usan por fin:
+  `desempate.porQue` (el consejo en primera persona) y `loQueTeCuesta` del
+  vocabulario (la sección «Para empezar»).
+- **La lista, como su imagen 4**: herramienta, precio a la vista y «Mi
+  consejo» abajo, donde Molnip se moja. El precio corto sale de
+  `planesComprobados` —`precioInicial` es una frase entera en 52 de las 65
+  fichas y rompía la pantalla—; se enseña con su unidad y **sin convertir la
+  moneda**, que sigue sin resolverse.
+- **Nunca «y N cosas más».** Era el acertijo que yo mismo había señalado el
+  día anterior y volví a escribir a la mañana siguiente.
+
+**Pantalla 3, sin construir, y con un dato que falta:** los botones de
+respuesta no pueden funcionar todavía. El vocabulario guarda qué respuestas
+existen, pero no **qué cambia cada una**, así que hoy serían de adorno.
+
+### DOS AFIRMACIONES QUE NO SON LA MISMA — corrección de la propietaria
+
+> «"Sólo HoneyBook lo tiene" describe los productos. "Sólo lo tenemos
+> demostrado en HoneyBook" describe lo que Molnip ha comprobado. El consejo usa
+> la segunda, que es la que sostiene el informe. Los "ninguna" tampoco deben
+> convertirse en ausencias sin evidencia.»
+
+La pantalla decía «X es la única de las tres que además demuestra Y», que se
+lee como una afirmación sobre las otras dos. Ahora dice «de las tres, Y sólo lo
+hemos comprobado en X».
+
+Y el fallo fue sobre todo MÍO al informar: presenté una tabla de capacidades
+con «ninguna» en seis filas. Ninguna de esas filas significaba que las
+herramientas no lo hagan: significaba que no lo tenemos demostrado. Es la misma
+regla que F2 lleva aplicando desde el 2026-09-09 —«no consta» no es «no lo
+hace»— incumplida por mí en la explicación, no en el código.
+
+**Y una confusión de producto, también mía:** dije que los recordatorios
+automáticos eran «justo lo que importa a una clínica que pierde pacientes por
+no coger el teléfono». No es verdad. Un recordatorio avisa de una cita **ya
+reservada**; no resuelve que alguien no consiga reservar. Pueden interesarle a
+esa clínica, pero eso depende de si tiene ausencias, y **no lo sabemos**. Por
+eso la frase en pantalla termina en «si eso te importa»: deja la decisión
+abierta, que es lo correcto.
+
+### EL ENCAJE DE LAS RESERVAS: LO QUE SABEMOS Y LA PREGUNTA QUE FALTABA
+
+Lo medido el 2026-09-25 para las tres que salen a una clínica que pide reservas
+y facturas:
+
+| | Reserva online | Recordatorios | Facturación |
+|---|---|---|---|
+| Agiled | demostrada, como módulo | no consta | demostrada, nativa |
+| HoneyBook | demostrada, nativa | demostrada, nativa | demostrada, nativa |
+| Keap | demostrada, nativa | no consta | demostrada, nativa |
+
+**Dos conclusiones mías que la propietaria corrigió el mismo día, y las dos
+eran inferencias, no datos:**
+
+1. **«Módulo» no es peor que «nativa».** Lo presenté como un defecto de
+   Agiled. No lo es: dice cómo viene empaquetado, no si funciona mejor o peor.
+   Lo que importa es **cómo funciona, qué incluye y qué tiene que contratar
+   ella**, y eso no lo sabemos.
+2. **Que una clínica tenga varios dentistas NO implica que el paciente elija
+   profesional.** La clínica puede asignarlo por dentro. Yo deduje la
+   necesidad del sector, que es exactamente lo que la visión prohíbe: «recoge
+   sus necesidades SIN ATRIBUIRTE OTRAS AUTOMÁTICAMENTE».
+
+**Y el cero tampoco demuestra nada sobre los productos.** Que la agenda por
+profesional no esté demostrada en ninguna de las 65 no significa que ninguna
+sirva: significa que no lo tenemos comprobado.
+
+**La conclusión correcta:** tenemos demostrada la reserva online; falta saber
+si su funcionamiento encaja con la forma de dar citas de ESA clínica.
+
+**Y el paso que cierra eso, propuesto por ella:** preguntarlo.
+`dim.como-se-asignan-las-citas` — «¿Cómo se asignan las citas: el cliente elige
+profesional o lo deciden ustedes?». Con la respuesta se usa la investigación
+que ya hay y se comprueba sólo lo que falte.
+
+Para que esa pregunta llegara a salir hubo que arreglar dos cosas en `aclarar`:
+
+- **«Cambia el consejo» medía sólo las tres primeras herramientas.** Añadir
+  «tener la agenda bajo control» no mueve a Agiled, HoneyBook ni Keap de sus
+  puestos, pero pasan de cubrirlo todo a cubrir dos de tres. Eso no es un
+  matiz: es otra respuesta. Ahora el resumen incluye la cobertura.
+- **Se simulaba sólo la respuesta «deseable».** Las deseables no descalifican,
+  así que una pregunta cuya respuesta convierte algo en imprescindible salía
+  como decorativa. Ahora se simulan las dos: una pregunta es útil si ALGUNA de
+  sus respuestas mueve el consejo.
+- **Y la cercanía se mide por proporción, no por volumen.** Contando
+  capacidades ganaba «¿cuántas personas trabajan en el negocio?», que toca
+  seis necesidades. Lo que ordena bien no es cuánto toca una pregunta, sino
+  qué parte de lo que toca es del asunto que ella contó.
+
+Resultado: la clínica recibe primero «¿cómo se asignan las citas?» (83 %);
+reformas recibe la de firmas (27 %); una tienda, la de si vende producto.
+
+**Queda anotado, sin tocarlo:** `dim.cuantas-personas` sigue arrastrando
+`nec.mi-agenda` en su `afectaA`, y su diagnóstico dice que con varias personas
+«que el cliente elija con quién» sube a imprescindible. Es la misma inferencia
+corregida arriba, sólo que a partir del número de personas en vez del sector.
+No se ha tocado porque es una decisión anterior y su crítica iba del sector;
+decidirlo es de la propietaria.
+
+### CÓMO HABLA MOLNIP — regla de la propietaria
+
+> **«Ser cercano sí, pero respetuoso y considerado.»** Y a continuación, lo que
+> de verdad estaba roto: *«ese lenguaje callejero no me gusta, estamos en un
+> entorno de negocios (...) todo el lenguaje que me has presentado no es
+> universal, está pensado sólo para impulsar la mediocridad en los negocios.
+> Has confundido cercanía y educación con un lenguaje para muy pocas personas,
+> porque si alguien que no es de España no va a sentirse cómodo.»*
+
+**No era cuestión de gusto: era excluyente y se podía medir.** `lib/pais.ts`
+dice a quién servimos —España, México, Argentina, Colombia, Chile y Perú— y
+**cinco de las diez preguntas estaban en vosotros**, que en cinco de esos seis
+países no lo dice nadie. Y en la tarjeta ponía **«se coge rápido»**: «coger»
+es vulgar en buena parte de América.
+
+El registro, fijado: **tú** para una persona, **ustedes** para varias —que es
+lo que se entiende en los seis—, vocabulario de negocio y sin regionalismos.
+Cercanía no es coloquialismo, y menos uno que da por hecho que quien pregunta
+va apurada. Nace de una corrección suya:
+*«no se dice "cuánta gente sois", es despectivo; se dice "cuántas personas",
+con educación»*. La palabra «personas» estaba en la pregunta original y **la
+quité yo** el día antes, al acortarla buscando que sonara natural.
+
+Reescritas las diez preguntas, sus motivos y sus respuestas. Algunas:
+
+- «¿Cuánta gente sois?» → **«¿Cuántas personas trabajan en el negocio?»**
+- «¿Cuántas citas atendéis al mes?» → **«¿Cuántas citas atienden al mes?»**
+- «¿El trabajo lo hacéis en vuestro local o vais a donde está el cliente?» →
+  **«¿Trabajan en un local propio o se desplazan a donde está el cliente?»**
+- «Se coge rápido» → **«Se aprende rápido»**
+- «No estoy segura» → **«No lo sé con certeza»**. Le ponía género a quien
+  contesta: hablar nosotros de «la clienta» es una cosa; ponérselo en la boca
+  a ella es otra.
+- «¿Con qué te apañas ahora mismo?» → **«¿Con qué te organizas ahora mismo?»**
+  («apañarse», dicho a quien lleva un negocio, es «ir tirando».)
+- «si con una agenda de papel te apañas o se te está yendo de las manos» →
+  «con pocas citas una agenda de papel llega; con muchas se queda corta».
+  (Daba por hecho que había perdido el control.)
+- «dime cuánto puedes gastar al mes» → **«dime qué presupuesto manejas al
+  mes»**.
+
+**Lo que NO se toca:** las necesidades están escritas en la voz de ella
+—«escribir a mi gente», «textos que no me den vergüenza»—. Ésas son sus
+palabras sobre lo suyo, no Molnip hablándole.
+
+---
+
+## 2026-09-28 — LA CASA DE LAS RESERVAS, Y LAS SIETE NOTAS
+
+### El cero que era nuestro
+
+La pantalla del asesor decía que «el paciente elige dentista» no estaba
+confirmado en ninguna herramienta. `cap.per_resource_booking_calendar` se
+había preguntado a 64 de 65 y salieron 64 «desconocido».
+
+No era un dato sobre las herramientas. Sus notas dicen dónde se miró: **la
+portada y la página de precios**. Una agenda por profesional no se explica
+ahí. **El cero medía dónde habíamos mirado.**
+
+Y había una razón de fondo: las 65 son 18 asistentes de IA, 17 plataformas
+todo-en-uno, 15 CRM y 15 de gestión de proyectos. **Ni un sistema de
+reservas.** El catálogo nunca cubrió a quien da citas.
+
+### Doctoralia, y la lección que hay que quedarse
+
+En la primera pasada quedó en «no lo hemos encontrado» con **1 de 10 páginas
+abiertas**. La propietaria paró ahí: era la española. Al insistir:
+
+- `pro.doctoralia.es` bloquea al lector entero: 0 de 7 páginas en tres rondas.
+- El bloque de reserva de `www.doctoralia.es` **no se dibuja para un lector
+  automático**: sale «Este centro aún no ofrece la reserva online de cita» en
+  todas las fichas, tengan la reserva activada o no. De habernos fiado,
+  habríamos escrito que las clínicas españolas no tienen reserva online.
+
+La evidencia salió de su documentación de integraciones: el calendario cuelga
+de una dirección, la dirección de un doctor, el doctor de un centro, y se
+reserva contra el doctor.
+
+> **Cuando una herramienta sale a cero y sus páginas no se abrieron, el cero
+> es nuestro.**
+
+### La casa ya estaba abierta
+
+Se dijo que había que crear una categoría. **Era falso.** `reservas-citas`
+existe y es pública desde que se abrieron las quince casas. El error fue
+medir el eje equivocado: se contó qué categorías **usan** las 65 fichas
+—cuatro— y se contó como si fuera el catálogo de categorías —diecisiete—.
+
+Y ahí está el hallazgo que importa: **en «Reservas y citas» no vive nadie.**
+Once herramientas la tienen como categoría secundaria; ninguna como
+principal. La casa estaba puesta y vacía.
+
+### Las 22
+
+La propietaria trajo 30 candidatas investigadas fuera, con cita literal y
+dirección. **22 demuestran las dos cosas** —agenda por profesional y que el
+cliente elija con quién—. Cinco españolas: Nubimed, Archivex, ViDay, BEWE y
+Bookitit. Trece con el producto en español. Guardadas en
+`data/investigacion/agenda-por-profesional-2026-09-28/`.
+
+### La puerta de la afiliación, las tres copias
+
+La orden de desconectarla es del 2026-09-16 y se cumplió **sólo en el
+Researcher**. Quedaban dos copias vivas, encontradas al preguntar la
+propietaria cómo entran 30 herramientas nuevas:
+
+- `data/verificar.ts` — exigía `hasAffiliateProgram: true` para estar activa.
+  Bloqueaba también a `hotmart`, que ya está en el catálogo.
+- `agents/atlas-researcher/promover.ts` — `bloquearPorAfiliacion`.
+
+Las dos desconectadas hoy, conservadas enteras con su nota. Las tres pruebas
+que vigilaban la segunda quedan en `skip`, no borradas.
+
+> **La orden se aplicaba donde se estaba trabajando y quedaba una copia en
+> otro archivo.** Cuando se desconecte algo, se buscan todas las copias.
+
+### DECISIÓN — las siete notas van a `null` cuando no haya prueba
+
+El encargo de investigación pedía las siete valoraciones de 1 a 10 sin pedir
+prueba de nada, y al lado `metodologiaValoracion`: «breve nota sobre en qué
+se basan». Por eso **62 de 65 fichas contestaron lo mismo**: «agregación de
+miles de opiniones verificadas en G2 y Capterra». Es la respuesta que sale
+cuando preguntas en qué te basas a quien no se basó en nada.
+
+**Decisión de la propietaria, 2026-09-28: donde no haya prueba, `null`.**
+
+Reemplaza a la práctica anterior —pedirle las siete al modelo y aceptarlas
+sin respaldo—. Qué se puede demostrar y qué no:
+
+| Nota | Se puede |
+|---|---|
+| `nivelTecnicoRequerido` | Sí — si hay que migrar datos, tocar código, contratar implantación |
+| `facilidadImplementacion` | Sí — pasos del alta, puesta en marcha de pago |
+| `fiabilidad` | Sólo si publica página de estado o compromiso de disponibilidad |
+| `atencionAlCliente` | Sí — canales, planes en que están, soporte en español |
+| `facilidadDeUso`, `calidad`, `escalabilidad` | **Casi nunca.** Ningún fabricante publica que su producto es un 7 |
+
+`metodologiaValoracion` deja de ser una frase de relleno: dice de dónde salió
+cada número y cuáles quedan sin valorar. Con `null`, la Puntuación Molnip se
+calcula sólo con lo demostrado — `lib/puntuacionAtlas.ts` ya lo soporta y
+devuelve `null` antes que inventar.
+
+**Queda sin resolver:** `criterioMetodologia` (`agents/atlas-advisor/criterios.ts`)
+**suma 2 puntos** a toda ficha cuya metodología no diga «pendiente de
+contrastar», y enseña «Sus puntuaciones están contrastadas con datos de uso
+reales». Las 62 con la frase inventada se llevan esos puntos y esa frase.
+
+### La reputación tenía dónde, pero no dónde anotarlo
+
+`Reputacion` guardaba `g2Puntuacion: 4.2` y nada más: ni enlace ni fecha. **No
+fue un descuido de quien investigó — el campo no existía.** Esa carencia se
+confundió durante meses con que nadie hubiera investigado la reputación, y
+eso es falso: 60 de 65 fichas la tienen, y `InsigniaReputacion.tsx` lleva
+tiempo enseñándola en la tarjeta.
+
+Añadidos `g2Comprobado` y `capterraComprobado` —fecha, url y cita— y `origen`,
+que distingue la primera redacción de lo comprobado. Comprobado que G2 y
+Capterra se dejan leer. Primer aviso: la ficha de Pipedrive dice G2 4,2 con
+12.500 reseñas; G2 dice hoy **4,3 con 5.029**. No es sólo que falte la
+fuente: el dato está desfasado.
+
+---
+
+## DÓNDE ESTAMOS — punto de partida al cerrar el 2026-09-25
+
+Esta sección no decide nada: dice en qué punto quedó todo, para que quien
+retome no tenga que reconstruirlo leyendo doscientos commits. **Se reescribe
+entera cada vez que cambie; no se acumula.** Va la última antes del bloque
+«MOLNIP VISUAL v1», que es donde `AGENTS.md` dice que se busque.
+
+### El camino A, punto por punto
+
+| | Estado |
+|---|---|
+| **1. Que Molnip sepa con quién habla** | Hecho. `lib/pais.ts` con ocho países, la pregunta «¿Dónde tienes el negocio?», y el motor deduce el idioma del país. **La moneda se guarda y no la usa nadie**, a propósito: 48 de 65 fichas cobran en dólares y convertir sin un cambio verificado sería inventar un número. Sigue sin resolverse. |
+| **2. Partir «dinero» en sus piezas** | Hecho. Puerta propia con 16 necesidades en cuatro familias y cinco capacidades nuevas. |
+| **3. La página de todas las herramientas** | Hecha. `/herramientas`, con filtros. Sin «la mejor opción» ni nada que parezca un ranking con premio. |
+| **4. Vender más** | Sin empezar, como estaba acordado. |
+
+**El asesor (F3) no está en esta tabla** porque nació después, por encargo
+suyo del 24. Es lo que se está construyendo ahora y lo que tiene el trabajo
+abierto.
+
+**Nada está desplegado.** Todo vive en la rama
+`claude/evidencia-usos-recorridos`. Decisión del 2026-09-18, vigente:
+terminar primero. «Habrá que esperar a terminar, a ver si realmente se ve y
+funciona como lo imaginamos.»
+
+### El catálogo hoy
+
+- **65 fichas**, repartidas en **5,0 casas de media** (máximo 14). Ninguna de
+  las 17 casas queda vacía; 15 son públicas y 2 pendientes.
+- **60 con el precio comprobado** en la web del fabricante, con fecha y
+  dirección. Se empezó en 22.
+- **50 con los planes citados textualmente**: 108 planes con nombre y precio.
+- **64 tienen plan gratuito**; 32 indefinido, 30 de prueba. Sin clase quedan
+  Copy.ai y Hotmart, porque su página no lo dice.
+- **Sin precio comprobado: Notion AI, Odoo, Zoho CRM, Zoho One, Zoho
+  Projects.**
+- **3.880 registros de capacidad sobre 64 de las 65**, de los que **863 están
+  verificados** con cita, más los descartes con su motivo.
+- **Vocabulario:** 61 necesidades, las 61 con su nombre corto (`enCorto`).
+
+### El asesor, que es donde está el trabajo
+
+**Hecho y verde:** los cuatro pasos —entender, aclarar, buscar, aconsejar—,
+en `/asesor`, con noindex y sin enlazar. Busca atravesando las casas; sólo
+pregunta lo que cambia el consejo; todo lo que afirma sale de datos
+verificados. `aQuienServimos()` deriva de la evidencia de ahora: **5 de 15
+oficios**.
+
+**Sin resolver, y por este orden:**
+
+1. **La pantalla obliga a pensar.** Sigue siendo el listón, y sigue sin
+   pasarlo del todo. El 25 mejoró —una herramienta, lo que no cubre, y el
+   consejo— pero lo decide ella, no yo.
+2. ~~**A 10 de 15 oficios Molnip les dice que sí sin poder.**~~ Resuelto el
+   2026-09-25: cada opción dice lo que NO cubre, en la fila y no en letra
+   pequeña.
+3. **La puerta por oficio mete diez necesidades donde caben dos**, y por eso
+   ningún titular es legible. Decisión abierta: si se entra por frase escrita,
+   qué pasa con la puerta de oficios.
+4. **El texto libre está apagado por una condición equivocada.** El asesor
+   busca `GEMINI_API_KEY`; en este entorno el proxy inyecta la credencial y
+   las llamadas funcionan sin clave —así se hicieron las 808 comprobaciones—.
+   En producción es otra conversación, pero probarlo aquí no está bloqueado.
+
+### La tarjeta pública de recomendación: media hecha, y con cuatro deudas
+
+**Terminado:** la tarjeta «Lo que te va a costar», separada de la
+recomendación, con la cifra, el plan, el plan gratuito dicho sin rodeos y de
+dónde sale el precio. El botón va después.
+
+**Sin hacer, las mismas cuatro del 21 y ninguna tocada desde entonces:**
+
+1. **El bloque sigue diciendo «DESVENTAJAS»**, a dos columnas del mismo ancho
+   que «Ventajas», con ✓ verde contra × roja. Incumple la quinta regla de la
+   visión en `AGENTS.md` — «no somos jueces».
+2. **El 88 sigue arriba sin decir de qué está hecho.**
+3. **`metodologiaValoracion`**: 64 de 65 fichas publican que las notas salen
+   de «agregación de miles de opiniones verificadas en G2 y Capterra». Nadie
+   agregó nada. **Es la única afirmación falsa que habla de nosotros**, y por
+   eso es la más urgente.
+4. **`criterioMetodologia`** da +2 puntos a 60 de 65 fichas y escribe «sus
+   puntuaciones están contrastadas con datos de uso reales». No hay ni un
+   cliente. Y puntúa nuestras propias palabras, no la herramienta.
+
+Hubo una maqueta del bloque nuevo, **descartada por la propietaria el mismo
+día**: llevaba un aviso de «esto es valoración nuestra, no lo hemos
+comprobado» debajo de las pegas, y ella lo cortó — el aviso no es honradez, es
+taparse las espaldas. No se reutiliza tal cual.
+
+### Las reglas que mandan y que no se reabren
+
+Del 2026-09-21, enteras en «MOLNIP ES UN INTERMEDIARIO»: **si no lo sabemos,
+no se dice** (y el aviso no es coartada); **un adjetivo sin «para quién» está
+a medias**; **Molnip es un intermediario** y por eso no opina ni pone nota. Y
+las tres capas que no se confunden: lo que **guardamos** (no se borra), lo que
+**publicamos** (sólo lo sostenible) y **con qué puntuamos**.
+
+Del 2026-09-17: **la afiliación se aparca** hasta que haya tráfico, y **se
+siguen recomendando tres con explicación**.
+
+Del 2026-09-24: **los 15 oficios son una regla de medir, no una decisión**;
+**«una sola recomendación» nunca fue una regla**; y **la página no puede
+obligar a entenderla**.
+
+### Lo que queda encima de la mesa
+
+1. **Lo gordo: que el orden se apoye en lo comprobado.** Hoy se apoya en las
+   siete notas de `puntuaciones`, que no tienen fuente; las capacidades
+   verificadas sólo hacen de portero. Es F3 y tiene condiciones previas en
+   `data/vocabulario/CONDICIONES-PARA-F3.md`. No se abre sin autorización.
+2. **Las cuatro deudas de la tarjeta pública**, arriba. La 3 es la urgente.
+3. **Las cuatro del asesor**, arriba. La 1 y la 2 son de producto.
+4. **La frase que da valor a Molnip**: «sí, tiene plan gratuito, pero lo que
+   tú necesitas no está en él». El dato existe —`planMinimo`— y no lo enseña
+   ninguna pantalla.
+5. **Lo que no cubre nadie**, que es donde está el trabajo de investigación:
+   agenda por profesional y TPV (0 de 65 las dos), historia clínica,
+   protección de datos, factura electrónica obligatoria, impuestos,
+   contabilidad, fin de mes, que los clientes vuelvan, turnos y fichajes.
+   Quedan unos 6.600 pares que nadie ha preguntado nunca.
+6. **La moneda** y **Zoho**, de la lista del 21.
+7. **Dos planes posiblemente fantasma** sin mirar: Scoro «Standard» y ClickUp
+   Brain «Business».
+
+### Cómo se trabajó, por si sirve de método
+
+Lo que desatascó la verificación fue una pregunta suya: «¿y tú con Gemini no
+lo puedes hacer?». El arnés de `url_context` llevaba semanas en el repositorio
+y leyó en una tarde lo que el canal externo no pudo abrir en tres intentos.
+Hace falta `NODE_USE_ENV_PROXY=1`: Node no usa el proxy por su cuenta. Y el
+estado **«PLANTILLA SIN RELLENAR»** salvó la tanda: sin él, veinte fabricantes
+habrían quedado escritos como si no publicaran sus precios.
+
+Dos métodos más, los dos suyos:
+
+- **Cuando la propietaria discute un dato, medirlo en vez de defenderlo.** El
+  21 se cayeron así dos afirmaciones mías dichas con seguridad. El 24 se cayó
+  otra por el mismo camino: yo sostenía que no sabíamos si faltaba catálogo;
+  las 808 comprobaciones demostraron que las cuatro necesidades estaban a 0 de
+  65.
+- **Y el aviso de método que more caro sale ignorar:** lo provisional no se
+  declara cerrado, no se le pone una guarda y no se le cita a ella como si
+  fuera el suelo.
+
+---
 
 # MOLNIP VISUAL v1 — referencia oficial y obligatoria
 

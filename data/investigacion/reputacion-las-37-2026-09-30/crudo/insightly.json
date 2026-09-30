@@ -1,0 +1,5 @@
+{
+ "id": "insightly",
+ "nombre": "Insightly",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.co.uk\",\n    \"notaGeneral\": 4.0,\n    \"facilidadDeUso\": 4.0,\n    \"escala\": 5.0,\n    \"numeroDeResenas\": 654,\n    \"cita\": \"Ratings. Overall. 4.0 (654) Reviews. Ease of Use. 4.0 (654) Reviews.\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/insightly-crm/reviews\",\n    \"notaGeneral\": 4.2,\n    \"facilidadDeUso\": 8.4,\n    \"escala\": 10.0,\n    \"numeroDeResenas\": 809,\n    \"cita\": \"Ratings. Meets Requirements. Insightly CRM. 8.2. 8.2 804. Ease of Use. Insightly CRM. 8.4. 8.4 809.\"\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com\",\n    \"https://www.capterra.es\",\n    \"https://www.capterra.ie\",\n    \"https://www.capterra.co.uk\",\n    \"https://www.g2.com/products/insightly-crm/reviews\"\n  ]\n}\n```"
+}

@@ -26,8 +26,26 @@ import { contieneTexto } from "./utilidades";
 
 export type ContextoEvaluacion = {
   respuestas: RespuestasUsuario;
-  /** El conjunto de candidatas que se está evaluando: los criterios comparativos lo necesitan (una especializada solo puede demostrar superioridad frente a las suites contra las que compite). */
-  catalogo: Herramienta[];
+  /**
+   * La VARA DE MEDIR de los criterios comparativos: el catálogo entero, no
+   * las candidatas que han sobrevivido a los filtros.
+   *
+   * Antes aquí llegaban las candidatas, y eso hacía que la puntuación de una
+   * herramienta dependiera de contra quién se la midiera. Sonaba razonable
+   * —«llega más a fondo que sus alternativas»— pero tenía una consecuencia
+   * que nadie quería: **cada vez que un filtro apartaba a alguien, la vara se
+   * movía y todas las demás cambiaban de nota.** Saltó dos veces en dos días:
+   * con nimble y salesflare al comprobar un plan gratuito, y con zenkit y
+   * monday-com al enchufar la puerta de evidencia, que aparta a zoho-one y
+   * odoo y de rebote movía a un tercero que no tenía nada que ver.
+   *
+   * Desde el 2026-09-18 la vara es fija. «Llega más a fondo que la media de
+   * sus alternativas directas» es una propiedad de la herramienta frente a su
+   * mercado, no frente a quien haya quedado en pie hoy. Cada criterio filtra
+   * esta lista por lo que su comparación significa —misma categoría, suites—,
+   * pero ninguno la recorta por los filtros de la consulta.
+   */
+  referencia: Herramienta[];
 };
 
 export type CriterioRuta = {
@@ -227,7 +245,7 @@ const facilidadAdministracion: CriterioRuta = {
 /** Coste total frente a contratar varias herramientas por separado. Solo puntúa si de verdad sustituye a más de una. */
 const costeTotalFrenteAVarias: CriterioRuta = {
   min: 0,
-  max: 10,
+  max: 6,
   evaluar: (herramienta, { respuestas }) => {
     const etiqueta = "Coste frente a contratar varias";
     const necesarios = modulosQueNecesita(respuestas);
@@ -236,12 +254,17 @@ const costeTotalFrenteAVarias: CriterioRuta = {
 
     if (cubiertos < 2) return nada("costeTotalFrenteAVarias", etiqueta);
 
-    const puntos = herramienta.tienePlanGratuito ? 10 : 6;
+    /**
+     * Antes el plan gratuito movía esto de 6 a 10 — cuatro puntos de diez por
+     * un dato que tienen 64 de 65. Se quitó el 2026-09-18 con el resto de los
+     * altares. Lo que este criterio mide es sustituir varias suscripciones por
+     * una, y eso no depende de que la primera sea gratis.
+     */
     return {
       criterio: "costeTotalFrenteAVarias",
       etiqueta,
-      puntos,
-      explicacion: `Sustituye a ${cubiertos} herramientas distintas con una sola suscripción${herramienta.tienePlanGratuito ? ", y tiene plan gratuito para empezar" : ""}.`,
+      puntos: 6,
+      explicacion: `Sustituye a ${cubiertos} herramientas distintas con una sola suscripción.`,
     };
   },
 };
@@ -322,7 +345,7 @@ const riesgoDependencia: CriterioRuta = {
 const relevanciaEnCategoriaAjena: CriterioRuta = {
   min: -10,
   max: 0,
-  evaluar: (herramienta, { respuestas, catalogo }) => {
+  evaluar: (herramienta, { respuestas, referencia }) => {
     const etiqueta = "Profundidad en esta categoría";
     const categoriaId = respuestas.categoriaId;
 
@@ -333,7 +356,7 @@ const relevanciaEnCategoriaAjena: CriterioRuta = {
     if (!cubreCategoria(herramienta, categoriaId)) return nada("relevanciaEnCategoriaAjena", etiqueta);
 
     // Los nativos: especializadas cuya categoría PRINCIPAL es esta.
-    const nativos = catalogo.filter((h) => !esSuite(h) && h.categoriaId === categoriaId);
+    const nativos = referencia.filter((h) => !esSuite(h) && h.categoriaId === categoriaId);
     if (nativos.length < 2) return nada("relevanciaEnCategoriaAjena", etiqueta);
 
     const media = nativos.reduce((total, h) => total + h.funcionesPrincipales.length, 0) / nativos.length;
@@ -376,9 +399,9 @@ export const CRITERIOS_SUITE: CriterioRuta[] = [
 const profundidadFuncional: CriterioRuta = {
   min: -14,
   max: 14,
-  evaluar: (herramienta, { catalogo }) => {
+  evaluar: (herramienta, { referencia }) => {
     const etiqueta = "Profundidad en su especialidad";
-    const iguales = catalogo.filter((h) => !esSuite(h) && h.categoriaId === herramienta.categoriaId);
+    const iguales = referencia.filter((h) => !esSuite(h) && h.categoriaId === herramienta.categoriaId);
     if (iguales.length < 2) return nada("profundidadFuncional", etiqueta);
 
     const media = iguales.reduce((total, h) => total + h.funcionesPrincipales.length, 0) / iguales.length;
@@ -466,9 +489,9 @@ const funcionesAvanzadas: CriterioRuta = {
 const integracionesConTerceros: CriterioRuta = {
   min: 0,
   max: 10,
-  evaluar: (herramienta, { catalogo }) => {
+  evaluar: (herramienta, { referencia }) => {
     const etiqueta = "Se conecta con tus otras herramientas";
-    const iguales = catalogo.filter((h) => !esSuite(h));
+    const iguales = referencia.filter((h) => !esSuite(h));
     if (iguales.length < 2) return nada("integracionesConTerceros", etiqueta);
 
     const media = iguales.reduce((total, h) => total + h.integraciones.length, 0) / iguales.length;
@@ -505,20 +528,28 @@ const facilidadEnSuEspecialidad: CriterioRuta = {
   },
 };
 
-const precioFrenteAlValor: CriterioRuta = {
-  min: 0,
-  max: 8,
-  evaluar: (herramienta) => {
-    const etiqueta = "Precio para lo que ofrece";
-    if (!herramienta.tienePlanGratuito) return nada("precioFrenteAlValor", etiqueta);
-    return {
-      criterio: "precioFrenteAlValor",
-      etiqueta,
-      puntos: 8,
-      explicacion: "Puedes probarla a fondo con su plan gratuito antes de pagar nada.",
-    };
-  },
-};
+/**
+ * AQUÍ VIVÍA `precioFrenteAlValor`, y se quitó el 2026-09-18.
+ *
+ * Daba 8 puntos de unos 72 a cualquier ficha con `tienePlanGratuito`, y se
+ * llamaba «Precio para lo que ofrece» sin mirar ningún precio: leía una
+ * casilla de sí o no. Lo tienen **64 de las 65** herramientas del catálogo,
+ * así que no distinguía nada — sólo multaba a la única que no lo tiene.
+ *
+ * Decisión de la propietaria: «estamos endiosando lo gratis». El plan
+ * gratuito es una decisión comercial del fabricante para meterte dentro, no
+ * una virtud de la herramienta. Pasa a ser información en la tarjeta, como el
+ * idioma o el precio, y deja de ordenar.
+ *
+ * La pregunta que este criterio fingía contestar —«¿me compensa lo que me
+ * piden?»— sigue abierta, y no se contesta con una casilla: hace falta cruzar
+ * el precio con lo que la herramienta hace de verdad. Ver ATLAS.md, «ESTAMOS
+ * ENDIOSANDO LO GRATIS».
+ *
+ * Lo que NO se quitó: `criterioPresupuestoYPlanGratuito` en `criterios.ts`.
+ * Ése sólo actúa cuando la persona ha dicho que necesita empezar sin pagar, y
+ * entonces no es una suposición nuestra: es lo que pidió.
+ */
 
 /**
  * Superioridad frente al módulo equivalente de una suite — el criterio que
@@ -533,9 +564,9 @@ const precioFrenteAlValor: CriterioRuta = {
 const superioridadFrenteAlModulo: CriterioRuta = {
   min: 0,
   max: 10,
-  evaluar: (herramienta, { catalogo }) => {
+  evaluar: (herramienta, { referencia }) => {
     const etiqueta = "Frente al módulo de una plataforma";
-    const suites = catalogo.filter((h) => esSuite(h));
+    const suites = referencia.filter((h) => esSuite(h));
     if (suites.length === 0) return nada("superioridadFrenteAlModulo", etiqueta);
 
     const mediaSuites = suites.reduce((total, h) => total + h.puntuaciones.calidad, 0) / suites.length;
@@ -560,7 +591,6 @@ export const CRITERIOS_ESPECIALIZADA: CriterioRuta[] = [
   funcionesAvanzadas,
   integracionesConTerceros,
   facilidadEnSuEspecialidad,
-  precioFrenteAlValor,
   superioridadFrenteAlModulo,
 ];
 

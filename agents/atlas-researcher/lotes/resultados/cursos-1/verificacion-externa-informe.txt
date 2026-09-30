@@ -1,0 +1,42 @@
+Elementos: 68 datos + 1 de páginas no leídas
+confirmado 45 · no_consta 21 · contradicho 2
+
+PROBLEMAS (32):
+  · hotmart/plan_gratuito: la fuente es una portada, no una página concreta (https://hotmart.com/es)
+  · hotmart/comision_por_venta: cita breve (24 caracteres), no se explica sola: «De 0 € a 9,9 K € 6 9,9 %»
+  · hotmart/comision_por_venta: el valor afirma 1,00 y la cita no lo dice: regla 5
+  · hotmart/comision_por_venta: el valor afirma 0,50 y la cita no lo dice: regla 5
+  · hotmart/idioma_soporte: el valor afirma 7. y la cita no lo dice: regla 5
+  · thinkific/planes_y_precios: cita breve (27 caracteres), no se explica sola: «Basic $54/mo Billed monthly»
+  · thinkific/planes_y_precios: el valor afirma 40 y la cita no lo dice: regla 5
+  · thinkific/planes_y_precios: cita breve (13 caracteres), no se explica sola: «Start $109/mo»
+  · thinkific/planes_y_precios: el valor afirma 82 y la cita no lo dice: regla 5
+  · thinkific/planes_y_precios: cita breve (12 caracteres), no se explica sola: «Grow $219/mo»
+  · thinkific/planes_y_precios: el valor afirma 164 y la cita no lo dice: regla 5
+  · thinkific/comision_por_venta: cita breve (15 caracteres), no se explica sola: «Transaction Fee»
+  · thinkific/comision_por_venta: el valor afirma 5%, 2%, 1%, 0,5% y la cita no lo dice: regla 5
+  · thinkific/limites_del_plan_mas_barato: cita breve (27 caracteres), no se explica sola: «Published courses Unlimited»
+  · thinkific/limites_del_plan_mas_barato: el valor afirma 10.000, 1, 100, 5, 5 y la cita no lo dice: regla 5
+  · thinkific/idioma_interfaz_alumnos: cita breve (15 caracteres), no se explica sola: «Spanish Mexican»
+  · thinkific/afiliados_comision: el valor afirma 150 y la cita no lo dice: regla 5
+  · thinkific/afiliados_duracion: cita breve (8 caracteres), no se explica sola: «lifetime»
+  · thinkific/afiliados_pago: el valor afirma 13, 30 y la cita no lo dice: regla 5
+  · teachable/plan_gratuito: el valor afirma 30 y la cita no lo dice: regla 5
+  · teachable/planes_y_precios: cita breve (6 caracteres), no se explica sola: «$39/mo»
+  · teachable/planes_y_precios: el valor afirma 29 y la cita no lo dice: regla 5
+  · teachable/planes_y_precios: cita breve (6 caracteres), no se explica sola: «$89/mo»
+  · teachable/planes_y_precios: el valor afirma 69 y la cita no lo dice: regla 5
+  · teachable/planes_y_precios: cita breve (7 caracteres), no se explica sola: «$189/mo»
+  · teachable/planes_y_precios: el valor afirma 139 y la cita no lo dice: regla 5
+  · teachable/planes_y_precios: un «no consta» no puede afirmar un valor («Custom: precio personalizado.»)
+  · teachable/comision_por_venta: el valor afirma 7,5%, 0% y la cita no lo dice: regla 5
+  · teachable/limites_del_plan_mas_barato: cita breve (10 caracteres), no se explica sola: «5 products»
+  · teachable/cursos: cita breve (24 caracteres), no se explica sola: «Student progress reports»
+  · teachable/afiliados_duracion: cita breve (19 caracteres), no se explica sola: «one year (per sale)»
+  · teachable/afiliados_cookie: cita breve (20 caracteres), no se explica sola: «With a 30-day cookie»
+
+APTO tal cual (24): hotmart/planes_y_precios, hotmart/pagina_de_venta, hotmart/cobrar, hotmart/cursos, hotmart/uso_acceso_automatico_tras_pago, hotmart/uso_pago_unico_y_a_plazos, thinkific/plan_gratuito, thinkific/pagina_de_venta, thinkific/cobrar, thinkific/cursos, thinkific/uso_acceso_automatico_tras_pago, thinkific/uso_pago_unico_y_a_plazos, thinkific/programa_afiliados_existe, thinkific/afiliados_cookie, thinkific/afiliados_plataforma, teachable/pagina_de_venta, teachable/cobrar, teachable/uso_acceso_automatico_tras_pago, teachable/uso_pago_unico_y_a_plazos, teachable/idioma_interfaz_alumnos, teachable/programa_afiliados_existe, teachable/afiliados_comision, teachable/afiliados_plataforma, teachable/afiliados_aprobacion
+
+A REVISAR antes de usarlo (17 campos)
+
+«No consta» bien puesto (19)

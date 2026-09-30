@@ -1,0 +1,20 @@
+{
+ "id": "thinkific",
+ "nombre": "Thinkific",
+ "url": "https://www.thinkific.com",
+ "precios": "https://www.thinkific.com/pricing/",
+ "caps": [
+  "cap.personal_calendar_planning",
+  "cap.case_file_management",
+  "cap.file_storage",
+  "cap.customer_interaction_history",
+  "cap.own_asset_maintenance",
+  "cap.fleet_telematics",
+  "cap.inspections_and_checklists"
+ ],
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.personal_calendar_planning\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.case_file_management\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.file_storage\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.customer_interaction_history\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.own_asset_maintenance\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.fleet_telematics\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.inspections_and_checklists\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://www.thinkific.com/",
+  "OK https://www.thinkific.com/pricing/"
+ ]
+}

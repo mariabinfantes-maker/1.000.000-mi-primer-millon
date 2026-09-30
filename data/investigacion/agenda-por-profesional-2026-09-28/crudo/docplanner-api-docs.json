@@ -1,0 +1,99 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "A continuación se muestra la información extraída **literalmente** de la documentación oficial de la API de Docplanner (https://integrations.docplanner.com/docs/):\n\n---\n\n### 1. Rutas de la API relacionadas con huecos libres (`slots`) y reservas (`book` / `bookings`)\n\n#### **Slots**\n* `GET /facilities/{facility_id}/doctors/{doctor_id}/addresses/{address_id}/slots`\n* `PUT /facilities/{facility_id}/doctors/{doctor_id}/addresses/{address_id}/slots`\n* `POST /facilities/{facility_id}/doctors/{doctor_id}/addresses/{address_id}/slots/{start}/book`\n* `DELETE /facilities/{facility_id}/doctors/{doctor_id}/addresses/{address_id}/slots`\n\n#### **Bookings**\n* `POST /facilities/{facility_id}/doctors/{doctor_id}/addresses/{address_id}/bookings`\n* `GET /facilities/{facility_id}/doctors/{doctor_id}/addresses/{address_id}/bookings`\n* `GET /facilities/{facility_id}/doctors/{doctor_id}/addresses/{address_id}/bookings/{booking_id}`\n* `DELETE /facilities/{facility_id}/doctors/{doctor_id}/addresses/{address_id}/bookings/{booking_id}`\n* `POST /facilities/{facility_id}/doctors/{doctor_id}/addresses/{address_id}/bookings/{booking_id}/move`\n* `PUT /facilities/{facility_id}/doctors/{doctor_id}/addresses/{address_id}/bookings/{booking_id}/confirm`\n* `PUT /facilities/{facility_id}/doctors/{doctor_id}/addresses/{address_id}/bookings/{booking_id}/request-opinion`\n\n*(Estructura completa de la URL definida en la página: `https://www.{domain}/api/v3/integration/facilities/{facility_id}/doctors/{doctor_id}/addresses/{address_id}/...`)*\n\n---\n\n### 2. Frase que explica de quién son los huecos (`slots`)\n\nEn la sección **Slots** (`getSlots`), la frase literal explicativa es:\n\n\u003e `\"List of free slots for the address within specified date range.\"`\n\n---\n\n### 3. Frases que hablan de calendarios (`calendars`) y a quién pertenecen\n\nEn la sección **Calendars**, las frases literales explicativas son:\n\n\u003e `\"Simple operations on the calendar belonging to the address\"`\n\u003e\n\u003e `\"Gets calendar of the address\"`\n\u003e\n\u003e `\"Enable calendar on the address\"`\n\u003e\n\u003e `\"Disable calendar on the address\"`",
+            "thoughtSignature": "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"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0,
+      "groundingMetadata": {
+        "groundingChunks": [
+          {
+            "web": {
+              "uri": "https://integrations.docplanner.com/docs/",
+              "title": "Docplanner Integrations API"
+            }
+          }
+        ],
+        "groundingSupports": [
+          {
+            "segment": {
+              "startIndex": 181,
+              "endIndex": 270,
+              "text": "Rutas de la API relacionadas con huecos libres (`slots`) y reservas (`book` / `bookings`)"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 1357,
+              "endIndex": 1528,
+              "text": "*(Estructura completa de la URL definida en la página: `https://www.{domain}/api/v3/integration/facilities/{facility_id}/doctors/{doctor_id}/addresses/{address_id}/...`)*"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 1542,
+              "endIndex": 1594,
+              "text": "Frase que explica de quién son los huecos (`slots`)"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 1752,
+              "endIndex": 1820,
+              "text": "Frases que hablan de calendarios (`calendars`) y a quién pertenecen"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          }
+        ]
+      },
+      "urlContextMetadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://integrations.docplanner.com/docs/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      }
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1173,
+    "candidatesTokenCount": 658,
+    "totalTokenCount": 43378,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1173
+      }
+    ],
+    "toolUsePromptTokenCount": 37827,
+    "toolUsePromptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 37827
+      }
+    ],
+    "thoughtsTokenCount": 3720,
+    "serviceTier": "standard"
+  },
+  "modelVersion": "gemini-3.6-flash",
+  "responseId": "JLu6auSSDfvx-sAPjuOM2AQ"
+}

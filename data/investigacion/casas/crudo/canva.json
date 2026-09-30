@@ -1,0 +1,13 @@
+{
+ "id": "canva",
+ "nombre": "Canva",
+ "urls": [
+  "https://www.canva.com",
+  "https://www.canva.com/pricing/"
+ ],
+ "texto": "```json\n{\n  \"servicios\": [\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Canva AI assistant\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Integration apps\"\n    }\n  ],\n  \"esDe\": \"asistentes-ia\",\n  \"sector\": null\n}\n```",
+ "leidas": [
+  "OK https://www.canva.com/",
+  "OK https://www.canva.com/pricing/"
+ ]
+}

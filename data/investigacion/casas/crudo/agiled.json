@@ -1,0 +1,13 @@
+{
+ "id": "agiled",
+ "nombre": "Agiled",
+ "urls": [
+  "https://agiled.app/",
+  "https://agiled.app/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Never lose a lead. Close more deals.\"\n    },\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Plan with kanban boards, Gantt charts, or task lists.\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"An AI assistant that actually knows your business.\"\n    },\n    {\n      \"id\": \"facturacion-contabilidad\",\n      \"cita\": \"Get paid faster. Chase less.\"\n    },\n    {\n      \"id\": \"reservas-citas\",\n      \"cita\": \"End the back-and-forth. Let clients book directly.\"\n    },\n    {\n      \"id\": \"atencion-cliente\",\n      \"cita\": \"Built-in support ticketing for client requests\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Automate the busywork you shouldn't be doing.\"\n    },\n    {\n      \"id\": \"recursos-humanos\",\n      \"cita\": \"Manage your team from onboarding to attendance.\"\n    },\n    {\n      \"id\": \"firma-gestion-documental\",\n      \"cita\": \"Proposals and contracts — sent, signed, done.\"\n    }\n  ],\n  \"esDe\": \"crm\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://agiled.app/",
+  "OK https://agiled.app/pricing"
+ ]
+}

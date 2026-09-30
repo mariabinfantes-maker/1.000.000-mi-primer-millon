@@ -3,6 +3,12 @@
   "paginaOficial": "https://www.usemotion.com/",
   "urlPrecios": "https://www.usemotion.com/pricing",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "firma-gestion-documental",
+    "gestion-proyectos",
+    "reservas-citas"
+  ],
   "descripcion": "Motion es una herramienta de productividad impulsada por inteligencia artificial que automatiza la planificación diaria construyendo calendarios inteligentes. Combina gestión de tareas, proyectos y programación de reuniones, reordenando automáticamente las prioridades del usuario según plazos y disponibilidad.",
   "informacionEmpresa": {
     "anioFundacion": 2020,
@@ -60,13 +66,13 @@
     "Zoom"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde $19/mes (facturación anual en plan Individual)",
+  "precioInicial": "Desde $19/usuario/mes (la página no dice si es con facturación mensual o anual)",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Team a $12/usuario/mes (facturado anualmente) o $20/usuario/mes (facturado mensualmente)",
   "idiomasDisponibles": [
     "Inglés"
@@ -96,7 +102,18 @@
         "numeroResenas": 180,
         "enlace": "https://www.producthunt.com/products/motion-2"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/211997/Motion/",
+      "cita": "Ease Of Use 4.2 (89) — leido 4.3/5 con 89 reseñas. Confirma el 4.3 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/motion/reviews",
+      "cita": "leido 4.1/5 con 157 reseñas. Confirma el 4.2 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Ahorra tiempo reconstruyendo el calendario automáticamente cuando surgen imprevistos.",
@@ -136,5 +153,29 @@
     "ahorrar-tiempo"
   ],
   "tipoProducto": "especializada",
-  "subtipoId": "agenda-planificacion"
+  "subtipoId": "agenda-planificacion",
+  "tipoPlanGratuito": "prueba",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.usemotion.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.usemotion.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Pro AI",
+        "mensual": "29 $/usuario/mes",
+        "anual": "19 $/usuario/mes",
+        "cita": "$29 / $19"
+      },
+      {
+        "nombre": "Business AI",
+        "mensual": "49 $/usuario/mes",
+        "anual": "29 $/usuario/mes",
+        "cita": "$49 / $29"
+      }
+    ]
+  }
 }

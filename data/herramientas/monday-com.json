@@ -69,7 +69,7 @@
     "Zapier"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde 9€/usuario/mes (facturación anual, mínimo 3 usuarios)",
+  "precioInicial": "Gratis para hasta 2 personas y 3 tableros. De pago desde $9/usuario/mes (facturación anual)",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -114,7 +114,18 @@
         "numeroResenas": 2800,
         "enlace": "https://www.trustradius.com/products/monday-com/reviews"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.com/p/147657/monday-com/",
+      "cita": "Overall rating. Based on 6,118 user reviews. 4.6. [...] Ease of use 4.5 — leido 4.6/5 con 6118 reseñas. Confirma el 4.6 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.g2.com/products/monday-ai-work-platform/reviews",
+      "cita": "leido 4.7/5 con 17238 reseñas. Confirma el 4.7 guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Interfaz de usuario excepcionalmente intuitiva, colorida y fácil de adoptar",
@@ -136,12 +147,11 @@
     ],
     "tipoNegocioIdeal": "Agencias, startups, pymes y departamentos corporativos que requieren gestión visual y colaborativa de procesos",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 97,
+    "puntuacion": 94,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.7/10.",
       "G2: 4.7/5 (11000 reseñas).",
       "Capterra: 4.6/5 (4700 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -164,7 +174,49 @@
   ],
   "tipoProducto": "suite",
   "categoriasSecundarias": [
+    "asistentes-ia",
+    "atencion-cliente",
+    "automatizacion-integraciones",
     "crm",
-    "plataformas-todo-en-uno"
-  ]
+    "facturacion-contabilidad",
+    "firma-gestion-documental",
+    "marketing-email",
+    "plataformas-todo-en-uno",
+    "recursos-humanos"
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://monday.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://monday.com/lang/es/pricing",
+    "moneda": "EUR",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 €",
+        "cita": "0, gratis, para siempre, hasta 2 usuarios"
+      },
+      {
+        "nombre": "Basic",
+        "mensual": "12 €/usuario/mes",
+        "anual": "9 €/usuario/mes",
+        "cita": "12 / 9"
+      },
+      {
+        "nombre": "Standard",
+        "mensual": "14 €/usuario/mes",
+        "anual": "12 €/usuario/mes",
+        "cita": "14 / 12"
+      },
+      {
+        "nombre": "Pro",
+        "mensual": "24 €/usuario/mes",
+        "anual": "19 €/usuario/mes",
+        "cita": "24 / 19"
+      }
+    ]
+  }
 }

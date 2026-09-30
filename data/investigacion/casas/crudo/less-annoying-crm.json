@@ -1,0 +1,13 @@
+{
+ "id": "less-annoying-crm",
+ "nombre": "Less Annoying CRM",
+ "urls": [
+  "https://www.lessannoyingcrm.com",
+  "https://lessannoyingcrm.com/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Track every relationship, start to close.\"\n    },\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Set tasks and get reminders\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Connect Less Annoying CRM to your favorite tools\"\n    }\n  ],\n  \"esDe\": \"crm\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://lessannoyingcrm.com/",
+  "OK https://lessannoyingcrm.com/pricing"
+ ]
+}

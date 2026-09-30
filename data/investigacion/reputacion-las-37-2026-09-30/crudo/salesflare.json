@@ -1,0 +1,5 @@
+{
+ "id": "salesflare",
+ "nombre": "Salesflare",
+ "texto": "```json\n{\n \"abierta\": true,\n \"capterra\": {\n  \"url\": \"https://www.capterra.com/p/152960/Salesflare/\",\n  \"notaGeneral\": 4.7,\n  \"facilidadDeUso\": 4.6,\n  \"escala\": 5,\n  \"numeroDeResenas\": 136,\n  \"cita\": \"Ease Of Use. 4.6 (136).\"\n },\n \"g2\": {\n  \"url\": \"https://www.g2.com/products/salesflare/reviews\",\n  \"notaGeneral\": 4.8,\n  \"facilidadDeUso\": 9.3,\n  \"escala\": 10,\n  \"numeroDeResenas\": 230,\n  \"cita\": \"Ease of Use. 9.3. 230.\"\n },\n \"dondeMire\": [\n  \"https://www.capterra.com/p/152960/Salesflare/\",\n  \"https://www.capterra.es/software/152960/salesflare\",\n  \"https://www.capterra.ie/\",\n  \"https://www.capterra.co.uk/software/152960/salesflare\",\n  \"https://www.g2.com/products/salesflare/reviews\",\n  \"https://www.g2.com/compare/salesflare-vs-workbooks\"\n ]\n}\n```"
+}

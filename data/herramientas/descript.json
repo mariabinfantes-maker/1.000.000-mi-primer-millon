@@ -3,6 +3,9 @@
   "paginaOficial": "https://www.descript.com",
   "urlPrecios": "https://www.descript.com/pricing",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "Descript es un editor todo en uno de audio y vídeo basado en texto impulsado por inteligencia artificial. Permite editar grabaciones modificando directamente el texto de la transcripción, además de ofrecer funciones avanzadas de grabación de pantalla, clonación de voz y mejora de sonido.",
   "informacionEmpresa": {
     "anioFundacion": 2017,
@@ -93,7 +96,18 @@
     "g2Puntuacion": 4.5,
     "g2NumeroResenas": 500,
     "capterraPuntuacion": 4.7,
-    "capterraNumeroResenas": 370
+    "capterraNumeroResenas": 370,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.co.uk/compare/201202/descript-vs-wondershare-democreator",
+      "cita": "Ratings. Overall. 4.6 (183) Reviews. Ease of Use. 4.4 (183) Reviews. — leido 4.6/5 con 183 reseñas. Confirma el 4.7 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/compare/descript-vs-resemble-ai",
+      "cita": "Ease of Use. Descript. 8.5. 8.5 760. — leido 4.6/5 con 760 reseñas. Confirma el 4.5 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Permite editar proyectos de audio y vídeo con la misma facilidad que editar un texto en Google Docs.",
@@ -115,18 +129,17 @@
     ],
     "tipoNegocioIdeal": "Podcasters, creadores de contenido y agencias de marketing",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 90,
+    "puntuacion": 87,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.2/10.",
       "G2: 4.5/5 (500 reseñas).",
-      "Capterra: 4.7/5 (370 reseñas).",
-      "Tiene plan gratuito."
+      "Capterra: 4.7/5 (370 reseñas)."
     ]
   },
   "id": "descript",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-19",
-  "fechaUltimaRevision": "2026-08-19",
+  "fechaUltimaRevision": "2026-09-17",
   "tipoProducto": "especializada",
   "problemasIds": [
     "ahorrar-tiempo"
@@ -134,5 +147,28 @@
   "subtipoId": "video",
   "subtiposSecundarios": [
     "reuniones-transcripcion"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.descript.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.descript.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 $",
+        "cita": "$0"
+      },
+      {
+        "nombre": "Hobbyist",
+        "mensual": "24 $/persona/mes",
+        "anual": "16 $/persona/mes",
+        "cita": "$24 / $16"
+      }
+    ]
+  }
 }

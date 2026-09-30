@@ -1,0 +1,17 @@
+{
+ "id": "zoho-one__firma-gestion-documental",
+ "herramientaId": "zoho-one",
+ "nombre": "Zoho One",
+ "casa": "firma-gestion-documental",
+ "nombreCasa": "Firma electrónica y gestión documental",
+ "urls": [
+  "https://www.zoho.com/one/",
+  "https://www.zoho.com/one/pricing.html"
+ ],
+ "cita": "create and file away business documents and other content.",
+ "texto": "{\"resultados\":[{\"id\":\"cap.collaborative_document_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.internal_knowledge_workspace\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.file_storage\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.document_templates\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.workspace_wide_search\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.document_version_history\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.electronic_signature\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.zoho.com/one/",
+  "OK https://www.zoho.com/one/pricing/"
+ ]
+}

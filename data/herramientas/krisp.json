@@ -4,6 +4,9 @@
   "urlPrecios": "https://krisp.ai/pricing/",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "Krisp es una herramienta basada en inteligencia artificial que elimina en tiempo real el ruido de fondo, el eco y las voces secundarias durante llamadas y videoconferencias. Además, actúa como un asistente de reuniones que ofrece transcripciones automáticas, notas y resúmenes ejecutivos.",
   "informacionEmpresa": {
     "anioFundacion": 2017,
@@ -66,7 +69,7 @@
     "Cisco Webex"
   ],
   "curvaDeAprendizaje": "muy_facil",
-  "precioInicial": "Desde $8/usuario/mes (facturación anual)",
+  "precioInicial": "Desde $8/usuario/mes (la página también muestra $16 y no dice cuál es mensual y cuál anual)",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -95,7 +98,18 @@
     "g2Puntuacion": 4.8,
     "g2NumeroResenas": 720,
     "capterraPuntuacion": 4.7,
-    "capterraNumeroResenas": 85
+    "capterraNumeroResenas": 85,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/202466/Krisp/",
+      "cita": "Ease Of Use. 4.7 (11). — leido 4.5/5 con 11 reseñas. Confirma el 4.7 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/krisp/reviews",
+      "cita": "Ease of Use ... Krisp. 9.2. 9.2 1,076. — leido 4.7/5 con 1076 reseñas. Confirma el 4.8 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Cancelación de ruido de alta fidelidad que impresiona por su efectividad en tiempo real",
@@ -118,12 +132,11 @@
     ],
     "tipoNegocioIdeal": "Equipos remotos, centros de soporte/ventas y profesionales que pasan varias horas al día en videollamadas",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 96,
+    "puntuacion": 93,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.7/10.",
       "G2: 4.8/5 (720 reseñas).",
       "Capterra: 4.7/5 (85 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública."
     ]
   },
@@ -133,5 +146,29 @@
   "fechaUltimaRevision": "2026-08-21",
   "tipoProducto": "especializada",
   "objetivoPendienteDeInvestigacion": true,
-  "subtipoId": "reuniones-transcripcion"
+  "subtipoId": "reuniones-transcripcion",
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 7,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://krisp.ai/pricing/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://krisp.ai/pricing/",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Core",
+        "mensual": "16 $/usuario/mes",
+        "anual": "8 $/usuario/mes",
+        "cita": "$16 / $8"
+      },
+      {
+        "nombre": "CC Core",
+        "anual": "15 $/agente/mes",
+        "cita": "$15 per agent/mo, billed annually"
+      }
+    ]
+  }
 }

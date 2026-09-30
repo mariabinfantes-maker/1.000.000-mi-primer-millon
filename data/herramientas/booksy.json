@@ -1,0 +1,99 @@
+{
+  "nombre": "Booksy",
+  "paginaOficial": "https://biz.booksy.com/",
+  "urlPrecios": "https://biz.booksy.com/es-es/precios",
+  "categoriaId": "reservas-citas",
+  "descripcion": "Sistema de reservas y gestión para negocios que trabajan con citas, especialmente belleza. Reúne agenda, clientes, pagos, equipo y herramientas de marketing.",
+  "problemasQueResuelve": [
+    "Quiero recibir reservas sin atender cada solicitud por teléfono.",
+    "Necesito gestionar clientes, pagos y agendas de mi equipo.",
+    "Quiero enviar recordatorios y cobrar depósitos."
+  ],
+  "casosDeUso": [
+    "Organizar la agenda de una peluquería, barbería o centro de estética.",
+    "Recibir reservas desde Instagram y Google.",
+    "Solicitar una parte del precio al reservar."
+  ],
+  "idealPara": "Peluquerías, barberías, salones y profesionales de belleza y bienestar.",
+  "segmentosIdeales": [
+    "1-10"
+  ],
+  "industriasIdeales": [
+    "peluquerías",
+    "barberías",
+    "centros de belleza",
+    "centros de bienestar"
+  ],
+  "noRecomendadaPara": "No está pensada para negocios fuera de la peluquería, la barbería y la estética.",
+  "casosNoRecomendados": [
+    "Cada empleado adicional suma 8 € + IVA al mes.",
+    "Cada empleado adicional añade 8 € más IVA al mes.",
+    "Incluye 100 SMS de marketing mensuales; no se deben confundir con los recordatorios de citas."
+  ],
+  "funcionesPrincipales": [
+    "Reservas y agenda.",
+    "Gestión de clientes y equipo.",
+    "Recordatorios automáticos.",
+    "Pagos, depósitos y marketing."
+  ],
+  "integraciones": [
+    "Instagram",
+    "Reservar con Google"
+  ],
+  "integracionesPrincipales": [
+    "Instagram: botón para reservar desde el perfil.",
+    "Google: reservas desde la búsqueda y Google Maps."
+  ],
+  "precioInicial": "Booksy cuesta 34,99€ al mes +IVA, más 8€ al mes +IVA por cada miembro adicional del equipo.",
+  "modeloDePrecio": [
+    "suscripcion_mensual"
+  ],
+  "tienePlanGratuito": false,
+  "preciosComprobados": {
+    "url": "https://biz.booksy.com/es-es/precios",
+    "fecha": "2026-09-29",
+    "cita": "por 8 € + IVA por 1 empleado / mes […] Reservas Ilimitadas […] 100 mensajes de marketing SMS gratis por mes."
+  },
+  "idiomasDisponibles": [
+    "en",
+    "es",
+    "pl",
+    "uk",
+    "pt-BR",
+    "fr",
+    "vi"
+  ],
+  "tieneAppMovil": true,
+  "puntuaciones": {
+    "nivelTecnicoRequerido": null,
+    "facilidadImplementacion": null,
+    "fiabilidad": null,
+    "atencionAlCliente": null,
+    "facilidadDeUso": null,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Tarifas españolas, páginas oficiales y ayuda. El país y el año de fundación proceden del blog del fabricante. La enumeración de idiomas también procede de su blog, en una publicación de diciembre de 2022; la ayuda abierta confirma que se puede cambiar el idioma, pero no vuelve a enumerarlos. No trato esa lista histórica como exhaustiva o actualizada en 2026. No se asignan puntuaciones sin pruebas.",
+  "ventajas": [
+    "La suscripción publica reservas ilimitadas.",
+    "Permite gestionar el negocio desde móvil, tablet y web."
+  ],
+  "inconvenientes": [
+    "Cada empleado adicional añade 8 € más IVA al mes.",
+    "Incluye 100 SMS de marketing mensuales; no se deben confundir con los recordatorios de citas."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": "Polonia",
+    "anioFundacion": 2014,
+    "tamanoAproximado": null
+  },
+  "id": "booksy",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-29",
+  "fechaUltimaRevision": "2026-09-29",
+  "problemasIds": [
+    "conseguir-clientes",
+    "ahorrar-tiempo",
+    "organizar-empresa"
+  ]
+}

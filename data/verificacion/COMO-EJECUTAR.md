@@ -138,3 +138,56 @@ a la verificación:
 Ahí mismo se declara qué direcciones son **documentación oficial**, que —junto a
 la página de tarifas— es lo único que puede situar una capacidad en un plan
 concreto. Una portada no.
+
+---
+
+# Los lotes de usos (tercera ronda)
+
+Un lote de usos no es un lote del plan de F2: pregunta pocas capacidades por
+herramienta —las piezas de un recorrido— y, en la misma llamada, sus usos
+concretos, el recorrido en el mismo plan y el idioma de interfaz y de soporte.
+Después, como siempre, el plan de lo afirmado.
+
+El lote se escribe y se congela ANTES en `data/verificacion/lotes/<id>.json`,
+con el criterio de cada herramienta y sus límites de consumo:
+
+```json
+{
+  "id": "usos-1",
+  "topeDePeticiones": 40,
+  "peticionesPorMinuto": 5,
+  "herramientas": [
+    { "herramientaId": "systeme-io", "criterio": "…", "capacidadIds": ["cap.website_builder", "cap.payment_collection", "cap.training_lms"], "usoIds": ["uso.acceso_al_curso_tras_el_pago"], "recorridoIds": ["rec.pagina_pago_y_acceso_al_curso"], "idioma": true }
+  ]
+}
+```
+
+Se lanza desde el entorno remoto, donde el proxy inyecta la clave:
+
+```
+npx tsx data/verificacion/repescar-remoto.ts usos data/verificacion/lotes/usos-1.json
+```
+
+Antes de hacer ninguna petición, el arnés valida el lote (una herramienta que
+no está en el catálogo, un uso que no cuelga de sus capacidades, un recorrido
+al que le falta una pieza: se para) y enseña cuántas llamadas prevé. Los
+límites se aplican en el código, no en la disciplina de quien lo lanza:
+
+- **Tope de peticiones HTTP**, contando cada reintento (`invocarGemini`
+  reintenta hasta tres veces): al llegar, no se hace ninguna más. Lo
+  contestado queda en `_checkpoint-<id>.json` y la siguiente ejecución sólo
+  pregunta lo que falta.
+- **Peticiones por minuto**, con ventana real de sesenta segundos.
+- **Parada al primer error de cuota** (429, `RESOURCE_EXHAUSTED`), sin
+  reintentar.
+
+Al terminar convierte con las mismas reglas que un lote normal y fusiona sólo
+lo pedido: los pares en `registros.json` (ahora con `usos` dentro de la
+capacidad afirmada), los recorridos en `recorridos.json`, los idiomas en
+`idiomas.json` y lo degradado en `descartes-usos.json`. Nada se escribe si
+algún registro no pasa el validador. Y nada entra en el catálogo sin la
+revisión a mano del cien por cien de las citas.
+
+Un lote cuyas herramientas todavía no están en el catálogo
+(`usos-1-nuevas.json`) se rechaza en la validación: primero el Researcher, la
+decisión de la propietaria y la promoción de la ficha; después el lote.

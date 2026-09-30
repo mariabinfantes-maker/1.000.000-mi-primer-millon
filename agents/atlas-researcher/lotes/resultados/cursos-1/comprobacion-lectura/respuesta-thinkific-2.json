@@ -1,0 +1,47 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "[\n  {\n    \"id\": \"thinkific-web\",\n    \"encontrada\": true,\n    \"citaLocalizada\": \"You don't need to be a developer to build your site and online courses.\",\n    \"anterior\": \"Thinkific was designed to get your business up and running without any advanced technical experience.\",\n    \"posterior\": \"With AI tools like the Course Outline Generator, onboarding prompts, and step-by-step guidance, create and launch your online learning business quickly.\",\n    \"seccion\": \"Is it easy to get started?\",\n    \"textoRelacionado\": null\n  },\n  {\n    \"id\": \"thinkific-cobro\",\n    \"encontrada\": true,\n    \"citaLocalizada\": \"Thinkific offers its own custom payment processor, Thinkific Payments.\",\n    \"anterior\": \"What payment gateways does Thinkific support?\",\n    \"posterior\": \"This allows you to manage payments and subscriptions, and run reports all in one place, without relying on third-party processors.\",\n    \"seccion\": \"What payment gateways does Thinkific support?\",\n    \"textoRelacionado\": null\n  }\n]",
+            "thoughtSignature": "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"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0,
+      "urlContextMetadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.thinkific.com/pricing/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      }
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 808,
+    "candidatesTokenCount": 274,
+    "totalTokenCount": 9576,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 808
+      }
+    ],
+    "toolUsePromptTokenCount": 6955,
+    "toolUsePromptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 6955
+      }
+    ],
+    "thoughtsTokenCount": 1539,
+    "serviceTier": "standard"
+  },
+  "modelVersion": "gemini-3.6-flash",
+  "responseId": "nfiqapufLcqL-8YP8sPR0Qw"
+}

@@ -1,9 +1,12 @@
 {
   "nombre": "Wrike",
   "paginaOficial": "https://www.wrike.com",
-  "urlPrecios": "https://www.wrike.com/pricing/",
+  "urlPrecios": "https://www.wrike.com/price/",
   "logoUrl": "",
   "categoriaId": "gestion-proyectos",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "Wrike es una plataforma de gestión de trabajo colaborativo basada en la nube que permite a los equipos planificar, gestionar y escalar proyectos con flexibilidad. Ofrece vistas personalizables como diagramas de Gantt y tableros Kanban, automatización de flujos de trabajo e informes avanzados en tiempo real.",
   "informacionEmpresa": {
     "anioFundacion": 2006,
@@ -66,7 +69,7 @@
     "Adobe Creative Cloud"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde 9.80$/usuario/mes",
+  "precioInicial": "Gratis. De pago desde $10/usuario/mes (facturación anual)",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -111,7 +114,18 @@
         "numeroResenas": 1100,
         "enlace": "https://www.trustradius.com/products/wrike/reviews"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.com/p/76113/Wrike/",
+      "cita": "Overall rating. Based on 3,040 user reviews. 4.4. [...] Ease of use. 4.2. — leido 4.4/5 con 3040 reseñas. Confirma el 4.3 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.g2.com/products/wrike/reviews",
+      "cita": "leido 4.2/5 con 3732 reseñas. Confirma el 4.2 guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Altamente configurable y adaptable a procesos complejos de negocio",
@@ -133,12 +147,11 @@
     ],
     "tipoNegocioIdeal": "Agencias de marketing, equipos de TI y medianas/grandes empresas",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 90,
+    "puntuacion": 87,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.0/10.",
       "G2: 4.2/5 (3600 reseñas).",
       "Capterra: 4.3/5 (2600 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -150,5 +163,32 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "organizar-empresa"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.wrike.com/price/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.wrike.com/price/",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 $",
+        "cita": "$0"
+      },
+      {
+        "nombre": "Team",
+        "anual": "10 $/usuario/mes",
+        "cita": "$10"
+      },
+      {
+        "nombre": "Business",
+        "anual": "25 $/usuario/mes",
+        "cita": "$25"
+      }
+    ]
+  }
 }

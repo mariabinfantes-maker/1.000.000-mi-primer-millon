@@ -1,0 +1,17 @@
+{
+ "id": "taskade__atencion-cliente",
+ "herramientaId": "taskade",
+ "nombre": "Taskade",
+ "casa": "atencion-cliente",
+ "nombreCasa": "Atención al cliente",
+ "urls": [
+  "https://www.taskade.com",
+  "https://www.taskade.com/pricing"
+ ],
+ "cita": "View and manage all customer conversations in one place",
+ "texto": "{\"resultados\":[{\"id\":\"cap.shared_inbox\",\"estado\":\"si\",\"cita\":\"View and manage all customer conversations in one place\",\"url\":\"https://www.taskade.com\"},{\"id\":\"cap.support_ticketing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.website_live_chat\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.whatsapp_customer_channel\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.public_help_center\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.canned_responses\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.support_chatbot\",\"estado\":\"si\",\"cita\":\"Drop a script tag to add an AI assistant to any site\",\"url\":\"https://www.taskade.com\"},{\"id\":\"cap.customer_satisfaction_surveys\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.taskade.com/",
+  "OK https://www.taskade.com/pricing"
+ ]
+}

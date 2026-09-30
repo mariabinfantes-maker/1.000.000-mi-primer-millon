@@ -1,0 +1,5 @@
+{
+ "id": "less-annoying-crm",
+ "nombre": "Less Annoying CRM",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/106361/Less-Annoying-CRM/reviews/\",\n    \"notaGeneral\": 4.8,\n    \"facilidadDeUso\": 4.9,\n    \"escala\": 5,\n    \"numeroDeResenas\": 659,\n    \"cita\": \"Reviews of Less Annoying CRM. Ease of use. 4.9.\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/less-annoying-crm/reviews\",\n    \"notaGeneral\": 4.9,\n    \"facilidadDeUso\": 9.8,\n    \"escala\": 10,\n    \"numeroDeResenas\": 557,\n    \"cita\": \"Ratings. Meets Requirements. 9.2. 10. 9.4. 555. Ease of Use. 8.7. 9. 9.8. 557.\"\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/106361/Less-Annoying-CRM/reviews/\",\n    \"https://www.g2.com/products/less-annoying-crm/reviews\",\n    \"https://www.capterra.es\",\n    \"https://www.capterra.ie\",\n    \"https://www.capterra.co.uk\",\n    \"https://www.g2.com\"\n  ]\n}\n```"
+}

@@ -1,0 +1,124 @@
+{
+  "nombre": "Schedulista",
+  "paginaOficial": "https://www.schedulista.com/",
+  "urlPrecios": "https://www.schedulista.com/",
+  "categoriaId": "reservas-citas",
+  "descripcion": "Software de reservas online que permite recibir citas desde una página propia o desde un calendario insertado en la web del negocio. Incluye agenda, recordatorios y aplicaciones móviles.",
+  "problemasQueResuelve": [
+    "Quiero que mis clientes reserven sin intercambiar mensajes.",
+    "Necesito enviar recordatorios y organizar mi disponibilidad.",
+    "Quiero insertar la reserva en mi propia web."
+  ],
+  "casosDeUso": [
+    "Recibir citas de una consulta o negocio de servicios.",
+    "Gestionar las agendas de varios profesionales.",
+    "Insertar el calendario de reservas en una web."
+  ],
+  "idealPara": "Profesionales y equipos que trabajan con citas y pueden gestionar el programa en inglés; los clientes pueden reservar en español.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "Peluquería",
+    "Masajes",
+    "Entrenamiento personal",
+    "Consultoría",
+    "Enseñanza y clases"
+  ],
+  "noRecomendadaPara": "Si necesitas gestionar el negocio en español: el panel, el calendario interno, los ajustes, la app y las notificaciones al profesional permanecen en inglés.",
+  "casosNoRecomendados": [
+    "La gestión sigue en inglés aunque las reservas y los avisos al cliente estén en español.",
+    "Los usuarios administrativos también cuentan aunque no tengan un calendario activo.",
+    "La API de webhooks documentada envía información en una sola dirección.",
+    "Se cobra por TRAMOS de usuarios (1 / 2-15 / +15), no por usuario suelto."
+  ],
+  "funcionesPrincipales": [
+    "Reservas online.",
+    "Calendario insertable en una web.",
+    "Notificaciones y recordatorios.",
+    "Aplicaciones para iPhone y Android."
+  ],
+  "integraciones": [
+    "Mailchimp",
+    "Stripe",
+    "Google Calendar",
+    "Zoom"
+  ],
+  "integracionesPrincipales": [
+    "Mailchimp: marketing por correo.",
+    "Stripe: pagos y depósitos.",
+    "Google Calendar: sincronización de calendario.",
+    "Zoom: sesiones online."
+  ],
+  "precioInicial": "19 USD al mes para un usuario. 39 USD al mes para 2–15 usuarios. Enterprise para más de 15: presupuesto personalizado.",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual"
+  ],
+  "tienePlanGratuito": false,
+  "preciosComprobados": {
+    "url": "https://www.schedulista.com/",
+    "fecha": "2026-09-29",
+    "cita": "19 USD per month […] 39 USD per month"
+  },
+  "idiomasDisponibles": [
+    "en",
+    "fi",
+    "fr",
+    "de",
+    "no",
+    "pt",
+    "es"
+  ],
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "nivelTecnicoRequerido": null,
+    "facilidadImplementacion": null,
+    "fiabilidad": null,
+    "atencionAlCliente": null,
+    "facilidadDeUso": null,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Fuentes oficiales de producto y ayuda. Los idiomas corresponden al calendario público y las comunicaciones al cliente; el área de gestión permanece en inglés. TieneApiPublica se refiere a la API JavaScript del widget y a webhooks, no a una API REST general para todas las operaciones. El pago anual se ofrece en determinadas circunstancias y mediante Wix para cuentas individuales; no lo presento como opción universal. Todas las puntuaciones quedan sin valorar.",
+  "ventajas": [
+    "El plan de varios usuarios incluye de 2 a 15 por una cuota conjunta.",
+    "Permite insertar el calendario directamente en la web.",
+    "Publica interfaces de integración para el widget y para enviar información mediante webhooks."
+  ],
+  "inconvenientes": [
+    "La gestión sigue en inglés aunque las reservas y los avisos al cliente estén en español.",
+    "Los usuarios administrativos también cuentan aunque no tengan un calendario activo.",
+    "La API de webhooks documentada envía información en una sola dirección.",
+    "Se cobra por TRAMOS de usuarios (1 / 2-15 / +15), no por usuario suelto."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": "Estados Unidos",
+    "anioFundacion": 2011,
+    "tamanoAproximado": null
+  },
+  "id": "schedulista",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-29",
+  "fechaUltimaRevision": "2026-09-29",
+  "problemasIds": [
+    "ahorrar-tiempo",
+    "organizar-empresa",
+    "conseguir-clientes"
+  ],
+  "idiomaComprobado": {
+    "panel": {
+      "hayEspanol": false,
+      "idiomas": [
+        "en"
+      ],
+      "url": "https://support.schedulista.com/en/articles/365830-changing-the-scheduler-language",
+      "cita": "The rest of the product (the part that you see) does not change and will remain in English.",
+      "fecha": "2026-09-29",
+      "nota": "El artículo, fechado el 4 de agosto de 2026, habla del panel, el calendario, los ajustes, la aplicación móvil y los avisos al profesional. Del calendario público que ven sus clientes el mismo artículo dice que el idioma sí se cambia, pero no quedó guardada la cita que enumere los idiomas: por eso paginaDeCliente se queda sin confirmar en vez de darse por buena."
+    }
+  },
+  "disponibleEnEspanol": false
+}

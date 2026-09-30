@@ -1,0 +1,17 @@
+{
+ "id": "engagebay__gestion-proyectos",
+ "herramientaId": "engagebay",
+ "nombre": "EngageBay",
+ "casa": "gestion-proyectos",
+ "nombreCasa": "Gestión de proyectos",
+ "urls": [
+  "https://www.engagebay.com/",
+  "https://www.engagebay.com/pricing/all-in-one"
+ ],
+ "cita": "Task Management",
+ "texto": "{\"resultados\":[{\"id\":\"cap.team_messaging\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.video_meetings\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.task_management\",\"estado\":\"si\",\"cita\":\"Task Management\",\"url\":\"https://www.engagebay.com/\"},{\"id\":\"cap.project_planning\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.gantt_and_dependencies\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.kanban_boards\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.time_tracking\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.team_workload_planning\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.personal_calendar_planning\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.automatic_rescheduling\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.case_file_management\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.engagebay.com/",
+  "OK https://www.engagebay.com/pricing/all-in-one"
+ ]
+}

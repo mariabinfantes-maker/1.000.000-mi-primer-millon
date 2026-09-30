@@ -4,6 +4,9 @@
   "urlPrecios": "https://otter.ai/pricing",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "Otter.ai es un asistente de reuniones con inteligencia artificial que graba, transcribe en tiempo real y genera resúmenes automáticos de videollamadas. Permite extraer puntos de acción, capturar diapositivas y chatear con la IA para obtener respuestas sobre el contenido de la reunión.",
   "informacionEmpresa": {
     "anioFundacion": 2016,
@@ -67,7 +70,7 @@
     "Google Calendar"
   ],
   "curvaDeAprendizaje": "muy_facil",
-  "precioInicial": "Gratis. Planes de pago desde 10 $ / usuario / mes (facturación anual)",
+  "precioInicial": "Gratis (300 minutos de transcripción al mes). De pago desde $8,33/usuario/mes (facturación anual) o $16,99 al mes",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -96,7 +99,18 @@
     "g2Puntuacion": 4.3,
     "g2NumeroResenas": 1600,
     "capterraPuntuacion": 4.5,
-    "capterraNumeroResenas": 800
+    "capterraNumeroResenas": 800,
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.com/p/186596/Otter-ai/",
+      "cita": "Ease of Use 4.6 — leido 4.4/5 con 103 reseñas. Confirma el 4.5 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.g2.com/products/otter-ai/reviews",
+      "cita": "leido 4.4/5 con 504 reseñas. Confirma el 4.3 guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Plan gratuito muy funcional para probar el producto con 300 minutos mensuales",
@@ -118,12 +132,11 @@
     ],
     "tipoNegocioIdeal": "Equipos comerciales, agencias, startups y consultoras con alta densidad de reuniones remotas",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 92,
+    "puntuacion": 89,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.2/10.",
       "G2: 4.3/5 (1600 reseñas).",
       "Capterra: 4.5/5 (800 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -136,5 +149,22 @@
     "ahorrar-tiempo"
   ],
   "tipoProducto": "especializada",
-  "subtipoId": "reuniones-transcripcion"
+  "subtipoId": "reuniones-transcripcion",
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://otter.ai/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://otter.ai/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Basic",
+        "mensual": "0 $",
+        "cita": "Free forever"
+      }
+    ]
+  }
 }

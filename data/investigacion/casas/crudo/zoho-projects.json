@@ -1,0 +1,13 @@
+{
+ "id": "zoho-projects",
+ "nombre": "Zoho Projects",
+ "urls": [
+  "https://www.zoho.com/projects/",
+  "https://www.zoho.com/projects/zohoprojects-pricing.html"
+ ],
+ "texto": "{\"servicios\":[{\"id\":\"gestion-proyectos\",\"cita\":\"Zoho Projects: The Leading Project Management Software\"},{\"id\":\"asistentes-ia\",\"cita\":\"AI that works hand-in-hand with your team\"},{\"id\":\"automatizacion-integraciones\",\"cita\":\"Zoho Projects gives you the added advantage of several other Zoho apps and third party apps through seamless integrations.\"},{\"id\":\"firma-gestion-documental\",\"cita\":\"Document Management: Store, manage, and share documents securely.\"}],\"esDe\":\"gestion-proyectos\",\"sector\":null}",
+ "leidas": [
+  "OK https://www.zoho.com/projects/",
+  "OK https://www.zoho.com/projects/zohoprojects-pricing.html"
+ ]
+}

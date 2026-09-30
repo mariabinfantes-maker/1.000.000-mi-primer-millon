@@ -1,0 +1,17 @@
+{
+ "id": "keap__comercio-electronico",
+ "herramientaId": "keap",
+ "nombre": "Keap",
+ "casa": "comercio-electronico",
+ "nombreCasa": "Comercio electrónico",
+ "urls": [
+  "https://keap.com",
+  "https://keap.com/pricing"
+ ],
+ "cita": "Checkout forms Sell online with customizable checkout forms that trigger automations and sync to your CRM",
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.online_store\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.point_of_sale\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.offer_catalog\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.order_management\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.returns_management\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.shipping_and_tracking\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.external_channel_sync\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.prepaid_session_packages\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.menu_management\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://keap.com/",
+  "OK https://keap.com/pricing"
+ ]
+}

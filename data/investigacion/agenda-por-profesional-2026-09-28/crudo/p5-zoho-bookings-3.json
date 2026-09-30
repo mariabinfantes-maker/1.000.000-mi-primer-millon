@@ -1,0 +1,7 @@
+{
+ "id": "zoho-bookings",
+ "nombre": "Zoho Bookings",
+ "url": "https://help.zoho.com/portal/en/kb/articles/staff-assigned-services",
+ "recuperada": false,
+ "texto": "```json\n{\n \"abierta\": false,\n \"agendaPorProfesional\": {\"estado\": \"no_consta\", \"cita\": null},\n \"eligeElCliente\": {\"estado\": \"no_consta\", \"cita\": null},\n \"enEspanol\": {\"estado\": \"no_consta\", \"cita\": null}\n}\n```"
+}

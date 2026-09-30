@@ -1,0 +1,5 @@
+{
+ "id": "bookitit",
+ "nombre": "Bookitit",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/162816/bookitit/\",\n    \"notaGeneral\": 0.0,\n    \"facilidadDeUso\": 0.0,\n    \"escala\": 5,\n    \"numeroDeResenas\": 0,\n    \"cita\": \"Overall rating Based on 0 user reviews 0.0 / Ease Of Use 0.0 (0)\"\n  },\n  \"g2\": {\n    \"url\": null,\n    \"notaGeneral\": null,\n    \"facilidadDeUso\": null,\n    \"escala\": null,\n    \"numeroDeResenas\": null,\n    \"cita\": null\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/162816/bookitit/\",\n    \"https://www.capterra.es (sin ficha dedicada localizada)\",\n    \"https://www.capterra.ie (solo figura como alternativa)\",\n    \"https://www.capterra.co.uk (listado en comparativas con 0 reviews)\",\n    \"https://www.g2.com/products/bookitit/reviews (no abre ficha individual con desglose de facilidad de uso)\",\n    \"https://www.g2.com/products/bookitit/competitors/alternatives (figura listado con 0 ratings)\"\n  ]\n}\n```"
+}

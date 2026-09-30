@@ -1,0 +1,5 @@
+{
+ "id": "salesmate",
+ "nombre": "Salesmate",
+ "texto": "```json\n{\n \"abierta\": true,\n \"capterra\": {\n   \"url\": \"https://www.capterra.com/p/158525/Salesmate/\",\n   \"notaGeneral\": 4.7,\n   \"facilidadDeUso\": 4.7,\n   \"escala\": 5,\n   \"numeroDeResenas\": 102,\n   \"cita\": \"Overall rating. Based on 102 user reviews. 4.7. [...] Rating Breakdown. 4.7. Features4.6. Value for Money4.8. Ease of Use4.7. Customer Service4.9.\"\n },\n \"g2\": {\n   \"url\": \"https://www.g2.com/products/salesmate/reviews\",\n   \"notaGeneral\": 4.7,\n   \"facilidadDeUso\": null,\n   \"escala\": 5,\n   \"numeroDeResenas\": 119,\n   \"cita\": \"Salesmate. (119)4.7/5\"\n },\n \"dondeMire\": [\n   \"https://www.capterra.com/p/158525/Salesmate/\",\n   \"https://www.capterra.com/p/158525/Salesmate/reviews/\",\n   \"https://www.capterra.es\",\n   \"https://www.capterra.ie\",\n   \"https://www.capterra.co.uk\",\n   \"https://www.g2.com/products/salesmate/reviews\"\n ]\n}\n```"
+}

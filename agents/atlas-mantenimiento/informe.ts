@@ -4,8 +4,11 @@ import { escaparHtml } from "@/agents/compartido/html";
 import {
   detectarCuentasActivasDesactualizadas,
   detectarHerramientasDesactualizadas,
+  detectarPreciosCaducados,
+  detectarPreciosSinComprobar,
   DIAS_CUENTA_ACTIVA_DESACTUALIZADA_POR_DEFECTO,
   DIAS_HERRAMIENTA_DESACTUALIZADA_POR_DEFECTO,
+  DIAS_PRECIO_CADUCADO_POR_DEFECTO,
 } from "./frescura";
 import { priorizarAvisosFrescura, type AvisoFrescuraPriorizado } from "./priorizacion";
 
@@ -18,6 +21,10 @@ import { priorizarAvisosFrescura, type AvisoFrescuraPriorizado } from "./prioriz
  */
 
 export type DatosInformeMantenimiento = {
+  /** Las que nadie ha comprobado nunca contra la página del fabricante. No es que estén viejas: es que no se han mirado. */
+  preciosSinComprobar: AvisoFrescuraPriorizado[];
+  /** Las que sí se comprobaron, hace más del umbral. */
+  preciosCaducados: AvisoFrescuraPriorizado[];
   herramientasDesactualizadas: AvisoFrescuraPriorizado[];
   cuentasDesactualizadas: AvisoFrescuraPriorizado[];
 };
@@ -28,6 +35,8 @@ export function construirDatosInforme(
   hoy: string
 ): DatosInformeMantenimiento {
   return {
+    preciosSinComprobar: priorizarAvisosFrescura(detectarPreciosSinComprobar(herramientas), herramientas),
+    preciosCaducados: priorizarAvisosFrescura(detectarPreciosCaducados(herramientas, hoy), herramientas),
     herramientasDesactualizadas: priorizarAvisosFrescura(detectarHerramientasDesactualizadas(herramientas, hoy), herramientas),
     cuentasDesactualizadas: priorizarAvisosFrescura(detectarCuentasActivasDesactualizadas(estrategias, hoy), herramientas),
   };
@@ -69,6 +78,21 @@ export function generarInformeMantenimientoHtml(datos: DatosInformeMantenimiento
   const fecha = new Date().toISOString().slice(0, 10);
 
   const cuerpo =
+    // Primero lo que nunca se ha mirado: es la cola de verdad. Durante meses
+    // este informe dijo «nada que revisar» sobre un catálogo con la mitad de
+    // los precios mal, porque sólo miraba cuándo se había tocado la ficha.
+    seccionAvisos(
+      "Precios que nadie ha comprobado nunca",
+      "Herramientas activas sin una sola lectura de su página oficial de precios — ordenadas por Puntuación Atlas: " +
+        "conviene empezar por las que más se recomiendan. Que la ficha sea reciente no dice nada de si su precio es cierto.",
+      datos.preciosSinComprobar
+    ) +
+    seccionAvisos(
+      "Precios comprobados hace tiempo",
+      `Herramientas cuyo precio se leyó en su página oficial hace más de ${DIAS_PRECIO_CADUCADO_POR_DEFECTO} días. ` +
+        "Un precio cambia mucho más a menudo que lo que una herramienta sabe hacer, y es lo primero que se lee.",
+      datos.preciosCaducados
+    ) +
     seccionAvisos(
       "Fichas de herramientas desactualizadas",
       `Herramientas activas sin revisar en más de ${DIAS_HERRAMIENTA_DESACTUALIZADA_POR_DEFECTO} días — ordenadas por ` +

@@ -1,0 +1,13 @@
+{
+ "id": "agile-crm",
+ "nombre": "Agile CRM",
+ "urls": [
+  "https://www.agilecrm.com",
+  "https://www.agilecrm.com/pricing"
+ ],
+ "texto": "```json\n{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Close more deals with single-page contact management\"\n    },\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Manage your projects effectively with drag-and-drop task lists and more\"\n    },\n    {\n      \"id\": \"reservas-citas\",\n      \"cita\": \"Share your calendar online and automate scheduling, invites, and follow ups\"\n    },\n    {\n      \"id\": \"atencion-cliente\",\n      \"cita\": \"Powerful ticketing feature to resolve customer queries quickly\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Agile integrates with your favorite Google Apps for complete sales enablement.\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Get complete email marketing features with newsletters, analytics, and more\"\n    },\n    {\n      \"id\": \"recursos-humanos\",\n      \"cita\": \"Applicant Tracking System\"\n    },\n    {\n      \"id\": \"creacion-web-hosting\",\n      \"cita\": \"Website Builder\"\n    },\n    {\n      \"id\": \"firma-gestion-documental\",\n      \"cita\": \"Document Signing Software\"\n    }\n  ],\n  \"esDe\": \"crm\",\n  \"sector\": null\n}\n```",
+ "leidas": [
+  "OK https://www.agilecrm.com/",
+  "OK https://www.agilecrm.com/pricing"
+ ]
+}

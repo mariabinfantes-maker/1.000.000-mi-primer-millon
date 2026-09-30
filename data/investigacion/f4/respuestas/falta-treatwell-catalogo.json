@@ -1,0 +1,23 @@
+{
+ "pedida": "https://www.treatwell.es/partners/funcionalidades/connect-salon-software/",
+ "leidas": [
+  "https://www.treatwell.es/partners/"
+ ],
+ "urls": [
+  [
+   "https://www.treatwell.es/partners/",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "si",
+  "espana": "si",
+  "cita_espana": "España United Kingdom Ireland Deutschland België",
+  "campos": {
+   "catalogo_de_servicios": {
+    "v": "no_consta",
+    "cita": ""
+   }
+  }
+ }
+}

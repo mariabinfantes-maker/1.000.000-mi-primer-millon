@@ -1,0 +1,17 @@
+{
+ "id": "odoo__creacion-web-hosting",
+ "herramientaId": "odoo",
+ "nombre": "Odoo",
+ "casa": "creacion-web-hosting",
+ "nombreCasa": "Creación web y hosting",
+ "urls": [
+  "https://www.odoo.com/",
+  "https://www.odoo.com/pricing"
+ ],
+ "cita": "hosting on Odoo Online is free",
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.website_builder\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.hosting_and_domain\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.reviews_and_reputation\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.local_business_listings\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://www.odoo.com/",
+  "OK https://www.odoo.com/pricing"
+ ]
+}

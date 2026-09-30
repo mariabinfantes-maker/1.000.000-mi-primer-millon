@@ -1,0 +1,17 @@
+{
+ "id": "zoho-one__gestion-proyectos",
+ "herramientaId": "zoho-one",
+ "nombre": "Zoho One",
+ "casa": "gestion-proyectos",
+ "nombreCasa": "Gestión de proyectos",
+ "urls": [
+  "https://www.zoho.com/one/",
+  "https://www.zoho.com/one/pricing.html"
+ ],
+ "cita": "Access project management tools like task lists, dashboards, and workflow rules.",
+ "texto": "{\"resultados\":[{\"id\":\"cap.team_messaging\",\"estado\":\"si\",\"cita\":\"Communicate instantly and seamlessly using one-to-one and group chats\",\"url\":\"https://www.zoho.com/one/\"},{\"id\":\"cap.video_meetings\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.task_management\",\"estado\":\"si\",\"cita\":\"Access project management tools like task lists, dashboards, and workflow rules.\",\"url\":\"https://www.zoho.com/one/\"},{\"id\":\"cap.project_planning\",\"estado\":\"si\",\"cita\":\"Access project management tools like task lists, dashboards, and workflow rules.\",\"url\":\"https://www.zoho.com/one/\"},{\"id\":\"cap.gantt_and_dependencies\",\"estado\":\"si\",\"cita\":\"Use Gantt charts, timesheets, and Kanban reports to track activity\",\"url\":\"https://www.zoho.com/one/\"},{\"id\":\"cap.kanban_boards\",\"estado\":\"si\",\"cita\":\"Use Gantt charts, timesheets, and Kanban reports to track activity\",\"url\":\"https://www.zoho.com/one/\"},{\"id\":\"cap.time_tracking\",\"estado\":\"si\",\"cita\":\"Use Gantt charts, timesheets, and Kanban reports to track activity\",\"url\":\"https://www.zoho.com/one/\"},{\"id\":\"cap.team_workload_planning\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.personal_calendar_planning\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.automatic_rescheduling\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.case_file_management\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.zoho.com/one/",
+  "OK https://www.zoho.com/one/pricing/"
+ ]
+}

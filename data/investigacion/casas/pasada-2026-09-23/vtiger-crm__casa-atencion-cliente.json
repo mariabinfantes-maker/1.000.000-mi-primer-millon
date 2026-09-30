@@ -1,0 +1,15 @@
+{
+ "id": "vtiger-crm__casa-atencion-cliente",
+ "nombre": "Vtiger CRM",
+ "url": "https://www.vtiger.com/",
+ "preguntas": [
+  {
+   "q": "casa:atencion-cliente",
+   "por": "lo declara su página y F2 no lo ha comprobado"
+  }
+ ],
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.shared_inbox\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.support_ticketing\",\n      \"estado\": \"si\",\n      \"cita\": \"A help desk handles customer support tickets and queries.\",\n      \"url\": \"https://www.vtiger.com/\"\n    },\n    {\n      \"id\": \"cap.website_live_chat\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.whatsapp_customer_channel\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.public_help_center\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.canned_responses\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.support_chatbot\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.customer_satisfaction_surveys\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://www.vtiger.com/"
+ ]
+}

@@ -1,9 +1,13 @@
 {
   "nombre": "Less Annoying CRM",
   "paginaOficial": "https://www.lessannoyingcrm.com",
-  "urlPrecios": "https://www.lessannoyingcrm.com/pricing",
+  "urlPrecios": "https://lessannoyingcrm.com/pricing",
   "logoUrl": "",
   "categoriaId": "crm",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "gestion-proyectos"
+  ],
   "descripcion": "Less Annoying CRM es un software de gestión de relaciones con clientes diseñado específicamente para pequeñas empresas y autónomos. Ofrece seguimiento de contactos, oportunidades de venta y tareas en un entorno intuitivo y sin la complejidad de los CRM empresariales tradicionales. Su propuesta se centra en la máxima sencillez de uso, soporte humano cercano y una tarifa plana por usuario.",
   "informacionEmpresa": {
     "anioFundacion": 2009,
@@ -68,7 +72,7 @@
     "suscripcion_mensual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Único a $15/usuario/mes (incluye todas las funciones y soporte completo)",
   "idiomasDisponibles": [
     "Inglés"
@@ -90,7 +94,18 @@
     "g2Puntuacion": 4.9,
     "g2NumeroResenas": 580,
     "capterraPuntuacion": 4.8,
-    "capterraNumeroResenas": 530
+    "capterraNumeroResenas": 530,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/106361/Less-Annoying-CRM/reviews/",
+      "cita": "Reviews of Less Annoying CRM. Ease of use. 4.9. — leido 4.8/5 con 659 reseñas. Confirma el 4.8 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/less-annoying-crm/reviews",
+      "cita": "Ratings. Meets Requirements. 9.2. 10. 9.4. 555. Ease of Use. 8.7. 9. 9.8. 557. — leido 4.9/5 con 557 reseñas. Confirma el 4.9 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Interfaz extraordinariamente limpia, intuitiva y fácil de configurar en minutos",
@@ -128,5 +143,11 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "conseguir-clientes"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 30,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://lessannoyingcrm.com/pricing"
+  }
 }

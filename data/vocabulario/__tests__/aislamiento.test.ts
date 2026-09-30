@@ -33,11 +33,27 @@ describe("el aislamiento del vocabulario", () => {
    * validar que esa capacidad exista obliga a leer el vocabulario; sin eso, F2
    * podría escribir registros contra identificadores inventados.
    *
-   * La intención de la guarda no cambia: lo que no puede leerlo es lo que ve la
-   * gente. El motor, la interfaz y las fichas siguen fuera, y que lo lean sigue
-   * siendo F3, con simulación previa de todas las rutas actuales.
+   * `agents/atlas-advisor/asesor` se añadió el 2026-09-24, y es F3. La
+   * propietaria autorizó ese día «conectar comprensión, búsqueda y consejo»
+   * en una versión de prueba, y las dos condiciones que este paso exigía
+   * están cumplidas y comprobadas:
+   *
+   *  - Las dos obligatorias de `CONDICIONES-PARA-F3.md` (A y B) están
+   *    resueltas y verificadas el 2026-09-22.
+   *  - La simulación previa de todas las rutas actuales —
+   *    `npx tsx data/verificacion/simulacion-f3.ts`— sale limpia: **0 de 840
+   *    ejecuciones cambian el trío**.
+   *
+   * Se autoriza la CARPETA DEL ASESOR, no `agents/` entero ni el motor: la
+   * intención de la guarda no cambia. Lo que no puede leer el vocabulario es
+   * lo que ve la gente, y el motor de puntuación, la interfaz y las fichas
+   * siguen fuera.
    */
-  const AUTORIZADOS = [path.join("data", "vocabulario"), path.join("data", "verificacion")];
+  const AUTORIZADOS = [
+    path.join("data", "vocabulario"),
+    path.join("data", "verificacion"),
+    path.join("agents", "atlas-advisor", "asesor"),
+  ];
 
   function archivosDeCodigo(dir: string, acumulado: string[] = []): string[] {
     for (const entrada of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -58,7 +74,11 @@ describe("el aislamiento del vocabulario", () => {
   it("la lista de autorizados es exactamente ésta", () => {
     // Fijada a propósito: ampliarla tiene que ser una decisión, no un descuido.
     // Cada nombre de aquí es alguien que puede leer el vocabulario.
-    expect(AUTORIZADOS).toEqual([path.join("data", "vocabulario"), path.join("data", "verificacion")]);
+    expect(AUTORIZADOS).toEqual([
+      path.join("data", "vocabulario"),
+      path.join("data", "verificacion"),
+      path.join("agents", "atlas-advisor", "asesor"),
+    ]);
   });
 
   it("hay código que revisar", () => {

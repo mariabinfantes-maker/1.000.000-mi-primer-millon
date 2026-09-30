@@ -1,0 +1,23 @@
+{
+ "id": "zoho-crm",
+ "nombre": "Zoho CRM",
+ "url": "https://www.zoho.com/crm/",
+ "preguntas": [
+  {
+   "q": "firma",
+   "por": "su página ya declara firma o gestión documental"
+  },
+  {
+   "q": "casa:inventario-operaciones",
+   "por": "pista: su ficha o su página lo mencionan y la casa está vacía"
+  },
+  {
+   "q": "casa:atencion-cliente",
+   "por": "lo declara su página y F2 no lo ha comprobado"
+  }
+ ],
+ "texto": "{\"resultados\":[{\"id\":\"cap.electronic_signature\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.work_orders\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.technician_dispatch\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.field_job_capture\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.route_planning\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.serviced_asset_registry\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.service_contracts_and_sla\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.inventory_tracking\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.stock_reorder_alerts\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.barcode_scanning\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.purchase_orders\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.warehouse_and_locations\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.lot_and_expiry_traceability\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.bill_of_materials\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.production_orders\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.material_requirements_planning\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.inspections_and_checklists\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.own_asset_maintenance\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.fleet_telematics\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.shared_inbox\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.support_ticketing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.website_live_chat\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.whatsapp_customer_channel\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.public_help_center\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.canned_responses\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.support_chatbot\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.customer_satisfaction_surveys\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.zoho.com/en-us/crm/"
+ ]
+}

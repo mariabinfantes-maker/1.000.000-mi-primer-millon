@@ -36,8 +36,24 @@ export type EtiquetaEvidencia =
       anotado?: string;
       /** Dónde y cuándo se comprobó. */
       fuente?: { url: string; fecha: string };
+      /**
+       * El uso concreto que la fila pide, cuando ESTA herramienta lo ha
+       * demostrado (2026-09-16, tercera ronda). Sólo viaja demostrado: si no
+       * consta, la tarjeta enseña el aviso fijo de la fila, que ya dice que
+       * no se ha comprobado. La etiqueta va dentro porque la pantalla no
+       * puede leer la lista de usos.
+       */
+      uso?: { id: string; etiqueta: string; anotado?: string; fuente?: { url: string; fecha: string } };
     }
   | { tipo: "pendiente"; motivo: "tercero_desconocido" };
+
+/** Lo que hace falta saber de un uso para etiquetarlo. Es la forma de `EvidenciaDeUso` más la etiqueta, sin importarlas. */
+export type EstadoDeUnUso = {
+  estado: "demostrada" | "ausencia_demostrada" | "no_consta";
+  etiqueta?: string;
+  nota?: string;
+  fuente?: { url: string; fechaConsulta: string };
+};
 
 /** Lo mínimo que hace falta saber de un par para etiquetarlo. Es la forma de `EvidenciaDeCapacidad`, sin importarla. */
 export type EstadoDeUnPar = {
@@ -62,7 +78,8 @@ const LARGO_MAXIMO_NOTA = 160;
 export function etiquetaDeEvidencia(
   herramientaId: string,
   fila: FilaDeNecesidad,
-  estadoDe: (herramientaId: string, capacidadId: string) => EstadoDeUnPar
+  estadoDe: (herramientaId: string, capacidadId: string) => EstadoDeUnPar,
+  usoDe?: (herramientaId: string, usoId: string) => EstadoDeUnUso
 ): EtiquetaEvidencia | undefined {
   for (const capacidadId of fila.capacidades) {
     const par = estadoDe(herramientaId, capacidadId);
@@ -73,15 +90,34 @@ export function etiquetaDeEvidencia(
 
     const plan = par.plan?.certeza === "verificado" ? par.plan.nombre?.trim() : undefined;
     const anotado = par.nota?.trim();
+    const uso = fila.uso && usoDe ? usoDemostrado(fila.uso.id, usoDe(herramientaId, fila.uso.id)) : undefined;
     return {
       tipo: "confirmada",
       ...(plan ? { plan } : {}),
       ...(integraCon ? { integraCon } : {}),
       ...(anotado ? { anotado: recortar(anotado) } : {}),
       ...(par.fuente ? { fuente: { url: par.fuente.url, fecha: par.fuente.fechaConsulta } } : {}),
+      ...(uso ? { uso } : {}),
     };
   }
   return undefined;
+}
+
+/** Sólo un uso demostrado se etiqueta; y sin etiqueta en palabras no se enseña nada, para no filtrar el id. */
+function usoDemostrado(
+  usoId: string,
+  estado: EstadoDeUnUso
+): NonNullable<Extract<EtiquetaEvidencia, { tipo: "confirmada" }>["uso"]> | undefined {
+  if (estado.estado !== "demostrada") return undefined;
+  const etiqueta = estado.etiqueta?.trim();
+  if (!etiqueta) return undefined;
+  const anotado = estado.nota?.trim();
+  return {
+    id: usoId,
+    etiqueta,
+    ...(anotado ? { anotado: recortar(anotado) } : {}),
+    ...(estado.fuente ? { fuente: { url: estado.fuente.url, fecha: estado.fuente.fechaConsulta } } : {}),
+  };
 }
 
 /** Las notas de F2 son de una o dos frases; si alguna es más larga, se corta en un límite de palabra para que quepa en el enlace. */

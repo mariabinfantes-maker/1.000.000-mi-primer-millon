@@ -1,0 +1,104 @@
+{
+  "nombre": "Fresha",
+  "paginaOficial": "https://www.fresha.com/",
+  "urlPrecios": "https://www.fresha.com/for-business/pricing",
+  "categoriaId": "reservas-citas",
+  "descripcion": "Plataforma para negocios de belleza y bienestar que combina reservas, gestión de clientes, ventas, personal y pagos.",
+  "problemasQueResuelve": [
+    "Quiero gestionar las reservas y los clientes de mi salón.",
+    "Necesito controlar ventas y actividad de varias ubicaciones.",
+    "Quiero analizar los datos del negocio con herramientas externas."
+  ],
+  "casosDeUso": [
+    "Administrar las agendas de un salón o spa.",
+    "Gestionar clientes, ventas y ubicaciones.",
+    "Enviar datos a herramientas de análisis mediante el complemento Data connector."
+  ],
+  "idealPara": "Salones de peluquería, barberías y negocios de belleza y bienestar.",
+  "industriasIdeales": [
+    "peluquerías",
+    "barberías",
+    "centros de belleza",
+    "centros de bienestar"
+  ],
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "noRecomendadaPara": "No está pensada para negocios fuera de la peluquería, la belleza y el bienestar.",
+  "casosNoRecomendados": [
+    "Team se cobra por cada miembro con reservas habilitadas, no una cuota plana.",
+    "Al cancelar la suscripción se pierde el acceso al espacio de trabajo.",
+    "Data connector es un complemento de pago y la sincronización es de salida: no recibe datos de vuelta.",
+    "El país y la moneda de una cuenta no se pueden cambiar; la ayuda indica que hay que crear otra cuenta.",
+    "La tarifa contempla una comisión por nuevos clientes captados a través del marketplace.",
+    "Suscripción mensual por miembro del equipo reservable, más comisiones: 20% una sola vez (mínimo 6 $) en la primera visita de clientes captados por su directorio, 2,79% + 0,20 $ por pago online y 2,29% + 0,20 $ por pago presencial."
+  ],
+  "funcionesPrincipales": [
+    "Agenda y reservas.",
+    "Gestión de clientes y personal.",
+    "Ventas y cobros.",
+    "Gestión de ubicaciones e informes."
+  ],
+  "integraciones": [
+    "Power BI",
+    "Tableau",
+    "DOMO",
+    "Salesforce"
+  ],
+  "integracionesPrincipales": [
+    "Power BI y Tableau: análisis de datos mediante Data connector.",
+    "DOMO y Salesforce: conexiones de datos documentadas mediante Data connector."
+  ],
+  "precioInicial": "Independent: 19,95 $ al mes. Team: 14,95 $ al mes por cada miembro del equipo con reservas. Enterprise, a medida a partir de veinte miembros.",
+  "modeloDePrecio": [
+    "suscripcion_mensual"
+  ],
+  "tienePlanGratuito": false,
+  "preciosComprobados": {
+    "url": "https://www.fresha.com/for-business/pricing",
+    "fecha": "2026-09-30",
+    "cita": "Independent: $19.95 per month | Team: $14.95 per team member monthly | Fresha marketplace - New clients: 20% one-time commission Minimum fee of $6 per client applies | Online payments: 2.79% + $0.20 per transaction | In-person payments: 2.29% + $0.20 per transaction"
+  },
+  "idiomasDisponibles": [
+    "en"
+  ],
+  "tieneAppMovil": true,
+  "puntuaciones": {
+    "nivelTecnicoRequerido": null,
+    "facilidadImplementacion": null,
+    "fiabilidad": null,
+    "atencionAlCliente": null,
+    "facilidadDeUso": null,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Fuentes oficiales de producto, tarifas y ayuda. Las integraciones citadas corresponden al complemento analítico Data connector, no a una API general ni a sincronización bidireccional. La cifra publicada es más de 40 plataformas, no un total exacto de todas las integraciones. La tarifa consultada se mostró en NZD; no la convierto ni la presento como tarifa española. El año procede del blog corporativo. No se asignan puntuaciones sin pruebas.",
+  "ventajas": [
+    "La comparación publica miembros ilimitados en Team.",
+    "Dispone de aplicaciones para profesionales en iOS y Android.",
+    "Permite conectar datos con más de 40 plataformas mediante un complemento."
+  ],
+  "inconvenientes": [
+    "Data connector es un complemento de pago y la sincronización es de salida: no recibe datos de vuelta.",
+    "El país y la moneda de una cuenta no se pueden cambiar; la ayuda indica que hay que crear otra cuenta.",
+    "La tarifa contempla una comisión por nuevos clientes captados a través del marketplace.",
+    "Suscripción mensual por miembro del equipo reservable, más comisiones: 20% una sola vez (mínimo 6 $) en la primera visita de clientes captados por su directorio, 2,79% + 0,20 $ por pago online y 2,29% + 0,20 $ por pago presencial."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": null,
+    "anioFundacion": 2015,
+    "tamanoAproximado": null
+  },
+  "id": "fresha",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-30",
+  "fechaUltimaRevision": "2026-09-30",
+  "problemasIds": [
+    "conseguir-clientes",
+    "organizar-empresa",
+    "ahorrar-tiempo"
+  ]
+}

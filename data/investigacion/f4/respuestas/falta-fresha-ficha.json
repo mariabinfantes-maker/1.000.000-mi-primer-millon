@@ -1,0 +1,27 @@
+{
+ "pedida": "https://www.fresha.com/for-business/salon",
+ "leidas": [
+  "https://www.fresha.com/for-business/salon"
+ ],
+ "urls": [
+  [
+   "https://www.fresha.com/for-business/salon",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "no_consta",
+  "espana": "no_consta",
+  "cita_espana": "",
+  "campos": {
+   "ficha_de_cliente": {
+    "v": "si",
+    "cita": "Simplify appointment scheduling, staff management, and client records for cutting, styling, and coloring services"
+   },
+   "precio": {
+    "v": "si",
+    "cita": "Fresha charges for each bookable team member, so as your business expands our flexible pricing model will grow with you."
+   }
+  }
+ }
+}

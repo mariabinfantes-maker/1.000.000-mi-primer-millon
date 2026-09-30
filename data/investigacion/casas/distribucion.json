@@ -1,0 +1,2025 @@
+{
+ "puerta.vender": {
+  "titulo": "Vender más",
+  "sinNadie": [
+   "Que me encuentren cuando me buscan",
+   "Publicar en redes y saber qué funciona",
+   "Poner publicidad y no tirar el dinero",
+   "Que no se me pase un contrato ni una renovación",
+   "Cobrar en el mostrador o en la mesa",
+   "Que los clientes vuelvan"
+  ],
+  "herramientas": [
+   {
+    "nombre": "Bitrix24",
+    "necesidades": [
+     "Tener un sitio donde enseñar lo que hago",
+     "Que no se me pierda ninguna pregunta",
+     "Hacer seguimiento y no olvidarme de nadie",
+     "Escribir a mi gente y hacer campañas",
+     "Vender por internet"
+    ],
+    "cuantas": 5,
+    "entrada": 1,
+    "espanol": false,
+    "curva": "media"
+   },
+   {
+    "nombre": "Nutshell",
+    "necesidades": [
+     "Que no se me pierda ninguna pregunta",
+     "Hacer seguimiento y no olvidarme de nadie",
+     "Escribir a mi gente y hacer campañas",
+     "Dar un presupuesto rápido y que se firme",
+     "Que puedan reservar sin llamarme"
+    ],
+    "cuantas": 5,
+    "entrada": 13,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Insightly",
+    "necesidades": [
+     "Que no se me pierda ninguna pregunta",
+     "Hacer seguimiento y no olvidarme de nadie",
+     "Escribir a mi gente y hacer campañas",
+     "Dar un presupuesto rápido y que se firme"
+    ],
+    "cuantas": 4,
+    "entrada": 29,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Keap",
+    "necesidades": [
+     "Que no se me pierda ninguna pregunta",
+     "Hacer seguimiento y no olvidarme de nadie",
+     "Escribir a mi gente y hacer campañas",
+     "Que puedan reservar sin llamarme"
+    ],
+    "cuantas": 4,
+    "entrada": 299,
+    "espanol": false,
+    "curva": "media"
+   },
+   {
+    "nombre": "Agiled",
+    "necesidades": [
+     "Que no se me pierda ninguna pregunta",
+     "Hacer seguimiento y no olvidarme de nadie",
+     "Que puedan reservar sin llamarme"
+    ],
+    "cuantas": 3,
+    "entrada": 24,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "ClickFunnels",
+    "necesidades": [
+     "Que no se me pierda ninguna pregunta",
+     "Escribir a mi gente y hacer campañas",
+     "Vender por internet"
+    ],
+    "cuantas": 3,
+    "entrada": 81,
+    "espanol": false,
+    "curva": "media"
+   },
+   {
+    "nombre": "Copper",
+    "necesidades": [
+     "Que no se me pierda ninguna pregunta",
+     "Hacer seguimiento y no olvidarme de nadie",
+     "Dar un presupuesto rápido y que se firme"
+    ],
+    "cuantas": 3,
+    "entrada": 23,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "EngageBay",
+    "necesidades": [
+     "Que no se me pierda ninguna pregunta",
+     "Hacer seguimiento y no olvidarme de nadie",
+     "Que puedan reservar sin llamarme"
+    ],
+    "cuantas": 3,
+    "entrada": 250,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "HoneyBook",
+    "necesidades": [
+     "Que no se me pierda ninguna pregunta",
+     "Hacer seguimiento y no olvidarme de nadie",
+     "Que puedan reservar sin llamarme"
+    ],
+    "cuantas": 3,
+    "entrada": 29,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "HubSpot",
+    "necesidades": [
+     "Tener un sitio donde enseñar lo que hago",
+     "Que no se me pierda ninguna pregunta",
+     "Hacer seguimiento y no olvidarme de nadie"
+    ],
+    "cuantas": 3,
+    "entrada": 2,
+    "espanol": false,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Nimble",
+    "necesidades": [
+     "Que no se me pierda ninguna pregunta",
+     "Hacer seguimiento y no olvidarme de nadie",
+     "Escribir a mi gente y hacer campañas"
+    ],
+    "cuantas": 3,
+    "entrada": 24.9,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Pipedrive",
+    "necesidades": [
+     "Que no se me pierda ninguna pregunta",
+     "Hacer seguimiento y no olvidarme de nadie",
+     "Que puedan reservar sin llamarme"
+    ],
+    "cuantas": 3,
+    "entrada": 14,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Vtiger CRM",
+    "necesidades": [
+     "Que no se me pierda ninguna pregunta",
+     "Hacer seguimiento y no olvidarme de nadie",
+     "Dar un presupuesto rápido y que se firme"
+    ],
+    "cuantas": 3,
+    "entrada": 10,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "ActiveCampaign",
+    "necesidades": [
+     "Hacer seguimiento y no olvidarme de nadie",
+     "Escribir a mi gente y hacer campañas"
+    ],
+    "cuantas": 2,
+    "entrada": 15,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Agile CRM",
+    "necesidades": [
+     "Que no se me pierda ninguna pregunta",
+     "Hacer seguimiento y no olvidarme de nadie"
+    ],
+    "cuantas": 2,
+    "entrada": 8.99,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Capsule CRM",
+    "necesidades": [
+     "Que no se me pierda ninguna pregunta",
+     "Hacer seguimiento y no olvidarme de nadie"
+    ],
+    "cuantas": 2,
+    "entrada": 14,
+    "espanol": true,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Close",
+    "necesidades": [
+     "Que no se me pierda ninguna pregunta",
+     "Hacer seguimiento y no olvidarme de nadie"
+    ],
+    "cuantas": 2,
+    "entrada": 9,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Kartra",
+    "necesidades": [
+     "Que no se me pierda ninguna pregunta",
+     "Escribir a mi gente y hacer campañas"
+    ],
+    "cuantas": 2,
+    "entrada": 52,
+    "espanol": false,
+    "curva": "media"
+   },
+   {
+    "nombre": "Salesflare",
+    "necesidades": [
+     "Hacer seguimiento y no olvidarme de nadie",
+     "Escribir a mi gente y hacer campañas"
+    ],
+    "cuantas": 2,
+    "entrada": 39,
+    "espanol": true,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Salesmate",
+    "necesidades": [
+     "Hacer seguimiento y no olvidarme de nadie",
+     "Dar un presupuesto rápido y que se firme"
+    ],
+    "cuantas": 2,
+    "entrada": 23,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Zoho CRM",
+    "necesidades": [
+     "Que no se me pierda ninguna pregunta",
+     "Hacer seguimiento y no olvidarme de nadie"
+    ],
+    "cuantas": 2,
+    "entrada": 14,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Freshsales",
+    "necesidades": [
+     "Que no se me pierda ninguna pregunta"
+    ],
+    "cuantas": 1,
+    "entrada": 9,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "GoHighLevel",
+    "necesidades": [
+     "Tener un sitio donde enseñar lo que hago"
+    ],
+    "cuantas": 1,
+    "entrada": 97,
+    "espanol": false,
+    "curva": "dificil"
+   },
+   {
+    "nombre": "Less Annoying CRM",
+    "necesidades": [
+     "Hacer seguimiento y no olvidarme de nadie"
+    ],
+    "cuantas": 1,
+    "entrada": 15,
+    "espanol": false,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Motion",
+    "necesidades": [
+     "Que puedan reservar sin llamarme"
+    ],
+    "cuantas": 1,
+    "entrada": 19,
+    "espanol": false,
+    "curva": "media"
+   },
+   {
+    "nombre": "noCRM.io",
+    "necesidades": [
+     "Dar un presupuesto rápido y que se firme"
+    ],
+    "cuantas": 1,
+    "entrada": 13,
+    "espanol": true,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Odoo",
+    "necesidades": [
+     "Vender por internet"
+    ],
+    "cuantas": 1,
+    "entrada": 1,
+    "espanol": false,
+    "curva": "dificil"
+   },
+   {
+    "nombre": "Reclaim.ai",
+    "necesidades": [
+     "Que puedan reservar sin llamarme"
+    ],
+    "cuantas": 1,
+    "entrada": 1,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Streak",
+    "necesidades": [
+     "Hacer seguimiento y no olvidarme de nadie"
+    ],
+    "cuantas": 1,
+    "entrada": 50,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Systeme.io",
+    "necesidades": [
+     "Tener un sitio donde enseñar lo que hago"
+    ],
+    "cuantas": 1,
+    "entrada": 2,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Thinkific",
+    "necesidades": [
+     "Tener un sitio donde enseñar lo que hago"
+    ],
+    "cuantas": 1,
+    "entrada": 40,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Zoho One",
+    "necesidades": [
+     "Tener un sitio donde enseñar lo que hago"
+    ],
+    "cuantas": 1,
+    "entrada": 37,
+    "espanol": false,
+    "curva": "media"
+   }
+  ]
+ },
+ "puerta.dinero": {
+  "titulo": "Controlar el dinero",
+  "sinNadie": [
+   "Cumplir con la factura electrónica obligatoria",
+   "Cobrar una cuota cada mes sin acordarme",
+   "Facturar por lo avanzado, por hitos o por horas",
+   "Facturar a aseguradoras y mutuas",
+   "Liquidar a propietarios o colaboradores",
+   "Saber en qué se me va el dinero",
+   "Llevar la contabilidad",
+   "Los impuestos, sin sustos",
+   "Ver si llego a fin de mes antes de que llegue",
+   "Recibir donaciones y dar el certificado",
+   "Pagar las nóminas"
+  ],
+  "herramientas": [
+   {
+    "nombre": "Agiled",
+    "necesidades": [
+     "Emitir una factura en condiciones",
+     "Que me paguen, y a tiempo",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 3,
+    "entrada": 24,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Bitrix24",
+    "necesidades": [
+     "Emitir una factura en condiciones",
+     "Que me paguen, y a tiempo",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 3,
+    "entrada": 1,
+    "espanol": false,
+    "curva": "media"
+   },
+   {
+    "nombre": "Paymo",
+    "necesidades": [
+     "Emitir una factura en condiciones",
+     "Saber si gano dinero en cada trabajo",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 3,
+    "entrada": 1,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Productive",
+    "necesidades": [
+     "Emitir una factura en condiciones",
+     "Saber si gano dinero en cada trabajo",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 3,
+    "entrada": 10,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Scoro",
+    "necesidades": [
+     "Emitir una factura en condiciones",
+     "Saber si gano dinero en cada trabajo",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 3,
+    "entrada": 15,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Teamwork.com",
+    "necesidades": [
+     "Emitir una factura en condiciones",
+     "Saber si gano dinero en cada trabajo",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 3,
+    "entrada": 5,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "HoneyBook",
+    "necesidades": [
+     "Emitir una factura en condiciones",
+     "Que me paguen, y a tiempo"
+    ],
+    "cuantas": 2,
+    "entrada": 29,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Keap",
+    "necesidades": [
+     "Emitir una factura en condiciones",
+     "Que me paguen, y a tiempo"
+    ],
+    "cuantas": 2,
+    "entrada": 299,
+    "espanol": false,
+    "curva": "media"
+   },
+   {
+    "nombre": "monday.com",
+    "necesidades": [
+     "Emitir una factura en condiciones",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 2,
+    "entrada": 2,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Zoho Projects",
+    "necesidades": [
+     "Emitir una factura en condiciones",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 2,
+    "entrada": 4,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Asana",
+    "necesidades": [
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 1,
+    "entrada": 10.99,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "ClickFunnels",
+    "necesidades": [
+     "Que me paguen, y a tiempo"
+    ],
+    "cuantas": 1,
+    "entrada": 81,
+    "espanol": false,
+    "curva": "media"
+   },
+   {
+    "nombre": "ClickUp",
+    "necesidades": [
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 1,
+    "entrada": 7,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "GanttPRO",
+    "necesidades": [
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 1,
+    "entrada": 7,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Hive",
+    "necesidades": [
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 1,
+    "entrada": 10,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Hotmart",
+    "necesidades": [
+     "Que me paguen, y a tiempo"
+    ],
+    "cuantas": 1,
+    "entrada": 9.9,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "HubSpot",
+    "necesidades": [
+     "Que me paguen, y a tiempo"
+    ],
+    "cuantas": 1,
+    "entrada": 2,
+    "espanol": false,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Motion",
+    "necesidades": [
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 1,
+    "entrada": 19,
+    "espanol": false,
+    "curva": "media"
+   },
+   {
+    "nombre": "Nifty",
+    "necesidades": [
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 1,
+    "entrada": 2,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "noCRM.io",
+    "necesidades": [
+     "Emitir una factura en condiciones"
+    ],
+    "cuantas": 1,
+    "entrada": 13,
+    "espanol": true,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Nutshell",
+    "necesidades": [
+     "Emitir una factura en condiciones"
+    ],
+    "cuantas": 1,
+    "entrada": 13,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Reclaim.ai",
+    "necesidades": [
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 1,
+    "entrada": 1,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Systeme.io",
+    "necesidades": [
+     "Que me paguen, y a tiempo"
+    ],
+    "cuantas": 1,
+    "entrada": 2,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "TeamGantt",
+    "necesidades": [
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 1,
+    "entrada": 1,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Thinkific",
+    "necesidades": [
+     "Que me paguen, y a tiempo"
+    ],
+    "cuantas": 1,
+    "entrada": 40,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Wrike",
+    "necesidades": [
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 1,
+    "entrada": 10,
+    "espanol": true,
+    "curva": "media"
+   }
+  ]
+ },
+ "puerta.orden": {
+  "titulo": "Que no se me pierda nada",
+  "sinNadie": [
+   "Que no se me pase un contrato ni una renovación",
+   "Tener junto todo lo de cada cliente o caso",
+   "Tener la agenda bajo control",
+   "Controlar el trabajo que se hace fuera",
+   "Firmar sin imprimir ni escanear",
+   "Organizar turnos, fichajes y vacaciones",
+   "Pagar las nóminas",
+   "Contratar y que entren bien",
+   "Saber qué tengo y qué me falta",
+   "Ordenar las compras a proveedores",
+   "Controlar lo que fabrico",
+   "Cuidar mis máquinas y mis vehículos",
+   "Llevar la historia clínica de mis pacientes",
+   "Dar clases y seguir a mis alumnos"
+  ],
+  "herramientas": [
+   {
+    "nombre": "Agiled",
+    "necesidades": [
+     "Que puedan reservar sin llamarme",
+     "Tener claro qué hay que hacer hoy",
+     "Llevar un trabajo largo sin perder el hilo",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 4,
+    "entrada": 24,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Asana",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy",
+     "Llevar un trabajo largo sin perder el hilo",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 3,
+    "entrada": 10.99,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Bitrix24",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy",
+     "Llevar un trabajo largo sin perder el hilo",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 3,
+    "entrada": 1,
+    "espanol": false,
+    "curva": "media"
+   },
+   {
+    "nombre": "ClickUp",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy",
+     "Llevar un trabajo largo sin perder el hilo",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 3,
+    "entrada": 7,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "GanttPRO",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy",
+     "Llevar un trabajo largo sin perder el hilo",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 3,
+    "entrada": 7,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Hive",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy",
+     "Llevar un trabajo largo sin perder el hilo",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 3,
+    "entrada": 10,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Motion",
+    "necesidades": [
+     "Que puedan reservar sin llamarme",
+     "Tener claro qué hay que hacer hoy",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 3,
+    "entrada": 19,
+    "espanol": false,
+    "curva": "media"
+   },
+   {
+    "nombre": "Nifty",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy",
+     "Llevar un trabajo largo sin perder el hilo",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 3,
+    "entrada": 2,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Paymo",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy",
+     "Llevar un trabajo largo sin perder el hilo",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 3,
+    "entrada": 1,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Reclaim.ai",
+    "necesidades": [
+     "Que puedan reservar sin llamarme",
+     "Tener claro qué hay que hacer hoy",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 3,
+    "entrada": 1,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Scoro",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy",
+     "Llevar un trabajo largo sin perder el hilo",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 3,
+    "entrada": 15,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "TeamGantt",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy",
+     "Llevar un trabajo largo sin perder el hilo",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 3,
+    "entrada": 1,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Teamwork.com",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy",
+     "Llevar un trabajo largo sin perder el hilo",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 3,
+    "entrada": 5,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "ClickUp Brain",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy",
+     "Encontrar los papeles cuando hacen falta"
+    ],
+    "cuantas": 2,
+    "entrada": 9,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "HoneyBook",
+    "necesidades": [
+     "Que puedan reservar sin llamarme",
+     "Tener claro qué hay que hacer hoy"
+    ],
+    "cuantas": 2,
+    "entrada": 29,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Productive",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 2,
+    "entrada": 10,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Smartsheet",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy",
+     "Llevar un trabajo largo sin perder el hilo"
+    ],
+    "cuantas": 2,
+    "entrada": 9,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Wrike",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 2,
+    "entrada": 10,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Zenkit",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy",
+     "Hablar con el equipo sin liarla"
+    ],
+    "cuantas": 2,
+    "entrada": 8,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Zoho Projects",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy",
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 2,
+    "entrada": 4,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Close",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy"
+    ],
+    "cuantas": 1,
+    "entrada": 9,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Copper",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy"
+    ],
+    "cuantas": 1,
+    "entrada": 23,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "EngageBay",
+    "necesidades": [
+     "Que puedan reservar sin llamarme"
+    ],
+    "cuantas": 1,
+    "entrada": 250,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Insightly",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy"
+    ],
+    "cuantas": 1,
+    "entrada": 29,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Keap",
+    "necesidades": [
+     "Que puedan reservar sin llamarme"
+    ],
+    "cuantas": 1,
+    "entrada": 299,
+    "espanol": false,
+    "curva": "media"
+   },
+   {
+    "nombre": "Less Annoying CRM",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy"
+    ],
+    "cuantas": 1,
+    "entrada": 15,
+    "espanol": false,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "monday.com",
+    "necesidades": [
+     "Saber cuánto tiempo echo en cada cosa"
+    ],
+    "cuantas": 1,
+    "entrada": 2,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Nimble",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy"
+    ],
+    "cuantas": 1,
+    "entrada": 24.9,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "noCRM.io",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy"
+    ],
+    "cuantas": 1,
+    "entrada": 13,
+    "espanol": true,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Nutshell",
+    "necesidades": [
+     "Que puedan reservar sin llamarme"
+    ],
+    "cuantas": 1,
+    "entrada": 13,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Pipedrive",
+    "necesidades": [
+     "Que puedan reservar sin llamarme"
+    ],
+    "cuantas": 1,
+    "entrada": 14,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Streak",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy"
+    ],
+    "cuantas": 1,
+    "entrada": 50,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Taskade",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy"
+    ],
+    "cuantas": 1,
+    "entrada": 2,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Todoist",
+    "necesidades": [
+     "Tener claro qué hay que hacer hoy"
+    ],
+    "cuantas": 1,
+    "entrada": 5,
+    "espanol": true,
+    "curva": "muy_facil"
+   }
+  ]
+ },
+ "puerta.cuidar": {
+  "titulo": "Cuidar al cliente que ya tengo",
+  "sinNadie": [
+   "Que los clientes vuelvan",
+   "Que no se me quede una incidencia sin resolver",
+   "Que las preguntas de siempre se respondan solas",
+   "Saber si mis clientes están contentos"
+  ],
+  "herramientas": [
+   {
+    "nombre": "Agiled",
+    "necesidades": [
+     "Que el cliente pueda ver lo suyo sin preguntarme"
+    ],
+    "cuantas": 1,
+    "entrada": 24,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Capsule CRM",
+    "necesidades": [
+     "Responder por donde me escriban sin perder a nadie"
+    ],
+    "cuantas": 1,
+    "entrada": 14,
+    "espanol": true,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "noCRM.io",
+    "necesidades": [
+     "Responder por donde me escriban sin perder a nadie"
+    ],
+    "cuantas": 1,
+    "entrada": 13,
+    "espanol": true,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Nutshell",
+    "necesidades": [
+     "Responder por donde me escriban sin perder a nadie"
+    ],
+    "cuantas": 1,
+    "entrada": 13,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Odoo",
+    "necesidades": [
+     "Que el cliente pueda ver lo suyo sin preguntarme"
+    ],
+    "cuantas": 1,
+    "entrada": 1,
+    "espanol": false,
+    "curva": "dificil"
+   }
+  ]
+ },
+ "puerta.contenido": {
+  "titulo": "Crear y publicar contenido",
+  "sinNadie": [
+   "Publicar en redes y saber qué funciona"
+  ],
+  "herramientas": [
+   {
+    "nombre": "Descript",
+    "necesidades": [
+     "Escribir textos que no me den vergüenza",
+     "Hacer vídeos y clips",
+     "Grabar audio que se oiga bien"
+    ],
+    "cuantas": 3,
+    "entrada": 12,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Gamma",
+    "necesidades": [
+     "Escribir textos que no me den vergüenza",
+     "Hacer imágenes y que todo pegue con mi marca",
+     "Preparar una presentación decente"
+    ],
+    "cuantas": 3,
+    "entrada": null,
+    "espanol": true,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Canva",
+    "necesidades": [
+     "Hacer imágenes y que todo pegue con mi marca",
+     "Preparar una presentación decente"
+    ],
+    "cuantas": 2,
+    "entrada": 144,
+    "espanol": true,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Fireflies.ai",
+    "necesidades": [
+     "Escribir textos que no me den vergüenza",
+     "No tomar notas en las reuniones"
+    ],
+    "cuantas": 2,
+    "entrada": 10,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Otter.ai",
+    "necesidades": [
+     "Escribir textos que no me den vergüenza",
+     "No tomar notas en las reuniones"
+    ],
+    "cuantas": 2,
+    "entrada": 300,
+    "espanol": false,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "ActiveCampaign",
+    "necesidades": [
+     "Escribir textos que no me den vergüenza"
+    ],
+    "cuantas": 1,
+    "entrada": 15,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Beautiful.ai",
+    "necesidades": [
+     "Preparar una presentación decente"
+    ],
+    "cuantas": 1,
+    "entrada": 14.5,
+    "espanol": false,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Bitrix24",
+    "necesidades": [
+     "Escribir textos que no me den vergüenza"
+    ],
+    "cuantas": 1,
+    "entrada": 1,
+    "espanol": false,
+    "curva": "media"
+   },
+   {
+    "nombre": "Copy.ai",
+    "necesidades": [
+     "Escribir textos que no me den vergüenza"
+    ],
+    "cuantas": 1,
+    "entrada": 24,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Freshsales",
+    "necesidades": [
+     "Escribir textos que no me den vergüenza"
+    ],
+    "cuantas": 1,
+    "entrada": 9,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Grammarly",
+    "necesidades": [
+     "Escribir textos que no me den vergüenza"
+    ],
+    "cuantas": 1,
+    "entrada": null,
+    "espanol": false,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "HoneyBook",
+    "necesidades": [
+     "Escribir textos que no me den vergüenza"
+    ],
+    "cuantas": 1,
+    "entrada": 29,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "HubSpot",
+    "necesidades": [
+     "Escribir textos que no me den vergüenza"
+    ],
+    "cuantas": 1,
+    "entrada": 2,
+    "espanol": false,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Jasper",
+    "necesidades": [
+     "Escribir textos que no me den vergüenza"
+    ],
+    "cuantas": 1,
+    "entrada": 59,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Keap",
+    "necesidades": [
+     "Escribir textos que no me den vergüenza"
+    ],
+    "cuantas": 1,
+    "entrada": 299,
+    "espanol": false,
+    "curva": "media"
+   },
+   {
+    "nombre": "Krisp",
+    "necesidades": [
+     "No tomar notas en las reuniones"
+    ],
+    "cuantas": 1,
+    "entrada": 8,
+    "espanol": false,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Motion",
+    "necesidades": [
+     "Escribir textos que no me den vergüenza"
+    ],
+    "cuantas": 1,
+    "entrada": 19,
+    "espanol": false,
+    "curva": "media"
+   },
+   {
+    "nombre": "Notion AI",
+    "necesidades": [
+     "Escribir textos que no me den vergüenza"
+    ],
+    "cuantas": 1,
+    "entrada": 8,
+    "espanol": true,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Synthesia",
+    "necesidades": [
+     "Escribir textos que no me den vergüenza"
+    ],
+    "cuantas": 1,
+    "entrada": 1.2,
+    "espanol": true,
+    "curva": "facil"
+   }
+  ]
+ },
+ "puerta.tiempo": {
+  "titulo": "Ganar tiempo",
+  "sinNadie": [
+   "Cumplir con la protección de datos"
+  ],
+  "herramientas": [
+   {
+    "nombre": "ClickUp",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio",
+     "Poder llevarme mis datos si me voy",
+     "Que nadie me entre y no perder nada"
+    ],
+    "cuantas": 5,
+    "entrada": 7,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "ClickUp Brain",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio",
+     "Poder llevarme mis datos si me voy",
+     "Que nadie me entre y no perder nada"
+    ],
+    "cuantas": 5,
+    "entrada": 9,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Close",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio",
+     "Poder llevarme mis datos si me voy",
+     "Que nadie me entre y no perder nada"
+    ],
+    "cuantas": 5,
+    "entrada": 9,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Notion AI",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio",
+     "Poder llevarme mis datos si me voy",
+     "Que nadie me entre y no perder nada"
+    ],
+    "cuantas": 5,
+    "entrada": 8,
+    "espanol": true,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Productive",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio",
+     "Poder llevarme mis datos si me voy",
+     "Que nadie me entre y no perder nada"
+    ],
+    "cuantas": 5,
+    "entrada": 10,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Scoro",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio",
+     "Poder llevarme mis datos si me voy",
+     "Que nadie me entre y no perder nada"
+    ],
+    "cuantas": 5,
+    "entrada": 15,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Asana",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio",
+     "Poder llevarme mis datos si me voy"
+    ],
+    "cuantas": 4,
+    "entrada": 10.99,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Krisp",
+    "necesidades": [
+     "No tomar notas en las reuniones",
+     "Que las herramientas que uso hablen entre sí",
+     "Ver de un vistazo cómo va el negocio",
+     "Que nadie me entre y no perder nada"
+    ],
+    "cuantas": 4,
+    "entrada": 8,
+    "espanol": false,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Nifty",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio",
+     "Que nadie me entre y no perder nada"
+    ],
+    "cuantas": 4,
+    "entrada": 2,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Otter.ai",
+    "necesidades": [
+     "No tomar notas en las reuniones",
+     "Que las herramientas que uso hablen entre sí",
+     "Poder llevarme mis datos si me voy",
+     "Que nadie me entre y no perder nada"
+    ],
+    "cuantas": 4,
+    "entrada": 300,
+    "espanol": false,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Streak",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio",
+     "Poder llevarme mis datos si me voy"
+    ],
+    "cuantas": 4,
+    "entrada": 50,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Taskade",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio",
+     "Poder llevarme mis datos si me voy"
+    ],
+    "cuantas": 4,
+    "entrada": 2,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Teamwork.com",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio",
+     "Que nadie me entre y no perder nada"
+    ],
+    "cuantas": 4,
+    "entrada": 5,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Zenkit",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Ver de un vistazo cómo va el negocio",
+     "Poder llevarme mis datos si me voy",
+     "Que nadie me entre y no perder nada"
+    ],
+    "cuantas": 4,
+    "entrada": 8,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Zoho Projects",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio",
+     "Que nadie me entre y no perder nada"
+    ],
+    "cuantas": 4,
+    "entrada": 4,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Agiled",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Poder llevarme mis datos si me voy"
+    ],
+    "cuantas": 3,
+    "entrada": 24,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Bitrix24",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio"
+    ],
+    "cuantas": 3,
+    "entrada": 1,
+    "espanol": false,
+    "curva": "media"
+   },
+   {
+    "nombre": "Capsule CRM",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio"
+    ],
+    "cuantas": 3,
+    "entrada": 14,
+    "espanol": true,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Copper",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Poder llevarme mis datos si me voy"
+    ],
+    "cuantas": 3,
+    "entrada": 23,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Fireflies.ai",
+    "necesidades": [
+     "No tomar notas en las reuniones",
+     "Que las herramientas que uso hablen entre sí",
+     "Poder llevarme mis datos si me voy"
+    ],
+    "cuantas": 3,
+    "entrada": 10,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "GanttPRO",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Ver de un vistazo cómo va el negocio",
+     "Que nadie me entre y no perder nada"
+    ],
+    "cuantas": 3,
+    "entrada": 7,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Hive",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio"
+    ],
+    "cuantas": 3,
+    "entrada": 10,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Insightly",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio"
+    ],
+    "cuantas": 3,
+    "entrada": 29,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Keap",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio"
+    ],
+    "cuantas": 3,
+    "entrada": 299,
+    "espanol": false,
+    "curva": "media"
+   },
+   {
+    "nombre": "Less Annoying CRM",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Poder llevarme mis datos si me voy"
+    ],
+    "cuantas": 3,
+    "entrada": 15,
+    "espanol": false,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "monday.com",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio"
+    ],
+    "cuantas": 3,
+    "entrada": 2,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Nimble",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio"
+    ],
+    "cuantas": 3,
+    "entrada": 24.9,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Pipedrive",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio"
+    ],
+    "cuantas": 3,
+    "entrada": 14,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Smartsheet",
+    "necesidades": [
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio",
+     "Poder llevarme mis datos si me voy"
+    ],
+    "cuantas": 3,
+    "entrada": 9,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Vtiger CRM",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Ver de un vistazo cómo va el negocio",
+     "Poder llevarme mis datos si me voy"
+    ],
+    "cuantas": 3,
+    "entrada": 10,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Wrike",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Ver de un vistazo cómo va el negocio"
+    ],
+    "cuantas": 3,
+    "entrada": 10,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Zoho CRM",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo",
+     "Poder llevarme mis datos si me voy"
+    ],
+    "cuantas": 3,
+    "entrada": 14,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Beautiful.ai",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Poder llevarme mis datos si me voy"
+    ],
+    "cuantas": 2,
+    "entrada": 14.5,
+    "espanol": false,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Canva",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Poder llevarme mis datos si me voy"
+    ],
+    "cuantas": 2,
+    "entrada": 144,
+    "espanol": true,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "GoHighLevel",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Ver de un vistazo cómo va el negocio"
+    ],
+    "cuantas": 2,
+    "entrada": 97,
+    "espanol": false,
+    "curva": "dificil"
+   },
+   {
+    "nombre": "HeyGen",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que nadie me entre y no perder nada"
+    ],
+    "cuantas": 2,
+    "entrada": 3,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "HoneyBook",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo"
+    ],
+    "cuantas": 2,
+    "entrada": 29,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Motion",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Ver de un vistazo cómo va el negocio"
+    ],
+    "cuantas": 2,
+    "entrada": 19,
+    "espanol": false,
+    "curva": "media"
+   },
+   {
+    "nombre": "noCRM.io",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Que lo repetitivo se haga solo"
+    ],
+    "cuantas": 2,
+    "entrada": 13,
+    "espanol": true,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Odoo",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Poder llevarme mis datos si me voy"
+    ],
+    "cuantas": 2,
+    "entrada": 1,
+    "espanol": false,
+    "curva": "dificil"
+   },
+   {
+    "nombre": "Salesflare",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Ver de un vistazo cómo va el negocio"
+    ],
+    "cuantas": 2,
+    "entrada": 39,
+    "espanol": true,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Salesmate",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Ver de un vistazo cómo va el negocio"
+    ],
+    "cuantas": 2,
+    "entrada": 23,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "TeamGantt",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Poder llevarme mis datos si me voy"
+    ],
+    "cuantas": 2,
+    "entrada": 1,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Zoho One",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí",
+     "Ver de un vistazo cómo va el negocio"
+    ],
+    "cuantas": 2,
+    "entrada": 37,
+    "espanol": false,
+    "curva": "media"
+   },
+   {
+    "nombre": "ActiveCampaign",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí"
+    ],
+    "cuantas": 1,
+    "entrada": 15,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "Agile CRM",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí"
+    ],
+    "cuantas": 1,
+    "entrada": 8.99,
+    "espanol": true,
+    "curva": "media"
+   },
+   {
+    "nombre": "ClickFunnels",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí"
+    ],
+    "cuantas": 1,
+    "entrada": 81,
+    "espanol": false,
+    "curva": "media"
+   },
+   {
+    "nombre": "Descript",
+    "necesidades": [
+     "Poder llevarme mis datos si me voy"
+    ],
+    "cuantas": 1,
+    "entrada": 12,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "EngageBay",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí"
+    ],
+    "cuantas": 1,
+    "entrada": 250,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Gamma",
+    "necesidades": [
+     "Poder llevarme mis datos si me voy"
+    ],
+    "cuantas": 1,
+    "entrada": null,
+    "espanol": true,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Grammarly",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí"
+    ],
+    "cuantas": 1,
+    "entrada": null,
+    "espanol": false,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "HubSpot",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí"
+    ],
+    "cuantas": 1,
+    "entrada": 2,
+    "espanol": false,
+    "curva": "muy_facil"
+   },
+   {
+    "nombre": "Jasper",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí"
+    ],
+    "cuantas": 1,
+    "entrada": 59,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Nutshell",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí"
+    ],
+    "cuantas": 1,
+    "entrada": 13,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Paymo",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí"
+    ],
+    "cuantas": 1,
+    "entrada": 1,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Reclaim.ai",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí"
+    ],
+    "cuantas": 1,
+    "entrada": 1,
+    "espanol": false,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Synthesia",
+    "necesidades": [
+     "Poder llevarme mis datos si me voy"
+    ],
+    "cuantas": 1,
+    "entrada": 1.2,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Systeme.io",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí"
+    ],
+    "cuantas": 1,
+    "entrada": 2,
+    "espanol": true,
+    "curva": "facil"
+   },
+   {
+    "nombre": "Todoist",
+    "necesidades": [
+     "Que las herramientas que uso hablen entre sí"
+    ],
+    "cuantas": 1,
+    "entrada": 5,
+    "espanol": true,
+    "curva": "muy_facil"
+   }
+  ]
+ }
+}

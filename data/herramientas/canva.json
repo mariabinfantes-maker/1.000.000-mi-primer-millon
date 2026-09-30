@@ -1,9 +1,13 @@
 {
   "nombre": "Canva",
   "paginaOficial": "https://www.canva.com",
-  "urlPrecios": "https://www.canva.com/pricing",
+  "urlPrecios": "https://www.canva.com/pricing/",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "firma-gestion-documental"
+  ],
   "subtipoId": "presentaciones",
   "tipoProducto": "especializada",
   "problemasIds": [
@@ -69,7 +73,7 @@
     "API Connect"
   ],
   "curvaDeAprendizaje": "muy_facil",
-  "precioInicial": "Gratis, con un número limitado de generaciones de IA al mes. El plan Pro se sitúa entre 15$ y 18$/mes según la fuente y la región consultada.",
+  "precioInicial": "Gratis. Plan Pro desde US$144 al año para una persona",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
@@ -125,12 +129,11 @@
     ],
     "tipoNegocioIdeal": "Pymes y autónomos que producen material visual con frecuencia y trabajan en español",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 98,
+    "puntuacion": 95,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.8/10.",
       "G2: 4.7/5 (6833 reseñas).",
       "Capterra: 4.7/5 (12977 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -138,5 +141,22 @@
   "id": "canva",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-09-02",
-  "fechaUltimaRevision": "2026-09-02"
+  "fechaUltimaRevision": "2026-09-17",
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.canva.com/pricing/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.canva.com/pricing/",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 $",
+        "cita": "US$0"
+      }
+    ]
+  }
 }

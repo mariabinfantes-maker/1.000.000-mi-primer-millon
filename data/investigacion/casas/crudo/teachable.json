@@ -1,0 +1,13 @@
+{
+ "id": "teachable",
+ "nombre": "Teachable",
+ "urls": [
+  "https://teachable.com",
+  "https://www.teachable.com/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Built-in AI creation and translation tools\"\n    },\n    {\n      \"id\": \"facturacion-contabilidad\",\n      \"cita\": \"Teachable automatically collects and remits sales tax, VAT, and GST across 45+ countries for your transactions.\"\n    },\n    {\n      \"id\": \"reservas-citas\",\n      \"cita\": \"Offer one-on-one or group sessions, with easy scheduling and payment management.\"\n    },\n    {\n      \"id\": \"comercio-electronico\",\n      \"cita\": \"Sell globally with 35+ local payment methods and checkout experiences.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Developer-friendly tools like APIs and webhooks\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Built-in email marketing\"\n    },\n    {\n      \"id\": \"creacion-web-hosting\",\n      \"cita\": \"Site Builder\"\n    },\n    {\n      \"id\": \"software-sectorial\",\n      \"cita\": \"The easiest-to-use platform to grow your education business\"\n    }\n  ],\n  \"esDe\": \"software-sectorial\",\n  \"sector\": \"educación online\"\n}",
+ "leidas": [
+  "OK https://www.teachable.com/",
+  "OK https://www.teachable.com/pricing"
+ ]
+}

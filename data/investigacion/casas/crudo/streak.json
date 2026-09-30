@@ -1,0 +1,13 @@
+{
+ "id": "streak",
+ "nombre": "Streak",
+ "urls": [
+  "https://www.streak.com",
+  "https://www.streak.com/pricing"
+ ],
+ "texto": "{\"servicios\":[{\"id\":\"crm\",\"cita\":\"Manage sales and customer relationships directly inside Gmail.\"},{\"id\":\"gestion-proyectos\",\"cita\":\"Track follow-ups and assign tasks to team members so nothing slips through the cracks.\"},{\"id\":\"asistentes-ia\",\"cita\":\"Use credits to generate summaries, autofill data, ask deal questions, and more\"},{\"id\":\"atencion-cliente\",\"cita\":\"Track inquiries and issues\"},{\"id\":\"automatizacion-integraciones\",\"cita\":\"Set up rules to automatically create tasks, add comments, get notified, update boxes, or email customers.\"},{\"id\":\"marketing-email\",\"cita\":\"Send templated emails to multiple recipients with automatic follow-ups.\"},{\"id\":\"recursos-humanos\",\"cita\":\"Organize candidates and stages\"}],\"esDe\":\"crm\",\"sector\":null}",
+ "leidas": [
+  "OK https://www.streak.com/",
+  "OK https://www.streak.com/pricing"
+ ]
+}

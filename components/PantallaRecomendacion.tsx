@@ -83,6 +83,16 @@ export default function PantallaRecomendacion({
   );
   const soloPendientes = necesidad && vistas.length === 0 && vistasPendientes.length > 0;
 
+  /**
+   * Con un uso sin confirmar en la fila, las herramientas que SÍ lo han
+   * demostrado no pueden ir bajo «candidatas cuyo uso falta confirmar»: van
+   * primero, como opciones, y las demás debajo como candidatas. Hoy ningún
+   * registro demuestra un uso, así que las dos listas son las de siempre.
+   */
+  const conUso = usoSinConfirmar ? vistas.filter((v) => v.evidencia?.tipo === "confirmada" && v.evidencia.uso) : [];
+  const candidatas = usoSinConfirmar ? vistas.filter((v) => !conUso.includes(v)) : vistas;
+  const usoConfirmadoEnAlguna = conUso.length > 0;
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
       <EnlaceAtras href={`${origen.rutaBase}/cuestionario`}>Repetir el cuestionario</EnlaceAtras>
@@ -114,6 +124,10 @@ export default function PantallaRecomendacion({
                 ? `Lo mejor de ${origen.titulo}, sin esa necesidad comprobada`
                 : soloPendientes
                   ? `Para «${necesidad.texto}» sólo tenemos candidatos pendientes`
+                  : necesidad && usoSinConfirmar && usoConfirmadoEnAlguna
+                    ? conUso.length === 1
+                      ? `Una opción confirmada para «${necesidad.texto}»`
+                      : `${conUso.length} opciones confirmadas para «${necesidad.texto}»`
                   : necesidad && usoSinConfirmar
                     ? vistas.length === 1
                       ? `Una candidata para «${necesidad.texto}»`
@@ -139,6 +153,12 @@ export default function PantallaRecomendacion({
                 <>
                   Tenemos herramientas registradas para lo que elegiste, pero en ninguna podemos confirmar todavía cómo lo
                   cubren. Prefiero decírtelo a presentarlas como si estuvieran confirmadas.
+                </>
+              ) : necesidad && usoSinConfirmar && usoConfirmadoEnAlguna ? (
+                <>
+                  Estas herramientas han <strong className="font-semibold text-slate-900">demostrado</strong> ese uso
+                  concreto en una fuente oficial. Debajo de cada una está lo que la evidencia confirma y lo que no sabemos.
+                  {candidatas.length > 0 && " Más abajo van las que hacen la función pero cuyo uso no hemos comprobado."}
                 </>
               ) : necesidad && usoSinConfirmar ? (
                 <>
@@ -217,22 +237,33 @@ export default function PantallaRecomendacion({
         quien mira por encima ve tres tarjetas con un escudo verde y se lleva
         una recomendación donde sólo hay candidatas.
       */}
+      {usoConfirmadoEnAlguna && (
+        <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
+          {conUso.map((vista, indice) => (
+            <div key={vista.nombre} className="animar-entrada" style={{ animationDelay: `${indice * 100}ms` }}>
+              <TarjetaHerramientaRecomendada {...vista} rutaOrigen={rutaOrigen} />
+            </div>
+          ))}
+        </div>
+      )}
       {usoSinConfirmar ? (
-        <section className="mt-10" aria-labelledby="candidatas-uso-sin-confirmar">
-          <h2
-            id="candidatas-uso-sin-confirmar"
-            className="font-display text-xl font-bold tracking-tight text-slate-900"
-          >
-            {usoSinConfirmar.grupo}
-          </h2>
-          <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
-            {vistas.map((vista, indice) => (
-              <div key={vista.nombre} className="animar-entrada" style={{ animationDelay: `${indice * 100}ms` }}>
-                <TarjetaHerramientaRecomendada {...vista} rutaOrigen={rutaOrigen} />
-              </div>
-            ))}
-          </div>
-        </section>
+        candidatas.length > 0 && (
+          <section className="mt-10" aria-labelledby="candidatas-uso-sin-confirmar">
+            <h2
+              id="candidatas-uso-sin-confirmar"
+              className="font-display text-xl font-bold tracking-tight text-slate-900"
+            >
+              {usoSinConfirmar.grupo}
+            </h2>
+            <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
+              {candidatas.map((vista, indice) => (
+                <div key={vista.nombre} className="animar-entrada" style={{ animationDelay: `${indice * 100}ms` }}>
+                  <TarjetaHerramientaRecomendada {...vista} rutaOrigen={rutaOrigen} />
+                </div>
+              ))}
+            </div>
+          </section>
+        )
       ) : (
         <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
           {vistas.map((vista, indice) => (

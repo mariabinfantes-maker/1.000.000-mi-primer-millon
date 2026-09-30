@@ -1,0 +1,478 @@
+[
+ {
+  "id": "zoho-one",
+  "nombre": "Zoho One",
+  "url": "https://www.zoho.com/one/",
+  "preguntas": [
+   {
+    "q": "firma",
+    "por": "su página ya declara firma o gestión documental"
+   },
+   {
+    "q": "casa:crm",
+    "por": "está en esa casa sólo por su portada, sin capacidad verificada"
+   },
+   {
+    "q": "casa:inventario-operaciones",
+    "por": "pista: su ficha o su página lo mencionan y la casa está vacía"
+   },
+   {
+    "q": "casa:atencion-cliente",
+    "por": "lo declara su página y F2 no lo ha comprobado"
+   }
+  ]
+ },
+ {
+  "id": "bitrix24",
+  "nombre": "Bitrix24",
+  "url": "https://www.bitrix24.com/",
+  "preguntas": [
+   {
+    "q": "firma",
+    "por": "su página ya declara firma o gestión documental"
+   },
+   {
+    "q": "casa:inventario-operaciones",
+    "por": "pista: su ficha o su página lo mencionan y la casa está vacía"
+   },
+   {
+    "q": "casa:atencion-cliente",
+    "por": "lo declara su página y F2 no lo ha comprobado"
+   }
+  ]
+ },
+ {
+  "id": "odoo",
+  "nombre": "Odoo",
+  "url": "https://www.odoo.com/",
+  "preguntas": [
+   {
+    "q": "firma",
+    "por": "su página ya declara firma o gestión documental"
+   },
+   {
+    "q": "casa:inventario-operaciones",
+    "por": "pista: su ficha o su página lo mencionan y la casa está vacía"
+   },
+   {
+    "q": "casa:atencion-cliente",
+    "por": "lo declara su página y F2 no lo ha comprobado"
+   }
+  ]
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "url": "https://www.vtiger.com/",
+  "preguntas": [
+   {
+    "q": "firma",
+    "por": "su página ya declara firma o gestión documental · F2 le verificó presupuestos: firmar el presupuesto es el paso siguiente"
+   },
+   {
+    "q": "casa:inventario-operaciones",
+    "por": "pista: su ficha o su página lo mencionan y la casa está vacía"
+   },
+   {
+    "q": "casa:atencion-cliente",
+    "por": "lo declara su página y F2 no lo ha comprobado"
+   }
+  ]
+ },
+ {
+  "id": "zoho-crm",
+  "nombre": "Zoho CRM",
+  "url": "https://www.zoho.com/crm/",
+  "preguntas": [
+   {
+    "q": "firma",
+    "por": "su página ya declara firma o gestión documental"
+   },
+   {
+    "q": "casa:inventario-operaciones",
+    "por": "pista: su ficha o su página lo mencionan y la casa está vacía"
+   },
+   {
+    "q": "casa:atencion-cliente",
+    "por": "lo declara su página y F2 no lo ha comprobado"
+   }
+  ]
+ },
+ {
+  "id": "taskade",
+  "nombre": "Taskade",
+  "url": "https://www.taskade.com",
+  "preguntas": [
+   {
+    "q": "casa:asistentes-ia",
+    "por": "está en esa casa sólo por su portada, sin capacidad verificada"
+   },
+   {
+    "q": "casa:inventario-operaciones",
+    "por": "pista: su ficha o su página lo mencionan y la casa está vacía"
+   },
+   {
+    "q": "casa:atencion-cliente",
+    "por": "lo declara su página y F2 no lo ha comprobado"
+   }
+  ]
+ },
+ {
+  "id": "agile-crm",
+  "nombre": "Agile CRM",
+  "url": "https://www.agilecrm.com",
+  "preguntas": [
+   {
+    "q": "firma",
+    "por": "su página ya declara firma o gestión documental"
+   },
+   {
+    "q": "casa:atencion-cliente",
+    "por": "lo declara su página y F2 no lo ha comprobado"
+   }
+  ]
+ },
+ {
+  "id": "agiled",
+  "nombre": "Agiled",
+  "url": "https://agiled.app/",
+  "preguntas": [
+   {
+    "q": "firma",
+    "por": "su página ya declara firma o gestión documental"
+   },
+   {
+    "q": "casa:atencion-cliente",
+    "por": "lo declara su página y F2 no lo ha comprobado"
+   }
+  ]
+ },
+ {
+  "id": "insightly",
+  "nombre": "Insightly",
+  "url": "https://www.insightly.com",
+  "preguntas": [
+   {
+    "q": "firma",
+    "por": "F2 le verificó presupuestos: firmar el presupuesto es el paso siguiente"
+   },
+   {
+    "q": "casa:atencion-cliente",
+    "por": "lo declara su página y F2 no lo ha comprobado"
+   }
+  ]
+ },
+ {
+  "id": "nifty",
+  "nombre": "Nifty",
+  "url": "https://niftypm.com",
+  "preguntas": [
+   {
+    "q": "firma",
+    "por": "su página ya declara firma o gestión documental"
+   },
+   {
+    "q": "casa:atencion-cliente",
+    "por": "lo declara su página y F2 no lo ha comprobado"
+   }
+  ]
+ },
+ {
+  "id": "salesmate",
+  "nombre": "Salesmate",
+  "url": "https://www.salesmate.io/",
+  "preguntas": [
+   {
+    "q": "firma",
+    "por": "F2 le verificó presupuestos: firmar el presupuesto es el paso siguiente"
+   },
+   {
+    "q": "casa:atencion-cliente",
+    "por": "lo declara su página y F2 no lo ha comprobado"
+   }
+  ]
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "url": "https://hotmart.com/",
+  "preguntas": [
+   {
+    "q": "casa:comercio-electronico",
+    "por": "está en esa casa sólo por su portada, sin capacidad verificada"
+   },
+   {
+    "q": "casa:atencion-cliente",
+    "por": "lo declara su página y F2 no lo ha comprobado"
+   }
+  ]
+ },
+ {
+  "id": "systeme-io",
+  "nombre": "Systeme.io",
+  "url": "https://systeme.io",
+  "preguntas": [
+   {
+    "q": "casa:marketing-email",
+    "por": "está en esa casa sólo por su portada, sin capacidad verificada"
+   },
+   {
+    "q": "casa:inventario-operaciones",
+    "por": "pista: su ficha o su página lo mencionan y la casa está vacía"
+   }
+  ]
+ },
+ {
+  "id": "canva",
+  "nombre": "Canva",
+  "url": "https://www.canva.com",
+  "preguntas": [
+   {
+    "q": "firma",
+    "por": "su ficha nombra firmar"
+   }
+  ]
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "url": "https://clickup.com",
+  "preguntas": [
+   {
+    "q": "firma",
+    "por": "su página ya declara firma o gestión documental"
+   }
+  ]
+ },
+ {
+  "id": "copper",
+  "nombre": "Copper",
+  "url": "https://www.copper.com",
+  "preguntas": [
+   {
+    "q": "firma",
+    "por": "F2 le verificó presupuestos: firmar el presupuesto es el paso siguiente"
+   }
+  ]
+ },
+ {
+  "id": "gamma",
+  "nombre": "Gamma",
+  "url": "https://gamma.app",
+  "preguntas": [
+   {
+    "q": "firma",
+    "por": "su página ya declara firma o gestión documental"
+   }
+  ]
+ },
+ {
+  "id": "honeybook",
+  "nombre": "HoneyBook",
+  "url": "https://www.honeybook.com",
+  "preguntas": [
+   {
+    "q": "firma",
+    "por": "su página ya declara firma o gestión documental · su ficha nombra firmar"
+   }
+  ]
+ },
+ {
+  "id": "motion",
+  "nombre": "Motion",
+  "url": "https://www.usemotion.com/",
+  "preguntas": [
+   {
+    "q": "firma",
+    "por": "su página ya declara firma o gestión documental"
+   }
+  ]
+ },
+ {
+  "id": "nocrm-io",
+  "nombre": "noCRM.io",
+  "url": "https://www.nocrm.io/es",
+  "preguntas": [
+   {
+    "q": "firma",
+    "por": "F2 le verificó presupuestos: firmar el presupuesto es el paso siguiente"
+   }
+  ]
+ },
+ {
+  "id": "nutshell",
+  "nombre": "Nutshell",
+  "url": "https://www.nutshell.com/",
+  "preguntas": [
+   {
+    "q": "firma",
+    "por": "su página ya declara firma o gestión documental · F2 le verificó presupuestos: firmar el presupuesto es el paso siguiente"
+   }
+  ]
+ },
+ {
+  "id": "pipedrive",
+  "nombre": "Pipedrive",
+  "url": "https://www.pipedrive.com",
+  "preguntas": [
+   {
+    "q": "firma",
+    "por": "su página ya declara firma o gestión documental"
+   }
+  ]
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "url": "https://productive.io/",
+  "preguntas": [
+   {
+    "q": "firma",
+    "por": "su página ya declara firma o gestión documental"
+   }
+  ]
+ },
+ {
+  "id": "zoho-projects",
+  "nombre": "Zoho Projects",
+  "url": "https://www.zoho.com/projects/",
+  "preguntas": [
+   {
+    "q": "firma",
+    "por": "su página ya declara firma o gestión documental"
+   }
+  ]
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "url": "https://clickup.com/ai",
+  "preguntas": [
+   {
+    "q": "casa:asistentes-ia",
+    "por": "está en esa casa sólo por su portada, sin capacidad verificada"
+   }
+  ]
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "url": "https://teachable.com",
+  "preguntas": [
+   {
+    "q": "casa:software-sectorial",
+    "por": "está en esa casa sólo por su portada, sin capacidad verificada"
+   }
+  ]
+ },
+ {
+  "id": "thinkific",
+  "nombre": "Thinkific",
+  "url": "https://www.thinkific.com",
+  "preguntas": [
+   {
+    "q": "casa:software-sectorial",
+    "por": "está en esa casa sólo por su portada, sin capacidad verificada"
+   }
+  ]
+ },
+ {
+  "id": "clickfunnels",
+  "nombre": "ClickFunnels",
+  "url": "https://www.clickfunnels.com",
+  "preguntas": [
+   {
+    "q": "casa:atencion-cliente",
+    "por": "lo declara su página y F2 no lo ha comprobado"
+   }
+  ]
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "url": "https://www.engagebay.com/",
+  "preguntas": [
+   {
+    "q": "casa:atencion-cliente",
+    "por": "lo declara su página y F2 no lo ha comprobado"
+   }
+  ]
+ },
+ {
+  "id": "gohighlevel",
+  "nombre": "GoHighLevel",
+  "url": "https://www.gohighlevel.com/",
+  "preguntas": [
+   {
+    "q": "casa:atencion-cliente",
+    "por": "lo declara su página y F2 no lo ha comprobado"
+   }
+  ]
+ },
+ {
+  "id": "hubspot",
+  "nombre": "HubSpot",
+  "url": "https://www.hubspot.com/",
+  "preguntas": [
+   {
+    "q": "casa:atencion-cliente",
+    "por": "lo declara su página y F2 no lo ha comprobado"
+   }
+  ]
+ },
+ {
+  "id": "kartra",
+  "nombre": "Kartra",
+  "url": "https://www.kartra.com",
+  "preguntas": [
+   {
+    "q": "casa:atencion-cliente",
+    "por": "lo declara su página y F2 no lo ha comprobado"
+   }
+  ]
+ },
+ {
+  "id": "monday-com",
+  "nombre": "monday.com",
+  "url": "https://monday.com",
+  "preguntas": [
+   {
+    "q": "casa:atencion-cliente",
+    "por": "lo declara su página y F2 no lo ha comprobado"
+   }
+  ]
+ },
+ {
+  "id": "nimble",
+  "nombre": "Nimble",
+  "url": "https://www.nimble.com/",
+  "preguntas": [
+   {
+    "q": "casa:atencion-cliente",
+    "por": "lo declara su página y F2 no lo ha comprobado"
+   }
+  ]
+ },
+ {
+  "id": "streak",
+  "nombre": "Streak",
+  "url": "https://www.streak.com",
+  "preguntas": [
+   {
+    "q": "casa:atencion-cliente",
+    "por": "lo declara su página y F2 no lo ha comprobado"
+   }
+  ]
+ },
+ {
+  "id": "teamwork-com",
+  "nombre": "Teamwork.com",
+  "url": "https://www.teamwork.com/",
+  "preguntas": [
+   {
+    "q": "casa:atencion-cliente",
+    "por": "lo declara su página y F2 no lo ha comprobado"
+   }
+  ]
+ }
+]

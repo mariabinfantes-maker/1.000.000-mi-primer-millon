@@ -1,0 +1,13 @@
+{
+ "id": "nifty",
+ "nombre": "Nifty",
+ "urls": [
+  "https://niftypm.com",
+  "https://niftypm.com/pricing/"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Tasks Assign, prioritize, and track work\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Orbit AI Let AI plan, build, and update work\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Workflow Automations Turn status updates, handoffs, and reminders into if/then rules that run themselves.\"\n    },\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Pipeline visibility with live deal status and values\"\n    },\n    {\n      \"id\": \"atencion-cliente\",\n      \"cita\": \"Replace fragmented helpdesk tools with a single hub that intakes tickets, auto-assigns owners, and ties resolutions to broader IT projects.\"\n    },\n    {\n      \"id\": \"firma-gestion-documental\",\n      \"cita\": \"Docs & Files Write and store everything in one place\"\n    }\n  ],\n  \"esDe\": \"gestion-proyectos\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://niftypm.com/",
+  "OK https://niftypm.com/pricing/"
+ ]
+}

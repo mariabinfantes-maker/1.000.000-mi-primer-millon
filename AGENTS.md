@@ -21,11 +21,31 @@ Manda sobre todo lo demás. Está completa en `ATLAS.md`, sección «La visión 
 Molnip»; esto es lo mínimo para no proponer algo que la contradiga.
 
 **Molnip no es un directorio ni un comparador: es un asesor tecnológico
-cercano.** Tiene que ayudar igual a una autónoma que sólo sabe describir su
-problema —«soy peluquera y pierdo citas»— que a una empresa que sabe
+cercano.** Tiene que ayudar igual a quien sólo sabe describir su problema
+—«quiero que los clientes reserven sin llamar por teléfono»— que a quien sabe
 exactamente qué busca. **La carga de entender es de Molnip, no de la persona.**
 
-Cuatro reglas que se derivan y que no se negocian:
+> **La peluquera está desactivada como ejemplo (2026-09-30).** Durante meses
+> esta línea decía «soy peluquera y pierdo citas», y era lo primero que leía
+> cualquiera al entrar: por eso todo el mundo razonaba desde ella. La
+> propietaria ya lo había pedido una vez para la pantalla —«quiero que olvides
+> el diseño con la peluquera o el albañil»— y aquí no se aplicó.
+>
+> **Qué reemplaza y por qué.** No cambia la regla, que sigue entera: la carga
+> de entender es de Molnip. Lo que cambia es el ejemplo. Un retrato de oficio
+> dice a quién servimos, y **ése no es el cliente que paga**; una situación de
+> negocio enseña sólo cómo se escribe aquí, y vale igual para un taller, una
+> clínica o una agencia. La frase nueva es una de las tres que ya están en la
+> pantalla del asesor, aprobadas por la propietaria.
+>
+> **No se ha borrado de ninguna otra parte.** En `ATLAS.md` sigue dentro de la
+> visión citada con las palabras de la propietaria, que es registro histórico
+> y no se reescribe. Y en el motor y las pruebas sigue siendo el nombre de un
+> caso que funciona —`sinRecomendacion.test.ts`, `puertaDeEvidencia.test.ts`—:
+> ahí no dice a quién servimos, dice qué se probó. Tocarlo sería romper
+> trabajo que no sobra.
+
+Cinco reglas que se derivan y que no se negocian:
 
 - **Decir que no es un resultado válido.** Si no se entiende la necesidad, o el
   catálogo no la cubre, se dice. **Tres recomendaciones es la consecuencia de
@@ -35,8 +55,18 @@ Cuatro reglas que se derivan y que no se negocian:
 - **La afiliación nunca altera el resultado.**
 - **Sin lenguaje técnico.** Si la explicación sólo la entiende quien ya sabía,
   no ha servido.
+- **No somos jueces.** Molnip avisa; no dicta sentencia. No se califica a una
+  herramienta como si fuera un boletín de notas ni se publica un veredicto
+  sobre una empresa: se dice qué le sirve a esta persona y qué tiene que tener
+  en cuenta. **De una herramienta que no encaja no se dice nada malo: se dice
+  que no está pensada para ella.** De ahí salen «Por qué te la recomendamos» y
+  «A tener en cuenta», y de ahí que no haya «Ventajas / Desventajas»
+  enfrentadas a dos columnas, ni ✓ verde contra × roja. *(Regla de la
+  propietaria, 2026-09-21: «nosotros no somos jueces». Nace de que la tarjeta
+  llevaba meses publicando una columna «DESVENTAJAS» que pesaba lo mismo que
+  la recomendación y la deshacía.)*
 
-**El catálogo está vivo.** Las 62 herramientas son la base que verifica F2, no
+**El catálogo está vivo.** Las 65 herramientas son la base que verifica F2, no
 un tope. Si el catálogo no cubre una necesidad, Researcher busca alternativas
 **con o sin afiliación**.
 
@@ -50,9 +80,14 @@ igual de bien, se mantiene la regla habitual. **Decide la propietaria.**
 La afiliación sigue siendo la vía habitual, pero nunca convierte lo incompatible
 en recomendable. Política provisional completa en `ATLAS.md`.
 
-**Estado:** esta política está **aprobada como criterio documental, pero la
-excepción todavía no está implementada**. El código actual sigue descartando
-automáticamente las herramientas sin un programa de afiliación fiable.
+**Estado (2026-09-16):** implementada. El Researcher ya **no descarta** por
+afiliación: distingue tres estados y deriva a la propietaria, que autoriza
+con `npm run autorizar-afiliacion`. Y la regla de producto quedó fijada así:
+**una herramienta útil entra aunque no tenga programa. La falta de
+afiliación sólo afecta a la monetización y nunca convierte una herramienta
+adecuada en descartada**; no se usa como criterio de orden, descarte ni
+exclusión, y sin enlace de afiliado se enseña el oficial. Hay pruebas que lo
+sostienen en `independenciaAfiliacion.test.ts`.
 
 Sólida, premium y con la escala de una gran tecnológica, pero humana y cercana.
 Sencilla para quien empieza, profunda para quien sabe más.
@@ -65,21 +100,55 @@ escrita**. Léela antes de proponer nada — lo que no leas, lo repetirás.
 - **`ATLAS.md`** — 3.000 líneas en orden cronológico: decisiones, incidentes y
   por qué cada cosa es como es. Lo más reciente va al final, justo antes del
   bloque «MOLNIP VISUAL v1».
+  **Si tienes prisa, empieza por su sección «DÓNDE ESTAMOS»**, la última antes
+  de ese bloque: dice en qué punto quedó cada cosa y qué está sin decidir. No
+  sustituye al resto — ahí está el porqué —, pero evita reconstruirlo leyendo
+  doscientos commits. Se reescribe entera cada vez que cambia.
 - **`ARQUITECTURA-AGENTES.md`** — referencia canónica de los agentes. Manda
   sobre la «Hoja de ruta» de ATLAS.md, que es registro histórico.
 - **`data/vocabulario/CONDICIONES-PARA-F3.md`** — lo que hay que cerrar antes de
   conectar el vocabulario al motor.
+
+**Antes de proponer nada sobre el producto, lee en `ATLAS.md` la sección
+«DIAGNÓSTICO DE PRODUCTO».** Es la conclusión de la propietaria sobre qué
+falla, qué se rescata y qué decisión sigue abierta. No se reabre ni se le
+vuelve a preguntar a ella qué falla: se parte de ahí.
+
+**Y «LA AFILIACIÓN SE APARCA» (2026-09-17).** No se investiga, no se comprueba
+y no se menciona la afiliación de ninguna herramienta hasta que la web traiga
+tráfico. No se borra nada y las reglas siguen vigentes: lo que se aparca es el
+trabajo, no el sistema. Si una herramienta cubre una necesidad, entra; no se
+pregunta si tiene programa.
+
+**Y justo después, «ACUERDO DE RUMBO — camino A».** Es el destino acordado y
+el orden de trabajo: primero que Molnip sepa con quién habla, después partir
+«dinero» en sus piezas reales, después la página de todas las herramientas, y
+«vender más» al final. **Ese orden no se reabre**: proponer otro es repetir la
+conversación que ya se tuvo.
 
 Cinco cosas que no vas a adivinar y que ya están decididas:
 
 1. **Son 11 agentes**, no los que tengan carpeta en `agents/`: tres están sin
    diseñar. Y **«Atlas Evaluador» es el nombre antiguo de «Atlas Advisor»**, no
    un agente aparte. Contar carpetas da 8 y es una cuenta equivocada.
-2. **Las 62 fichas del catálogo no se verificaron contra fuentes primarias**,
-   aunque sí pasaron una validación estructural exigente: puntuación mínima,
-   duplicados, afiliación, campos completos y aprobación de la propietaria. Se
-   generaron con un modelo sin navegación y las fuentes no se guardaron. El
-   filtro medía calidad, no veracidad.
+2. **De las 65 fichas, unos campos tienen fuente guardada y otros no**, y la
+   diferencia es lo único que hay que mirar antes de fiarse de un dato.
+   **Con fuente y fecha** (septiembre de 2026, navegando de verdad): las
+   capacidades —1.547 registros, 662 verificados, sobre 64 de las 65—, los
+   precios —60 de 65, con la URL que se abrió— y los planes —50 fichas, 108
+   planes con cita textual—. **Sin fuente guardada**: los textos de la ficha
+   (ventajas, inconvenientes, `idealPara`, `casosNoRecomendados`) y las siete
+   notas de `puntuaciones`, que son de la primera redacción del catálogo.
+   **Que no tengan la fuente anotada no significa que nadie las investigara:
+   significa que no se apuntó dónde se miró, así que hoy no se pueden
+   demostrar.** La validación que pasaron —puntuación mínima, duplicados,
+   campos completos y aprobación de la propietaria— medía calidad, no
+   veracidad.
+
+   *Corregido el 2026-09-21. Antes esta línea decía que las fichas «se
+   generaron con un modelo sin navegación». Eso no consta en ninguna parte y
+   se estaba usando para dar por inventado todo el catálogo, incluido el
+   trabajo de verificación de septiembre, que sí navegó y sí dejó recibos.*
 3. **El vocabulario de capacidades (F1) está en producción y no lo lee nadie
    todavía**, a propósito. Conectarlo al motor es F3 y tiene condiciones previas.
 4. **Nada se fusiona ni se despliega sin autorización explícita de la
@@ -106,3 +175,30 @@ instrucción. **Un «sí» o un «sigue» nunca amplía el alcance ya autorizado
 decisión escrita no la cancela: significa que no se ha encontrado. Una decisión
 sólo se sustituye con autorización explícita, y al sustituirla se deja escrito
 **qué reemplaza y por qué**.
+
+**No se borra: se desconecta.** Lo que no debe usarse se apaga y se queda
+donde está, con una nota de por qué. Un criterio, un campo o una función que
+sobran se dejan de llamar; no se eliminan. Así la decisión es reversible y no
+se pierde el trabajo de quien lo pensó.
+
+De ahí salen dos cosas más, y las tres juntas son una sola idea:
+
+- **Un comentario que explica por qué existe algo es una señal de stop.** Si
+  alguien se molestó en escribir para qué sirve, hubo una decisión detrás.
+  Se pregunta antes de tocarlo, aunque se vea claro el fallo.
+- **«Quita» dicho por la propietaria significa «deja de usarlo».** Nunca
+  «bórralo», salvo que diga «borra».
+
+*Escrito el 2026-09-21, después de borrar cuatro criterios del motor —
+`calidadConjunta`, `integracionNativa`, `calidadEnLaTarea` y
+`superioridadFrenteAlModulo`— al leer «quita calidad y fiabilidad del motor»
+como permiso para eliminarlos. Se revirtió entero (`4c5fb74`) y las 3.240
+recomendaciones volvieron a ser idénticas. Los datos nunca se tocaron, pero
+se destruyó trabajo pensado en otra sesión: `calidadConjunta` llevaba escrito
+encima para qué estaba —impedir que una suite mediocre ganara por amplitud— y
+se borró igual.*
+
+*El motivo de fondo, dicho por la propietaria: «si hoy a la ligera destruimos
+trabajo de meses de otros, así nunca avanzaremos». **Borrar le cuesta meses a
+ella y no le cuesta nada a quien llega sin memoria.** Esa asimetría es la que
+estas tres reglas corrigen; no basta con tener buen criterio en el momento.*

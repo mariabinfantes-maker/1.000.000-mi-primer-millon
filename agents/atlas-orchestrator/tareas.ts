@@ -122,18 +122,21 @@ export const TAREA_IDS = [
   "informe-curador",
   "informe-historial",
   "generar-informe",
+  "examen-catalogo",
   "verificar-datos",
   "verificar-revenue",
   "verificar-enlaces-afiliados",
   // ── Con permiso: gastan dinero ───────────────────────────────────
   "investigar-lote",
   "investigar-herramienta",
+  "investigar-pendiente",
   "repesca-verificacion",
   // ── Con permiso: escriben datos o catálogo ───────────────────────
   "verificar-neon",
   "convertir-verificacion",
   "promover-borrador",
   "aprobar-borrador",
+  "autorizar-afiliacion",
   "actualizar-estrategia-afiliacion",
   "copia-seguridad-afiliacion",
   "migrar-json-a-postgres",
@@ -156,7 +159,7 @@ const BANDERA_ENV: Bandera = {
 };
 
 /**
- * Las 24 tareas.
+ * Las 26 tareas.
  *
  * Son exactamente los procesos que existen hoy en el repositorio. No hay
  * ninguna declarada «para cuando llegue»: una tarea que no está aquí
@@ -241,6 +244,21 @@ export const TAREAS: readonly Tarea[] = [
     },
   },
   {
+    /**
+     * Mide las 65 que YA están dentro contra el examen de entrada, y escribe
+     * qué le falta a cada una. No echa a nadie ni toca ninguna ficha: es una
+     * lista de en qué gastar la siguiente investigación.
+     */
+    id: "examen-catalogo",
+    script: "examen-catalogo",
+    modulo: "agents/atlas-curator/cli-examen-catalogo.ts",
+    descripcion: "Qué le falta a cada ficha para pasar el examen de entrada",
+    carril: "libre",
+    motivo: "ninguno",
+    cadencia: "cada_ejecucion",
+    argumentos: SIN_ARGUMENTOS,
+  },
+  {
     id: "verificar-datos",
     script: "verificar-datos",
     modulo: "data/verificar.ts",
@@ -297,6 +315,22 @@ export const TAREAS: readonly Tarea[] = [
       posicionales: [{ clase: "texto", descripcion: "nombre de la herramienta", obligatorio: true, repetible: true }],
       banderas: [],
       exigeAlguno: true,
+    },
+  },
+  {
+    id: "investigar-pendiente",
+    script: "investigar-pendiente",
+    modulo: "agents/atlas-researcher/cli-investigar-pendiente.ts",
+    descripcion: "Investiga una candidata que quedó pendiente por su afiliación, si la propietaria lo autorizó; sin id, lista las que esperan",
+    carril: "conPermiso",
+    // Sin id sólo lista y no gasta, pero la tarea es una: se clasifica por
+    // lo peor que puede hacer, y con id llama al proveedor de IA.
+    motivo: "gasta_dinero",
+    cadencia: "manual",
+    argumentos: {
+      posicionales: [{ clase: "id", descripcion: "id de la candidata pendiente (sin él, lista las que esperan)", obligatorio: false }],
+      banderas: [],
+      exigeAlguno: false,
     },
   },
   {
@@ -365,6 +399,20 @@ export const TAREAS: readonly Tarea[] = [
         { nombre: "decision", valores: ["aprobado", "rechazado"], descripcion: "la decisión (obligatoria)" },
         { nombre: "notas", clase: "texto", descripcion: "motivo, para que quede auditable (obligatorio)" },
       ],
+      exigeAlguno: true,
+    },
+  },
+  {
+    id: "autorizar-afiliacion",
+    script: "autorizar-afiliacion",
+    modulo: "agents/atlas-researcher/cli-autorizar-afiliacion.ts",
+    descripcion: "Registra la autorización de la propietaria para investigar una candidata pese a su afiliación",
+    carril: "conPermiso",
+    motivo: "escribe_datos",
+    cadencia: "manual",
+    argumentos: {
+      posicionales: [{ clase: "id", descripcion: "id de la candidata pendiente", obligatorio: true }],
+      banderas: [{ nombre: "motivo", clase: "texto", descripcion: "por qué entra pese a su afiliación (obligatorio)" }],
       exigeAlguno: true,
     },
   },

@@ -4,6 +4,9 @@
   "urlPrecios": "https://www.grammarly.com/plans",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "Grammarly es un asistente de escritura impulsado por inteligencia artificial que ayuda a corregir gramática, ortografía y puntuación en tiempo real. Además, ofrece sugerencias de claridad, ajuste de tono y capacidades de IA generativa para optimizar la comunicación escrita en múltiples aplicaciones y navegadores.",
   "informacionEmpresa": {
     "anioFundacion": 2009,
@@ -97,7 +100,18 @@
     "g2Puntuacion": 4.7,
     "g2NumeroResenas": 8400,
     "capterraPuntuacion": 4.7,
-    "capterraNumeroResenas": 7100
+    "capterraNumeroResenas": 7100,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/178116/Grammarly-Business/",
+      "cita": "Ease Of Use. 4.8 (7,224). — leido 4.7/5 con 7224 reseñas. Confirma el 4.7 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/grammarly/reviews",
+      "cita": "Ease of Use. Grammarly. 9.3. 9.3 10,873. — leido 4.7/5 con 10873 reseñas. Confirma el 4.7 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Integración fluida y casi invisible en navegadores, aplicaciones de escritorio y móviles",
@@ -119,12 +133,11 @@
     ],
     "tipoNegocioIdeal": "Empresas con comunicación internacional, equipos de soporte global, agencias de marketing y profesionales que escriben habitualmente en inglés",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 100,
+    "puntuacion": 97,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 9.2/10.",
       "G2: 4.7/5 (8400 reseñas).",
       "Capterra: 4.7/5 (7100 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -132,10 +145,27 @@
   "id": "grammarly",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-18",
-  "fechaUltimaRevision": "2026-08-19",
+  "fechaUltimaRevision": "2026-09-17",
   "tipoProducto": "especializada",
   "problemasIds": [
     "ahorrar-tiempo"
   ],
-  "subtipoId": "escritura"
+  "subtipoId": "escritura",
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.grammarly.com/plans"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.grammarly.com/plans",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 $/mes",
+        "cita": "$0"
+      }
+    ]
+  }
 }

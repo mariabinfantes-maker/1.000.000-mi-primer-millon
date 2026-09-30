@@ -1,0 +1,13 @@
+{
+ "id": "heygen",
+ "nombre": "HeyGen",
+ "urls": [
+  "https://www.heygen.com",
+  "https://www.heygen.com/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"HeyGen's AI video tools handle everything from avatar generation and voice cloning to captions, translation, and turning any input into polished video.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Integrations with n8n, Make, Hubspot & Zapier\"\n    }\n  ],\n  \"esDe\": \"asistentes-ia\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.heygen.com/",
+  "OK https://www.heygen.com/pricing"
+ ]
+}

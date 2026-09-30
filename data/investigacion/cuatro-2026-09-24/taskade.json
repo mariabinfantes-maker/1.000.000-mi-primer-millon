@@ -1,0 +1,15 @@
+{
+ "id": "taskade",
+ "nombre": "Taskade",
+ "url": "https://www.taskade.com",
+ "precios": "https://www.taskade.com/pricing",
+ "caps": [
+  "cap.personal_calendar_planning",
+  "cap.case_file_management"
+ ],
+ "texto": "{\"resultados\":[{\"id\":\"cap.personal_calendar_planning\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.case_file_management\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.taskade.com/",
+  "OK https://www.taskade.com/pricing"
+ ]
+}

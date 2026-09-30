@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { detectarProblemasPorTexto } from "../deteccionProblema";
+import { getProblemas } from "@/data/repositorio";
 import type { Problema } from "@/data/esquema";
 
 const PROBLEMAS_DE_PRUEBA: Problema[] = [
@@ -74,5 +75,68 @@ describe("detectarProblemasPorTexto", () => {
     );
 
     expect(detectados).toEqual([]);
+  });
+});
+
+/**
+ * Las palabras de facturación, añadidas el 2026-09-17 a petición de la
+ * propietaria. El motivo: «quiero facturar a mis clientes» no llegaba a
+ * ningún objetivo, aunque «facturas» ya estuviera en la lista — el verbo no
+ * es el sustantivo, y la coincidencia es por subcadena literal.
+ *
+ * «cuentas» a secas se descartó tras probarla: cazaba «las cuentas de
+ * Instagram», «cuentas de usuario» y «cuentas de correo». Es el mismo error
+ * de encaminamiento que ya se documentó con «presupuestos» y «no doy
+ * abasto», así que se usan formas precisas.
+ */
+describe("las palabras de facturación llevan a el dinero", () => {
+  const problemas = getProblemas();
+
+  it.each([
+    "quiero facturar a mis clientes",
+    "tengo que facturar y no sé cómo",
+    "busco un programa de facturación",
+    "llevo la contabilidad en excel y no puedo",
+    "necesito llevar las cuentas de mi negocio",
+    "no me cuadran las cuentas a fin de mes",
+  ])("«%s» llega a el-dinero", (frase) => {
+    expect(detectarProblemasPorTexto(frase, problemas)).toContain("el-dinero");
+  });
+
+  it.each([
+    "gestiono las cuentas de Instagram de mis clientes",
+    "tengo varias cuentas de correo y me lío",
+  ])("«%s» NO se va a facturación por decir «cuentas»", (frase) => {
+    expect(detectarProblemasPorTexto(frase, problemas)).not.toContain("el-dinero");
+  });
+});
+
+/**
+ * «Quiero vender más», el saludo más común que va a recibir Molnip, no
+ * llegaba a ninguna puerta: las palabras clave tenían «cerrar ventas» y
+ * «embudo de ventas», jerga de quien ya sabe, y ninguna de las formas en que
+ * lo dice una persona normal. Quedó anotado en la etapa cero y se cierra el
+ * 2026-09-17.
+ *
+ * Las siete frases de abajo son las entradas reales de los doce casos.
+ */
+describe("«quiero vender más» llega a conseguir clientes", () => {
+  const problemas = getProblemas();
+
+  it.each([
+    "quiero vender más",
+    "quiero vender mas",
+    "necesito aumentar las ventas",
+    "somos una asesoría y queremos aumentar las ventas",
+    "hago velas artesanas, somos dos, y quiero vender más",
+    "quiero más ventas este año",
+    "fabricamos componentes y necesitamos aumentar las ventas",
+  ])("«%s»", (frase) => {
+    expect(detectarProblemasPorTexto(frase, problemas)).toContain("conseguir-clientes");
+  });
+
+  it("y no se lleva por delante las otras puertas", () => {
+    expect(detectarProblemasPorTexto("necesito hacer facturas", problemas)).toContain("el-dinero");
+    expect(detectarProblemasPorTexto("quiero automatizar tareas repetitivas", problemas)).toContain("automatizar-tareas");
   });
 });

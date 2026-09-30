@@ -1,0 +1,17 @@
+{
+ "id": "pipedrive__marketing-email",
+ "herramientaId": "pipedrive",
+ "nombre": "Pipedrive",
+ "casa": "marketing-email",
+ "nombreCasa": "Marketing y email",
+ "urls": [
+  "https://www.pipedrive.com",
+  "https://www.pipedrive.com/es/pricing"
+ ],
+ "cita": "Envía campañas increíbles de marketing por correo electrónico",
+ "texto": "{\"resultados\":[{\"id\":\"cap.email_campaigns\",\"estado\":\"si\",\"cita\":\"Envía campañas increíbles de marketing por correo electrónico\",\"url\":\"https://www.pipedrive.com/es/pricing\"},{\"id\":\"cap.marketing_automation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.landing_pages\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.conversion_funnels\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.social_publishing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.social_analytics\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.search_engine_optimization\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.paid_ads_management\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.loyalty_programs\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.pipedrive.com/",
+  "OK https://www.pipedrive.com/es/pricing"
+ ]
+}

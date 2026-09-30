@@ -1,0 +1,23 @@
+{
+ "pedida": "https://turnito.app/",
+ "leidas": [
+  "https://turnito.app/"
+ ],
+ "urls": [
+  [
+   "https://turnito.app/",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "si",
+  "espana": "no_consta",
+  "cita_espana": "",
+  "campos": {
+   "cancelar_o_cambiar_cita": {
+    "v": "no_consta",
+    "cita": ""
+   }
+  }
+ }
+}

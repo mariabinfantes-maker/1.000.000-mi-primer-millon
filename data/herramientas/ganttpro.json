@@ -4,6 +4,9 @@
   "urlPrecios": "https://ganttpro.com/pricing/",
   "logoUrl": "",
   "categoriaId": "gestion-proyectos",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "GanttPRO es un software de gestión de proyectos basado en diagramas de Gantt interactivos diseñado para simplificar la planificación de proyectos, el seguimiento de tareas y la colaboración en equipo. Permite crear cronogramas detallados, gestionar recursos, calcular la ruta crítica y controlar el presupuesto en tiempo real.",
   "informacionEmpresa": {
     "anioFundacion": 2015,
@@ -63,14 +66,14 @@
     "Google Drive"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde $9.99/usuario/mes (plan anual)",
+  "precioInicial": "Desde $7/usuario/mes (facturación anual)",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario",
     "a_medida"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Business a aproximadamente $15.99/usuario/mes (facturación anual)",
   "idiomasDisponibles": [
     "Español",
@@ -98,7 +101,18 @@
     "g2Puntuacion": 4.8,
     "g2NumeroResenas": 480,
     "capterraPuntuacion": 4.8,
-    "capterraNumeroResenas": 470
+    "capterraNumeroResenas": 470,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/153164/GanttPRO/reviews/",
+      "cita": "Reviews of GanttPRO. Ease of use. 4.8. Customer Service. 4.8 — leido 4.8/5 con 559 reseñas. Confirma el 4.8 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/ganttpro/reviews",
+      "cita": "Ease of use: GanttPRO scores 9.4 and has 50 all-time mentions for ease of use — leido 4.8/5 con 588 reseñas. Confirma el 4.8 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Interfaz visual sumamente intuitiva y fácil de adoptar rápidamente por todo el equipo.",
@@ -133,9 +147,39 @@
   "id": "ganttpro",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-21",
-  "fechaUltimaRevision": "2026-08-21",
+  "fechaUltimaRevision": "2026-09-17",
   "tipoProducto": "especializada",
   "problemasIds": [
     "organizar-empresa"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://ganttpro.com/pricing/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://ganttpro.com/pricing/",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Core",
+        "mensual": "9 $/usuario/mes",
+        "anual": "7 $/usuario/mes",
+        "cita": "9USD / 7USD"
+      },
+      {
+        "nombre": "Business",
+        "mensual": "24 $/usuario/mes",
+        "anual": "17 $/usuario/mes",
+        "cita": "24USD / 17USD"
+      },
+      {
+        "nombre": "Enterprise",
+        "anual": "20 $/usuario/mes",
+        "cita": "20USD"
+      }
+    ]
+  }
 }

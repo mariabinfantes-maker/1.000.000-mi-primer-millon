@@ -164,6 +164,91 @@ export type RegistroVerificacion = {
   integraCon?: string;
   /** Límites que cambian la decisión: «sólo en escritorio», «máximo 3 usuarios». */
   nota?: string;
+  /**
+   * Los usos concretos de esta capacidad que se comprobaron (2026-09-16,
+   * tercera ronda). Sólo en un registro verificado y disponible: un uso no
+   * puede demostrarse sobre una capacidad que no consta. Cada uno cuelga de
+   * ESTA capacidad —`usos.ts` lo declara y el validador lo exige—. Ausente en
+   * los 1.544 registros anteriores, que siguen siendo válidos tal cual.
+   */
+  usos?: RegistroDeUso[];
+};
+
+/**
+ * Qué se sabe de un uso concreto. Tres estados, como la capacidad, y con la
+ * misma regla: `no_consta` es un resultado y nunca se convierte en
+ * `no_lo_hace`, que exige una cita oficial que lo diga.
+ */
+export type EstadoDeUso = "demostrado" | "no_consta" | "no_lo_hace";
+
+export type RegistroDeUso = {
+  /** Un id de `USOS`. Tiene que colgar de la capacidad del registro. */
+  usoId: string;
+  estado: EstadoDeUso;
+  /**
+   * Al menos una. Demostrado y no_lo_hace exigen una de primera mano con
+   * cita; no_consta guarda dónde se miró, sin cita.
+   */
+  fuentes: Fuente[];
+  /** Límites del uso, o qué se buscó cuando no consta (obligatoria entonces). */
+  nota?: string;
+};
+
+/**
+ * Un recorrido: varias piezas funcionando conectadas en el MISMO plan.
+ *
+ * Existe porque demostrar tres capacidades por separado no demuestra que
+ * vayan juntas: que una herramienta tenga página, cobro y cursos no dice que
+ * el cobro dispare el acceso ni que las tres estén en el mismo plan. Es un
+ * registro aparte, por herramienta y recorrido, con las mismas certezas
+ * separadas que la capacidad: si lo hace, y en qué plan.
+ */
+export type RegistroDeRecorrido = {
+  herramientaId: string;
+  /** Un id de `RECORRIDOS`. */
+  recorridoId: string;
+  estado: EstadoDeUso;
+  /** Sólo con estado demostrado. Mismas reglas que en la capacidad. */
+  planEstado?: "verificado" | "desconocido";
+  /** Sólo si `planEstado` es verificado y la cita lo nombra. */
+  planMinimo?: string;
+  fuentes: Fuente[];
+  /** Los límites del recorrido, en palabras del fabricante: comisión, alumnos, contactos. Se enseñan. */
+  limites?: string;
+  /** Qué se buscó cuando no consta (obligatoria entonces), o un matiz. */
+  nota?: string;
+  /** AAAA-MM-DD. 6 meses si nombra plan; 12 si no. */
+  proximaRevision: string;
+};
+
+/**
+ * En qué idiomas está la herramienta, verificado en su página oficial.
+ *
+ * Las fichas dicen `disponibleEnEspanol`, y nadie lo comprobó: 18 no listan
+ * español y 5 no tienen el campo. Decisión de la propietaria (2026-09-16):
+ * el idioma sin verificar queda como DESCONOCIDO, y la interfaz y el soporte
+ * se verifican por separado, porque no van siempre juntos.
+ */
+export type EvidenciaDeIdiomaRegistrada =
+  | {
+      estado: "verificado";
+      /** Códigos ISO 639-1 en minúsculas («es», «en»), tal y como la fuente los permita deducir sin razonar. */
+      idiomas: string[];
+      fuentes: Fuente[];
+    }
+  | {
+      estado: "desconocido";
+      fuentes: Fuente[];
+      /** Qué se buscó y dónde. Obligatoria. */
+      nota: string;
+    };
+
+export type RegistroDeIdioma = {
+  herramientaId: string;
+  interfaz: EvidenciaDeIdiomaRegistrada;
+  soporte: EvidenciaDeIdiomaRegistrada;
+  /** AAAA-MM-DD. 12 meses. */
+  proximaRevision: string;
 };
 
 /**

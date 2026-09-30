@@ -1,0 +1,17 @@
+{
+ "id": "productive-io__crm",
+ "herramientaId": "productive-io",
+ "nombre": "Productive",
+ "casa": "crm",
+ "nombreCasa": "CRM y ventas",
+ "urls": [
+  "https://productive.io/",
+  "https://productive.io/pricing/"
+ ],
+ "cita": "Create, track, and progress client deals—from initial pitch to won or lost status.",
+ "texto": "{\"resultados\":[{\"id\":\"cap.customer_contact_records\",\"estado\":\"si\",\"cita\":\"Manage individual client contacts—store roles, emails, and phone numbers\",\"url\":\"https://productive.io/pricing/\"},{\"id\":\"cap.customer_interaction_history\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.sales_pipeline\",\"estado\":\"si\",\"cita\":\"Create, track, and progress client deals—from initial pitch to won or lost status.\",\"url\":\"https://productive.io/pricing/\"},{\"id\":\"cap.lead_capture\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.sales_forecasting\",\"estado\":\"si\",\"cita\":\"See deal status, competition losses, and revenue projections — all in one place.\",\"url\":\"https://productive.io/pricing/\"},{\"id\":\"cap.client_portal\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.quotes_and_proposals\",\"estado\":\"si\",\"cita\":\"Download your deal proposal as a branded PDF—using your selected template.\",\"url\":\"https://productive.io/pricing/\"},{\"id\":\"cap.bill_of_quantities\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.price_lists_and_rates\",\"estado\":\"si\",\"cita\":\"Set up rate cards per organization.\",\"url\":\"https://productive.io/pricing/\"},{\"id\":\"cap.electronic_signature\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.contract_lifecycle\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://productive.io/",
+  "OK https://productive.io/pricing/"
+ ]
+}

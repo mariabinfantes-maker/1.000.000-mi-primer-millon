@@ -1,8 +1,9 @@
-import type { RegistroVerificacion } from "./esquema";
-import { evidenciaDeRegistro } from "./evidencia";
-import type { EvidenciaDeCapacidad, PuertoDeEvidencia } from "./puerto";
-import { getRegistros } from "./repositorio";
+import type { RegistroDeIdioma, RegistroDeRecorrido, RegistroVerificacion } from "./esquema";
+import { evidenciaDeIdioma, evidenciaDeRecorrido, evidenciaDeRegistro, evidenciaDeUso } from "./evidencia";
+import type { EvidenciaDeCapacidad, EvidenciaDeIdioma, EvidenciaDeRecorrido, EvidenciaDeUso, PuertoDeEvidencia } from "./puerto";
+import { getIdiomas, getRecorridos, getRegistros } from "./repositorio";
 import { filaDeRuta } from "./rutas";
+import { getUso } from "./usos";
 
 /**
  * El índice de la verificación — F3, bloque 1.
@@ -37,8 +38,24 @@ function clave(herramientaId: string, capacidadId: string): string {
  * garantizan que no los hay; esto es el cinturón por si alguna vez dejan de
  * garantizarlo.
  */
-export function crearPuertoDeEvidencia(registros: RegistroVerificacion[]): PuertoDeEvidencia {
+export function crearPuertoDeEvidencia(
+  registros: RegistroVerificacion[],
+  recorridos: RegistroDeRecorrido[] = [],
+  idiomas: RegistroDeIdioma[] = []
+): PuertoDeEvidencia {
   const porPar = new Map<string, RegistroVerificacion>();
+  const recorridoPorPar = new Map<string, RegistroDeRecorrido>();
+  const idiomaPorHerramienta = new Map<string, RegistroDeIdioma>();
+
+  for (const r of recorridos) {
+    const k = clave(r.herramientaId, r.recorridoId);
+    if (recorridoPorPar.has(k)) throw new Error(`La verificación tiene dos recorridos para ${r.herramientaId} / ${r.recorridoId}.`);
+    recorridoPorPar.set(k, r);
+  }
+  for (const i of idiomas) {
+    if (idiomaPorHerramienta.has(i.herramientaId)) throw new Error(`La verificación tiene dos registros de idioma para ${i.herramientaId}.`);
+    idiomaPorHerramienta.set(i.herramientaId, i);
+  }
   const verificadasPorHerramienta = new Map<string, string[]>();
   const herramientasPorCapacidad = new Map<string, string[]>();
 
@@ -71,6 +88,18 @@ export function crearPuertoDeEvidencia(registros: RegistroVerificacion[]): Puert
     estadoDe(herramientaId: string, capacidadId: string): EvidenciaDeCapacidad {
       return evidenciaDeRegistro(herramientaId, capacidadId, porPar.get(clave(herramientaId, capacidadId)));
     },
+    usoDe(herramientaId: string, usoId: string): EvidenciaDeUso {
+      // El uso cuelga de su capacidad: se busca el registro de ESA capacidad.
+      const uso = getUso(usoId);
+      const registro = uso ? porPar.get(clave(herramientaId, uso.capacidadId)) : undefined;
+      return evidenciaDeUso(herramientaId, usoId, registro);
+    },
+    recorridoDe(herramientaId: string, recorridoId: string): EvidenciaDeRecorrido {
+      return evidenciaDeRecorrido(herramientaId, recorridoId, recorridoPorPar.get(clave(herramientaId, recorridoId)));
+    },
+    idiomaDe(herramientaId: string): EvidenciaDeIdioma {
+      return evidenciaDeIdioma(herramientaId, idiomaPorHerramienta.get(herramientaId));
+    },
     capacidadesVerificadasDe(herramientaId: string): string[] {
       return [...(verificadasPorHerramienta.get(herramientaId) ?? [])];
     },
@@ -85,7 +114,7 @@ let cachePuerto: PuertoDeEvidencia | null = null;
 /** El puerto sobre los registros reales. Se construye una vez por proceso. */
 export function getPuertoDeEvidencia(): PuertoDeEvidencia {
   if (cachePuerto) return cachePuerto;
-  cachePuerto = crearPuertoDeEvidencia(getRegistros());
+  cachePuerto = crearPuertoDeEvidencia(getRegistros(), getRecorridos(), getIdiomas());
   return cachePuerto;
 }
 
@@ -115,6 +144,15 @@ export function getPuertaDeEvidencia() {
     },
     loDemuestra(herramientaId: string, capacidadId: string): boolean {
       return puerto.estadoDe(herramientaId, capacidadId).estado === "demostrada";
+    },
+    /**
+     * Los tres estados de un uso, sin colapsar: el motor los necesita los
+     * tres, porque un uso imprescindible sólo pasa con `demostrada`, y una
+     * ausencia demostrada aparta a la herramienta de ese uso aunque no sea
+     * imprescindible. `no_consta` la deja como candidata.
+     */
+    estadoDeUso(herramientaId: string, usoId: string) {
+      return puerto.usoDe(herramientaId, usoId).estado;
     },
   };
 }

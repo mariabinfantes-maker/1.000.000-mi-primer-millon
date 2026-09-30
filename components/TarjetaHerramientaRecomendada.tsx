@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Reputacion } from "@/data/esquema";
 import Tarjeta from "@/components/ui/Tarjeta";
 import Etiqueta from "@/components/ui/Etiqueta";
+import TarjetaLoQueCuesta from "@/components/TarjetaLoQueCuesta";
 import Boton from "@/components/ui/Boton";
 import AnilloPuntuacion from "@/components/ui/AnilloPuntuacion";
 import InsigniaReputacion from "@/components/ui/InsigniaReputacion";
@@ -27,8 +28,26 @@ export type TarjetaHerramientaRecomendadaProps = {
   puntuacionAtlas: number | null;
   /** Motivos legibles de la puntuación (calidad editorial, reputación externa, señales de producto...). */
   motivosPuntuacion: string[];
-  precioInicial: string;
   tienePlanGratuito: boolean;
+  /**
+   * Ya redactado: «Precio comprobado en su web el 17 de septiembre de 2026»,
+   * o `PRECIO_SIN_COMPROBAR` cuando nadie fue a mirarlo. Va a la tarjeta de
+   * «lo que te va a costar», no a la recomendación.
+   */
+  comprobacionDelPrecio: string;
+  /** Si ese precio se comprobó de verdad contra la web del fabricante. */
+  precioComprobado: boolean;
+  /** La página de precios del fabricante, para que pueda ir a mirarla ella. */
+  urlPrecios?: string;
+  /**
+   * La respuesta a «¿esto, a mí, cuánto me cuesta?», ya redactada: «24 €/mes»,
+   * «Nada», o el precio de entrada cuando no hubo diagnóstico.
+   */
+  cuantoCuesta: string;
+  /** El resto, en filas de «concepto → dato»: el plan y la otra modalidad de pago. */
+  filasDelCoste: { concepto: string; dato: string }[];
+  /** «Plan gratuito básico» o «Plan gratuito de prueba, 14 días», ya redactado. */
+  planGratuito?: string;
   ventajas: string[];
   inconvenientes: string[];
   /** Párrafo ya redactado en lenguaje natural explicando por qué se recomienda para este usuario. */
@@ -44,6 +63,13 @@ export type TarjetaHerramientaRecomendadaProps = {
   /** Reputación externa (G2/Capterra) ya investigada por Atlas — ver InsigniaReputacion. `undefined` si no existe, nunca inventada. */
   reputacion?: Reputacion;
   disponibleEnEspanol: boolean;
+  /**
+   * Frase honesta sobre el idioma cuando la persona dijo dónde tiene el
+   * negocio y la ficha NO confirma ese idioma. No se calla: lo que no consta
+   * se dice. Ausente cuando el idioma está confirmado o cuando nadie ha
+   * dicho qué idioma hace falta.
+   */
+  idiomaSinConfirmar?: string;
   tieneAppMovil: boolean;
   tieneApiPublica: boolean;
   /**
@@ -64,8 +90,13 @@ export default function TarjetaHerramientaRecomendada({
   nombre,
   puntuacionAtlas,
   motivosPuntuacion,
-  precioInicial,
   tienePlanGratuito,
+  comprobacionDelPrecio,
+  precioComprobado,
+  urlPrecios,
+  cuantoCuesta,
+  filasDelCoste,
+  planGratuito,
   ventajas,
   inconvenientes,
   explicacionPersonalizada,
@@ -76,6 +107,7 @@ export default function TarjetaHerramientaRecomendada({
   casosNoRecomendados,
   reputacion,
   disponibleEnEspanol,
+  idiomaSinConfirmar,
   tieneAppMovil,
   tieneApiPublica,
   evidencia,
@@ -91,9 +123,16 @@ export default function TarjetaHerramientaRecomendada({
   ].filter((b): b is { icono: typeof Globe; etiqueta: string } => b !== null);
 
   return (
+    /**
+     * Dos cosas separadas en la pantalla: arriba el consejo, abajo lo que
+     * cuesta. Ver `TarjetaLoQueCuesta` y ATLAS.md, «ESTAMOS ENDIOSANDO LO
+     * GRATIS». El envoltorio existe para que la recomendación siga estirando
+     * hasta abajo dentro de la rejilla y la de dinero quede pegada al pie.
+     */
+    <div className="flex h-full flex-col">
     <Tarjeta
       ganadora={destacada}
-      className="relative flex h-full flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-premium-lg"
+      className="relative flex flex-1 flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-premium-lg"
     >
       {destacada && (
         <div
@@ -141,21 +180,44 @@ export default function TarjetaHerramientaRecomendada({
                 : "Función confirmada en una fuente oficial."}
             </span>
           </p>
-          {usoSinConfirmar && (
-            <p className="mt-1.5 flex items-start gap-1.5 text-atencion-700">
-              <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
-              <span>{usoSinConfirmar}</span>
+          {/*
+            El uso concreto, por herramienta (2026-09-16, tercera ronda): si
+            ESTA herramienta lo ha demostrado, se dice con su fuente y el
+            aviso fijo de la fila no aparece, porque ya no es verdad para
+            ella. Si no consta, el aviso fijo sigue diciendo lo único que se
+            sabe. Nunca se dice que no lo haga.
+          */}
+          {evidencia.uso ? (
+            <p className="mt-1.5 flex items-start gap-1.5 font-medium text-slate-800">
+              <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-exito-500" aria-hidden="true" />
+              <span>
+                Uso confirmado en una fuente oficial: {evidencia.uso.etiqueta}.
+                {evidencia.uso.anotado && <span className="font-normal text-slate-600"> Anotado al comprobarlo: {evidencia.uso.anotado}</span>}
+                {evidencia.uso.fuente && (
+                  <span className="font-normal text-slate-600">
+                    {" "}
+                    <a
+                      href={evidencia.uso.fuente.url}
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                      className="inline-flex items-center gap-0.5 font-medium text-brand-600 underline-offset-4 hover:underline"
+                    >
+                      {dominioDe(evidencia.uso.fuente.url)}
+                      <ExternalLink className="h-3 w-3" aria-hidden="true" />
+                    </a>
+                    {" · "}comprobado el {fechaLarga(evidencia.uso.fuente.fecha)}
+                  </span>
+                )}
+              </span>
             </p>
+          ) : (
+            usoSinConfirmar && (
+              <p className="mt-1.5 flex items-start gap-1.5 text-atencion-700">
+                <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+                <span>{usoSinConfirmar}</span>
+              </p>
+            )
           )}
-          <p className="mt-1.5">
-            {evidencia.plan ? (
-              <>
-                Plan: <span className="font-medium text-slate-800">{evidencia.plan}</span>.
-              </>
-            ) : (
-              "No hemos confirmado qué plan necesitas."
-            )}
-          </p>
           {evidencia.integraCon && (
             <p className="mt-1.5">
               Lo hace a través de otra herramienta: <span className="font-medium text-slate-800">{evidencia.integraCon}</span>.
@@ -190,13 +252,6 @@ export default function TarjetaHerramientaRecomendada({
         </p>
       )}
 
-      <div className="mt-4 flex flex-wrap items-center gap-2">
-        <span className="text-sm font-semibold text-slate-900">{precioInicial}</span>
-        <Etiqueta variante={tienePlanGratuito ? "exito" : "neutra"}>
-          {tienePlanGratuito ? "Con plan gratuito" : "Sin plan gratuito"}
-        </Etiqueta>
-      </div>
-
       {badgesEncaje.length > 0 && (
         <div className="mt-3 flex flex-wrap items-center gap-3">
           {badgesEncaje.map(({ icono: Icono, etiqueta }) => (
@@ -206,6 +261,13 @@ export default function TarjetaHerramientaRecomendada({
             </span>
           ))}
         </div>
+      )}
+
+      {idiomaSinConfirmar && (
+        <p className="mt-3 flex items-start gap-1.5 text-sm text-atencion-700">
+          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+          <span>{idiomaSinConfirmar}</span>
+        </p>
       )}
 
       {integracionPrincipal && (
@@ -300,16 +362,35 @@ export default function TarjetaHerramientaRecomendada({
         <ChevronRight className="h-4 w-4" aria-hidden="true" />
       </Link>
 
+    </Tarjeta>
+      <TarjetaLoQueCuesta
+        respuesta={cuantoCuesta}
+        filas={filasDelCoste}
+        {...(planGratuito ? { planGratuito } : {})}
+        comprobacion={comprobacionDelPrecio}
+        estaComprobado={precioComprobado}
+        {...(urlPrecios ? { urlPrecios } : {})}
+        {...(evidencia?.tipo === "confirmada" && !evidencia.plan ? { planSinConfirmar: true } : {})}
+      />
+      {/*
+        El botón, DESPUÉS de saber el precio.
+        Estaba dentro de la recomendación, encima de la tarjeta de coste: le
+        pedíamos que actuara antes de decirle lo que cuesta, que es pedirle un
+        salto a ciegas. Lo señaló la propietaria: «si el producto es bueno hay
+        que saber cerrar una venta». Cerrar no es apretar — es quitar lo que
+        queda entre «ésta es» y «ya la estoy usando»: primero el precio,
+        después qué pasa al pulsar, y entonces el botón.
+      */}
       <Boton
         href={`/herramienta/${id}/ir?origen=resultado${rutaOrigen ? `&ruta=${encodeURIComponent(rutaOrigen)}` : ""}`}
         tamano="grande"
         variante={destacada ? "primario" : "secundario"}
-        className="mt-3 w-full"
+        className="mt-2 w-full"
       >
         {tienePlanGratuito ? "Probar gratis" : `Ir a ${nombre}`}
         <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
       </Boton>
-    </Tarjeta>
+    </div>
   );
 }
 

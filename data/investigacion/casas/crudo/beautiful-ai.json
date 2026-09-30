@@ -1,0 +1,13 @@
+{
+ "id": "beautiful-ai",
+ "nombre": "Beautiful.ai",
+ "urls": [
+  "https://www.beautiful.ai",
+  "https://www.beautiful.ai/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"AI writing assistant\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Integrations Connect your favorite tools\"\n    }\n  ],\n  \"esDe\": \"asistentes-ia\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.beautiful.ai/",
+  "OK https://www.beautiful.ai/pricing"
+ ]
+}

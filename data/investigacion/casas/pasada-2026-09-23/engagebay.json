@@ -1,0 +1,15 @@
+{
+ "id": "engagebay",
+ "nombre": "EngageBay",
+ "url": "https://www.engagebay.com/",
+ "preguntas": [
+  {
+   "q": "casa:atencion-cliente",
+   "por": "lo declara su página y F2 no lo ha comprobado"
+  }
+ ],
+ "texto": "{\"resultados\":[{\"id\":\"cap.shared_inbox\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.support_ticketing\",\"estado\":\"si\",\"cita\":\"helpdesk ticketing\",\"url\":\"https://www.engagebay.com/\"},{\"id\":\"cap.website_live_chat\",\"estado\":\"si\",\"cita\":\"Free Live Chat Software\",\"url\":\"https://www.engagebay.com/\"},{\"id\":\"cap.whatsapp_customer_channel\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.public_help_center\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.canned_responses\",\"estado\":\"si\",\"cita\":\"Canned Responses\",\"url\":\"https://www.engagebay.com/\"},{\"id\":\"cap.support_chatbot\",\"estado\":\"si\",\"cita\":\"EngageBay's AI Chatbot transforms customer support.\",\"url\":\"https://www.engagebay.com/\"},{\"id\":\"cap.customer_satisfaction_surveys\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.engagebay.com/"
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "id": "cal-com",
+ "nombre": "Cal.com",
+ "url": "https://cal.com/blog/learn-how-to-set-up-your-event-types-in-cal-com",
+ "recuperada": false,
+ "texto": "```json\n{\n  \"abierta\": false,\n  \"agendaPorProfesional\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"eligeElCliente\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"enEspanol\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  }\n}\n```"
+}

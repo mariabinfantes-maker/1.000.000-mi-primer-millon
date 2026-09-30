@@ -176,10 +176,27 @@ describe("«no consta» no es «no lo tiene»", () => {
     expect(describir(de(), "Embudo de ventas")).toContain("a partir del plan Lite");
   });
 
-  // ── Sobre los 1.544 registros reales ──────────────────────────────────
-  it("ninguno de los 1.544 registros reales produce una afirmación de ausencia", () => {
+  // ── Sobre los 3.884 registros reales ──────────────────────────────────
+  // 1.547 hasta el 2026-09-22 y 1.541 más el 2026-09-23, cuando la propietaria
+  // autorizó incorporar las dos pasadas de verificación por casas. Los nuevos
+  // «no consta» llevan nota, y sus notas dicen dónde se miró, nunca lo que la
+  // herramienta deja de hacer: por eso ninguna cae en `afirmaAusencia`.
+  it("ninguno de los 3.884 registros reales produce una afirmación de ausencia", () => {
     const registros = getRegistros();
-    expect(registros.length).toBe(1544);
+    // 3.884 desde el 2026-09-29: entran los cuatro registros de Teachable. El
+    // primero llevaba bloqueado desde septiembre por su profundidad; los otros
+    // tres salen de preguntarle por fin qué hace, con el mismo molde que a
+    // Thinkific y Hotmart.
+    // 3.880 desde el 2026-09-24: las 808 comprobaciones de las cuatro necesidades
+    // que bloqueaban a nueve oficios. Se incorporaron porque cada pasada cuesta
+    // dinero real y, si el resultado no llega hasta aquí, no cambia nada.
+    //
+    // 3.908 y 891 desde el 2026-09-29 por la tarde: entran BEWE, Bookitit,
+    // AgendaPro y Cliniko, autorizadas por la propietaria («sube las 6 al
+    // catálogo»), con los 24 registros de sus capacidades de reservas. Ya
+    // estaban investigadas con cita y dirección desde el 28 y el 29; lo que
+    // faltaba era archivarlas, y eso hace `cli-archivar-reservas.ts`.
+    expect(registros.length).toBe(4039);
     const malas = registros
       .map((r) => describir(evidenciaDeRegistro(r.herramientaId, r.capacidadId, r), r.capacidadId))
       .filter(afirmaAusencia);
@@ -187,19 +204,23 @@ describe("«no consta» no es «no lo tiene»", () => {
   });
 
   /**
-   * Estas cuatro notas hablan de que no hay una cita literal en la página —lo
+   * Estas notas hablan de que no hay una cita literal en la página —lo
    * que es cierto y no dice nada de la herramienta—, así que se quedan como
-   * están. La quinta, la de Beautiful.ai, sí afirmaba una ausencia («no incluye
+   * están. La de Beautiful.ai sí afirmaba una ausencia («no incluye
    * funcionalidad de recordatorios automáticos de citas») y la propietaria la
    * corrigió el 2026-09-09 para que hable de la evidencia y no del producto.
+   *
+   * Eran cuatro y son tres. La que falta, `clickup/cap.file_storage`, dejó de
+   * existir el 2026-09-23: su nota decía que no se encontraba la cita, y esa
+   * cita apareció —«File Storage», en su página oficial—, así que el registro
+   * pasó a verificado y la nota se fue con él. Ninguna se borró a mano.
    *
    * `describir()` NO publica las notas. Esta prueba existe para que quien las
    * publique algún día tenga que pasar antes por aquí y verlas.
    */
-  it("las notas de F2 no salen por aquí, y cuatro de ellas afirman una ausencia", () => {
+  it("las notas de F2 no salen por aquí, y tres de ellas afirman una ausencia", () => {
     const conNota = getRegistros().filter((r) => r.nota && afirmaAusencia(r.nota));
     expect(conNota.map((r) => `${r.herramientaId}/${r.capacidadId}`)).toEqual([
-      "clickup/cap.file_storage",
       "salesmate/cap.marketing_automation",
       "wrike/cap.invoicing",
       "grammarly/cap.online_self_service_booking",

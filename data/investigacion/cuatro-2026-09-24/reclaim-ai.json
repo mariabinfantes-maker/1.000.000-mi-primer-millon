@@ -1,0 +1,27 @@
+{
+ "id": "reclaim-ai",
+ "nombre": "Reclaim.ai",
+ "url": "https://reclaim.ai",
+ "precios": "https://reclaim.ai/pricing",
+ "caps": [
+  "cap.per_resource_booking_calendar",
+  "cap.capacity_and_time_slots",
+  "cap.booking_waitlist",
+  "cap.room_and_equipment_booking",
+  "cap.point_of_sale",
+  "cap.menu_management",
+  "cap.order_management",
+  "cap.offer_catalog",
+  "cap.case_file_management",
+  "cap.file_storage",
+  "cap.customer_interaction_history",
+  "cap.own_asset_maintenance",
+  "cap.fleet_telematics",
+  "cap.inspections_and_checklists"
+ ],
+ "texto": "{\"resultados\":[{\"id\":\"cap.per_resource_booking_calendar\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.capacity_and_time_slots\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.booking_waitlist\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.room_and_equipment_booking\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.point_of_sale\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.menu_management\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.order_management\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.offer_catalog\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.case_file_management\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.file_storage\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.customer_interaction_history\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.own_asset_maintenance\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.fleet_telematics\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.inspections_and_checklists\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://reclaim.ai/",
+  "OK https://reclaim.ai/pricing"
+ ]
+}

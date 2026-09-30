@@ -1,0 +1,13 @@
+{
+ "id": "thinkific",
+ "nombre": "Thinkific",
+ "urls": [
+  "https://www.thinkific.com",
+  "https://www.thinkific.com/pricing/"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Built-in AI teaching assistant\"\n    },\n    {\n      \"id\": \"facturacion-contabilidad\",\n      \"cita\": \"Automated sales tax and VAT\"\n    },\n    {\n      \"id\": \"reservas-citas\",\n      \"cita\": \"Unlimited Zoom sessions, bookable calendars, and attendance tracking\"\n    },\n    {\n      \"id\": \"comercio-electronico\",\n      \"cita\": \"Full e-commerce payment processing is included.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Standard API and webhooks\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Drive and recapture sales with automated emails\"\n    },\n    {\n      \"id\": \"creacion-web-hosting\",\n      \"cita\": \"Build branded websites and landing pages on your custom domain.\"\n    },\n    {\n      \"id\": \"software-sectorial\",\n      \"cita\": \"Thinkific for Academies Scale your professional training programs\"\n    }\n  ],\n  \"esDe\": \"software-sectorial\",\n  \"sector\": \"formación online\"\n}",
+ "leidas": [
+  "OK https://www.thinkific.com/",
+  "OK https://www.thinkific.com/pricing/"
+ ]
+}

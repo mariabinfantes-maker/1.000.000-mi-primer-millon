@@ -1,0 +1,7 @@
+{
+ "id": "calendly",
+ "nombre": "Calendly",
+ "url": "https://help.calendly.com/hc/en-us/articles/4914418007831-Event-types-overview",
+ "recuperada": false,
+ "texto": "```json\n{\n \"abierta\": false,\n \"agendaPorProfesional\": {\n  \"estado\": \"no_consta\",\n  \"cita\": null\n },\n \"eligeElCliente\": {\n  \"estado\": \"no_consta\",\n  \"cita\": null\n },\n \"enEspanol\": {\n  \"estado\": \"no_consta\",\n  \"cita\": null\n }\n}\n```"
+}

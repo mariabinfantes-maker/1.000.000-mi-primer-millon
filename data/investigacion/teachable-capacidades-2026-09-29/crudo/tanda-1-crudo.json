@@ -1,0 +1,29 @@
+{
+ "_transcrito": "Respuesta de GPT tal como la pegó la propietaria el 2026-09-29.",
+ "fecha": "2026-09-29",
+ "capacidades": [
+  {"id":"cap.training_lms","estado":"verificado","cita":"Curriculum - Add new sections and lectures, or edit existing lectures. Reports - Review course reports on lecture completion, video engagement, quiz scores, and student performance. Certificates (Available on paid plans) - Create certificates of completion and manage active/inactive certificates.","url":"https://support.teachable.com/en/articles/11682404-courses","tituloDelArticulo":"Courses","fraseDeAlLado":"Coupons - Generate multi-use or single-use coupons for a course.","enQuePlan":"Certificados: planes de pago; el artículo no especifica un plan para las demás funciones."},
+  {"id":"cap.website_builder","estado":"verificado","cita":"Your website is your business's homebase. Build one on Teachable in minutes—no design or coding expertise required. With powerful customizations, responsive design, a simple drag-and-drop page builder, and more, you can bring your website to life on Teachable.","url":"https://www.teachable.com/site-builder","tituloDelArticulo":"Site Builder → Teachable","fraseDeAlLado":"Teachable success stories write themselves.","enQuePlan":"No lo dice; el código avanzado figura como disponible en el Business plan."},
+  {"id":"cap.landing_pages","estado":"verificado","cita":"Our site builder doesn't limit you; build landing pages to collect email leads, sales pages to convert traffic, about pages, contact pages, and more.","url":"https://www.teachable.com/site-builder","tituloDelArticulo":"Site Builder → Teachable","fraseDeAlLado":"Your website content will automatically resize based on the device or size of the browsing window.","enQuePlan":"No lo dice."},
+  {"id":"cap.online_store","estado":"no_consta","cita":null,"url":null,"tituloDelArticulo":null,"fraseDeAlLado":null,"enQuePlan":null},
+  {"id":"cap.email_campaigns","estado":"no_consta","cita":null,"url":null,"tituloDelArticulo":null,"fraseDeAlLado":null,"enQuePlan":null},
+  {"id":"cap.marketing_automation","estado":"no_consta","cita":null,"url":null,"tituloDelArticulo":null,"fraseDeAlLado":null,"enQuePlan":null}
+ ],
+ "paginasQueAbriste": [
+  "https://support.teachable.com/en/articles/11682404-courses",
+  "https://support.teachable.com/en/articles/11682425-navigate-and-view-course-content",
+  "https://www.teachable.com/site-builder",
+  "https://support.teachable.com/en/articles/11682502-create-edit-your-school-and-product-pages",
+  "https://support.teachable.com/en/articles/11682501-manage-your-pages",
+  "https://support.teachable.com/en/articles/11682579-teachable-for-wordpress",
+  "https://support.teachable.com/en/articles/11682485-browse-products-page-your-product-catalog",
+  "https://support.teachable.com/en/articles/15646496-customize-your-checkout-page",
+  "https://support.teachable.com/en/articles/11682443-abandoned-cart-emails",
+  "https://support.teachable.com/en/articles/11682611-email-service-providers-and-teachable",
+  "https://support.teachable.com/en/articles/11682401-emails",
+  "https://support.teachable.com/en/articles/11682595-mailerlite-and-teachable",
+  "https://support.teachable.com/en/articles/11682589-activecampaign-and-teachable"
+ ],
+ "paginasQueNoSeAbrieron": [],
+ "loQueNoPudeComprobar": "No encontré una página oficial que describa conjuntamente escaparate, carrito y cobro como una tienda online propia, ni una afirmación de campañas de correo o automatización de marketing nativas. La documentación sí describe integraciones externas de email marketing y automatización, pero no las atribuye como funciones propias de Teachable."
+}

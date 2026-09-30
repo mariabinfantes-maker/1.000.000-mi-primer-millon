@@ -1,0 +1,13 @@
+{
+ "id": "taskade",
+ "nombre": "Taskade",
+ "urls": [
+  "https://www.taskade.com",
+  "https://www.taskade.com/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Create unlimited AI agents that form the Intelligence pillar\"\n    },\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"See tasks, owners, and progress.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Connect 100+ integrations\"\n    },\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Build a CRM\"\n    },\n    {\n      \"id\": \"creacion-web-hosting\",\n      \"cita\": \"Publish apps under your own domain\"\n    },\n    {\n      \"id\": \"comercio-electronico\",\n      \"cita\": \"Storefronts, inventory, Stripe invoicing\"\n    },\n    {\n      \"id\": \"reservas-citas\",\n      \"cita\": \"Class schedules, appointments, event RSVPs\"\n    },\n    {\n      \"id\": \"recursos-humanos\",\n      \"cita\": \"New-hire onboarding hub\"\n    },\n    {\n      \"id\": \"inventario-operaciones\",\n      \"cita\": \"Manage orders, stock, and customers.\"\n    },\n    {\n      \"id\": \"atencion-cliente\",\n      \"cita\": \"View and manage all customer conversations in one place\"\n    },\n    {\n      \"id\": \"facturacion-contabilidad\",\n      \"cita\": \"Stripe checkout wired into every Taskade Genesis app — no plumbing.\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Create teams for marketing, sales, support, or any workflow.\"\n    }\n  ],\n  \"esDe\": \"asistentes-ia\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.taskade.com/",
+  "OK https://www.taskade.com/pricing"
+ ]
+}

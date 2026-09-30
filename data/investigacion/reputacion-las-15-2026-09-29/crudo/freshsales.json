@@ -1,0 +1,5 @@
+{
+ "id": "freshsales",
+ "nombre": "Freshsales",
+ "texto": "```json\n{\n \"abierta\": true,\n \"capterra\": {\n  \"url\": \"https://www.capterra.com/p/153676/Freshsales/\",\n  \"notaGeneral\": \"4.5\",\n  \"facilidadDeUso\": \"4.2\",\n  \"escala\": \"5\",\n  \"numeroDeResenas\": 622,\n  \"cita\": \"Ease of Use. 4.2. Customer Service. 4.1. Reviews Sentiment. User 1. User 2. User 3. Based on 622 reviews.\"\n },\n \"g2\": {\n  \"url\": \"https://www.g2.com/products/freshsales/reviews\",\n  \"notaGeneral\": \"4.5\",\n  \"facilidadDeUso\": \"9.0\",\n  \"escala\": \"10\",\n  \"numeroDeResenas\": 1061,\n  \"cita\": \"Ease of Use. 9.0. 1,061.\"\n },\n \"dondeMire\": [\n  \"https://www.capterra.com/p/153676/Freshsales/\",\n  \"https://www.capterra.es/software/153676/freshsales\",\n  \"https://www.capterra.co.uk/\",\n  \"https://www.capterra.ie/\",\n  \"https://www.g2.com/products/freshsales/reviews\",\n  \"https://www.g2.com/compare/freshsales-vs-vtiger-sales\"\n ]\n}\n```"
+}

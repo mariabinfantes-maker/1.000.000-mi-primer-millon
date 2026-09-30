@@ -1,0 +1,5 @@
+{
+ "id": "smartsheet",
+ "nombre": "Smartsheet",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/57662/Smartsheet/reviews/\",\n    \"notaGeneral\": 4.5,\n    \"facilidadDeUso\": 4.3,\n    \"escala\": \"1-5\",\n    \"numeroDeResenas\": 3552,\n    \"cita\": \"Reviews of Smartsheet\\n\\n Ease of use\\n\\n 4.3\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/smartsheet/reviews\",\n    \"notaGeneral\": 4.4,\n    \"facilidadDeUso\": 8.4,\n    \"escala\": \"1-10\",\n    \"numeroDeResenas\": 19306,\n    \"cita\": \"Ease of Use ... Smartsheet. 8.4. 8.4 19,306.\"\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/57662/Smartsheet/reviews/\",\n    \"https://www.capterra.es/software/57662/smartsheet\",\n    \"https://www.capterra.ie\",\n    \"https://www.capterra.co.uk\",\n    \"https://www.g2.com/products/smartsheet/reviews\",\n    \"https://www.g2.com/compare/productboard-vs-smartsheet\"\n  ]\n}\n```"
+}

@@ -1,0 +1,209 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "A continuación se detalla la información extraída literalmente de cada una de las dos páginas:\n\n---\n\n### 1. Clínica Dental Munn\n**URL:** `https://www.doctoralia.es/clinicas/clinica-dental-munn`\n\n1. **¿Se listan varios profesionales con nombre?**\n   Sí. Aparecen los siguientes profesionales:\n   * «Dra. Yeisy Alvarez Napoles»\n   * «Dr. Daniel Torres»\n   * «Dr. Luis Enrique Tornet Nieves»\n   * «Dra. Ylenia Dayana Espallardo»\n\n2. **¿Al reservar hay que elegir con qué profesional, o el paciente elige especialidad y ya está? Copia los rótulos exactos del bloque de reserva.**\n   El paciente elige especialidad. Rótulos exactos del bloque de reserva:\n   * «Reservar cita»\n   * «Especialidad»\n   * «Seleccione especialidad»\n   * «Este centro aún no ofrece la reserva online de cita»\n   * «Elige una especialidad para ver las horas disponibles»\n\n3. **¿Se ven horas libres concretas asociadas a un profesional en particular? Copia un ejemplo literal.**\n   No está. Texto literal que figura:\n   * «Este centro aún no ofrece la reserva online de cita»\n\n4. **¿Aparece algún texto tipo «Elige profesional», «Selecciona especialista», «Ver agenda de»? Cópialo tal cual.**\n   No está.\n\n---\n\n### 2. Clínica Dental Clarís - Francesc Macia\n**URL:** `https://www.doctoralia.es/clinicas/clinica-dental-claris-francesc-macia`\n\n1. **¿Se listan varios profesionales con nombre?**\n   Sí. Aparecen los siguientes profesionales:\n   * «Dra. Julissa Yalle»\n   * «Dra. Cindy Dias Larez»\n   * «Dr. Xavier Gisbert Pallarés»\n   * «Dra. Carolai Carrillo Alessandro»\n   * «Mileivy Carolina Altuve Mata»\n\n2. **¿Al reservar hay que elegir con qué profesional, o el paciente elige especialidad y ya está? Copia los rótulos exactos del bloque de reserva.**\n   El paciente elige especialidad. Rótulos exactos del bloque de reserva:\n   * «Reservar cita»\n   * «Especialidad»\n   * «Seleccione especialidad»\n   * «Este centro aún no ofrece la reserva online de cita»\n   * «Elige una especialidad para ver las horas disponibles»\n\n3. **¿Se ven horas libres concretas asociadas a un profesional en particular? Copia un ejemplo literal.**\n   No está. Texto literal que figura:\n   * «Este centro aún no ofrece la reserva online de cita»\n\n4. **¿Aparece algún texto tipo «Elige profesional», «Selecciona especialista», «Ver agenda de»? Cópialo tal cual.**\n   No está.",
+            "thoughtSignature": "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"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0,
+      "groundingMetadata": {
+        "groundingChunks": [
+          {
+            "web": {
+              "uri": "https://www.doctoralia.es/clinicas/clinica-dental-munn",
+              "title": "Clínica Dental Munn | Doctoralia"
+            }
+          },
+          {
+            "web": {
+              "uri": "https://www.doctoralia.es/clinicas/clinica-dental-claris-francesc-macia",
+              "title": "Clínica Dental Clarís - Francesc Macia | Doctoralia"
+            }
+          }
+        ],
+        "groundingSupports": [
+          {
+            "segment": {
+              "startIndex": 249,
+              "endIndex": 251,
+              "text": "**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 260,
+              "endIndex": 297,
+              "text": "Aparecen los siguientes profesionales"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 592,
+              "endIndex": 594,
+              "text": "**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 630,
+              "endIndex": 668,
+              "text": "Rótulos exactos del bloque de reserva"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 978,
+              "endIndex": 980,
+              "text": "**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 994,
+              "endIndex": 1018,
+              "text": "Texto literal que figura"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 1205,
+              "endIndex": 1207,
+              "text": "**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 1408,
+              "endIndex": 1410,
+              "text": "**"
+            },
+            "groundingChunkIndices": [
+              1
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 1419,
+              "endIndex": 1456,
+              "text": "Aparecen los siguientes profesionales"
+            },
+            "groundingChunkIndices": [
+              1
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 1786,
+              "endIndex": 1788,
+              "text": "**"
+            },
+            "groundingChunkIndices": [
+              1
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 1824,
+              "endIndex": 1862,
+              "text": "Rótulos exactos del bloque de reserva"
+            },
+            "groundingChunkIndices": [
+              1
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 2172,
+              "endIndex": 2174,
+              "text": "**"
+            },
+            "groundingChunkIndices": [
+              1
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 2188,
+              "endIndex": 2212,
+              "text": "Texto literal que figura"
+            },
+            "groundingChunkIndices": [
+              1
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 2399,
+              "endIndex": 2401,
+              "text": "**"
+            },
+            "groundingChunkIndices": [
+              1
+            ]
+          }
+        ]
+      },
+      "urlContextMetadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.doctoralia.es/clinicas/clinica-dental-munn",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          },
+          {
+            "retrievedUrl": "https://www.doctoralia.es/clinicas/clinica-dental-claris-francesc-macia",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      }
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 480,
+    "candidatesTokenCount": 782,
+    "totalTokenCount": 15976,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 480
+      }
+    ],
+    "toolUsePromptTokenCount": 12400,
+    "toolUsePromptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 12400
+      }
+    ],
+    "thoughtsTokenCount": 2314,
+    "serviceTier": "standard"
+  },
+  "modelVersion": "gemini-3.6-flash",
+  "responseId": "cbq6avG2KMak1MkP9MiWiQc"
+}

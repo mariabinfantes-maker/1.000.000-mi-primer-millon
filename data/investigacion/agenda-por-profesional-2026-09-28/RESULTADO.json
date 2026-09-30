@@ -1,0 +1,219 @@
+{
+ "capacidad": "cap.per_resource_booking_calendar",
+ "fecha": "2026-09-28",
+ "comoSeLeyo": "Una página por llamada, con url_context, exigiendo cita literal. Sin conocimiento previo.",
+ "avisoSobreLosCeros": "«no lo hemos encontrado» es que la página se abrió y no lo decía. «no hemos podido mirar» es que ninguna página se abrió. Ninguna de las dos significa que la herramienta no lo tenga.",
+ "herramientas": [
+  {
+   "id": "simplybook-me",
+   "nombre": "SimplyBook.me",
+   "enElCatalogo": false,
+   "paginasAbiertas": 4,
+   "paginasIntentadas": 4,
+   "agendaPorProfesional": {
+    "estado": "verificado",
+    "cita": "You can set regular schedule for providers in Manage -> Service Providers",
+    "url": "https://help.simplybook.me/wiki/Adding_services,_providers_and_availability(new_interface)"
+   },
+   "eligeElCliente": {
+    "estado": "verificado",
+    "cita": "Si no tiene la intención de permitir que los clientes reserven con un proveedor específico, siempre puede llamarlo «Proveedor 1/2/3/4».",
+    "url": "https://news.simplybook.me/es/como-configurar-servicios-y-proveedores-en-simplybook-me/"
+   },
+   "productoEnEspanol": {
+    "estado": "desconocido"
+   }
+  },
+  {
+   "id": "doctoralia",
+   "nombre": "Doctoralia",
+   "enElCatalogo": false,
+   "paginasAbiertas": 15,
+   "paginasIntentadas": 30,
+   "agendaPorProfesional": {
+    "estado": "verificado",
+    "cita": "Simple operations on the calendar belonging to the address",
+    "citaSegunda": "List of free slots for the address within specified date range.",
+    "rutaQueLoDemuestra": "POST /facilities/{facility_id}/doctors/{doctor_id}/addresses/{address_id}/slots/{start}/book",
+    "url": "https://integrations.docplanner.com/docs/",
+    "porQueDemuestra": "El calendario cuelga de una dirección, la dirección cuelga de un doctor y el doctor de un centro. Es decir: cada profesional tiene su propia agenda en cada sitio donde pasa consulta."
+   },
+   "eligeElCliente": {
+    "estado": "verificado",
+    "cita": "Este especialista no ofrece reserva online en esta dirección",
+    "url": "https://www.doctoralia.es/sergio-de-la-torre-ruiz/dentista/madrid",
+    "porQueDemuestra": "Leído en el producto: la reserva es del especialista en una dirección concreta, no del centro. Coincide con la ruta de su API, que reserva contra el doctor. Dos lecturas independientes que dicen lo mismo."
+   },
+   "productoEnEspanol": {
+    "estado": "verificado",
+    "cita": "Este especialista no ofrece reserva online en esta dirección",
+    "url": "https://www.doctoralia.es/sergio-de-la-torre-ruiz/dentista/madrid",
+    "porQueDemuestra": "El producto se usa en español; es de Docplanner, con sede en España."
+   },
+   "nota": "La primera pasada la dejó en «no lo hemos encontrado» con 1 de 10 páginas abiertas. Eso no era un resultado. Se insistió: pro.doctoralia.es bloquea al lector por completo (0 de 7 páginas en tres rondas) y el bloque de reserva de www.doctoralia.es no se dibuja para un lector automático —sale el mismo texto de reserva en todas las fichas, tengan o no la reserva activada—. La evidencia salió de su documentación de integraciones, que sí se abre.",
+   "paraQuienEs": "Es un directorio de pacientes con agenda, no un programa de reservas cualquiera. Encaja con consultas y clínicas; no con una peluquería ni con un taller."
+  },
+  {
+   "id": "calendly",
+   "nombre": "Calendly",
+   "enElCatalogo": false,
+   "paginasAbiertas": 1,
+   "paginasIntentadas": 10,
+   "agendaPorProfesional": {
+    "estado": "desconocido"
+   },
+   "eligeElCliente": {
+    "estado": "desconocido"
+   },
+   "productoEnEspanol": {
+    "estado": "desconocido"
+   }
+  },
+  {
+   "id": "cal-com",
+   "nombre": "Cal.com",
+   "enElCatalogo": false,
+   "paginasAbiertas": 4,
+   "paginasIntentadas": 10,
+   "agendaPorProfesional": {
+    "estado": "desconocido"
+   },
+   "eligeElCliente": {
+    "estado": "desconocido"
+   },
+   "productoEnEspanol": {
+    "estado": "desconocido"
+   }
+  },
+  {
+   "id": "acuity-scheduling",
+   "nombre": "Acuity Scheduling (Squarespace)",
+   "enElCatalogo": false,
+   "paginasAbiertas": 0,
+   "paginasIntentadas": 9,
+   "agendaPorProfesional": {
+    "estado": "sin_mirar"
+   },
+   "eligeElCliente": {
+    "estado": "sin_mirar"
+   },
+   "productoEnEspanol": {
+    "estado": "sin_mirar"
+   }
+  },
+  {
+   "id": "setmore",
+   "nombre": "Setmore",
+   "enElCatalogo": false,
+   "paginasAbiertas": 1,
+   "paginasIntentadas": 4,
+   "agendaPorProfesional": {
+    "estado": "desconocido"
+   },
+   "eligeElCliente": {
+    "estado": "verificado",
+    "cita": "Each staff profile includes a Booking Page link, allowing customers to schedule appointments with specific team members.",
+    "url": "https://www.setmore.com/features/staff-scheduling"
+   },
+   "productoEnEspanol": {
+    "estado": "desconocido"
+   }
+  },
+  {
+   "id": "square-appointments",
+   "nombre": "Square Appointments",
+   "enElCatalogo": false,
+   "paginasAbiertas": 2,
+   "paginasIntentadas": 4,
+   "agendaPorProfesional": {
+    "estado": "desconocido"
+   },
+   "eligeElCliente": {
+    "estado": "desconocido"
+   },
+   "productoEnEspanol": {
+    "estado": "desconocido"
+   }
+  },
+  {
+   "id": "zoho-bookings",
+   "nombre": "Zoho Bookings",
+   "enElCatalogo": false,
+   "paginasAbiertas": 1,
+   "paginasIntentadas": 10,
+   "agendaPorProfesional": {
+    "estado": "desconocido"
+   },
+   "eligeElCliente": {
+    "estado": "desconocido"
+   },
+   "productoEnEspanol": {
+    "estado": "desconocido"
+   }
+  },
+  {
+   "id": "fresha",
+   "nombre": "Fresha",
+   "enElCatalogo": false,
+   "paginasAbiertas": 1,
+   "paginasIntentadas": 10,
+   "agendaPorProfesional": {
+    "estado": "desconocido"
+   },
+   "eligeElCliente": {
+    "estado": "desconocido"
+   },
+   "productoEnEspanol": {
+    "estado": "desconocido"
+   }
+  },
+  {
+   "id": "booksy",
+   "nombre": "Booksy",
+   "enElCatalogo": false,
+   "paginasAbiertas": 2,
+   "paginasIntentadas": 8,
+   "agendaPorProfesional": {
+    "estado": "desconocido"
+   },
+   "eligeElCliente": {
+    "estado": "desconocido"
+   },
+   "productoEnEspanol": {
+    "estado": "desconocido"
+   }
+  },
+  {
+   "id": "timify",
+   "nombre": "TIMIFY",
+   "enElCatalogo": false,
+   "paginasAbiertas": 1,
+   "paginasIntentadas": 9,
+   "agendaPorProfesional": {
+    "estado": "desconocido"
+   },
+   "eligeElCliente": {
+    "estado": "desconocido"
+   },
+   "productoEnEspanol": {
+    "estado": "desconocido"
+   }
+  },
+  {
+   "id": "reservio",
+   "nombre": "Reservio",
+   "enElCatalogo": false,
+   "paginasAbiertas": 2,
+   "paginasIntentadas": 10,
+   "agendaPorProfesional": {
+    "estado": "desconocido"
+   },
+   "eligeElCliente": {
+    "estado": "desconocido"
+   },
+   "productoEnEspanol": {
+    "estado": "desconocido"
+   }
+  }
+ ]
+}

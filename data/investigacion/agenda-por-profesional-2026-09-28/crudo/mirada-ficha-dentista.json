@@ -1,0 +1,338 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "A continuación se detallan las respuestas extraídas literalmente del texto de la ficha:\n\n### 1. ¿De quién es esta ficha? ¿Es de una persona o de una clínica?\nEs la ficha de una **persona**. \n* Nombre exacto que figura: **Dr. Sergio de la Torre Ruiz**\n* Especialidad: **Dentista**\n\n---\n\n### 2. ¿Aparece un calendario con horas libres de ESE profesional?\n**No aparecen horas libres**. En su lugar, figura literalmente el siguiente texto:\n* Para la primera dirección (Clínica Dental Q Dental):\n  \u003e **«Este centro aún no ofrece la reserva online de cita»**\n* Para la segunda dirección (Clínica Dental Orion):\n  \u003e **«Este especialista no ofrece reserva online en esta dirección»**\n\n---\n\n### 3. Rótulos exactos del bloque de reserva de cita\nLos rótulos y botones que aparecen literalmente en la sección de reserva son:\n\n* **«Reservar cita»**\n* **«Dirección»**\n* **«Selecciona dirección»**\n* **«Hoy»**\n* **«Mañana»**\n* **«Mar»**\n* **«Mié»**\n* **«Jue»**\n* **«Vie»**\n* **«Sáb»**\n* **«Este centro aún no ofrece la reserva online de cita»**\n* **«Pedir una cita»**\n* **«Disponibilidad»**\n* **«Mostrar el calendario»**\n\n---\n\n### 4. ¿Se menciona en qué centro pasa consulta, y hay más profesionales en ese centro?\n\n**Centros mencionados en los que pasa consulta:**\n1. **Clínica Dental Q Dental** (C/ Bravo Murillo, 6 - Local. Distrito de Chamberi, junto a la Gta. de Quevedo., Local, Chamberí, Madrid 28015) —también mencionada como *Clínica Doctores de la Torre, Q-Dental* y *Centro de Odontología Avanzada Q-Dental*.\n2. **Clínica Dental Orion** (Paseo de Extremadura 83, Latina, Madrid 28011).\n\n**¿Se menciona a más profesionales?**\nSí, en la información sobre su trayectoria/experiencia en la clínica Q-Dental se nombra a otro profesional:\n\u003e **«Dr. Eduardo De la Torre»** *(«adquiriendo la experiencia y los conocimientos heredados del Dr. Eduardo De la Torre»)*.",
+            "thoughtSignature": "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"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0,
+      "groundingMetadata": {
+        "groundingChunks": [
+          {
+            "web": {
+              "uri": "https://www.doctoralia.es/sergio-de-la-torre-ruiz/dentista/madrid",
+              "title": "Dr. Sergio de la Torre Ruiz Dentista, Madrid - Reserva cita | Doctoralia"
+            }
+          }
+        ],
+        "groundingSupports": [
+          {
+            "segment": {
+              "endIndex": 88,
+              "text": "A continuación se detallan las respuestas extraídas literalmente del texto de la ficha"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 164,
+              "endIndex": 194,
+              "text": "Es la ficha de una **persona**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 231,
+              "endIndex": 256,
+              "text": "Sergio de la Torre Ruiz**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 231,
+              "endIndex": 285,
+              "text": "Sergio de la Torre Ruiz**\n* Especialidad: **Dentista**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 360,
+              "endIndex": 388,
+              "text": "**No aparecen horas libres**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 390,
+              "endIndex": 441,
+              "text": "En su lugar, figura literalmente el siguiente texto"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 390,
+              "endIndex": 564,
+              "text": "En su lugar, figura literalmente el siguiente texto:\n* Para la primera dirección (Clínica Dental Q Dental):\n  \u003e **«Este centro aún no ofrece la reserva online de cita»**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 390,
+              "endIndex": 692,
+              "text": "En su lugar, figura literalmente el siguiente texto:\n* Para la primera dirección (Clínica Dental Q Dental):\n  \u003e **«Este centro aún no ofrece la reserva online de cita»**\n* Para la segunda dirección (Clínica Dental Orion):\n  \u003e **«Este especialista no ofrece reserva online en esta dirección»**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 706,
+              "endIndex": 831,
+              "text": "Rótulos exactos del bloque de reserva de cita\nLos rótulos y botones que aparecen literalmente en la sección de reserva son"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 834,
+              "endIndex": 857,
+              "text": "* **«Reservar cita»**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 834,
+              "endIndex": 878,
+              "text": "* **«Reservar cita»**\n* **«Dirección»**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 834,
+              "endIndex": 910,
+              "text": "* **«Reservar cita»**\n* **«Dirección»**\n* **«Selecciona dirección»**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 834,
+              "endIndex": 924,
+              "text": "* **«Reservar cita»**\n* **«Dirección»**\n* **«Selecciona dirección»**\n* **«Hoy»**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 834,
+              "endIndex": 942,
+              "text": "* **«Reservar cita»**\n* **«Dirección»**\n* **«Selecciona dirección»**\n* **«Hoy»**\n* **«Mañana»**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 834,
+              "endIndex": 956,
+              "text": "* **«Reservar cita»**\n* **«Dirección»**\n* **«Selecciona dirección»**\n* **«Hoy»**\n* **«Mañana»**\n* **«Mar»**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 834,
+              "endIndex": 971,
+              "text": "* **«Reservar cita»**\n* **«Dirección»**\n* **«Selecciona dirección»**\n* **«Hoy»**\n* **«Mañana»**\n* **«Mar»**\n* **«Mié»**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 834,
+              "endIndex": 985,
+              "text": "* **«Reservar cita»**\n* **«Dirección»**\n* **«Selecciona dirección»**\n* **«Hoy»**\n* **«Mañana»**\n* **«Mar»**\n* **«Mié»**\n* **«Jue»**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 834,
+              "endIndex": 999,
+              "text": "* **«Reservar cita»**\n* **«Dirección»**\n* **«Selecciona dirección»**\n* **«Hoy»**\n* **«Mañana»**\n* **«Mar»**\n* **«Mié»**\n* **«Jue»**\n* **«Vie»**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 834,
+              "endIndex": 1014,
+              "text": "* **«Reservar cita»**\n* **«Dirección»**\n* **«Selecciona dirección»**\n* **«Hoy»**\n* **«Mañana»**\n* **«Mar»**\n* **«Mié»**\n* **«Jue»**\n* **«Vie»**\n* **«Sáb»**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 834,
+              "endIndex": 1077,
+              "text": "* **«Reservar cita»**\n* **«Dirección»**\n* **«Selecciona dirección»**\n* **«Hoy»**\n* **«Mañana»**\n* **«Mar»**\n* **«Mié»**\n* **«Jue»**\n* **«Vie»**\n* **«Sáb»**\n* **«Este centro aún no ofrece la reserva online de cita»**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 834,
+              "endIndex": 1102,
+              "text": "* **«Reservar cita»**\n* **«Dirección»**\n* **«Selecciona dirección»**\n* **«Hoy»**\n* **«Mañana»**\n* **«Mar»**\n* **«Mié»**\n* **«Jue»**\n* **«Vie»**\n* **«Sáb»**\n* **«Este centro aún no ofrece la reserva online de cita»**\n* **«Pedir una cita»**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 834,
+              "endIndex": 1127,
+              "text": "* **«Reservar cita»**\n* **«Dirección»**\n* **«Selecciona dirección»**\n* **«Hoy»**\n* **«Mañana»**\n* **«Mar»**\n* **«Mié»**\n* **«Jue»**\n* **«Vie»**\n* **«Sáb»**\n* **«Este centro aún no ofrece la reserva online de cita»**\n* **«Pedir una cita»**\n* **«Disponibilidad»**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 834,
+              "endIndex": 1159,
+              "text": "* **«Reservar cita»**\n* **«Dirección»**\n* **«Selecciona dirección»**\n* **«Hoy»**\n* **«Mañana»**\n* **«Mar»**\n* **«Mié»**\n* **«Jue»**\n* **«Vie»**\n* **«Sáb»**\n* **«Este centro aún no ofrece la reserva online de cita»**\n* **«Pedir una cita»**\n* **«Disponibilidad»**\n* **«Mostrar el calendario»**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 1370,
+              "endIndex": 1567,
+              "text": "Distrito de Chamberi, junto a la Gta. de Quevedo., Local, Chamberí, Madrid 28015) —también mencionada como *Clínica Doctores de la Torre, Q-Dental* y *Centro de Odontología Avanzada Q-Dental*"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 1572,
+              "endIndex": 1645,
+              "text": "**Clínica Dental Orion** (Paseo de Extremadura 83, Latina, Madrid 28011)"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 1685,
+              "endIndex": 1797,
+              "text": "**\nSí, en la información sobre su trayectoria/experiencia en la clínica Q-Dental se nombra a otro profesional"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 1809,
+              "endIndex": 1832,
+              "text": "Eduardo De la Torre»**"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          },
+          {
+            "segment": {
+              "startIndex": 1902,
+              "endIndex": 1925,
+              "text": "Eduardo De la Torre»)*"
+            },
+            "groundingChunkIndices": [
+              0
+            ]
+          }
+        ]
+      },
+      "urlContextMetadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.doctoralia.es/sergio-de-la-torre-ruiz/dentista/madrid",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      }
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 204,
+    "candidatesTokenCount": 722,
+    "totalTokenCount": 9877,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 204
+      }
+    ],
+    "toolUsePromptTokenCount": 7591,
+    "toolUsePromptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 7591
+      }
+    ],
+    "thoughtsTokenCount": 1360,
+    "serviceTier": "standard"
+  },
+  "modelVersion": "gemini-3.6-flash",
+  "responseId": "kLq6aurXN5nUjMcPvZzowQ8"
+}

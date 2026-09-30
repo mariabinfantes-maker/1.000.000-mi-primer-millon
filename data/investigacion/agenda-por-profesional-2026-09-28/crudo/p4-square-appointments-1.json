@@ -1,0 +1,7 @@
+{
+ "id": "square-appointments",
+ "nombre": "Square Appointments",
+ "url": "https://squareup.com/help/es/es/article/5063-accept-online-bookings-with-square-appointments",
+ "recuperada": false,
+ "texto": "```json\n{\n \"abierta\": false,\n \"agendaPorProfesional\": {\"estado\": \"no_consta\", \"cita\": null},\n \"eligeElCliente\": {\"estado\": \"no_consta\", \"cita\": null},\n \"enEspanol\": {\"estado\": \"no_consta\", \"cita\": null}\n}\n```"
+}

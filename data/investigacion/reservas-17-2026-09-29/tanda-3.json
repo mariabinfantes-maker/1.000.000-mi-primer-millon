@@ -1,0 +1,230 @@
+{
+ "comoSeInvestigo": {
+  "quienMiro": "GPT con navegación. Encargo guardado en encargos/PROMPT-GPT-reservas-tanda-3.md.",
+  "cuando": "2026-09-29",
+  "abiertoPorNosotrosOContadoPorOtro": "lo_dice_otro",
+  "porQueLoDiceOtro": "Desde aquí el lector no abre casi ninguna de estas páginas. Las abrió GPT, y cada cita viene con el título exacto de la página y una frase de al lado."
+ },
+ "tanda": "3 de 4 — de la undécima a la decimoquinta, más los dos pendientes",
+ "herramientas": [
+  {
+   "id": "cliniko",
+   "capacidadesVerificadas": [
+    "cap.online_self_service_booking",
+    "cap.customer_appointment_reminders",
+    "cap.capacity_and_time_slots",
+    "cap.no_show_and_deposits",
+    "cap.embeddable_booking_widget"
+   ],
+   "noConsta": [
+    "cap.booking_waitlist"
+   ],
+   "descartado": [
+    {
+     "id": "cap.booking_cancellation_and_rescheduling",
+     "cita": "At this time patients cannot reschedule their own appointments.",
+     "url": "https://help.cliniko.com/en/articles/9492754-reschedule-an-appointment",
+     "matiz": "El paciente SÍ puede cancelar si se habilita, pero NO puede reprogramar. La capacidad exige las dos cosas."
+    }
+   ],
+   "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200"
+   ],
+   "porQueEseTamano": "Su tarifa se organiza por profesionales: 1, 2-5, 6-8, 9-12, 13-25 y 26-200. No publica nada por encima de 200.",
+   "limites": [
+    {
+     "texto": "El paciente puede cancelar, pero no reprogramar su propia cita.",
+     "cita": "patients cannot reschedule their own appointments",
+     "url": "https://help.cliniko.com/en/articles/9492754-reschedule-an-appointment"
+    }
+   ],
+   "tienePlanGratuito": true,
+   "citaPlanGratuito": "Cliniko is free to use for registered charities or educational institutions.",
+   "ojoConElGratuito": "NO es un plan gratuito general: sólo para entidades benéficas registradas o instituciones educativas. Un negocio normal paga.",
+   "precio": {
+    "precioInicial": "Desde 45 $/mes para un profesional",
+    "moneda": "USD",
+    "cita": "1 practitioner$45 /mo",
+    "url": "https://www.cliniko.com/pricing/",
+    "escalones": "95, 145, 195, 295 y 395 $/mes para 2-5, 6-8, 9-12, 13-25 y 26-200 profesionales."
+   }
+  },
+  {
+   "id": "jane",
+   "capacidadesVerificadas": [
+    "cap.online_self_service_booking",
+    "cap.customer_appointment_reminders",
+    "cap.booking_cancellation_and_rescheduling",
+    "cap.capacity_and_time_slots",
+    "cap.no_show_and_deposits",
+    "cap.booking_waitlist"
+   ],
+   "noConsta": [
+    "cap.embeddable_booking_widget"
+   ],
+   "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+   ],
+   "porQueEseTamano": "Balance incluye un profesional. Practice y Thrive permiten añadir profesionales de pago sin máximo publicado: «Unlimited Staff Profiles».",
+   "limites": [
+    {
+     "texto": "El plan de entrada está limitado a un profesional y 20 citas al mes.",
+     "cita": "Limited to one practitioner license and 20 appointments per month.",
+     "url": "https://jane.app/pricing"
+    },
+    {
+     "texto": "La lista de espera automática sólo está en el plan Thrive.",
+     "cita": "Automated Patient Waitlist Management",
+     "url": "https://jane.app/pricing"
+    },
+    {
+     "texto": "Cobrar un depósito al reservar exige usar su propia pasarela.",
+     "cita": "This feature is available for Jane Payments users.",
+     "url": "https://jane.app/guide/online-booking-pre-payments"
+    }
+   ],
+   "tienePlanGratuito": null,
+   "citaPlanGratuito": null,
+   "ojo": "El plan gratuito queda en `null`, no en `false`: su tarifa niega la prueba gratuita pero no dice nada de un plan gratuito permanente. No se deduce."
+  },
+  {
+   "id": "pabau",
+   "capacidadesVerificadas": [
+    "cap.online_self_service_booking",
+    "cap.customer_appointment_reminders",
+    "cap.booking_cancellation_and_rescheduling",
+    "cap.capacity_and_time_slots",
+    "cap.no_show_and_deposits",
+    "cap.booking_waitlist"
+   ],
+   "noConsta": [
+    "cap.embeddable_booking_widget"
+   ],
+   "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+   ],
+   "porQueEseTamano": "Starter y Solo: un usuario; Team 2-3; Medium 4-5; Group 6-15; Enterprise «16+ users», sin máximo publicado.",
+   "limites": [
+    {
+     "texto": "La tarifa se cobra POR SEDE, salvo Enterprise.",
+     "cita": "Pricing applies per location, except on Enterprise which covers multiple sites.",
+     "url": "https://pabau.com/pricing/"
+    },
+    {
+     "texto": "El plan de entrada admite un usuario y hasta 100 clientes.",
+     "cita": "1 user, up to 100 clients",
+     "url": "https://pabau.com/blog/power-diary-alternatives/"
+    }
+   ],
+   "tienePlanGratuito": false,
+   "citaPlanGratuito": "Pabau has no free plan and no free trial",
+   "precio": {
+    "precioInicial": "Desde 62 $/mes, un usuario",
+    "moneda": "USD",
+    "cita": "From US$62/month one user, full platform",
+    "url": "https://pabau.com/blog/power-diary-alternatives/",
+    "AVISO": "Este importe sale de su BLOG, no de su página de contratación. La tarifa abrió incluso con JavaScript y sólo mostró nombres de planes y botones de demostración, sin importes. Es del fabricante, pero no es su página de precios."
+   }
+  },
+  {
+   "id": "fresha",
+   "capacidadesVerificadas": [
+    "cap.online_self_service_booking",
+    "cap.customer_appointment_reminders",
+    "cap.booking_cancellation_and_rescheduling",
+    "cap.capacity_and_time_slots",
+    "cap.no_show_and_deposits",
+    "cap.booking_waitlist",
+    "cap.embeddable_booking_widget"
+   ],
+   "noConsta": [],
+   "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+   ],
+   "porQueEseTamano": "Independent incluye un miembro reservable; Team muestra «Team members | 1 | Unlimited». Enterprise, a medida por encima de 20.",
+   "limites": [
+    {
+     "texto": "Team se cobra por cada miembro con reservas habilitadas, no una cuota plana.",
+     "cita": "Per bookable team member",
+     "url": "https://www.fresha.com/pricing"
+    },
+    {
+     "texto": "Al cancelar la suscripción se pierde el acceso al espacio de trabajo.",
+     "cita": "Access to your workspace will be removed",
+     "url": "https://www.fresha.com/help-center/knowledge-base/billing-and-fees/101626-manage-your-fresha-plan"
+    }
+   ],
+   "tienePlanGratuito": false,
+   "citaPlanGratuito": "We offer a flexible monthly subscription model",
+   "precio": {
+    "precioInicial": "19,95 $/mes para una persona; 14,95 $/mes por cada miembro reservable en Team",
+    "moneda": "USD",
+    "cita": "$19.95 USD for one-person business | $14.95 USD per team member monthly",
+    "url": "https://www.fresha.com/for-business/salon/best-salon-software",
+    "nota": "La moneda queda resuelta: son dólares, dicho por Fresha. Su página de tarifas cambia de moneda e importes según la región, así que NO es la tarifa española."
+   },
+   "loQueSigueSinSaberse": "Si Team tiene un mínimo de miembros facturables. La ayuda dice «Multiple bookable team members», y eso no se convierte en una condición de dos plazas."
+  },
+  {
+   "id": "booksy",
+   "capacidadesVerificadas": [
+    "cap.online_self_service_booking",
+    "cap.customer_appointment_reminders",
+    "cap.booking_cancellation_and_rescheduling",
+    "cap.capacity_and_time_slots",
+    "cap.no_show_and_deposits",
+    "cap.booking_waitlist",
+    "cap.embeddable_booking_widget"
+   ],
+   "noConsta": [],
+   "segmentosIdeales": [
+    "1-10"
+   ],
+   "porQueEseTamano": "Su suscripción es «para un usuario» y se añaden empleados con un cargo por cabeza. No publica máximo ni dice «ilimitado», así que no se suben los tramos.",
+   "limites": [
+    {
+     "texto": "Cada empleado adicional suma 8 € + IVA al mes.",
+     "cita": "por 8 € + IVA por 1 empleado / mes",
+     "url": "https://biz.booksy.com/es-es/precios"
+    }
+   ],
+   "tienePlanGratuito": false,
+   "citaPlanGratuito": "Después de la prueba gratuita, Booksy utiliza un modelo basado en suscripción.",
+   "ojo": "Las siete de siete, y todas con cita EN ESPAÑOL de su web española."
+  }
+ ],
+ "losDosPendientes": {
+  "reservio": {
+   "resuelto": true,
+   "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+   ],
+   "porQue": "Enterprise no tiene tope, y lo dice con sus palabras: «There is no limit; it all depends on your requirements». Eso no es ausencia de cifra: es una declaración.",
+   "url": "https://www.reservio.com/enterprise-scheduling-software",
+   "loQueSigueSinPublicarse": "El máximo de personal de los planes ordinarios —Free, Starter, Standard y Pro—. Se desplegó la comparación entera y se revisó la ayuda. No lo publican.",
+   "hallazgoExtra": "Crear perfiles de personal y darles acceso propio son cosas distintas: «Employee login is only available in the Pro premium plan»."
+  },
+  "reservo": {
+   "resuelto": true,
+   "precioInicial": "Desde 30.000 CLP + IVA al mes, plan Individual",
+   "moneda": "CLP",
+   "cita": "$30.000 CLP + IVA/mes",
+   "url": "https://reservo.cl/blog/profesionales/software/reservo-vs-lexaterapias-cual-es-el-mejor-software/",
+   "comoSeConsiguio": "reservo.cl devolvía contenido vacío al extraer, pero la sección de precios sí cargó en un navegador de verdad, y un artículo del propio fabricante confirma moneda y periodicidad."
+  }
+ }
+}

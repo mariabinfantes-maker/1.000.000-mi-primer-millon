@@ -1,0 +1,5 @@
+agents/atlas-researcher/lotes/resultados/cursos-1/verificacion-externa-2.json
+Elementos: 23 datos. Pasan limpios: 20. Problemas: 3
+  · teachable/comision_por_venta: el valor afirma 7.5 y la cita no lo dice: regla 5
+  · teachable/cursos: cita breve (24 caracteres): «Student progress reports»
+  · hotmart/plan_gratuito: la fuente es una portada, no una página concreta (https://hotmart.com/es)

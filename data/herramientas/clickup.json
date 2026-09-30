@@ -4,6 +4,11 @@
   "urlPrecios": "https://clickup.com/pricing",
   "logoUrl": "",
   "categoriaId": "gestion-proyectos",
+  "categoriasSecundarias": [
+    "asistentes-ia",
+    "automatizacion-integraciones",
+    "firma-gestion-documental"
+  ],
   "descripcion": "ClickUp es una plataforma de gestión de proyectos y productividad 'todo en uno' diseñada para centralizar tareas, documentos, metas y comunicación de equipos. Permite personalizar vistas, automatizar flujos de trabajo y sustituir múltiples aplicaciones aisladas en un único entorno.",
   "informacionEmpresa": {
     "anioFundacion": 2017,
@@ -70,7 +75,7 @@
     "Zapier"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde $7/usuario/mes (facturado anualmente)",
+  "precioInicial": "Gratis. Plan Unlimited desde $7/usuario/mes (facturación anual) o $10 al mes",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -133,12 +138,11 @@
     ],
     "tipoNegocioIdeal": "Agencias, startups tecnológicas y pymes en crecimiento",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 93,
+    "puntuacion": 90,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 7.8/10.",
       "G2: 4.7/5 (9500 reseñas).",
       "Capterra: 4.7/5 (4000 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -146,10 +150,39 @@
   "id": "clickup",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-04",
-  "fechaUltimaRevision": "2026-08-05",
+  "fechaUltimaRevision": "2026-09-17",
   "problemasIds": [
     "organizar-empresa",
     "ahorrar-tiempo"
   ],
-  "tipoProducto": "especializada"
+  "tipoProducto": "especializada",
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://clickup.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://clickup.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Free Forever",
+        "mensual": "0 $",
+        "cita": "Free Forever"
+      },
+      {
+        "nombre": "Unlimited",
+        "mensual": "10 $/usuario/mes",
+        "anual": "7 $/usuario/mes",
+        "cita": "$10 / $7"
+      },
+      {
+        "nombre": "Business",
+        "mensual": "19 $/usuario/mes",
+        "anual": "12 $/usuario/mes",
+        "cita": "$19 / $12"
+      }
+    ]
+  }
 }

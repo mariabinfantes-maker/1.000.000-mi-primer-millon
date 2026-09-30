@@ -1,0 +1,13 @@
+{
+ "id": "scoro",
+ "nombre": "Scoro",
+ "urls": [
+  "https://www.scoro.com/",
+  "https://www.scoro.com/pricing/"
+ ],
+ "texto": "```json\n{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Manage client relationships, track deals, and stay on top of your pipeline.\"\n    },\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Plan projects and keep delivery on track.\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Surface insights and automate work right inside Scoro.\"\n    },\n    {\n      \"id\": \"facturacion-contabilidad\",\n      \"cita\": \"Handle every billing scenario and track payments.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Build custom connections with REST API and webhooks, or automate further with Zapier.\"\n    }\n  ],\n  \"esDe\": \"gestion-proyectos\",\n  \"sector\": \"servicios profesionales\"\n}\n```",
+ "leidas": [
+  "OK https://www.scoro.com/",
+  "OK https://www.scoro.com/pricing/"
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "id": "engagebay",
+ "nombre": "EngageBay",
+ "urls": [
+  "https://www.engagebay.com/",
+  "https://www.engagebay.com/pricing/all-in-one"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"EngageBay's CRM helps you manage customer relationships effortlessly – no steep learning curve.\"\n    },\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Task Management\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"EngageBay's AI Chatbot transforms customer support. Train it with your knowledge base, files, and links for accurate, branded responses.\"\n    },\n    {\n      \"id\": \"reservas-citas\",\n      \"cita\": \"EngageBay's scheduling tool lets you book meetings effortlessly, saving time for both you and your clients.\"\n    },\n    {\n      \"id\": \"atencion-cliente\",\n      \"cita\": \"Free Live Chat Software Free Helpdesk Service Automations Canned Responses\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Easily integrate EngageBay with the tools you already love.\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"EngageBay makes it easy to send email campaigns on autopilot, at any scale, even for beginners.\"\n    }\n  ],\n  \"esDe\": \"crm\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.engagebay.com/",
+  "OK https://www.engagebay.com/pricing/all-in-one"
+ ]
+}

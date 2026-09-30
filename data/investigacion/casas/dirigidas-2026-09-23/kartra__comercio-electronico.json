@@ -1,0 +1,17 @@
+{
+ "id": "kartra__comercio-electronico",
+ "herramientaId": "kartra",
+ "nombre": "Kartra",
+ "casa": "comercio-electronico",
+ "nombreCasa": "Comercio electrónico",
+ "urls": [
+  "https://www.kartra.com",
+  "https://kartra.com/plans-and-pricing/"
+ ],
+ "cita": "Checkouts Simple and secure checkouts",
+ "texto": "{\"resultados\":[{\"id\":\"cap.online_store\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.point_of_sale\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.offer_catalog\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.order_management\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.returns_management\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.shipping_and_tracking\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.external_channel_sync\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.prepaid_session_packages\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.menu_management\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://kartra.com/",
+  "OK https://kartra.com/plans-and-pricing/"
+ ]
+}

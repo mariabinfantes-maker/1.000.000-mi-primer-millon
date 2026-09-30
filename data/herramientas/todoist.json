@@ -4,6 +4,10 @@
   "urlPrecios": "https://www.todoist.com/pricing",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "gestion-proyectos"
+  ],
   "subtipoId": "agenda-planificacion",
   "tipoProducto": "especializada",
   "problemasIds": [
@@ -70,7 +74,7 @@
     "Zapier"
   ],
   "curvaDeAprendizaje": "muy_facil",
-  "precioInicial": "Gratis (hasta 5 proyectos activos). Plan Pro desde 4$/mes con facturación anual.",
+  "precioInicial": "Gratis (hasta 5 proyectos personales). De pago desde $5/usuario/mes",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
@@ -127,12 +131,11 @@
     ],
     "tipoNegocioIdeal": "Autónomos y equipos pequeños que necesitan orden diario sin complejidad",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 94,
+    "puntuacion": 91,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.3/10.",
       "G2: 4.5/5 (816 reseñas).",
       "Capterra: 4.6/5 (2628 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -140,5 +143,35 @@
   "id": "todoist",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-09-02",
-  "fechaUltimaRevision": "2026-09-02"
+  "fechaUltimaRevision": "2026-09-02",
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.todoist.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.todoist.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Beginner",
+        "mensual": "US $0",
+        "anual": "US $0",
+        "cita": "US $0"
+      },
+      {
+        "nombre": "Business",
+        "mensual": "US $8 plus local tax per user/month",
+        "anual": "$96 billed yearly",
+        "cita": "US $8 plus local tax per user/month, $96 billed yearly"
+      },
+      {
+        "nombre": "Pro",
+        "mensual": "US $5 per user/month",
+        "anual": "$60 billed yearly",
+        "cita": "US $5 per user/month $60 billed yearly"
+      }
+    ]
+  }
 }

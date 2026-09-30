@@ -1,0 +1,13 @@
+{
+ "id": "salesflare",
+ "nombre": "Salesflare",
+ "urls": [
+  "https://salesflare.com/",
+  "https://salesflare.com/pricing"
+ ],
+ "texto": "```json\n{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"A simple yet powerful CRM for B2B teams that automatically captures data and keeps sales moving\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"AI suggestions\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Salesflare integrates seamlessly with LinkedIn and your email inbox.\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Send personalized email campaigns\"\n    }\n  ],\n  \"esDe\": \"crm\",\n  \"sector\": null\n}\n```",
+ "leidas": [
+  "OK https://salesflare.com/",
+  "OK https://salesflare.com/pricing"
+ ]
+}

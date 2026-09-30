@@ -12,6 +12,11 @@ import { promoverBorrador } from "./promover";
  * cuando es un falso positivo (mismo proveedor, productos distintos) —
  * exige `--justificacion`, que queda registrada tal cual en el historial
  * de aprobaciones. Nunca anula ninguna otra comprobación.
+ *
+ * La excepción de afiliación NO se abre desde aquí: exige una autorización
+ * registrada con `npm run autorizar-afiliacion`, atada a esa herramienta y
+ * a su estado de afiliación actual. Una bandera de línea de comandos no
+ * deja constancia, y ése era justamente el problema.
  */
 
 function leerFlag(args: string[], nombre: string): string | undefined {

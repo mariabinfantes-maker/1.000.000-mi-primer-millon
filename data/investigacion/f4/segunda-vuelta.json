@@ -1,0 +1,754 @@
+{
+  "version": "1.0.0",
+  "fecha": "2026-09-22",
+  "modelo": "gemini-3.6-flash",
+  "herramienta": "url_context",
+  "queEs": "Segunda vuelta del lote F4, acotada: solo lo que faltaba despues de leer lo ya recogido. Condicion de la propietaria: «reutiliza lo ya recogido y consulta solo lo que falta».",
+  "reglasDelPrompt": [
+    "Un testimonio o resena de cliente NO es el fabricante.",
+    "Si la pagina es la del cliente final que busca salon, se responde no_consta a todo lo del producto.",
+    "No se suma: que existan por separado servicios y empleados NO demuestra que el cliente elija profesional. Cada casilla necesita su propia frase.",
+    "El recorrido completo exige UNA frase que muestre el flujo seguido. Cinco casillas positivas NO lo demuestran."
+  ],
+  "hallazgoPrincipal": "NINGUNA de las seis demuestra el recorrido completo con una sola frase. Las casillas sueltas si; el flujo entero no. Era el aviso de la propietaria y se ha cumplido.",
+  "recorrido": [
+    {
+      "id": "simplybook",
+      "nombre": "SimplyBook.me",
+      "pedidas": [
+        "https://simplybook.me/es/",
+        "https://simplybook.me/es/pricing"
+      ],
+      "leidas": [
+        "OK https://simplybook.me/es/",
+        "OK https://simplybook.me/es/pricing"
+      ],
+      "datos": {
+        "audiencia": "negocio",
+        "recorrido_completo": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": ""
+        },
+        "elegir_servicio": {
+          "estado": "demostrado",
+          "cita": "Asocie servicios específicos a proveedores de servicio individuales",
+          "url": "https://simplybook.me/es/pricing"
+        },
+        "ver_duracion": {
+          "estado": "demostrado",
+          "cita": "Establezca diferentes duraciones de servicios y tiempos de búfer",
+          "url": "https://simplybook.me/es/pricing"
+        },
+        "ver_precio": {
+          "estado": "demostrado",
+          "cita": "Establezca precios independientes para los diferentes servicios",
+          "url": "https://simplybook.me/es/pricing"
+        },
+        "elegir_profesional": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": ""
+        },
+        "coger_hueco": {
+          "estado": "demostrado",
+          "cita": "SimplyBook.me funciona las 24 horas del día, los 7 días de la semana, permitiendo que tus clientes reserven citas en línea desde tu sitio web, redes sociales o Google.",
+          "url": "https://simplybook.me/es/"
+        },
+        "plan_minimo": {
+          "estado": "demostrado",
+          "nombre": "Gratis",
+          "cita": "Gratis",
+          "url": "https://simplybook.me/es/pricing"
+        },
+        "precio_mes": {
+          "estado": "demostrado",
+          "cita": "$0 al mes",
+          "url": "https://simplybook.me/es/pricing"
+        },
+        "espana": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "La web está traducida al español pero no especifica presencia en España (los precios figuran en dólares $ y la sede social está en Chipre)."
+        },
+        "factura_al_cliente": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "Se mencionan recibos instantáneos pero no la emisión explícita de facturas al cliente."
+        }
+      }
+    },
+    {
+      "id": "booksy",
+      "nombre": "Booksy",
+      "pedidas": [
+        "https://biz.booksy.com/es-es",
+        "https://biz.booksy.com/es-es/precios"
+      ],
+      "leidas": [
+        "OK https://biz.booksy.com/es-es",
+        "OK https://biz.booksy.com/es-es/precios"
+      ],
+      "datos": {
+        "audiencia": "negocio",
+        "recorrido_completo": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "No existe una frase única en el texto que describa todo el flujo completo seguido por el cliente."
+        },
+        "elegir_servicio": {
+          "estado": "demostrado",
+          "cita": "La reserva en línea significa utilizar una aplicación de reserva de citas que permite a los clientes ver y reservar tus servicios en línea las 24 horas del día, los 7 días de la semana, haciendo tu vida y la de tus clientes más fácil.",
+          "url": "https://biz.booksy.com/es-es"
+        },
+        "ver_duracion": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": ""
+        },
+        "ver_precio": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": ""
+        },
+        "elegir_profesional": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": ""
+        },
+        "coger_hueco": {
+          "estado": "demostrado",
+          "cita": "A los clientes les encanta poder ver tu disponibilidad de tu calendario de manera instantánea y reservar una fecha que les convenga, sin tener que llamarte o enviarte mensajes.",
+          "url": "https://biz.booksy.com/es-es"
+        },
+        "plan_minimo": {
+          "estado": "demostrado",
+          "nombre": "Booksy Biz",
+          "cita": "Booksy Biz : Solución todo-en-uno para móviles, tablets y web.",
+          "url": "https://biz.booksy.com/es-es"
+        },
+        "precio_mes": {
+          "estado": "demostrado",
+          "cita": "Consíguelo todo por 34,99 € + IVA / al mes",
+          "url": "https://biz.booksy.com/es-es/precios"
+        },
+        "espana": {
+          "estado": "demostrado",
+          "cita": "Consíguelo todo por 34,99 € + IVA / al mes",
+          "url": "https://biz.booksy.com/es-es/precios",
+          "nota": "Se indican precios oficiales expresados en euros (€) e IVA."
+        },
+        "factura_al_cliente": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "No consta mención a la emisión de facturas para el cliente."
+        }
+      }
+    },
+    {
+      "id": "viday",
+      "nombre": "ViDay",
+      "pedidas": [
+        "https://viday.es/",
+        "https://viday.es/precios/"
+      ],
+      "leidas": [
+        "OK https://viday.es/",
+        "OK https://viday.es/precios/"
+      ],
+      "datos": {
+        "audiencia": "negocio",
+        "recorrido_completo": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": ""
+        },
+        "elegir_servicio": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": ""
+        },
+        "ver_duracion": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": ""
+        },
+        "ver_precio": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": ""
+        },
+        "elegir_profesional": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": ""
+        },
+        "coger_hueco": {
+          "estado": "demostrado",
+          "cita": "A través de la app de reservas o desde un enlace, tus clientes pueden consultar disponibilidad y reservar en cualquier momento, sin llamadas ni mensajes.",
+          "url": "https://viday.es/"
+        },
+        "plan_minimo": {
+          "estado": "demostrado",
+          "nombre": "Estándar",
+          "cita": "Estándar",
+          "url": "https://viday.es/precios/"
+        },
+        "precio_mes": {
+          "estado": "demostrado",
+          "cita": "€39 /mes",
+          "url": "https://viday.es/precios/"
+        },
+        "espana": {
+          "estado": "demostrado",
+          "cita": "Soporte humano y personalizado desde España",
+          "url": "https://viday.es/",
+          "nota": ""
+        },
+        "factura_al_cliente": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "",
+          "nota": "Se menciona la facturación electrónica del negocio con Verifactu e informes para gestoría, pero no consta explícitamente la emisión de facturas al cliente final."
+        }
+      }
+    },
+    {
+      "id": "solvermedia",
+      "nombre": "SolverMedia",
+      "pedidas": [
+        "https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html"
+      ],
+      "leidas": [
+        "OK https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html"
+      ],
+      "datos": {
+        "audiencia": "negocio",
+        "recorrido_completo": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html",
+          "nota": ""
+        },
+        "elegir_servicio": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html"
+        },
+        "ver_duracion": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html"
+        },
+        "ver_precio": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html"
+        },
+        "elegir_profesional": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html"
+        },
+        "coger_hueco": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html"
+        },
+        "plan_minimo": {
+          "estado": "no_consta",
+          "nombre": "",
+          "cita": "",
+          "url": "https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html"
+        },
+        "precio_mes": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html"
+        },
+        "espana": {
+          "estado": "demostrado",
+          "cita": "Solvermedia en España España Madrid 910.053.533",
+          "url": "https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html",
+          "nota": ""
+        },
+        "factura_al_cliente": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html",
+          "nota": ""
+        }
+      }
+    },
+    {
+      "id": "timify",
+      "nombre": "TIMIFY",
+      "pedidas": [
+        "https://www.timify.com/es/",
+        "https://www.timify.com/es/plans/"
+      ],
+      "leidas": [
+        "OK https://www.timify.com/es/",
+        "OK https://www.timify.com/es/plans/"
+      ],
+      "datos": null,
+      "textoCrudo": "```json\n{\n  \"audiencia\": \"negocio\",\n  \"recorrido_completo\": {\n    \"estado\": \"no_consta\",\n    \"cita\": \"\",\n    \"url\": \"\",\n    \"nota\": \"No existe ninguna frase única que describa el flujo completo de reserva de principio a fin.\"\n  },\n  \"elegir_servicio\": {\n    \"estado\": \"demostrado\",\n    \"cita\": \"Cree paquetes de servicios y permita a los clientes reservarlos online como una sola reserva.\",\n    \"url\": \"https://www.timify.com/es/plans/\"\n  },\n  \"ver_duracion\": {\n    \"estado\": \"no_consta\",\n    \"cita\": \"\",\n    \"url\": \"\"\n  },\n  \"ver_precio\": {\n    \"estado\": \"demostrado\",\n    \"cita\": \"Precio del servicio\",\n    \"url\": \"https://www.timify.com/es/plans/\"\n  },\n  \"elegir_profesional\": {\n    \"estado\": \"no_consta\",\n    \"cita\": \"\",\n    \"url\": \"\"\n  },\n  \"coger_hueco\": {\n    \"estado\": \"demostrado\",\n    \"cita\": \"Ofrezca a sus clientes la posibilidad de reservar sus citas durante las 24 horas del día, 7 días a la semana, y simplifique la organización de los empleados para una eficiencia máxima.\",\n    \"url\": \"https://www.timify.com/es/\"\n  },\n  \"plan_minimo\": {\n    \"estado\": \"demostrado\",\n    \"nombre\": \"Classic\",\n    \"cita\": \"Classic\",\n    \"url\": \"https://www.timify.com/es/plans/\"\n  },\n  \"precio_mes\": {\n    \"estado\": \"demostrado\",\n    \"cita\": \"0,00€ / Gratis\",\n    \"url\": \"https://www.timify.com/es/plans/\"\n  },\n  \"espana\": {\n    \"estado\": \"demostrado\",\n    \"cita\": \"PYMEs y grandes empresas de todo el mundo ya confían en TIMIFY\",\n    \"url\": \"https://www.timify.com/es/\",\n    \"nota\": \"Se incluyen clientes españoles como Banco Sabadell y Naturgy,"
+    },
+    {
+      "id": "fresha",
+      "nombre": "Fresha",
+      "pedidas": [
+        "https://www.fresha.com/for-business"
+      ],
+      "leidas": [
+        "OK https://www.fresha.com/for-business"
+      ],
+      "datos": {
+        "audiencia": "negocio",
+        "recorrido_completo": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "https://www.fresha.com/for-business",
+          "nota": "No existe en el texto una única frase que describa todo el flujo completo de reserva del cliente."
+        },
+        "elegir_servicio": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "https://www.fresha.com/for-business"
+        },
+        "ver_duracion": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "https://www.fresha.com/for-business"
+        },
+        "ver_precio": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "https://www.fresha.com/for-business"
+        },
+        "elegir_profesional": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "https://www.fresha.com/for-business"
+        },
+        "coger_hueco": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "https://www.fresha.com/for-business"
+        },
+        "plan_minimo": {
+          "estado": "no_consta",
+          "nombre": "",
+          "cita": "",
+          "url": "https://www.fresha.com/for-business"
+        },
+        "precio_mes": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "https://www.fresha.com/for-business"
+        },
+        "espana": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "https://www.fresha.com/for-business",
+          "nota": "No se menciona explícitamente el uso en España, ni precios en euros, ni oficina o soporte en España."
+        },
+        "factura_al_cliente": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": "https://www.fresha.com/for-business",
+          "nota": "No consta la emisión de facturas a los clientes."
+        }
+      }
+    }
+  ],
+  "facturacion": [
+    {
+      "id": "viday-fact",
+      "nombre": "ViDay",
+      "pedidas": [],
+      "leidas": [
+        "OK https://viday.es/precios/",
+        "OK https://viday.es/funcionalidades-sobre-una-app-de-reservas/",
+        "OK https://viday.es/"
+      ],
+      "datos": {
+        "emite_facturas": {
+          "estado": "demostrado",
+          "cita": "Puedes gestionar tus facturas y pagos desde el propio sistema.",
+          "url": "https://viday.es/"
+        },
+        "verifactu": {
+          "estado": "demostrado",
+          "cita": "El software de reservas cumple con los requisitos de Verifactu y TicketBAI, permitiéndote gestionar la facturación de tu negocio conforme a la normativa vigente, sin complicaciones técnicas.",
+          "url": "https://viday.es/"
+        },
+        "exporta_a_gestoria": {
+          "estado": "demostrado",
+          "cita": "Podrás descargar los informes mensuales o trimestrales para tu gestoría en solo tres clics.",
+          "url": "https://viday.es/"
+        },
+        "elegir_profesional": {
+          "estado": "demostrado",
+          "cita": "Al publicar la disponibilidad del personal, los usuarios de esta aplicación serán quienes reserven cita cuando y con quien ellos prefieran.",
+          "url": "https://viday.es/funcionalidades/"
+        },
+        "plan_de_la_factura": {
+          "estado": "demostrado",
+          "nombre": "Pro",
+          "precio": "€59 /mes",
+          "cita": "VERIFACTU incluido",
+          "url": "https://viday.es/precios/"
+        }
+      }
+    },
+    {
+      "id": "booksy-fact",
+      "nombre": "Booksy",
+      "pedidas": [],
+      "leidas": [
+        "OK https://biz.booksy.com/es-es/precios",
+        "OK https://biz.booksy.com/es-es"
+      ],
+      "datos": {
+        "emite_facturas": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": ""
+        },
+        "verifactu": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": ""
+        },
+        "exporta_a_gestoria": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": ""
+        },
+        "elegir_profesional": {
+          "estado": "no_consta",
+          "cita": "",
+          "url": ""
+        },
+        "plan_de_la_factura": {
+          "estado": "no_consta",
+          "nombre": "",
+          "precio": "",
+          "cita": "",
+          "url": ""
+        }
+      }
+    }
+  ],
+  "terceraVuelta": {
+    "fecha": "2026-09-22",
+    "queCorrige": [
+      "El criterio de «funciones juntas» deja de exigir UNA frase perfecta. Correccion de la propietaria: vale una guia, una lista de pasos, documentacion enlazada o una demostracion del producto. Exigir la frase unica era demasiado rigido y tiraba evidencia buena.",
+      "Se comprueba la DISPONIBILIDAD REAL en Espana en vez de deducirla. Que los precios salgan en dolares o la sede este fuera NO demuestra que no sirva aqui: hay que mirar si se puede contratar y usar.",
+      "Se vuelve a preguntar por la facturacion sin dar por hecho nada. Un no_consta anterior no es un «no factura».",
+      "Se pide el coste para TRES profesionales, que es el caso real y no el precio de escaparate."
+    ],
+    "loQueNoSeBorra": "Que algo no se reconfirme hoy no borra lo ya comprobado: las citas validas del lote de septiembre siguen valiendo. Solo se retiran las catorce corregidas en correcciones.json, y por su motivo escrito.",
+    "resultados": [
+      {
+        "id": "viday",
+        "nombre": "ViDay",
+        "pedidas": [
+          "https://viday.es/precios/",
+          "https://viday.es/funcionalidades-sobre-una-app-de-reservas/",
+          "https://viday.es/"
+        ],
+        "leidas": [
+          "OK https://viday.es/precios/",
+          "OK https://viday.es/funcionalidades-sobre-una-app-de-reservas/",
+          "OK https://viday.es/"
+        ],
+        "datos": {
+          "precio_por_profesional": {
+            "estado": "demostrado",
+            "cita": "2 profesionales incluidos + 5€ por profesional adicional",
+            "url": "https://viday.es/precios/",
+            "nota": "El precio base es por negocio e incluye un número fijo de profesionales (1 en plan Individual, 2 en los planes Equipo Estándar y Pro, y 10 en Empresa), cobrándose un extra por profesional adicional. Para un negocio con 3 profesionales, en el plan Equipo Estándar costaría 49 €/mes en cobro mensual (44 €/mes + 5 €) o 44,60 €/mes en pago anual (39,60 €/mes + 5 €); en el plan Equipo Pro costaría 85 €/mes en mensual (75 €/mes + 10 €) o 77,50 €/mes en anual (67,50 €/mes + 10 €)."
+          },
+          "limite_de_usuarios_por_plan": {
+            "estado": "demostrado",
+            "cita": "Sin límite de clientes. Sin límite de reservas.",
+            "url": "https://viday.es/precios/"
+          },
+          "servicios_con_duracion": {
+            "estado": "demostrado",
+            "cita": "Podrás definir cualquier tipo de servicio u horarios, la duración de cada reserva y el empleado que la atenderá.",
+            "url": "https://viday.es/funcionalidades-sobre-una-app-de-reservas/"
+          },
+          "servicios_con_precio": {
+            "estado": "demostrado",
+            "cita": "puedes configurar tus servicios, precios y disponibilidad según necesites",
+            "url": "https://viday.es/"
+          },
+          "funciones_juntas": {
+            "estado": "demostrado",
+            "como": "frase",
+            "cita": "Gestiona todo tu negocio desde un solo panel: clientes, reservas, finanzas y personal.",
+            "url": "https://viday.es/precios/"
+          },
+          "prueba_gratis": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": ""
+          },
+          "permanencia_o_alta": {
+            "estado": "demostrado",
+            "cita": "Sin permanencia. Sin costes ocultos. Con soporte humano.",
+            "url": "https://viday.es/precios/"
+          }
+        }
+      },
+      {
+        "id": "simplybook",
+        "nombre": "SimplyBook.me",
+        "pedidas": [
+          "https://simplybook.me/es/pricing",
+          "https://simplybook.me/es/",
+          "https://simplybook.me/es/accept-payments"
+        ],
+        "leidas": [
+          "OK https://simplybook.me/es/pricing",
+          "OK https://simplybook.me/es/",
+          "NO https://simplybook.me/es/accept-payments"
+        ],
+        "datos": {
+          "se_puede_usar_desde_espana": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": "",
+            "nota": "En el texto leído no se especifica de forma explícita la disponibilidad o contratación directa desde España."
+          },
+          "moneda_euro": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": ""
+          },
+          "pasarelas_de_pago_espanolas": {
+            "estado": "demostrado",
+            "cita": "Acepte pagos en línea y anticipos a través de PayPal, Stripe y otros proveedores",
+            "url": "https://simplybook.me/es/",
+            "nota": "Admite Stripe y PayPal, las cuales son usables en España. No constan referencias a Redsys ni Bizum."
+          },
+          "idioma_interfaz_espanol": {
+            "estado": "demostrado",
+            "cita": "Múltiples lenguajes... Español",
+            "url": "https://simplybook.me/es/pricing"
+          },
+          "soporte": {
+            "estado": "demostrado",
+            "cita": "El soporte en vivo está incluido en todos los planes de SimplyBook.me... Chat en vivo para respuestas rápidas, correo para soluciones detalladas y un amplio centro de ayuda.",
+            "url": "https://simplybook.me/es/"
+          },
+          "emite_facturas": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": "",
+            "nota": "Se mencionan recibos instantáneos e integraciones con software contable (QuickBooks, FreshBooks, Xero), pero no consta la generación directa de facturas del negocio al cliente."
+          },
+          "precio_tres_profesionales": {
+            "estado": "demostrado",
+            "cita": "El plan Basic incluye 100 reservas, 3 funciones personalizadas y 5 prestadores a $13.9 al mes.",
+            "url": "https://simplybook.me/es/pricing",
+            "nota": "Hace falta el plan Básico (Basic), que permite hasta 5 proveedores. Cuesta $11.9 al mes (facturado anualmente) o $13.9 al mes (facturado mensualmente)."
+          },
+          "limite_del_plan_gratis": {
+            "estado": "demostrado",
+            "cita": "el plan gratuito incluye hasta 50 reservas al mes, 1 función personalizada premium, recordatorios básicos por correo electrónico y acceso al widget de reservas y a la aplicación para clientes.",
+            "url": "https://simplybook.me/es/pricing"
+          }
+        }
+      },
+      {
+        "id": "booksy",
+        "nombre": "Booksy",
+        "pedidas": [
+          "https://biz.booksy.com/es-es/precios",
+          "https://biz.booksy.com/es-es",
+          "https://booksy.com/es-es/ayuda"
+        ],
+        "leidas": [
+          "OK https://biz.booksy.com/es-es/precios",
+          "OK https://biz.booksy.com/es-es",
+          "NO https://booksy.com/es-es/ayuda"
+        ],
+        "datos": {
+          "emite_facturas": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": "",
+            "nota": "generar una FACTURA del negocio a su cliente; cobrar o un recibo no es facturar"
+          },
+          "precio_tres_profesionales": {
+            "estado": "demostrado",
+            "cita": "Booksy cuesta 34,99€ al mes +IVA, más 8€ al mes +IVA por cada miembro adicional del equipo.",
+            "url": "https://biz.booksy.com/es-es/precios",
+            "nota": "El precio se estructura en una tarifa base por negocio (34,99 € + IVA/mes) más un suplemento por usuario/empleado adicional (8 € + IVA/mes por persona extra). Para 3 profesionales el coste total es de 50,99 € + IVA al mes."
+          },
+          "elegir_profesional": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": "",
+            "nota": "el CLIENTE elige con qué persona reserva"
+          },
+          "servicios_con_duracion": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": ""
+          },
+          "servicios_con_precio": {
+            "estado": "no_consta",
+            "cita": "",
+            "url": ""
+          },
+          "funciones_juntas": {
+            "estado": "demostrado",
+            "como": "una frase",
+            "cita": "Booksy Biz : Solución todo-en-uno para móviles, tablets y web. Agenda citas, gestiona clientes, promociona tu negocio y procesa pagos.",
+            "url": "https://biz.booksy.com/es-es"
+          }
+        }
+      }
+    ]
+  },
+  "cuartaVuelta": {
+    "fecha": "2026-09-22",
+    "queResolvio": "La supuesta contradiccion del suplemento de ViDay. No lo era: CADA PLAN tiene el suyo. Equipo Estandar +5 EUR, Equipo Pro +10 EUR, Empresa +15 EUR. Las dos lecturas anteriores eran correctas y hablaban de planes distintos; el fallo fue mio, por no leer la pagina plan por plan.",
+    "loQueNoSePudo": "SimplyBook.me: que funciones cuentan como «personalizadas» y que pasa al pasar de 100 reservas. Su pagina de precios dio tiempo de espera agotado tres veces seguidas a traves del proxy. Queda declarado como pendiente, no rellenado.",
+    "viday": {
+      "leidas": [
+        "OK https://viday.es/precios/"
+      ],
+      "datos": {
+        "planes": [
+          {
+            "nombre": "Individual - Estándar",
+            "precio_mensual": "39 €/mes",
+            "precio_anual": "35,10 €/mes",
+            "profesionales_incluidos": "no_consta",
+            "suplemento_por_profesional": "no_consta",
+            "cita": "Estándar €39 /mes €35,10 /mes"
+          },
+          {
+            "nombre": "Individual - Pro",
+            "precio_mensual": "59 €/mes",
+            "precio_anual": "53,10 €/mes",
+            "profesionales_incluidos": "no_consta",
+            "suplemento_por_profesional": "no_consta",
+            "cita": "Pro €59 /mes €53,10 /mes"
+          },
+          {
+            "nombre": "Equipo - Estándar",
+            "precio_mensual": "44 €/mes",
+            "precio_anual": "39,60 €/mes",
+            "profesionales_incluidos": "2 profesionales incluidos",
+            "suplemento_por_profesional": "+ 5€ por profesional adicional",
+            "cita": "Estándar €44 /mes €39,60 /mes 2 profesionales incluidos + 5€ por profesional adicional"
+          },
+          {
+            "nombre": "Equipo - Pro",
+            "precio_mensual": "75 €/mes",
+            "precio_anual": "67,50 €/mes",
+            "profesionales_incluidos": "2 profesionales incluidos",
+            "suplemento_por_profesional": "+ 10€ por profesional adicional",
+            "cita": "Pro €75 /mes €67,50 /mes 2 profesionales incluidos + 10€ por profesional adicional"
+          },
+          {
+            "nombre": "Equipo - Empresa",
+            "precio_mensual": "129 €/mes",
+            "precio_anual": "116,10 €/mes",
+            "profesionales_incluidos": "10 profesionales incluidos",
+            "suplemento_por_profesional": "+ 15€ por profesional adicional",
+            "cita": "Empresa €129 /mes €116,10 /mes 10 profesionales incluidos + 15€ por profesional adicional"
+          }
+        ],
+        "hay_suplementos_distintos_por_plan": {
+          "estado": "demostrado",
+          "valor": "si",
+          "explicacion": "Cada plan de la sección Equipo tiene un suplemento diferente por profesional adicional: Equipo Estándar tiene un suplemento de +5€ por profesional adicional, Equipo Pro tiene +10€ por profesional adicional y Equipo Empresa tiene +15€ por profesional adicional."
+        },
+        "plan_para_tres_profesionales": {
+          "estado": "demostrado",
+          "nombre": "Equipo Estándar / Equipo Pro",
+          "calculo": "Tanto Equipo Estándar como Equipo Pro incluyen 2 profesionales. Para un 3er profesional se suma 1 profesional adicional: en Estándar es precio base + 5€ y en Pro es precio base + 10€.",
+          "cita": "2 profesionales incluidos + 5€ por profesional adicional / 2 profesionales incluidos + 10€ por profesional adicional"
+        },
+        "lleva_iva": {
+          "estado": "demostrado",
+          "valor": "no",
+          "cita": "Precios sin IVA"
+        }
+      }
+    }
+  },
+  "quintaVuelta": {
+    "fecha": "2026-09-22",
+    "queComprobo": "Que factura cada plan de ViDay. La clienta pidio dejar de hacer las facturas a mano, tenga o no obligacion de Verifactu, y yo habia dado por hecho que el plan Estandar le valdria si no le obligaba. En la lista del Equipo Estandar no aparece ninguna funcion de facturacion.",
+    "consecuencia": "El plan es Pro en los dos casos. Verifactu deja de decidir el precio y pasa a venir incluido. Y la pregunta fiscal deja de bloquear: admite «no lo se».",
+    "leidas": [
+      "OK https://viday.es/precios/"
+    ],
+    "datos": {
+      "equipo_estandar": {
+        "emite_facturas": {
+          "estado": "no_consta",
+          "cita": ""
+        },
+        "verifactu": {
+          "estado": "no_consta",
+          "cita": ""
+        },
+        "cobros_online": {
+          "estado": "no_consta",
+          "cita": ""
+        },
+        "informes_gestoria": {
+          "estado": "no_consta",
+          "cita": ""
+        },
+        "todo_lo_que_lista_el_plan": {
+          "estado": "demostrado",
+          "cita": "App personalizada con tu marca App para profesionales Reservas grupales e individuales Gestión de clientes Bonos y paquetes de sesiones Listas de espera automáticas Estadísticas básicas Notas internas en el calendario Recordatorios automáticos Soporte ilimitado"
+        }
+      },
+      "equipo_pro": {
+        "emite_facturas": {
+          "estado": "demostrado",
+          "cita": "VERIFACTU incluido"
+        },
+        "verifactu": {
+          "estado": "demostrado",
+          "cita": "VERIFACTU incluido"
+        },
+        "cobros_online": {
+          "estado": "demostrado",
+          "cita": "Cobros online y gestión de pagos"
+        },
+        "informes_gestoria": {
+          "estado": "no_consta",
+          "cita": ""
+        },
+        "que_anade_sobre_estandar": {
+          "estado": "demostrado",
+          "cita": "Cobros online y gestión de pagos Control de gastos con IA VERIFACTU incluido Stripe, Redsys, Bizum y SEPA Sin comisiones en pagos Muro de novedades Historial clínico Fichas y consentimientos digitales Sesiones online Streaming Fidelización Notas clínicas Entrenamientos en app Control de stock Fichaje de empleados Roles y permisos Integraciones con Urban Sports Club, Wellhub, Webhook y otros"
+        }
+      },
+      "la_diferencia_en_facturacion": {
+        "estado": "demostrado",
+        "explicacion": "El plan Estándar no menciona ninguna función de facturación ni Verifactu en la lista de lo que incluye. Para dejar de hacer facturas a mano y contar con facturación electrónica legal (Verifactu), es necesario el plan Pro.",
+        "cita": "VERIFACTU incluido"
+      }
+    }
+  }
+}

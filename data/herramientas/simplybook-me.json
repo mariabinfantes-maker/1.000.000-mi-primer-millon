@@ -1,0 +1,125 @@
+{
+  "nombre": "SimplyBook.me",
+  "paginaOficial": "https://simplybook.me/es/",
+  "urlPrecios": "https://simplybook.me/es/",
+  "categoriaId": "reservas-citas",
+  "descripcion": "SimplyBook.me es un sistema de gestión y reserva de citas online para negocios de servicios. Permite crear una página web de reservas personalizada o integrar un calendario interactivo en sitios existentes y redes sociales, facilitando cobros, recordatorios automáticos y gestión de horarios en un solo lugar.",
+  "problemasQueResuelve": [
+    "Pierdo clientes y reservas porque no puedo atender el teléfono ni responder mensajes mientras estoy trabajando.",
+    "Tengo huecos en la agenda y cancelaciones de última hora porque los clientes olvidan la hora de su cita.",
+    "Pierdo demasiado tiempo coordinando calendarios y turnos de varios empleados de forma manual.",
+    "Se me hace un lío cobrar por adelantado o pedir señales para evitar que la gente reserve y no se presente."
+  ],
+  "casosDeUso": [
+    "Centros de belleza, peluquerías y spas que necesitan que los clientes elijan empleado, servicio y hora desde Instagram o la web.",
+    "Clínicas médicas, fisioterapeutas y terapeutas que requieren programación confidencial de pacientes con recordatorios automáticos.",
+    "Gimnasios, estudios de yoga y entrenadores personales que gestionan clases grupales, membresías y bonos por sesiones.",
+    "Academias, profesores particulares y escuelas de formación que coordinan clases individuales o cursos con cobro previo."
+  ],
+  "idealPara": "Negocios de servicios de salud, belleza, educación, deporte y atención profesional.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "centros de salud",
+    "centros de belleza",
+    "academias",
+    "centros deportivos",
+    "servicios profesionales"
+  ],
+  "noRecomendadaPara": "No está pensada para quien no trabaje con cita previa: todo gira alrededor de la agenda y la página de reservas.",
+  "casosNoRecomendados": [
+    "Límite de proveedores, reservas y funciones personalizadas por plan de suscripción.",
+    "Créditos de mensajería SMS y pasarelas de SMS no están incluidos en la tarifa base.",
+    "Las funciones para cumplimiento de HIPAA solo están disponibles a partir del plan Estándar y requieren configuración manual.",
+    "Los planes no solo limitan el número de profesionales, sino también el cupo total de reservas mensuales (desde 50 en Free hasta 2.000 en Premium).",
+    "Muchas funciones clave (como pagos online o cupones) consumen casillas de 'funciones personalizadas' limitadas según el plan contratado.",
+    "El envío de SMS o WhatsApp para notificaciones y los dominios personalizados conllevan costes adicionales de créditos independientes de la suscripción."
+  ],
+  "funcionesPrincipales": [
+    "Página web de reservas personalizable o widget insertable en cualquier sitio web.",
+    "Recordatorios automáticos por WhatsApp, SMS y correo electrónico.",
+    "Cobros online y en persona (anticipos, pasarelas de pago, venta de productos extras y TPV/POS).",
+    "Sincronización bidireccional con calendarios externos como Google Calendar y Outlook.",
+    "Gestión de múltiples sedes, salas y calendarios por cada miembro del personal.",
+    "Asistente de configuración y gestión con inteligencia artificial (Ask Simply e integraciones MCP).",
+    "Aplicaciones móviles específicas tanto de administración para el negocio como para los clientes."
+  ],
+  "integraciones": [
+    "Google Calendar",
+    "Outlook",
+    "Zoom",
+    "Stripe",
+    "PayPal",
+    "Square",
+    "Apple Pay",
+    "Google Pay",
+    "Facebook",
+    "Instagram",
+    "WordPress",
+    "Google Mi Negocio",
+    "Zapier",
+    "ClassPass",
+    "Telegram"
+  ],
+  "integracionesPrincipales": [
+    "Google Calendar",
+    "Stripe",
+    "PayPal",
+    "Zapier",
+    "Instagram / Facebook"
+  ],
+  "curvaDeAprendizaje": "facil",
+  "precioInicial": "The Free plan includes 50 bookings, 1 custom feature, and 1 provider at $0 per month.",
+  "modeloDePrecio": [
+    "suscripcion_mensual"
+  ],
+  "tienePlanGratuito": true,
+  "preciosComprobados": {
+    "url": "https://simplybook.me/es/",
+    "fecha": "2026-09-30",
+    "cita": "The Free plan includes 50 bookings, 1 custom feature, and 1 provider at $0 per month."
+  },
+  "idiomasDisponibles": [
+    "en"
+  ],
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 8.6,
+    "nivelTecnicoRequerido": 2,
+    "facilidadImplementacion": 9,
+    "atencionAlCliente": 9,
+    "fiabilidad": 9.9,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Análisis documental directo de la documentación técnica oficial, páginas públicas en español de SimplyBook.me, desglose de tarifas y especificaciones de producto de la plataforma. La nota de facilidad de uso NO es nuestra: sale de la ficha de reseñas que se abrió —Capterra (capterra.com / capterra.es) califica su 'Ease of Use' (Facilidad de uso) con una nota de 4.3 sobre 5 (8.6/10) basada en 1.290 reseñas.— leída el 2026-09-30. El resto de notas son valoraciones documentales con sus hechos escritos al lado, no puntuaciones del fabricante ni reseñas.",
+  "ventajas": [
+    "Incluye soporte humano por chat en vivo 24 horas entre semana en todos los planes con tiempo de respuesta promedio de 13 segundos.",
+    "Ofrece dos aplicaciones móviles nativas diferenciadas: Admin App para el equipo y Client App para que los usuarios reserven.",
+    "Dispone de certificaciones de seguridad ISO 27001, cumplimiento de RGPD y compatibilidad con funciones para HIPAA."
+  ],
+  "inconvenientes": [
+    "Los planes no solo limitan el número de profesionales, sino también el cupo total de reservas mensuales (desde 50 en Free hasta 2.000 en Premium).",
+    "Muchas funciones clave (como pagos online o cupones) consumen casillas de 'funciones personalizadas' limitadas según el plan contratado.",
+    "El envío de SMS o WhatsApp para notificaciones y los dominios personalizados conllevan costes adicionales de créditos independientes de la suscripción."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": "Chipre",
+    "anioFundacion": null,
+    "tamanoAproximado": null
+  },
+  "id": "simplybook-me",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-30",
+  "fechaUltimaRevision": "2026-09-30",
+  "problemasIds": [
+    "ahorrar-tiempo",
+    "organizar-empresa",
+    "conseguir-clientes"
+  ]
+}

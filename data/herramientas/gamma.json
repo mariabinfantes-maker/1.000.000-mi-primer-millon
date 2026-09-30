@@ -3,6 +3,11 @@
   "paginaOficial": "https://gamma.app",
   "urlPrecios": "https://gamma.app/pricing",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "creacion-web-hosting",
+    "firma-gestion-documental"
+  ],
   "descripcion": "Gamma es una herramienta impulsada por inteligencia artificial diseñada para crear presentaciones, documentos y páginas web interactivas de manera rápida. Permite generar formatos visuales atractivos mediante instrucciones de texto o plantillas flexibles, eliminando la necesidad de maquetar diapositivas manualmente.",
   "informacionEmpresa": {
     "anioFundacion": 2020,
@@ -101,7 +106,18 @@
         "numeroResenas": 1200,
         "enlace": "https://www.producthunt.com/products/gamma-2"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://gamma.app",
+      "cita": "NO SE PUDO COMPROBAR. La busqueda devolvio fichas tituladas «Gamma-AI» con 4 resenas en Capterra y 39 en G2, y en dos intentos dio DOS ids distintos de Capterra (10014299 y 10022394). Lo guardado son 50 resenas en Capterra y 80 en G2: no es la misma pagina. El dato guardado NO queda contradicho; lo que falta es volver a encontrar su ficha."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://gamma.app",
+      "cita": "NO SE PUDO COMPROBAR. La busqueda devolvio fichas tituladas «Gamma-AI» con 4 resenas en Capterra y 39 en G2, y en dos intentos dio DOS ids distintos de Capterra (10014299 y 10022394). Lo guardado son 50 resenas en Capterra y 80 en G2: no es la misma pagina. El dato guardado NO queda contradicho; lo que falta es volver a encontrar su ficha."
+    },
+    "origen": "redaccion-inicial"
   },
   "ventajas": [
     "Generación veloz de contenido bien maquetado mediante inteligencia artificial.",
@@ -123,21 +139,42 @@
     ],
     "tipoNegocioIdeal": "Startups, agencias de marketing y consultores",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 93,
+    "puntuacion": 90,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.5/10.",
       "G2: 4.7/5 (80 reseñas).",
-      "Capterra: 4.8/5 (50 reseñas).",
-      "Tiene plan gratuito."
+      "Capterra: 4.8/5 (50 reseñas)."
     ]
   },
   "id": "gamma",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-19",
-  "fechaUltimaRevision": "2026-09-02",
+  "fechaUltimaRevision": "2026-09-17",
   "tipoProducto": "especializada",
   "problemasIds": [
     "ahorrar-tiempo"
   ],
-  "subtipoId": "presentaciones"
+  "subtipoId": "presentaciones",
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://gamma.app/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://gamma.app/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Pro",
+        "anual": "$18 / seat / month ($216 per seat, billed annually)",
+        "cita": "Pro\n\n For premium AI models, API, and more customization\n\n $18\n\n / seat / month\n\n $216 per seat, billed annually"
+      },
+      {
+        "nombre": "Free",
+        "mensual": "$0",
+        "cita": "Free\n\n For simple projects and getting to know Gamma\n\n $0"
+      }
+    ]
+  }
 }

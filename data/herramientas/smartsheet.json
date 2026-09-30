@@ -3,6 +3,10 @@
   "paginaOficial": "https://www.smartsheet.com/",
   "urlPrecios": "https://www.smartsheet.com/pricing",
   "categoriaId": "gestion-proyectos",
+  "categoriasSecundarias": [
+    "asistentes-ia",
+    "automatizacion-integraciones"
+  ],
   "descripcion": "Smartsheet es una plataforma de gestión del trabajo basada en formato de hoja de cálculo empresarial que permite planificar, hacer seguimiento y automatizar proyectos complejos. Combina la interfaz familiar de las hojas de cálculo con vistas de Gantt, Kanban y formularios, además de integraciones avanzadas para entornos corporativos.",
   "informacionEmpresa": {
     "anioFundacion": 2005,
@@ -66,7 +70,7 @@
     "Google Workspace"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde $9/usuario/mes (facturado anualmente)",
+  "precioInicial": "Desde $9/miembro/mes (facturado anualmente) o $12 al mes",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -111,7 +115,18 @@
         "numeroResenas": 2800,
         "enlace": "https://www.trustradius.com/products/smartsheet/reviews"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.com/p/57662/Smartsheet/reviews/",
+      "cita": "Reviews of Smartsheet\n\n Ease of use\n\n 4.3 — leido 4.5/5 con 3552 reseñas. Confirma el 4.5 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.g2.com/products/smartsheet/reviews",
+      "cita": "leido 4.4/5 con 19306 reseñas. Confirma el 4.4 guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Interfaz familiar tipo Excel combinada con la potencia de un gestor de proyectos profesional.",
@@ -133,12 +148,11 @@
     ],
     "tipoNegocioIdeal": "Empresas medianas y grandes corporaciones",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 92,
+    "puntuacion": 89,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.2/10.",
       "G2: 4.4/5 (15500 reseñas).",
       "Capterra: 4.5/5 (3200 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -150,5 +164,30 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "organizar-empresa"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 30,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.smartsheet.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.smartsheet.com/pricing",
+    "moneda": "EUR",
+    "planes": [
+      {
+        "nombre": "Pro",
+        "mensual": "11 €/miembro/mes",
+        "anual": "8 €/miembro/mes",
+        "cita": "11 / 8€"
+      },
+      {
+        "nombre": "Business",
+        "mensual": "22 €/miembro/mes",
+        "anual": "17 €/miembro/mes",
+        "cita": "22 / 17€"
+      }
+    ]
+  }
 }

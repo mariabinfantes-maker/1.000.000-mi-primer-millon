@@ -1,0 +1,81 @@
+{
+  "escritoEl": "2026-09-24",
+  "porQue": "La propietaria preguntó a cuántos gremios hemos decidido servir y la respuesta fue: a ninguno, no existe esa lista. Esto es el material para decidirla, no la decisión. El reparto de necesidades por gremio es criterio y se escribe aquí para que se pueda corregir de un vistazo; nada de esto lo lee el producto.",
+  "comoSeLeyo": "Cada gremio trae SUS necesidades, de las 61 del vocabulario. Se eligieron por lo que la necesidad dice con sus propias palabras (`loQueDice`), no por afinidad de nombre. Las que trae casi todo el mundo —facturar, que me paguen, la agenda, conectar lo que uso— se repiten a propósito: son las mismas necesidades compartidas, como acordó la propietaria con facturar.",
+  "gremios": [
+    { "id": "peluqueria", "nombre": "Peluquería y estética", "necesidades": [
+      "nec.que-reserven-solos", "nec.mi-agenda", "nec.emitir-una-factura-legal", "nec.cobrar-en-el-mostrador",
+      "nec.que-repitan", "nec.que-me-encuentren", "nec.el-stock", "nec.el-equipo-organizado",
+      "nec.responder-por-donde-escriban", "nec.la-factura-obligatoria" ] },
+
+    { "id": "restaurante", "nombre": "Restaurante y bar", "necesidades": [
+      "nec.cobrar-en-el-mostrador", "nec.que-reserven-solos", "nec.comprar-a-proveedores", "nec.el-stock",
+      "nec.el-equipo-organizado", "nec.emitir-una-factura-legal", "nec.la-factura-obligatoria",
+      "nec.que-me-encuentren", "nec.que-repitan", "nec.saber-si-estan-contentos" ] },
+
+    { "id": "taller", "nombre": "Taller mecánico", "necesidades": [
+      "nec.presupuestar-rapido", "nec.emitir-una-factura-legal", "nec.la-factura-obligatoria",
+      "nec.expedientes", "nec.mi-agenda", "nec.el-stock", "nec.comprar-a-proveedores",
+      "nec.mis-maquinas", "nec.que-me-paguen", "nec.que-repitan" ] },
+
+    { "id": "reformas", "nombre": "Reformas y construcción", "necesidades": [
+      "nec.presupuestar-rapido", "nec.facturar-por-lo-avanzado", "nec.emitir-una-factura-legal",
+      "nec.proyectos-largos", "nec.el-trabajo-de-fuera", "nec.que-me-paguen",
+      "nec.saber-si-gano-en-cada-trabajo", "nec.comprar-a-proveedores", "nec.mis-maquinas", "nec.firmar-documentos" ] },
+
+    { "id": "instalador", "nombre": "Fontanería, electricidad e instalación", "necesidades": [
+      "nec.mi-agenda", "nec.el-trabajo-de-fuera", "nec.presupuestar-rapido", "nec.emitir-una-factura-legal",
+      "nec.que-me-paguen", "nec.expedientes", "nec.mis-maquinas", "nec.el-stock",
+      "nec.que-no-se-pierda-una-pregunta", "nec.que-repitan" ] },
+
+    { "id": "creativo", "nombre": "Diseño, foto y vídeo por cuenta propia", "necesidades": [
+      "nec.presupuestar-rapido", "nec.saber-cuanto-tiempo-echo", "nec.emitir-una-factura-legal",
+      "nec.que-me-paguen", "nec.proyectos-largos", "nec.imagenes", "nec.video",
+      "nec.tener-donde-ensenar-lo-que-hago", "nec.saber-si-gano-en-cada-trabajo", "nec.firmar-documentos" ] },
+
+    { "id": "asesoria", "nombre": "Asesoría, gestoría y despacho", "necesidades": [
+      "nec.expedientes", "nec.cuotas-cada-mes", "nec.papeles-ordenados", "nec.firmar-documentos",
+      "nec.contratos-que-no-se-me-pasen", "nec.emitir-una-factura-legal", "nec.los-impuestos",
+      "nec.llevar-la-contabilidad", "nec.que-el-cliente-vea-lo-suyo", "nec.que-sea-seguro" ] },
+
+    { "id": "agencia", "nombre": "Agencia de marketing y consultoría", "necesidades": [
+      "nec.seguir-sin-olvidarme-de-nadie", "nec.proyectos-largos", "nec.saber-cuanto-tiempo-echo",
+      "nec.presupuestar-rapido", "nec.emitir-una-factura-legal", "nec.escribir-a-mi-gente",
+      "nec.publicar-en-redes", "nec.ver-como-va-el-negocio", "nec.escribir", "nec.saber-si-gano-en-cada-trabajo" ] },
+
+    { "id": "academia", "nombre": "Academia y formación", "necesidades": [
+      "nec.dar-clases", "nec.cuotas-cada-mes", "nec.emitir-una-factura-legal", "nec.mi-agenda",
+      "nec.tener-donde-ensenar-lo-que-hago", "nec.vender-online", "nec.escribir-a-mi-gente",
+      "nec.que-no-se-pierda-una-pregunta", "nec.el-equipo-organizado", "nec.que-repitan" ] },
+
+    { "id": "clinica", "nombre": "Clínica: fisio, dental, psicología", "necesidades": [
+      "nec.historia-clinica", "nec.que-reserven-solos", "nec.mi-agenda", "nec.facturar-a-mutuas",
+      "nec.emitir-una-factura-legal", "nec.cumplir-el-rgpd", "nec.que-sea-seguro",
+      "nec.que-repitan", "nec.cobrar-en-el-mostrador", "nec.expedientes" ] },
+
+    { "id": "tienda", "nombre": "Tienda y comercio minorista", "necesidades": [
+      "nec.cobrar-en-el-mostrador", "nec.el-stock", "nec.comprar-a-proveedores", "nec.vender-online",
+      "nec.emitir-una-factura-legal", "nec.la-factura-obligatoria", "nec.que-me-encuentren",
+      "nec.escribir-a-mi-gente", "nec.que-repitan", "nec.el-equipo-organizado" ] },
+
+    { "id": "entrenador", "nombre": "Entrenamiento personal y coaching", "necesidades": [
+      "nec.que-reserven-solos", "nec.mi-agenda", "nec.cuotas-cada-mes", "nec.emitir-una-factura-legal",
+      "nec.que-repitan", "nec.escribir-a-mi-gente", "nec.tener-donde-ensenar-lo-que-hago",
+      "nec.vender-online", "nec.publicar-en-redes", "nec.que-no-se-pierda-una-pregunta" ] },
+
+    { "id": "inmobiliaria", "nombre": "Inmobiliaria y alquiler", "necesidades": [
+      "nec.seguir-sin-olvidarme-de-nadie", "nec.liquidar-a-terceros", "nec.contratos-que-no-se-me-pasen",
+      "nec.firmar-documentos", "nec.mi-agenda", "nec.emitir-una-factura-legal", "nec.expedientes",
+      "nec.que-me-encuentren", "nec.papeles-ordenados", "nec.que-el-cliente-vea-lo-suyo" ] },
+
+    { "id": "transporte", "nombre": "Transporte y reparto", "necesidades": [
+      "nec.mis-maquinas", "nec.el-trabajo-de-fuera", "nec.emitir-una-factura-legal", "nec.que-me-paguen",
+      "nec.presupuestar-rapido", "nec.saber-si-gano-en-cada-trabajo", "nec.el-equipo-organizado",
+      "nec.expedientes", "nec.conectar-lo-que-uso", "nec.la-factura-obligatoria" ] },
+
+    { "id": "taller-artesano", "nombre": "Obrador y taller artesano", "necesidades": [
+      "nec.fabricar", "nec.el-stock", "nec.comprar-a-proveedores", "nec.saber-si-gano-en-cada-trabajo",
+      "nec.vender-online", "nec.emitir-una-factura-legal", "nec.cobrar-en-el-mostrador",
+      "nec.que-me-encuentren", "nec.mis-maquinas", "nec.que-repitan" ] }
+  ]
+}

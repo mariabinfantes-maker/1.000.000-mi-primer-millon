@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { getTodasLasHerramientas } from "@/data/repositorio";
-import { convertirSalida, type SalidaLote } from "../convertir";
+import { convertirSalida, type CitaRevisada, type SalidaLote } from "../convertir";
 import { capacidadIdsDelVocabulario, erroresDeRegistro } from "../repositorio";
 
 /**
@@ -397,7 +397,7 @@ describe("convertir la salida cruda en registros", () => {
    * Decisiones de la propietaria del 2026-09-07, con el lote 1 delante.
    */
   describe("las tres decisiones de la propietaria", () => {
-    const conTodo = (extra: Record<string, unknown>, respuesta: Record<string, unknown>, revisadas: any[] = []) =>
+    const conTodo = (extra: Record<string, unknown>, respuesta: Record<string, unknown>, revisadas: CitaRevisada[] = []) =>
       convertirSalida(
         {
           herramientas: [
@@ -512,7 +512,7 @@ describe("convertir la salida cruda en registros", () => {
 
     describe("las citas breves se revisan, no se miden", () => {
       const breve = { ...buena, urlFuente: PRECIOS, cita: "SSO" };
-      const conPrecios = (respuesta: Record<string, unknown>, revisadas: any[] = []) =>
+      const conPrecios = (respuesta: Record<string, unknown>, revisadas: CitaRevisada[] = []) =>
         convertirSalida(
           {
             herramientas: [

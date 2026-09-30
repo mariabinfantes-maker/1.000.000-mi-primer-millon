@@ -1,0 +1,354 @@
+[
+ {
+  "id": "dricloud",
+  "consulta": "DriCloud cita online paciente elegir medico especialista agenda",
+  "urls": [
+   {
+    "u": "https://dricloud.com/agenda-clinica/",
+    "esPdf": false,
+    "queParecePoner": "Información sobre la agenda médica de DriCloud, gestión de citas por especialista, vistas y sincronización."
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFF_j1mesri2g6hFwDWfnwjzJgPDygQSSin-3ZOpO5XygrS4ShyejjoA_R3Lm86z7bqyuQVa_ljIns1BrrPE7edRvVEyhjE8pJbOang7qt3uPhlUha6omHaOTd_aA8=",
+    "esPdf": false,
+    "queParecePoner": "Página oficial de DriCloud sobre el funcionamiento de la cita médica online sincronizada con la agenda."
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG3rWFbwZbQkIl97pQmTsbwVbHiUU2ePF-KjUEqR7U4Vy27-Eyvte5QhJcp2MRXVPg0pRlwzive18G_up0IATpYk9E8cS1FvqS8eZEqbUSpi-JmEbs367ebTXLV",
+    "esPdf": false,
+    "queParecePoner": "Artículo de DriCloud sobre la personalización de citas online, selección de doctores/servicios y sincronización en tiempo real."
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHN0-CjHXPWMOvvHWDapZScpINihiq7jt3-frBurjEeci4LJCCzjE_VErogy9LrCW5UaNb8KTHiQWkuxmQcD9ooSzQwzDeyC-giba0ngPya9z4b6PxNrIiCVNG8ptHBlpLHHBj-d_QbN6P4",
+    "esPdf": false,
+    "queParecePoner": "Artículo sobre el funcionamiento de la agenda médica inteligente para gestionar citas de especialistas."
+   }
+  ],
+  "loQueViste": "Los resultados de DriCloud detallan que el sistema de cita online permite a los pacientes consultar las agendas y reservar cita las 24 horas desde la web o el móvil sin necesidad de registrarse ni usar contraseñas. El sistema es personalizable y permite configurar qué doctores/especialistas están disponibles para recibir citas por internet, qué servicios o tratamientos ofrecen y en qué horarios. La reserva se sincroniza en tiempo real con la agenda clínica para evitar duplicidades y notifica automáticamente tanto a recepción como al paciente.",
+  "siNoHayNada": ""
+ },
+ {
+  "id": "dricloud",
+  "consulta": "DriCloud recordatorios SMS email pacientes citas",
+  "urls": [
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGRErE3W_Sk0emqEmSUyge2sEBCNi89RdvVEnukAhk4eFFRGiuzLK9MwlNuWRJ59CM9i3agy9fUO03dyBCmrkOIbxGmF5ICgaUpaQJcxDoROkH1rOg-WHarhJc=",
+    "esPdf": false,
+    "queParecePoner": "Artículo sobre el impacto de las ausencias a citas y el uso de recordatorios por SMS, email y notificaciones push en DriCloud."
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEdvxclOOHE1dG0wZFadSoFAG7xwR0RHZ7XlJEoBdfGBXVGZw4iEBcMRRLPef8Mr8ZwfjjyTid30RmVVdtjU4iSN1SzBSO-tYO8UIw_MriCZmgJFNEQjPFMeA=",
+    "esPdf": false,
+    "queParecePoner": "Página de la agenda clínica de DriCloud detallando recordatorios automáticos gratis por email/push, SMS y WhatsApp con confirmación en 1 clic."
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEQEvbfS9ZyLppXN0k_DpQq0kBsYAD91Xe11EHMd5-IeVEn4RHouGed6kU1o7PuYUVSfHrmaFFJYMyV8KcFwFKZ4DNhoML2GWkojmZLyq0eLMah1-YA_o5GbWmet9FlJunjw6MYP7swE9s=",
+    "esPdf": false,
+    "queParecePoner": "Explicación sobre la automatización y configuración de frecuencia de recordatorios automáticos por SMS, email o WhatsApp en la agenda inteligente."
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF_3gzIgv29JKc-45cDUyP4oOAVPtOp8Ifm4-vH17jAAsUI6CMt4KpVfPbHCJYdszE0WE88cLF6YGBuLmsJLYvRRj5ugk3FVImCGzzZrVPbpKOdIL8vEiHjUrXve9p6JzQg87sMMtN-3gyHkg==",
+    "esPdf": false,
+    "queParecePoner": "Guía de personalización en DriCloud de mensajes de confirmación, cancelación y recordatorios de cita por email y SMS."
+   }
+  ],
+  "loQueViste": "DriCloud dispone de un sistema de recordatorios automáticos de citas médicas para reducir inasistencias. Permite el envío ilimitado y gratuito mediante correo electrónico y notificaciones push en su app, así como el envío de recordatorios por SMS y WhatsApp. Los mensajes permiten a los pacientes confirmar o cancelar su cita con un clic, y los textos/plantillas y tiempos de envío son configurables y personalizables desde el software.",
+  "siNoHayNada": ""
+ },
+ {
+  "id": "dricloud",
+  "consulta": "DriCloud precios planes ESENCIAL AVANZADO profesionales incluidos",
+  "urls": [
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGkzQ7VKLM2TLzdjbWxuikWnZLO_HzxS3d_NPrdH1T7a6XmsH69vtTJJ74j2leU0Gd3MWBdICclrIupxT0ZXX5GwmgNtvdukSyLVSh4mS7JWethiA==",
+    "esPdf": false,
+    "queParecePoner": "Página oficial de precios y comparativa de planes de DriCloud con usuarios y tarifas detalladas."
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEgYdbWcC1dQCdemM0f8V9YOl4kd_ecUYXZKkIXpyHU24fIM_lKklGRXhL0fVeqAzdL2NiffFcTXTn9YDmJjd2L2kbA2NqbfUq_jM8HMS2r-7tEMpaTUdkTbnAUroOXHm3zr_2sK3Q7ASLYPdYt",
+    "esPdf": false,
+    "queParecePoner": "Comparativa de DriCloud con desglose de precios verificados de los planes ESENCIAL, SOLO, CLÍNICA y CENTRO MÉDICO."
+   }
+  ],
+  "loQueViste": "En las tarifas oficiales de DriCloud, el plan ESENCIAL tiene un precio de 42 €/mes (510 € al año con suscripción anual, impuestos incluidos) e incluye 1 profesional / 1 usuario. No figura un plan llamado 'AVANZADO', sino que los planes son ESENCIAL (1 profesional), SOLO (1 usuario a 92 €/mes), CLÍNICA (1 a 3 usuarios a 129 €/mes), CENTRO MÉDICO (4 a 30 usuarios a 249 €/mes) y GRANDES CLÍNICAS (31 a 50 usuarios a 497 €/mes); el término 'Avanzado' aparece dentro de la tabla de características funcionales (por ejemplo, CRM/marketing avanzado y analítica avanzada incluidos a partir del plan CENTRO MÉDICO / CLÍNICA).",
+  "siNoHayNada": ""
+ },
+ {
+  "id": "dricloud",
+  "consulta": "DriCloud widget reservas web propia integracion lista de espera",
+  "urls": [
+   {
+    "u": "https://dricloud.com/agenda-clinica/",
+    "esPdf": false,
+    "queParecePoner": "Información de la agenda clínica de DriCloud, cita online y gestión de cancelaciones/listas para cubrir huecos"
+   },
+   {
+    "u": "https://dricloud.com",
+    "esPdf": false,
+    "queParecePoner": "Página principal con las funcionalidades de cita online web, integraciones y gestión de consultas médicas"
+   }
+  ],
+  "loQueViste": "Los resultados oficiales de DriCloud indican que disponen de un sistema de cita médica online personalizable e integrable en la página web propia de la clínica (y mediante API abierta o redes sociales). En cuanto a la lista de espera, la plataforma gestiona cancelaciones y listas de espera desde su agenda médica y portal del paciente para reasignar citas y llenar huecos libres, aunque no se documenta un widget web independiente exclusivo de lista de espera.",
+  "siNoHayNada": ""
+ },
+ {
+  "id": "gesden-g5",
+  "consulta": "Gesden G5 agenda multigabinete multiusuario horarios por doctor",
+  "urls": [
+   {
+    "u": "https://www.infomedsoftware.com/software/gesden/gesden-g5/",
+    "esPdf": false,
+    "queParecePoner": "Página oficial del software de gestión dental Gesden G5 de Infomed Software"
+   }
+  ],
+  "loQueViste": "Los resultados y contenidos oficiales de Infomed Software muestran formaciones y documentación sobre la configuración paso a paso de la agenda en Gesden G5, incluyendo la gestión de recursos/gabinetes, excepciones de horarios por doctor y el uso avanzado de la agenda multigabinete y la pizarra diaria.",
+  "siNoHayNada": ""
+ },
+ {
+  "id": "gesden-g5",
+  "consulta": "Gesden cita online paciente reserva por internet clinica dental",
+  "urls": [
+   {
+    "u": "https://www.infomedsoftware.com/software/gesden/gesden-g5/",
+    "esPdf": false,
+    "queParecePoner": "Página oficial de Infomed sobre el software dental Gesden G5 Profesional y Grandes Clínicas."
+   }
+  ],
+  "loQueViste": "Los resultados mencionan módulos y soluciones desarrolladas por Infomed y terceros para la citación y reserva online integradas con la agenda de Gesden / Gesden One (así como la gestión de citas desde Agenda 2.0 y pizarra de Gesden G5), pero no aparece una página de soporte o PDF monográfico específico de cita online directamente accesible en el dominio infomedsoftware.com dentro de los resultados.",
+  "siNoHayNada": "si la búsqueda no devuelve nada útil, dilo aquí con esas palabras"
+ },
+ {
+  "id": "gesden-g5",
+  "consulta": "Gesden G5 precio licencia cuota mensual clinica dental Infomed",
+  "urls": [],
+  "loQueViste": "Infomed no publica de forma abierta una tarifa oficial de precios o cuotas mensuales para Gesden G5 en su web o documentación pública oficial; la contratación y precios de la licencia/mantenimiento se gestionan bajo presupuesto comercial a medida. Comparativas y análisis de terceros indican que opera tradicionalmente bajo modelo de licencia (aprox. 1.200 €) más cuota de mantenimiento (desde ~75 €/mes), a diferencia de versiones como Gesden One Web Easy cuyas condiciones promocionales antiguas fijaban mantenimiento en 75 €/mes y licencias adicionales en 150 €.",
+  "siNoHayNada": "si la búsqueda no devuelve nada útil, dilo aquí con esas palabras"
+ },
+ {
+  "id": "gesden-g5",
+  "consulta": "Infomed Software Gesden manual PDF funcionalidades agenda recordatorios SMS",
+  "urls": [
+   {
+    "u": "https://www.infomedsoftware.com/software/gesden/gesden-g5/",
+    "esPdf": false,
+    "queParecePoner": "Página oficial del software Gesden G5 de Infomed con información de sus módulos y soluciones"
+   }
+  ],
+  "loQueViste": "Los resultados y manuales de Gesden G5 indican que la agenda y el módulo de SMS/Emailing permiten el envío automatizado de mensajes de texto y correos desde la propia agenda para recordatorios de citas y fidelización de pacientes, siendo una funcionalidad modulable (módulo de comunicación/automatización adicional a la instalación base).",
+  "siNoHayNada": "No se encontraron manuales en PDF alojados directamente en el dominio oficial en esta búsqueda, únicamente referencias al portal oficial y manuales de usuario alojados en plataformas externas y formaciones en vídeo."
+ },
+ {
+  "id": "qvet",
+  "consulta": "QVET software veterinario agenda cita online propietario reserva",
+  "urls": [
+   {
+    "u": "https://qvet.net/",
+    "esPdf": false,
+    "queParecePoner": "Página principal de QVET que destaca la gestión de recetas, facturación y agenda de citas online."
+   },
+   {
+    "u": "https://qvet.net/caracteristicas/",
+    "esPdf": false,
+    "queParecePoner": "Detalle de módulos de QVET: cita online integrada en la agenda, pasarela de pago, integración web y reservas vía VetEasy."
+   },
+   {
+    "u": "https://qvet.net/10-caracteristicas-del-software-veterinario-de-qvet-explicadas/",
+    "esPdf": false,
+    "queParecePoner": "Artículo explicativo sobre el servicio de citas online para que propietarios reserven según horarios disponibles."
+   },
+   {
+    "u": "https://qvet.net/whatsapp-qvet/",
+    "esPdf": false,
+    "queParecePoner": "Integración de WhatsApp con la agenda para envío y confirmación automática de citas por parte del propietario."
+   }
+  ],
+  "loQueViste": "Los resultados oficiales de QVET indican que el software cuenta con un servicio de cita online integrado con la agenda múltiple de la clínica. Permite a los propietarios agendar y reservar citas directamente según los horarios y agendas configuradas por el centro. El sistema se puede insertar en la propia web de la clínica veterinaria, en la App LaClinica o vincularse a través de plataformas de reserva como VetEasy (en España), e incluye además opciones de pasarela de pago integrada y confirmación automática de citas vía WhatsApp.",
+  "siNoHayNada": ""
+ },
+ {
+  "id": "qvet",
+  "consulta": "QVET precio tarifa licencia modulos clinica veterinaria",
+  "urls": [
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGxsVxfhwAltIi0qi7HbQXKxm4I8WRh-sY4bLxFdQvUMxZoAVsVPg1JdrhCYd8bx7a1aoSF-FI7ndnyEDgAAIaH-evbgnxFw6RtJPaCBpHnPcZAk9Gk0YzOmtGeJTaDTQ==",
+    "esPdf": false,
+    "queParecePoner": "Detalle de características, módulos y planes/ediciones del software (Estándar, Profesional, Multicentro, Corporativa)"
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGALASQykMtvTi4iO9RB-Obr2f-RLHV3v4t65mWoj0aaAcXfKB3w3pMJjLbLbnJ9V99kduw4rWkZCo6wgJKSVMX3w9AxGpZz4ucvQlUh1W39WnM0C5Iw-ovKFa7oUM=",
+    "esPdf": false,
+    "queParecePoner": "Información sobre la solución integral para clínicas, grupos y hospitales universitarios"
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG1v7WeCnqty-J5_C0ygrTSv8fIzcW_IKXMFIgqkoObcScT3BeBvbiRlFvjHA1Fak5qV7RJ0bHSRS81TxFk8RzvuNpm89cc_MVtd4h39I22HS57KRz2if7Nf7D2keDDsXB7nmk=",
+    "esPdf": false,
+    "queParecePoner": "Comparativa de módulos y funciones en las cuatro ediciones de QVET"
+   }
+  ],
+  "loQueViste": "Los resultados oficiales de QVET muestran el desglose de características, módulos y ediciones del software (Estándar, Profesional, Profesional Multicentro y Corporativa), así como módulos y extensiones (hospitalización, citas online, API, analítica de negocio, integración con laboratorios, facturación electrónica), pero no publican importes ni tarifas fijas de precios en abierto, remitiendo a formularios de contacto comercial para presupuestos personalizados.",
+  "siNoHayNada": ""
+ },
+ {
+  "id": "qvet",
+  "consulta": "QVET recordatorios SMS email vacunas citas propietarios",
+  "urls": [
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGx5wvqGQvMpFPqlBMY8zWb-of6D9cNFJohmSU6funIwuRlEviY3cozpGtpsnNECby_LmkYjBiylQpEMhYB2ukhzogc3PPvY800UdFFo4_d6l5iYj8WOWugy6UI8aK_jg==",
+    "esPdf": false,
+    "queParecePoner": "Página oficial de características de QVET que detalla el envío de recordatorios de vacunas y citas por WhatsApp, SMS o email."
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGxhRIuHJ48aQjXTkIAlVlJspQYMt0ahTPylgfNr6WGvKLZ8lmOUHHDMzoW3Aly13jbzdXcI2w0oD2Dsi8dCXRPRYI7LNveLTqvPNQQp8TyCxGCyGOQl37fjPNuk70e9tCDI1BJTwIsGQKMypgTphMEgYbQbk25K9VTZyRmVGaDPUuPtKcrMLwI_Glv7Hwng4DaUM8oThpewA==",
+    "esPdf": false,
+    "queParecePoner": "Artículo de blog de QVET sobre la experiencia del cliente y el envío ágil de recordatorios de vacunas y citas a móviles."
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGSFohmH_hAygtgtOxVkBI9-kzc9z89T1zkpPVsHt-S9z0JtXDN4gl2m3gL2jaWxw_j-gQBmsQoZ1nIab_n-BifVGLZQ4oWXmyX8F6lWdDxjAbm4Yqh",
+    "esPdf": false,
+    "queParecePoner": "Sección sobre el módulo integrado de WhatsApp en QVET para recordatorios automáticos de citas, vacunas, desparasitaciones y revisiones."
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEK_zq9nzI5bnY9yuOPuB8xaA82MaYWHn4lafy2XBbuckHCT83szorJjqbykPEKdplnwPe8vAKemRUTF5l-txZMxLHJw5T7XlfsrY0hj1JoUaRMqoCeA00uF6jNjFW3ch12iSs=",
+    "esPdf": false,
+    "queParecePoner": "Tabla comparativa de ediciones de QVET que incluye la gestión de expedientes clínicos con recordatorios de vacunas y agenda de citas."
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG6z8y7Dx5X00tNw-c2gfY-H5RRQJwnPMZ7mj9Hh4Z-wA6Xm9s2S4S97opiIyLG8O7NZXjb6j2DW-a_1PLCn6mAsNCvETOne2_B1zWBmEYHYrTb5wRJmpdqc5xN",
+    "esPdf": false,
+    "queParecePoner": "Portal de soporte y videotutoriales de QVET donde explican cómo añadir recordatorios y pruebas durante las visitas."
+   }
+  ],
+  "loQueViste": "Los resultados oficiales de QVET indican que el programa incluye módulos para gestionar expedientes clínicos y enviar recordatorios automáticos a los propietarios de mascotas sobre vacunas, tratamientos, citas, revisiones y desparasitaciones a través de canales como SMS, correo electrónico y WhatsApp, permitiendo además la confirmación de citas y la sincronización con la agenda.",
+  "siNoHayNada": ""
+ },
+ {
+  "id": "qvet",
+  "consulta": "QVET manual ayuda documentacion agenda veterinarios horarios",
+  "urls": [
+   {
+    "u": "https://qvet.net",
+    "esPdf": false,
+    "queParecePoner": "Página oficial del software veterinario QVET con información de características generales y formación."
+   }
+  ],
+  "loQueViste": "Los resultados de búsqueda muestran que QVET aborda la agenda y horarios a través de módulos de 'Agendas múltiples', 'Citas / Cita online integrada', gestión de salas de espera y una extensión específica de 'Registro Horario' (con app móvil para control de fichajes). En su sección de soporte disponen de videotutoriales introductorios sobre gestión básica de agenda e inserción de citas, pero no aparece un manual completo en PDF alojado de forma pública directa en el dominio principal qvet.net (los manuales de usuario de versiones como QVET 9.5/9.6 aparecen subidos en repositorios de terceros como Scribd).",
+  "siNoHayNada": "No se encontraron manuales o guías completas en PDF descargables directamente en el dominio oficial qvet.net para la configuración detallada de horarios de veterinarios en la agenda; únicamente páginas de características, la app de Registro Horario y referencias a vídeos formativos en la sección de soporte."
+ },
+ {
+  "id": "treatwell",
+  "consulta": "Treatwell Connect software salon agenda por profesional empleados",
+  "urls": [
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEaYErn9kcVWx8gJvL-aa3AbgvbH5oIm0F-XqjZhuYBnWdKzHkGeWqNx99locP7tJSrtytPZ0ksF5s0v91maOQRINtgY5LuuuuaL0CgfcDPdXKB3zwoMz-QrR9Gj4yi0E8=",
+    "esPdf": false,
+    "queParecePoner": "Detalla los planes de Treatwell Connect, incluyendo agenda digital, gestión de citas y equipo/empleados ilimitados."
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE3FbxMqp9n3Q5l6gYhJma24gaIJ85ak8FBsTY_uXWZf-YzFvcwWb0JipMdU1Qi1Rmc7FJgFwqNEPHW8fBkLOrrlTkSHJDomN_L2gFtcDvSJ8PDDenQgf1-P3vK2e-_GhaOeS2r05D5PxMOe9KfH3URE8n2O5wZr5CSMLjzWjS03J-g__LHpU9wABA3oQg=",
+    "esPdf": false,
+    "queParecePoner": "Explica el uso de la agenda por colores y el acceso de los empleados a su agenda desde la app Treatwell Connect."
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEL2qDzS26U4bkHm1NuTqWQZ7pRGMX-KqUC7D0DO_08moAn-DZXn7lC2NPhN0qefkActfeo1DxjADhe9JOiAkNEIHFMkbets8YFTK6rQ6-JtSw6mKuj3Ivt3F08UM1IssGDQenbHSX-SXXp4ydxcVEtX4gQBJ2vZiQV549rMaDXZUV3AtJ7VfiUetJp8oHQCLcEdR-Bov7DkHqZTAGc_Vb3omY3",
+    "esPdf": false,
+    "queParecePoner": "Describe cómo las reservas asignan profesionales, organizan huecos de agenda y permiten reorganizar turnos y citas del equipo."
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEj_Vy5TUhrI7QdXdoVcpLtmor8vtCjUYjdPcBPx7to8QKCWZsvFofda4-7ciiWTplnilsoIEiER1CELL2q9VuOABgVmoAnYjJWxMcTqCOPgqGV9yjc3rYUQ-80gR6r1tlTyCFwQ4RaFsPJ6CfVft-ABQ7p7gWVXGR7hv7Mylfx5-DmYw==",
+    "esPdf": false,
+    "queParecePoner": "Muestra la integración de la agenda de citas con las fichas de clientes y los miembros del equipo en Treatwell Connect."
+   }
+  ],
+  "loQueViste": "Los resultados oficiales de Treatwell indican que el software (Treatwell Connect / Pro) incluye un calendario/agenda digital interactiva accesible desde móvil o tablet, que permite gestionar reservas asignadas a cada profesional o empleado, consultar turnos, configurar perfiles individuales en el marketplace y revisar el rendimiento y las citas del equipo en tiempo real.",
+  "siNoHayNada": ""
+ },
+ {
+  "id": "treatwell",
+  "consulta": "Treatwell partners precios comision tarifa salon",
+  "urls": [
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGWSjY0MbRaQ1GjFMN-AZCVwLNX3W0wEI1WKTei_FuF31hkPbYNQESTY3BYivSGiU5IDzzTQWulmrblbyqWk9iiT7XYiinZODlqWZJWWYLtxQymrcHTR8WVUXpB76BrtAo=",
+    "esPdf": false,
+    "queParecePoner": "Página oficial de precios y comisiones de Treatwell Connect para salones"
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGpPkML53x2dQUoU2HObSbeMe0Kc9PqwmHBZMo8SLFnmTpe5J0bhwsfI2q3b_iL1izuilW_f6FT33OutJXaI972H5GdDulWFbjKnCFNePp40-RvdJyCUqdljoQAXyMZAetdSG6tg5JnJSM=",
+    "esPdf": false,
+    "queParecePoner": "Información y tarifas de procesamiento de pagos con Treatwell Pay y datáfono"
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHTAA2dOpEJLzavTssTMOXuaeW15Ge3mrTzWdd0vHU4xz9ESxSUoRAmqJ3MYXDeCej38VW17tsPrBIFYZ0WPEF9lY_-R5jzfnswHOmQGkg6-DXY1dvrp-BwuDDQCkPHaNZOEp8D1F0--FEHCWpLmozAoToU4IXW-p9QWbB8Eg==",
+    "esPdf": false,
+    "queParecePoner": "Condiciones comerciales y términos de tarifas y comisiones para socios de Treatwell"
+   }
+  ],
+  "loQueViste": "Los resultados oficiales de Treatwell para salones (partners) indican que se cobra un 25 % de comisión por cada nuevo cliente captado a través de la plataforma, un 0 % de comisión para reservas de clientes recurrentes o directos, y un 2 % de tarifa por procesamiento de pagos en reservas online (tarifas sujetas a IVA). Además, el servicio de cobro con datáfono Treatwell Pay detalla una comisión de 0,79 % + 0,20 € por transacción.",
+  "siNoHayNada": ""
+ },
+ {
+  "id": "treatwell",
+  "consulta": "Treatwell Connect recordatorios cliente cita SMS",
+  "urls": [
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFqJwH3wH2P3BSOLER0ZCIm_ehDXslH5bjzA4WSAcGTwlhfAh15OR2d-h-ZPjQJcJGyXjiEm04tZvppca59SdmNCMW1RIwp-8-mBxa_63RSY1PxsJ8cSdLhBvnfQyNy87q-OHDfAMwl1CRNdNtWqZtWXdX1MAU3qSDEHFLzfxXn4ig3zMm8GzQ032hH_f4KeTtA",
+    "esPdf": false,
+    "queParecePoner": "Explica el funcionamiento de los recordatorios de cita por SMS en Treatwell Connect, confirmando que son gratuitos e ilimitados en cualquier plan."
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFzWUkdOSLv2cxNLOUuTDmNC764aCDxeaJihTkRN-VwNWAAdg-d8nNcNx8wskye4hR0YJJrjnfpmfkbDB2w8r2eVNZIYQHTTO6iIyOoatrBKvN9S78yyg_teiKRc-IDAMQUoB5TSoi0YOjt8ebl0pOziiqYkd07JQKE0kG9mt3HY5Hzr9DZgjJZUhIVM_iki8GAC78IpoSVexC-1lPWMsEQ8ogUbPrMFmdT_LJ2",
+    "esPdf": false,
+    "queParecePoner": "Detalla la configuración y tiempos de envío de confirmaciones y recordatorios por email (24h antes) y SMS (4h antes) en Connect."
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFdsKUlaNvddECB4dpWthqmPjW44sI_7-KlyVgoNEk4TXGNUfoVOjl-O3eBGQbLrJkVRuG3YqbVKaIhl0speaxwHv8hBEnNcSRvjue1Qd5KhZDOVdloBd7gN4fnJIRu-efaT-4EZRFj7qLsNGPQa0SqXp_x6U52vgdDsY5V8CAi1oClepCCOM9I9-puXsarsjzA0kmhR5BzXAMg9E3ltzo5TLLo",
+    "esPdf": false,
+    "queParecePoner": "Aborda las funciones de reserva online y el impacto de los recordatorios SMS incluidos en Treatwell Connect para reducir incomparecencias."
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF3sauMedXZ1PXnZI9mpFOGruJawQEr-xkXsFGunKpIr8VXFmlMFarQR2zL4JJp2ji-sKnhJdAC7-L1K5rlVYCI8c1cnzO1wGQrpBSNW1To5m5-9Ww6tsBUVRFrtCRoUNdnr4G_IWSio8K12Y2S5g7YaqDurUK2Co50fjaa5urlaXGskO6umfOioC2ogEecRzf1OoJM",
+    "esPdf": false,
+    "queParecePoner": "Guía sobre qué es un recordatorio de cita, su importancia para reducir anulaciones y ejemplos de mensajes para clientes."
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG3egaT3nlQ_rnpW0Fy6Kwgt4glC_fzW8Nd6IBYzFlhONHk9-G0tEcPtW9k-1U46wrxfQu0gIVNfeTSAZGI7vF9nIE3-SbLcR5HpTxju-9ELiPUSyOF1JJQnP4DAyutJU-fu9jGhkjQW84n8k6V27Z9NfsJtRMOmALpaUqbsoANUZ9lJmwhYLMhoA5nKCS2Ea1dkiRhjyNVV2jSFJDinGS_39gIvj6asxDarAxGVliWGi_1JQxGoWt-fOE=",
+    "esPdf": false,
+    "queParecePoner": "Artículo sobre el uso de mensajes recordatorios automáticos para evitar pérdidas de facturación y huecos libres en salones."
+   }
+  ],
+  "loQueViste": "Los resultados oficiales de Treatwell indican que Treatwell Connect gestiona los avisos y recordatorios a clientes de forma automatizada. Los recordatorios de cita estándar por SMS están incluidos de forma gratuita y sin límite en los planes de Connect (enviándose habitualmente 4 horas antes de la cita, junto con confirmaciones al reservar y recordatorios por email 24 horas antes). Se activan y gestionan desde el apartado de Mensajes automáticos / Transaccionales.",
+  "siNoHayNada": ""
+ },
+ {
+  "id": "treatwell",
+  "consulta": "Treatwell widget reservas en tu propia web salon",
+  "urls": [
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFpT2adw00LpsX-XEHNWoZeuulrE7VYYW2a6G1pbGyy1RnLgyiM7cN9sLt8nkX6NuAp7UEEq4DBBtaC_dVYzzN6B4Gl5V8Jcm9vD7BqCkOawDqRd8PY27i2luYayhq90kUmKICoofmEX82HkwT64eJxTG05jHoE820PINRIuIdsmBvdZ9SlWgH4PyAxEGK_NdN4nJF6RkGGk9OrEgrga8NR9Q3d",
+    "esPdf": false,
+    "queParecePoner": "Explica el funcionamiento de la reserva online y cómo el widget integrado en la web del salón sincroniza citas en tiempo real sin comisión"
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF1JVYX19h637N2hVn78dnU4FY3qEvusv3Pwae-ILkdWzZTqVYP3Z2MDek2LWSEhxt3WFJ7vtNy4ScDCNymuca-nhTbuZCKB42-_FnLX-LDksZEvHVxwn6rUo2xoHmtwSxY1WmmVT3Z5ReprzBA8O5vLv8X9fEpchoAxx-OzbhYFoh7YNu8jILU9EGwe9c=",
+    "esPdf": false,
+    "queParecePoner": "Detalla la integración de widgets y botones de reserva 24/7 en la propia web del salón con el software Treatwell Connect"
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFg5vmgGVZrnu4n_HmlReM8G02EwB9p6y3eS-lgAjkrfbddQGimvFERFpQ2ZcC-YOuAyBdBOmiYcFPuyB3a18_uFhN1fvcEroQq0pbeOhfulabcwXI0IgPNYDfVVbGhqfSWB-ZDFANTH4HRLYvUeeGLY_bqBT2B2dppz31i3aFH104wyRo=",
+    "esPdf": false,
+    "queParecePoner": "Guía sobre Treatwell Pro que menciona la instalación gratuita del widget de reservas en la web y redes sociales"
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFQSHPk6rO-57SA1Ox_6tNNmTbaZB89o7-BGGuT8f4FKA2cokSzUU4h5tYiHp4-LVtxhnPfrjjYY1NOiZzz60NqJylZstBbgnO3px82ywcOifnI3-4dttFcHF0jrP7-zii4SVEBFMIUTADNLrzh5RCyKpT3hM2vXacSNKrN9dhwbml4oS-uAzERHWSpVHmDrA==",
+    "esPdf": false,
+    "queParecePoner": "Indica cómo obtener el enlace del widget en Connect (Ajustes > Reservas online) para integrarlo en tu web de forma libre de comisiones"
+   },
+   {
+    "u": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFDiGsTrrtMQ0fZ5f5BirpukOwDA0JKpUtnocSlxcvk2wYX0O8vg3BURr2QhMrUCeEXwWqj5P4S3vcNkguA5q1uKijmqjLimsIuLvx9xjX5x_DHck2fd2I7k1dptYy9rWWRmT4tJeHTf8X2DMcJyQ-rz2uz7BROIlAGpVe8rozEKqT7WTs62PZ3yK6QkgZTECGfq_ag",
+    "esPdf": false,
+    "queParecePoner": "Describe la integración de la agenda digital y la recepción de citas mediante un widget instalado en el sitio web"
+   }
+  ],
+  "loQueViste": "Treatwell (tanto en Connect como en Treatwell Pro) ofrece un widget de reservas online que se puede integrar e instalar en el propio sitio web del salón. Este widget permite a los clientes reservar tratamientos las 24 horas del día con disponibilidad en tiempo real, sincroniza las citas directamente en la agenda del salón y las reservas recibidas a través de este canal directo/propio están exentas de comisiones (0% de comisión). El enlace/código se gestiona desde el panel en Ajustes > Reservas online.",
+  "siNoHayNada": ""
+ }
+]

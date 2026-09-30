@@ -1,0 +1,27 @@
+{
+ "pedida": "https://www.treatwell.es/partners/soluciones/software-de-gestion-para-salones/",
+ "leidas": [
+  "https://www.treatwell.es/partners/soluciones/software-de-gestion-para-salones/"
+ ],
+ "urls": [
+  [
+   "https://www.treatwell.es/partners/soluciones/software-de-gestion-para-salones/",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "no_consta",
+  "espana": "si",
+  "cita_espana": "España United Kingdom Ireland Deutschland België Belgium Belgique France Italia Lietuva",
+  "campos": {
+   "cancelar_o_cambiar_cita": {
+    "v": "si",
+    "cita": "Reagenda o cancela en segundos"
+   },
+   "catalogo_de_servicios": {
+    "v": "no_consta",
+    "cita": ""
+   }
+  }
+ }
+}

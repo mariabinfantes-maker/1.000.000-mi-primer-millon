@@ -1,0 +1,106 @@
+{
+  "nombre": "Pabau",
+  "paginaOficial": "https://pabau.com/",
+  "urlPrecios": "https://pabau.com/pricing/",
+  "categoriaId": "clinicas-salud",
+  "descripcion": "Software para clínicas que reúne agenda, historias clínicas, cobros, tareas y comunicaciones con pacientes.",
+  "problemasQueResuelve": [
+    "Necesito gestionar las reservas, los expedientes y los pagos de mi clínica.",
+    "Quiero coordinar al equipo y automatizar comunicaciones con pacientes."
+  ],
+  "casosDeUso": [
+    "Organizar las citas de una clínica con varios profesionales.",
+    "Gestionar expedientes y pagos desde una misma plataforma.",
+    "Consultar información y tareas desde un iPhone o iPad."
+  ],
+  "idealPara": "Clínicas médicas, de estética, dermatología, cirugía y bienestar.",
+  "industriasIdeales": [
+    "clínicas",
+    "medicina estética",
+    "dermatología",
+    "cirugía",
+    "centros de bienestar"
+  ],
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "noRecomendadaPara": "Si necesitas una app nativa de gestión en Android: Pabau GO está disponible únicamente para iOS; en Android remite al navegador.",
+  "casosNoRecomendados": [
+    "La tarifa se cobra POR SEDE, salvo Enterprise.",
+    "El plan de entrada admite un usuario y hasta 100 clientes.",
+    "El precio se aplica por centro, excepto en Enterprise.",
+    "Los usuarios que cuentan para la licencia incluyen también recepción y administración.",
+    "La app nativa está limitada a iOS."
+  ],
+  "funcionesPrincipales": [
+    "Agenda y reservas online.",
+    "Historias clínicas.",
+    "Pagos y facturación.",
+    "Comunicaciones y automatización de tareas."
+  ],
+  "integraciones": [
+    "Stripe",
+    "Xero",
+    "Google Calendar"
+  ],
+  "integracionesPrincipales": [
+    "Stripe: cobros.",
+    "Xero: contabilidad.",
+    "Google Calendar: sincronización de agenda."
+  ],
+  "precioInicial": "No lo publican: su tarifa enseña los cinco planes con su número de usuarios, pero ninguno con importe, y pide una llamada para saberlo — «Our pricing depends on where you're located and the number of users you'll need on the system».",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual"
+  ],
+  "tienePlanGratuito": false,
+  "preciosComprobados": {
+    "url": "https://pabau.com/pricing/",
+    "fecha": "2026-09-30"
+  },
+  "idiomasDisponibles": [
+    "en",
+    "es",
+    "fr",
+    "de",
+    "pt",
+    "it"
+  ],
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "nivelTecnicoRequerido": null,
+    "facilidadImplementacion": null,
+    "fiabilidad": null,
+    "atencionAlCliente": null,
+    "facilidadDeUso": null,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Fuentes oficiales comerciales y de ayuda. La página de integraciones anuncia más de 30 herramientas, pero no una cantidad exacta: dejo el contador numérico en null. Enumero integraciones concretas documentadas. Los idiomas son una selección de los publicados y afectan al sistema y al portal de reservas. La web corporativa menciona alrededor de 200 empleados, sin fechar esa cifra como plantilla actual. No se asignan puntuaciones sin pruebas de uso.",
+  "ventajas": [
+    "Solo y los planes superiores publican pacientes ilimitados.",
+    "Ofrece una API abierta para desarrollar integraciones."
+  ],
+  "inconvenientes": [
+    "El precio se aplica por centro, excepto en Enterprise.",
+    "Los usuarios que cuentan para la licencia incluyen también recepción y administración.",
+    "La app nativa está limitada a iOS."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": "Reino Unido",
+    "anioFundacion": 2012,
+    "tamanoAproximado": "Alrededor de 200 empleados según la página corporativa, sin fecha de actualización de esa cifra."
+  },
+  "id": "pabau",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-30",
+  "fechaUltimaRevision": "2026-09-30",
+  "problemasIds": [
+    "organizar-empresa",
+    "ahorrar-tiempo"
+  ]
+}

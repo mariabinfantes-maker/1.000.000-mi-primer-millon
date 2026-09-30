@@ -4,6 +4,13 @@
   "urlPrecios": "https://www.vtiger.com/pricing/",
   "logoUrl": "",
   "categoriaId": "crm",
+  "categoriasSecundarias": [
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "facturacion-contabilidad",
+    "gestion-proyectos",
+    "inventario-operaciones"
+  ],
   "descripcion": "Vtiger CRM es una plataforma unificada en la nube que integra ventas, marketing y soporte al cliente en un único sistema. Destaca por ofrecer una vista de 360 grados del cliente, automatizaciones personalizables y herramientas de gestión de inventario e incidencias.",
   "informacionEmpresa": {
     "anioFundacion": 2004,
@@ -67,7 +74,7 @@
     "WhatsApp"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde $0/mes (Plan Pilot) o $12/usuario/mes (pago anual)",
+  "precioInicial": "Gratis para hasta 10 usuarios y 3.000 registros. De pago desde $12/usuario/mes (facturación anual)",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -111,7 +118,18 @@
         "numeroResenas": 80,
         "enlace": "https://www.trustradius.com/products/vtiger-crm/reviews"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/132478/Vtiger-CRM/",
+      "cita": "Ease Of Use. 4.2 (337). — leido 4.3/5 con 337 reseñas. Confirma el 4.3 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/vtiger-all-in-one-crm/reviews",
+      "cita": "Ease of Use. 8.2. 8.2 361. — leido 4.3/5 con 361 reseñas. Confirma el 4.3 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Excelente relación calidad-precio ofreciendo funciones de ventas, marketing y atención en un solo paquete",
@@ -133,12 +151,11 @@
     ],
     "tipoNegocioIdeal": "Pymes B2B, empresas de servicios e integradoras de tecnología",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 87,
+    "puntuacion": 84,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 7.3/10.",
       "G2: 4.3/5 (320 reseñas).",
       "Capterra: 4.3/5 (500 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -151,5 +168,34 @@
   "problemasIds": [
     "conseguir-clientes",
     "atencion-cliente"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.vtiger.com/pricing/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.vtiger.com/pricing/",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "One Pilot",
+        "mensual": "0 $/usuario",
+        "cita": "US$0, hasta 10 usuarios"
+      },
+      {
+        "nombre": "One Growth",
+        "mensual": "15 $/usuario/mes",
+        "anual": "12 $/usuario/mes",
+        "cita": "$15 / $12"
+      },
+      {
+        "nombre": "One Professional",
+        "mensual": "42 $/usuario/mes",
+        "anual": "30 $/usuario/mes",
+        "cita": "$42 / $30"
+      }
+    ]
+  }
 }

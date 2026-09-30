@@ -1,0 +1,18 @@
+{
+  "estado": "evidencia archivada, el uso NO está registrado",
+  "usoId": "uso.acceso_al_curso_tras_el_pago",
+  "herramientaId": "hotmart",
+  "cita": "Cuando se confirma un pago, el acceso al producto se libera automáticamente sin que tengas que hacer nada.",
+  "url": "https://hotmart.com/es/herramientas/pasarela-de-pagos",
+  "fechaDescarga": "2026-09-16",
+  "seccion": "¿Tienes dudas? ¡Te las aclaramos!",
+  "fraseAnterior": "La pasarela de Hotmart ya viene integrada de forma nativa con el área de miembros, el programa de afiliados y el dashboard.",
+  "frasePosterior": "¿Puedo vender desde España a compradores de otros países con la misma pasarela de pago?",
+  "pruebaDeDescarga": "URL_RETRIEVAL_STATUS_SUCCESS, comprobado con el proveedor del Researcher el 2026-09-16",
+  "cumpleLaRegla7": "Sí: la frase relaciona explícitamente el pago con el acceso.",
+  "porQueNoSeRegistra": "El uso cuelga de cap.training_lms, y para Hotmart esa capacidad NO está demostrada: su única cita era el eslogan «Hotmart reúne todo lo necesario para crear, alojar y vender cursos online». Un uso no puede demostrarse sobre una capacidad que no consta.",
+  "queLoDesbloquearia": "Una frase de una página oficial de Hotmart que demuestre que se imparten y siguen cursos: lecciones, progreso del alumno, evaluaciones o certificados.",
+  "noDesbloquea": [
+    "rec.pagina_pago_y_acceso_al_curso, que además necesita la página y las tres piezas en un mismo plan"
+  ]
+}

@@ -4,6 +4,13 @@
   "urlPrecios": "https://www.teamwork.com/pricing/",
   "logoUrl": "",
   "categoriaId": "gestion-proyectos",
+  "categoriasSecundarias": [
+    "asistentes-ia",
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "crm",
+    "facturacion-contabilidad"
+  ],
   "descripcion": "Teamwork.com es una plataforma integral de gestión de proyectos y tareas diseñada para agencias y empresas de servicios profesionales. Facilita la planificación de proyectos, el seguimiento de horas facturables y el control de la rentabilidad de clientes en un solo lugar. Permite invitar a clientes externos con permisos personalizados sin costo adicional.",
   "informacionEmpresa": {
     "anioFundacion": 2007,
@@ -67,7 +74,7 @@
     "QuickBooks"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde $9.99/usuario/mes (plan Deliver, facturación anual)",
+  "precioInicial": "Gratis para hasta 5 usuarios y 5 proyectos. De pago desde $9,99/usuario/mes (facturación anual)",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -131,12 +138,11 @@
     ],
     "tipoNegocioIdeal": "Agencias de marketing, consultoras y empresas de servicios B2B",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 93,
+    "puntuacion": 90,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.3/10.",
       "G2: 4.4/5 (3100 reseñas).",
       "Capterra: 4.5/5 (850 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -148,5 +154,27 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "organizar-empresa"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.teamwork.com/pricing/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.teamwork.com/pricing/",
+    "moneda": "EUR",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 €",
+        "cita": "0"
+      },
+      {
+        "nombre": "Accelerate",
+        "anual": "24,99 €/usuario/mes",
+        "cita": "24.99 billed yearly"
+      }
+    ]
+  }
 }

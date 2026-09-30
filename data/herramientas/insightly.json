@@ -1,9 +1,16 @@
 {
   "nombre": "Insightly",
   "paginaOficial": "https://www.insightly.com",
-  "urlPrecios": "https://www.insightly.com/pricing/",
+  "urlPrecios": "https://www.insightly.com/pricing-plans/?plan=crm",
   "logoUrl": "",
   "categoriaId": "crm",
+  "categoriasSecundarias": [
+    "asistentes-ia",
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "gestion-proyectos",
+    "marketing-email"
+  ],
   "descripcion": "Insightly es un software de gestión de relaciones con los clientes (CRM) y gestión de proyectos diseñado para empresas en crecimiento. Combina el seguimiento de ventas, la automatización del flujo de trabajo y la gestión de proyectos tras la venta en una única plataforma unificada.",
   "informacionEmpresa": {
     "anioFundacion": 2009,
@@ -68,13 +75,13 @@
     "QuickBooks"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde $29/usuario/mes (facturado anualmente)",
+  "precioInicial": "Desde $29/usuario/mes (facturación anual)",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Professional a $49/usuario/mes (facturación anual), que añade automatizaciones e informes avanzados.",
   "idiomasDisponibles": [
     "Inglés",
@@ -109,7 +116,18 @@
         "numeroResenas": 250,
         "enlace": "https://www.trustradius.com/products/insightly/reviews"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.co.uk",
+      "cita": "Ratings. Overall. 4.0 (654) Reviews. Ease of Use. 4.0 (654) Reviews. — leido 4/5 con 654 reseñas. Confirma el 4.2 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/insightly-crm/reviews",
+      "cita": "Ratings. Meets Requirements. Insightly CRM. 8.2. 8.2 804. Ease of Use. Insightly CRM. 8.4. 8.4 809. — leido 4.2/5 con 809 reseñas. Confirma el 4.2 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Integración nativa fluida entre las etapas de ventas (CRM) y la entrega del trabajo (gestión de proyectos).",
@@ -148,5 +166,33 @@
   "problemasIds": [
     "conseguir-clientes",
     "organizar-empresa"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.insightly.com/pricing-plans/?plan=crm"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.insightly.com/pricing-plans/",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Plus",
+        "anual": "29 $/usuario/mes",
+        "cita": "$29"
+      },
+      {
+        "nombre": "Professional",
+        "anual": "49 $/usuario/mes",
+        "cita": "$49"
+      },
+      {
+        "nombre": "Enterprise",
+        "anual": "99 $/usuario/mes",
+        "cita": "$99"
+      }
+    ]
+  }
 }

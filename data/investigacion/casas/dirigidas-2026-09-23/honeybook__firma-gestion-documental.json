@@ -1,0 +1,17 @@
+{
+ "id": "honeybook__firma-gestion-documental",
+ "herramientaId": "honeybook",
+ "nombre": "HoneyBook",
+ "casa": "firma-gestion-documental",
+ "nombreCasa": "Firma electrónica y gestión documental",
+ "urls": [
+  "https://www.honeybook.com",
+  "https://www.honeybook.com/pricing"
+ ],
+ "cita": "Collect eSignatures on contracts and forms.",
+ "texto": "{\"resultados\":[{\"id\":\"cap.collaborative_document_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.internal_knowledge_workspace\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.file_storage\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.document_templates\",\"estado\":\"si\",\"cita\":\"Save and reuse your most common client emails and files.\",\"url\":\"https://www.honeybook.com/pricing\"},{\"id\":\"cap.workspace_wide_search\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.document_version_history\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.electronic_signature\",\"estado\":\"si\",\"cita\":\"Collect eSignatures on contracts and forms.\",\"url\":\"https://www.honeybook.com/pricing\"}]}",
+ "leidas": [
+  "OK https://www.honeybook.com/",
+  "OK https://www.honeybook.com/pricing"
+ ]
+}

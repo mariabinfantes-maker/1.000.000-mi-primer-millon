@@ -4,6 +4,11 @@
   "urlPrecios": "https://www.scoro.com/pricing/",
   "logoUrl": "",
   "categoriaId": "gestion-proyectos",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "crm",
+    "facturacion-contabilidad"
+  ],
   "descripcion": "Scoro es una plataforma integral de gestión del trabajo que combina gestión de proyectos, CRM, seguimiento del tiempo y facturación en un solo sistema. Permite a las empresas de servicios profesionales y agencias controlar todo el ciclo de vida del cliente y la rentabilidad de sus proyectos en tiempo real.",
   "informacionEmpresa": {
     "anioFundacion": 2013,
@@ -67,14 +72,14 @@
     "HubSpot"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde $37/usuario/mes (mínimo 5 usuarios)",
+  "precioInicial": "Desde 15 €/usuario/mes, con un mínimo de 5 usuarios",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario",
     "a_medida"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Standard a $63/usuario/mes (facturado anualmente, mínimo 5 usuarios)",
   "idiomasDisponibles": [
     "Inglés",
@@ -108,7 +113,18 @@
         "numeroResenas": 30,
         "enlace": "https://www.trustradius.com/products/scoro/reviews"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/149811/Scoro/",
+      "cita": "Reviews of Scoro. Ease of use. 4.4. — leido 4.5/5 con 263 reseñas. Confirma el 4.6 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/scoro/reviews",
+      "cita": "Ease of Use. Scoro. 8.8. 8.8 404. — leido 4.5/5 con 404 reseñas. Confirma el 4.5 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Solución verdaderamente integral que reemplaza CRM, gestor de proyectos y software de facturación",
@@ -148,5 +164,11 @@
   "problemasIds": [
     "organizar-empresa",
     "conseguir-clientes"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.scoro.com/pricing/"
+  }
 }

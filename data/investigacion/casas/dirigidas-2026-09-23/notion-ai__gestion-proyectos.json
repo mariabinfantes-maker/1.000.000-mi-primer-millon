@@ -1,0 +1,17 @@
+{
+ "id": "notion-ai__gestion-proyectos",
+ "herramientaId": "notion-ai",
+ "nombre": "Notion AI",
+ "casa": "gestion-proyectos",
+ "nombreCasa": "Gestión de proyectos",
+ "urls": [
+  "https://www.notion.so/product/ai",
+  "https://www.notion.com/pricing"
+ ],
+ "cita": "Answer questions, prioritize tasks, and write reports—all while you sleep.",
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.team_messaging\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.video_meetings\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.task_management\",\n      \"estado\": \"si\",\n      \"cita\": \"Answer questions, prioritize tasks, and write reports—all while you sleep.\",\n      \"url\": \"https://www.notion.so/product/ai\"\n    },\n    {\n      \"id\": \"cap.project_planning\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.gantt_and_dependencies\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.kanban_boards\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.time_tracking\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.team_workload_planning\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.personal_calendar_planning\",\n      \"estado\": \"si\",\n      \"cita\": \"Connect multiple Calendars to manage work and time together.\",\n      \"url\": \"https://www.notion.com/pricing\"\n    },\n    {\n      \"id\": \"cap.automatic_rescheduling\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.case_file_management\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://www.notion.com/product/ai",
+  "OK https://www.notion.com/pricing"
+ ]
+}

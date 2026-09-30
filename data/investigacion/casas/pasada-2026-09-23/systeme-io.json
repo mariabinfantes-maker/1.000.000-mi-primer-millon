@@ -1,0 +1,19 @@
+{
+ "id": "systeme-io",
+ "nombre": "Systeme.io",
+ "url": "https://systeme.io",
+ "preguntas": [
+  {
+   "q": "casa:marketing-email",
+   "por": "está en esa casa sólo por su portada, sin capacidad verificada"
+  },
+  {
+   "q": "casa:inventario-operaciones",
+   "por": "pista: su ficha o su página lo mencionan y la casa está vacía"
+  }
+ ],
+ "texto": "{\"resultados\":[{\"id\":\"cap.email_campaigns\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.marketing_automation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.landing_pages\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.conversion_funnels\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.social_publishing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.social_analytics\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.search_engine_optimization\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.paid_ads_management\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.loyalty_programs\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.work_orders\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.technician_dispatch\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.field_job_capture\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.route_planning\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.serviced_asset_registry\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.service_contracts_and_sla\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.inventory_tracking\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.stock_reorder_alerts\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.barcode_scanning\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.purchase_orders\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.warehouse_and_locations\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.lot_and_expiry_traceability\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.bill_of_materials\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.production_orders\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.material_requirements_planning\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.inspections_and_checklists\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.own_asset_maintenance\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.fleet_telematics\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://systeme.io/"
+ ]
+}

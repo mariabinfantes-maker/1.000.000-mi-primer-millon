@@ -1,0 +1,55 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "```json\n{\n  \"idioma_es\": \"no_consta\",\n  \"espana\": \"no_consta\",\n  \"tipo_producto\": \"no_consta\",\n  \"precio\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"reserva_online_cliente\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"recordatorios_automaticos\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"cancelar_o_cambiar_cita\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"ficha_de_cliente\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"catalogo_de_servicios\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"agenda_por_profesional\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"cobro_online\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"tpv_mostrador\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"senal_o_politica_ausencias\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"bonos_packs_sesiones\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"comisiones_o_propinas\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"widget_reserva_en_web_propia\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"inventario_stock\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  },\n  \"ficha_tecnica_servicio\": {\n    \"v\": \"no_consta\",\n    \"cita\": \"\"\n  }\n}\n```",
+            "thoughtSignature": "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"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0,
+      "urlContextMetadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://estetical.es/tarifas/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          },
+          {
+            "retrievedUrl": "https://estetical.es/tarifas",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          },
+          {
+            "retrievedUrl": "https://estetical.es/tarifas/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          }
+        ]
+      }
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1016,
+    "candidatesTokenCount": 575,
+    "totalTokenCount": 5242,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1016
+      }
+    ],
+    "toolUsePromptTokenCount": 2173,
+    "toolUsePromptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 2173
+      }
+    ],
+    "thoughtsTokenCount": 1478,
+    "serviceTier": "standard"
+  },
+  "modelVersion": "gemini-3.6-flash",
+  "responseId": "5sujavz3KuWw_PUPr67-kAI"
+}

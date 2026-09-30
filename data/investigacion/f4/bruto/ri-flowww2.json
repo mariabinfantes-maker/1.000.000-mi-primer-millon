@@ -1,0 +1,51 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "{\"producto_en_espanol\":\"no_consta\",\"cita\":\"\",\"idiomas_mencionados\":\"\",\"espana_mencionada\":\"no_consta\",\"cita_espana\":\"\"}",
+            "thoughtSignature": "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"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0,
+      "urlContextMetadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.flowww.net/software-de-gestion-para-estetica-y-belleza",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          },
+          {
+            "retrievedUrl": "https://www.flowww.net/software-de-gestion-para-estetica-y-belleza",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          }
+        ]
+      }
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1009,
+    "candidatesTokenCount": 172,
+    "totalTokenCount": 5655,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1009
+      }
+    ],
+    "toolUsePromptTokenCount": 3028,
+    "toolUsePromptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 3028
+      }
+    ],
+    "thoughtsTokenCount": 1446,
+    "serviceTier": "standard"
+  },
+  "modelVersion": "gemini-3.6-flash",
+  "responseId": "QuCjasipDYCs_PUPxcKnoQY"
+}

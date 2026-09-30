@@ -1,0 +1,17 @@
+{
+ "id": "agile-crm__recursos-humanos",
+ "herramientaId": "agile-crm",
+ "nombre": "Agile CRM",
+ "casa": "recursos-humanos",
+ "nombreCasa": "Recursos humanos",
+ "urls": [
+  "https://www.agilecrm.com",
+  "https://www.agilecrm.com/pricing"
+ ],
+ "cita": "Applicant Tracking System",
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.recruiting\",\n      \"estado\": \"si\",\n      \"cita\": \"Applicant Tracking System\",\n      \"url\": \"https://www.agilecrm.com\"\n    },\n    {\n      \"id\": \"cap.employee_onboarding\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.payroll\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.commissions_and_tips\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.time_and_attendance\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.shift_scheduling\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.leave_management\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.performance_reviews\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://www.agilecrm.com/",
+  "OK https://www.agilecrm.com/pricing"
+ ]
+}

@@ -1,9 +1,13 @@
 {
   "nombre": "Copy.ai",
   "paginaOficial": "https://www.copy.ai",
-  "urlPrecios": "https://www.copy.ai/pricing",
+  "urlPrecios": "https://www.copy.ai/prices",
   "logoUrl": null,
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "marketing-email"
+  ],
   "descripcion": "Copy.ai es una plataforma de inteligencia artificial diseñada para la automatización de flujos de trabajo Go-To-Market (GTM) y generación de contenidos. Permite a equipos de marketing y ventas crear copys, escalar la creación de contenidos y automatizar procesos comerciales. Integra un asistente de chat flexible impulsado por múltiples modelos de lenguaje avanzados.",
   "informacionEmpresa": {
     "anioFundacion": 2020,
@@ -63,7 +67,7 @@
     "Salesforce"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde $36/mes (facturado anualmente)",
+  "precioInicial": "Desde $24/mes (facturación anual) o $29 al mes",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -93,7 +97,13 @@
     "g2Puntuacion": 4.7,
     "g2NumeroResenas": 1800,
     "capterraPuntuacion": 4.5,
-    "capterraNumeroResenas": 600
+    "capterraNumeroResenas": 600,
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.com/p/236813/CopyAI/",
+      "cita": "Ease Of Use\n\n 4.6 (67) — leido 4.4/5 con 67 reseñas. Confirma el 4.5 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Interfaz muy intuitiva y sencilla de usar desde el primer día",
@@ -115,23 +125,39 @@
     ],
     "tipoNegocioIdeal": "Agencias de marketing y equipos Go-To-Market B2B",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 92,
+    "puntuacion": 89,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.2/10.",
       "G2: 4.7/5 (1800 reseñas).",
       "Capterra: 4.5/5 (600 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública."
     ]
   },
   "id": "copy-ai",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-21",
-  "fechaUltimaRevision": "2026-08-21",
+  "fechaUltimaRevision": "2026-09-17",
   "tipoProducto": "especializada",
   "problemasIds": [
     "ahorrar-tiempo",
     "conseguir-clientes"
   ],
-  "subtipoId": "escritura"
+  "subtipoId": "escritura",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.copy.ai/prices"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.copy.ai/prices",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Chat",
+        "mensual": "29 $/mes",
+        "anual": "24 $/mes",
+        "cita": "$29/mo / $24/mo / Billed $288/yr"
+      }
+    ]
+  }
 }

@@ -1,0 +1,15 @@
+{
+ "id": "canva",
+ "nombre": "Canva",
+ "url": "https://www.canva.com",
+ "preguntas": [
+  {
+   "q": "firma",
+   "por": "su ficha nombra firmar"
+  }
+ ],
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.electronic_signature\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://www.canva.com/"
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "id": "nutshell",
+ "nombre": "Nutshell",
+ "url": "https://www.nutshell.com/",
+ "preguntas": [
+  {
+   "q": "firma",
+   "por": "su página ya declara firma o gestión documental · F2 le verificó presupuestos: firmar el presupuesto es el paso siguiente"
+  }
+ ],
+ "texto": "{\"resultados\":[{\"id\":\"cap.electronic_signature\",\"estado\":\"si\",\"cita\":\"Create, send, track, and get signatures on quotes, invoices and contracts in your CRM\",\"url\":\"https://www.nutshell.com/\"}]}",
+ "leidas": [
+  "OK https://www.nutshell.com/"
+ ]
+}

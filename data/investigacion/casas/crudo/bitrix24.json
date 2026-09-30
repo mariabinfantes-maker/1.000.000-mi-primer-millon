@@ -1,0 +1,13 @@
+{
+ "id": "bitrix24",
+ "nombre": "Bitrix24",
+ "urls": [
+  "https://www.bitrix24.com/",
+  "https://www.bitrix24.com/prices/"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"CRM Manage sales and clients effortlessly\"\n    },\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Tasks & Projects Get work done easier & faster\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"CoPilot Your AI-powered assistant in Bitrix24\"\n    },\n    {\n      \"id\": \"facturacion-contabilidad\",\n      \"cita\": \"Create and send invoices from your CRM to close deals faster\"\n    },\n    {\n      \"id\": \"reservas-citas\",\n      \"cita\": \"open time slots, meeting room booking\"\n    },\n    {\n      \"id\": \"atencion-cliente\",\n      \"cita\": \"Customer service Stay in touch with your clients and provide top-notch customer service.\"\n    },\n    {\n      \"id\": \"comercio-electronico\",\n      \"cita\": \"Online store Maximize ecommerce with inventory management, order processing, delivery and online payments\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Automation & integrations Set CRM rules and triggers, workflow automation, automated funnels, API\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Marketing Use email campaigns, social media ads, SMS, telemarketing, landing pages\"\n    },\n    {\n      \"id\": \"recursos-humanos\",\n      \"cita\": \"HR & Automation Optimize workflows & manage HR data\"\n    },\n    {\n      \"id\": \"inventario-operaciones\",\n      \"cita\": \"Track, audit, and manage your stock across multiple warehouses\"\n    },\n    {\n      \"id\": \"creacion-web-hosting\",\n      \"cita\": \"Website builder Use our free CMS, templates, hosting, AI-generated images and texts to create awesome sites\"\n    },\n    {\n      \"id\": \"firma-gestion-documental\",\n      \"cita\": \"Online documents & file storage Store, share and edit documents online easily with co-workers using company drive\"\n    }\n  ],\n  \"esDe\": \"crm\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.bitrix24.com/",
+  "OK https://www.bitrix24.com/prices/"
+ ]
+}

@@ -8,7 +8,11 @@ import { getEstrategiaAfiliacion, guardarEstrategiaAfiliacion } from "@/data/rep
 import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
 import { detectarCasiDuplicados } from "@/agents/atlas-curator/duplicados";
 import { leerBorrador } from "./borrador";
+import { comprobarAutorizacion } from "./autorizacionAfiliacion";
+import { decidirEstadoAfiliacion } from "./estadoAfiliacion";
 import { evaluarCriteriosDeCalidad } from "./criteriosCalidad";
+import { examinarParaEntrar } from "./examenDeEntrada";
+import { contarCapacidadesVerificadas } from "./capacidadesVerificadas";
 import { leerDecision } from "./decision";
 import { generarIdCuenta } from "@/agents/atlas-affiliate-manager/estrategiaAfiliacion";
 import { registrarEnHistorial } from "./historialAprobaciones";
@@ -75,9 +79,48 @@ export type OpcionesPromocion = {
   justificacionAnulacion?: string;
 };
 
-function tieneProgramaDeAfiliadosFiable(datosAfiliados: Partial<AffiliateData>): boolean {
-  if (datosAfiliados.hasAffiliateProgram !== true) return false;
-  return datosAfiliados.confidenceLevel !== "low";
+/**
+ * DESCONECTADA POR ORDEN DE LA PROPIETARIA (2026-09-28).
+ *
+ * Ya no se llama. La promoción no mira la afiliación: una herramienta útil
+ * entra aunque no tenga programa. La falta de afiliación sólo afecta a la
+ * monetización y nunca convierte una herramienta adecuada en descartada; no
+ * se usa como criterio de orden, descarte ni exclusión (AGENTS.md).
+ *
+ * Es la misma orden que ya se cumplió en el Researcher el 2026-09-16 y en
+ * `data/verificar.ts` el 2026-09-28. Este punto se quedó atrás: la orden se
+ * aplicaba donde se estaba trabajando y quedaba una copia en otro archivo.
+ * Se vio al preguntar la propietaria cómo entran al catálogo 30 herramientas
+ * nuevas encontradas fuera de él.
+ *
+ * Se conserva entera, con lo que decía cuando estaba viva, porque la
+ * decisión tiene que poder revertirse sin rehacer el trabajo de quien la
+ * pensó. Lo que decía:
+ *
+ *   «La afiliación sigue siendo la vía habitual y sigue bloqueando por
+ *   defecto — lo que cambia es que deja de ser incondicional. La excepción
+ *   NO la abre una bandera de línea de comandos: la abre una autorización
+ *   registrada, atada a esta herramienta y al estado de afiliación exacto
+ *   que tiene ahora. Una decisión editorial antigua, tomada por otro motivo,
+ *   ya no sirve para esto — era el agujero que encontró la revisión.»
+ *
+ * Para volver a encenderla, se vuelve a llamar desde `promoverBorrador`,
+ * donde está marcada la línea. El resto de comprobaciones —esquema,
+ * categoría, duplicados, calidad y la aprobación manual— siguen intactas:
+ * lo que se apaga es la puerta de la afiliación, nada más.
+ */
+function bloquearPorAfiliacion(
+  id: string,
+  datosAfiliados: Partial<AffiliateData>,
+  opciones: OpcionesPromocion
+): { bloquea: false; anulacion?: string } | { bloquea: true; motivo: string } {
+  const estado = decidirEstadoAfiliacion(datosAfiliados);
+  if (estado === "confirmada") return { bloquea: false };
+
+  const autorizacion = comprobarAutorizacion(id, estado, { dirBase: opciones.dirBaseBorradores });
+  if (!autorizacion.autorizada) return { bloquea: true, motivo: autorizacion.explicacion };
+
+  return { bloquea: false, anulacion: `Admitida sin afiliación confirmada (estado "${estado}"): ${autorizacion.motivo}` };
 }
 
 export async function promoverBorrador(id: string, opciones: OpcionesPromocion = {}): Promise<ResultadoPromocion> {
@@ -138,13 +181,46 @@ export async function promoverBorrador(id: string, opciones: OpcionesPromocion =
       }
     }
 
-    const resultadoCalidad = evaluarCriteriosDeCalidad(herramienta, datosAfiliados, borrador.metadatos);
-    if (!resultadoCalidad.ok) {
-      errores.push(...resultadoCalidad.errores.map((e) => `Criterio de calidad: ${e}`));
-    } else {
-      calidadSuperada = true;
-      verificacionAfiliacionPendiente = resultadoCalidad.verificacionAfiliacionPendiente;
+    /**
+     * EL EXAMEN DE ENTRADA (propietaria, 2026-09-29).
+     *
+     * Sustituye al umbral de 80/100 de `evaluarCriteriosDeCalidad`, que no se
+     * borra: sigue ahí, con su porqué, y se vuelve a llamar desde aquí si
+     * algún día hace falta. Lo que medía el 80 y por qué dejó de valer está
+     * escrito entero en `examenDeEntrada.ts`.
+     *
+     * En corto: el 80 se calculaba con la nota de G2/Capterra y las siete
+     * valoraciones que nos poníamos nosotros. Lo aprobaba el 92 % del catálogo
+     * y sólo lo podían aprobar las herramientas grandes e internacionales,
+     * porque G2 y Capterra son del mercado en inglés. El examen nuevo pregunta
+     * qué sabemos de ella y podemos demostrar.
+     *
+     * La confianza de la investigación y sus advertencias siguen bloqueando:
+     * eso no era el umbral, es otra cosa, y sigue valiendo.
+     */
+    const confianza = borrador.metadatos?.confianza;
+    if (confianza === "baja") {
+      errores.push('Criterio de calidad: la investigación tiene confianza "baja" — complétala antes de promover.');
     }
+    const advertencias = borrador.metadatos?.advertencias ?? [];
+    if (advertencias.length > 0) {
+      errores.push(`Criterio de calidad: quedan ${advertencias.length} advertencia(s) sin resolver: ${advertencias.join("; ")}`);
+    }
+
+    const examen = examinarParaEntrar(herramienta, {
+      capacidadesVerificadas: contarCapacidadesVerificadas(id, dirDatos),
+    });
+    if (!examen.ok) {
+      errores.push(...examen.errores.map((e) => `Examen de entrada: ${e}`));
+    }
+
+    if (confianza !== "baja" && advertencias.length === 0 && examen.ok) {
+      calidadSuperada = true;
+      verificacionAfiliacionPendiente = datosAfiliados.confidenceLevel === "medium";
+    }
+
+    // Desconectado con el umbral de 80. Se conserva para poder volver.
+    void evaluarCriteriosDeCalidad;
   }
 
   const idsExistentes = new Set(catalogoExistente.map((h) => h.id));
@@ -152,9 +228,11 @@ export async function promoverBorrador(id: string, opciones: OpcionesPromocion =
     errores.push(`"${id}" ya existe en el catálogo real: promoverlo lo sobrescribiría. Revísalo a mano si es intencionado.`);
   }
 
-  if (!tieneProgramaDeAfiliadosFiable(datosAfiliados)) {
-    errores.push(`"${id}" no cumple la regla obligatoria de afiliados (programa activo y fiable) en el borrador.`);
-  }
+  // Aquí se llamaba a `bloquearPorAfiliacion`. Desconectada el 2026-09-28 por
+  // orden de la propietaria — ver la nota sobre esa función. Para volver a
+  // encenderla, se restaura esta llamada.
+  void bloquearPorAfiliacion;
+  const anulacionAfiliacionAplicada: string | undefined = undefined;
 
   const nombreHerramienta = herramienta?.nombre ?? id;
   const puntuacionMolnip = herramienta ? (calcularPuntuacionAtlas(herramienta)?.puntuacion ?? null) : null;
@@ -168,7 +246,12 @@ export async function promoverBorrador(id: string, opciones: OpcionesPromocion =
         resultado: "rechazada",
         puntuacionMolnip,
         estadoAfiliacion,
-        observaciones: [decision?.notas, anulacionDuplicadoAplicada, `Motivos del bloqueo: ${errores.join(" | ")}`]
+        observaciones: [
+          decision?.notas,
+          anulacionDuplicadoAplicada,
+          anulacionAfiliacionAplicada,
+          `Motivos del bloqueo: ${errores.join(" | ")}`,
+        ]
           .filter(Boolean)
           .join(" "),
         aprobacionCeo,
@@ -225,7 +308,9 @@ export async function promoverBorrador(id: string, opciones: OpcionesPromocion =
       resultado: "aceptada",
       puntuacionMolnip,
       estadoAfiliacion,
-      observaciones: [decision?.notas, anulacionDuplicadoAplicada].filter(Boolean).join(" ") || "Sin observaciones.",
+      observaciones:
+        [decision?.notas, anulacionDuplicadoAplicada, anulacionAfiliacionAplicada].filter(Boolean).join(" ") ||
+        "Sin observaciones.",
       aprobacionCeo,
     },
     { ruta: opciones.rutaHistorial }

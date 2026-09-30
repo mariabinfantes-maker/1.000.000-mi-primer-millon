@@ -58,7 +58,7 @@
     "1C"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Gratis (usuarios ilimitados) / Desde 49€/mes en plan Basic",
+  "precioInicial": "Gratis para 1-2 usuarios. Plan Basic desde US$49 por organización/mes (facturación anual) o US$69 al mes, con 5 usuarios",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual"
@@ -90,7 +90,7 @@
   ],
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-07-24",
-  "fechaUltimaRevision": "2026-07-25",
+  "fechaUltimaRevision": "2026-09-17",
   "modulosIncluidos": [
     "crm",
     "gestion_proyectos",
@@ -105,7 +105,53 @@
   ],
   "tipoProducto": "suite",
   "categoriasSecundarias": [
+    "asistentes-ia",
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "comercio-electronico",
+    "creacion-web-hosting",
     "crm",
-    "gestion-proyectos"
-  ]
+    "facturacion-contabilidad",
+    "firma-gestion-documental",
+    "gestion-proyectos",
+    "inventario-operaciones",
+    "marketing-email",
+    "recursos-humanos",
+    "reservas-citas"
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.bitrix24.com/prices/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.bitrix24.com/prices/",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 $",
+        "cita": "100% free"
+      },
+      {
+        "nombre": "Basic",
+        "mensual": "69 $/mes por organización",
+        "anual": "49 $/mes por organización",
+        "cita": "US$ 69 / US$ 49"
+      },
+      {
+        "nombre": "Standard",
+        "mensual": "144 $/mes por organización",
+        "anual": "99 $/mes por organización",
+        "cita": "US$ 144 / US$ 99"
+      },
+      {
+        "nombre": "Professional",
+        "mensual": "289 $/mes por organización",
+        "anual": "199 $/mes por organización",
+        "cita": "US$ 289 / US$ 199"
+      }
+    ]
+  }
 }

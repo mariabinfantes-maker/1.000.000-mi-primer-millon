@@ -1,0 +1,43 @@
+{
+ "pedida": "https://support.booksy.com/hc/en-us/articles/16462890090898-How-does-the-Referral-program-work-and-how-many-people-can-I-refer",
+ "leidas": [
+  "https://support.booksy.com/hc/en-us/articles/16462890090898-How-does-the-Referral-program-work-and-how-many-people-can-I-refer"
+ ],
+ "datos": {
+  "programa_existe": "si",
+  "tipo": "referidos_clientes",
+  "cita_tipo": "First, log in to your Booksy account and select the Gift icon above your calendar or visit the share page",
+  "comision": {
+   "v": "si",
+   "cita": "If a friend clicks on your link and then becomes a new paid Booksy Biz subscriber, you'll each earn your reward."
+  },
+  "recurrencia": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "cookie": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "condiciones": {
+   "v": "si",
+   "cita": "If a friend clicks on your link and then becomes a new paid Booksy Biz subscriber, you'll each earn your reward."
+  },
+  "abierto_desde_espana": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "promociona_producto_para_negocios": {
+   "v": "si",
+   "cita": "If a friend clicks on your link and then becomes a new paid Booksy Biz subscriber, you'll each earn your reward."
+  },
+  "activo": {
+   "v": "si",
+   "cita": "First, log in to your Booksy account and select the Gift icon above your calendar or visit the share page"
+  },
+  "red_de_afiliacion": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

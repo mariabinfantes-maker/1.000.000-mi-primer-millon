@@ -1,0 +1,5 @@
+[
+  { "nombreHerramienta": "Hotmart", "categoriaId": "plataformas-todo-en-uno", "contextoAdicional": "Plataforma para vender y entregar cursos y productos digitales: página de venta, cobro y acceso al curso. Recorrido A de la etapa «Vender más»." },
+  { "nombreHerramienta": "Thinkific", "categoriaId": "plataformas-todo-en-uno", "contextoAdicional": "Plataforma para crear, vender y entregar cursos online. Recorrido A de la etapa «Vender más»." },
+  { "nombreHerramienta": "Teachable", "categoriaId": "plataformas-todo-en-uno", "contextoAdicional": "Plataforma para crear, vender y entregar cursos online. Recorrido A de la etapa «Vender más»." }
+]

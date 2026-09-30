@@ -1,0 +1,7 @@
+{
+ "id": "booksy",
+ "nombre": "Booksy",
+ "url": "https://help.booksy.com/hc/es-es",
+ "recuperada": true,
+ "texto": "{\"abierta\": true,\n \"agendaPorProfesional\": {\"estado\": \"no_consta\", \"cita\": null},\n \"eligeElCliente\": {\"estado\": \"no_consta\", \"cita\": null},\n \"enEspanol\": {\"estado\": \"no_consta\", \"cita\": null}}"
+}

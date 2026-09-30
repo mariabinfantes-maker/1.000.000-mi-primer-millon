@@ -4,6 +4,10 @@
   "urlPrecios": "https://www.beautiful.ai/pricing",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "firma-gestion-documental"
+  ],
   "subtipoId": "presentaciones",
   "tipoProducto": "especializada",
   "problemasIds": [
@@ -65,13 +69,13 @@
     "Slack"
   ],
   "curvaDeAprendizaje": "muy_facil",
-  "precioInicial": "Plan Pro desde 12$/mes con facturación anual. No hay plan gratuito.",
+  "precioInicial": "Desde $14,50/mes (facturación anual) o $45 al mes",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Pro a 12$/mes facturado anualmente para uso individual; el plan Team sube a 40$/usuario/mes y solo compensa si se necesitan plantillas de marca bloqueadas y control de equipo.",
   "idiomasDisponibles": [
     "Inglés"
@@ -134,5 +138,30 @@
   "id": "beautiful-ai",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-09-02",
-  "fechaUltimaRevision": "2026-09-02"
+  "fechaUltimaRevision": "2026-09-17",
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.beautiful.ai/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.beautiful.ai/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Pro",
+        "mensual": "45 $/mes",
+        "anual": "14,50 $/mes",
+        "cita": "$45 / $14.50"
+      },
+      {
+        "nombre": "Team",
+        "mensual": "50 $/mes",
+        "anual": "40 $/mes",
+        "cita": "$50 $40 /MO (INCLUDES 3 USERS)"
+      }
+    ]
+  }
 }

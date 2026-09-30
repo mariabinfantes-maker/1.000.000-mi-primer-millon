@@ -1,0 +1,13 @@
+{
+ "id": "salesmate",
+ "nombre": "Salesmate",
+ "urls": [
+  "https://www.salesmate.io/",
+  "https://www.salesmate.io/pricing/"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Manage contacts, companies, deals, pipelines, activities, and conversations in one place.\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Use AI to assist teams, summarize conversations, automate repetitive work, support next-best actions, and improve execution using real customer context.\"\n    },\n    {\n      \"id\": \"reservas-citas\",\n      \"cita\": \"Meeting Scheduler Calendar Management Activities\"\n    },\n    {\n      \"id\": \"atencion-cliente\",\n      \"cita\": \"Ticket Management SLAs Social Media Support Chat Knowledge Management AI Co-pilot Agent AI Autopilot Agent CSAT / CES Surveys Satisfaction Reports\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Salesmate integrates with 700+ apps, including Google, Microsoft, and Slack, with enterprise-grade security and compliance.\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Capture leads, segment audiences, automate nurture journeys, and run campaigns using the same customer data your teams already rely on.\"\n    }\n  ],\n  \"esDe\": \"crm\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.salesmate.io/",
+  "OK https://www.salesmate.io/pricing/"
+ ]
+}

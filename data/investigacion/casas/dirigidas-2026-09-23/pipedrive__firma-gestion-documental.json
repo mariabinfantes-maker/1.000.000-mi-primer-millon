@@ -1,0 +1,17 @@
+{
+ "id": "pipedrive__firma-gestion-documental",
+ "herramientaId": "pipedrive",
+ "nombre": "Pipedrive",
+ "casa": "firma-gestion-documental",
+ "nombreCasa": "Firma electrónica y gestión documental",
+ "urls": [
+  "https://www.pipedrive.com",
+  "https://www.pipedrive.com/es/pricing"
+ ],
+ "cita": "Administra todos tus documentos en un solo lugar",
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.collaborative_document_editing\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.internal_knowledge_workspace\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.file_storage\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.document_templates\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.workspace_wide_search\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.document_version_history\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.electronic_signature\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://www.pipedrive.com/",
+  "OK https://www.pipedrive.com/es/pricing"
+ ]
+}

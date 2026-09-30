@@ -1,0 +1,142 @@
+{
+  "nombre": "Billin",
+  "paginaOficial": "https://www.billin.net/",
+  "urlPrecios": "https://www.billin.net/precios/",
+  "logoUrl": "",
+  "categoriaId": "facturacion",
+  "categoriasSecundarias": [],
+  "tipoProducto": "especializada",
+  "descripcion": "Billin es un programa de facturación en la nube diseñado para autónomos y pequeñas empresas en España. Permite crear, enviar, cobrar y gestionar facturas y presupuestos de forma rápida e intuitiva, asegurando el cumplimiento de la normativa fiscal española.",
+  "informacionEmpresa": {
+    "anioFundacion": 2015,
+    "paisOrigen": "España",
+    "tamanoAproximado": "11-50 empleados"
+  },
+  "problemasQueResuelve": [
+    "Pérdida de tiempo en la preparación manual de facturas y presupuestos",
+    "Dificultad para hacer seguimiento del estado de cobro y controlar el impago de facturas",
+    "Complejidad para cumplir con la normativa fiscal española (TicketBAI, Veri*factu, Ley Crea y Crece)",
+    "Desorganización de tickets de gastos y facturas recibidas"
+  ],
+  "casosDeUso": [
+    "Creación y envío rápido de facturas y presupuestos personalizados a clientes",
+    "Digitalización de tickets de gastos mediante captura de fotos desde la app móvil",
+    "Control en tiempo real de si un cliente ha visto, aceptado o pagado una factura",
+    "Conexión directa con la gestoría o asesor para compartir automáticamente la facturación"
+  ],
+  "idealPara": "Autónomos, freelancers y micropymes en España que necesitan gestionar su facturación y cobros sin complicarse con sistemas contables avanzados.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "Servicios profesionales",
+    "Freelancers y autónomos",
+    "Comercio minorista y local",
+    "Consultoría y agencias",
+    "Oficios y servicios técnicos"
+  ],
+  "noRecomendadaPara": "Empresas medianas o grandes que requieran contabilidad analítica compleja, gestión de almacenes o producción.",
+  "casosNoRecomendados": [
+    "Empresas con necesidad de control avanzado de inventario y múltiples almacenes",
+    "Compañías multinacionales que operen bajo diferentes legislaciones fiscales e idiomas simultáneamente",
+    "Empresas que necesiten llevar contabilidad formal de doble partida e impuestos directamente sin gestor externo"
+  ],
+  "funcionesPrincipales": [
+    "Creación y personalización de facturas, presupuestos y albaranes",
+    "Digitalización de gastos y tickets mediante tecnología OCR",
+    "Seguimiento del estado de las facturas (enviada, vista, cobrada, vencida)",
+    "Recordatorios automáticos de pago para clientes morosos",
+    "Portal y acceso gratuito para el gestor/asesor fiscal",
+    "Adaptación a las normativas de facturación española (TicketBAI, Ley Crea y Crece)"
+  ],
+  "modulosIncluidos": [],
+  "integraciones": [
+    "PayPal",
+    "Stripe",
+    "Zapier",
+    "Agregación bancaria (varias entidades españolas)"
+  ],
+  "integracionesPrincipales": [
+    "PayPal",
+    "Stripe",
+    "Zapier"
+  ],
+  "curvaDeAprendizaje": "muy_facil",
+  "precioInicial": "Desde 9,99€/mes",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Plan Pro a 15€/mes (permite facturación ilimitada, digitalización de tickets y descarga de informes)",
+  "disponibilidadGeografica": [
+    "ES"
+  ],
+  "idiomasDisponibles": [
+    "Español"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 8,
+    "fiabilidad": 8,
+    "atencionAlCliente": 8,
+    "escalabilidad": 6,
+    "nivelTecnicoRequerido": 2,
+    "facilidadImplementacion": 9
+  },
+  "metodologiaValoracion": "Valoración basada en el contraste de reseñas públicas verificadas en Trustpilot, Google Play Store, App Store y opiniones de gestores fiscales en España.",
+  "reputacion": {
+    "capterraPuntuacion": 4.5,
+    "capterraNumeroResenas": 15,
+    "otrasFuentes": [
+      {
+        "fuente": "Trustpilot",
+        "puntuacion": 4.4,
+        "numeroResenas": 1200,
+        "enlace": "https://es.trustpilot.com/review/billin.net"
+      },
+      {
+        "fuente": "Google Play Store",
+        "puntuacion": 4.3,
+        "numeroResenas": 1500,
+        "enlace": "https://play.google.com/store/apps/details?id=net.billin.app"
+      }
+    ]
+  },
+  "ventajas": [
+    "Interfaz extremadamente fácil e intuitiva, pensada para no contables",
+    "Soporte directo y adaptado a las regulaciones fiscales de España",
+    "Facilidad para compartir la facturación en tiempo real con la gestoría",
+    "Captura rápida de gastos mediante escaneo de tickets desde el móvil"
+  ],
+  "inconvenientes": [
+    "No incluye contabilidad completa de doble partida dentro de la app",
+    "Capacidad limitada para negocios con inventario complejo o múltiples almacenes",
+    "Enfoque restringido casi en su totalidad al mercado español"
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Holded",
+      "FacturaDirecta",
+      "Quipu",
+      "Anfix"
+    ],
+    "tipoNegocioIdeal": "Autónomos, freelancers y micropymes en España",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 89,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.0/10.",
+      "Capterra: 4.5/5 (15 reseñas).",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "billin",
+  "estado": "en_revision",
+  "fechaAltaEnAtlas": "2026-09-17",
+  "fechaUltimaRevision": "2026-09-17"
+}

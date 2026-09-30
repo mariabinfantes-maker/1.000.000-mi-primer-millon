@@ -1,0 +1,17 @@
+{
+ "id": "productive-io__asistentes-ia",
+ "herramientaId": "productive-io",
+ "nombre": "Productive",
+ "casa": "asistentes-ia",
+ "nombreCasa": "Asistentes de IA y productividad",
+ "urls": [
+  "https://productive.io/",
+  "https://productive.io/pricing/"
+ ],
+ "cita": "Ask anything in plain language to draft, summarize, and manage work inside Productive.",
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.text_generation\",\n      \"estado\": \"si\",\n      \"cita\": \"Ask anything in plain language to draft, summarize, and manage work inside Productive.\",\n      \"url\": \"https://productive.io/pricing/\"\n    },\n    {\n      \"id\": \"cap.text_correction\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.translation\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.presentation_building\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.graphic_design\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.video_editing\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.ai_video_generation\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.audio_editing\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.audio_transcription\",\n      \"estado\": \"si\",\n      \"cita\": \"Joins your calls, captures transcripts, and turns action items into tasks automatically.\",\n      \"url\": \"https://productive.io/pricing/\"\n    },\n    {\n      \"id\": \"cap.meeting_notes\",\n      \"estado\": \"si\",\n      \"cita\": \"Joins your calls, captures transcripts, and turns action items into tasks automatically.\",\n      \"url\": \"https://productive.io/pricing/\"\n    },\n    {\n      \"id\": \"cap.audio_noise_removal\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.subtitles\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.brand_kit\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://productive.io/",
+  "OK https://productive.io/pricing/"
+ ]
+}

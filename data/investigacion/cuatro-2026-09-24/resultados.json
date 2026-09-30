@@ -1,0 +1,8082 @@
+[
+ {
+  "id": "activecampaign",
+  "nombre": "ActiveCampaign",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.activecampaign.com",
+  "leidas": 2
+ },
+ {
+  "id": "activecampaign",
+  "nombre": "ActiveCampaign",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.activecampaign.com",
+  "leidas": 2
+ },
+ {
+  "id": "activecampaign",
+  "nombre": "ActiveCampaign",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.activecampaign.com",
+  "leidas": 2
+ },
+ {
+  "id": "activecampaign",
+  "nombre": "ActiveCampaign",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.activecampaign.com",
+  "leidas": 2
+ },
+ {
+  "id": "activecampaign",
+  "nombre": "ActiveCampaign",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.activecampaign.com",
+  "leidas": 2
+ },
+ {
+  "id": "activecampaign",
+  "nombre": "ActiveCampaign",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.activecampaign.com",
+  "leidas": 2
+ },
+ {
+  "id": "activecampaign",
+  "nombre": "ActiveCampaign",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.activecampaign.com",
+  "leidas": 2
+ },
+ {
+  "id": "activecampaign",
+  "nombre": "ActiveCampaign",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.activecampaign.com",
+  "leidas": 2
+ },
+ {
+  "id": "activecampaign",
+  "nombre": "ActiveCampaign",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.activecampaign.com",
+  "leidas": 2
+ },
+ {
+  "id": "activecampaign",
+  "nombre": "ActiveCampaign",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.activecampaign.com",
+  "leidas": 2
+ },
+ {
+  "id": "activecampaign",
+  "nombre": "ActiveCampaign",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.activecampaign.com",
+  "leidas": 2
+ },
+ {
+  "id": "activecampaign",
+  "nombre": "ActiveCampaign",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.activecampaign.com",
+  "leidas": 2
+ },
+ {
+  "id": "activecampaign",
+  "nombre": "ActiveCampaign",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.activecampaign.com",
+  "leidas": 2
+ },
+ {
+  "id": "activecampaign",
+  "nombre": "ActiveCampaign",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.activecampaign.com",
+  "leidas": 2
+ },
+ {
+  "id": "agile-crm",
+  "nombre": "Agile CRM",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.agilecrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "agile-crm",
+  "nombre": "Agile CRM",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.agilecrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "agile-crm",
+  "nombre": "Agile CRM",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.agilecrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "agile-crm",
+  "nombre": "Agile CRM",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.agilecrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "agile-crm",
+  "nombre": "Agile CRM",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.agilecrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "agile-crm",
+  "nombre": "Agile CRM",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.agilecrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "agile-crm",
+  "nombre": "Agile CRM",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.agilecrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "agiled",
+  "nombre": "Agiled",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://agiled.app/",
+  "leidas": 2
+ },
+ {
+  "id": "agiled",
+  "nombre": "Agiled",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://agiled.app/",
+  "leidas": 2
+ },
+ {
+  "id": "agiled",
+  "nombre": "Agiled",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://agiled.app/",
+  "leidas": 2
+ },
+ {
+  "id": "agiled",
+  "nombre": "Agiled",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://agiled.app/",
+  "leidas": 2
+ },
+ {
+  "id": "agiled",
+  "nombre": "Agiled",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://agiled.app/",
+  "leidas": 2
+ },
+ {
+  "id": "agiled",
+  "nombre": "Agiled",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://agiled.app/",
+  "leidas": 2
+ },
+ {
+  "id": "agiled",
+  "nombre": "Agiled",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://agiled.app/",
+  "leidas": 2
+ },
+ {
+  "id": "agiled",
+  "nombre": "Agiled",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://agiled.app/",
+  "leidas": 2
+ },
+ {
+  "id": "agiled",
+  "nombre": "Agiled",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://agiled.app/",
+  "leidas": 2
+ },
+ {
+  "id": "agiled",
+  "nombre": "Agiled",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://agiled.app/",
+  "leidas": 2
+ },
+ {
+  "id": "agiled",
+  "nombre": "Agiled",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://agiled.app/",
+  "leidas": 2
+ },
+ {
+  "id": "agiled",
+  "nombre": "Agiled",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://agiled.app/",
+  "leidas": 2
+ },
+ {
+  "id": "agiled",
+  "nombre": "Agiled",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://agiled.app/",
+  "leidas": 2
+ },
+ {
+  "id": "agiled",
+  "nombre": "Agiled",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://agiled.app/",
+  "leidas": 2
+ },
+ {
+  "id": "asana",
+  "nombre": "Asana",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://asana.com",
+  "leidas": 2
+ },
+ {
+  "id": "asana",
+  "nombre": "Asana",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://asana.com",
+  "leidas": 2
+ },
+ {
+  "id": "asana",
+  "nombre": "Asana",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://asana.com",
+  "leidas": 2
+ },
+ {
+  "id": "asana",
+  "nombre": "Asana",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://asana.com",
+  "leidas": 2
+ },
+ {
+  "id": "asana",
+  "nombre": "Asana",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://asana.com",
+  "leidas": 2
+ },
+ {
+  "id": "asana",
+  "nombre": "Asana",
+  "cap": "cap.customer_appointment_reminders",
+  "etiqueta": "Recordatorios automáticos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://asana.com",
+  "leidas": 2
+ },
+ {
+  "id": "asana",
+  "nombre": "Asana",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://asana.com",
+  "leidas": 2
+ },
+ {
+  "id": "asana",
+  "nombre": "Asana",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://asana.com",
+  "leidas": 2
+ },
+ {
+  "id": "asana",
+  "nombre": "Asana",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://asana.com",
+  "leidas": 2
+ },
+ {
+  "id": "asana",
+  "nombre": "Asana",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://asana.com",
+  "leidas": 2
+ },
+ {
+  "id": "asana",
+  "nombre": "Asana",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://asana.com",
+  "leidas": 2
+ },
+ {
+  "id": "asana",
+  "nombre": "Asana",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://asana.com",
+  "leidas": 2
+ },
+ {
+  "id": "asana",
+  "nombre": "Asana",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://asana.com",
+  "leidas": 2
+ },
+ {
+  "id": "asana",
+  "nombre": "Asana",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://asana.com",
+  "leidas": 2
+ },
+ {
+  "id": "asana",
+  "nombre": "Asana",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://asana.com",
+  "leidas": 2
+ },
+ {
+  "id": "beautiful-ai",
+  "nombre": "Beautiful.ai",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.beautiful.ai",
+  "leidas": 2
+ },
+ {
+  "id": "beautiful-ai",
+  "nombre": "Beautiful.ai",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.beautiful.ai",
+  "leidas": 2
+ },
+ {
+  "id": "beautiful-ai",
+  "nombre": "Beautiful.ai",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.beautiful.ai",
+  "leidas": 2
+ },
+ {
+  "id": "beautiful-ai",
+  "nombre": "Beautiful.ai",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.beautiful.ai",
+  "leidas": 2
+ },
+ {
+  "id": "beautiful-ai",
+  "nombre": "Beautiful.ai",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.beautiful.ai",
+  "leidas": 2
+ },
+ {
+  "id": "beautiful-ai",
+  "nombre": "Beautiful.ai",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.beautiful.ai",
+  "leidas": 2
+ },
+ {
+  "id": "beautiful-ai",
+  "nombre": "Beautiful.ai",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.beautiful.ai",
+  "leidas": 2
+ },
+ {
+  "id": "beautiful-ai",
+  "nombre": "Beautiful.ai",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.beautiful.ai",
+  "leidas": 2
+ },
+ {
+  "id": "beautiful-ai",
+  "nombre": "Beautiful.ai",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.beautiful.ai",
+  "leidas": 2
+ },
+ {
+  "id": "beautiful-ai",
+  "nombre": "Beautiful.ai",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.beautiful.ai",
+  "leidas": 2
+ },
+ {
+  "id": "beautiful-ai",
+  "nombre": "Beautiful.ai",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.beautiful.ai",
+  "leidas": 2
+ },
+ {
+  "id": "beautiful-ai",
+  "nombre": "Beautiful.ai",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.beautiful.ai",
+  "leidas": 2
+ },
+ {
+  "id": "beautiful-ai",
+  "nombre": "Beautiful.ai",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.beautiful.ai",
+  "leidas": 2
+ },
+ {
+  "id": "beautiful-ai",
+  "nombre": "Beautiful.ai",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.beautiful.ai",
+  "leidas": 2
+ },
+ {
+  "id": "beautiful-ai",
+  "nombre": "Beautiful.ai",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.beautiful.ai",
+  "leidas": 2
+ },
+ {
+  "id": "bitrix24",
+  "nombre": "Bitrix24",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "si",
+  "cita": "Plan with company & personal calendar",
+  "url": "https://www.bitrix24.com/",
+  "leidas": 2
+ },
+ {
+  "id": "bitrix24",
+  "nombre": "Bitrix24",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 2
+ },
+ {
+  "id": "bitrix24",
+  "nombre": "Bitrix24",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 2
+ },
+ {
+  "id": "bitrix24",
+  "nombre": "Bitrix24",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 2
+ },
+ {
+  "id": "bitrix24",
+  "nombre": "Bitrix24",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "si",
+  "cita": "Organize and manage your product catalog",
+  "url": "https://www.bitrix24.com/",
+  "leidas": 2
+ },
+ {
+  "id": "bitrix24",
+  "nombre": "Bitrix24",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.bitrix24.com/",
+  "leidas": 2
+ },
+ {
+  "id": "canva",
+  "nombre": "Canva",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.canva.com",
+  "leidas": 2
+ },
+ {
+  "id": "canva",
+  "nombre": "Canva",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.canva.com",
+  "leidas": 2
+ },
+ {
+  "id": "canva",
+  "nombre": "Canva",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.canva.com",
+  "leidas": 2
+ },
+ {
+  "id": "canva",
+  "nombre": "Canva",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.canva.com",
+  "leidas": 2
+ },
+ {
+  "id": "canva",
+  "nombre": "Canva",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.canva.com",
+  "leidas": 2
+ },
+ {
+  "id": "canva",
+  "nombre": "Canva",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.canva.com",
+  "leidas": 2
+ },
+ {
+  "id": "canva",
+  "nombre": "Canva",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.canva.com",
+  "leidas": 2
+ },
+ {
+  "id": "canva",
+  "nombre": "Canva",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.canva.com",
+  "leidas": 2
+ },
+ {
+  "id": "canva",
+  "nombre": "Canva",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.canva.com",
+  "leidas": 2
+ },
+ {
+  "id": "canva",
+  "nombre": "Canva",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.canva.com",
+  "leidas": 2
+ },
+ {
+  "id": "canva",
+  "nombre": "Canva",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.canva.com",
+  "leidas": 2
+ },
+ {
+  "id": "canva",
+  "nombre": "Canva",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.canva.com",
+  "leidas": 2
+ },
+ {
+  "id": "canva",
+  "nombre": "Canva",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.canva.com",
+  "leidas": 2
+ },
+ {
+  "id": "canva",
+  "nombre": "Canva",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.canva.com",
+  "leidas": 2
+ },
+ {
+  "id": "canva",
+  "nombre": "Canva",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.canva.com",
+  "leidas": 2
+ },
+ {
+  "id": "capsule-crm",
+  "nombre": "Capsule CRM",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://capsulecrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "capsule-crm",
+  "nombre": "Capsule CRM",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://capsulecrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "capsule-crm",
+  "nombre": "Capsule CRM",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://capsulecrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "capsule-crm",
+  "nombre": "Capsule CRM",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://capsulecrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "capsule-crm",
+  "nombre": "Capsule CRM",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://capsulecrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "capsule-crm",
+  "nombre": "Capsule CRM",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://capsulecrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "capsule-crm",
+  "nombre": "Capsule CRM",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://capsulecrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "capsule-crm",
+  "nombre": "Capsule CRM",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://capsulecrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "capsule-crm",
+  "nombre": "Capsule CRM",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://capsulecrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "capsule-crm",
+  "nombre": "Capsule CRM",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://capsulecrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "capsule-crm",
+  "nombre": "Capsule CRM",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://capsulecrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "capsule-crm",
+  "nombre": "Capsule CRM",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://capsulecrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickfunnels",
+  "nombre": "ClickFunnels",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.clickfunnels.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickfunnels",
+  "nombre": "ClickFunnels",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.clickfunnels.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickfunnels",
+  "nombre": "ClickFunnels",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.clickfunnels.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickfunnels",
+  "nombre": "ClickFunnels",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.clickfunnels.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickfunnels",
+  "nombre": "ClickFunnels",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.clickfunnels.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickfunnels",
+  "nombre": "ClickFunnels",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.clickfunnels.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickfunnels",
+  "nombre": "ClickFunnels",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.clickfunnels.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickfunnels",
+  "nombre": "ClickFunnels",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.clickfunnels.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickfunnels",
+  "nombre": "ClickFunnels",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.clickfunnels.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickfunnels",
+  "nombre": "ClickFunnels",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.clickfunnels.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com/ai",
+  "leidas": 2
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com/ai",
+  "leidas": 2
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com/ai",
+  "leidas": 2
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com/ai",
+  "leidas": 2
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com/ai",
+  "leidas": 2
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com/ai",
+  "leidas": 2
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com/ai",
+  "leidas": 2
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com/ai",
+  "leidas": 2
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com/ai",
+  "leidas": 2
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com/ai",
+  "leidas": 2
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com/ai",
+  "leidas": 2
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com/ai",
+  "leidas": 2
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com/ai",
+  "leidas": 2
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com/ai",
+  "leidas": 2
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "cap": "cap.customer_appointment_reminders",
+  "etiqueta": "Recordatorios automáticos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com",
+  "leidas": 2
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://clickup.com",
+  "leidas": 2
+ },
+ {
+  "id": "close",
+  "nombre": "Close",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.close.com",
+  "leidas": 2
+ },
+ {
+  "id": "close",
+  "nombre": "Close",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.close.com",
+  "leidas": 2
+ },
+ {
+  "id": "close",
+  "nombre": "Close",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.close.com",
+  "leidas": 2
+ },
+ {
+  "id": "close",
+  "nombre": "Close",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.close.com",
+  "leidas": 2
+ },
+ {
+  "id": "close",
+  "nombre": "Close",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.close.com",
+  "leidas": 2
+ },
+ {
+  "id": "close",
+  "nombre": "Close",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.close.com",
+  "leidas": 2
+ },
+ {
+  "id": "close",
+  "nombre": "Close",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.close.com",
+  "leidas": 2
+ },
+ {
+  "id": "close",
+  "nombre": "Close",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.close.com",
+  "leidas": 2
+ },
+ {
+  "id": "close",
+  "nombre": "Close",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.close.com",
+  "leidas": 2
+ },
+ {
+  "id": "close",
+  "nombre": "Close",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.close.com",
+  "leidas": 2
+ },
+ {
+  "id": "close",
+  "nombre": "Close",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.close.com",
+  "leidas": 2
+ },
+ {
+  "id": "close",
+  "nombre": "Close",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.close.com",
+  "leidas": 2
+ },
+ {
+  "id": "close",
+  "nombre": "Close",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.close.com",
+  "leidas": 2
+ },
+ {
+  "id": "close",
+  "nombre": "Close",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.close.com",
+  "leidas": 2
+ },
+ {
+  "id": "copper",
+  "nombre": "Copper",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copper.com",
+  "leidas": 2
+ },
+ {
+  "id": "copper",
+  "nombre": "Copper",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copper.com",
+  "leidas": 2
+ },
+ {
+  "id": "copper",
+  "nombre": "Copper",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copper.com",
+  "leidas": 2
+ },
+ {
+  "id": "copper",
+  "nombre": "Copper",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copper.com",
+  "leidas": 2
+ },
+ {
+  "id": "copper",
+  "nombre": "Copper",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "si",
+  "cita": "Create and manage calendar events with Copper",
+  "url": "https://www.copper.com/pricing",
+  "leidas": 2
+ },
+ {
+  "id": "copper",
+  "nombre": "Copper",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copper.com",
+  "leidas": 2
+ },
+ {
+  "id": "copper",
+  "nombre": "Copper",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copper.com",
+  "leidas": 2
+ },
+ {
+  "id": "copper",
+  "nombre": "Copper",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copper.com",
+  "leidas": 2
+ },
+ {
+  "id": "copper",
+  "nombre": "Copper",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copper.com",
+  "leidas": 2
+ },
+ {
+  "id": "copper",
+  "nombre": "Copper",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copper.com",
+  "leidas": 2
+ },
+ {
+  "id": "copper",
+  "nombre": "Copper",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "si",
+  "cita": "Easily view, manage, and send files",
+  "url": "https://www.copper.com/pricing",
+  "leidas": 2
+ },
+ {
+  "id": "copper",
+  "nombre": "Copper",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copper.com",
+  "leidas": 2
+ },
+ {
+  "id": "copper",
+  "nombre": "Copper",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copper.com",
+  "leidas": 2
+ },
+ {
+  "id": "copper",
+  "nombre": "Copper",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copper.com",
+  "leidas": 2
+ },
+ {
+  "id": "copy-ai",
+  "nombre": "Copy.ai",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copy.ai",
+  "leidas": 2
+ },
+ {
+  "id": "copy-ai",
+  "nombre": "Copy.ai",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copy.ai",
+  "leidas": 2
+ },
+ {
+  "id": "copy-ai",
+  "nombre": "Copy.ai",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copy.ai",
+  "leidas": 2
+ },
+ {
+  "id": "copy-ai",
+  "nombre": "Copy.ai",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copy.ai",
+  "leidas": 2
+ },
+ {
+  "id": "copy-ai",
+  "nombre": "Copy.ai",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copy.ai",
+  "leidas": 2
+ },
+ {
+  "id": "copy-ai",
+  "nombre": "Copy.ai",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copy.ai",
+  "leidas": 2
+ },
+ {
+  "id": "copy-ai",
+  "nombre": "Copy.ai",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copy.ai",
+  "leidas": 2
+ },
+ {
+  "id": "copy-ai",
+  "nombre": "Copy.ai",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copy.ai",
+  "leidas": 2
+ },
+ {
+  "id": "copy-ai",
+  "nombre": "Copy.ai",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copy.ai",
+  "leidas": 2
+ },
+ {
+  "id": "copy-ai",
+  "nombre": "Copy.ai",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copy.ai",
+  "leidas": 2
+ },
+ {
+  "id": "copy-ai",
+  "nombre": "Copy.ai",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copy.ai",
+  "leidas": 2
+ },
+ {
+  "id": "copy-ai",
+  "nombre": "Copy.ai",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copy.ai",
+  "leidas": 2
+ },
+ {
+  "id": "copy-ai",
+  "nombre": "Copy.ai",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copy.ai",
+  "leidas": 2
+ },
+ {
+  "id": "copy-ai",
+  "nombre": "Copy.ai",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copy.ai",
+  "leidas": 2
+ },
+ {
+  "id": "copy-ai",
+  "nombre": "Copy.ai",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.copy.ai",
+  "leidas": 2
+ },
+ {
+  "id": "descript",
+  "nombre": "Descript",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.descript.com",
+  "leidas": 2
+ },
+ {
+  "id": "descript",
+  "nombre": "Descript",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.descript.com",
+  "leidas": 2
+ },
+ {
+  "id": "descript",
+  "nombre": "Descript",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.descript.com",
+  "leidas": 2
+ },
+ {
+  "id": "descript",
+  "nombre": "Descript",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.descript.com",
+  "leidas": 2
+ },
+ {
+  "id": "descript",
+  "nombre": "Descript",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.descript.com",
+  "leidas": 2
+ },
+ {
+  "id": "descript",
+  "nombre": "Descript",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.descript.com",
+  "leidas": 2
+ },
+ {
+  "id": "descript",
+  "nombre": "Descript",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.descript.com",
+  "leidas": 2
+ },
+ {
+  "id": "descript",
+  "nombre": "Descript",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.descript.com",
+  "leidas": 2
+ },
+ {
+  "id": "descript",
+  "nombre": "Descript",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.descript.com",
+  "leidas": 2
+ },
+ {
+  "id": "descript",
+  "nombre": "Descript",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.descript.com",
+  "leidas": 2
+ },
+ {
+  "id": "descript",
+  "nombre": "Descript",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.descript.com",
+  "leidas": 2
+ },
+ {
+  "id": "descript",
+  "nombre": "Descript",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.descript.com",
+  "leidas": 2
+ },
+ {
+  "id": "descript",
+  "nombre": "Descript",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.descript.com",
+  "leidas": 2
+ },
+ {
+  "id": "descript",
+  "nombre": "Descript",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.descript.com",
+  "leidas": 2
+ },
+ {
+  "id": "descript",
+  "nombre": "Descript",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.descript.com",
+  "leidas": 2
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.engagebay.com/",
+  "leidas": 2
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.engagebay.com/",
+  "leidas": 2
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.engagebay.com/",
+  "leidas": 2
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.engagebay.com/",
+  "leidas": 2
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.engagebay.com/",
+  "leidas": 2
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.engagebay.com/",
+  "leidas": 2
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.engagebay.com/",
+  "leidas": 2
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.engagebay.com/",
+  "leidas": 2
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.engagebay.com/",
+  "leidas": 2
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.engagebay.com/",
+  "leidas": 2
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.engagebay.com/",
+  "leidas": 2
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.engagebay.com/",
+  "leidas": 2
+ },
+ {
+  "id": "fireflies-ai",
+  "nombre": "Fireflies.ai",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://fireflies.ai",
+  "leidas": 2
+ },
+ {
+  "id": "fireflies-ai",
+  "nombre": "Fireflies.ai",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://fireflies.ai",
+  "leidas": 2
+ },
+ {
+  "id": "fireflies-ai",
+  "nombre": "Fireflies.ai",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://fireflies.ai",
+  "leidas": 2
+ },
+ {
+  "id": "fireflies-ai",
+  "nombre": "Fireflies.ai",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://fireflies.ai",
+  "leidas": 2
+ },
+ {
+  "id": "fireflies-ai",
+  "nombre": "Fireflies.ai",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://fireflies.ai",
+  "leidas": 2
+ },
+ {
+  "id": "fireflies-ai",
+  "nombre": "Fireflies.ai",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://fireflies.ai",
+  "leidas": 2
+ },
+ {
+  "id": "fireflies-ai",
+  "nombre": "Fireflies.ai",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://fireflies.ai",
+  "leidas": 2
+ },
+ {
+  "id": "fireflies-ai",
+  "nombre": "Fireflies.ai",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://fireflies.ai",
+  "leidas": 2
+ },
+ {
+  "id": "fireflies-ai",
+  "nombre": "Fireflies.ai",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://fireflies.ai",
+  "leidas": 2
+ },
+ {
+  "id": "fireflies-ai",
+  "nombre": "Fireflies.ai",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://fireflies.ai",
+  "leidas": 2
+ },
+ {
+  "id": "fireflies-ai",
+  "nombre": "Fireflies.ai",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://fireflies.ai",
+  "leidas": 2
+ },
+ {
+  "id": "fireflies-ai",
+  "nombre": "Fireflies.ai",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://fireflies.ai",
+  "leidas": 2
+ },
+ {
+  "id": "fireflies-ai",
+  "nombre": "Fireflies.ai",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://fireflies.ai",
+  "leidas": 2
+ },
+ {
+  "id": "fireflies-ai",
+  "nombre": "Fireflies.ai",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://fireflies.ai",
+  "leidas": 2
+ },
+ {
+  "id": "fireflies-ai",
+  "nombre": "Fireflies.ai",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://fireflies.ai",
+  "leidas": 2
+ },
+ {
+  "id": "freshsales",
+  "nombre": "Freshsales",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.freshworks.com/crm/sales/",
+  "leidas": 2
+ },
+ {
+  "id": "freshsales",
+  "nombre": "Freshsales",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.freshworks.com/crm/sales/",
+  "leidas": 2
+ },
+ {
+  "id": "freshsales",
+  "nombre": "Freshsales",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.freshworks.com/crm/sales/",
+  "leidas": 2
+ },
+ {
+  "id": "freshsales",
+  "nombre": "Freshsales",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.freshworks.com/crm/sales/",
+  "leidas": 2
+ },
+ {
+  "id": "freshsales",
+  "nombre": "Freshsales",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.freshworks.com/crm/sales/",
+  "leidas": 2
+ },
+ {
+  "id": "freshsales",
+  "nombre": "Freshsales",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.freshworks.com/crm/sales/",
+  "leidas": 2
+ },
+ {
+  "id": "freshsales",
+  "nombre": "Freshsales",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.freshworks.com/crm/sales/",
+  "leidas": 2
+ },
+ {
+  "id": "freshsales",
+  "nombre": "Freshsales",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.freshworks.com/crm/sales/",
+  "leidas": 2
+ },
+ {
+  "id": "freshsales",
+  "nombre": "Freshsales",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.freshworks.com/crm/sales/",
+  "leidas": 2
+ },
+ {
+  "id": "freshsales",
+  "nombre": "Freshsales",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.freshworks.com/crm/sales/",
+  "leidas": 2
+ },
+ {
+  "id": "freshsales",
+  "nombre": "Freshsales",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.freshworks.com/crm/sales/",
+  "leidas": 2
+ },
+ {
+  "id": "freshsales",
+  "nombre": "Freshsales",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.freshworks.com/crm/sales/",
+  "leidas": 2
+ },
+ {
+  "id": "freshsales",
+  "nombre": "Freshsales",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.freshworks.com/crm/sales/",
+  "leidas": 2
+ },
+ {
+  "id": "freshsales",
+  "nombre": "Freshsales",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.freshworks.com/crm/sales/",
+  "leidas": 2
+ },
+ {
+  "id": "gamma",
+  "nombre": "Gamma",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://gamma.app",
+  "leidas": 2
+ },
+ {
+  "id": "gamma",
+  "nombre": "Gamma",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://gamma.app",
+  "leidas": 2
+ },
+ {
+  "id": "gamma",
+  "nombre": "Gamma",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://gamma.app",
+  "leidas": 2
+ },
+ {
+  "id": "gamma",
+  "nombre": "Gamma",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://gamma.app",
+  "leidas": 2
+ },
+ {
+  "id": "gamma",
+  "nombre": "Gamma",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://gamma.app",
+  "leidas": 2
+ },
+ {
+  "id": "gamma",
+  "nombre": "Gamma",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://gamma.app",
+  "leidas": 2
+ },
+ {
+  "id": "gamma",
+  "nombre": "Gamma",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://gamma.app",
+  "leidas": 2
+ },
+ {
+  "id": "gamma",
+  "nombre": "Gamma",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://gamma.app",
+  "leidas": 2
+ },
+ {
+  "id": "gamma",
+  "nombre": "Gamma",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://gamma.app",
+  "leidas": 2
+ },
+ {
+  "id": "gamma",
+  "nombre": "Gamma",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://gamma.app",
+  "leidas": 2
+ },
+ {
+  "id": "gamma",
+  "nombre": "Gamma",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://gamma.app",
+  "leidas": 2
+ },
+ {
+  "id": "gamma",
+  "nombre": "Gamma",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://gamma.app",
+  "leidas": 2
+ },
+ {
+  "id": "gamma",
+  "nombre": "Gamma",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://gamma.app",
+  "leidas": 2
+ },
+ {
+  "id": "gamma",
+  "nombre": "Gamma",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://gamma.app",
+  "leidas": 2
+ },
+ {
+  "id": "gamma",
+  "nombre": "Gamma",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://gamma.app",
+  "leidas": 2
+ },
+ {
+  "id": "ganttpro",
+  "nombre": "GanttPRO",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://ganttpro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "ganttpro",
+  "nombre": "GanttPRO",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://ganttpro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "ganttpro",
+  "nombre": "GanttPRO",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://ganttpro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "ganttpro",
+  "nombre": "GanttPRO",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://ganttpro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "ganttpro",
+  "nombre": "GanttPRO",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://ganttpro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "ganttpro",
+  "nombre": "GanttPRO",
+  "cap": "cap.customer_appointment_reminders",
+  "etiqueta": "Recordatorios automáticos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://ganttpro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "ganttpro",
+  "nombre": "GanttPRO",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://ganttpro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "ganttpro",
+  "nombre": "GanttPRO",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://ganttpro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "ganttpro",
+  "nombre": "GanttPRO",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://ganttpro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "ganttpro",
+  "nombre": "GanttPRO",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://ganttpro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "ganttpro",
+  "nombre": "GanttPRO",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://ganttpro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "ganttpro",
+  "nombre": "GanttPRO",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://ganttpro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "ganttpro",
+  "nombre": "GanttPRO",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://ganttpro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "ganttpro",
+  "nombre": "GanttPRO",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://ganttpro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "ganttpro",
+  "nombre": "GanttPRO",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://ganttpro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "gohighlevel",
+  "nombre": "GoHighLevel",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 2
+ },
+ {
+  "id": "gohighlevel",
+  "nombre": "GoHighLevel",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 2
+ },
+ {
+  "id": "gohighlevel",
+  "nombre": "GoHighLevel",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 2
+ },
+ {
+  "id": "gohighlevel",
+  "nombre": "GoHighLevel",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 2
+ },
+ {
+  "id": "gohighlevel",
+  "nombre": "GoHighLevel",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 2
+ },
+ {
+  "id": "gohighlevel",
+  "nombre": "GoHighLevel",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 2
+ },
+ {
+  "id": "gohighlevel",
+  "nombre": "GoHighLevel",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 2
+ },
+ {
+  "id": "gohighlevel",
+  "nombre": "GoHighLevel",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 2
+ },
+ {
+  "id": "gohighlevel",
+  "nombre": "GoHighLevel",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 2
+ },
+ {
+  "id": "gohighlevel",
+  "nombre": "GoHighLevel",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 2
+ },
+ {
+  "id": "gohighlevel",
+  "nombre": "GoHighLevel",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 2
+ },
+ {
+  "id": "gohighlevel",
+  "nombre": "GoHighLevel",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 2
+ },
+ {
+  "id": "gohighlevel",
+  "nombre": "GoHighLevel",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 2
+ },
+ {
+  "id": "gohighlevel",
+  "nombre": "GoHighLevel",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.gohighlevel.com/",
+  "leidas": 2
+ },
+ {
+  "id": "grammarly",
+  "nombre": "Grammarly",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.grammarly.com",
+  "leidas": 2
+ },
+ {
+  "id": "grammarly",
+  "nombre": "Grammarly",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.grammarly.com",
+  "leidas": 2
+ },
+ {
+  "id": "grammarly",
+  "nombre": "Grammarly",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.grammarly.com",
+  "leidas": 2
+ },
+ {
+  "id": "grammarly",
+  "nombre": "Grammarly",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.grammarly.com",
+  "leidas": 2
+ },
+ {
+  "id": "grammarly",
+  "nombre": "Grammarly",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.grammarly.com",
+  "leidas": 2
+ },
+ {
+  "id": "grammarly",
+  "nombre": "Grammarly",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.grammarly.com",
+  "leidas": 2
+ },
+ {
+  "id": "grammarly",
+  "nombre": "Grammarly",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.grammarly.com",
+  "leidas": 2
+ },
+ {
+  "id": "grammarly",
+  "nombre": "Grammarly",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.grammarly.com",
+  "leidas": 2
+ },
+ {
+  "id": "grammarly",
+  "nombre": "Grammarly",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.grammarly.com",
+  "leidas": 2
+ },
+ {
+  "id": "grammarly",
+  "nombre": "Grammarly",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.grammarly.com",
+  "leidas": 2
+ },
+ {
+  "id": "grammarly",
+  "nombre": "Grammarly",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.grammarly.com",
+  "leidas": 2
+ },
+ {
+  "id": "grammarly",
+  "nombre": "Grammarly",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.grammarly.com",
+  "leidas": 2
+ },
+ {
+  "id": "grammarly",
+  "nombre": "Grammarly",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.grammarly.com",
+  "leidas": 2
+ },
+ {
+  "id": "grammarly",
+  "nombre": "Grammarly",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.grammarly.com",
+  "leidas": 2
+ },
+ {
+  "id": "grammarly",
+  "nombre": "Grammarly",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.grammarly.com",
+  "leidas": 2
+ },
+ {
+  "id": "heygen",
+  "nombre": "HeyGen",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.heygen.com",
+  "leidas": 2
+ },
+ {
+  "id": "heygen",
+  "nombre": "HeyGen",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.heygen.com",
+  "leidas": 2
+ },
+ {
+  "id": "heygen",
+  "nombre": "HeyGen",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.heygen.com",
+  "leidas": 2
+ },
+ {
+  "id": "heygen",
+  "nombre": "HeyGen",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.heygen.com",
+  "leidas": 2
+ },
+ {
+  "id": "heygen",
+  "nombre": "HeyGen",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.heygen.com",
+  "leidas": 2
+ },
+ {
+  "id": "heygen",
+  "nombre": "HeyGen",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.heygen.com",
+  "leidas": 2
+ },
+ {
+  "id": "heygen",
+  "nombre": "HeyGen",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.heygen.com",
+  "leidas": 2
+ },
+ {
+  "id": "heygen",
+  "nombre": "HeyGen",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.heygen.com",
+  "leidas": 2
+ },
+ {
+  "id": "heygen",
+  "nombre": "HeyGen",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.heygen.com",
+  "leidas": 2
+ },
+ {
+  "id": "heygen",
+  "nombre": "HeyGen",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.heygen.com",
+  "leidas": 2
+ },
+ {
+  "id": "heygen",
+  "nombre": "HeyGen",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.heygen.com",
+  "leidas": 2
+ },
+ {
+  "id": "heygen",
+  "nombre": "HeyGen",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.heygen.com",
+  "leidas": 2
+ },
+ {
+  "id": "heygen",
+  "nombre": "HeyGen",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.heygen.com",
+  "leidas": 2
+ },
+ {
+  "id": "heygen",
+  "nombre": "HeyGen",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.heygen.com",
+  "leidas": 2
+ },
+ {
+  "id": "heygen",
+  "nombre": "HeyGen",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.heygen.com",
+  "leidas": 2
+ },
+ {
+  "id": "hive",
+  "nombre": "Hive",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hive.com",
+  "leidas": 2
+ },
+ {
+  "id": "hive",
+  "nombre": "Hive",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hive.com",
+  "leidas": 2
+ },
+ {
+  "id": "hive",
+  "nombre": "Hive",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hive.com",
+  "leidas": 2
+ },
+ {
+  "id": "hive",
+  "nombre": "Hive",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hive.com",
+  "leidas": 2
+ },
+ {
+  "id": "hive",
+  "nombre": "Hive",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hive.com",
+  "leidas": 2
+ },
+ {
+  "id": "hive",
+  "nombre": "Hive",
+  "cap": "cap.customer_appointment_reminders",
+  "etiqueta": "Recordatorios automáticos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hive.com",
+  "leidas": 2
+ },
+ {
+  "id": "hive",
+  "nombre": "Hive",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hive.com",
+  "leidas": 2
+ },
+ {
+  "id": "hive",
+  "nombre": "Hive",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hive.com",
+  "leidas": 2
+ },
+ {
+  "id": "hive",
+  "nombre": "Hive",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hive.com",
+  "leidas": 2
+ },
+ {
+  "id": "hive",
+  "nombre": "Hive",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hive.com",
+  "leidas": 2
+ },
+ {
+  "id": "hive",
+  "nombre": "Hive",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hive.com",
+  "leidas": 2
+ },
+ {
+  "id": "hive",
+  "nombre": "Hive",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hive.com",
+  "leidas": 2
+ },
+ {
+  "id": "hive",
+  "nombre": "Hive",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hive.com",
+  "leidas": 2
+ },
+ {
+  "id": "hive",
+  "nombre": "Hive",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hive.com",
+  "leidas": 2
+ },
+ {
+  "id": "honeybook",
+  "nombre": "HoneyBook",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.honeybook.com",
+  "leidas": 2
+ },
+ {
+  "id": "honeybook",
+  "nombre": "HoneyBook",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.honeybook.com",
+  "leidas": 2
+ },
+ {
+  "id": "honeybook",
+  "nombre": "HoneyBook",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.honeybook.com",
+  "leidas": 2
+ },
+ {
+  "id": "honeybook",
+  "nombre": "HoneyBook",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.honeybook.com",
+  "leidas": 2
+ },
+ {
+  "id": "honeybook",
+  "nombre": "HoneyBook",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.honeybook.com",
+  "leidas": 2
+ },
+ {
+  "id": "honeybook",
+  "nombre": "HoneyBook",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.honeybook.com",
+  "leidas": 2
+ },
+ {
+  "id": "honeybook",
+  "nombre": "HoneyBook",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.honeybook.com",
+  "leidas": 2
+ },
+ {
+  "id": "honeybook",
+  "nombre": "HoneyBook",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.honeybook.com",
+  "leidas": 2
+ },
+ {
+  "id": "honeybook",
+  "nombre": "HoneyBook",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.honeybook.com",
+  "leidas": 2
+ },
+ {
+  "id": "honeybook",
+  "nombre": "HoneyBook",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.honeybook.com",
+  "leidas": 2
+ },
+ {
+  "id": "honeybook",
+  "nombre": "HoneyBook",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.honeybook.com",
+  "leidas": 2
+ },
+ {
+  "id": "honeybook",
+  "nombre": "HoneyBook",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.honeybook.com",
+  "leidas": 2
+ },
+ {
+  "id": "honeybook",
+  "nombre": "HoneyBook",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.honeybook.com",
+  "leidas": 2
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 2
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 2
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 2
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 2
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 2
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.customer_appointment_reminders",
+  "etiqueta": "Recordatorios automáticos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 2
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 2
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 2
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 2
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 2
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 2
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://hotmart.com/",
+  "leidas": 2
+ },
+ {
+  "id": "hubspot",
+  "nombre": "HubSpot",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.hubspot.com/",
+  "leidas": 2
+ },
+ {
+  "id": "hubspot",
+  "nombre": "HubSpot",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.hubspot.com/",
+  "leidas": 2
+ },
+ {
+  "id": "hubspot",
+  "nombre": "HubSpot",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.hubspot.com/",
+  "leidas": 2
+ },
+ {
+  "id": "hubspot",
+  "nombre": "HubSpot",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.hubspot.com/",
+  "leidas": 2
+ },
+ {
+  "id": "hubspot",
+  "nombre": "HubSpot",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.hubspot.com/",
+  "leidas": 2
+ },
+ {
+  "id": "hubspot",
+  "nombre": "HubSpot",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.hubspot.com/",
+  "leidas": 2
+ },
+ {
+  "id": "hubspot",
+  "nombre": "HubSpot",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.hubspot.com/",
+  "leidas": 2
+ },
+ {
+  "id": "hubspot",
+  "nombre": "HubSpot",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.hubspot.com/",
+  "leidas": 2
+ },
+ {
+  "id": "hubspot",
+  "nombre": "HubSpot",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.hubspot.com/",
+  "leidas": 2
+ },
+ {
+  "id": "hubspot",
+  "nombre": "HubSpot",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.hubspot.com/",
+  "leidas": 2
+ },
+ {
+  "id": "insightly",
+  "nombre": "Insightly",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.insightly.com",
+  "leidas": 2
+ },
+ {
+  "id": "insightly",
+  "nombre": "Insightly",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.insightly.com",
+  "leidas": 2
+ },
+ {
+  "id": "insightly",
+  "nombre": "Insightly",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.insightly.com",
+  "leidas": 2
+ },
+ {
+  "id": "insightly",
+  "nombre": "Insightly",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.insightly.com",
+  "leidas": 2
+ },
+ {
+  "id": "insightly",
+  "nombre": "Insightly",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.insightly.com",
+  "leidas": 2
+ },
+ {
+  "id": "insightly",
+  "nombre": "Insightly",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.insightly.com",
+  "leidas": 2
+ },
+ {
+  "id": "insightly",
+  "nombre": "Insightly",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.insightly.com",
+  "leidas": 2
+ },
+ {
+  "id": "insightly",
+  "nombre": "Insightly",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.insightly.com",
+  "leidas": 2
+ },
+ {
+  "id": "insightly",
+  "nombre": "Insightly",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.insightly.com",
+  "leidas": 2
+ },
+ {
+  "id": "insightly",
+  "nombre": "Insightly",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.insightly.com",
+  "leidas": 2
+ },
+ {
+  "id": "insightly",
+  "nombre": "Insightly",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.insightly.com",
+  "leidas": 2
+ },
+ {
+  "id": "insightly",
+  "nombre": "Insightly",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.insightly.com",
+  "leidas": 2
+ },
+ {
+  "id": "insightly",
+  "nombre": "Insightly",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.insightly.com",
+  "leidas": 2
+ },
+ {
+  "id": "insightly",
+  "nombre": "Insightly",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.insightly.com",
+  "leidas": 2
+ },
+ {
+  "id": "jasper",
+  "nombre": "Jasper",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.jasper.ai",
+  "leidas": 2
+ },
+ {
+  "id": "jasper",
+  "nombre": "Jasper",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.jasper.ai",
+  "leidas": 2
+ },
+ {
+  "id": "jasper",
+  "nombre": "Jasper",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.jasper.ai",
+  "leidas": 2
+ },
+ {
+  "id": "jasper",
+  "nombre": "Jasper",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.jasper.ai",
+  "leidas": 2
+ },
+ {
+  "id": "jasper",
+  "nombre": "Jasper",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.jasper.ai",
+  "leidas": 2
+ },
+ {
+  "id": "jasper",
+  "nombre": "Jasper",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.jasper.ai",
+  "leidas": 2
+ },
+ {
+  "id": "jasper",
+  "nombre": "Jasper",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.jasper.ai",
+  "leidas": 2
+ },
+ {
+  "id": "jasper",
+  "nombre": "Jasper",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.jasper.ai",
+  "leidas": 2
+ },
+ {
+  "id": "jasper",
+  "nombre": "Jasper",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.jasper.ai",
+  "leidas": 2
+ },
+ {
+  "id": "jasper",
+  "nombre": "Jasper",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.jasper.ai",
+  "leidas": 2
+ },
+ {
+  "id": "jasper",
+  "nombre": "Jasper",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.jasper.ai",
+  "leidas": 2
+ },
+ {
+  "id": "jasper",
+  "nombre": "Jasper",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.jasper.ai",
+  "leidas": 2
+ },
+ {
+  "id": "jasper",
+  "nombre": "Jasper",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.jasper.ai",
+  "leidas": 2
+ },
+ {
+  "id": "jasper",
+  "nombre": "Jasper",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.jasper.ai",
+  "leidas": 2
+ },
+ {
+  "id": "jasper",
+  "nombre": "Jasper",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.jasper.ai",
+  "leidas": 2
+ },
+ {
+  "id": "kartra",
+  "nombre": "Kartra",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.kartra.com",
+  "leidas": 2
+ },
+ {
+  "id": "kartra",
+  "nombre": "Kartra",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.kartra.com",
+  "leidas": 2
+ },
+ {
+  "id": "kartra",
+  "nombre": "Kartra",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.kartra.com",
+  "leidas": 2
+ },
+ {
+  "id": "kartra",
+  "nombre": "Kartra",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.kartra.com",
+  "leidas": 2
+ },
+ {
+  "id": "kartra",
+  "nombre": "Kartra",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.kartra.com",
+  "leidas": 2
+ },
+ {
+  "id": "kartra",
+  "nombre": "Kartra",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.kartra.com",
+  "leidas": 2
+ },
+ {
+  "id": "keap",
+  "nombre": "Keap",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://keap.com",
+  "leidas": 2
+ },
+ {
+  "id": "keap",
+  "nombre": "Keap",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://keap.com",
+  "leidas": 2
+ },
+ {
+  "id": "keap",
+  "nombre": "Keap",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://keap.com",
+  "leidas": 2
+ },
+ {
+  "id": "keap",
+  "nombre": "Keap",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://keap.com",
+  "leidas": 2
+ },
+ {
+  "id": "keap",
+  "nombre": "Keap",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "si",
+  "cita": "See all your upcoming appointments and tasks in one place",
+  "url": "https://keap.com/pricing",
+  "leidas": 2
+ },
+ {
+  "id": "keap",
+  "nombre": "Keap",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://keap.com",
+  "leidas": 2
+ },
+ {
+  "id": "keap",
+  "nombre": "Keap",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://keap.com",
+  "leidas": 2
+ },
+ {
+  "id": "keap",
+  "nombre": "Keap",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://keap.com",
+  "leidas": 2
+ },
+ {
+  "id": "keap",
+  "nombre": "Keap",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://keap.com",
+  "leidas": 2
+ },
+ {
+  "id": "keap",
+  "nombre": "Keap",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://keap.com",
+  "leidas": 2
+ },
+ {
+  "id": "krisp",
+  "nombre": "Krisp",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://krisp.ai",
+  "leidas": 2
+ },
+ {
+  "id": "krisp",
+  "nombre": "Krisp",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://krisp.ai",
+  "leidas": 2
+ },
+ {
+  "id": "krisp",
+  "nombre": "Krisp",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://krisp.ai",
+  "leidas": 2
+ },
+ {
+  "id": "krisp",
+  "nombre": "Krisp",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://krisp.ai",
+  "leidas": 2
+ },
+ {
+  "id": "krisp",
+  "nombre": "Krisp",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://krisp.ai",
+  "leidas": 2
+ },
+ {
+  "id": "krisp",
+  "nombre": "Krisp",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://krisp.ai",
+  "leidas": 2
+ },
+ {
+  "id": "krisp",
+  "nombre": "Krisp",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://krisp.ai",
+  "leidas": 2
+ },
+ {
+  "id": "krisp",
+  "nombre": "Krisp",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://krisp.ai",
+  "leidas": 2
+ },
+ {
+  "id": "krisp",
+  "nombre": "Krisp",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://krisp.ai",
+  "leidas": 2
+ },
+ {
+  "id": "krisp",
+  "nombre": "Krisp",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://krisp.ai",
+  "leidas": 2
+ },
+ {
+  "id": "krisp",
+  "nombre": "Krisp",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://krisp.ai",
+  "leidas": 2
+ },
+ {
+  "id": "krisp",
+  "nombre": "Krisp",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://krisp.ai",
+  "leidas": 2
+ },
+ {
+  "id": "krisp",
+  "nombre": "Krisp",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://krisp.ai",
+  "leidas": 2
+ },
+ {
+  "id": "krisp",
+  "nombre": "Krisp",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://krisp.ai",
+  "leidas": 2
+ },
+ {
+  "id": "krisp",
+  "nombre": "Krisp",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://krisp.ai",
+  "leidas": 2
+ },
+ {
+  "id": "less-annoying-crm",
+  "nombre": "Less Annoying CRM",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.lessannoyingcrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "less-annoying-crm",
+  "nombre": "Less Annoying CRM",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.lessannoyingcrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "less-annoying-crm",
+  "nombre": "Less Annoying CRM",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.lessannoyingcrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "less-annoying-crm",
+  "nombre": "Less Annoying CRM",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.lessannoyingcrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "less-annoying-crm",
+  "nombre": "Less Annoying CRM",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.lessannoyingcrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "less-annoying-crm",
+  "nombre": "Less Annoying CRM",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.lessannoyingcrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "less-annoying-crm",
+  "nombre": "Less Annoying CRM",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.lessannoyingcrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "less-annoying-crm",
+  "nombre": "Less Annoying CRM",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.lessannoyingcrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "less-annoying-crm",
+  "nombre": "Less Annoying CRM",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.lessannoyingcrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "less-annoying-crm",
+  "nombre": "Less Annoying CRM",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.lessannoyingcrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "less-annoying-crm",
+  "nombre": "Less Annoying CRM",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "si",
+  "cita": "25GB file storage per user",
+  "url": "https://lessannoyingcrm.com/pricing",
+  "leidas": 2
+ },
+ {
+  "id": "less-annoying-crm",
+  "nombre": "Less Annoying CRM",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.lessannoyingcrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "less-annoying-crm",
+  "nombre": "Less Annoying CRM",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.lessannoyingcrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "less-annoying-crm",
+  "nombre": "Less Annoying CRM",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.lessannoyingcrm.com",
+  "leidas": 2
+ },
+ {
+  "id": "monday-com",
+  "nombre": "monday.com",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://monday.com",
+  "leidas": 2
+ },
+ {
+  "id": "monday-com",
+  "nombre": "monday.com",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://monday.com",
+  "leidas": 2
+ },
+ {
+  "id": "monday-com",
+  "nombre": "monday.com",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://monday.com",
+  "leidas": 2
+ },
+ {
+  "id": "monday-com",
+  "nombre": "monday.com",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://monday.com",
+  "leidas": 2
+ },
+ {
+  "id": "monday-com",
+  "nombre": "monday.com",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://monday.com",
+  "leidas": 2
+ },
+ {
+  "id": "monday-com",
+  "nombre": "monday.com",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://monday.com",
+  "leidas": 2
+ },
+ {
+  "id": "monday-com",
+  "nombre": "monday.com",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://monday.com",
+  "leidas": 2
+ },
+ {
+  "id": "monday-com",
+  "nombre": "monday.com",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://monday.com",
+  "leidas": 2
+ },
+ {
+  "id": "monday-com",
+  "nombre": "monday.com",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://monday.com",
+  "leidas": 2
+ },
+ {
+  "id": "motion",
+  "nombre": "Motion",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.usemotion.com/",
+  "leidas": 2
+ },
+ {
+  "id": "motion",
+  "nombre": "Motion",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.usemotion.com/",
+  "leidas": 2
+ },
+ {
+  "id": "motion",
+  "nombre": "Motion",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.usemotion.com/",
+  "leidas": 2
+ },
+ {
+  "id": "motion",
+  "nombre": "Motion",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.usemotion.com/",
+  "leidas": 2
+ },
+ {
+  "id": "motion",
+  "nombre": "Motion",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.usemotion.com/",
+  "leidas": 2
+ },
+ {
+  "id": "motion",
+  "nombre": "Motion",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.usemotion.com/",
+  "leidas": 2
+ },
+ {
+  "id": "motion",
+  "nombre": "Motion",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.usemotion.com/",
+  "leidas": 2
+ },
+ {
+  "id": "motion",
+  "nombre": "Motion",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.usemotion.com/",
+  "leidas": 2
+ },
+ {
+  "id": "motion",
+  "nombre": "Motion",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.usemotion.com/",
+  "leidas": 2
+ },
+ {
+  "id": "motion",
+  "nombre": "Motion",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.usemotion.com/",
+  "leidas": 2
+ },
+ {
+  "id": "motion",
+  "nombre": "Motion",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.usemotion.com/",
+  "leidas": 2
+ },
+ {
+  "id": "motion",
+  "nombre": "Motion",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.usemotion.com/",
+  "leidas": 2
+ },
+ {
+  "id": "motion",
+  "nombre": "Motion",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.usemotion.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nifty",
+  "nombre": "Nifty",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 2
+ },
+ {
+  "id": "nifty",
+  "nombre": "Nifty",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 2
+ },
+ {
+  "id": "nifty",
+  "nombre": "Nifty",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 2
+ },
+ {
+  "id": "nifty",
+  "nombre": "Nifty",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 2
+ },
+ {
+  "id": "nifty",
+  "nombre": "Nifty",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 2
+ },
+ {
+  "id": "nifty",
+  "nombre": "Nifty",
+  "cap": "cap.customer_appointment_reminders",
+  "etiqueta": "Recordatorios automáticos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 2
+ },
+ {
+  "id": "nifty",
+  "nombre": "Nifty",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 2
+ },
+ {
+  "id": "nifty",
+  "nombre": "Nifty",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 2
+ },
+ {
+  "id": "nifty",
+  "nombre": "Nifty",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 2
+ },
+ {
+  "id": "nifty",
+  "nombre": "Nifty",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 2
+ },
+ {
+  "id": "nifty",
+  "nombre": "Nifty",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "si",
+  "cita": "Track matters, deadlines, and documents",
+  "url": "https://niftypm.com",
+  "leidas": 2
+ },
+ {
+  "id": "nifty",
+  "nombre": "Nifty",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 2
+ },
+ {
+  "id": "nifty",
+  "nombre": "Nifty",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 2
+ },
+ {
+  "id": "nifty",
+  "nombre": "Nifty",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://niftypm.com",
+  "leidas": 2
+ },
+ {
+  "id": "nimble",
+  "nombre": "Nimble",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nimble.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nimble",
+  "nombre": "Nimble",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nimble.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nimble",
+  "nombre": "Nimble",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nimble.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nimble",
+  "nombre": "Nimble",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nimble.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nimble",
+  "nombre": "Nimble",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nimble.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nimble",
+  "nombre": "Nimble",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nimble.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nimble",
+  "nombre": "Nimble",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nimble.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nimble",
+  "nombre": "Nimble",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nimble.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nimble",
+  "nombre": "Nimble",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nimble.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nimble",
+  "nombre": "Nimble",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nimble.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nimble",
+  "nombre": "Nimble",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nimble.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nimble",
+  "nombre": "Nimble",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nimble.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nimble",
+  "nombre": "Nimble",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nimble.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nimble",
+  "nombre": "Nimble",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nimble.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nocrm-io",
+  "nombre": "noCRM.io",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nocrm.io/es",
+  "leidas": 2
+ },
+ {
+  "id": "nocrm-io",
+  "nombre": "noCRM.io",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nocrm.io/es",
+  "leidas": 2
+ },
+ {
+  "id": "nocrm-io",
+  "nombre": "noCRM.io",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nocrm.io/es",
+  "leidas": 2
+ },
+ {
+  "id": "nocrm-io",
+  "nombre": "noCRM.io",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nocrm.io/es",
+  "leidas": 2
+ },
+ {
+  "id": "nocrm-io",
+  "nombre": "noCRM.io",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nocrm.io/es",
+  "leidas": 2
+ },
+ {
+  "id": "nocrm-io",
+  "nombre": "noCRM.io",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nocrm.io/es",
+  "leidas": 2
+ },
+ {
+  "id": "nocrm-io",
+  "nombre": "noCRM.io",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nocrm.io/es",
+  "leidas": 2
+ },
+ {
+  "id": "nocrm-io",
+  "nombre": "noCRM.io",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nocrm.io/es",
+  "leidas": 2
+ },
+ {
+  "id": "nocrm-io",
+  "nombre": "noCRM.io",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nocrm.io/es",
+  "leidas": 2
+ },
+ {
+  "id": "nocrm-io",
+  "nombre": "noCRM.io",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nocrm.io/es",
+  "leidas": 2
+ },
+ {
+  "id": "nocrm-io",
+  "nombre": "noCRM.io",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nocrm.io/es",
+  "leidas": 2
+ },
+ {
+  "id": "nocrm-io",
+  "nombre": "noCRM.io",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nocrm.io/es",
+  "leidas": 2
+ },
+ {
+  "id": "nocrm-io",
+  "nombre": "noCRM.io",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nocrm.io/es",
+  "leidas": 2
+ },
+ {
+  "id": "nocrm-io",
+  "nombre": "noCRM.io",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nocrm.io/es",
+  "leidas": 2
+ },
+ {
+  "id": "notion-ai",
+  "nombre": "Notion AI",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.notion.so/product/ai",
+  "leidas": 2
+ },
+ {
+  "id": "notion-ai",
+  "nombre": "Notion AI",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.notion.so/product/ai",
+  "leidas": 2
+ },
+ {
+  "id": "notion-ai",
+  "nombre": "Notion AI",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.notion.so/product/ai",
+  "leidas": 2
+ },
+ {
+  "id": "notion-ai",
+  "nombre": "Notion AI",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.notion.so/product/ai",
+  "leidas": 2
+ },
+ {
+  "id": "notion-ai",
+  "nombre": "Notion AI",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.notion.so/product/ai",
+  "leidas": 2
+ },
+ {
+  "id": "notion-ai",
+  "nombre": "Notion AI",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.notion.so/product/ai",
+  "leidas": 2
+ },
+ {
+  "id": "notion-ai",
+  "nombre": "Notion AI",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.notion.so/product/ai",
+  "leidas": 2
+ },
+ {
+  "id": "notion-ai",
+  "nombre": "Notion AI",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.notion.so/product/ai",
+  "leidas": 2
+ },
+ {
+  "id": "notion-ai",
+  "nombre": "Notion AI",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.notion.so/product/ai",
+  "leidas": 2
+ },
+ {
+  "id": "notion-ai",
+  "nombre": "Notion AI",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.notion.so/product/ai",
+  "leidas": 2
+ },
+ {
+  "id": "notion-ai",
+  "nombre": "Notion AI",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.notion.so/product/ai",
+  "leidas": 2
+ },
+ {
+  "id": "notion-ai",
+  "nombre": "Notion AI",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.notion.so/product/ai",
+  "leidas": 2
+ },
+ {
+  "id": "nutshell",
+  "nombre": "Nutshell",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nutshell.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nutshell",
+  "nombre": "Nutshell",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nutshell.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nutshell",
+  "nombre": "Nutshell",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nutshell.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nutshell",
+  "nombre": "Nutshell",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nutshell.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nutshell",
+  "nombre": "Nutshell",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nutshell.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nutshell",
+  "nombre": "Nutshell",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nutshell.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nutshell",
+  "nombre": "Nutshell",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nutshell.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nutshell",
+  "nombre": "Nutshell",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nutshell.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nutshell",
+  "nombre": "Nutshell",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nutshell.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nutshell",
+  "nombre": "Nutshell",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nutshell.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nutshell",
+  "nombre": "Nutshell",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nutshell.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nutshell",
+  "nombre": "Nutshell",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nutshell.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nutshell",
+  "nombre": "Nutshell",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nutshell.com/",
+  "leidas": 2
+ },
+ {
+  "id": "nutshell",
+  "nombre": "Nutshell",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.nutshell.com/",
+  "leidas": 2
+ },
+ {
+  "id": "odoo",
+  "nombre": "Odoo",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 2
+ },
+ {
+  "id": "odoo",
+  "nombre": "Odoo",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 2
+ },
+ {
+  "id": "odoo",
+  "nombre": "Odoo",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 2
+ },
+ {
+  "id": "odoo",
+  "nombre": "Odoo",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.odoo.com/",
+  "leidas": 2
+ },
+ {
+  "id": "otter-ai",
+  "nombre": "Otter.ai",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://otter.ai",
+  "leidas": 2
+ },
+ {
+  "id": "otter-ai",
+  "nombre": "Otter.ai",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://otter.ai",
+  "leidas": 2
+ },
+ {
+  "id": "otter-ai",
+  "nombre": "Otter.ai",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://otter.ai",
+  "leidas": 2
+ },
+ {
+  "id": "otter-ai",
+  "nombre": "Otter.ai",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://otter.ai",
+  "leidas": 2
+ },
+ {
+  "id": "otter-ai",
+  "nombre": "Otter.ai",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://otter.ai",
+  "leidas": 2
+ },
+ {
+  "id": "otter-ai",
+  "nombre": "Otter.ai",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://otter.ai",
+  "leidas": 2
+ },
+ {
+  "id": "otter-ai",
+  "nombre": "Otter.ai",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://otter.ai",
+  "leidas": 2
+ },
+ {
+  "id": "otter-ai",
+  "nombre": "Otter.ai",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://otter.ai",
+  "leidas": 2
+ },
+ {
+  "id": "otter-ai",
+  "nombre": "Otter.ai",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://otter.ai",
+  "leidas": 2
+ },
+ {
+  "id": "otter-ai",
+  "nombre": "Otter.ai",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://otter.ai",
+  "leidas": 2
+ },
+ {
+  "id": "otter-ai",
+  "nombre": "Otter.ai",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://otter.ai",
+  "leidas": 2
+ },
+ {
+  "id": "otter-ai",
+  "nombre": "Otter.ai",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://otter.ai",
+  "leidas": 2
+ },
+ {
+  "id": "otter-ai",
+  "nombre": "Otter.ai",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://otter.ai",
+  "leidas": 2
+ },
+ {
+  "id": "otter-ai",
+  "nombre": "Otter.ai",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://otter.ai",
+  "leidas": 2
+ },
+ {
+  "id": "otter-ai",
+  "nombre": "Otter.ai",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://otter.ai",
+  "leidas": 2
+ },
+ {
+  "id": "paymo",
+  "nombre": "Paymo",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.paymoapp.com/",
+  "leidas": 2
+ },
+ {
+  "id": "paymo",
+  "nombre": "Paymo",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.paymoapp.com/",
+  "leidas": 2
+ },
+ {
+  "id": "paymo",
+  "nombre": "Paymo",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.paymoapp.com/",
+  "leidas": 2
+ },
+ {
+  "id": "paymo",
+  "nombre": "Paymo",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.paymoapp.com/",
+  "leidas": 2
+ },
+ {
+  "id": "paymo",
+  "nombre": "Paymo",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.paymoapp.com/",
+  "leidas": 2
+ },
+ {
+  "id": "paymo",
+  "nombre": "Paymo",
+  "cap": "cap.customer_appointment_reminders",
+  "etiqueta": "Recordatorios automáticos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.paymoapp.com/",
+  "leidas": 2
+ },
+ {
+  "id": "paymo",
+  "nombre": "Paymo",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.paymoapp.com/",
+  "leidas": 2
+ },
+ {
+  "id": "paymo",
+  "nombre": "Paymo",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.paymoapp.com/",
+  "leidas": 2
+ },
+ {
+  "id": "paymo",
+  "nombre": "Paymo",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.paymoapp.com/",
+  "leidas": 2
+ },
+ {
+  "id": "paymo",
+  "nombre": "Paymo",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.paymoapp.com/",
+  "leidas": 2
+ },
+ {
+  "id": "paymo",
+  "nombre": "Paymo",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.paymoapp.com/",
+  "leidas": 2
+ },
+ {
+  "id": "paymo",
+  "nombre": "Paymo",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.paymoapp.com/",
+  "leidas": 2
+ },
+ {
+  "id": "paymo",
+  "nombre": "Paymo",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.paymoapp.com/",
+  "leidas": 2
+ },
+ {
+  "id": "paymo",
+  "nombre": "Paymo",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.paymoapp.com/",
+  "leidas": 2
+ },
+ {
+  "id": "paymo",
+  "nombre": "Paymo",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.paymoapp.com/",
+  "leidas": 2
+ },
+ {
+  "id": "pipedrive",
+  "nombre": "Pipedrive",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.pipedrive.com",
+  "leidas": 2
+ },
+ {
+  "id": "pipedrive",
+  "nombre": "Pipedrive",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.pipedrive.com",
+  "leidas": 2
+ },
+ {
+  "id": "pipedrive",
+  "nombre": "Pipedrive",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.pipedrive.com",
+  "leidas": 2
+ },
+ {
+  "id": "pipedrive",
+  "nombre": "Pipedrive",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.pipedrive.com",
+  "leidas": 2
+ },
+ {
+  "id": "pipedrive",
+  "nombre": "Pipedrive",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.pipedrive.com",
+  "leidas": 2
+ },
+ {
+  "id": "pipedrive",
+  "nombre": "Pipedrive",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.pipedrive.com",
+  "leidas": 2
+ },
+ {
+  "id": "pipedrive",
+  "nombre": "Pipedrive",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.pipedrive.com",
+  "leidas": 2
+ },
+ {
+  "id": "pipedrive",
+  "nombre": "Pipedrive",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.pipedrive.com",
+  "leidas": 2
+ },
+ {
+  "id": "pipedrive",
+  "nombre": "Pipedrive",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.pipedrive.com",
+  "leidas": 2
+ },
+ {
+  "id": "pipedrive",
+  "nombre": "Pipedrive",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.pipedrive.com",
+  "leidas": 2
+ },
+ {
+  "id": "pipedrive",
+  "nombre": "Pipedrive",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.pipedrive.com",
+  "leidas": 2
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://productive.io/",
+  "leidas": 2
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://productive.io/",
+  "leidas": 2
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://productive.io/",
+  "leidas": 2
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://productive.io/",
+  "leidas": 2
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://productive.io/",
+  "leidas": 2
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.customer_appointment_reminders",
+  "etiqueta": "Recordatorios automáticos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://productive.io/",
+  "leidas": 2
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://productive.io/",
+  "leidas": 2
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://productive.io/",
+  "leidas": 2
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://productive.io/",
+  "leidas": 2
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://productive.io/",
+  "leidas": 2
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://productive.io/",
+  "leidas": 2
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://productive.io/",
+  "leidas": 2
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://productive.io/",
+  "leidas": 2
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://productive.io/",
+  "leidas": 2
+ },
+ {
+  "id": "reclaim-ai",
+  "nombre": "Reclaim.ai",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://reclaim.ai",
+  "leidas": 2
+ },
+ {
+  "id": "reclaim-ai",
+  "nombre": "Reclaim.ai",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://reclaim.ai",
+  "leidas": 2
+ },
+ {
+  "id": "reclaim-ai",
+  "nombre": "Reclaim.ai",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://reclaim.ai",
+  "leidas": 2
+ },
+ {
+  "id": "reclaim-ai",
+  "nombre": "Reclaim.ai",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://reclaim.ai",
+  "leidas": 2
+ },
+ {
+  "id": "reclaim-ai",
+  "nombre": "Reclaim.ai",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://reclaim.ai",
+  "leidas": 2
+ },
+ {
+  "id": "reclaim-ai",
+  "nombre": "Reclaim.ai",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://reclaim.ai",
+  "leidas": 2
+ },
+ {
+  "id": "reclaim-ai",
+  "nombre": "Reclaim.ai",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://reclaim.ai",
+  "leidas": 2
+ },
+ {
+  "id": "reclaim-ai",
+  "nombre": "Reclaim.ai",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://reclaim.ai",
+  "leidas": 2
+ },
+ {
+  "id": "reclaim-ai",
+  "nombre": "Reclaim.ai",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://reclaim.ai",
+  "leidas": 2
+ },
+ {
+  "id": "reclaim-ai",
+  "nombre": "Reclaim.ai",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://reclaim.ai",
+  "leidas": 2
+ },
+ {
+  "id": "reclaim-ai",
+  "nombre": "Reclaim.ai",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://reclaim.ai",
+  "leidas": 2
+ },
+ {
+  "id": "reclaim-ai",
+  "nombre": "Reclaim.ai",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://reclaim.ai",
+  "leidas": 2
+ },
+ {
+  "id": "reclaim-ai",
+  "nombre": "Reclaim.ai",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://reclaim.ai",
+  "leidas": 2
+ },
+ {
+  "id": "reclaim-ai",
+  "nombre": "Reclaim.ai",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://reclaim.ai",
+  "leidas": 2
+ },
+ {
+  "id": "salesflare",
+  "nombre": "Salesflare",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://salesflare.com/",
+  "leidas": 2
+ },
+ {
+  "id": "salesflare",
+  "nombre": "Salesflare",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://salesflare.com/",
+  "leidas": 2
+ },
+ {
+  "id": "salesflare",
+  "nombre": "Salesflare",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://salesflare.com/",
+  "leidas": 2
+ },
+ {
+  "id": "salesflare",
+  "nombre": "Salesflare",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://salesflare.com/",
+  "leidas": 2
+ },
+ {
+  "id": "salesflare",
+  "nombre": "Salesflare",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://salesflare.com/",
+  "leidas": 2
+ },
+ {
+  "id": "salesflare",
+  "nombre": "Salesflare",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://salesflare.com/",
+  "leidas": 2
+ },
+ {
+  "id": "salesflare",
+  "nombre": "Salesflare",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://salesflare.com/",
+  "leidas": 2
+ },
+ {
+  "id": "salesflare",
+  "nombre": "Salesflare",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://salesflare.com/",
+  "leidas": 2
+ },
+ {
+  "id": "salesflare",
+  "nombre": "Salesflare",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://salesflare.com/",
+  "leidas": 2
+ },
+ {
+  "id": "salesflare",
+  "nombre": "Salesflare",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://salesflare.com/",
+  "leidas": 2
+ },
+ {
+  "id": "salesflare",
+  "nombre": "Salesflare",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://salesflare.com/",
+  "leidas": 2
+ },
+ {
+  "id": "salesflare",
+  "nombre": "Salesflare",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://salesflare.com/",
+  "leidas": 2
+ },
+ {
+  "id": "salesflare",
+  "nombre": "Salesflare",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://salesflare.com/",
+  "leidas": 2
+ },
+ {
+  "id": "salesflare",
+  "nombre": "Salesflare",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://salesflare.com/",
+  "leidas": 2
+ },
+ {
+  "id": "salesmate",
+  "nombre": "Salesmate",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.salesmate.io/",
+  "leidas": 2
+ },
+ {
+  "id": "salesmate",
+  "nombre": "Salesmate",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.salesmate.io/",
+  "leidas": 2
+ },
+ {
+  "id": "salesmate",
+  "nombre": "Salesmate",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.salesmate.io/",
+  "leidas": 2
+ },
+ {
+  "id": "salesmate",
+  "nombre": "Salesmate",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.salesmate.io/",
+  "leidas": 2
+ },
+ {
+  "id": "salesmate",
+  "nombre": "Salesmate",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.salesmate.io/",
+  "leidas": 2
+ },
+ {
+  "id": "salesmate",
+  "nombre": "Salesmate",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.salesmate.io/",
+  "leidas": 2
+ },
+ {
+  "id": "salesmate",
+  "nombre": "Salesmate",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.salesmate.io/",
+  "leidas": 2
+ },
+ {
+  "id": "salesmate",
+  "nombre": "Salesmate",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.salesmate.io/",
+  "leidas": 2
+ },
+ {
+  "id": "salesmate",
+  "nombre": "Salesmate",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.salesmate.io/",
+  "leidas": 2
+ },
+ {
+  "id": "salesmate",
+  "nombre": "Salesmate",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.salesmate.io/",
+  "leidas": 2
+ },
+ {
+  "id": "scoro",
+  "nombre": "Scoro",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.scoro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "scoro",
+  "nombre": "Scoro",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.scoro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "scoro",
+  "nombre": "Scoro",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.scoro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "scoro",
+  "nombre": "Scoro",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.scoro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "scoro",
+  "nombre": "Scoro",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.scoro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "scoro",
+  "nombre": "Scoro",
+  "cap": "cap.customer_appointment_reminders",
+  "etiqueta": "Recordatorios automáticos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.scoro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "scoro",
+  "nombre": "Scoro",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.scoro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "scoro",
+  "nombre": "Scoro",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.scoro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "scoro",
+  "nombre": "Scoro",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.scoro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "scoro",
+  "nombre": "Scoro",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.scoro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "scoro",
+  "nombre": "Scoro",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.scoro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "scoro",
+  "nombre": "Scoro",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.scoro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "scoro",
+  "nombre": "Scoro",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.scoro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "scoro",
+  "nombre": "Scoro",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.scoro.com/",
+  "leidas": 2
+ },
+ {
+  "id": "smartsheet",
+  "nombre": "Smartsheet",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.smartsheet.com/",
+  "leidas": 2
+ },
+ {
+  "id": "smartsheet",
+  "nombre": "Smartsheet",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.smartsheet.com/",
+  "leidas": 2
+ },
+ {
+  "id": "smartsheet",
+  "nombre": "Smartsheet",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.smartsheet.com/",
+  "leidas": 2
+ },
+ {
+  "id": "smartsheet",
+  "nombre": "Smartsheet",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.smartsheet.com/",
+  "leidas": 2
+ },
+ {
+  "id": "smartsheet",
+  "nombre": "Smartsheet",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.smartsheet.com/",
+  "leidas": 2
+ },
+ {
+  "id": "smartsheet",
+  "nombre": "Smartsheet",
+  "cap": "cap.customer_appointment_reminders",
+  "etiqueta": "Recordatorios automáticos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.smartsheet.com/",
+  "leidas": 2
+ },
+ {
+  "id": "smartsheet",
+  "nombre": "Smartsheet",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.smartsheet.com/",
+  "leidas": 2
+ },
+ {
+  "id": "smartsheet",
+  "nombre": "Smartsheet",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.smartsheet.com/",
+  "leidas": 2
+ },
+ {
+  "id": "smartsheet",
+  "nombre": "Smartsheet",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.smartsheet.com/",
+  "leidas": 2
+ },
+ {
+  "id": "smartsheet",
+  "nombre": "Smartsheet",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.smartsheet.com/",
+  "leidas": 2
+ },
+ {
+  "id": "smartsheet",
+  "nombre": "Smartsheet",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.smartsheet.com/",
+  "leidas": 2
+ },
+ {
+  "id": "smartsheet",
+  "nombre": "Smartsheet",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.smartsheet.com/",
+  "leidas": 2
+ },
+ {
+  "id": "smartsheet",
+  "nombre": "Smartsheet",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.smartsheet.com/",
+  "leidas": 2
+ },
+ {
+  "id": "smartsheet",
+  "nombre": "Smartsheet",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.smartsheet.com/",
+  "leidas": 2
+ },
+ {
+  "id": "smartsheet",
+  "nombre": "Smartsheet",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.smartsheet.com/",
+  "leidas": 2
+ },
+ {
+  "id": "streak",
+  "nombre": "Streak",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.streak.com",
+  "leidas": 2
+ },
+ {
+  "id": "streak",
+  "nombre": "Streak",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.streak.com",
+  "leidas": 2
+ },
+ {
+  "id": "streak",
+  "nombre": "Streak",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.streak.com",
+  "leidas": 2
+ },
+ {
+  "id": "streak",
+  "nombre": "Streak",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.streak.com",
+  "leidas": 2
+ },
+ {
+  "id": "streak",
+  "nombre": "Streak",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.streak.com",
+  "leidas": 2
+ },
+ {
+  "id": "streak",
+  "nombre": "Streak",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.streak.com",
+  "leidas": 2
+ },
+ {
+  "id": "streak",
+  "nombre": "Streak",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.streak.com",
+  "leidas": 2
+ },
+ {
+  "id": "streak",
+  "nombre": "Streak",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.streak.com",
+  "leidas": 2
+ },
+ {
+  "id": "streak",
+  "nombre": "Streak",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.streak.com",
+  "leidas": 2
+ },
+ {
+  "id": "streak",
+  "nombre": "Streak",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.streak.com",
+  "leidas": 2
+ },
+ {
+  "id": "streak",
+  "nombre": "Streak",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.streak.com",
+  "leidas": 2
+ },
+ {
+  "id": "streak",
+  "nombre": "Streak",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.streak.com",
+  "leidas": 2
+ },
+ {
+  "id": "streak",
+  "nombre": "Streak",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.streak.com",
+  "leidas": 2
+ },
+ {
+  "id": "streak",
+  "nombre": "Streak",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.streak.com",
+  "leidas": 2
+ },
+ {
+  "id": "synthesia",
+  "nombre": "Synthesia",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.synthesia.io",
+  "leidas": 2
+ },
+ {
+  "id": "synthesia",
+  "nombre": "Synthesia",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.synthesia.io",
+  "leidas": 2
+ },
+ {
+  "id": "synthesia",
+  "nombre": "Synthesia",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.synthesia.io",
+  "leidas": 2
+ },
+ {
+  "id": "synthesia",
+  "nombre": "Synthesia",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.synthesia.io",
+  "leidas": 2
+ },
+ {
+  "id": "synthesia",
+  "nombre": "Synthesia",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.synthesia.io",
+  "leidas": 2
+ },
+ {
+  "id": "synthesia",
+  "nombre": "Synthesia",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.synthesia.io",
+  "leidas": 2
+ },
+ {
+  "id": "synthesia",
+  "nombre": "Synthesia",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.synthesia.io",
+  "leidas": 2
+ },
+ {
+  "id": "synthesia",
+  "nombre": "Synthesia",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.synthesia.io",
+  "leidas": 2
+ },
+ {
+  "id": "synthesia",
+  "nombre": "Synthesia",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.synthesia.io",
+  "leidas": 2
+ },
+ {
+  "id": "synthesia",
+  "nombre": "Synthesia",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.synthesia.io",
+  "leidas": 2
+ },
+ {
+  "id": "synthesia",
+  "nombre": "Synthesia",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.synthesia.io",
+  "leidas": 2
+ },
+ {
+  "id": "synthesia",
+  "nombre": "Synthesia",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.synthesia.io",
+  "leidas": 2
+ },
+ {
+  "id": "synthesia",
+  "nombre": "Synthesia",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.synthesia.io",
+  "leidas": 2
+ },
+ {
+  "id": "synthesia",
+  "nombre": "Synthesia",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.synthesia.io",
+  "leidas": 2
+ },
+ {
+  "id": "synthesia",
+  "nombre": "Synthesia",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.synthesia.io",
+  "leidas": 2
+ },
+ {
+  "id": "systeme-io",
+  "nombre": "Systeme.io",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 2
+ },
+ {
+  "id": "systeme-io",
+  "nombre": "Systeme.io",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 2
+ },
+ {
+  "id": "systeme-io",
+  "nombre": "Systeme.io",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://systeme.io",
+  "leidas": 2
+ },
+ {
+  "id": "taskade",
+  "nombre": "Taskade",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 2
+ },
+ {
+  "id": "taskade",
+  "nombre": "Taskade",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.taskade.com",
+  "leidas": 2
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://teachable.com",
+  "leidas": 2
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://teachable.com",
+  "leidas": 2
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://teachable.com",
+  "leidas": 2
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://teachable.com",
+  "leidas": 2
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://teachable.com",
+  "leidas": 2
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.customer_appointment_reminders",
+  "etiqueta": "Recordatorios automáticos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://teachable.com",
+  "leidas": 2
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://teachable.com",
+  "leidas": 2
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://teachable.com",
+  "leidas": 2
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://teachable.com",
+  "leidas": 2
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://teachable.com",
+  "leidas": 2
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://teachable.com",
+  "leidas": 2
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://teachable.com",
+  "leidas": 2
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://teachable.com",
+  "leidas": 2
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://teachable.com",
+  "leidas": 2
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://teachable.com",
+  "leidas": 2
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://teachable.com",
+  "leidas": 2
+ },
+ {
+  "id": "teamgantt",
+  "nombre": "TeamGantt",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamgantt.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamgantt",
+  "nombre": "TeamGantt",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamgantt.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamgantt",
+  "nombre": "TeamGantt",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamgantt.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamgantt",
+  "nombre": "TeamGantt",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamgantt.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamgantt",
+  "nombre": "TeamGantt",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamgantt.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamgantt",
+  "nombre": "TeamGantt",
+  "cap": "cap.customer_appointment_reminders",
+  "etiqueta": "Recordatorios automáticos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamgantt.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamgantt",
+  "nombre": "TeamGantt",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamgantt.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamgantt",
+  "nombre": "TeamGantt",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamgantt.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamgantt",
+  "nombre": "TeamGantt",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamgantt.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamgantt",
+  "nombre": "TeamGantt",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamgantt.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamgantt",
+  "nombre": "TeamGantt",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamgantt.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamgantt",
+  "nombre": "TeamGantt",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamgantt.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamgantt",
+  "nombre": "TeamGantt",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamgantt.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamgantt",
+  "nombre": "TeamGantt",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamgantt.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamgantt",
+  "nombre": "TeamGantt",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamgantt.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamwork-com",
+  "nombre": "Teamwork.com",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamwork.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamwork-com",
+  "nombre": "Teamwork.com",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamwork.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamwork-com",
+  "nombre": "Teamwork.com",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamwork.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamwork-com",
+  "nombre": "Teamwork.com",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamwork.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamwork-com",
+  "nombre": "Teamwork.com",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "si",
+  "cita": "Help staff plan with My Calendar",
+  "url": "https://www.teamwork.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamwork-com",
+  "nombre": "Teamwork.com",
+  "cap": "cap.customer_appointment_reminders",
+  "etiqueta": "Recordatorios automáticos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamwork.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamwork-com",
+  "nombre": "Teamwork.com",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamwork.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamwork-com",
+  "nombre": "Teamwork.com",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamwork.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamwork-com",
+  "nombre": "Teamwork.com",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamwork.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamwork-com",
+  "nombre": "Teamwork.com",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamwork.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamwork-com",
+  "nombre": "Teamwork.com",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamwork.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamwork-com",
+  "nombre": "Teamwork.com",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamwork.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamwork-com",
+  "nombre": "Teamwork.com",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamwork.com/",
+  "leidas": 2
+ },
+ {
+  "id": "teamwork-com",
+  "nombre": "Teamwork.com",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.teamwork.com/",
+  "leidas": 2
+ },
+ {
+  "id": "thinkific",
+  "nombre": "Thinkific",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.thinkific.com",
+  "leidas": 2
+ },
+ {
+  "id": "thinkific",
+  "nombre": "Thinkific",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.thinkific.com",
+  "leidas": 2
+ },
+ {
+  "id": "thinkific",
+  "nombre": "Thinkific",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.thinkific.com",
+  "leidas": 2
+ },
+ {
+  "id": "thinkific",
+  "nombre": "Thinkific",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.thinkific.com",
+  "leidas": 2
+ },
+ {
+  "id": "thinkific",
+  "nombre": "Thinkific",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.thinkific.com",
+  "leidas": 2
+ },
+ {
+  "id": "thinkific",
+  "nombre": "Thinkific",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.thinkific.com",
+  "leidas": 2
+ },
+ {
+  "id": "thinkific",
+  "nombre": "Thinkific",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.thinkific.com",
+  "leidas": 2
+ },
+ {
+  "id": "todoist",
+  "nombre": "Todoist",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.todoist.com",
+  "leidas": 2
+ },
+ {
+  "id": "todoist",
+  "nombre": "Todoist",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.todoist.com",
+  "leidas": 2
+ },
+ {
+  "id": "todoist",
+  "nombre": "Todoist",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.todoist.com",
+  "leidas": 2
+ },
+ {
+  "id": "todoist",
+  "nombre": "Todoist",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.todoist.com",
+  "leidas": 2
+ },
+ {
+  "id": "todoist",
+  "nombre": "Todoist",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.todoist.com",
+  "leidas": 2
+ },
+ {
+  "id": "todoist",
+  "nombre": "Todoist",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.todoist.com",
+  "leidas": 2
+ },
+ {
+  "id": "todoist",
+  "nombre": "Todoist",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.todoist.com",
+  "leidas": 2
+ },
+ {
+  "id": "todoist",
+  "nombre": "Todoist",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.todoist.com",
+  "leidas": 2
+ },
+ {
+  "id": "todoist",
+  "nombre": "Todoist",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.todoist.com",
+  "leidas": 2
+ },
+ {
+  "id": "todoist",
+  "nombre": "Todoist",
+  "cap": "cap.file_storage",
+  "etiqueta": "Archivos y carpetas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.todoist.com",
+  "leidas": 2
+ },
+ {
+  "id": "todoist",
+  "nombre": "Todoist",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.todoist.com",
+  "leidas": 2
+ },
+ {
+  "id": "todoist",
+  "nombre": "Todoist",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.todoist.com",
+  "leidas": 2
+ },
+ {
+  "id": "todoist",
+  "nombre": "Todoist",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.todoist.com",
+  "leidas": 2
+ },
+ {
+  "id": "todoist",
+  "nombre": "Todoist",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.todoist.com",
+  "leidas": 2
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 2
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 2
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 2
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.vtiger.com/",
+  "leidas": 2
+ },
+ {
+  "id": "wrike",
+  "nombre": "Wrike",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.wrike.com",
+  "leidas": 2
+ },
+ {
+  "id": "wrike",
+  "nombre": "Wrike",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.wrike.com",
+  "leidas": 2
+ },
+ {
+  "id": "wrike",
+  "nombre": "Wrike",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.wrike.com",
+  "leidas": 2
+ },
+ {
+  "id": "wrike",
+  "nombre": "Wrike",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.wrike.com",
+  "leidas": 2
+ },
+ {
+  "id": "wrike",
+  "nombre": "Wrike",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.wrike.com",
+  "leidas": 2
+ },
+ {
+  "id": "wrike",
+  "nombre": "Wrike",
+  "cap": "cap.customer_appointment_reminders",
+  "etiqueta": "Recordatorios automáticos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.wrike.com",
+  "leidas": 2
+ },
+ {
+  "id": "wrike",
+  "nombre": "Wrike",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.wrike.com",
+  "leidas": 2
+ },
+ {
+  "id": "wrike",
+  "nombre": "Wrike",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.wrike.com",
+  "leidas": 2
+ },
+ {
+  "id": "wrike",
+  "nombre": "Wrike",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.wrike.com",
+  "leidas": 2
+ },
+ {
+  "id": "wrike",
+  "nombre": "Wrike",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.wrike.com",
+  "leidas": 2
+ },
+ {
+  "id": "wrike",
+  "nombre": "Wrike",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.wrike.com",
+  "leidas": 2
+ },
+ {
+  "id": "wrike",
+  "nombre": "Wrike",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.wrike.com",
+  "leidas": 2
+ },
+ {
+  "id": "wrike",
+  "nombre": "Wrike",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.wrike.com",
+  "leidas": 2
+ },
+ {
+  "id": "wrike",
+  "nombre": "Wrike",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.wrike.com",
+  "leidas": 2
+ },
+ {
+  "id": "wrike",
+  "nombre": "Wrike",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.wrike.com",
+  "leidas": 2
+ },
+ {
+  "id": "zenkit",
+  "nombre": "Zenkit",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://zenkit.com",
+  "leidas": 2
+ },
+ {
+  "id": "zenkit",
+  "nombre": "Zenkit",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://zenkit.com",
+  "leidas": 2
+ },
+ {
+  "id": "zenkit",
+  "nombre": "Zenkit",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://zenkit.com",
+  "leidas": 2
+ },
+ {
+  "id": "zenkit",
+  "nombre": "Zenkit",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://zenkit.com",
+  "leidas": 2
+ },
+ {
+  "id": "zenkit",
+  "nombre": "Zenkit",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://zenkit.com",
+  "leidas": 2
+ },
+ {
+  "id": "zenkit",
+  "nombre": "Zenkit",
+  "cap": "cap.customer_appointment_reminders",
+  "etiqueta": "Recordatorios automáticos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://zenkit.com",
+  "leidas": 2
+ },
+ {
+  "id": "zenkit",
+  "nombre": "Zenkit",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://zenkit.com",
+  "leidas": 2
+ },
+ {
+  "id": "zenkit",
+  "nombre": "Zenkit",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://zenkit.com",
+  "leidas": 2
+ },
+ {
+  "id": "zenkit",
+  "nombre": "Zenkit",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://zenkit.com",
+  "leidas": 2
+ },
+ {
+  "id": "zenkit",
+  "nombre": "Zenkit",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://zenkit.com",
+  "leidas": 2
+ },
+ {
+  "id": "zenkit",
+  "nombre": "Zenkit",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://zenkit.com",
+  "leidas": 2
+ },
+ {
+  "id": "zenkit",
+  "nombre": "Zenkit",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://zenkit.com",
+  "leidas": 2
+ },
+ {
+  "id": "zenkit",
+  "nombre": "Zenkit",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://zenkit.com",
+  "leidas": 2
+ },
+ {
+  "id": "zenkit",
+  "nombre": "Zenkit",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://zenkit.com",
+  "leidas": 2
+ },
+ {
+  "id": "zenkit",
+  "nombre": "Zenkit",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://zenkit.com",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-crm",
+  "nombre": "Zoho CRM",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-crm",
+  "nombre": "Zoho CRM",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-crm",
+  "nombre": "Zoho CRM",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-crm",
+  "nombre": "Zoho CRM",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-crm",
+  "nombre": "Zoho CRM",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-crm",
+  "nombre": "Zoho CRM",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/crm/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-one",
+  "nombre": "Zoho One",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-one",
+  "nombre": "Zoho One",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-one",
+  "nombre": "Zoho One",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-one",
+  "nombre": "Zoho One",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/one/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-projects",
+  "nombre": "Zoho Projects",
+  "cap": "cap.per_resource_booking_calendar",
+  "etiqueta": "Agenda por profesional o recurso",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/projects/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-projects",
+  "nombre": "Zoho Projects",
+  "cap": "cap.capacity_and_time_slots",
+  "etiqueta": "Aforo, turnos y franjas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/projects/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-projects",
+  "nombre": "Zoho Projects",
+  "cap": "cap.booking_waitlist",
+  "etiqueta": "Lista de espera",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/projects/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-projects",
+  "nombre": "Zoho Projects",
+  "cap": "cap.room_and_equipment_booking",
+  "etiqueta": "Reserva de salas y equipos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/projects/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-projects",
+  "nombre": "Zoho Projects",
+  "cap": "cap.personal_calendar_planning",
+  "etiqueta": "Calendario y planificación diaria",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/projects/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-projects",
+  "nombre": "Zoho Projects",
+  "cap": "cap.customer_appointment_reminders",
+  "etiqueta": "Recordatorios automáticos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/projects/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-projects",
+  "nombre": "Zoho Projects",
+  "cap": "cap.point_of_sale",
+  "etiqueta": "TPV y caja",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/projects/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-projects",
+  "nombre": "Zoho Projects",
+  "cap": "cap.menu_management",
+  "etiqueta": "Carta, modificadores y alérgenos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/projects/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-projects",
+  "nombre": "Zoho Projects",
+  "cap": "cap.order_management",
+  "etiqueta": "Pedidos y comandas",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/projects/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-projects",
+  "nombre": "Zoho Projects",
+  "cap": "cap.offer_catalog",
+  "etiqueta": "Catálogo de lo que ofreces",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/projects/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-projects",
+  "nombre": "Zoho Projects",
+  "cap": "cap.case_file_management",
+  "etiqueta": "Expedientes y casos",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/projects/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-projects",
+  "nombre": "Zoho Projects",
+  "cap": "cap.customer_interaction_history",
+  "etiqueta": "Historial de trato con el cliente",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/projects/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-projects",
+  "nombre": "Zoho Projects",
+  "cap": "cap.own_asset_maintenance",
+  "etiqueta": "Activos propios: inventario y mantenimiento preventivo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/projects/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-projects",
+  "nombre": "Zoho Projects",
+  "cap": "cap.fleet_telematics",
+  "etiqueta": "Flota: localización, consumos y tacógrafo",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/projects/",
+  "leidas": 2
+ },
+ {
+  "id": "zoho-projects",
+  "nombre": "Zoho Projects",
+  "cap": "cap.inspections_and_checklists",
+  "etiqueta": "Inspecciones, listas de comprobación y no conformidades",
+  "estado": "no_consta",
+  "cita": null,
+  "url": "https://www.zoho.com/projects/",
+  "leidas": 2
+ }
+]

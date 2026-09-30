@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { textoDeComprobacion, textoDePlanGratuito } from "@/lib/catalogoCompleto";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -163,12 +164,20 @@ export default async function FichaHerramientaPage({
         <div className="flex flex-wrap items-center gap-2">
           <span className="text-base font-semibold text-slate-900">{herramienta.precioInicial}</span>
           <Etiqueta variante={herramienta.tienePlanGratuito ? "exito" : "neutra"}>
-            {herramienta.tienePlanGratuito ? "Con plan gratuito" : "Sin plan gratuito"}
+            {textoDePlanGratuito(herramienta)}
           </Etiqueta>
           {herramienta.modeloDePrecio.map((modelo) => (
             <Etiqueta key={modelo}>{ETIQUETA_MODELO_PRECIO[modelo] ?? modelo.replaceAll("_", " ")}</Etiqueta>
           ))}
         </div>
+        {/*
+          La fecha de comprobación, o su ausencia. No es un adorno: es la
+          diferencia entre un precio que alguien leyó en la web del fabricante
+          y uno que escribimos nosotros y nadie miró.
+        */}
+        <p className="mt-2 text-xs text-slate-500">
+          {textoDeComprobacion(herramienta) ?? "Este precio no lo hemos comprobado todavía en su web."}
+        </p>
         {herramienta.urlPrecios && (
           <a
             href={herramienta.urlPrecios}

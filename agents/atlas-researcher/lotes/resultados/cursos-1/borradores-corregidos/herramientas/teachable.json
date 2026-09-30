@@ -1,0 +1,140 @@
+{
+  "nombre": "Teachable",
+  "paginaOficial": "https://teachable.com",
+  "urlPrecios": "https://teachable.com/pricing",
+  "logoUrl": "",
+  "categoriaId": "plataformas-todo-en-uno",
+  "categoriasSecundarias": [],
+  "subtipoId": "",
+  "subtiposSecundarios": [],
+  "tipoProducto": "suite",
+  "descripcion": "Teachable es una plataforma de creación e impartición de formación online que permite a creadores, emprendedores y empresas aloja, vender y gestionar cursos, coaching y descargas digitales. Incluye un creador de páginas web sin código, procesamiento de pagos integrado e infraestructura para alojar vídeo y contenido interactivo.",
+  "informacionEmpresa": {
+    "anioFundacion": 2013,
+    "paisOrigen": "Estados Unidos",
+    "tamanoAproximado": "201-500 empleados"
+  },
+  "problemasQueResuelve": [
+    "Complejidad técnica al integrar reproductores de vídeo, pasarelas de pago y áreas privadas de usuarios.",
+    "Carga administrativa en la gestión e ingreso de impuestos globales (como el IVA de la UE) en la venta de infoproductos.",
+    "Falta de herramientas integradas para automatizar la entrega de certificados y la cobranza mediante suscripciones o pagos fraccionados."
+  ],
+  "casosDeUso": [
+    "Creación y monetización de una academia de formación online con múltiples cursos por parte de un consultor o experto.",
+    "Venta de sesiones de coaching individual o grupal integradas con agenda y pasarela de cobro.",
+    "Distribución y cobro de descargas digitales como libros electrónicos, plantillas o recursos descargables."
+  ],
+  "idealPara": "Ideal para creadores de contenido, instructores, solopreneurs y pequeñas agencias que desean vender formación online y descargas digitales sin lidiar con infraestructura técnica.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "Educación y Formación",
+    "Coaching y Consultoría",
+    "Marketing y Creadores de Contenido",
+    "Salud y Bienestar"
+  ],
+  "noRecomendadaPara": "No recomendada para grandes instituciones educativas o corporaciones que requieran compatibilidad con normas SCORM/xAPI o integración profunda con LMS tradicionales.",
+  "casosNoRecomendados": [
+    "Universidades u organizaciones académicas que requieran empaquetado SCORM, xAPI o LTI.",
+    "Empresas que necesiten que el panel de administración y control técnico esté completamente en español."
+  ],
+  "funcionesPrincipales": [
+    "Constructor visual de sitios web y páginas de venta de cursos",
+    "Teachable Pay para gestión automatizada de cobros y retención de impuestos internacionales",
+    "Lector de cursos interactivo con cuestionarios, tareas y entrega de certificados",
+    "Sistema de gestión de afiliados integrado para la venta de cursos",
+    "Herramientas para vender coaching uno a uno y productos digitales descargables"
+  ],
+  "modulosIncluidos": [
+    "creador_de_sitios_web",
+    "comercio_electronico",
+    "embudos_de_venta"
+  ],
+  "integraciones": [
+    "Zapier",
+    "Mailchimp",
+    "ConvertKit",
+    "Google Analytics",
+    "Facebook Pixel",
+    "Segment",
+    "Stripe",
+    "PayPal"
+  ],
+  "integracionesPrincipales": [
+    "Zapier",
+    "Mailchimp",
+    "ConvertKit",
+    "Stripe"
+  ],
+  "curvaDeAprendizaje": "facil",
+  "precioInicial": "Plan Starter desde 29 $/mes con facturación anual, 39 $/mes con facturación mensual, con un 7,5 % de comisión por venta. Sin plan gratuito: prueba de 7 días. Precios de la tabla oficial del 2026-09-16.",
+  "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual",
+    "suscripcion_anual"
+  ],
+  "tienePlanGratuito": false,
+  "precioRecomendadoPymes": "Plan Builder: 69 $/mes con facturación anual, 89 $/mes con facturación mensual, sin comisión base por venta. Precios de la tabla oficial del 2026-09-16.",
+  "disponibilidadGeografica": "GLOBAL",
+  "idiomasDisponibles": [
+    "Inglés"
+  ],
+  "disponibleEnEspanol": false,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 9,
+    "calidad": 8,
+    "fiabilidad": 8,
+    "atencionAlCliente": 7,
+    "escalabilidad": 7,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 9
+  },
+  "metodologiaValoracion": "Puntuaciones basadas en el análisis agregado de reseñas públicas verificadas en plataformas como G2 y Capterra, así como pruebas directas de usabilidad.",
+  "reputacion": {
+    "g2Puntuacion": 4,
+    "g2NumeroResenas": 620,
+    "capterraPuntuacion": 4.4,
+    "capterraNumeroResenas": 310
+  },
+  "ventajas": [
+    "Teachable Pay asume la recaudación y remisión del IVA y taxes de ventas globales.",
+    "Puesta en marcha extremadamente rápida e intuitiva sin necesidad de código.",
+    "Incluye herramientas nativas para gestionar afiliados que promocionen los cursos.",
+    "Permite vender coaching y descargas digitales dentro de la misma plataforma."
+  ],
+  "inconvenientes": [
+    "Comisiones por transacción elevadas en el plan gratuito y en el plan Basic.",
+    "La interfaz de administración está disponible únicamente en inglés.",
+    "Sin soporte nativo para estándares de e-learning SCORM/xAPI."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Thinkific",
+      "Kajabi",
+      "Podia"
+    ],
+    "tipoNegocioIdeal": "Creadores de contenido, infoproductores y consultores",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 89,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 8.0/10.",
+      "G2: 4/5 (620 reseñas).",
+      "Capterra: 4.4/5 (310 reseñas).",
+      "Tiene plan gratuito.",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "teachable",
+  "estado": "en_revision",
+  "fechaAltaEnAtlas": "2026-09-16",
+  "fechaUltimaRevision": "2026-09-16",
+  "_pendienteDeVerificar": [
+    "idiomasDisponibles y disponibleEnEspanol: el idioma del panel de administración no tiene cita literal",
+    "afiliados.payoutMethod y payoutFrequency: su página no los publica"
+  ]
+}

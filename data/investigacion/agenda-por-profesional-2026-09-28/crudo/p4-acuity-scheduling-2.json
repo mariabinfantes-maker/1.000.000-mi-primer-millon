@@ -1,0 +1,7 @@
+{
+ "id": "acuity-scheduling",
+ "nombre": "Acuity Scheduling (Squarespace)",
+ "url": "https://help.acuityscheduling.com/hc/en-us/articles/218080887-Adding-and-managing-calendars",
+ "recuperada": false,
+ "texto": "```json\n{\n  \"abierta\": false,\n  \"agendaPorProfesional\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"eligeElCliente\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"enEspanol\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  }\n}\n```"
+}

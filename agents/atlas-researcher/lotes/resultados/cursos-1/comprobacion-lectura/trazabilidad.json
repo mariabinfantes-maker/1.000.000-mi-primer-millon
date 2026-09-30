@@ -1,0 +1,143 @@
+{
+  "fecha": "2026-09-16T20:15:02.604Z",
+  "modelo": "gemini-3.6-flash",
+  "peticiones": 3,
+  "topePeticiones": 6,
+  "registros": [
+    {
+      "id": "thinkific-web",
+      "herramienta": "thinkific",
+      "campo": "cap.website_builder",
+      "capacidadQueDemuestra": "cap.website_builder",
+      "urlSolicitada": "https://www.thinkific.com/pricing/",
+      "urlDescargada": "https://www.thinkific.com/pricing/",
+      "estadoDescarga": "URL_RETRIEVAL_STATUS_SUCCESS",
+      "fechaDescarga": "2026-09-16T20:14:21.018Z",
+      "huellaRespuestaCruda": "e959c75c73eaf07ad1e28c501f789e0c8e7170ef274d52a4ba022f25d027af4b",
+      "tamanoRespuestaBytes": 9061,
+      "fraseBuscada": "You don’t need to be a developer to build your site and online courses.",
+      "resultado": "localizada_literal",
+      "motivo": "La frase aparece tal cual.",
+      "citaLocalizada": "You don't need to be a developer to build your site and online courses.",
+      "fragmento": {
+        "anterior": "Thinkific was designed to get your business up and running without any advanced technical experience.",
+        "posterior": "With AI tools like the Course Outline Generator, onboarding prompts, and step-by-step guidance, create and launch your online learning business quickly.",
+        "seccion": "Is it easy to get started?"
+      },
+      "huellaFragmento": "6c3752d770209c4dd1eb3f8c0f5ce57e23831125ddc6c970a69f763adb1bbaf3",
+      "textoRelacionado": null,
+      "resultadoCapacidad": "cap.website_builder DEMOSTRADA",
+      "lecturaDelContexto": "El contexto es una pregunta frecuente, «Is it easy to get started?», y la frase siguiente nombra una función concreta con nombre propio, el Course Outline Generator. Un modelo no inventa un nombre de producto así de específico dentro de un contexto coherente."
+    },
+    {
+      "id": "thinkific-cobro",
+      "herramienta": "thinkific",
+      "campo": "cap.payment_collection",
+      "capacidadQueDemuestra": "cap.payment_collection",
+      "urlSolicitada": "https://www.thinkific.com/pricing/",
+      "urlDescargada": "https://www.thinkific.com/pricing/",
+      "estadoDescarga": "URL_RETRIEVAL_STATUS_SUCCESS",
+      "fechaDescarga": "2026-09-16T20:14:21.018Z",
+      "huellaRespuestaCruda": "e959c75c73eaf07ad1e28c501f789e0c8e7170ef274d52a4ba022f25d027af4b",
+      "tamanoRespuestaBytes": 9061,
+      "fraseBuscada": "Thinkific offers its own custom payment processor, Thinkific Payments.",
+      "resultado": "localizada_literal",
+      "motivo": "La frase aparece tal cual.",
+      "citaLocalizada": "Thinkific offers its own custom payment processor, Thinkific Payments.",
+      "fragmento": {
+        "anterior": "What payment gateways does Thinkific support?",
+        "posterior": "This allows you to manage payments and subscriptions, and run reports all in one place, without relying on third-party processors.",
+        "seccion": "What payment gateways does Thinkific support?"
+      },
+      "huellaFragmento": "51cbc9df176dba9c5c9a5392fe6a9db10ac2c2b361c02600eb26ea42fb3bf1fe",
+      "textoRelacionado": null,
+      "resultadoCapacidad": "cap.payment_collection DEMOSTRADA, profundidad nativa",
+      "lecturaDelContexto": "La sección es la pregunta «What payment gateways does Thinkific support?» y la frase es su respuesta: por eso la anterior coincide con el encabezado. La posterior explica que evita depender de terceros, lo que además sostiene la profundidad nativa."
+    },
+    {
+      "id": "hotmart-cobro",
+      "herramienta": "hotmart",
+      "campo": "cap.payment_collection",
+      "capacidadQueDemuestra": "cap.payment_collection",
+      "urlSolicitada": "https://hotmart.com/es/herramientas/pasarela-de-pagos",
+      "urlDescargada": "https://hotmart.com/es/herramientas/pasarela-de-pagos",
+      "estadoDescarga": "URL_RETRIEVAL_STATUS_SUCCESS",
+      "fechaDescarga": "2026-09-16T20:14:33.680Z",
+      "huellaRespuestaCruda": "3768dda7cb05a41063ee9b34091662f216e080c94fe498f22a8283b479a7fec5",
+      "tamanoRespuestaBytes": 12874,
+      "fraseBuscada": "Hotmart integra pasarela de pago, checkout optimizado y gestión de afiliados en un solo lugar.",
+      "resultado": "localizada_literal",
+      "motivo": "La frase aparece tal cual.",
+      "citaLocalizada": "Hotmart integra pasarela de pago, checkout optimizado y gestión de afiliados en un solo lugar.",
+      "fragmento": {
+        "anterior": "¿Cuál es la mejor pasarela de pagos para vender productos digitales en España?",
+        "posterior": "Acepta los métodos de pago más habituales en España — tarjeta de crédito y débito— y está adaptada a los estándares europeos de seguridad en pagos digitales.",
+        "seccion": "¿Tienes dudas? ¡Te las aclaramos!"
+      },
+      "huellaFragmento": "cecb5237a736969eecc7e5b29a5245a7089b230a606e80669bbecd463b6c559e",
+      "textoRelacionado": null,
+      "resultadoCapacidad": "cap.payment_collection DEMOSTRADA",
+      "lecturaDelContexto": "Está en la sección de preguntas frecuentes «¿Tienes dudas? ¡Te las aclaramos!», respondiendo a cuál es la mejor pasarela para vender en España. La posterior habla de métodos de pago españoles y de estándares europeos. Es una página regional, y eso explica que mis búsquedas nunca la devolvieran."
+    },
+    {
+      "id": "hotmart-acceso",
+      "herramienta": "hotmart",
+      "campo": "uso.acceso_al_curso_tras_el_pago",
+      "capacidadQueDemuestra": "uso.acceso_al_curso_tras_el_pago",
+      "urlSolicitada": "https://hotmart.com/es/herramientas/pasarela-de-pagos",
+      "urlDescargada": "https://hotmart.com/es/herramientas/pasarela-de-pagos",
+      "estadoDescarga": "URL_RETRIEVAL_STATUS_SUCCESS",
+      "fechaDescarga": "2026-09-16T20:14:33.680Z",
+      "huellaRespuestaCruda": "3768dda7cb05a41063ee9b34091662f216e080c94fe498f22a8283b479a7fec5",
+      "tamanoRespuestaBytes": 12874,
+      "fraseBuscada": "Cuando se confirma un pago, el acceso al producto se libera automáticamente sin que tengas que hacer nada.",
+      "resultado": "localizada_literal",
+      "motivo": "La frase aparece tal cual.",
+      "citaLocalizada": "Cuando se confirma un pago, el acceso al producto se libera automáticamente sin que tengas que hacer nada.",
+      "fragmento": {
+        "anterior": "La pasarela de Hotmart ya viene integrada de forma nativa con el área de miembros, el programa de afiliados y el dashboard.",
+        "posterior": "¿Puedo vender desde España a compradores de otros países con la misma pasarela de pago?",
+        "seccion": "¿Tienes dudas? ¡Te las aclaramos!"
+      },
+      "huellaFragmento": "4b2470f98a4345225f75a31c630b18180d900771f7051d982a2f27a7b3cb9fd6",
+      "textoRelacionado": null,
+      "resultadoCapacidad": "uso.acceso_al_curso_tras_el_pago: la FRASE existe, pero el uso NO se puede registrar",
+      "lecturaDelContexto": "La frase relaciona pago y acceso, que es lo que pide la regla 7. Pero el uso cuelga de cap.training_lms, que para Hotmart sigue sin demostrarse. Un uso no puede demostrarse sobre una capacidad que no consta."
+    },
+    {
+      "id": "teachable-cobro",
+      "herramienta": "teachable",
+      "campo": "cap.payment_collection",
+      "capacidadQueDemuestra": "cap.payment_collection",
+      "urlSolicitada": "https://support.teachable.com/en/articles/11682476-price-your-products",
+      "urlDescargada": "https://support.teachable.com/en/articles/11682476-price-your-products",
+      "estadoDescarga": "URL_RETRIEVAL_STATUS_SUCCESS",
+      "fechaDescarga": "2026-09-16T20:14:49.528Z",
+      "huellaRespuestaCruda": "1f345007747afed1d9b50bf7cf2b0e2bff37d708165cea693e26ba23747f8bf1",
+      "tamanoRespuestaBytes": 7795,
+      "fraseBuscada": "Teachable uses Stripe, which charges students in your specified currency.",
+      "resultado": "localizada_literal",
+      "motivo": "La frase aparece tal cual.",
+      "citaLocalizada": "Teachable uses Stripe, which charges students in your specified currency.",
+      "fragmento": {
+        "anterior": "Foreign transaction fee (international business location)",
+        "posterior": "Price: Free",
+        "seccion": "Pricing currency and fees"
+      },
+      "huellaFragmento": "defd087be5958c5eb5f75fd59134b9474570102e2f9a66a2f92bafa8cdf2b834",
+      "textoRelacionado": null,
+      "resultadoCapacidad": "cap.payment_collection DEMOSTRADA en la capacidad; profundidad sin resolver",
+      "lecturaDelContexto": "Es el contexto más flojo de los cinco: lo anterior y lo posterior parecen elementos de una lista, no frases. No lo invalida, pero tampoco aclara si Teachable cobra por sí misma o conecta la cuenta de Stripe del negocio."
+    }
+  ],
+  "citaNueva": {
+    "herramienta": "hotmart",
+    "campo": "cap.payment_collection (profundidad)",
+    "cita": "La pasarela de Hotmart ya viene integrada de forma nativa con el área de miembros, el programa de afiliados y el dashboard.",
+    "url": "https://hotmart.com/es/herramientas/pasarela-de-pagos",
+    "fechaDescarga": "2026-09-16T20:15:02.604Z",
+    "comoAparecio": "Es la frase anterior a la del acceso automático, devuelta como contexto en esta misma comprobación, con la misma prueba de descarga.",
+    "queDemuestra": "La profundidad NATIVA de la pasarela de Hotmart, que era lo único que le faltaba a esa capacidad. La página lo dice con esas palabras: «integrada de forma nativa».",
+    "loQueNoDemuestra": "Ni que Hotmart imparta y siga cursos, ni el uso del acceso automático, que cuelga de esa capacidad."
+  }
+}

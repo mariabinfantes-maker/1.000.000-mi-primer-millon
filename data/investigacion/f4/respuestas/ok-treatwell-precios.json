@@ -1,0 +1,74 @@
+{
+ "pedida": "https://www.treatwell.es/partners/precios/",
+ "urls": [
+  [
+   "https://www.treatwell.es/partners/precios/",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "si",
+  "espana": "si",
+  "tipo_producto": "combinacion",
+  "precio": {
+   "v": "si",
+   "cita": "25 % de comisión por cada nuevo cliente 0% de comisión por reservas repetidas"
+  },
+  "reserva_online_cliente": {
+   "v": "si",
+   "cita": "al menos el 80% de nuestras reservas se hacen online"
+  },
+  "recordatorios_automaticos": {
+   "v": "si",
+   "cita": "Recordatorios por correo electrónico ilimitados para los clientes"
+  },
+  "cancelar_o_cambiar_cita": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "ficha_de_cliente": {
+   "v": "si",
+   "cita": "que te permite gestionar citas, organizar al personal, ver el historial de clientes"
+  },
+  "catalogo_de_servicios": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "agenda_por_profesional": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "cobro_online": {
+   "v": "si",
+   "cita": "2% en reservas online por procesamiento de pagos"
+  },
+  "tpv_mostrador": {
+   "v": "si",
+   "cita": "POS para el pago de clientes"
+  },
+  "senal_o_politica_ausencias": {
+   "v": "si",
+   "cita": "cuando el cliente pague online por adelantado, lo que también te ayudará a reducir las ausencias"
+  },
+  "bonos_packs_sesiones": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "comisiones_o_propinas": {
+   "v": "si",
+   "cita": "25 % de comisión por cada nuevo cliente 0% de comisión por reservas repetidas"
+  },
+  "widget_reserva_en_web_propia": {
+   "v": "si",
+   "cita": "o a través del botón “Reservar ahora” de tus redes sociales y sitio web."
+  },
+  "inventario_stock": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "ficha_tecnica_servicio": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

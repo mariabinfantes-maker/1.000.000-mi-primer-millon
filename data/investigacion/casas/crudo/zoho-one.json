@@ -1,0 +1,13 @@
+{
+ "id": "zoho-one",
+ "nombre": "Zoho One",
+ "urls": [
+  "https://www.zoho.com/one/",
+  "https://www.zoho.com/one/pricing.html"
+ ],
+ "texto": "{\"servicios\":[{\"id\":\"crm\",\"cita\":\"Define and automate your sales process\"},{\"id\":\"gestion-proyectos\",\"cita\":\"Access project management tools like task lists, dashboards, and workflow rules.\"},{\"id\":\"facturacion-contabilidad\",\"cita\":\"Gain access to accounting tools that help organize your finances\"},{\"id\":\"atencion-cliente\",\"cita\":\"Enable your teams to field customer support requests across channels\"},{\"id\":\"comercio-electronico\",\"cita\":\"Build a website and sell online\"},{\"id\":\"automatizacion-integraciones\",\"cita\":\"Connect and interoperate within your existing third-party apps\"},{\"id\":\"marketing-email\",\"cita\":\"Set up marketing automation through email workflows, autoresponders, and more.\"},{\"id\":\"recursos-humanos\",\"cita\":\"Carry out key HR functions like finding new talent, managing employees\"},{\"id\":\"inventario-operaciones\",\"cita\":\"Manage orders and stock levels across multiple warehouses and channels.\"},{\"id\":\"creacion-web-hosting\",\"cita\":\"Make your website the face of your business\"},{\"id\":\"firma-gestion-documental\",\"cita\":\"create and file away business documents and other content.\"}],\"esDe\":\"crm\",\"sector\":null}",
+ "leidas": [
+  "OK https://www.zoho.com/one/",
+  "OK https://www.zoho.com/one/pricing/"
+ ]
+}

@@ -1,0 +1,365 @@
+{
+ "fecha": "2026-09-29",
+ "herramientas": [
+  {
+   "id": "nubimed",
+   "capacidades": [
+    {
+     "id": "cap.online_self_service_booking",
+     "estado": "verificado",
+     "cita": "Tus pacientes podrán solicitar una cita las 24h del día.",
+     "url": "https://www.nubimed.com/"
+    },
+    {
+     "id": "cap.customer_appointment_reminders",
+     "estado": "verificado",
+     "cita": "Podrás configurar todo tipo de notificaciones para tus pacientes : recordatorios de cita",
+     "url": "https://www.nubimed.com/"
+    },
+    {
+     "id": "cap.booking_cancellation_and_rescheduling",
+     "estado": "verificado",
+     "cita": "Los propios pacientes también podrán confirmar o cancelar sus citas desde estos recordatorios, sin necesidad de hablar con el personal de la clínica.",
+     "url": "https://www.nubimed.com/"
+    },
+    {
+     "id": "cap.capacity_and_time_slots",
+     "estado": "no_consta",
+     "cita": null,
+     "url": null
+    },
+    {
+     "id": "cap.no_show_and_deposits",
+     "estado": "no_consta",
+     "cita": null,
+     "url": null
+    },
+    {
+     "id": "cap.booking_waitlist",
+     "estado": "no_consta",
+     "cita": null,
+     "url": null
+    },
+    {
+     "id": "cap.embeddable_booking_widget",
+     "estado": "no_consta",
+     "cita": null,
+     "url": null
+    }
+   ],
+   "segmentosIdeales": [
+    "1-10"
+   ],
+   "porQueEseTamano": "La tarifa indica «1 usuario con agenda incluido» en LITE y PREMIUM. El plan MULTICENTRO se anuncia como «Consultar», sin número máximo de profesionales.",
+   "limites": [
+    {
+     "texto": "Las agendas profesionales adicionales se cobran aparte.",
+     "cita": "(+2,4€ + IVA usuario con agenda adicional)",
+     "url": "https://www.nubimed.com/planes-precios/"
+    },
+    {
+     "texto": "Los recordatorios por SMS tienen coste adicional.",
+     "cita": "Los recordatorios de cita por email GRATUITOS. Los recordatorios de cita por SMS tienen un coste de 0,08€ + IVA / SMS",
+     "url": "https://www.nubimed.com/planes-precios/"
+    },
+    {
+     "texto": "El almacenamiento incluido está limitado a 25 GB.",
+     "cita": "25Gb de almacenamiento",
+     "url": "https://www.nubimed.com/planes-precios/"
+    }
+   ],
+   "tienePlanGratuito": false,
+   "citaPlanGratuito": "Crea tu cuenta de prueba",
+   "urlPlanGratuito": "https://www.nubimed.com/planes-precios/"
+  },
+  {
+   "id": "archivex",
+   "capacidades": [
+    {
+     "id": "cap.online_self_service_booking",
+     "estado": "verificado",
+     "cita": "Ellos mismos podrán seleccionar la fecha, hora, profesional o tratamiento que tú les ofrezcas",
+     "url": "https://archivex.io/caracteristicas/citas-online"
+    },
+    {
+     "id": "cap.customer_appointment_reminders",
+     "estado": "verificado",
+     "cita": "puedes configurar distintos tipos de mensajes dependiendo del profesional que atienda la cita.",
+     "url": "https://archivex.io/caracteristicas/notificaciones"
+    },
+    {
+     "id": "cap.booking_cancellation_and_rescheduling",
+     "estado": "verificado",
+     "cita": "tus pacientes puedan cancelar sus propias citas online, sin necesidad de llamarte",
+     "url": "https://archivex.io/faq/post/activar-cancelacion-citas-online-aceptadas"
+    },
+    {
+     "id": "cap.capacity_and_time_slots",
+     "estado": "verificado",
+     "cita": "Crea todos los grupos que necesites, fija su ocupación máxima",
+     "url": "https://archivex.io/caracteristicas/citas-grupales"
+    },
+    {
+     "id": "cap.no_show_and_deposits",
+     "estado": "verificado",
+     "cita": "aunque el paciente falle a su consulta, obtienes una compensación económica.",
+     "url": "https://archivex.io/caracteristicas/prepago-de-citas-archivex"
+    },
+    {
+     "id": "cap.booking_waitlist",
+     "estado": "no_consta",
+     "cita": null,
+     "url": null
+    },
+    {
+     "id": "cap.embeddable_booking_widget",
+     "estado": "no_consta",
+     "cita": null,
+     "url": null
+    }
+   ],
+   "segmentosIdeales": [
+    "1-10"
+   ],
+   "porQueEseTamano": "La tarifa publica Plan S con «1 usuario», Plan M con «Hasta 5 usuarios» y Plan L con «Hasta 10 usuarios».",
+   "limites": [
+    {
+     "texto": "Cada centro necesita una licencia independiente.",
+     "cita": "cada una de ellas deberá disponer de una licencia de Archivex propia",
+     "url": "https://archivex.io/contrato"
+    }
+   ],
+   "tienePlanGratuito": false,
+   "citaPlanGratuito": "Prueba Archivex gratis durante 7 días",
+   "urlPlanGratuito": "https://archivex.io/precios"
+  },
+  {
+   "id": "viday",
+   "capacidades": [
+    {
+     "id": "cap.online_self_service_booking",
+     "estado": "verificado",
+     "cita": "tus clientes pueden consultar disponibilidad y reservar en cualquier momento",
+     "url": "https://viday.es/"
+    },
+    {
+     "id": "cap.customer_appointment_reminders",
+     "estado": "verificado",
+     "cita": "El sistema envía recordatorios automáticos de citas o clases",
+     "url": "https://viday.es/"
+    },
+    {
+     "id": "cap.booking_cancellation_and_rescheduling",
+     "estado": "verificado",
+     "cita": "Tus clientes reservan, modifican o cancelan sus reservas en cualquier momento.",
+     "url": "https://viday.es/app-gestion-negocios/"
+    },
+    {
+     "id": "cap.capacity_and_time_slots",
+     "estado": "verificado",
+     "cita": "controlar plazas disponibles",
+     "url": "https://viday.es/clases-grupales/"
+    },
+    {
+     "id": "cap.no_show_and_deposits",
+     "estado": "no_consta",
+     "cita": null,
+     "url": null
+    },
+    {
+     "id": "cap.booking_waitlist",
+     "estado": "verificado",
+     "cita": "La lista de espera notifica automáticamente al siguiente cliente disponible.",
+     "url": "https://viday.es/clases-grupales/"
+    },
+    {
+     "id": "cap.embeddable_booking_widget",
+     "estado": "no_consta",
+     "cita": null,
+     "url": null
+    }
+   ],
+   "segmentosIdeales": [
+    "1-10",
+    "11-50"
+   ],
+   "porQueEseTamano": "El plan Equipo Empresa incluye «10 profesionales incluidos» y añade «+ 15€ por profesional adicional»; se describe como «Para multinegocios o equipos de más de 6 profesionales». No se publica un máximo superior.",
+   "limites": [
+    {
+     "texto": "El plan Empresa incluye hasta tres CIFs con contabilidades separadas.",
+     "cita": "Hasta 3 CIFs con contabilidades separadas",
+     "url": "https://viday.es/precios/"
+    },
+    {
+     "texto": "Los profesionales adicionales del plan Empresa se cobran aparte.",
+     "cita": "+ 15€ por profesional adicional",
+     "url": "https://viday.es/precios/"
+    }
+   ],
+   "tienePlanGratuito": false,
+   "citaPlanGratuito": "Elige el plan que hace crecer tu negocio",
+   "urlPlanGratuito": "https://viday.es/precios/"
+  },
+  {
+   "id": "bewe",
+   "capacidades": [
+    {
+     "id": "cap.online_self_service_booking",
+     "estado": "verificado",
+     "cita": "Linda detecta la intención de agendar, consulta tu calendario en tiempo real y crea la cita en el mismo chat.",
+     "url": "https://www.bewe.ai/sales-assistant"
+    },
+    {
+     "id": "cap.customer_appointment_reminders",
+     "estado": "verificado",
+     "cita": "Recordatorios automáticos para bajar el no-show.",
+     "url": "https://www.bewe.ai/sales-assistant"
+    },
+    {
+     "id": "cap.booking_cancellation_and_rescheduling",
+     "estado": "verificado",
+     "cita": "Reagenda y cancela desde el mismo canal cuando el cliente lo pide.",
+     "url": "https://www.bewe.ai/sales-assistant"
+    },
+    {
+     "id": "cap.capacity_and_time_slots",
+     "estado": "verificado",
+     "cita": "Profesionales, salas y equipos como recursos, cada uno con su horario.",
+     "url": "https://www.bewe.ai/agenda"
+    },
+    {
+     "id": "cap.no_show_and_deposits",
+     "estado": "no_consta",
+     "cita": null,
+     "url": null
+    },
+    {
+     "id": "cap.booking_waitlist",
+     "estado": "no_consta",
+     "cita": null,
+     "url": null
+    },
+    {
+     "id": "cap.embeddable_booking_widget",
+     "estado": "no_consta",
+     "cita": null,
+     "url": null
+    }
+   ],
+   "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+   ],
+   "porQueEseTamano": "Starter incluye «1 Empleado», Growth «5 Empleados» y Pro «Ilimitado Empleados».",
+   "limites": [
+    {
+     "texto": "Starter sólo incluye una agenda y no incluye WhatsApp.",
+     "cita": "Starter incluye una sola agenda, la del administrador de la cuenta.",
+     "url": "https://www.bewe.ai/pricing"
+    },
+    {
+     "texto": "WhatsApp requiere el plan Growth.",
+     "cita": "Todo lo de WhatsApp ... está disponible desde Growth.",
+     "url": "https://www.bewe.ai/pricing"
+    }
+   ],
+   "tienePlanGratuito": false,
+   "citaPlanGratuito": "El acceso a Bewe empieza con un plan de pago; no hay versión gratuita indefinida",
+   "urlPlanGratuito": "https://www.bewe.ai/hubspot-vs-bewe",
+   "precio": {
+    "moneda": "USD",
+    "cita": "$29.00/mes · USD",
+    "url": "https://www.bewe.ai/industries/services"
+   }
+  },
+  {
+   "id": "bookitit",
+   "capacidades": [
+    {
+     "id": "cap.online_self_service_booking",
+     "estado": "verificado",
+     "cita": "Tus estudiantes podrán entrar en la página web de tu academia de idiomas y reservar la clase",
+     "url": "https://www.bookitit.com/es/blog/utiliza-bookitit-para-tu-academia-de-idiomas-%C2%B7-sistema-de-reservas-online/"
+    },
+    {
+     "id": "cap.customer_appointment_reminders",
+     "estado": "verificado",
+     "cita": "tanto tú como los estudiantes recibiréis una notificación por e-mail o SMS",
+     "url": "https://www.bookitit.com/es/blog/utiliza-bookitit-para-tu-academia-de-idiomas-%C2%B7-sistema-de-reservas-online/"
+    },
+    {
+     "id": "cap.booking_cancellation_and_rescheduling",
+     "estado": "verificado",
+     "cita": "un cliente decide no realizar finalmente una práctica que ya había reservado, podrá cancelarla",
+     "url": "https://www.bookitit.com/es/blog/sistema-de-reservas-online-para-autoescuelas-%C2%B7-bookitit/"
+    },
+    {
+     "id": "cap.capacity_and_time_slots",
+     "estado": "verificado",
+     "cita": "Puedes configurar cuántas citas quieres recibir a una misma hora en una agenda.",
+     "url": "https://www.bookitit.com/es/reservas-online-programa-kit-digital/"
+    },
+    {
+     "id": "cap.no_show_and_deposits",
+     "estado": "no_consta",
+     "cita": null,
+     "url": null
+    },
+    {
+     "id": "cap.booking_waitlist",
+     "estado": "verificado",
+     "cita": "Cuando un servicio alcanza la capacidad máxima, los usuarios pueden entrar en una lista de espera y acceder automáticamente a las plazas que quedan disponibles.",
+     "url": "https://www.bookitit.com/pt-br/perguntas-frequentes-sobre-reservas-online/"
+    },
+    {
+     "id": "cap.embeddable_booking_widget",
+     "estado": "verificado",
+     "cita": "tendrás que incorporar el widget de Bookitit en tu página web",
+     "url": "https://www.bookitit.com/es/blog/utiliza-bookitit-para-tu-academia-de-idiomas-%C2%B7-sistema-de-reservas-online/"
+    }
+   ],
+   "segmentosIdeales": [
+    "1-10",
+    "11-50"
+   ],
+   "porQueEseTamano": "La página oficial del Kit Digital publica «Desde 684 € + IVA para 1 agenda y hasta 2610 € + IVA para 50 agendas».",
+   "limites": [
+    {
+     "texto": "VeriFactu todavía no está disponible.",
+     "cita": "VERIFACTU (próximamente)",
+     "url": "https://www.bookitit.com/es/"
+    },
+    {
+     "texto": "La tarifa depende del número de agendas contratadas.",
+     "cita": "pagas solo por el número de agendas que necesitas",
+     "url": "https://www.bookitit.com/es/tarifas/"
+    }
+   ],
+   "tienePlanGratuito": false,
+   "citaPlanGratuito": "puedes probar nuestro sistema de reservas y de cita previa para tu negocio completamente gratis durante 15 días",
+   "urlPlanGratuito": "https://www.bookitit.com/es/tarifas/",
+   "precio": {
+    "unaAgenda": {
+     "precio": "15,90 € al mes",
+     "cita": "Si contratas Bookitit 1 agenda te costará 15,90€ al mes",
+     "url": "https://www.bookitit.com/es/blog/agenda-de-citas-para-clinicas-dentales/"
+    },
+    "tresAgendas": {
+     "precio": "28,56 € al mes",
+     "cita": "si necesitas gestionar 3 agendas de citas 28,56€",
+     "url": "https://www.bookitit.com/es/blog/agenda-de-citas-para-clinicas-dentales/"
+    }
+   }
+  }
+ ],
+ "comoSeInvestigo": {
+  "quienMiro": "GPT con navegación, encargado por la propietaria.",
+  "cuando": "2026-09-29",
+  "quePregunto": "Siete capacidades concretas del vocabulario, una por una; para cuántas personas está pensada, razonado desde sus propios planes; qué límite tiene aunque seas su cliente; y si hay plan gratuito permanente. Se excluyeron a propósito las dos capacidades ya comprobadas el día anterior.",
+  "loQueNoSePudoComprobar": "Lo que salió `no_consta` en cada capacidad. Nubimed y Archivex no demuestran lista de espera ni insertar la reserva en la web propia; BEWE tampoco depósitos.",
+  "abiertoPorNosotrosOContadoPorOtro": "lo_dice_otro",
+  "porQueLoDiceOtro": "Mismo motivo: el lector de aquí no abre esas páginas. Las citas vienen con su dirección y son verosímiles, pero no las hemos abierto nosotros."
+ }
+}

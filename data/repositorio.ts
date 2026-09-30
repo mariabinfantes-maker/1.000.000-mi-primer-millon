@@ -66,9 +66,18 @@ const CAMPOS_PUNTUACION: (keyof Herramienta["puntuaciones"])[] = [
   "nivelTecnicoRequerido",
 ];
 
-/** Si `valor` está presente (no es `undefined`), comprueba que sea un número dentro de `[minimo, maximo]`. No hace nada si `valor` es `undefined`: el campo es opcional. */
+/**
+ * Si `valor` está presente, comprueba que sea un número dentro de
+ * `[minimo, maximo]`. No hace nada si falta: el campo es opcional.
+ *
+ * `null` cuenta como ausente, igual que `undefined`. No es una tolerancia
+ * cosmética: desde el 2026-09-28 la propietaria decidió que **donde no haya
+ * prueba, `null`**, y una investigación que lo escribe así está siendo
+ * honrada, no dejándose un campo. Antes sólo se saltaba `undefined` y los
+ * primeros cinco borradores de reservas se caían por escribir `null`.
+ */
 function errorNumeroEnRango(errores: string[], nombreCampo: string, valor: unknown, minimo: number, maximo: number): void {
-  if (valor === undefined) return;
+  if (valor === undefined || valor === null) return;
   if (typeof valor !== "number" || valor < minimo || valor > maximo) {
     errores.push(`"${nombreCampo}" debe ser un número entre ${minimo} y ${maximo}`);
   }
@@ -116,15 +125,32 @@ export function validarHerramienta(datos: unknown, nombreArchivo: string): Herra
     errores.push('falta el campo booleano "tienePlanGratuito"');
   }
 
+  /**
+   * LAS NOTAS PUEDEN FALTAR, PERO NO PUEDEN ESTAR MAL.
+   *
+   * Hasta el 2026-09-29 esto exigía las seis como números de 1 a 10. Dejó de
+   * poder ser así cuando la propietaria decidió que **donde no haya prueba,
+   * `null`** (ATLAS.md, 2026-09-28): ningún fabricante publica que su producto
+   * es un 7, así que `calidad`, `facilidadDeUso` y `escalabilidad` van a
+   * quedar vacías casi siempre en toda ficha nueva y honrada.
+   *
+   * Se vio al construir los primeros cinco borradores de reservas: los cinco
+   * traían las notas vacías —que es lo correcto— y el validador los rechazaba
+   * por eso.
+   *
+   * Lo que sigue en pie: el objeto `puntuaciones` es obligatorio, y una nota
+   * que EXISTA tiene que ser un número entre 1 y 10. Lo que se quita es la
+   * obligación de que exista. Falta y mentira no son lo mismo, y sólo una de
+   * las dos hace daño.
+   *
+   * Ninguna de las 65 fichas de hoy se ve afectada: todas traen sus seis.
+   */
   const puntuaciones = h.puntuaciones as Record<string, unknown> | undefined;
   if (typeof puntuaciones !== "object" || puntuaciones === null) {
     errores.push('falta el objeto "puntuaciones"');
   } else {
     for (const campo of CAMPOS_PUNTUACION) {
-      const valor = puntuaciones[campo];
-      if (typeof valor !== "number" || valor < 1 || valor > 10) {
-        errores.push(`"puntuaciones.${campo}" debe ser un número entre 1 y 10`);
-      }
+      errorNumeroEnRango(errores, `puntuaciones.${campo}`, puntuaciones[campo] ?? undefined, 1, 10);
     }
   }
 
@@ -205,7 +231,7 @@ export function validarHerramienta(datos: unknown, nombreArchivo: string): Herra
   return datos as Herramienta;
 }
 
-const TIPOS_BLOQUE_VALIDOS = new Set(["parrafo", "subtitulo", "lista"]);
+const TIPOS_BLOQUE_VALIDOS = new Set(["parrafo", "subtitulo", "lista", "cita"]);
 
 /** Validación defensiva de un bloque de `Post.cuerpo` — misma disciplina que el resto del esquema, sin librería externa. */
 function errorEnBloque(errores: string[], indice: number, bloque: unknown): void {
@@ -215,15 +241,28 @@ function errorEnBloque(errores: string[], indice: number, bloque: unknown): void
   }
   const b = bloque as Record<string, unknown>;
   if (typeof b.tipo !== "string" || !TIPOS_BLOQUE_VALIDOS.has(b.tipo)) {
-    errores.push(`"cuerpo[${indice}].tipo" debe ser "parrafo", "subtitulo" o "lista"`);
+    errores.push(`"cuerpo[${indice}].tipo" debe ser "parrafo", "subtitulo", "lista" o "cita"`);
     return;
   }
   if (b.tipo === "lista") {
     if (!Array.isArray(b.items) || b.items.length === 0 || b.items.some((item) => typeof item !== "string")) {
       errores.push(`"cuerpo[${indice}].items" debe ser un array de strings no vacío`);
     }
-  } else if (typeof b.texto !== "string" || b.texto.trim() === "") {
+    return;
+  }
+  if (typeof b.texto !== "string" || b.texto.trim() === "") {
     errores.push(`"cuerpo[${indice}].texto" debe ser un string no vacío`);
+  }
+  // Una cita sin fuente y sin fecha es una afirmación disfrazada. Se rechaza
+  // aquí, en el mismo sitio donde se rechaza un bloque sin texto: es el mismo
+  // tipo de defecto.
+  if (b.tipo === "cita") {
+    if (typeof b.fuente !== "string" || !/^https:\/\//.test(b.fuente)) {
+      errores.push(`"cuerpo[${indice}].fuente" debe ser una dirección https de la fuente citada`);
+    }
+    if (typeof b.fecha !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(b.fecha)) {
+      errores.push(`"cuerpo[${indice}].fecha" debe ser la fecha de lectura en formato AAAA-MM-DD`);
+    }
   }
 }
 

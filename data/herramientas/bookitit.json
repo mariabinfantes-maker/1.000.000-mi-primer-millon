@@ -1,0 +1,138 @@
+{
+  "nombre": "Bookitit",
+  "paginaOficial": "https://www.bookitit.com/es/",
+  "urlPrecios": "https://www.bookitit.com/es/tarifas/",
+  "categoriaId": "reservas-citas",
+  "descripcion": "Sistema para recibir reservas desde la web y los perfiles del negocio, y reunirlas con las citas tomadas por teléfono o presencialmente. Cada agenda puede representar a un profesional, una sala, una máquina u otro recurso.",
+  "problemasQueResuelve": [
+    "Quiero reunir las reservas online y las que recibo por teléfono.",
+    "Necesito controlar cuándo está disponible cada profesional o recurso.",
+    "Quiero cobrar reservas y enviar recordatorios."
+  ],
+  "casosDeUso": [
+    "Una peluquería configura una agenda por empleado.",
+    "Un centro deportivo permite reservar pistas o salas.",
+    "Un centro de estética organiza la disponibilidad de cabinas y máquinas."
+  ],
+  "idealPara": "Negocios y entidades que ofrecen servicios con cita previa o recursos reservables.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "peluquerías",
+    "centros de estética",
+    "clínicas",
+    "centros deportivos",
+    "academias",
+    "talleres",
+    "servicios profesionales"
+  ],
+  "noRecomendadaPara": "No encaja, con lo publicado hoy, para quien necesite contratar una solución con VeriFactu ya disponible.",
+  "casosNoRecomendados": [
+    "VeriFactu todavía no está disponible.",
+    "La tarifa depende del número de agendas contratadas."
+  ],
+  "funcionesPrincipales": [
+    "Agendas por profesional o recurso",
+    "Reservas online y registro manual de citas",
+    "Configuración de horarios, servicios y bloqueos",
+    "Pagos online y bonos de sesiones",
+    "Recordatorios por WhatsApp, correo y SMS",
+    "Gestión de clientes e informes",
+    "Administración de varios centros",
+    "API para integraciones personalizadas"
+  ],
+  "integraciones": [
+    "Redsys",
+    "Stripe",
+    "PayPal",
+    "Niubiz",
+    "Google Calendar",
+    "Instagram",
+    "Facebook",
+    "Google Business Profile"
+  ],
+  "integracionesPrincipales": [
+    "Google Calendar",
+    "Redsys",
+    "Stripe",
+    "PayPal"
+  ],
+  "precioInicial": "Desde 15,90 €/mes para una agenda (28,56 €/mes para tres)",
+  "modeloDePrecio": [
+    "suscripcion_mensual"
+  ],
+  "tienePlanGratuito": false,
+  "preciosComprobados": {
+    "fecha": "2026-09-29",
+    "url": "https://www.bookitit.com/es/tarifas/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-29",
+    "url": "https://www.bookitit.com/es/blog/agenda-de-citas-para-clinicas-dentales/",
+    "moneda": "EUR",
+    "planes": [
+      {
+        "nombre": "1 agenda",
+        "mensual": "15,90 €",
+        "anual": null,
+        "cita": "Si contratas Bookitit 1 agenda te costará 15,90€ al mes"
+      },
+      {
+        "nombre": "3 agendas",
+        "mensual": "28,56 €",
+        "anual": null,
+        "cita": "si necesitas gestionar 3 agendas de citas 28,56€"
+      }
+    ]
+  },
+  "idiomasDisponibles": [
+    "es",
+    "en",
+    "pt",
+    "de",
+    "fr",
+    "ca",
+    "uk",
+    "ko"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "nivelTecnicoRequerido": null,
+    "facilidadImplementacion": null,
+    "fiabilidad": null,
+    "atencionAlCliente": null,
+    "facilidadDeUso": null,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Su tutorial describe tres pasos iniciales —horario del centro, crear un servicio y crear una agenda— pero el propio tutorial indica que después se sigue configurando, así que no son una implantación completa. Su página de contacto ofrece correo y formulario, y la portada permite reservar una llamada con soporte; un artículo de 2013 menciona chat y teléfono, pero no se usa para afirmar la cobertura actual. No hay base para convertir esos hechos en notas sin un baremo propio. No se encontró compromiso de disponibilidad ni notas desglosadas de G2 o Capterra. Las siete quedan sin valorar.",
+  "ventajas": [
+    "La agenda puede representar tanto personas como instalaciones o equipos.",
+    "Reúne citas de distintos canales en el calendario.",
+    "Publica documentación de API para desarrollar conexiones con otros sistemas."
+  ],
+  "inconvenientes": [
+    "La tarifa depende del número de agendas contratadas y excluye IVA.",
+    "La cuenta Multicentro administra cuentas diferenciadas por centro.",
+    "Cambiar el idioma del formulario de reservas no traduce los nombres de servicios, agendas ni comentarios que escribe el negocio.",
+    "VeriFactu figura anunciado como próximamente."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": "España",
+    "anioFundacion": null,
+    "tamanoAproximado": null
+  },
+  "id": "bookitit",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-29",
+  "fechaUltimaRevision": "2026-09-29",
+  "problemasIds": [
+    "ahorrar-tiempo",
+    "organizar-empresa",
+    "atencion-cliente"
+  ]
+}

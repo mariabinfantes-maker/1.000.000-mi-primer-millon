@@ -1,0 +1,17 @@
+{
+ "id": "agile-crm__reservas-citas",
+ "herramientaId": "agile-crm",
+ "nombre": "Agile CRM",
+ "casa": "reservas-citas",
+ "nombreCasa": "Reservas y citas",
+ "urls": [
+  "https://www.agilecrm.com",
+  "https://www.agilecrm.com/pricing"
+ ],
+ "cita": "Share your calendar online and automate scheduling, invites, and follow ups",
+ "texto": "{\"resultados\":[{\"id\":\"cap.online_self_service_booking\",\"estado\":\"si\",\"cita\":\"Share your calendar online and automate scheduling, invites, and follow ups\",\"url\":\"https://www.agilecrm.com\"},{\"id\":\"cap.per_resource_booking_calendar\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.customer_appointment_reminders\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.booking_cancellation_and_rescheduling\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.capacity_and_time_slots\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.no_show_and_deposits\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.room_and_equipment_booking\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.booking_waitlist\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.embeddable_booking_widget\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.agilecrm.com/",
+  "OK https://www.agilecrm.com/pricing"
+ ]
+}

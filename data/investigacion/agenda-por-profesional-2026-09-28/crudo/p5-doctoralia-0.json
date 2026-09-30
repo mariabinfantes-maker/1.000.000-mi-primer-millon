@@ -1,0 +1,7 @@
+{
+ "id": "doctoralia",
+ "nombre": "Doctoralia",
+ "url": "https://pro.doctoralia.es/blog/clinicas/gestion-de-agendas-en-clinicas-con-multicentros",
+ "recuperada": false,
+ "texto": "```json\n{\n  \"abierta\": false,\n  \"agendaPorProfesional\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"eligeElCliente\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"enEspanol\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  }\n}\n```"
+}

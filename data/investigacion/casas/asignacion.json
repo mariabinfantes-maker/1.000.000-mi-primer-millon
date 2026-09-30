@@ -1,0 +1,2455 @@
+{
+ "casas": {
+  "crm": "CRM y ventas",
+  "gestion-proyectos": "Gestión de proyectos",
+  "asistentes-ia": "IA y contenido",
+  "facturacion-contabilidad": "Facturación y contabilidad",
+  "reservas-citas": "Reservas y citas",
+  "atencion-cliente": "Atención al cliente",
+  "comercio-electronico": "Comercio electrónico",
+  "automatizacion-integraciones": "Automatización e integraciones",
+  "marketing-email": "Marketing y email",
+  "recursos-humanos": "Recursos humanos",
+  "inventario-operaciones": "Inventario y operaciones",
+  "creacion-web-hosting": "Creación web y hosting",
+  "firma-gestion-documental": "Firma y documental",
+  "software-sectorial": "Software sectorial"
+ },
+ "filas": [
+  {
+   "id": "activecampaign",
+   "nombre": "ActiveCampaign",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 10,
+   "casas": {
+    "crm": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "A CRM built for nimble teams"
+    },
+    "asistentes-ia": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "AI content generation"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 3,
+     "cita": "Integrate and connect over 1,000 apps"
+    },
+    "marketing-email": {
+     "nivel": "oficio",
+     "verificadas": 3,
+     "cita": "Email marketing with 8x faster campaign creation"
+    }
+   }
+  },
+  {
+   "id": "agile-crm",
+   "nombre": "Agile CRM",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 5,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 3,
+     "cita": "Close more deals with single-page contact management"
+    },
+    "gestion-proyectos": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Manage your projects effectively with drag-and-drop task lists and more"
+    },
+    "reservas-citas": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Share your calendar online and automate scheduling, invites, and follow ups"
+    },
+    "atencion-cliente": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Powerful ticketing feature to resolve customer queries quickly"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Agile integrates with your favorite Google Apps for complete sales enablement."
+    },
+    "marketing-email": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Get complete email marketing features with newsletters, analytics, and more"
+    },
+    "recursos-humanos": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Applicant Tracking System"
+    },
+    "creacion-web-hosting": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Website Builder"
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Document Signing Software"
+    }
+   }
+  },
+  {
+   "id": "agiled",
+   "nombre": "Agiled",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 18,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 5,
+     "cita": "Never lose a lead. Close more deals."
+    },
+    "gestion-proyectos": {
+     "nivel": "lo-hace",
+     "verificadas": 3,
+     "cita": "Plan with kanban boards, Gantt charts, or task lists."
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "An AI assistant that actually knows your business."
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Get paid faster. Chase less."
+    },
+    "reservas-citas": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "End the back-and-forth. Let clients book directly."
+    },
+    "atencion-cliente": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Built-in support ticketing for client requests"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 6,
+     "cita": "Automate the busywork you shouldn't be doing."
+    },
+    "recursos-humanos": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Manage your team from onboarding to attendance."
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Proposals and contracts — sent, signed, done."
+    }
+   }
+  },
+  {
+   "id": "asana",
+   "nombre": "Asana",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 13,
+   "casas": {
+    "gestion-proyectos": {
+     "nivel": "oficio",
+     "verificadas": 6,
+     "cita": "Projects help you organize related tasks into a single space with different views like lists, boards, or timelines so you can see the big picture."
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "AI assistance built into your projects, tasks, goals, and more, included on every paid plan."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 4,
+     "cita": "Let routine work run itself as many times as you need to. Create automations to assign work, send alerts and keep statuses current."
+    }
+   }
+  },
+  {
+   "id": "beautiful-ai",
+   "nombre": "Beautiful.ai",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 10,
+   "casas": {
+    "asistentes-ia": {
+     "nivel": "oficio",
+     "verificadas": 2,
+     "cita": "AI writing assistant"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 3,
+     "cita": "Integrations Connect your favorite tools"
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": null
+    }
+   }
+  },
+  {
+   "id": "bitrix24",
+   "nombre": "Bitrix24",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 21,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 3,
+     "cita": "CRM Manage sales and clients effortlessly"
+    },
+    "gestion-proyectos": {
+     "nivel": "lo-hace",
+     "verificadas": 3,
+     "cita": "Tasks & Projects Get work done easier & faster"
+    },
+    "asistentes-ia": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "CoPilot Your AI-powered assistant in Bitrix24"
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Create and send invoices from your CRM to close deals faster"
+    },
+    "reservas-citas": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "open time slots, meeting room booking"
+    },
+    "atencion-cliente": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Customer service Stay in touch with your clients and provide top-notch customer service."
+    },
+    "comercio-electronico": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Online store Maximize ecommerce with inventory management, order processing, delivery and online payments"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 6,
+     "cita": "Automation & integrations Set CRM rules and triggers, workflow automation, automated funnels, API"
+    },
+    "marketing-email": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Marketing Use email campaigns, social media ads, SMS, telemarketing, landing pages"
+    },
+    "recursos-humanos": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "HR & Automation Optimize workflows & manage HR data"
+    },
+    "inventario-operaciones": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Track, audit, and manage your stock across multiple warehouses"
+    },
+    "creacion-web-hosting": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Website builder Use our free CMS, templates, hosting, AI-generated images and texts to create awesome sites"
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Online documents & file storage Store, share and edit documents online easily with co-workers using company drive"
+    }
+   }
+  },
+  {
+   "id": "canva",
+   "nombre": "Canva",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 8,
+   "casas": {
+    "asistentes-ia": {
+     "nivel": "oficio",
+     "verificadas": 3,
+     "cita": "Canva AI assistant"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Integration apps"
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": null
+    }
+   }
+  },
+  {
+   "id": "capsule-crm",
+   "nombre": "Capsule CRM",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 9,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 4,
+     "cita": "Includes the basics for managing contacts and opportunities."
+    },
+    "gestion-proyectos": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Projects Affordable project management."
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Sensible AI features We've been thoughtful about how AI is implemented in Capsule - it's there simply to make your working day easier."
+    },
+    "atencion-cliente": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Conversations Provide customer service & support."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 4,
+     "cita": "Automations Eliminate manual tasks with workflows."
+    },
+    "marketing-email": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Campaign builder Send emails to new customers."
+    }
+   }
+  },
+  {
+   "id": "clickfunnels",
+   "nombre": "ClickFunnels",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 11,
+   "casas": {
+    "crm": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Effortlessly manage your contacts, schedule appointments, track deals, stay organized, and so much more—all in one convenient platform."
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "AI Funnel Builder"
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": null
+    },
+    "reservas-citas": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Easy appointment booking and meeting follow-ups."
+    },
+    "atencion-cliente": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Connect with your leads and customers — in one place."
+    },
+    "comercio-electronico": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Create a stunning online store to sell your products online."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 3,
+     "cita": "Create powerful workflows to automate your marketing."
+    },
+    "marketing-email": {
+     "nivel": "oficio",
+     "verificadas": 4,
+     "cita": "Connect with your audience directly in their inboxes and build meaningful relationships."
+    },
+    "creacion-web-hosting": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "All ClickFunnels plans include secure, unlimited hosting for all your digital content."
+    }
+   }
+  },
+  {
+   "id": "clickup-brain",
+   "nombre": "ClickUp Brain",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 14,
+   "casas": {
+    "gestion-proyectos": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "AI Projects Cross-list orchestration of work across timelines"
+    },
+    "asistentes-ia": {
+     "nivel": "oficio",
+     "verificadas": 0,
+     "cita": "The world's most advanced AI for work"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 7,
+     "cita": "Automate tasks"
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": null
+    }
+   }
+  },
+  {
+   "id": "clickup",
+   "nombre": "ClickUp",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 15,
+   "casas": {
+    "gestion-proyectos": {
+     "nivel": "oficio",
+     "verificadas": 5,
+     "cita": "Sprint Management"
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Unlimited AI writing"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 6,
+     "cita": "Unlimited Integrations"
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Collaborative Docs"
+    }
+   }
+  },
+  {
+   "id": "close",
+   "nombre": "Close",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 14,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 4,
+     "cita": "Close is a sales CRM built for teams that sell."
+    },
+    "gestion-proyectos": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": null
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Chloe is an AI sales agent built into Close CRM that calls leads, qualifies prospects through real conversations, and can book meetings while updating your CRM automatically."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 6,
+     "cita": "Connect with 2000+ third-party apps through Zapier."
+    },
+    "marketing-email": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Send a templated email to multiple contacts at once."
+    }
+   }
+  },
+  {
+   "id": "copper",
+   "nombre": "Copper",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 14,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 5,
+     "cita": "Manage contacts, deals, and more, in one place"
+    },
+    "gestion-proyectos": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Manage projects Build workflows that keep everything moving"
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "AI email re-writer Make emails clearer or more engaging with AI-powered edits"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 6,
+     "cita": "Integrate Copper with your favorite apps in one click ⚡"
+    },
+    "marketing-email": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Respond instantly to form submissions and send welcome or follow up emails."
+    }
+   }
+  },
+  {
+   "id": "copy-ai",
+   "nombre": "Copy.ai",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 5,
+   "casas": {
+    "asistentes-ia": {
+     "nivel": "oficio",
+     "verificadas": 2,
+     "cita": "Power your content engine with AI — SEO, thought leadership, use cases, social, and more. Drafts delivered in seconds, not weeks"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "2,000+ Integrations"
+    },
+    "marketing-email": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": null
+    }
+   }
+  },
+  {
+   "id": "descript",
+   "nombre": "Descript",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 13,
+   "casas": {
+    "asistentes-ia": {
+     "nivel": "oficio",
+     "verificadas": 7,
+     "cita": "Descript is an AI video and audio editor that lets you edit by editing text."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 3,
+     "cita": "API + MCP Edit video through code, or from inside your AI assistant"
+    }
+   }
+  },
+  {
+   "id": "engagebay",
+   "nombre": "EngageBay",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 8,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 4,
+     "cita": "EngageBay's CRM helps you manage customer relationships effortlessly – no steep learning curve."
+    },
+    "gestion-proyectos": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Task Management"
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "EngageBay's AI Chatbot transforms customer support. Train it with your knowledge base, files, and links for accurate, branded responses."
+    },
+    "reservas-citas": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "EngageBay's scheduling tool lets you book meetings effortlessly, saving time for both you and your clients."
+    },
+    "atencion-cliente": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Free Live Chat Software Free Helpdesk Service Automations Canned Responses"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Easily integrate EngageBay with the tools you already love."
+    },
+    "marketing-email": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "EngageBay makes it easy to send email campaigns on autopilot, at any scale, even for beginners."
+    }
+   }
+  },
+  {
+   "id": "fireflies-ai",
+   "nombre": "Fireflies.ai",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 8,
+   "casas": {
+    "asistentes-ia": {
+     "nivel": "oficio",
+     "verificadas": 3,
+     "cita": "Transcribe, summarize, search, and analyze all your team conversations."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 3,
+     "cita": "Integrate Fireflies with your favorite Work Tools"
+    }
+   }
+  },
+  {
+   "id": "freshsales",
+   "nombre": "Freshsales",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 2,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 1,
+     "cita": "Grow your pipeline, boost conversions, and power productivity with our AI-powered, easy-to-use sales CRM."
+    },
+    "asistentes-ia": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Freddy AI makes work smarter and easier, helping you around the clock: highlighting the best leads and deals, offering insights, and even writing emails."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Eliminate manual effort and save time by automating repetitive, mundane tasks."
+    },
+    "marketing-email": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Freshsales helps you run smart sales campaigns to generate more leads, then capture, qualify, route, and track them with the power of Freddy AI."
+    }
+   }
+  },
+  {
+   "id": "gamma",
+   "nombre": "Gamma",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 9,
+   "casas": {
+    "asistentes-ia": {
+     "nivel": "oficio",
+     "verificadas": 4,
+     "cita": "Access to the most advanced AI models (text, image, video)"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 3,
+     "cita": "Gamma offers an API that lets you connect Gamma to other tools and workflows. It can be used directly by developers or through no-code platforms like Zapier and Make."
+    },
+    "creacion-web-hosting": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Generate a shareable, hosted website in minutes — no developers needed."
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Structured, visual documents — from one-pagers to white papers — ready to share."
+    }
+   }
+  },
+  {
+   "id": "ganttpro",
+   "nombre": "GanttPRO",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 11,
+   "casas": {
+    "gestion-proyectos": {
+     "nivel": "oficio",
+     "verificadas": 6,
+     "cita": "Plan and manage simple tasks and complex projects with professional Gantt chart software."
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "AI Gantt chart maker"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Native Integrations & API"
+    }
+   }
+  },
+  {
+   "id": "gohighlevel",
+   "nombre": "GoHighLevel",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 7,
+   "casas": {
+    "crm": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "CRM & Pipelines"
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Content AI"
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Payments & Invoicing"
+    },
+    "reservas-citas": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Booking Calendars"
+    },
+    "atencion-cliente": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Consolidated conversation stream (SMS, Messenger, Instagram DM, Whatsapp, Livechat)"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 3,
+     "cita": "Workflow Automation"
+    },
+    "marketing-email": {
+     "nivel": "oficio",
+     "verificadas": 1,
+     "cita": "Email + SMS Marketing*"
+    },
+    "creacion-web-hosting": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Website & Funnel Builder"
+    }
+   }
+  },
+  {
+   "id": "grammarly",
+   "nombre": "Grammarly",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 4,
+   "casas": {
+    "asistentes-ia": {
+     "nivel": "oficio",
+     "verificadas": 2,
+     "cita": "Work with an AI partner that helps turn your thoughts into writing that's clear, credible, and impossible to ignore."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": null
+    }
+   }
+  },
+  {
+   "id": "heygen",
+   "nombre": "HeyGen",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 9,
+   "casas": {
+    "asistentes-ia": {
+     "nivel": "oficio",
+     "verificadas": 3,
+     "cita": "HeyGen's AI video tools handle everything from avatar generation and voice cloning to captions, translation, and turning any input into polished video."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Integrations with n8n, Make, Hubspot & Zapier"
+    }
+   }
+  },
+  {
+   "id": "hive",
+   "nombre": "Hive",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 10,
+   "casas": {
+    "crm": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "CRM: Sales context, connected to action."
+    },
+    "gestion-proyectos": {
+     "nivel": "oficio",
+     "verificadas": 5,
+     "cita": "Hive is an AI-powered project management software and work management platform that brings projects, tasks, workflows, collaboration, reporting, CRM, and finance into one workspace."
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Sidekick is your AI assistant in meetings"
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Finance: Financial workflows connected to execution."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 3,
+     "cita": "Build workflows inside Hive to automate repeatable tasks, connect your favorite tools, and keep every hand-off moving."
+    }
+   }
+  },
+  {
+   "id": "honeybook",
+   "nombre": "HoneyBook",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 13,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 3,
+     "cita": "Create proposals, invoices and contracts on the leading CRM platform for small businesses"
+    },
+    "gestion-proyectos": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Keep every client and project on track"
+    },
+    "asistentes-ia": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Let AI generate instant, personalized email responses based on your tone, industry and context."
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Send professional invoices with flexible payment options."
+    },
+    "reservas-citas": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Set and share your availability so clients can book your time."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 3,
+     "cita": "Automate repetitive tasks and workflows."
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Collect eSignatures on contracts and forms."
+    }
+   }
+  },
+  {
+   "id": "hotmart",
+   "nombre": "Hotmart",
+   "sinRespuesta": false,
+   "sector": "productos digitales",
+   "capacidadesVerificadas": 1,
+   "casas": {
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Creación de nuevos productos, módulos, clases, precios con nuestra IA."
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": null
+    },
+    "atencion-cliente": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "✓ Asistencia 24 horas a través de IA o del Centro de ayuda."
+    },
+    "comercio-electronico": {
+     "nivel": "oficio",
+     "verificadas": 0,
+     "cita": "Crea y vende tu curso online de forma simple y rápida"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "50+ integrations with the market's leading tools, so you don't waste time jumping from solution to solution."
+    },
+    "marketing-email": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "✓ Campañas de correo electrónico completas con Hotmart Send."
+    },
+    "creacion-web-hosting": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Hotmart gives you everything you need to host and promote your course or ebook, from idea to sale."
+    }
+   }
+  },
+  {
+   "id": "hubspot",
+   "nombre": "HubSpot",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 9,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 3,
+     "cita": "Free HubSpot CRM"
+    },
+    "asistentes-ia": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "AI Content Writer"
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "CPQ, billing, and payments software"
+    },
+    "reservas-citas": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Free Meeting Scheduler App"
+    },
+    "atencion-cliente": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Customer service software"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Connect your favorite apps to HubSpot"
+    },
+    "marketing-email": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Email Marketing Software"
+    },
+    "creacion-web-hosting": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Free Web Hosting"
+    }
+   }
+  },
+  {
+   "id": "insightly",
+   "nombre": "Insightly",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 18,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 5,
+     "cita": "Get a single source of truth for all customer and pipeline data."
+    },
+    "gestion-proyectos": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Native project management"
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Boost sales efficiency and CRM adoption by using AI features—like Copilot (Beta), email replies, and email summaries—to keep your data clean, automate repetitive tasks, and focus on the leads that matter most."
+    },
+    "atencion-cliente": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Let clients submit tickets through branded portals, email, or web forms."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 7,
+     "cita": "Easily integrate Insightly with all the apps you use to run your business"
+    },
+    "marketing-email": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Create and automate campaigns for every stage of the customer journey and automatically score leads based on engagement with your product, service, or content."
+    }
+   }
+  },
+  {
+   "id": "jasper",
+   "nombre": "Jasper",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 10,
+   "casas": {
+    "asistentes-ia": {
+     "nivel": "oficio",
+     "verificadas": 3,
+     "cita": "Jasper is the generative platform built for marketing success, empowering marketers to create on-brand written and visual content with AI."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 3,
+     "cita": "Get on-brand AI wherever you work using Jasper API-powered integrations like BigQuery, Google Sheets, Zapier, Make and more."
+    },
+    "marketing-email": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Jasper includes a library of purpose-built agents, each designed for a specific marketing job: SEO and GEO content, campaign execution, email, social media, personalization, research, and more."
+    }
+   }
+  },
+  {
+   "id": "kartra",
+   "nombre": "Kartra",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 5,
+   "casas": {
+    "crm": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Pages + Email + Cart + CRM + Memberships all in one place"
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Kartra AI helps you write pages, emails, and sales copy that sound like you — and sell like a pro."
+    },
+    "reservas-citas": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Calendars Quickly schedule appointments"
+    },
+    "atencion-cliente": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Help Desks Support your customers"
+    },
+    "comercio-electronico": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Checkouts Simple and secure checkouts"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Integrations & APIs Connect with your existing tools"
+    },
+    "marketing-email": {
+     "nivel": "oficio",
+     "verificadas": 4,
+     "cita": "Email Marketing Drive opens, clicks, & conversions"
+    },
+    "creacion-web-hosting": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Landing Pages & Websites Build high converting pages"
+    }
+   }
+  },
+  {
+   "id": "keap",
+   "nombre": "Keap",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 17,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 4,
+     "cita": "Keap CRM helps you engage with leads, stay on top of your bookings, track every deal, and nurture customers."
+    },
+    "asistentes-ia": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "AI Content Assistant Compose emails quickly and easily with the help of AI."
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Invoices Send one-time or recurring invoices that sync with your payment and accounting tools"
+    },
+    "reservas-citas": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Appointments Integrate your current calendar or use Keap's native features to set meetings and send reminders"
+    },
+    "comercio-electronico": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Checkout forms Sell online with customizable checkout forms that trigger automations and sync to your CRM"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 5,
+     "cita": "Automation Builder Automate processes across your entire business — drag, drop, and launch 52+ ready-made automations, or craft endless campaigns of your own with our intuitive builder"
+    },
+    "marketing-email": {
+     "nivel": "lo-hace",
+     "verificadas": 3,
+     "cita": "Email marketing Send broadcast and 1:1 emails, as well as trigger automated emails based on contact activity."
+    }
+   }
+  },
+  {
+   "id": "krisp",
+   "nombre": "Krisp",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 8,
+   "casas": {
+    "asistentes-ia": {
+     "nivel": "oficio",
+     "verificadas": 3,
+     "cita": "AI Note Taker handles meeting transcripts , summaries, and CRM updates."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 3,
+     "cita": "Push notes and action items directly to Salesforce, HubSpot, Slack, and more."
+    }
+   }
+  },
+  {
+   "id": "less-annoying-crm",
+   "nombre": "Less Annoying CRM",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 7,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 2,
+     "cita": "Track every relationship, start to close."
+    },
+    "gestion-proyectos": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Set tasks and get reminders"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 3,
+     "cita": "Connect Less Annoying CRM to your favorite tools"
+    }
+   }
+  },
+  {
+   "id": "monday-com",
+   "nombre": "monday.com",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 11,
+   "casas": {
+    "crm": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Organize all your team's leads, contacts, & deals"
+    },
+    "gestion-proyectos": {
+     "nivel": "oficio",
+     "verificadas": 4,
+     "cita": "See all upcoming work in a visual timeline & use Gantt charts to ensure you're meeting deadlines successfully."
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Sidekick is an intelligent context-aware AI assistant that understands, connects, and runs your work"
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Create and share unlimited customizable quotes & invoices"
+    },
+    "reservas-citas": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Finds available time slots across calendars and sends meeting invites automatically."
+    },
+    "atencion-cliente": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "monday service For IT & support"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 4,
+     "cita": "Connect monday.com with the tools you already use to centralize all your team's work."
+    },
+    "marketing-email": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Send and track mass emails to reach large audiences with personalized messages"
+    },
+    "recursos-humanos": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "HR agents can post roles, screen candidates, and schedule interviews letting your team focus on people."
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": null
+    }
+   }
+  },
+  {
+   "id": "motion",
+   "nombre": "Motion",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 11,
+   "casas": {
+    "gestion-proyectos": {
+     "nivel": "oficio",
+     "verificadas": 5,
+     "cita": "Plan and manage projects automatically"
+    },
+    "asistentes-ia": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Help writing and organizing docs faster"
+    },
+    "reservas-citas": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Simplify meeting scheduling and booking links"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 3,
+     "cita": "Connect your favorite tools to Motion"
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Create docs — notes, processes, wikis, pages — all in one place"
+    }
+   }
+  },
+  {
+   "id": "nifty",
+   "nombre": "Nifty",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 13,
+   "casas": {
+    "crm": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Pipeline visibility with live deal status and values"
+    },
+    "gestion-proyectos": {
+     "nivel": "oficio",
+     "verificadas": 5,
+     "cita": "Tasks Assign, prioritize, and track work"
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Orbit AI Let AI plan, build, and update work"
+    },
+    "atencion-cliente": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Replace fragmented helpdesk tools with a single hub that intakes tickets, auto-assigns owners, and ties resolutions to broader IT projects."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 5,
+     "cita": "Workflow Automations Turn status updates, handoffs, and reminders into if/then rules that run themselves."
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Docs & Files Write and store everything in one place"
+    }
+   }
+  },
+  {
+   "id": "nimble",
+   "nombre": "Nimble",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 13,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 5,
+     "cita": "Nimble CRM for Small Business | Contact Management, Email Marketing, and Sales Automation"
+    },
+    "gestion-proyectos": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": null
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "AI-Powered Email Creation Tools"
+    },
+    "atencion-cliente": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Capture leads and chat live with your best website visitors."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 4,
+     "cita": "Microsoft & Google Integrations Automatically sync your emails, contacts and calendars."
+    },
+    "marketing-email": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Run full email marketing campaigns, capture leads with forms, nurture them, and track results — without switching tools or paying extra."
+    }
+   }
+  },
+  {
+   "id": "nocrm-io",
+   "nombre": "noCRM.io",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 11,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 2,
+     "cita": "noCRM es la herramienta de gestión de ventas"
+    },
+    "gestion-proyectos": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Crea listas de tareas personalizadas, asigna tareas y mantén el control"
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Accede a resúmenes detallados o transcripciones generadas por IA"
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Crea cotizaciones, anticipos, facturas y notas de crédito personalizadas en segundos."
+    },
+    "atencion-cliente": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Colabora fácilmente con bandejas compartidas para gestionar conversaciones con leads"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 5,
+     "cita": "Crea reglas dentro de noCRM para automatizar tareas repetitivas"
+    }
+   }
+  },
+  {
+   "id": "notion-ai",
+   "nombre": "Notion AI",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 14,
+   "casas": {
+    "gestion-proyectos": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Answer questions, prioritize tasks, and write reports—all while you sleep."
+    },
+    "asistentes-ia": {
+     "nivel": "oficio",
+     "verificadas": 1,
+     "cita": "Improve writing or generate drafts with AI blocks directly in your pages."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 7,
+     "cita": "AI agents handle repetitive tasks autonomously, so your team doesn't have to."
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": null
+    }
+   }
+  },
+  {
+   "id": "nutshell",
+   "nombre": "Nutshell",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 13,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 5,
+     "cita": "AI-powered sales CRM and marketing automation"
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Nutshell automatically transcribes, summarizes, and logs every call and meeting."
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Create & send quotes, invoices and contracts in your CRM."
+    },
+    "reservas-citas": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Capture leads, engage visitors, and book meetings – even when you're offline."
+    },
+    "atencion-cliente": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Unified inbox for chat, SMS, shared inbox & social messages"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Connect to Google/Microsoft and over 5,000 Apps."
+    },
+    "marketing-email": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Email marketing, forms, landing pages, and more."
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Create, send, track, and get signatures on quotes, invoices and contracts in your CRM using your own templates."
+    }
+   }
+  },
+  {
+   "id": "odoo",
+   "nombre": "Odoo",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 5,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 1,
+     "cita": "Open Source ERP and CRM"
+    },
+    "gestion-proyectos": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "point of sale, project management, etc."
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Native AI across all your business"
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Accounting Invoicing Expenses Spreadsheet (BI) Documents Sign"
+    },
+    "reservas-citas": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Project Timesheets Field Service Helpdesk Planning Appointments"
+    },
+    "atencion-cliente": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Website Builder eCommerce Blog Forum Live Chat eLearning"
+    },
+    "comercio-electronico": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "CRM Sales POS Shop POS Restaurant Subscriptions Rental"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 3,
+     "cita": "Social Marketing Email Marketing SMS Marketing Events Marketing Automation Surveys"
+    },
+    "marketing-email": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Social Marketing Email Marketing SMS Marketing Events Marketing Automation Surveys"
+    },
+    "recursos-humanos": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Employees Payroll Recruitment Time Off Appraisals Fleet"
+    },
+    "inventario-operaciones": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Inventory Manufacturing PLM Purchase Maintenance Quality"
+    },
+    "creacion-web-hosting": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "hosting on Odoo Online is free"
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Accounting Invoicing Expenses Spreadsheet (BI) Documents Sign"
+    }
+   }
+  },
+  {
+   "id": "otter-ai",
+   "nombre": "Otter.ai",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 13,
+   "casas": {
+    "asistentes-ia": {
+     "nivel": "oficio",
+     "verificadas": 3,
+     "cita": "Otter AI Chat searches across your meetings and connected apps to instantly answer questions and help you create follow-ups, reports, and content."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 6,
+     "cita": "Countless integrations automatically connect your meetings to tools like Slack, Zoom, Salesforce, Claude, Google Drive, and many others."
+    }
+   }
+  },
+  {
+   "id": "paymo",
+   "nombre": "Paymo",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 10,
+   "casas": {
+    "gestion-proyectos": {
+     "nivel": "oficio",
+     "verificadas": 6,
+     "cita": "Paymo's purpose-built time tracking and project management software help you complete projects on schedule and within budget, ensuring smoother delivery."
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Use Paymo's online invoicing software for small businesses to convert unbilled time into professional-looking invoices."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Extend the capabilities of Paymo with third-party integrations."
+    },
+    "recursos-humanos": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "See at a glance who's available for work or who's overbooked. Manage time off and leave days."
+    }
+   }
+  },
+  {
+   "id": "pipedrive",
+   "nombre": "Pipedrive",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 11,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 5,
+     "cita": "Pipedrive es un CRM de ventas basado en la web."
+    },
+    "gestion-proyectos": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Entrega proyectos y alcanza tus metas más rápido"
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "It records and transcribes your calls so you don't have to. You stay in the conversation, and Nova takes care of the notes."
+    },
+    "reservas-citas": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Share your availability with leads and let them book calls on their schedule."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 4,
+     "cita": "Easily set up workflow automations for your team or choose from ready-made templates."
+    },
+    "marketing-email": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Envía campañas increíbles de marketing por correo electrónico"
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Administra todos tus documentos en un solo lugar"
+    }
+   }
+  },
+  {
+   "id": "productive-io",
+   "nombre": "Productive",
+   "sinRespuesta": false,
+   "sector": "agencias, consultorías",
+   "capacidadesVerificadas": 19,
+   "casas": {
+    "crm": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Create, track, and progress client deals—from initial pitch to won or lost status."
+    },
+    "gestion-proyectos": {
+     "nivel": "oficio",
+     "verificadas": 5,
+     "cita": "Organize all related tasks, budgets, and communication in one place for better tracking and team collaboration."
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Ask anything in plain language to draft, summarize, and manage work inside Productive."
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Create and send client invoices directly from Productive."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 8,
+     "cita": "Use open API to connect Productive to your other applications."
+    },
+    "recursos-humanos": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Track and manage all types of absences — including time off and remote work — with clear visibility, annual allocations and approval workflows."
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Create and collaborate on documents directly within projects to keep all project information centralized."
+    },
+    "software-sectorial": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Purpose-built for agencies, consultancies, and other professional services businesses."
+    }
+   }
+  },
+  {
+   "id": "reclaim-ai",
+   "nombre": "Reclaim.ai",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 9,
+   "casas": {
+    "gestion-proyectos": {
+     "nivel": "lo-hace",
+     "verificadas": 4,
+     "cita": "Flexibly schedule your tasks in your calendar."
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Use chat to quickly generate meeting agendas and add them to your meetings, using context and information from your connected apps."
+    },
+    "reservas-citas": {
+     "nivel": "oficio",
+     "verificadas": 2,
+     "cita": "Share your availability for meetings with Scheduling Links that offer smart priority settings to book the right meetings sooner."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Send events to your CRM or any other destination when meetings are booked, rescheduled, or canceled."
+    },
+    "recursos-humanos": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Automatically sync employees PTO and out-of-office events to a team calendar to optimize scheduling and coordination."
+    }
+   }
+  },
+  {
+   "id": "salesflare",
+   "nombre": "Salesflare",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 10,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 4,
+     "cita": "A simple yet powerful CRM for B2B teams that automatically captures data and keeps sales moving"
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "AI suggestions"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 4,
+     "cita": "Salesflare integrates seamlessly with LinkedIn and your email inbox."
+    },
+    "marketing-email": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Send personalized email campaigns"
+    }
+   }
+  },
+  {
+   "id": "salesmate",
+   "nombre": "Salesmate",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 9,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 3,
+     "cita": "Manage contacts, companies, deals, pipelines, activities, and conversations in one place."
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Use AI to assist teams, summarize conversations, automate repetitive work, support next-best actions, and improve execution using real customer context."
+    },
+    "reservas-citas": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Meeting Scheduler Calendar Management Activities"
+    },
+    "atencion-cliente": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Ticket Management SLAs Social Media Support Chat Knowledge Management AI Co-pilot Agent AI Autopilot Agent CSAT / CES Surveys Satisfaction Reports"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 4,
+     "cita": "Salesmate integrates with 700+ apps, including Google, Microsoft, and Slack, with enterprise-grade security and compliance."
+    },
+    "marketing-email": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Capture leads, segment audiences, automate nurture journeys, and run campaigns using the same customer data your teams already rely on."
+    }
+   }
+  },
+  {
+   "id": "scoro",
+   "nombre": "Scoro",
+   "sinRespuesta": false,
+   "sector": "servicios profesionales",
+   "capacidadesVerificadas": 17,
+   "casas": {
+    "crm": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Manage client relationships, track deals, and stay on top of your pipeline."
+    },
+    "gestion-proyectos": {
+     "nivel": "oficio",
+     "verificadas": 6,
+     "cita": "Plan projects and keep delivery on track."
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Surface insights and automate work right inside Scoro."
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Handle every billing scenario and track payments."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 6,
+     "cita": "Build custom connections with REST API and webhooks, or automate further with Zapier."
+    }
+   }
+  },
+  {
+   "id": "smartsheet",
+   "nombre": "Smartsheet",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 13,
+   "casas": {
+    "gestion-proyectos": {
+     "nivel": "oficio",
+     "verificadas": 5,
+     "cita": "Manage projects, automate workflows, and build solutions at scale with Smartsheet."
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Conversational AI features, including Smart Assist, Smart Columns, AI-powered dashboards and more"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 5,
+     "cita": "Replace repetitive tasks across your organization with customizable, automated workflows."
+    }
+   }
+  },
+  {
+   "id": "streak",
+   "nombre": "Streak",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 12,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 3,
+     "cita": "Manage sales and customer relationships directly inside Gmail."
+    },
+    "gestion-proyectos": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Track follow-ups and assign tasks to team members so nothing slips through the cracks."
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Use credits to generate summaries, autofill data, ask deal questions, and more"
+    },
+    "atencion-cliente": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Track inquiries and issues"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 7,
+     "cita": "Set up rules to automatically create tasks, add comments, get notified, update boxes, or email customers."
+    },
+    "marketing-email": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Send templated emails to multiple recipients with automatic follow-ups."
+    },
+    "recursos-humanos": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Organize candidates and stages"
+    }
+   }
+  },
+  {
+   "id": "synthesia",
+   "nombre": "Synthesia",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 8,
+   "casas": {
+    "asistentes-ia": {
+     "nivel": "oficio",
+     "verificadas": 4,
+     "cita": "Create studio-quality videos with AI avatars and voiceovers in 160+ languages."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 3,
+     "cita": "Automate video creation with Synthesia API."
+    }
+   }
+  },
+  {
+   "id": "systeme-io",
+   "nombre": "Systeme.io",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 4,
+   "casas": {
+    "crm": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Contacts & CRM"
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": null
+    },
+    "reservas-citas": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Booking calendar"
+    },
+    "comercio-electronico": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "E-commerce"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Marketing automation"
+    },
+    "marketing-email": {
+     "nivel": "oficio",
+     "verificadas": 0,
+     "cita": "Email marketing"
+    },
+    "inventario-operaciones": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Inventory management"
+    },
+    "creacion-web-hosting": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Website builder"
+    }
+   }
+  },
+  {
+   "id": "taskade",
+   "nombre": "Taskade",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 10,
+   "casas": {
+    "crm": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Build a CRM"
+    },
+    "gestion-proyectos": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "See tasks, owners, and progress."
+    },
+    "asistentes-ia": {
+     "nivel": "oficio",
+     "verificadas": 0,
+     "cita": "Create unlimited AI agents that form the Intelligence pillar"
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Stripe checkout wired into every Taskade Genesis app — no plumbing."
+    },
+    "reservas-citas": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Class schedules, appointments, event RSVPs"
+    },
+    "atencion-cliente": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "View and manage all customer conversations in one place"
+    },
+    "comercio-electronico": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Storefronts, inventory, Stripe invoicing"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 6,
+     "cita": "Connect 100+ integrations"
+    },
+    "marketing-email": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Create teams for marketing, sales, support, or any workflow."
+    },
+    "recursos-humanos": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "New-hire onboarding hub"
+    },
+    "inventario-operaciones": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Manage orders, stock, and customers."
+    },
+    "creacion-web-hosting": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Publish apps under your own domain"
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": null
+    }
+   }
+  },
+  {
+   "id": "teachable",
+   "nombre": "Teachable",
+   "sinRespuesta": false,
+   "sector": "educación online",
+   "capacidadesVerificadas": 0,
+   "casas": {
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Built-in AI creation and translation tools"
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Teachable automatically collects and remits sales tax, VAT, and GST across 45+ countries for your transactions."
+    },
+    "reservas-citas": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Offer one-on-one or group sessions, with easy scheduling and payment management."
+    },
+    "comercio-electronico": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Sell globally with 35+ local payment methods and checkout experiences."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Developer-friendly tools like APIs and webhooks"
+    },
+    "marketing-email": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Built-in email marketing"
+    },
+    "creacion-web-hosting": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Site Builder"
+    },
+    "software-sectorial": {
+     "nivel": "oficio",
+     "verificadas": 0,
+     "cita": "The easiest-to-use platform to grow your education business"
+    }
+   }
+  },
+  {
+   "id": "teamgantt",
+   "nombre": "TeamGantt",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 11,
+   "casas": {
+    "gestion-proyectos": {
+     "nivel": "oficio",
+     "verificadas": 6,
+     "cita": "Manage tasks, timelines, files, and team conversations in one place."
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Build a project timeline fast with the magic of AI-powered planning."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 4,
+     "cita": "Automate workflows with Zapier or the TeamGantt API."
+    }
+   }
+  },
+  {
+   "id": "teamwork-com",
+   "nombre": "Teamwork.com",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 16,
+   "casas": {
+    "crm": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Resourcing Profitability Reporting Projects Quote & CRM AI"
+    },
+    "gestion-proyectos": {
+     "nivel": "oficio",
+     "verificadas": 4,
+     "cita": "Work with Gantt, Table, List & Board views"
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Chat with an AI Assistant to get answers, insights about your work and create tasks"
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Build client invoices from logged time"
+    },
+    "atencion-cliente": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Handle tickets and project work together in one place"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 7,
+     "cita": "Reduce admin with 20,000 automations"
+    }
+   }
+  },
+  {
+   "id": "thinkific",
+   "nombre": "Thinkific",
+   "sinRespuesta": false,
+   "sector": "formación online",
+   "capacidadesVerificadas": 2,
+   "casas": {
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Built-in AI teaching assistant"
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Automated sales tax and VAT"
+    },
+    "reservas-citas": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Unlimited Zoom sessions, bookable calendars, and attendance tracking"
+    },
+    "comercio-electronico": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Full e-commerce payment processing is included."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Standard API and webhooks"
+    },
+    "marketing-email": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Drive and recapture sales with automated emails"
+    },
+    "creacion-web-hosting": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Build branded websites and landing pages on your custom domain."
+    },
+    "software-sectorial": {
+     "nivel": "oficio",
+     "verificadas": 0,
+     "cita": "Thinkific for Academies Scale your professional training programs"
+    }
+   }
+  },
+  {
+   "id": "todoist",
+   "nombre": "Todoist",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 5,
+   "casas": {
+    "gestion-proyectos": {
+     "nivel": "oficio",
+     "verificadas": 2,
+     "cita": "Capture and organize tasks instantly using easy-flowing, natural language."
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Let artificial intelligence help you with your tasks and filters."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 2,
+     "cita": "Connect Todoist with 90+ calendar, communication, automation, and voice assistant tools."
+    }
+   }
+  },
+  {
+   "id": "vtiger-crm",
+   "nombre": "Vtiger CRM",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 10,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 6,
+     "cita": "Vtiger all-in-one CRM software empowers you to align your marketing, sales and support teams with unified customer data powered by One View."
+    },
+    "gestion-proyectos": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Project Management Tasks & Milestones Subtasks Gantt View Kanban Board"
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Calculus AI Agent Builder Chatbot Prompt Builder Generative AI Designer Prediction AI Designer"
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Inventory & Invoicing"
+    },
+    "reservas-citas": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Appointment Pages"
+    },
+    "atencion-cliente": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Help Desk Automation Cases SLAs Customer Portal Live Chats FAQs Mailroom Agent Enablement"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 4,
+     "cita": "Connect with more than 500+ apps you are already using to merge and extend the functionality."
+    },
+    "marketing-email": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Marketing Automation Emails Webforms Social Module Landing Pages SMS Campaigns Email Templates Short URL"
+    },
+    "inventario-operaciones": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Inventory Management Invoicing Vendor Management Purchase Order Management Subscriptions Payment Tracking Sales Order Assets"
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Document Engagement"
+    }
+   }
+  },
+  {
+   "id": "wrike",
+   "nombre": "Wrike",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 7,
+   "casas": {
+    "gestion-proyectos": {
+     "nivel": "oficio",
+     "verificadas": 3,
+     "cita": "Project & task management"
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Wrike Copilot answers questions, summarizes work, and keeps your team moving without the back‑and‑forth."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 3,
+     "cita": "Connect Wrike to your apps, build no-code automations, and run end-to-end workflows from one secure platform."
+    }
+   }
+  },
+  {
+   "id": "zenkit",
+   "nombre": "Zenkit",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 12,
+   "casas": {
+    "gestion-proyectos": {
+     "nivel": "oficio",
+     "verificadas": 3,
+     "cita": "Zenkit is the multi-project management solution for agile and classical projects."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 4,
+     "cita": "Integrate Zenkit with 1500+ tools and your existing software in just a few clicks via Zapier."
+    }
+   }
+  },
+  {
+   "id": "zoho-crm",
+   "nombre": "Zoho CRM",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 9,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 4,
+     "cita": "Millions of salespeople trust Zoho CRM to respond faster to leads, close more deals, and run leaner sales operations."
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Build and deploy AI agents that execute tasks on your behalf for any business use case."
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Sync QuickBook records with Zoho CRM and create quotes and invoices easily."
+    },
+    "reservas-citas": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Schedule and book meetings from within Zoho CRM."
+    },
+    "atencion-cliente": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Resolve customer issues with web-to-case forms that convert problems into support tickets that your reps can follow."
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 5,
+     "cita": "Automate repetitive tasks with workflows."
+    },
+    "marketing-email": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Send emails via Gmail, Outlook, Zoho Mail, and other popular email services, directly from Zoho CRM."
+    },
+    "inventario-operaciones": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Manage all your invoices, sales and purchase orders, products, and vendors."
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "comes with the essentials like leads, documents, and mobile apps"
+    }
+   }
+  },
+  {
+   "id": "zoho-one",
+   "nombre": "Zoho One",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 7,
+   "casas": {
+    "crm": {
+     "nivel": "oficio",
+     "verificadas": 0,
+     "cita": "Define and automate your sales process"
+    },
+    "gestion-proyectos": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Access project management tools like task lists, dashboards, and workflow rules."
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Gain access to accounting tools that help organize your finances"
+    },
+    "atencion-cliente": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Enable your teams to field customer support requests across channels"
+    },
+    "comercio-electronico": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Build a website and sell online"
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 3,
+     "cita": "Connect and interoperate within your existing third-party apps"
+    },
+    "marketing-email": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Set up marketing automation through email workflows, autoresponders, and more."
+    },
+    "recursos-humanos": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Carry out key HR functions like finding new talent, managing employees"
+    },
+    "inventario-operaciones": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Manage orders and stock levels across multiple warehouses and channels."
+    },
+    "creacion-web-hosting": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": "Make your website the face of your business"
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "create and file away business documents and other content."
+    }
+   }
+  },
+  {
+   "id": "zoho-projects",
+   "nombre": "Zoho Projects",
+   "sinRespuesta": false,
+   "sector": null,
+   "capacidadesVerificadas": 11,
+   "casas": {
+    "gestion-proyectos": {
+     "nivel": "oficio",
+     "verificadas": 4,
+     "cita": "Zoho Projects: The Leading Project Management Software"
+    },
+    "asistentes-ia": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "AI that works hand-in-hand with your team"
+    },
+    "facturacion-contabilidad": {
+     "nivel": "lo-hace",
+     "verificadas": 1,
+     "cita": null
+    },
+    "automatizacion-integraciones": {
+     "nivel": "lo-hace",
+     "verificadas": 3,
+     "cita": "Zoho Projects gives you the added advantage of several other Zoho apps and third party apps through seamless integrations."
+    },
+    "firma-gestion-documental": {
+     "nivel": "lo-trae",
+     "verificadas": 0,
+     "cita": "Document Management: Store, manage, and share documents securely."
+    }
+   }
+  }
+ ]
+}

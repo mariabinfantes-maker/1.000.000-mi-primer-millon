@@ -1,0 +1,17 @@
+{
+ "id": "paymo__recursos-humanos",
+ "herramientaId": "paymo",
+ "nombre": "Paymo",
+ "casa": "recursos-humanos",
+ "nombreCasa": "Recursos humanos",
+ "urls": [
+  "https://www.paymoapp.com/",
+  "https://www.paymoapp.com/pricing/"
+ ],
+ "cita": "See at a glance who's available for work or who's overbooked. Manage time off and leave days.",
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.recruiting\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.employee_onboarding\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.payroll\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.commissions_and_tips\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.time_and_attendance\",\n      \"estado\": \"si\",\n      \"cita\": \"Clock in from anywhere and access timesheets on the go\",\n      \"url\": \"https://www.paymoapp.com/\"\n    },\n    {\n      \"id\": \"cap.shift_scheduling\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.leave_management\",\n      \"estado\": \"si\",\n      \"cita\": \"Manage time off and leave days.\",\n      \"url\": \"https://www.paymoapp.com/\"\n    },\n    {\n      \"id\": \"cap.performance_reviews\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://www.paymoapp.com/",
+  "OK https://www.paymoapp.com/pricing/"
+ ]
+}

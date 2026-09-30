@@ -1,0 +1,27 @@
+{
+ "pedida": "https://www.fresha.com/pricing",
+ "leidas": [
+  "https://www.fresha.com/pricing"
+ ],
+ "urls": [
+  [
+   "https://www.fresha.com/pricing",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "no_consta",
+  "espana": "no_consta",
+  "cita_espana": "",
+  "campos": {
+   "precio": {
+    "v": "si",
+    "cita": "We're transparent about our pricing, with all details clearly outlined on our pricing page."
+   },
+   "ficha_de_cliente": {
+    "v": "si",
+    "cita": "We support importing key information, such as client details and product inventory."
+   }
+  }
+ }
+}

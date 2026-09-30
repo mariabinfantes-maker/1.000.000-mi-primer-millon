@@ -3,6 +3,7 @@ import os from "node:os";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { escribirBorrador } from "../borrador";
+import { registrarAutorizacionAfiliacion } from "../autorizacionAfiliacion";
 import { registrarDecision } from "../decision";
 import { leerHistorialAprobaciones } from "../historialAprobaciones";
 import { promoverBorrador } from "../promover";
@@ -41,6 +42,8 @@ const propuestaValida: HerramientaPropuesta = {
       nivelTecnicoRequerido: 3,
     },
     metodologiaValoracion: "Basada en la documentación pública, pendiente de contrastar con uso real.",
+    // El examen de entrada (2026-09-29) pide el precio con su página y su fecha.
+    preciosComprobados: { fecha: "2026-09-28", url: "https://ejemplo.com/precios" },
   },
   // confidenceLevel "high" y puntuaciones altas: por encima del umbral del criterio de calidad
   // (agents/atlas-researcher/criteriosCalidad.ts) sin necesidad de reputación externa — los casos
@@ -53,6 +56,26 @@ const propuestaValida: HerramientaPropuesta = {
   advertencias: [],
 };
 
+/** Todas las herramientas que estas pruebas intentan promover. */
+const IDS_DE_PRUEBA = [
+  "herramienta-afiliacion-media",
+  "herramienta-categoria-mala",
+  "herramienta-confianza-alta",
+  "herramienta-de-prueba",
+  "herramienta-historial-media",
+  "herramienta-incompleta",
+  "herramienta-mediocre",
+  "herramienta-rechazada",
+  "herramienta-sin-afiliados",
+  "herramienta-sin-decision",
+  "hubspot",
+  "hubspot-marketing-hub",
+  "hubspot-sin-justificar",
+  "sin-afiliados-autorizada",
+  "sin-afiliados-estado-viejo",
+  "sin-afiliados-solo-decision",
+];
+
 describe.skipIf(!postgresDisponible())("promoverBorrador", () => {
   let dirBorradores: string;
   let dirDatos: string;
@@ -62,6 +85,29 @@ describe.skipIf(!postgresDisponible())("promoverBorrador", () => {
     dirBorradores = fs.mkdtempSync(path.join(os.tmpdir(), "atlas-promover-borradores-"));
     dirDatos = fs.mkdtempSync(path.join(os.tmpdir(), "atlas-promover-datos-"));
     rutaHistorial = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "atlas-promover-historial-")), "historial-aprobaciones.json");
+    /**
+     * El examen de entrada pregunta primero «¿qué hace?», y eso se responde
+     * con capacidades verificadas en `data/verificacion/registros.json`, no
+     * con lo que diga la web comercial.
+     *
+     * Se siembran tres para cada herramienta que estas pruebas promueven, de
+     * forma que ninguna falle por un motivo que no es el que está probando.
+     * Las que comprueban que el examen SÍ para tienen su propio caso, en
+     * `examenDeEntrada.test.ts`.
+     */
+    fs.mkdirSync(path.join(dirDatos, "verificacion"), { recursive: true });
+    const CAPS = ["cap.task_management", "cap.customer_contact_records", "cap.lead_capture"];
+    fs.writeFileSync(
+      path.join(dirDatos, "verificacion", "registros.json"),
+      JSON.stringify(
+        IDS_DE_PRUEBA.flatMap((herramientaId) =>
+          CAPS.map((capacidadId) => ({ herramientaId, capacidadId, estado: "verificado" }))
+        ),
+        null,
+        1
+      ),
+      "utf8"
+    );
     await limpiarTablasDePrueba();
   });
 
@@ -156,7 +202,28 @@ describe.skipIf(!postgresDisponible())("promoverBorrador", () => {
     if (!resultado.ok) expect(resultado.errores.some((e) => e.includes("categoría inexistente"))).toBe(true);
   });
 
-  it("falla si el borrador no cumple la regla obligatoria de afiliados", async () => {
+  /**
+   * La afiliación sigue bloqueando por defecto — es la vía habitual — pero
+   * ya no es incondicional: la excepción de la política la abre la
+   * propietaria por escrito, con el mismo patrón que la anulación del
+   * aviso de duplicado.
+   */
+  /**
+   * LAS TRES SIGUIENTES ESTÁN DESCONECTADAS (2026-09-28).
+   *
+   * Guardaban la puerta de la afiliación en la promoción: que bloqueara por
+   * defecto, y que la excepción sólo la abriera una autorización atada a esa
+   * herramienta y a su estado exacto. La propietaria mandó desconectar esa
+   * puerta —misma orden que ya se cumplió en el Researcher el 2026-09-16 y en
+   * `data/verificar.ts` hoy—, así que estas tres vigilan una regla que ya no
+   * rige y fallan por hacer bien su trabajo.
+   *
+   * No se borran: son la memoria escrita de por qué existía la puerta, y ahí
+   * está el agujero que encontró la revisión —una decisión editorial antigua
+   * servía para desbloquear algo que no le correspondía—. Si la puerta vuelve
+   * a encenderse en `promover.ts`, se quita el `.skip` y vuelven a vigilarla.
+   */
+  it.skip("bloquea por defecto un borrador cuya afiliación no está confirmada", async () => {
     const propuestaSinAfiliados: HerramientaPropuesta = {
       ...propuestaValida,
       datosAfiliados: { hasAffiliateProgram: false, affiliateStatus: "not_available" },
@@ -166,7 +233,83 @@ describe.skipIf(!postgresDisponible())("promoverBorrador", () => {
     const resultado = await promoverBorrador("herramienta-sin-afiliados", { dirBaseBorradores: dirBorradores, dirDatos, poolEstrategia: poolPrueba(), rutaHistorial });
 
     expect(resultado.ok).toBe(false);
-    if (!resultado.ok) expect(resultado.errores.some((e) => e.includes("regla obligatoria de afiliados"))).toBe(true);
+    if (!resultado.ok) {
+      expect(resultado.errores.some((e) => e.includes('"no_consta"'))).toBe(true);
+      expect(resultado.errores.some((e) => e.includes("autorizar-afiliacion"))).toBe(true);
+    }
+  });
+
+  /**
+   * El agujero que encontró la revisión: una decisión editorial antigua,
+   * tomada por otro motivo, desbloqueaba la excepción de afiliación.
+   */
+  it.skip("una decisión editorial aprobada por otro motivo NO desbloquea la excepción de afiliación", async () => {
+    const propuestaSinAfiliados: HerramientaPropuesta = {
+      ...propuestaValida,
+      datosAfiliados: { hasAffiliateProgram: false, affiliateStatus: "not_available" },
+    };
+    escribirBorrador("sin-afiliados-solo-decision", propuestaSinAfiliados, { dirBase: dirBorradores });
+    registrarDecision("sin-afiliados-solo-decision", "aprobado", "La ficha está muy completa.", { dirBase: dirBorradores });
+
+    const resultado = await promoverBorrador("sin-afiliados-solo-decision", {
+      dirBaseBorradores: dirBorradores,
+      dirDatos,
+      poolEstrategia: poolPrueba(),
+      rutaHistorial,
+    });
+
+    expect(resultado.ok).toBe(false);
+    if (!resultado.ok) expect(resultado.errores.some((e) => e.includes("autorizar-afiliacion"))).toBe(true);
+  });
+
+  it.skip("una autorización dada para OTRO estado de afiliación tampoco sirve", async () => {
+    const propuestaSinAfiliados: HerramientaPropuesta = {
+      ...propuestaValida,
+      datosAfiliados: { hasAffiliateProgram: false, affiliateStatus: "not_available" },
+    };
+    escribirBorrador("sin-afiliados-estado-viejo", propuestaSinAfiliados, { dirBase: dirBorradores });
+    registrarDecision("sin-afiliados-estado-viejo", "aprobado", "Ok.", { dirBase: dirBorradores });
+    // El borrador está en "no_consta"; se autorizó pensando en una ausencia demostrada.
+    registrarAutorizacionAfiliacion(
+      "sin-afiliados-estado-viejo",
+      "ausencia_demostrada",
+      "Dijeron por escrito que no tienen programa, pero nos interesa igual.",
+      { dirBase: dirBorradores }
+    );
+
+    const resultado = await promoverBorrador("sin-afiliados-estado-viejo", {
+      dirBaseBorradores: dirBorradores,
+      dirDatos,
+      poolEstrategia: poolPrueba(),
+      rutaHistorial,
+    });
+
+    expect(resultado.ok).toBe(false);
+    if (!resultado.ok) expect(resultado.errores.some((e) => e.includes("ya no es lo que hay"))).toBe(true);
+  });
+
+  it("con decisión editorial Y autorización para su estado exacto, la excepción deja pasar la herramienta", async () => {
+    const propuestaSinAfiliados: HerramientaPropuesta = {
+      ...propuestaValida,
+      datosAfiliados: { hasAffiliateProgram: false, affiliateStatus: "not_available" },
+    };
+    escribirBorrador("sin-afiliados-autorizada", propuestaSinAfiliados, { dirBase: dirBorradores });
+    registrarDecision("sin-afiliados-autorizada", "aprobado", "Cubre un hueco del catálogo.", { dirBase: dirBorradores });
+    registrarAutorizacionAfiliacion(
+      "sin-afiliados-autorizada",
+      "no_consta",
+      "Única herramienta que cubre reserva online en español para peluquerías.",
+      { dirBase: dirBorradores }
+    );
+
+    const resultado = await promoverBorrador("sin-afiliados-autorizada", {
+      dirBaseBorradores: dirBorradores,
+      dirDatos,
+      poolEstrategia: poolPrueba(),
+      rutaHistorial,
+    });
+
+    expect(resultado.ok).toBe(true);
   });
 
   it("falla si no hay ninguna decisión 'aprobado' registrada, aunque el borrador sea válido", async () => {
@@ -268,7 +411,13 @@ describe.skipIf(!postgresDisponible())("promoverBorrador", () => {
     if (!resultado.ok) expect(resultado.errores.some((e) => e.includes("justificacionAnulacion"))).toBe(true);
   });
 
-  it("falla si la Puntuación Molnip queda por debajo del umbral de calidad (regla aprobada el 2026-08-18)", async () => {
+  /**
+   * DESCONECTADA (2026-09-29). Vigilaba el umbral de 80/100, sustituido por el
+   * examen de entrada. No se borra: guarda por qué existió aquel umbral y qué
+   * comprobaba. `examenDeEntrada.test.ts` vigila lo que rige ahora. Si el
+   * umbral vuelve a conectarse en `promover.ts`, se le quita el `.skip`.
+   */
+  it.skip("falla si la Puntuación Molnip queda por debajo del umbral de calidad (regla aprobada el 2026-08-18)", async () => {
     const propuestaMediocre: HerramientaPropuesta = {
       ...propuestaValida,
       datos: {

@@ -1,0 +1,17 @@
+{
+ "id": "thinkific__marketing-email",
+ "herramientaId": "thinkific",
+ "nombre": "Thinkific",
+ "casa": "marketing-email",
+ "nombreCasa": "Marketing y email",
+ "urls": [
+  "https://www.thinkific.com",
+  "https://www.thinkific.com/pricing/"
+ ],
+ "cita": "Drive and recapture sales with automated emails",
+ "texto": "{\"resultados\":[{\"id\":\"cap.email_campaigns\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.marketing_automation\",\"estado\":\"si\",\"cita\":\"Drive and recapture sales with automated emails\",\"url\":\"https://www.thinkific.com\"},{\"id\":\"cap.landing_pages\",\"estado\":\"si\",\"cita\":\"Use AI to quickly build a high-converting landing page\",\"url\":\"https://www.thinkific.com\"},{\"id\":\"cap.conversion_funnels\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.social_publishing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.social_analytics\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.search_engine_optimization\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.paid_ads_management\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.loyalty_programs\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.thinkific.com/",
+  "OK https://www.thinkific.com/pricing/"
+ ]
+}

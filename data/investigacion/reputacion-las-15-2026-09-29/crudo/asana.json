@@ -1,0 +1,5 @@
+{
+ "id": "asana",
+ "nombre": "Asana",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/121172/Asana/\",\n    \"notaGeneral\": 4.5,\n    \"facilidadDeUso\": 4.4,\n    \"escala\": 5,\n    \"numeroDeResenas\": 12319,\n    \"cita\": \"Ease Of Use\\n\\n 4.4 (12,319)\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/asana/reviews\",\n    \"notaGeneral\": 4.4,\n    \"facilidadDeUso\": null,\n    \"escala\": null,\n    \"numeroDeResenas\": 13992,\n    \"cita\": \"4.4/5(13,992)\"\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/121172/Asana/\",\n    \"https://www.capterra.com/p/121172/Asana/reviews/\",\n    \"https://www.capterra.es/software/121172/asana\",\n    \"https://www.capterra.co.uk/software/121172/asana\",\n    \"https://www.capterra.ie/software/121172/asana\",\n    \"https://www.g2.com/products/asana/reviews\"\n  ]\n}\n```"
+}

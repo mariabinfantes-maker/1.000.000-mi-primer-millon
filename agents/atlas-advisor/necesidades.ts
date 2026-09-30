@@ -67,6 +67,19 @@ export type FilaDeNecesidad = {
    * El valor es la clave del texto en `necesidades.textos.es.ts`.
    */
   usoSinConfirmar?: string;
+  /**
+   * El uso concreto de F2 que esta fila pide, además de la capacidad
+   * (2026-09-16, tercera ronda). Con `imprescindible: true`, sólo pasan las
+   * herramientas que lo han DEMOSTRADO: si ninguna, se dice que no está
+   * comprobado para ese uso. Con `false`, pasan las mismas que por la
+   * capacidad —salvo las que tienen evidencia de que NO lo hacen— y cada
+   * tarjeta enseña si ese uso está demostrado o no consta. El aviso fijo de
+   * `usoSinConfirmar` se queda como respaldo para las que no constan.
+   *
+   * Decisión de la propietaria: «si un uso es imprescindible y no está
+   * verificado, la herramienta no puede recomendarse para resolverlo».
+   */
+  uso?: { id: string; imprescindible: boolean };
 };
 
 export type FamiliaDeNecesidades = {
@@ -92,6 +105,9 @@ const SERVICIO_RESERVA: FilaDeNecesidad = {
   id: "servicio-reserva",
   capacidades: ["cap.online_self_service_booking"],
   usoSinConfirmar: "servicios-reserva",
+  // No imprescindible: la regla aprobada las presenta como candidatas. El
+  // día que un lote demuestre el uso en alguna, su tarjeta lo dirá.
+  uso: { id: "uso.reserva_de_servicio", imprescindible: false },
 };
 const RECORDATORIOS_CITAS: FilaDeNecesidad = {
   id: "recordatorios-citas",
@@ -101,6 +117,7 @@ const SERVICIO_RECORDATORIOS: FilaDeNecesidad = {
   id: "servicio-recordatorios",
   capacidades: ["cap.customer_appointment_reminders"],
   usoSinConfirmar: "servicios-recordatorios",
+  uso: { id: "uso.recordatorio_de_cita_de_servicio", imprescindible: false },
 };
 const SEGUIMIENTOS_AUTOMATICOS: FilaDeNecesidad = {
   id: "seguimientos-automaticos",
@@ -212,17 +229,80 @@ export const NECESIDADES: PreguntaDeNecesidad[] = [
           { id: "fichaje", capacidades: ["cap.time_and_attendance"] },
         ],
       },
+      // La familia «dinero» vivía aquí, con tres filas. Se fue entera al
+      // objetivo «el-dinero» el 2026-09-17, por decisión de la propietaria:
+      // el dinero de un negocio no es una esquina de «organizar la empresa»,
+      // y tratarlo como tal era la razón de que Molnip respondiera lo mismo
+      // a quien quería facturar y a quien quería ordenar sus proyectos.
+      { id: "conocimiento", filas: [CONOCIMIENTO_EQUIPO] },
+    ],
+  },
+  /**
+   * El dinero, partido en su circuito real (2026-09-17).
+   *
+   * Las cuatro familias son los cuatro momentos por los que pasa el dinero de
+   * un negocio —lo que entra, lo que sale, lo que queda y lo que mueves—
+   * dichos como los diría una persona. Y las filas son síntomas, no
+   * categorías: alguien que no sabe si gana dinero no busca «informes
+   * económicos», busca saber si gana dinero.
+   *
+   * Trece de las diecisiete no tienen hoy ninguna herramienta detrás, y se
+   * quedan igual. Una necesidad que existe no desaparece porque el catálogo no
+   * la tenga: lleva a «todavía no lo cubrimos», que es un resultado honesto y
+   * además nos dice exactamente qué falta buscar.
+   *
+   * «Enviar presupuestos» aparece aquí y también en «conseguir clientes», a
+   * propósito: el archivo del vocabulario dice dónde vive una capacidad, no
+   * por qué puerta entra la persona. Se llega al catálogo por varios caminos.
+   */
+  {
+    objetivoId: "el-dinero",
+    familias: [
       {
-        id: "dinero",
+        id: "cobrar-facturar",
         filas: [
-          { id: "margen-trabajo", capacidades: ["cap.job_costing"] },
-          // Separadas a propósito: emitir la factura y cobrarla son dos
-          // capacidades, y una sola fila prometería lo que no puede.
-          { id: "facturas", capacidades: ["cap.invoicing"] },
-          { id: "cobrar-online", capacidades: ["cap.payment_collection"] },
+          { id: "emitir-facturas", capacidades: ["cap.invoicing"] },
+          { id: "cobrar-tarjeta", capacidades: ["cap.payment_collection"] },
+          // La misma fila que en «conseguir clientes», a propósito: un
+          // presupuesto es vender y es cobrar, según por dónde entres.
+          { id: "presupuestos", capacidades: ["cap.quotes_and_proposals"] },
+          // La marca se quitó el 2026-09-23: Vtiger CRM demostró suscripciones
+          // en su página oficial. Una sola herramienta, pero con cita.
+          { id: "cuota-mensual", capacidades: ["cap.recurring_billing"] },
+          { id: "factura-electronica", capacidades: ["cap.regulated_einvoicing"], sinCobertura: true },
         ],
       },
-      { id: "conocimiento", filas: [CONOCIMIENTO_EQUIPO] },
+      {
+        id: "gastos-cuentas",
+        filas: [
+          { id: "gastos-tickets", capacidades: ["cap.expense_tracking"], sinCobertura: true },
+          { id: "pagar-proveedores", capacidades: ["cap.supplier_invoice_payment"], sinCobertura: true },
+          { id: "suscripciones", capacidades: ["cap.subscription_spend_control"], sinCobertura: true },
+          { id: "contabilidad", capacidades: ["cap.accounting_ledger"], sinCobertura: true },
+          { id: "impuestos", capacidades: ["cap.tax_calculation_and_reporting"], sinCobertura: true },
+        ],
+      },
+      {
+        id: "gano-dinero",
+        filas: [
+          { id: "margen-trabajo", capacidades: ["cap.job_costing"] },
+          { id: "informes-negocio", capacidades: ["cap.financial_reporting"], sinCobertura: true },
+          { id: "tesoreria", capacidades: ["cap.budgeting_and_cash_forecast"], sinCobertura: true },
+        ],
+      },
+      /**
+       * Las tres son lo mismo dicho de tres maneras: «necesito dinero y no lo
+       * tengo». Una lo tiene retenido un cliente que no paga, otra una factura
+       * que aún no ha vencido, y la tercera no lo tiene nadie todavía.
+       */
+      {
+        id: "conseguir-dinero",
+        filas: [
+          { id: "cliente-no-paga", capacidades: ["cap.overdue_payment_recovery"], sinCobertura: true },
+          { id: "adelantar-facturas", capacidades: ["cap.invoice_advance_funding"], sinCobertura: true },
+          { id: "financiacion", capacidades: ["cap.business_financing"], sinCobertura: true },
+        ],
+      },
     ],
   },
   {
@@ -232,11 +312,14 @@ export const NECESIDADES: PreguntaDeNecesidad[] = [
         id: "atender",
         filas: [
           { id: "bandeja-compartida", capacidades: ["cap.shared_inbox"] },
-          // Las dos necesidades más obvias de este objetivo, y ninguna
-          // herramienta las demuestra. Se quedan: llevan a «no lo cubrimos»,
-          // que es más honesto que no preguntarlo.
-          { id: "tickets", capacidades: ["cap.support_ticketing"], sinCobertura: true },
-          { id: "chatbot", capacidades: ["cap.support_chatbot"], sinCobertura: true },
+          // Las dos necesidades más obvias de este objetivo llevaban a «no lo
+          // cubrimos», y se dejaban puestas porque preguntarlo era más honesto
+          // que callarlo. El 2026-09-23 dejaron de estar vacías: diez
+          // herramientas demuestran tickets y cuatro un asistente automático,
+          // todas con cita de su página oficial. No cambió la regla: cambió lo
+          // que sabemos. Las marcas se quitan, como pedía su prueba.
+          { id: "tickets", capacidades: ["cap.support_ticketing"] },
+          { id: "chatbot", capacidades: ["cap.support_chatbot"] },
         ],
       },
       {

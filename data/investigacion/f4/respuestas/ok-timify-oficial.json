@@ -1,0 +1,74 @@
+{
+ "pedida": "https://www.timify.com/es/",
+ "urls": [
+  [
+   "https://www.timify.com/es/",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "si",
+  "espana": "no_consta",
+  "tipo_producto": "software",
+  "precio": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "reserva_online_cliente": {
+   "v": "si",
+   "cita": "Ofrezca a sus clientes una experiencia optimizada de reservas en línea y refuerce a sus empleados"
+  },
+  "recordatorios_automaticos": {
+   "v": "si",
+   "cita": "Ofrezca una experiencia excepcional gracias al uso de reservas adecuadas, comunicación eficiente y recordatorios automáticos."
+  },
+  "cancelar_o_cambiar_cita": {
+   "v": "si",
+   "cita": "posibilidad de que sean los propios clientes quienes reprogramen y cancelen sus citas."
+  },
+  "ficha_de_cliente": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "catalogo_de_servicios": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "agenda_por_profesional": {
+   "v": "si",
+   "cita": "Gestione y programe las citas de los empleados, los equipos y los recursos de manera eficiente"
+  },
+  "cobro_online": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "tpv_mostrador": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "senal_o_politica_ausencias": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "bonos_packs_sesiones": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "comisiones_o_propinas": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "widget_reserva_en_web_propia": {
+   "v": "si",
+   "cita": "Gracias a la posibilidad de reservar citas desde el sitio web, las redes y otros canales de comunicación."
+  },
+  "inventario_stock": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "ficha_tecnica_servicio": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

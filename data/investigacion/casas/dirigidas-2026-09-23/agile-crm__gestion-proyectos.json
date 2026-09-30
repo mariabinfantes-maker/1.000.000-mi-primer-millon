@@ -1,0 +1,17 @@
+{
+ "id": "agile-crm__gestion-proyectos",
+ "herramientaId": "agile-crm",
+ "nombre": "Agile CRM",
+ "casa": "gestion-proyectos",
+ "nombreCasa": "Gestión de proyectos",
+ "urls": [
+  "https://www.agilecrm.com",
+  "https://www.agilecrm.com/pricing"
+ ],
+ "cita": "Manage your projects effectively with drag-and-drop task lists and more",
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.team_messaging\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.video_meetings\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.task_management\",\n      \"estado\": \"si\",\n      \"cita\": \"Manage your projects effectively with drag-and-drop task lists and more\",\n      \"url\": \"https://www.agilecrm.com\"\n    },\n    {\n      \"id\": \"cap.project_planning\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.gantt_and_dependencies\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.kanban_boards\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.time_tracking\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.team_workload_planning\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.personal_calendar_planning\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.automatic_rescheduling\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.case_file_management\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://www.agilecrm.com/",
+  "OK https://www.agilecrm.com/pricing"
+ ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "usos-1-nuevas",
+  "nombre": "Vender más · recorrido A · candidatas nuevas del Researcher",
+  "motivo": "Las tres candidatas nuevas del recorrido A. Este lote SÓLO puede abrirse cuando las tres estén en el catálogo: el Researcher las investiga (agents/atlas-researcher/lotes/cursos-1.json), la propietaria decide sobre su afiliación y las aprueba, y se promueven. Hasta entonces el validador del lote las rechaza porque no existen, y no se hace ninguna petición. Los ids son los que generará el Researcher a partir del nombre; si difieren, se corrigen aquí antes de abrir el lote.",
+  "fecha": "2026-09-16",
+  "topeDePeticiones": 40,
+  "peticionesPorMinuto": 5,
+  "herramientas": [
+    {
+      "herramientaId": "hotmart",
+      "criterio": "Recorrido A. Las tres piezas —página, cobro e impartir cursos— y los mismos usos, recorrido e idioma que Systeme.io. Congelado antes de investigar la ficha: lo que la ficha diga no cambia esta lista.",
+      "capacidadIds": ["cap.website_builder", "cap.landing_pages", "cap.payment_collection", "cap.training_lms"],
+      "usoIds": ["uso.acceso_al_curso_tras_el_pago", "uso.pago_unico_y_a_plazos"],
+      "recorridoIds": ["rec.pagina_pago_y_acceso_al_curso"],
+      "idioma": true
+    },
+    {
+      "herramientaId": "thinkific",
+      "criterio": "Recorrido A. Igual que Hotmart.",
+      "capacidadIds": ["cap.website_builder", "cap.landing_pages", "cap.payment_collection", "cap.training_lms"],
+      "usoIds": ["uso.acceso_al_curso_tras_el_pago", "uso.pago_unico_y_a_plazos"],
+      "recorridoIds": ["rec.pagina_pago_y_acceso_al_curso"],
+      "idioma": true
+    },
+    {
+      "herramientaId": "teachable",
+      "criterio": "Recorrido A. Igual que Hotmart.",
+      "capacidadIds": ["cap.website_builder", "cap.landing_pages", "cap.payment_collection", "cap.training_lms"],
+      "usoIds": ["uso.acceso_al_curso_tras_el_pago", "uso.pago_unico_y_a_plazos"],
+      "recorridoIds": ["rec.pagina_pago_y_acceso_al_curso"],
+      "idioma": true
+    }
+  ]
+}

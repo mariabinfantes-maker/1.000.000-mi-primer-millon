@@ -1,3 +1,4 @@
+import { textoDePlanGratuito } from "@/lib/catalogoCompleto";
 import type { HerramientaEvaluada } from "@/agents/atlas-advisor";
 
 /**
@@ -78,21 +79,28 @@ export function construirComparativa(evaluadas: HerramientaEvaluada[]): FilaComp
   // personalizados hayan empatado.
   const filas: FilaComparativa[] = [];
 
-  const planesUnicos = new Set(evaluadas.map((e) => e.herramienta.tienePlanGratuito));
-  if (planesUnicos.size > 1) {
+  /**
+   * Esta fila INFORMA, no corona. Hasta el 2026-09-18 marcaba `gana: true` a
+   * quien tuviera plan gratuito, y eso es endiosarlo: lo tienen 64 de las 65
+   * fichas, y tenerlo no hace mejor a una herramienta.
+   *
+   * Lo que sí ayuda a decidir es de qué CLASE es —para siempre o unos días—,
+   * que es lo que se comprobó en las tandas de precios. Por eso la fila
+   * enseña `textoDePlanGratuito` y ya no reparte ganadores.
+   */
+  const clasesDePlan = new Set(evaluadas.map((e) => textoDePlanGratuito(e.herramienta)));
+  if (clasesDePlan.size > 1) {
     filas.push({
       criterio: "planGratuito",
-      etiqueta: "Plan gratuito",
-      explicacionCriterio: "Si puedes empezar a usarla sin pagar, aunque sea con límites.",
+      etiqueta: "Cómo se empieza",
+      explicacionCriterio: "Si puedes empezar sin pagar, y si eso dura o caduca.",
       hayGanadorUnico: false,
       celdas: evaluadas.map((e) => ({
         herramientaId: e.herramienta.id,
         nombre: e.herramienta.nombre,
-        puntos: e.herramienta.tienePlanGratuito ? 1 : 0,
-        explicacion: e.herramienta.tienePlanGratuito
-          ? "Tiene plan gratuito."
-          : "No tiene plan gratuito.",
-        gana: e.herramienta.tienePlanGratuito,
+        puntos: 0,
+        explicacion: textoDePlanGratuito(e.herramienta),
+        gana: false,
       })),
     });
   }

@@ -1,0 +1,7 @@
+{
+ "id": "zoho-projects",
+ "nombre": "Zoho Projects",
+ "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
+ "recuperada": true,
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"moneda\": \"USD\",\n  \"precioInicial\": \"Free for 5 users\",\n  \"planes\": [\n    {\n      \"nombre\": \"Free\",\n      \"mensual\": \"Free\",\n      \"anual\": \"Free\",\n      \"cita\": \"Free Up to 5 users\"\n    },\n    {\n      \"nombre\": \"Premium\",\n      \"mensual\": null,\n      \"anual\": null,\n      \"cita\": \"Premium/user/month billed annually\"\n    },\n    {\n      \"nombre\": \"Enterprise\",\n      \"mensual\": null,\n      \"anual\": null,\n      \"cita\": \"Enterprise/user/month billed annually\"\n    },\n    {\n      \"nombre\": \"Ultimate\",\n      \"mensual\": null,\n      \"anual\": null,\n      \"cita\": \"Ultimate/user/month billed annually\"\n    }\n  ]\n}\n```"
+}

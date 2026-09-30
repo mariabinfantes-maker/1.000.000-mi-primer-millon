@@ -1,0 +1,16 @@
+{
+ "pedida": "https://www.phorest.com/",
+ "urls": [
+  [
+   "https://www.phorest.com/",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "producto_en_espanol": "no_consta",
+  "cita": "",
+  "idiomas_mencionados": "",
+  "espana_mencionada": "no_consta",
+  "cita_espana": ""
+ }
+}

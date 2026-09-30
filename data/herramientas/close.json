@@ -1,8 +1,13 @@
 {
   "nombre": "Close",
   "paginaOficial": "https://www.close.com",
-  "urlPrecios": "https://www.close.com/pricing",
+  "urlPrecios": "https://close.com/pricing",
   "categoriaId": "crm",
+  "categoriasSecundarias": [
+    "asistentes-ia",
+    "automatizacion-integraciones",
+    "gestion-proyectos"
+  ],
   "descripcion": "Close es un CRM centrado en ventas y diseñado para maximizar la productividad de los equipos comerciales. Integra llamadas telefónicas, correos electrónicos, SMS y secuencias automatizadas en una sola plataforma fluida y centrada en la acción.",
   "informacionEmpresa": {
     "anioFundacion": 2013,
@@ -67,13 +72,13 @@
     "Zoom"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde $49/usuario/mes (facturado anualmente)",
+  "precioInicial": "Desde $9/usuario/mes (facturación anual) o $19 al mes",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Professional a $99/usuario/mes (pago anual), ideal por incluir secuencias completas y marcación automática.",
   "idiomasDisponibles": [
     "Inglés"
@@ -95,7 +100,18 @@
     "g2Puntuacion": 4.7,
     "g2NumeroResenas": 1100,
     "capterraPuntuacion": 4.7,
-    "capterraNumeroResenas": 160
+    "capterraNumeroResenas": 160,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/135967/Close-io/",
+      "cita": "Close. 4.7 (164). Ease of Use. 4.6. — leido 4.7/5 con 164 reseñas. Confirma el 4.7 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/close/reviews",
+      "cita": "Close. By Close. 4.7/5(2,102). 4.7 out of 5 stars. — leido 4.7/5 con 2102 reseñas. Confirma el 4.7 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Velocidad y fluidez de uso excepcionales comparado con CRMs tradicionales",
@@ -129,9 +145,34 @@
   "id": "close",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-04",
-  "fechaUltimaRevision": "2026-08-05",
+  "fechaUltimaRevision": "2026-09-17",
   "problemasIds": [
     "conseguir-clientes"
   ],
-  "tipoProducto": "especializada"
+  "tipoProducto": "especializada",
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://close.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://close.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Solo",
+        "mensual": "19 $/usuario/mes",
+        "anual": "9 $/usuario/mes",
+        "cita": "$19 / $9"
+      },
+      {
+        "nombre": "Growth",
+        "mensual": "109 $/usuario/mes",
+        "anual": "99 $/usuario/mes",
+        "cita": "$109 / $99"
+      }
+    ]
+  }
 }

@@ -1,0 +1,74 @@
+{
+ "pedida": "https://simplybook.me/es/pricing",
+ "urls": [
+  [
+   "https://simplybook.me/es/pricing",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "si",
+  "espana": "no_consta",
+  "tipo_producto": "software",
+  "precio": {
+   "v": "si",
+   "cita": "SimplyBook.me cuesta desde $0 al mes en el plan Free hasta $59.9 al mes en el plan Premium"
+  },
+  "reserva_online_cliente": {
+   "v": "si",
+   "cita": "Reservas online para sus clientes"
+  },
+  "recordatorios_automaticos": {
+   "v": "si",
+   "cita": "Emails de recordatorio de cita automáticos"
+  },
+  "cancelar_o_cambiar_cita": {
+   "v": "si",
+   "cita": "sus clientes pueden seguir consultando, reprogramando o cancelando citas."
+  },
+  "ficha_de_cliente": {
+   "v": "si",
+   "cita": "Consulte el historial de cliente"
+  },
+  "catalogo_de_servicios": {
+   "v": "si",
+   "cita": "Establezca precios independientes para los diferentes servicios"
+  },
+  "agenda_por_profesional": {
+   "v": "si",
+   "cita": "Gestión avanzada de planificación de empleados y recursos"
+  },
+  "cobro_online": {
+   "v": "si",
+   "cita": "Aceptar Pagos Online y presencial"
+  },
+  "tpv_mostrador": {
+   "v": "si",
+   "cita": "incluye funciones (como TPV, depósitos y propinas) que los competidores suelen reservar"
+  },
+  "senal_o_politica_ausencias": {
+   "v": "si",
+   "cita": "incluye funciones (como TPV, depósitos y propinas) que los competidores suelen reservar"
+  },
+  "bonos_packs_sesiones": {
+   "v": "si",
+   "cita": "Ejemplos de funciones personalizadas premium: punto de venta, formularios de admisión, membresías"
+  },
+  "comisiones_o_propinas": {
+   "v": "si",
+   "cita": "SimplyBook.me no cobra comisiones adicionales por transacción en reservas ni en pagos de clientes."
+  },
+  "widget_reserva_en_web_propia": {
+   "v": "si",
+   "cita": "Integración con página web usando un iFrame"
+  },
+  "inventario_stock": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "ficha_tecnica_servicio": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

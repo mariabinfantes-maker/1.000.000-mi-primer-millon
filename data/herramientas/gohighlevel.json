@@ -64,11 +64,11 @@
     "Twilio"
   ],
   "curvaDeAprendizaje": "dificil",
-  "precioInicial": "Desde 97$/mes",
+  "precioInicial": "Desde $97/mes o $970 al año",
   "modeloDePrecio": [
     "suscripcion_mensual"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "idiomasDisponibles": [
     "inglés (interfaz principal)",
     "soporte parcial en español y otros idiomas"
@@ -96,7 +96,7 @@
   ],
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-07-24",
-  "fechaUltimaRevision": "2026-07-25",
+  "fechaUltimaRevision": "2026-09-17",
   "modulosIncluidos": [
     "crm",
     "asistente_ia",
@@ -109,6 +109,31 @@
   ],
   "tipoProducto": "suite",
   "categoriasSecundarias": [
-    "crm"
-  ]
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "creacion-web-hosting",
+    "crm",
+    "facturacion-contabilidad",
+    "marketing-email",
+    "reservas-citas"
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.gohighlevel.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.gohighlevel.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Unlimited",
+        "mensual": "297 $/mes",
+        "anual": "2.970 $/año",
+        "cita": "$297 / $2,970"
+      }
+    ]
+  }
 }

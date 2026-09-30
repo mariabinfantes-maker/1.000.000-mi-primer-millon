@@ -1,0 +1,7 @@
+{
+ "id": "booksy",
+ "nombre": "Booksy",
+ "url": "https://booksy.com/biz/es-es",
+ "recuperada": true,
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"agendaPorProfesional\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"eligeElCliente\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"enEspanol\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  }\n}\n```"
+}

@@ -1,0 +1,122 @@
+{
+  "nombre": "flowww",
+  "paginaOficial": "https://www.flowww.es/",
+  "urlPrecios": "https://www.flowww.es/precios",
+  "categoriaId": "reservas-citas",
+  "descripcion": "Programa de gestión para negocios de medicina estética, belleza y salud. Reúne agenda, fichas de pacientes, ventas, existencias y campañas, con complementos para reservas online y comunicación con pacientes.",
+  "problemasQueResuelve": [
+    "Tengo que coordinar a los profesionales con las cabinas y los equipos disponibles.",
+    "Pierdo tiempo llamando para confirmar o cambiar citas.",
+    "Llevo las ventas, los bonos y las existencias en sitios separados."
+  ],
+  "casosDeUso": [
+    "Una clínica estética organiza tratamientos según profesional, cabina y equipamiento.",
+    "Un paciente cancela o cambia la fecha desde el recordatorio.",
+    "Un centro solicita una fianza al reservar determinados servicios.",
+    "El responsable consulta la agenda y las fichas desde la aplicación móvil."
+  ],
+  "idealPara": "Clínicas de medicina estética y negocios de belleza o salud que necesitan coordinar reservas, pacientes, ventas y personal.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "medicina estética",
+    "centros de estética",
+    "peluquerías",
+    "centros de bienestar",
+    "clínicas de salud"
+  ],
+  "noRecomendadaPara": "No está pensada para negocios fuera de la estética, la belleza, el bienestar y la salud.",
+  "casosNoRecomendados": [
+    "Se contrata una licencia por cada clínica.",
+    "La puesta en marcha de Boss se publica a 190 € sin IVA, separada de la cuota.",
+    "Las condiciones fijan doce meses de duración, renovación automática y preaviso de treinta días.",
+    "Los envíos de flowww whatsapp consumen saldo; su cuota no debe interpretarse como mensajes ilimitados.",
+    "Cada clínica necesita su propia licencia.",
+    "La puesta en marcha tiene precio separado.",
+    "Las condiciones establecen una licencia anual y preaviso para evitar su renovación.",
+    "La reserva web, la aplicación de marca y otros complementos tienen cuotas adicionales; WhatsApp también consume saldo por envíos.",
+    "Precio por licencia y clínica, con complementos separados. La posibilidad de pagar mensualmente no elimina la duración anual de las condiciones. La tabla publica Boss, Star y Ultimate, todos de pago. No he aplicado la promoción del encabezado ni convertido monedas."
+  ],
+  "funcionesPrincipales": [
+    "Agenda por profesional y espacio",
+    "Fichas de pacientes",
+    "Consentimientos digitales",
+    "Facturación y ventas",
+    "Control de existencias",
+    "Campañas de marketing",
+    "Informes",
+    "Reservas online"
+  ],
+  "integraciones": [
+    "HubSpot",
+    "Mailchimp",
+    "Sendinblue",
+    "Stripe",
+    "WordPress",
+    "Zapier",
+    "WooCommerce"
+  ],
+  "integracionesPrincipales": [
+    "HubSpot",
+    "Stripe",
+    "WordPress"
+  ],
+  "curvaDeAprendizaje": "media",
+  "precioInicial": "Boss: 59 € al mes o 590 € al año, sin IVA, más la puesta en marcha publicada de 190 € sin IVA.",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual"
+  ],
+  "tienePlanGratuito": false,
+  "preciosComprobados": {
+    "url": "https://www.flowww.es/precios",
+    "fecha": "2026-09-30",
+    "cita": "59€ /mes […] 590€* /año […] 119€* /mes […] 249€* /mes"
+  },
+  "idiomasDisponibles": [
+    "es"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": null,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 5,
+    "atencionAlCliente": 7,
+    "fiabilidad": 8,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Revisión de tarifa española, condiciones, FAQ, páginas funcionales, manuales PDF y base de conocimiento. Distingo la aplicación para gestionar el negocio de la aplicación de reservas para pacientes. Los artículos del blog se identifican como fuente_secundaria. Las notas técnicas, de implantación, soporte y fiabilidad son valoraciones documentales justificadas, no calificaciones del fabricante ni pruebas de uso prolongado.",
+  "ventajas": [
+    "La ayuda publica usuarios ilimitados para las versiones distintas de MINI.",
+    "Ofrece cancelación y cambio de cita por el paciente mediante flowww book.",
+    "Documenta la inserción del calendario en la web mediante iframe.",
+    "La aplicación de gestión flowww me está incluida en todos los planes."
+  ],
+  "inconvenientes": [
+    "Cada clínica necesita su propia licencia.",
+    "La puesta en marcha tiene precio separado.",
+    "Las condiciones establecen una licencia anual y preaviso para evitar su renovación.",
+    "La reserva web, la aplicación de marca y otros complementos tienen cuotas adicionales; WhatsApp también consume saldo por envíos.",
+    "Precio por licencia y clínica, con complementos separados. La posibilidad de pagar mensualmente no elimina la duración anual de las condiciones. La tabla publica Boss, Star y Ultimate, todos de pago. No he aplicado la promoción del encabezado ni convertido monedas."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": null,
+    "anioFundacion": 2011,
+    "tamanoAproximado": "50 empleados, según la página corporativa; no publica una fecha de actualización de esa cifra."
+  },
+  "id": "flowww",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-30",
+  "fechaUltimaRevision": "2026-09-30",
+  "problemasIds": [
+    "organizar-empresa",
+    "ahorrar-tiempo"
+  ]
+}

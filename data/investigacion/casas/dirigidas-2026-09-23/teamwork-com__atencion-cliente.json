@@ -1,0 +1,17 @@
+{
+ "id": "teamwork-com__atencion-cliente",
+ "herramientaId": "teamwork-com",
+ "nombre": "Teamwork.com",
+ "casa": "atencion-cliente",
+ "nombreCasa": "Atención al cliente",
+ "urls": [
+  "https://www.teamwork.com/",
+  "https://www.teamwork.com/pricing/"
+ ],
+ "cita": "Handle tickets and project work together in one place",
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.shared_inbox\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.support_ticketing\",\n      \"estado\": \"si\",\n      \"cita\": \"Handle tickets and project work together in one place\",\n      \"url\": \"https://www.teamwork.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.website_live_chat\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.whatsapp_customer_channel\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.public_help_center\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.canned_responses\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.support_chatbot\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.customer_satisfaction_surveys\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://www.teamwork.com/",
+  "OK https://www.teamwork.com/pricing/"
+ ]
+}

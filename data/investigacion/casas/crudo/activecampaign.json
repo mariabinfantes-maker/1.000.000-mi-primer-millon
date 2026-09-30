@@ -1,0 +1,13 @@
+{
+ "id": "activecampaign",
+ "nombre": "ActiveCampaign",
+ "urls": [
+  "https://www.activecampaign.com",
+  "https://www.activecampaign.com/pricing"
+ ],
+ "texto": "```json\n{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"A CRM built for nimble teams\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"AI content generation\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Integrate and connect over 1,000 apps\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Email marketing with 8x faster campaign creation\"\n    }\n  ],\n  \"esDe\": \"marketing-email\",\n  \"sector\": null\n}\n```",
+ "leidas": [
+  "OK https://www.activecampaign.com/",
+  "OK https://www.activecampaign.com/pricing"
+ ]
+}

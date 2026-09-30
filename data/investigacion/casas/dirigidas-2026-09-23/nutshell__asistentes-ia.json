@@ -1,0 +1,17 @@
+{
+ "id": "nutshell__asistentes-ia",
+ "herramientaId": "nutshell",
+ "nombre": "Nutshell",
+ "casa": "asistentes-ia",
+ "nombreCasa": "Asistentes de IA y productividad",
+ "urls": [
+  "https://www.nutshell.com/",
+  "https://www.nutshell.com/pricing"
+ ],
+ "cita": "Nutshell automatically transcribes, summarizes, and logs every call and meeting.",
+ "texto": "{\"resultados\":[{\"id\":\"cap.text_generation\",\"estado\":\"si\",\"cita\":\"Automate follow-ups, generate emails and campaigns, and keep outreach moving with less effort.\",\"url\":\"https://www.nutshell.com/\"},{\"id\":\"cap.text_correction\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.translation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.presentation_building\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.graphic_design\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.video_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.ai_video_generation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_transcription\",\"estado\":\"si\",\"cita\":\"Nutshell automatically transcribes, summarizes, and logs every call and meeting.\",\"url\":\"https://www.nutshell.com/\"},{\"id\":\"cap.meeting_notes\",\"estado\":\"si\",\"cita\":\"Nutshell automatically transcribes, summarizes, and logs every call and meeting.\",\"url\":\"https://www.nutshell.com/\"},{\"id\":\"cap.audio_noise_removal\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.subtitles\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.brand_kit\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.nutshell.com/",
+  "OK https://www.nutshell.com/pricing"
+ ]
+}

@@ -4,6 +4,10 @@
   "urlPrecios": "https://www.jasper.ai/pricing",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "marketing-email"
+  ],
   "descripcion": "Jasper es una plataforma de generación de contenido basada en inteligencia artificial diseñada para equipos de marketing y empresas. Permite crear copys para anuncios, artículos de blog, publicaciones en redes sociales y correos manteniendo la voz y el estilo propio de cada marca.",
   "informacionEmpresa": {
     "anioFundacion": 2021,
@@ -63,14 +67,14 @@
     "Google Chrome"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde $39/mes (facturación anual) o $49/mes (facturación mensual)",
+  "precioInicial": "Desde $59/usuario/mes (facturación anual) o $69 al mes",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario",
     "a_medida"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Pro desde $59/usuario/mes (facturación anual), ideal para colaborar en equipo y gestionar múltiples voces de marca.",
   "idiomasDisponibles": [
     "Español",
@@ -138,5 +142,24 @@
     "ahorrar-tiempo",
     "conseguir-clientes"
   ],
-  "subtipoId": "escritura"
+  "subtipoId": "escritura",
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 7,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.jasper.ai/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.jasper.ai/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Pro",
+        "mensual": "69 $/usuario/mes",
+        "anual": "59 $/usuario/mes",
+        "cita": "$69 / $59"
+      }
+    ]
+  }
 }

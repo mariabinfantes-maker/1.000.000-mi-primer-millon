@@ -1,0 +1,7 @@
+{
+ "id": "reservio",
+ "nombre": "Reservio",
+ "url": "https://help.reservio.com/es/articles/8681585-como-configurar-horas-de-reserva-personalizadas-para-un-servicio",
+ "recuperada": false,
+ "texto": "```json\n{\n \"abierta\": false,\n \"agendaPorProfesional\": {\n  \"estado\": \"no_consta\",\n  \"cita\": null\n },\n \"eligeElCliente\": {\n  \"estado\": \"no_consta\",\n  \"cita\": null\n },\n \"enEspanol\": {\n  \"estado\": \"no_consta\",\n  \"cita\": null\n }\n}\n```"
+}

@@ -1,0 +1,43 @@
+{
+ "pedida": "https://timify.com/en-us/pages/terms-conditions-affiliate-partner",
+ "leidas": [
+  "https://www.timify.com/en/pages/terms-conditions-affiliate-partner/"
+ ],
+ "datos": {
+  "programa_existe": "si",
+  "tipo": "referidos_clientes",
+  "cita_tipo": "The Affiliate Partner needs to own a valid license of TIMIFY in order to be enrolled or accepted by TIMIFY into the affiliate program.",
+  "comision": {
+   "v": "si",
+   "cita": "The Affiliate Partner receives a commission for each Service Provider referred by the Affiliate Partner who concludes a contract with TIMIFY."
+  },
+  "recurrencia": {
+   "v": "si",
+   "cita": "The commission for each referred Service Provider is limited to the (contract) duration during which the Service Provider uses TIMIFY."
+  },
+  "cookie": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "condiciones": {
+   "v": "si",
+   "cita": "Self-referrals for affiliate purchases are strictly prohibited."
+  },
+  "abierto_desde_espana": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "promociona_producto_para_negocios": {
+   "v": "si",
+   "cita": "Registered companies (\"Service Providers\") can advertise their services to their customers or interested parties with the help of TIMIFY"
+  },
+  "activo": {
+   "v": "si",
+   "cita": "With approval, Affiliate Partner receives the right for the duration of the cooperation to promote TIMIFY and to call himself \"TIMIFY Affiliate Partner\"."
+  },
+  "red_de_afiliacion": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

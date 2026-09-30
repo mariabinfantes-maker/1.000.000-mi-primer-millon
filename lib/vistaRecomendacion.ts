@@ -1,15 +1,33 @@
+import { PUNTOS_IDIOMA_CONFIRMADO } from "@/agents/atlas-advisor";
 import type { EtiquetaEvidencia, HerramientaEvaluada } from "@/agents/atlas-advisor";
 import type { Herramienta } from "@/data/esquema";
 import { calcularPuntuacionAtlas } from "@/lib/puntuacionAtlas";
+import { PRECIO_SIN_COMPROBAR, filasDeLoQueCuesta, textoDeComprobacion } from "@/lib/catalogoCompleto";
 import type { TarjetaHerramientaRecomendadaProps } from "@/components/TarjetaHerramientaRecomendada";
 
 /** Campos comunes a las dos vistas (con y sin cuestionario) que no dependen de `HerramientaEvaluada` — evita repetirlos en las dos funciones de abajo. */
 function camposComunes(herramienta: Herramienta) {
+  /**
+   * Lo que va a la tarjeta de «lo que te va a costar», ya redactado aquí: el
+   * componente no decide cómo se dicen las cosas, y el catálogo, la ficha y
+   * la tarjeta tienen que decir lo mismo del mismo dato.
+   *
+   * Cuando nadie ha comprobado ese precio se dice, en vez de callarlo. En una
+   * lista de sesenta y cinco la ausencia de fecha ya se nota; en una tarjeta
+   * sola, callarlo daría a entender que está tan comprobado como el de al
+   * lado.
+   */
+  const comprobacion = textoDeComprobacion(herramienta);
+
   return {
     reputacion: herramienta.reputacion,
     disponibleEnEspanol: herramienta.disponibleEnEspanol ?? false,
     tieneAppMovil: herramienta.tieneAppMovil ?? false,
     tieneApiPublica: herramienta.tieneApiPublica ?? false,
+    comprobacionDelPrecio: comprobacion ?? PRECIO_SIN_COMPROBAR,
+    precioComprobado: comprobacion !== null,
+    ...(herramienta.urlPrecios ? { urlPrecios: herramienta.urlPrecios } : {}),
+
   };
 }
 
@@ -39,14 +57,37 @@ export function aVistaDeTarjeta(
   // `HerramientaEvaluada.puntuacionTotal`).
   const puntuacionAtlas = calcularPuntuacionAtlas(herramienta);
 
+  // Idioma: lo que no consta se dice. El criterio ya redactó la frase («No
+  // hemos confirmado que esté disponible en español»); aquí sólo se decide si
+  // hay algo que confesar. Si nadie dijo qué idioma hace falta, el criterio es
+  // neutro, no hay frase y no se avisa de nada: no hay nada que avisar.
+  /**
+   * La respuesta a «¿esto, a mí, cuánto me cuesta?». Aquí SÍ se puede
+   * contestar de verdad, porque la evidencia dice en qué plan vive la función
+   * que pidió y la ficha dice lo que vale ese plan.
+   */
+  const cuesta = filasDeLoQueCuesta(
+    herramienta,
+    evidencia?.tipo === "confirmada" ? evidencia.plan : undefined,
+    herramienta.planesComprobados?.planes
+  );
+
+  const detalleIdioma = evaluada.detalles.find((detalle) => detalle.criterio === "idioma");
+  const idiomaSinConfirmar =
+    detalleIdioma && detalleIdioma.explicacion !== "" && detalleIdioma.puntos < PUNTOS_IDIOMA_CONFIRMADO
+      ? detalleIdioma.explicacion
+      : undefined;
+
   return {
     posicion,
     id: herramienta.id,
     nombre: herramienta.nombre,
     puntuacionAtlas: puntuacionAtlas?.puntuacion ?? null,
     motivosPuntuacion: puntuacionAtlas?.motivos ?? [],
-    precioInicial: herramienta.precioInicial,
     tienePlanGratuito: herramienta.tienePlanGratuito,
+    cuantoCuesta: cuesta.respuesta,
+    filasDelCoste: cuesta.filas,
+    ...(cuesta.planGratuito ? { planGratuito: cuesta.planGratuito } : {}),
     ventajas: herramienta.ventajas,
     inconvenientes: herramienta.inconvenientes,
     explicacionPersonalizada: evaluada.explicacion,
@@ -57,6 +98,7 @@ export function aVistaDeTarjeta(
     ...(evidencia ? { evidencia } : {}),
     ...(usoSinConfirmar ? { usoSinConfirmar } : {}),
     ...(confirmadoPara ? { confirmadoPara } : {}),
+    ...(idiomaSinConfirmar ? { idiomaSinConfirmar } : {}),
     ...camposComunes(herramienta),
   };
 }
@@ -79,8 +121,17 @@ export function aVistaDeTarjetaGenerica(herramienta: Herramienta, posicion: numb
     nombre: herramienta.nombre,
     puntuacionAtlas: puntuacionAtlas?.puntuacion ?? null,
     motivosPuntuacion: puntuacionAtlas?.motivos ?? [],
-    precioInicial: herramienta.precioInicial,
     tienePlanGratuito: herramienta.tienePlanGratuito,
+    // Sin cuestionario no sabemos qué función busca, así que no sabemos qué
+    // plan le toca: se dice desde cuánto empieza y no se finge una respuesta.
+    ...(() => {
+      const c = filasDeLoQueCuesta(herramienta, undefined, herramienta.planesComprobados?.planes);
+      return {
+        cuantoCuesta: c.respuesta,
+        filasDelCoste: c.filas,
+        ...(c.planGratuito ? { planGratuito: c.planGratuito } : {}),
+      };
+    })(),
     ventajas: herramienta.ventajas,
     inconvenientes: herramienta.inconvenientes,
     explicacionPersonalizada: herramienta.idealPara,

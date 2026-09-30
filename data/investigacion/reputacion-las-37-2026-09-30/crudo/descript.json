@@ -1,0 +1,5 @@
+{
+ "id": "descript",
+ "nombre": "Descript",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.co.uk/compare/201202/descript-vs-wondershare-democreator\",\n    \"notaGeneral\": 4.6,\n    \"facilidadDeUso\": 4.4,\n    \"escala\": 5,\n    \"numeroDeResenas\": 183,\n    \"cita\": \"Ratings. Overall. 4.6 (183) Reviews. Ease of Use. 4.4 (183) Reviews.\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/compare/descript-vs-resemble-ai\",\n    \"notaGeneral\": 4.6,\n    \"facilidadDeUso\": 8.5,\n    \"escala\": 10,\n    \"numeroDeResenas\": 760,\n    \"cita\": \"Ease of Use. Descript. 8.5. 8.5 760.\"\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/201202/Descript/\",\n    \"https://www.capterra.es\",\n    \"https://www.capterra.ie\",\n    \"https://www.capterra.co.uk/compare/201202/descript-vs-wondershare-democreator\",\n    \"https://www.g2.com/products/descript/reviews\",\n    \"https://www.g2.com/compare/descript-vs-resemble-ai\"\n  ]\n}\n```"
+}

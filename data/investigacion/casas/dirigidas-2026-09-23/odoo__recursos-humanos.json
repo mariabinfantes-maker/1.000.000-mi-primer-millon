@@ -1,0 +1,17 @@
+{
+ "id": "odoo__recursos-humanos",
+ "herramientaId": "odoo",
+ "nombre": "Odoo",
+ "casa": "recursos-humanos",
+ "nombreCasa": "Recursos humanos",
+ "urls": [
+  "https://www.odoo.com/",
+  "https://www.odoo.com/pricing"
+ ],
+ "cita": "Employees Payroll Recruitment Time Off Appraisals Fleet",
+ "texto": "{\n  \"resultados\": [\n    {\n      \"id\": \"cap.recruiting\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.employee_onboarding\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.payroll\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.commissions_and_tips\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.time_and_attendance\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.shift_scheduling\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.leave_management\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.performance_reviews\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}",
+ "leidas": [
+  "OK https://www.odoo.com/",
+  "OK https://www.odoo.com/pricing"
+ ]
+}

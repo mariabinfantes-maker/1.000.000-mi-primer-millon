@@ -1,0 +1,23 @@
+{
+ "pedida": "https://www.shore.com/en/pricing",
+ "leidas": [
+  "https://www.shore.com/en/pricing"
+ ],
+ "urls": [
+  [
+   "https://www.shore.com/en/pricing",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "idioma_es": "si",
+  "espana": "si",
+  "cita_espana": "English (Europe) English (United States) Español (España) Français (France)",
+  "campos": {
+   "precio": {
+    "v": "si",
+    "cita": "How much does Shore cost? See all prices at a glance"
+   }
+  }
+ }
+}

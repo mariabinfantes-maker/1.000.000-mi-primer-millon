@@ -1,0 +1,19 @@
+{
+  "hasAffiliateProgram": true,
+  "affiliateProgramName": "Teachable Partner Program",
+  "affiliatePlatform": "PartnerStack",
+  "affiliateUrl": "https://teachable.com/partners",
+  "commission": "30 % recurrente durante el primer año por cada venta referida.",
+  "cookieDuration": "30 días",
+  "approvalRequired": true,
+  "payoutMethod": "PayPal, Transferencia bancaria",
+  "payoutFrequency": "Mensual",
+  "countriesAvailable": [
+    "Global"
+  ],
+  "affiliateStatus": "active",
+  "confidenceLevel": "high",
+  "source": "https://teachable.com/partners",
+  "lastAffiliateCheck": "2026-09-16",
+  "herramientaId": "teachable"
+}

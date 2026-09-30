@@ -1,0 +1,17 @@
+{
+ "id": "agile-crm__creacion-web-hosting",
+ "herramientaId": "agile-crm",
+ "nombre": "Agile CRM",
+ "casa": "creacion-web-hosting",
+ "nombreCasa": "Creación web y hosting",
+ "urls": [
+  "https://www.agilecrm.com",
+  "https://www.agilecrm.com/pricing"
+ ],
+ "cita": "Website Builder",
+ "texto": "{\"resultados\":[{\"id\":\"cap.website_builder\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.hosting_and_domain\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.reviews_and_reputation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.local_business_listings\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.agilecrm.com/",
+  "OK https://www.agilecrm.com/pricing"
+ ]
+}

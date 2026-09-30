@@ -1,0 +1,17 @@
+{
+ "id": "nifty__atencion-cliente",
+ "herramientaId": "nifty",
+ "nombre": "Nifty",
+ "casa": "atencion-cliente",
+ "nombreCasa": "Atención al cliente",
+ "urls": [
+  "https://niftypm.com",
+  "https://niftypm.com/pricing/"
+ ],
+ "cita": "Replace fragmented helpdesk tools with a single hub that intakes tickets, auto-assigns owners, and ties resolutions to broader IT projects.",
+ "texto": "{\"resultados\":[{\"id\":\"cap.shared_inbox\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.support_ticketing\",\"estado\":\"si\",\"cita\":\"Capture tickets via forms and prioritize by urgency\",\"url\":\"https://niftypm.com\"},{\"id\":\"cap.website_live_chat\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.whatsapp_customer_channel\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.public_help_center\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.canned_responses\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.support_chatbot\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.customer_satisfaction_surveys\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://niftypm.com/",
+  "OK https://niftypm.com/pricing/"
+ ]
+}

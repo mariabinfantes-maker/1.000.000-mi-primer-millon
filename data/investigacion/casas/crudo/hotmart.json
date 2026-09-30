@@ -1,0 +1,13 @@
+{
+ "id": "hotmart",
+ "nombre": "Hotmart",
+ "urls": [
+  "https://hotmart.com/",
+  "https://hotmart.com/es/precios"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Creación de nuevos productos, módulos, clases, precios con nuestra IA.\"\n    },\n    {\n      \"id\": \"atencion-cliente\",\n      \"cita\": \"✓ Asistencia 24 horas a través de IA o del Centro de ayuda.\"\n    },\n    {\n      \"id\": \"comercio-electronico\",\n      \"cita\": \"Crea y vende tu curso online de forma simple y rápida\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"50+ integrations with the market's leading tools, so you don't waste time jumping from solution to solution.\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"✓ Campañas de correo electrónico completas con Hotmart Send.\"\n    },\n    {\n      \"id\": \"creacion-web-hosting\",\n      \"cita\": \"Hotmart gives you everything you need to host and promote your course or ebook, from idea to sale.\"\n    }\n  ],\n  \"esDe\": \"comercio-electronico\",\n  \"sector\": \"productos digitales\"\n}",
+ "leidas": [
+  "OK https://hotmart.com/en",
+  "OK https://hotmart.com/es/precios"
+ ]
+}

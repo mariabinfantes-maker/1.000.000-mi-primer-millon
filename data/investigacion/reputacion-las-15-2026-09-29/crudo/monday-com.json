@@ -1,0 +1,5 @@
+{
+ "id": "monday-com",
+ "nombre": "monday.com",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/147657/monday-com/\",\n    \"notaGeneral\": \"4.6\",\n    \"facilidadDeUso\": \"4.5\",\n    \"escala\": \"5\",\n    \"numeroDeResenas\": \"6,118\",\n    \"cita\": \"Overall rating. Based on 6,118 user reviews. 4.6. [...] Ease of use 4.5\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/monday-ai-work-platform/reviews\",\n    \"notaGeneral\": \"4.7\",\n    \"facilidadDeUso\": \"92%\",\n    \"escala\": \"100%\",\n    \"numeroDeResenas\": \"17,238\",\n    \"cita\": \"monday AI Work Platform. By monday.com. 4.7/5(17,238). [...] Ease of Use (3935) [...] Ease of use: 92%\"\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/147657/monday-com/\",\n    \"https://www.capterra.es/software/147657/monday-com\",\n    \"https://www.capterra.ie/software/147657/monday-com\",\n    \"https://www.capterra.co.uk/software/147657/monday-com\",\n    \"https://www.g2.com/products/monday-ai-work-platform/reviews\",\n    \"https://www.g2.com/products/monday-com/reviews\"\n  ]\n}\n```"
+}

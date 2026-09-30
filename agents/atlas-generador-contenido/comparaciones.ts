@@ -45,8 +45,12 @@ export function generarParesComparacion(): { idA: string; idB: string; slug: str
     const herramientas = getHerramientasPorCategoria(categoria.id);
     for (let i = 0; i < herramientas.length; i++) {
       for (let j = i + 1; j < herramientas.length; j++) {
-        const idA = herramientas[i].id;
-        const idB = herramientas[j].id;
+        // El par se ordena igual que su slug. Salían en el orden del
+        // catálogo, que coincidía con el alfabético por casualidad mientras
+        // las categorías tenían pocas herramientas; al llenarlas con el
+        // reparto dejó de coincidir, y la URL y la página discrepaban sobre
+        // cuál de las dos va primero.
+        const [idA, idB] = [herramientas[i].id, herramientas[j].id].sort();
         const slug = slugComparacion(idA, idB);
         if (!porSlug.has(slug)) porSlug.set(slug, { idA, idB, slug });
       }

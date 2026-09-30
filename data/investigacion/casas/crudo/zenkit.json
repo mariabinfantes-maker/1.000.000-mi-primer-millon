@@ -1,0 +1,13 @@
+{
+ "id": "zenkit",
+ "nombre": "Zenkit",
+ "urls": [
+  "https://zenkit.com",
+  "https://zenkit.com/en/pricing/"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Zenkit is the multi-project management solution for agile and classical projects.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Integrate Zenkit with 1500+ tools and your existing software in just a few clicks via Zapier.\"\n    }\n  ],\n  \"esDe\": \"gestion-proyectos\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://zenkit.com/en/",
+  "OK https://zenkit.com/en/pricing/"
+ ]
+}

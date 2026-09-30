@@ -4,6 +4,11 @@
   "urlPrecios": "https://reclaim.ai/pricing",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "gestion-proyectos",
+    "reservas-citas"
+  ],
   "descripcion": "Reclaim.ai es un asistente y planificador de horarios con IA que se integra con Google Calendar y Outlook. Automatiza la programación de reuniones, tiempo de trabajo enfocado, hábitos y tareas pendientes para optimizar la productividad personal y de equipo.",
   "informacionEmpresa": {
     "anioFundacion": 2019,
@@ -70,7 +75,7 @@
     "Jira"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde 8$ / usuario / mes (facturado anualmente)",
+  "precioInicial": "Gratis para 1 usuario. De pago desde $10/usuario/mes",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -99,7 +104,18 @@
     "g2Puntuacion": 4.8,
     "g2NumeroResenas": 85,
     "capterraPuntuacion": 4.8,
-    "capterraNumeroResenas": 20
+    "capterraNumeroResenas": 20,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/214309/Reclaim/",
+      "cita": "Ease Of Use. 4.6 (10). — leido 4.7/5 con 10 reseñas. Confirma el 4.8 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/reclaim-ai/reviews",
+      "cita": "Reclaim.ai Reviews (144). View 1 Video Reviews. 4.8. 144 reviews. Pros & Cons. Generated from real user reviews. Time-sa — leido 4.8/5 con 144 reseñas. Confirma el 4.8 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Excelente automatización para reajustar reuniones y tareas sin intervención manual",
@@ -121,12 +137,11 @@
     ],
     "tipoNegocioIdeal": "Startups SaaS, agencias digitales y equipos de producto/tecnología",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 96,
+    "puntuacion": 93,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.7/10.",
       "G2: 4.8/5 (85 reseñas).",
       "Capterra: 4.8/5 (20 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública."
     ]
   },
@@ -138,5 +153,33 @@
   "problemasIds": [
     "ahorrar-tiempo"
   ],
-  "subtipoId": "agenda-planificacion"
+  "subtipoId": "agenda-planificacion",
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://reclaim.ai/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://reclaim.ai/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Lite",
+        "mensual": "0 $",
+        "cita": "Free forever"
+      },
+      {
+        "nombre": "Business",
+        "mensual": "18 $/usuario/mes",
+        "anual": "15 $/usuario/mes",
+        "cita": "$18 / $15"
+      },
+      {
+        "nombre": "Enterprise",
+        "anual": "22 $/usuario/mes",
+        "cita": "$22, Unavailable on monthly plans"
+      }
+    ]
+  }
 }

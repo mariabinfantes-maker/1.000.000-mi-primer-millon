@@ -1,7 +1,7 @@
 {
   "nombre": "EngageBay",
   "paginaOficial": "https://www.engagebay.com/",
-  "urlPrecios": "https://www.engagebay.com/pricing",
+  "urlPrecios": "https://www.engagebay.com/pricing/all-in-one",
   "categoriaId": "plataformas-todo-en-uno",
   "descripcion": "EngageBay es una plataforma unificada de CRM, automatización de marketing, gestión de ventas y soporte al cliente diseñada para pymes. Permite centralizar la captación de leads, el seguimiento comercial y la atención al cliente en una sola herramienta económica.",
   "informacionEmpresa": {
@@ -63,7 +63,7 @@
     "Stripe"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde 0€ (Plan gratuito para 250 contactos) o 11,95$/usuario/mes en planes de pago",
+  "precioInicial": "Gratis hasta 250 contactos. De pago desde $12,74",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -97,7 +97,18 @@
     "g2Puntuacion": 4.6,
     "g2NumeroResenas": 530,
     "capterraPuntuacion": 4.7,
-    "capterraNumeroResenas": 600
+    "capterraNumeroResenas": 600,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/178716/EngageBay/",
+      "cita": "Ease Of Use. 4.5 (912). — leido 4.6/5 con 912 reseñas. Confirma el 4.7 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/engagebay/reviews",
+      "cita": "Ease of Use. EngageBay. 9.1. 9.1 655. — leido 4.6/5 con 655 reseñas. Confirma el 4.6 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Excelente relación calidad-precio frente a alternativas como HubSpot o ActiveCampaign",
@@ -119,12 +130,11 @@
     ],
     "tipoNegocioIdeal": "Pymes y agencias de marketing",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 94,
+    "puntuacion": 91,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.2/10.",
       "G2: 4.6/5 (530 reseñas).",
       "Capterra: 4.7/5 (600 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -132,7 +142,7 @@
   "id": "engagebay",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-03",
-  "fechaUltimaRevision": "2026-08-05",
+  "fechaUltimaRevision": "2026-09-17",
   "problemasIds": [
     "conseguir-clientes",
     "atencion-cliente"
@@ -146,6 +156,16 @@
   ],
   "tipoProducto": "suite",
   "categoriasSecundarias": [
-    "crm"
-  ]
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "crm",
+    "gestion-proyectos",
+    "marketing-email",
+    "reservas-citas"
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.engagebay.com/pricing/all-in-one"
+  }
 }

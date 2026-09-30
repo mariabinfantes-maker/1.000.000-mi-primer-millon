@@ -1,0 +1,7 @@
+[
+  { "nombreHerramienta": "Quipu", "categoriaId": "plataformas-todo-en-uno", "contextoAdicional": "Programa español de facturación para autónomos y pymes, con contabilidad, impuestos y conexión bancaria. Primer lote del carril «el dinero»: hoy el catálogo no tiene ni un solo programa de facturación español y a quien pide facturar se le responde con gestores de proyectos." },
+  { "nombreHerramienta": "Anfix", "categoriaId": "plataformas-todo-en-uno", "contextoAdicional": "Plataforma española en la nube de facturación, contabilidad, bancos e impuestos para pymes y autónomos, orientada al trabajo conjunto con la gestoría. Primer lote del carril «el dinero»." },
+  { "nombreHerramienta": "Billin", "categoriaId": "plataformas-todo-en-uno", "contextoAdicional": "Programa español de facturación pensado para autónomos y micropymes sin conocimientos contables. Primer lote del carril «el dinero»." },
+  { "nombreHerramienta": "FacturaDirecta", "categoriaId": "plataformas-todo-en-uno", "contextoAdicional": "Programa español de facturación online para autónomos y pymes, orientado a la fiscalidad española. Primer lote del carril «el dinero»." },
+  { "nombreHerramienta": "Contasimple", "categoriaId": "plataformas-todo-en-uno", "contextoAdicional": "Programa español de facturación y contabilidad para autónomos y pymes, con plan gratuito. Primer lote del carril «el dinero»." }
+]

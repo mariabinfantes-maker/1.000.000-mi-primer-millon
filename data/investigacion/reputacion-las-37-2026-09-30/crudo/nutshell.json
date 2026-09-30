@@ -1,0 +1,5 @@
+{
+ "id": "nutshell",
+ "nombre": "Nutshell",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/121087/Nutshell/reviews/\",\n    \"notaGeneral\": 4.4,\n    \"facilidadDeUso\": 4.4,\n    \"escala\": \"5\",\n    \"numeroDeResenas\": 617,\n    \"cita\": \"Reviews of Nutshell. Ease of use. 4.4. / Ease Of Use. 4.4 (617).\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/nutshell/reviews\",\n    \"notaGeneral\": 4.3,\n    \"facilidadDeUso\": null,\n    \"escala\": null,\n    \"numeroDeResenas\": null,\n    \"cita\": null\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/121087/Nutshell/\",\n    \"https://www.capterra.com/p/121087/Nutshell/reviews/\",\n    \"https://www.capterra.es/\",\n    \"https://www.capterra.co.uk/\",\n    \"https://www.capterra.ie/\",\n    \"https://www.g2.com/products/nutshell/reviews\",\n    \"https://www.g2.com/products/nutshell/pros-cons\"\n  ]\n}\n```"
+}

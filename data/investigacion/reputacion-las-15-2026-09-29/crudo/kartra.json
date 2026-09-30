@@ -1,0 +1,5 @@
+{
+ "id": "kartra",
+ "nombre": "Kartra",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/177699/Kartra/\",\n    \"notaGeneral\": 4.5,\n    \"facilidadDeUso\": 4.0,\n    \"escala\": 5,\n    \"numeroDeResenas\": 168,\n    \"cita\": \"Kartra. 4.5 (168). [...] Ease Of Use. 4.0 (168).\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/kartra/reviews\",\n    \"notaGeneral\": 3.9,\n    \"facilidadDeUso\": null,\n    \"escala\": 5,\n    \"numeroDeResenas\": 62,\n    \"cita\": \"Kartra. By Genesis Digital. 3.9/5(62). 3.9 out of 5 stars.\"\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/177699/Kartra/\",\n    \"https://www.capterra.es/\",\n    \"https://www.capterra.ie/\",\n    \"https://www.capterra.co.uk/\",\n    \"https://www.g2.com/products/kartra/reviews\"\n  ]\n}\n```"
+}

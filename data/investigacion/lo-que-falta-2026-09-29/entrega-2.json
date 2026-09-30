@@ -1,0 +1,889 @@
+{
+ "fecha": "2026-09-29",
+ "entrega": 2,
+ "comoSeInvestigo": {
+  "quien": "GPT, con navegación, el 2026-09-29, en menos de 8 horas de trabajo.",
+  "encargo": "encargos/PROMPT-GPT-continuacion.md",
+  "crudo": "crudo/entrega-2-crudo.json y crudo/entrega-2-parte2-crudo.json",
+  "queSeTradujo": [
+   "jane: fuente «blog_fabricante» → «fuente_secundaria», con esDelFabricante:true. No se descarta: el encargo permite el material del propio fabricante si se avisa, y avisó. Queda como secundaria porque un post de blog o una nota de prensa no es una especificación.",
+   "fresha: fuente «blog_fabricante» → «fuente_secundaria», con esDelFabricante:true. No se descarta: el encargo permite el material del propio fabricante si se avisa, y avisó. Queda como secundaria porque un post de blog o una nota de prensa no es una especificación.",
+   "booksy: fuente «blog_fabricante» → «fuente_secundaria», con esDelFabricante:true. No se descarta: el encargo permite el material del propio fabricante si se avisa, y avisó. Queda como secundaria porque un post de blog o una nota de prensa no es una especificación.",
+   "booksy: fuente «blog_fabricante» → «fuente_secundaria», con esDelFabricante:true. No se descarta: el encargo permite el material del propio fabricante si se avisa, y avisó. Queda como secundaria porque un post de blog o una nota de prensa no es una especificación.",
+   "square-appointments: fuente «nota_prensa_fabricante» → «fuente_secundaria», con esDelFabricante:true. No se descarta: el encargo permite el material del propio fabricante si se avisa, y avisó. Queda como secundaria porque un post de blog o una nota de prensa no es una especificación.",
+   "square-appointments: modeloDePrecio «comision_por_transaccion» → «suscripcion_mensual», conservado en notaDelPrecio."
+  ],
+  "loQueNoSeToco": "Ningún dato, cita, dirección ni estado.",
+  "ojo": "Otra vez `pendientes: []` sin serlo. La parte 1 traía 1 de 4 precios (sólo Pabau, y en null) y la parte 2 traía 6 de 13 fichas. Lo entregado es bueno; lo que no está, no está.",
+  "dosQueNoSePidieron": "square-appointments y schedulista no estaban en el encargo —ya se hicieron en la tanda 4—. Esta segunda lectura es más rica y NO sustituye a la primera: se guardan las dos y se decide campo a campo. La de Schedulista añade los siete idiomas de la página de reservas frente a la gestión en inglés, que la primera no detallaba.",
+  "booksyPierdeElTamano": "GPT devuelve `segmentosIdeales: null` con `oNoLoPublican: true` porque la tarifa no publica un máximo de empleados. La tanda 3 había dado [1-10]. No se sobrescribe: las dos lecturas son compatibles —cuota base más coste por empleado, sin techo publicado— y la de la tanda 3 se mantiene por ser la que el examen usa.",
+  "quedaPendiente": {
+   "parte1": [
+    "zoho-bookings",
+    "teachworks",
+    "fresha"
+   ],
+   "parte2": [
+    "reservo",
+    "setmore",
+    "acuity-scheduling",
+    "reservio",
+    "bookeo-appointments",
+    "timify",
+    "simplybook-me",
+    "zoho-bookings",
+    "teachworks"
+   ]
+  }
+ },
+ "precios": [
+  {
+   "id": "pabau",
+   "precioInicial": null,
+   "moneda": null,
+   "tienePlanGratuito": null,
+   "cita": null,
+   "url": "https://pabau.com/es/precios/",
+   "tipo": "tarifa_oficial",
+   "tituloDeLaPagina": "Precios de Pabau | Planes del software de gestión de clínicas | Pabau",
+   "fraseDeAlLado": "¿Qué cuenta como usuario?",
+   "siNoLoPublican": "No pude comprobar el precio inicial. Abrí https://pabau.com/es/precios/ y https://pabau.com/pricing/: aparecen los planes y sus condiciones, pero no sus importes. Las preguntas frecuentes dicen que Starter y Solo tienen precios publicados, mientras que los equipos mayores necesitan una propuesta. Por eso no afirmo que no lo publiquen: no conseguí visualizar esas cifras. Un segundo intento de lectura directa del HTML devolvió HTTP 403. Tampoco identifiqué una moneda asociada a un importe ni una declaración sobre un plan gratuito permanente."
+  }
+ ],
+ "herramientas": [
+  {
+   "id": "jane",
+   "categoriaId": "clinicas-salud",
+   "descripcion": "Sistema de gestión para consultas sanitarias que reúne agenda, documentación clínica, facturación, pagos y comunicación con pacientes.",
+   "problemasQueResuelve": [
+    "Necesito organizar las citas y la documentación de mis pacientes.",
+    "Quiero gestionar cobros y comunicaciones desde el mismo sistema."
+   ],
+   "casosDeUso": [
+    "Administrar la agenda y las notas clínicas de una consulta.",
+    "Permitir que los pacientes gestionen sus citas.",
+    "Conectar la consulta con herramientas de ejercicios o comunicaciones."
+   ],
+   "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+   ],
+   "porQueEseTamano": "Balance admite un único profesional y hasta 20 citas mensuales. Practice incluye inicialmente un profesional y permite perfiles de personal ilimitados; Thrive incorpora lo incluido en Practice. Los profesionales adicionales se facturan según el plan y su dedicación. La capacidad ilimitada está expresamente publicada.",
+   "oNoLoPublican": false,
+   "noRecomendadaPara": "Si necesitas gestionar la clínica mediante una app nativa para profesionales: la app documentada es para pacientes y no da acceso a la parte de gestión.",
+   "funcionesPrincipales": [
+    "Agenda y reservas online.",
+    "Documentación clínica.",
+    "Facturación y cobros.",
+    "Comunicación con pacientes."
+   ],
+   "integraciones": [
+    "Physitrack",
+    "Mailchimp",
+    "Fullscript"
+   ],
+   "integracionesPrincipales": [
+    "Physitrack: herramienta para atención fisioterapéutica.",
+    "Mailchimp: comunicaciones de marketing.",
+    "Fullscript: dispensación de suplementos."
+   ],
+   "cuantasIntegracionesPublica": 17,
+   "modeloDePrecio": [
+    "suscripcion_mensual"
+   ],
+   "ventajas": [
+    "Practice y Thrive permiten perfiles de personal ilimitados.",
+    "Los planes incluyen administradores y ubicaciones ilimitados."
+   ],
+   "inconvenientes": [
+    "Balance está limitado a un profesional y 20 citas mensuales.",
+    "La app para pacientes está disponible únicamente para clínicas de Canadá y Estados Unidos.",
+    "Las integraciones mediante API requieren aprobación; no ofrece una API pública abierta."
+   ],
+   "metodologiaValoracion": "Datos de páginas oficiales, tarifas y ayuda abiertas. El contador de integraciones mostraba 17. Las integraciones enumeradas son una selección, no un ranking. La declaración sobre la API procede del blog del fabricante, publicado el 1 de abril de 2026. Los idiomas enumerados para el producto web son ejemplos expresamente documentados, no una lista exhaustiva. La app para pacientes tiene un alcance distinto. No se realizaron pruebas de uso: todas las puntuaciones quedan sin valorar.",
+   "puntuaciones": {
+    "nivelTecnicoRequerido": null,
+    "facilidadImplementacion": null,
+    "fiabilidad": null,
+    "atencionAlCliente": null,
+    "facilidadDeUso": null,
+    "calidad": null,
+    "escalabilidad": null
+   },
+   "idiomasDisponibles": [
+    "fr",
+    "es",
+    "de"
+   ],
+   "elIdiomaEsDelProductoODeLaPaginaDeReservas": "El artículo documenta cambios de idioma para personal y pacientes en Jane. La app móvil para pacientes tiene una lista diferente: francés e inglés.",
+   "tieneApiPublica": false,
+   "tieneAppMovil": true,
+   "informacionEmpresa": {
+    "paisOrigen": "Canadá",
+    "anioFundacion": null,
+    "tamanoAproximado": null
+   },
+   "pruebas": [
+    {
+     "deQueCampo": "descripcion, problemasQueResuelve, casosDeUso, funcionesPrincipales",
+     "cita": "Jane brings scheduling, charting, billing, payments, patient communication, and more into one connected system",
+     "url": "https://jane.app/",
+     "tipo": "pagina_oficial",
+     "tituloDeLaPagina": "Practice Management Software for Health & Wellness Clinics | Jane",
+     "fraseDeAlLado": "Subscribe to our monthly newsletter."
+    },
+    {
+     "deQueCampo": "segmentosIdeales, porQueEseTamano, modeloDePrecio, ventajas, inconvenientes",
+     "cita": "Single practitioner profile […] Limited to 20 appointments / month […] Unlimited Staff Profiles […] Unlimited admins & locations […] USD $54 / month",
+     "url": "https://jane.app/pricing",
+     "tipo": "tarifa_oficial",
+     "tituloDeLaPagina": "Pricing - Jane App - Jane App",
+     "fraseDeAlLado": "Gift Cards"
+    },
+    {
+     "deQueCampo": "integraciones, integracionesPrincipales, cuantasIntegracionesPublica",
+     "cita": "1 - 12 of 17 […] Physitrack […] Mailchimp […] Fullscript",
+     "url": "https://integrations.jane.app/",
+     "tipo": "pagina_oficial",
+     "tituloDeLaPagina": "Jane App Integrations | Connect Your Practice Software - Jane Integration Ecosystem",
+     "fraseDeAlLado": "Manage your private practice with beautifully designed software"
+    },
+    {
+     "deQueCampo": "idiomasDisponibles, elIdiomaEsDelProductoODeLaPaginaDeReservas",
+     "cita": "(French, Spanish, German, etc) […] for staff and patients.",
+     "url": "https://jane.app/guide/customizing-language-in-jane",
+     "tipo": "documentacion",
+     "tituloDeLaPagina": "Customizing Language in Jane - Jane App",
+     "fraseDeAlLado": "You can also change the word treatments to something different"
+    },
+    {
+     "deQueCampo": "tieneAppMovil, noRecomendadaPara, inconvenientes",
+     "cita": "only for the client side of Jane […] only in Canada and the US […] French and English",
+     "url": "https://jane.app/guide/jane-s-mobile-app-for-clients-faq",
+     "tipo": "documentacion",
+     "tituloDeLaPagina": "Jane for Clients Mobile App: FAQ - Jane App",
+     "fraseDeAlLado": "Where is my data stored?"
+    },
+    {
+     "deQueCampo": "tieneApiPublica, inconvenientes",
+     "cita": "we are not launching an open, public API where any product can connect to Jane.",
+     "url": "https://jane.app/blog/jane-integrations-our-program-our-partners-and-how-to-work-with-us",
+     "tipo": "fuente_secundaria",
+     "tituloDeLaPagina": "Jane's Practice Management Software Integrations for Allied Health Clinics - Jane App",
+     "fraseDeAlLado": "Tips, News, and Thoughts from the Jane Team",
+     "esDelFabricante": true,
+     "tipoOriginal": "blog_fabricante"
+    },
+    {
+     "deQueCampo": "informacionEmpresa.paisOrigen",
+     "cita": "Jane's story begins in 2011 […] in North Vancouver, BC.",
+     "url": "https://jane.app/story",
+     "tipo": "pagina_oficial",
+     "tituloDeLaPagina": "Our Story - Jane App",
+     "fraseDeAlLado": "Co-Founder / Lead Developer"
+    }
+   ],
+   "paginasQueAbriste": [
+    "https://jane.app/",
+    "https://jane.app/pricing",
+    "https://jane.app/about",
+    "https://jane.app/story",
+    "https://jane.app/features/patient-mobile-app",
+    "https://jane.app/integrations",
+    "https://integrations.jane.app/",
+    "https://jane.app/guide/customizing-language-in-jane",
+    "https://jane.app/guide/jane-s-mobile-app-for-clients-faq",
+    "https://jane.app/blog/jane-integrations-our-program-our-partners-and-how-to-work-with-us"
+   ],
+   "paginasQueNoSeAbrieron": [],
+   "loQueNoPudeComprobar": "No encontré una cifra actual de empleados ni una fecha inequívoca de constitución: la historia distingue el origen del proyecto en 2011, su ampliación comercial en 2012 y el lanzamiento público en 2014. No los convierto en año de fundación. La lista completa de idiomas del producto web tampoco quedó demostrada."
+  },
+  {
+   "id": "pabau",
+   "categoriaId": "clinicas-salud",
+   "descripcion": "Software para clínicas que reúne agenda, historias clínicas, cobros, tareas y comunicaciones con pacientes.",
+   "problemasQueResuelve": [
+    "Necesito gestionar las reservas, los expedientes y los pagos de mi clínica.",
+    "Quiero coordinar al equipo y automatizar comunicaciones con pacientes."
+   ],
+   "casosDeUso": [
+    "Organizar las citas de una clínica con varios profesionales.",
+    "Gestionar expedientes y pagos desde una misma plataforma.",
+    "Consultar información y tareas desde un iPhone o iPad."
+   ],
+   "segmentosIdeales": [
+    "1-10",
+    "11-50"
+   ],
+   "porQueEseTamano": "La tarifa publica Solo para 1 usuario, Team para 2-3, Medium para 4-5, Group para 6-15 y Enterprise para 16+. Las preguntas frecuentes también mencionan Starter para un usuario. No equiparo 16+ a usuarios ilimitados ni atribuyo los tramos 51-200 o 200+.",
+   "oNoLoPublican": false,
+   "noRecomendadaPara": "Si necesitas una app nativa de gestión en Android: Pabau GO está disponible únicamente para iOS; en Android remite al navegador.",
+   "funcionesPrincipales": [
+    "Agenda y reservas online.",
+    "Historias clínicas.",
+    "Pagos y facturación.",
+    "Comunicaciones y automatización de tareas."
+   ],
+   "integraciones": [
+    "Stripe",
+    "Xero",
+    "Google Calendar"
+   ],
+   "integracionesPrincipales": [
+    "Stripe: cobros.",
+    "Xero: contabilidad.",
+    "Google Calendar: sincronización de agenda."
+   ],
+   "cuantasIntegracionesPublica": null,
+   "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual"
+   ],
+   "ventajas": [
+    "Solo y los planes superiores publican pacientes ilimitados.",
+    "Ofrece una API abierta para desarrollar integraciones."
+   ],
+   "inconvenientes": [
+    "El precio se aplica por centro, excepto en Enterprise.",
+    "Los usuarios que cuentan para la licencia incluyen también recepción y administración.",
+    "La app nativa está limitada a iOS."
+   ],
+   "metodologiaValoracion": "Fuentes oficiales comerciales y de ayuda. La página de integraciones anuncia más de 30 herramientas, pero no una cantidad exacta: dejo el contador numérico en null. Enumero integraciones concretas documentadas. Los idiomas son una selección de los publicados y afectan al sistema y al portal de reservas. La web corporativa menciona alrededor de 200 empleados, sin fechar esa cifra como plantilla actual. No se asignan puntuaciones sin pruebas de uso.",
+   "puntuaciones": {
+    "nivelTecnicoRequerido": null,
+    "facilidadImplementacion": null,
+    "fiabilidad": null,
+    "atencionAlCliente": null,
+    "facilidadDeUso": null,
+    "calidad": null,
+    "escalabilidad": null
+   },
+   "idiomasDisponibles": [
+    "en",
+    "es",
+    "fr",
+    "de",
+    "pt",
+    "it"
+   ],
+   "elIdiomaEsDelProductoODeLaPaginaDeReservas": "Ambas: el idioma predeterminado afecta a las cuentas de usuario del sistema y al portal de reservas online.",
+   "tieneApiPublica": true,
+   "tieneAppMovil": true,
+   "informacionEmpresa": {
+    "paisOrigen": "Reino Unido",
+    "anioFundacion": 2012,
+    "tamanoAproximado": "Alrededor de 200 empleados según la página corporativa, sin fecha de actualización de esa cifra."
+   },
+   "pruebas": [
+    {
+     "deQueCampo": "descripcion, problemasQueResuelve, casosDeUso, funcionesPrincipales",
+     "cita": "Pabau brings clinical care, business operations and patient engagement into one place. […] Calendar Online Booking EMR Workflows Payments Marketing",
+     "url": "https://pabau.com/",
+     "tipo": "pagina_oficial",
+     "tituloDeLaPagina": "Pabau | Practice Management Software for Clinics & Medical Spas",
+     "fraseDeAlLado": "Take product tour"
+    },
+    {
+     "deQueCampo": "segmentosIdeales, porQueEseTamano, modeloDePrecio, ventajas",
+     "cita": "1 user […] 2-3 users […] 4-5 users […] 6-15 users […] 16+ users […] Unlimited patients […] Monthly plan […] Annual plan",
+     "url": "https://pabau.com/pricing/",
+     "tipo": "tarifa_oficial",
+     "tituloDeLaPagina": "Pabau Pricing | All-in-One Practice Management Software Plans | Pabau",
+     "fraseDeAlLado": "Lead management"
+    },
+    {
+     "deQueCampo": "inconvenientes",
+     "cita": "El precio se aplica por centro, excepto en Enterprise, que cubre varios centros. […] personal de recepción",
+     "url": "https://pabau.com/es/precios/",
+     "tipo": "tarifa_oficial",
+     "tituloDeLaPagina": "Precios de Pabau | Planes del software de gestión de clínicas | Pabau",
+     "fraseDeAlLado": "Facturas"
+    },
+    {
+     "deQueCampo": "integraciones, integracionesPrincipales, tieneApiPublica",
+     "cita": "Pabau offers an open API […] Stripe […] Xero […] Google Calendar […] 30+ tools",
+     "url": "https://pabau.com/integrations/",
+     "tipo": "pagina_oficial",
+     "tituloDeLaPagina": "Pabau Integrations — Connect Your Clinic Tools, API & Workflows",
+     "fraseDeAlLado": "The list grows regularly as new partnerships are added."
+    },
+    {
+     "deQueCampo": "idiomasDisponibles, elIdiomaEsDelProductoODeLaPaginaDeReservas",
+     "cita": "all user accounts and your online booking portal […] English […] German […] French […] Spanish […] Portuguese […] Italian",
+     "url": "https://support.pabau.com/en/pabau2/how-to-change-connect-language-to-spanish",
+     "tipo": "documentacion",
+     "tituloDeLaPagina": "How to Change System Language",
+     "fraseDeAlLado": "Step 1: Navigate to Setup"
+    },
+    {
+     "deQueCampo": "tieneAppMovil, noRecomendadaPara, inconvenientes",
+     "cita": "the app is only available for iOS users currently",
+     "url": "https://pabau.com/features/practice-management-app/",
+     "tipo": "pagina_oficial",
+     "tituloDeLaPagina": "Spa Management App | Pabau",
+     "fraseDeAlLado": "You do not have to wait until you are back at the desk."
+    },
+    {
+     "deQueCampo": "informacionEmpresa",
+     "cita": "2012 […] Pabau is born! […] The Leicester garage where it all began! […] There is now 200 members of staff",
+     "url": "https://pabau.com/about/",
+     "tipo": "pagina_oficial",
+     "tituloDeLaPagina": "About Pabau | Practice Management Software for Med Spas | Pabau",
+     "fraseDeAlLado": "Our first logo."
+    }
+   ],
+   "paginasQueAbriste": [
+    "https://pabau.com/",
+    "https://pabau.com/pricing/",
+    "https://pabau.com/es/precios/",
+    "https://pabau.com/integrations/",
+    "https://pabau.com/about/",
+    "https://pabau.com/features/practice-management-app/",
+    "https://support.pabau.com/en/pabau2/how-to-change-connect-language-to-spanish"
+   ],
+   "paginasQueNoSeAbrieron": [
+    "https://pabau.com/pricing/ — la lectura web funcionó, pero el segundo intento de descargar directamente el HTML devolvió HTTP 403.",
+    "https://pabau.com/es/precios/ — la lectura web funcionó, pero el segundo intento de descargar directamente el HTML devolvió HTTP 403."
+   ],
+   "loQueNoPudeComprobar": "No conseguí visualizar el precio inicial ni su moneda. No encontré un máximo de usuarios para Enterprise. La página de integraciones mezcla funciones disponibles y otras anunciadas; no he incluido las señaladas como próximas. La cifra de empleados carece de fecha de actualización."
+  },
+  {
+   "id": "fresha",
+   "categoriaId": "reservas-citas",
+   "descripcion": "Plataforma para negocios de belleza y bienestar que combina reservas, gestión de clientes, ventas, personal y pagos.",
+   "problemasQueResuelve": [
+    "Quiero gestionar las reservas y los clientes de mi salón.",
+    "Necesito controlar ventas y actividad de varias ubicaciones.",
+    "Quiero analizar los datos del negocio con herramientas externas."
+   ],
+   "casosDeUso": [
+    "Administrar las agendas de un salón o spa.",
+    "Gestionar clientes, ventas y ubicaciones.",
+    "Enviar datos a herramientas de análisis mediante el complemento Data connector."
+   ],
+   "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+   ],
+   "porQueEseTamano": "La comparación de tarifas indica un miembro en Independent y miembros ilimitados en Team. Enterprise se dirige a negocios con más de 20 miembros. Los tramos superiores se basan en la declaración expresa de miembros ilimitados en Team.",
+   "oNoLoPublican": false,
+   "noRecomendadaPara": null,
+   "funcionesPrincipales": [
+    "Agenda y reservas.",
+    "Gestión de clientes y personal.",
+    "Ventas y cobros.",
+    "Gestión de ubicaciones e informes."
+   ],
+   "integraciones": [
+    "Power BI",
+    "Tableau",
+    "DOMO",
+    "Salesforce"
+   ],
+   "integracionesPrincipales": [
+    "Power BI y Tableau: análisis de datos mediante Data connector.",
+    "DOMO y Salesforce: conexiones de datos documentadas mediante Data connector."
+   ],
+   "cuantasIntegracionesPublica": null,
+   "modeloDePrecio": [
+    "suscripcion_mensual"
+   ],
+   "ventajas": [
+    "La comparación publica miembros ilimitados en Team.",
+    "Dispone de aplicaciones para profesionales en iOS y Android.",
+    "Permite conectar datos con más de 40 plataformas mediante un complemento."
+   ],
+   "inconvenientes": [
+    "Data connector es un complemento de pago y la sincronización es de salida: no recibe datos de vuelta.",
+    "El país y la moneda de una cuenta no se pueden cambiar; la ayuda indica que hay que crear otra cuenta.",
+    "La tarifa contempla una comisión por nuevos clientes captados a través del marketplace."
+   ],
+   "metodologiaValoracion": "Fuentes oficiales de producto, tarifas y ayuda. Las integraciones citadas corresponden al complemento analítico Data connector, no a una API general ni a sincronización bidireccional. La cifra publicada es más de 40 plataformas, no un total exacto de todas las integraciones. La tarifa consultada se mostró en NZD; no la convierto ni la presento como tarifa española. El año procede del blog corporativo. No se asignan puntuaciones sin pruebas.",
+   "puntuaciones": {
+    "nivelTecnicoRequerido": null,
+    "facilidadImplementacion": null,
+    "fiabilidad": null,
+    "atencionAlCliente": null,
+    "facilidadDeUso": null,
+    "calidad": null,
+    "escalabilidad": null
+   },
+   "idiomasDisponibles": null,
+   "elIdiomaEsDelProductoODeLaPaginaDeReservas": "La ayuda distingue el idioma del workspace del equipo y el de las comunicaciones a clientes. No encontré una enumeración verificable de los idiomas disponibles ni del alcance de la traducción de las reservas.",
+   "tieneApiPublica": null,
+   "tieneAppMovil": true,
+   "informacionEmpresa": {
+    "paisOrigen": null,
+    "anioFundacion": 2015,
+    "tamanoAproximado": null
+   },
+   "pruebas": [
+    {
+     "deQueCampo": "descripcion, problemasQueResuelve, casosDeUso, funcionesPrincipales",
+     "cita": "Manage bookings, sales, clients, locations, team members. […] unlimited bookings, clients, locations",
+     "url": "https://www.fresha.com/for-business",
+     "tipo": "pagina_oficial",
+     "tituloDeLaPagina": "Fresha | Top Salon Software",
+     "fraseDeAlLado": "Keep your bank account topped up with daily payouts"
+    },
+    {
+     "deQueCampo": "segmentosIdeales, porQueEseTamano, modeloDePrecio, ventajas, inconvenientes",
+     "cita": "Team members […] 1 […] Unlimited […] flexible monthly subscription model […] 20% one-time commission",
+     "url": "https://www.fresha.com/pricing",
+     "tipo": "tarifa_oficial",
+     "tituloDeLaPagina": "Fresha | Salon Software and Booking System | Pricing",
+     "fraseDeAlLado": "Email and chat support"
+    },
+    {
+     "deQueCampo": "integraciones, integracionesPrincipales, ventajas, inconvenientes",
+     "cita": "40+ software platforms […] Power BI, Tableau, DOMO, Salesforce […] paid add-on […] one-way sync",
+     "url": "https://www.fresha.com/help-center/knowledge-base/reports/432-data-connector-overview",
+     "tipo": "documentacion",
+     "tituloDeLaPagina": "Data connector overview",
+     "fraseDeAlLado": "Was this guide helpful?"
+    },
+    {
+     "deQueCampo": "tieneAppMovil, ventajas",
+     "cita": "iOS and Android booking platform […] Booking app for professionals",
+     "url": "https://www.fresha.com/download-app",
+     "tipo": "pagina_oficial",
+     "tituloDeLaPagina": "Fresha mobile and tablet APP downloads for iOS and Android",
+     "fraseDeAlLado": "Book unforgettable beauty and wellness experiences"
+    },
+    {
+     "deQueCampo": "elIdiomaEsDelProductoODeLaPaginaDeReservas, inconvenientes",
+     "cita": "Idioma predeterminado del equipo: elige el idioma para tu Workspace. […] no se pueden cambiar",
+     "url": "https://www.fresha.com/es/help-center/knowledge-base/ajustes-del-workspace/101236-actualizar-los-datos-de-tu-negocio",
+     "tipo": "documentacion",
+     "tituloDeLaPagina": "Actualiza los datos de tu negocio en Fresha",
+     "fraseDeAlLado": "Actualiza tus enlaces externos"
+    },
+    {
+     "deQueCampo": "informacionEmpresa.anioFundacion",
+     "cita": "Headquartered in London and founded in 2015",
+     "url": "https://www.fresha.com/en-GB/blog/fresha-secures-80-million-investment-from-kkr-at-1-billion-valuation",
+     "tipo": "fuente_secundaria",
+     "tituloDeLaPagina": "Breaking News: KKR Backs Fresha in Unicorn-Making Deal",
+     "fraseDeAlLado": "The investment brings Fresha total capital raised to date to $285 million.",
+     "esDelFabricante": true,
+     "tipoOriginal": "blog_fabricante"
+    }
+   ],
+   "paginasQueAbriste": [
+    "https://www.fresha.com/for-business",
+    "https://www.fresha.com/pricing",
+    "https://www.fresha.com/download-app",
+    "https://www.fresha.com/help-center/knowledge-base/reports/432-data-connector-overview",
+    "https://www.fresha.com/es/help-center/knowledge-base/ajustes-del-workspace/101236-actualizar-los-datos-de-tu-negocio",
+    "https://www.fresha.com/en-GB/blog/fresha-secures-80-million-investment-from-kkr-at-1-billion-valuation"
+   ],
+   "paginasQueNoSeAbrieron": [
+    "https://www.fresha.com/es/help-center/knowledge-base/cuenta-personal/101231-gestionar-tu-cuenta-personal — devolvió una página sin el contenido del artículo."
+   ],
+   "loQueNoPudeComprobar": "No encontré documentación que demostrase una API pública general ni una lista explícita de idiomas. Tampoco una cifra actual de empleados. La fuente corporativa identifica Londres como sede, pero no especifica el país de fundación; no convierto la sede actual en país de origen."
+  },
+  {
+   "id": "booksy",
+   "categoriaId": "reservas-citas",
+   "descripcion": "Sistema de reservas y gestión para negocios que trabajan con citas, especialmente belleza. Reúne agenda, clientes, pagos, equipo y herramientas de marketing.",
+   "problemasQueResuelve": [
+    "Quiero recibir reservas sin atender cada solicitud por teléfono.",
+    "Necesito gestionar clientes, pagos y agendas de mi equipo.",
+    "Quiero enviar recordatorios y cobrar depósitos."
+   ],
+   "casosDeUso": [
+    "Organizar la agenda de una peluquería, barbería o centro de estética.",
+    "Recibir reservas desde Instagram y Google.",
+    "Solicitar una parte del precio al reservar."
+   ],
+   "segmentosIdeales": null,
+   "porQueEseTamano": "La tarifa española publica una cuota base y el coste por empleado adicional, pero no indica el máximo de empleados admitidos. No deduzco capacidad ilimitada a partir de la posibilidad de añadir usuarios pagando.",
+   "oNoLoPublican": true,
+   "noRecomendadaPara": null,
+   "funcionesPrincipales": [
+    "Reservas y agenda.",
+    "Gestión de clientes y equipo.",
+    "Recordatorios automáticos.",
+    "Pagos, depósitos y marketing."
+   ],
+   "integraciones": [
+    "Instagram",
+    "Reservar con Google"
+   ],
+   "integracionesPrincipales": [
+    "Instagram: botón para reservar desde el perfil.",
+    "Google: reservas desde la búsqueda y Google Maps."
+   ],
+   "cuantasIntegracionesPublica": null,
+   "modeloDePrecio": [
+    "suscripcion_mensual"
+   ],
+   "ventajas": [
+    "La suscripción publica reservas ilimitadas.",
+    "Permite gestionar el negocio desde móvil, tablet y web."
+   ],
+   "inconvenientes": [
+    "Cada empleado adicional añade 8 € más IVA al mes.",
+    "Incluye 100 SMS de marketing mensuales; no se deben confundir con los recordatorios de citas."
+   ],
+   "metodologiaValoracion": "Tarifas españolas, páginas oficiales y ayuda. El país y el año de fundación proceden del blog del fabricante. La enumeración de idiomas también procede de su blog, en una publicación de diciembre de 2022; la ayuda abierta confirma que se puede cambiar el idioma, pero no vuelve a enumerarlos. No trato esa lista histórica como exhaustiva o actualizada en 2026. No se asignan puntuaciones sin pruebas.",
+   "puntuaciones": {
+    "nivelTecnicoRequerido": null,
+    "facilidadImplementacion": null,
+    "fiabilidad": null,
+    "atencionAlCliente": null,
+    "facilidadDeUso": null,
+    "calidad": null,
+    "escalabilidad": null
+   },
+   "idiomasDisponibles": [
+    "en",
+    "es",
+    "pl",
+    "uk",
+    "pt-BR",
+    "fr",
+    "vi"
+   ],
+   "elIdiomaEsDelProductoODeLaPaginaDeReservas": "La lista publicada en diciembre de 2022 corresponde a Booksy Biz. Para clientes enumera los mismos idiomas salvo vietnamita. No he verificado una enumeración más reciente.",
+   "tieneApiPublica": null,
+   "tieneAppMovil": true,
+   "informacionEmpresa": {
+    "paisOrigen": "Polonia",
+    "anioFundacion": 2014,
+    "tamanoAproximado": null
+   },
+   "pruebas": [
+    {
+     "deQueCampo": "descripcion, problemasQueResuelve, funcionesPrincipales, tieneAppMovil, ventajas",
+     "cita": "Reservas, clientes, pagos y equipo […] Solución todo-en-uno para móviles, tablets y web. […] Los clientes recibirán recordatorios automáticos.",
+     "url": "https://biz.booksy.com/es-es",
+     "tipo": "pagina_oficial",
+     "tituloDeLaPagina": "Software de gestión de negocio | App de reservas Booksy",
+     "fraseDeAlLado": "Comenzar es fácil"
+    },
+    {
+     "deQueCampo": "porQueEseTamano, modeloDePrecio, ventajas, inconvenientes",
+     "cita": "por 8 € + IVA por 1 empleado / mes […] Reservas Ilimitadas […] 100 mensajes de marketing SMS gratis por mes.",
+     "url": "https://biz.booksy.com/es-es/precios",
+     "tipo": "tarifa_oficial",
+     "tituloDeLaPagina": "Tarifas de Booksy - la solución móvil para tu negocio.",
+     "fraseDeAlLado": "Pagos integrados"
+    },
+    {
+     "deQueCampo": "integraciones, integracionesPrincipales, casosDeUso, funcionesPrincipales",
+     "cita": "Añade el botón Reservar ahora a tu perfil de Instagram. […] Reserva con Google […] Cobra una parte del coste del servicio",
+     "url": "https://biz.booksy.com/es-es/funcionalidades",
+     "tipo": "pagina_oficial",
+     "tituloDeLaPagina": "Gestiona tu negocio con las funciones de Booksy",
+     "fraseDeAlLado": "Informes de Ventas"
+    },
+    {
+     "deQueCampo": "idiomasDisponibles, elIdiomaEsDelProductoODeLaPaginaDeReservas",
+     "cita": "English […] Spanish […] Polish, Ukrainian, Portuguese (Brazil), French, and Vietnamese.",
+     "url": "https://biz.booksy.com/blog/booksy-app-updates-december-2022",
+     "tipo": "fuente_secundaria",
+     "tituloDeLaPagina": "Booksy App Updates: December 2022",
+     "fraseDeAlLado": "Client List Navigation",
+     "esDelFabricante": true,
+     "tipoOriginal": "blog_fabricante"
+    },
+    {
+     "deQueCampo": "informacionEmpresa.paisOrigen, informacionEmpresa.anioFundacion",
+     "cita": "Founded in 2014 in Poland",
+     "url": "https://biz.booksy.com/blog/booksys-passion-for-barbering-a-trusted-partner-for-professionals",
+     "tipo": "fuente_secundaria",
+     "tituloDeLaPagina": "Booksy Passion for Barbering: Supporting Barbers Growth",
+     "fraseDeAlLado": "More than just a tool, Booksy is a strategic partner for every professional.",
+     "esDelFabricante": true,
+     "tipoOriginal": "blog_fabricante"
+    }
+   ],
+   "paginasQueAbriste": [
+    "https://biz.booksy.com/es-es",
+    "https://biz.booksy.com/es-es/precios",
+    "https://biz.booksy.com/es-es/funcionalidades",
+    "https://biz.booksy.com/es-es/sobre-nosotros",
+    "https://support.booksy.com/hc/es-es/articles/18790684215314",
+    "https://biz.booksy.com/blog/booksy-app-updates-december-2022",
+    "https://biz.booksy.com/blog/booksys-passion-for-barbering-a-trusted-partner-for-professionals"
+   ],
+   "paginasQueNoSeAbrieron": [],
+   "loQueNoPudeComprobar": "No encontré una API pública documentada, un total oficial de integraciones, una cifra actual de empleados ni un máximo de usuarios en la tarifa. La documentación consultada no publica ese máximo. La enumeración de idiomas encontrada es histórica y está identificada como tal."
+  },
+  {
+   "id": "square-appointments",
+   "categoriaId": "reservas-citas",
+   "descripcion": "Sistema que combina reservas, agenda, gestión de clientes y cobros mediante el ecosistema de Square.",
+   "problemasQueResuelve": [
+    "Necesito gestionar las citas y cobrar desde un mismo sistema.",
+    "Quiero mantener los perfiles y el historial de mis clientes.",
+    "Necesito coordinar las cuentas de mi equipo."
+   ],
+   "casosDeUso": [
+    "Gestionar reservas y cobros de un negocio de servicios.",
+    "Administrar citas desde un móvil.",
+    "Conectar las reservas con aplicaciones o desarrollos propios."
+   ],
+   "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+   ],
+   "porQueEseTamano": "La sección de tarifas de la página española publica cuentas de empleados ilimitadas en el plan Gratuito. Plus incorpora lo incluido en Gratuito y Prémium lo incluido en Plus. La capacidad ilimitada de empleados está expresamente indicada; el número de puntos de venta tiene condiciones distintas.",
+   "oNoLoPublican": false,
+   "noRecomendadaPara": null,
+   "funcionesPrincipales": [
+    "Reservas y agenda.",
+    "Cobros integrados.",
+    "Perfiles e historial de clientes.",
+    "Gestión de citas desde iOS y Android."
+   ],
+   "integraciones": [
+    "Wix",
+    "PrestaShop",
+    "Quaderno"
+   ],
+   "integracionesPrincipales": [
+    "Wix, PrestaShop y Quaderno aparecen expresamente como aplicaciones compatibles en la página de Citas Square."
+   ],
+   "cuantasIntegracionesPublica": null,
+   "modeloDePrecio": [
+    "suscripcion_mensual"
+   ],
+   "ventajas": [
+    "El plan Gratuito publica cuentas de empleados ilimitadas.",
+    "Dispone de una API documentada para reservas.",
+    "La aplicación móvil figura incluida en los tres planes."
+   ],
+   "inconvenientes": [
+    "El plan Gratuito se limita a un único punto de venta.",
+    "Plus y Prémium se cobran mensualmente por punto de venta.",
+    "Los pagos tienen comisiones de procesamiento."
+   ],
+   "metodologiaValoracion": "Tarifas y producto de España, con importes en EUR, junto con documentación oficial de la API. El año de fundación corresponde a Square como empresa, no al lanzamiento de Appointments. No traslado al producto la plantilla de su grupo empresarial. No se hicieron pruebas de uso ni se asignaron puntuaciones.",
+   "puntuaciones": {
+    "nivelTecnicoRequerido": null,
+    "facilidadImplementacion": null,
+    "fiabilidad": null,
+    "atencionAlCliente": null,
+    "facilidadDeUso": null,
+    "calidad": null,
+    "escalabilidad": null
+   },
+   "idiomasDisponibles": null,
+   "elIdiomaEsDelProductoODeLaPaginaDeReservas": null,
+   "tieneApiPublica": true,
+   "tieneAppMovil": true,
+   "informacionEmpresa": {
+    "paisOrigen": "Estados Unidos",
+    "anioFundacion": 2009,
+    "tamanoAproximado": null
+   },
+   "pruebas": [
+    {
+     "deQueCampo": "descripcion, problemasQueResuelve, casosDeUso, segmentosIdeales, porQueEseTamano, ventajas, integraciones",
+     "cita": "Agenda reservas y cobra a tus clientes a través de un mismo sistema. […] Cuentas de empleados ilimitadas […] Wix, Prestashop y Quaderno",
+     "url": "https://squareup.com/es/es/appointments",
+     "tipo": "pagina_oficial",
+     "tituloDeLaPagina": "Sistema de reservas gratuito | Planificación de citas en línea | Square",
+     "fraseDeAlLado": "Clases particulares y de música"
+    },
+    {
+     "deQueCampo": "modeloDePrecio, funcionesPrincipales, tieneAppMovil, ventajas, inconvenientes",
+     "cita": "Aplicación móvil (iOS y Android) […] por un único punto de venta. […] al mes por punto de venta. […] Perfiles de clientes […] Comisión por transacción",
+     "url": "https://squareup.com/es/es/appointments/pricing",
+     "tipo": "tarifa_oficial",
+     "tituloDeLaPagina": "Citas Square | Precios | Square",
+     "fraseDeAlLado": "Tarjeta guardada"
+    },
+    {
+     "deQueCampo": "tieneApiPublica, casosDeUso, ventajas",
+     "cita": "Using the Bookings API, your application can perform the following tasks:",
+     "url": "https://developer.squareup.com/docs/bookings-api/what-it-is",
+     "tipo": "documentacion",
+     "tituloDeLaPagina": "Bookings API",
+     "fraseDeAlLado": "You can add custom attributes to the Booking object."
+    },
+    {
+     "deQueCampo": "informacionEmpresa.paisOrigen, informacionEmpresa.anioFundacion",
+     "cita": "Founded in 2009 and headquartered in San Francisco",
+     "url": "https://squareup.com/us/en/press/magic-johnson-to-join-board",
+     "tipo": "fuente_secundaria",
+     "tituloDeLaPagina": "Square Will Name Earvin Magic Johnson to Board of Directors",
+     "fraseDeAlLado": "We are honored to have him.",
+     "esDelFabricante": true,
+     "tipoOriginal": "nota_prensa_fabricante"
+    }
+   ],
+   "paginasQueAbriste": [
+    "https://squareup.com/es/es/appointments",
+    "https://squareup.com/es/es/appointments/pricing",
+    "https://developer.squareup.com/docs/bookings-api/what-it-is",
+    "https://squareup.com/help/es/es/article/3861-edit-your-account-and-business-settings",
+    "https://squareup.com/us/en/press/magic-johnson-to-join-board"
+   ],
+   "paginasQueNoSeAbrieron": [],
+   "loQueNoPudeComprobar": "La ayuda explica cómo cambiar el idioma de la cuenta y del panel, pero no encontré una enumeración explícita de idiomas que permitiera distinguir Appointments, la app y la página de reservas. No uso el idioma de la web comercial como prueba. Tampoco encontré un total de integraciones específico de Appointments ni una plantilla propia actual.",
+   "notaDelPrecio": "Además de la cuota, Square cobra COMISIÓN POR TRANSACCIÓN. El vocabulario del catálogo no tiene ese valor y se conserva aquí para no perderlo."
+  },
+  {
+   "id": "schedulista",
+   "categoriaId": "reservas-citas",
+   "descripcion": "Software de reservas online que permite recibir citas desde una página propia o desde un calendario insertado en la web del negocio. Incluye agenda, recordatorios y aplicaciones móviles.",
+   "problemasQueResuelve": [
+    "Quiero que mis clientes reserven sin intercambiar mensajes.",
+    "Necesito enviar recordatorios y organizar mi disponibilidad.",
+    "Quiero insertar la reserva en mi propia web."
+   ],
+   "casosDeUso": [
+    "Recibir citas de una consulta o negocio de servicios.",
+    "Gestionar las agendas de varios profesionales.",
+    "Insertar el calendario de reservas en una web."
+   ],
+   "segmentosIdeales": [
+    "1-10",
+    "11-50"
+   ],
+   "porQueEseTamano": "Publica un plan individual y otro para 2-15 usuarios. Para más de 15 remite a Enterprise con presupuesto. La portada lo describe para cualquier tamaño de equipo, pero no publica un máximo numérico ni utiliza una declaración expresa de usuarios ilimitados; no asigno los tramos superiores. El tramo 11-50 queda respaldado hasta 15 usuarios.",
+   "oNoLoPublican": false,
+   "noRecomendadaPara": "Si necesitas gestionar el negocio en español: el panel, el calendario interno, los ajustes, la app y las notificaciones al profesional permanecen en inglés.",
+   "funcionesPrincipales": [
+    "Reservas online.",
+    "Calendario insertable en una web.",
+    "Notificaciones y recordatorios.",
+    "Aplicaciones para iPhone y Android."
+   ],
+   "integraciones": [
+    "Mailchimp",
+    "Stripe",
+    "Google Calendar",
+    "Zoom"
+   ],
+   "integracionesPrincipales": [
+    "Mailchimp: marketing por correo.",
+    "Stripe: pagos y depósitos.",
+    "Google Calendar: sincronización de calendario.",
+    "Zoom: sesiones online."
+   ],
+   "cuantasIntegracionesPublica": null,
+   "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual"
+   ],
+   "ventajas": [
+    "El plan de varios usuarios incluye de 2 a 15 por una cuota conjunta.",
+    "Permite insertar el calendario directamente en la web.",
+    "Publica interfaces de integración para el widget y para enviar información mediante webhooks."
+   ],
+   "inconvenientes": [
+    "La gestión sigue en inglés aunque las reservas y los avisos al cliente estén en español.",
+    "Los usuarios administrativos también cuentan aunque no tengan un calendario activo.",
+    "La API de webhooks documentada envía información en una sola dirección."
+   ],
+   "metodologiaValoracion": "Fuentes oficiales de producto y ayuda. Los idiomas corresponden al calendario público y las comunicaciones al cliente; el área de gestión permanece en inglés. TieneApiPublica se refiere a la API JavaScript del widget y a webhooks, no a una API REST general para todas las operaciones. El pago anual se ofrece en determinadas circunstancias y mediante Wix para cuentas individuales; no lo presento como opción universal. Todas las puntuaciones quedan sin valorar.",
+   "puntuaciones": {
+    "nivelTecnicoRequerido": null,
+    "facilidadImplementacion": null,
+    "fiabilidad": null,
+    "atencionAlCliente": null,
+    "facilidadDeUso": null,
+    "calidad": null,
+    "escalabilidad": null
+   },
+   "idiomasDisponibles": [
+    "en",
+    "fi",
+    "fr",
+    "de",
+    "no",
+    "pt",
+    "es"
+   ],
+   "elIdiomaEsDelProductoODeLaPaginaDeReservas": "Los siete idiomas son para la página de reservas y las comunicaciones al cliente. El producto de gestión, incluida la app del profesional, sigue en inglés.",
+   "tieneApiPublica": true,
+   "tieneAppMovil": true,
+   "informacionEmpresa": {
+    "paisOrigen": "Estados Unidos",
+    "anioFundacion": 2011,
+    "tamanoAproximado": null
+   },
+   "pruebas": [
+    {
+     "deQueCampo": "descripcion, problemasQueResuelve, casosDeUso, funcionesPrincipales, ventajas",
+     "cita": "clients can schedule with your business, 24/7. […] Automated notifications and reminders […] Embed the scheduler directly into your website.",
+     "url": "https://www.schedulista.com/features",
+     "tipo": "pagina_oficial",
+     "tituloDeLaPagina": "Features | Schedulista",
+     "fraseDeAlLado": "Custom Branding"
+    },
+    {
+     "deQueCampo": "segmentosIdeales, porQueEseTamano, integraciones, integracionesPrincipales, tieneAppMovil",
+     "cita": "Just You […] 2-15 staff […] Any team size […] Mailchimp […] Stripe […] Google Calendar […] Zoom […] Mobile Apps for iPhone and Android",
+     "url": "https://www.schedulista.com/",
+     "tipo": "pagina_oficial",
+     "tituloDeLaPagina": "Online Appointment Scheduling Software | Schedulista",
+     "fraseDeAlLado": "Accept Credit Card Payments"
+    },
+    {
+     "deQueCampo": "modeloDePrecio, inconvenientes, informacionEmpresa.paisOrigen",
+     "cita": "month to month […] annual subscription […] whether they have an active calendar or not […] Schedulista is a U.S.-based business.",
+     "url": "https://support.schedulista.com/en/articles/3199321-about-schedulista-subscriptions",
+     "tipo": "documentacion",
+     "tituloDeLaPagina": "About Schedulista Subscriptions | Schedulista Help Center",
+     "fraseDeAlLado": "No credit card is required"
+    },
+    {
+     "deQueCampo": "idiomasDisponibles, elIdiomaEsDelProductoODeLaPaginaDeReservas, noRecomendadaPara, inconvenientes",
+     "cita": "English, Finnish, French, German, Norwegian, Portuguese, and Spanish […] will remain in English.",
+     "url": "https://support.schedulista.com/en/articles/365830-changing-the-scheduler-language",
+     "tipo": "documentacion",
+     "tituloDeLaPagina": "Changing the scheduler language | Schedulista Help Center",
+     "fraseDeAlLado": "Schedulista is available worldwide"
+    },
+    {
+     "deQueCampo": "tieneApiPublica, ventajas",
+     "cita": "The embeddable widget exposes a JavaScript API",
+     "url": "https://support.schedulista.com/en/articles/13356847-embeddable-widget-api",
+     "tipo": "documentacion",
+     "tituloDeLaPagina": "Embeddable Widget API | Schedulista Help Center",
+     "fraseDeAlLado": "Requires JavaScript knowledge."
+    },
+    {
+     "deQueCampo": "tieneApiPublica, ventajas, inconvenientes",
+     "cita": "You can automatically share select appointment information with other software using our one-way webhook API.",
+     "url": "https://support.schedulista.com/en/articles/1236394-schedulista-webhook-api",
+     "tipo": "documentacion",
+     "tituloDeLaPagina": "Schedulista Webhook API | Schedulista Help Center",
+     "fraseDeAlLado": "Written by Dustin Condley"
+    },
+    {
+     "deQueCampo": "informacionEmpresa.anioFundacion",
+     "cita": "Schedulista was started in 2011",
+     "url": "https://www.schedulista.com/about",
+     "tipo": "pagina_oficial",
+     "tituloDeLaPagina": "About | Schedulista",
+     "fraseDeAlLado": "Thanks for supporting us."
+    }
+   ],
+   "paginasQueAbriste": [
+    "https://www.schedulista.com/",
+    "https://www.schedulista.com/features",
+    "https://www.schedulista.com/about",
+    "https://support.schedulista.com/en/",
+    "https://support.schedulista.com/en/collections/29667-api-custom-integration",
+    "https://support.schedulista.com/en/articles/3199321-about-schedulista-subscriptions",
+    "https://support.schedulista.com/en/articles/365830-changing-the-scheduler-language",
+    "https://support.schedulista.com/en/articles/1236394-schedulista-webhook-api",
+    "https://support.schedulista.com/en/articles/13356847-embeddable-widget-api"
+   ],
+   "paginasQueNoSeAbrieron": [],
+   "loQueNoPudeComprobar": "No encontré un máximo numérico de usuarios en Enterprise, un total oficial de integraciones ni el número actual de empleados de la empresa. La documentación abierta verifica APIs concretas del widget y de webhooks; no demuestra una API REST general."
+  }
+ ]
+}

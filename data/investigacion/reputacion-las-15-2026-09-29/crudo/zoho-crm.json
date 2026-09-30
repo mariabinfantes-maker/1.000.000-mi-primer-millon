@@ -1,0 +1,5 @@
+{
+ "id": "zoho-crm",
+ "nombre": "Zoho CRM",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.co.uk/software/146059/zoho-crm\",\n    \"notaGeneral\": 4.3,\n    \"facilidadDeUso\": 4.2,\n    \"escala\": 5,\n    \"numeroDeResenas\": 6999,\n    \"cita\": \"Ratings. Overall. 4.3 (6,999) Reviews. Ease of Use. 4.2 (6,999) Reviews.\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/zoho-crm/reviews\",\n    \"notaGeneral\": 4.1,\n    \"facilidadDeUso\": null,\n    \"escala\": 5,\n    \"numeroDeResenas\": 2941,\n    \"cita\": \"4.1 out of 5 stars\"\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/146059/Zoho-CRM/reviews/\",\n    \"https://www.capterra.co.uk/software/146059/zoho-crm\",\n    \"https://www.capterra.es/software/146059/zoho-crm\",\n    \"https://www.capterra.ie/software/146059/zoho-crm\",\n    \"https://www.g2.com/products/zoho-crm/reviews\"\n  ]\n}\n```"
+}

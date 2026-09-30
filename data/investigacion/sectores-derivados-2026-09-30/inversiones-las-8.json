@@ -1,0 +1,54 @@
+{
+  "fecha": "2026-09-30",
+  "queEsEsto": "`noRecomendadaPara` DERIVADO de `industriasIdeales`, no investigado. Regla de la propietaria del 2026-09-28: ese campo NO es un defecto, es para quién no está pensada, y sale por descarte de saber para quién sí. Mismo método que las anteriores.",
+  "herramientas": [
+    {
+      "id": "reservo",
+      "deDondeSale": "industriasIdeales y paraQuienEstaPensada del barrido del 2026-09-28",
+      "noRecomendadaPara": "No está pensada para negocios fuera del ámbito sanitario.",
+      "porQueEsaFrase": "Sus sectores son consultas y centros de salud. Misma inversión que Nubimed y DriCloud, que tienen el mismo caso."
+    },
+    {
+      "id": "setmore",
+      "deDondeSale": "industriasIdeales y paraQuienEstaPensada del barrido del 2026-09-28",
+      "noRecomendadaPara": "No está pensada para quien no trabaje con cita previa: todo gira alrededor de la agenda y la página de reservas.",
+      "porQueEsaFrase": "Setmore no se dirige a un sector concreto sino a cualquiera que dé citas, así que invertir por sector no dice nada. Lo que de verdad la descarta es no trabajar con citas."
+    },
+    {
+      "id": "acuity-scheduling",
+      "deDondeSale": "industriasIdeales y paraQuienEstaPensada del barrido del 2026-09-28",
+      "noRecomendadaPara": "No está pensada para quien no trabaje con cita previa: todo gira alrededor de la agenda y la página de reservas.",
+      "porQueEsaFrase": "No se dirige a un sector concreto sino a cualquiera que dé citas, así que invertir por sector no dice nada. Lo que la descarta es no trabajar con citas. Mismo caso que Setmore."
+    },
+    {
+      "id": "simplybook-me",
+      "deDondeSale": "industriasIdeales del barrido del 2026-09-28",
+      "noRecomendadaPara": "No está pensada para quien no trabaje con cita previa: todo gira alrededor de la agenda y la página de reservas.",
+      "porQueEsaFrase": "Igual que Acuity y Setmore: herramienta de reservas sin sector propio."
+    },
+    {
+      "id": "zoho-bookings",
+      "deDondeSale": "industriasIdeales del barrido del 2026-09-28",
+      "noRecomendadaPara": "No está pensada para quien no use ya el resto de Zoho: su fuerte es encajar con las demás piezas de esa suite.",
+      "porQueEsaFrase": "Es una pieza de la suite Zoho. Lo que de verdad la descarta no es el sector, es no tener el resto."
+    },
+    {
+      "id": "reservio",
+      "deDondeSale": "industriasIdeales del barrido del 2026-09-28",
+      "noRecomendadaPara": "No está pensada para quien no trabaje con cita previa: todo gira alrededor de la agenda y la página de reservas.",
+      "porQueEsaFrase": "Igual que Acuity, Setmore y SimplyBook.me."
+    },
+    {
+      "id": "bookeo",
+      "deDondeSale": "industriasIdeales del barrido del 2026-09-28",
+      "noRecomendadaPara": "No está pensada para quien no trabaje con cita previa ni con plazas por sesión.",
+      "porQueEsaFrase": "Bookeo cubre citas y también clases y actividades con aforo; la inversión recoge las dos."
+    },
+    {
+      "id": "teachworks",
+      "deDondeSale": "industriasIdeales y paraQuienEstaPensada del barrido del 2026-09-28",
+      "noRecomendadaPara": "No está pensada para negocios fuera de la enseñanza y las academias.",
+      "porQueEsaFrase": "Sus sectores son academias, escuelas de música, idiomas y preparación de exámenes: ahí sí hay un sector claro que invertir."
+    }
+  ]
+}

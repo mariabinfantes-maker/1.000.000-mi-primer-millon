@@ -1,0 +1,13 @@
+{
+ "id": "nutshell",
+ "nombre": "Nutshell",
+ "urls": [
+  "https://www.nutshell.com/",
+  "https://www.nutshell.com/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"AI-powered sales CRM and marketing automation\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Nutshell automatically transcribes, summarizes, and logs every call and meeting.\"\n    },\n    {\n      \"id\": \"facturacion-contabilidad\",\n      \"cita\": \"Create & send quotes, invoices and contracts in your CRM.\"\n    },\n    {\n      \"id\": \"reservas-citas\",\n      \"cita\": \"Capture leads, engage visitors, and book meetings – even when you're offline.\"\n    },\n    {\n      \"id\": \"atencion-cliente\",\n      \"cita\": \"Unified inbox for chat, SMS, shared inbox & social messages\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Connect to Google/Microsoft and over 5,000 Apps.\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Email marketing, forms, landing pages, and more.\"\n    },\n    {\n      \"id\": \"firma-gestion-documental\",\n      \"cita\": \"Create, send, track, and get signatures on quotes, invoices and contracts in your CRM using your own templates.\"\n    }\n  ],\n  \"esDe\": \"crm\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.nutshell.com/",
+  "OK https://www.nutshell.com/pricing"
+ ]
+}

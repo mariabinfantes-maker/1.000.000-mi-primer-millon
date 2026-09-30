@@ -69,8 +69,7 @@ function imprimirResumen(resultados: ResultadoCandidatoLote[]) {
   const porEstado = {
     aceptado: resultados.filter((r) => r.estado === "aceptado"),
     duplicado: resultados.filter((r) => r.estado === "duplicado"),
-    descartado_prechequeo: resultados.filter((r) => r.estado === "descartado_prechequeo"),
-    descartado_investigacion: resultados.filter((r) => r.estado === "descartado_investigacion"),
+    pendiente_de_decision: resultados.filter((r) => r.estado === "pendiente_de_decision"),
     fallido: resultados.filter((r) => r.estado === "fallido"),
   };
 
@@ -86,14 +85,15 @@ function imprimirResumen(resultados: ResultadoCandidatoLote[]) {
     for (const r of porEstado.duplicado) console.log(`  - ${r.nombreHerramienta} (${r.id})`);
   }
 
-  const descartadas = [...porEstado.descartado_prechequeo, ...porEstado.descartado_investigacion];
-  if (descartadas.length > 0) {
-    console.log(`\n✗ Descartadas por la regla de afiliados (${descartadas.length}):`);
-    for (const r of descartadas) {
-      if (r.estado === "descartado_prechequeo" || r.estado === "descartado_investigacion") {
-        console.log(`  - ${r.nombreHerramienta}: ${r.motivo}`);
-      }
+  if (porEstado.pendiente_de_decision.length > 0) {
+    console.log(`\n⏸ Pendientes de tu decisión (${porEstado.pendiente_de_decision.length}) — NO descartadas, no se han investigado:`);
+    for (const r of porEstado.pendiente_de_decision) {
+      if (r.estado !== "pendiente_de_decision") continue;
+      console.log(`  - ${r.nombreHerramienta} (${r.id}): ${r.motivo}`);
+      if (r.pruebaDeAusencia) console.log(`      «${r.pruebaDeAusencia.cita}» — ${r.pruebaDeAusencia.fuente}`);
     }
+    console.log("  Para seguir con una: npm run aprobar-borrador -- <id> --decision aprobado --notas \"...\"");
+    console.log("                  y:   npm run investigar-pendiente -- <id>");
   }
 
   if (porEstado.fallido.length > 0) {
@@ -105,7 +105,14 @@ function imprimirResumen(resultados: ResultadoCandidatoLote[]) {
 }
 
 async function main() {
-  const rutaArgumento = process.argv[2];
+  const argumentos = process.argv.slice(2);
+  /**
+   * La afiliación está aparcada (2026-09-17): por defecto no se pregunta. Esta
+   * bandera la vuelve a encender, y hay que escribirla a propósito para que
+   * desaparcarla sea una decisión y no un olvido.
+   */
+  const prechequearAfiliacion = argumentos.includes("--con-afiliacion");
+  const rutaArgumento = argumentos.find((a) => !a.startsWith("--"));
   if (!rutaArgumento) {
     console.error('Uso: npm run investigar-lote -- ruta/a/lista.json');
     process.exitCode = 1;
@@ -123,10 +130,16 @@ async function main() {
   console.log(`Ya existentes (catálogo real o borrador), se saltarán sin coste: ${yaExistentes}`);
   console.log(`Candidatos nuevos a procesar: ${nuevos.length}`);
   const limitePorMinuto = Number(process.env.GEMINI_RATE_LIMIT_POR_MINUTO) || LIMITE_PETICIONES_POR_MINUTO_POR_DEFECTO;
-  console.log(
-    `Llamadas al proveedor estimadas: entre ${nuevos.length} (si el prechequeo descarta todas) y ${nuevos.length * 2} ` +
-      "(si todas pasan el prechequeo y necesitan la investigación completa)."
-  );
+  if (prechequearAfiliacion) {
+    console.log("Afiliación: SE PRECHEQUEA (--con-afiliacion). Cuesta una llamada extra por candidata.");
+    console.log(
+      `Llamadas al proveedor estimadas: entre ${nuevos.length} (si el prechequeo descarta todas) y ${nuevos.length * 2} ` +
+        "(si todas pasan el prechequeo y necesitan la investigación completa)."
+    );
+  } else {
+    console.log("Afiliación: APARCADA (decisión de la propietaria, 2026-09-17). No se pregunta ni se gasta una llamada en ella.");
+    console.log(`Llamadas al proveedor estimadas: ${nuevos.length}, una por candidata.`);
+  }
   console.log(
     `Ritmo: máximo ${limitePorMinuto} peticiones/minuto (nivel gratuito de Gemini) — con muchos candidatos puede tardar varios minutos, no es un fallo.`
   );
@@ -146,11 +159,13 @@ async function main() {
     maxPeticionesPorMinuto: limitePorMinuto,
     reintentos: 3,
     esperaBaseReintentoMs: 2000,
+    prechequearAfiliacion,
   });
 
   console.log(
     `\nTotales: ${resumen.totales.aceptados} aceptadas, ${resumen.totales.duplicados} duplicadas, ` +
-      `${resumen.totales.descartados} descartadas, ${resumen.totales.fallidos} fallidas (de ${resumen.totales.total}).`
+      `${resumen.totales.pendientes} pendientes de decisión, ${resumen.totales.fallidos} fallidas ` +
+      `(de ${resumen.totales.total}).`
   );
   imprimirResumen(resumen.resultados);
 }

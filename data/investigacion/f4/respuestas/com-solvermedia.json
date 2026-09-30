@@ -1,0 +1,43 @@
+{
+ "pedida": "https://www.solvermedia.com/",
+ "leidas": [
+  "https://www.solvermedia.com/"
+ ],
+ "datos": {
+  "programa_existe": "no_consta",
+  "tipo": "no_consta",
+  "cita_tipo": "",
+  "comision": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "recurrencia": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "cookie": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "condiciones": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "abierto_desde_espana": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "promociona_producto_para_negocios": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "activo": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "red_de_afiliacion": {
+   "v": "no_consta",
+   "cita": ""
+  }
+ }
+}

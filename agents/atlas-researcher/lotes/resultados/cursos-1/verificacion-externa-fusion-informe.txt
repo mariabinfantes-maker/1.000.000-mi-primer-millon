@@ -1,0 +1,10 @@
+Datos fusionados: 64 (23 rehechos en la segunda vuelta)
+Registros de capacidad: 8 → hotmart/website_builder, hotmart/payment_collection, hotmart/training_lms, thinkific/website_builder, thinkific/payment_collection, thinkific/training_lms, teachable/website_builder, teachable/payment_collection
+Usos: 5 demostrados de 5
+Recorridos: 3, todos «no consta»
+Idiomas: interfaz verificada en 0 de 3; soporte en 1 de 3
+
+Apartados por cita insuficiente (1):
+  · teachable/cap.training_lms: «Student progress reports» es una fila de la tabla de planes y demuestra el seguimiento del progreso, no que la herramienta aloje e imparta el curso. Para afirmar la capacidad entera hace falta otra cita.
+
+VALIDADORES REALES DE F2: 0 errores

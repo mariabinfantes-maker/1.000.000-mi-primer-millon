@@ -1,0 +1,13 @@
+{
+ "id": "gohighlevel",
+ "nombre": "GoHighLevel",
+ "urls": [
+  "https://www.gohighlevel.com/",
+  "https://www.gohighlevel.com/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"CRM & Pipelines\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"Content AI\"\n    },\n    {\n      \"id\": \"facturacion-contabilidad\",\n      \"cita\": \"Payments & Invoicing\"\n    },\n    {\n      \"id\": \"reservas-citas\",\n      \"cita\": \"Booking Calendars\"\n    },\n    {\n      \"id\": \"atencion-cliente\",\n      \"cita\": \"Consolidated conversation stream (SMS, Messenger, Instagram DM, Whatsapp, Livechat)\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Workflow Automation\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Email + SMS Marketing*\"\n    },\n    {\n      \"id\": \"creacion-web-hosting\",\n      \"cita\": \"Website & Funnel Builder\"\n    }\n  ],\n  \"esDe\": \"marketing-email\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.gohighlevel.com/",
+  "OK https://www.gohighlevel.com/pricing"
+ ]
+}

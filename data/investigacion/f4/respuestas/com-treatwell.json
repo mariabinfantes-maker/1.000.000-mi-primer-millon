@@ -1,0 +1,43 @@
+{
+ "pedida": "https://www.treatwell.es/inspiracion/affiliates/",
+ "leidas": [
+  "https://www.treatwell.es/inspiracion/affiliates/"
+ ],
+ "datos": {
+  "programa_existe": "si",
+  "tipo": "afiliacion_abierta",
+  "cita_tipo": "Configura tus enlaces de afiliado a través de Impact. Agrégalos a tu blog, web, app o perfiles de redes sociales.",
+  "comision": {
+   "v": "si",
+   "cita": "¡Gana hasta un 5% de comisión en todas las reservas que consigas a Treatwell de inmediato!"
+  },
+  "recurrencia": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "cookie": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "condiciones": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "abierto_desde_espana": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "promociona_producto_para_negocios": {
+   "v": "no_consta",
+   "cita": ""
+  },
+  "activo": {
+   "v": "si",
+   "cita": "Únete y forma parte de la família Treatwell - es súper fácil. Y prometemos valdrá la pena."
+  },
+  "red_de_afiliacion": {
+   "v": "si",
+   "cita": "Configura tus enlaces de afiliado a través de Impact."
+  }
+ }
+}

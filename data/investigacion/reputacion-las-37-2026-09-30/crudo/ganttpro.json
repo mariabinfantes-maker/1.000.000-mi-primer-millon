@@ -1,0 +1,5 @@
+{
+ "id": "ganttpro",
+ "nombre": "GanttPRO",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/153164/GanttPRO/reviews/\",\n    \"notaGeneral\": 4.8,\n    \"facilidadDeUso\": 4.8,\n    \"escala\": 5,\n    \"numeroDeResenas\": 559,\n    \"cita\": \"Reviews of GanttPRO. Ease of use. 4.8. Customer Service. 4.8\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/ganttpro/reviews\",\n    \"notaGeneral\": 4.8,\n    \"facilidadDeUso\": 9.4,\n    \"escala\": 10,\n    \"numeroDeResenas\": 588,\n    \"cita\": \"Ease of use: GanttPRO scores 9.4 and has 50 all-time mentions for ease of use\"\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/153164/GanttPRO/\",\n    \"https://www.capterra.com/p/153164/GanttPRO/reviews/\",\n    \"https://www.capterra.es/software/153164/ganttpro\",\n    \"https://www.capterra.ie/software/153164/ganttpro\",\n    \"https://www.capterra.co.uk/software/153164/ganttpro\",\n    \"https://www.g2.com/products/ganttpro/reviews\",\n    \"https://www.g2.com/compare/ganttpro-vs-teamgantt\"\n  ]\n}\n```"
+}

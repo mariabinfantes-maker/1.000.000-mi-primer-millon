@@ -1,0 +1,73 @@
+{
+ "comoSeInvestigo": {
+  "quienMiro": "GPT con navegación, después de que el lector de aquí fallara cuatro veces.",
+  "cuando": "2026-09-29",
+  "quePregunto": "Los importes de Zoho One y Zoho Projects, mensual y anual por separado, con la moneda que se ve y sin convertir nada.",
+  "paginasQueSeAbrieron": [
+   "https://www.zoho.com/one/pricing/",
+   "https://www.zoho.com/projects/zohoprojects-pricing.html"
+  ],
+  "paginasQueNoSeAbrieron": [
+   "https://www.zoho.com/de/one/agency/ — devuelve «Die gesuchte Seite konnte nicht gefunden werden»"
+  ],
+  "queIntentamosNosotrosYFallo": "Cuatro lecturas con el lector de aquí: las páginas en dólares, las europeas (zoho.eu), y una búsqueda de frases en texto. Las páginas SE ABREN, pero los importes se dibujan con JavaScript y el lector ve «Standard/user/month» sin la cifra.",
+  "loQueNoSePudoComprobar": "Ninguna tarifa de Zoho en euros. La única página que las publicaba, la alemana, ya no existe.",
+  "abiertoPorNosotrosOContadoPorOtro": "lo_dice_otro",
+  "porQueLoDiceOtro": "No hemos podido abrir estas tarifas desde aquí, ni una sola vez."
+ },
+ "fecha": "2026-09-29",
+ "zohoOne": {
+  "url": "https://www.zoho.com/one/pricing/",
+  "moneda": "USD",
+  "planes": [
+   {
+    "nombre": "All employee pricing",
+    "mensual": "US$45",
+    "anual": "US$37",
+    "cita": "ALL EMPLOYEE PRICING US$45 /employee — Must purchase license for ALL employees | ALL EMPLOYEE PRICING US$37 /employee/month billed annually"
+   },
+   {
+    "nombre": "Flexible user pricing",
+    "mensual": "US$105",
+    "anual": "US$67",
+    "cita": "FLEXIBLE USER PRICING US$105 /user — Purchase license for any no. of users | FLEXIBLE USER PRICING US$67 /user/month billed annually"
+   }
+  ],
+  "dudaSinResolver": "Una lectura automática anterior de la misma tarifa dio US$90 para el plan flexible anual, no US$67. No se ha podido decidir cuál rige. El importe anual del plan flexible es el dato menos seguro de los cuatro."
+ },
+ "zohoProjects": {
+  "url": "https://www.zoho.com/projects/zohoprojects-pricing.html",
+  "moneda": "USD",
+  "planes": [
+   {
+    "nombre": "Free",
+    "mensual": "US$0",
+    "anual": "US$0",
+    "cita": "FREE US$0 Up to 5 users"
+   },
+   {
+    "nombre": "Premium",
+    "mensual": "US$5",
+    "anual": "US$4",
+    "cita": "PREMIUM US$5 /user/month | PREMIUM US$4 /user/month billed annually"
+   },
+   {
+    "nombre": "Enterprise",
+    "mensual": "US$10",
+    "anual": "US$9",
+    "cita": "ENTERPRISE US$10 /user/month | ENTERPRISE US$9 /user/month billed annually"
+   },
+   {
+    "nombre": "Ultimate",
+    "mensual": "US$15",
+    "anual": "US$14",
+    "cita": "ULTIMATE US$15 /user/month | ULTIMATE US$14 /user/month billed annually"
+   }
+  ]
+ },
+ "laPaginaAlemanaYaNoExiste": {
+  "url": "https://www.zoho.com/de/one/agency/",
+  "cita": "Die gesuchte Seite konnte nicht gefunden werden.",
+  "porQueImporta": "Era la única fuente que daba precios en euros de Zoho One (105 € al mes, 90 € pagando el año). Ya no está, así que no hay ninguna tarifa en euros que podamos demostrar."
+ }
+}

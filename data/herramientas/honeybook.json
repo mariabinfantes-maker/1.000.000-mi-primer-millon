@@ -4,6 +4,15 @@
   "urlPrecios": "https://www.honeybook.com/pricing",
   "logoUrl": "",
   "categoriaId": "plataformas-todo-en-uno",
+  "categoriasSecundarias": [
+    "asistentes-ia",
+    "automatizacion-integraciones",
+    "crm",
+    "facturacion-contabilidad",
+    "firma-gestion-documental",
+    "gestion-proyectos",
+    "reservas-citas"
+  ],
   "descripcion": "HoneyBook es una plataforma todo en uno para la gestión de clientes y proyectos orientada a autónomos, creativos y pequeñas empresas de servicios. Centraliza propuestas, contratos firmables, facturación, reservas de citas y procesamiento de pagos en flujos de trabajo automatizados.",
   "informacionEmpresa": {
     "anioFundacion": 2013,
@@ -66,12 +75,12 @@
     "Zoom"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde $16/mes (plan Starter facturado anualmente)",
+  "precioInicial": "Desde $29/mes (facturación anual)",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Essentials a $32/mes (facturación anual), que incluye automatizaciones, integraciones y soporte para equipos pequeños.",
   "idiomasDisponibles": [
     "Inglés"
@@ -101,7 +110,18 @@
         "numeroResenas": 800,
         "enlace": "https://www.trustpilot.com/review/honeybook.com"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/162024/HoneyBook/reviews/",
+      "cita": "Reviews of HoneyBook. Ease of use. 4.6. — leido 4.7/5 con 689 reseñas. Confirma el 4.8 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/honeybook/reviews",
+      "cita": "Ease of Use. HoneyBook. 8.8. 8.8 182. — leido 4.5/5 con 182 reseñas. Confirma el 4.5 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Experiencia de cliente impecable y estética en propuestas y cobros.",
@@ -140,5 +160,30 @@
   "problemasIds": [
     "organizar-empresa",
     "conseguir-clientes"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 30,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.honeybook.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.honeybook.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Starter",
+        "mensual": "36 $/mes",
+        "anual": "29 $/mes",
+        "cita": "$36 / $29"
+      },
+      {
+        "nombre": "Essentials",
+        "mensual": "59 $/mes",
+        "anual": "49 $/mes",
+        "cita": "$59 / $49"
+      }
+    ]
+  }
 }

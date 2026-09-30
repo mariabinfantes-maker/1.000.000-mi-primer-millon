@@ -4,6 +4,14 @@
   "urlPrecios": "https://www.agilecrm.com/pricing",
   "logoUrl": "",
   "categoriaId": "crm",
+  "categoriasSecundarias": [
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "firma-gestion-documental",
+    "gestion-proyectos",
+    "recursos-humanos",
+    "reservas-citas"
+  ],
   "descripcion": "Agile CRM es un software todo en uno que combina automatización de ventas, marketing y atención al cliente en una sola plataforma. Está diseñado para pequeñas y medianas empresas que buscan centralizar la gestión de sus contactos y procesos comerciales sin incurrir en costes elevados.",
   "informacionEmpresa": {
     "anioFundacion": 2013,
@@ -103,7 +111,18 @@
     "g2Puntuacion": 4,
     "g2NumeroResenas": 340,
     "capterraPuntuacion": 4.1,
-    "capterraNumeroResenas": 500
+    "capterraNumeroResenas": 500,
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.com/p/135003/Agile-CRM/",
+      "cita": "Overall rating. Based on 526 user reviews. 4.1. ... Ease of Use4.0. — leido 4.1/5 con 526 reseñas. Confirma el 4.1 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.g2.com/products/agile-crm/reviews",
+      "cita": "leido 4/5 con 323 reseñas. Confirma el 4 guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Excelente relación calidad-precio en comparación con la competencia directa.",
@@ -126,12 +145,11 @@
     ],
     "tipoNegocioIdeal": "Pymes y agencias de servicios",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 81,
+    "puntuacion": 78,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 6.7/10.",
       "G2: 4/5 (340 reseñas).",
       "Capterra: 4.1/5 (500 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -139,10 +157,27 @@
   "id": "agile-crm",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-21",
-  "fechaUltimaRevision": "2026-08-21",
+  "fechaUltimaRevision": "2026-09-17",
   "tipoProducto": "especializada",
   "problemasIds": [
     "conseguir-clientes",
     "atencion-cliente"
-  ]
+  ],
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.agilecrm.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.agilecrm.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "FREE",
+        "mensual": "0 $",
+        "cita": "$0"
+      }
+    ]
+  }
 }

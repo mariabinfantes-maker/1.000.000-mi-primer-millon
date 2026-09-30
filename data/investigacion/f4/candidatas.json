@@ -1,0 +1,122 @@
+[
+ {
+  "id": "booksy",
+  "nombre": "Booksy",
+  "urls": [
+   "https://booksy.com/es-es/",
+   "https://booksy.com/biz/es-es/precios"
+  ]
+ },
+ {
+  "id": "fresha",
+  "nombre": "Fresha",
+  "urls": [
+   "https://www.fresha.com/es",
+   "https://www.fresha.com/es/pricing"
+  ]
+ },
+ {
+  "id": "treatwell",
+  "nombre": "Treatwell",
+  "urls": [
+   "https://www.treatwell.es/partners/",
+   "https://www.treatwell.es/partners/precios/"
+  ]
+ },
+ {
+  "id": "phorest",
+  "nombre": "Phorest",
+  "urls": [
+   "https://www.phorest.com/es/",
+   "https://www.phorest.com/"
+  ]
+ },
+ {
+  "id": "timify",
+  "nombre": "TIMIFY",
+  "urls": [
+   "https://www.timify.com/es/",
+   "https://www.timify.com/es/plans/"
+  ]
+ },
+ {
+  "id": "shore",
+  "nombre": "Shore",
+  "urls": [
+   "https://www.shore.com/es/",
+   "https://www.shore.com/es/precios/"
+  ]
+ },
+ {
+  "id": "simplybook",
+  "nombre": "SimplyBook.me",
+  "urls": [
+   "https://simplybook.me/es/",
+   "https://simplybook.me/es/pricing"
+  ]
+ },
+ {
+  "id": "agendapro",
+  "nombre": "AgendaPro",
+  "urls": [
+   "https://agendapro.com/es-es/",
+   "https://agendapro.com/es/planes"
+  ]
+ },
+ {
+  "id": "flowww",
+  "nombre": "flowww",
+  "urls": [
+   "https://www.flowww.com/",
+   "https://www.flowww.com/pricing"
+  ]
+ },
+ {
+  "id": "bewe",
+  "nombre": "Bewe",
+  "urls": [
+   "https://bewe.io/es/",
+   "https://bewe.io/precios/"
+  ]
+ },
+ {
+  "id": "eskedula",
+  "nombre": "Eskedula",
+  "urls": [
+   "https://www.eskedula.es/",
+   "https://www.eskedula.es/precios"
+  ]
+ },
+ {
+  "id": "viday",
+  "nombre": "ViDay",
+  "urls": [
+   "https://viday.es/",
+   "https://viday.es/precios/"
+  ]
+ },
+ {
+  "id": "estetical",
+  "nombre": "Estetical",
+  "urls": [
+   "https://estetical.es/software-para-centros-de-belleza/",
+   "https://estetical.es/tarifas/"
+  ]
+ },
+ {
+  "id": "solvermedia",
+  "nombre": "SolverMedia",
+  "urls": [
+   "https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html",
+   "https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html"
+  ]
+ },
+ {
+  "id": "turnito",
+  "nombre": "Turnito",
+  "urls": [
+   "https://turnito.app/",
+   "https://turnito.app/mx/app-turnos-peluqueria/"
+  ]
+ }
+]

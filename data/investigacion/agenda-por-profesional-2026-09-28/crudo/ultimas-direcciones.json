@@ -1,0 +1,108 @@
+[
+ {
+  "id": "calendly",
+  "nombre": "Calendly",
+  "urls": [
+   "https://help.calendly.com/hc/en-us/articles/223146067-How-to-add-or-remove-users-and-seats",
+   "https://help.calendly.com/hc/en-us/articles/14074797893143-Calendly-Schedules",
+   "https://help.calendly.com/hc/en-us/articles/16831517906711-How-to-set-up-a-team-page",
+   "https://help.calendly.com/hc/en-us/articles/14078881985815-How-to-set-up-a-team-Round-Robin-event-type",
+   "https://help.calendly.com/hc/en-us/articles/14074913220247-How-to-set-up-a-team-Collective-event-type",
+   "https://help.calendly.com/hc/en-us/articles/4914418007831-Event-types-overview"
+  ]
+ },
+ {
+  "id": "cal-com",
+  "nombre": "Cal.com",
+  "urls": [
+   "https://cal.com/blog/mastering-cal-com-s-team-dashboard-settings-an-overview",
+   "https://cal.com/blog/adding-members-to-cal-com-s-team-plan-using-individual-bulk-invites",
+   "https://cal.com/blog/using-custom-availability-scheduling",
+   "https://cal.com/blog/learn-how-to-set-up-your-event-types-in-cal-com",
+   "https://cal.com/blog/why-cal-com-s-routing-forms-are-a-game-changer-for-scheduling",
+   "https://cal.com/blog/boost-efficiency-with-cal-com-s-managed-events-types"
+  ]
+ },
+ {
+  "id": "acuity-scheduling",
+  "nombre": "Acuity Scheduling (Squarespace)",
+  "urls": [
+   "https://help.acuityscheduling.com/hc/es/articles/16676894081421-Configurar-nuevos-miembros-del-personal-en-Acuity-Scheduling",
+   "https://help.acuityscheduling.com/hc/es/articles/16676839352461-Agregar-y-administrar-calendarios",
+   "https://help.acuityscheduling.com/hc/es/articles/16676865239181-Gestionar-la-disponibilidad-y-los-calendarios",
+   "https://help.acuityscheduling.com/hc/es/articles/16676918663821-Configuraci%C3%B3n-y-edici%C3%B3n-de-tu-disponibilidad-b%C3%A1sica",
+   "https://help.acuityscheduling.com/hc/es/articles/16676934898189-A%C3%B1adir-y-gestionar-colaboradores-de-Acuity"
+  ]
+ },
+ {
+  "id": "zoho-bookings",
+  "nombre": "Zoho Bookings",
+  "urls": [
+   "https://help.zoho.com/portal/en/kb/articles/add-users",
+   "https://help.zoho.com/portal/en/kb/articles/staff-information-bookings",
+   "https://help.zoho.com/portal/en/kb/articles/staff-working-hours",
+   "https://help.zoho.com/portal/en/kb/articles/staff-assigned-services",
+   "https://help.zoho.com/portal/en/kb/articles/service-availability",
+   "https://help.zoho.com/portal/en/kb/articles/roles-and-permissions-in-zoho-bookings"
+  ]
+ },
+ {
+  "id": "fresha",
+  "nombre": "Fresha",
+  "urls": [
+   "https://www.fresha.com/es/help/academy/getting-started/how-to-book-your-first-appointment",
+   "https://www.fresha.com/es/help/academy/getting-started/how-to-schedule-shifts",
+   "https://www.fresha.com/help-center/articles/set-up-new-appointment-assignment",
+   "https://www.fresha.com/help-center/articles/set-up-booked-appointment-reassignment",
+   "https://www.fresha.com/help-center/articles/optimize-your-online-bookings",
+   "https://www.fresha.com/help-center/articles/archive-and-delete-team-members-from-your-workspace"
+  ]
+ },
+ {
+  "id": "booksy",
+  "nombre": "Booksy",
+  "urls": [
+   "https://support.booksy.com/hc/es-es/articles/360012213759-%C2%BFC%C3%B3mo-puedo-a%C3%B1adir-a-un-empleado",
+   "https://support.booksy.com/hc/es-es/articles/360012213819-%C2%BFC%C3%B3mo-puedo-ajustar-el-horario-de-trabajo-de-mis-empleados",
+   "https://support.booksy.com/hc/es-es/articles/360012213839-%C2%BFC%C3%B3mo-puedo-editar-los-horarios-de-trabajo-de-los-empleados",
+   "https://support.booksy.com/hc/es-es/articles/360012213779-%C2%BFPueden-mis-empleados-gestionar-sus-propios-calendarios-en-Booksy",
+   "https://support.booksy.com/hc/es-es/articles/360012213799-%C2%BFPuedo-asignar-a-uno-de-mis-empleados-a-un-determinado-servicio-o-categor%C3%ADa",
+   "https://support.booksy.com/hc/es-es/articles/360012170359-%C2%BFC%C3%B3mo-puedo-personalizar-la-configuraci%C3%B3n-de-mis-servicios"
+  ]
+ },
+ {
+  "id": "timify",
+  "nombre": "TIMIFY",
+  "urls": [
+   "https://www.timify.com/es/support/como-crear-recursos/",
+   "https://www.timify.com/es/support/como-configurar-horarios-de-trabajo-y-de-reserva/",
+   "https://www.timify.com/es/support/funcion-gestion-de-turnos/",
+   "https://www.timify.com/es/support/como-pueden-mis-clientes-reservar-una-cita-online/",
+   "https://www.timify.com/es/support/manual-de-uso-de-timify/"
+  ]
+ },
+ {
+  "id": "reservio",
+  "nombre": "Reservio",
+  "urls": [
+   "https://help.reservio.com/es/articles/8681577-lanzamiento-de-reservas-en-linea",
+   "https://help.reservio.com/es/articles/9398866-franjas-horarias-para-reservas",
+   "https://help.reservio.com/es/articles/8681585-como-configurar-horas-de-reserva-personalizadas-para-un-servicio",
+   "https://help.reservio.com/es/articles/9398877-por-que-mis-clientes-no-pueden-ver-horarios-disponibles-para-reservar",
+   "https://help.reservio.com/es/articles/9398875-como-hacer-reservas-en-reservio",
+   "https://www.reservio.com/es/funciones/programacion-horarios-equipo"
+  ]
+ },
+ {
+  "id": "doctoralia",
+  "nombre": "Doctoralia",
+  "urls": [
+   "https://pro.doctoralia.es/blog/clinicas/gestion-de-agendas-en-clinicas-con-multicentros",
+   "https://pro.doctoralia.co/blog/paso-a-paso-configure-la-reserva-de-cita",
+   "https://pro.doctoralia.es/blog/asistentes/como-usar-la-agenda-online-de-doctoralia-consejos-para-asistentes-y-recepcionistas",
+   "https://pro.doctoralia.es/blog/especialistas/como-gestionar-su-consulta-a-traves-de-nuestra-agenda-doctoralia",
+   "https://pro.doctoralia.co/blog/funcionalidades-para-administrar-mejor-tu-agenda",
+   "https://pro.doctoralia.es/videotutoriales/configura-tu-agenda"
+  ]
+ }
+]

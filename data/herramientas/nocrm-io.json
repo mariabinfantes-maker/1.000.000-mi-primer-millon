@@ -4,6 +4,13 @@
   "urlPrecios": "https://www.nocrm.io/es/pricing",
   "logoUrl": "",
   "categoriaId": "crm",
+  "categoriasSecundarias": [
+    "asistentes-ia",
+    "atencion-cliente",
+    "automatizacion-integraciones",
+    "facturacion-contabilidad",
+    "gestion-proyectos"
+  ],
   "descripcion": "noCRM.io es un software de gestión de oportunidades de venta diseñado específicamente para comerciales, enfocado en el seguimiento de leads más que en la recolección masiva de datos. Su filosofía elimina la burocracia de los CRM tradicionales centrándose siempre en la 'siguiente acción' para cerrar ventas.",
   "informacionEmpresa": {
     "anioFundacion": 2013,
@@ -63,13 +70,13 @@
     "WhatsApp"
   ],
   "curvaDeAprendizaje": "muy_facil",
-  "precioInicial": "Desde 12€/usuario/mes",
+  "precioInicial": "Desde 13 US$/usuario/mes",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Sales Experts a 29€/usuario/mes (pago anual), para acceder a integraciones avanzadas y gestión completa de equipos.",
   "idiomasDisponibles": [
     "Español",
@@ -97,7 +104,18 @@
     "g2Puntuacion": 4.6,
     "g2NumeroResenas": 85,
     "capterraPuntuacion": 4.6,
-    "capterraNumeroResenas": 260
+    "capterraNumeroResenas": 260,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/144678/noCRM/",
+      "cita": "noCRM 4.6 (494) ... Ease of Use. 4.8 — leido 4.6/5 con 494 reseñas. Confirma el 4.6 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/nocrm-io/reviews",
+      "cita": "Ratings ... Ease of Use ... 9.3. 83 — leido 4.7/5 con 83 reseñas. Confirma el 4.6 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Interfaz extremadamente sencilla orientada a la acción comercial.",
@@ -134,5 +152,11 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "conseguir-clientes"
-  ]
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 15,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.nocrm.io/es/pricing"
+  }
 }

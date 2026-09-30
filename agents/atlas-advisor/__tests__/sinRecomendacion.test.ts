@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { getTodasLasHerramientas, getProblemas } from "@/data/repositorio";
 import { detectarProblemasPorTexto } from "../deteccionProblema";
 import { recomendarHerramientas } from "../motor";
+import { cubreCategoria } from "@/data/taxonomia";
 
 /**
  * Regresión del fallo del 2026-09-02, encontrado por la propietaria
@@ -119,12 +120,29 @@ describe("los recorridos que ya funcionaban siguen funcionando", () => {
     }
   });
 
-  it("por objetivo: los cinco objetivos del catálogo siguen recomendando", () => {
+  /**
+   * «El dinero» es la primera puerta que no tiene ni una herramienta
+   * etiquetada, y a propósito: sus filas exigen capacidades sobre las 65, no
+   * sobre las etiquetadas. Quien entra por ahí siempre elige antes una
+   * necesidad concreta —la pregunta de aclaración va primero—, así que este
+   * camino sin necesidad sólo se recorre desde una prueba.
+   *
+   * Y cuando se recorre, el motor dice que no en vez de abrir el catálogo
+   * entero. Eso no es un fallo: es exactamente lo que tiene que hacer.
+   */
+  const SIN_HERRAMIENTAS_ETIQUETADAS = ["el-dinero"];
+
+  it("por objetivo: los objetivos con catálogo etiquetado siguen recomendando", () => {
     for (const problema of PROBLEMAS) {
       const r = recomendarHerramientas(
         { problemaIdsCandidatos: [problema.id], tamanoEmpresa: "1-10" },
         HERRAMIENTAS
       );
+      if (SIN_HERRAMIENTAS_ETIQUETADAS.includes(problema.id)) {
+        expect(r.sinRecomendacion?.tipo, `objetivo ${problema.id}`).toBe("sin_cobertura");
+        expect(r.top, `objetivo ${problema.id}`).toHaveLength(0);
+        continue;
+      }
       expect(r.sinRecomendacion, `objetivo ${problema.id}`).toBeUndefined();
       expect(r.top.length, `objetivo ${problema.id}`).toBeGreaterThan(0);
     }
@@ -136,11 +154,29 @@ describe("los recorridos que ya funcionaban siguen funcionando", () => {
     expect(r.top).toHaveLength(3);
   });
 
+  /**
+   * El comportamiento que vigila esta prueba no ha cambiado: quien pide una
+   * categoría no recibe otra cosa a cambio.
+   *
+   * Lo que cambió el 2026-09-24 es el catálogo. «Reservas y citas» servía de
+   * ejemplo de categoría vacía porque ninguna ficha la declaraba; ese día la
+   * propietaria abrió las once casas pendientes y el reparto metió once
+   * herramientas ahí. Ya no queda ninguna categoría vacía, así que el caso se
+   * comprueba con una que no existe, que es la forma de seguir probándolo sin
+   * depender de qué tenga hoy el catálogo.
+   */
   it("una categoría sin herramientas devuelve vacío, no el catálogo entero", () => {
-    // Comportamiento que ya existía y no debe cambiar: quien pide justo esa
-    // categoría no recibe otra cosa a cambio.
-    const r = recomendarHerramientas({ categoriaId: "reservas-citas" }, HERRAMIENTAS);
+    const r = recomendarHerramientas({ categoriaId: "no-existe-esta-categoria" }, HERRAMIENTAS);
     expect(r.top).toHaveLength(0);
     expect(r.todas).toHaveLength(0);
+  });
+
+  it("y una categoría con herramientas devuelve SOLO las suyas", () => {
+    const r = recomendarHerramientas({ categoriaId: "reservas-citas" }, HERRAMIENTAS);
+    expect(r.todas.length).toBeGreaterThan(0);
+    expect(r.todas.length).toBeLessThan(HERRAMIENTAS.length);
+    for (const e of r.todas) {
+      expect(cubreCategoria(e.herramienta, "reservas-citas"), e.herramienta.id).toBe(true);
+    }
   });
 });

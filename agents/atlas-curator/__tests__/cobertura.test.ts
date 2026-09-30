@@ -119,7 +119,10 @@ describe("categorías ausentes", () => {
       "inventario-operaciones",
       "creacion-web-hosting",
       "firma-gestion-documental",
-      "software-sectorial",
+      // Desde el 2026-09-24 los sectores van con su nombre y no agrupados en
+      // «Software sectorial», que quedó desconectada. Ver MARCO_CATEGORIAS_MINIMO.
+      "formacion-academias",
+      "clinicas-salud",
     ].map((id) => categoria(id));
     expect(evaluarCobertura(todas, []).ausentes).toEqual([]);
   });

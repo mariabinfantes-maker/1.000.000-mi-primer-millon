@@ -52,10 +52,23 @@ const CAMPOS_OPCIONALES = new Set<keyof Herramienta>([
   // "asistentes-ia"). Exigirlos a un CRM sería pedir un dato que no existe.
   "subtipoId",
   "subtiposSecundarios",
+  // De qué clase es el plan gratuito y cuánto dura la prueba: sólo se
+  // rellenan cuando la página oficial lo dice. Una web que ofrece «free
+  // trial» sin decir de cuánto es un hecho, no un hueco que rellenar.
+  "tipoPlanGratuito",
+  "pruebaGratuitaDias",
+  // La fecha de comprobación la pone quien comprueba, no quien investiga.
+  "preciosComprobados",
+  "planesComprobados",
+  // El idioma partido en panel y página de cliente lleva recibo propio: lo
+  // pone quien abre la página, con su cita y su fecha, no quien redacta.
+  "idiomaComprobado",
 ]);
 
 export const DESCRIPCION_CAMPOS: Record<keyof Herramienta, string> = {
   id: "Identificador interno (lo asigna Atlas, no lo investigues).",
+  idiomaComprobado:
+    "El español de CADA pantalla por separado, con su cita y su fecha: `panel` es el programa de gestión y `paginaDeCliente` es lo que ve quien reserva. No se deduce una de la otra ni del idioma de la web comercial. Si no se ha abierto la página que lo dice, se deja vacío: vacío significa «sin confirmar», que no es «no».",
   nombre: "Nombre comercial de la herramienta.",
   paginaOficial: "URL de la web oficial.",
   urlPrecios: "URL de la página de precios, si es distinta de la web oficial.",
@@ -99,7 +112,16 @@ export const DESCRIPCION_CAMPOS: Record<keyof Herramienta, string> = {
   precioInicial: 'Precio de entrada en texto libre, ej. "Desde 15€/usuario/mes".',
   modeloDePrecio:
     'Array con valores entre "freemium", "suscripcion_mensual", "suscripcion_anual", "pago_unico", "por_usuario", "a_medida".',
-  tienePlanGratuito: "true/false: si existe un plan gratuito real, no solo una prueba de tiempo limitado.",
+  tienePlanGratuito:
+    "true/false: si se puede empezar sin pagar, sea con un plan gratuito permanente o con una prueba limitada. Las dos cuentan.",
+  tipoPlanGratuito:
+    '"indefinido" si es gratis mientras quieras (normalmente con algún límite) o "prueba" si es gratis un tiempo y después se paga. Omítelo si no lo dice la página oficial.',
+  pruebaGratuitaDias:
+    "Número de días que dura la prueba, sólo si la página oficial lo dice. Omítelo si ofrece prueba sin decir cuánto dura.",
+  preciosComprobados:
+    "Lo rellena quien comprueba el precio contra la página oficial, no lo investigues: { fecha, url } con el día de la lectura y la dirección que se abrió de verdad.",
+  planesComprobados:
+    "Lo rellena quien comprueba los precios contra la página oficial, no lo investigues: el precio de CADA plan con su cita, en euros si la página los sirve, y con el mensual y el anual por separado.",
   precioRecomendadoPymes:
     'Plan concreto recomendado para una pyme típica (no siempre es el plan más barato), en texto libre, ej. "Plan Professional a 45€/usuario/mes".',
   disponibilidadGeografica:

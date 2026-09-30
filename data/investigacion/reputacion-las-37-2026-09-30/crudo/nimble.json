@@ -1,0 +1,5 @@
+{
+ "id": "nimble",
+ "nombre": "Nimble",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/118314/Nimble/reviews/\",\n    \"notaGeneral\": 4.4,\n    \"facilidadDeUso\": 4.3,\n    \"escala\": \"sobre 5\",\n    \"numeroDeResenas\": 1480,\n    \"cita\": \"Reviews of Nimble. Ease of use. 4.3. Customer Service. 4.3.\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/nimble/reviews\",\n    \"notaGeneral\": 4.5,\n    \"facilidadDeUso\": 8.9,\n    \"escala\": \"sobre 10\",\n    \"numeroDeResenas\": 948,\n    \"cita\": \"Ease of Use. NetSuite. 7.5. 7.5 4,182. Nimble CRM. 8.9. 8.9 948.\"\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/118314/Nimble/\",\n    \"https://www.capterra.com/p/118314/Nimble/reviews/\",\n    \"https://www.capterra.es\",\n    \"https://www.capterra.co.uk\",\n    \"https://www.capterra.ie\",\n    \"https://www.g2.com/products/nimble/reviews\"\n  ]\n}\n```"
+}

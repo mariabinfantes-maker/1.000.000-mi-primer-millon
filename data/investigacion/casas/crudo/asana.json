@@ -1,0 +1,13 @@
+{
+ "id": "asana",
+ "nombre": "Asana",
+ "urls": [
+  "https://asana.com",
+  "https://asana.com/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"gestion-proyectos\",\n      \"cita\": \"Projects help you organize related tasks into a single space with different views like lists, boards, or timelines so you can see the big picture.\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"AI assistance built into your projects, tasks, goals, and more, included on every paid plan.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Let routine work run itself as many times as you need to. Create automations to assign work, send alerts and keep statuses current.\"\n    }\n  ],\n  \"esDe\": \"gestion-proyectos\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://asana.com/",
+  "OK https://asana.com/pricing"
+ ]
+}

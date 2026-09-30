@@ -2,7 +2,7 @@
   "id": "zoho-one",
   "nombre": "Zoho One",
   "paginaOficial": "https://www.zoho.com/one/",
-  "urlPrecios": "https://www.zoho.com/one/pricing.html",
+  "urlPrecios": "https://www.zoho.com/one/pricing/",
   "logoUrl": "",
   "categoriaId": "plataformas-todo-en-uno",
   "descripcion": "Suite de más de 45 aplicaciones integradas de Zoho (CRM, contabilidad, RRHH, gestión de proyectos, atención al cliente, marketing y más) bajo una única licencia, pensada para operar toda una empresa desde un mismo ecosistema.",
@@ -62,12 +62,12 @@
     "Slack"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde 37€/usuario/mes (facturación anual)",
+  "precioInicial": "Desde 37 $/empleado/mes pagando el año, licenciando a toda la plantilla. 105 $/usuario/mes si licencias sólo a algunos.",
   "modeloDePrecio": [
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "idiomasDisponibles": [
     "español",
     "inglés",
@@ -99,7 +99,7 @@
   ],
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-07-24",
-  "fechaUltimaRevision": "2026-07-25",
+  "fechaUltimaRevision": "2026-09-29",
   "modulosIncluidos": [
     "crm",
     "gestion_proyectos",
@@ -114,7 +114,37 @@
   ],
   "tipoProducto": "suite",
   "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "comercio-electronico",
+    "creacion-web-hosting",
     "crm",
-    "gestion-proyectos"
-  ]
+    "gestion-proyectos",
+    "inventario-operaciones",
+    "marketing-email",
+    "recursos-humanos"
+  ],
+  "tipoPlanGratuito": "prueba",
+  "preciosComprobados": {
+    "fecha": "2026-09-29",
+    "url": "https://www.zoho.com/one/pricing/"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-29",
+    "url": "https://www.zoho.com/one/pricing/",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "All employee pricing",
+        "mensual": "45 $",
+        "anual": "37 $",
+        "cita": "ALL EMPLOYEE PRICING US$45 /employee — Must purchase license for ALL employees"
+      },
+      {
+        "nombre": "Flexible user pricing",
+        "mensual": "105 $",
+        "anual": "67 $",
+        "cita": "FLEXIBLE USER PRICING US$105 /user — Purchase license for any no. of users"
+      }
+    ]
+  }
 }

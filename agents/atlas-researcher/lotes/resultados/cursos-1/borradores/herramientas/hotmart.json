@@ -1,0 +1,152 @@
+{
+  "nombre": "Hotmart",
+  "paginaOficial": "https://hotmart.com/",
+  "urlPrecios": "https://hotmart.com/es/precios",
+  "logoUrl": "",
+  "categoriaId": "plataformas-todo-en-uno",
+  "categoriasSecundarias": [
+    "comercio-electronico",
+    "embudos-de-venta"
+  ],
+  "subtiposSecundarios": [],
+  "tipoProducto": "suite",
+  "descripcion": "Hotmart es una plataforma integral para la venta, alojamiento y distribución de productos digitales como cursos en línea, e-books y suscripciones. Integra área de miembros, pasarela de pago internacional propia y una amplia red de afiliados para maximizar las ventas de los creadores de contenido.",
+  "informacionEmpresa": {
+    "anioFundacion": 2011,
+    "paisOrigen": "Brasil",
+    "tamanoAproximado": "1001-5000 empleados"
+  },
+  "problemasQueResuelve": [
+    "Complejidad técnica para alojar cursos y cobrar en múltiples monedas.",
+    "Necesidad de reclutar y gestionar afiliados para promocionar infoproductos.",
+    "Gestión manual de acceso a contenidos tras el pago."
+  ],
+  "casosDeUso": [
+    "Creación y distribución de cursos en vídeo con área de estudiantes personalizada (Hotmart Club).",
+    "Venta de libros electrónicos o suscripciones de contenido con cobros recurrentes.",
+    "Lanzamiento de infoproductos apoyado en una red global de afiliados."
+  ],
+  "idealPara": "Creadores de contenido, infoproductores, educadores y emprendedores digitales que buscan una solución integral para gestionar e-learning, cobros y afiliados sin lidiar con infraestructura técnica.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "Educación y Formación",
+    "Marketing Digital",
+    "Creadores de Contenido",
+    "Coaching y Consultoría"
+  ],
+  "noRecomendadaPara": "Empresas centradas exclusivamente en el comercio de productos físicos o corporaciones que requieren un LMS interno con cumplimiento de normas SCORM e integración profunda con ERPs tradicionales.",
+  "casosNoRecomendados": [
+    "Venta masiva de productos físicos o logística e-commerce tradicional.",
+    "Capacitación corporativa interna con requisitos estrictos de seguridad o estándares SCORM/xAPI."
+  ],
+  "funcionesPrincipales": [
+    "Alojamiento de cursos y área de miembros (Hotmart Club)",
+    "Pasarela de cobro internacional integrada (HotPay) con soporte multi-moneda",
+    "Sistema y Marketplace de Afiliados integrado",
+    "Creador de páginas de venta y checkout personalizable",
+    "Automatización de entrega de contenidos y gestión de suscripciones"
+  ],
+  "modulosIncluidos": [
+    "comercio_electronico",
+    "embudos_de_venta",
+    "creador_de_sitios_web",
+    "email_marketing"
+  ],
+  "integraciones": [
+    "Zapier",
+    "ActiveCampaign",
+    "Mailchimp",
+    "WordPress",
+    "Webhooks",
+    "Google Analytics"
+  ],
+  "integracionesPrincipales": [
+    "Zapier",
+    "ActiveCampaign",
+    "Mailchimp",
+    "WordPress"
+  ],
+  "curvaDeAprendizaje": "facil",
+  "precioInicial": "Sin cuota mensual (9,90% + comisión por transacción realizada)",
+  "modeloDePrecio": [
+    "freemium",
+    "a_medida"
+  ],
+  "tienePlanGratuito": true,
+  "precioRecomendadoPymes": "Sin coste fijo inicial; cobro de un 9,9% + 0,50 € aprox. por cada venta procesada",
+  "disponibilidadGeografica": [
+    "GLOBAL"
+  ],
+  "idiomasDisponibles": [
+    "es",
+    "pt",
+    "en",
+    "fr",
+    "de",
+    "it"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": 8,
+    "calidad": 8,
+    "fiabilidad": 8,
+    "atencionAlCliente": 6,
+    "escalabilidad": 8,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 9
+  },
+  "metodologiaValoracion": "Puntuaciones basadas en el análisis agregador de opiniones en portales públicos de software (Trustpilot, Capterra, G2), pruebas de la plataforma y revisión de documentación pública oficial.",
+  "reputacion": {
+    "g2Puntuacion": 4.2,
+    "g2NumeroResenas": 18,
+    "capterraPuntuacion": 4.1,
+    "capterraNumeroResenas": 48,
+    "otrasFuentes": [
+      {
+        "fuente": "Trustpilot",
+        "puntuacion": 3.7,
+        "numeroResenas": 9000,
+        "enlace": "https://es.trustpilot.com/review/hotmart.com"
+      }
+    ]
+  },
+  "ventajas": [
+    "Sin costes de suscripción fijos mensuales para empezar.",
+    "Procesamiento de pagos internacionales sin necesidad de configurar pasarelas externas.",
+    "Ecosistema de afiliados masivo integrado.",
+    "Plataforma completa que cubre hospedaje, cobro, entrega y marketing básico."
+  ],
+  "inconvenientes": [
+    "Comisiones por venta más elevadas que el uso de pasarelas de pago independientes.",
+    "Menor flexibilidad de personalización estética del LMS comparado con soluciones dedicadas.",
+    "Atención al cliente que puede resultar lenta en periodos de alta demanda."
+  ],
+  "analisisAtlas": {
+    "competidoresDirectos": [
+      "Kajabi",
+      "Teachable",
+      "Thinkific",
+      "Systeme.io"
+    ],
+    "tipoNegocioIdeal": "Infoproductores y creadores de formación digital",
+    "nivelTecnicoRecomendado": "principiante",
+    "puntuacion": 88,
+    "motivosPuntuacion": [
+      "Puntuaciones editoriales internas: media de 7.8/10.",
+      "G2: 4.2/5 (18 reseñas).",
+      "Capterra: 4.1/5 (48 reseñas).",
+      "Tiene plan gratuito.",
+      "Ofrece una API pública.",
+      "Dispone de app móvil."
+    ]
+  },
+  "id": "hotmart",
+  "estado": "en_revision",
+  "fechaAltaEnAtlas": "2026-09-16",
+  "fechaUltimaRevision": "2026-09-16"
+}

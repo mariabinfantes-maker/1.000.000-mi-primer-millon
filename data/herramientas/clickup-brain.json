@@ -4,6 +4,11 @@
   "urlPrecios": "https://clickup.com/pricing",
   "logoUrl": "",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones",
+    "firma-gestion-documental",
+    "gestion-proyectos"
+  ],
   "subtipoId": "espacio-trabajo",
   "tipoProducto": "especializada",
   "problemasIds": [
@@ -68,13 +73,13 @@
     "Zapier"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Complemento de 9$/usuario/mes con facturación anual (18$/usuario/mes en mensual), sobre un plan de pago de ClickUp que empieza en 7$/usuario/mes.",
+  "precioInicial": "Desde $9/usuario/mes, como complemento de un plan de pago de ClickUp",
   "modeloDePrecio": [
     "suscripcion_mensual",
     "suscripcion_anual",
     "por_usuario"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "9$/usuario/mes facturado anualmente, sumados al plan de ClickUp que ya se tenga. Importante: el complemento se cobra sobre TODAS las licencias de pago del espacio de trabajo, no solo sobre quienes vayan a usar la IA.",
   "idiomasDisponibles": [
     "Español",
@@ -135,5 +140,29 @@
   "id": "clickup-brain",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-09-02",
-  "fechaUltimaRevision": "2026-09-02"
+  "fechaUltimaRevision": "2026-09-17",
+  "tipoPlanGratuito": "prueba",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://clickup.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://clickup.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Free Forever",
+        "mensual": "Free",
+        "anual": "Free",
+        "cita": "free forever yearly price:FreePer user/month, billed yearlyfree forever monthly price:FreePer user/month, billed monthly"
+      },
+      {
+        "nombre": "Business",
+        "mensual": "$19",
+        "anual": "$12",
+        "cita": "business yearly price:$12Per user/month, billed yearlybusiness monthly price:$19Per user/month, billed monthly"
+      }
+    ]
+  }
 }

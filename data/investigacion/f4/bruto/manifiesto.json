@@ -1,0 +1,1433 @@
+{
+ "que": "Volcados originales completos de las llamadas a Gemini durante la etapa 2 de F4.",
+ "noEs": "Evidencia EN BRUTO. No es catálogo, no son fichas, no son resultados verificados. Ver README.md.",
+ "sinModificar": "Copiados byte a byte desde el cuaderno de sesión. El sha256 de cada uno permite comprobarlo.",
+ "modelo": "gemini-3.6-flash con url_context",
+ "fechas": [
+  "2026-09-11",
+  "2026-09-12"
+ ],
+ "totales": {
+  "ficheros": 71,
+  "respuestasValidas": 63,
+  "llamadasFallidas": 8,
+  "respuestasCortadas": 0
+ },
+ "ficheros": [
+  {
+   "fichero": "r-agendapro-oficial.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 22042,
+   "sha256": "02404525e0e44b19d6d67022e70121e6e7f775716776a4ea015da14e3f2a35df",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://agendapro.com/es-es",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 586,
+    "candidatesTokenCount": 611,
+    "thoughtsTokenCount": 4506,
+    "totalTokenCount": 8992
+   }
+  },
+  {
+   "fichero": "r-agendapro-precios.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 23,
+   "sha256": "53bf0093ee81e5a202402de8b0b06bfa46b6ba796ebfe1606722b05a42172181",
+   "respuestaValida": false,
+   "contenido": "upstream request failed"
+  },
+  {
+   "fichero": "r-bewe-oficial.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 24881,
+   "sha256": "b10ad4c3ea613509d953d09e125e5e3cd4ef1b5e1288a63a7a1574001b7cd813",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.bewe.ai/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 570,
+    "candidatesTokenCount": 604,
+    "thoughtsTokenCount": 5621,
+    "totalTokenCount": 10912
+   }
+  },
+  {
+   "fichero": "r-bewe-precios.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 23,
+   "sha256": "53bf0093ee81e5a202402de8b0b06bfa46b6ba796ebfe1606722b05a42172181",
+   "respuestaValida": false,
+   "contenido": "upstream request failed"
+  },
+  {
+   "fichero": "r-booksy-oficial.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 22448,
+   "sha256": "f9552dcc98bf428c72207251ab6c09313f1edcd1386e960b2c63e8867acd68d9",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://booksy.com/es-es/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 558,
+    "candidatesTokenCount": 568,
+    "thoughtsTokenCount": 4708,
+    "totalTokenCount": 8776
+   }
+  },
+  {
+   "fichero": "r-booksy-precios.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 23,
+   "sha256": "53bf0093ee81e5a202402de8b0b06bfa46b6ba796ebfe1606722b05a42172181",
+   "respuestaValida": false,
+   "contenido": "upstream request failed"
+  },
+  {
+   "fichero": "r-eskedula-oficial.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 23,
+   "sha256": "53bf0093ee81e5a202402de8b0b06bfa46b6ba796ebfe1606722b05a42172181",
+   "respuestaValida": false,
+   "contenido": "upstream request failed"
+  },
+  {
+   "fichero": "r-eskedula-precios.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 5602,
+   "sha256": "36d02ddcaab28923e275756619ed0201eaa4d7472efee6fc604dfb79857ab7bc",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.eskedula.es/precios",
+     "URL_RETRIEVAL_STATUS_PAYWALL"
+    ],
+    [
+     "https://www.eskedula.es/precios",
+     "URL_RETRIEVAL_STATUS_PAYWALL"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 1000,
+    "candidatesTokenCount": 560,
+    "thoughtsTokenCount": 1435,
+    "totalTokenCount": 5049
+   }
+  },
+  {
+   "fichero": "r-estetical-oficial.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 28242,
+   "sha256": "05d227bb77890f03c25ba02090a375657e06ec0c2a1d6c4b6d8f6f1c795070e9",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://estetical.es/software-para-centros-de-belleza/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 582,
+    "candidatesTokenCount": 653,
+    "thoughtsTokenCount": 6061,
+    "totalTokenCount": 9434
+   }
+  },
+  {
+   "fichero": "r-estetical-precios.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 5810,
+   "sha256": "3280cf60ce22041d92a6118dfc11b4f496732ad8aaee7ca7d5d19c5b225fed76",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://estetical.es/tarifas/",
+     "URL_RETRIEVAL_STATUS_ERROR"
+    ],
+    [
+     "https://estetical.es/tarifas",
+     "URL_RETRIEVAL_STATUS_ERROR"
+    ],
+    [
+     "https://estetical.es/tarifas/",
+     "URL_RETRIEVAL_STATUS_ERROR"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 1016,
+    "candidatesTokenCount": 575,
+    "thoughtsTokenCount": 1478,
+    "totalTokenCount": 5242
+   }
+  },
+  {
+   "fichero": "r-flowww-oficial.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 28414,
+   "sha256": "9b55c20a3b20f725d070e9eb4b50ff9e26008d3283db9f311d8d088f0212c133",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.flowww.com/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 575,
+    "candidatesTokenCount": 572,
+    "thoughtsTokenCount": 5924,
+    "totalTokenCount": 13312
+   }
+  },
+  {
+   "fichero": "r-flowww-precios.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 26794,
+   "sha256": "69e16e559017100818b10fecca8b60368636eea904ef8cde2740f66289fcaa09",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.flowww.com/pricing",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 583,
+    "candidatesTokenCount": 600,
+    "thoughtsTokenCount": 5653,
+    "totalTokenCount": 17012
+   }
+  },
+  {
+   "fichero": "r-fresha-oficial.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 31559,
+   "sha256": "0dc876a90db5587cb48b7a604fb2fd9f6b24d2a6929acb781283d181ccb2a543",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.fresha.com/es",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 556,
+    "candidatesTokenCount": 610,
+    "thoughtsTokenCount": 6430,
+    "totalTokenCount": 15383
+   }
+  },
+  {
+   "fichero": "r-fresha-precios.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 23,
+   "sha256": "53bf0093ee81e5a202402de8b0b06bfa46b6ba796ebfe1606722b05a42172181",
+   "respuestaValida": false,
+   "contenido": "upstream request failed"
+  },
+  {
+   "fichero": "r-phorest-oficial.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 8234,
+   "sha256": "2ece7087791d269569faee15b70233192269a37fe3927224c2d17cbc6a10fbd4",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.phorest.com/es/",
+     "URL_RETRIEVAL_STATUS_ERROR"
+    ],
+    [
+     "https://www.phorest.com/es/",
+     "URL_RETRIEVAL_STATUS_ERROR"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 1169,
+    "candidatesTokenCount": 560,
+    "thoughtsTokenCount": 2357,
+    "totalTokenCount": 6312
+   }
+  },
+  {
+   "fichero": "r-phorest-precios.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 21632,
+   "sha256": "a02b8159b818ee987b48855479a2bbe6db65209487207d5c76a188a62832c71b",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.phorest.com/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 1031,
+    "candidatesTokenCount": 669,
+    "thoughtsTokenCount": 4446,
+    "totalTokenCount": 12811
+   }
+  },
+  {
+   "fichero": "r-shore-oficial.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 28823,
+   "sha256": "adf8d42cfa91c341ce3a02665325190e93cc0530bab079be4ddfcab7258eeb53",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.shore.com/es",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 596,
+    "candidatesTokenCount": 599,
+    "thoughtsTokenCount": 6048,
+    "totalTokenCount": 8607
+   }
+  },
+  {
+   "fichero": "r-shore-precios.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 25098,
+   "sha256": "8c1322155b9341f80b5f3368cc15b7b9b57a6d3ca8d58e3ff618092424dfa02f",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.shore.com/es/precios",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 982,
+    "candidatesTokenCount": 588,
+    "thoughtsTokenCount": 5854,
+    "totalTokenCount": 10813
+   }
+  },
+  {
+   "fichero": "r-simplybook-oficial.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 23,
+   "sha256": "53bf0093ee81e5a202402de8b0b06bfa46b6ba796ebfe1606722b05a42172181",
+   "respuestaValida": false,
+   "contenido": "upstream request failed"
+  },
+  {
+   "fichero": "r-simplybook-precios.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 27051,
+   "sha256": "8241009493682183140735acf4925d1f50ad5ca2731cd44a3d1d1ecdf6f28f56",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://simplybook.me/es/pricing",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 552,
+    "candidatesTokenCount": 676,
+    "thoughtsTokenCount": 5643,
+    "totalTokenCount": 16133
+   }
+  },
+  {
+   "fichero": "r-solvermedia-oficial.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 26905,
+   "sha256": "47afdf3684ee9c6f8f89568e489870d43d933aadb8eb7811a5cdbf91d183bc4b",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 614,
+    "candidatesTokenCount": 632,
+    "thoughtsTokenCount": 5327,
+    "totalTokenCount": 12673
+   }
+  },
+  {
+   "fichero": "r-solvermedia-precios.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 29021,
+   "sha256": "9de1194c323e6adee83dcc3e93a1d8b314230ed0ee665e045a753f9cfcbcf210",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.solvermedia.com/software-para-centros-de-estetica-y-salones-de-belleza.html",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 644,
+    "candidatesTokenCount": 637,
+    "thoughtsTokenCount": 5854,
+    "totalTokenCount": 13265
+   }
+  },
+  {
+   "fichero": "r-timify-oficial.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 28943,
+   "sha256": "910abe19a79dce09bb0bceaa0bafe8f3b5b430f6206f05a37d470486df4dd389",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.timify.com/es/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 585,
+    "candidatesTokenCount": 616,
+    "thoughtsTokenCount": 6355,
+    "totalTokenCount": 15128
+   }
+  },
+  {
+   "fichero": "r-timify-precios.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 23,
+   "sha256": "53bf0093ee81e5a202402de8b0b06bfa46b6ba796ebfe1606722b05a42172181",
+   "respuestaValida": false,
+   "contenido": "upstream request failed"
+  },
+  {
+   "fichero": "r-treatwell-oficial.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 28760,
+   "sha256": "ff32bc3365312e7acef1d20a57bce9817e4dd742f58d40a326342293bf479307",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.treatwell.es/partners/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 598,
+    "candidatesTokenCount": 597,
+    "thoughtsTokenCount": 5950,
+    "totalTokenCount": 10277
+   }
+  },
+  {
+   "fichero": "r-treatwell-precios.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 25671,
+   "sha256": "6b17fcf82b493d94e8289bac28114e6024430084d8c26fbeb8072887a8a87686",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.treatwell.es/partners/precios/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 566,
+    "candidatesTokenCount": 642,
+    "thoughtsTokenCount": 5509,
+    "totalTokenCount": 10255
+   }
+  },
+  {
+   "fichero": "r-turnito-oficial.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 23,
+   "sha256": "53bf0093ee81e5a202402de8b0b06bfa46b6ba796ebfe1606722b05a42172181",
+   "respuestaValida": false,
+   "contenido": "upstream request failed"
+  },
+  {
+   "fichero": "r-turnito-precios.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 27659,
+   "sha256": "e4b595a74dbe415175d61c1d15461ad5ceed95686cb4a43f6d81e32136420b5c",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://turnito.app/mx/app-turnos-peluqueria/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 580,
+    "candidatesTokenCount": 642,
+    "thoughtsTokenCount": 5827,
+    "totalTokenCount": 18811
+   }
+  },
+  {
+   "fichero": "r-viday-oficial.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 25055,
+   "sha256": "8d7e237974eec58bc141ac5110aab310448f0d884b5bb62a3fb81047066602b9",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://viday.es/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 551,
+    "candidatesTokenCount": 636,
+    "thoughtsTokenCount": 5532,
+    "totalTokenCount": 10812
+   }
+  },
+  {
+   "fichero": "r-viday-precios.json",
+   "origen": "etapa 2, pasada funcional",
+   "bytes": 23547,
+   "sha256": "61fc1607fc4ee748e1370a0039f0d66a53be61cd10566a8184d2f96908a5042f",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://viday.es/precios/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 1028,
+    "candidatesTokenCount": 590,
+    "thoughtsTokenCount": 5714,
+    "totalTokenCount": 11286
+   }
+  },
+  {
+   "fichero": "rc-agendapro.json",
+   "origen": "investigación comercial",
+   "bytes": 16364,
+   "sha256": "67278dfb59645e72d4469cdd930dc95f6f853620f2181d7d4d0a586d3ee069ae",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://get.agendapro.com/quiero-ser-partner",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 548,
+    "candidatesTokenCount": 269,
+    "thoughtsTokenCount": 3301,
+    "totalTokenCount": 6255
+   }
+  },
+  {
+   "fichero": "rc-bewe.json",
+   "origen": "investigación comercial",
+   "bytes": 13259,
+   "sha256": "9d78b9605e242beaa7dec4dfac18121f3b9d52fd51a698beb35ea9ceba1557b8",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.bewe.ai/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 664,
+    "candidatesTokenCount": 210,
+    "thoughtsTokenCount": 2906,
+    "totalTokenCount": 7992
+   }
+  },
+  {
+   "fichero": "rc-booksy.json",
+   "origen": "investigación comercial",
+   "bytes": 17104,
+   "sha256": "e31951a62666a3e8bcf879fcf3466d739329579caa78147e3cd4d79133d266b8",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://support.booksy.com/hc/en-us/articles/16462890090898-How-does-the-Referral-program-work-and-how-many-people-can-I-refer",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 581,
+    "candidatesTokenCount": 345,
+    "thoughtsTokenCount": 3399,
+    "totalTokenCount": 5657
+   }
+  },
+  {
+   "fichero": "rc-eskedula.json",
+   "origen": "investigación comercial",
+   "bytes": 6754,
+   "sha256": "99c8c3f2313dc4a58a5594a578f74c8f46d13a9851b5eefbc1d3df517f8496fc",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.eskedula.es/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 533,
+    "candidatesTokenCount": 196,
+    "thoughtsTokenCount": 1267,
+    "totalTokenCount": 4864
+   }
+  },
+  {
+   "fichero": "rc-estetical.json",
+   "origen": "investigación comercial",
+   "bytes": 7147,
+   "sha256": "438f11f640ee55d97c5492722fe5eb01d45bcf8ea54aa8c57c089183c5ecfdc8",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://estetical.es/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 530,
+    "candidatesTokenCount": 194,
+    "thoughtsTokenCount": 1374,
+    "totalTokenCount": 4131
+   }
+  },
+  {
+   "fichero": "rc-flowww.json",
+   "origen": "investigación comercial",
+   "bytes": 5104,
+   "sha256": "335fbbffea534152c7902a49dfc41d64b3ab7f9e029b224113cb4820f96420c3",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.flowww.com.mx/programa-referidos",
+     "URL_RETRIEVAL_STATUS_ERROR"
+    ],
+    [
+     "http://www.flowww.com.mx/programa-referidos",
+     "URL_RETRIEVAL_STATUS_ERROR"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 1280,
+    "candidatesTokenCount": 320,
+    "thoughtsTokenCount": 1650,
+    "totalTokenCount": 5805
+   }
+  },
+  {
+   "fichero": "rc-flowww2.json",
+   "origen": "investigación comercial",
+   "bytes": 6230,
+   "sha256": "feacc30e9a87c2cca453481faf05fd94e401ed9bb9f759970503c662d1cc2ddb",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.flowww.com.mx/programa-referidos/",
+     "URL_RETRIEVAL_STATUS_ERROR"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 521,
+    "candidatesTokenCount": 277,
+    "thoughtsTokenCount": 1202,
+    "totalTokenCount": 2696
+   }
+  },
+  {
+   "fichero": "rc-fresha.json",
+   "origen": "investigación comercial",
+   "bytes": 7367,
+   "sha256": "ca6d7c915af48431bb3ffb1989323b046e96cd6ffa6162f7304b8991a3789d46",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://terms.fresha.com/partner-referral-program",
+     "URL_RETRIEVAL_STATUS_ERROR"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 504,
+    "candidatesTokenCount": 202,
+    "thoughtsTokenCount": 1365,
+    "totalTokenCount": 2751
+   }
+  },
+  {
+   "fichero": "rc-fresha2.json",
+   "origen": "investigación comercial",
+   "bytes": 9355,
+   "sha256": "000972cce569f2f4edec03ceddbfbe48e40ba6b333f37615dfc0530d76518f9d",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.fresha.com/for-business/refer-a-friend",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 496,
+    "candidatesTokenCount": 205,
+    "thoughtsTokenCount": 1894,
+    "totalTokenCount": 36752
+   }
+  },
+  {
+   "fichero": "rc-fresha3.json",
+   "origen": "investigación comercial",
+   "bytes": 26344,
+   "sha256": "68e79d40c2b4d24331c86556e14c2759376890f06ce6e7cbcc46debb5de1a641",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://terms.fresha.com/partner-referral-program",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 510,
+    "candidatesTokenCount": 279,
+    "thoughtsTokenCount": 5127,
+    "totalTokenCount": 13642
+   }
+  },
+  {
+   "fichero": "rc-phorest.json",
+   "origen": "investigación comercial",
+   "bytes": 17954,
+   "sha256": "284471e49f3c250c8449461a6a4a8871c34bfcd505e02f0a290f7991e9abf804",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.phorest.com/us/refer-to-phorest/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 532,
+    "candidatesTokenCount": 285,
+    "thoughtsTokenCount": 3676,
+    "totalTokenCount": 7838
+   }
+  },
+  {
+   "fichero": "rc-shore-referidos.json",
+   "origen": "investigación comercial",
+   "bytes": 17803,
+   "sha256": "dd50da9e495950118c9d4a01c3a6400db2b60209a8ec8bedd896d7bcc6664d9f",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.shore.com/en/partner-program",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 717,
+    "candidatesTokenCount": 260,
+    "thoughtsTokenCount": 3572,
+    "totalTokenCount": 8444
+   }
+  },
+  {
+   "fichero": "rc-shore.json",
+   "origen": "investigación comercial",
+   "bytes": 21976,
+   "sha256": "5daa44210105f29598fa769bc4646cf1628152ed17a32c0161c979957e39ffe0",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.shore.com/en/partner-program",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 701,
+    "candidatesTokenCount": 364,
+    "thoughtsTokenCount": 4360,
+    "totalTokenCount": 9309
+   }
+  },
+  {
+   "fichero": "rc-simplybook.json",
+   "origen": "investigación comercial",
+   "bytes": 17817,
+   "sha256": "9ad1784063ad790eb3f4b21ce4a9213f95f76e80ac584319548f398539f9cb03",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://simplybook.me/en/affiliate-program",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 670,
+    "candidatesTokenCount": 374,
+    "thoughtsTokenCount": 3928,
+    "totalTokenCount": 8732
+   }
+  },
+  {
+   "fichero": "rc-solvermedia.json",
+   "origen": "investigación comercial",
+   "bytes": 10914,
+   "sha256": "e18be8bf8930681a32371c71f04027337ce15f357df7cc7d15b7eb1cb0615972",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.solvermedia.com/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 641,
+    "candidatesTokenCount": 195,
+    "thoughtsTokenCount": 2325,
+    "totalTokenCount": 8489
+   }
+  },
+  {
+   "fichero": "rc-timify-terminos.json",
+   "origen": "investigación comercial",
+   "bytes": 21333,
+   "sha256": "146c76fa8121ad0aff391d7852d2f3b521f482d17e8f5977bb39d7036185c8e5",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.timify.com/en/pages/terms-conditions-affiliate-partner/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 786,
+    "candidatesTokenCount": 401,
+    "thoughtsTokenCount": 3868,
+    "totalTokenCount": 13942
+   }
+  },
+  {
+   "fichero": "rc-timify.json",
+   "origen": "investigación comercial",
+   "bytes": 26286,
+   "sha256": "9d1ebcdb6cc4b2bb078eabce75749defd4fe9973a2032688b043ac676ec865dd",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.timify.com/en/partners/affiliate-partner-program/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 662,
+    "candidatesTokenCount": 349,
+    "thoughtsTokenCount": 5376,
+    "totalTokenCount": 11320
+   }
+  },
+  {
+   "fichero": "rc-treatwell-awin.json",
+   "origen": "investigación comercial",
+   "bytes": 6747,
+   "sha256": "28623e31ed8ac5074debfad2190a4c3dab30a29b588ffb0b53307d8cd502f50c",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://ui.awin.com/merchant-profile/67564",
+     "URL_RETRIEVAL_STATUS_ERROR"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 573,
+    "candidatesTokenCount": 278,
+    "thoughtsTokenCount": 1353,
+    "totalTokenCount": 2957
+   }
+  },
+  {
+   "fichero": "rc-treatwell.json",
+   "origen": "investigación comercial",
+   "bytes": 14170,
+   "sha256": "45ed5669a4e7883a48fac7ad532635a785facfb8c63493abf0b07e069f355e40",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.treatwell.es/inspiracion/affiliates/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 677,
+    "candidatesTokenCount": 354,
+    "thoughtsTokenCount": 3136,
+    "totalTokenCount": 6148
+   }
+  },
+  {
+   "fichero": "rc-turnito.json",
+   "origen": "investigación comercial",
+   "bytes": 17671,
+   "sha256": "4ef5c3c1a45ce44ee60b6824091554a9af6f2c9bc03da5071d0ba715be7748a9",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://turnito.app/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 675,
+    "candidatesTokenCount": 219,
+    "thoughtsTokenCount": 3653,
+    "totalTokenCount": 7962
+   }
+  },
+  {
+   "fichero": "rc-viday.json",
+   "origen": "investigación comercial",
+   "bytes": 25878,
+   "sha256": "e72dd07fa34280df05168557aa2104bd81b96e457a2366229c3e24d35a2cf8e3",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://viday.es/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 655,
+    "candidatesTokenCount": 195,
+    "thoughtsTokenCount": 5739,
+    "totalTokenCount": 10787
+   }
+  },
+  {
+   "fichero": "rf-agendapro-precio.json",
+   "origen": "recuperación acotada",
+   "bytes": 13437,
+   "sha256": "74c57ea31ffa6fe68421df4b0be64f0f7e11fdb97958f7cf76b4e8253a7f36dd",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://agendapro.com/es/planes",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 387,
+    "candidatesTokenCount": 70,
+    "thoughtsTokenCount": 3056,
+    "totalTokenCount": 6737
+   }
+  },
+  {
+   "fichero": "rf-bewe-gestion.json",
+   "origen": "recuperación acotada",
+   "bytes": 30237,
+   "sha256": "b5eeec678e81c80956ef27617bd1a9adf832e0d22e6c6910f5ca5376f2e4ad07",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.bewe.ai/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 443,
+    "candidatesTokenCount": 215,
+    "thoughtsTokenCount": 6154,
+    "totalTokenCount": 10806
+   }
+  },
+  {
+   "fichero": "rf-bewe-peluqueria.json",
+   "origen": "recuperación acotada",
+   "bytes": 19910,
+   "sha256": "c3269496449793aedbd954e69a8e93974391c2145c04cfcb23eb96acae45c38f",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.bewe.ai/industries/beauty",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 402,
+    "candidatesTokenCount": 155,
+    "thoughtsTokenCount": 4645,
+    "totalTokenCount": 8031
+   }
+  },
+  {
+   "fichero": "rf-booksy-precio.json",
+   "origen": "recuperación acotada",
+   "bytes": 11346,
+   "sha256": "30515590c334da832e4d567cde26782abea5c67545095a5969d7a35524a9886b",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://biz.booksy.com/es-es/precios",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 179,
+    "candidatesTokenCount": 92,
+    "thoughtsTokenCount": 2703,
+    "totalTokenCount": 5122
+   }
+  },
+  {
+   "fichero": "rf-estetical-precio.json",
+   "origen": "recuperación acotada",
+   "bytes": 3876,
+   "sha256": "d59e06ffbe19c0a36e9a547f41a021628c7c8cf865c616ed0ad81fec02c06171",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://estetical.es/tarifas/",
+     "URL_RETRIEVAL_STATUS_ERROR"
+    ],
+    [
+     "https://estetical.es/tarifas/",
+     "URL_RETRIEVAL_STATUS_ERROR"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 712,
+    "candidatesTokenCount": 85,
+    "thoughtsTokenCount": 1085,
+    "totalTokenCount": 3403
+   }
+  },
+  {
+   "fichero": "rf-flowwwes.json",
+   "origen": "recuperación acotada",
+   "bytes": 11665,
+   "sha256": "468202088709bfc709b28d5e592bf549850bedb22e97e8340aa900388c3713b9",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.flowww.es/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 295,
+    "candidatesTokenCount": 119,
+    "thoughtsTokenCount": 2253,
+    "totalTokenCount": 13307
+   }
+  },
+  {
+   "fichero": "rf-fresha-ficha.json",
+   "origen": "recuperación acotada",
+   "bytes": 10087,
+   "sha256": "5819c26af6a3d9088ebe02b3b52bb115b1f6564716df45785d85b964c15b690e",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.fresha.com/for-business/salon",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 369,
+    "candidatesTokenCount": 117,
+    "thoughtsTokenCount": 2071,
+    "totalTokenCount": 10485
+   }
+  },
+  {
+   "fichero": "rf-fresha-precio.json",
+   "origen": "recuperación acotada",
+   "bytes": 14037,
+   "sha256": "05a9fbbf06f2b6e0adbeabee1124b11f100a290173d48b1a3b2adac258e5b547",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.fresha.com/pricing",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 373,
+    "candidatesTokenCount": 102,
+    "thoughtsTokenCount": 3047,
+    "totalTokenCount": 10493
+   }
+  },
+  {
+   "fichero": "rf-shore-precio.json",
+   "origen": "recuperación acotada",
+   "bytes": 16393,
+   "sha256": "cd9ddb7c534c93ddcdae94254c5cbd9c702e2cfca35baa0015e0b8b230791ccc",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.shore.com/en/pricing",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 392,
+    "candidatesTokenCount": 82,
+    "thoughtsTokenCount": 3621,
+    "totalTokenCount": 8286
+   }
+  },
+  {
+   "fichero": "rf-simplybook-oficial.json",
+   "origen": "recuperación acotada",
+   "bytes": 19648,
+   "sha256": "aada88a014fe8026d18315060bba44e247bc4e5453073b056c7501f403f67353",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://simplybook.me/es/a",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 392,
+    "candidatesTokenCount": 124,
+    "thoughtsTokenCount": 4302,
+    "totalTokenCount": 8269
+   }
+  },
+  {
+   "fichero": "rf-solvermedia-reserva.json",
+   "origen": "recuperación acotada",
+   "bytes": 10323,
+   "sha256": "6f5939eda8ffe3235fcd42e4f5b86cabf771cf3c8300726f5de8b5c98fa9e7be",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.solvermedia.com/software-tpv-para-gestion-de-peluquerias.html",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 406,
+    "candidatesTokenCount": 115,
+    "thoughtsTokenCount": 2190,
+    "totalTokenCount": 8634
+   }
+  },
+  {
+   "fichero": "rf-timify-precio.json",
+   "origen": "recuperación acotada",
+   "bytes": 13889,
+   "sha256": "a971c52be38478b69fa5cf7d1be498c5ca73921f4e426f894ed38c08594d0b10",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.timify.com/en/plans/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 509,
+    "candidatesTokenCount": 68,
+    "thoughtsTokenCount": 3172,
+    "totalTokenCount": 14774
+   }
+  },
+  {
+   "fichero": "rf-treatwell-catalogo.json",
+   "origen": "recuperación acotada",
+   "bytes": 16120,
+   "sha256": "3b7402f8c8b4ff642f7d63a9433645289d28c15ab80a2e389b0c02de06467571",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.treatwell.es/partners/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 520,
+    "candidatesTokenCount": 78,
+    "thoughtsTokenCount": 3566,
+    "totalTokenCount": 14966
+   }
+  },
+  {
+   "fichero": "rf-treatwell-connect.json",
+   "origen": "recuperación acotada",
+   "bytes": 12327,
+   "sha256": "42b8ded60727e5726e507ae8f4728b68785e6a15ac5029ec74570f17a5dee858",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.treatwell.es/partners/soluciones/software-de-gestion-para-salones/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 397,
+    "candidatesTokenCount": 116,
+    "thoughtsTokenCount": 2563,
+    "totalTokenCount": 6895
+   }
+  },
+  {
+   "fichero": "rf-turnito-cancelar.json",
+   "origen": "recuperación acotada",
+   "bytes": 10034,
+   "sha256": "ff14e5b993132272fc6e978730ff8e7d9a8253db9fff400962a1d6941f880a7f",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://turnito.app/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 310,
+    "candidatesTokenCount": 62,
+    "thoughtsTokenCount": 2127,
+    "totalTokenCount": 5549
+   }
+  },
+  {
+   "fichero": "rf-turnito-espana.json",
+   "origen": "recuperación acotada",
+   "bytes": 8566,
+   "sha256": "e5a8a3c453cc7c1e44f1ca23eed03850032fe7a3adddece67a9022b35987a6ec",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://turnito.app/perfil",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 321,
+    "candidatesTokenCount": 63,
+    "thoughtsTokenCount": 1843,
+    "totalTokenCount": 2756
+   }
+  },
+  {
+   "fichero": "ri-flowww.json",
+   "origen": "comprobación de idioma",
+   "bytes": 17711,
+   "sha256": "bd98cede9aede1f98ca4cb7b021c4e71af1d100630c0aae6b3f1bcd98de5c638",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.flowww.es/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 335,
+    "candidatesTokenCount": 237,
+    "thoughtsTokenCount": 3821,
+    "totalTokenCount": 15073
+   }
+  },
+  {
+   "fichero": "ri-flowww2.json",
+   "origen": "comprobación de idioma",
+   "bytes": 4241,
+   "sha256": "11fc8c8b4d018d6cfeadd50f84611a08496d731652aded4ec853ea5d5f57a613",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.flowww.net/software-de-gestion-para-estetica-y-belleza",
+     "URL_RETRIEVAL_STATUS_ERROR"
+    ],
+    [
+     "https://www.flowww.net/software-de-gestion-para-estetica-y-belleza",
+     "URL_RETRIEVAL_STATUS_ERROR"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 1009,
+    "candidatesTokenCount": 172,
+    "thoughtsTokenCount": 1446,
+    "totalTokenCount": 5655
+   }
+  },
+  {
+   "fichero": "ri-flowww3.json",
+   "origen": "comprobación de idioma",
+   "bytes": 12415,
+   "sha256": "f45bd8466552fc5ebe1aab765e907f24e2f711aa3b32a0617ea7a381d5ec62a2",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.flowww.es/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 326,
+    "candidatesTokenCount": 237,
+    "thoughtsTokenCount": 2845,
+    "totalTokenCount": 14079
+   }
+  },
+  {
+   "fichero": "ri-phorest.json",
+   "origen": "comprobación de idioma",
+   "bytes": 4480,
+   "sha256": "968d6705b9fd64f0217a8f7b3da2ffc1228be8e27467dfd8b760c45258b07f78",
+   "respuestaValida": true,
+   "finishReason": "STOP",
+   "urls": [
+    [
+     "https://www.phorest.com/",
+     "URL_RETRIEVAL_STATUS_SUCCESS"
+    ]
+   ],
+   "modelVersion": "gemini-3.6-flash",
+   "tokens": {
+    "promptTokenCount": 341,
+    "candidatesTokenCount": 87,
+    "thoughtsTokenCount": 884,
+    "totalTokenCount": 7288
+   }
+  }
+ ]
+}

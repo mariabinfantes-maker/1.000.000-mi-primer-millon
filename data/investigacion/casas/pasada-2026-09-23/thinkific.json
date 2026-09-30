@@ -1,0 +1,15 @@
+{
+ "id": "thinkific",
+ "nombre": "Thinkific",
+ "url": "https://www.thinkific.com",
+ "preguntas": [
+  {
+   "q": "casa:software-sectorial",
+   "por": "está en esa casa sólo por su portada, sin capacidad verificada"
+  }
+ ],
+ "texto": "{\"resultados\":[{\"id\":\"cap.clinical_record\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.medical_imaging\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.electronic_prescription\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.training_lms\",\"estado\":\"si\",\"cita\":\"Quizzes, assignments, and certificates\",\"url\":\"https://www.thinkific.com\"},{\"id\":\"cap.student_enrollment\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.academic_record\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.thinkific.com/"
+ ]
+}

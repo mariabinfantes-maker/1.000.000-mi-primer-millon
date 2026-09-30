@@ -11,12 +11,25 @@ fallo que llevó a definir `cap.field_job_capture` como «fotos, firma y sin
 cobertura» mientras el diseño decía que la conexión vivía en
 `req.offline_capable`.
 
-Las dos primeras son **obligatorias antes de F3**, por decisión de la
+Las dos primeras eran **obligatorias antes de F3**, por decisión de la
 propietaria el 2026-09-03. Las demás quedan anotadas y no abren sprint.
+
+> ## ESTADO — comprobado ejecutando el 2026-09-22
+>
+> **Las dos obligatorias, A y B, están RESUELTAS.** Se arreglaron en algún
+> momento y este documento no se actualizó, así que durante semanas ha estado
+> pidiendo un trabajo que ya estaba hecho. Cada una lleva abajo la prueba de
+> que hoy funciona.
+>
+> **Por esta parte, F3 ya no está bloqueada.**
+>
+> De las anotadas: **C y E se han vuelto a comprobar hoy y siguen siendo
+> ciertas** (con una corrección de número en C). **D no se ha comprobado**, y
+> se deja tal cual estaba escrita para no afirmar lo que no consta.
 
 ---
 
-## Obligatorio · A · `normalizar` no normaliza espacios ni puntuación
+## Obligatorio · A · RESUELTA — `normalizar` no normalizaba espacios ni puntuación
 
 `normalizar()` en `repositorio.ts` baja a minúsculas y quita tildes, pero no
 toca los espacios. El cotejo es `includes` literal, así que cualquier carácter
@@ -39,7 +52,24 @@ desactiva la comprobación para ese término y nadie se entera.
 **Arreglo:** colapsar `[\s ​-‍]+` a un solo espacio dentro de
 `normalizar`, aplicándolo a los dos lados de la comparación.
 
-## Obligatorio · B · Las declaraciones duplicadas no se validan
+> **RESUELTA, y mejor que lo que aquí se pedía.** El código no se quedó en
+> colapsar a un espacio: añadió `compactar()`, que **quita los separadores del
+> todo**, con el razonamiento escrito al lado —«colapsar a un espacio no
+> basta… quitándolos todos, "sin  cobertura", "sin\ncobertura" y
+> "sin-cobertura" son la misma cadena que "sin cobertura"»—. La constante
+> `SEPARADORES` cubre espacios de toda clase, saltos, tabuladores, espacio
+> duro, anchos cero, guiones, barras y guion bajo.
+>
+> **Comprobado el 2026-09-22 ejecutando los siete casos de arriba: los siete
+> se detectan ahora.** Y están fijados uno a uno en
+> `__tests__/coherencia.test.ts`, incluido «off-line» y la variante en
+> mayúsculas.
+
+Y una nota para quien lo lea: **el enunciado de arriba está en presente
+(«no toca los espacios») y ya no es cierto.** Se deja escrito tal cual porque
+explica por qué existe la guarda; lo que vale es este recuadro.
+
+## Obligatorio · B · RESUELTA — las declaraciones duplicadas no se validaban
 
 `erroresDeMenciones()` busca la declaración con `declaradas.find(...)`, que
 devuelve la primera y se olvida del resto. Las siguientes no pasan por ningún
@@ -61,15 +91,27 @@ detrás de una válida. Invirtiendo el orden sí falla, lo que confirma la causa
 Esto **contradice lo que dice el mensaje del commit `5a8445c`** («y si sobra,
 falla»). Queda escrito aquí para que no se pierda esa corrección.
 
-**Arreglo:** recorrer todas las declaraciones que casen con el término, o
-rechazar de entrada que un `termino` aparezca dos veces en la misma capacidad.
+**Arreglo propuesto entonces:** recorrer todas las declaraciones que casen
+con el término, o rechazar de entrada que un `termino` aparezca dos veces en la
+misma capacidad.
+
+> **RESUELTA, y con las dos cosas a la vez.** `erroresDeMenciones()` rechaza
+> ahora el término repetido *y* valida todas las declaraciones, esté donde esté
+> cada una en la lista.
+>
+> **Comprobado el 2026-09-22 con el ejemplo exacto de arriba**, el que este
+> documento decía que daba cero errores: **hoy da cinco**, y entre ellos los
+> tres que se colaban —el término declarado tres veces, el que remite a un
+> identificador inexistente y el que remite a la propia capacidad—. Fijado en
+> `__tests__/coherencia.test.ts`, «las declaraciones duplicadas se rechazan en
+> cualquier orden».
 
 ---
 
 ## Anotado, sin sprint
 
 **C · `remiteA` se comprueba como subcadena cruda de `noEs`.** Hoy inofensivo:
-ninguno de los 154 identificadores emitidos es prefijo de otro. Un futuro
+ninguno de los identificadores emitidos es prefijo de otro. *(Comprobado de nuevo el 2026-09-22: **son 151**, no 154 como decía antes esta línea, y sigue sin haber ninguno que sea prefijo de otro.)* Un futuro
 `req.offline_capable_full` abriría el hueco. Las reglas de nombrado no lo
 impiden.
 
@@ -79,8 +121,8 @@ minúsculas, así que `"Ver Req.offline_capable"` sobrevive al borrado, se pasa 
 minúsculas después y se delata a sí mismo. Con el identificador bien escrito no
 ocurre, y hay prueba de ello.
 
-**E · Código sin uso.** `sinIdentificadores` se exporta y nadie la llama desde
-fuera. `normalizar` duplica `agents/atlas-advisor/utilidades.ts::normalizar`
+**E · Código sin uso.** *(Comprobado de nuevo el 2026-09-22: sigue siendo
+cierto.)* `sinIdentificadores` se exporta y nadie la llama desde fuera. `normalizar` duplica `agents/atlas-advisor/utilidades.ts::normalizar`
 (misma implementación menos el `.trim()`); el aislamiento de F1 justificaba no
 compartirla, pero a partir de F3 ya no.
 

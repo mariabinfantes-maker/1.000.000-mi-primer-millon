@@ -9,10 +9,10 @@ import { getHerramientasPorProblema, getProblema, getProblemas } from "../reposi
  */
 
 describe("getProblemas / getProblema", () => {
-  it("devuelve los 5 problemas iniciales reales", () => {
+  it("devuelve los 6 objetivos reales", () => {
     const problemas = getProblemas();
     expect(problemas.map((p) => p.id).sort()).toEqual(
-      ["ahorrar-tiempo", "atencion-cliente", "automatizar-tareas", "conseguir-clientes", "organizar-empresa"].sort()
+      ["ahorrar-tiempo", "atencion-cliente", "automatizar-tareas", "conseguir-clientes", "el-dinero", "organizar-empresa"].sort()
     );
   });
 

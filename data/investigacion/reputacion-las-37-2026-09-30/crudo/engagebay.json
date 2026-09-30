@@ -1,0 +1,5 @@
+{
+ "id": "engagebay",
+ "nombre": "EngageBay",
+ "texto": "```json\n{\n \"abierta\": true,\n \"capterra\": {\n   \"url\": \"https://www.capterra.com/p/178716/EngageBay/\",\n   \"notaGeneral\": 4.6,\n   \"facilidadDeUso\": 4.5,\n   \"escala\": \"1-5\",\n   \"numeroDeResenas\": 912,\n   \"cita\": \"Ease Of Use. 4.5 (912).\"\n },\n \"g2\": {\n   \"url\": \"https://www.g2.com/products/engagebay/reviews\",\n   \"notaGeneral\": 4.6,\n   \"facilidadDeUso\": 9.1,\n   \"escala\": \"1-10\",\n   \"numeroDeResenas\": 655,\n   \"cita\": \"Ease of Use. EngageBay. 9.1. 9.1 655.\"\n },\n \"dondeMire\": [\n   \"https://www.capterra.com/p/178716/EngageBay/\",\n   \"https://www.capterra.es/software/178716/engagebay\",\n   \"https://www.capterra.co.uk/software/178716/engagebay\",\n   \"https://www.capterra.ie/software/178716/engagebay\",\n   \"https://www.g2.com/products/engagebay/reviews\"\n ]\n}\n```"
+}

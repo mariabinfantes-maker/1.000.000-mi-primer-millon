@@ -69,6 +69,27 @@ también, explícitamente, a Atlas Revenue.
   - Nunca decide el ranking (eso es de Advisor) ni toca `EstrategiaAfiliacion`
     una vez que Affiliate Manager la gestiona activamente.
 
+## La afiliación no decide qué se recomienda (regla de producto, 2026-09-16)
+
+**Una herramienta útil entra en Molnip aunque no tenga programa de
+afiliación.** La falta de afiliación afecta sólo a la monetización, y nunca
+convierte una herramienta adecuada en descartada. En concreto:
+
+- **No es criterio de orden, descarte ni exclusión.** El motor no lee ni un
+  campo de afiliación; `independenciaAfiliacion.test.ts` lo comprueba sobre
+  el motor, sobre los criterios y sobre la puerta de evidencia.
+- **Sin enlace de afiliado se enseña el oficial**, y se registra cuál de los
+  dos se usó (`app/herramienta/[id]/ir/page.tsx`). Se pierde la comisión de
+  ese clic; la persona llega igual a donde quería ir.
+- **Donde sí pesa es en la entrada al catálogo**, no en la salida al
+  usuario: `promover.ts` pide una autorización registrada para promover una
+  ficha sin afiliación confirmada. Esa autorización la da la propietaria,
+  queda escrita con su motivo y **caduca sola si el estado de afiliación
+  cambia**.
+
+El caso que la fijó fue Hotmart: la que mejor encaja con quien vende cursos
+y la única de su lote por la que Molnip no cobraría nada.
+
 ## 2. Atlas Advisor
 
 - **Nombre canónico:** Atlas Advisor. *(Nombre de producto usado antes en la
@@ -204,11 +225,34 @@ también, explícitamente, a Atlas Revenue.
   completa; Capa 2 (re-investigación asistida por IA) explícitamente
   pospuesta, sin código.
 - **Carpeta:** `agents/atlas-mantenimiento/`
-- **Responsabilidad:** detecta, sin IA y sin coste, fichas de herramientas
-  y cuentas de afiliado que llevan más de 180 días sin revisar.
-- **Entradas:** el catálogo completo con sus fechas de última revisión.
+- **Responsabilidad:** detecta, sin IA y sin coste, lo que ha dejado de
+  estar fresco. **Dos ejes distintos, y conviene no confundirlos:**
+  - **Cuándo se tocó la ficha** — herramientas y cuentas de afiliado con más
+    de 180 días sin revisar (`detectarHerramientasDesactualizadas`,
+    `detectarCuentasActivasDesactualizadas`).
+  - **Cuándo se comprobó el precio contra la página del fabricante**
+    (añadido el 2026-09-17, umbral de 90 días):
+    `detectarPreciosSinComprobar` para las que **nunca** se han mirado, y
+    `detectarPreciosCaducados` para las que tuvieron su lectura y les ha
+    pasado el tiempo.
+
+  La separación no es cosmética: el 2026-09-17 el informe decía «0
+  desactualizadas» sobre un catálogo en el que la mitad de los precios
+  estaban mal desde el primer día. Estaban recién escritos —de ahí el cero—
+  y sin comprobar contra ninguna fuente. **Sin fecha de comprobación no hay
+  «hace mucho»: hay «nunca», y nunca no caduca**, así que ningún umbral de
+  antigüedad lo iba a detectar.
+- **Entradas:** el catálogo completo con sus fechas de última revisión y,
+  cuando existe, `preciosComprobados` (fecha y dirección que se abrió de
+  verdad).
 - **Salidas:** informe HTML de solo lectura con los avisos, priorizados por
-  Puntuación Atlas.
+  Puntuación Atlas. Los dos avisos de precio van primero.
+
+- **Lo que NO hace, y hay que saberlo:** avisa de que un dato está viejo y
+  **no hay nadie que vaya a mirarlo**. Su Capa 2 —la re-investigación— sigue
+  pospuesta y sin código, y Researcher sólo corre cuando lo lanza un humano.
+  Las tandas de precios de septiembre de 2026 se hicieron a mano por ese
+  hueco, no por gusto.
 - **Activación:** exclusivamente un humano, vía `npm run informe-mantenimiento`.
 - **Relaciones:**
   - Eje distinto al de Curator: Mantenimiento vigila *frescura en el
@@ -317,12 +361,12 @@ también, explícitamente, a Atlas Revenue.
 
 ### Los dos carriles
 
-Las **24 tareas** que hoy existen en el repositorio están clasificadas una
+Las **26 tareas** que hoy existen en el repositorio están clasificadas una
 a una en `tareas.ts`, con su carril y el motivo:
 
 - **Libre (8)** — sólo lee e informa. Se dispara sin preguntar.
-- **Con permiso (16)** — gasta dinero (3, llaman a un proveedor de IA),
-  escribe datos que el resto de Molnip da por buenos (12), o deja huella en
+- **Con permiso (18)** — gasta dinero (4, llaman a un proveedor de IA),
+  escribe datos que el resto de Molnip da por buenos (13), o deja huella en
   el sitio real (1). **Esperan la firma de la propietaria y no se ejecutan
   sin ella.**
 
@@ -681,8 +725,37 @@ Una necesidad sin cobertura (tickets, chatbot) se pregunta igual y acaba en
 (`data/verificacion/__tests__/opcionB.test.ts`).
 
 **Pendiente, decidido y sin implementar:** la regla del idioma —preferencia
-frente a necesidad, capas y no puntos, y verificar antes el idioma de
-interfaz y soporte en las 62 fichas—. Commit propio.
+frente a necesidad, capas y no puntos—. Lo que sí existe desde la tercera
+ronda es la verificación del idioma en los datos (abajo): interfaz y soporte
+por separado, desconocidos en las 62 hasta que un lote los compruebe.
+
+**Usos concretos, recorridos e idioma (tercera ronda, 2026-09-16; rama
+aislada, sin fusionar).** La evidencia de F2 gana una lista cerrada de
+**usos** (`data/verificacion/usos.ts`), cada uno colgando de una capacidad
+activa del vocabulario, y de **recorridos** (varias piezas en el mismo
+plan). Un registro verificado puede llevar `usos` en tres estados
+—demostrado, no consta, no lo hace—, con las mismas exigencias de cita que
+la capacidad; recorridos e idiomas son registros aparte
+(`recorridos.json`, `idiomas.json`). El puerto responde `usoDe`,
+`recorridoDe` e `idiomaDe`, y la puerta del motor expone `estadoDeUso` con
+los tres estados sin colapsar.
+
+Una fila puede pedir `uso: { id, imprescindible }`. Imprescindible: sólo
+pasa quien lo ha demostrado, y si nadie, «no lo cubrimos» con las palabras
+de la fila. No imprescindible: pasan las mismas que por la capacidad, salvo
+las que consta que NO hacen el uso, y cada tarjeta enseña «Uso confirmado en
+una fuente oficial: …» con su fuente cuando esa herramienta lo demostró, en
+vez del aviso fijo; las confirmadas van primero como opciones y las demás
+como candidatas. Las dos filas de servicios están enlazadas a sus usos, no
+imprescindibles. Nunca se dice que una herramienta no haga un uso. Con los
+datos de hoy, ninguna pantalla cambia (huella intacta).
+
+El pipeline (`convertir.ts`, `repescar-remoto.ts` en modo `usos`) produce
+los tres con las mismas puertas que la capacidad, y aplica los límites de
+consumo escritos en el propio lote: tope de peticiones HTTP con reintentos,
+peticiones por minuto, parada al primer error de cuota. Los lotes de usos
+viven en `data/verificacion/lotes/` y se validan antes de gastar. Detalle y
+decisiones en `ATLAS.md`, «Usos, recorridos e idioma en la evidencia».
 
 ## Advisor — preguntas adaptativas de diferenciación
 

@@ -1,0 +1,7 @@
+{
+ "id": "simplybook-me",
+ "nombre": "SimplyBook.me",
+ "url": "https://news.simplybook.me/es/como-configurar-servicios-y-proveedores-en-simplybook-me/",
+ "recuperada": true,
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"agendaPorProfesional\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"eligeElCliente\": {\n    \"estado\": \"si\",\n    \"cita\": \"Si no tiene la intención de permitir que los clientes reserven con un proveedor específico, siempre puede llamarlo «Proveedor 1/2/3/4».\"\n  },\n  \"enEspanol\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  }\n}\n```"
+}

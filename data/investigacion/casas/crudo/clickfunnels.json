@@ -1,0 +1,13 @@
+{
+ "id": "clickfunnels",
+ "nombre": "ClickFunnels",
+ "urls": [
+  "https://www.clickfunnels.com",
+  "https://www.clickfunnels.com/pricing"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Effortlessly manage your contacts, schedule appointments, track deals, stay organized, and so much more—all in one convenient platform.\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"AI Funnel Builder\"\n    },\n    {\n      \"id\": \"reservas-citas\",\n      \"cita\": \"Easy appointment booking and meeting follow-ups.\"\n    },\n    {\n      \"id\": \"atencion-cliente\",\n      \"cita\": \"Connect with your leads and customers — in one place.\"\n    },\n    {\n      \"id\": \"comercio-electronico\",\n      \"cita\": \"Create a stunning online store to sell your products online.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Create powerful workflows to automate your marketing.\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Connect with your audience directly in their inboxes and build meaningful relationships.\"\n    },\n    {\n      \"id\": \"creacion-web-hosting\",\n      \"cita\": \"All ClickFunnels plans include secure, unlimited hosting for all your digital content.\"\n    }\n  ],\n  \"esDe\": \"marketing-email\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.clickfunnels.com/",
+  "OK https://www.clickfunnels.com/pricing"
+ ]
+}

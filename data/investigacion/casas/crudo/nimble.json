@@ -1,0 +1,13 @@
+{
+ "id": "nimble",
+ "nombre": "Nimble",
+ "urls": [
+  "https://www.nimble.com/",
+  "https://www.nimble.com/pricing/"
+ ],
+ "texto": "{\n  \"servicios\": [\n    {\n      \"id\": \"crm\",\n      \"cita\": \"Nimble CRM for Small Business | Contact Management, Email Marketing, and Sales Automation\"\n    },\n    {\n      \"id\": \"asistentes-ia\",\n      \"cita\": \"AI-Powered Email Creation Tools\"\n    },\n    {\n      \"id\": \"atencion-cliente\",\n      \"cita\": \"Capture leads and chat live with your best website visitors.\"\n    },\n    {\n      \"id\": \"automatizacion-integraciones\",\n      \"cita\": \"Microsoft & Google Integrations Automatically sync your emails, contacts and calendars.\"\n    },\n    {\n      \"id\": \"marketing-email\",\n      \"cita\": \"Run full email marketing campaigns, capture leads with forms, nurture them, and track results — without switching tools or paying extra.\"\n    }\n  ],\n  \"esDe\": \"crm\",\n  \"sector\": null\n}",
+ "leidas": [
+  "OK https://www.nimble.com/",
+  "OK https://www.nimble.com/pricing/"
+ ]
+}

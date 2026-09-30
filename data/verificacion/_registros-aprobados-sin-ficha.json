@@ -1,0 +1,39 @@
+{
+  "estado": "CERRADO el 2026-09-29. Los tres se incorporaron el 2026-09-17 y el que quedaba bloqueado —teachable/cap.payment_collection— se incorporó hoy, al resolverse su profundidad.",
+  "porQueNoEstanEnRegistrosJson": [
+    "Ya lo están. Este fichero conserva el rastro de cómo se aprobaron y el registro que sigue bloqueado."
+  ],
+  "procedencia": "Comprobados con el proveedor del Researcher el 2026-09-16: las tres direcciones constan descargadas con estado SUCCESS y las citas se localizaron carácter a carácter con su contexto. Trazabilidad en agents/atlas-researcher/lotes/resultados/cursos-1/comprobacion-lectura/.",
+  "porQueConfianzaAlta": "Fuente de primera mano, cita literal y prueba de descarga: el mismo criterio con el que se escribieron los 659 registros que ya existen. Ni más ni menos.",
+  "registroBloqueado": {
+    "herramientaId": "teachable",
+    "capacidadId": "cap.payment_collection",
+    "estado": "verificado",
+    "profundidad": null,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://support.teachable.com/en/articles/11682476-price-your-products",
+        "fechaConsulta": "2026-09-16",
+        "cita": "Teachable uses Stripe, which charges students in your specified currency."
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-16",
+    "_bloqueo": "RESUELTO el 2026-09-29. Se conserva aquí tal como estaba, con profundidad null, para que se vea qué faltaba exactamente. El registro vivo, con profundidad nativa, está en registros.json."
+  },
+  "incorporados": [
+    "thinkific/cap.website_builder",
+    "thinkific/cap.payment_collection",
+    "hotmart/cap.payment_collection"
+  ],
+  "comoSeDesbloqueo": {
+    "cuando": "2026-09-29",
+    "queFaltaba": "La profundidad. El esquema la exige en todo registro verificado, y la propietaria la mantuvo pendiente mientras no hubiera evidencia específica de si Teachable cobra por sí mismo o hace falta traer un Stripe propio.",
+    "queSeEncontro": "profundidad = nativa. Teachable Payments es la pasarela del propio Teachable, viene de serie en los países donde está —España incluida— y no exige abrir cuenta en otro sitio. Conectar tu propio Stripe es la alternativa, no el camino.",
+    "laCitaQueLoCierra": "Teachable Payments is Teachable's native gateway, built on Stripe's infrastructure.",
+    "donde": "data/investigacion/teachable-profundidad-2026-09-29/",
+    "quienLoMiro": "GPT con navegación. Desde aquí no se abren esos artículos: el lector sólo abre `11682476-price-your-products`, cuya cita coincide."
+  }
+}

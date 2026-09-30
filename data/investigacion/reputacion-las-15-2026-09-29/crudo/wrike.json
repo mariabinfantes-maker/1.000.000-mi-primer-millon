@@ -1,0 +1,5 @@
+{
+ "id": "wrike",
+ "nombre": "Wrike",
+ "texto": "```json\n{\n  \"abierta\": true,\n  \"capterra\": {\n    \"url\": \"https://www.capterra.com/p/76113/Wrike/\",\n    \"notaGeneral\": 4.4,\n    \"facilidadDeUso\": 4.2,\n    \"escala\": 5,\n    \"numeroDeResenas\": 3040,\n    \"cita\": \"Overall rating. Based on 3,040 user reviews. 4.4. [...] Ease of use. 4.2.\"\n  },\n  \"g2\": {\n    \"url\": \"https://www.g2.com/products/wrike/reviews\",\n    \"notaGeneral\": 4.2,\n    \"facilidadDeUso\": 7.9,\n    \"escala\": 10,\n    \"numeroDeResenas\": 3732,\n    \"cita\": \"Wrike. By Wrike, Inc. 4.2/5(4,537). [...] Ease of Use [...] Wrike. 7.9. 7.9 3,732.\"\n  },\n  \"dondeMire\": [\n    \"https://www.capterra.com/p/76113/Wrike/\",\n    \"https://www.capterra.es/software/76113/wrike\",\n    \"https://www.capterra.co.uk/software/76113/wrike\",\n    \"https://www.capterra.ie/software/76113/wrike\",\n    \"https://www.g2.com/products/wrike/reviews\",\n    \"https://www.g2.com/compare/asana-vs-wrike\"\n  ]\n}\n```"
+}

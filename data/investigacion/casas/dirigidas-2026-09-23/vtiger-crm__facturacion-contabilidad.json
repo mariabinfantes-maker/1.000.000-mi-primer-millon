@@ -1,0 +1,17 @@
+{
+ "id": "vtiger-crm__facturacion-contabilidad",
+ "herramientaId": "vtiger-crm",
+ "nombre": "Vtiger CRM",
+ "casa": "facturacion-contabilidad",
+ "nombreCasa": "Facturación y contabilidad",
+ "urls": [
+  "https://www.vtiger.com/",
+  "https://www.vtiger.com/pricing/"
+ ],
+ "cita": "Inventory & Invoicing",
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.invoicing\",\n      \"estado\": \"si\",\n      \"cita\": \"Invoicing\",\n      \"url\": \"https://www.vtiger.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.quote_to_invoice_conversion\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.payment_collection\",\n      \"estado\": \"si\",\n      \"cita\": \"Payment Tracking\",\n      \"url\": \"https://www.vtiger.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.recurring_billing\",\n      \"estado\": \"si\",\n      \"cita\": \"Subscriptions\",\n      \"url\": \"https://www.vtiger.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.progress_and_milestone_billing\",\n      \"estado\": \"si\",\n      \"cita\": \"Automated Time Tracking and Billing\",\n      \"url\": \"https://www.vtiger.com/pricing/\"\n    },\n    {\n      \"id\": \"cap.insurer_billing\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.third_party_settlement\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.expense_tracking\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.accounting_ledger\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.tax_calculation_and_reporting\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.regulated_einvoicing\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.donations_and_fundraising\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.job_costing\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.financial_reporting\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.budgeting_and_cash_forecast\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.overdue_payment_recovery\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.subscription_spend_control\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.business_financing\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.invoice_advance_funding\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.supplier_invoice_payment\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://www.vtiger.com/",
+  "OK https://www.vtiger.com/pricing/"
+ ]
+}

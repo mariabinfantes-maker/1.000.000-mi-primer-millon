@@ -1,8 +1,11 @@
 {
   "nombre": "Zenkit",
   "paginaOficial": "https://zenkit.com",
-  "urlPrecios": "https://zenkit.com/en/base/pricing/",
+  "urlPrecios": "https://zenkit.com/en/pricing/",
   "categoriaId": "gestion-proyectos",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "Zenkit es una plataforma de gestión de proyectos y bases de datos colaborativa que permite transformar la información entre distintas vistas como Kanban, mapas mentales, tablas, listas y calendarios. Facilita la organización de flujos de trabajo personalizados y el seguimiento de tareas para equipos de todos los tamaños.",
   "informacionEmpresa": {
     "anioFundacion": 2016,
@@ -62,7 +65,7 @@
     "Microsoft Teams"
   ],
   "curvaDeAprendizaje": "media",
-  "precioInicial": "Desde 9€/usuario/mes",
+  "precioInicial": "Desde 8 €/plaza/mes",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -100,7 +103,18 @@
     "g2Puntuacion": 4.7,
     "g2NumeroResenas": 80,
     "capterraPuntuacion": 4.6,
-    "capterraNumeroResenas": 200
+    "capterraNumeroResenas": 200,
+    "capterraComprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.capterra.com/p/155099/Zenkit/reviews/",
+      "cita": "Zenkit. 4.6 (235). [...] Reviews of Zenkit. Ease of use. 4.5. — leido 4.6/5 con 235 reseñas. Confirma el 4.6 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-30",
+      "url": "https://www.g2.com/products/zenkit/reviews",
+      "cita": "Ease of Use. Zenkit. 8.8. 8.8 81. — leido 4.7/5 con 81 reseñas. Confirma el 4.7 que ya estaba guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Transición fluida e instantánea entre mapas mentales, tableros Kanban, listas y tablas.",
@@ -122,12 +136,11 @@
     ],
     "tipoNegocioIdeal": "Agencias creativas, startups tecnológicas y pymes dinámicas",
     "nivelTecnicoRecomendado": "intermedio",
-    "puntuacion": 93,
+    "puntuacion": 90,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 7.8/10.",
       "G2: 4.7/5 (80 reseñas).",
       "Capterra: 4.6/5 (200 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -139,5 +152,30 @@
   "tipoProducto": "especializada",
   "problemasIds": [
     "organizar-empresa"
-  ]
+  ],
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://zenkit.com/en/pricing/"
+  },
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14,
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://zenkit.com/en/pricing/",
+    "moneda": "EUR",
+    "planes": [
+      {
+        "nombre": "Plus",
+        "mensual": "9 €/usuario/mes",
+        "anual": "8 €/usuario/mes",
+        "cita": "€ 9,00 / € 8,00"
+      },
+      {
+        "nombre": "Business",
+        "mensual": "25 €/usuario/mes",
+        "anual": "21 €/usuario/mes",
+        "cita": "€ 25,00 / € 21,00"
+      }
+    ]
+  }
 }

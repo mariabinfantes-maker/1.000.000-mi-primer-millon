@@ -1,0 +1,5 @@
+{
+ "id": "gamma",
+ "nombre": "Gamma",
+ "texto": "```json\n{\n \"abierta\": true,\n \"capterra\": {\n   \"url\": \"https://www.capterra.com/p/10014299/Gamma-AI/\",\n   \"notaGeneral\": 3.8,\n   \"facilidadDeUso\": 4.8,\n   \"escala\": 5,\n   \"numeroDeResenas\": 4,\n   \"cita\": \"Ease Of Use. 4.8 (4).\"\n },\n \"g2\": {\n   \"url\": \"https://www.g2.com/products/gamma-ai/reviews\",\n   \"notaGeneral\": 3.9,\n   \"facilidadDeUso\": null,\n   \"escala\": 5,\n   \"numeroDeResenas\": 39,\n   \"cita\": null\n },\n \"dondeMire\": [\n   \"https://www.capterra.com/p/10014299/Gamma-AI/\",\n   \"https://www.capterra.es/software/\",\n   \"https://www.capterra.ie/software/\",\n   \"https://www.capterra.co.uk/software/\",\n   \"https://www.g2.com/products/gamma-ai/reviews\"\n ]\n}\n```"
+}

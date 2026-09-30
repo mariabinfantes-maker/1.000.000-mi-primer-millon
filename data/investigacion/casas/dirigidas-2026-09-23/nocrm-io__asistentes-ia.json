@@ -1,0 +1,17 @@
+{
+ "id": "nocrm-io__asistentes-ia",
+ "herramientaId": "nocrm-io",
+ "nombre": "noCRM.io",
+ "casa": "asistentes-ia",
+ "nombreCasa": "Asistentes de IA y productividad",
+ "urls": [
+  "https://www.nocrm.io/es",
+  "https://www.nocrm.io/es/pricing"
+ ],
+ "cita": "Accede a resúmenes detallados o transcripciones generadas por IA",
+ "texto": "{\"resultados\":[{\"id\":\"cap.text_generation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.text_correction\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.translation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.presentation_building\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.graphic_design\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.video_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.ai_video_generation\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_editing\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_transcription\",\"estado\":\"si\",\"cita\":\"Accede a resúmenes detallados o transcripciones generadas por IA directamente desde tu proveedor VoIP.\",\"url\":\"https://www.nocrm.io/es\"},{\"id\":\"cap.meeting_notes\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.audio_noise_removal\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.subtitles\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.brand_kit\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://www.nocrm.io/es",
+  "OK https://www.nocrm.io/es/pricing"
+ ]
+}

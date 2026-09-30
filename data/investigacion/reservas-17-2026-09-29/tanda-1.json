@@ -1,0 +1,169 @@
+{
+ "comoSeInvestigo": {
+  "quienMiro": "GPT con navegación, encargado por la propietaria. El encargo está en el hilo: siete capacidades una por una, el tamaño razonado desde sus propios planes, qué límite tiene aunque seas su cliente, el plan gratuito, y el precio de las cinco que faltaba.",
+  "cuando": "2026-09-29",
+  "quePregunto": "Las mismas siete capacidades que se preguntaron a las cinco españolas, excluyendo las dos de la agenda ya demostradas el 28. Se pidió, como prueba de haber estado allí, el título exacto de la página y una frase de al lado sin relación con lo buscado.",
+  "porQueEsePruebaDeEstarAlli": "El 29 por la mañana, buscando la profundidad de Teachable, cuatro búsquedas dieron direcciones del centro de ayuda que no existían, con citas que sonaban perfectas. Desde entonces cada cita va con esas dos pruebas.",
+  "abiertoPorNosotrosOContadoPorOtro": "lo_dice_otro",
+  "porQueLoDiceOtro": "Desde aquí el lector no abre casi ninguna de estas páginas. Las abrió GPT."
+ },
+ "tanda": "1 de 4 — las cinco primeras de diecisiete",
+ "herramientas": [
+  {
+   "id": "agendapro",
+   "capacidadesVerificadas": [
+    "cap.online_self_service_booking",
+    "cap.customer_appointment_reminders",
+    "cap.booking_cancellation_and_rescheduling",
+    "cap.capacity_and_time_slots",
+    "cap.booking_waitlist"
+   ],
+   "noConsta": [
+    "cap.no_show_and_deposits",
+    "cap.embeddable_booking_widget"
+   ],
+   "segmentosIdeales": [
+    "1-10"
+   ],
+   "porQueEseTamano": "El plan Individual indica «1 profesional»; en los planes superiores abiertos no aparece un número de profesionales.",
+   "limites": [
+    {
+     "texto": "La marca y los logotipos de AgendaPro no se pueden quitar en ningún plan.",
+     "cita": "Por el momento, la leyenda «Agendapro» y los logos de nuestra identidad de marca, no pueden ser reemplazados o quitados del sitio web o cualquier otra cosa que pertenezca a Agendapro, en ninguna categoría de plan o suscripción",
+     "url": "https://ayuda.agendapro.com/es/articles/6126081-como-configuro-mi-sitio-web"
+    },
+    {
+     "texto": "Los correos mensuales de marketing están limitados según el plan.",
+     "cita": "500 correos mensuales de marketing ... 1000 ... 2000 ... 5000",
+     "url": "https://agendapro.com/es-es/planes"
+    }
+   ],
+   "tienePlanGratuito": false,
+   "citaPlanGratuito": "Prueba Gratis"
+  },
+  {
+   "id": "reservo",
+   "capacidadesVerificadas": [
+    "cap.online_self_service_booking",
+    "cap.customer_appointment_reminders",
+    "cap.booking_cancellation_and_rescheduling",
+    "cap.capacity_and_time_slots",
+    "cap.no_show_and_deposits",
+    "cap.embeddable_booking_widget"
+   ],
+   "noConsta": [
+    "cap.booking_waitlist"
+   ],
+   "segmentosIdeales": [
+    "1-10"
+   ],
+   "porQueEseTamano": "Sus planes dan 1, 3, 3 y 5 atenciones simultáneas, y cada agenda adicional se cobra aparte.",
+   "limites": [
+    {
+     "texto": "Los planes limitan las atenciones simultáneas y cada agenda adicional se cobra aparte.",
+     "cita": "Si necesitas más atenciones simultáneas, puedes agregar agendas adicionales con un costo de 10.000 + IVA mensual por cada una.",
+     "url": "https://intercom.help/reservo/es/articles/10744309-que-es-la-capacidad-de-atencion-y-como-contratar-nuevas-agendas"
+    }
+   ],
+   "tienePlanGratuito": false,
+   "citaPlanGratuito": "Reservo es una plataforma online que debe ser pagada por anticipado para hacer uso de sus servicios",
+   "precioSigueSinDemostrarse": "Sus páginas comerciales —reservo.cl y sus variantes— devolvieron contenido vacío. La documentación sí se abrió."
+  },
+  {
+   "id": "setmore",
+   "capacidadesVerificadas": [
+    "cap.online_self_service_booking",
+    "cap.customer_appointment_reminders",
+    "cap.booking_cancellation_and_rescheduling",
+    "cap.capacity_and_time_slots",
+    "cap.no_show_and_deposits",
+    "cap.embeddable_booking_widget"
+   ],
+   "noConsta": [
+    "cap.booking_waitlist"
+   ],
+   "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+   ],
+   "porQueEseTamano": "La tarifa indica «Users: Unlimited» para Pro y «Users: Up to 4» para Free.",
+   "limites": [
+    {
+     "texto": "El plan gratuito está limitado a cuatro usuarios.",
+     "cita": "Users ... Up to 4",
+     "url": "https://www.setmore.com/pricing"
+    },
+    {
+     "texto": "Los recordatorios por SMS están sujetos a uso razonable y no están en el plan gratuito.",
+     "cita": "Automate SMS reminders for appointments. Subject to fair use policy",
+     "url": "https://www.setmore.com/pricing"
+    }
+   ],
+   "tienePlanGratuito": true,
+   "citaPlanGratuito": "$0 user/month"
+  },
+  {
+   "id": "acuity-scheduling",
+   "capacidadesVerificadas": [
+    "cap.online_self_service_booking",
+    "cap.customer_appointment_reminders",
+    "cap.booking_cancellation_and_rescheduling",
+    "cap.capacity_and_time_slots",
+    "cap.no_show_and_deposits",
+    "cap.booking_waitlist",
+    "cap.embeddable_booking_widget"
+   ],
+   "noConsta": [],
+   "segmentosIdeales": [
+    "1-10",
+    "11-50"
+   ],
+   "porQueEseTamano": "La comparación de planes indica «Number of calendars | 1 | 6 | 36» para Starter, Standard y Premium.",
+   "limites": [
+    {
+     "texto": "El número de calendarios está limitado por plan a 1, 6 o 36.",
+     "cita": "Number of calendars | 1 | 6 | 36",
+     "url": "https://www.acuityscheduling.com/pricing/"
+    },
+    {
+     "texto": "La lista de espera sólo está en los planes Standard o Premium.",
+     "cita": "Appointment waitlists are only available if you're on the Standard/Growing or Premium/Powerhouse plans",
+     "url": "https://help.acuityscheduling.com/hc/en-us/articles/45351314004109-Offer-an-appointment-waitlist"
+    }
+   ],
+   "tienePlanGratuito": false,
+   "citaPlanGratuito": "Try any plan free for 7 days"
+  },
+  {
+   "id": "simplybook-me",
+   "capacidadesVerificadas": [
+    "cap.online_self_service_booking",
+    "cap.customer_appointment_reminders",
+    "cap.booking_cancellation_and_rescheduling",
+    "cap.capacity_and_time_slots",
+    "cap.no_show_and_deposits",
+    "cap.booking_waitlist",
+    "cap.embeddable_booking_widget"
+   ],
+   "noConsta": [],
+   "segmentosIdeales": [],
+   "porQueEseTamano": "NO SE PUDO. La FAQ dice que el número de proveedores depende de la suscripción, pero la tabla no mostró cifras: «The number of staff members and service providers depends on the subscription you choose.»",
+   "limites": [
+    {
+     "texto": "Las reservas incluidas están limitadas por plan: 50 en el gratuito, y 100, 500 y 2000 en los de pago.",
+     "cita": "$0/month ... 50 Included bookings ... 1 Custom Features ... $13.9/month ... 100 Included bookings ... $29.9/month ... 500 ... $59.9/month ... 2000",
+     "url": "https://simplybook.me/en/free-trial"
+    },
+    {
+     "texto": "La lista de espera se activa cuando el día entero está lleno, no por huecos sueltos.",
+     "cita": "The Waiting List is activated when an entire day is fully booked and isn't dependent on individual time slots.",
+     "url": "https://help.simplybook.me/wiki/Waiting_List_custom_feature"
+    }
+   ],
+   "tienePlanGratuito": true,
+   "citaPlanGratuito": "you can continue as a Free User if you have less than 50 bookings a month and only need 1 custom feature"
+  }
+ ]
+}

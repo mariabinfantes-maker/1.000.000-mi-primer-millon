@@ -1,0 +1,1429 @@
+[
+ {
+  "id": "activecampaign",
+  "nombre": "ActiveCampaign",
+  "paginasLeidas": 2,
+  "esDe": "marketing-email",
+  "sector": null,
+  "casas": [
+   "crm",
+   "asistentes-ia",
+   "automatizacion-integraciones",
+   "marketing-email"
+  ],
+  "citas": {
+   "crm": "A CRM built for nimble teams",
+   "asistentes-ia": "AI content generation",
+   "automatizacion-integraciones": "Integrate and connect over 1,000 apps",
+   "marketing-email": "Email marketing with 8x faster campaign creation"
+  }
+ },
+ {
+  "id": "agile-crm",
+  "nombre": "Agile CRM",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "gestion-proyectos",
+   "reservas-citas",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "recursos-humanos",
+   "creacion-web-hosting",
+   "firma-gestion-documental"
+  ],
+  "citas": {
+   "crm": "Close more deals with single-page contact management",
+   "gestion-proyectos": "Manage your projects effectively with drag-and-drop task lists and more",
+   "reservas-citas": "Share your calendar online and automate scheduling, invites, and follow ups",
+   "atencion-cliente": "Powerful ticketing feature to resolve customer queries quickly",
+   "automatizacion-integraciones": "Agile integrates with your favorite Google Apps for complete sales enablement.",
+   "marketing-email": "Get complete email marketing features with newsletters, analytics, and more",
+   "recursos-humanos": "Applicant Tracking System",
+   "creacion-web-hosting": "Website Builder",
+   "firma-gestion-documental": "Document Signing Software"
+  }
+ },
+ {
+  "id": "agiled",
+  "nombre": "Agiled",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "gestion-proyectos",
+   "asistentes-ia",
+   "facturacion-contabilidad",
+   "reservas-citas",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "recursos-humanos",
+   "firma-gestion-documental"
+  ],
+  "citas": {
+   "crm": "Never lose a lead. Close more deals.",
+   "gestion-proyectos": "Plan with kanban boards, Gantt charts, or task lists.",
+   "asistentes-ia": "An AI assistant that actually knows your business.",
+   "facturacion-contabilidad": "Get paid faster. Chase less.",
+   "reservas-citas": "End the back-and-forth. Let clients book directly.",
+   "atencion-cliente": "Built-in support ticketing for client requests",
+   "automatizacion-integraciones": "Automate the busywork you shouldn't be doing.",
+   "recursos-humanos": "Manage your team from onboarding to attendance.",
+   "firma-gestion-documental": "Proposals and contracts — sent, signed, done."
+  }
+ },
+ {
+  "id": "asana",
+  "nombre": "Asana",
+  "paginasLeidas": 2,
+  "esDe": "gestion-proyectos",
+  "sector": null,
+  "casas": [
+   "gestion-proyectos",
+   "asistentes-ia",
+   "automatizacion-integraciones"
+  ],
+  "citas": {
+   "gestion-proyectos": "Projects help you organize related tasks into a single space with different views like lists, boards, or timelines so you can see the big picture.",
+   "asistentes-ia": "AI assistance built into your projects, tasks, goals, and more, included on every paid plan.",
+   "automatizacion-integraciones": "Let routine work run itself as many times as you need to. Create automations to assign work, send alerts and keep statuses current."
+  }
+ },
+ {
+  "id": "beautiful-ai",
+  "nombre": "Beautiful.ai",
+  "paginasLeidas": 2,
+  "esDe": "asistentes-ia",
+  "sector": null,
+  "casas": [
+   "asistentes-ia",
+   "automatizacion-integraciones"
+  ],
+  "citas": {
+   "asistentes-ia": "AI writing assistant",
+   "automatizacion-integraciones": "Integrations Connect your favorite tools"
+  }
+ },
+ {
+  "id": "bitrix24",
+  "nombre": "Bitrix24",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "gestion-proyectos",
+   "asistentes-ia",
+   "facturacion-contabilidad",
+   "reservas-citas",
+   "atencion-cliente",
+   "comercio-electronico",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "recursos-humanos",
+   "inventario-operaciones",
+   "creacion-web-hosting",
+   "firma-gestion-documental"
+  ],
+  "citas": {
+   "crm": "CRM Manage sales and clients effortlessly",
+   "gestion-proyectos": "Tasks & Projects Get work done easier & faster",
+   "asistentes-ia": "CoPilot Your AI-powered assistant in Bitrix24",
+   "facturacion-contabilidad": "Create and send invoices from your CRM to close deals faster",
+   "reservas-citas": "open time slots, meeting room booking",
+   "atencion-cliente": "Customer service Stay in touch with your clients and provide top-notch customer service.",
+   "comercio-electronico": "Online store Maximize ecommerce with inventory management, order processing, delivery and online payments",
+   "automatizacion-integraciones": "Automation & integrations Set CRM rules and triggers, workflow automation, automated funnels, API",
+   "marketing-email": "Marketing Use email campaigns, social media ads, SMS, telemarketing, landing pages",
+   "recursos-humanos": "HR & Automation Optimize workflows & manage HR data",
+   "inventario-operaciones": "Track, audit, and manage your stock across multiple warehouses",
+   "creacion-web-hosting": "Website builder Use our free CMS, templates, hosting, AI-generated images and texts to create awesome sites",
+   "firma-gestion-documental": "Online documents & file storage Store, share and edit documents online easily with co-workers using company drive"
+  }
+ },
+ {
+  "id": "canva",
+  "nombre": "Canva",
+  "paginasLeidas": 2,
+  "esDe": "asistentes-ia",
+  "sector": null,
+  "casas": [
+   "asistentes-ia",
+   "automatizacion-integraciones"
+  ],
+  "citas": {
+   "asistentes-ia": "Canva AI assistant",
+   "automatizacion-integraciones": "Integration apps"
+  }
+ },
+ {
+  "id": "capsule-crm",
+  "nombre": "Capsule CRM",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "gestion-proyectos",
+   "asistentes-ia",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email"
+  ],
+  "citas": {
+   "crm": "Includes the basics for managing contacts and opportunities.",
+   "gestion-proyectos": "Projects Affordable project management.",
+   "asistentes-ia": "Sensible AI features We've been thoughtful about how AI is implemented in Capsule - it's there simply to make your working day easier.",
+   "atencion-cliente": "Conversations Provide customer service & support.",
+   "automatizacion-integraciones": "Automations Eliminate manual tasks with workflows.",
+   "marketing-email": "Campaign builder Send emails to new customers."
+  }
+ },
+ {
+  "id": "clickfunnels",
+  "nombre": "ClickFunnels",
+  "paginasLeidas": 2,
+  "esDe": "marketing-email",
+  "sector": null,
+  "casas": [
+   "crm",
+   "asistentes-ia",
+   "reservas-citas",
+   "atencion-cliente",
+   "comercio-electronico",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "creacion-web-hosting"
+  ],
+  "citas": {
+   "crm": "Effortlessly manage your contacts, schedule appointments, track deals, stay organized, and so much more—all in one convenient platform.",
+   "asistentes-ia": "AI Funnel Builder",
+   "reservas-citas": "Easy appointment booking and meeting follow-ups.",
+   "atencion-cliente": "Connect with your leads and customers — in one place.",
+   "comercio-electronico": "Create a stunning online store to sell your products online.",
+   "automatizacion-integraciones": "Create powerful workflows to automate your marketing.",
+   "marketing-email": "Connect with your audience directly in their inboxes and build meaningful relationships.",
+   "creacion-web-hosting": "All ClickFunnels plans include secure, unlimited hosting for all your digital content."
+  }
+ },
+ {
+  "id": "clickup",
+  "nombre": "ClickUp",
+  "paginasLeidas": 2,
+  "esDe": "gestion-proyectos",
+  "sector": null,
+  "casas": [
+   "gestion-proyectos",
+   "asistentes-ia",
+   "automatizacion-integraciones",
+   "firma-gestion-documental"
+  ],
+  "citas": {
+   "gestion-proyectos": "Sprint Management",
+   "asistentes-ia": "Unlimited AI writing",
+   "automatizacion-integraciones": "Unlimited Integrations",
+   "firma-gestion-documental": "Collaborative Docs"
+  }
+ },
+ {
+  "id": "clickup-brain",
+  "nombre": "ClickUp Brain",
+  "paginasLeidas": 2,
+  "esDe": "asistentes-ia",
+  "sector": null,
+  "casas": [
+   "asistentes-ia",
+   "gestion-proyectos",
+   "automatizacion-integraciones"
+  ],
+  "citas": {
+   "asistentes-ia": "The world's most advanced AI for work",
+   "gestion-proyectos": "AI Projects Cross-list orchestration of work across timelines",
+   "automatizacion-integraciones": "Automate tasks"
+  }
+ },
+ {
+  "id": "close",
+  "nombre": "Close",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "asistentes-ia",
+   "automatizacion-integraciones",
+   "marketing-email"
+  ],
+  "citas": {
+   "crm": "Close is a sales CRM built for teams that sell.",
+   "asistentes-ia": "Chloe is an AI sales agent built into Close CRM that calls leads, qualifies prospects through real conversations, and can book meetings while updating your CRM automatically.",
+   "automatizacion-integraciones": "Connect with 2000+ third-party apps through Zapier.",
+   "marketing-email": "Send a templated email to multiple contacts at once."
+  }
+ },
+ {
+  "id": "copper",
+  "nombre": "Copper",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "gestion-proyectos",
+   "asistentes-ia",
+   "automatizacion-integraciones",
+   "marketing-email"
+  ],
+  "citas": {
+   "crm": "Manage contacts, deals, and more, in one place",
+   "gestion-proyectos": "Manage projects Build workflows that keep everything moving",
+   "asistentes-ia": "AI email re-writer Make emails clearer or more engaging with AI-powered edits",
+   "automatizacion-integraciones": "Integrate Copper with your favorite apps in one click ⚡",
+   "marketing-email": "Respond instantly to form submissions and send welcome or follow up emails."
+  }
+ },
+ {
+  "id": "copy-ai",
+  "nombre": "Copy.ai",
+  "paginasLeidas": 2,
+  "esDe": "asistentes-ia",
+  "sector": null,
+  "casas": [
+   "asistentes-ia",
+   "automatizacion-integraciones"
+  ],
+  "citas": {
+   "asistentes-ia": "Power your content engine with AI — SEO, thought leadership, use cases, social, and more. Drafts delivered in seconds, not weeks",
+   "automatizacion-integraciones": "2,000+ Integrations"
+  }
+ },
+ {
+  "id": "descript",
+  "nombre": "Descript",
+  "paginasLeidas": 2,
+  "esDe": "asistentes-ia",
+  "sector": null,
+  "casas": [
+   "asistentes-ia",
+   "automatizacion-integraciones"
+  ],
+  "citas": {
+   "asistentes-ia": "Descript is an AI video and audio editor that lets you edit by editing text.",
+   "automatizacion-integraciones": "API + MCP Edit video through code, or from inside your AI assistant"
+  }
+ },
+ {
+  "id": "engagebay",
+  "nombre": "EngageBay",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "gestion-proyectos",
+   "asistentes-ia",
+   "reservas-citas",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email"
+  ],
+  "citas": {
+   "crm": "EngageBay's CRM helps you manage customer relationships effortlessly – no steep learning curve.",
+   "gestion-proyectos": "Task Management",
+   "asistentes-ia": "EngageBay's AI Chatbot transforms customer support. Train it with your knowledge base, files, and links for accurate, branded responses.",
+   "reservas-citas": "EngageBay's scheduling tool lets you book meetings effortlessly, saving time for both you and your clients.",
+   "atencion-cliente": "Free Live Chat Software Free Helpdesk Service Automations Canned Responses",
+   "automatizacion-integraciones": "Easily integrate EngageBay with the tools you already love.",
+   "marketing-email": "EngageBay makes it easy to send email campaigns on autopilot, at any scale, even for beginners."
+  }
+ },
+ {
+  "id": "fireflies-ai",
+  "nombre": "Fireflies.ai",
+  "paginasLeidas": 2,
+  "esDe": "asistentes-ia",
+  "sector": null,
+  "casas": [
+   "asistentes-ia",
+   "automatizacion-integraciones"
+  ],
+  "citas": {
+   "asistentes-ia": "Transcribe, summarize, search, and analyze all your team conversations.",
+   "automatizacion-integraciones": "Integrate Fireflies with your favorite Work Tools"
+  }
+ },
+ {
+  "id": "freshsales",
+  "nombre": "Freshsales",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "asistentes-ia",
+   "automatizacion-integraciones",
+   "marketing-email"
+  ],
+  "citas": {
+   "crm": "Grow your pipeline, boost conversions, and power productivity with our AI-powered, easy-to-use sales CRM.",
+   "asistentes-ia": "Freddy AI makes work smarter and easier, helping you around the clock: highlighting the best leads and deals, offering insights, and even writing emails.",
+   "automatizacion-integraciones": "Eliminate manual effort and save time by automating repetitive, mundane tasks.",
+   "marketing-email": "Freshsales helps you run smart sales campaigns to generate more leads, then capture, qualify, route, and track them with the power of Freddy AI."
+  }
+ },
+ {
+  "id": "gamma",
+  "nombre": "Gamma",
+  "paginasLeidas": 2,
+  "esDe": "asistentes-ia",
+  "sector": null,
+  "casas": [
+   "asistentes-ia",
+   "creacion-web-hosting",
+   "automatizacion-integraciones",
+   "firma-gestion-documental"
+  ],
+  "citas": {
+   "asistentes-ia": "Access to the most advanced AI models (text, image, video)",
+   "creacion-web-hosting": "Generate a shareable, hosted website in minutes — no developers needed.",
+   "automatizacion-integraciones": "Gamma offers an API that lets you connect Gamma to other tools and workflows. It can be used directly by developers or through no-code platforms like Zapier and Make.",
+   "firma-gestion-documental": "Structured, visual documents — from one-pagers to white papers — ready to share."
+  }
+ },
+ {
+  "id": "ganttpro",
+  "nombre": "GanttPRO",
+  "paginasLeidas": 2,
+  "esDe": "gestion-proyectos",
+  "sector": null,
+  "casas": [
+   "gestion-proyectos",
+   "asistentes-ia",
+   "automatizacion-integraciones"
+  ],
+  "citas": {
+   "gestion-proyectos": "Plan and manage simple tasks and complex projects with professional Gantt chart software.",
+   "asistentes-ia": "AI Gantt chart maker",
+   "automatizacion-integraciones": "Native Integrations & API"
+  }
+ },
+ {
+  "id": "gohighlevel",
+  "nombre": "GoHighLevel",
+  "paginasLeidas": 2,
+  "esDe": "marketing-email",
+  "sector": null,
+  "casas": [
+   "crm",
+   "asistentes-ia",
+   "facturacion-contabilidad",
+   "reservas-citas",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "creacion-web-hosting"
+  ],
+  "citas": {
+   "crm": "CRM & Pipelines",
+   "asistentes-ia": "Content AI",
+   "facturacion-contabilidad": "Payments & Invoicing",
+   "reservas-citas": "Booking Calendars",
+   "atencion-cliente": "Consolidated conversation stream (SMS, Messenger, Instagram DM, Whatsapp, Livechat)",
+   "automatizacion-integraciones": "Workflow Automation",
+   "marketing-email": "Email + SMS Marketing*",
+   "creacion-web-hosting": "Website & Funnel Builder"
+  }
+ },
+ {
+  "id": "grammarly",
+  "nombre": "Grammarly",
+  "paginasLeidas": 2,
+  "esDe": "asistentes-ia",
+  "sector": null,
+  "casas": [
+   "asistentes-ia"
+  ],
+  "citas": {
+   "asistentes-ia": "Work with an AI partner that helps turn your thoughts into writing that's clear, credible, and impossible to ignore."
+  }
+ },
+ {
+  "id": "heygen",
+  "nombre": "HeyGen",
+  "paginasLeidas": 2,
+  "esDe": "asistentes-ia",
+  "sector": null,
+  "casas": [
+   "asistentes-ia",
+   "automatizacion-integraciones"
+  ],
+  "citas": {
+   "asistentes-ia": "HeyGen's AI video tools handle everything from avatar generation and voice cloning to captions, translation, and turning any input into polished video.",
+   "automatizacion-integraciones": "Integrations with n8n, Make, Hubspot & Zapier"
+  }
+ },
+ {
+  "id": "hive",
+  "nombre": "Hive",
+  "paginasLeidas": 2,
+  "esDe": "gestion-proyectos",
+  "sector": null,
+  "casas": [
+   "gestion-proyectos",
+   "crm",
+   "asistentes-ia",
+   "automatizacion-integraciones",
+   "facturacion-contabilidad"
+  ],
+  "citas": {
+   "gestion-proyectos": "Hive is an AI-powered project management software and work management platform that brings projects, tasks, workflows, collaboration, reporting, CRM, and finance into one workspace.",
+   "crm": "CRM: Sales context, connected to action.",
+   "asistentes-ia": "Sidekick is your AI assistant in meetings",
+   "automatizacion-integraciones": "Build workflows inside Hive to automate repeatable tasks, connect your favorite tools, and keep every hand-off moving.",
+   "facturacion-contabilidad": "Finance: Financial workflows connected to execution."
+  }
+ },
+ {
+  "id": "honeybook",
+  "nombre": "HoneyBook",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "gestion-proyectos",
+   "asistentes-ia",
+   "facturacion-contabilidad",
+   "reservas-citas",
+   "automatizacion-integraciones",
+   "firma-gestion-documental"
+  ],
+  "citas": {
+   "crm": "Create proposals, invoices and contracts on the leading CRM platform for small businesses",
+   "gestion-proyectos": "Keep every client and project on track",
+   "asistentes-ia": "Let AI generate instant, personalized email responses based on your tone, industry and context.",
+   "facturacion-contabilidad": "Send professional invoices with flexible payment options.",
+   "reservas-citas": "Set and share your availability so clients can book your time.",
+   "automatizacion-integraciones": "Automate repetitive tasks and workflows.",
+   "firma-gestion-documental": "Collect eSignatures on contracts and forms."
+  }
+ },
+ {
+  "id": "hotmart",
+  "nombre": "Hotmart",
+  "paginasLeidas": 2,
+  "esDe": "comercio-electronico",
+  "sector": "productos digitales",
+  "casas": [
+   "asistentes-ia",
+   "atencion-cliente",
+   "comercio-electronico",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "creacion-web-hosting"
+  ],
+  "citas": {
+   "asistentes-ia": "Creación de nuevos productos, módulos, clases, precios con nuestra IA.",
+   "atencion-cliente": "✓ Asistencia 24 horas a través de IA o del Centro de ayuda.",
+   "comercio-electronico": "Crea y vende tu curso online de forma simple y rápida",
+   "automatizacion-integraciones": "50+ integrations with the market's leading tools, so you don't waste time jumping from solution to solution.",
+   "marketing-email": "✓ Campañas de correo electrónico completas con Hotmart Send.",
+   "creacion-web-hosting": "Hotmart gives you everything you need to host and promote your course or ebook, from idea to sale."
+  }
+ },
+ {
+  "id": "hubspot",
+  "nombre": "HubSpot",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "asistentes-ia",
+   "facturacion-contabilidad",
+   "reservas-citas",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "creacion-web-hosting"
+  ],
+  "citas": {
+   "crm": "Free HubSpot CRM",
+   "asistentes-ia": "AI Content Writer",
+   "facturacion-contabilidad": "CPQ, billing, and payments software",
+   "reservas-citas": "Free Meeting Scheduler App",
+   "atencion-cliente": "Customer service software",
+   "automatizacion-integraciones": "Connect your favorite apps to HubSpot",
+   "marketing-email": "Email Marketing Software",
+   "creacion-web-hosting": "Free Web Hosting"
+  }
+ },
+ {
+  "id": "insightly",
+  "nombre": "Insightly",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "gestion-proyectos",
+   "asistentes-ia",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email"
+  ],
+  "citas": {
+   "crm": "Get a single source of truth for all customer and pipeline data.",
+   "gestion-proyectos": "Native project management",
+   "asistentes-ia": "Boost sales efficiency and CRM adoption by using AI features—like Copilot (Beta), email replies, and email summaries—to keep your data clean, automate repetitive tasks, and focus on the leads that matter most.",
+   "atencion-cliente": "Let clients submit tickets through branded portals, email, or web forms.",
+   "automatizacion-integraciones": "Easily integrate Insightly with all the apps you use to run your business",
+   "marketing-email": "Create and automate campaigns for every stage of the customer journey and automatically score leads based on engagement with your product, service, or content."
+  }
+ },
+ {
+  "id": "jasper",
+  "nombre": "Jasper",
+  "paginasLeidas": 2,
+  "esDe": "asistentes-ia",
+  "sector": null,
+  "casas": [
+   "asistentes-ia",
+   "automatizacion-integraciones",
+   "marketing-email"
+  ],
+  "citas": {
+   "asistentes-ia": "Jasper is the generative platform built for marketing success, empowering marketers to create on-brand written and visual content with AI.",
+   "automatizacion-integraciones": "Get on-brand AI wherever you work using Jasper API-powered integrations like BigQuery, Google Sheets, Zapier, Make and more.",
+   "marketing-email": "Jasper includes a library of purpose-built agents, each designed for a specific marketing job: SEO and GEO content, campaign execution, email, social media, personalization, research, and more."
+  }
+ },
+ {
+  "id": "kartra",
+  "nombre": "Kartra",
+  "paginasLeidas": 2,
+  "esDe": "marketing-email",
+  "sector": null,
+  "casas": [
+   "crm",
+   "asistentes-ia",
+   "reservas-citas",
+   "atencion-cliente",
+   "comercio-electronico",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "creacion-web-hosting"
+  ],
+  "citas": {
+   "crm": "Pages + Email + Cart + CRM + Memberships all in one place",
+   "asistentes-ia": "Kartra AI helps you write pages, emails, and sales copy that sound like you — and sell like a pro.",
+   "reservas-citas": "Calendars Quickly schedule appointments",
+   "atencion-cliente": "Help Desks Support your customers",
+   "comercio-electronico": "Checkouts Simple and secure checkouts",
+   "automatizacion-integraciones": "Integrations & APIs Connect with your existing tools",
+   "marketing-email": "Email Marketing Drive opens, clicks, & conversions",
+   "creacion-web-hosting": "Landing Pages & Websites Build high converting pages"
+  }
+ },
+ {
+  "id": "keap",
+  "nombre": "Keap",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "asistentes-ia",
+   "facturacion-contabilidad",
+   "reservas-citas",
+   "comercio-electronico",
+   "automatizacion-integraciones",
+   "marketing-email"
+  ],
+  "citas": {
+   "crm": "Keap CRM helps you engage with leads, stay on top of your bookings, track every deal, and nurture customers.",
+   "asistentes-ia": "AI Content Assistant Compose emails quickly and easily with the help of AI.",
+   "facturacion-contabilidad": "Invoices Send one-time or recurring invoices that sync with your payment and accounting tools",
+   "reservas-citas": "Appointments Integrate your current calendar or use Keap's native features to set meetings and send reminders",
+   "comercio-electronico": "Checkout forms Sell online with customizable checkout forms that trigger automations and sync to your CRM",
+   "automatizacion-integraciones": "Automation Builder Automate processes across your entire business — drag, drop, and launch 52+ ready-made automations, or craft endless campaigns of your own with our intuitive builder",
+   "marketing-email": "Email marketing Send broadcast and 1:1 emails, as well as trigger automated emails based on contact activity."
+  }
+ },
+ {
+  "id": "krisp",
+  "nombre": "Krisp",
+  "paginasLeidas": 2,
+  "esDe": "asistentes-ia",
+  "sector": null,
+  "casas": [
+   "asistentes-ia",
+   "automatizacion-integraciones"
+  ],
+  "citas": {
+   "asistentes-ia": "AI Note Taker handles meeting transcripts , summaries, and CRM updates.",
+   "automatizacion-integraciones": "Push notes and action items directly to Salesforce, HubSpot, Slack, and more."
+  }
+ },
+ {
+  "id": "less-annoying-crm",
+  "nombre": "Less Annoying CRM",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "gestion-proyectos",
+   "automatizacion-integraciones"
+  ],
+  "citas": {
+   "crm": "Track every relationship, start to close.",
+   "gestion-proyectos": "Set tasks and get reminders",
+   "automatizacion-integraciones": "Connect Less Annoying CRM to your favorite tools"
+  }
+ },
+ {
+  "id": "monday-com",
+  "nombre": "monday.com",
+  "paginasLeidas": 2,
+  "esDe": "gestion-proyectos",
+  "sector": null,
+  "casas": [
+   "gestion-proyectos",
+   "crm",
+   "asistentes-ia",
+   "facturacion-contabilidad",
+   "reservas-citas",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "recursos-humanos"
+  ],
+  "citas": {
+   "gestion-proyectos": "See all upcoming work in a visual timeline & use Gantt charts to ensure you're meeting deadlines successfully.",
+   "crm": "Organize all your team's leads, contacts, & deals",
+   "asistentes-ia": "Sidekick is an intelligent context-aware AI assistant that understands, connects, and runs your work",
+   "facturacion-contabilidad": "Create and share unlimited customizable quotes & invoices",
+   "reservas-citas": "Finds available time slots across calendars and sends meeting invites automatically.",
+   "atencion-cliente": "monday service For IT & support",
+   "automatizacion-integraciones": "Connect monday.com with the tools you already use to centralize all your team's work.",
+   "marketing-email": "Send and track mass emails to reach large audiences with personalized messages",
+   "recursos-humanos": "HR agents can post roles, screen candidates, and schedule interviews letting your team focus on people."
+  }
+ },
+ {
+  "id": "motion",
+  "nombre": "Motion",
+  "paginasLeidas": 2,
+  "esDe": "gestion-proyectos",
+  "sector": null,
+  "casas": [
+   "gestion-proyectos",
+   "asistentes-ia",
+   "reservas-citas",
+   "automatizacion-integraciones",
+   "firma-gestion-documental"
+  ],
+  "citas": {
+   "gestion-proyectos": "Plan and manage projects automatically",
+   "asistentes-ia": "Help writing and organizing docs faster",
+   "reservas-citas": "Simplify meeting scheduling and booking links",
+   "automatizacion-integraciones": "Connect your favorite tools to Motion",
+   "firma-gestion-documental": "Create docs — notes, processes, wikis, pages — all in one place"
+  }
+ },
+ {
+  "id": "nifty",
+  "nombre": "Nifty",
+  "paginasLeidas": 2,
+  "esDe": "gestion-proyectos",
+  "sector": null,
+  "casas": [
+   "gestion-proyectos",
+   "asistentes-ia",
+   "automatizacion-integraciones",
+   "crm",
+   "atencion-cliente",
+   "firma-gestion-documental"
+  ],
+  "citas": {
+   "gestion-proyectos": "Tasks Assign, prioritize, and track work",
+   "asistentes-ia": "Orbit AI Let AI plan, build, and update work",
+   "automatizacion-integraciones": "Workflow Automations Turn status updates, handoffs, and reminders into if/then rules that run themselves.",
+   "crm": "Pipeline visibility with live deal status and values",
+   "atencion-cliente": "Replace fragmented helpdesk tools with a single hub that intakes tickets, auto-assigns owners, and ties resolutions to broader IT projects.",
+   "firma-gestion-documental": "Docs & Files Write and store everything in one place"
+  }
+ },
+ {
+  "id": "nimble",
+  "nombre": "Nimble",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "asistentes-ia",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email"
+  ],
+  "citas": {
+   "crm": "Nimble CRM for Small Business | Contact Management, Email Marketing, and Sales Automation",
+   "asistentes-ia": "AI-Powered Email Creation Tools",
+   "atencion-cliente": "Capture leads and chat live with your best website visitors.",
+   "automatizacion-integraciones": "Microsoft & Google Integrations Automatically sync your emails, contacts and calendars.",
+   "marketing-email": "Run full email marketing campaigns, capture leads with forms, nurture them, and track results — without switching tools or paying extra."
+  }
+ },
+ {
+  "id": "nocrm-io",
+  "nombre": "noCRM.io",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "gestion-proyectos",
+   "asistentes-ia",
+   "facturacion-contabilidad",
+   "atencion-cliente",
+   "automatizacion-integraciones"
+  ],
+  "citas": {
+   "crm": "noCRM es la herramienta de gestión de ventas",
+   "gestion-proyectos": "Crea listas de tareas personalizadas, asigna tareas y mantén el control",
+   "asistentes-ia": "Accede a resúmenes detallados o transcripciones generadas por IA",
+   "facturacion-contabilidad": "Crea cotizaciones, anticipos, facturas y notas de crédito personalizadas en segundos.",
+   "atencion-cliente": "Colabora fácilmente con bandejas compartidas para gestionar conversaciones con leads",
+   "automatizacion-integraciones": "Crea reglas dentro de noCRM para automatizar tareas repetitivas"
+  }
+ },
+ {
+  "id": "notion-ai",
+  "nombre": "Notion AI",
+  "paginasLeidas": 2,
+  "esDe": "asistentes-ia",
+  "sector": null,
+  "casas": [
+   "asistentes-ia",
+   "automatizacion-integraciones",
+   "gestion-proyectos"
+  ],
+  "citas": {
+   "asistentes-ia": "Improve writing or generate drafts with AI blocks directly in your pages.",
+   "automatizacion-integraciones": "AI agents handle repetitive tasks autonomously, so your team doesn't have to.",
+   "gestion-proyectos": "Answer questions, prioritize tasks, and write reports—all while you sleep."
+  }
+ },
+ {
+  "id": "nutshell",
+  "nombre": "Nutshell",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "asistentes-ia",
+   "facturacion-contabilidad",
+   "reservas-citas",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "firma-gestion-documental"
+  ],
+  "citas": {
+   "crm": "AI-powered sales CRM and marketing automation",
+   "asistentes-ia": "Nutshell automatically transcribes, summarizes, and logs every call and meeting.",
+   "facturacion-contabilidad": "Create & send quotes, invoices and contracts in your CRM.",
+   "reservas-citas": "Capture leads, engage visitors, and book meetings – even when you're offline.",
+   "atencion-cliente": "Unified inbox for chat, SMS, shared inbox & social messages",
+   "automatizacion-integraciones": "Connect to Google/Microsoft and over 5,000 Apps.",
+   "marketing-email": "Email marketing, forms, landing pages, and more.",
+   "firma-gestion-documental": "Create, send, track, and get signatures on quotes, invoices and contracts in your CRM using your own templates."
+  }
+ },
+ {
+  "id": "odoo",
+  "nombre": "Odoo",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "gestion-proyectos",
+   "asistentes-ia",
+   "facturacion-contabilidad",
+   "reservas-citas",
+   "atencion-cliente",
+   "comercio-electronico",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "recursos-humanos",
+   "inventario-operaciones",
+   "creacion-web-hosting",
+   "firma-gestion-documental"
+  ],
+  "citas": {
+   "crm": "Open Source ERP and CRM",
+   "gestion-proyectos": "point of sale, project management, etc.",
+   "asistentes-ia": "Native AI across all your business",
+   "facturacion-contabilidad": "Accounting Invoicing Expenses Spreadsheet (BI) Documents Sign",
+   "reservas-citas": "Project Timesheets Field Service Helpdesk Planning Appointments",
+   "atencion-cliente": "Website Builder eCommerce Blog Forum Live Chat eLearning",
+   "comercio-electronico": "CRM Sales POS Shop POS Restaurant Subscriptions Rental",
+   "automatizacion-integraciones": "Social Marketing Email Marketing SMS Marketing Events Marketing Automation Surveys",
+   "marketing-email": "Social Marketing Email Marketing SMS Marketing Events Marketing Automation Surveys",
+   "recursos-humanos": "Employees Payroll Recruitment Time Off Appraisals Fleet",
+   "inventario-operaciones": "Inventory Manufacturing PLM Purchase Maintenance Quality",
+   "creacion-web-hosting": "hosting on Odoo Online is free",
+   "firma-gestion-documental": "Accounting Invoicing Expenses Spreadsheet (BI) Documents Sign"
+  }
+ },
+ {
+  "id": "otter-ai",
+  "nombre": "Otter.ai",
+  "paginasLeidas": 2,
+  "esDe": "asistentes-ia",
+  "sector": null,
+  "casas": [
+   "asistentes-ia",
+   "automatizacion-integraciones"
+  ],
+  "citas": {
+   "asistentes-ia": "Otter AI Chat searches across your meetings and connected apps to instantly answer questions and help you create follow-ups, reports, and content.",
+   "automatizacion-integraciones": "Countless integrations automatically connect your meetings to tools like Slack, Zoom, Salesforce, Claude, Google Drive, and many others."
+  }
+ },
+ {
+  "id": "paymo",
+  "nombre": "Paymo",
+  "paginasLeidas": 2,
+  "esDe": "gestion-proyectos",
+  "sector": null,
+  "casas": [
+   "gestion-proyectos",
+   "facturacion-contabilidad",
+   "recursos-humanos",
+   "automatizacion-integraciones"
+  ],
+  "citas": {
+   "gestion-proyectos": "Paymo's purpose-built time tracking and project management software help you complete projects on schedule and within budget, ensuring smoother delivery.",
+   "facturacion-contabilidad": "Use Paymo's online invoicing software for small businesses to convert unbilled time into professional-looking invoices.",
+   "recursos-humanos": "See at a glance who's available for work or who's overbooked. Manage time off and leave days.",
+   "automatizacion-integraciones": "Extend the capabilities of Paymo with third-party integrations."
+  }
+ },
+ {
+  "id": "pipedrive",
+  "nombre": "Pipedrive",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "gestion-proyectos",
+   "asistentes-ia",
+   "reservas-citas",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "firma-gestion-documental"
+  ],
+  "citas": {
+   "crm": "Pipedrive es un CRM de ventas basado en la web.",
+   "gestion-proyectos": "Entrega proyectos y alcanza tus metas más rápido",
+   "asistentes-ia": "It records and transcribes your calls so you don't have to. You stay in the conversation, and Nova takes care of the notes.",
+   "reservas-citas": "Share your availability with leads and let them book calls on their schedule.",
+   "automatizacion-integraciones": "Easily set up workflow automations for your team or choose from ready-made templates.",
+   "marketing-email": "Envía campañas increíbles de marketing por correo electrónico",
+   "firma-gestion-documental": "Administra todos tus documentos en un solo lugar"
+  }
+ },
+ {
+  "id": "productive-io",
+  "nombre": "Productive",
+  "paginasLeidas": 2,
+  "esDe": "gestion-proyectos",
+  "sector": "agencias, consultorías",
+  "casas": [
+   "crm",
+   "gestion-proyectos",
+   "asistentes-ia",
+   "facturacion-contabilidad",
+   "automatizacion-integraciones",
+   "recursos-humanos",
+   "firma-gestion-documental",
+   "software-sectorial"
+  ],
+  "citas": {
+   "crm": "Create, track, and progress client deals—from initial pitch to won or lost status.",
+   "gestion-proyectos": "Organize all related tasks, budgets, and communication in one place for better tracking and team collaboration.",
+   "asistentes-ia": "Ask anything in plain language to draft, summarize, and manage work inside Productive.",
+   "facturacion-contabilidad": "Create and send client invoices directly from Productive.",
+   "automatizacion-integraciones": "Use open API to connect Productive to your other applications.",
+   "recursos-humanos": "Track and manage all types of absences — including time off and remote work — with clear visibility, annual allocations and approval workflows.",
+   "firma-gestion-documental": "Create and collaborate on documents directly within projects to keep all project information centralized.",
+   "software-sectorial": "Purpose-built for agencies, consultancies, and other professional services businesses."
+  }
+ },
+ {
+  "id": "reclaim-ai",
+  "nombre": "Reclaim.ai",
+  "paginasLeidas": 2,
+  "esDe": "reservas-citas",
+  "sector": null,
+  "casas": [
+   "reservas-citas",
+   "gestion-proyectos",
+   "asistentes-ia",
+   "automatizacion-integraciones",
+   "recursos-humanos"
+  ],
+  "citas": {
+   "reservas-citas": "Share your availability for meetings with Scheduling Links that offer smart priority settings to book the right meetings sooner.",
+   "gestion-proyectos": "Flexibly schedule your tasks in your calendar.",
+   "asistentes-ia": "Use chat to quickly generate meeting agendas and add them to your meetings, using context and information from your connected apps.",
+   "automatizacion-integraciones": "Send events to your CRM or any other destination when meetings are booked, rescheduled, or canceled.",
+   "recursos-humanos": "Automatically sync employees PTO and out-of-office events to a team calendar to optimize scheduling and coordination."
+  }
+ },
+ {
+  "id": "salesflare",
+  "nombre": "Salesflare",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "asistentes-ia",
+   "automatizacion-integraciones",
+   "marketing-email"
+  ],
+  "citas": {
+   "crm": "A simple yet powerful CRM for B2B teams that automatically captures data and keeps sales moving",
+   "asistentes-ia": "AI suggestions",
+   "automatizacion-integraciones": "Salesflare integrates seamlessly with LinkedIn and your email inbox.",
+   "marketing-email": "Send personalized email campaigns"
+  }
+ },
+ {
+  "id": "salesmate",
+  "nombre": "Salesmate",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "asistentes-ia",
+   "reservas-citas",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email"
+  ],
+  "citas": {
+   "crm": "Manage contacts, companies, deals, pipelines, activities, and conversations in one place.",
+   "asistentes-ia": "Use AI to assist teams, summarize conversations, automate repetitive work, support next-best actions, and improve execution using real customer context.",
+   "reservas-citas": "Meeting Scheduler Calendar Management Activities",
+   "atencion-cliente": "Ticket Management SLAs Social Media Support Chat Knowledge Management AI Co-pilot Agent AI Autopilot Agent CSAT / CES Surveys Satisfaction Reports",
+   "automatizacion-integraciones": "Salesmate integrates with 700+ apps, including Google, Microsoft, and Slack, with enterprise-grade security and compliance.",
+   "marketing-email": "Capture leads, segment audiences, automate nurture journeys, and run campaigns using the same customer data your teams already rely on."
+  }
+ },
+ {
+  "id": "scoro",
+  "nombre": "Scoro",
+  "paginasLeidas": 2,
+  "esDe": "gestion-proyectos",
+  "sector": "servicios profesionales",
+  "casas": [
+   "crm",
+   "gestion-proyectos",
+   "asistentes-ia",
+   "facturacion-contabilidad",
+   "automatizacion-integraciones"
+  ],
+  "citas": {
+   "crm": "Manage client relationships, track deals, and stay on top of your pipeline.",
+   "gestion-proyectos": "Plan projects and keep delivery on track.",
+   "asistentes-ia": "Surface insights and automate work right inside Scoro.",
+   "facturacion-contabilidad": "Handle every billing scenario and track payments.",
+   "automatizacion-integraciones": "Build custom connections with REST API and webhooks, or automate further with Zapier."
+  }
+ },
+ {
+  "id": "smartsheet",
+  "nombre": "Smartsheet",
+  "paginasLeidas": 2,
+  "esDe": "gestion-proyectos",
+  "sector": null,
+  "casas": [
+   "gestion-proyectos",
+   "asistentes-ia",
+   "automatizacion-integraciones"
+  ],
+  "citas": {
+   "gestion-proyectos": "Manage projects, automate workflows, and build solutions at scale with Smartsheet.",
+   "asistentes-ia": "Conversational AI features, including Smart Assist, Smart Columns, AI-powered dashboards and more",
+   "automatizacion-integraciones": "Replace repetitive tasks across your organization with customizable, automated workflows."
+  }
+ },
+ {
+  "id": "streak",
+  "nombre": "Streak",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "gestion-proyectos",
+   "asistentes-ia",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "recursos-humanos"
+  ],
+  "citas": {
+   "crm": "Manage sales and customer relationships directly inside Gmail.",
+   "gestion-proyectos": "Track follow-ups and assign tasks to team members so nothing slips through the cracks.",
+   "asistentes-ia": "Use credits to generate summaries, autofill data, ask deal questions, and more",
+   "atencion-cliente": "Track inquiries and issues",
+   "automatizacion-integraciones": "Set up rules to automatically create tasks, add comments, get notified, update boxes, or email customers.",
+   "marketing-email": "Send templated emails to multiple recipients with automatic follow-ups.",
+   "recursos-humanos": "Organize candidates and stages"
+  }
+ },
+ {
+  "id": "synthesia",
+  "nombre": "Synthesia",
+  "paginasLeidas": 2,
+  "esDe": "asistentes-ia",
+  "sector": null,
+  "casas": [
+   "asistentes-ia",
+   "automatizacion-integraciones"
+  ],
+  "citas": {
+   "asistentes-ia": "Create studio-quality videos with AI avatars and voiceovers in 160+ languages.",
+   "automatizacion-integraciones": "Automate video creation with Synthesia API."
+  }
+ },
+ {
+  "id": "systeme-io",
+  "nombre": "Systeme.io",
+  "paginasLeidas": 2,
+  "esDe": "marketing-email",
+  "sector": null,
+  "casas": [
+   "crm",
+   "reservas-citas",
+   "comercio-electronico",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "inventario-operaciones",
+   "creacion-web-hosting"
+  ],
+  "citas": {
+   "crm": "Contacts & CRM",
+   "reservas-citas": "Booking calendar",
+   "comercio-electronico": "E-commerce",
+   "automatizacion-integraciones": "Marketing automation",
+   "marketing-email": "Email marketing",
+   "inventario-operaciones": "Inventory management",
+   "creacion-web-hosting": "Website builder"
+  }
+ },
+ {
+  "id": "taskade",
+  "nombre": "Taskade",
+  "paginasLeidas": 2,
+  "esDe": "asistentes-ia",
+  "sector": null,
+  "casas": [
+   "asistentes-ia",
+   "gestion-proyectos",
+   "automatizacion-integraciones",
+   "crm",
+   "creacion-web-hosting",
+   "comercio-electronico",
+   "reservas-citas",
+   "recursos-humanos",
+   "inventario-operaciones",
+   "atencion-cliente",
+   "facturacion-contabilidad",
+   "marketing-email"
+  ],
+  "citas": {
+   "asistentes-ia": "Create unlimited AI agents that form the Intelligence pillar",
+   "gestion-proyectos": "See tasks, owners, and progress.",
+   "automatizacion-integraciones": "Connect 100+ integrations",
+   "crm": "Build a CRM",
+   "creacion-web-hosting": "Publish apps under your own domain",
+   "comercio-electronico": "Storefronts, inventory, Stripe invoicing",
+   "reservas-citas": "Class schedules, appointments, event RSVPs",
+   "recursos-humanos": "New-hire onboarding hub",
+   "inventario-operaciones": "Manage orders, stock, and customers.",
+   "atencion-cliente": "View and manage all customer conversations in one place",
+   "facturacion-contabilidad": "Stripe checkout wired into every Taskade Genesis app — no plumbing.",
+   "marketing-email": "Create teams for marketing, sales, support, or any workflow."
+  }
+ },
+ {
+  "id": "teachable",
+  "nombre": "Teachable",
+  "paginasLeidas": 2,
+  "esDe": "software-sectorial",
+  "sector": "educación online",
+  "casas": [
+   "asistentes-ia",
+   "facturacion-contabilidad",
+   "reservas-citas",
+   "comercio-electronico",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "creacion-web-hosting",
+   "software-sectorial"
+  ],
+  "citas": {
+   "asistentes-ia": "Built-in AI creation and translation tools",
+   "facturacion-contabilidad": "Teachable automatically collects and remits sales tax, VAT, and GST across 45+ countries for your transactions.",
+   "reservas-citas": "Offer one-on-one or group sessions, with easy scheduling and payment management.",
+   "comercio-electronico": "Sell globally with 35+ local payment methods and checkout experiences.",
+   "automatizacion-integraciones": "Developer-friendly tools like APIs and webhooks",
+   "marketing-email": "Built-in email marketing",
+   "creacion-web-hosting": "Site Builder",
+   "software-sectorial": "The easiest-to-use platform to grow your education business"
+  }
+ },
+ {
+  "id": "teamgantt",
+  "nombre": "TeamGantt",
+  "paginasLeidas": 2,
+  "esDe": "gestion-proyectos",
+  "sector": null,
+  "casas": [
+   "gestion-proyectos",
+   "asistentes-ia",
+   "automatizacion-integraciones"
+  ],
+  "citas": {
+   "gestion-proyectos": "Manage tasks, timelines, files, and team conversations in one place.",
+   "asistentes-ia": "Build a project timeline fast with the magic of AI-powered planning.",
+   "automatizacion-integraciones": "Automate workflows with Zapier or the TeamGantt API."
+  }
+ },
+ {
+  "id": "teamwork-com",
+  "nombre": "Teamwork.com",
+  "paginasLeidas": 2,
+  "esDe": "gestion-proyectos",
+  "sector": null,
+  "casas": [
+   "gestion-proyectos",
+   "asistentes-ia",
+   "facturacion-contabilidad",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "crm"
+  ],
+  "citas": {
+   "gestion-proyectos": "Work with Gantt, Table, List & Board views",
+   "asistentes-ia": "Chat with an AI Assistant to get answers, insights about your work and create tasks",
+   "facturacion-contabilidad": "Build client invoices from logged time",
+   "atencion-cliente": "Handle tickets and project work together in one place",
+   "automatizacion-integraciones": "Reduce admin with 20,000 automations",
+   "crm": "Resourcing Profitability Reporting Projects Quote & CRM AI"
+  }
+ },
+ {
+  "id": "thinkific",
+  "nombre": "Thinkific",
+  "paginasLeidas": 2,
+  "esDe": "software-sectorial",
+  "sector": "formación online",
+  "casas": [
+   "asistentes-ia",
+   "facturacion-contabilidad",
+   "reservas-citas",
+   "comercio-electronico",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "creacion-web-hosting",
+   "software-sectorial"
+  ],
+  "citas": {
+   "asistentes-ia": "Built-in AI teaching assistant",
+   "facturacion-contabilidad": "Automated sales tax and VAT",
+   "reservas-citas": "Unlimited Zoom sessions, bookable calendars, and attendance tracking",
+   "comercio-electronico": "Full e-commerce payment processing is included.",
+   "automatizacion-integraciones": "Standard API and webhooks",
+   "marketing-email": "Drive and recapture sales with automated emails",
+   "creacion-web-hosting": "Build branded websites and landing pages on your custom domain.",
+   "software-sectorial": "Thinkific for Academies Scale your professional training programs"
+  }
+ },
+ {
+  "id": "todoist",
+  "nombre": "Todoist",
+  "paginasLeidas": 2,
+  "esDe": "gestion-proyectos",
+  "sector": null,
+  "casas": [
+   "gestion-proyectos",
+   "asistentes-ia",
+   "automatizacion-integraciones"
+  ],
+  "citas": {
+   "gestion-proyectos": "Capture and organize tasks instantly using easy-flowing, natural language.",
+   "asistentes-ia": "Let artificial intelligence help you with your tasks and filters.",
+   "automatizacion-integraciones": "Connect Todoist with 90+ calendar, communication, automation, and voice assistant tools."
+  }
+ },
+ {
+  "id": "vtiger-crm",
+  "nombre": "Vtiger CRM",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "gestion-proyectos",
+   "asistentes-ia",
+   "facturacion-contabilidad",
+   "reservas-citas",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "inventario-operaciones",
+   "firma-gestion-documental"
+  ],
+  "citas": {
+   "crm": "Vtiger all-in-one CRM software empowers you to align your marketing, sales and support teams with unified customer data powered by One View.",
+   "gestion-proyectos": "Project Management Tasks & Milestones Subtasks Gantt View Kanban Board",
+   "asistentes-ia": "Calculus AI Agent Builder Chatbot Prompt Builder Generative AI Designer Prediction AI Designer",
+   "facturacion-contabilidad": "Inventory & Invoicing",
+   "reservas-citas": "Appointment Pages",
+   "atencion-cliente": "Help Desk Automation Cases SLAs Customer Portal Live Chats FAQs Mailroom Agent Enablement",
+   "automatizacion-integraciones": "Connect with more than 500+ apps you are already using to merge and extend the functionality.",
+   "marketing-email": "Marketing Automation Emails Webforms Social Module Landing Pages SMS Campaigns Email Templates Short URL",
+   "inventario-operaciones": "Inventory Management Invoicing Vendor Management Purchase Order Management Subscriptions Payment Tracking Sales Order Assets",
+   "firma-gestion-documental": "Document Engagement"
+  }
+ },
+ {
+  "id": "wrike",
+  "nombre": "Wrike",
+  "paginasLeidas": 2,
+  "esDe": "gestion-proyectos",
+  "sector": null,
+  "casas": [
+   "gestion-proyectos",
+   "asistentes-ia",
+   "automatizacion-integraciones"
+  ],
+  "citas": {
+   "gestion-proyectos": "Project & task management",
+   "asistentes-ia": "Wrike Copilot answers questions, summarizes work, and keeps your team moving without the back‑and‑forth.",
+   "automatizacion-integraciones": "Connect Wrike to your apps, build no-code automations, and run end-to-end workflows from one secure platform."
+  }
+ },
+ {
+  "id": "zenkit",
+  "nombre": "Zenkit",
+  "paginasLeidas": 2,
+  "esDe": "gestion-proyectos",
+  "sector": null,
+  "casas": [
+   "gestion-proyectos",
+   "automatizacion-integraciones"
+  ],
+  "citas": {
+   "gestion-proyectos": "Zenkit is the multi-project management solution for agile and classical projects.",
+   "automatizacion-integraciones": "Integrate Zenkit with 1500+ tools and your existing software in just a few clicks via Zapier."
+  }
+ },
+ {
+  "id": "zoho-crm",
+  "nombre": "Zoho CRM",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "asistentes-ia",
+   "facturacion-contabilidad",
+   "reservas-citas",
+   "atencion-cliente",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "inventario-operaciones",
+   "firma-gestion-documental"
+  ],
+  "citas": {
+   "crm": "Millions of salespeople trust Zoho CRM to respond faster to leads, close more deals, and run leaner sales operations.",
+   "asistentes-ia": "Build and deploy AI agents that execute tasks on your behalf for any business use case.",
+   "facturacion-contabilidad": "Sync QuickBook records with Zoho CRM and create quotes and invoices easily.",
+   "reservas-citas": "Schedule and book meetings from within Zoho CRM.",
+   "atencion-cliente": "Resolve customer issues with web-to-case forms that convert problems into support tickets that your reps can follow.",
+   "automatizacion-integraciones": "Automate repetitive tasks with workflows.",
+   "marketing-email": "Send emails via Gmail, Outlook, Zoho Mail, and other popular email services, directly from Zoho CRM.",
+   "inventario-operaciones": "Manage all your invoices, sales and purchase orders, products, and vendors.",
+   "firma-gestion-documental": "comes with the essentials like leads, documents, and mobile apps"
+  }
+ },
+ {
+  "id": "zoho-one",
+  "nombre": "Zoho One",
+  "paginasLeidas": 2,
+  "esDe": "crm",
+  "sector": null,
+  "casas": [
+   "crm",
+   "gestion-proyectos",
+   "facturacion-contabilidad",
+   "atencion-cliente",
+   "comercio-electronico",
+   "automatizacion-integraciones",
+   "marketing-email",
+   "recursos-humanos",
+   "inventario-operaciones",
+   "creacion-web-hosting",
+   "firma-gestion-documental"
+  ],
+  "citas": {
+   "crm": "Define and automate your sales process",
+   "gestion-proyectos": "Access project management tools like task lists, dashboards, and workflow rules.",
+   "facturacion-contabilidad": "Gain access to accounting tools that help organize your finances",
+   "atencion-cliente": "Enable your teams to field customer support requests across channels",
+   "comercio-electronico": "Build a website and sell online",
+   "automatizacion-integraciones": "Connect and interoperate within your existing third-party apps",
+   "marketing-email": "Set up marketing automation through email workflows, autoresponders, and more.",
+   "recursos-humanos": "Carry out key HR functions like finding new talent, managing employees",
+   "inventario-operaciones": "Manage orders and stock levels across multiple warehouses and channels.",
+   "creacion-web-hosting": "Make your website the face of your business",
+   "firma-gestion-documental": "create and file away business documents and other content."
+  }
+ },
+ {
+  "id": "zoho-projects",
+  "nombre": "Zoho Projects",
+  "paginasLeidas": 2,
+  "esDe": "gestion-proyectos",
+  "sector": null,
+  "casas": [
+   "gestion-proyectos",
+   "asistentes-ia",
+   "automatizacion-integraciones",
+   "firma-gestion-documental"
+  ],
+  "citas": {
+   "gestion-proyectos": "Zoho Projects: The Leading Project Management Software",
+   "asistentes-ia": "AI that works hand-in-hand with your team",
+   "automatizacion-integraciones": "Zoho Projects gives you the added advantage of several other Zoho apps and third party apps through seamless integrations.",
+   "firma-gestion-documental": "Document Management: Store, manage, and share documents securely."
+  }
+ }
+]

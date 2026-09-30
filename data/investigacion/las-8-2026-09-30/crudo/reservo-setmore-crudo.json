@@ -1,0 +1,363 @@
+{
+ "fecha": "2026-09-30",
+ "herramientas": [
+  {
+   "id": "reservo",
+   "nombre": "Reservo",
+   "paginaOficial": "https://reservo.cl/",
+   "urlPrecios": "https://reservo.cl/cl/#backPrices",
+   "categoriaId": "clinicas-salud",
+   "descripcion": "Reservo reúne la agenda, las fichas de pacientes y el control de ventas y pagos en un programa de gestión. También permite llevar inventario, consultar informes y preparar comunicaciones para los pacientes.",
+   "problemasQueResuelve": [
+    "Tengo las citas y la información de cada paciente en sitios distintos.",
+    "Me cuesta comprobar qué atenciones están pagadas.",
+    "No llevo al día las existencias de los productos.",
+    "Necesito consultar los resultados de mi consulta sin reunir varios archivos."
+   ],
+   "casosDeUso": [
+    "Consultar la ficha de un paciente al realizar su atención.",
+    "Registrar el pago de una cita y revisar la caja.",
+    "Controlar existencias y recibir avisos cuando falten productos.",
+    "Consultar informes sobre la actividad del centro."
+   ],
+   "funcionesPrincipales": [
+    "Gestión de agenda",
+    "Fichas clínicas personalizables",
+    "Registro de ventas y pagos",
+    "Control de cajas",
+    "Inventario y alertas de existencias",
+    "Informes y estadísticas",
+    "Comunicaciones de bienvenida y cumpleaños"
+   ],
+   "integraciones": [
+    "Vambe",
+    "WebPay",
+    "TotalPack",
+    "Fintoc",
+    "CERO.AI",
+    "Recemed",
+    "Mercado Pago",
+    "Dtemite",
+    "WooCommerce"
+   ],
+   "integracionesPrincipales": [
+    "WebPay",
+    "Mercado Pago",
+    "Fintoc",
+    "CERO.AI"
+   ],
+   "cuantasIntegracionesPublica": null,
+   "ventajas": [
+    "El Plan Individual reúne agenda, fichas clínicas, ventas, pagos e inventario.",
+    "Publica instrucciones para configurar la cuenta y solicitar capacitación.",
+    "Permite conectar varias pasarelas de pago.",
+    "Dispone de documentación pública sobre su API, cuyo acceso requiere Enterprise y aprobación del fabricante."
+   ],
+   "inconvenientes": [
+    "La importación masiva de fichas clínicas no está disponible según su ayuda.",
+    "Las cargas o modificaciones masivas de otros datos se solicitan al soporte y pueden tardar hasta cinco días hábiles.",
+    "La API requiere Enterprise y una solicitud al fabricante.",
+    "Los mensajes automáticos de WhatsApp tienen cargos adicionales de Meta."
+   ],
+   "limites": [
+    {
+     "texto": "No permite importar fichas clínicas de forma masiva.",
+     "cita": "tampoco es posible importar o cargar fichas de forma masiva.",
+     "url": "https://intercom.help/reservo/es/articles/11003726-modificar-o-agregar-informacion-de-forma-masiva",
+     "tipo": "documentacion",
+     "tituloDeLaPagina": "Modificar o agregar información de forma masiva | Centro de ayuda de Reservo",
+     "fraseDeAlLado": "no deberá modificar el campo ID.",
+     "nota": "El mismo artículo indica que el soporte carga los listados y que el proceso puede tardar hasta cinco días hábiles."
+    },
+    {
+     "texto": "La API exige Enterprise; el fabricante revisa la solicitud antes de facilitar el acceso.",
+     "cita": "debe tener contratado el PLAN ENTERPRISE.",
+     "url": "https://intercom.help/reservo/es/articles/9391606-api-reservo",
+     "tipo": "documentacion",
+     "tituloDeLaPagina": "API RESERVO | Centro de ayuda de Reservo",
+     "fraseDeAlLado": "Cómo integrar google analytics",
+     "nota": "La documentación pública está enlazada en este artículo; disponer de ella no equivale a tener acceso automático a la API."
+    },
+    {
+     "texto": "El envío automático de WhatsApp genera un coste adicional definido por Meta.",
+     "cita": "tiene un costo aparte cobrado y definido directamente por Meta.",
+     "url": "https://reservo.cl/cliente/plan_reservo_get_data/?pais=CL&rubro=",
+     "tipo": "tarifa_oficial",
+     "tituloDeLaPagina": null,
+     "fraseDeAlLado": "Esta cotización tiene validez de 15 días desde su envío.",
+     "nota": "Respuesta JSON pública utilizada por el selector de precios; no tiene título HTML."
+    }
+   ],
+   "metodologiaValoracion": "Ficha redactada a partir de la ayuda oficial y de los datos públicos que carga la tarifa. Los problemas y ejemplos son reformulaciones de las funciones documentadas, no testimonios. Las notas técnicas son valoraciones documentales explícitas: 3 significa configuración ordinaria mediante formularios; 6, implantación guiada con intervención o límites en la carga de datos. No he vuelto a investigar las capacidades archivadas ni modificado el tamaño.",
+   "tieneApiPublica": true,
+   "tieneAppMovil": null,
+   "informacionEmpresa": {
+    "paisOrigen": "Chile",
+    "anioFundacion": 2015,
+    "tamanoAproximado": null
+   },
+   "precioInicial": "Desde 30.000 CLP al mes + IVA, Plan Individual; incluye agenda, fichas clínicas, ventas, pagos y una atención simultánea.",
+   "moneda": "CLP",
+   "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual"
+   ],
+   "notaDelPrecio": "El lector mostraba la página comercial vacía. Abrí su HTML, el JavaScript del selector y la respuesta pública que utiliza con pais=CL. Esa tabla devuelve Individual 30000, Básico 50000, Reservo 80000 y Enterprise 180000, todos con currency CLP; el código añade «+ IVA». La versión general contiene una cabecera de 20 USD y la consulta con país en minúsculas devuelve otra tabla en USD: no las he mezclado con la tarifa chilena. La ayuda confirma pago mensual o anual y un descuento anual del 10 %.",
+   "tienePlanGratuito": false,
+   "citaDelPrecio": "\"nombre\":\"Individual\" […] \"precio_base\":30000 […] \"currency\":\"CLP\"",
+   "urlDelPrecio": "https://reservo.cl/cliente/plan_reservo_get_data/?pais=CL&rubro=",
+   "notaDeLaCitaDelPrecio": "Cita literal de los datos del selector, que no tienen título HTML. La página comercial matriz se titula «Software médico: agenda online, ficha clínica digital en Reservo». Su HTML contiene «$30.000 + IVA», «CLP» y «mes». La tabla completa obtenida contiene cuatro planes de pago y ninguno gratuito.",
+   "idioma": {
+    "interfaz": {
+     "estado": "verificado",
+     "idiomas": [
+      "es"
+     ],
+     "cita": "Configuración […] Mi Agenda y Horarios […] Modificar horario",
+     "url": "https://intercom.help/reservo/es/articles/16019202-primeros-pasos-para-configurar-tu-plan-individual",
+     "tipo": "documentacion",
+     "tituloDeLaPagina": "Primeros pasos para configurar tu Plan Individual | Centro de ayuda de Reservo",
+     "fraseDeAlLado": "Será el mismo enlace para todas las citas.",
+     "nota": "Son nombres de controles del panel del negocio descritos en la guía."
+    },
+    "soporte": {
+     "estado": "desconocido",
+     "idiomas": null,
+     "cita": null,
+     "url": null,
+     "nota": "Revisé la página chilena, Capacitación inicial Reservo y Primeros pasos en Reservo. Publican atención telefónica, chat, correo y documentación en español, pero no encontré una declaración expresa de los idiomas en que atienden las personas del soporte."
+    }
+   },
+   "curvaDeAprendizaje": "media",
+   "porQueEsaCurva": "La guía del Plan Individual tiene cuatro bloques: agenda y horarios, servicios, videoconferencia y reserva online. Hay que introducir horarios, duración y precios antes de empezar. La guía general añade configuración de profesionales, correo y fichas; la capacitación se puede solicitar desde el panel. No encontré que fuera obligatoria.",
+   "puntuaciones": {
+    "facilidadDeUso": null,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 6,
+    "atencionAlCliente": null,
+    "fiabilidad": null,
+    "calidad": null,
+    "escalabilidad": null
+   },
+   "porQueCadaNota": {
+    "facilidadDeUso": "No pude abrir el contenido de las reseñas. Capterra España, Irlanda, Reino Unido y .com: error de tipo de contenido y HTTP 403. G2: igual. No utilizo las cifras de los fragmentos del buscador.",
+    "nivelTecnicoRequerido": "3/10, valoración documental: acceso mediante navegador y configuración por formularios.",
+    "facilidadImplementacion": "6/10: hay guía y capacitación, pero las cargas masivas dependen del soporte y las fichas clínicas no se importan en bloque.",
+    "atencionAlCliente": "Null: comprobé canales y capacitación, pero no una matriz completa de horarios, planes e idiomas.",
+    "fiabilidad": "Null: no encontré página de estado con histórico ni compromiso numérico.",
+    "calidad": "Null.",
+    "escalabilidad": "Null."
+   },
+   "paginasQueAbriste": [
+    "https://reservo.cl/",
+    "https://reservo.cl/cl/",
+    "https://agendamiento.reservo.cl/es/",
+    "https://d2b2j57fl09mnx.cloudfront.net/webpack_bundles/homepage_lite.js?v=d-HMMXNQ8ZL",
+    "https://reservo.cl/cliente/plan_reservo_get_data/?pais=CL&rubro=",
+    "https://intercom.help/reservo/es/articles/7470779-pagar-mensualidad-reservo",
+    "https://intercom.help/reservo/es/articles/7992905-primeros-pasos-en-reservo",
+    "https://intercom.help/reservo/es/articles/8007583-capacitacion-inicial-reservo",
+    "https://intercom.help/reservo/es/articles/16019202-primeros-pasos-para-configurar-tu-plan-individual",
+    "https://intercom.help/reservo/es/articles/16020738-que-incluye-mi-plan-individual",
+    "https://intercom.help/reservo/es/articles/11015987-integraciones",
+    "https://intercom.help/reservo/es/articles/9391606-api-reservo",
+    "https://intercom.help/reservo/es/articles/11003726-modificar-o-agregar-informacion-de-forma-masiva",
+    "https://intercom.help/reservo/es/articles/3296650-como-tener-reservo-en-su-celular"
+   ],
+   "paginasQueNoSeAbrieron": [
+    "https://www.capterra.es/software/1018313/reservo — error de tipo de contenido; reintento HTTP 403.",
+    "https://www.capterra.ie/software/1018313/reservo — HTTP 403.",
+    "https://www.capterra.co.uk/software/1018313/reservo — HTTP 403.",
+    "https://www.capterra.com/p/235899/Reservo/ — error de tipo de contenido; reintento HTTP 403.",
+    "https://www.g2.com/products/reservo/reviews — error de tipo de contenido; reintento HTTP 403."
+   ],
+   "loQueNoPudeComprobar": "No comprobé aplicación móvil nativa, idiomas de atención humana, plantilla de la empresa, disponibilidad histórica ni notas de reseñas. La tarifa sí se recuperó mediante sus datos públicos, aunque el lector no renderiza la página. Encontré además «Usuarios ilimitados» en los datos de Básico, Reservo y Enterprise: lo señalo como posible discrepancia con el tamaño archivado, sin modificarlo ni equiparar usuarios con capacidad de atención."
+  },
+  {
+   "id": "setmore",
+   "nombre": "Setmore",
+   "paginaOficial": "https://www.setmore.com/",
+   "urlPrecios": "https://www.setmore.com/pricing",
+   "categoriaId": "reservas-citas",
+   "descripcion": "Setmore reúne las citas, los servicios y los perfiles del equipo en una agenda que el negocio puede gestionar desde el ordenador o el móvil. Incluye una página de reservas y conexiones con herramientas de cobro, calendarios y videollamadas.",
+   "problemasQueResuelve": [
+    "Paso demasiado tiempo coordinando las citas de mi equipo.",
+    "Tengo los contactos de clientes repartidos entre hojas de cálculo y otras aplicaciones.",
+    "Necesito relacionar las reservas con los pagos.",
+    "Quiero preparar las citas online sin crear cada enlace de reunión por separado."
+   ],
+   "casosDeUso": [
+    "Dar de alta los servicios y los perfiles del equipo antes de publicar la página de reservas.",
+    "Importar los contactos de clientes desde Google o un archivo CSV.",
+    "Conectar una pasarela de pago para cobrar servicios.",
+    "Conectar Zoom o Google Meet para las sesiones a distancia."
+   ],
+   "funcionesPrincipales": [
+    "Gestión de agenda y equipo",
+    "Catálogo de servicios y clases",
+    "Página de reservas",
+    "Gestión e importación de contactos",
+    "Conexiones con pasarelas de pago",
+    "Sincronización de calendarios",
+    "Conexiones de videollamada",
+    "Aplicaciones para iOS y Android"
+   ],
+   "integraciones": [
+    "Square",
+    "Stripe",
+    "PayPal",
+    "LawPay",
+    "Google Calendar",
+    "Office 365 Calendar",
+    "Zoom",
+    "Google Meet",
+    "WordPress",
+    "Wix",
+    "Weebly"
+   ],
+   "integracionesPrincipales": [
+    "Google Calendar",
+    "Office 365 Calendar",
+    "Stripe",
+    "Square",
+    "Zoom",
+    "Google Meet"
+   ],
+   "cuantasIntegracionesPublica": null,
+   "ventajas": [
+    "Dispone de un plan gratuito permanente.",
+    "Permite importar contactos desde Google o CSV.",
+    "El panel web y las aplicaciones móviles incluyen español.",
+    "La tarifa incluye soporte humano permanente por chat, correo y teléfono tanto en Free como en Pro."
+   ],
+   "inconvenientes": [
+    "La ayuda vigente incluye España entre los países donde no se envían recordatorios SMS.",
+    "El acceso a la API requiere Pro y una solicitud al fabricante.",
+    "Cada importación CSV admite como máximo 1.000 contactos.",
+    "No pude identificar expresamente la moneda del símbolo $ en la tarifa abierta."
+   ],
+   "limites": [
+    {
+     "texto": "No envía recordatorios SMS a números de España según la lista de restricciones publicada.",
+     "cita": "SMS reminders cannot be sent to your clients in the following countries and territories: […] Spain (+34)",
+     "url": "https://support.setmore.com/en/articles/7003313-sms-regulation-and-fair-usage-policy",
+     "tipo": "documentacion",
+     "tituloDeLaPagina": "SMS regulation and fair usage policy | Support - Setmore",
+     "fraseDeAlLado": "Start FREE"
+    },
+    {
+     "texto": "Cada archivo CSV se procesa en lotes de un máximo de 1.000 contactos.",
+     "cita": "Setmore can only process 1,000 contacts at a time from a CSV file.",
+     "url": "https://support.setmore.com/en/articles/490978-import-or-export-customer-contacts",
+     "tipo": "documentacion",
+     "tituloDeLaPagina": "Import or export customer contacts | Support - Setmore",
+     "fraseDeAlLado": "Go to Customers in your web app."
+    },
+    {
+     "texto": "La API requiere una cuenta Pro y revisión de la solicitud de acceso.",
+     "cita": "Yes you need a Setmore Pro account to access our API.",
+     "url": "https://support.setmore.com/en/articles/579360-request-access-to-the-setmore-api",
+     "tipo": "documentacion",
+     "tituloDeLaPagina": "Request Access to the Setmore API | Support - Setmore",
+     "fraseDeAlLado": "Sample requests and responses are available in the Apiary documentation."
+    }
+   ],
+   "metodologiaValoracion": "Tarifa, condiciones, guías oficiales, directorio de integraciones y página de estado abiertos. No he vuelto a verificar las capacidades archivadas ni el tamaño. Los problemas y ejemplos reformulan usos documentados. Las notas técnicas son valoraciones documentales, no reseñas: 3 indica configuración mediante formularios; 7, puesta en marcha guiada con importación autónoma pero preparación previa; 8 en soporte refleja varios canales y atención 24/7, sin asumir atención en español.",
+   "tieneApiPublica": true,
+   "tieneAppMovil": true,
+   "informacionEmpresa": {
+    "paisOrigen": null,
+    "anioFundacion": null,
+    "tamanoAproximado": null
+   },
+   "precioInicial": "Plan Free: $0 por usuario al mes, con hasta cuatro usuarios.",
+   "moneda": null,
+   "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+   ],
+   "notaDelPrecio": "La tarifa muestra el símbolo $, sin identificar expresamente USD en el contenido ni en los datos de precios que pude leer. Pro muestra $12 por usuario al mes con pago mensual y $5 por usuario al mes con facturación anual. No convierto ni asigno una moneda por suposición.",
+   "tienePlanGratuito": true,
+   "citaDelPrecio": "$0 user / month",
+   "urlDelPrecio": "https://www.setmore.com/pricing",
+   "tituloDeLaPaginaDelPrecio": "Pricing For Appointment Scheduling Software | Setmore",
+   "fraseDeAlLadoDelPrecio": "Accept payments",
+   "idioma": {
+    "interfaz": {
+     "estado": "verificado",
+     "idiomas": [
+      "en",
+      "fr",
+      "es",
+      "pt"
+     ],
+     "cita": "Web/desktop app - English, French, Spanish, Portuguese",
+     "url": "https://support.setmore.com/en/articles/491010-change-your-setmore-account-language",
+     "tipo": "documentacion",
+     "tituloDeLaPagina": "Change your Setmore account language | Support - Setmore",
+     "fraseDeAlLado": "Make time for what truly matters",
+     "nota": "La misma página da esos cuatro idiomas para iOS; Android ofrece inglés, español y portugués. Se refiere expresamente al calendario y los menús de gestión."
+    },
+    "soporte": {
+     "estado": "desconocido",
+     "idiomas": null,
+     "cita": null,
+     "url": null,
+     "nota": "Revisé la tarifa, la guía de configuración y support.setmore.com/es/. Hay ayuda escrita en español, pero no encontré una declaración de los idiomas de atención humana. La oferta bilingüe de Live Receptionist es otro servicio."
+    }
+   },
+   "curvaDeAprendizaje": "media",
+   "porQueEsaCurva": "La guía inicial organiza la preparación en tres bloques: datos y políticas del negocio, servicios y clases, y perfiles del equipo. La lista de lanzamiento añade revisión de horarios, pagos, permisos y pruebas.",
+   "puntuaciones": {
+    "facilidadDeUso": null,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 7,
+    "atencionAlCliente": 8,
+    "fiabilidad": null,
+    "calidad": null,
+    "escalabilidad": null
+   },
+   "porQueCadaNota": {
+    "facilidadDeUso": "Capterra España, Irlanda, Reino Unido y .com: error de tipo de contenido y HTTP 403. G2: igual. Las búsquedas localizaron fichas, pero no uso sus fragmentos como prueba.",
+    "nivelTecnicoRequerido": "3/10, valoración documental: configuración mediante ajustes, servicios y perfiles; no exige programar ni configurar un dominio.",
+    "facilidadImplementacion": "7/10: guía de tres bloques, lista de comprobación e importación autónoma desde Google o CSV, con el límite de 1.000 contactos por lote.",
+    "atencionAlCliente": "8/10: la tabla Free/Pro incluye chat, correo y teléfono 24/7 en ambos planes. El idioma de atención humana sigue sin comprobarse.",
+    "fiabilidad": "Null: status.setmore.com mostraba los servicios operativos, pero una instantánea no es una serie histórica.",
+    "calidad": "Null.",
+    "escalabilidad": "Null."
+   },
+   "paginasQueAbriste": [
+    "https://www.setmore.com/pricing",
+    "https://www.setmore.com/integrations",
+    "https://www.setmore.com/our-mission",
+    "https://www.setmore.com/terms",
+    "https://status.setmore.com/",
+    "https://support.setmore.com/es/",
+    "https://support.setmore.com/en/articles/491010-change-your-setmore-account-language",
+    "https://support.setmore.com/en/articles/1569098-set-up-your-setmore-account",
+    "https://support.setmore.com/en/articles/12067925-setmore-launch-checklist",
+    "https://support.setmore.com/en/articles/490978-import-or-export-customer-contacts",
+    "https://support.setmore.com/en/articles/579360-request-access-to-the-setmore-api",
+    "https://support.setmore.com/en/articles/7003313-sms-regulation-and-fair-usage-policy"
+   ],
+   "paginasQueNoSeAbrieron": [
+    "https://www.capterra.es/software/122035/setmore — error de tipo de contenido; reintento HTTP 403.",
+    "https://www.capterra.ie/software/122035/setmore — HTTP 403.",
+    "https://www.capterra.co.uk/software/122035/setmore — HTTP 403.",
+    "https://www.capterra.com/p/122035/SetMore/reviews/ — HTTP 403.",
+    "https://www.g2.com/products/setmore/reviews — HTTP 403."
+   ],
+   "loQueNoPudeComprobar": "No comprobé la moneda concreta del símbolo $, idiomas de atención humana, datos de origen y plantilla de la empresa ni notas de reseñas. Encontré una precisión relevante para las capacidades archivadas: los SMS están restringidos para España según la ayuda abierta. No modifica la existencia de recordatorios por otros canales."
+  }
+ ],
+ "pendientes": [
+  "acuity-scheduling",
+  "simplybook-me",
+  "zoho-bookings",
+  "reservio",
+  "bookeo",
+  "teachworks"
+ ]
+}

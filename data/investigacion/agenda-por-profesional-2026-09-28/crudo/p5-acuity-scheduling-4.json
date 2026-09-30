@@ -1,0 +1,7 @@
+{
+ "id": "acuity-scheduling",
+ "nombre": "Acuity Scheduling (Squarespace)",
+ "url": "https://help.acuityscheduling.com/hc/es/articles/16676934898189-A%C3%B1adir-y-gestionar-colaboradores-de-Acuity",
+ "recuperada": false,
+ "texto": "```json\n{\n  \"abierta\": false,\n  \"agendaPorProfesional\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"eligeElCliente\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"enEspanol\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  }\n}\n```"
+}

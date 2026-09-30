@@ -1,0 +1,224 @@
+{
+ "fecha": "2026-09-29",
+ "entrega": 1,
+ "comoSeInvestigo": {
+  "quien": "GPT, con navegación, el 2026-09-29.",
+  "encargo": "encargos/PROMPT-GPT-lo-que-falta-de-verdad.md",
+  "crudo": "crudo/entrega-1-crudo.json — la respuesta literal.",
+  "loQueNoSeToco": "Ningún dato, cita, dirección ni estado.",
+  "ojo": "GPT escribió «Completados: los tres bloques» y pendientes: []. No es exacto: entregó 1 de los 5 precios del bloque 1 y 1 de las 14 fichas del bloque 3. El bloque 2 sí está entero. Lo entregado es bueno; lo que no está, no está.",
+  "quedaPendiente": {
+   "bloque1": [
+    "zoho-bookings",
+    "teachworks",
+    "pabau",
+    "fresha"
+   ],
+   "bloque3": [
+    "reservo",
+    "setmore",
+    "acuity-scheduling",
+    "reservio",
+    "bookeo-appointments",
+    "timify",
+    "jane",
+    "booksy",
+    "zoho-bookings",
+    "teachworks",
+    "pabau",
+    "fresha",
+    "simplybook-me"
+   ]
+  }
+ },
+ "precios": [
+  {
+   "id": "bookitit",
+   "precioInicial": "Desde 16,90 € al mes + IVA para una agenda, con pago mensual",
+   "moneda": "EUR",
+   "tienePlanGratuito": null,
+   "cita": "16.90 €/mes x 12 meses […] Precio sin IVA",
+   "url": "https://www.bookitit.com/es/tarifas/",
+   "tipo": "tarifa_oficial",
+   "tituloDeLaPagina": "Conoce los precios de nuestro sistema de cita previa online - bookitit",
+   "fraseDeAlLado": "Pistas de padel",
+   "siNoLoPublican": "Sí publican el precio. El HTML presenta una cifra mensual y su equivalente anual; también abrí el JavaScript oficial del selector, https://www.bookitit.com/calculadora/ES_Tarifas_calculos.js, que confirma 16,90 € para una agenda con pago mensual. No encontré una declaración sobre un plan gratuito permanente: anuncian una prueba de 15 días."
+  }
+ ],
+ "simplybook-me": {
+  "segmentosIdeales": [
+   "1-10",
+   "11-50"
+  ],
+  "porQueEseTamano": "La comparación de tarifas incluye 1 profesional en Free, 5 en Basic, 15 en Standard y 30 en Premium. Enterprise ofrece una cantidad personalizada, sin publicar un máximo numérico ni afirmar que los profesionales sean ilimitados. El tramo 11-50 está respaldado hasta 30 profesionales; no atribuyo capacidad para 50. También revisé https://simplybook.me/en/enterprise-scheduling-software sin encontrar un máximo explícito de profesionales.",
+  "cita": "Providers 1 […] Providers 5 […] Providers 15 […] Providers 30 […] Providers Custom",
+  "url": "https://simplybook.me/en/pricing",
+  "tituloDeLaPagina": "SimplyBook.me Pricing 2026 | Plans, Features & Free Trial",
+  "fraseDeAlLado": "No credit card needed.",
+  "oNoLoPublican": false
+ },
+ "herramientas": [
+  {
+   "id": "cliniko",
+   "categoriaId": "clinicas-salud",
+   "descripcion": "Software de gestión para clínicas y profesionales sanitarios. Reúne agenda, reservas online, documentación clínica, facturación, pagos e informes.",
+   "problemasQueResuelve": [
+    "Necesito gestionar las citas de mi consulta y permitir que los pacientes reserven online.",
+    "Quiero guardar las notas de tratamiento y los documentos de cada paciente en un mismo sistema.",
+    "Necesito relacionar las facturas y los pagos con el historial del paciente."
+   ],
+   "casosDeUso": [
+    "Organizar las citas y las reservas online de una consulta.",
+    "Crear plantillas de notas de tratamiento y consultar la documentación del paciente.",
+    "Registrar facturas, pagos y gastos de la clínica.",
+    "Gestionar varias sedes desde una misma cuenta."
+   ],
+   "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200"
+   ],
+   "porQueEseTamano": "La tarifa comienza con un profesional y publica escalones de 2-5, 6-8, 9-12, 13-25 y 26-200 profesionales. El mayor tramo publicado llega a 200; no atribuyo capacidad por encima de esa cifra.",
+   "oNoLoPublican": false,
+   "noRecomendadaPara": "No encaja si es imprescindible disponer de una aplicación móvil nativa: el fabricante afirma que no la ofrece, aunque el sistema se puede utilizar desde el navegador del móvil.",
+   "funcionesPrincipales": [
+    "Agenda, reservas online y citas recurrentes.",
+    "Notas de tratamiento personalizables y archivos del paciente.",
+    "Facturas, pagos, gastos e impuestos.",
+    "Informes de actividad de la clínica.",
+    "Gestión de varias sedes."
+   ],
+   "integraciones": [
+    "Mailchimp",
+    "Xero",
+    "Physitrack"
+   ],
+   "integracionesPrincipales": [
+    "Mailchimp: sincronización de datos de pacientes para comunicaciones.",
+    "Xero: conexión de información de facturación y pagos.",
+    "Physitrack: herramienta de ejercicios incluida en el catálogo oficial de aplicaciones conectadas."
+   ],
+   "cuantasIntegracionesPublica": 99,
+   "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual"
+   ],
+   "ventajas": [
+    "Todas las suscripciones incluyen el conjunto de funciones de Cliniko.",
+    "Incluye usuarios administrativos y sedes sin límite publicado.",
+    "Dispone de una API oficial con documentación pública."
+   ],
+   "inconvenientes": [
+    "Los SMS se pagan aparte: la tarifa consultada indica 0,10 USD por mensaje.",
+    "No ofrece una aplicación móvil nativa; el acceso móvil se realiza mediante su versión web."
+   ],
+   "metodologiaValoracion": "Información obtenida de páginas oficiales, tarifas, documentación técnica y artículos de ayuda abiertos. La descripción, los problemas y los casos de uso son reformulaciones de funciones documentadas, no testimonios de clientes. Las integraciones enumeradas son una selección comprobada, no un listado exhaustivo ni un ranking. La cifra 99 corresponde al contador del catálogo de aplicaciones conectadas; no implica 99 integraciones desarrolladas por Cliniko. TieneAppMovil se refiere a una aplicación nativa. Los títulos HTML de las páginas de funciones y preguntas frecuentes son simplemente Cliniko; sus encabezados visibles son Features y Frequently asked questions. Todas las puntuaciones quedan sin valorar porque no he realizado pruebas de uso ni mediciones independientes.",
+   "puntuaciones": {
+    "nivelTecnicoRequerido": null,
+    "facilidadImplementacion": null,
+    "fiabilidad": null,
+    "atencionAlCliente": null,
+    "facilidadDeUso": null,
+    "calidad": null,
+    "escalabilidad": null
+   },
+   "idiomasDisponibles": null,
+   "elIdiomaEsDelProductoODeLaPaginaDeReservas": null,
+   "tieneApiPublica": true,
+   "tieneAppMovil": false,
+   "informacionEmpresa": {
+    "paisOrigen": "Australia",
+    "anioFundacion": 2011,
+    "tamanoAproximado": null
+   },
+   "pruebas": [
+    {
+     "deQueCampo": "categoriaId, descripcion",
+     "cita": "Cliniko is practice management software for clinics and allied health practitioners.",
+     "url": "https://www.cliniko.com/",
+     "tipo": "pagina_oficial",
+     "tituloDeLaPagina": "Allied Health Practice Management Software - Cliniko",
+     "fraseDeAlLado": "Unlimited free support"
+    },
+    {
+     "deQueCampo": "descripcion, problemasQueResuelve, casosDeUso, funcionesPrincipales",
+     "cita": "online bookings, repeat appointments […] treatment notes are fully customisable […] Manage your invoices, payments, expenses, taxes […] Reporting and tracking",
+     "url": "https://www.cliniko.com/features/",
+     "tipo": "pagina_oficial",
+     "tituloDeLaPagina": "Cliniko",
+     "fraseDeAlLado": "Free for 30 days"
+    },
+    {
+     "deQueCampo": "segmentosIdeales, porQueEseTamano, casosDeUso, ventajas, inconvenientes",
+     "cita": "1 practitioner […] 26 to 200 practitioners […] Every Cliniko feature […] Unlimited admin users […] Unlimited locations […] SMS credits are 10¢ per message.",
+     "url": "https://www.cliniko.com/pricing/",
+     "tipo": "tarifa_oficial",
+     "tituloDeLaPagina": "Cliniko Pricing",
+     "fraseDeAlLado": "Constant backups"
+    },
+    {
+     "deQueCampo": "modeloDePrecio, tieneAppMovil, noRecomendadaPara, inconvenientes",
+     "cita": "We don't have a native app, but Cliniko is mobile-friendly. […] monthly or yearly subscription",
+     "url": "https://www.cliniko.com/faq/",
+     "tipo": "pagina_oficial",
+     "tituloDeLaPagina": "Cliniko",
+     "fraseDeAlLado": "Can I import my data?"
+    },
+    {
+     "deQueCampo": "integraciones, integracionesPrincipales: Mailchimp",
+     "cita": "Connect your Cliniko database with Mailchimp to send newsletters out to your patients!",
+     "url": "https://help.cliniko.com/en/articles/1023931-integrate-cliniko-with-your-mailchimp-account",
+     "tipo": "documentacion",
+     "tituloDeLaPagina": "Integrate Cliniko with your Mailchimp account | Cliniko Help",
+     "fraseDeAlLado": "What will it cost?"
+    },
+    {
+     "deQueCampo": "integraciones, integracionesPrincipales: Xero",
+     "cita": "Get your Xero account set up so that you can connect to Cliniko!",
+     "url": "https://help.cliniko.com/en/articles/1023967-set-up-xero-for-use-with-cliniko",
+     "tipo": "documentacion",
+     "tituloDeLaPagina": "Set up Xero for use with Cliniko | Cliniko Help",
+     "fraseDeAlLado": "Setting up clearing accounts for payments"
+    },
+    {
+     "deQueCampo": "cuantasIntegracionesPublica, integraciones, integracionesPrincipales: Physitrack",
+     "cita": "All apps (99) […] Physitrack",
+     "url": "https://www.cliniko.com/connected-apps/",
+     "tipo": "pagina_oficial",
+     "tituloDeLaPagina": "Cliniko Integrations & Connected Apps",
+     "fraseDeAlLado": "Cliniko is a leading practice management system for clinics and allied health practitioners."
+    },
+    {
+     "deQueCampo": "tieneApiPublica, ventajas",
+     "cita": "This is the official API for Cliniko.",
+     "url": "https://docs.api.cliniko.com/",
+     "tipo": "documentacion",
+     "tituloDeLaPagina": "Introduction",
+     "fraseDeAlLado": "HTTP is not supported."
+    },
+    {
+     "deQueCampo": "informacionEmpresa.paisOrigen, informacionEmpresa.anioFundacion",
+     "cita": "Cliniko was founded in Melbourne, Australia in 2011",
+     "url": "https://www.cliniko.com/story/",
+     "tipo": "pagina_oficial",
+     "tituloDeLaPagina": "The Cliniko story: who we are",
+     "fraseDeAlLado": "Appointment confirmation emails"
+    }
+   ],
+   "paginasQueAbriste": [
+    "https://www.cliniko.com/",
+    "https://www.cliniko.com/features/",
+    "https://www.cliniko.com/pricing/",
+    "https://www.cliniko.com/faq/",
+    "https://www.cliniko.com/story/",
+    "https://www.cliniko.com/connected-apps/",
+    "https://docs.api.cliniko.com/",
+    "https://help.cliniko.com/en/articles/1023836-setting-up-your-account",
+    "https://help.cliniko.com/en/articles/1023931-integrate-cliniko-with-your-mailchimp-account",
+    "https://help.cliniko.com/en/articles/1023967-set-up-xero-for-use-with-cliniko"
+   ],
+   "paginasQueNoSeAbrieron": [],
+   "loQueNoPudeComprobar": "No encontré una declaración oficial que enumerase los idiomas del producto y los distinguiese de los idiomas de la página de reservas. Revisé funciones, preguntas frecuentes, configuración inicial y búsquedas en el dominio oficial y su centro de ayuda. Que las páginas consultadas estén en inglés no demuestra qué idiomas admite el producto. Tampoco encontré una cifra actual de empleados. No realicé pruebas del producto para asignar puntuaciones."
+  }
+ ]
+}

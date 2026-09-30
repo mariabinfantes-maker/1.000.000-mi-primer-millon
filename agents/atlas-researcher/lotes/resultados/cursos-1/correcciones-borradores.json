@@ -1,0 +1,56 @@
+{
+  "estado": "propuesta, sin aplicar",
+  "fecha": "2026-09-16",
+  "nota": "Cada corrección lleva la cita que la sostiene en CORRECCIONES-BORRADORES.md. Las marcadas «pendiente» NO se sustituyen por otra afirmación: se dejan como no sabido. Las marcadas «decide» son de producto.",
+  "thinkific": {
+    "corregir": {
+      "tienePlanGratuito": false,
+      "precioInicial": "Desde 40 $/mes con facturación anual; 54 $/mes con facturación mensual (plan Basic). Sin plan gratuito: prueba de 30 días.",
+      "precioRecomendadoPymes": "Plan Start: 82 $/mes con facturación anual, 109 $/mes mensual.",
+      "afiliados.commission": "30 % recurrente de por vida; los planes Plus reciben 150 USD al mes en lugar del 30 %.",
+      "afiliados.payoutFrequency": "El día 13 de cada mes, tras una retención de 30 días."
+    },
+    "pendiente": [
+      "idiomasDisponibles",
+      "afiliados.approvalRequired"
+    ],
+    "decide": [
+      "disponibleEnEspanol"
+    ]
+  },
+  "teachable": {
+    "corregir": {
+      "tienePlanGratuito": false,
+      "precioInicial": "Desde 29 $/mes con facturación anual, 39 $/mes mensual (plan Starter), con un 7,5 % de comisión por venta en ese plan.",
+      "precioRecomendadoPymes": "Plan Builder: 69 $/mes con facturación anual, 89 $/mes mensual, sin comisión por venta.",
+      "afiliados.affiliatePlatform": "PartnerStack",
+      "afiliados.commission": "30 % recurrente durante el primer año por cada venta referida."
+    },
+    "pendiente": [
+      "afiliados.payoutFrequency"
+    ],
+    "decide": []
+  },
+  "hotmart": {
+    "corregir": {
+      "idiomasDisponibles": [
+        "es",
+        "pt",
+        "en"
+      ],
+      "afiliados.hasAffiliateProgram": "no_consta",
+      "afiliados.confidenceLevel": "low"
+    },
+    "pendiente": [
+      "precioInicial",
+      "precioRecomendadoPymes",
+      "afiliados.commission",
+      "afiliados.cookieDuration",
+      "afiliados.payoutMethod",
+      "afiliados.payoutFrequency"
+    ],
+    "decide": [
+      "tienePlanGratuito"
+    ]
+  }
+}

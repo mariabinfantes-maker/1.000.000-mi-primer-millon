@@ -145,7 +145,15 @@ export type Problema = {
 export type BloqueContenido =
   | { tipo: "parrafo"; texto: string }
   | { tipo: "subtitulo"; texto: string }
-  | { tipo: "lista"; items: string[] };
+  | { tipo: "lista"; items: string[] }
+  /**
+   * Una frase copiada LITERALMENTE de una fuente, con su dirección y el día en
+   * que se leyó. `fuente` y `fecha` no son opcionales a propósito: una cita sin
+   * fuente es una afirmación disfrazada, y es exactamente lo que Molnip no
+   * hace. Si no se puede enlazar y fechar, va como párrafo y se escribe con
+   * las palabras de Molnip.
+   */
+  | { tipo: "cita"; texto: string; fuente: string; fecha: string };
 
 /**
  * Un artículo del blog SEO (Fase 4 de lanzamiento — ver ATLAS.md). Vive en
@@ -209,6 +217,27 @@ export type ReputacionExterna = {
   puntuacion?: number;
   numeroResenas?: number;
   enlace?: string;
+  /** Cuándo se abrió ese enlace. Ver `ComprobacionReputacion`. */
+  fechaComprobacion?: string;
+};
+
+/**
+ * Dónde y cuándo se leyó una cifra de reputación.
+ *
+ * Añadido el 2026-09-28 por orden de la propietaria. Antes no existía: el
+ * esquema guardaba `g2Puntuacion: 4.2` y nada más, así que la cifra no se
+ * podía demostrar ni se sabía de cuándo era. No fue un descuido de quien
+ * investigó —el campo donde anotarlo no estaba—, y por eso la carencia se
+ * confundió durante meses con que nadie hubiera investigado la reputación.
+ *
+ * Misma forma que `preciosComprobados` y `planesComprobados`: la dirección
+ * que se abrió de verdad y el día que se abrió.
+ */
+export type ComprobacionReputacion = {
+  fecha: string;
+  url: string;
+  /** Lo que decía la página, tal cual. Sin cita no se escribe la cifra. */
+  cita?: string;
 };
 
 /**
@@ -222,10 +251,24 @@ export type Reputacion = {
   /** Escala habitual de G2: 1-5. */
   g2Puntuacion?: number;
   g2NumeroResenas?: number;
+  /** Dónde y cuándo se leyó lo de G2. Sin esto la cifra no se puede demostrar. */
+  g2Comprobado?: ComprobacionReputacion;
   /** Escala habitual de Capterra: 1-5. */
   capterraPuntuacion?: number;
   capterraNumeroResenas?: number;
+  /** Dónde y cuándo se leyó lo de Capterra. */
+  capterraComprobado?: ComprobacionReputacion;
   otrasFuentes?: ReputacionExterna[];
+  /**
+   * De dónde vienen estas cifras cuando no hay comprobación guardada.
+   *
+   * `redaccion-inicial` es el catálogo de la primera redacción: se investigó,
+   * pero no se anotó dónde se miró, así que hoy no se puede demostrar ni se
+   * sabe de cuándo es. No significa que sea falso; significa que no está
+   * demostrado. Es la misma distinción que el resto del catálogo usa entre
+   * «con fuente» y «sin fuente guardada».
+   */
+  origen?: "redaccion-inicial" | "comprobado";
 };
 
 /** Añadido: datos de la empresa que hay detrás de la herramienta (no de la herramienta en sí). `paginaOficial` ya vive en `Herramienta`, no se duplica aquí. */
@@ -258,6 +301,29 @@ export type AnalisisAtlas = {
   /** Categoría breve de negocio al que más le conviene, ej. "Agencias de marketing". Complementa a `idealPara` (una frase) con una etiqueta corta pensada para filtrar/agrupar en el comparador. */
   tipoNegocioIdeal?: string;
   nivelTecnicoRecomendado?: NivelTecnicoRecomendado;
+};
+
+/**
+ * Una comprobación de idioma de UNA pantalla concreta, con su recibo.
+ *
+ * `hayEspanol: false` es una comprobación tan válida como `true`: quiere decir
+ * que se abrió la página y dice que español no hay. Lo que no existe es un
+ * `ComprobacionDeIdioma` para algo que no se ha mirado — en ese caso el campo
+ * no está.
+ */
+export type ComprobacionDeIdioma = {
+  /** Si esa pantalla se puede usar en español, según lo que dice la cita. */
+  hayEspanol: boolean;
+  /** Los idiomas que la página enumera, tal cual. Puede estar vacío. */
+  idiomas: string[];
+  /** La página que se abrió. Del fabricante o de su ayuda, nunca de terceros. */
+  url: string;
+  /** Lo que dice, textual. Sin traducir ni resumir. */
+  cita: string;
+  /** Cuándo se abrió. Un idioma sin fecha no vale, igual que un precio. */
+  fecha: string;
+  /** Lo que el recibo matiza y la cita sola no cuenta. */
+  nota?: string;
 };
 
 export type Herramienta = {
@@ -393,6 +459,87 @@ export type Herramienta = {
   modeloDePrecio: ModeloDePrecio[];
   /** Añadido: bandera rápida — es la primera pregunta que se hace un usuario con presupuesto ajustado. */
   tienePlanGratuito: boolean;
+  /**
+   * Qué clase de plan gratuito es. Decisión de la propietaria (2026-09-17):
+   * **una prueba de una semana también es un plan gratuito**; lo que no vale
+   * es callar cuál de las dos cosas es.
+   *
+   * - `indefinido` — gratis mientras quieras, normalmente con algún límite
+   *   (Bitrix24 con 1-2 usuarios, Capsule con 250 contactos).
+   * - `prueba` — gratis un tiempo y después se paga.
+   *
+   * Ausente en las fichas que todavía no se han comprobado contra la página
+   * oficial: entonces se dice «con plan gratuito» a secas, como hasta ahora,
+   * en vez de inventarse cuál es.
+   */
+  tipoPlanGratuito?: "indefinido" | "prueba";
+  /**
+   * Cuántos días dura la prueba, cuando `tipoPlanGratuito` es `prueba` y la
+   * página lo dice. Ausente cuando el fabricante no lo publica: hay webs que
+   * ofrecen «free trial» sin decir de cuánto, y ahí no se rellena a ojo.
+   */
+  pruebaGratuitaDias?: number;
+  /**
+   * Cuándo alguien abrió de verdad la página de precios del fabricante y leyó
+   * lo que dice, y **qué dirección abrió**.
+   *
+   * ── Por qué existe, aparte de `fechaUltimaRevision` ────────────────────
+   *
+   * No son lo mismo y confundirlas nos costó medio catálogo. `fechaUltimaRevision`
+   * dice cuándo TOCAMOS la ficha; esto dice cuándo COMPROBAMOS que es verdad.
+   * Una ficha escrita ayer con un precio inventado parece fresquísima por la
+   * primera y no lo está por la segunda: el 2026-09-17, con las 65 fichas
+   * dentro del umbral de frescura —cero desactualizadas— resultó que la mitad
+   * de los precios estaban mal desde el primer día.
+   *
+   * `url` es la que se abrió DE VERDAD, no la que creíamos. Capsule CRM lleva
+   * su enlace «Pricing» a `/signup/`, y en `urlPrecios` teníamos `/pricing/`,
+   * que no abre. Guardar la que funcionó es lo que evita repetir el fallo en
+   * la siguiente ronda.
+   *
+   * Ausente = **nunca se ha comprobado**. No es lo mismo que comprobado hace
+   * mucho, y Atlas Mantenimiento los cuenta por separado.
+   */
+  preciosComprobados?: { fecha: string; url: string };
+
+  /**
+   * El precio de CADA ESCALÓN, no sólo el de entrada.
+   *
+   * F2 guardó en qué plan vive cada capacidad —el nombre que le da el
+   * fabricante: «Growth», «Pro»—, pero no cuánto cuesta ese plan. Sin eso,
+   * decirle a alguien «lo que buscas está en Growth» no le dice nada: lo cazó
+   * la propietaria preguntando qué significaba Growth.
+   *
+   * MONEDA. Se guarda la del precio que vería un cliente español, y por eso
+   * se prefiere el euro cuando alguna lectura lo consiguió. No es cosmética:
+   * las mismas páginas sirven tarifas distintas según desde dónde se entre, y
+   * no son una conversión —monday Basic son 9 $ o 9 €, Smartsheet Pro 12 $ u
+   * 8 €—. Decisión de la propietaria, 2026-09-21.
+   *
+   * LOS DOS PRECIOS. Mensual y anual se guardan por separado siempre que la
+   * página publique los dos, porque la diferencia es enorme: Close Solo son
+   * 19 $ al mes o 9 $ pagando el año entero. Enseñar sólo uno es enseñar un
+   * precio que no puede pagar como quiere.
+   *
+   * `fuente` es la dirección que se abrió DE VERDAD, que no siempre coincide
+   * con `preciosComprobados.url`: alguna tarifa sólo aparece en la versión
+   * española de la página.
+   */
+  planesComprobados?: {
+    fecha: string;
+    url: string;
+    /** «EUR», «USD». La del precio guardado, no la del fabricante. */
+    moneda: string;
+    planes: {
+      /** Tal como lo llama el fabricante. Es lo que la persona va a leer en su tarifa. */
+      nombre: string;
+      /** Ausente cuando la página no publica esa modalidad. Nunca se calcula a partir de la otra. */
+      mensual?: string;
+      anual?: string;
+      /** Lo que la página dice literalmente. Sin cita no se escribe el precio. */
+      cita: string;
+    }[];
+  };
   /** Añadido: no siempre el precio de entrada (`precioInicial`) es el plan que de verdad le conviene a una pyme — a veces hace falta un plan intermedio para desbloquear lo esencial. Texto libre, ej. "Plan Professional a 45€/usuario/mes". */
   precioRecomendadoPymes?: string;
 
@@ -413,6 +560,33 @@ export type Herramienta = {
   idiomasDisponibles: string[];
   /** Añadido: derivado de `idiomasDisponibles`, pero como booleano explícito — ese array a veces es texto ambiguo (ej. "más de 40 idiomas"), y comprobar "¿hay español?" a mano no es fiable. */
   disponibleEnEspanol?: boolean;
+  /**
+   * EL ESPAÑOL, PARTIDO EN DOS Y CON RECIBO.
+   *
+   * `disponibleEnEspanol` es un sí/no y no da para más: no distingue «no está
+   * en español» de «no lo hemos mirado», y sobre todo no distingue las DOS
+   * pantallas, que no tienen por qué estar en el mismo idioma.
+   *
+   *  - `panel`: el programa de gestión, donde trabaja quien contrata.
+   *  - `paginaDeCliente`: lo que ve su cliente al reservar o al pagar.
+   *
+   * El caso que obligó a partirlo es Schedulista: su propia ayuda dice que el
+   * panel «will remain in English», y la página donde reservan sus clientes sí
+   * se puede poner en español. Con un solo booleano, `true` mentía sobre el
+   * panel y `false` mentía sobre la página; las dos respuestas eran falsas.
+   *
+   * AUSENTE SIGNIFICA «SIN CONFIRMAR», Y ESO NO ES «NO». Nunca se rellena
+   * deduciendo: ni del idioma de la web comercial, ni de `idiomasDisponibles`,
+   * ni de una parte a la otra. Sin `url`, `cita` y `fecha` de la página que se
+   * abrió, este campo se queda vacío.
+   *
+   * *(Propietaria, 2026-09-30: «un dato desconocido no puede convertirse en
+   * "no"».)*
+   */
+  idiomaComprobado?: {
+    panel?: ComprobacionDeIdioma;
+    paginaDeCliente?: ComprobacionDeIdioma;
+  };
   /** Añadido: si existe una app móvil oficial (iOS/Android), no solo una web adaptada a móvil. */
   tieneAppMovil?: boolean;
   /** Añadido: si ofrece una API pública documentada para desarrolladores. */

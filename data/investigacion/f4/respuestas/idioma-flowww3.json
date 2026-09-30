@@ -1,0 +1,16 @@
+{
+ "pedida": "https://www.flowww.net/",
+ "urls": [
+  [
+   "https://www.flowww.es/",
+   "URL_RETRIEVAL_STATUS_SUCCESS"
+  ]
+ ],
+ "datos": {
+  "producto_en_espanol": "si",
+  "cita": "SPAIN Madrid C/Fuencarral, 105, 2º D 28010, Madrid +34 962 96 37 27 Gandía C/Loreto, 2 46701 Gandía, Valencia +34 962 96 37 27",
+  "idiomas_mencionados": "",
+  "espana_mencionada": "si",
+  "cita_espana": "SPAIN Madrid C/Fuencarral, 105, 2º D 28010, Madrid +34 962 96 37 27 Gandía C/Loreto, 2 46701 Gandía, Valencia +34 962 96 37 27"
+ }
+}

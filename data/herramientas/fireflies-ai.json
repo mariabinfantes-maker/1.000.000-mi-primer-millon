@@ -3,6 +3,9 @@
   "paginaOficial": "https://fireflies.ai",
   "urlPrecios": "https://fireflies.ai/pricing",
   "categoriaId": "asistentes-ia",
+  "categoriasSecundarias": [
+    "automatizacion-integraciones"
+  ],
   "descripcion": "Fireflies.ai es un asistente de reuniones impulsado por inteligencia artificial que graba, transcribe y analiza conversaciones en plataformas de videoconferencia de forma automática. Permite realizar búsquedas inteligentes dentro de las transcripciones, extraer acciones clave e integrar los resúmenes directamente en herramientas de gestión de proyectos y CRM.",
   "informacionEmpresa": {
     "anioFundacion": 2016,
@@ -69,7 +72,7 @@
     "HubSpot"
   ],
   "curvaDeAprendizaje": "facil",
-  "precioInicial": "Desde $10/usuario/mes (plan Pro en facturación anual); dispone de plan gratuito",
+  "precioInicial": "Gratis. Plan Pro desde $10/usuario/mes (facturación anual)",
   "modeloDePrecio": [
     "freemium",
     "suscripcion_mensual",
@@ -112,7 +115,18 @@
         "numeroResenas": 150,
         "enlace": "https://www.trustpilot.com/review/fireflies.ai"
       }
-    ]
+    ],
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.com/p/204218/Fireflies/reviews/",
+      "cita": "Reviews of Fireflies. Ease of use. 4.8. — leido 4.9/5 con 735 reseñas. Confirma el 4.8 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.g2.com/products/fireflies-ai/reviews",
+      "cita": "leido 4.7/5 con 706 reseñas. Confirma el 4.8 guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Ecosistema completo de integraciones nativas con los principales CRM y gestores de videollamadas",
@@ -134,12 +148,11 @@
     ],
     "tipoNegocioIdeal": "Startups, agencias y equipos comerciales B2B",
     "nivelTecnicoRecomendado": "principiante",
-    "puntuacion": 98,
+    "puntuacion": 95,
     "motivosPuntuacion": [
       "Puntuaciones editoriales internas: media de 8.5/10.",
       "G2: 4.8/5 (3500 reseñas).",
       "Capterra: 4.8/5 (600 reseñas).",
-      "Tiene plan gratuito.",
       "Ofrece una API pública.",
       "Dispone de app móvil."
     ]
@@ -147,10 +160,38 @@
   "id": "fireflies-ai",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-18",
-  "fechaUltimaRevision": "2026-08-19",
+  "fechaUltimaRevision": "2026-09-17",
   "tipoProducto": "especializada",
   "problemasIds": [
     "ahorrar-tiempo"
   ],
-  "subtipoId": "reuniones-transcripcion"
+  "subtipoId": "reuniones-transcripcion",
+  "tipoPlanGratuito": "indefinido",
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://fireflies.ai/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://fireflies.ai/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Free",
+        "mensual": "0 $",
+        "cita": "$0"
+      },
+      {
+        "nombre": "Pro",
+        "mensual": "18 $/usuario/mes",
+        "anual": "10 $/usuario/mes",
+        "cita": "$18 / $10"
+      },
+      {
+        "nombre": "Enterprise",
+        "anual": "39 $/usuario/mes",
+        "cita": "$39, sólo facturación anual"
+      }
+    ]
+  }
 }

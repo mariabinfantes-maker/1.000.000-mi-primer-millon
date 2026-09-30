@@ -1,0 +1,23 @@
+{
+ "id": "keap",
+ "nombre": "Keap",
+ "url": "https://keap.com",
+ "precios": "https://keap.com/pricing",
+ "caps": [
+  "cap.per_resource_booking_calendar",
+  "cap.capacity_and_time_slots",
+  "cap.booking_waitlist",
+  "cap.room_and_equipment_booking",
+  "cap.personal_calendar_planning",
+  "cap.case_file_management",
+  "cap.file_storage",
+  "cap.own_asset_maintenance",
+  "cap.fleet_telematics",
+  "cap.inspections_and_checklists"
+ ],
+ "texto": "{\"resultados\":[{\"id\":\"cap.per_resource_booking_calendar\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.capacity_and_time_slots\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.booking_waitlist\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.room_and_equipment_booking\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.personal_calendar_planning\",\"estado\":\"si\",\"cita\":\"See all your upcoming appointments and tasks in one place\",\"url\":\"https://keap.com/pricing\"},{\"id\":\"cap.case_file_management\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.file_storage\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.own_asset_maintenance\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.fleet_telematics\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null},{\"id\":\"cap.inspections_and_checklists\",\"estado\":\"no_consta\",\"cita\":null,\"url\":null}]}",
+ "leidas": [
+  "OK https://keap.com/",
+  "OK https://keap.com/pricing"
+ ]
+}

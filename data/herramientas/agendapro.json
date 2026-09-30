@@ -1,0 +1,116 @@
+{
+  "nombre": "AgendaPro",
+  "paginaOficial": "https://agendapro.com/",
+  "urlPrecios": "https://agendapro.com/es-es/planes",
+  "categoriaId": "reservas-citas",
+  "descripcion": "Plataforma para gestionar citas, clientes, caja, inventario y marketing en negocios de belleza, bienestar y salud. Ofrece reservas online, recordatorios automáticos y una aplicación móvil para gestionar el negocio.",
+  "problemasQueResuelve": [
+    "Quiero que mis clientes reserven sin tener que atender cada llamada o mensaje.",
+    "Necesito enviar recordatorios de las citas automáticamente.",
+    "Quiero consultar las agendas de mi equipo desde un mismo sistema.",
+    "Necesito llevar el control de ventas, comisiones y existencias."
+  ],
+  "casosDeUso": [
+    "Una peluquería que publica sus servicios y horarios para recibir reservas online.",
+    "Un centro de estética que organiza las agendas de varios profesionales y calcula sus comisiones.",
+    "Una consulta que registra información de sus pacientes y programa recordatorios.",
+    "Un profesional independiente que conecta su agenda con Google Calendar."
+  ],
+  "idealPara": "Profesionales y negocios de belleza, bienestar y salud que necesitan organizar citas y gestionar la operación del establecimiento.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50"
+  ],
+  "industriasIdeales": [
+    "peluquerías",
+    "barberías",
+    "centros de estética",
+    "spas",
+    "consultas de salud",
+    "centros de bienestar"
+  ],
+  "noRecomendadaPara": "Quien necesite facturación electrónica ya disponible en España: la tarifa española todavía la anuncia como próxima.",
+  "casosNoRecomendados": [
+    "La marca y los logotipos de AgendaPro no se pueden quitar en ningún plan.",
+    "Los correos mensuales de marketing están limitados según el plan.",
+    "La API v3 exige tener el plan Pro activo.",
+    "La facturación electrónica aparece como próxima en la tarifa española.",
+    "Los recordatorios por WhatsApp se comercializan como un producto adicional.",
+    "La sincronización con Google Calendar documentada para profesionales independientes solo incluye el calendario primario; no los compartidos o secundarios.",
+    "La ayuda indica que no se puede retirar la marca AgendaPro del sitio de reservas, independientemente del plan."
+  ],
+  "funcionesPrincipales": [
+    "Agenda y reservas online",
+    "Recordatorios automáticos",
+    "Gestión de clientes",
+    "Control de caja y ventas",
+    "Cálculo de comisiones",
+    "Control de inventario",
+    "Campañas de marketing",
+    "Informes de gestión"
+  ],
+  "integraciones": [
+    "Google Analytics 4",
+    "Meta Pixel",
+    "Google Calendar: sincronización documentada para determinadas cuentas de profesionales independientes"
+  ],
+  "integracionesPrincipales": [
+    "Google Analytics 4",
+    "Meta Pixel",
+    "Google Calendar"
+  ],
+  "precioInicial": "$9 USD/mes",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual"
+  ],
+  "tienePlanGratuito": false,
+  "preciosComprobados": {
+    "url": "https://agendapro.com/es-es/planes",
+    "fecha": "2026-09-29",
+    "cita": "1 profesional […] 2 profesionales […] 20 profesionales"
+  },
+  "idiomasDisponibles": [
+    "es"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "nivelTecnicoRequerido": null,
+    "facilidadImplementacion": null,
+    "fiabilidad": null,
+    "atencionAlCliente": null,
+    "facilidadDeUso": null,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Verificación documental de páginas oficiales abiertas. No se asignaron puntuaciones: no se proporcionó una escala ni se realizaron pruebas prácticas que permitan valorar esas dimensiones. Tampoco se trasladaron las calificaciones del blog comercial. Los problemas y casos de uso son redacciones basadas en las funciones documentadas.",
+  "ventajas": [
+    "Reúne agenda, clientes, caja, inventario y marketing en una misma plataforma.",
+    "Permite recibir reservas online y enviar recordatorios automáticamente.",
+    "Ofrece una aplicación móvil para gestionar el negocio.",
+    "Dispone de documentación pública de su API."
+  ],
+  "inconvenientes": [
+    "La API v3 exige tener el plan Pro activo.",
+    "La facturación electrónica aparece como próxima en la tarifa española.",
+    "Los recordatorios por WhatsApp se comercializan como un producto adicional.",
+    "La sincronización con Google Calendar documentada para profesionales independientes solo incluye el calendario primario; no los compartidos o secundarios.",
+    "La ayuda indica que no se puede retirar la marca AgendaPro del sitio de reservas, independientemente del plan."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": null,
+    "anioFundacion": null,
+    "tamanoAproximado": null
+  },
+  "id": "agendapro",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-29",
+  "fechaUltimaRevision": "2026-09-29",
+  "problemasIds": [
+    "organizar-empresa",
+    "ahorrar-tiempo",
+    "conseguir-clientes"
+  ]
+}

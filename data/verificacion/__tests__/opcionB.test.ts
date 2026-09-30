@@ -6,6 +6,7 @@ import { NECESIDADES, filaDeNecesidad, todasLasFilas } from "@/agents/atlas-advi
 import { etiquetaDeEvidencia } from "@/agents/atlas-advisor/etiquetaEvidencia";
 import { perfilesDePrueba } from "@/agents/atlas-advisor/__tests__/perfiles";
 import { getPuertaDeEvidencia, getPuertoDeEvidencia } from "../consulta";
+import { getUso } from "../usos";
 
 /**
  * La opción B con los datos de verdad: las 62 fichas, los 1.544 registros y
@@ -25,6 +26,26 @@ describe("lo que la tabla afirma sobre los datos, contrastado", () => {
         expect(capacidad?.estado, `${fila.id} → ${id}`).toBe("activa");
       }
     }
+  });
+
+  /**
+   * El uso que pide una fila (tercera ronda) tiene que existir en la lista
+   * cerrada y colgar de una de las capacidades de esa misma fila: si no, la
+   * fila pediría un uso que ninguna de sus capacidades puede tener.
+   */
+  it("el uso de toda fila que lo pide existe y cuelga de una capacidad de la fila", () => {
+    let conUso = 0;
+    for (const fila of todasLasFilas()) {
+      if (!fila.uso) continue;
+      conUso++;
+      const uso = getUso(fila.uso.id);
+      expect(uso, `${fila.id} → ${fila.uso.id}`).toBeDefined();
+      expect(fila.capacidades, `${fila.id} → ${fila.uso.id}`).toContain(uso?.capacidadId);
+      // Las dos filas de servicios de hoy no son imprescindibles: la regla aprobada las presenta como candidatas.
+      expect(fila.uso.imprescindible, fila.id).toBe(false);
+      expect(fila.usoSinConfirmar, `${fila.id}: un uso no imprescindible necesita el aviso fijo de respaldo`).toBeDefined();
+    }
+    expect(conUso).toBe(2);
   });
 
   /**
@@ -150,14 +171,44 @@ describe("la peluquera que perdía citas", () => {
     expect(r.sinRecomendacion?.tipo).toBe("ninguna_de_estas");
   });
 
-  it("tickets: se dice que no lo cubrimos, con sus palabras", () => {
+  /**
+   * Hasta el 2026-09-23 esta prueba decía «tickets: se dice que no lo
+   * cubrimos». Era cierto: ninguna herramienta lo había demostrado, y la fila
+   * se dejaba puesta a propósito para decirlo en voz alta.
+   *
+   * Ese día la propietaria autorizó incorporar las dos pasadas de
+   * verificación por casas, y diez herramientas demostraron tickets con cita
+   * de su página oficial. No cambió el motor ni la regla: cambió lo que
+   * sabemos. La peluquera que preguntaba por tickets ya obtiene respuesta.
+   */
+  it("tickets: ahora sí lo cubrimos, y sólo con quien lo demuestra", () => {
     const r = recomendarHerramientas(
       { problemaIdsCandidatos: ["atencion-cliente"], necesidadElegida: "tickets", tamanoEmpresa: "1-10" },
       catalogo,
       { evidencia }
     );
+    expect(r.top.length).toBeGreaterThan(0);
+    expect(r.sinRecomendacion).toBeUndefined();
+    for (const e of r.top) {
+      // Las capacidades salen de la propia fila, como en las de arriba.
+      const suyas = filaDeNecesidad("atencion-cliente", "tickets")!.capacidades;
+      expect(demuestra(e.herramienta.id, suyas), e.herramienta.id).toBe(true);
+    }
+  });
+
+  /**
+   * Y el mecanismo de «no lo cubrimos» sigue vivo donde sigue siendo verdad:
+   * la factura electrónica obligatoria no la demuestra nadie. Si algún día
+   * alguien la demuestra, esta prueba avisará igual que avisó la de tickets.
+   */
+  it("factura electrónica: se dice que no lo cubrimos, con sus palabras", () => {
+    const r = recomendarHerramientas(
+      { problemaIdsCandidatos: ["el-dinero"], necesidadElegida: "factura-electronica", tamanoEmpresa: "1-10" },
+      catalogo,
+      { evidencia }
+    );
     expect(r.top).toEqual([]);
-    expect(r.sinRecomendacion).toMatchObject({ tipo: "necesidad_sin_cobertura", necesidad: "Convertir cada petición en un ticket con estado" });
+    expect(r.sinRecomendacion?.tipo).toBe("necesidad_sin_cobertura");
   });
 });
 
@@ -168,7 +219,7 @@ describe("la peluquera que perdía citas", () => {
  * cualquier cambio ahí sería un efecto secundario, no una decisión.
  */
 describe("la pregunta no cambia nada fuera de su camino", () => {
-  it("por categoría y por subtipo, la necesidad elegida se ignora: 2.520 combinaciones idénticas", () => {
+  it("por categoría y por subtipo, la necesidad elegida se ignora: 2.760 combinaciones idénticas", () => {
     const categorias = getTodasLasCategorias().map((c) => c.id).sort();
     const subtipos = [...new Set(catalogo.filter((h) => h.subtipoId).map((h) => `${h.categoriaId}/${h.subtipoId}`))].sort();
     const ambitos = [
@@ -185,11 +236,13 @@ describe("la pregunta no cambia nada fuera de su camino", () => {
         if (sin !== con) distintos.push(`${JSON.stringify(ambito)}: ${sin} → ${con}`);
       }
     }
-    expect(combinaciones).toBe(2520);
+    // 2.760 desde el 2026-09-24: dos categorías más, porque los sectores
+    // pasaron a tener nombre propio. Lo que mide la prueba no cambió.
+    expect(combinaciones).toBe(2760);
     expect(distintos).toEqual([]);
   });
 
-  it("por objetivo sin la pregunta, 600 combinaciones idénticas a la línea base", () => {
+  it("por objetivo sin la pregunta, 720 combinaciones idénticas a la línea base", () => {
     // La línea base es el motor de antes: aquí se comprueba que sin
     // `necesidadElegida` el camino por objetivo no ha cambiado, comparando
     // con y sin puerta, que era la propiedad que ya garantizaba conexion.test.
@@ -203,7 +256,7 @@ describe("la pregunta no cambia nada fuera de su camino", () => {
         if (sin !== con) distintos.push(`${objetivo}: ${sin} → ${con}`);
       }
     }
-    expect(combinaciones).toBe(600);
+    expect(combinaciones).toBe(720);
     expect(distintos).toEqual([]);
   });
 
@@ -213,7 +266,8 @@ describe("la pregunta no cambia nada fuera de su camino", () => {
         const r = recomendarHerramientas({ problemaIdsCandidatos: [pregunta.objetivoId], necesidadElegida: fila.id }, catalogo, { evidencia });
         if (r.sinRecomendacion) {
           expect(r.sinRecomendacion.tipo, `${pregunta.objetivoId}/${fila.id}`).toBe("necesidad_sin_cobertura");
-          expect(fila.sinCobertura, `${pregunta.objetivoId}/${fila.id}`).toBe(true);
+          // O la fila está marcada sin cobertura, o pide un uso imprescindible que nadie ha demostrado.
+          expect(fila.sinCobertura === true || fila.uso?.imprescindible === true, `${pregunta.objetivoId}/${fila.id}`).toBe(true);
         } else {
           expect(r.todas.length, `${pregunta.objetivoId}/${fila.id}`).toBeLessThan(catalogo.length);
           for (const e of r.todas) {

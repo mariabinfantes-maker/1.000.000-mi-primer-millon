@@ -69,7 +69,7 @@
     "suscripcion_mensual",
     "suscripcion_anual"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
   "precioRecomendadoPymes": "Plan Plus desde $49/mes (facturado anualmente)",
   "idiomasDisponibles": [
     "Español",
@@ -96,7 +96,18 @@
     "g2Puntuacion": 4.5,
     "g2NumeroResenas": 10500,
     "capterraPuntuacion": 4.6,
-    "capterraNumeroResenas": 2400
+    "capterraNumeroResenas": 2400,
+    "capterraComprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.capterra.com/p/65330/ActiveCampaign/",
+      "cita": "Ease Of Use 4.2 (2,537) — leido 4.6/5 con 2537 reseñas. Confirma el 4.6 que ya estaba guardado."
+    },
+    "g2Comprobado": {
+      "fecha": "2026-09-29",
+      "url": "https://www.g2.com/products/activecampaign/reviews",
+      "cita": "leido 4.4/5. Confirma el 4.5 guardado."
+    },
+    "origen": "comprobado"
   },
   "ventajas": [
     "Uno de los creadores de automatizaciones más avanzados y potentes del mercado",
@@ -130,7 +141,7 @@
   "id": "activecampaign",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-08-03",
-  "fechaUltimaRevision": "2026-08-05",
+  "fechaUltimaRevision": "2026-09-17",
   "problemasIds": [
     "conseguir-clientes",
     "automatizar-tareas"
@@ -143,6 +154,37 @@
   ],
   "tipoProducto": "suite",
   "categoriasSecundarias": [
-    "crm"
-  ]
+    "asistentes-ia",
+    "automatizacion-integraciones",
+    "crm",
+    "marketing-email"
+  ],
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 14,
+  "preciosComprobados": {
+    "fecha": "2026-09-17",
+    "url": "https://www.activecampaign.com/pricing"
+  },
+  "planesComprobados": {
+    "fecha": "2026-09-21",
+    "url": "https://www.activecampaign.com/pricing",
+    "moneda": "USD",
+    "planes": [
+      {
+        "nombre": "Enterprise",
+        "anual": "$145 /mo",
+        "cita": "Enterprise Starts at $145 /mo Billed annually"
+      },
+      {
+        "nombre": "Starter",
+        "anual": "$15 /mo",
+        "cita": "Starter Starts at $15 /mo Billed annually"
+      },
+      {
+        "nombre": "Plus",
+        "anual": "$49 /mo",
+        "cita": "Plus Starts at $49 /mo Billed annually"
+      }
+    ]
+  }
 }

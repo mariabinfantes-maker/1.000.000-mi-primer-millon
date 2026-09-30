@@ -1,0 +1,7 @@
+{
+ "id": "fresha",
+ "nombre": "Fresha",
+ "url": "https://www.fresha.com/help-center/articles/optimize-your-online-bookings",
+ "recuperada": false,
+ "texto": "{\n  \"abierta\": false,\n  \"agendaPorProfesional\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"eligeElCliente\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  },\n  \"enEspanol\": {\n    \"estado\": \"no_consta\",\n    \"cita\": null\n  }\n}"
+}

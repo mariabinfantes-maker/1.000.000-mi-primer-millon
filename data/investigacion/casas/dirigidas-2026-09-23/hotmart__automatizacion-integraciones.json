@@ -1,0 +1,17 @@
+{
+ "id": "hotmart__automatizacion-integraciones",
+ "herramientaId": "hotmart",
+ "nombre": "Hotmart",
+ "casa": "automatizacion-integraciones",
+ "nombreCasa": "Automatización e integraciones",
+ "urls": [
+  "https://hotmart.com/",
+  "https://hotmart.com/es/precios"
+ ],
+ "cita": "50+ integrations with the market's leading tools, so you don't waste time jumping from solution to solution.",
+ "texto": "```json\n{\n  \"resultados\": [\n    {\n      \"id\": \"cap.workflow_automation\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.app_integrations\",\n      \"estado\": \"si\",\n      \"cita\": \"50+ integrations with the market's leading tools\",\n      \"url\": \"https://hotmart.com/\"\n    },\n    {\n      \"id\": \"cap.public_api\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.webhooks\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.ai_task_agents\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.dashboards\",\n      \"estado\": \"si\",\n      \"cita\": \"Analiza tus ventas y resultados en tiempo real\",\n      \"url\": \"https://hotmart.com/es/precios\"\n    },\n    {\n      \"id\": \"cap.custom_reports\",\n      \"estado\": \"si\",\n      \"cita\": \"Custom reports for your business, always available so you can focus on what matters.\",\n      \"url\": \"https://hotmart.com/\"\n    },\n    {\n      \"id\": \"cap.data_export\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    },\n    {\n      \"id\": \"cap.data_import_and_migration\",\n      \"estado\": \"si\",\n      \"cita\": \"Transferimos tu lista de alumnos.\",\n      \"url\": \"https://hotmart.com/es/precios\"\n    },\n    {\n      \"id\": \"cap.predictive_analytics\",\n      \"estado\": \"no_consta\",\n      \"cita\": null,\n      \"url\": null\n    }\n  ]\n}\n```",
+ "leidas": [
+  "OK https://hotmart.com/en",
+  "OK https://hotmart.com/es/precios"
+ ]
+}

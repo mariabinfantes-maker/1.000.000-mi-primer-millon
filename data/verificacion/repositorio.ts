@@ -3,7 +3,18 @@ import path from "node:path";
 import { getCapacidades, getVocabulario } from "@/data/vocabulario/repositorio";
 import { normalizarUrl } from "./convertir";
 import { FUENTES_DE_PRIMERA_MANO, ROLES_DE_FUENTE } from "./esquema";
-import type { PlanDeVerificacion, RegistroVerificacion, SeleccionPlausible, TipoFuente } from "./esquema";
+import type {
+  EvidenciaDeIdiomaRegistrada,
+  Fuente,
+  PlanDeVerificacion,
+  RegistroDeIdioma,
+  RegistroDeRecorrido,
+  RegistroDeUso,
+  RegistroVerificacion,
+  SeleccionPlausible,
+  TipoFuente,
+} from "./esquema";
+import { getRecorrido, getUso } from "./usos";
 
 /**
  * Acceso y validación de la verificación de F2.
@@ -33,6 +44,18 @@ export function getSelecciones(): SeleccionPlausible[] {
 /** Registros de verificación, si ya existen. */
 export function getRegistros(): RegistroVerificacion[] {
   const ruta = path.join(DIR, "registros.json");
+  return fs.existsSync(ruta) ? JSON.parse(fs.readFileSync(ruta, "utf8")) : [];
+}
+
+/** Recorridos verificados, si ya existen. Vacío hasta que un lote los produzca. */
+export function getRecorridos(): RegistroDeRecorrido[] {
+  const ruta = path.join(DIR, "recorridos.json");
+  return fs.existsSync(ruta) ? JSON.parse(fs.readFileSync(ruta, "utf8")) : [];
+}
+
+/** Idiomas verificados, si ya existen. Sin registro, el idioma de una herramienta es desconocido. */
+export function getIdiomas(): RegistroDeIdioma[] {
+  const ruta = path.join(DIR, "idiomas.json");
   return fs.existsSync(ruta) ? JSON.parse(fs.readFileSync(ruta, "utf8")) : [];
 }
 
@@ -209,6 +232,30 @@ export function erroresDeRegistro(
     if (!registro.nota?.trim()) e.push(`${donde}: ${registro.estado} tiene que explicar por qué`);
   }
 
+  /**
+   * LOS USOS CUELGAN DE LA CAPACIDAD, Y SÓLO DE UNA DEMOSTRADA.
+   *
+   * Un uso demostrado sobre una capacidad que no consta sería afirmar lo
+   * concreto sin lo general. Y un uso que cuelga de otra capacidad es una
+   * pregunta que nadie hizo sobre este par.
+   */
+  if (registro.usos?.length) {
+    if (registro.estado !== "verificado" || registro.profundidad === "no_disponible") {
+      e.push(`${donde}: sólo una capacidad verificada y disponible puede llevar usos`);
+    }
+    const vistos = new Set<string>();
+    for (const uso of registro.usos) {
+      if (vistos.has(uso.usoId)) e.push(`${donde}: el uso "${uso.usoId}" está repetido`);
+      vistos.add(uso.usoId);
+      const definido = getUso(uso.usoId);
+      if (!definido) e.push(`${donde}: el uso "${uso.usoId}" no existe`);
+      else if (definido.capacidadId !== registro.capacidadId) {
+        e.push(`${donde}: el uso "${uso.usoId}" cuelga de ${definido.capacidadId}, no de esta capacidad`);
+      }
+      for (const err of erroresDeEvidenciaDeUso(uso, `${donde}/${uso.usoId}`)) e.push(err);
+    }
+  }
+
   if (!esFecha(registro.proximaRevision)) {
     e.push(`${donde}: proximaRevision inválida "${registro.proximaRevision}"`);
   } else {
@@ -229,6 +276,137 @@ export function erroresDeRegistro(
         }
       }
     }
+  }
+  return e;
+}
+
+const ESTADOS_DE_USO = ["demostrado", "no_consta", "no_lo_hace"] as const;
+
+function erroresDeFuentes(fuentes: Fuente[] | undefined, donde: string): string[] {
+  const e: string[] = [];
+  if (!fuentes?.length) e.push(`${donde}: no tiene ninguna fuente`);
+  for (const f of fuentes ?? []) {
+    if (!/^https?:\/\/\S+$/.test(f.url ?? "")) e.push(`${donde}: URL inválida "${f.url}"`);
+    if (!esFecha(f.fechaConsulta)) e.push(`${donde}: fechaConsulta inválida "${f.fechaConsulta}"`);
+    if (f.rol !== undefined && !ROLES_DE_FUENTE.includes(f.rol)) e.push(`${donde}: rol de fuente "${f.rol}" desconocido`);
+  }
+  return e;
+}
+
+/**
+ * Las tres reglas de un uso, que son las de la capacidad en pequeño:
+ * demostrado y no_lo_hace exigen una fuente de primera mano CON cita —lo
+ * concreto se demuestra con la frase, no con la página—; no_consta exige
+ * decir qué se buscó, y no puede traer cita, porque una cita en un «no
+ * consta» se lee como si demostrara algo.
+ */
+function erroresDeEvidenciaDeUso(uso: RegistroDeUso, donde: string): string[] {
+  const e = erroresDeFuentes(uso.fuentes, donde);
+  if (!ESTADOS_DE_USO.includes(uso.estado)) e.push(`${donde}: estado de uso "${uso.estado}" desconocido`);
+  const conCita = (uso.fuentes ?? []).filter((f) => f.cita?.trim());
+  if (uso.estado === "no_consta") {
+    if (!uso.nota?.trim()) e.push(`${donde}: un uso que no consta tiene que decir qué se buscó`);
+    if (conCita.length) e.push(`${donde}: un uso que no consta no puede llevar cita`);
+  } else {
+    const sostiene = conCita.some((f) => FUENTES_DE_PRIMERA_MANO.includes(f.tipo));
+    if (!sostiene) e.push(`${donde}: ${uso.estado} sin una fuente de primera mano con cita`);
+  }
+  return e;
+}
+
+/**
+ * Qué está mal en un recorrido verificado. Mismas certezas separadas que la
+ * capacidad: si lo hace, y en qué plan; y un plan sólo se nombra si la cita
+ * lo nombra.
+ */
+export function erroresDeRecorrido(r: RegistroDeRecorrido, herramientaIds: readonly string[]): string[] {
+  const donde = `${r.herramientaId}/${r.recorridoId}`;
+  const e: string[] = [];
+  if (!herramientaIds.includes(r.herramientaId)) e.push(`${donde}: la herramienta no existe`);
+  if (!getRecorrido(r.recorridoId)) e.push(`${donde}: el recorrido no existe`);
+  if (!ESTADOS_DE_USO.includes(r.estado)) e.push(`${donde}: estado "${r.estado}" desconocido`);
+  e.push(...erroresDeFuentes(r.fuentes, donde));
+  const conCita = (r.fuentes ?? []).filter((f) => f.cita?.trim());
+
+  if (r.estado === "demostrado") {
+    if (!conCita.some((f) => FUENTES_DE_PRIMERA_MANO.includes(f.tipo))) {
+      e.push(`${donde}: demostrado sin una fuente de primera mano con cita`);
+    }
+    if (!r.planEstado) e.push(`${donde}: no dice si el plan está verificado o es desconocido`);
+    if (r.planEstado && !["verificado", "desconocido"].includes(r.planEstado)) {
+      e.push(`${donde}: planEstado "${r.planEstado}" no es ni verificado ni desconocido`);
+    }
+    if (r.planEstado === "verificado") {
+      if (!r.planMinimo?.trim()) e.push(`${donde}: el plan se da por verificado pero no dice cuál`);
+      else if (!conCita.some((f) => citaNombraElPlan(f.cita, r.planMinimo!))) {
+        e.push(`${donde}: ninguna cita nombra el plan "${r.planMinimo}"`);
+      }
+    }
+    if (r.planEstado === "desconocido" && r.planMinimo) {
+      e.push(`${donde}: el plan es desconocido y aun así nombra "${r.planMinimo}"`);
+    }
+  } else {
+    if (r.planEstado || r.planMinimo) e.push(`${donde}: sólo un recorrido demostrado puede opinar sobre el plan`);
+    if (r.estado === "no_consta") {
+      if (!r.nota?.trim()) e.push(`${donde}: un recorrido que no consta tiene que decir qué se buscó`);
+      if (conCita.length) e.push(`${donde}: un recorrido que no consta no puede llevar cita`);
+    } else if (!conCita.some((f) => FUENTES_DE_PRIMERA_MANO.includes(f.tipo))) {
+      e.push(`${donde}: no_lo_hace sin una fuente de primera mano con cita`);
+    }
+  }
+
+  if (!esFecha(r.proximaRevision)) e.push(`${donde}: proximaRevision inválida "${r.proximaRevision}"`);
+  else {
+    const ultima = (r.fuentes ?? []).map((f) => f.fechaConsulta).filter(esFecha).sort().pop();
+    if (ultima) {
+      if (r.proximaRevision <= ultima) e.push(`${donde}: la próxima revisión no puede ser anterior a la consulta`);
+      else if (mesesEntre(ultima, r.proximaRevision) > (r.planMinimo ? 6 : 12) + 1) {
+        e.push(`${donde}: la próxima revisión se va más allá de ${r.planMinimo ? 6 : 12} meses`);
+      }
+    }
+  }
+  return e;
+}
+
+/** Códigos de idioma: dos letras minúsculas, ISO 639-1. «Español» no vale: se compara por código. */
+const CODIGO_DE_IDIOMA = /^[a-z]{2}$/;
+
+function erroresDeEvidenciaDeIdioma(v: EvidenciaDeIdiomaRegistrada, donde: string): string[] {
+  const e = erroresDeFuentes(v.fuentes, donde);
+  if (v.estado === "verificado") {
+    if (!v.idiomas?.length) e.push(`${donde}: verificado sin ningún idioma`);
+    for (const c of v.idiomas ?? []) if (!CODIGO_DE_IDIOMA.test(c)) e.push(`${donde}: "${c}" no es un código de idioma`);
+    if (new Set(v.idiomas ?? []).size !== (v.idiomas ?? []).length) e.push(`${donde}: idiomas repetidos`);
+    if (!(v.fuentes ?? []).some((f) => f.cita?.trim() && FUENTES_DE_PRIMERA_MANO.includes(f.tipo))) {
+      e.push(`${donde}: verificado sin una fuente de primera mano con cita`);
+    }
+  } else if (v.estado === "desconocido") {
+    if (!v.nota?.trim()) e.push(`${donde}: desconocido tiene que decir qué se buscó`);
+    if ((v as { idiomas?: unknown }).idiomas !== undefined) e.push(`${donde}: desconocido no puede nombrar idiomas`);
+  } else {
+    e.push(`${donde}: estado "${(v as { estado: string }).estado}" desconocido`);
+  }
+  return e;
+}
+
+/** Qué está mal en un registro de idioma. Interfaz y soporte se validan igual y por separado. */
+export function erroresDeIdioma(r: RegistroDeIdioma, herramientaIds: readonly string[]): string[] {
+  const donde = r.herramientaId;
+  const e: string[] = [];
+  if (!herramientaIds.includes(r.herramientaId)) e.push(`${donde}: la herramienta no existe`);
+  if (!r.interfaz) e.push(`${donde}: falta la interfaz`);
+  else e.push(...erroresDeEvidenciaDeIdioma(r.interfaz, `${donde}/interfaz`));
+  if (!r.soporte) e.push(`${donde}: falta el soporte`);
+  else e.push(...erroresDeEvidenciaDeIdioma(r.soporte, `${donde}/soporte`));
+  if (!esFecha(r.proximaRevision)) e.push(`${donde}: proximaRevision inválida "${r.proximaRevision}"`);
+  else {
+    const ultima = [...(r.interfaz?.fuentes ?? []), ...(r.soporte?.fuentes ?? [])]
+      .map((f) => f.fechaConsulta)
+      .filter(esFecha)
+      .sort()
+      .pop();
+    if (ultima && r.proximaRevision <= ultima) e.push(`${donde}: la próxima revisión no puede ser anterior a la consulta`);
+    if (ultima && mesesEntre(ultima, r.proximaRevision) > 13) e.push(`${donde}: la próxima revisión se va más allá de 12 meses`);
   }
   return e;
 }
