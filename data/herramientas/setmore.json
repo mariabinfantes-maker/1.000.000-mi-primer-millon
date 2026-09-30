@@ -1,0 +1,134 @@
+{
+  "nombre": "Setmore",
+  "paginaOficial": "https://www.setmore.com/",
+  "urlPrecios": "https://www.setmore.com/pricing",
+  "categoriaId": "reservas-citas",
+  "descripcion": "Setmore reúne las citas, los servicios y los perfiles del equipo en una agenda que el negocio puede gestionar desde el ordenador o el móvil. Incluye una página de reservas y conexiones con herramientas de cobro, calendarios y videollamadas.",
+  "problemasQueResuelve": [
+    "Paso demasiado tiempo coordinando las citas de mi equipo.",
+    "Tengo los contactos de clientes repartidos entre hojas de cálculo y otras aplicaciones.",
+    "Necesito relacionar las reservas con los pagos.",
+    "Quiero preparar las citas online sin crear cada enlace de reunión por separado."
+  ],
+  "casosDeUso": [
+    "Dar de alta los servicios y los perfiles del equipo antes de publicar la página de reservas.",
+    "Importar los contactos de clientes desde Google o un archivo CSV.",
+    "Conectar una pasarela de pago para cobrar servicios.",
+    "Conectar Zoom o Google Meet para las sesiones a distancia."
+  ],
+  "idealPara": "Negocios con citas, incluidos servicios jurídicos, automoción, salud, belleza y formación.",
+  "segmentosIdeales": [
+    "1-10",
+    "11-50",
+    "51-200",
+    "200+"
+  ],
+  "industriasIdeales": [
+    "despachos jurídicos",
+    "automoción",
+    "centros de salud",
+    "centros de belleza",
+    "academias"
+  ],
+  "noRecomendadaPara": "No está pensada para quien no trabaje con cita previa: todo gira alrededor de la agenda y la página de reservas.",
+  "casosNoRecomendados": [
+    "No envía recordatorios SMS a números de España según la lista de restricciones publicada.",
+    "Cada archivo CSV se procesa en lotes de un máximo de 1.000 contactos.",
+    "La API requiere una cuenta Pro y revisión de la solicitud de acceso.",
+    "La ayuda vigente incluye España entre los países donde no se envían recordatorios SMS.",
+    "El acceso a la API requiere Pro y una solicitud al fabricante.",
+    "Cada importación CSV admite como máximo 1.000 contactos.",
+    "No pude identificar expresamente la moneda del símbolo $ en la tarifa abierta.",
+    "La tarifa muestra el símbolo $, sin identificar expresamente USD en el contenido ni en los datos de precios que pude leer. Pro muestra $12 por usuario al mes con pago mensual y $5 por usuario al mes con facturación anual. No convierto ni asigno una moneda por suposición."
+  ],
+  "funcionesPrincipales": [
+    "Gestión de agenda y equipo",
+    "Catálogo de servicios y clases",
+    "Página de reservas",
+    "Gestión e importación de contactos",
+    "Conexiones con pasarelas de pago",
+    "Sincronización de calendarios",
+    "Conexiones de videollamada",
+    "Aplicaciones para iOS y Android"
+  ],
+  "integraciones": [
+    "Square",
+    "Stripe",
+    "PayPal",
+    "LawPay",
+    "Google Calendar",
+    "Office 365 Calendar",
+    "Zoom",
+    "Google Meet",
+    "WordPress",
+    "Wix",
+    "Weebly"
+  ],
+  "integracionesPrincipales": [
+    "Google Calendar",
+    "Office 365 Calendar",
+    "Stripe",
+    "Square",
+    "Zoom",
+    "Google Meet"
+  ],
+  "curvaDeAprendizaje": "media",
+  "precioInicial": "Plan Free: $0 por usuario al mes, con hasta cuatro usuarios.",
+  "modeloDePrecio": [
+    "freemium",
+    "suscripcion_mensual",
+    "suscripcion_anual",
+    "por_usuario"
+  ],
+  "tienePlanGratuito": true,
+  "preciosComprobados": {
+    "url": "https://www.setmore.com/pricing",
+    "fecha": "2026-09-30",
+    "cita": "$0 user / month"
+  },
+  "idiomasDisponibles": [
+    "en",
+    "fr",
+    "es",
+    "pt"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneAppMovil": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": null,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 7,
+    "atencionAlCliente": 8,
+    "fiabilidad": null,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Tarifa, condiciones, guías oficiales, directorio de integraciones y página de estado abiertos. No he vuelto a verificar las capacidades archivadas ni el tamaño. Los problemas y ejemplos reformulan usos documentados. Las notas técnicas son valoraciones documentales, no reseñas: 3 indica configuración mediante formularios; 7, puesta en marcha guiada con importación autónoma pero preparación previa; 8 en soporte refleja varios canales y atención 24/7, sin asumir atención en español.",
+  "ventajas": [
+    "Dispone de un plan gratuito permanente.",
+    "Permite importar contactos desde Google o CSV.",
+    "El panel web y las aplicaciones móviles incluyen español.",
+    "La tarifa incluye soporte humano permanente por chat, correo y teléfono tanto en Free como en Pro."
+  ],
+  "inconvenientes": [
+    "La ayuda vigente incluye España entre los países donde no se envían recordatorios SMS.",
+    "El acceso a la API requiere Pro y una solicitud al fabricante.",
+    "Cada importación CSV admite como máximo 1.000 contactos.",
+    "No pude identificar expresamente la moneda del símbolo $ en la tarifa abierta.",
+    "La tarifa muestra el símbolo $, sin identificar expresamente USD en el contenido ni en los datos de precios que pude leer. Pro muestra $12 por usuario al mes con pago mensual y $5 por usuario al mes con facturación anual. No convierto ni asigno una moneda por suposición."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": null,
+    "anioFundacion": null,
+    "tamanoAproximado": null
+  },
+  "id": "setmore",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-30",
+  "fechaUltimaRevision": "2026-09-30",
+  "problemasIds": [
+    "ahorrar-tiempo",
+    "organizar-empresa"
+  ]
+}

@@ -82338,5 +82338,233 @@
     ],
     "confianza": "alta",
     "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "reservo",
+    "capacidadId": "cap.online_self_service_booking",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://intercom.help/reservo/es/articles/12384105-que-puedo-hacer-con-la-reserva-online",
+        "fechaConsulta": "2026-09-29",
+        "cita": "La reserva online de Reservo es la función principal de la plataforma que permite a los pacientes reservar sus citas por internet, sin necesidad de llamar o coordinar manualmente.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "reservo",
+    "capacidadId": "cap.customer_appointment_reminders",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://intercom.help/reservo/es/articles/5664740-confirmacion-y-recordatorio-automatico-de-citas-por-sms",
+        "fechaConsulta": "2026-09-29",
+        "cita": "El sistema de confirmación por SMS permite activar un protocolo para confirmaciones y recordatorios que se envían automáticamente a sus clientes/ pacientes.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "reservo",
+    "capacidadId": "cap.booking_cancellation_and_rescheduling",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://intercom.help/reservo/es/articles/12693032-diferencias-entre-reagendamiento-manual-y-reagendamiento-online",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Permite que el paciente o cliente reagende su cita directamente desde el enlace de confirmación o correo, sin necesidad de que el centro intervenga.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "reservo",
+    "capacidadId": "cap.capacity_and_time_slots",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://intercom.help/reservo/es/articles/10744309-que-es-la-capacidad-de-atencion-y-como-contratar-nuevas-agendas",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Los planes disponibles y su capacidad de atención simultánea son: Plan Individual: 1 atención simultánea. Plan Básico: 3 atenciones simultáneas. Plan Reservo: 3 atenciones simultáneas. Plan Enterprise: 5 atenciones simultáneas.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "reservo",
+    "capacidadId": "cap.no_show_and_deposits",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://intercom.help/reservo/es/articles/13187306-como-solicitar-un-abono-o-sena-de-una-cita-que-requiere-pago-online",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Una vez habilitada esta funcionalidad, cuando ofrezcas citas a tus pacientes o clientes a través de tu sitio web o redes sociales, podrán agendar y pagar, ya sea el total de la cita o solo una parte (seña), según la configuración definida por el centro.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "reservo",
+    "capacidadId": "cap.embeddable_booking_widget",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://intercom.help/reservo/es/articles/4275576-como-crear-la-reserva-online",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Podrás acceder al enlace URL para compartir en redes sociales y al código iFrame de la reserva online generada para insertar en tu sitio web.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "setmore",
+    "capacidadId": "cap.online_self_service_booking",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://www.setmore.com/features/website-widgets",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Make it simple for your customers and online visitors to self-book their appointments 24/7, right from your business website.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "setmore",
+    "capacidadId": "cap.customer_appointment_reminders",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://support.setmore.com/en/articles/491038-customer-email-notifications-reminders",
+        "fechaConsulta": "2026-09-29",
+        "cita": "In the reminders section, click the checkbox next to Email and SMS.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "setmore",
+    "capacidadId": "cap.booking_cancellation_and_rescheduling",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://support.setmore.com/en/articles/491038-customer-email-notifications-reminders",
+        "fechaConsulta": "2026-09-29",
+        "cita": "This lets customers reschedule via your Booking Page or a button in their email confirmation. This lets customers cancel via your Booking Page or a button in their email confirmation.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "setmore",
+    "capacidadId": "cap.capacity_and_time_slots",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://support.setmore.com/en/articles/490889-class-booking",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Run classes and group events online or in-person with a fixed time and multiple seats.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "setmore",
+    "capacidadId": "cap.no_show_and_deposits",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://support.setmore.com/en/",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Accept online payments via your Booking Page, process in-person transactions, and apply deposits or discounts, by connecting with Square, Stripe, or PayPal.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
+  },
+  {
+    "herramientaId": "setmore",
+    "capacidadId": "cap.embeddable_booking_widget",
+    "estado": "verificado",
+    "profundidad": "nativa",
+    "profundidadEsConvencion": true,
+    "planEstado": "desconocido",
+    "fuentes": [
+      {
+        "tipo": "documentacion",
+        "url": "https://support.setmore.com/en/articles/490991-embed-your-booking-page-on-your-website",
+        "fechaConsulta": "2026-09-29",
+        "cita": "Simply embed your Booking Page in an iframe and it opens in a pop-up window.",
+        "rol": "capacidad"
+      }
+    ],
+    "confianza": "alta",
+    "proximaRevision": "2027-09-29"
   }
 ]

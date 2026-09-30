@@ -1,0 +1,117 @@
+{
+  "nombre": "Reservo",
+  "paginaOficial": "https://reservo.cl/",
+  "urlPrecios": "https://reservo.cl/cl/",
+  "categoriaId": "clinicas-salud",
+  "descripcion": "Reservo reúne la agenda, las fichas de pacientes y el control de ventas y pagos en un programa de gestión. También permite llevar inventario, consultar informes y preparar comunicaciones para los pacientes.",
+  "problemasQueResuelve": [
+    "Tengo las citas y la información de cada paciente en sitios distintos.",
+    "Me cuesta comprobar qué atenciones están pagadas.",
+    "No llevo al día las existencias de los productos.",
+    "Necesito consultar los resultados de mi consulta sin reunir varios archivos."
+  ],
+  "casosDeUso": [
+    "Consultar la ficha de un paciente al realizar su atención.",
+    "Registrar el pago de una cita y revisar la caja.",
+    "Controlar existencias y recibir avisos cuando falten productos.",
+    "Consultar informes sobre la actividad del centro."
+  ],
+  "idealPara": "Profesionales y centros de salud que necesitan gestionar pacientes y reservas.",
+  "segmentosIdeales": [
+    "1-10"
+  ],
+  "industriasIdeales": [
+    "centros de salud",
+    "consultas médicas"
+  ],
+  "noRecomendadaPara": "No está pensada para negocios fuera del ámbito sanitario.",
+  "casosNoRecomendados": [
+    "No permite importar fichas clínicas de forma masiva.",
+    "La API exige Enterprise; el fabricante revisa la solicitud antes de facilitar el acceso.",
+    "El envío automático de WhatsApp genera un coste adicional definido por Meta.",
+    "La importación masiva de fichas clínicas no está disponible según su ayuda.",
+    "Las cargas o modificaciones masivas de otros datos se solicitan al soporte y pueden tardar hasta cinco días hábiles.",
+    "La API requiere Enterprise y una solicitud al fabricante.",
+    "Los mensajes automáticos de WhatsApp tienen cargos adicionales de Meta.",
+    "El lector mostraba la página comercial vacía. Abrí su HTML, el JavaScript del selector y la respuesta pública que utiliza con pais=CL. Esa tabla devuelve Individual 30000, Básico 50000, Reservo 80000 y Enterprise 180000, todos con currency CLP; el código añade «+ IVA». La versión general contiene una cabecera de 20 USD y la consulta con país en minúsculas devuelve otra tabla en USD: no las he mezclado con la tarifa chilena. La ayuda confirma pago mensual o anual y un descuento anual del 10 %."
+  ],
+  "funcionesPrincipales": [
+    "Gestión de agenda",
+    "Fichas clínicas personalizables",
+    "Registro de ventas y pagos",
+    "Control de cajas",
+    "Inventario y alertas de existencias",
+    "Informes y estadísticas",
+    "Comunicaciones de bienvenida y cumpleaños"
+  ],
+  "integraciones": [
+    "Vambe",
+    "WebPay",
+    "TotalPack",
+    "Fintoc",
+    "CERO.AI",
+    "Recemed",
+    "Mercado Pago",
+    "Dtemite",
+    "WooCommerce"
+  ],
+  "integracionesPrincipales": [
+    "WebPay",
+    "Mercado Pago",
+    "Fintoc",
+    "CERO.AI"
+  ],
+  "curvaDeAprendizaje": "media",
+  "precioInicial": "Desde 30.000 CLP al mes + IVA, Plan Individual; incluye agenda, fichas clínicas, ventas, pagos y una atención simultánea.",
+  "modeloDePrecio": [
+    "suscripcion_mensual",
+    "suscripcion_anual"
+  ],
+  "tienePlanGratuito": false,
+  "preciosComprobados": {
+    "url": "https://reservo.cl/cl/",
+    "fecha": "2026-09-30",
+    "cita": "Su HTML contiene «$30.000 + IVA», «CLP» y «mes». Las cifras completas salen de los datos que carga esa misma pagina —Individual 30000, Basico 50000, Reservo 80000, Enterprise 180000, currency CLP—, leidos en /cliente/plan_reservo_get_data/?pais=CL. Se publica la pagina, no el fichero de datos: a una persona no se la manda a un JSON."
+  },
+  "idiomasDisponibles": [
+    "es"
+  ],
+  "disponibleEnEspanol": true,
+  "tieneApiPublica": true,
+  "puntuaciones": {
+    "facilidadDeUso": null,
+    "nivelTecnicoRequerido": 3,
+    "facilidadImplementacion": 6,
+    "atencionAlCliente": null,
+    "fiabilidad": null,
+    "calidad": null,
+    "escalabilidad": null
+  },
+  "metodologiaValoracion": "Ficha redactada a partir de la ayuda oficial y de los datos públicos que carga la tarifa. Los problemas y ejemplos son reformulaciones de las funciones documentadas, no testimonios. Las notas técnicas son valoraciones documentales explícitas: 3 significa configuración ordinaria mediante formularios; 6, implantación guiada con intervención o límites en la carga de datos. No he vuelto a investigar las capacidades archivadas ni modificado el tamaño.",
+  "ventajas": [
+    "El Plan Individual reúne agenda, fichas clínicas, ventas, pagos e inventario.",
+    "Publica instrucciones para configurar la cuenta y solicitar capacitación.",
+    "Permite conectar varias pasarelas de pago.",
+    "Dispone de documentación pública sobre su API, cuyo acceso requiere Enterprise y aprobación del fabricante."
+  ],
+  "inconvenientes": [
+    "La importación masiva de fichas clínicas no está disponible según su ayuda.",
+    "Las cargas o modificaciones masivas de otros datos se solicitan al soporte y pueden tardar hasta cinco días hábiles.",
+    "La API requiere Enterprise y una solicitud al fabricante.",
+    "Los mensajes automáticos de WhatsApp tienen cargos adicionales de Meta.",
+    "El lector mostraba la página comercial vacía. Abrí su HTML, el JavaScript del selector y la respuesta pública que utiliza con pais=CL. Esa tabla devuelve Individual 30000, Básico 50000, Reservo 80000 y Enterprise 180000, todos con currency CLP; el código añade «+ IVA». La versión general contiene una cabecera de 20 USD y la consulta con país en minúsculas devuelve otra tabla en USD: no las he mezclado con la tarifa chilena. La ayuda confirma pago mensual o anual y un descuento anual del 10 %."
+  ],
+  "informacionEmpresa": {
+    "paisOrigen": "Chile",
+    "anioFundacion": 2015,
+    "tamanoAproximado": null
+  },
+  "id": "reservo",
+  "estado": "activo",
+  "fechaAltaEnAtlas": "2026-09-30",
+  "fechaUltimaRevision": "2026-09-30",
+  "problemasIds": [
+    "organizar-empresa",
+    "ahorrar-tiempo"
+  ]
+}

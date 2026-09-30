@@ -1,0 +1,18 @@
+{
+  "fecha": "2026-09-30",
+  "queEsEsto": "`noRecomendadaPara` DERIVADO de `industriasIdeales`, no investigado. Regla de la propietaria del 2026-09-28: ese campo NO es un defecto, es para quién no está pensada, y sale por descarte de saber para quién sí. Mismo método que las anteriores.",
+  "herramientas": [
+    {
+      "id": "reservo",
+      "deDondeSale": "industriasIdeales y paraQuienEstaPensada del barrido del 2026-09-28",
+      "noRecomendadaPara": "No está pensada para negocios fuera del ámbito sanitario.",
+      "porQueEsaFrase": "Sus sectores son consultas y centros de salud. Misma inversión que Nubimed y DriCloud, que tienen el mismo caso."
+    },
+    {
+      "id": "setmore",
+      "deDondeSale": "industriasIdeales y paraQuienEstaPensada del barrido del 2026-09-28",
+      "noRecomendadaPara": "No está pensada para quien no trabaje con cita previa: todo gira alrededor de la agenda y la página de reservas.",
+      "porQueEsaFrase": "Setmore no se dirige a un sector concreto sino a cualquiera que dé citas, así que invertir por sector no dice nada. Lo que de verdad la descarta es no trabajar con citas."
+    }
+  ]
+}

@@ -92,9 +92,13 @@
     "anioFundacion": 2015,
     "tamanoAproximado": null
   },
-  "objetivoPendienteDeInvestigacion": true,
   "id": "fresha",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-09-30",
-  "fechaUltimaRevision": "2026-09-30"
+  "fechaUltimaRevision": "2026-09-30",
+  "problemasIds": [
+    "conseguir-clientes",
+    "organizar-empresa",
+    "ahorrar-tiempo"
+  ]
 }

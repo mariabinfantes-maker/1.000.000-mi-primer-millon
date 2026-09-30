@@ -95,9 +95,12 @@
     "anioFundacion": 2012,
     "tamanoAproximado": "Alrededor de 200 empleados según la página corporativa, sin fecha de actualización de esa cifra."
   },
-  "objetivoPendienteDeInvestigacion": true,
   "id": "pabau",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-09-30",
-  "fechaUltimaRevision": "2026-09-30"
+  "fechaUltimaRevision": "2026-09-30",
+  "problemasIds": [
+    "organizar-empresa",
+    "ahorrar-tiempo"
+  ]
 }

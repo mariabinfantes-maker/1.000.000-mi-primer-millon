@@ -111,9 +111,12 @@
     "anioFundacion": 2011,
     "tamanoAproximado": "50 empleados, según la página corporativa; no publica una fecha de actualización de esa cifra."
   },
-  "objetivoPendienteDeInvestigacion": true,
   "id": "flowww",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-09-30",
-  "fechaUltimaRevision": "2026-09-30"
+  "fechaUltimaRevision": "2026-09-30",
+  "problemasIds": [
+    "organizar-empresa",
+    "ahorrar-tiempo"
+  ]
 }

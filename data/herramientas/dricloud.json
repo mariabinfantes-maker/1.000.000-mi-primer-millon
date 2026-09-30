@@ -106,9 +106,12 @@
     "anioFundacion": 2012,
     "tamanoAproximado": "23 profesionales, según su página corporativa."
   },
-  "objetivoPendienteDeInvestigacion": true,
   "id": "dricloud",
   "estado": "activo",
   "fechaAltaEnAtlas": "2026-09-30",
-  "fechaUltimaRevision": "2026-09-30"
+  "fechaUltimaRevision": "2026-09-30",
+  "problemasIds": [
+    "organizar-empresa",
+    "ahorrar-tiempo"
+  ]
 }

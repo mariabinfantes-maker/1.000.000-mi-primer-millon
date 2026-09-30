@@ -28,7 +28,7 @@ describe("el plan de verificación", () => {
     expect(asignadas.length).toBe(62);
     // 82 desde el 2026-09-30: DriCloud, flowww, Pabau y Fresha. El plan sigue congelado
     // en 62; la deuda se ve en la prueba de abajo, que las nombra una a una.
-    expect(catalogo.length).toBe(82);
+    expect(catalogo.length).toBe(84);
   });
 
   it("ninguna herramienta se repite", () => {
@@ -50,7 +50,7 @@ describe("el plan de verificación", () => {
    */
   it("las únicas que se quedan fuera son las promovidas después de congelarlo", () => {
     expect(catalogo.filter((id) => !asignadas.includes(id)).sort()).toEqual(
-      ["agendapro", "archivex", "bewe", "bookitit", "booksy", "cliniko", "dricloud", "flowww", "fresha", "hotmart", "jane", "koibox", "nubimed", "pabau", "schedulista", "square-appointments", "teachable", "thinkific", "timify", "viday"]
+      ["agendapro", "archivex", "bewe", "bookitit", "booksy", "cliniko", "dricloud", "flowww", "fresha", "hotmart", "jane", "koibox", "nubimed", "pabau", "reservo", "schedulista", "setmore", "square-appointments", "teachable", "thinkific", "timify", "viday"]
     );
   });
 
