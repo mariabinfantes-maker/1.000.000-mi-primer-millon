@@ -303,6 +303,29 @@ export type AnalisisAtlas = {
   nivelTecnicoRecomendado?: NivelTecnicoRecomendado;
 };
 
+/**
+ * Una comprobación de idioma de UNA pantalla concreta, con su recibo.
+ *
+ * `hayEspanol: false` es una comprobación tan válida como `true`: quiere decir
+ * que se abrió la página y dice que español no hay. Lo que no existe es un
+ * `ComprobacionDeIdioma` para algo que no se ha mirado — en ese caso el campo
+ * no está.
+ */
+export type ComprobacionDeIdioma = {
+  /** Si esa pantalla se puede usar en español, según lo que dice la cita. */
+  hayEspanol: boolean;
+  /** Los idiomas que la página enumera, tal cual. Puede estar vacío. */
+  idiomas: string[];
+  /** La página que se abrió. Del fabricante o de su ayuda, nunca de terceros. */
+  url: string;
+  /** Lo que dice, textual. Sin traducir ni resumir. */
+  cita: string;
+  /** Cuándo se abrió. Un idioma sin fecha no vale, igual que un precio. */
+  fecha: string;
+  /** Lo que el recibo matiza y la cita sola no cuenta. */
+  nota?: string;
+};
+
 export type Herramienta = {
   /** Slug único y estable, ej. "hubspot". Nunca cambia aunque cambie el nombre mostrado. */
   id: string;
@@ -537,6 +560,33 @@ export type Herramienta = {
   idiomasDisponibles: string[];
   /** Añadido: derivado de `idiomasDisponibles`, pero como booleano explícito — ese array a veces es texto ambiguo (ej. "más de 40 idiomas"), y comprobar "¿hay español?" a mano no es fiable. */
   disponibleEnEspanol?: boolean;
+  /**
+   * EL ESPAÑOL, PARTIDO EN DOS Y CON RECIBO.
+   *
+   * `disponibleEnEspanol` es un sí/no y no da para más: no distingue «no está
+   * en español» de «no lo hemos mirado», y sobre todo no distingue las DOS
+   * pantallas, que no tienen por qué estar en el mismo idioma.
+   *
+   *  - `panel`: el programa de gestión, donde trabaja quien contrata.
+   *  - `paginaDeCliente`: lo que ve su cliente al reservar o al pagar.
+   *
+   * El caso que obligó a partirlo es Schedulista: su propia ayuda dice que el
+   * panel «will remain in English», y la página donde reservan sus clientes sí
+   * se puede poner en español. Con un solo booleano, `true` mentía sobre el
+   * panel y `false` mentía sobre la página; las dos respuestas eran falsas.
+   *
+   * AUSENTE SIGNIFICA «SIN CONFIRMAR», Y ESO NO ES «NO». Nunca se rellena
+   * deduciendo: ni del idioma de la web comercial, ni de `idiomasDisponibles`,
+   * ni de una parte a la otra. Sin `url`, `cita` y `fecha` de la página que se
+   * abrió, este campo se queda vacío.
+   *
+   * *(Propietaria, 2026-09-30: «un dato desconocido no puede convertirse en
+   * "no"».)*
+   */
+  idiomaComprobado?: {
+    panel?: ComprobacionDeIdioma;
+    paginaDeCliente?: ComprobacionDeIdioma;
+  };
   /** Añadido: si existe una app móvil oficial (iOS/Android), no solo una web adaptada a móvil. */
   tieneAppMovil?: boolean;
   /** Añadido: si ofrece una API pública documentada para desarrolladores. */

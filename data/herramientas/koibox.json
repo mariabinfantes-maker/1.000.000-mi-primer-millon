@@ -125,5 +125,22 @@
     "ahorrar-tiempo",
     "organizar-empresa",
     "conseguir-clientes"
-  ]
+  ],
+  "idiomaComprobado": {
+    "panel": {
+      "hayEspanol": true,
+      "idiomas": [
+        "es",
+        "en",
+        "pt",
+        "it",
+        "fr"
+      ],
+      "url": "https://soporte.koibox.cloud/es/article/se-ha-puesto-el-programa-en-otro-idioma-como-puedo-cambiarlo-ld6pld/",
+      "cita": "Español […] Inglés […] Português […] Italiano […] Francés",
+      "fecha": "2026-09-29",
+      "nota": "Transcripción del selector de idiomas de la captura del artículo. Corresponde al programa de gestión."
+    }
+  },
+  "disponibleEnEspanol": true
 }

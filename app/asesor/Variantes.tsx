@@ -27,11 +27,14 @@ import Boton from "@/components/ui/Boton";
  *     donde se va, no como una pregunta frecuente.
  */
 
+import type { EstadoDelEspanol } from "@/agents/atlas-advisor/asesor/espanol";
+
 export type QueResuelve = { necesidad: string; loQueTeCuesta?: string; url?: string; fecha?: string };
 export type Coste = {
   desdeCorto?: string;
   desde?: string; comprobadoEl?: string; urlPrecios?: string;
-  tienePlanGratuito?: boolean; curva?: string; enEspanol?: boolean;
+  tienePlanGratuito?: boolean; curva?: string;
+  espanol: { panel: EstadoDelEspanol; paginaDeCliente: EstadoDelEspanol };
 };
 export type Pieza = {
   herramientaId: string; nombre: string; cubre: string[]; cubreEnCorto: string[]; ademas: string[]; casas: string[];
@@ -122,7 +125,22 @@ export function Detalle({ p }: { p: Pieza }) {
         <ul className="mt-2.5 space-y-1">
           {p.coste.tienePlanGratuito && <li>Tiene plan gratuito.</li>}
           {p.coste.curva && <li>{CURVA[p.coste.curva] ?? p.coste.curva}.</li>}
-          <li>{p.coste.enEspanol ? "Está en español." : "En español: sin comprobar."}</li>
+          {/*
+            Tres estados, no dos: «no lo hemos comprobado» y «no lo tiene» no
+            son lo mismo y aquí se comparan una al lado de la otra, así que
+            confundirlas es peor todavía. Y el panel se dice aparte de la
+            página del cliente, que pueden estar en idiomas distintos.
+          */}
+          <li>
+            {p.coste.espanol.panel === "confirmado"
+              ? "Programa de gestión en español."
+              : p.coste.espanol.panel === "no_disponible"
+                ? "Su programa de gestión no está en español."
+                : "Programa de gestión: no hemos podido comprobar si está en español."}
+          </li>
+          {p.coste.espanol.paginaDeCliente === "confirmado" && (
+            <li>La página donde reservan tus clientes se puede poner en español.</li>
+          )}
         </ul>
       </Puerta>
 

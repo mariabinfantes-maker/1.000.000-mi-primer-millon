@@ -10,7 +10,7 @@ describe("las tres puertas", () => {
     console.log("  QUÉ TE RESUELVE:");
     for (const q of p.queResuelve) console.log(`    · ${q.necesidad} — visto en ${q.url} el ${q.fecha}`);
     console.log("  COSTE: " + p.coste.desde + " · gratis: " + p.coste.tienePlanGratuito
-      + " · curva: " + p.coste.curva + " · español: " + p.coste.enEspanol);
+      + " · curva: " + p.coste.curva + " · español: " + p.coste.espanol.panel);
     console.log("    precio comprobado el " + p.coste.comprobadoEl + " en " + p.coste.urlPrecios);
     console.log("  FALTA POR CONFIRMAR:");
     for (const f of p.faltaPorConfirmar) console.log("    · " + f);

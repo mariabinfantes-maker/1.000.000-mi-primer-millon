@@ -60,10 +60,15 @@ const CAMPOS_OPCIONALES = new Set<keyof Herramienta>([
   // La fecha de comprobación la pone quien comprueba, no quien investiga.
   "preciosComprobados",
   "planesComprobados",
+  // El idioma partido en panel y página de cliente lleva recibo propio: lo
+  // pone quien abre la página, con su cita y su fecha, no quien redacta.
+  "idiomaComprobado",
 ]);
 
 export const DESCRIPCION_CAMPOS: Record<keyof Herramienta, string> = {
   id: "Identificador interno (lo asigna Atlas, no lo investigues).",
+  idiomaComprobado:
+    "El español de CADA pantalla por separado, con su cita y su fecha: `panel` es el programa de gestión y `paginaDeCliente` es lo que ve quien reserva. No se deduce una de la otra ni del idioma de la web comercial. Si no se ha abierto la página que lo dice, se deja vacío: vacío significa «sin confirmar», que no es «no».",
   nombre: "Nombre comercial de la herramienta.",
   paginaOficial: "URL de la web oficial.",
   urlPrecios: "URL de la página de precios, si es distinta de la web oficial.",

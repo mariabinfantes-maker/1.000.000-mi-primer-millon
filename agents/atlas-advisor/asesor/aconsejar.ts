@@ -5,6 +5,12 @@ import { getEsqueleto } from "@/data/vocabulario/asesor";
 import { getPuertoDeEvidencia } from "@/data/verificacion/consulta";
 import type { PuertoDeEvidencia } from "@/data/verificacion/puerto";
 import { buscar, type Solucion } from "./buscar";
+import {
+  ORDEN_DEL_ESPANOL,
+  avisoDelEspanol,
+  espanolDe,
+  type EspanolDeUnaHerramienta,
+} from "./espanol";
 
 /**
  * El paso 4 del asesor: ACONSEJAR.
@@ -92,7 +98,15 @@ export type Coste = {
   urlPrecios?: string;
   tienePlanGratuito?: boolean;
   curva?: string;
-  enEspanol?: boolean;
+  /**
+   * El español, en tres estados y partido en dos pantallas. Antes aquí había
+   * un `enEspanol?: boolean`, y ese booleano es el fallo que se corrige el
+   * 2026-09-30: `undefined` —«no lo hemos mirado»— desempataba igual que
+   * `false` —«no lo tiene»—, así que cinco herramientas que sí listan español
+   * caían antes de que nadie mirara su precio. El porqué entero está en
+   * `espanol.ts`; aquí sólo viaja el estado, sin resolverlo en un sí/no.
+   */
+  espanol: EspanolDeUnaHerramienta;
 };
 
 export type Pieza = {
@@ -306,9 +320,15 @@ function aPieza(
         if (s.partes.some((o) => o.cubre.includes(n.necesidad.id))) continue;
         faltaPorConfirmar.push(`No nos consta que cubra «${n.necesidad.titulo.toLowerCase()}».`);
       }
-      if (h && !h.disponibleEnEspanol) {
-        faltaPorConfirmar.push("No hemos confirmado que esté en español.");
-      }
+      /**
+       * Antes esto decía «No hemos confirmado que esté en español» tanto de la
+       * que no lo está como de la que no hemos mirado, y son cosas distintas:
+       * a una le consta que no, de la otra no nos consta nada. Ahora cada una
+       * dice lo suyo, y de la que sí está confirmada no se dice nada, porque
+       * no hay nada que advertir.
+       */
+      const aviso = avisoDelEspanol(espanolDe(h));
+      if (aviso) faltaPorConfirmar.push(aviso);
 
       // Lo que suma, demostrado, de las necesidades que ella trajo.
       const ademas: string[] = [];
@@ -335,7 +355,7 @@ function aPieza(
           urlPrecios: h?.preciosComprobados?.url ?? h?.urlPrecios,
           tienePlanGratuito: h?.tienePlanGratuito,
           curva: h?.curvaDeAprendizaje,
-          enEspanol: h?.disponibleEnEspanol,
+          espanol: espanolDe(h),
         },
         faltaPorConfirmar: [...new Set(faltaPorConfirmar)],
       };
@@ -438,18 +458,46 @@ function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempat
   }
   opciones = simples;
 
-  const enEspanol = opciones.filter((o) => o.piezas.every((p) => p.coste.enEspanol));
-  if (enEspanol.length === 1) {
+  /**
+   * EL ESPAÑOL, SIN CONVERTIR LO DESCONOCIDO EN UN «NO».
+   *
+   * Esto era `filter((o) => o.piezas.every((p) => p.coste.enEspanol))`, y esa
+   * línea tenía dos fallos en uno. El primero: `undefined` es falsy, así que
+   * «no lo hemos mirado» eliminaba exactamente igual que «no lo tiene»; Koibox
+   * —selector de idioma en español publicado en su propio soporte— se caía
+   * aquí, en el paso 2 de 5, y con ella Square Appointments, TIMIFY, Booksy y
+   * Schedulista. El segundo: *filtrar* es descartar, y el idioma no descarta a
+   * nadie; como mucho ordena.
+   *
+   * Ahora se ordena por estado —confirmado, sin confirmar, no disponible— y se
+   * queda el mejor grupo que haya. Dos consecuencias que son la regla de la
+   * propietaria del 2026-09-30, entera:
+   *
+   *  - Si el mejor grupo es «sin confirmar», el idioma NO decide y no se dice
+   *    que decidió: se sigue bajando por plan gratuito, precio y curva. Una
+   *    candidata sin confirmar no puede presentarse como si ya cumpliera.
+   *  - Ninguna se va de la lista. `ordenarPorCercania` vuelve a llamar aquí con
+   *    las que quedan, así que las de abajo siguen estando; y lo que no nos
+   *    consta se dice en `faltaPorConfirmar`, no se calla.
+   */
+  const rangoDelEspanol = (o: Opcion) =>
+    Math.max(...o.piezas.map((p) => ORDEN_DEL_ESPANOL[p.coste.espanol.panel]));
+  const mejorIdioma = Math.min(...opciones.map(rangoDelEspanol));
+  const enEspanol = opciones.filter((o) => rangoDelEspanol(o) === mejorIdioma);
+  if (mejorIdioma === ORDEN_DEL_ESPANOL.confirmado && enEspanol.length === 1) {
     return { elegida: enEspanol[0], desempate: {
       criterio: "idioma",
       // «De las que te valen» daba por explicado un encaje que la pantalla no
       // contaba (propietaria, 2026-09-25). Ahora el encaje se dice antes, en el
       // propio consejo, así que esta frase sólo tiene que aportar lo suyo: el
       // idioma desempata, no justifica.
-      porQue: `Y es la única de las tres que está en español; las demás no están pensadas para trabajar en tu idioma.`,
+      //
+      // Y dice «de las que te valen» y no «de las tres» porque las que valen no
+      // son siempre tres: el número salía de un caso concreto y se quedó escrito.
+      porQue: `Y es la única de las que te valen que está en español confirmado; de las demás no nos consta que puedas trabajar en tu idioma.`,
     } };
   }
-  const quedan1 = enEspanol.length > 1 ? enEspanol : opciones;
+  const quedan1 = enEspanol.length > 0 ? enEspanol : opciones;
 
   const gratis = quedan1.filter((o) => o.piezas.every((p) => p.coste.tienePlanGratuito));
   if (gratis.length === 1) {

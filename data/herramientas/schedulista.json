@@ -107,5 +107,18 @@
     "ahorrar-tiempo",
     "organizar-empresa",
     "conseguir-clientes"
-  ]
+  ],
+  "idiomaComprobado": {
+    "panel": {
+      "hayEspanol": false,
+      "idiomas": [
+        "en"
+      ],
+      "url": "https://support.schedulista.com/en/articles/365830-changing-the-scheduler-language",
+      "cita": "The rest of the product (the part that you see) does not change and will remain in English.",
+      "fecha": "2026-09-29",
+      "nota": "El artículo, fechado el 4 de agosto de 2026, habla del panel, el calendario, los ajustes, la aplicación móvil y los avisos al profesional. Del calendario público que ven sus clientes el mismo artículo dice que el idioma sí se cambia, pero no quedó guardada la cita que enumere los idiomas: por eso paginaDeCliente se queda sin confirmar en vez de darse por buena."
+    }
+  },
+  "disponibleEnEspanol": false
 }

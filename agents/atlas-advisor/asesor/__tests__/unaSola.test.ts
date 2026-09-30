@@ -100,7 +100,7 @@ describe("y las demás, de más cerca a más lejos", () => {
       const p = a.piezas[0];
       console.log(
         "    " + a.piezas.map((x) => x.nombre).join("+").padEnd(20) +
-        (p.coste.enEspanol ? "español " : "        ") +
+        (p.coste.espanol.panel === "confirmado" ? "español " : "        ") +
         (p.coste.tienePlanGratuito ? "gratis " : "       ") +
         (p.coste.desde ?? "")
       );

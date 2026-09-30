@@ -109,7 +109,16 @@ function Coste({ p }: { p: Pieza }) {
           trabajo, no una característica del programa. Quien elige por idioma
           sigue protegida: el consejo lo dice en voz alta cuando decide.
         */}
-        {p.coste.enEspanol && <li>Está en español.</li>}
+        {p.coste.espanol.panel === "confirmado" && <li>Su programa de gestión está en español.</li>}
+        {/*
+          Y la otra pantalla, la que ve su cliente, sólo cuando nos consta
+          aparte: que el panel esté en español no demuestra que la página de
+          reservas lo esté, ni al revés. Schedulista es el caso: panel en
+          inglés, página de reservas en español.
+        */}
+        {p.coste.espanol.paginaDeCliente === "confirmado" && (
+          <li>La página donde reservan tus clientes se puede poner en español.</li>
+        )}
       </ul>
     </>
   );
