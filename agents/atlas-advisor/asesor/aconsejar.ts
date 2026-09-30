@@ -128,6 +128,12 @@ export type Coste = {
 export type Pieza = {
   herramientaId: string;
   nombre: string;
+  /**
+   * El logo oficial, si la ficha lo tiene. Hoy ninguna de las 90 lo tiene: el
+   * campo existe desde el principio y está vacío. La pantalla pinta la inicial
+   * mientras falte, y el logo cuando llegue, sin cambiar nada más.
+   */
+  logoUrl?: string;
   /** Necesidades suyas que esta pieza cubre, con el título que ella entiende. */
   cubre: string[];
   /**
@@ -307,6 +313,22 @@ export type Consejo = {
    * preguntas.
    */
   loQueNecesitoSaber: string | null;
+  /**
+   * LAS QUE EMPATAN, EXACTAMENTE. Sólo con empate; vacío en los demás casos.
+   *
+   * Es el mismo conjunto sobre el que razonó `elegirUna` y cuyo número dice
+   * `loQueNecesitoSaber` («me quedan 6»). Antes el motor devolvía sólo la
+   * frase, y la pantalla enseñaba las tres primeras de la búsqueda, que van
+   * por orden alfabético: en 611 de 819 empates salía al menos una que no
+   * estaba entre las empatadas. Propietaria, 2026-09-30: «las herramientas
+   * que enseñe inmediatamente debajo tienen que pertenecer necesariamente a
+   * esas 6».
+   *
+   * No cambia cómo decide el motor: cambia qué devuelve. Van en el orden en
+   * que llegaron a `elegirUna`, sin ordenarlas otra vez: no hay razón para
+   * poner una por delante y no se inventa.
+   */
+  empatadas: Opcion[];
   /** Por qué: qué necesidad suya resuelve cada pieza. */
   porQue: string[];
   /**
@@ -457,6 +479,7 @@ function aPieza(
       return {
         herramientaId: p.herramientaId,
         nombre: h?.nombre ?? p.herramientaId,
+        logoUrl: h?.logoUrl,
         ademas,
         cubre: p.cubre.map((id) => getNecesidad(id)?.titulo ?? id),
         cubreEnCorto: p.cubre.map((id) => getNecesidad(id)?.enCorto ?? id),
@@ -549,7 +572,7 @@ export function ordenarPorCercania(opciones: Opcion[]): Opcion[] {
   return orden;
 }
 
-function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempate } | { empate: string } {
+function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempate } | { empate: string; entre: Opcion[] } {
   let opciones = candidatas;
   if (opciones.length === 1) {
     return { elegida: opciones[0], desempate: { criterio: "unica", porQue: "Es la única que cubre lo que me has contado." } };
@@ -612,7 +635,15 @@ function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempat
       //
       // Y dice «de las que te valen» y no «de las tres» porque las que valen no
       // son siempre tres: el número salía de un caso concreto y se quedó escrito.
-      porQue: `Y es la única de las que te valen que está en español confirmado; de las demás no nos consta que puedas trabajar en tu idioma.`,
+      /**
+       * LO QUE DECIDIÓ SE DICE COMO LO QUE DECIDIÓ, Y ENTRE CUÁNTAS.
+       * Antes decía «tiene plan gratuito» y se leía como el motivo entero
+       * —«la recomienda porque es gratis»— cuando el motivo entero lo
+       * comparten todas las que llegaron aquí. Propietaria, 2026-09-30: «da a
+       * entender que esa siguiente opción no lo tiene». Ahora la frase nombra
+       * la comparación exacta que el motor sostiene: «la única de las N con…».
+       */
+      porQue: `Me decido por ${nombreDe(enEspanol[0])} porque es la única de las ${opciones.length} con el programa en español confirmado; de las demás no nos consta.`,
     } };
   }
   const quedan1 = enEspanol.length > 0 ? enEspanol : opciones;
@@ -621,7 +652,26 @@ function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempat
   if (gratis.length === 1) {
     return { elegida: gratis[0], desempate: {
       criterio: "plan-gratuito",
-      porQue: `${nombreDe(gratis[0])} tiene plan gratuito, así que puedes probarla antes de pagar nada.`,
+      /**
+       * REDACCIÓN DE LA PROPIETARIA, 2026-09-30: «Empezaría por Koibox
+       * porque, entre las que están en español, es la única con plan
+       * gratuito.»
+       *
+       * Qué reemplaza y por qué. Antes decía «Me decido por X porque es la
+       * única de las N que están en español con plan gratuito: puedes
+       * probarla antes de pagar nada». Dos cosas: «empezaría por» es lo que
+       * ya dice el titular de la tarjeta, y la condición para decir «que
+       * están en español» miraba si quedaban menos que al principio —lo que
+       * también pasa cuando lo que recortó fue el número de piezas—, así que
+       * podía afirmar el español de un grupo que sólo era «sin confirmar».
+       * Ahora «en español» se dice sólo si ese grupo está confirmado.
+       */
+      porQue:
+        mejorIdioma === ORDEN_DEL_ESPANOL.confirmado
+          ? `Empezaría por ${nombreDe(gratis[0])} porque, entre las que están en español, es la única con plan gratuito.`
+          : quedan1.length === opciones.length
+            ? `Empezaría por ${nombreDe(gratis[0])} porque es la única de las ${opciones.length} con plan gratuito.`
+            : `Empezaría por ${nombreDe(gratis[0])} porque, entre las que quedan después de mirar el idioma, es la única con plan gratuito.`,
     } };
   }
   const quedan2 = gratis.length > 1 ? gratis : quedan1;
@@ -665,12 +715,38 @@ function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempat
   if (curva.length > 1 && curva[0].c < curva[1].c && curva[0].c < 9) {
     return { elegida: curva[0].o, desempate: {
       criterio: "curva",
-      porQue: `Las dos te sirven, pero ${nombreDe(curva[0].o)} se aprende antes. Para empezar, eso vale más que cualquier función de más.`,
+      porQue: `De las ${quedan3.length}, ${nombreDe(curva[0].o)} es la que se aprende antes. Para empezar, eso vale más que cualquier función de más.`,
     } };
   }
 
   // No se enseñan las dos. Se dice que no se puede elegir y se pregunta.
-  return { empate: `${quedan3.length > 1 ? quedan3.length : opciones.length} salen igual de bien con lo que me has contado, y no tengo con qué decidir entre ellas. Dime qué presupuesto manejas al mes y si trabajas sola o con más personas, y te digo cuál.` };
+  /**
+   * «CUBREN», NO «SALEN IGUAL DE BIEN». Propietaria, 2026-09-30: «el motor no
+   * mide qué tan bien realiza cada herramienta una tarea, así que no quiero
+   * que Molnip utilice "igual de bien" en ningún punto de esta experiencia».
+   * Antes decía «N salen igual de bien con lo que me has contado». Sólo cambia
+   * la frase: el empate y la pregunta siguen siendo los mismos.
+   *
+   * Y dice DOS números cuando son dos. N contaba las que quedan empatadas
+   * después de idioma, plan gratuito y precio; con «N cubren todo», una
+   * reserva que cubren 34 decía «6 cubren», y eso es falso. Ahora: cuántas
+   * cubren, y entre cuántas de ellas no puede decidir.
+   */
+  const cuantasEmpatan = quedan3.length > 1 ? quedan3.length : opciones.length;
+  // Empatan por CUÁNTAS cosas cubren, no por cuáles: dos pueden cubrir una
+  // cada una y ser cosas distintas. Así que, si no lo cubren todo, se dice
+  // el recuento y no «lo mismo».
+  const cubiertas = new Set(opciones[0].piezas.flatMap((p) => p.cubre)).size;
+  const pedidas = cubiertas + opciones[0].noCubre.length;
+  const loQue = opciones.every((o) => o.noCubre.length === 0)
+    ? "todo lo que me has contado"
+    : `${cubiertas} de las ${pedidas} cosas que me has contado`;
+  const cubren = `${opciones.length} ${opciones.length === 1 ? "herramienta cubre" : "herramientas cubren"} ${loQue}`;
+  const sinDecidir = cuantasEmpatan === opciones.length
+    ? `${cubren}, y no tengo con qué decidir entre ellas.`
+    : `${cubren}. Mirando idioma, plan gratuito y precio me quedan ${cuantasEmpatan}, y entre esas no tengo con qué decidir.`;
+  // `entre` es el conjunto cuyo número acaba de decir la frase, ni una más.
+  return { entre: cuantasEmpatan === opciones.length ? opciones : quedan3, empate: `${sinDecidir} Dime qué presupuesto manejas al mes y si trabajas sola o con más personas, y te digo cuál.` };
 }
 
 
@@ -712,7 +788,7 @@ export function aconsejar(
   if (r.soluciones.length === 0) {
     // Decir que no es un resultado válido. Es la forma `no-cubierto` del
     // esqueleto, y existe para no rellenar con lo que haya.
-    return { caminos: [], loQueHaria: null, loQueNecesitoSaber: null, porQue: [], alternativas: [], masAlternativas: 0, sinComprobar, sinConfirmarEnNinguna, dondeSeBusco };
+    return { caminos: [], loQueHaria: null, loQueNecesitoSaber: null, empatadas: [], porQue: [], alternativas: [], masAlternativas: 0, sinComprobar, sinConfirmarEnNinguna, dondeSeBusco };
   }
 
   const mejor = r.soluciones[0];
@@ -830,7 +906,7 @@ export function aconsejar(
     if (mejor.cubreImprescindibles < mejor.deImprescindibles) {
       sinComprobar.push(`De lo que me has contado, lo que he encontrado cubre ${mejor.cubreImprescindibles} de ${mejor.deImprescindibles} cosas.`);
     }
-    return { caminos, loQueHaria: null, loQueNecesitoSaber: elegida.empate, porQue: [], alternativas: [], masAlternativas: 0, sinComprobar, sinConfirmarEnNinguna, dondeSeBusco };
+    return { caminos, loQueHaria: null, loQueNecesitoSaber: elegida.empate, empatadas: elegida.entre, porQue: [], alternativas: [], masAlternativas: 0, sinComprobar, sinConfirmarEnNinguna, dondeSeBusco };
   }
 
   const loQueHaria = { ...elegida.elegida, desempate: elegida.desempate };
@@ -853,7 +929,7 @@ export function aconsejar(
       `De lo que me has contado, esto cubre ${mejor.cubreImprescindibles} de ${mejor.deImprescindibles} cosas.`
     );
   }
-  return { caminos, loQueHaria, loQueNecesitoSaber: null, porQue, alternativas, masAlternativas, sinComprobar, sinConfirmarEnNinguna, dondeSeBusco };
+  return { caminos, loQueHaria, loQueNecesitoSaber: null, empatadas: [], porQue, alternativas, masAlternativas, sinComprobar, sinConfirmarEnNinguna, dondeSeBusco };
 }
 
 /** Las reglas de presentación que este módulo tiene que respetar, para poder probarlas. */
