@@ -1,5 +1,6 @@
 import { getNecesidad, getNecesidades } from "@/data/vocabulario/necesidades";
 import type { NecesidadDelCaso } from "@/data/vocabulario/necesidades";
+import { aclaracionesDe, ambiguosQueNoSeSostienen, sinLoQueSePregunta, INSTRUCCION_DE_AMBIGUOS, type Aclaracion } from "./ambiguos";
 
 /**
  * El paso 1 del asesor: ENTENDER LO QUE CUENTA LA PERSONA.
@@ -33,6 +34,11 @@ export type Comprension = {
   noEntendido: string[];
   /** Circunstancias sueltas que ella contó y que pueden afectar al consejo. */
   circunstancias: string[];
+  /**
+   * Palabras que el vocabulario sabe leer de varias formas y que su texto no
+   * aclara: se le pregunta «¿para qué?». Ver `ambiguos.ts`.
+   */
+  aclaraciones: Aclaracion[];
 };
 
 export function construirPromptDeComprension(texto: string): string {
@@ -53,6 +59,7 @@ ${catalogo}
 
 Devuelve SÓLO este JSON, sin nada alrededor:
 {"necesidades":[{"id":"<un id de la lista>","porQue":"la parte de SU texto que lo dice"}],
+ "ambiguos":[{"termino":"<palabra exacta de su texto>"}],
  "noEntendido":["frases suyas que no encajan en ninguna necesidad de la lista"],
  "circunstancias":["datos de su negocio que ha contado: oficio, cuánta gente, dónde, cuánto factura..."]}
 
@@ -60,6 +67,7 @@ REGLAS QUE MANDAN:
 - No le atribuyas necesidades que no ha contado. Si sólo habla de citas, sólo citas.
 - "porQue" es un trozo LITERAL de su texto. Si no puedes citarlo, no lo incluyas.
 - Lo que no encaje en la lista va a "noEntendido". Es un resultado válido, no un fallo.
+${INSTRUCCION_DE_AMBIGUOS}
 - No inventes ids. Si dudas entre dos, elige el que use sus mismas palabras.
 - No escribas consejos ni nombres de productos.`;
 }
@@ -76,6 +84,7 @@ export function leerComprension(texto: string, cruda: unknown): Comprension {
     necesidades?: { id?: string; porQue?: string }[];
     noEntendido?: string[];
     circunstancias?: string[];
+    ambiguos?: unknown[];
   };
   const vistas = new Set<string>();
   const necesidades: NecesidadDelCaso[] = [];
@@ -88,10 +97,15 @@ export function leerComprension(texto: string, cruda: unknown): Comprension {
     // deseables sólo pueden salir de una pregunta nuestra, en el paso 2.
     necesidades.push({ necesidad, importancia: "imprescindible" });
   }
+  const aclaraciones = aclaracionesDe(texto, d.ambiguos, vistas, vistas);
   return {
     loQueDijo: texto,
     necesidades,
-    noEntendido: (d.noEntendido ?? []).filter((s) => typeof s === "string" && s.trim()).slice(0, 6),
+    aclaraciones,
+    noEntendido: [
+      ...sinLoQueSePregunta((d.noEntendido ?? []).filter((s) => typeof s === "string" && s.trim()), aclaraciones),
+      ...ambiguosQueNoSeSostienen(texto, d.ambiguos, aclaraciones),
+    ].slice(0, 6),
     circunstancias: (d.circunstancias ?? []).filter((s) => typeof s === "string" && s.trim()).slice(0, 8),
   };
 }

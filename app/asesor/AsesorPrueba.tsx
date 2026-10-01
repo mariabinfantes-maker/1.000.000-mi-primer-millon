@@ -51,13 +51,42 @@ type Pregunta = {
   cercaDeLoQueConto: number;
   respuestas: { id: string; texto: string; loCuentaElla?: boolean }[];
 };
+/**
+ * El caso tal como lo guarda el asesor: lo que contó, lo que contestó y los
+ * datos sueltos. La página no lo interpreta: lo guarda y lo devuelve con cada
+ * mensaje, para que nada empiece de cero. Ver `continuar.ts`.
+ */
+type EstadoDelCaso = {
+  necesidades: { id: string; importancia: string }[];
+  respuestas: { dimensionId: string; respuestaId: string }[];
+  circunstancias: string[];
+};
+/** Una palabra que el vocabulario sabe leer de varias formas, y esas formas. */
+type Aclaracion = { termino: string; opciones: { id: string; titulo: string }[] };
+/** Lo que Molnip dice de un mensaje que llega a mitad de conversación. */
+type Continuacion = {
+  estado: EstadoDelCaso;
+  lineas: string[];
+  noEntendido: string[];
+  aclaraciones?: Aclaracion[];
+  sinCambios: boolean;
+  sinIA?: boolean;
+};
 type Respuesta = {
+  estado?: EstadoDelCaso;
+  continuacion?: Continuacion;
+  /** Lo último que contestó, con sus palabras. Lo decide el servidor, que sabe si se corrigió. */
+  ultimaRespuesta?: string | null;
   sinIA?: boolean;
   /** Ya contestó la pregunta: lo que se ve es el consejo, no una primera selección. */
   yaRespondio?: boolean;
   necesidades?: Necesidad[];
   leyoLaIA?: boolean;
-  comprension?: { necesidades: { necesidad: Necesidad; salioDeUnaPregunta?: boolean }[]; noEntendido: string[] };
+  comprension?: {
+    necesidades: { necesidad: Necesidad; salioDeUnaPregunta?: boolean }[];
+    noEntendido: string[];
+    aclaraciones?: Aclaracion[];
+  };
   preguntas?: Pregunta[];
   consejo?: Consejo;
 };
@@ -120,6 +149,19 @@ export default function AsesorPrueba() {
   const [respondidas, setRespondidas] = useState<string[]>([]);
   /** Lo último que contestó, con sus palabras, para poder repetírselo. */
   const [ultimaRespuesta, setUltimaRespuesta] = useState<string | null>(null);
+  /** El caso que ya se conoce. Viaja con cada mensaje: sin él, cada frase era una consulta nueva. */
+  const [estado, setEstado] = useState<EstadoDelCaso | null>(null);
+  /** La pregunta a la que dijo «te lo explico yo»: su próximo mensaje se lee como respuesta a ella. */
+  const [preguntaAbierta, setPreguntaAbierta] = useState<string | null>(null);
+  /** Lo que Molnip contesta al último mensaje: qué ha cambiado, o qué no ha entendido. */
+  const [nota, setNota] = useState<Continuacion | null>(null);
+  /**
+   * «¿Para qué quieres usar WhatsApp?». Una palabra que el vocabulario sabe
+   * leer de varias formas y su mensaje no aclaraba. Se pregunta, no se elige.
+   */
+  const [aclaracion, setAclaracion] = useState<Aclaracion | null>(null);
+  /** La palabra de la que acaba de decir «otra cosa»: su próximo mensaje se lee como respuesta a ella. */
+  const [aclaracionAbierta, setAclaracionAbierta] = useState<string | null>(null);
   /**
    * Las formas antiguas de enseñar el consejo ya NO están en la pantalla.
    *
@@ -158,6 +200,10 @@ export default function AsesorPrueba() {
     respondida?: { dimensionId: string; respuestaId: string };
     necesidadesPrevias?: string[];
     respondidas?: string[];
+    estado?: EstadoDelCaso;
+    preguntaAbierta?: string;
+    aclaracionAbierta?: string;
+    aclarada?: { termino: string; necesidadId: string };
   }) {
     setCargando(true);
     const res = await fetch("/api/asesor", {
@@ -165,7 +211,25 @@ export default function AsesorPrueba() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(cuerpo),
     });
-    setR(await res.json());
+    const json = (await res.json()) as Respuesta;
+    /*
+     * UN MENSAJE QUE NO CAMBIA NADA NO TOCA LO QUE HAY. Se guarda el estado
+     * —puede haber apuntado que «te lo explico yo»— y se enseña lo que no se
+     * ha entendido, pero el caso y el consejo se quedan como estaban.
+     * Propietaria, 2026-09-30: «nunca vacíes el caso ni sustituyas una
+     * recomendación válida por "no tengo nada que proponerte" debido
+     * únicamente a un mensaje nuevo no entendido».
+     */
+    setAclaracion(json.continuacion?.aclaraciones?.[0] ?? json.comprension?.aclaraciones?.[0] ?? null);
+    if (json.continuacion?.sinCambios) {
+      setEstado(json.continuacion.estado);
+      setNota(json.continuacion);
+    } else {
+      setR(json);
+      if (json.estado) setEstado(json.estado);
+      setNota(json.continuacion ?? null);
+      if (json.ultimaRespuesta !== undefined) setUltimaRespuesta(json.ultimaRespuesta);
+    }
     setCargando(false);
   }
 
@@ -187,6 +251,8 @@ export default function AsesorPrueba() {
    * medio.
    */
   const laPregunta = r?.preguntas?.find((p) => p.cercaDeLoQueConto > 0);
+  /** Si hay algo que decir en «He entendido que necesitas…». */
+  const textoEntendido = (r?.comprension?.necesidades.filter((n) => !n.salioDeUnaPregunta).length ?? 0) > 0;
   const quePide = r?.comprension?.necesidades.map((n) => n.necesidad.titulo) ?? [];
   // Los nombres cortos («reservas», «facturas») los saca cada tarjeta de lo
   // que cubre SU opción, no de todo lo que ella pidió.
@@ -335,19 +401,24 @@ export default function AsesorPrueba() {
 
         {c && (
           <>
+            {/* Una burbuja sin nada que decir no se pinta: pasaba con «¿para qué?» en el primer mensaje. */}
+            {(oficioElegido || textoEntendido || ultimaRespuesta) && (
             <Dice>
               {oficioElegido ? (
                 <p>Esto es lo que suele hacer falta en {oficioElegido.nombre.toLowerCase()}.</p>
               ) : (
                 <>
-                  <p>
-                    He entendido que necesitas{" "}
-                    {r?.comprension?.necesidades
-                      .filter((n) => !n.salioDeUnaPregunta)
-                      .map((n) => `«${n.necesidad.titulo.toLowerCase()}»`)
-                      .join(" y ")}
-                    .
-                  </p>
+                  {/* Sin nada que decir, no se dice «He entendido que necesitas .» con la frase vacía. */}
+                  {(r?.comprension?.necesidades.filter((n) => !n.salioDeUnaPregunta).length ?? 0) > 0 && (
+                    <p>
+                      He entendido que necesitas{" "}
+                      {r?.comprension?.necesidades
+                        .filter((n) => !n.salioDeUnaPregunta)
+                        .map((n) => `«${n.necesidad.titulo.toLowerCase()}»`)
+                        .join(" y ")}
+                      .
+                    </p>
+                  )}
                   {/*
                     LO QUE ELLA CONTESTÓ SE REPITE CON SUS PALABRAS.
                     Antes, «el paciente elige profesional» se convertía en
@@ -375,6 +446,7 @@ export default function AsesorPrueba() {
                 parece una rata miedosa»— y tenía razón.
               */}
             </Dice>
+            )}
 
             {/*
               LA RESPUESTA VA PEGADA A LA PREGUNTA.
@@ -385,7 +457,64 @@ export default function AsesorPrueba() {
               recomendación». Ahora los botones están debajo de la pregunta y,
               al pulsarlos, Molnip sigue desde ahí.
             */}
-            {laPregunta && !r?.yaRespondio && (
+            {/*
+              LO QUE MOLNIP CONTESTA AL ÚLTIMO MENSAJE. Qué ha cambiado en el
+              caso, con sus palabras; o qué no ha entendido, sin tocar nada.
+            */}
+            {nota && (nota.lineas.length > 0 || nota.noEntendido.length > 0) && (
+              <Dice>
+                {nota.lineas.map((l) => <p key={l}>{l}</p>)}
+                {nota.sinIA ? (
+                  <p>Ahora mismo no puedo leer lo que escribes, así que sigo con lo que ya me habías contado.</p>
+                ) : (
+                  nota.noEntendido.length > 0 && (
+                    <p className={nota.lineas.length ? "mt-2" : ""}>
+                      Esto no lo he entendido: {nota.noEntendido.map((f) => `«${f}»`).join(", ")}. ¿Me lo cuentas de otra forma?
+                      {nota.sinCambios && " Mientras, sigo con lo que ya me habías contado."}
+                    </p>
+                  )
+                )}
+              </Dice>
+            )}
+
+            {/*
+              «¿PARA QUÉ?». Las opciones son los significados que el
+              vocabulario ya reconoce para esa palabra, dichos en su idioma.
+              Elegir una entra en el mismo caso; «Otra cosa» deja que lo cuente.
+            */}
+            {aclaracion && (
+              <Dice>
+                <p className="font-semibold">¿Para qué quieres usar {aclaracion.termino}?</p>
+                <div className="mt-3 flex flex-col gap-2">
+                  {aclaracion.opciones.map((o) => (
+                    <button
+                      key={o.id}
+                      onClick={() => {
+                        setDicho((d) => [...d, o.titulo]);
+                        const termino = aclaracion.termino;
+                        setAclaracion(null);
+                        if (estado) enviar({ texto, estado, aclarada: { termino, necesidadId: o.id } });
+                      }}
+                      className="rounded-xl border border-brand-200 bg-white px-4 py-2.5 text-left text-sm font-semibold text-brand-700 transition hover:border-brand-300 hover:bg-brand-50"
+                    >
+                      {o.titulo}
+                    </button>
+                  ))}
+                  <button
+                    onClick={() => {
+                      setDicho((d) => [...d, "Otra cosa"]);
+                      setAclaracionAbierta(aclaracion.termino);
+                      setAclaracion(null);
+                    }}
+                    className="rounded-xl border border-slate-200/80 bg-white px-4 py-2.5 text-left text-sm font-semibold text-slate-600 transition hover:border-brand-200"
+                  >
+                    Otra cosa: te lo explico
+                  </button>
+                </div>
+              </Dice>
+            )}
+
+            {laPregunta && !r?.yaRespondio && !respondidas.includes(laPregunta.id) && (
               <Dice>
                 <p className="font-semibold">{laPregunta.pregunta}</p>
                 {/*
@@ -402,18 +531,28 @@ export default function AsesorPrueba() {
                       key={resp.id}
                       onClick={() => {
                         setDicho((d) => [...d, resp.texto]);
-                        setUltimaRespuesta(resp.texto);
                         const yaVan = [...respondidas, laPregunta.id];
                         setRespondidas(yaVan);
                         // «Te explico cómo lo hacemos» no trae nada: abre la
-                        // conversación y la escribe ella abajo, con sus palabras.
-                        if (resp.loCuentaElla) return;
-                        enviar({
-                          texto,
-                          respondida: { dimensionId: laPregunta.id, respuestaId: resp.id },
-                          necesidadesPrevias: r?.comprension?.necesidades.map((n) => n.necesidad.id) ?? [],
-                          respondidas: yaVan,
-                        });
+                        // conversación y la escribe ella abajo, con sus
+                        // palabras. Su mensaje entra por el MISMO camino que
+                        // cualquier otro, sabiendo a qué pregunta contesta.
+                        if (resp.loCuentaElla) {
+                          setPreguntaAbierta(laPregunta.id);
+                          return;
+                        }
+                        // Con el caso estructurado: la respuesta se guarda como
+                        // respuesta, y así se puede corregir después.
+                        enviar(
+                          estado
+                            ? { texto, estado, respondida: { dimensionId: laPregunta.id, respuestaId: resp.id } }
+                            : {
+                                texto,
+                                respondida: { dimensionId: laPregunta.id, respuestaId: resp.id },
+                                necesidadesPrevias: r?.comprension?.necesidades.map((n) => n.necesidad.id) ?? [],
+                                respondidas: yaVan,
+                              }
+                        );
                       }}
                       className="rounded-xl border border-brand-200 bg-white px-4 py-2.5 text-left text-sm font-semibold text-brand-700 transition hover:border-brand-300 hover:bg-brand-50"
                     >
@@ -424,7 +563,7 @@ export default function AsesorPrueba() {
               </Dice>
             )}
 
-            {c.caminos.length === 0 ? (
+            {c.caminos.length === 0 && aclaracion ? null : c.caminos.length === 0 ? (
               <Dice>
                 <p className="font-semibold">No tengo nada que proponerte.</p>
                 <p className="mt-1">Y prefiero decírtelo antes que darte algo que no te sirve.</p>
@@ -438,7 +577,7 @@ export default function AsesorPrueba() {
                   mantiene opciones visibles antes de la respuesta, debe
                   presentarlas como una primera selección, todavía por afinar».
                 */}
-                {laPregunta && !r?.yaRespondio && (
+                {laPregunta && !r?.yaRespondio && !respondidas.includes(laPregunta.id) && (
                   <p className="-mb-1 text-sm font-semibold text-slate-500">
                     Una primera selección, a falta de tu respuesta.
                   </p>
@@ -621,7 +760,18 @@ export default function AsesorPrueba() {
             ev.preventDefault();
             if (!texto.trim()) return;
             setDicho((p) => [...p, texto]);
-            enviar({ texto });
+            // Con un caso ya conocido, el mensaje se lee DENTRO de él. Sin caso
+            // —todavía no ha contado nada útil—, es el principio.
+            // Con un «¿para qué?» a la vista —o recién contestado con «otra
+            // cosa»—, su mensaje se lee como respuesta a esa pregunta.
+            const paraQue = aclaracionAbierta ?? aclaracion?.termino;
+            enviar(
+              estado
+                ? { texto, estado, ...(preguntaAbierta ? { preguntaAbierta } : {}), ...(paraQue ? { aclaracionAbierta: paraQue } : {}) }
+                : { texto }
+            );
+            setPreguntaAbierta(null);
+            setAclaracionAbierta(null);
             setTexto("");
           }}
           className="mx-auto flex max-w-2xl items-center gap-2 rounded-2xl border border-slate-200/80 bg-white p-2 pl-5 shadow-premium"
