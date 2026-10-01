@@ -6988,6 +6988,12 @@ candidatas quedaron descartadas del todo, y Clinic Cloud se queda fuera.
   Koibox por ser la única de ellas con plan gratuito.
 - **La peluquera deja de ser el ejemplo** en `AGENTS.md`, y deja de nombrar
   los casos de prueba.
+- **No se vuelven a buscar los límites de usuarios del plan gratuito.**
+  *«No me importa cuántas personas entran en el […] plan gratuito. O sea,
+  vamos a avanzar.»*
+- **El encargo del dinero se rechaza**: *«es que no voy a escuchar tu
+  encargo»*. El fichero del encargo de las 8 de facturación sigue en
+  `encargos/`, sin usar; no se borra.
 
 ### La pantalla del asesor (30 por la tarde)
 
@@ -7013,6 +7019,25 @@ conversando. Sus reglas, de la propietaria:
   reconoce el concepto pero no puede determinar para qué lo quiere el
   usuario.»* Las opciones salen del vocabulario, no del modelo
   (`ambiguos.ts`).
+
+Y tres correcciones suyas sobre lo que la pantalla puede decir, todas de la
+misma regla: **lo que no sale de un dato con fuente no se escribe, y si un
+sitio queda vacío, queda vacío.**
+
+- El subtítulo «Gestión para salones y clínicas» de Koibox era redacción mía,
+  no de la herramienta: fuera.
+- El atajo «Más fáciles de aprender» se retiró: la curva de aprendizaje no
+  tiene todavía un criterio consistente.
+- «Por qué te la recomiendo» separa lo que comparten todas de lo único que
+  decidió. Nace de su corrección *«Bookitit nubimet no tienen plan gratuito»*:
+  decir «tiene plan gratuito» a secas daba a entender que las demás también.
+
+**Los logos.** Cada herramienta lleva su logo oficial junto al nombre, como
+identificador y no como escaparate: *«sin convertir Molnip en un escaparate
+multicolor ni alterar la jerarquía del asesor»*. Más grande en «Mi consejo»,
+más pequeño en las alternativas y al explorar; los colores de cada marca, sólo
+dentro de su logo. La pantalla ya lo admite; **ninguna de las 90 fichas tiene
+logo todavía**, y se pinta la inicial.
 
 Queda fuera, como decisión aparte: **los 269 casos** en que una pareja de
 herramientas cubre todo y el motor prefiere una sola que cubre una parte.
@@ -7115,8 +7140,10 @@ Sin orden de prioridad salvo el primero, que ya se hizo: este punto.
    ficha, «Ver cómo funciona», no lleva a ninguna parte y no registra el clic.
    La página de salida con registro existe en el recorrido antiguo
    (`/herramienta/[id]/ir`) y no admite el asesor como origen.
-3. **La portada lleva al cuestionario antiguo.** Su resultado conserva la
-   nota en círculo sin fuente, la valoración de Capterra sin comprobar,
+3. **La portada lleva al cuestionario antiguo**, que además no entiende: una
+   agencia de publicidad en TikTok que quería «encadenar tareas» recibió una
+   recomendación que, en palabras de la propietaria, *«no sirve para una
+   mierdita»*. Su resultado conserva la nota en círculo sin fuente, la valoración de Capterra sin comprobar,
    «calidad y fiabilidad», «Desventajas» y la frase de la comisión, que habla
    de la afiliación aparcada.
 4. **Las tarjetas del catálogo** no dicen idioma ni plan gratuito, la
@@ -7130,6 +7157,8 @@ Sin orden de prioridad salvo el primero, que ya se hizo: este punto.
    registro de Vercel y decir a la persona «Ahora mismo no puedo leer lo que
    escribes».
 8. **Los 269 casos de parejas**, como decisión de producto aparte.
+9. **Los logos de las 90.** La pantalla los admite y ninguna ficha los tiene.
+   Añadido al repasar el chat: no estaba en la lista del 1 de octubre.
 
 ### Lo que seguía abierto el 25 y no se ha revisado desde entonces
 
@@ -7163,6 +7192,17 @@ presentación**; **«cubren», nunca «igual de bien»**; **un dato desconocido 
 es un «no»**.
 
 ### Cómo se trabajó, por si sirve de método
+
+Dos avisos suyos del 29, que son el fondo de todo lo demás:
+
+> *«llevamos meses de trabajo y apenas as aprovechado un 40 % por que lo que
+> hacemos lo hacemos mal y luego lo repetimos una y otra y otra ves»*
+
+> *«si te digo que escribas lo de hoy, seguramente vas a poner decisiones que
+> yo no he tomado. Que son decisiones que tú tomas y luego me las achacas a
+> mí. No, guarda lo que vamos haciendo, lo que nos hace avanzar»*
+
+Por eso en esta página lo suyo va con sus palabras y lo mío va como mío.
 
 - **Antes de fusionar, se enumera cada commit que entra.** Lección del 1 de
   octubre: desplegar un commit despliega también los que van antes.
