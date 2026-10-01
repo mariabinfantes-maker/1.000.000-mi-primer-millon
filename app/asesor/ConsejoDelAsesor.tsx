@@ -238,27 +238,36 @@ function Tarjeta({
   return (
     <section
       aria-label={esPrincipal ? "Mi consejo" : nombre}
-      className={`rounded-3xl bg-white p-5 shadow-premium-lg ${esPrincipal ? "border border-gold-400" : "border border-slate-200/80"}`}
+      className={`rounded-3xl bg-white p-5 shadow-premium-lg ${esPrincipal ? "relative mt-6 border border-gold-400 ring-1 ring-gold-100" : "border border-slate-200/80"}`}
     >
-      <div className="flex items-start justify-between gap-3">
-        {esPrincipal ? (
-          <span className="inline-flex w-fit items-center gap-1 rounded-full bg-brand-600 px-3 py-1 text-xs font-semibold text-white">
-            Mi consejo
-          </span>
-        ) : (
+      {/*
+        LA ETIQUETA DORADA DE ARRIBA, montada sobre el borde. Es la que llevaba
+        la tarjeta de recomendación desde el sprint de diseño del 2026-08-24
+        («La opción elegida», `TarjetaHerramientaRecomendada`) y que la
+        primera versión de esta pantalla cambió por una violeta. Propietaria,
+        2026-10-01: «ponla en Mi consejo». Sólo aquí, en la elegida: el dorado
+        es «la opción elegida», una vez por pantalla, y las alternativas no lo
+        llevan. El texto sigue siendo «Mi consejo», el aprobado.
+      */}
+      {esPrincipal ? (
+        <span className="absolute -top-3 left-5 rounded-full bg-gold-500 px-3 py-1 text-xs font-bold tracking-wide text-white shadow-sm">
+          Mi consejo
+        </span>
+      ) : (
+        <div className="flex items-start justify-between gap-3">
           <span className="inline-flex w-fit items-center gap-1 rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-800 ring-1 ring-brand-100">
             También encaja
           </span>
-        )}
-        {!esPrincipal && alAlternar && (
-          <button onClick={alAlternar} aria-label={`Cerrar ${nombre}`} className="rounded-xl p-1 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700">
-            <X className="h-4 w-4" aria-hidden />
-          </button>
-        )}
-      </div>
+          {alAlternar && (
+            <button onClick={alAlternar} aria-label={`Cerrar ${nombre}`} className="rounded-xl p-1 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700">
+              <X className="h-4 w-4" aria-hidden />
+            </button>
+          )}
+        </div>
+      )}
 
       {/* Manda el resultado, no la marca: el titular dice qué consigue, y el nombre va dentro de la frase. */}
-      <h2 className="mt-3 font-display text-[26px] font-bold leading-[1.12] tracking-tight text-slate-900">
+      <h2 className={`${esPrincipal ? "mt-2" : "mt-3"} font-display text-[26px] font-bold leading-[1.12] tracking-tight text-slate-900`}>
         {titular(forma, opcion)}:{" "}
         {esPrincipal ? (
           <span className="bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">empezaría por {nombre}</span>
