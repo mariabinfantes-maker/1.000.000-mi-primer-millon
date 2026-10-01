@@ -7110,7 +7110,10 @@ entera cada vez que cambie; no se acumula.** Va la última antes del bloque
 **Lo que ve una persona hoy en molnip.com:**
 
 - **La portada y sus tres puertas** llevan al cuestionario antiguo y a su
-  resultado (`/resultado/[token]`), con el motor viejo.
+  resultado (`/resultado/[token]`), con el motor viejo. **También la caja de
+  texto «Cuéntanoslo»**: lo escrito pasa al cuestionario de cinco preguntas
+  como nota, y ahí la IA está apagada por su interruptor
+  (`ATLAS_RECOMENDADOR_IA_ACTIVA`), así que nadie lo lee.
 - **El asesor nuevo vive en `/asesor`**, sin enlace y con noindex. Entiende el
   texto con Gemini, aconseja, recuerda el caso al seguir conversando y
   pregunta «¿para qué?» ante una palabra ambigua.
@@ -7129,7 +7132,8 @@ entera cada vez que cambie; no se acumula.** Va la última antes del bloque
 
 ### Lo pendiente, tal como lo dejó la propietaria el 1 de octubre
 
-Sin orden de prioridad salvo el primero, que ya se hizo: este punto.
+Es la lista que le di en el chat el 1 de octubre, con la misma numeración
+para que hablemos de lo mismo. Sin orden de prioridad.
 
 1. **Las alternativas del asesor son todas iguales.** Cada una dice «Resuelve
    lo mismo que Koibox con lo que me has contado»: parece que se empuja a
@@ -7146,6 +7150,15 @@ Sin orden de prioridad salvo el primero, que ya se hizo: este punto.
    mierdita»*. Su resultado conserva la nota en círculo sin fuente, la valoración de Capterra sin comprobar,
    «calidad y fiabilidad», «Desventajas» y la frase de la comisión, que habla
    de la afiliación aparcada.
+   **Comprobado la tarde del 1 de octubre, con capturas suyas desde el
+   móvil:** escribió en la caja de la portada «no doy a basto respondiendo a
+   clientes por WhatsApp», pasó por las cinco preguntas y acabó en «No he
+   sabido entender qué necesitas». Su conclusión: *«No creo que Molnip esté
+   utilizando un asesor… las respuestas realmente no son inteligentes.»* Es
+   cierto en ese camino: la IA está apagada ahí y el asesor nuevo no tiene
+   ningún enlace. Quien entra hoy en Molnip no llega nunca al asesor.
+   Propuesta mía, sin autorizar: que la caja y «Empezar» lleven a `/asesor`,
+   sin borrar el cuestionario.
 4. **Las tarjetas del catálogo** no dicen idioma ni plan gratuito, la
    descripción es pobre y enseñan una nota sin fuente. El plan gratuito con su
    tipo se puede enseñar ya; el español necesita una ronda de comprobación,
@@ -7157,8 +7170,10 @@ Sin orden de prioridad salvo el primero, que ya se hizo: este punto.
    registro de Vercel y decir a la persona «Ahora mismo no puedo leer lo que
    escribes».
 8. **Los 269 casos de parejas**, como decisión de producto aparte.
-9. **Los logos de las 90.** La pantalla los admite y ninguna ficha los tiene.
-   Añadido al repasar el chat: no estaba en la lista del 1 de octubre.
+9. **ATLAS.md estaba desfasado.** Hecho el 1 de octubre (`d646af2` y
+   `b02d778`): ésta es la sección que lo resuelve.
+10. **Los logos de las 90.** La pantalla los admite y ninguna ficha los tiene.
+    Añadido al repasar el chat: no estaba en la lista del 1 de octubre.
 
 ### Lo que seguía abierto el 25 y no se ha revisado desde entonces
 
