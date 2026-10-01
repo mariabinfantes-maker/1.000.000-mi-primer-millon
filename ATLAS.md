@@ -7157,8 +7157,12 @@ para que hablemos de lo mismo. Sin orden de prioridad.
    utilizando un asesor… las respuestas realmente no son inteligentes.»* Es
    cierto en ese camino: la IA está apagada ahí y el asesor nuevo no tiene
    ningún enlace. Quien entra hoy en Molnip no llega nunca al asesor.
-   Propuesta mía, sin autorizar: que la caja y «Empezar» lleven a `/asesor`,
-   sin borrar el cuestionario.
+   **Que no esté enlazado es decisión suya, no un olvido:** el 24 se
+   construyó «sin enlazar; la web actual no cambia», y el 30 a las 20:57
+   dijo *«No conectes todavía la portada con /asesor… Esos serán trabajos
+   separados.»* Propuesta mía, sin autorizar: que la caja y «Empezar» lleven
+   a `/asesor`, sin borrar el cuestionario. Va unida al punto 5, porque la
+   entrada del asesor no tiene diseño aprobado.
 4. **Las tarjetas del catálogo** no dicen idioma ni plan gratuito, la
    descripción es pobre y enseñan una nota sin fuente. El plan gratuito con su
    tipo se puede enseñar ya; el español necesita una ronda de comprobación,
