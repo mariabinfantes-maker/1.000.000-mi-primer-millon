@@ -7163,6 +7163,13 @@ para que hablemos de lo mismo. Sin orden de prioridad.
    separados.»* Propuesta mía, sin autorizar: que la caja y «Empezar» lleven
    a `/asesor`, sin borrar el cuestionario. Va unida al punto 5, porque la
    entrada del asesor no tiene diseño aprobado.
+   **La portada se queda como está.** Dicho por ella el 1 de octubre, después
+   de ver todo esto: *«para mí la portada me gusta»*. No se propone
+   rehacerla. Lo que falta no es la portada, sino dos cosas: que su caja de
+   texto lleve al asesor, y diseñar lo que ve la persona entre que escribe y
+   recibe el consejo. Lo diseñado y aprobado el 30 es la respuesta —el
+   consejo—, no ese paso. Las variantes de cómo conectarlo son propuesta
+   mía y no están decididas.
 4. **Las tarjetas del catálogo** no dicen idioma ni plan gratuito, la
    descripción es pobre y enseñan una nota sin fuente. El plan gratuito con su
    tipo se puede enseñar ya; el español necesita una ronda de comprobación,
