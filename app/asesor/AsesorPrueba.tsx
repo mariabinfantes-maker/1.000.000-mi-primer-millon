@@ -5,6 +5,7 @@ import { VarianteA, VarianteB, mayuscula, type Camino as CaminoDetallado } from 
 import ConsejoDelAsesor from "./ConsejoDelAsesor";
 import TarjetaDelConsejo, { type Abierta } from "./TarjetaDelConsejo";
 import FichaDeUnaOpcion from "./FichaDeUnaOpcion";
+import { MENSAJE_DE_FALLO_TECNICO } from "./falloTecnico";
 import Boton from "@/components/ui/Boton";
 import SimboloMolnip from "@/components/ui/SimboloMolnip";
 
@@ -73,6 +74,8 @@ type Continuacion = {
   sinIA?: boolean;
 };
 type Respuesta = {
+  /** La IA no ha podido leer: no es que no haya entendido. Ver `falloTecnico.ts`. */
+  falloTecnico?: { mensaje: string };
   estado?: EstadoDelCaso;
   continuacion?: Continuacion;
   /** Lo último que contestó, con sus palabras. Lo decide el servidor, que sabe si se corrigió. */
@@ -163,6 +166,14 @@ export default function AsesorPrueba() {
   /** La palabra de la que acaba de decir «otra cosa»: su próximo mensaje se lee como respuesta a ella. */
   const [aclaracionAbierta, setAclaracionAbierta] = useState<string | null>(null);
   /**
+   * UN FALLO TÉCNICO NO ES «NO TE HE ENTENDIDO». Si la IA no ha podido leer,
+   * se dice eso —con las palabras de la propietaria— y nada más cambia: ni el
+   * caso, ni el consejo, ni lo que estaba pendiente de contestar.
+   */
+  const [falloTecnico, setFalloTecnico] = useState<string | null>(null);
+  /** `?prueba=fallo` pide a la ruta un fallo real de Google, para comprobar este camino en producción. */
+  const probarFallo = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("prueba") === "fallo";
+  /**
    * Las formas antiguas de enseñar el consejo ya NO están en la pantalla.
    *
    * Eran cuatro pestañas arriba del todo —«Tarjeta · Conversación · A · B»— y
@@ -206,12 +217,30 @@ export default function AsesorPrueba() {
     aclarada?: { termino: string; necesidadId: string };
   }) {
     setCargando(true);
-    const res = await fetch("/api/asesor", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(cuerpo),
-    });
-    const json = (await res.json()) as Respuesta;
+    let json: Respuesta;
+    try {
+      const res = await fetch("/api/asesor", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(probarFallo ? { ...cuerpo, probarFallo: true } : cuerpo),
+      });
+      json = (await res.json()) as Respuesta;
+    } catch {
+      // Ni siquiera ha contestado la ruta: tampoco es que no la hayamos entendido.
+      json = { falloTecnico: { mensaje: MENSAJE_DE_FALLO_TECNICO } };
+    }
+    if (json.falloTecnico) {
+      setFalloTecnico(json.falloTecnico.mensaje);
+      setNota(null);
+      // Lo que escribió vuelve a la caja, y lo que estaba abierto sigue
+      // abierto: «inténtalo de nuevo» tiene que ser pulsar otra vez.
+      if (cuerpo.texto && !cuerpo.respondida && !cuerpo.aclarada && !cuerpo.necesidadIds) setTexto(cuerpo.texto);
+      if (cuerpo.preguntaAbierta) setPreguntaAbierta(cuerpo.preguntaAbierta);
+      if (cuerpo.aclaracionAbierta) setAclaracionAbierta(cuerpo.aclaracionAbierta);
+      setCargando(false);
+      return;
+    }
+    setFalloTecnico(null);
     /*
      * UN MENSAJE QUE NO CAMBIA NADA NO TOCA LO QUE HAY. Se guarda el estado
      * —puede haber apuntado que «te lo explico yo»— y se enseña lo que no se
@@ -376,6 +405,12 @@ export default function AsesorPrueba() {
         )}
         {dicho.map((d, i) => <Digo key={i}>{d}</Digo>)}
 
+        {falloTecnico && !c && (
+          <Dice>
+            <p>{falloTecnico}</p>
+          </Dice>
+        )}
+
         {r?.sinIA && (
           <Dice>
             <p className="font-semibold">Todavía no sé leer tu texto en esta prueba.</p>
@@ -461,6 +496,12 @@ export default function AsesorPrueba() {
               LO QUE MOLNIP CONTESTA AL ÚLTIMO MENSAJE. Qué ha cambiado en el
               caso, con sus palabras; o qué no ha entendido, sin tocar nada.
             */}
+            {falloTecnico && (
+              <Dice>
+                <p>{falloTecnico}</p>
+              </Dice>
+            )}
+
             {nota && (nota.lineas.length > 0 || nota.noEntendido.length > 0) && (
               <Dice>
                 {nota.lineas.map((l) => <p key={l}>{l}</p>)}

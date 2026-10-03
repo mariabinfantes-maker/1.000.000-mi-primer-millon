@@ -17,6 +17,8 @@ let POST: (r: Request) => Promise<Response>;
 beforeAll(async () => {
   // La ruta decide si hay IA al cargarse: la clave tiene que estar antes.
   vi.stubEnv("GEMINI_API_KEY", "prueba");
+  // Y el interruptor propio de la IA del asesor, desde el 2026-10-03.
+  vi.stubEnv("ATLAS_ASESOR_IA_ACTIVA", "true");
   ({ POST } = await import("../route"));
 }, 60_000);
 

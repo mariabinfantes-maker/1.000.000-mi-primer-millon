@@ -7091,7 +7091,95 @@ trazabilidad, para que no haya que reconstruirla:
 
 ---
 
-## DÓNDE ESTAMOS — punto de partida al cerrar el 2026-10-01
+## 2026-10-03 — EL PLAN DE CIERRE ANTES DE USUARIOS REALES, Y EL BLOQUE 1
+
+### El plan, aprobado por la propietaria
+
+Lo pidió así: *«Tenemos demasiados frentes abiertos en Molnip y no quiero
+seguir saltando de uno a otro»*, con el objetivo de *«terminar, conectar y
+hacer fiable lo que ya hemos construido»*, no ampliar. Le propuse un orden
+por dependencias y lo aprobó: *«Apruebo esta hoja de ruta como el plan de
+cierre de Molnip antes de probarlo con usuarios reales. No abras nuevos
+frentes fuera de estos bloques salvo que encuentres un bloqueo
+imprescindible.»* Va un bloque cada vez, y cada uno se cierra formalmente
+con ella antes de empezar el siguiente.
+
+**A. Antes de probar con usuarios reales**, en este orden:
+
+1. **Que un fallo de Gemini se vea.** Terminado cuando un fallo provocado
+   queda en el registro de Vercel con su causa, la persona lee el mensaje
+   acordado y no «no te he entendido», y una frase real funciona en
+   molnip.com/asesor. Con su despliegue entran los commits de ATLAS que
+   esperaban en la rama.
+2. **Que el consejo diga sólo lo que puede sostener.** Las alternativas no
+   nombran a la principal y cada una dice lo que la distingue; el empate no
+   pide nada que no cambie el resultado. Decisión suya pendiente: dejar de
+   pedir el presupuesto (mi recomendación) o que el motor lo use.
+3. **Que el consejo tenga salida.** Desde el asesor se abre la web de la
+   herramienta y el clic queda registrado con origen «asesor».
+4. **Que lo que se ve no afirme lo que no sabemos.** Ni el «Español» sin
+   recibo, ni la nota sin fuente, ni Capterra, ni «Desventajas», ni la frase
+   de la comisión, en ninguna página pública —se desconectan, no se
+   borran—, y cada filtro de «Todas las herramientas» con su prueba.
+   Decisión suya pendiente: cómo se presenta el español sin recibo.
+5. **La portada lleva al asesor.** Con la maqueta del paso intermedio
+   aprobada antes, y decidido qué pasa con las otras dos puertas.
+6. **Prueba completa en producción**, desde su móvil, con unas diez frases
+   reales, de la portada al clic.
+
+**B. Después de esa primera prueba:** rediseño de las tarjetas del catálogo,
+logos, los 269 casos de parejas, que el motor use el presupuesto, la ronda
+del español y F3. *«Lo que digan los primeros usuarios ordenará esta lista.»*
+
+### El bloque 1: lo que decidió y lo que se hizo
+
+Sus dos decisiones, del 3 de octubre:
+
+- **El mensaje ante un fallo técnico:** *«Ahora mismo no puedo entender lo
+  que escribes. Inténtalo de nuevo en unos minutos.»* Y *«debe quedar
+  claramente diferenciado de cuando Gemini está funcionando correctamente
+  pero no consigue interpretar lo que la persona quiere decir»*.
+- **Un interruptor propio de la IA del asesor, encendido en producción.**
+
+Lo que se hizo:
+
+- **El interruptor es `ATLAS_ASESOR_IA_ACTIVA`**, apagado salvo que valga
+  `true`, igual que el del cuestionario del 6 de agosto. Apagado, el asesor
+  no llama a la IA y deja elegir de una lista: es un estado buscado, no un
+  fallo. Encendido y sin clave, sí es un fallo, y se trata como tal.
+  **Para que esté encendido en producción hay que añadir la variable en
+  Vercel antes del despliegue**: sin ella, el asesor desplegado dejaría de
+  leer el texto.
+- **Un fallo técnico ya no se esconde.** Antes se convertía en una
+  comprensión vacía y la persona leía «No tengo nada que proponerte». Ahora
+  queda en el registro de Vercel con la causa que da Google —se busca
+  «[asesor]»—, la respuesta sale con estado 503 y la persona lee su mensaje.
+  A mitad de conversación, el caso y el consejo que ya tenía no se tocan, y
+  lo que escribió vuelve a la caja para intentarlo otra vez. No se guarda lo
+  que escribió la persona, sólo cuánto medía.
+- **«No te he entendido» sigue igual.** Cuando Gemini contesta pero no saca
+  nada, el camino es el de siempre.
+- **La prueba de fallo provocado:** `molnip.com/asesor?prueba=fallo` pide a
+  Google un modelo que no existe, y Google contesta con un error de verdad,
+  así que se recorre el camino entero. Sólo afecta a quien la pide, no gasta
+  y en el registro sale marcada como prueba.
+
+Comprobado antes de desplegar, con Gemini de verdad y en pantalla de móvil:
+el fallo provocado da el mensaje y deja la causa de Google en el registro;
+«patata azul con zapatos» da «No tengo nada que proponerte»; la clínica
+dental da su consejo; y un fallo a mitad de conversación deja el consejo
+igual.
+
+**Encontrado al probar, y no abierto como frente:** su frase del 1 de
+octubre, «no doy a basto respondiendo a clientes por WhatsApp», no se
+entiende siempre. Con Gemini funcionando salió sin entender una vez de tres;
+escrita como ella la escribió —«a bastos», «watsapp»—, sin entender la única
+vez que se probó. No es un fallo técnico: es cómo lee el asesor. Lo apunto
+para el bloque 6, que es donde se prueban frases reales.
+
+---
+
+## DÓNDE ESTAMOS — punto de partida al 2026-10-03
 
 Esta sección no decide nada: dice en qué punto quedó todo, para que quien
 retome no tenga que reconstruirlo leyendo doscientos commits. **Se reescribe
@@ -7134,6 +7222,10 @@ entera cada vez que cambie; no se acumula.** Va la última antes del bloque
 
 Es la lista que le di en el chat el 1 de octubre, con la misma numeración
 para que hablemos de lo mismo. Sin orden de prioridad.
+
+**Desde el 3 de octubre, el orden de trabajo lo marca el PLAN DE CIERRE**
+(sección anterior). Esta lista se conserva como inventario, con su
+numeración.
 
 1. **Las alternativas del asesor son todas iguales.** Cada una dice «Resuelve
    lo mismo que Koibox con lo que me has contado»: parece que se empuja a
@@ -7180,6 +7272,8 @@ para que hablemos de lo mismo. Sin orden de prioridad.
 7. **Un fallo de Gemini queda escondido.** Propuesta: anotar el error en el
    registro de Vercel y decir a la persona «Ahora mismo no puedo leer lo que
    escribes».
+   **Es el bloque 1 del plan de cierre. Hecho en código el 3 de octubre;
+   queda cerrado cuando se compruebe en producción.**
 8. **Los 269 casos de parejas**, como decisión de producto aparte.
 9. **ATLAS.md estaba desfasado.** Hecho el 1 de octubre (`d646af2` y
    `b02d778`): ésta es la sección que lo resuelve.

@@ -31,6 +31,16 @@ describe("crearProveedorGemini", () => {
     vi.unstubAllGlobals();
   });
 
+  it("con un modelo pedido para esta instancia, llama a ése y no al de siempre", async () => {
+    vi.mocked(fetch).mockResolvedValue(respuestaConTexto("{}"));
+
+    await crearProveedorGemini({ modelo: "otro-modelo" }).generarJson("hola");
+    await crearProveedorGemini().generarJson("hola");
+
+    expect(String(vi.mocked(fetch).mock.calls[0][0])).toContain("/models/otro-modelo:generateContent");
+    expect(String(vi.mocked(fetch).mock.calls[1][0])).not.toContain("otro-modelo");
+  });
+
   it("se identifica como el proveedor gemini", () => {
     expect(crearProveedorGemini().nombre).toBe("gemini");
   });

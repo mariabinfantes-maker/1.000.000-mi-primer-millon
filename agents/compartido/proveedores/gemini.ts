@@ -55,8 +55,8 @@ function clave(): string {
   return apiKey;
 }
 
-async function pedir(cuerpo: unknown): Promise<RespuestaGemini> {
-  const modelo = process.env.GEMINI_MODEL?.trim() || MODELO_POR_DEFECTO;
+async function pedir(cuerpo: unknown, modeloPedido?: string): Promise<RespuestaGemini> {
+  const modelo = modeloPedido?.trim() || process.env.GEMINI_MODEL?.trim() || MODELO_POR_DEFECTO;
   /**
    * La clave se lee ANTES del try. Dentro, su error quedaría atrapado por el
    * catch y saldría como «no se ha podido contactar», que es mentira: no se
@@ -143,7 +143,14 @@ function urlsRecuperadas(datos: RespuestaGemini): RecuperacionUrl[] {
  * `respuesta.ok`, y un `ErrorProveedorIA` con mensaje legible en cada caso
  * — nunca un error genérico sin contexto.
  */
-export function crearProveedorGemini(): ProveedorIAQueLee {
+export function crearProveedorGemini(opciones: {
+  /**
+   * Otro modelo sólo para esta instancia. Lo usa la prueba de fallo del
+   * asesor, que pide un modelo inexistente para que Google conteste con un
+   * error de verdad. Sin esta opción, todo sigue igual que antes.
+   */
+  modelo?: string;
+} = {}): ProveedorIAQueLee {
   return {
     nombre: NOMBRE,
 
@@ -155,7 +162,7 @@ export function crearProveedorGemini(): ProveedorIAQueLee {
           temperature: 0.2,
           maxOutputTokens: 8192,
         },
-      });
+      }, opciones.modelo);
       return comoJson(textoDelCandidato(datos));
     },
 
@@ -181,7 +188,7 @@ export function crearProveedorGemini(): ProveedorIAQueLee {
         tools: [{ url_context: {} }],
         // Sin responseMimeType: no se puede combinar con herramientas.
         generationConfig: { temperature: 0.2, maxOutputTokens: 8192 },
-      });
+      }, opciones.modelo);
 
       return { datos: comoJson(textoDelCandidato(datos)), urls: urlsRecuperadas(datos) };
     },
