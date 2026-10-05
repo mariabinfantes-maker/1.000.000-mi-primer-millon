@@ -41,7 +41,7 @@ export function informe(s: LoQueSabemos): string {
   const l: string[] = [];
   l.push(`# Qué sabemos de ${s.nombre} (${s.id})`, "");
   l.push(`Ficha: data/herramientas/${s.id}.json${s.borrador ? ` · borrador: data/borradores/herramientas/${s.id}.json` : ""}`);
-  l.push(`Capacidades: ${s.capacidades.verificadas} verificadas y ${s.capacidades.desconocidas} sin verificar (data/verificacion/registros.json)`);
+  l.push(`Capacidades: ${s.capacidades.verificadas} verificadas y ${s.capacidades.desconocidas} sin verificar (la verificación de capacidades)`);
   l.push(`Entregas de investigación: ${s.entregas.length} archivos · documentos que la nombran: ${s.documentos.length}`, "");
 
   l.push("## Datos clave, fuente por fuente", "");

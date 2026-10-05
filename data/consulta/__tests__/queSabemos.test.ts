@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { herramientasDelCatalogo, indiceDeInvestigacion, queSabemosDe } from "../queSabemos";
 import { informe } from "../cli-que-sabemos";
@@ -27,5 +29,32 @@ describe("qué sabemos de una herramienta", () => {
 
   it("un id que no existe no inventa nada", () => {
     expect(queSabemosDe("no-existe-esta-herramienta")).toBeNull();
+  });
+});
+
+/**
+ * LA CONSULTA ES PARA PERSONAS, NO PARA EL PRODUCTO. Lee la verificación con
+ * permiso de `data/verificacion/__tests__/aislamiento.test.ts` precisamente
+ * porque nada del producto la usa: si un día el asesor o la web la importaran,
+ * la evidencia entraría por una segunda puerta. Esto lo impide.
+ */
+describe("nadie del producto importa la consulta", () => {
+  // Se vigila importarla, no nombrarla: el catálogo del Orchestrator
+  // (`agents/atlas-orchestrator/tareas.ts`) escribe su ruta como texto para
+  // lanzarla con `npm run`, y eso no la mete en el producto.
+  it("app, agents, lib y components no la importan", () => {
+    const raiz = process.cwd();
+    const quien: string[] = [];
+    const recorrer = (dir: string) => {
+      if (!fs.existsSync(dir)) return;
+      for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+        if (e.name === "node_modules" || e.name.startsWith(".")) continue;
+        const p = path.join(dir, e.name);
+        if (e.isDirectory()) recorrer(p);
+        else if (/\.(ts|tsx|js|mjs)$/.test(e.name) && /(?:from\s+|import\(\s*|require\(\s*)["'`][^"'`]*\bconsulta\//.test(fs.readFileSync(p, "utf-8"))) quien.push(path.relative(raiz, p));
+      }
+    };
+    for (const d of ["app", "agents", "lib", "components"]) recorrer(path.join(raiz, d));
+    expect(quien).toEqual([]);
   });
 });

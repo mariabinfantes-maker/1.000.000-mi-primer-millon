@@ -208,11 +208,13 @@ describe("ninguna tarea del carril libre escribe en la base de datos", () => {
     expect(tareaDe("verificar-despliegue")).toMatchObject({ carril: "conPermiso", motivo: "afecta_produccion" });
   });
 
-  it("el carril libre son nueve, y ninguna pide permiso", () => {
+  it("el carril libre son diez, y ninguna pide permiso", () => {
     // Nueve desde el 2026-09-29: entra `examen-catalogo`, que sólo mide y
     // escribe un informe. No toca el catálogo ni la base de datos.
+    // Diez desde el 2026-10-05: entra `que-sabemos`, que sólo lee lo que el
+    // proyecto ya tiene de una herramienta y lo imprime. No escribe nada.
     const libres = TAREAS.filter((t) => t.carril === "libre");
-    expect(libres).toHaveLength(9);
+    expect(libres).toHaveLength(10);
     for (const tarea of libres) expect(tarea.motivo, tarea.id).toBe("ninguno");
   });
 });
