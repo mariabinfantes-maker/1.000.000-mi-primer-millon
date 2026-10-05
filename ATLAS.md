@@ -6947,149 +6947,396 @@ fuente: el dato está desfasado.
 
 ---
 
-## DÓNDE ESTAMOS — punto de partida al cerrar el 2026-09-25
+## 2026-09-29 → 2026-10-01 — EL CATÁLOGO DE 90, EL ASESOR EN PRODUCCIÓN Y GEMINI
+
+Tres días con mucho movimiento. Lo que ya está contado en otro sitio se
+enlaza, no se repite:
+
+- **El 29**: `data/investigacion/LO-QUE-PASO-EL-29.md` — el catálogo pasa de
+  65 a 76, todo de reservas y citas, con sus decisiones. Se escribió a media
+  tarde: esa noche entraron además Koibox y Jane, y el día cerró en 78.
+- **El despliegue del 30**: `ENTREGA-2026-09-30.md` — qué se desplegó, la
+  vuelta atrás y qué comprobar.
+
+### El catálogo llega a 90 (30 de madrugada)
+
+Entran DriCloud y flowww (80), Pabau y Fresha (82), Reservo y Setmore (84) y
+las seis últimas (90).
+**90 herramientas, 4.053 registros de capacidad, 1.029 verificados.** Cinco
+candidatas quedaron descartadas del todo, y Clinic Cloud se queda fuera.
+
+### Lo que decidió la propietaria el 30, con sus palabras
+
+- **El español tiene tres estados**, no dos: confirmado, sin confirmar y no
+  disponible. *«Un dato desconocido no puede convertirse en "no". Si el
+  español es imprescindible para esa persona, una candidata sin confirmar
+  tampoco debe presentarse como si ya cumpliera.»* Vive en
+  `agents/atlas-advisor/asesor/espanol.ts`.
+- **Se retira la comparación de precios** del desempate mientras los importes
+  no sean comparables: no había cambio de moneda verificado.
+- **Las 90 se ven.** *«Si tenemos 90 herramientas, tiene que mostrar las
+  90.»* Se quitaron los topes que escondían catálogo; una prueba lo sostiene
+  (`app/__tests__/las90SeVen.test.ts`).
+- **«Clínicas y salud» se publica.** Se autorizó, se retiró por un
+  razonamiento mío equivocado —dije que las casas eran organización interna,
+  y «Formación y academias» ya era pública—, y se volvió a autorizar.
+- **«Software sectorial» se desconecta**: *«vamos a quitar software sectorial
+  para que no nos moleste»*. Estado nuevo `desconectada` en la taxonomía; no
+  se borra nada.
+- **La clínica dental tiene respuesta.** Se preguntó si facturan a 14
+  herramientas: seis españolas cubren reservas, facturas y agenda, y gana
+  Koibox por ser la única de ellas con plan gratuito.
+- **La peluquera deja de ser el ejemplo** en `AGENTS.md`, y deja de nombrar
+  los casos de prueba.
+- **No se vuelven a buscar los límites de usuarios del plan gratuito.**
+  *«No me importa cuántas personas entran en el […] plan gratuito. O sea,
+  vamos a avanzar.»*
+- **El encargo del dinero se rechaza**: *«es que no voy a escuchar tu
+  encargo»*. El fichero del encargo de las 8 de facturación sigue en
+  `encargos/`, sin usar; no se borra.
+
+### La pantalla del asesor (30 por la tarde)
+
+Diseño aprobado sobre maqueta: lo que he entendido, «Mi consejo», dos
+alternativas, «He comparado 90…», «Explorar otras opciones» y seguir
+conversando. Sus reglas, de la propietaria:
+
+- *«La posición expresa la prioridad del asesor. La calidad de presentación
+  no depende de la posición.»* Las alternativas nacen compactas y, al
+  abrirlas, se presentan enteras. Una sola abierta a la vez.
+- **«Cubren», nunca «igual de bien».** *«El motor no mide qué tan bien
+  realiza cada herramienta una tarea, así que no quiero que Molnip utilice
+  "igual de bien" en ningún punto de esta experiencia.»*
+- **Bajo un empate sólo salen las empatadas**, en el orden del motor, con su
+  frase: *«Entre estas opciones no tengo una razón suficiente para poner una
+  por delante de otra.»* Antes, en 611 de 819 empates salía alguna ajena.
+- **La conversación sigue dentro del caso.** *«Cada nuevo mensaje del usuario
+  debe interpretarse dentro del caso que Molnip ya conoce, no como una
+  consulta nueva.»* El caso se guarda estructurado —lo que contó, sus
+  respuestas, datos sueltos— en `continuar.ts`. Un mensaje no entendido
+  nunca vacía el caso ni el consejo.
+- **«¿Para qué quieres usar…?»** *«Molnip debe pedir aclaración cuando
+  reconoce el concepto pero no puede determinar para qué lo quiere el
+  usuario.»* Las opciones salen del vocabulario, no del modelo
+  (`ambiguos.ts`).
+
+Y tres correcciones suyas sobre lo que la pantalla puede decir, todas de la
+misma regla: **lo que no sale de un dato con fuente no se escribe, y si un
+sitio queda vacío, queda vacío.**
+
+- El subtítulo «Gestión para salones y clínicas» de Koibox era redacción mía,
+  no de la herramienta: fuera.
+- El atajo «Más fáciles de aprender» se retiró: la curva de aprendizaje no
+  tiene todavía un criterio consistente.
+- «Por qué te la recomiendo» separa lo que comparten todas de lo único que
+  decidió. Nace de su corrección *«Bookitit nubimet no tienen plan gratuito»*:
+  decir «tiene plan gratuito» a secas daba a entender que las demás también.
+
+**Los logos.** Cada herramienta lleva su logo oficial junto al nombre, como
+identificador y no como escaparate: *«sin convertir Molnip en un escaparate
+multicolor ni alterar la jerarquía del asesor»*. Más grande en «Mi consejo»,
+más pequeño en las alternativas y al explorar; los colores de cada marca, sólo
+dentro de su logo. La pantalla ya lo admite; **ninguna de las 90 fichas tiene
+logo todavía**, y se pinta la inicial.
+
+Queda fuera, como decisión aparte: **los 269 casos** en que una pareja de
+herramientas cubre todo y el motor prefiere una sola que cubre una parte.
+
+### El 1 de octubre
+
+- **Vuelve la etiqueta dorada arriba en «Mi consejo»**, la que llevaba la
+  tarjeta de recomendación desde el 24 de agosto: *«ponla en Mi consejo»*.
+  Sólo en la elegida. La regla del 8 % de `brand-guidelines.md` (9.D) es de
+  las imágenes, no de la interfaz.
+- **Despliegue `600dde0`.** Lo autorizado era la etiqueta dorada. Al fusionar
+  la rama entraron también la conversación que recuerda el caso y la pregunta
+  «¿para qué?», que no tenían autorización de despliegue. Lo dije después,
+  no antes. Ella eligió *«déjalo como está»*. **Regla de método que sale de
+  aquí: antes de fusionar, se enumera cada commit que entra.** Y su criterio
+  sobre lo pendiente: *«Quiero que este cambio quede terminado también en
+  producción y no pendiente en una rama.»*
+- **Seis avisos de Vercel de compilaciones fallidas** entre el 28 y el 30, de
+  105 commits. Dos eran errores de tipos míos, corregidos por el commit
+  siguiente. Los otros cuatro compilan bien desde cero: fueron de Vercel. Uno
+  era de producción (`157233a`), con el mismo contenido que otro que sí pasó.
+
+### Gemini en el asesor: de dónde viene y qué queda decidido
+
+La propietaria no recordaba haber autorizado Gemini en el asesor. La
+trazabilidad, para que no haya que reconstruirla:
+
+- **Su encargo del 24 a las 10:33** decía: *«La IA puede ayudar a entender y
+  conversar; las afirmaciones sobre herramientas deben seguir apoyadas en los
+  datos verificados.»* No nombraba Gemini.
+- **Lo conecté yo**, el 24 a las 15:07 (`3728fe0`), porque era el único
+  proveedor del proyecto, y sin preguntar por el proveedor ni por el gasto.
+  La clave, `GEMINI_API_KEY`, existía desde el 25 de julio para el Researcher.
+- **No respeté la regla del 6 de agosto**: la IA de pago continuo va detrás
+  de un interruptor apagado por defecto (`ATLAS_RECOMENDADOR_IA_ACTIVA`, en el
+  cuestionario antiguo). El asesor no lo tiene: se activa sólo con que la
+  clave exista.
+- **Llegó a producción** con el despliegue autorizado del 30 a las 10:30
+  (`cb2a27e`), dentro de `/asesor`, sin enlazar y con noindex.
+- **El 1 de octubre la propietaria lo aceptó**: *«esta perfecto a sea que se
+  puede usar desde vercel»*. **Queda vigente que el asesor usa Gemini en
+  producción.** Lo que no se ha decidido es si el asesor debe tener su propio
+  interruptor; la regla del 6 de agosto sigue vigente para el cuestionario.
+- **Por qué no funcionaba en producción:** la clave guardada en Vercel no era
+  válida. La propietaria borró una de las dos claves de AI Studio y puso en
+  Vercel la que funciona. Desde ese momento el asesor entiende en
+  molnip.com. El proyecto de Google es de pago (Nivel 1).
+- **Por qué costó tanto encontrarlo:** la ruta del asesor atrapa el fallo de
+  Gemini sin anotarlo, y responde como si no hubiera entendido nada. Vercel
+  registraba 200 y cero errores. Arreglarlo está en la lista de abajo.
+
+---
+
+## 2026-10-03 — EL PLAN DE CIERRE ANTES DE USUARIOS REALES, Y EL BLOQUE 1
+
+### El plan, aprobado por la propietaria
+
+Lo pidió así: *«Tenemos demasiados frentes abiertos en Molnip y no quiero
+seguir saltando de uno a otro»*, con el objetivo de *«terminar, conectar y
+hacer fiable lo que ya hemos construido»*, no ampliar. Le propuse un orden
+por dependencias y lo aprobó: *«Apruebo esta hoja de ruta como el plan de
+cierre de Molnip antes de probarlo con usuarios reales. No abras nuevos
+frentes fuera de estos bloques salvo que encuentres un bloqueo
+imprescindible.»* Va un bloque cada vez, y cada uno se cierra formalmente
+con ella antes de empezar el siguiente.
+
+**A. Antes de probar con usuarios reales**, en este orden:
+
+1. **Que un fallo de Gemini se vea.** Terminado cuando un fallo provocado
+   queda en el registro de Vercel con su causa, la persona lee el mensaje
+   acordado y no «no te he entendido», y una frase real funciona en
+   molnip.com/asesor. Con su despliegue entran los commits de ATLAS que
+   esperaban en la rama.
+2. **Que el consejo diga sólo lo que puede sostener.** Las alternativas no
+   nombran a la principal y cada una dice lo que la distingue; el empate no
+   pide nada que no cambie el resultado. Decisión suya pendiente: dejar de
+   pedir el presupuesto (mi recomendación) o que el motor lo use.
+3. **Que el consejo tenga salida.** Desde el asesor se abre la web de la
+   herramienta y el clic queda registrado con origen «asesor».
+4. **Que lo que se ve no afirme lo que no sabemos.** Ni el «Español» sin
+   recibo, ni la nota sin fuente, ni Capterra, ni «Desventajas», ni la frase
+   de la comisión, en ninguna página pública —se desconectan, no se
+   borran—, y cada filtro de «Todas las herramientas» con su prueba.
+   Decisión suya pendiente: cómo se presenta el español sin recibo.
+5. **La portada lleva al asesor.** Con la maqueta del paso intermedio
+   aprobada antes, y decidido qué pasa con las otras dos puertas.
+6. **Prueba completa en producción**, desde su móvil, con unas diez frases
+   reales, de la portada al clic.
+
+**B. Después de esa primera prueba:** rediseño de las tarjetas del catálogo,
+logos, los 269 casos de parejas, que el motor use el presupuesto, la ronda
+del español y F3. *«Lo que digan los primeros usuarios ordenará esta lista.»*
+
+### El bloque 1: lo que decidió y lo que se hizo
+
+Sus dos decisiones, del 3 de octubre:
+
+- **El mensaje ante un fallo técnico:** *«Ahora mismo no puedo entender lo
+  que escribes. Inténtalo de nuevo en unos minutos.»* Y *«debe quedar
+  claramente diferenciado de cuando Gemini está funcionando correctamente
+  pero no consigue interpretar lo que la persona quiere decir»*.
+- **Un interruptor propio de la IA del asesor, encendido en producción.**
+
+Lo que se hizo:
+
+- **El interruptor es `ATLAS_ASESOR_IA_ACTIVA`**, apagado salvo que valga
+  `true`, igual que el del cuestionario del 6 de agosto. Apagado, el asesor
+  no llama a la IA y deja elegir de una lista: es un estado buscado, no un
+  fallo. Encendido y sin clave, sí es un fallo, y se trata como tal.
+  **Para que esté encendido en producción hay que añadir la variable en
+  Vercel antes del despliegue**: sin ella, el asesor desplegado dejaría de
+  leer el texto.
+- **Un fallo técnico ya no se esconde.** Antes se convertía en una
+  comprensión vacía y la persona leía «No tengo nada que proponerte». Ahora
+  queda en el registro de Vercel con la causa que da Google —se busca
+  «[asesor]»—, la respuesta sale con estado 503 y la persona lee su mensaje.
+  A mitad de conversación, el caso y el consejo que ya tenía no se tocan, y
+  lo que escribió vuelve a la caja para intentarlo otra vez. No se guarda lo
+  que escribió la persona, sólo cuánto medía.
+- **«No te he entendido» sigue igual.** Cuando Gemini contesta pero no saca
+  nada, el camino es el de siempre.
+- **La prueba de fallo provocado:** `molnip.com/asesor?prueba=fallo` pide a
+  Google un modelo que no existe, y Google contesta con un error de verdad,
+  así que se recorre el camino entero. Sólo afecta a quien la pide, no gasta
+  y en el registro sale marcada como prueba.
+
+Comprobado antes de desplegar, con Gemini de verdad y en pantalla de móvil:
+el fallo provocado da el mensaje y deja la causa de Google en el registro;
+«patata azul con zapatos» da «No tengo nada que proponerte»; la clínica
+dental da su consejo; y un fallo a mitad de conversación deja el consejo
+igual.
+
+**Encontrado al probar, y no abierto como frente:** su frase del 1 de
+octubre, «no doy a basto respondiendo a clientes por WhatsApp», no se
+entiende siempre. Con Gemini funcionando salió sin entender una vez de tres;
+escrita como ella la escribió —«a bastos», «watsapp»—, sin entender la única
+vez que se probó. No es un fallo técnico: es cómo lee el asesor. Lo apunto
+para el bloque 6, que es donde se prueban frases reales.
+
+---
+
+## DÓNDE ESTAMOS — punto de partida al 2026-10-03
 
 Esta sección no decide nada: dice en qué punto quedó todo, para que quien
 retome no tenga que reconstruirlo leyendo doscientos commits. **Se reescribe
 entera cada vez que cambie; no se acumula.** Va la última antes del bloque
 «MOLNIP VISUAL v1», que es donde `AGENTS.md` dice que se busque.
 
-### El camino A, punto por punto
+### Qué hay en producción
 
-| | Estado |
+| | |
 |---|---|
-| **1. Que Molnip sepa con quién habla** | Hecho. `lib/pais.ts` con ocho países, la pregunta «¿Dónde tienes el negocio?», y el motor deduce el idioma del país. **La moneda se guarda y no la usa nadie**, a propósito: 48 de 65 fichas cobran en dólares y convertir sin un cambio verificado sería inventar un número. Sigue sin resolverse. |
-| **2. Partir «dinero» en sus piezas** | Hecho. Puerta propia con 16 necesidades en cuatro familias y cinco capacidades nuevas. |
-| **3. La página de todas las herramientas** | Hecha. `/herramientas`, con filtros. Sin «la mejor opción» ni nada que parezca un ranking con premio. |
-| **4. Vender más** | Sin empezar, como estaba acordado. |
+| Rama de producción | `claude/claude-md-docs-plkwnq`; Vercel despliega desde ella |
+| Rama de trabajo | `claude/evidencia-usos-recorridos` |
+| Desplegado | `600dde0`, contenido idéntico a `d438c56`, el 2026-10-01 a las 11:31 UTC |
+| Versión anterior | `751be55` |
 
-**El asesor (F3) no está en esta tabla** porque nació después, por encargo
-suyo del 24. Es lo que se está construyendo ahora y lo que tiene el trabajo
-abierto.
+**Lo que ve una persona hoy en molnip.com:**
 
-**Nada está desplegado.** Todo vive en la rama
-`claude/evidencia-usos-recorridos`. Decisión del 2026-09-18, vigente:
-terminar primero. «Habrá que esperar a terminar, a ver si realmente se ve y
-funciona como lo imaginamos.»
+- **La portada y sus tres puertas** llevan al cuestionario antiguo y a su
+  resultado (`/resultado/[token]`), con el motor viejo. **También la caja de
+  texto «Cuéntanoslo»**: lo escrito pasa al cuestionario de cinco preguntas
+  como nota, y ahí la IA está apagada por su interruptor
+  (`ATLAS_RECOMENDADOR_IA_ACTIVA`), así que nadie lo lee.
+- **El asesor nuevo vive en `/asesor`**, sin enlace y con noindex. Entiende el
+  texto con Gemini, aconseja, recuerda el caso al seguir conversando y
+  pregunta «¿para qué?» ante una palabra ambigua.
+- **`/herramientas`** enseña las 90, con filtros.
 
 ### El catálogo hoy
 
-- **65 fichas**, repartidas en **5,0 casas de media** (máximo 14). Ninguna de
-  las 17 casas queda vacía; 15 son públicas y 2 pendientes.
-- **60 con el precio comprobado** en la web del fabricante, con fecha y
-  dirección. Se empezó en 22.
-- **50 con los planes citados textualmente**: 108 planes con nombre y precio.
-- **64 tienen plan gratuito**; 32 indefinido, 30 de prueba. Sin clase quedan
-  Copy.ai y Hotmart, porque su página no lo dice.
-- **Sin precio comprobado: Notion AI, Odoo, Zoho CRM, Zoho One, Zoho
-  Projects.**
-- **3.880 registros de capacidad sobre 64 de las 65**, de los que **863 están
-  verificados** con cita, más los descartes con su motivo.
-- **Vocabulario:** 61 necesidades, las 61 con su nombre corto (`enCorto`).
+- **90 herramientas** en **17 casas**: 16 públicas y «Software sectorial»
+  desconectada.
+- **4.053 registros de capacidad, 1.029 verificados**, sobre las 90.
+- **61 necesidades** en el vocabulario.
+- **Español con recibo: 2 de 90.** El «en español» de las otras 52 viene de la
+  lista de idiomas de la primera redacción, sin fuente.
+- **Plan gratuito con su tipo comprobado: 62 de 90** —32 sin límite de
+  tiempo, 30 de prueba—; 10 más dicen tenerlo sin tipo.
 
-### El asesor, que es donde está el trabajo
+### Lo pendiente, tal como lo dejó la propietaria el 1 de octubre
 
-**Hecho y verde:** los cuatro pasos —entender, aclarar, buscar, aconsejar—,
-en `/asesor`, con noindex y sin enlazar. Busca atravesando las casas; sólo
-pregunta lo que cambia el consejo; todo lo que afirma sale de datos
-verificados. `aQuienServimos()` deriva de la evidencia de ahora: **5 de 15
-oficios**.
+Es la lista que le di en el chat el 1 de octubre, con la misma numeración
+para que hablemos de lo mismo. Sin orden de prioridad.
 
-**Sin resolver, y por este orden:**
+**Desde el 3 de octubre, el orden de trabajo lo marca el PLAN DE CIERRE**
+(sección anterior). Esta lista se conserva como inventario, con su
+numeración.
 
-1. **La pantalla obliga a pensar.** Sigue siendo el listón, y sigue sin
-   pasarlo del todo. El 25 mejoró —una herramienta, lo que no cubre, y el
-   consejo— pero lo decide ella, no yo.
-2. ~~**A 10 de 15 oficios Molnip les dice que sí sin poder.**~~ Resuelto el
-   2026-09-25: cada opción dice lo que NO cubre, en la fila y no en letra
-   pequeña.
-3. **La puerta por oficio mete diez necesidades donde caben dos**, y por eso
-   ningún titular es legible. Decisión abierta: si se entra por frase escrita,
-   qué pasa con la puerta de oficios.
-4. **El texto libre está apagado por una condición equivocada.** El asesor
-   busca `GEMINI_API_KEY`; en este entorno el proxy inyecta la credencial y
-   las llamadas funcionan sin clave —así se hicieron las 808 comprobaciones—.
-   En producción es otra conversación, pero probarlo aquí no está bloqueado.
+1. **Las alternativas del asesor son todas iguales.** Cada una dice «Resuelve
+   lo mismo que Koibox con lo que me has contado»: parece que se empuja a
+   Koibox. Cada tarjeta debería decir lo que la distingue, sin nombrar a la
+   principal. *«Le están metiendo al cliente por los ojos Koibox como si Koibox
+   nos pagara algo.»*
+2. **No hay salida a la herramienta desde el asesor.** El botón final de la
+   ficha, «Ver cómo funciona», no lleva a ninguna parte y no registra el clic.
+   La página de salida con registro existe en el recorrido antiguo
+   (`/herramienta/[id]/ir`) y no admite el asesor como origen.
+3. **La portada lleva al cuestionario antiguo**, que además no entiende: una
+   agencia de publicidad en TikTok que quería «encadenar tareas» recibió una
+   recomendación que, en palabras de la propietaria, *«no sirve para una
+   mierdita»*. Su resultado conserva la nota en círculo sin fuente, la valoración de Capterra sin comprobar,
+   «calidad y fiabilidad», «Desventajas» y la frase de la comisión, que habla
+   de la afiliación aparcada.
+   **Comprobado la tarde del 1 de octubre, con capturas suyas desde el
+   móvil:** escribió en la caja de la portada «no doy a basto respondiendo a
+   clientes por WhatsApp», pasó por las cinco preguntas y acabó en «No he
+   sabido entender qué necesitas». Su conclusión: *«No creo que Molnip esté
+   utilizando un asesor… las respuestas realmente no son inteligentes.»* Es
+   cierto en ese camino: la IA está apagada ahí y el asesor nuevo no tiene
+   ningún enlace. Quien entra hoy en Molnip no llega nunca al asesor.
+   **Que no esté enlazado es decisión suya, no un olvido:** el 24 se
+   construyó «sin enlazar; la web actual no cambia», y el 30 a las 20:57
+   dijo *«No conectes todavía la portada con /asesor… Esos serán trabajos
+   separados.»* Propuesta mía, sin autorizar: que la caja y «Empezar» lleven
+   a `/asesor`, sin borrar el cuestionario. Va unida al punto 5, porque la
+   entrada del asesor no tiene diseño aprobado.
+   **La portada se queda como está.** Dicho por ella el 1 de octubre, después
+   de ver todo esto: *«para mí la portada me gusta»*. No se propone
+   rehacerla. Lo que falta no es la portada, sino dos cosas: que su caja de
+   texto lleve al asesor, y diseñar lo que ve la persona entre que escribe y
+   recibe el consejo. Lo diseñado y aprobado el 30 es la respuesta —el
+   consejo—, no ese paso. Las variantes de cómo conectarlo son propuesta
+   mía y no están decididas.
+4. **Las tarjetas del catálogo** no dicen idioma ni plan gratuito, la
+   descripción es pobre y enseñan una nota sin fuente. El plan gratuito con su
+   tipo se puede enseñar ya; el español necesita una ronda de comprobación,
+   que es investigar y la decide ella.
+5. **La pantalla de entrada del asesor** está mal presentada y nunca tuvo un
+   diseño aprobado: la maqueta empezaba en el consejo.
+6. **El empate pide el presupuesto**, y el motor no sabe usarlo.
+7. **Un fallo de Gemini queda escondido.** Propuesta: anotar el error en el
+   registro de Vercel y decir a la persona «Ahora mismo no puedo leer lo que
+   escribes».
+   **Es el bloque 1 del plan de cierre. Hecho en código el 3 de octubre;
+   queda cerrado cuando se compruebe en producción.**
+8. **Los 269 casos de parejas**, como decisión de producto aparte.
+9. **ATLAS.md estaba desfasado.** Hecho el 1 de octubre (`d646af2` y
+   `b02d778`): ésta es la sección que lo resuelve.
+10. **Los logos de las 90.** La pantalla los admite y ninguna ficha los tiene.
+    Añadido al repasar el chat: no estaba en la lista del 1 de octubre.
 
-### La tarjeta pública de recomendación: media hecha, y con cuatro deudas
+### Lo que seguía abierto el 25 y no se ha revisado desde entonces
 
-**Terminado:** la tarjeta «Lo que te va a costar», separada de la
-recomendación, con la cifra, el plan, el plan gratuito dicho sin rodeos y de
-dónde sale el precio. El botón va después.
+Se conserva para que no se pierda; no se ha comprobado si sigue igual.
 
-**Sin hacer, las mismas cuatro del 21 y ninguna tocada desde entonces:**
-
-1. **El bloque sigue diciendo «DESVENTAJAS»**, a dos columnas del mismo ancho
-   que «Ventajas», con ✓ verde contra × roja. Incumple la quinta regla de la
-   visión en `AGENTS.md` — «no somos jueces».
-2. **El 88 sigue arriba sin decir de qué está hecho.**
-3. **`metodologiaValoracion`**: 64 de 65 fichas publican que las notas salen
-   de «agregación de miles de opiniones verificadas en G2 y Capterra». Nadie
-   agregó nada. **Es la única afirmación falsa que habla de nosotros**, y por
-   eso es la más urgente.
-4. **`criterioMetodologia`** da +2 puntos a 60 de 65 fichas y escribe «sus
-   puntuaciones están contrastadas con datos de uso reales». No hay ni un
-   cliente. Y puntúa nuestras propias palabras, no la herramienta.
-
-Hubo una maqueta del bloque nuevo, **descartada por la propietaria el mismo
-día**: llevaba un aviso de «esto es valoración nuestra, no lo hemos
-comprobado» debajo de las pegas, y ella lo cortó — el aviso no es honradez, es
-taparse las espaldas. No se reutiliza tal cual.
+- **Que el orden se apoye en lo comprobado** (F3, con condiciones en
+  `data/vocabulario/CONDICIONES-PARA-F3.md`). No se abre sin autorización.
+- **Las cuatro deudas de la tarjeta pública** que listaba esta sección el 25:
+  «Desventajas», el 88 sin explicar, `metodologiaValoracion` y
+  `criterioMetodologia`.
+- **La frase que da valor a Molnip**: «sí, tiene plan gratuito, pero lo que
+  tú necesitas no está en él». El dato existe —`planMinimo`— y no lo enseña
+  ninguna pantalla.
+- **La moneda**, **Zoho** y **dos planes posiblemente fantasma**: Scoro
+  «Standard» y ClickUp Brain «Business».
 
 ### Las reglas que mandan y que no se reabren
 
 Del 2026-09-21, enteras en «MOLNIP ES UN INTERMEDIARIO»: **si no lo sabemos,
 no se dice** (y el aviso no es coartada); **un adjetivo sin «para quién» está
-a medias**; **Molnip es un intermediario** y por eso no opina ni pone nota. Y
-las tres capas que no se confunden: lo que **guardamos** (no se borra), lo que
-**publicamos** (sólo lo sostenible) y **con qué puntuamos**.
+a medias**; **Molnip es un intermediario** y por eso no opina ni pone nota.
 
-Del 2026-09-17: **la afiliación se aparca** hasta que haya tráfico, y **se
-siguen recomendando tres con explicación**.
+Del 2026-09-17: **la afiliación se aparca** hasta que haya tráfico.
 
 Del 2026-09-24: **los 15 oficios son una regla de medir, no una decisión**;
 **«una sola recomendación» nunca fue una regla**; y **la página no puede
 obligar a entenderla**.
 
-### Lo que queda encima de la mesa
-
-1. **Lo gordo: que el orden se apoye en lo comprobado.** Hoy se apoya en las
-   siete notas de `puntuaciones`, que no tienen fuente; las capacidades
-   verificadas sólo hacen de portero. Es F3 y tiene condiciones previas en
-   `data/vocabulario/CONDICIONES-PARA-F3.md`. No se abre sin autorización.
-2. **Las cuatro deudas de la tarjeta pública**, arriba. La 3 es la urgente.
-3. **Las cuatro del asesor**, arriba. La 1 y la 2 son de producto.
-4. **La frase que da valor a Molnip**: «sí, tiene plan gratuito, pero lo que
-   tú necesitas no está en él». El dato existe —`planMinimo`— y no lo enseña
-   ninguna pantalla.
-5. **Lo que no cubre nadie**, que es donde está el trabajo de investigación:
-   agenda por profesional y TPV (0 de 65 las dos), historia clínica,
-   protección de datos, factura electrónica obligatoria, impuestos,
-   contabilidad, fin de mes, que los clientes vuelvan, turnos y fichajes.
-   Quedan unos 6.600 pares que nadie ha preguntado nunca.
-6. **La moneda** y **Zoho**, de la lista del 21.
-7. **Dos planes posiblemente fantasma** sin mirar: Scoro «Standard» y ClickUp
-   Brain «Business».
+Del 2026-09-30: **la posición expresa la prioridad, no la calidad de la
+presentación**; **«cubren», nunca «igual de bien»**; **un dato desconocido no
+es un «no»**.
 
 ### Cómo se trabajó, por si sirve de método
 
-Lo que desatascó la verificación fue una pregunta suya: «¿y tú con Gemini no
-lo puedes hacer?». El arnés de `url_context` llevaba semanas en el repositorio
-y leyó en una tarde lo que el canal externo no pudo abrir en tres intentos.
-Hace falta `NODE_USE_ENV_PROXY=1`: Node no usa el proxy por su cuenta. Y el
-estado **«PLANTILLA SIN RELLENAR»** salvó la tanda: sin él, veinte fabricantes
-habrían quedado escritos como si no publicaran sus precios.
+Dos avisos suyos del 29, que son el fondo de todo lo demás:
 
-Dos métodos más, los dos suyos:
+> *«llevamos meses de trabajo y apenas as aprovechado un 40 % por que lo que
+> hacemos lo hacemos mal y luego lo repetimos una y otra y otra ves»*
 
+> *«si te digo que escribas lo de hoy, seguramente vas a poner decisiones que
+> yo no he tomado. Que son decisiones que tú tomas y luego me las achacas a
+> mí. No, guarda lo que vamos haciendo, lo que nos hace avanzar»*
+
+Por eso en esta página lo suyo va con sus palabras y lo mío va como mío.
+
+- **Antes de fusionar, se enumera cada commit que entra.** Lección del 1 de
+  octubre: desplegar un commit despliega también los que van antes.
+- **Antes de subir, tipos, suite completa y compilación desde cero.** Dos de
+  los seis fallos de Vercel de la semana eran errores de tipos míos.
+- **Un fallo externo no se esconde.** Gemini falló en producción durante días
+  sin dejar rastro porque la ruta lo atrapaba en silencio.
 - **Cuando la propietaria discute un dato, medirlo en vez de defenderlo.** El
-  21 se cayeron así dos afirmaciones mías dichas con seguridad. El 24 se cayó
-  otra por el mismo camino: yo sostenía que no sabíamos si faltaba catálogo;
-  las 808 comprobaciones demostraron que las cuatro necesidades estaban a 0 de
-  65.
-- **Y el aviso de método que more caro sale ignorar:** lo provisional no se
-  declara cerrado, no se le pone una guarda y no se le cita a ella como si
-  fuera el suelo.
+  1 de octubre se confirmó otra vez: el 8 % del dorado sí estaba escrito, en
+  `brand-guidelines.md`, y yo dije que no.
+- **Lo provisional no se declara cerrado**, no se le pone una guarda y no se
+  le cita a ella como si fuera el suelo.
+- **Gemini se usa con el arnés de `url_context`** y `NODE_USE_ENV_PROXY=1` en
+  el entorno remoto; Node no usa el proxy por su cuenta.
 
 ---
 

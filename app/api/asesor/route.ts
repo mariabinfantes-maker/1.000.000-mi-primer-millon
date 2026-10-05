@@ -3,7 +3,6 @@ import {
   aclarar,
   aconsejar,
   entender,
-  leerComprension,
   getOficios,
   loQueTraeUnOficio,
   necesidadesDeLaLista,
@@ -23,6 +22,7 @@ import {
   type PreguntaUtil,
 } from "@/agents/atlas-advisor/asesor";
 import { crearProveedorGemini } from "@/agents/compartido/proveedores/gemini";
+import { MENSAJE_DE_FALLO_TECNICO } from "@/app/asesor/falloTecnico";
 
 /**
  * La versión de PRUEBA del asesor. No toca la web actual.
@@ -47,8 +47,79 @@ import { crearProveedorGemini } from "@/agents/compartido/proveedores/gemini";
  * Faltaba esa segunda mitad, y por eso el asesor decía «todavía no sé leer tu
  * texto» en un entorno donde sí podía: se miraba sólo la variable de la clave.
  */
-const HAY_IA =
-  Boolean(process.env.GEMINI_API_KEY) || process.env.GEMINI_CLAVE_INYECTADA_POR_PROXY === "true";
+function hayClave(): boolean {
+  return Boolean(process.env.GEMINI_API_KEY) || process.env.GEMINI_CLAVE_INYECTADA_POR_PROXY === "true";
+}
+
+/**
+ * EL INTERRUPTOR PROPIO DE LA IA DEL ASESOR. Apagado salvo que
+ * `ATLAS_ASESOR_IA_ACTIVA=true` esté en el entorno.
+ *
+ * Propietaria, 2026-10-03: «Quiero también un interruptor propio de la IA del
+ * asesor, encendido en producción.» Sigue la regla del 6 de agosto para el
+ * cuestionario (`ATLAS_RECOMENDADOR_IA_ACTIVA`): la IA que cuesta en cada
+ * visita no se enciende sola porque exista la clave. Hasta este día el asesor
+ * se encendía con la clave sola; ver ATLAS.md, «Gemini en el asesor: cuándo y
+ * por qué se conectó».
+ *
+ * Se lee en cada petición y no al cargar el archivo: en Vercel da igual, y así
+ * las pruebas pueden encenderlo y apagarlo.
+ *
+ * - Apagado: el asesor no llama a la IA y lo dice; la persona elige lo que le
+ *   pasa de una lista. Es un estado buscado, no un fallo.
+ * - Encendido y sin clave: eso SÍ es un fallo —alguien quiso la IA y no puede
+ *   funcionar—, y se trata como cualquier otro fallo técnico.
+ */
+function iaDelAsesorEncendida(): boolean {
+  return process.env.ATLAS_ASESOR_IA_ACTIVA === "true";
+}
+
+/**
+ * Modelo que no existe, para la prueba de fallo: Google contesta con un error
+ * real y todo el camino —llamada, error, registro, mensaje— se recorre igual
+ * que en un fallo de verdad. Se pide desde la página con `?prueba=fallo`.
+ * Sólo afecta a quien lo pide y no gasta: un modelo inexistente no se cobra.
+ */
+const MODELO_DE_PRUEBA_DE_FALLO = "modelo-inexistente-prueba-de-fallo-molnip";
+
+/**
+ * Un fallo técnico de la IA NO se esconde. Hasta el 2026-10-03 se atrapaba en
+ * silencio y salía como «no te he entendido»: con la clave mal puesta, el
+ * asesor estuvo días sin entender nada en producción mientras Vercel
+ * registraba 200 y cero errores. Ahora queda en el registro de Vercel con su
+ * causa —busca «[asesor]»— y la respuesta va con estado 503.
+ *
+ * No se registra lo que escribió la persona: sólo cuánto medía.
+ */
+function registrarFalloTecnico(momento: "entender" | "continuar", causa: unknown, texto: string, esPrueba: boolean) {
+  const motivo = causa instanceof Error ? causa.message : String(causa);
+  console.error(
+    `[asesor] Fallo técnico de la IA al ${momento}${esPrueba ? " (prueba provocada)" : ""}: ${motivo}`,
+    JSON.stringify({ momento, causa: motivo, prueba: esPrueba, largoDelMensaje: texto.length })
+  );
+}
+
+function respuestaDeFalloTecnico() {
+  return NextResponse.json({ falloTecnico: { mensaje: MENSAJE_DE_FALLO_TECNICO } }, { status: 503 });
+}
+
+/**
+ * El lector que la IA usa para leer, con memoria de si falló. `entender` y
+ * `continuar` siguen como estaban —`continuar` atrapa el error y sigue con el
+ * caso intacto—; lo que cambia es que la ruta se entera y lo dice.
+ */
+function lectorQueAvisa(esPrueba: boolean) {
+  const proveedor = crearProveedorGemini(esPrueba ? { modelo: MODELO_DE_PRUEBA_DE_FALLO } : {});
+  let fallo: unknown = null;
+  return {
+    leer: (prompt: string) =>
+      proveedor.generarJson(prompt).catch((e: unknown) => {
+        fallo = e;
+        throw e;
+      }),
+    fallo: () => fallo,
+  };
+}
 
 /** Las casas: los oficios. Se piden sin cuerpo, para pintar la portada. */
 export async function GET() {
@@ -85,7 +156,10 @@ export async function POST(peticion: Request) {
     aclaracionAbierta?: string;
     /** Eligió uno de los «¿para qué?» con un botón. */
     aclarada?: { termino?: string; necesidadId?: string };
+    /** Prueba de fallo pedida con `?prueba=fallo`: ver `MODELO_DE_PRUEBA_DE_FALLO`. */
+    probarFallo?: boolean;
   };
+  const esPrueba = cuerpo.probarFallo === true;
   const yaContestadas = new Set(cuerpo.respondidas ?? []);
   const sinRepetir = (ps: ReturnType<typeof aclarar>) => ps.filter((p) => !yaContestadas.has(p.dimension.id));
   const texto = (cuerpo.texto ?? "").trim();
@@ -113,7 +187,7 @@ export async function POST(peticion: Request) {
       return NextResponse.json({ ...conElCaso(c.estado, texto), continuacion, leyoLaIA: false });
     }
     if (!texto) return NextResponse.json({ error: "Cuéntame algo primero." }, { status: 400 });
-    if (!HAY_IA) {
+    if (!iaDelAsesorEncendida()) {
       return NextResponse.json({
         continuacion: {
           estado,
@@ -125,8 +199,18 @@ export async function POST(peticion: Request) {
         },
       });
     }
-    const proveedor = crearProveedorGemini();
-    const c = await continuar(texto, estado, (prompt) => proveedor.generarJson(prompt), cuerpo.preguntaAbierta, cuerpo.aclaracionAbierta);
+    if (!hayClave()) {
+      registrarFalloTecnico("continuar", "La IA del asesor está encendida pero falta GEMINI_API_KEY.", texto, esPrueba);
+      return respuestaDeFalloTecnico();
+    }
+    const lector = lectorQueAvisa(esPrueba);
+    const c = await continuar(texto, estado, lector.leer, cuerpo.preguntaAbierta, cuerpo.aclaracionAbierta);
+    // Si la IA falló, lo que devuelve `continuar` es «no entendido», y no lo
+    // es: no ha leído nada. El caso no se toca y se dice lo que pasa.
+    if (lector.fallo()) {
+      registrarFalloTecnico("continuar", lector.fallo(), texto, esPrueba);
+      return respuestaDeFalloTecnico();
+    }
     const continuacion = {
       estado: c.estado,
       lineas: describirCambios(c.cambios),
@@ -189,12 +273,26 @@ export async function POST(peticion: Request) {
   }
 
   if (!texto) return NextResponse.json({ error: "Cuéntame algo primero." }, { status: 400 });
-  if (!HAY_IA) return NextResponse.json({ sinIA: true, necesidades: necesidadesQueSePuedenElegir() });
+  if (!iaDelAsesorEncendida()) return NextResponse.json({ sinIA: true, necesidades: necesidadesQueSePuedenElegir() });
+  if (!hayClave()) {
+    registrarFalloTecnico("entender", "La IA del asesor está encendida pero falta GEMINI_API_KEY.", texto, esPrueba);
+    return respuestaDeFalloTecnico();
+  }
 
-  const proveedor = crearProveedorGemini();
-  const comprension = await entender(texto, (prompt) => proveedor.generarJson(prompt)).catch(() =>
-    leerComprension(texto, {})
-  );
+  /*
+   * Aquí ponía `.catch(() => leerComprension(texto, {}))`: un fallo de la IA
+   * se convertía en una comprensión vacía y la persona leía «no tengo nada que
+   * proponerte», igual que si no la hubiera entendido. Ya no: se registra y se
+   * dice. `leerComprension` sigue siendo quien lee una respuesta que SÍ llegó.
+   */
+  const lector = lectorQueAvisa(esPrueba);
+  let comprension;
+  try {
+    comprension = await entender(texto, lector.leer);
+  } catch (e) {
+    registrarFalloTecnico("entender", e, texto, esPrueba);
+    return respuestaDeFalloTecnico();
+  }
   return NextResponse.json({
     comprension,
     preguntas: aclarar(comprension.necesidades).map(resumir),
