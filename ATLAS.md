@@ -7432,6 +7432,41 @@ inteligente y más corto.»*
 aparte del 2 para mejorar cómo decide Molnip, *«utilizando primero el
 conocimiento que ya tenemos»*, que trate por separado los dos problemas.
 
+## 2026-10-05 — REGLA DE VOZ: POSITIVO POR DEFECTO
+
+**Regla de la propietaria, vigente desde este día, y parte de la identidad
+de Molnip.** Con sus palabras:
+
+> *«Molnip comunica en positivo siempre que pueda conservar exactamente el
+> mismo significado. Evita construcciones negativas innecesarias. El "no" se
+> utiliza cuando comunica una limitación, ausencia, restricción, riesgo o
+> advertencia que el cliente necesita conocer.»*
+
+Y el matiz que la hace funcionar: *«la regla debe ser "positivo por
+defecto", no "prohibido decir no". Cuando hay una limitación real, Molnip
+tiene que decirla claramente.»* Por qué hace falta escribirla: *«ya lo hemos
+visto repetirse en distintos sitios. Si solo corregimos las frases que vemos,
+[el asistente] volverá a generar otras parecidas.»*
+
+**Sus ejemplos:**
+
+| Antes | Después |
+|---|---|
+| «Además lleva ausencias y depósitos, que no me pediste pero te tocan» | «Además incluye gestión de ausencias y depósitos.» |
+| «Además lleva insertar la reserva en tu propia web, cancelar y cambiar la cita, que no me pediste pero te tocan» | «Además permite insertar las reservas en tu web y gestionar cambios y cancelaciones.» |
+| «SI KOIBOX NO TE CONVENCE» | «OTRAS OPCIONES QUE ENCAJAN» |
+
+**El negativo se conserva cuando lleva información necesaria:** «Este plan
+no incluye X», «No hemos podido confirmar X», o una advertencia equivalente.
+
+Cómo encaja con las reglas anteriores, sin sustituir ninguna: **«si no lo
+sabemos, no se dice»** y **«un dato desconocido no es un "no"»** siguen
+vigentes —lo que no consta se dice como «sin confirmar», que es una
+limitación real—; y **«no somos jueces»** también: de una herramienta que no
+encaja no se dice nada malo, se dice que no está pensada para ella.
+
+---
+
 ---
 
 ## DÓNDE ESTAMOS — punto de partida al 2026-10-05
@@ -7566,6 +7601,11 @@ obligar a entenderla**.
 Del 2026-09-30: **la posición expresa la prioridad, no la calidad de la
 presentación**; **«cubren», nunca «igual de bien»**; **un dato desconocido no
 es un «no»**.
+
+Del 2026-10-05: **positivo por defecto** (regla de voz, en su sección): se
+dice en positivo siempre que el significado sea el mismo; el «no» queda para
+limitaciones, ausencias, restricciones, riesgos y advertencias que el cliente
+necesita conocer.
 
 ### Cómo se trabajó, por si sirve de método
 
