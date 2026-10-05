@@ -7205,6 +7205,32 @@ tres veces, que la frase no dice qué necesita. Pero un asesor preguntaría
 por qué los pierde en vez de cerrar la conversación. Va con la frase de
 WhatsApp de arriba.
 
+### El bloque 2: lo que se hizo (2026-10-05), sin desplegar
+
+Su decisión, antes de empezar: en el empate, **«dejar de pedirlo»** —el
+presupuesto—.
+
+- **El empate ya no pregunta nada.** Terminaba con «Dime qué presupuesto
+  manejas al mes y si trabajas sola o con más personas, y te digo cuál.», y
+  ninguno de los dos datos entra en el motor. Ahora termina en «…no tengo con
+  qué decidir entre ellas.»
+- **Ninguna alternativa nombra a la principal.** La línea «Resuelve lo mismo
+  que Koibox con lo que me has contado» desaparece; además repetía el párrafo
+  de encima. «Por qué la he incluido» dice sólo lo que la distingue con
+  evidencia demostrada —lo que lleva de más y las demás de la pantalla no—, o
+  que son dos programas. **Si nada comprobado la distingue, el bloque no se
+  pinta**: pasa en 1.043 de las 2.394 alternativas de los 1.891 casos de una y
+  dos necesidades. No se rellena.
+- Prueba sobre los 1.891 casos: `loQueSostiene.test.ts`.
+
+**Encontrado al hacerlo, y no tocado porque es una decisión suya:** de los
+901 casos en que el motor elige una principal, **430 los decide la curva de
+aprendizaje**, y la tarjeta lo afirma: «De las 4, Gamma es la que se aprende
+antes». Ese dato (`curvaDeAprendizaje`) es de la primera redacción de las
+fichas, sin fuente guardada. Es lo mismo que ella corrigió el 30 con «Más
+fáciles de aprender». Quitarlo de la decisión cambia el motor: esos 430
+casos pasarían a empate o a otro criterio.
+
 ---
 
 ## DÓNDE ESTAMOS — punto de partida al 2026-10-05

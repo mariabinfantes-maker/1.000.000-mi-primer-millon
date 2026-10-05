@@ -7,6 +7,7 @@ import SimboloMolnip from "@/components/ui/SimboloMolnip";
 import { mayuscula, type Camino, type Opcion, type Pieza } from "./Variantes";
 import { titular, type Abierta } from "./TarjetaDelConsejo";
 import { DE_TRES_EN_TRES, idDe, queSeEnsena } from "./queSeEnsena";
+import { lineasDelPorQue, loQueDistingue, type Elegida } from "./porQue";
 
 /**
  * LA PANTALLA DEL CONSEJO, tal como la aprobó la propietaria el 2026-09-30.
@@ -50,8 +51,6 @@ import { DE_TRES_EN_TRES, idDe, queSeEnsena } from "./queSeEnsena";
  */
 
 const TARJETA = "rounded-2xl border border-slate-200/80 bg-white";
-
-type Elegida = Opcion & { desempate?: { criterio: string; porQue: string } };
 
 function enumerar(cosas: string[]): string {
   if (cosas.length === 0) return "lo que me has contado";
@@ -118,24 +117,7 @@ function precioCorto(opcion: Opcion): { cifra: string; nota?: string } {
   };
 }
 
-/**
- * Lo que ÉSTA demuestra de más y las demás de la pantalla no. Si todas traen
- * lo mismo, no distingue nada y no se escribe: la línea sólo habla cuando
- * tiene algo que decir, y nunca se inventa una ventaja para rellenar.
- */
-function loQueDistingue(opcion: Opcion, entreEllas: Opcion[]): string[] {
-  const suyos = [...new Set(opcion.piezas.flatMap((p) => p.ademas))];
-  return suyos.filter((e) => !entreEllas.every((o) => o.piezas.some((p) => p.ademas.includes(e))));
-}
-
-const EN_LETRA = ["cero", "una", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez"];
-
-/** «la necesidad», «las tres necesidades»: cuántas cosas pidió, dicho como se habla. */
-function cuantasNecesidades(opcion: Opcion): string {
-  const n = new Set(opcion.piezas.flatMap((p) => p.cubre)).size;
-  if (n <= 1) return "la necesidad";
-  return `las ${EN_LETRA[n] ?? n} necesidades`;
-}
+/* `loQueDistingue` y `cuantasNecesidades` viven en `porQue.ts`, con las líneas del «por qué». */
 
 const PLAN_SIN_TARIFA = /^En qué plan entra «.+»: lo hemos visto en su página, pero no en qué tarifa\.$/;
 
@@ -173,7 +155,7 @@ function Antetitulo({ children, gris = false }: { children: React.ReactNode; gri
  * sin el dorado y sin «Mi consejo», porque no lo es.
  */
 function Tarjeta({
-  opcion, papel, abierta, alAlternar, entreEllas, principal, cuantas, alAbrir, tamanoCompacta = "m",
+  opcion, papel, abierta, alAlternar, entreEllas, cuantas, alAbrir, tamanoCompacta = "m",
 }: {
   opcion: Elegida;
   papel: "principal" | "alternativa";
@@ -181,7 +163,11 @@ function Tarjeta({
   alAlternar?: () => void;
   /** Las que están en pantalla con ella, para saber qué la distingue. */
   entreEllas: Opcion[];
-  /** La elegida, para poder decir «resuelve lo mismo que Koibox». */
+  /**
+   * La elegida. Servía para decir «resuelve lo mismo que Koibox» en cada
+   * alternativa, y eso se quitó el 2026-10-05 (ver `porQue.ts`): ya no se lee.
+   * Se sigue pasando por si una línea futura necesita saber cuál es.
+   */
   principal?: Opcion | null;
   /** Cuántas empataron cubriendo lo mismo. */
   cuantas: number;
@@ -233,7 +219,7 @@ function Tarjeta({
   }
 
   const esPrincipal = papel === "principal";
-  const resuelveLoMismo = principal && opcion.noCubre.length === 0 && principal.noCubre.length === 0;
+  const porQue = lineasDelPorQue(opcion, esPrincipal, entreEllas, cuantas);
 
   return (
     <section
@@ -287,28 +273,15 @@ function Tarjeta({
         {enEspanol ? ", y está en español." : "."}
       </p>
 
-      <div className="mt-4 space-y-1.5">
-        <Antetitulo>{esPrincipal ? "Por qué te la recomiendo" : "Por qué la he incluido"}</Antetitulo>
-        <ul className="list-disc space-y-1 pl-[18px] text-sm leading-relaxed text-slate-800">
-          {esPrincipal && cuantas > 1 && opcion.piezas.length === 1 && opcion.noCubre.length === 0 && (
-            <li>
-              Hay {cuantas} herramientas que cubren {cuantasNecesidades(opcion)} que me has contado.
-            </li>
-          )}
-          {esPrincipal && opcion.desempate?.porQue && <li>{opcion.desempate.porQue}</li>}
-          {!esPrincipal && (
-            <li>
-              {resuelveLoMismo
-                ? `Resuelve lo mismo que ${nombreDe(principal!)} con lo que me has contado.`
-                : `Te resuelve ${enumerar(cubreEnCorto(opcion))}.`}
-            </li>
-          )}
-          {opcion.piezas.length > 1 && <li>Son {opcion.piezas.length} programas y {opcion.piezas.length} cuotas.</li>}
-          {distingue.length > 0 && (
-            <li>Además lleva {distingue.join(", ").toLowerCase()}, que no me pediste pero te {distingue.length > 1 ? "tocan" : "toca"}.</li>
-          )}
-        </ul>
-      </div>
+      {/* Sin nada propio que decir, el bloque no se pinta: ver `porQue.ts`. */}
+      {porQue.length > 0 && (
+        <div className="mt-4 space-y-1.5">
+          <Antetitulo>{esPrincipal ? "Por qué te la recomiendo" : "Por qué la he incluido"}</Antetitulo>
+          <ul className="list-disc space-y-1 pl-[18px] text-sm leading-relaxed text-slate-800">
+            {porQue.map((l) => <li key={l}>{l}</li>)}
+          </ul>
+        </div>
+      )}
 
       {avisos.length > 0 && (
         <div className="mt-4 space-y-1.5">
