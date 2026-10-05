@@ -308,9 +308,10 @@ export type Consejo = {
    */
   loQueHaria: { piezas: Pieza[]; laConexionNoEstaComprobada: boolean; noCubre: string[]; desempate: Desempate } | null;
   /**
-   * Lo que hace falta saber para poder elegir. Sólo cuando `loQueHaria` es
-   * null por empate: es la única pregunta que decidiría, no una lista de
-   * preguntas.
+   * La frase del empate: cuántas cubren lo pedido y que no hay con qué decidir
+   * entre ellas. Sólo cuando `loQueHaria` es null por empate. Hasta el
+   * 2026-10-05 terminaba con una pregunta —el presupuesto— que el motor no
+   * sabía usar; ya no pregunta nada (ver `elegirUna`).
    */
   loQueNecesitoSaber: string | null;
   /**
@@ -715,7 +716,19 @@ function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempat
   if (curva.length > 1 && curva[0].c < curva[1].c && curva[0].c < 9) {
     return { elegida: curva[0].o, desempate: {
       criterio: "curva",
-      porQue: `De las ${quedan3.length}, ${nombreDe(curva[0].o)} es la que se aprende antes. Para empezar, eso vale más que cualquier función de más.`,
+      /**
+       * REDACCIÓN DE LA PROPIETARIA, 2026-10-05: «Me inclino por X: de las que
+       * quedan, es la que tenemos valorada como más sencilla para empezar.»
+       *
+       * Qué reemplaza y por qué. Decía «De las N, X es la que se aprende
+       * antes. Para empezar, eso vale más que cualquier función de más.»: lo
+       * primero sonaba a medición cuando es una valoración nuestra en cuatro
+       * niveles (`curvaDeAprendizaje`), «de las N» no decía de qué grupo se
+       * hablaba —con Gamma salía HubSpot en pantalla con la misma valoración—,
+       * y lo segundo era un juicio que no sale de ningún dato. El criterio y
+       * el dato siguen igual: sólo cambia cómo se dice.
+       */
+      porQue: `Me inclino por ${nombreDe(curva[0].o)}: de las que quedan, es la que tenemos valorada como más sencilla para empezar.`,
     } };
   }
 
@@ -746,7 +759,15 @@ function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempat
     ? `${cubren}, y no tengo con qué decidir entre ellas.`
     : `${cubren}. Mirando idioma, plan gratuito y precio me quedan ${cuantasEmpatan}, y entre esas no tengo con qué decidir.`;
   // `entre` es el conjunto cuyo número acaba de decir la frase, ni una más.
-  return { entre: cuantasEmpatan === opciones.length ? opciones : quedan3, empate: `${sinDecidir} Dime qué presupuesto manejas al mes y si trabajas sola o con más personas, y te digo cuál.` };
+  /**
+   * EL EMPATE YA NO PIDE EL PRESUPUESTO. Aquí seguía «Dime qué presupuesto
+   * manejas al mes y si trabajas sola o con más personas, y te digo cuál.», y
+   * era una promesa que el motor no cumplía: ninguno de los dos datos entra en
+   * `elegirUna`, así que la persona contestaba y nada cambiaba. Propietaria,
+   * 2026-10-05, bloque 2 del plan de cierre: «dejar de pedirlo». Que el motor
+   * use el presupuesto queda para después de la prueba con usuarios.
+   */
+  return { entre: cuantasEmpatan === opciones.length ? opciones : quedan3, empate: sinDecidir };
 }
 
 

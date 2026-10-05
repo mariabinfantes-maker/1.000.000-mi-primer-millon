@@ -7177,9 +7177,264 @@ escrita como ella la escribió —«a bastos», «watsapp»—, sin entender la 
 vez que se probó. No es un fallo técnico: es cómo lee el asesor. Lo apunto
 para el bloque 6, que es donde se prueban frases reales.
 
+### El bloque 1: cerrado (2026-10-05)
+
+Desplegado como `fbffe27` —el bloque 1 y cinco commits que sólo tocaban
+ATLAS.md, nada más—, después de que la propietaria pusiera
+`ATLAS_ASESOR_IA_ACTIVA=true` en Production. Comprobado por ella en
+molnip.com, con capturas:
+
+- **Una frase real funciona:** la clínica dental da su consejo, con Koibox.
+- **El fallo provocado** (`?prueba=fallo`) enseña su mensaje, y lo escrito
+  vuelve a la caja.
+- **Queda en el registro de Vercel con su causa:** a las 14:03:47 (hora de
+  España), `/api/asesor`, 503, «[asesor] Fallo técnico de la IA al entender
+  (prueba provocada)». Era el único error de la última media hora.
+- **«No te he entendido» sale distinto:** «PAPATA AZUL» da «No tengo nada
+  que proponerte».
+
+Antes de esto hubo una confusión que conviene no repetir: la propietaria
+probó primero por la portada y en la versión de prueba de Vercel, no en
+producción, porque yo no había desplegado y no se lo dije con claridad. **Al
+pedir una comprobación en producción, dar la dirección exacta y confirmar
+antes qué versión está publicada.**
+
+**Encontrado en la prueba, para el bloque 6:** «ESTOY PERDIENDO CLIENTES»
+da «No tengo nada que proponerte». No es un fallo: Gemini contesta, tres de
+tres veces, que la frase no dice qué necesita. Pero un asesor preguntaría
+por qué los pierde en vez de cerrar la conversación. Va con la frase de
+WhatsApp de arriba.
+
+### El bloque 2: lo que se hizo (2026-10-05), sin desplegar todavía
+
+Su decisión, antes de empezar: en el empate, **«dejar de pedirlo»** —el
+presupuesto—.
+
+- **El empate ya no pregunta nada.** Terminaba con «Dime qué presupuesto
+  manejas al mes y si trabajas sola o con más personas, y te digo cuál.», y
+  ninguno de los dos datos entra en el motor. Ahora termina en «…no tengo con
+  qué decidir entre ellas.»
+- **Ninguna alternativa nombra a la principal.** La línea «Resuelve lo mismo
+  que Koibox con lo que me has contado» desaparece; además repetía el párrafo
+  de encima. «Por qué la he incluido» dice sólo lo que la distingue con
+  evidencia demostrada —lo que lleva de más y las demás de la pantalla no—, o
+  que son dos programas. **Si nada comprobado la distingue, el bloque no se
+  pinta**: pasa en 1.043 de las 2.394 alternativas de los 1.891 casos de una y
+  dos necesidades. No se rellena.
+- Prueba sobre los 1.891 casos: `loQueSostiene.test.ts`.
+
+**La curva de aprendizaje: lo que decidió la propietaria.** De los 901 casos
+en que el motor elige una principal, 430 los decide la curva de aprendizaje
+(`curvaDeAprendizaje`, cuatro niveles: muy fácil, fácil, media, difícil; 14
+fichas sin valor). Le propuse desconectarla porque las primeras fichas no
+guardan la fuente, y no lo aceptó. Con sus palabras:
+
+> *«que las primeras fichas no conserven hoy la fuente/cita guardada no
+> significa que esos datos se obtuvieran sin fuente ni que fueran datos
+> inventados. Esa información se construyó utilizando fuentes fiables,
+> principalmente fuentes oficiales; el problema de aquella primera etapa fue
+> que no conservamos la trazabilidad documental como hacemos ahora.»*
+
+**Queda decidido: el dato, sus cuatro niveles y el criterio del motor se
+conservan, y no se reinvestigan las fichas.** Lo que cambia es cómo se dice.
+Decía «De las N, X es la que se aprende antes. Para empezar, eso vale más que
+cualquier función de más.», que sonaba a medición, no decía de qué grupo
+hablaba —con Gamma salía en pantalla HubSpot, valorada igual— y cerraba con un
+juicio sin dato. Ahora, con su redacción:
+
+> «Me inclino por X: de las que quedan, es la que tenemos valorada como más
+> sencilla para empezar.»
+
+**El empate**, también con su redacción: la etiqueta «Todavía no te digo
+cuál» —prometía una decisión que ya no llega— pasa a **«Estas opciones
+encajan»**, y la línea de debajo a **«Con lo que sé de tu caso, no tengo una
+razón suficiente para poner una por delante de otra.»**
+
+**Comprobación del bloque, sobre los 1.891 casos:** el motor decide
+exactamente lo mismo que en producción (`fbffe27`) en los 1.891 —misma
+principal, mismo criterio, mismas alternativas, mismos empates—; los 430
+casos de curva usan la frase nueva; ninguna respuesta contiene «se aprende
+antes» ni «vale más que cualquier función»; ninguna alternativa nombra a la
+principal; y ningún empate pregunta nada.
+
+### El empate como primera posición compartida (2026-10-05)
+
+Redacción de la propietaria: «Dos buenas opciones para tu caso» —el número
+se adapta— y las empatadas enteras, cada una con lo suyo, sin «no tengo con
+qué decidir», sin pregunta y sin promesa de afinar. Con cobertura parcial,
+«Ninguna herramienta cubre ella sola todo lo que me has contado» y «Estas N
+cubren X de las Y cosas que necesitas»: «ella sola» porque en 269 de los 665
+empates parciales una pareja sí lo cubre todo. Sólo presentación; el motor no
+cambia. Ella aprobó las pantallas de dos, de tres y la parcial.
+
+**El caso de los empates grandes, como «36 buenas opciones», NO está
+resuelto.** Con sus palabras: *«No se va a ocultar provisionalmente
+cambiando únicamente el texto o mostrando arbitrariamente tres herramientas.
+El diagnóstico ha identificado que el problema está en cómo el motor reduce
+—o no reduce— grupos grandes de candidatas. Su resolución queda como el
+siguiente trabajo de producto sobre el asesor.»*
+
+*(Corregido el 2026-10-05 a petición suya. Aquí ponía «la de 36 no se toca»,
+y podía leerse como una decisión de dejarla así. Es al revés: es el
+siguiente problema que hay que resolver.)*
+
+**La propietaria da el bloque 2 por terminado**, sin desplegar todavía:
+*«Bloque 2 está terminado. Sus correcciones son válidas independientemente
+de este descubrimiento.»* **Cerrar el bloque 2 no significa aceptar los
+empates grandes como comportamiento final.** Sus correcciones son válidas y
+están comprobadas; los empates grandes siguen abiertos.
+
 ---
 
-## DÓNDE ESTAMOS — punto de partida al 2026-10-03
+## 2026-10-05 — DIAGNÓSTICO: LOS EMPATES GRANDES Y LAS PREGUNTAS QUE NO CAMBIAN NADA
+
+**Esto es un diagnóstico, no una decisión.** Ninguna de estas observaciones
+está aprobada como cambio. Lo pidió así la propietaria: *«Guarda este
+análisis en ATLAS tal cual, claramente identificado como diagnóstico y sin
+convertir ninguna observación en una decisión aprobada.»* Se hizo sólo con
+los datos que ya existen, sin investigar herramientas y sin tocar el motor,
+las preguntas ni los datos.
+
+Lo que lo abrió: la pantalla de «36 buenas opciones para tu caso». Ella:
+*«2 buenas opciones → perfecto, pueden compartir primer puesto. 3 buenas
+opciones → todavía razonable. 36 buenas opciones → el asesor todavía no ha
+terminado su trabajo.»* Y su lectura del resultado: *«el problema principal
+no eran los empates. Los empates nos han permitido descubrir dos problemas
+del asesor.»*
+
+### Lo medido
+
+**Tamaño de los 154 empates que lo cubren todo** (de 1.891 casos de una y
+dos necesidades; además hay 665 empates de cobertura parcial):
+
+| Empatadas | 2 | 3 | 4 | 5 | 6 | 7–10 | 11–20 | más de 20 |
+|---|---|---|---|---|---|---|---|---|
+| Casos | 59 | 33 | 17 | 8 | 7 | 10 | 14 | 6 |
+
+**Los más grandes**, con una sola necesidad: «Que las herramientas que uso
+hablen entre sí» 36; «Tener claro qué hay que hacer hoy» 24; «Ver de un
+vistazo cómo va el negocio» 24; «Que lo repetitivo se haga solo» 22; «Poder
+llevarme mis datos si me voy» 17; «Escribir textos que no me den vergüenza»
+16; «Hacer seguimiento y no olvidarme de nadie» 14; «Saber cuánto tiempo echo
+en cada cosa» 14. Todas exigen **una sola capacidad imprescindible, y común
+a casi cualquier programa** (integraciones, tareas, paneles, automatizar,
+exportar).
+
+**El orden de decisión del motor** (`elegirUna` en `aconsejar.ts`): cubre si
+todos los imprescindibles están demostrados → menos piezas → español (se
+queda el mejor grupo) → plan gratuito (gana si es la única; si son varias, se
+quedan ésas) → precio (sólo si todas tienen importe comparable y una es más
+barata) → curva (sólo si UNA está sola en el nivel más fácil) → si nada
+decide, empate entre todas las que quedan.
+
+### Problema 1 — necesidades amplias con una sola capacidad común
+
+El filtro es de sí o no. En «que las herramientas que uso hablen entre sí»
+la capacidad es `cap.app_integrations`, «Conectar con otras herramientas
+mediante integraciones ya hechas», demostrada en 58 herramientas. Pasan 36,
+entre ellas Canva, HeyGen, Jasper, Fireflies.ai, Hotmart o Thinkific, porque
+lo que demuestra la evidencia es que *esa herramienta se conecta con otras*
+(«integraciones preconstruidas con más de 1.000 aplicaciones»,
+«integración con pasarelas de pago como Stripe», «mediante Zapier»). Lo que
+pide la persona —que *sus* programas dejen de obligarla a copiar datos— exige
+saber qué programas usa y si la herramienta conecta con ésos: `integraCon`
+sólo está en 8 de los 64 registros de esa capacidad. Ninguna herramienta del
+catálogo tiene la automatización e integraciones como casa principal.
+
+La propietaria, sobre esto: *«yo no empezaría a recopilar ahora "con qué
+aplicaciones se integra cada una". Ese sería exactamente el tipo de trabajo
+enorme en el que no quiero que caigamos todavía. Primero hay muchísimo que
+podemos mejorar con información que Molnip ya posee.»*
+
+### Problema 2 — las preguntas casi nunca cambian el caso
+
+Hay 11 preguntas con 34 respuestas en `data/vocabulario/asesor.json`. **Sólo
+una respuesta lleva información al motor**: «El paciente elige profesional»
+(`dim.como-se-asignan-las-citas:elige-el-cliente`, que trae
+`nec.mi-agenda`). Las otras 33 no traen nada (`traeNecesidades` vacío), así
+que contestarlas no cambia el caso.
+
+`aclarar` decide si una pregunta es útil simulando que se añaden las
+necesidades de su `afectaA`, no lo que trae cada respuesta. Por eso la marca
+como útil («mueve 17 candidatas») aunque contestarla no mueva nada. En 124 de
+los 154 empates completos la pantalla enseña una pregunta, y sólo en 11
+alguna respuesta cambia el resultado. En el de las 36, ninguna de las 11 lo
+mueve.
+
+Es el mismo fallo que el presupuesto del empate: se pide algo que después no
+se usa. La propietaria: *«el usuario está dando información que Molnip
+después no utiliza. Eso sí debemos corregirlo antes de considerar terminado
+el asesor.»*
+
+### Hallazgo que conservar — el desempate es de todo o nada
+
+Los criterios sólo actúan si producen **una única ganadora**. Si varias
+comparten el mejor nivel, el criterio no reduce el grupo y se pasa al
+siguiente con todas. En las 36: 6 «muy fácil», 15 «fácil», 15 «media»; como
+hay seis en el mejor nivel, la curva no hace nada y las 15 de nivel medio
+siguen empatadas con las seis. El precio funciona igual. Esto puede estar
+conservando empates artificialmente grandes.
+
+**No está decidido convertir los criterios en filtros sucesivos.** La
+propietaria: *«No quiero que ahora le digamos a Claude: "haz que cada
+criterio vaya eliminando". Primero hay que decidir cuáles son realmente
+preferencias legítimas. Por ejemplo, gratis no debería necesariamente
+eliminar una herramienta mucho mejor solo porque aquella cuesta 15 €. Y
+"suite" frente a "especializada" tampoco tiene una ganadora universal:
+depende del caso.»*
+
+### Datos que ya existen y no participan en la decisión
+
+En cuántos de los 154 empates completos el dato es distinto entre las
+empatadas, es decir, podría separarlas:
+
+**Con fuente guardada** (verificación de septiembre):
+
+- Capacidades «ayudan» demostradas (API abierta, avisos a otros sistemas…):
+  123. Se enseñan como «Además lleva…», no deciden.
+- Tipo de plan gratuito, indefinido o de prueba: 122 (comprobado en 62 de 90
+  fichas).
+- En qué plan entra lo pedido (`planEstado`, verificado o desconocido): 119.
+- Moneda de la tarifa: 114.
+- Profundidad de lo pedido (nativa, módulo, integración): 111.
+
+**De las primeras fichas**, sin la cita guardada —construidas con fuentes,
+según la propietaria, pero sin la trazabilidad de ahora—:
+
+- Tamaño de empresa para el que está pensada (`segmentosIdeales`): 126.
+- Casa principal: 123.
+- Suite o especializada (`tipoProducto`): 99.
+- Curva de aprendizaje, dentro del empate: 73 (sólo decide si hay una única
+  ganadora).
+
+Y uno del motor: cuántas necesidades **deseables** cubre cada opción
+(`cubreDeseables`) ordena la búsqueda pero no entra en el desempate.
+
+### Lo que una pregunta podría hacer con datos existentes
+
+Medido en el caso de las 36, sólo como referencia: «¿te vale probarla unas
+semanas o la quieres gratis para siempre?» la deja en 21 o 14 (tipo de plan
+gratuito, con fuente); «¿te vale que conecte a través de otra herramienta o
+la quieres directa?», en 29 (profundidad, con fuente); «¿cuántas personas
+sois?», 27 de 36 dicen estar pensadas para equipos pequeños (primeras fichas).
+La que la reduciría de verdad —«¿qué programas quieres conectar?»— necesita
+`integraCon`, que no existe.
+
+### Reflexión de la propietaria, pendiente de decidir
+
+*«una pregunta en Molnip debería existir porque su respuesta cambia algo. Si
+no cambia la recomendación, la cobertura, el orden, una restricción o la
+explicación útil al cliente, probablemente no debería estar interrumpiendo
+el diagnóstico. Eso puede hacer que el asesor sea simultáneamente más
+inteligente y más corto.»*
+
+**Lo que propone ella como siguiente paso, sin abrir todavía:** un bloque
+aparte del 2 para mejorar cómo decide Molnip, *«utilizando primero el
+conocimiento que ya tenemos»*, que trate por separado los dos problemas.
+
+---
+
+## DÓNDE ESTAMOS — punto de partida al 2026-10-05
 
 Esta sección no decide nada: dice en qué punto quedó todo, para que quien
 retome no tenga que reconstruirlo leyendo doscientos commits. **Se reescribe
@@ -7192,8 +7447,9 @@ entera cada vez que cambie; no se acumula.** Va la última antes del bloque
 |---|---|
 | Rama de producción | `claude/claude-md-docs-plkwnq`; Vercel despliega desde ella |
 | Rama de trabajo | `claude/evidencia-usos-recorridos` |
-| Desplegado | `600dde0`, contenido idéntico a `d438c56`, el 2026-10-01 a las 11:31 UTC |
-| Versión anterior | `751be55` |
+| Desplegado | `fbffe27`, contenido idéntico a `afd3237` (bloque 1), el 2026-10-05 a las 11:23 UTC |
+| Versión anterior | `600dde0` |
+| Interruptor de la IA del asesor | `ATLAS_ASESOR_IA_ACTIVA=true` en Production, puesta por la propietaria el 2026-10-05 |
 
 **Lo que ve una persona hoy en molnip.com:**
 
@@ -7272,8 +7528,8 @@ numeración.
 7. **Un fallo de Gemini queda escondido.** Propuesta: anotar el error en el
    registro de Vercel y decir a la persona «Ahora mismo no puedo leer lo que
    escribes».
-   **Es el bloque 1 del plan de cierre. Hecho en código el 3 de octubre;
-   queda cerrado cuando se compruebe en producción.**
+   **Es el bloque 1 del plan de cierre. CERRADO el 5 de octubre**, comprobado
+   en producción (ver «El bloque 1: cerrado»).
 8. **Los 269 casos de parejas**, como decisión de producto aparte.
 9. **ATLAS.md estaba desfasado.** Hecho el 1 de octubre (`d646af2` y
    `b02d778`): ésta es la sección que lo resuelve.
