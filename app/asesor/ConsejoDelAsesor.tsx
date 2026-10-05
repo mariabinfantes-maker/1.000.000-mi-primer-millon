@@ -408,8 +408,13 @@ export default function ConsejoDelAsesor({
         <Tarjeta opcion={principal} papel="principal" abierta entreEllas={enPantalla} cuantas={cuantas} alAbrir={alAbrir} />
       ) : loQueNecesitoSaber ? (
         <section className="rounded-3xl border border-slate-200/80 bg-white p-5 shadow-premium-lg">
+          {/*
+            Ponía «Todavía no te digo cuál», y prometía una decisión que ya no
+            llega: desde el bloque 2 el empate no pide nada con qué decidir.
+            Redacción de la propietaria, 2026-10-05.
+          */}
           <span className="inline-flex w-fit items-center rounded-full bg-brand-600 px-3 py-1 text-xs font-semibold text-white">
-            Todavía no te digo cuál
+            Estas opciones encajan
           </span>
           <p className="mt-3 font-display text-[22px] font-bold leading-[1.15] tracking-tight text-slate-900">
             {cuantas > 0 ? "Varias cubren todo lo que me has contado." : "Varias cubren una parte de lo que me has contado."}
@@ -428,11 +433,13 @@ export default function ConsejoDelAsesor({
           {/*
             Redacción de la propietaria, 2026-09-30. Explica por qué no hay una
             primera recomendación, en la voz del asesor y no como un aviso sobre
-            el orden de una lista.
+            el orden de una lista. Afinada por ella el 2026-10-05: decía «Entre
+            estas opciones no tengo una razón suficiente…»; ahora dice desde
+            dónde habla —lo que sabe de su caso—.
           */}
           {esEmpate && (
             <p className="text-sm leading-relaxed text-slate-600">
-              Entre estas opciones no tengo una razón suficiente para poner una por delante de otra.
+              Con lo que sé de tu caso, no tengo una razón suficiente para poner una por delante de otra.
             </p>
           )}
           {filas.map((o) => (
