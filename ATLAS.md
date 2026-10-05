@@ -7257,6 +7257,170 @@ casos de curva usan la frase nueva; ninguna respuesta contiene «se aprende
 antes» ni «vale más que cualquier función»; ninguna alternativa nombra a la
 principal; y ningún empate pregunta nada.
 
+### El empate como primera posición compartida (2026-10-05)
+
+Redacción de la propietaria: «Dos buenas opciones para tu caso» —el número
+se adapta— y las empatadas enteras, cada una con lo suyo, sin «no tengo con
+qué decidir», sin pregunta y sin promesa de afinar. Con cobertura parcial,
+«Ninguna herramienta cubre ella sola todo lo que me has contado» y «Estas N
+cubren X de las Y cosas que necesitas»: «ella sola» porque en 269 de los 665
+empates parciales una pareja sí lo cubre todo. Sólo presentación; el motor no
+cambia. Ella aprobó las pantallas de dos, de tres y la parcial. **La de 36
+no se toca** hasta entender por qué existen los empates grandes: de ahí el
+diagnóstico de abajo.
+
+**La propietaria da el bloque 2 por terminado**, sin desplegar todavía:
+*«Bloque 2 está terminado. Sus correcciones son válidas independientemente
+de este descubrimiento.»*
+
+---
+
+## 2026-10-05 — DIAGNÓSTICO: LOS EMPATES GRANDES Y LAS PREGUNTAS QUE NO CAMBIAN NADA
+
+**Esto es un diagnóstico, no una decisión.** Ninguna de estas observaciones
+está aprobada como cambio. Lo pidió así la propietaria: *«Guarda este
+análisis en ATLAS tal cual, claramente identificado como diagnóstico y sin
+convertir ninguna observación en una decisión aprobada.»* Se hizo sólo con
+los datos que ya existen, sin investigar herramientas y sin tocar el motor,
+las preguntas ni los datos.
+
+Lo que lo abrió: la pantalla de «36 buenas opciones para tu caso». Ella:
+*«2 buenas opciones → perfecto, pueden compartir primer puesto. 3 buenas
+opciones → todavía razonable. 36 buenas opciones → el asesor todavía no ha
+terminado su trabajo.»* Y su lectura del resultado: *«el problema principal
+no eran los empates. Los empates nos han permitido descubrir dos problemas
+del asesor.»*
+
+### Lo medido
+
+**Tamaño de los 154 empates que lo cubren todo** (de 1.891 casos de una y
+dos necesidades; además hay 665 empates de cobertura parcial):
+
+| Empatadas | 2 | 3 | 4 | 5 | 6 | 7–10 | 11–20 | más de 20 |
+|---|---|---|---|---|---|---|---|---|
+| Casos | 59 | 33 | 17 | 8 | 7 | 10 | 14 | 6 |
+
+**Los más grandes**, con una sola necesidad: «Que las herramientas que uso
+hablen entre sí» 36; «Tener claro qué hay que hacer hoy» 24; «Ver de un
+vistazo cómo va el negocio» 24; «Que lo repetitivo se haga solo» 22; «Poder
+llevarme mis datos si me voy» 17; «Escribir textos que no me den vergüenza»
+16; «Hacer seguimiento y no olvidarme de nadie» 14; «Saber cuánto tiempo echo
+en cada cosa» 14. Todas exigen **una sola capacidad imprescindible, y común
+a casi cualquier programa** (integraciones, tareas, paneles, automatizar,
+exportar).
+
+**El orden de decisión del motor** (`elegirUna` en `aconsejar.ts`): cubre si
+todos los imprescindibles están demostrados → menos piezas → español (se
+queda el mejor grupo) → plan gratuito (gana si es la única; si son varias, se
+quedan ésas) → precio (sólo si todas tienen importe comparable y una es más
+barata) → curva (sólo si UNA está sola en el nivel más fácil) → si nada
+decide, empate entre todas las que quedan.
+
+### Problema 1 — necesidades amplias con una sola capacidad común
+
+El filtro es de sí o no. En «que las herramientas que uso hablen entre sí»
+la capacidad es `cap.app_integrations`, «Conectar con otras herramientas
+mediante integraciones ya hechas», demostrada en 58 herramientas. Pasan 36,
+entre ellas Canva, HeyGen, Jasper, Fireflies.ai, Hotmart o Thinkific, porque
+lo que demuestra la evidencia es que *esa herramienta se conecta con otras*
+(«integraciones preconstruidas con más de 1.000 aplicaciones»,
+«integración con pasarelas de pago como Stripe», «mediante Zapier»). Lo que
+pide la persona —que *sus* programas dejen de obligarla a copiar datos— exige
+saber qué programas usa y si la herramienta conecta con ésos: `integraCon`
+sólo está en 8 de los 64 registros de esa capacidad. Ninguna herramienta del
+catálogo tiene la automatización e integraciones como casa principal.
+
+La propietaria, sobre esto: *«yo no empezaría a recopilar ahora "con qué
+aplicaciones se integra cada una". Ese sería exactamente el tipo de trabajo
+enorme en el que no quiero que caigamos todavía. Primero hay muchísimo que
+podemos mejorar con información que Molnip ya posee.»*
+
+### Problema 2 — las preguntas casi nunca cambian el caso
+
+Hay 11 preguntas con 34 respuestas en `data/vocabulario/asesor.json`. **Sólo
+una respuesta lleva información al motor**: «El paciente elige profesional»
+(`dim.como-se-asignan-las-citas:elige-el-cliente`, que trae
+`nec.mi-agenda`). Las otras 33 no traen nada (`traeNecesidades` vacío), así
+que contestarlas no cambia el caso.
+
+`aclarar` decide si una pregunta es útil simulando que se añaden las
+necesidades de su `afectaA`, no lo que trae cada respuesta. Por eso la marca
+como útil («mueve 17 candidatas») aunque contestarla no mueva nada. En 124 de
+los 154 empates completos la pantalla enseña una pregunta, y sólo en 11
+alguna respuesta cambia el resultado. En el de las 36, ninguna de las 11 lo
+mueve.
+
+Es el mismo fallo que el presupuesto del empate: se pide algo que después no
+se usa. La propietaria: *«el usuario está dando información que Molnip
+después no utiliza. Eso sí debemos corregirlo antes de considerar terminado
+el asesor.»*
+
+### Hallazgo que conservar — el desempate es de todo o nada
+
+Los criterios sólo actúan si producen **una única ganadora**. Si varias
+comparten el mejor nivel, el criterio no reduce el grupo y se pasa al
+siguiente con todas. En las 36: 6 «muy fácil», 15 «fácil», 15 «media»; como
+hay seis en el mejor nivel, la curva no hace nada y las 15 de nivel medio
+siguen empatadas con las seis. El precio funciona igual. Esto puede estar
+conservando empates artificialmente grandes.
+
+**No está decidido convertir los criterios en filtros sucesivos.** La
+propietaria: *«No quiero que ahora le digamos a Claude: "haz que cada
+criterio vaya eliminando". Primero hay que decidir cuáles son realmente
+preferencias legítimas. Por ejemplo, gratis no debería necesariamente
+eliminar una herramienta mucho mejor solo porque aquella cuesta 15 €. Y
+"suite" frente a "especializada" tampoco tiene una ganadora universal:
+depende del caso.»*
+
+### Datos que ya existen y no participan en la decisión
+
+En cuántos de los 154 empates completos el dato es distinto entre las
+empatadas, es decir, podría separarlas:
+
+**Con fuente guardada** (verificación de septiembre):
+
+- Capacidades «ayudan» demostradas (API abierta, avisos a otros sistemas…):
+  123. Se enseñan como «Además lleva…», no deciden.
+- Tipo de plan gratuito, indefinido o de prueba: 122 (comprobado en 62 de 90
+  fichas).
+- En qué plan entra lo pedido (`planEstado`, verificado o desconocido): 119.
+- Moneda de la tarifa: 114.
+- Profundidad de lo pedido (nativa, módulo, integración): 111.
+
+**De las primeras fichas**, sin la cita guardada —construidas con fuentes,
+según la propietaria, pero sin la trazabilidad de ahora—:
+
+- Tamaño de empresa para el que está pensada (`segmentosIdeales`): 126.
+- Casa principal: 123.
+- Suite o especializada (`tipoProducto`): 99.
+- Curva de aprendizaje, dentro del empate: 73 (sólo decide si hay una única
+  ganadora).
+
+Y uno del motor: cuántas necesidades **deseables** cubre cada opción
+(`cubreDeseables`) ordena la búsqueda pero no entra en el desempate.
+
+### Lo que una pregunta podría hacer con datos existentes
+
+Medido en el caso de las 36, sólo como referencia: «¿te vale probarla unas
+semanas o la quieres gratis para siempre?» la deja en 21 o 14 (tipo de plan
+gratuito, con fuente); «¿te vale que conecte a través de otra herramienta o
+la quieres directa?», en 29 (profundidad, con fuente); «¿cuántas personas
+sois?», 27 de 36 dicen estar pensadas para equipos pequeños (primeras fichas).
+La que la reduciría de verdad —«¿qué programas quieres conectar?»— necesita
+`integraCon`, que no existe.
+
+### Reflexión de la propietaria, pendiente de decidir
+
+*«una pregunta en Molnip debería existir porque su respuesta cambia algo. Si
+no cambia la recomendación, la cobertura, el orden, una restricción o la
+explicación útil al cliente, probablemente no debería estar interrumpiendo
+el diagnóstico. Eso puede hacer que el asesor sea simultáneamente más
+inteligente y más corto.»*
+
+**Lo que propone ella como siguiente paso, sin abrir todavía:** un bloque
+aparte del 2 para mejorar cómo decide Molnip, *«utilizando primero el
+conocimiento que ya tenemos»*, que trate por separado los dos problemas.
+
 ---
 
 ## DÓNDE ESTAMOS — punto de partida al 2026-10-05
