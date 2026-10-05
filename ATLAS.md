@@ -7265,13 +7265,24 @@ qué decidir», sin pregunta y sin promesa de afinar. Con cobertura parcial,
 «Ninguna herramienta cubre ella sola todo lo que me has contado» y «Estas N
 cubren X de las Y cosas que necesitas»: «ella sola» porque en 269 de los 665
 empates parciales una pareja sí lo cubre todo. Sólo presentación; el motor no
-cambia. Ella aprobó las pantallas de dos, de tres y la parcial. **La de 36
-no se toca** hasta entender por qué existen los empates grandes: de ahí el
-diagnóstico de abajo.
+cambia. Ella aprobó las pantallas de dos, de tres y la parcial.
+
+**El caso de los empates grandes, como «36 buenas opciones», NO está
+resuelto.** Con sus palabras: *«No se va a ocultar provisionalmente
+cambiando únicamente el texto o mostrando arbitrariamente tres herramientas.
+El diagnóstico ha identificado que el problema está en cómo el motor reduce
+—o no reduce— grupos grandes de candidatas. Su resolución queda como el
+siguiente trabajo de producto sobre el asesor.»*
+
+*(Corregido el 2026-10-05 a petición suya. Aquí ponía «la de 36 no se toca»,
+y podía leerse como una decisión de dejarla así. Es al revés: es el
+siguiente problema que hay que resolver.)*
 
 **La propietaria da el bloque 2 por terminado**, sin desplegar todavía:
 *«Bloque 2 está terminado. Sus correcciones son válidas independientemente
-de este descubrimiento.»*
+de este descubrimiento.»* **Cerrar el bloque 2 no significa aceptar los
+empates grandes como comportamiento final.** Sus correcciones son válidas y
+están comprobadas; los empates grandes siguen abiertos.
 
 ---
 
