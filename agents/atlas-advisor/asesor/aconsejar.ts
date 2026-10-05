@@ -716,7 +716,19 @@ function elegirUna(candidatas: Opcion[]): { elegida: Opcion; desempate: Desempat
   if (curva.length > 1 && curva[0].c < curva[1].c && curva[0].c < 9) {
     return { elegida: curva[0].o, desempate: {
       criterio: "curva",
-      porQue: `De las ${quedan3.length}, ${nombreDe(curva[0].o)} es la que se aprende antes. Para empezar, eso vale más que cualquier función de más.`,
+      /**
+       * REDACCIÓN DE LA PROPIETARIA, 2026-10-05: «Me inclino por X: de las que
+       * quedan, es la que tenemos valorada como más sencilla para empezar.»
+       *
+       * Qué reemplaza y por qué. Decía «De las N, X es la que se aprende
+       * antes. Para empezar, eso vale más que cualquier función de más.»: lo
+       * primero sonaba a medición cuando es una valoración nuestra en cuatro
+       * niveles (`curvaDeAprendizaje`), «de las N» no decía de qué grupo se
+       * hablaba —con Gamma salía HubSpot en pantalla con la misma valoración—,
+       * y lo segundo era un juicio que no sale de ningún dato. El criterio y
+       * el dato siguen igual: sólo cambia cómo se dice.
+       */
+      porQue: `Me inclino por ${nombreDe(curva[0].o)}: de las que quedan, es la que tenemos valorada como más sencilla para empezar.`,
     } };
   }
 

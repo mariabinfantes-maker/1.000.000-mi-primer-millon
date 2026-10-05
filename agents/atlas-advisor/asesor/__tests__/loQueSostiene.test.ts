@@ -15,6 +15,7 @@ import type { Opcion } from "@/app/asesor/Variantes";
  *  2. El empate no pide nada que el motor no sepa usar. Pedía el presupuesto
  *     y si trabajas sola, y ninguno de los dos cambiaba el resultado. Su
  *     decisión: «dejar de pedirlo».
+ *  3. La curva de aprendizaje no se presenta como una medición (ver abajo).
  *
  * Se recorren todos los casos de una y dos necesidades, como en
  * `empatadas.test.ts`, con la misma función que usa la pantalla.
@@ -75,6 +76,27 @@ describe("el consejo dice sólo lo que puede sostener", () => {
       const enPantalla = [r.loQueHaria, ...r.alternativas] as unknown as Opcion[];
       expect(lineasDelPorQue(r.loQueHaria as never, true, enPantalla, 2), c).toContain(r.loQueHaria.desempate.porQue);
     }
+  });
+
+  /**
+   * 3. La curva de aprendizaje se dice como lo que es: una valoración de
+   *    Molnip, entre las que quedan. Redacción de la propietaria, 2026-10-05:
+   *    «Me inclino por X: de las que quedan, es la que tenemos valorada como
+   *    más sencilla para empezar.» El dato y el criterio no cambian.
+   */
+  it("todo lo que decide la curva usa su redacción, y nada dice «se aprende antes»", () => {
+    let porCurva = 0;
+    for (const { c, r } of casos) {
+      const d = r.loQueHaria?.desempate;
+      if (d?.criterio === "curva") {
+        porCurva++;
+        const nombre = r.loQueHaria!.piezas.map((p) => p.nombre).join(" + ");
+        expect(d.porQue, c).toBe(`Me inclino por ${nombre}: de las que quedan, es la que tenemos valorada como más sencilla para empezar.`);
+      }
+      const todo = JSON.stringify(r);
+      expect(todo, c).not.toMatch(/se aprende antes|vale más que cualquier función/);
+    }
+    expect(porCurva).toBeGreaterThan(0);
   });
 
   it("el empate no pide nada: ni presupuesto, ni si trabajas sola, ni ninguna pregunta", () => {

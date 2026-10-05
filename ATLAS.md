@@ -7205,7 +7205,7 @@ tres veces, que la frase no dice qué necesita. Pero un asesor preguntaría
 por qué los pierde en vez de cerrar la conversación. Va con la frase de
 WhatsApp de arriba.
 
-### El bloque 2: lo que se hizo (2026-10-05), sin desplegar
+### El bloque 2: lo que se hizo (2026-10-05), sin desplegar todavía
 
 Su decisión, antes de empezar: en el empate, **«dejar de pedirlo»** —el
 presupuesto—.
@@ -7223,13 +7223,39 @@ presupuesto—.
   dos necesidades. No se rellena.
 - Prueba sobre los 1.891 casos: `loQueSostiene.test.ts`.
 
-**Encontrado al hacerlo, y no tocado porque es una decisión suya:** de los
-901 casos en que el motor elige una principal, **430 los decide la curva de
-aprendizaje**, y la tarjeta lo afirma: «De las 4, Gamma es la que se aprende
-antes». Ese dato (`curvaDeAprendizaje`) es de la primera redacción de las
-fichas, sin fuente guardada. Es lo mismo que ella corrigió el 30 con «Más
-fáciles de aprender». Quitarlo de la decisión cambia el motor: esos 430
-casos pasarían a empate o a otro criterio.
+**La curva de aprendizaje: lo que decidió la propietaria.** De los 901 casos
+en que el motor elige una principal, 430 los decide la curva de aprendizaje
+(`curvaDeAprendizaje`, cuatro niveles: muy fácil, fácil, media, difícil; 14
+fichas sin valor). Le propuse desconectarla porque las primeras fichas no
+guardan la fuente, y no lo aceptó. Con sus palabras:
+
+> *«que las primeras fichas no conserven hoy la fuente/cita guardada no
+> significa que esos datos se obtuvieran sin fuente ni que fueran datos
+> inventados. Esa información se construyó utilizando fuentes fiables,
+> principalmente fuentes oficiales; el problema de aquella primera etapa fue
+> que no conservamos la trazabilidad documental como hacemos ahora.»*
+
+**Queda decidido: el dato, sus cuatro niveles y el criterio del motor se
+conservan, y no se reinvestigan las fichas.** Lo que cambia es cómo se dice.
+Decía «De las N, X es la que se aprende antes. Para empezar, eso vale más que
+cualquier función de más.», que sonaba a medición, no decía de qué grupo
+hablaba —con Gamma salía en pantalla HubSpot, valorada igual— y cerraba con un
+juicio sin dato. Ahora, con su redacción:
+
+> «Me inclino por X: de las que quedan, es la que tenemos valorada como más
+> sencilla para empezar.»
+
+**El empate**, también con su redacción: la etiqueta «Todavía no te digo
+cuál» —prometía una decisión que ya no llega— pasa a **«Estas opciones
+encajan»**, y la línea de debajo a **«Con lo que sé de tu caso, no tengo una
+razón suficiente para poner una por delante de otra.»**
+
+**Comprobación del bloque, sobre los 1.891 casos:** el motor decide
+exactamente lo mismo que en producción (`fbffe27`) en los 1.891 —misma
+principal, mismo criterio, mismas alternativas, mismos empates—; los 430
+casos de curva usan la frase nueva; ninguna respuesta contiene «se aprende
+antes» ni «vale más que cualquier función»; ninguna alternativa nombra a la
+principal; y ningún empate pregunta nada.
 
 ---
 
