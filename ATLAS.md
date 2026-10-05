@@ -7432,40 +7432,41 @@ inteligente y más corto.»*
 aparte del 2 para mejorar cómo decide Molnip, *«utilizando primero el
 conocimiento que ya tenemos»*, que trate por separado los dos problemas.
 
-## 2026-10-05 — REGLA DE VOZ: POSITIVO POR DEFECTO
+## 2026-10-05 — REGLA DE VOZ: EL TONO DE UN BUEN ASESOR DE NEGOCIOS
 
 **Regla de la propietaria, vigente desde este día, y parte de la identidad
-de Molnip.** Con sus palabras:
+de Molnip:**
 
-> *«Molnip comunica en positivo siempre que pueda conservar exactamente el
-> mismo significado. Evita construcciones negativas innecesarias. El "no" se
-> utiliza cuando comunica una limitación, ausencia, restricción, riesgo o
-> advertencia que el cliente necesita conocer.»*
+> **Molnip habla como un buen asesor de negocios: claro, sereno,
+> conciliador y directo. No introduce objeciones, reproches ni fricciones
+> que el cliente no ha planteado, y tampoco intenta animarlo
+> artificialmente. Cuando hay una limitación o algo que no sabemos, lo dice
+> con claridad.**
 
-Y el matiz que la hace funcionar: *«la regla debe ser "positivo por
-defecto", no "prohibido decir no". Cuando hay una limitación real, Molnip
-tiene que decirla claramente.»* Por qué hace falta escribirla: *«ya lo hemos
-visto repetirse en distintos sitios. Si solo corregimos las frases que vemos,
-[el asistente] volverá a generar otras parecidas.»*
+**Qué reemplaza y por qué.** Ese mismo día se guardó aquí una regla de
+«positivo por defecto», que pedía evitar las construcciones negativas. La
+propietaria la corrigió: *«La palabra no nunca fue el verdadero problema; el
+problema era el tono.»* No se busca que Molnip sea optimista ni que evite el
+«no», ni convertir cada detalle de redacción en una regla rígida: se busca
+*«lenguaje profesional de asesoría y de negocios: sereno, conciliador, claro
+y sin fricción innecesaria»*. **No hay que perseguir cada «no» que aparezca.**
 
-**Sus ejemplos:**
+**Sus ejemplos, con el porqué de cada uno:**
 
-| Antes | Después |
-|---|---|
-| «Además lleva ausencias y depósitos, que no me pediste pero te tocan» | «Además incluye gestión de ausencias y depósitos.» |
-| «Además lleva insertar la reserva en tu propia web, cancelar y cambiar la cita, que no me pediste pero te tocan» | «Además permite insertar las reservas en tu web y gestionar cambios y cancelaciones.» |
-| «SI KOIBOX NO TE CONVENCE» | «OTRAS OPCIONES QUE ENCAJAN» |
+- «Además lleva X, que no me pediste pero te toca.» → «Además incluye X.»
+  *«No falla porque contenga la palabra no. Falla porque introduce una
+  confrontación innecesaria con el cliente. Le recuerda lo que pidió o dejó
+  de pedir y luego le dice "te toca".»* La nueva *«simplemente informa. No
+  anima, no vende de más, no corrige al cliente. Es profesional.»*
+- «SI KOIBOX NO TE CONVENCE» → «OTRAS OPCIONES». *«Molnip está
+  introduciendo una objeción que el cliente todavía no ha expresado.»*
+- Y cuando hay que decirlo, se dice: *«"No hemos podido confirmar que
+  incluya facturación." Ahí el "no" es información importante y esconderlo
+  detrás de una frase bonita sería peor.»*
 
-**El negativo se conserva cuando lleva información necesaria:** «Este plan
-no incluye X», «No hemos podido confirmar X», o una advertencia equivalente.
-
-Cómo encaja con las reglas anteriores, sin sustituir ninguna: **«si no lo
-sabemos, no se dice»** y **«un dato desconocido no es un "no"»** siguen
-vigentes —lo que no consta se dice como «sin confirmar», que es una
-limitación real—; y **«no somos jueces»** también: de una herramienta que no
-encaja no se dice nada malo, se dice que no está pensada para ella.
-
----
+Encaja con las reglas anteriores sin sustituir ninguna: **«si no lo sabemos,
+no se dice»**, **«un dato desconocido no es un "no"»** y **«no somos
+jueces»** siguen vigentes.
 
 ---
 
@@ -7602,10 +7603,11 @@ Del 2026-09-30: **la posición expresa la prioridad, no la calidad de la
 presentación**; **«cubren», nunca «igual de bien»**; **un dato desconocido no
 es un «no»**.
 
-Del 2026-10-05: **positivo por defecto** (regla de voz, en su sección): se
-dice en positivo siempre que el significado sea el mismo; el «no» queda para
-limitaciones, ausencias, restricciones, riesgos y advertencias que el cliente
-necesita conocer.
+Del 2026-10-05: **el tono de un buen asesor de negocios** (regla de voz, en
+su sección): claro, sereno, conciliador y directo; sin objeciones, reproches
+ni fricciones que el cliente no ha planteado, sin animarlo artificialmente,
+y diciendo con claridad las limitaciones y lo que no sabemos. El problema
+nunca fue la palabra «no».
 
 ### Cómo se trabajó, por si sirve de método
 
