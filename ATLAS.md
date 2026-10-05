@@ -7177,9 +7177,37 @@ escrita como ella la escribió —«a bastos», «watsapp»—, sin entender la 
 vez que se probó. No es un fallo técnico: es cómo lee el asesor. Lo apunto
 para el bloque 6, que es donde se prueban frases reales.
 
+### El bloque 1: cerrado (2026-10-05)
+
+Desplegado como `fbffe27` —el bloque 1 y cinco commits que sólo tocaban
+ATLAS.md, nada más—, después de que la propietaria pusiera
+`ATLAS_ASESOR_IA_ACTIVA=true` en Production. Comprobado por ella en
+molnip.com, con capturas:
+
+- **Una frase real funciona:** la clínica dental da su consejo, con Koibox.
+- **El fallo provocado** (`?prueba=fallo`) enseña su mensaje, y lo escrito
+  vuelve a la caja.
+- **Queda en el registro de Vercel con su causa:** a las 14:03:47 (hora de
+  España), `/api/asesor`, 503, «[asesor] Fallo técnico de la IA al entender
+  (prueba provocada)». Era el único error de la última media hora.
+- **«No te he entendido» sale distinto:** «PAPATA AZUL» da «No tengo nada
+  que proponerte».
+
+Antes de esto hubo una confusión que conviene no repetir: la propietaria
+probó primero por la portada y en la versión de prueba de Vercel, no en
+producción, porque yo no había desplegado y no se lo dije con claridad. **Al
+pedir una comprobación en producción, dar la dirección exacta y confirmar
+antes qué versión está publicada.**
+
+**Encontrado en la prueba, para el bloque 6:** «ESTOY PERDIENDO CLIENTES»
+da «No tengo nada que proponerte». No es un fallo: Gemini contesta, tres de
+tres veces, que la frase no dice qué necesita. Pero un asesor preguntaría
+por qué los pierde en vez de cerrar la conversación. Va con la frase de
+WhatsApp de arriba.
+
 ---
 
-## DÓNDE ESTAMOS — punto de partida al 2026-10-03
+## DÓNDE ESTAMOS — punto de partida al 2026-10-05
 
 Esta sección no decide nada: dice en qué punto quedó todo, para que quien
 retome no tenga que reconstruirlo leyendo doscientos commits. **Se reescribe
@@ -7192,8 +7220,9 @@ entera cada vez que cambie; no se acumula.** Va la última antes del bloque
 |---|---|
 | Rama de producción | `claude/claude-md-docs-plkwnq`; Vercel despliega desde ella |
 | Rama de trabajo | `claude/evidencia-usos-recorridos` |
-| Desplegado | `600dde0`, contenido idéntico a `d438c56`, el 2026-10-01 a las 11:31 UTC |
-| Versión anterior | `751be55` |
+| Desplegado | `fbffe27`, contenido idéntico a `afd3237` (bloque 1), el 2026-10-05 a las 11:23 UTC |
+| Versión anterior | `600dde0` |
+| Interruptor de la IA del asesor | `ATLAS_ASESOR_IA_ACTIVA=true` en Production, puesta por la propietaria el 2026-10-05 |
 
 **Lo que ve una persona hoy en molnip.com:**
 
@@ -7272,8 +7301,8 @@ numeración.
 7. **Un fallo de Gemini queda escondido.** Propuesta: anotar el error en el
    registro de Vercel y decir a la persona «Ahora mismo no puedo leer lo que
    escribes».
-   **Es el bloque 1 del plan de cierre. Hecho en código el 3 de octubre;
-   queda cerrado cuando se compruebe en producción.**
+   **Es el bloque 1 del plan de cierre. CERRADO el 5 de octubre**, comprobado
+   en producción (ver «El bloque 1: cerrado»).
 8. **Los 269 casos de parejas**, como decisión de producto aparte.
 9. **ATLAS.md estaba desfasado.** Hecho el 1 de octubre (`d646af2` y
    `b02d778`): ésta es la sección que lo resuelve.
