@@ -7468,6 +7468,56 @@ Encaja con las reglas anteriores sin sustituir ninguna: **«si no lo sabemos,
 no se dice»**, **«un dato desconocido no es un "no"»** y **«no somos
 jueces»** siguen vigentes.
 
+## 2026-10-05 — RECONCILIACIÓN: LO INVESTIGADO, LO GUARDADO Y LO QUE USA EL ASESOR
+
+**Diagnóstico, no decisión.** Entero en `data/consulta/RECONCILIACION-2026-10-05.md`,
+con los números en bruto en `data/consulta/reconciliacion-2026-10-05/`.
+
+Nace de DriCloud: dije que no constaba si tenía prueba gratuita mirando sólo
+su ficha, y la entrega del 30 de septiembre lo decía. La propietaria: *«la
+información tiene que quedar totalmente clara para que nosotros en todo
+momento podamos consultarla de manera fácil»*. Y antes de tocar esquema o
+motor: *«¿Qué conocimiento ya existe dentro de Molnip y qué parte de ese
+conocimiento no está llegando al sitio donde debería utilizarse?»* Su
+lectura: *«tenemos tres capas que se están mezclando: lo que investigamos →
+lo que Molnip guarda → lo que el asesor utiliza. Y necesitamos que esa cadena
+sea sólida.»*
+
+**Lo que existe ya, y conviene usar siempre: `npm run que-sabemos -- <id>`.**
+Reúne ficha, borrador, capacidades, entregas de investigación y documentos de
+una herramienta, con la ruta y la fecha de cada dato. Sólo lee. **Antes de
+decir que algo «no consta», se consulta aquí.**
+
+**Lo encontrado, en corto:**
+
+- Las 90 tienen investigación localizable. Mi «24 de 90» anterior era un
+  error de búsqueda. 25 tienen investigación de perfil completa; las 65
+  originales, de capacidades y casas.
+- Las capacidades están reconciliadas: todo lo que las entregas dan por
+  verificado está en `registros.json`.
+- Lo que no llegó son sobre todo porqués y evidencias (del plan gratuito, del
+  tamaño, de la curva, del precio) y datos sin sitio en la ficha (límites,
+  precio con cita en 20 herramientas sin `planesComprobados`, idioma con
+  recibo).
+- **9 herramientas tienen documentada una prueba gratuita y su ficha dice
+  «sin plan gratuito»**, contra la regla del 17 de septiembre de que una
+  prueba también es plan gratuito, que sí se aplicó en otras 30. Y Cliniko
+  dice «sí» cuando su gratuito es sólo para entidades benéficas.
+- **El idioma de Booksy, Jane, Pabau y Timify llegó a `idiomasDisponibles`,
+  que el motor no lee.**
+- **Simulado en memoria: en ningún caso cambia la herramienta recomendada,
+  pero en 83 cambia el motivo o el empate.** En la clínica dental, «es la única
+  con plan gratuito» no se sostiene con la prueba de Archivex y la de
+  Bookitit.
+
+**Pendiente de decidir por la propietaria**, sin abrir todavía: qué campos
+deben ser datos estructurados de la ficha, cuáles evidencia que se conserva
+junto al dato y cuáles documentación consultable; qué fuente vale cuando no
+coinciden; y la regla que impida que lo investigado se pierda al pasar a la
+ficha. Ella lo quiere resuelto **antes** de rediseñar el desempate: *«sería
+absurdo construir un motor nuevo alrededor de datos incompletos y descubrir
+después que ya teníamos información mejor guardada en las investigaciones.»*
+
 ---
 
 ## DÓNDE ESTAMOS — punto de partida al 2026-10-05
@@ -7633,6 +7683,9 @@ Por eso en esta página lo suyo va con sus palabras y lo mío va como mío.
   `brand-guidelines.md`, y yo dije que no.
 - **Lo provisional no se declara cerrado**, no se le pone una guarda y no se
   le cita a ella como si fuera el suelo.
+- **Antes de decir que un dato «no consta», `npm run que-sabemos -- <id>`.**
+  El 5 de octubre dije que de DriCloud no constaba su prueba gratuita mirando
+  sólo la ficha, y estaba en su investigación del 30.
 - **Gemini se usa con el arnés de `url_context`** y `NODE_USE_ENV_PROXY=1` en
   el entorno remoto; Node no usa el proxy por su cuenta.
 
