@@ -56,6 +56,26 @@ describe("el consejo dice sólo lo que puede sostener", () => {
     expect(alternativas).toBeGreaterThan(1000);
   });
 
+  /**
+   * Regla de voz, 2026-10-05: «Además incluye: X.», sin «que no me pediste
+   * pero te tocan». Se comprueba en cada tarjeta, principal y alternativas.
+   */
+  it("lo que distingue a una herramienta se dice «Además incluye: X.», sin reproche", () => {
+    let conAdemas = 0;
+    for (const { c, r } of casos) {
+      const enPantalla = [...(r.loQueHaria ? [r.loQueHaria] : []), ...r.alternativas, ...r.empatadas] as unknown as Opcion[];
+      for (const o of enPantalla) {
+        for (const l of lineasDelPorQue(o, false, enPantalla, 0)) {
+          if (!l.startsWith("Además")) continue;
+          conAdemas++;
+          expect(l, c).toMatch(/^Además incluye: [^.]+\.$/);
+          expect(l, c).not.toMatch(/te toca|no me pediste|lleva/);
+        }
+      }
+    }
+    expect(conAdemas).toBeGreaterThan(100);
+  });
+
   it("una alternativa sin nada comprobado que la distinga no lleva «por qué»: no se rellena", () => {
     let sinNada = 0;
     for (const { r } of casos) {
