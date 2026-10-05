@@ -1,7 +1,7 @@
 import { beforeAll, describe, expect, it } from "vitest";
 import { aconsejar, type Consejo } from "../aconsejar";
 import { getNecesidad, getNecesidades } from "@/data/vocabulario/necesidades";
-import { lineasDelPorQue } from "@/app/asesor/porQue";
+import { comoSeDiceElEmpate, lineasDelPorQue } from "@/app/asesor/porQue";
 import type { Opcion } from "@/app/asesor/Variantes";
 
 /**
@@ -16,6 +16,9 @@ import type { Opcion } from "@/app/asesor/Variantes";
  *     y si trabajas sola, y ninguno de los dos cambiaba el resultado. Su
  *     decisión: «dejar de pedirlo».
  *  3. La curva de aprendizaje no se presenta como una medición (ver abajo).
+ *  4. El empate no se presenta como un problema: «Dos buenas opciones para tu
+ *     caso». Con cobertura parcial, otra redacción que diga que ninguna lo
+ *     cubre todo ella sola (ver abajo).
  *
  * Se recorren todos los casos de una y dos necesidades, como en
  * `empatadas.test.ts`, con la misma función que usa la pantalla.
@@ -97,6 +100,50 @@ describe("el consejo dice sólo lo que puede sostener", () => {
       expect(todo, c).not.toMatch(/se aprende antes|vale más que cualquier función/);
     }
     expect(porCurva).toBeGreaterThan(0);
+  });
+
+  /**
+   * 4. Propietaria, 2026-10-05: las empatadas «son el resultado de Molnip y
+   *    comparten la primera posición». Ni «no tengo con qué decidir», ni una
+   *    pregunta, ni una promesa de afinar.
+   */
+  it("un empate que lo cubre todo se dice «N buenas opciones para tu caso», con el número de empatadas", () => {
+    let completos = 0;
+    for (const { c, r } of casos) {
+      const e = r.empatadas as unknown as Opcion[];
+      if (!e.length || e[0].noCubre.length > 0) continue;
+      completos++;
+      const dicho = comoSeDiceElEmpate(e)!;
+      const n = e.length === 2 ? "Dos" : e.length === 3 ? "Tres" : null;
+      if (n) expect(dicho.titulo, c).toBe(`${n} buenas opciones para tu caso`);
+      expect(dicho.titulo, c).toMatch(/ buenas opciones para tu caso$/);
+      expect(dicho.texto, c).toBeUndefined();
+    }
+    expect(completos).toBeGreaterThan(0);
+  });
+
+  it("un empate parcial dice que ninguna lo cubre todo ella sola, y es verdad", () => {
+    let parciales = 0;
+    for (const { c, r } of casos) {
+      const e = r.empatadas as unknown as Opcion[];
+      if (!e.length || e[0].noCubre.length === 0) continue;
+      parciales++;
+      const dicho = comoSeDiceElEmpate(e)!;
+      expect(dicho.titulo, c).toBe("Ninguna herramienta cubre ella sola todo lo que me has contado");
+      expect(dicho.texto, c).toMatch(new RegExp(`^Estas ${e.length} cubren \\d+ de las \\d+ cosas que necesitas\\.$`));
+      // «Ella sola»: ninguna opción de UNA herramienta, en ningún camino, lo cubre todo.
+      const todas = r.caminos.flatMap((k) => [...k.opciones, ...k.masOpciones, ...k.parciales]) as unknown as Opcion[];
+      expect(todas.some((o) => o.piezas.length === 1 && o.noCubre.length === 0), c).toBe(false);
+    }
+    expect(parciales).toBeGreaterThan(0);
+  });
+
+  it("nada de lo que se dice de un empate pide, duda o promete", () => {
+    for (const { c, r } of casos) {
+      const dicho = comoSeDiceElEmpate(r.empatadas as unknown as Opcion[]);
+      if (!dicho) continue;
+      expect(`${dicho.titulo} ${dicho.texto ?? ""}`, c).not.toMatch(/con qué decidir|dime|\?|todavía no|presupuesto|afinar/i);
+    }
   });
 
   it("el empate no pide nada: ni presupuesto, ni si trabajas sola, ni ninguna pregunta", () => {

@@ -7,7 +7,7 @@ import SimboloMolnip from "@/components/ui/SimboloMolnip";
 import { mayuscula, type Camino, type Opcion, type Pieza } from "./Variantes";
 import { titular, type Abierta } from "./TarjetaDelConsejo";
 import { DE_TRES_EN_TRES, idDe, queSeEnsena } from "./queSeEnsena";
-import { lineasDelPorQue, loQueDistingue, type Elegida } from "./porQue";
+import { comoSeDiceElEmpate, lineasDelPorQue, loQueDistingue, type Elegida } from "./porQue";
 
 /**
  * LA PANTALLA DEL CONSEJO, tal como la aprobó la propietaria el 2026-09-30.
@@ -158,7 +158,13 @@ function Tarjeta({
   opcion, papel, abierta, alAlternar, entreEllas, cuantas, alAbrir, tamanoCompacta = "m",
 }: {
   opcion: Elegida;
-  papel: "principal" | "alternativa";
+  /**
+   * `empatada`: comparte la primera posición con las demás del empate
+   * (propietaria, 2026-10-05). Se enseña entera como la principal, pero sin el
+   * dorado —que es «la opción elegida», una vez por pantalla— y sin
+   * «También encaja», porque no es una alternativa a nada.
+   */
+  papel: "principal" | "alternativa" | "empatada";
   abierta: boolean;
   alAlternar?: () => void;
   /** Las que están en pantalla con ella, para saber qué la distingue. */
@@ -219,6 +225,7 @@ function Tarjeta({
   }
 
   const esPrincipal = papel === "principal";
+  const esEmpatada = papel === "empatada";
   const porQue = lineasDelPorQue(opcion, esPrincipal, entreEllas, cuantas);
 
   return (
@@ -239,7 +246,7 @@ function Tarjeta({
         <span className="absolute -top-3 left-5 rounded-full bg-gold-500 px-3 py-1 text-xs font-bold tracking-wide text-white shadow-sm">
           Mi consejo
         </span>
-      ) : (
+      ) : esEmpatada ? null : (
         <div className="flex items-start justify-between gap-3">
           <span className="inline-flex w-fit items-center gap-1 rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-800 ring-1 ring-brand-100">
             También encaja
@@ -253,7 +260,7 @@ function Tarjeta({
       )}
 
       {/* Manda el resultado, no la marca: el titular dice qué consigue, y el nombre va dentro de la frase. */}
-      <h2 className={`${esPrincipal ? "mt-2" : "mt-3"} font-display text-[26px] font-bold leading-[1.12] tracking-tight text-slate-900`}>
+      <h2 className={`${esPrincipal ? "mt-2" : esEmpatada ? "" : "mt-3"} font-display text-[26px] font-bold leading-[1.12] tracking-tight text-slate-900`}>
         {titular(forma, opcion)}:{" "}
         {esPrincipal ? (
           <span className="bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">empezaría por {nombre}</span>
@@ -276,7 +283,7 @@ function Tarjeta({
       {/* Sin nada propio que decir, el bloque no se pinta: ver `porQue.ts`. */}
       {porQue.length > 0 && (
         <div className="mt-4 space-y-1.5">
-          <Antetitulo>{esPrincipal ? "Por qué te la recomiendo" : "Por qué la he incluido"}</Antetitulo>
+          <Antetitulo>{esPrincipal || esEmpatada ? "Por qué te la recomiendo" : "Por qué la he incluido"}</Antetitulo>
           <ul className="list-disc space-y-1 pl-[18px] text-sm leading-relaxed text-slate-800">
             {porQue.map((l) => <li key={l}>{l}</li>)}
           </ul>
@@ -383,6 +390,7 @@ export default function ConsejoDelAsesor({
   // Sin principal —empate— también puede haber herramientas que lo cubren
   // todo: decía «34 son las que más se acercan» cuando las 34 lo cubrían.
   const todo = principal ? principal.noCubre.length === 0 : cuantas > 0;
+  const cabeceraDelEmpate = esEmpate ? comoSeDiceElEmpate(empatadas) : null;
 
   return (
     <div className="space-y-5">
@@ -406,21 +414,22 @@ export default function ConsejoDelAsesor({
         </div>
       ) : principal ? (
         <Tarjeta opcion={principal} papel="principal" abierta entreEllas={enPantalla} cuantas={cuantas} alAbrir={alAbrir} />
-      ) : loQueNecesitoSaber ? (
-        <section className="rounded-3xl border border-slate-200/80 bg-white p-5 shadow-premium-lg">
-          {/*
-            Ponía «Todavía no te digo cuál», y prometía una decisión que ya no
-            llega: desde el bloque 2 el empate no pide nada con qué decidir.
-            Redacción de la propietaria, 2026-10-05.
-          */}
-          <span className="inline-flex w-fit items-center rounded-full bg-brand-600 px-3 py-1 text-xs font-semibold text-white">
-            Estas opciones encajan
-          </span>
-          <p className="mt-3 font-display text-[22px] font-bold leading-[1.15] tracking-tight text-slate-900">
-            {cuantas > 0 ? "Varias cubren todo lo que me has contado." : "Varias cubren una parte de lo que me has contado."}
-          </p>
-          <p className="mt-2 leading-relaxed text-slate-800">{loQueNecesitoSaber}</p>
-        </section>
+      ) : esEmpate ? (
+        /*
+          EL EMPATE YA NO SE PRESENTA COMO UN PROBLEMA. Aquí había una tarjeta
+          con la etiqueta «Estas opciones encajan», «Varias cubren todo lo que
+          me has contado» y la frase del motor, que terminaba en «no tengo con
+          qué decidir». Propietaria, 2026-10-05: las empatadas «son el
+          resultado de Molnip y comparten la primera posición». La frase del
+          motor (`loQueNecesitoSaber`) sigue existiendo; esta pantalla ya no
+          la enseña.
+        */
+        <header className="space-y-1 pt-2">
+          <h2 className="font-display text-[26px] font-bold leading-[1.12] tracking-tight text-slate-900">
+            {cabeceraDelEmpate!.titulo}
+          </h2>
+          {cabeceraDelEmpate!.texto && <p className="leading-relaxed text-slate-700">{cabeceraDelEmpate!.texto}</p>}
+        </header>
       ) : null}
 
       {/*
@@ -437,17 +446,25 @@ export default function ConsejoDelAsesor({
             estas opciones no tengo una razón suficiente…»; ahora dice desde
             dónde habla —lo que sabe de su caso—.
           */}
-          {esEmpate && (
-            <p className="text-sm leading-relaxed text-slate-600">
-              Con lo que sé de tu caso, no tengo una razón suficiente para poner una por delante de otra.
-            </p>
+          {/*
+            Aquí iba «Con lo que sé de tu caso, no tengo una razón suficiente
+            para poner una por delante de otra.» Fuera el 2026-10-05, con el
+            resto del tratamiento del empate: las empatadas se enseñan enteras,
+            cada una con lo suyo, sin justificar que no haya una primera.
+          */}
+          {filas.map((o) =>
+            esEmpate ? (
+              <Tarjeta
+                key={idDe(o)} opcion={o} papel="empatada" abierta
+                entreEllas={filas} principal={null} cuantas={cuantas} alAbrir={alAbrir}
+              />
+            ) : (
+              <Tarjeta
+                key={idDe(o)} opcion={o} papel="alternativa" abierta={abierta === idDe(o)} alAlternar={() => alternar(o)}
+                entreEllas={filas} principal={null} cuantas={cuantas} alAbrir={alAbrir}
+              />
+            )
           )}
-          {filas.map((o) => (
-            <Tarjeta
-              key={idDe(o)} opcion={o} papel="alternativa" abierta={abierta === idDe(o)} alAlternar={() => alternar(o)}
-              entreEllas={filas} principal={null} cuantas={cuantas} alAbrir={alAbrir}
-            />
-          ))}
           {quedanEnElGrupo > 0 && (
             <Boton variante="fantasma" onClick={() => setDelGrupo(delGrupo + DE_TRES_EN_TRES)}>
               Ver {Math.min(DE_TRES_EN_TRES, quedanEnElGrupo)} más

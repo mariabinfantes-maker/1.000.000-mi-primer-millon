@@ -51,3 +51,34 @@ export function lineasDelPorQue(opcion: Elegida, esPrincipal: boolean, entreElla
   }
   return lineas;
 }
+
+const EN_LETRA_MAYUSCULA = ["Cero", "Una", "Dos", "Tres", "Cuatro", "Cinco", "Seis", "Siete", "Ocho", "Nueve", "Diez"];
+
+/**
+ * CÓMO SE DICE UN EMPATE. Propietaria, 2026-10-05: «Si después de aplicar los
+ * criterios actuales del motor quedan dos herramientas sin una razón para poner
+ * una por delante de la otra, ambas son el resultado de Molnip y comparten la
+ * primera posición.» Se dice «Dos buenas opciones para tu caso», y nada más:
+ * ni «no tengo con qué decidir», ni una pregunta, ni la promesa de afinar.
+ *
+ * Con cobertura parcial la redacción es otra, y tiene que dejar claro que
+ * ninguna cubre todo. «Ella sola» no sobra: en 269 de los 665 empates
+ * parciales una PAREJA sí lo cubre todo, y decir «ninguna lo cubre» sería
+ * falso.
+ *
+ * Sólo cambia cómo se presenta. El motor decide igual y el conjunto es el
+ * suyo, `empatadas`, en su orden.
+ */
+export function comoSeDiceElEmpate(empatadas: Opcion[]): { titulo: string; texto?: string } | null {
+  if (empatadas.length === 0) return null;
+  const n = empatadas.length;
+  const enLetra = EN_LETRA_MAYUSCULA[n] ?? String(n);
+  const primera = empatadas[0];
+  if (primera.noCubre.length === 0) return { titulo: `${enLetra} buenas opciones para tu caso` };
+  const cubiertas = new Set(primera.piezas.flatMap((p) => p.cubre)).size;
+  const pedidas = cubiertas + primera.noCubre.length;
+  return {
+    titulo: "Ninguna herramienta cubre ella sola todo lo que me has contado",
+    texto: `Estas ${n} cubren ${cubiertas} de las ${pedidas} cosas que necesitas.`,
+  };
+}
