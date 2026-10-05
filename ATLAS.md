@@ -7432,6 +7432,42 @@ inteligente y más corto.»*
 aparte del 2 para mejorar cómo decide Molnip, *«utilizando primero el
 conocimiento que ya tenemos»*, que trate por separado los dos problemas.
 
+## 2026-10-05 — REGLA DE VOZ: EL TONO DE UN BUEN ASESOR DE NEGOCIOS
+
+**Regla de la propietaria, vigente desde este día, y parte de la identidad
+de Molnip:**
+
+> **Molnip habla como un buen asesor de negocios: claro, sereno,
+> conciliador y directo. No introduce objeciones, reproches ni fricciones
+> que el cliente no ha planteado, y tampoco intenta animarlo
+> artificialmente. Cuando hay una limitación o algo que no sabemos, lo dice
+> con claridad.**
+
+**Qué reemplaza y por qué.** Ese mismo día se guardó aquí una regla de
+«positivo por defecto», que pedía evitar las construcciones negativas. La
+propietaria la corrigió: *«La palabra no nunca fue el verdadero problema; el
+problema era el tono.»* No se busca que Molnip sea optimista ni que evite el
+«no», ni convertir cada detalle de redacción en una regla rígida: se busca
+*«lenguaje profesional de asesoría y de negocios: sereno, conciliador, claro
+y sin fricción innecesaria»*. **No hay que perseguir cada «no» que aparezca.**
+
+**Sus ejemplos, con el porqué de cada uno:**
+
+- «Además lleva X, que no me pediste pero te toca.» → «Además incluye X.»
+  *«No falla porque contenga la palabra no. Falla porque introduce una
+  confrontación innecesaria con el cliente. Le recuerda lo que pidió o dejó
+  de pedir y luego le dice "te toca".»* La nueva *«simplemente informa. No
+  anima, no vende de más, no corrige al cliente. Es profesional.»*
+- «SI KOIBOX NO TE CONVENCE» → «OTRAS OPCIONES». *«Molnip está
+  introduciendo una objeción que el cliente todavía no ha expresado.»*
+- Y cuando hay que decirlo, se dice: *«"No hemos podido confirmar que
+  incluya facturación." Ahí el "no" es información importante y esconderlo
+  detrás de una frase bonita sería peor.»*
+
+Encaja con las reglas anteriores sin sustituir ninguna: **«si no lo sabemos,
+no se dice»**, **«un dato desconocido no es un "no"»** y **«no somos
+jueces»** siguen vigentes.
+
 ---
 
 ## DÓNDE ESTAMOS — punto de partida al 2026-10-05
@@ -7447,8 +7483,8 @@ entera cada vez que cambie; no se acumula.** Va la última antes del bloque
 |---|---|
 | Rama de producción | `claude/claude-md-docs-plkwnq`; Vercel despliega desde ella |
 | Rama de trabajo | `claude/evidencia-usos-recorridos` |
-| Desplegado | `fbffe27`, contenido idéntico a `afd3237` (bloque 1), el 2026-10-05 a las 11:23 UTC |
-| Versión anterior | `600dde0` |
+| Desplegado | `d7fd7cb`, contenido idéntico a `a632ded` (bloque 2), el 2026-10-05 a las 15:04 UTC |
+| Versión anterior | `fbffe27` (bloque 1) |
 | Interruptor de la IA del asesor | `ATLAS_ASESOR_IA_ACTIVA=true` en Production, puesta por la propietaria el 2026-10-05 |
 
 **Lo que ve una persona hoy en molnip.com:**
@@ -7566,6 +7602,12 @@ obligar a entenderla**.
 Del 2026-09-30: **la posición expresa la prioridad, no la calidad de la
 presentación**; **«cubren», nunca «igual de bien»**; **un dato desconocido no
 es un «no»**.
+
+Del 2026-10-05: **el tono de un buen asesor de negocios** (regla de voz, en
+su sección): claro, sereno, conciliador y directo; sin objeciones, reproches
+ni fricciones que el cliente no ha planteado, sin animarlo artificialmente,
+y diciendo con claridad las limitaciones y lo que no sabemos. El problema
+nunca fue la palabra «no».
 
 ### Cómo se trabajó, por si sirve de método
 

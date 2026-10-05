@@ -46,8 +46,13 @@ export function lineasDelPorQue(opcion: Elegida, esPrincipal: boolean, entreElla
   if (esPrincipal && opcion.desempate?.porQue) lineas.push(opcion.desempate.porQue);
   if (opcion.piezas.length > 1) lineas.push(`Son ${opcion.piezas.length} programas y ${opcion.piezas.length} cuotas.`);
   const distingue = loQueDistingue(opcion, entreEllas);
+  /**
+   * Decía «Además lleva X, que no me pediste pero te tocan.» Propietaria,
+   * 2026-10-05: le recordaba al cliente lo que no pidió y le decía «te toca»;
+   * un asesor de negocios simplemente informa. Ver ATLAS, «REGLA DE VOZ».
+   */
   if (distingue.length > 0) {
-    lineas.push(`Además lleva ${distingue.join(", ").toLowerCase()}, que no me pediste pero te ${distingue.length > 1 ? "tocan" : "toca"}.`);
+    lineas.push(`Además incluye: ${distingue.join(", ").toLowerCase()}.`);
   }
   return lineas;
 }

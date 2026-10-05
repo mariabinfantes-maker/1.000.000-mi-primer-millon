@@ -13,7 +13,7 @@ import { comoSeDiceElEmpate, lineasDelPorQue, loQueDistingue, type Elegida } fro
  * LA PANTALLA DEL CONSEJO, tal como la aprobó la propietaria el 2026-09-30.
  *
  * El orden es una sola idea de arriba abajo, y sólo una superficie tiene
- * relieve: Mi consejo → si no te convence → he comparado N → explorar →
+ * relieve: Mi consejo → otras opciones → he comparado N → explorar →
  * seguir hablando. Se alimenta de LA DECISIÓN DEL MOTOR —`loQueHaria` y
  * `alternativas`, que vienen de `elegirUna` y `ordenarPorCercania`— y no del
  * orden de la búsqueda. La tarjeta anterior enseñaba como primera fila la
@@ -475,7 +475,12 @@ export default function ConsejoDelAsesor({
 
       {principal && dosAlternativas.length > 0 && (
         <div className="space-y-2">
-          <Antetitulo gris>Si {nombreDe(principal)} no te convence</Antetitulo>
+          {/*
+            Decía «Si Koibox no te convence»: introducía una objeción que el
+            cliente no ha planteado. Propietaria, 2026-10-05. Ver ATLAS, «REGLA
+            DE VOZ».
+          */}
+          <Antetitulo gris>Otras opciones</Antetitulo>
           {dosAlternativas.map((o) => (
             <Tarjeta
               key={idDe(o)} opcion={o} papel="alternativa" abierta={abierta === idDe(o)} alAlternar={() => alternar(o)}
