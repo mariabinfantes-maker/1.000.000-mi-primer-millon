@@ -7483,8 +7483,8 @@ entera cada vez que cambie; no se acumula.** Va la última antes del bloque
 |---|---|
 | Rama de producción | `claude/claude-md-docs-plkwnq`; Vercel despliega desde ella |
 | Rama de trabajo | `claude/evidencia-usos-recorridos` |
-| Desplegado | `d7fd7cb`, contenido idéntico a `a632ded` (bloque 2), el 2026-10-05 a las 15:04 UTC |
-| Versión anterior | `fbffe27` (bloque 1) |
+| Desplegado | `7f538b2`, contenido idéntico a `478eedc` (bloque 2 con las dos correcciones de tono), el 2026-10-05 a las 16:12 UTC |
+| Versión anterior | `d7fd7cb` (bloque 2) |
 | Interruptor de la IA del asesor | `ATLAS_ASESOR_IA_ACTIVA=true` en Production, puesta por la propietaria el 2026-10-05 |
 
 **Lo que ve una persona hoy en molnip.com:**
