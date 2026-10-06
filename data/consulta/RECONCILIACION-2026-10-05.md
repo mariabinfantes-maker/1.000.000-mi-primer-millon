@@ -282,7 +282,12 @@ segunda vez que se dice. Corregido aquí y en esa nota.)*
 **El idioma de Hotmart.** La verificación externa del lote `cursos-1`
 (`agents/atlas-researcher/lotes/resultados/cursos-1/verificacion-externa-convertida.json`,
 2026-09-16) dejó el **soporte en español verificado**, con fuente en
-`help.hotmart.com/es/…`, y la interfaz como desconocida. No pasó al sitio
+`hotmart.com/es/precios` y la cita *«Soporte en español por email y por chat
+24/7»*, y la interfaz como desconocida. *(La primera versión decía que la
+fuente era `help.hotmart.com/es/…`: ésa es la página que se miró para la
+interfaz. Corregido el 2026-10-06.)* El mismo lote dejó a Thinkific y a
+Teachable con el idioma de la interfaz y del soporte «no consta», con las
+páginas que se miraron. No pasó al sitio
 donde se guarda el idioma comprobado, `data/verificacion/idiomas.json`, que
 **está vacío en todas las ramas**: el sistema para comprobar idiomas se
 construyó (`data/verificacion/convertir.ts`) y el primer lote que lo pide
@@ -334,10 +339,16 @@ borrado es un script (`data/investigacion/casas/reparto.mjs`, sustituido el
   la que son (enlace `texto`). `npm run que-sabemos -- asana` enseña su nota
   de Capterra. Lo sostiene una prueba en
   `data/consulta/__tests__/queSabemos.test.ts`.
-- **Sigue sin leer** lo que está fuera de `data/investigacion/`: los
-  resultados del Researcher (`agents/atlas-researcher/lotes/resultados/`), las
-  tandas de precios del Curator y las salidas de `data/verificacion/`. Por eso
-  lo de Hotmart no sale en la consulta. Ampliarla queda sin hacer, a decidir.
+- **Ampliada a las carpetas de los agentes** (2026-10-06, a petición de la
+  propietaria): lee también `agents/**`, donde están los resultados de los
+  lotes del Researcher y las tandas de precios del Curator.
+  `npm run que-sabemos -- hotmart` enseña ya su idioma comprobado. **No lee
+  lo que es de afiliación** —carpetas o archivos con ese nombre, ni las líneas
+  de los documentos que la nombran—, porque la afiliación está aparcada desde
+  el 2026-09-17.
+- **Sigue sin leer** las salidas de `data/verificacion/` (lotes, salidas y
+  puntos de control de las repescas). No es una carpeta de agente y no
+  entraba en lo pedido.
 - **Ningún dato tocado.** Llevar la facilidad de uso a un campo, usarla para
   la curva o pasar lo de Hotmart a `idiomas.json` es cambiar datos, y lo
   decide la propietaria.

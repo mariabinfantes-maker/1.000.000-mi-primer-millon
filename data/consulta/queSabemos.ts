@@ -16,9 +16,10 @@ import path from "node:path";
  *
  *  - la ficha (`data/herramientas/<id>.json`) y su borrador, si lo hay;
  *  - las capacidades verificadas (`data/verificacion/registros.json`);
- *  - las entregas de investigación (`data/investigacion/**`), enlazadas por
- *    `id`, `herramientaId` o el nombre del archivo, y los documentos `.md` que
- *    la nombran.
+ *  - las entregas de investigación, enlazadas por `id`, `herramientaId` o el
+ *    nombre del archivo, y los documentos `.md` que la nombran. Se buscan en
+ *    `data/investigacion/**` y en las carpetas de los agentes (`agents/**`),
+ *    ver `CARPETAS_DE_INVESTIGACION`.
  *
  * Una entrega de investigación es evidencia tal cual se guardó: puede
  * contradecir a la ficha, y aquí no se resuelve cuál vale. Se enseña.
@@ -63,15 +64,39 @@ function fechaDe(ruta: string): string | null {
   return ruta.match(/\d{4}-\d{2}-\d{2}/)?.[0] ?? null;
 }
 
+/**
+ * Dónde se guardó investigación. No sólo en `data/investigacion/`: los
+ * agentes guardaron la suya en sus carpetas (los resultados de los lotes del
+ * Researcher, las tandas de precios del Curator). Ampliado el 2026-10-06,
+ * cuando el idioma de Hotmart, comprobado el 16 de septiembre en
+ * `agents/atlas-researcher/lotes/resultados/cursos-1/`, no salía en la
+ * consulta.
+ */
+const CARPETAS_DE_INVESTIGACION = [path.join("data", "investigacion"), "agents"];
+
+/**
+ * LA AFILIACIÓN SE APARCA (2026-09-17): no se investiga, no se comprueba y
+ * no se menciona hasta que la web traiga tráfico. Por eso la consulta no lee
+ * lo que es de afiliación, aunque esté en las carpetas de los agentes. No se
+ * borra nada: sólo no se enseña aquí.
+ */
+const ES_DE_AFILIACION = /afiliad|afiliaci[oó]n|affiliate/i;
+
 function archivos(dir: string, extensiones: string[]): string[] {
   if (!fs.existsSync(dir)) return [];
   const salida: string[] = [];
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (e.name === "node_modules" || e.name === "__tests__" || e.name.startsWith(".")) continue;
+    if (ES_DE_AFILIACION.test(e.name)) continue;
     const p = path.join(dir, e.name);
     if (e.isDirectory()) salida.push(...archivos(p, extensiones));
     else if (extensiones.some((x) => e.name.endsWith(x))) salida.push(p);
   }
   return salida.sort();
+}
+
+function deTodasLasCarpetas(raiz: string, extensiones: string[]): string[] {
+  return CARPETAS_DE_INVESTIGACION.flatMap((c) => archivos(path.join(raiz, c), extensiones));
 }
 
 /**
@@ -165,14 +190,13 @@ function archivoEsDe(ruta: string, id: string): boolean {
 export type IndiceDeInvestigacion = { entregas: Map<string, Entrega[]>; documentos: Map<string, Documento[]> };
 
 /**
- * Lee TODA la carpeta de investigación una vez y la reparte por herramienta.
+ * Lee TODAS las carpetas de investigación una vez y las reparte por herramienta.
  * Lo usan la consulta de una herramienta y el diagnóstico de las 90: así las
  * dos leen exactamente lo mismo.
  */
 export function indiceDeInvestigacion(herramientas: Herramienta[], raiz = process.cwd()): IndiceDeInvestigacion {
-  const dir = path.join(raiz, "data", "investigacion");
   const entregas = new Map<string, Entrega[]>();
-  for (const ruta of archivos(dir, [".json"])) {
+  for (const ruta of deTodasLasCarpetas(raiz, [".json"])) {
     let datos: unknown;
     try {
       datos = JSON.parse(fs.readFileSync(ruta, "utf-8"));
@@ -191,15 +215,17 @@ export function indiceDeInvestigacion(herramientas: Herramienta[], raiz = proces
     }
   }
   const documentos = new Map<string, Documento[]>();
-  for (const ruta of archivos(dir, [".md"])) {
+  for (const ruta of deTodasLasCarpetas(raiz, [".md"])) {
     const texto = fs.readFileSync(ruta, "utf-8").split("\n");
     const rel = path.relative(raiz, ruta);
+    // Sin fecha en la ruta, vale la que lleve el título: «… (2026-09-17)».
+    const fecha = fechaDe(rel) ?? fechaDe(texto.find((l) => l.startsWith("# ")) ?? "");
     for (const h of herramientas) {
       const patron = new RegExp(`\\b${h.nombre.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i");
-      const lineas = texto.filter((l) => patron.test(l)).map((l) => l.trim()).slice(0, 12);
+      const lineas = texto.filter((l) => patron.test(l) && !ES_DE_AFILIACION.test(l)).map((l) => l.trim()).slice(0, 12);
       if (!lineas.length) continue;
       const lista = documentos.get(h.id) ?? [];
-      lista.push({ ruta: rel, fecha: fechaDe(rel), lineas });
+      lista.push({ ruta: rel, fecha, lineas });
       documentos.set(h.id, lista);
     }
   }

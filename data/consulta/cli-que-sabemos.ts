@@ -28,6 +28,10 @@ export const DATOS_CLAVE = [
   "curvaDeAprendizaje",
   "porQueEsaCurva",
   "idiomasDisponibles",
+  // El idioma comprobado, como lo guarda la verificación: el de la pantalla
+  // que usa el negocio y el del soporte, cada uno con su fuente.
+  "interfaz",
+  "soporte",
   "loQueNoPudeComprobar",
   "noConsta",
   // Lo que se leyó en Capterra y G2 (29 y 30 de septiembre): la nota general
@@ -70,7 +74,8 @@ export function informe(s: LoQueSabemos): string {
       continue;
     }
     for (const o of e.objetos) {
-      const campos = Object.keys(o.campos).filter((k) => !["id", "nombre", "herramientaId"].includes(k));
+      // La afiliación está aparcada (ver ES_DE_AFILIACION en queSabemos.ts).
+      const campos = Object.keys(o.campos).filter((k) => !["id", "nombre", "herramientaId"].includes(k) && !/afiliad|afiliaci[oó]n|affiliate/i.test(k));
       l.push(`- ${e.ruta} (${e.fecha ?? "sin fecha"}) · ${o.camino} · enlazado por ${o.enlace}`);
       l.push(`    campos: ${campos.join(", ") || "—"}`);
     }

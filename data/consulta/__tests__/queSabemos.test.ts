@@ -43,6 +43,31 @@ describe("qué sabemos de una herramienta", () => {
     expect(informe(s)).toContain('"facilidadDeUso":4.4');
   });
 
+  /**
+   * Los agentes guardaron investigación en sus carpetas. El soporte en
+   * español de Hotmart se comprobó el 16 de septiembre en un lote del
+   * Researcher y no salía en la consulta hasta ampliarla (2026-10-06).
+   */
+  it("Hotmart: encuentra su idioma comprobado en la carpeta del Researcher", () => {
+    const s = queSabemosDe("hotmart")!;
+    const idioma = s.entregas
+      .filter((e) => e.ruta.startsWith("agents/atlas-researcher/lotes/resultados/cursos-1/"))
+      .flatMap((e) => e.objetos)
+      .find((o) => o.camino.startsWith("idiomas"));
+    expect(idioma?.campos.soporte).toMatchObject({ estado: "verificado", idiomas: ["es"] });
+    expect(informe(s)).toContain("Soporte en español por email y por chat 24/7");
+  });
+
+  // La afiliación está aparcada desde el 2026-09-17: la consulta no la enseña.
+  it("no lee nada de afiliación, aunque esté en las carpetas de los agentes", () => {
+    const hs = herramientasDelCatalogo();
+    const idx = indiceDeInvestigacion(hs);
+    const rutas = [...idx.entregas.values(), ...idx.documentos.values()].flat().map((e) => e.ruta);
+    expect(rutas.filter((r) => /afiliad|afiliaci[oó]n|affiliate/i.test(r))).toEqual([]);
+    const lineas = [...idx.documentos.values()].flat().flatMap((d) => d.lineas);
+    expect(lineas.filter((l) => /afiliad|afiliaci[oó]n|affiliate/i.test(l))).toEqual([]);
+  });
+
   it("un id que no existe no inventa nada", () => {
     expect(queSabemosDe("no-existe-esta-herramienta")).toBeNull();
   });
