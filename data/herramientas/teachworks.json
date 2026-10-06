@@ -75,7 +75,9 @@
   "modeloDePrecio": [
     "suscripcion_mensual"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 21,
   "preciosComprobados": {
     "url": "https://www.teachworks.com/pricing",
     "fecha": "2026-09-30",

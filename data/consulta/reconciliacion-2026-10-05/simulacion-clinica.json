@@ -1,0 +1,22 @@
+{
+ "antes": {
+  "principal": "Koibox",
+  "porQue": "Empezaría por Koibox porque, entre las que están en español, es la única con plan gratuito.",
+  "alternativas": [
+   "DriCloud",
+   "Archivex",
+   "Bookitit",
+   "Nubimed"
+  ]
+ },
+ "despues": {
+  "principal": "Koibox",
+  "porQue": "Me inclino por Koibox: de las que quedan, es la que tenemos valorada como más sencilla para empezar.",
+  "alternativas": [
+   "Archivex",
+   "Bookitit",
+   "ViDay",
+   "DriCloud"
+  ]
+ }
+}

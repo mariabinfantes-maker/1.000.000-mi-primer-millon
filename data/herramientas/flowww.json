@@ -71,7 +71,9 @@
     "suscripcion_mensual",
     "suscripcion_anual"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 10,
   "preciosComprobados": {
     "url": "https://www.flowww.es/precios",
     "fecha": "2026-09-30",

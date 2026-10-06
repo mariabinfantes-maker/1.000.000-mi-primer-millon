@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "verificar-datos": "tsx data/verificar.ts",
+    "que-sabemos": "tsx data/consulta/cli-que-sabemos.ts",
     "test": "vitest run",
     "e2e": "next build && playwright test",
     "e2e:solo": "playwright test",

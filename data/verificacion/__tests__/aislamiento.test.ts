@@ -68,6 +68,10 @@ describe("el aislamiento de la verificación", () => {
       path.join("agents", "atlas-curator", "cli-examen-catalogo.ts"),
       "2026-09-29: pasa el examen de entrada a las 65 que ya están dentro, para escribir qué le falta a cada una. Sólo CUENTA capacidades, por `contarCapacidadesVerificadas`, la misma puerta que usa la promoción. No lee registros ni citas, y no escribe nada en el catálogo.",
     ],
+    [
+      path.join("data", "consulta", "queSabemos.ts"),
+      "2026-10-05: «¿qué sabemos de X?», la consulta para PERSONAS que pidió la propietaria tras el caso DriCloud —lo investigado estaba guardado y no se encontraba—. Lee los registros de una herramienta para enseñarlos junto a su ficha y su investigación. Sólo lee y no alimenta al producto: ninguna parte de app/, agents/, lib/ ni components/ puede importarla (lo vigila `data/consulta/__tests__/queSabemos.test.ts`).",
+    ],
   ]);
   const EXENTOS = new Set(AUTORIZADOS.keys());
 
@@ -133,6 +137,7 @@ describe("el aislamiento de la verificación", () => {
       path.join("agents", "atlas-researcher", "capacidadesVerificadas.ts"),
       path.join("agents", "atlas-researcher", "__tests__", "promover.test.ts"),
       path.join("agents", "atlas-curator", "cli-examen-catalogo.ts"),
+      path.join("data", "consulta", "queSabemos.ts"),
     ]);
   });
 

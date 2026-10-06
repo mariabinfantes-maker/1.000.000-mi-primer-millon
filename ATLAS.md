@@ -7468,9 +7468,126 @@ Encaja con las reglas anteriores sin sustituir ninguna: **«si no lo sabemos,
 no se dice»**, **«un dato desconocido no es un "no"»** y **«no somos
 jueces»** siguen vigentes.
 
+## 2026-10-05 — RECONCILIACIÓN: LO INVESTIGADO, LO GUARDADO Y LO QUE USA EL ASESOR
+
+**Diagnóstico, no decisión.** Entero en `data/consulta/RECONCILIACION-2026-10-05.md`,
+con los números en bruto en `data/consulta/reconciliacion-2026-10-05/`.
+
+Nace de DriCloud: dije que no constaba si tenía prueba gratuita mirando sólo
+su ficha, y la entrega del 30 de septiembre lo decía. La propietaria: *«la
+información tiene que quedar totalmente clara para que nosotros en todo
+momento podamos consultarla de manera fácil»*. Y antes de tocar esquema o
+motor: *«¿Qué conocimiento ya existe dentro de Molnip y qué parte de ese
+conocimiento no está llegando al sitio donde debería utilizarse?»* Su
+lectura: *«tenemos tres capas que se están mezclando: lo que investigamos →
+lo que Molnip guarda → lo que el asesor utiliza. Y necesitamos que esa cadena
+sea sólida.»*
+
+**Lo que existe ya, y conviene usar siempre: `npm run que-sabemos -- <id>`.**
+Reúne ficha, borrador, capacidades, entregas de investigación y documentos de
+una herramienta, con la ruta y la fecha de cada dato. Sólo lee. **Antes de
+decir que algo «no consta», se consulta aquí.**
+
+**Lo encontrado, en corto:**
+
+- Las 90 tienen investigación localizable. Mi «24 de 90» anterior era un
+  error de búsqueda. 25 tienen investigación de perfil completa; las 65
+  originales, de capacidades y casas.
+- Las capacidades están reconciliadas: todo lo que las entregas dan por
+  verificado está en `registros.json`.
+- Lo que no llegó son sobre todo porqués y evidencias (del plan gratuito, del
+  tamaño, de la curva, del precio) y datos sin sitio en la ficha (límites,
+  precio con cita en 20 herramientas sin `planesComprobados`, idioma con
+  recibo).
+- **9 herramientas tienen documentada una prueba gratuita y su ficha dice
+  «sin plan gratuito»**, contra la regla del 17 de septiembre de que una
+  prueba también es plan gratuito, que sí se aplicó en otras 30. Y Cliniko
+  dice «sí» cuando su gratuito es sólo para entidades benéficas.
+  *(Corregido el 2026-10-06: eran 8, no 9 —ViDay no tiene prueba
+  documentada— y sólo 5 con evidencia fuerte. Ver la sección siguiente.)*
+- **El idioma de Booksy, Jane, Pabau y Timify llegó a `idiomasDisponibles`,
+  que el motor no lee.**
+- **Simulado en memoria: en ningún caso cambia la herramienta recomendada,
+  pero en 83 cambia el motivo o el empate.** En la clínica dental, «es la única
+  con plan gratuito» no se sostiene con la prueba de Archivex y la de
+  Bookitit.
+
+**Pendiente de decidir por la propietaria**, sin abrir todavía: qué campos
+deben ser datos estructurados de la ficha, cuáles evidencia que se conserva
+junto al dato y cuáles documentación consultable; qué fuente vale cuando no
+coinciden; y la regla que impida que lo investigado se pierda al pasar a la
+ficha. Ella lo quiere resuelto **antes** de rediseñar el desempate: *«sería
+absurdo construir un motor nuevo alrededor de datos incompletos y descubrir
+después que ya teníamos información mejor guardada en las investigaciones.»*
+
 ---
 
-## DÓNDE ESTAMOS — punto de partida al 2026-10-05
+## 2026-10-06 — LA ENTRADA SIN COSTE: LA PRUEBA Y EL PLAN GRATUITO CUENTAN IGUAL, Y SE DICEN DISTINTO
+
+**Decisión de la propietaria, que reafirma la del 17 de septiembre y fija cómo
+se modela.** Entero, con las citas de cada herramienta, en
+`data/consulta/PASO-1-2026-10-06.md`.
+
+**Lo que dije mal.** En la tabla del paso 1 escribí que contar la prueba
+gratuita junto al plan gratuito era «la confusión que la propietaria
+señala». No lo era. Sus palabras:
+
+> «No fue un error ni una confusión considerar las pruebas gratuitas junto a
+> los planes gratuitos. Fue una decisión de producto deliberada. La razón es
+> que un plan gratuito permanente puede ser demasiado limitado para evaluar
+> realmente una herramienta, mientras que una prueba gratuita de 15, 20 o 30
+> días puede permitir probar un plan suficientemente completo antes de pagar.
+> Para Molnip, ambas reducen el riesgo de entrada y por eso decidí darles un
+> tratamiento parecido. Mantén esa decisión.»
+
+**Lo que sí estaba mal: perder la diferencia al guardar o al enseñar.** Molnip
+debe saber siempre si es:
+
+- un **plan gratuito indefinido**, con sus límites;
+- una **prueba gratuita**, con su duración;
+- una **gratuidad condicionada a un tipo de organización**, como Cliniko.
+
+*«Pueden participar en un mismo criterio de "entrada sin coste", pero nunca
+presentarse al cliente como si fueran lo mismo.»* Hasta este día la tarjeta
+del asesor decía «Plan gratuito» de una prueba de 7 días: pasaba en 1.231 de
+los 1.891 casos, con las 30 fichas de prueba que ya había. El catálogo sí lo
+distinguía; el asesor no leía ese dato.
+
+**Aplicado (en la rama de trabajo, sin desplegar):**
+
+- **Cinco fichas**, con evidencia fuerte —cita literal, página y fecha—:
+  Acuity Scheduling (7 días), Archivex (7), Bookitit (15), flowww (10) y
+  Teachworks (21). Tres campos en cada una: `tienePlanGratuito: true`,
+  `tipoPlanGratuito: "prueba"` y `pruebaGratuitaDias`. Nada más.
+- **Dos textos del asesor**, en la fila de cada opción y en la tarjeta
+  abierta, con una sola función (`app/asesor/entradaSinCoste.ts`): «Plan
+  gratuito», «Prueba gratuita de X días» o «Prueba gratuita». Vale también
+  para las 30 de antes.
+- **No cambia el motor, el peso del criterio ni el orden.** Comprobado sobre
+  los 1.891 casos: la herramienta recomendada no cambia en ninguno. Cambian
+  140 casos, exactamente los que se habían simulado: 23 motivos de Koibox, 60
+  empates en los que entran Archivex, Bookitit y flowww, y 29 cambios de
+  alternativas.
+
+**Lo que se queda como está, a propósito:**
+
+- **Booksy, Bookeo y Schedulista**: la evidencia de su prueba es media o débil.
+  **ViDay**: no tiene prueba documentada.
+- **Cliniko**: es la tercera clase, y el esquema todavía no la tiene. No se
+  fuerza a indefinido ni a prueba, ni se borra su condición. **Pendiente:
+  ampliar el modelo de datos para representar una gratuidad condicionada.**
+- **Koibox**: publica «Plan Free: 0 €/mes», pero no se deduce que sea
+  indefinido. Se sigue diciendo «Plan gratuito», que es lo demostrado.
+
+**Pregunta que queda para el rediseño del desempate**, sin decidir: ¿deben
+pesar igual todas las formas de entrada sin coste, o deben influir la
+duración, la permanencia y los límites? Una prueba de 30 días puede valer
+mucho y una de 7 menos; los límites de un gratuito pueden importar más que
+su permanencia. *«Eso ya pertenece al cerebro del asesor.»*
+
+---
+
+## DÓNDE ESTAMOS — punto de partida al 2026-10-06
 
 Esta sección no decide nada: dice en qué punto quedó todo, para que quien
 retome no tenga que reconstruirlo leyendo doscientos commits. **Se reescribe
@@ -7483,9 +7600,10 @@ entera cada vez que cambie; no se acumula.** Va la última antes del bloque
 |---|---|
 | Rama de producción | `claude/claude-md-docs-plkwnq`; Vercel despliega desde ella |
 | Rama de trabajo | `claude/evidencia-usos-recorridos` |
-| Desplegado | `d7fd7cb`, contenido idéntico a `a632ded` (bloque 2), el 2026-10-05 a las 15:04 UTC |
-| Versión anterior | `fbffe27` (bloque 1) |
+| Desplegado | `7f538b2`, contenido idéntico a `478eedc` (bloque 2 con las dos correcciones de tono), el 2026-10-05 a las 16:12 UTC |
+| Versión anterior | `d7fd7cb` (bloque 2) |
 | Interruptor de la IA del asesor | `ATLAS_ASESOR_IA_ACTIVA=true` en Production, puesta por la propietaria el 2026-10-05 |
+| En la rama de trabajo, **sin desplegar** | La consulta `que-sabemos` (lee también las carpetas de los agentes y las respuestas en bruto); la reconciliación y la tabla del paso 1; y la entrada sin coste: 5 fichas con su prueba y los textos del asesor que dicen qué entrada es (2026-10-06) |
 
 **Lo que ve una persona hoy en molnip.com:**
 
@@ -7507,8 +7625,10 @@ entera cada vez que cambie; no se acumula.** Va la última antes del bloque
 - **61 necesidades** en el vocabulario.
 - **Español con recibo: 2 de 90.** El «en español» de las otras 52 viene de la
   lista de idiomas de la primera redacción, sin fuente.
-- **Plan gratuito con su tipo comprobado: 62 de 90** —32 sin límite de
-  tiempo, 30 de prueba—; 10 más dicen tenerlo sin tipo.
+- **Plan gratuito con su tipo comprobado: 67 de 90** —32 sin límite de
+  tiempo, 35 de prueba—; 10 más dicen tenerlo sin tipo, entre ellas Koibox y
+  Cliniko, cuyo gratuito es sólo para entidades benéficas y está pendiente de
+  una tercera clase. *(En la rama de trabajo; en producción siguen 62: 32 y 30.)*
 
 ### Lo pendiente, tal como lo dejó la propietaria el 1 de octubre
 
@@ -7633,6 +7753,9 @@ Por eso en esta página lo suyo va con sus palabras y lo mío va como mío.
   `brand-guidelines.md`, y yo dije que no.
 - **Lo provisional no se declara cerrado**, no se le pone una guarda y no se
   le cita a ella como si fuera el suelo.
+- **Antes de decir que un dato «no consta», `npm run que-sabemos -- <id>`.**
+  El 5 de octubre dije que de DriCloud no constaba su prueba gratuita mirando
+  sólo la ficha, y estaba en su investigación del 30.
 - **Gemini se usa con el arnés de `url_context`** y `NODE_USE_ENV_PROXY=1` en
   el entorno remoto; Node no usa el proxy por su cuenta.
 

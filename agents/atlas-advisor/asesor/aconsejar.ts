@@ -104,6 +104,15 @@ export type Coste = {
   comprobadoEl?: string;
   urlPrecios?: string;
   tienePlanGratuito?: boolean;
+  /**
+   * QUÉ CLASE DE ENTRADA SIN COSTE ES, y cuánto dura si es una prueba. Viajan
+   * sólo para que la pantalla lo diga como es (`app/asesor/entradaSinCoste.ts`):
+   * el desempate sigue mirando `tienePlanGratuito`, y aquí nadie los lee para
+   * decidir. Propietaria, 2026-10-06: la prueba y el plan gratuito cuentan
+   * igual, pero Molnip «nunca debe ocultar cuál de los dos es».
+   */
+  tipoPlanGratuito?: "indefinido" | "prueba";
+  pruebaGratuitaDias?: number;
   curva?: string;
   /**
    * El español, en tres estados y partido en dos pantallas. Antes aquí había
@@ -492,6 +501,8 @@ function aPieza(
           comprobadoEl: h?.preciosComprobados?.fecha,
           urlPrecios: h?.preciosComprobados?.url ?? h?.urlPrecios,
           tienePlanGratuito: h?.tienePlanGratuito,
+          tipoPlanGratuito: h?.tipoPlanGratuito,
+          pruebaGratuitaDias: h?.pruebaGratuitaDias,
           curva: h?.curvaDeAprendizaje,
           espanol: espanolDe(h),
           importe: planesQueCubren.size === 1

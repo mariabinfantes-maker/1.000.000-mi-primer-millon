@@ -1,0 +1,37 @@
+{
+ "A · la prueba gratuita cuenta como plan gratuito (regla del 17-09), 9 herramientas": {
+  "casosQueCambian": 83,
+  "cambiaLaPrincipal": 0,
+  "deEmpateAConsejo": 0,
+  "deConsejoAEmpate": 0,
+  "ejemplos": [
+   "Que puedan reservar sin llamarme :: empate[6] (null) → empate[10] (null)",
+   "Tener la agenda bajo control :: Koibox (plan-gratuito) → Koibox (curva)",
+   "Que me encuentren cuando me buscan + Que puedan reservar sin llamarme :: empate[6] (null) → empate[10] (null)",
+   "Que me encuentren cuando me buscan + Tener la agenda bajo control :: Koibox (plan-gratuito) → Koibox (curva)",
+   "Hacer seguimiento y no olvidarme de nadie + Tener la agenda bajo control :: empate[15] (null) → empate[19] (null)",
+   "Publicar en redes y saber qué funciona + Tener la agenda bajo control :: empate[2] (null) → empate[6] (null)"
+  ]
+ },
+ "B · Cliniko: gratis sólo para entidades benéficas": {
+  "casosQueCambian": 0,
+  "cambiaLaPrincipal": 0,
+  "deEmpateAConsejo": 0,
+  "deConsejoAEmpate": 0,
+  "ejemplos": []
+ },
+ "C · español leído de idiomasDisponibles (booksy, jane, pabau, timify)": {
+  "casosQueCambian": 80,
+  "cambiaLaPrincipal": 0,
+  "deEmpateAConsejo": 0,
+  "deConsejoAEmpate": 0,
+  "ejemplos": [
+   "Que puedan reservar sin llamarme :: empate[6] (null) → empate[7] (null)",
+   "Tener la agenda bajo control :: Koibox (plan-gratuito) → Koibox (curva)",
+   "Que me encuentren cuando me buscan + Que puedan reservar sin llamarme :: empate[6] (null) → empate[7] (null)",
+   "Que me encuentren cuando me buscan + Tener la agenda bajo control :: Koibox (plan-gratuito) → Koibox (curva)",
+   "Hacer seguimiento y no olvidarme de nadie + Tener la agenda bajo control :: empate[15] (null) → empate[16] (null)",
+   "Publicar en redes y saber qué funciona + Tener la agenda bajo control :: empate[2] (null) → empate[3] (null)"
+  ]
+ }
+}

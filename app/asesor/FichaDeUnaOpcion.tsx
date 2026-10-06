@@ -8,6 +8,7 @@ import {
 import Boton from "@/components/ui/Boton";
 import SimboloMolnip from "@/components/ui/SimboloMolnip";
 import type { Opcion, Pieza } from "./Variantes";
+import { comoSeDiceLaEntradaEnFrase } from "./entradaSinCoste";
 
 /**
  * PANTALLA 1 DEL BOCETO — «Abres una opción» (propietaria, 2026-09-25).
@@ -100,7 +101,12 @@ function Coste({ p }: { p: Pieza }) {
         </p>
       )}
       <ul className="mt-2.5 space-y-1">
-        {p.coste.tienePlanGratuito && <li>Tiene plan gratuito.</li>}
+        {/*
+          Qué entrada sin coste es: «Tiene plan gratuito.» o «Tiene prueba
+          gratuita de 7 días.». Hasta el 2026-10-06 decía «plan gratuito»
+          también de una prueba; ver `entradaSinCoste.ts`.
+        */}
+        {p.coste.tienePlanGratuito && <li>Tiene {comoSeDiceLaEntradaEnFrase(p.coste)}.</li>}
         {p.coste.curva && <li>{CURVA[p.coste.curva] ?? p.coste.curva}.</li>}
         {/*
           El idioma se dice cuando lo sabemos y es una ventaja suya. Antes se

@@ -126,6 +126,7 @@ export const TAREA_IDS = [
   "verificar-datos",
   "verificar-revenue",
   "verificar-enlaces-afiliados",
+  "que-sabemos",
   // ── Con permiso: gastan dinero ───────────────────────────────────
   "investigar-lote",
   "investigar-herramienta",
@@ -287,6 +288,25 @@ export const TAREAS: readonly Tarea[] = [
     motivo: "ninguno",
     cadencia: "semanal",
     argumentos: SIN_ARGUMENTOS,
+  },
+  {
+    /**
+     * «¿Qué sabemos de X?» (2026-10-05). Reúne lo que el proyecto ya tiene de
+     * una herramienta —ficha, capacidades, investigación— para consultarlo.
+     * Sólo lee: ni gasta ni escribe.
+     */
+    id: "que-sabemos",
+    script: "que-sabemos",
+    modulo: "data/consulta/cli-que-sabemos.ts",
+    descripcion: "Todo lo que sabemos de una herramienta, con la fuente de cada dato",
+    carril: "libre",
+    motivo: "ninguno",
+    cadencia: "manual",
+    argumentos: {
+      posicionales: [{ clase: "id", descripcion: "id de la herramienta", obligatorio: true }],
+      banderas: [],
+      exigeAlguno: true,
+    },
   },
   {
     id: "investigar-lote",

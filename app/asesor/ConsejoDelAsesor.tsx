@@ -8,6 +8,7 @@ import { mayuscula, type Camino, type Opcion, type Pieza } from "./Variantes";
 import { titular, type Abierta } from "./TarjetaDelConsejo";
 import { DE_TRES_EN_TRES, idDe, queSeEnsena } from "./queSeEnsena";
 import { comoSeDiceElEmpate, lineasDelPorQue, loQueDistingue, type Elegida } from "./porQue";
+import { comoSeDiceLaEntrada, comoSeDiceLaEntradaEnFrase } from "./entradaSinCoste";
 
 /**
  * LA PANTALLA DEL CONSEJO, tal como la aprobó la propietaria el 2026-09-30.
@@ -100,20 +101,27 @@ function Logos({ opcion, tamano }: { opcion: Opcion; tamano: "l" | "m" | "s" }) 
 /**
  * El precio para una fila: la cifra corta de los planes citados, con su
  * unidad y sin convertir. Cuando no hay cifra corta se dice lo que sí sabemos
- * —que tiene plan gratuito— o se manda a su web. Nunca se inventa una.
+ * —qué entrada sin coste tiene— o se manda a su web. Nunca se inventa una.
  */
-function precioCorto(opcion: Opcion): { cifra: string; nota?: string } {
+export function precioCorto(opcion: Opcion): { cifra: string; nota?: string } {
   const cortos = opcion.piezas.map((p) => p.coste.desdeCorto).filter(Boolean) as string[];
   const gratis = opcion.piezas.every((p) => p.coste.tienePlanGratuito);
+  // Qué entrada sin coste es, dicho como lo que es: «Plan gratuito» o
+  // «Prueba gratuita de 7 días». Hasta el 2026-10-06 ponía «Plan gratuito»
+  // también para una prueba (ver `entradaSinCoste.ts`). Con dos piezas
+  // distintas se dicen las dos, como las cuotas.
+  const entrada = gratis
+    ? [...new Set(opcion.piezas.map((p) => comoSeDiceLaEntrada(p.coste)))].join(" + ")
+    : null;
   // Sin cifra corta, la fila no dice nada: la tarjeta abierta trae la tarifa
   // entera tal cual la publica. Antes ponía «Precio en su web» y era mentira
   // a medias: DriCloud tiene el precio comprobado, sólo que en una frase.
   if (cortos.length < opcion.piezas.length) {
-    return gratis ? { cifra: "Plan gratuito", nota: "y planes de pago" } : { cifra: "" };
+    return entrada ? { cifra: entrada, nota: "y planes de pago" } : { cifra: "" };
   }
   return {
     cifra: `desde ${cortos.join(" + ")}`,
-    nota: opcion.piezas.length > 1 ? "son dos cuotas" : gratis ? "y plan gratuito" : undefined,
+    nota: opcion.piezas.length > 1 ? "son dos cuotas" : entrada ? `y ${comoSeDiceLaEntradaEnFrase(opcion.piezas[0].coste)}` : undefined,
   };
 }
 

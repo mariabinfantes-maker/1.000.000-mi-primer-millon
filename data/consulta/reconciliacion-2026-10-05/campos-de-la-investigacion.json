@@ -1,0 +1,968 @@
+[
+ {
+  "k": "id",
+  "n": 90,
+  "enFicha": true,
+  "carpetas": "casas,cuatro-2026-09-24,reputacion-las-15-2026-09-29,agenda-por-profesional-2026-09-28"
+ },
+ {
+  "k": "nombre",
+  "n": 90,
+  "enFicha": true,
+  "carpetas": "casas,cuatro-2026-09-24,reputacion-las-15-2026-09-29,agenda-por-profesional-2026-09-28"
+ },
+ {
+  "k": "texto",
+  "n": 80,
+  "enFicha": false,
+  "carpetas": "casas,cuatro-2026-09-24,reputacion-las-15-2026-09-29,agenda-por-profesional-2026-09-28"
+ },
+ {
+  "k": "capacidadesVerificadas",
+  "n": 79,
+  "enFicha": false,
+  "carpetas": "casas,reservas-17-2026-09-29"
+ },
+ {
+  "k": "url",
+  "n": 79,
+  "enFicha": false,
+  "carpetas": "cuatro-2026-09-24,agenda-por-profesional-2026-09-28,casas,lo-que-falta-2026-09-29"
+ },
+ {
+  "k": "urls",
+  "n": 78,
+  "enFicha": false,
+  "carpetas": "casas,agenda-por-profesional-2026-09-28,f4,las-8-cortadas-2026-09-29"
+ },
+ {
+  "k": "leidas",
+  "n": 70,
+  "enFicha": false,
+  "carpetas": "casas,cuatro-2026-09-24,f4"
+ },
+ {
+  "k": "sinRespuesta",
+  "n": 65,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "casas",
+  "n": 65,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "paginasLeidas",
+  "n": 65,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "esDe",
+  "n": 65,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "citas",
+  "n": 65,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "hoy",
+  "n": 65,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "precios",
+  "n": 65,
+  "enFicha": false,
+  "carpetas": "cuatro-2026-09-24"
+ },
+ {
+  "k": "caps",
+  "n": 65,
+  "enFicha": false,
+  "carpetas": "cuatro-2026-09-24"
+ },
+ {
+  "k": "cap",
+  "n": 65,
+  "enFicha": false,
+  "carpetas": "cuatro-2026-09-24,casas"
+ },
+ {
+  "k": "etiqueta",
+  "n": 65,
+  "enFicha": false,
+  "carpetas": "cuatro-2026-09-24,casas"
+ },
+ {
+  "k": "estado",
+  "n": 65,
+  "enFicha": true,
+  "carpetas": "cuatro-2026-09-24,casas"
+ },
+ {
+  "k": "necesidades",
+  "n": 64,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "cuantas",
+  "n": 64,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "espanol",
+  "n": 64,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "curva",
+  "n": 64,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "entrada",
+  "n": 62,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "cita",
+  "n": 54,
+  "enFicha": false,
+  "carpetas": "casas,cuatro-2026-09-24,lo-que-falta-2026-09-29"
+ },
+ {
+  "k": "herramienta",
+  "n": 54,
+  "enFicha": false,
+  "carpetas": "casas,f4"
+ },
+ {
+  "k": "herramientaId",
+  "n": 53,
+  "enFicha": false,
+  "carpetas": "casas,jane-plan-gratuito-2026-09-29"
+ },
+ {
+  "k": "capacidadId",
+  "n": 51,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "fuentes",
+  "n": 51,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "confianza",
+  "n": 51,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "proximaRevision",
+  "n": 51,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "nota",
+  "n": 51,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "casa",
+  "n": 50,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "nombreCasa",
+  "n": 50,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "profundidad",
+  "n": 42,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "planEstado",
+  "n": 40,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "preguntas",
+  "n": 36,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "web",
+  "n": 25,
+  "enFicha": false,
+  "carpetas": "agenda-por-profesional-2026-09-28"
+ },
+ {
+  "k": "deDonde",
+  "n": 25,
+  "enFicha": false,
+  "carpetas": "agenda-por-profesional-2026-09-28"
+ },
+ {
+  "k": "idiomaDelProducto",
+  "n": 25,
+  "enFicha": false,
+  "carpetas": "agenda-por-profesional-2026-09-28"
+ },
+ {
+  "k": "paraQuienEstaPensada",
+  "n": 25,
+  "enFicha": false,
+  "carpetas": "agenda-por-profesional-2026-09-28"
+ },
+ {
+  "k": "paraQuienNoEstaPensada",
+  "n": 25,
+  "enFicha": false,
+  "carpetas": "agenda-por-profesional-2026-09-28"
+ },
+ {
+  "k": "esDirectorioOProgramaPropio",
+  "n": 25,
+  "enFicha": false,
+  "carpetas": "agenda-por-profesional-2026-09-28"
+ },
+ {
+  "k": "agendaPorProfesional",
+  "n": 25,
+  "enFicha": false,
+  "carpetas": "agenda-por-profesional-2026-09-28"
+ },
+ {
+  "k": "eligeElCliente",
+  "n": 25,
+  "enFicha": false,
+  "carpetas": "agenda-por-profesional-2026-09-28"
+ },
+ {
+  "k": "precioMasBajo",
+  "n": 25,
+  "enFicha": false,
+  "carpetas": "agenda-por-profesional-2026-09-28"
+ },
+ {
+  "k": "loQueNoSePudoComprobar",
+  "n": 25,
+  "enFicha": false,
+  "carpetas": "agenda-por-profesional-2026-09-28"
+ },
+ {
+  "k": "paginasQueAbriste",
+  "n": 25,
+  "enFicha": false,
+  "carpetas": "agenda-por-profesional-2026-09-28,las-6-2026-09-30,reservas-17-2026-09-29,lo-facil-2026-09-29"
+ },
+ {
+  "k": "categoriaId",
+  "n": 25,
+  "enFicha": true,
+  "carpetas": "las-6-2026-09-30,reservas-17-2026-09-29,reservas-espanolas-2026-09-29,lo-que-falta-2026-09-29"
+ },
+ {
+  "k": "descripcion",
+  "n": 25,
+  "enFicha": true,
+  "carpetas": "las-6-2026-09-30,reservas-17-2026-09-29,reservas-espanolas-2026-09-29,lo-que-falta-2026-09-29"
+ },
+ {
+  "k": "problemasQueResuelve",
+  "n": 25,
+  "enFicha": true,
+  "carpetas": "las-6-2026-09-30,reservas-17-2026-09-29,reservas-espanolas-2026-09-29,lo-que-falta-2026-09-29"
+ },
+ {
+  "k": "casosDeUso",
+  "n": 25,
+  "enFicha": true,
+  "carpetas": "las-6-2026-09-30,reservas-17-2026-09-29,reservas-espanolas-2026-09-29,lo-que-falta-2026-09-29"
+ },
+ {
+  "k": "funcionesPrincipales",
+  "n": 25,
+  "enFicha": true,
+  "carpetas": "las-6-2026-09-30,reservas-17-2026-09-29,reservas-espanolas-2026-09-29,lo-que-falta-2026-09-29"
+ },
+ {
+  "k": "integraciones",
+  "n": 25,
+  "enFicha": true,
+  "carpetas": "las-6-2026-09-30,reservas-17-2026-09-29,reservas-espanolas-2026-09-29,lo-que-falta-2026-09-29"
+ },
+ {
+  "k": "integracionesPrincipales",
+  "n": 25,
+  "enFicha": true,
+  "carpetas": "las-6-2026-09-30,reservas-17-2026-09-29,reservas-espanolas-2026-09-29,lo-que-falta-2026-09-29"
+ },
+ {
+  "k": "ventajas",
+  "n": 25,
+  "enFicha": true,
+  "carpetas": "las-6-2026-09-30,reservas-17-2026-09-29,reservas-espanolas-2026-09-29,lo-que-falta-2026-09-29"
+ },
+ {
+  "k": "inconvenientes",
+  "n": 25,
+  "enFicha": true,
+  "carpetas": "las-6-2026-09-30,reservas-17-2026-09-29,reservas-espanolas-2026-09-29,lo-que-falta-2026-09-29"
+ },
+ {
+  "k": "metodologiaValoracion",
+  "n": 25,
+  "enFicha": true,
+  "carpetas": "las-6-2026-09-30,reservas-17-2026-09-29,reservas-espanolas-2026-09-29,lo-que-falta-2026-09-29"
+ },
+ {
+  "k": "informacionEmpresa",
+  "n": 25,
+  "enFicha": true,
+  "carpetas": "las-6-2026-09-30,reservas-17-2026-09-29,reservas-espanolas-2026-09-29,lo-que-falta-2026-09-29"
+ },
+ {
+  "k": "loQueNoPudeComprobar",
+  "n": 25,
+  "enFicha": false,
+  "carpetas": "las-6-2026-09-30,reservas-17-2026-09-29,reservas-espanolas-2026-09-29,lo-facil-2026-09-29"
+ },
+ {
+  "k": "puntuaciones",
+  "n": 25,
+  "enFicha": true,
+  "carpetas": "las-6-2026-09-30,reservas-17-2026-09-29,reservas-espanolas-2026-09-29,lo-facil-2026-09-29"
+ },
+ {
+  "k": "industriasIdeales",
+  "n": 25,
+  "enFicha": true,
+  "carpetas": "sectores-derivados-2026-09-29,reservas-17-2026-09-29,reservas-espanolas-2026-09-29,las-siete-2026-09-30"
+ },
+ {
+  "k": "fraseOriginal",
+  "n": 25,
+  "enFicha": false,
+  "carpetas": "sectores-derivados-2026-09-29,sectores-derivados-2026-09-30"
+ },
+ {
+  "k": "deDondeSale",
+  "n": 25,
+  "enFicha": false,
+  "carpetas": "sectores-derivados-2026-09-29,sectores-derivados-2026-09-30"
+ },
+ {
+  "k": "urlDeLaHerramienta",
+  "n": 25,
+  "enFicha": false,
+  "carpetas": "sectores-derivados-2026-09-29"
+ },
+ {
+  "k": "capacidades",
+  "n": 24,
+  "enFicha": false,
+  "carpetas": "reservas-17-2026-09-29,reservas-espanolas-2026-09-29,las-siete-2026-09-30,koibox-completa-2026-09-29"
+ },
+ {
+  "k": "segmentosIdeales",
+  "n": 24,
+  "enFicha": true,
+  "carpetas": "reservas-17-2026-09-29,reservas-espanolas-2026-09-29,lo-que-falta-2026-09-29,las-siete-2026-09-30"
+ },
+ {
+  "k": "porQueEseTamano",
+  "n": 24,
+  "enFicha": false,
+  "carpetas": "reservas-17-2026-09-29,reservas-espanolas-2026-09-29,lo-que-falta-2026-09-29,las-siete-2026-09-30"
+ },
+ {
+  "k": "noRecomendadaPara",
+  "n": 24,
+  "enFicha": true,
+  "carpetas": "sectores-derivados-2026-09-30,reservas-17-2026-09-29,reservas-espanolas-2026-09-29,sectores-derivados-2026-09-29"
+ },
+ {
+  "k": "limites",
+  "n": 23,
+  "enFicha": false,
+  "carpetas": "las-6-2026-09-30,reservas-17-2026-09-29,reservas-espanolas-2026-09-29,las-siete-2026-09-30"
+ },
+ {
+  "k": "tieneAppMovil",
+  "n": 23,
+  "enFicha": true,
+  "carpetas": "las-6-2026-09-30,reservas-17-2026-09-29,reservas-espanolas-2026-09-29,lo-que-falta-2026-09-29"
+ },
+ {
+  "k": "tienePlanGratuito",
+  "n": 23,
+  "enFicha": true,
+  "carpetas": "reservas-17-2026-09-29,reservas-espanolas-2026-09-29,las-siete-2026-09-30,koibox-completa-2026-09-29"
+ },
+ {
+  "k": "paginaOficial",
+  "n": 20,
+  "enFicha": true,
+  "carpetas": "las-6-2026-09-30,reservas-17-2026-09-29,reservas-espanolas-2026-09-29,f4"
+ },
+ {
+  "k": "tieneApiPublica",
+  "n": 19,
+  "enFicha": true,
+  "carpetas": "las-6-2026-09-30,reservas-17-2026-09-29,reservas-espanolas-2026-09-29,lo-que-falta-2026-09-29"
+ },
+ {
+  "k": "modeloDePrecio",
+  "n": 19,
+  "enFicha": true,
+  "carpetas": "reservas-17-2026-09-29,reservas-espanolas-2026-09-29,lo-que-falta-2026-09-29,las-siete-2026-09-30"
+ },
+ {
+  "k": "urlPrecios",
+  "n": 18,
+  "enFicha": true,
+  "carpetas": "las-6-2026-09-30,reservas-17-2026-09-29,reservas-espanolas-2026-09-29,las-siete-2026-09-30"
+ },
+ {
+  "k": "pruebas",
+  "n": 18,
+  "enFicha": false,
+  "carpetas": "las-6-2026-09-30,reservas-17-2026-09-29,lo-facil-2026-09-29,lo-que-falta-2026-09-29"
+ },
+ {
+  "k": "citaPlanGratuito",
+  "n": 18,
+  "enFicha": false,
+  "carpetas": "reservas-17-2026-09-29,reservas-espanolas-2026-09-29"
+ },
+ {
+  "k": "urlPlanGratuito",
+  "n": 18,
+  "enFicha": false,
+  "carpetas": "reservas-17-2026-09-29,reservas-espanolas-2026-09-29"
+ },
+ {
+  "k": "recuperada",
+  "n": 17,
+  "enFicha": false,
+  "carpetas": "agenda-por-profesional-2026-09-28,las-8-cortadas-2026-09-29,precios-pendientes-2026-09-29"
+ },
+ {
+  "k": "precio",
+  "n": 17,
+  "enFicha": false,
+  "carpetas": "reservas-17-2026-09-29,reservas-espanolas-2026-09-29,f4"
+ },
+ {
+  "k": "paginasQueNoSeAbrieron",
+  "n": 15,
+  "enFicha": false,
+  "carpetas": "las-6-2026-09-30,agenda-por-profesional-2026-09-28,lo-facil-2026-09-29,las-siete-2026-09-30"
+ },
+ {
+  "k": "precioInicial",
+  "n": 14,
+  "enFicha": true,
+  "carpetas": "reservas-espanolas-2026-09-29,lo-que-falta-2026-09-29,las-siete-2026-09-30,koibox-completa-2026-09-29"
+ },
+ {
+  "k": "noConsta",
+  "n": 13,
+  "enFicha": false,
+  "carpetas": "reservas-17-2026-09-29,f4"
+ },
+ {
+  "k": "curvaDeAprendizaje",
+  "n": 12,
+  "enFicha": true,
+  "carpetas": "las-6-2026-09-30,lo-facil-2026-09-29,las-siete-2026-09-30,koibox-completa-2026-09-29"
+ },
+ {
+  "k": "porQueEsaCurva",
+  "n": 12,
+  "enFicha": false,
+  "carpetas": "las-6-2026-09-30,lo-facil-2026-09-29,las-siete-2026-09-30,koibox-completa-2026-09-29"
+ },
+ {
+  "k": "porQueCadaNota",
+  "n": 12,
+  "enFicha": false,
+  "carpetas": "las-6-2026-09-30,lo-facil-2026-09-29,las-siete-2026-09-30,koibox-completa-2026-09-29"
+ },
+ {
+  "k": "idealPara",
+  "n": 11,
+  "enFicha": true,
+  "carpetas": "reservas-17-2026-09-29,reservas-espanolas-2026-09-29,las-siete-2026-09-30,koibox-completa-2026-09-29"
+ },
+ {
+  "k": "oNoLoPublican",
+  "n": 11,
+  "enFicha": false,
+  "carpetas": "reservas-17-2026-09-29,lo-que-falta-2026-09-29,las-siete-2026-09-30,koibox-completa-2026-09-29"
+ },
+ {
+  "k": "idiomasDisponibles",
+  "n": 11,
+  "enFicha": true,
+  "carpetas": "reservas-17-2026-09-29,reservas-espanolas-2026-09-29,lo-que-falta-2026-09-29"
+ },
+ {
+  "k": "porQueEsaFrase",
+  "n": 10,
+  "enFicha": false,
+  "carpetas": "sectores-derivados-2026-09-30"
+ },
+ {
+  "k": "enElCatalogo",
+  "n": 9,
+  "enFicha": false,
+  "carpetas": "agenda-por-profesional-2026-09-28"
+ },
+ {
+  "k": "paginasAbiertas",
+  "n": 9,
+  "enFicha": false,
+  "carpetas": "agenda-por-profesional-2026-09-28"
+ },
+ {
+  "k": "paginasIntentadas",
+  "n": 9,
+  "enFicha": false,
+  "carpetas": "agenda-por-profesional-2026-09-28"
+ },
+ {
+  "k": "productoEnEspanol",
+  "n": 9,
+  "enFicha": false,
+  "carpetas": "agenda-por-profesional-2026-09-28"
+ },
+ {
+  "k": "moneda",
+  "n": 9,
+  "enFicha": false,
+  "carpetas": "lo-que-falta-2026-09-29,las-siete-2026-09-30,koibox-completa-2026-09-29,las-8-cortadas-2026-09-29"
+ },
+ {
+  "k": "citaDelPrecio",
+  "n": 9,
+  "enFicha": false,
+  "carpetas": "las-siete-2026-09-30,koibox-completa-2026-09-29,las-8-cortadas-2026-09-29,las-8-2026-09-30"
+ },
+ {
+  "k": "funcional",
+  "n": 8,
+  "enFicha": false,
+  "carpetas": "f4"
+ },
+ {
+  "k": "comercial",
+  "n": 8,
+  "enFicha": false,
+  "carpetas": "f4"
+ },
+ {
+  "k": "notaDelPrecio",
+  "n": 8,
+  "enFicha": false,
+  "carpetas": "las-siete-2026-09-30,koibox-completa-2026-09-29,las-8-cortadas-2026-09-29,las-8-2026-09-30"
+ },
+ {
+  "k": "elIdiomaEsDelProductoODeLaPaginaDeReservas",
+  "n": 7,
+  "enFicha": false,
+  "carpetas": "reservas-17-2026-09-29,lo-que-falta-2026-09-29"
+ },
+ {
+  "k": "integraCon",
+  "n": 7,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "urlDelPrecio",
+  "n": 7,
+  "enFicha": false,
+  "carpetas": "las-siete-2026-09-30,koibox-completa-2026-09-29,las-8-cortadas-2026-09-29,las-8-2026-09-30"
+ },
+ {
+  "k": "idioma",
+  "n": 7,
+  "enFicha": false,
+  "carpetas": "las-siete-2026-09-30,f4,koibox-completa-2026-09-29,las-8-cortadas-2026-09-29"
+ },
+ {
+  "k": "disponibleEnEspanol",
+  "n": 6,
+  "enFicha": true,
+  "carpetas": "reservas-17-2026-09-29,reservas-espanolas-2026-09-29"
+ },
+ {
+  "k": "deDondeSaleNoRecomendadaPara",
+  "n": 6,
+  "enFicha": false,
+  "carpetas": "sectores-derivados-2026-09-29"
+ },
+ {
+  "k": "preciosComprobados",
+  "n": 5,
+  "enFicha": true,
+  "carpetas": "reservas-espanolas-2026-09-29"
+ },
+ {
+  "k": "planesComprobados",
+  "n": 5,
+  "enFicha": true,
+  "carpetas": "reservas-espanolas-2026-09-29"
+ },
+ {
+  "k": "hayQueMirarlo",
+  "n": 5,
+  "enFicha": false,
+  "carpetas": "sectores-derivados-2026-09-29"
+ },
+ {
+  "k": "pedidas",
+  "n": 5,
+  "enFicha": false,
+  "carpetas": "f4"
+ },
+ {
+  "k": "ojo",
+  "n": 5,
+  "enFicha": false,
+  "carpetas": "reservas-17-2026-09-29,precios-pabau-fresha-2026-09-30"
+ },
+ {
+  "k": "cuantasIntegracionesPublica",
+  "n": 5,
+  "enFicha": false,
+  "carpetas": "lo-que-falta-2026-09-29,las-6-2026-09-30"
+ },
+ {
+  "k": "eligeElClienteConQuienVa",
+  "n": 5,
+  "enFicha": false,
+  "carpetas": "las-siete-2026-09-30,koibox-completa-2026-09-29,las-8-cortadas-2026-09-29,reservas-17-2026-09-29"
+ },
+ {
+  "k": "sector",
+  "n": 5,
+  "enFicha": false,
+  "carpetas": "casas"
+ },
+ {
+  "k": "tituloDeLaPagina",
+  "n": 4,
+  "enFicha": false,
+  "carpetas": "lo-que-falta-2026-09-29,precios-pabau-fresha-2026-09-30"
+ },
+ {
+  "k": "fraseDeAlLado",
+  "n": 4,
+  "enFicha": false,
+  "carpetas": "lo-que-falta-2026-09-29,precios-pabau-fresha-2026-09-30"
+ },
+ {
+  "k": "datos",
+  "n": 4,
+  "enFicha": false,
+  "carpetas": "f4"
+ },
+ {
+  "k": "tituloDeLaPaginaDelPrecio",
+  "n": 4,
+  "enFicha": false,
+  "carpetas": "las-siete-2026-09-30,koibox-completa-2026-09-29,las-8-2026-09-30"
+ },
+ {
+  "k": "fraseDeAlLadoDelPrecio",
+  "n": 4,
+  "enFicha": false,
+  "carpetas": "las-siete-2026-09-30,koibox-completa-2026-09-29,las-8-2026-09-30"
+ },
+ {
+  "k": "tipo",
+  "n": 3,
+  "enFicha": false,
+  "carpetas": "lo-que-falta-2026-09-29"
+ },
+ {
+  "k": "porQueEsCandidata",
+  "n": 3,
+  "enFicha": false,
+  "carpetas": "f4"
+ },
+ {
+  "k": "demostrado",
+  "n": 3,
+  "enFicha": false,
+  "carpetas": "f4"
+ },
+ {
+  "k": "tema",
+  "n": 3,
+  "enFicha": false,
+  "carpetas": "las-8-cortadas-2026-09-29"
+ },
+ {
+  "k": "r",
+  "n": 3,
+  "enFicha": false,
+  "carpetas": "las-8-cortadas-2026-09-29"
+ },
+ {
+  "k": "campo",
+  "n": 3,
+  "enFicha": false,
+  "carpetas": "f4,jane-plan-gratuito-2026-09-29"
+ },
+ {
+  "k": "fecha",
+  "n": 3,
+  "enFicha": false,
+  "carpetas": "f4,jane-plan-gratuito-2026-09-29"
+ },
+ {
+  "k": "planes",
+  "n": 3,
+  "enFicha": false,
+  "carpetas": "precios-pabau-fresha-2026-09-30,jane-plan-gratuito-2026-09-29"
+ },
+ {
+  "k": "siNoLoPublican",
+  "n": 2,
+  "enFicha": false,
+  "carpetas": "lo-que-falta-2026-09-29"
+ },
+ {
+  "k": "descartado",
+  "n": 2,
+  "enFicha": false,
+  "carpetas": "reservas-17-2026-09-29"
+ },
+ {
+  "k": "notaIntegraciones",
+  "n": 2,
+  "enFicha": false,
+  "carpetas": "las-siete-2026-09-30"
+ },
+ {
+  "k": "dondeBusqueElTamano",
+  "n": 2,
+  "enFicha": false,
+  "carpetas": "las-siete-2026-09-30"
+ },
+ {
+  "k": "fundamentoPlanGratuito",
+  "n": 2,
+  "enFicha": false,
+  "carpetas": "las-siete-2026-09-30"
+ },
+ {
+  "k": "fuenteDelTamano",
+  "n": 2,
+  "enFicha": false,
+  "carpetas": "las-siete-2026-09-30,koibox-completa-2026-09-29"
+ },
+ {
+  "k": "fichero",
+  "n": 2,
+  "enFicha": false,
+  "carpetas": "f4"
+ },
+ {
+  "k": "valorOriginal",
+  "n": 2,
+  "enFicha": false,
+  "carpetas": "f4"
+ },
+ {
+  "k": "citaOriginal",
+  "n": 2,
+  "enFicha": false,
+  "carpetas": "f4"
+ },
+ {
+  "k": "valorCorregido",
+  "n": 2,
+  "enFicha": false,
+  "carpetas": "f4"
+ },
+ {
+  "k": "motivo",
+  "n": 2,
+  "enFicha": false,
+  "carpetas": "f4"
+ },
+ {
+  "k": "resultado",
+  "n": 2,
+  "enFicha": false,
+  "carpetas": "precios-pabau-fresha-2026-09-30"
+ },
+ {
+  "k": "citaLiteral",
+  "n": 2,
+  "enFicha": false,
+  "carpetas": "precios-pabau-fresha-2026-09-30"
+ },
+ {
+  "k": "hayPlanGratuitoPermanente",
+  "n": 2,
+  "enFicha": false,
+  "carpetas": "precios-pabau-fresha-2026-09-30"
+ },
+ {
+  "k": "casosNoRecomendados",
+  "n": 2,
+  "enFicha": true,
+  "carpetas": "reservas-17-2026-09-29"
+ },
+ {
+  "k": "fuentesDatosGenerales",
+  "n": 2,
+  "enFicha": false,
+  "carpetas": "reservas-17-2026-09-29"
+ },
+ {
+  "k": "citaDelIdioma",
+  "n": 1,
+  "enFicha": false,
+  "carpetas": "reservas-17-2026-09-29"
+ },
+ {
+  "k": "urlDelIdioma",
+  "n": 1,
+  "enFicha": false,
+  "carpetas": "reservas-17-2026-09-29"
+ },
+ {
+  "k": "ojoConElGratuito",
+  "n": 1,
+  "enFicha": false,
+  "carpetas": "reservas-17-2026-09-29"
+ },
+ {
+  "k": "consulta",
+  "n": 1,
+  "enFicha": false,
+  "carpetas": "las-8-cortadas-2026-09-29"
+ },
+ {
+  "k": "loQueViste",
+  "n": 1,
+  "enFicha": false,
+  "carpetas": "las-8-cortadas-2026-09-29"
+ },
+ {
+  "k": "fuentesDelTamano",
+  "n": 1,
+  "enFicha": false,
+  "carpetas": "las-siete-2026-09-30"
+ },
+ {
+  "k": "comoCobra",
+  "n": 1,
+  "enFicha": false,
+  "carpetas": "precios-pabau-fresha-2026-09-30"
+ },
+ {
+  "k": "loQueSigueSinSaberse",
+  "n": 1,
+  "enFicha": false,
+  "carpetas": "reservas-17-2026-09-29"
+ },
+ {
+  "k": "respuesta",
+  "n": 1,
+  "enFicha": false,
+  "carpetas": "jane-plan-gratuito-2026-09-29"
+ },
+ {
+  "k": "comoSeInvestigo",
+  "n": 1,
+  "enFicha": false,
+  "carpetas": "jane-plan-gratuito-2026-09-29"
+ },
+ {
+  "k": "prueba",
+  "n": 1,
+  "enFicha": false,
+  "carpetas": "jane-plan-gratuito-2026-09-29"
+ },
+ {
+  "k": "porQueEsUnDatoYNoUnHueco",
+  "n": 1,
+  "enFicha": false,
+  "carpetas": "precios-pabau-fresha-2026-09-30"
+ },
+ {
+  "k": "notaDeLaCitaDelPrecio",
+  "n": 1,
+  "enFicha": false,
+  "carpetas": "las-8-2026-09-30"
+ },
+ {
+  "k": "precioSigueSinDemostrarse",
+  "n": 1,
+  "enFicha": false,
+  "carpetas": "reservas-17-2026-09-29"
+ },
+ {
+  "k": "limitesDelPlan",
+  "n": 1,
+  "enFicha": false,
+  "carpetas": "f4"
+ },
+ {
+  "k": "pendientes",
+  "n": 1,
+  "enFicha": false,
+  "carpetas": "f4"
+ },
+ {
+  "k": "queIncluyeElGratuito",
+  "n": 1,
+  "enFicha": false,
+  "carpetas": "reservas-17-2026-09-29"
+ },
+ {
+  "k": "textoCrudo",
+  "n": 1,
+  "enFicha": false,
+  "carpetas": "f4"
+ },
+ {
+  "k": "notaDeVerificacion",
+  "n": 1,
+  "enFicha": false,
+  "carpetas": "lo-que-falta-2026-09-29"
+ }
+]

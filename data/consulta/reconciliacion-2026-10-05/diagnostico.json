@@ -1,0 +1,641 @@
+{
+ "cobertura": {
+  "tipos": {
+   "ficha": 90,
+   "borrador": 28,
+   "capacidadesVerificadas": 90,
+   "preciosComprobados": 87,
+   "planesComprobados": 57,
+   "tipoPlanGratuito": 62,
+   "idiomaComprobado": 2,
+   "entregasConCampos": 90,
+   "documentosMd": 60
+  },
+  "carpetasPorHerramienta": {
+   "2": 17,
+   "3": 45,
+   "4": 10,
+   "5": 13,
+   "6+": 5
+  }
+ },
+ "conEntregaDePerfil": {
+  "n": 25,
+  "ids": [
+   "acuity-scheduling",
+   "agendapro",
+   "archivex",
+   "bewe",
+   "bookeo",
+   "bookitit",
+   "booksy",
+   "cliniko",
+   "dricloud",
+   "flowww",
+   "fresha",
+   "jane",
+   "koibox",
+   "nubimed",
+   "pabau",
+   "reservio",
+   "reservo",
+   "schedulista",
+   "setmore",
+   "simplybook-me",
+   "square-appointments",
+   "teachworks",
+   "timify",
+   "viday",
+   "zoho-bookings"
+  ]
+ },
+ "planGratuito": {
+  "fichaTrue": 72,
+  "fichaFalse": 18,
+  "conTipo": 62,
+  "contradicciones": [],
+  "sinDestino": [
+   {
+    "id": "acuity-scheduling",
+    "campos": 2,
+    "ejemplo": "Try any plan free for 7 days"
+   },
+   {
+    "id": "agendapro",
+    "campos": 2,
+    "ejemplo": "Prueba Gratis"
+   },
+   {
+    "id": "archivex",
+    "campos": 2,
+    "ejemplo": "Prueba Archivex gratis durante 7 días"
+   },
+   {
+    "id": "bewe",
+    "campos": 2,
+    "ejemplo": "El acceso a Bewe empieza con un plan de pago; no hay versión gratuita indefinida"
+   },
+   {
+    "id": "bookitit",
+    "campos": 2,
+    "ejemplo": "puedes probar nuestro sistema de reservas y de cita previa para tu negocio completamente gratis durante 15 días"
+   },
+   {
+    "id": "booksy",
+    "campos": 2,
+    "ejemplo": "Después de la prueba gratuita, Booksy utiliza un modelo basado en suscripción."
+   },
+   {
+    "id": "cliniko",
+    "campos": 2,
+    "ejemplo": "Cliniko is free to use for registered charities or educational institutions."
+   },
+   {
+    "id": "dricloud",
+    "campos": 1,
+    "ejemplo": "La tabla completa consultada contiene ESENCIAL, SOLO, CLÍNICA, CENTRO MÉDICO y GRANDES CLÍNICAS; todos tienen precio distinto de cero. La demostración gratuita "
+   },
+   {
+    "id": "flowww",
+    "campos": 1,
+    "ejemplo": "La tabla completa contiene tres licencias de pago. La FAQ ofrece una prueba temporal, que no se cuenta como plan permanente."
+   },
+   {
+    "id": "fresha",
+    "campos": 2,
+    "ejemplo": "We offer a flexible monthly subscription model"
+   },
+   {
+    "id": "nubimed",
+    "campos": 2,
+    "ejemplo": "Crea tu cuenta de prueba"
+   },
+   {
+    "id": "pabau",
+    "campos": 2,
+    "ejemplo": "Pabau has no free plan and no free trial"
+   },
+   {
+    "id": "reservio",
+    "campos": 2,
+    "ejemplo": "Feel free to use the free version for as long as it meets your requirements."
+   },
+   {
+    "id": "reservo",
+    "campos": 2,
+    "ejemplo": "Reservo es una plataforma online que debe ser pagada por anticipado para hacer uso de sus servicios, esta puede ser pagada mensual o anualmente."
+   },
+   {
+    "id": "setmore",
+    "campos": 2,
+    "ejemplo": "$0 user/month"
+   },
+   {
+    "id": "simplybook-me",
+    "campos": 2,
+    "ejemplo": "Then you select which plan suits your needs or you can continue as a Free User if you have less than 50 bookings a month and only need 1 custom feature."
+   },
+   {
+    "id": "teachworks",
+    "campos": 2,
+    "ejemplo": "FREE 21-Day Trial"
+   },
+   {
+    "id": "timify",
+    "campos": 2,
+    "ejemplo": "Classic ... 0,00€ ... / Gratis"
+   },
+   {
+    "id": "viday",
+    "campos": 2,
+    "ejemplo": "Elige el plan que hace crecer tu negocio"
+   },
+   {
+    "id": "zoho-bookings",
+    "campos": 2,
+    "ejemplo": "Forever Free Plan"
+   }
+  ],
+  "pruebaMencionadaConFichaFalse": [
+   {
+    "id": "acuity-scheduling",
+    "menciones": [
+     "las-6-2026-09-30/crudo/las-seis-crudo.json · «No dispone de un plan gratuito permanente; únicamente ofrece una prueba gratuita de 7 días (o 14 días si se asocia a Squarespace).»",
+     "las-6-2026-09-30/crudo/las-seis-crudo.json · «Starter. $16/ month. $20/ month. Get started. 7-day trial, no credit card needed. 1 calendar. Use separate calendars per employee or location, dependi»",
+     "las-6-2026-09-30/crudo/las-seis-crudo.json · «Starter. $16/ month. $20/ month. Get started. 7-day trial, no credit card needed. 1 calendar.»"
+    ]
+   },
+   {
+    "id": "archivex",
+    "menciones": [
+     "reservas-espanolas-2026-09-29/capacidades-y-limites.json · «Prueba Archivex gratis durante 7 días»",
+     "reservas-espanolas-2026-09-29/crudo/capacidades-crudo.json · «Prueba Archivex gratis durante 7 días»"
+    ]
+   },
+   {
+    "id": "bookeo",
+    "menciones": [
+     "las-6-2026-09-30/crudo/las-seis-crudo.json · «No cobran puesta en marcha ni exigen demo previa (prueba gratuita de 30 días sin tarjeta), la importación de datos la autogestiona el cliente y no pub»"
+    ]
+   },
+   {
+    "id": "bookitit",
+    "menciones": [
+     "lo-facil-2026-09-29/crudo/bookitit-crudo.json · «de forma gratuita durante la prueba gratuita del producto y después.»",
+     "lo-que-falta-2026-09-29/crudo/entrega-1-crudo.json · «Sí publican el precio. El HTML presenta una cifra mensual y su equivalente anual; también abrí el JavaScript oficial del selector, https://www.bookiti»",
+     "lo-que-falta-2026-09-29/entrega-1.json · «Sí publican el precio. El HTML presenta una cifra mensual y su equivalente anual; también abrí el JavaScript oficial del selector, https://www.bookiti»"
+    ]
+   },
+   {
+    "id": "booksy",
+    "menciones": [
+     "reservas-17-2026-09-29/crudo/tanda-3-crudo.json · «Después de la prueba gratuita, Booksy utiliza un modelo basado en suscripción.»",
+     "reservas-17-2026-09-29/tanda-3.json · «Después de la prueba gratuita, Booksy utiliza un modelo basado en suscripción.»"
+    ]
+   },
+   {
+    "id": "flowww",
+    "menciones": [
+     "las-siete-2026-09-30/crudo/dricloud-flowww-crudo.json · «prueba gratuita de flowww durante 10 días»"
+    ]
+   },
+   {
+    "id": "jane",
+    "menciones": [
+     "jane-plan-gratuito-2026-09-29/hallazgo.json · «Un `false` normalmente exigiría que el fabricante dijera «no tenemos plan gratuito», y aquí lo dice de la prueba: «We do not have a free trial». Ademá»",
+     "jane-plan-gratuito-2026-09-29/hallazgo.json · «We do not have a free trial, but we have a few different ways to help you explore if Jane is a fit for you»",
+     "reservas-17-2026-09-29/crudo/tanda-3-crudo.json · «La documentación de inserción describe botones con código HTML que enlazan al sitio de reservas; no demuestra un calendario completo insertado. La tar»"
+    ]
+   },
+   {
+    "id": "pabau",
+    "menciones": [
+     "reservas-17-2026-09-29/crudo/tanda-3-crudo.json · «Pabau has no free plan and no free trial»",
+     "reservas-17-2026-09-29/tanda-3.json · «Pabau has no free plan and no free trial»"
+    ]
+   },
+   {
+    "id": "schedulista",
+    "menciones": [
+     "reservas-17-2026-09-29/crudo/tanda-4-crudo.json · «Se declara servicio de suscripción de pago y prueba de 15 días. El cómputo de usuarios incluye a quienes tienen acceso aunque no tengan calendario act»",
+     "reservas-17-2026-09-29/tanda-4.json · «Se declara servicio de suscripción de pago y prueba de 15 días. El cómputo de usuarios incluye a quienes tienen acceso aunque no tengan calendario act»"
+    ]
+   },
+   {
+    "id": "teachworks",
+    "menciones": [
+     "las-6-2026-09-30/crudo/las-seis-crudo.json · «La prueba gratuita tiene una duración estricta de 21 días y no existe plan gratuito permanente.»",
+     "las-6-2026-09-30/crudo/las-seis-crudo.json · «FREE 21-Day Trial. Unlimited Students. Unlimited Teachers.»",
+     "las-6-2026-09-30/crudo/las-seis-crudo.json · «+ $0.320 per student lesson monthly. Try it for Free. FREE 21-Day Trial. Unlimited Students. Unlimited Teachers. Unlimited User Accounts.»"
+    ]
+   },
+   {
+    "id": "viday",
+    "menciones": [
+     "f4/expedientes/citas-2026-09-22.json · «Prueba gratuita»"
+    ]
+   }
+  ],
+  "ojo": [
+   {
+    "id": "cliniko",
+    "ficha": true,
+    "tipo": null,
+    "texto": "NO es un plan gratuito general: sólo para entidades benéficas registradas o instituciones educativas. Un negocio normal paga."
+   }
+  ]
+ },
+ "precio": {
+  "conPlanesComprobados": 57,
+  "sinPlanesConPrecioVerificadoEnInvestigacion": [
+   {
+    "id": "acuity-scheduling",
+    "ejemplo": "{\"estado\":\"verificado\",\"cita\":\"$16/ month\",\"moneda\":\"USD\",\"url\":\"https://www.acuityscheduling.com/pricing\"}",
+    "ruta": "agenda-por-profesional-2026-09-28/HALLAZGO-GPT.json"
+   },
+   {
+    "id": "agendapro",
+    "ejemplo": "{\"estado\":\"verificado\",\"cita\":\"$9 USD/mes\",\"moneda\":\"USD\",\"url\":\"https://agendapro.com/es/planes\"}",
+    "ruta": "agenda-por-profesional-2026-09-28/HALLAZGO-GPT.json"
+   },
+   {
+    "id": "bookeo",
+    "ejemplo": "{\"estado\":\"verificado\",\"cita\":\"€ 10,95 EUR/month\",\"moneda\":\"EUR\",\"url\":\"https://www.bookeo.com/appointments/pricing/\"}",
+    "ruta": "agenda-por-profesional-2026-09-28/HALLAZGO-GPT.json"
+   },
+   {
+    "id": "booksy",
+    "ejemplo": "{\"estado\":\"verificado\",\"cita\":\"Booksy cuesta 34,99€ al mes +IVA, más 8€ al mes +IVA por cada miembro adicional del equipo.\",\"moneda\":\"EUR\",\"",
+    "ruta": "agenda-por-profesional-2026-09-28/HALLAZGO-GPT.json"
+   },
+   {
+    "id": "cliniko",
+    "ejemplo": "{\"estado\":\"verificado\",\"cita\":\"Cliniko is free to use for registered charities or educational institutions.\",\"moneda\":\"USD\",\"url\":\"https://w",
+    "ruta": "agenda-por-profesional-2026-09-28/HALLAZGO-GPT.json"
+   },
+   {
+    "id": "dricloud",
+    "ejemplo": "{\"estado\":\"verificado\",\"cita\":\"42 € /mes impuestos incluidos facturado anualmente (510 € al año), 2 meses gratis\",\"moneda\":\"EUR\",\"url\":\"http",
+    "ruta": "agenda-por-profesional-2026-09-28/HALLAZGO-GPT.json"
+   },
+   {
+    "id": "flowww",
+    "ejemplo": "{\"estado\":\"verificado\",\"cita\":\"59€* /mes, 590€* /año\",\"moneda\":\"EUR\",\"url\":\"https://www.flowww.es/precios\"}",
+    "ruta": "agenda-por-profesional-2026-09-28/HALLAZGO-GPT.json"
+   },
+   {
+    "id": "fresha",
+    "ejemplo": "{\"necesario\":true,\"precioInicial\":\"Independent: 19,95 USD al mes. Team: 14,95 USD al mes por miembro reservable.\",\"moneda\":\"USD\",\"cita\":\"$19",
+    "ruta": "reservas-17-2026-09-29/crudo/tanda-3-crudo.json"
+   },
+   {
+    "id": "jane",
+    "ejemplo": "{\"estado\":\"verificado\",\"cita\":\"CAD $54 / month\",\"moneda\":\"otra\",\"url\":\"https://jane.app/pricing\"}",
+    "ruta": "agenda-por-profesional-2026-09-28/HALLAZGO-GPT.json"
+   },
+   {
+    "id": "koibox",
+    "ejemplo": "{\"estado\":\"verificado\",\"cita\":\"0€/mes\",\"moneda\":\"EUR\",\"url\":\"https://koibox.cloud/pricing/\"}",
+    "ruta": "agenda-por-profesional-2026-09-28/HALLAZGO-GPT.json"
+   },
+   {
+    "id": "pabau",
+    "ejemplo": "{\"necesario\":true,\"precioInicial\":\"Starter: desde 62 USD al mes, según una publicación oficial del fabricante actualizada el 2 de septiembre",
+    "ruta": "reservas-17-2026-09-29/crudo/tanda-3-crudo.json"
+   },
+   {
+    "id": "reservio",
+    "ejemplo": "{\"estado\":\"verificado\",\"cita\":\"Free\",\"moneda\":null,\"url\":\"https://www.reservio.com/pricing\"}",
+    "ruta": "agenda-por-profesional-2026-09-28/HALLAZGO-GPT.json"
+   },
+   {
+    "id": "reservo",
+    "ejemplo": "\"\\\"nombre\\\":\\\"Individual\\\" […] \\\"precio_base\\\":30000 […] \\\"currency\\\":\\\"CLP\\\"\"",
+    "ruta": "las-8-2026-09-30/crudo/reservo-setmore-crudo.json"
+   },
+   {
+    "id": "schedulista",
+    "ejemplo": "{\"estado\":\"verificado\",\"cita\":\"19 USD per month\",\"moneda\":\"USD\",\"url\":\"https://www.schedulista.com/\"}",
+    "ruta": "agenda-por-profesional-2026-09-28/HALLAZGO-GPT.json"
+   },
+   {
+    "id": "setmore",
+    "ejemplo": "{\"estado\":\"verificado\",\"cita\":\"$0 user / mo\",\"moneda\":null,\"url\":\"https://www.setmore.com/pricing\"}",
+    "ruta": "agenda-por-profesional-2026-09-28/HALLAZGO-GPT.json"
+   },
+   {
+    "id": "simplybook-me",
+    "ejemplo": "{\"estado\":\"verificado\",\"cita\":\"The Free plan includes 50 bookings, 1 custom feature, and 1 provider at $0 per month.\",\"moneda\":null,\"url\":\"h",
+    "ruta": "agenda-por-profesional-2026-09-28/HALLAZGO-GPT.json"
+   },
+   {
+    "id": "square-appointments",
+    "ejemplo": "{\"estado\":\"verificado\",\"cita\":\"0 € por un único punto de venta.\",\"moneda\":\"EUR\",\"url\":\"https://squareup.com/es/es/appointments/pricing\"}",
+    "ruta": "agenda-por-profesional-2026-09-28/HALLAZGO-GPT.json"
+   },
+   {
+    "id": "teachworks",
+    "ejemplo": "\"Starter: $16.49 /mo + $0.320 per student lesson monthly\"",
+    "ruta": "las-6-2026-09-30/crudo/las-seis-crudo.json"
+   },
+   {
+    "id": "timify",
+    "ejemplo": "{\"estado\":\"verificado\",\"cita\":\"€0.00\",\"moneda\":\"EUR\",\"url\":\"https://www.timify.com/en/pricing/\"}",
+    "ruta": "agenda-por-profesional-2026-09-28/HALLAZGO-GPT.json"
+   },
+   {
+    "id": "zoho-bookings",
+    "ejemplo": "\"Forever Free Plan: One user | Online meetings | Notification emails and reminders. Two-way calendar sync. / BASIC US$6per user/month billed",
+    "ruta": "las-6-2026-09-30/crudo/las-seis-crudo.json"
+   }
+  ],
+  "precioDistinto": [
+   {
+    "id": "bookitit",
+    "ficha": "Desde 15,90 €/mes para una agenda (28,56 €/mes para tres)",
+    "investigacion": "Desde 16,90 € al mes + IVA para una agenda, con pago mensual",
+    "ruta": "lo-que-falta-2026-09-29/crudo/entrega-1-crudo.json"
+   },
+   {
+    "id": "bookitit",
+    "ficha": "Desde 15,90 €/mes para una agenda (28,56 €/mes para tres)",
+    "investigacion": "Desde 16,90 € al mes + IVA para una agenda, con pago mensual",
+    "ruta": "lo-que-falta-2026-09-29/entrega-1.json"
+   },
+   {
+    "id": "zoho-bookings",
+    "ficha": "Forever Free Plan a $0 para 1 usuario (reuniones online y sincronización de calendario); p",
+    "investigacion": "Gratis para un usuario. Basic: 6 € por usuario/mes con facturación anual, o 8 € por usuari",
+    "ruta": "lo-que-falta-2026-09-29/crudo/entrega-3-crudo.json"
+   },
+   {
+    "id": "zoho-bookings",
+    "ficha": "Forever Free Plan a $0 para 1 usuario (reuniones online y sincronización de calendario); p",
+    "investigacion": "Gratis para un usuario. Basic: 6 € por usuario/mes con facturación anual, o 8 € por usuari",
+    "ruta": "lo-que-falta-2026-09-29/entrega-3.json"
+   }
+  ]
+ },
+ "tamano": {
+  "conPorQue": 24,
+  "distintos": [
+   {
+    "id": "agendapro",
+    "ficha": [
+     "1-10",
+     "11-50"
+    ],
+    "investigacion": [
+     "1-10"
+    ],
+    "ruta": "reservas-17-2026-09-29/crudo/tanda-1-crudo.json"
+   },
+   {
+    "id": "agendapro",
+    "ficha": [
+     "1-10",
+     "11-50"
+    ],
+    "investigacion": [
+     "1-10"
+    ],
+    "ruta": "reservas-17-2026-09-29/tanda-1.json"
+   },
+   {
+    "id": "pabau",
+    "ficha": [
+     "1-10",
+     "11-50",
+     "51-200",
+     "200+"
+    ],
+    "investigacion": [
+     "1-10",
+     "11-50"
+    ],
+    "ruta": "lo-que-falta-2026-09-29/crudo/entrega-2-parte2-crudo.json"
+   },
+   {
+    "id": "pabau",
+    "ficha": [
+     "1-10",
+     "11-50",
+     "51-200",
+     "200+"
+    ],
+    "investigacion": [
+     "1-10",
+     "11-50"
+    ],
+    "ruta": "lo-que-falta-2026-09-29/entrega-2.json"
+   }
+  ]
+ },
+ "curva": {
+  "fichaConCurva": 76,
+  "conPorQue": 12,
+  "distintos": [
+   {
+    "id": "bookitit",
+    "ficha": null,
+    "investigacion": "facil",
+    "ruta": "lo-facil-2026-09-29/crudo/bookitit-crudo.json"
+   }
+  ]
+ },
+ "idioma": {
+  "distintos": [
+   {
+    "id": "bitrix24",
+    "ficha": null,
+    "investigacion": "espanol=false",
+    "ruta": "casas/distribucion.json"
+   },
+   {
+    "id": "bitrix24",
+    "ficha": null,
+    "investigacion": "espanol=false",
+    "ruta": "casas/distribucion.json"
+   },
+   {
+    "id": "bitrix24",
+    "ficha": null,
+    "investigacion": "espanol=false",
+    "ruta": "casas/distribucion.json"
+   },
+   {
+    "id": "bitrix24",
+    "ficha": null,
+    "investigacion": "espanol=false",
+    "ruta": "casas/distribucion.json"
+   },
+   {
+    "id": "bitrix24",
+    "ficha": null,
+    "investigacion": "espanol=false",
+    "ruta": "casas/distribucion.json"
+   },
+   {
+    "id": "gohighlevel",
+    "ficha": null,
+    "investigacion": "espanol=false",
+    "ruta": "casas/distribucion.json"
+   },
+   {
+    "id": "gohighlevel",
+    "ficha": null,
+    "investigacion": "espanol=false",
+    "ruta": "casas/distribucion.json"
+   },
+   {
+    "id": "hubspot",
+    "ficha": null,
+    "investigacion": "espanol=false",
+    "ruta": "casas/distribucion.json"
+   },
+   {
+    "id": "hubspot",
+    "ficha": null,
+    "investigacion": "espanol=false",
+    "ruta": "casas/distribucion.json"
+   },
+   {
+    "id": "hubspot",
+    "ficha": null,
+    "investigacion": "espanol=false",
+    "ruta": "casas/distribucion.json"
+   },
+   {
+    "id": "hubspot",
+    "ficha": null,
+    "investigacion": "espanol=false",
+    "ruta": "casas/distribucion.json"
+   },
+   {
+    "id": "odoo",
+    "ficha": null,
+    "investigacion": "espanol=false",
+    "ruta": "casas/distribucion.json"
+   },
+   {
+    "id": "odoo",
+    "ficha": null,
+    "investigacion": "espanol=false",
+    "ruta": "casas/distribucion.json"
+   },
+   {
+    "id": "odoo",
+    "ficha": null,
+    "investigacion": "espanol=false",
+    "ruta": "casas/distribucion.json"
+   },
+   {
+    "id": "schedulista",
+    "ficha": false,
+    "investigacion": "idiomaDelProducto=[\"es\",\"en\"]",
+    "ruta": "agenda-por-profesional-2026-09-28/HALLAZGO-GPT.json"
+   },
+   {
+    "id": "schedulista",
+    "ficha": false,
+    "investigacion": "idiomaDelProducto=[\"es\",\"en\"]",
+    "ruta": "agenda-por-profesional-2026-09-28/crudo/HALLAZGO-GPT-crudo.json"
+   },
+   {
+    "id": "zoho-one",
+    "ficha": null,
+    "investigacion": "espanol=false",
+    "ruta": "casas/distribucion.json"
+   },
+   {
+    "id": "zoho-one",
+    "ficha": null,
+    "investigacion": "espanol=false",
+    "ruta": "casas/distribucion.json"
+   }
+  ],
+  "confirmadoEnInvestigacionSinReciboEnFicha": [
+   {
+    "id": "agendapro",
+    "ejemplo": "\"Idioma: Español\"",
+    "ruta": "reservas-17-2026-09-29/crudo/tanda-5-crudo.json"
+   },
+   {
+    "id": "booksy",
+    "ejemplo": "\"La lista publicada en diciembre de 2022 corresponde a Booksy Biz. Para clientes enumera los mismos idiomas salvo vietnamita. No he verifica",
+    "ruta": "lo-que-falta-2026-09-29/crudo/entrega-2-parte2-crudo.json"
+   },
+   {
+    "id": "dricloud",
+    "ejemplo": "{\"interfaz\":{\"estado\":\"verificado\",\"idiomas\":[\"es\"],\"cita\":\"Habilitar cita online.\",\"url\":\"https://dricloud.com/descargas/cita-online.pdf\",\"",
+    "ruta": "las-siete-2026-09-30/crudo/dricloud-flowww-crudo.json"
+   },
+   {
+    "id": "flowww",
+    "ejemplo": "{\"interfaz\":{\"estado\":\"verificado\",\"idiomas\":[\"es\"],\"cita\":\"Idioma: podrá ser modificado el idioma en que deseas ver tu sistema.\",\"url\":\"htt",
+    "ruta": "las-siete-2026-09-30/crudo/dricloud-flowww-crudo.json"
+   },
+   {
+    "id": "fresha",
+    "ejemplo": "\"La ayuda distingue el idioma del workspace del equipo y el de las comunicaciones a clientes. No encontré una enumeración verificable de los",
+    "ruta": "lo-que-falta-2026-09-29/crudo/entrega-2-parte2-crudo.json"
+   },
+   {
+    "id": "jane",
+    "ejemplo": "\"El artículo documenta cambios de idioma para personal y pacientes en Jane. La app móvil para pacientes tiene una lista diferente: francés e",
+    "ruta": "lo-que-falta-2026-09-29/crudo/entrega-2-parte2-crudo.json"
+   },
+   {
+    "id": "pabau",
+    "ejemplo": "\"Ambas: el idioma predeterminado afecta a las cuentas de usuario del sistema y al portal de reservas online.\"",
+    "ruta": "lo-que-falta-2026-09-29/crudo/entrega-2-parte2-crudo.json"
+   },
+   {
+    "id": "reservo",
+    "ejemplo": "{\"interfaz\":{\"estado\":\"verificado\",\"idiomas\":[\"es\"],\"cita\":\"Configuración […] Mi Agenda y Horarios […] Modificar horario\",\"url\":\"https://int",
+    "ruta": "las-8-2026-09-30/crudo/reservo-setmore-crudo.json"
+   },
+   {
+    "id": "setmore",
+    "ejemplo": "{\"interfaz\":{\"estado\":\"verificado\",\"idiomas\":[\"en\",\"fr\",\"es\",\"pt\"],\"cita\":\"Web/desktop app - English, French, Spanish, Portuguese\",\"url\":\"ht",
+    "ruta": "las-8-2026-09-30/crudo/reservo-setmore-crudo.json"
+   },
+   {
+    "id": "timify",
+    "ejemplo": "\"La lista corresponde al widget de reservas, según los códigos publicados en su documentación. La ayuda confirma que también se puede cambia",
+    "ruta": "lo-que-falta-2026-09-29/crudo/entrega-3-crudo.json"
+   }
+  ]
+ },
+ "limites": {
+  "conLimites": [
+   "acuity-scheduling",
+   "agendapro",
+   "archivex",
+   "bewe",
+   "bookeo",
+   "bookitit",
+   "booksy",
+   "cliniko",
+   "dricloud",
+   "flowww",
+   "fresha",
+   "jane",
+   "koibox",
+   "nubimed",
+   "pabau",
+   "reservio",
+   "reservo",
+   "setmore",
+   "simplybook-me",
+   "teachworks",
+   "timify",
+   "viday",
+   "zoho-bookings"
+  ]
+ },
+ "capacidades": {
+  "verificadoEnInvestigacionNoEnRegistros": [],
+  "profundidadDistinta": []
+ }
+}

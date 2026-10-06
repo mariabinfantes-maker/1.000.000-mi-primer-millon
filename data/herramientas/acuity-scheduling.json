@@ -88,7 +88,9 @@
   "modeloDePrecio": [
     "suscripcion_mensual"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 7,
   "preciosComprobados": {
     "url": "https://www.acuityscheduling.com/pricing",
     "fecha": "2026-09-30",
