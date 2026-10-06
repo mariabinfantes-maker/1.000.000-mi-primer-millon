@@ -7569,6 +7569,22 @@ distinguía; el asesor no leía ese dato.
   empates en los que entran Archivex, Bookitit y flowww, y 29 cambios de
   alternativas.
 
+**El listado de `/herramientas`, el mismo día y también por decisión suya.**
+Seguía llamando «Plan gratuito» a todas, y su filtro «Con plan gratuito».
+Ahora:
+- **El filtro se llama «Entrada sin coste».** Ella lo prefirió a «Empieza sin
+  pagar»: *«puede interpretarse como que puedes empezar realmente a trabajar
+  con ella sin pagar, cuando una prueba de 7 días quizá sólo permita
+  probarla»*.
+- **La etiqueta de cada tarjeta** dice «Plan gratuito», «Prueba gratuita de X
+  días» o «Prueba gratuita», con la misma función que el asesor.
+- **La cabecera** dice *«…por idioma y por si puedes empezar sin pagar»*.
+
+*«"Entrada sin coste" es la categoría que agrupa; "plan gratuito" y "prueba
+gratuita" son lo que realmente ofrece cada herramienta.»* En el filtro siguen
+entrando las mismas 77. Queda distinta la ficha individual, que dice
+«Gratis 7 días»: no se tocó.
+
 **Lo que se queda como está, a propósito:**
 
 - **Booksy, Bookeo y Schedulista**: la evidencia de su prueba es media o débil.

@@ -14,6 +14,7 @@ import {
 import Tarjeta from "@/components/ui/Tarjeta";
 import Etiqueta from "@/components/ui/Etiqueta";
 import EstadoVacio from "@/components/ui/EstadoVacio";
+import { comoSeDiceLaEntrada } from "@/app/asesor/entradaSinCoste";
 
 const TIPOS: { valor: TipoDeHerramienta; etiqueta: string }[] = [
   { valor: "todas", etiqueta: "Todas" },
@@ -120,7 +121,13 @@ export default function CatalogoCompleto({
             aria-pressed={soloGratis}
             className={`${CHIP} ${soloGratis ? CHIP_ACTIVO : CHIP_PASIVO}`}
           >
-            Con plan gratuito
+            {/*
+              «Entrada sin coste» y no «Con plan gratuito»: el filtro reúne
+              planes gratuitos y pruebas, que cuentan igual (propietaria,
+              2026-09-17 y 2026-10-06). Lo que ofrece cada una lo dice su
+              etiqueta. Quién entra en el filtro no cambia.
+            */}
+            Entrada sin coste
           </button>
         </div>
       </div>
@@ -185,7 +192,8 @@ export default function CatalogoCompleto({
                     {fila.tienePlanGratuito && (
                       <span className="inline-flex items-center gap-1">
                         <Check className="h-3.5 w-3.5 text-exito-500" aria-hidden="true" />
-                        Plan gratuito
+                        {/* «Plan gratuito», «Prueba gratuita de 7 días» o «Prueba gratuita», como el asesor. */}
+                        {comoSeDiceLaEntrada(fila)}
                       </span>
                     )}
                     {fila.disponibleEnEspanol && (

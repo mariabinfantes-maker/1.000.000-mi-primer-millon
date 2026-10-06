@@ -44,6 +44,8 @@ export default function TodasLasHerramientasPage() {
     esTodoEnUno: esSuite(herramienta),
     precioInicial: herramienta.precioInicial,
     tienePlanGratuito: herramienta.tienePlanGratuito,
+    tipoPlanGratuito: herramienta.tipoPlanGratuito,
+    pruebaGratuitaDias: herramienta.pruebaGratuitaDias,
     disponibleEnEspanol: herramienta.disponibleEnEspanol ?? false,
     puntuacionAtlas: calcularPuntuacionAtlas(herramienta)?.puntuacion ?? null,
     comprobado: textoDeComprobacion(herramienta),
@@ -63,7 +65,7 @@ export default function TodasLasHerramientasPage() {
 
       <p className="mt-4 max-w-2xl leading-relaxed text-slate-600">
         Éste es el catálogo entero, para que lo mires tú. Puedes filtrar por plataformas todo en uno o
-        herramientas especializadas, por lo que hacen, por idioma y por si tienen plan gratuito.
+        herramientas especializadas, por lo que hacen, por idioma y por si puedes empezar sin pagar.
       </p>
 
       <p className="mt-3 max-w-2xl leading-relaxed text-slate-600">

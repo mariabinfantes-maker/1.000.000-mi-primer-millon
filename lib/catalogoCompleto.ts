@@ -19,6 +19,14 @@ export type FilaDeCatalogo = {
   esTodoEnUno: boolean;
   precioInicial: string;
   tienePlanGratuito: boolean;
+  /**
+   * Qué entrada sin coste es, para que la etiqueta lo diga como lo dicen el
+   * asesor y la ficha: «Plan gratuito», «Prueba gratuita de 7 días» o
+   * «Prueba gratuita». El filtro sigue mirando sólo `tienePlanGratuito`.
+   * Propietaria, 2026-10-06.
+   */
+  tipoPlanGratuito?: "indefinido" | "prueba";
+  pruebaGratuitaDias?: number;
   disponibleEnEspanol: boolean;
   puntuacionAtlas: number | null;
   /** Ya redactado por `textoDeComprobacion`, o `null` si nadie ha mirado ese precio. */
