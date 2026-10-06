@@ -27,6 +27,22 @@ describe("qué sabemos de una herramienta", () => {
     expect(sinNada.map((h) => h.id)).toEqual([]);
   });
 
+  /**
+   * Las respuestas en bruto llegan envueltas en un bloque de código. Hasta el
+   * 2026-10-06 la consulta no las abría, y se dijo que de las 65 originales no
+   * había nada sobre lo fácil que es usarlas: estaba la nota de facilidad de
+   * uso que se leyó en Capterra el 29 de septiembre.
+   */
+  it("Asana: lee la nota de facilidad de uso guardada en una respuesta en bruto", () => {
+    const s = queSabemosDe("asana")!;
+    const leida = s.entregas
+      .filter((e) => e.ruta.startsWith("data/investigacion/reputacion-las-15-2026-09-29/crudo/"))
+      .flatMap((e) => e.objetos)
+      .find((o) => o.enlace === "texto");
+    expect(leida?.campos.capterra).toMatchObject({ facilidadDeUso: 4.4, numeroDeResenas: 12319 });
+    expect(informe(s)).toContain('"facilidadDeUso":4.4');
+  });
+
   it("un id que no existe no inventa nada", () => {
     expect(queSabemosDe("no-existe-esta-herramienta")).toBeNull();
   });

@@ -30,6 +30,10 @@ export const DATOS_CLAVE = [
   "idiomasDisponibles",
   "loQueNoPudeComprobar",
   "noConsta",
+  // Lo que se leyó en Capterra y G2 (29 y 30 de septiembre): la nota general
+  // y la de facilidad de uso, con su dirección y el número de reseñas.
+  "capterra",
+  "g2",
 ] as const;
 
 const corto = (v: unknown, n = 220) => {

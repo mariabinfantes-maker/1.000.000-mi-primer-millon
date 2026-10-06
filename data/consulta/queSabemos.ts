@@ -27,8 +27,12 @@ import path from "node:path";
 export type ObjetoEncontrado = {
   /** Dónde está dentro del archivo, para poder ir a mirarlo. */
   camino: string;
-  /** Cómo se enlazó con la herramienta. */
-  enlace: "id" | "herramientaId" | "nombre" | "archivo";
+  /**
+   * Cómo se enlazó con la herramienta. `texto`: es la respuesta que venía
+   * escrita como texto dentro de un objeto suyo (las respuestas en bruto
+   * guardan así lo que contestó el modelo), y es de quien es ese objeto.
+   */
+  enlace: "id" | "herramientaId" | "nombre" | "archivo" | "texto";
   campos: Record<string, unknown>;
 };
 
@@ -70,9 +74,19 @@ function archivos(dir: string, extensiones: string[]): string[] {
   return salida.sort();
 }
 
-/** Un texto que es JSON guardado dentro de otro JSON (las entregas de modelos lo hacen). */
+/**
+ * Un texto que es JSON guardado dentro de otro JSON (las entregas de modelos lo
+ * hacen). Casi todas las respuestas en bruto (`crudo/`) llegan además envueltas
+ * en un bloque de código («```json … ```»), y hay que quitárselo para leerlas.
+ *
+ * Hasta el 2026-10-06 no se quitaba, y la consulta no veía nada de lo que
+ * venía así: entre otras cosas, la nota de facilidad de uso que se leyó en
+ * Capterra y G2 de 48 herramientas el 29 y el 30 de septiembre.
+ */
 function comoJson(v: string): unknown {
-  const t = v.trim();
+  let t = v.trim();
+  const bloque = t.match(/^```[a-zA-Z]*\s*([\s\S]*?)\s*```$/);
+  if (bloque) t = bloque[1].trim();
   if (!(t.startsWith("{") || t.startsWith("["))) return undefined;
   try {
     return JSON.parse(t);
@@ -87,7 +101,8 @@ type Herramienta = { id: string; nombre: string };
  * Recorre un archivo de investigación y devuelve, por herramienta, los
  * objetos que hablan de ella. Un objeto habla de una herramienta si su `id`,
  * `herramientaId`, `herramienta` o `idHerramienta` es el suyo, o si su
- * `nombre` es exactamente el suyo.
+ * `nombre` es exactamente el suyo. Y la respuesta escrita como texto dentro de
+ * un objeto suyo también es suya (enlace `texto`).
  */
 function objetosPorHerramienta(datos: unknown, herramientas: Herramienta[]): Map<string, ObjetoEncontrado[]> {
   const porId = new Map(herramientas.map((h) => [h.id, h]));
@@ -98,10 +113,20 @@ function objetosPorHerramienta(datos: unknown, herramientas: Herramienta[]): Map
     lista.push(o);
     salida.set(id, lista);
   };
-  const recorrer = (x: unknown, camino: string) => {
+  // `dueno`: la herramienta del objeto donde estaba escrito este texto. Una
+  // respuesta en bruto contesta por la herramienta que la lleva, aunque por
+  // dentro no repita su id.
+  const recorrer = (x: unknown, camino: string, dueno?: string) => {
     if (typeof x === "string") {
       const dentro = comoJson(x);
-      if (dentro !== undefined) recorrer(dentro, `${camino}(texto)`);
+      if (dentro === undefined) return;
+      const c = `${camino}(texto)`;
+      if (dueno && dentro && typeof dentro === "object" && !Array.isArray(dentro)) {
+        const o = dentro as Record<string, unknown>;
+        const propio = CLAVES_DE_ENLACE.some((k) => typeof o[k] === "string" && porId.has(o[k] as string));
+        if (!propio) anotar(dueno, { camino: c, enlace: "texto", campos: o });
+      }
+      recorrer(dentro, c);
       return;
     }
     if (Array.isArray(x)) {
@@ -111,18 +136,21 @@ function objetosPorHerramienta(datos: unknown, herramientas: Herramienta[]): Map
     if (!x || typeof x !== "object") return;
     const o = x as Record<string, unknown>;
     let enlazado = false;
+    let suyo: string | undefined;
     for (const clave of CLAVES_DE_ENLACE) {
       const v = o[clave];
       if (typeof v === "string" && porId.has(v)) {
         anotar(v, { camino: camino || "(raíz)", enlace: clave === "id" ? "id" : "herramientaId", campos: o });
         enlazado = true;
+        suyo = v;
         break;
       }
     }
     if (!enlazado && typeof o.nombre === "string" && porNombre.has(o.nombre.toLowerCase())) {
-      anotar(porNombre.get(o.nombre.toLowerCase())!.id, { camino: camino || "(raíz)", enlace: "nombre", campos: o });
+      suyo = porNombre.get(o.nombre.toLowerCase())!.id;
+      anotar(suyo, { camino: camino || "(raíz)", enlace: "nombre", campos: o });
     }
-    for (const [k, v] of Object.entries(o)) recorrer(v, camino ? `${camino}.${k}` : k);
+    for (const [k, v] of Object.entries(o)) recorrer(v, camino ? `${camino}.${k}` : k, typeof v === "string" ? suyo : undefined);
   };
   recorrer(datos, "");
   return salida;

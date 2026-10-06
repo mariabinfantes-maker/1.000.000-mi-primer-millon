@@ -21,6 +21,12 @@ investigación que sólo necesitamos poder consultar»*.
 nombre del archivo. El diagnóstico usa exactamente esa misma función. Los
 números en bruto están en `data/consulta/reconciliacion-2026-10-05/`.
 
+*(Añadido el 2026-10-06.)* Esa consulta tenía un fallo: no abría las
+respuestas en bruto que llegan envueltas en un bloque de código, que son casi
+todas las de `crudo/`. Este diagnóstico se hizo con ella, así que no las vio.
+Lo que faltaba está en el **§8**; los números de los §1 a §7 se dejan como se
+midieron.
+
 ---
 
 ## 1. Cobertura: las 90 tienen investigación localizable
@@ -138,7 +144,9 @@ tamaño; ninguna ficha lo guarda. El motor no usa el tamaño.
 
 **Curva de aprendizaje.** 76 fichas la tienen. 12 traen en la investigación
 el porqué (`porQueEsaCurva`), que la ficha no guarda. El porqué de las 64
-restantes no está en ninguna parte del proyecto.
+restantes no está en ninguna parte del proyecto. *(Corregido el 2026-10-06:
+no era así. De 45 de las 65 originales hay una nota de facilidad de uso leída
+en Capterra o G2, con su dirección y su número de reseñas. Ver §8.)*
 
 **Límites.** 23 herramientas tienen límites con cita en la investigación. La
 ficha no tiene campo para ellos y el motor no los usa.
@@ -218,3 +226,111 @@ se pudiera hacer.
 - La búsqueda de «prueba gratuita» se hizo por palabras en los textos de las
   entregas; se revisaron a mano las 11 que salieron, y Jane y Pabau se
   descartaron porque dicen lo contrario.
+
+---
+
+## 8. Lo que estaba guardado fuera de donde se miró (2026-10-06)
+
+**Por qué.** La propietaria pidió que todas las herramientas tengan el mismo
+nivel de investigación. Se midió cuántas tienen cada dato, y para las 65
+originales salían a cero el idioma con recibo, el tamaño con su porqué, la
+curva con su porqué, los límites y lo que no se pudo comprobar. Ella lo
+paró: *«revisa que de esos datos no hay información guardada en otras
+carpetas, porque se ha hecho mucha información»*. Tenía razón en parte.
+
+**Dónde se miró.** Todo el proyecto, no sólo `data/investigacion/`: las
+carpetas de los agentes (`agents/atlas-researcher/lotes/`,
+`agents/atlas-curator/investigaciones/`), `encargos/`, `data/verificacion/`
+con sus lotes y salidas, `data/borradores/`, `data/informes-curador/`, y
+dentro de cada archivo también las respuestas en bruto. Además, el historial
+de git (archivos borrados) y las otras ramas del repositorio. **No se ha
+investigado nada fuera del proyecto ni se ha cambiado ningún dato.**
+
+### Lo que sí estaba
+
+**La facilidad de uso de 48 herramientas.** Las comprobaciones de reputación
+del 29 y el 30 de septiembre (`data/investigacion/reputacion-las-15-2026-09-29/crudo/`
+y `reputacion-las-37-2026-09-30/crudo/`) pidieron a Capterra y G2 la nota
+general **y la de facilidad de uso**, con la dirección, la escala y el número
+de reseñas. Hay nota de facilidad de **48**: 45 de las 65 originales, y BEWE,
+Koibox y ViDay.
+
+Llegó a la ficha sólo como texto, dentro del recibo de la reseña
+(`reputacion.capterraComprobado.cita`, por ejemplo *«Ease Of Use 4.2
+(2,537)»*), nunca como dato. En 5 no llegó ni así:
+
+- **BEWE, Koibox y ViDay**: no tenían cifra antes y no se escribió ninguna,
+  por decisión pendiente de la propietaria (`reputacion-las-37-2026-09-30/LEEME.md`).
+- **Gamma**: no se encontró su página de Capterra; lo leído era de otra.
+- **Salesmate**: la cita se recortó a media palabra (*«Ease of Us»*) y la
+  cifra —4,7 sobre 5, 102 reseñas— se quedó en la respuesta en bruto.
+
+**Qué es y qué no es.** Es la opinión de quienes la usan sobre lo fácil que
+es. No es el nivel de curva (`curvaDeAprendizaje`) ni la nota de facilidad de
+la ficha (`puntuaciones.facilidadDeUso`, de la primera redacción), y no se ha
+comparado con ninguna de las dos. Y no existirá para las herramientas
+españolas pequeñas, que no tienen reseñas (`lo-facil-2026-09-29/LEEME.md`).
+
+**El idioma de Hotmart.** La verificación externa del lote `cursos-1`
+(`agents/atlas-researcher/lotes/resultados/cursos-1/verificacion-externa-convertida.json`,
+2026-09-16) dejó el **soporte en español verificado**, con fuente en
+`help.hotmart.com/es/…`, y la interfaz como desconocida. No pasó al sitio
+donde se guarda el idioma comprobado, `data/verificacion/idiomas.json`, que
+**está vacío en todas las ramas**: el sistema para comprobar idiomas se
+construyó (`data/verificacion/convertir.ts`) y el primer lote que lo pide
+—`data/verificacion/lotes/usos-1.json` y `usos-1-nuevas.json`, diez
+herramientas— está congelado y sin lanzar.
+
+**Una pista, no un recibo.** Pipedrive y noCRM.io tienen capacidades
+verificadas con cita de su web en español (`/es/`). Dice que su web está en
+español, no que lo esté la herramienta.
+
+### Lo que se perdió
+
+**Las lecturas de planes del 21 de septiembre.** Se hicieron por dos canales,
+GPT y Gemini, sobre las mismas páginas, y se contrastaron (commit `29c2dc0`).
+Se guardó el resultado, con su cita, en 50 fichas. **Las respuestas
+originales no se guardaron**: no están en el proyecto, en el historial ni en
+otra rama. Tampoco está escrito por qué se quedaron sin planes 13 de las
+originales: EngageBay, Freshsales, Hotmart, HubSpot, Keap, Less Annoying CRM,
+noCRM.io, Nutshell, Pipedrive, Scoro, Synthesia, Teachable y Thinkific. De
+ellas queda el precio de entrada comprobado el 17 de septiembre
+(`agents/atlas-curator/investigaciones/precios-tanda-*.md`). La tanda 3 de ese
+día explica que el canal no leía tablas de precios pintadas con JavaScript;
+puede ser la misma causa, pero no consta.
+
+### Lo que no está en ninguna parte
+
+Para las 65 originales no hay, en ninguna carpeta, rama ni versión anterior:
+el tamaño de empresa con su porqué, los límites por plan, la lista de lo que
+no se pudo comprobar, ni idioma con recibo salvo Hotmart. Esas preguntas sólo
+se hicieron en los encargos de las herramientas nuevas.
+
+En git no se ha borrado investigación: el único archivo de investigación
+borrado es un script (`data/investigacion/casas/reparto.mjs`, sustituido el
+2026-09-23). Ninguna rama tiene archivos de datos que falten en ésta.
+
+### La tabla de las 65 originales, corregida
+
+| Dato | Medido el 2026-10-05 | Con lo encontrado |
+|---|---|---|
+| Curva o facilidad con fuente | 0 | **45** (opinión de usuarios, guardada como texto) |
+| Español con recibo | 0 | **1** (Hotmart, sólo el soporte) |
+| Planes con cita | 52 | 52 |
+| Tamaño con porqué, límites, no comprobado | 0 | 0 |
+
+### Lo que se ha cambiado y lo que no
+
+- **La consulta** (`data/consulta/queSabemos.ts`) abre ya las respuestas en
+  bruto envueltas en un bloque de código, y las enlaza con la herramienta de
+  la que son (enlace `texto`). `npm run que-sabemos -- asana` enseña su nota
+  de Capterra. Lo sostiene una prueba en
+  `data/consulta/__tests__/queSabemos.test.ts`.
+- **Sigue sin leer** lo que está fuera de `data/investigacion/`: los
+  resultados del Researcher (`agents/atlas-researcher/lotes/resultados/`), las
+  tandas de precios del Curator y las salidas de `data/verificacion/`. Por eso
+  lo de Hotmart no sale en la consulta. Ampliarla queda sin hacer, a decidir.
+- **Ningún dato tocado.** Llevar la facilidad de uso a un campo, usarla para
+  la curva o pasar lo de Hotmart a `idiomas.json` es cambiar datos, y lo
+  decide la propietaria.
+
