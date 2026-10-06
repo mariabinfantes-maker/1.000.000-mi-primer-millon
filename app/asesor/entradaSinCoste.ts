@@ -14,7 +14,9 @@
  * cuál de los dos es».
  *
  * Esto NO decide nada: el motor sigue usando `tienePlanGratuito` igual que
- * antes. Sólo cambia cómo se dice.
+ * antes. Sólo cambia cómo se dice. La misma función pone la etiqueta en el
+ * listado de `/herramientas` (`components/CatalogoCompleto.tsx`), para que el
+ * asesor y el listado digan lo mismo con las mismas palabras.
  *
  * Sin tipo anotado se dice «Plan gratuito», como hasta ahora. No se deduce
  * que sea indefinido aunque lo parezca: Koibox publica «Plan Free: 0 €/mes» y

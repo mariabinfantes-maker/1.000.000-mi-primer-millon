@@ -7569,6 +7569,22 @@ distinguía; el asesor no leía ese dato.
   empates en los que entran Archivex, Bookitit y flowww, y 29 cambios de
   alternativas.
 
+**El listado de `/herramientas`, el mismo día y también por decisión suya.**
+Seguía llamando «Plan gratuito» a todas, y su filtro «Con plan gratuito».
+Ahora:
+- **El filtro se llama «Entrada sin coste».** Ella lo prefirió a «Empieza sin
+  pagar»: *«puede interpretarse como que puedes empezar realmente a trabajar
+  con ella sin pagar, cuando una prueba de 7 días quizá sólo permita
+  probarla»*.
+- **La etiqueta de cada tarjeta** dice «Plan gratuito», «Prueba gratuita de X
+  días» o «Prueba gratuita», con la misma función que el asesor.
+- **La cabecera** dice *«…por idioma y por si puedes empezar sin pagar»*.
+
+*«"Entrada sin coste" es la categoría que agrupa; "plan gratuito" y "prueba
+gratuita" son lo que realmente ofrece cada herramienta.»* En el filtro siguen
+entrando las mismas 77. Queda distinta la ficha individual, que dice
+«Gratis 7 días»: no se tocó.
+
 **Lo que se queda como está, a propósito:**
 
 - **Booksy, Bookeo y Schedulista**: la evidencia de su prueba es media o débil.
@@ -7600,10 +7616,9 @@ entera cada vez que cambie; no se acumula.** Va la última antes del bloque
 |---|---|
 | Rama de producción | `claude/claude-md-docs-plkwnq`; Vercel despliega desde ella |
 | Rama de trabajo | `claude/evidencia-usos-recorridos` |
-| Desplegado | `7f538b2`, contenido idéntico a `478eedc` (bloque 2 con las dos correcciones de tono), el 2026-10-05 a las 16:12 UTC |
-| Versión anterior | `d7fd7cb` (bloque 2) |
+| Desplegado | `6f8134a`, contenido idéntico a `95ba0a5` (la entrada sin coste, la consulta «qué sabemos» y el paso 1), el 2026-10-06 a las 15:34 UTC, autorizado por la propietaria |
+| Versión anterior | `7f538b2` (bloque 2 con las dos correcciones de tono) |
 | Interruptor de la IA del asesor | `ATLAS_ASESOR_IA_ACTIVA=true` en Production, puesta por la propietaria el 2026-10-05 |
-| En la rama de trabajo, **sin desplegar** | La consulta `que-sabemos` (lee también las carpetas de los agentes y las respuestas en bruto); la reconciliación y la tabla del paso 1; y la entrada sin coste: 5 fichas con su prueba y los textos del asesor que dicen qué entrada es (2026-10-06) |
 
 **Lo que ve una persona hoy en molnip.com:**
 
@@ -7628,7 +7643,7 @@ entera cada vez que cambie; no se acumula.** Va la última antes del bloque
 - **Plan gratuito con su tipo comprobado: 67 de 90** —32 sin límite de
   tiempo, 35 de prueba—; 10 más dicen tenerlo sin tipo, entre ellas Koibox y
   Cliniko, cuyo gratuito es sólo para entidades benéficas y está pendiente de
-  una tercera clase. *(En la rama de trabajo; en producción siguen 62: 32 y 30.)*
+  una tercera clase.
 
 ### Lo pendiente, tal como lo dejó la propietaria el 1 de octubre
 
