@@ -171,6 +171,16 @@ despliegues, datos, esquemas, seguridad, borrados, cambios estructurales y
 decisiones de producto exigen alcance explícito por corta que sea la
 instrucción. **Un «sí» o un «sigue» nunca amplía el alcance ya autorizado.**
 
+**Cerrar una tarea incluye dejar al día lo que esa tarea ha dejado obsoleto.**
+Cerrar una tarea incluye dejar actualizada en ese momento toda la
+documentación y el estado que esa tarea haya dejado obsoletos. Si ya sabemos
+que una referencia, estado, versión o decisión documentada ha cambiado, no se
+deja para actualizar después. Esto no significa revisar toda la documentación
+cada vez ni abrir trabajo nuevo: se actualiza lo que sabemos que esa tarea
+acaba de dejar desactualizado. *(Regla de la propietaria, 2026-10-06, al
+cerrar el despliegue de la entrada sin coste con ATLAS todavía diciendo «sin
+desplegar».)*
+
 **Las decisiones anteriores siguen vigentes por defecto.** No encontrar una
 decisión escrita no la cancela: significa que no se ha encontrado. Una decisión
 sólo se sustituye con autorización explícita, y al sustituirla se deja escrito

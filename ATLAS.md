@@ -7553,7 +7553,9 @@ del asesor decía «Plan gratuito» de una prueba de 7 días: pasaba en 1.231 de
 los 1.891 casos, con las 30 fichas de prueba que ya había. El catálogo sí lo
 distinguía; el asesor no leía ese dato.
 
-**Aplicado (en la rama de trabajo, sin desplegar):**
+**Aplicado y desplegado:** las cinco fichas y los textos del asesor entraron en
+producción con `6f8134a`; el listado de `/herramientas` quedó completado con
+`d864fbb` (los dos, el 2026-10-06).
 
 - **Cinco fichas**, con evidencia fuerte —cita literal, página y fecha—:
   Acuity Scheduling (7 días), Archivex (7), Bookitit (15), flowww (10) y
