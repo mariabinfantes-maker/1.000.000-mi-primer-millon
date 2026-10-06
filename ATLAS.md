@@ -7503,6 +7503,8 @@ decir que algo «no consta», se consulta aquí.**
   «sin plan gratuito»**, contra la regla del 17 de septiembre de que una
   prueba también es plan gratuito, que sí se aplicó en otras 30. Y Cliniko
   dice «sí» cuando su gratuito es sólo para entidades benéficas.
+  *(Corregido el 2026-10-06: eran 8, no 9 —ViDay no tiene prueba
+  documentada— y sólo 5 con evidencia fuerte. Ver la sección siguiente.)*
 - **El idioma de Booksy, Jane, Pabau y Timify llegó a `idiomasDisponibles`,
   que el motor no lee.**
 - **Simulado en memoria: en ningún caso cambia la herramienta recomendada,
@@ -7520,7 +7522,72 @@ después que ya teníamos información mejor guardada en las investigaciones.»*
 
 ---
 
-## DÓNDE ESTAMOS — punto de partida al 2026-10-05
+## 2026-10-06 — LA ENTRADA SIN COSTE: LA PRUEBA Y EL PLAN GRATUITO CUENTAN IGUAL, Y SE DICEN DISTINTO
+
+**Decisión de la propietaria, que reafirma la del 17 de septiembre y fija cómo
+se modela.** Entero, con las citas de cada herramienta, en
+`data/consulta/PASO-1-2026-10-06.md`.
+
+**Lo que dije mal.** En la tabla del paso 1 escribí que contar la prueba
+gratuita junto al plan gratuito era «la confusión que la propietaria
+señala». No lo era. Sus palabras:
+
+> «No fue un error ni una confusión considerar las pruebas gratuitas junto a
+> los planes gratuitos. Fue una decisión de producto deliberada. La razón es
+> que un plan gratuito permanente puede ser demasiado limitado para evaluar
+> realmente una herramienta, mientras que una prueba gratuita de 15, 20 o 30
+> días puede permitir probar un plan suficientemente completo antes de pagar.
+> Para Molnip, ambas reducen el riesgo de entrada y por eso decidí darles un
+> tratamiento parecido. Mantén esa decisión.»
+
+**Lo que sí estaba mal: perder la diferencia al guardar o al enseñar.** Molnip
+debe saber siempre si es:
+
+- un **plan gratuito indefinido**, con sus límites;
+- una **prueba gratuita**, con su duración;
+- una **gratuidad condicionada a un tipo de organización**, como Cliniko.
+
+*«Pueden participar en un mismo criterio de "entrada sin coste", pero nunca
+presentarse al cliente como si fueran lo mismo.»* Hasta este día la tarjeta
+del asesor decía «Plan gratuito» de una prueba de 7 días: pasaba en 1.231 de
+los 1.891 casos, con las 30 fichas de prueba que ya había. El catálogo sí lo
+distinguía; el asesor no leía ese dato.
+
+**Aplicado (en la rama de trabajo, sin desplegar):**
+
+- **Cinco fichas**, con evidencia fuerte —cita literal, página y fecha—:
+  Acuity Scheduling (7 días), Archivex (7), Bookitit (15), flowww (10) y
+  Teachworks (21). Tres campos en cada una: `tienePlanGratuito: true`,
+  `tipoPlanGratuito: "prueba"` y `pruebaGratuitaDias`. Nada más.
+- **Dos textos del asesor**, en la fila de cada opción y en la tarjeta
+  abierta, con una sola función (`app/asesor/entradaSinCoste.ts`): «Plan
+  gratuito», «Prueba gratuita de X días» o «Prueba gratuita». Vale también
+  para las 30 de antes.
+- **No cambia el motor, el peso del criterio ni el orden.** Comprobado sobre
+  los 1.891 casos: la herramienta recomendada no cambia en ninguno. Cambian
+  140 casos, exactamente los que se habían simulado: 23 motivos de Koibox, 60
+  empates en los que entran Archivex, Bookitit y flowww, y 29 cambios de
+  alternativas.
+
+**Lo que se queda como está, a propósito:**
+
+- **Booksy, Bookeo y Schedulista**: la evidencia de su prueba es media o débil.
+  **ViDay**: no tiene prueba documentada.
+- **Cliniko**: es la tercera clase, y el esquema todavía no la tiene. No se
+  fuerza a indefinido ni a prueba, ni se borra su condición. **Pendiente:
+  ampliar el modelo de datos para representar una gratuidad condicionada.**
+- **Koibox**: publica «Plan Free: 0 €/mes», pero no se deduce que sea
+  indefinido. Se sigue diciendo «Plan gratuito», que es lo demostrado.
+
+**Pregunta que queda para el rediseño del desempate**, sin decidir: ¿deben
+pesar igual todas las formas de entrada sin coste, o deben influir la
+duración, la permanencia y los límites? Una prueba de 30 días puede valer
+mucho y una de 7 menos; los límites de un gratuito pueden importar más que
+su permanencia. *«Eso ya pertenece al cerebro del asesor.»*
+
+---
+
+## DÓNDE ESTAMOS — punto de partida al 2026-10-06
 
 Esta sección no decide nada: dice en qué punto quedó todo, para que quien
 retome no tenga que reconstruirlo leyendo doscientos commits. **Se reescribe
@@ -7536,6 +7603,7 @@ entera cada vez que cambie; no se acumula.** Va la última antes del bloque
 | Desplegado | `7f538b2`, contenido idéntico a `478eedc` (bloque 2 con las dos correcciones de tono), el 2026-10-05 a las 16:12 UTC |
 | Versión anterior | `d7fd7cb` (bloque 2) |
 | Interruptor de la IA del asesor | `ATLAS_ASESOR_IA_ACTIVA=true` en Production, puesta por la propietaria el 2026-10-05 |
+| En la rama de trabajo, **sin desplegar** | La consulta `que-sabemos` (lee también las carpetas de los agentes y las respuestas en bruto); la reconciliación y la tabla del paso 1; y la entrada sin coste: 5 fichas con su prueba y los textos del asesor que dicen qué entrada es (2026-10-06) |
 
 **Lo que ve una persona hoy en molnip.com:**
 
@@ -7557,8 +7625,10 @@ entera cada vez que cambie; no se acumula.** Va la última antes del bloque
 - **61 necesidades** en el vocabulario.
 - **Español con recibo: 2 de 90.** El «en español» de las otras 52 viene de la
   lista de idiomas de la primera redacción, sin fuente.
-- **Plan gratuito con su tipo comprobado: 62 de 90** —32 sin límite de
-  tiempo, 30 de prueba—; 10 más dicen tenerlo sin tipo.
+- **Plan gratuito con su tipo comprobado: 67 de 90** —32 sin límite de
+  tiempo, 35 de prueba—; 10 más dicen tenerlo sin tipo, entre ellas Koibox y
+  Cliniko, cuyo gratuito es sólo para entidades benéficas y está pendiente de
+  una tercera clase. *(En la rama de trabajo; en producción siguen 62: 32 y 30.)*
 
 ### Lo pendiente, tal como lo dejó la propietaria el 1 de octubre
 

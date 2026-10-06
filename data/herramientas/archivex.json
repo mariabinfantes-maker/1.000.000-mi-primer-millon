@@ -50,7 +50,9 @@
   "modeloDePrecio": [
     "suscripcion_mensual"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 7,
   "preciosComprobados": {
     "fecha": "2026-09-28",
     "url": "https://archivex.io/precios"

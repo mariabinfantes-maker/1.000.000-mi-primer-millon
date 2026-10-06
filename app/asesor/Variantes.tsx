@@ -36,7 +36,7 @@ export type QueResuelve = { necesidad: string; loQueTeCuesta?: string; url?: str
 export type Coste = {
   desdeCorto?: string;
   desde?: string; comprobadoEl?: string; urlPrecios?: string;
-  tienePlanGratuito?: boolean; curva?: string;
+  tienePlanGratuito?: boolean; tipoPlanGratuito?: "indefinido" | "prueba"; pruebaGratuitaDias?: number; curva?: string;
   espanol: { panel: EstadoDelEspanol; paginaDeCliente: EstadoDelEspanol };
 };
 export type Pieza = {

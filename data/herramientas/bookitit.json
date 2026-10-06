@@ -63,7 +63,9 @@
   "modeloDePrecio": [
     "suscripcion_mensual"
   ],
-  "tienePlanGratuito": false,
+  "tienePlanGratuito": true,
+  "tipoPlanGratuito": "prueba",
+  "pruebaGratuitaDias": 15,
   "preciosComprobados": {
     "fecha": "2026-09-29",
     "url": "https://www.bookitit.com/es/tarifas/"
