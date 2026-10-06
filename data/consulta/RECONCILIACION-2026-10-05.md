@@ -124,6 +124,11 @@ profundidad distinta. Esa capa está reconciliada.
 
 ## 4. Los siete datos clave, comparados
 
+*(Corregido el 2026-10-06, en `PASO-1-2026-10-06.md`: ViDay no tiene una
+prueba documentada —la investigación la pone en lo que no consta—, así que
+son 8 y no 9. Y las 20 «sin planes» sí tienen en la ficha su precio de
+entrada comprobado con cita; lo que les falta es el desglose plan por plan.)*
+
 **Plan gratuito.** La ficha dice que sí en 72 y que no en 18; el tipo está
 comprobado en 62 (32 indefinido, 30 de prueba) y falta en 10 que dicen tenerlo.
 **En 9 de las 18 que dicen «no», la investigación documenta una prueba
@@ -311,6 +316,12 @@ ellas queda el precio de entrada comprobado el 17 de septiembre
 (`agents/atlas-curator/investigaciones/precios-tanda-*.md`). La tanda 3 de ese
 día explica que el canal no leía tablas de precios pintadas con JavaScript;
 puede ser la misma causa, pero no consta.
+
+*(Corregido el 2026-10-06, en `PASO-1-2026-10-06.md`: **no se perdieron**.
+La lectura del 21 sólo preguntó por las herramientas con el plan de sus
+capacidades verificado, y esas 13 no lo tenían: no se les preguntó. Las
+respuestas de ese día siguen en la carpeta de trabajo de la sesión
+—`gpt-planes.json`, `gemini-planes.json`—, fuera del repositorio.)*
 
 ### Lo que no está en ninguna parte
 
