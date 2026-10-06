@@ -7616,8 +7616,8 @@ entera cada vez que cambie; no se acumula.** Va la última antes del bloque
 |---|---|
 | Rama de producción | `claude/claude-md-docs-plkwnq`; Vercel despliega desde ella |
 | Rama de trabajo | `claude/evidencia-usos-recorridos` |
-| Desplegado | `6f8134a`, contenido idéntico a `95ba0a5` (la entrada sin coste, la consulta «qué sabemos» y el paso 1), el 2026-10-06 a las 15:34 UTC, autorizado por la propietaria |
-| Versión anterior | `7f538b2` (bloque 2 con las dos correcciones de tono) |
+| Desplegado | `d864fbb`, contenido idéntico a `379fa9a` (`/herramientas` dice la entrada sin coste como el asesor), el 2026-10-06 a las 16:05 UTC, autorizado por la propietaria |
+| Versión anterior | `6f8134a` (la entrada sin coste, la consulta «qué sabemos» y el paso 1) |
 | Interruptor de la IA del asesor | `ATLAS_ASESOR_IA_ACTIVA=true` en Production, puesta por la propietaria el 2026-10-05 |
 
 **Lo que ve una persona hoy en molnip.com:**
