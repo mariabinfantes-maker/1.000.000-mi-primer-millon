@@ -268,8 +268,16 @@ Llegó a la ficha sólo como texto, dentro del recibo de la reseña
 **Qué es y qué no es.** Es la opinión de quienes la usan sobre lo fácil que
 es. No es el nivel de curva (`curvaDeAprendizaje`) ni la nota de facilidad de
 la ficha (`puntuaciones.facilidadDeUso`, de la primera redacción), y no se ha
-comparado con ninguna de las dos. Y no existirá para las herramientas
-españolas pequeñas, que no tienen reseñas (`lo-facil-2026-09-29/LEEME.md`).
+comparado con ninguna de las dos.
+
+**Las españolas pequeñas también la tienen.** Koibox: 4,9 de facilidad con
+18 reseñas. BEWE: 4,6 con 115. ViDay: 4,8 con 5. De las seis que se miraron,
+sólo de Archivex, Bookitit y Nubimed no se encontraron reseñas. Del resto de
+las españolas —flowww, DriCloud, Clinic Cloud y las demás— no se ha buscado,
+así que no se sabe. *(La primera versión de esta sección decía que para las
+españolas pequeñas «no existirá», copiando una nota del 29 de septiembre que
+la comprobación del día siguiente ya desmintió. La propietaria lo paró: es la
+segunda vez que se dice. Corregido aquí y en esa nota.)*
 
 **El idioma de Hotmart.** La verificación externa del lote `cursos-1`
 (`agents/atlas-researcher/lotes/resultados/cursos-1/verificacion-externa-convertida.json`,

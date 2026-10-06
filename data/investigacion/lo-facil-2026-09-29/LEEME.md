@@ -22,6 +22,15 @@ No es un fallo de la búsqueda. Una herramienta española pequeña no tiene
 reseñas en G2. Ese dato **no va a existir** para Bookitit, Archivex, ViDay ni
 Nubimed, que son justo las que Molnip existe para encontrar.
 
+> *Corregido el 2026-10-06: esto no se sostuvo.* Al día siguiente, la
+> comprobación de reputación (`../reputacion-las-37-2026-09-30/`) encontró
+> reseñas en Capterra, con nota de facilidad de uso, de tres españolas
+> pequeñas: **Koibox** (4,9 de facilidad, 18 reseñas), **BEWE** (4,6; 115) y
+> **ViDay** (4,8; 5), esta última nombrada justo arriba. Sin reseñas
+> localizadas quedaron Archivex, Bookitit y Nubimed, que no es lo mismo que
+> «no van a existir». Se deja el texto original porque es lo que se pensó ese
+> día; la corrección la pidió la propietaria al ver que se repetía.
+
 ### 2. Lo que sí se consiguió no mueve la puntuación. Nada.
 
 Medido con una peluquera de 1-10 empleados en España:
