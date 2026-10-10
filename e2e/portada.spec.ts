@@ -75,10 +75,15 @@ test.describe("la portada es interactiva de verdad", () => {
     await expect(seccion.getByRole("textbox")).toBeVisible();
   });
 
+  // Desde el 2026-09-16 la primera pregunta de la entrada por objetivo es la
+  // necesidad concreta, en dos pasos: primero la familia y después lo que
+  // quiere de ella. Antes era «¿todo en uno o especializadas?», y esta prueba
+  // buscó ese botón hasta el 2026-10-10.
   test("el cuestionario avanza de pregunta", async ({ page }) => {
     await page.goto("/problema/conseguir-clientes/cuestionario");
     await expect(page.getByText(/Pregunta 1 de/i)).toBeVisible();
-    await page.getByRole("button", { name: /plataforma todo en uno/i }).click();
+    await page.getByRole("button", { name: /Atraer a gente nueva/i }).click();
+    await page.getByRole("button", { name: /Tener una web o páginas de captación/i }).click();
     await page.getByRole("button", { name: /^Siguiente$/i }).click();
     await expect(page.getByText(/Pregunta 2 de/i)).toBeVisible();
   });
@@ -340,9 +345,11 @@ test.describe("preguntas de diferenciación por ámbito", () => {
     await expect(page.getByText(/¿Qué te falta en tus reuniones\?/i)).toBeVisible();
   });
 
+  // Sin pregunta de diferenciación son cinco: suite, país, sector, tamaño y
+  // problema. Eran cuatro hasta que entró el país, el 2026-09-17.
   test("gestión de proyectos NO tiene pregunta: su concentración no la justifica", async ({ page }) => {
     await page.goto("/categoria/gestion-proyectos/cuestionario");
-    await expect(page.getByText(/Pregunta 1 de 4/i)).toBeVisible();
+    await expect(page.getByText(/Pregunta 1 de 5/i)).toBeVisible();
   });
 });
 
@@ -358,7 +365,8 @@ test.describe("piloto: pregunta de diferenciación del subtipo escritura", () =>
   test("aparece en asistentes-ia con subtipo escritura", async ({ page }) => {
     await page.goto("/categoria/asistentes-ia/cuestionario?subtipo=escritura");
     await expect(page.getByText(ENUNCIADO)).toBeVisible();
-    await expect(page.getByText(/Pregunta 1 de 5/i)).toBeVisible();
+    // Una más que sin subtipo: seis, con el país (2026-09-17). Eran cinco.
+    await expect(page.getByText(/Pregunta 1 de 6/i)).toBeVisible();
   });
 
   test("NO aparece sin el subtipo, ni con un subtipo sin pregunta", async ({ page }) => {
@@ -387,7 +395,7 @@ test.describe("piloto: pregunta de diferenciación del subtipo escritura", () =>
       if (isMobile) await boton.tap();
       else await boton.click();
       await page.getByRole("button", { name: /^Siguiente$/i }).click();
-      await expect(page.getByText(/Pregunta 2 de 5/i)).toBeVisible();
+      await expect(page.getByText(/Pregunta 2 de 6/i)).toBeVisible();
     }
   });
 });

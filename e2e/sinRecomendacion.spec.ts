@@ -14,8 +14,12 @@ import { expect, test } from "@playwright/test";
 const FRASE = "Soy peluquera, estoy perdiendo citas";
 
 /**
- * Recorre las cinco preguntas de la puerta de texto libre, paso a paso y con
+ * Recorre las seis preguntas de la puerta de texto libre, paso a paso y con
  * los textos reales de cada pantalla.
+ *
+ * Eran cinco hasta el 2026-09-17, cuando entró «¿Dónde tienes el negocio?»
+ * como segunda pregunta. La prueba no se actualizó y estuvo fallando hasta el
+ * 2026-10-10: se quedaba esperando el campo del sector en la pantalla del país.
  *
  * Se escribe explícito, no en un bucle genérico "pulsa lo primero que
  * encuentres": un bucle así pasa en verde mientras el cuestionario se
@@ -32,19 +36,23 @@ async function completarCuestionarioLibre(page: import("@playwright/test").Page)
   await page.getByRole("button", { name: /No tengo preferencia clara/i }).click();
   await page.getByRole("button", { name: /^Siguiente$/i }).click();
 
-  // 2 · Sector
+  // 2 · ¿Dónde tienes el negocio?
+  await page.getByRole("button", { name: /^España$/ }).click();
+  await page.getByRole("button", { name: /^Siguiente$/i }).click();
+
+  // 3 · Sector
   await page.locator('input[placeholder*="tienda de ropa"]').fill("Peluquería");
   await page.getByRole("button", { name: /^Siguiente$/i }).click();
 
-  // 3 · Tamaño
+  // 4 · Tamaño
   await page.getByRole("button", { name: /^1-10$/ }).click();
   await page.getByRole("button", { name: /^Siguiente$/i }).click();
 
-  // 4 · El problema, ya traído desde la portada por sessionStorage.
+  // 5 · El problema, ya traído desde la portada por sessionStorage.
   await expect(page.locator("textarea")).toHaveValue(FRASE);
   await page.getByRole("button", { name: /^Siguiente$/i }).click();
 
-  // 5 · ¿Usa ya alguna herramienta?
+  // 6 · ¿Usa ya alguna herramienta?
   await page.getByRole("button", { name: /^No$/i }).first().click();
   await page.getByRole("button", { name: /Obtener recomendación/i }).click();
 }
