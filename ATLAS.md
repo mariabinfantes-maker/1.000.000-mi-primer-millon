@@ -7605,6 +7605,138 @@ su permanencia. *«Eso ya pertenece al cerebro del asesor.»*
 
 ---
 
+## 2026-10-10 — DIAGNÓSTICO: LOS PROBLEMAS DE CLIENTES QUE HOY QUEDAN SIN SOLUCIÓN
+
+**Diagnóstico, no decisión.** Pedido por la propietaria: *«en qué oficios,
+tipos de negocio o casos de cliente hemos encontrado necesidades que Molnip
+actualmente no consigue resolver con ninguna herramienta del catálogo, o
+donde el recorrido termina sin poder ofrecer una solución útil»*. No se
+propone construir nada ni se han buscado soluciones nuevas.
+
+**Qué describe.** El estado actual del **conocimiento de Molnip** a esta
+fecha, no el estado del mercado. Salió sólo de lo que Molnip ya tiene:
+- su cálculo de a qué oficios sirve (`aQuienServimos`);
+- las 61 necesidades del vocabulario pasadas una a una por el asesor;
+- las frases reales que quedaron apuntadas, probadas otra vez con el asesor y
+  la IA;
+- las investigaciones guardadas.
+
+No se investigó nada fuera.
+
+**«No se encontró» no significa «se ha demostrado que no existe».** En
+ninguno de estos casos hay una herramienta comprobada como «no lo tiene»:
+todo está en `desconocido`, que quiere decir que se leyó su página principal
+y la de precios y no aparecía. Por eso los casos se separan en tres clases:
+- que Molnip no entienda;
+- que el catálogo tenga candidatas sin prueba;
+- que el catálogo no tenga nada pensado para eso.
+
+**El punto de partida:**
+- **Molnip sirve a 8 de los 15 oficios que conoce**: taller mecánico;
+  reformas y construcción; fontanería, electricidad e instalación; diseño,
+  foto y vídeo; asesoría y gestoría; agencia de marketing; academia; y
+  entrenamiento personal.
+- **18 de las 61 necesidades no tienen ninguna herramienta en el asesor.**
+
+### A. Molnip no entiende lo que le dicen (sí hay herramientas)
+
+1. **Negocio que atiende por WhatsApp.**
+   - *«no doy a basto respondiendo a clientes por WhatsApp»* no se entiende
+     hoy, ni bien escrita ni como la escribió ella («a bastos», «watsapp»).
+   - La necesidad existe: «Responder por donde me escriban sin perder a
+     nadie», con 4 herramientas.
+   - **Queda sin resolver:** llevar la frase a esa necesidad.
+2. **Negocio que pierde clientes.**
+   - *«ESTOY PERDIENDO CLIENTES»* termina sin nada que proponer, en vez de
+     preguntar por qué los pierde.
+   - **Queda sin resolver:** la pregunta que lo aclararía.
+3. **Quien entra por la portada.**
+   - Lo escrito en la caja va al cuestionario antiguo, que no usa el asesor,
+     y termina en «No he sabido entender qué necesitas». Pasa con la frase de
+     WhatsApp y con la de la peluquera; las pruebas de Playwright lo
+     confirman.
+   - Es la decisión pendiente del punto 5 del plan de cierre.
+
+### B. El catálogo tiene candidatas, pero Molnip no tiene la prueba
+
+4. **Clínica: fisio, dental, psicología.** Faltan la historia clínica y la
+   protección de datos.
+   - Archivex, DriCloud, Nubimed y Pabau dicen en su ficha que llevan
+     historias clínicas.
+   - Pero `cap.clinical_record` sólo se preguntó a 2 herramientas que no son
+     de clínica, y `cap.privacy_compliance_tooling` a ninguna.
+   - Facturar a mutuas se preguntó a 7 herramientas, ninguna de clínica.
+   - Probado: *«Soy fisioterapeuta y necesito guardar el historial de mis
+     pacientes»* se entiende y no ofrece nada.
+5. **Peluquería y estética.** Sólo le falta cobrar en el mostrador; la agenda
+   por profesional y las reservas ya están cubiertas.
+   - El TPV se preguntó a las 64 herramientas originales, no a las 25 de
+     reservas que entraron después.
+   - Reservio y SimplyBook lo mencionan en su ficha.
+
+### C. El catálogo no tiene nada pensado para esto
+
+6. **Restaurante y bar, tienda y comercio.**
+   - No hay ningún TPV de hostelería ni de comercio en el catálogo.
+   - Probado: *«Tengo un bar y necesito cobrar y hacer la caja cada día»* se
+     entiende y no ofrece nada.
+   - El stock y las compras sí están cubiertos.
+7. **Cualquier autónomo o pyme con el dinero.** Contabilidad, impuestos,
+   gastos, fin de mes, nóminas y factura electrónica obligatoria.
+   - Se preguntó a 7 u 8 herramientas (CRM y suites).
+   - Como ya se escribió aquí: *«no tenemos nada pensado para esto»*.
+   - Es el paso 2 del camino A, todavía pendiente.
+8. **Inmobiliaria y alquiler.** Vencimientos y renovaciones de contratos, y
+   liquidar a los propietarios menos la comisión.
+   - Se preguntó a 9 y a 7 herramientas.
+   - No hay ninguna herramienta inmobiliaria en el catálogo.
+9. **Transporte y reparto**, y también taller, reformas, instalación y
+   obrador: mantener sus vehículos y máquinas.
+   - Se preguntó a 64 herramientas, y es el hueco con más búsqueda detrás.
+   - Para transporte es parte de su núcleo.
+10. **Obrador y taller artesano.** Órdenes de fabricación.
+    - Se preguntó a 7 herramientas, Odoo incluida: su ficha menciona
+      planificación de producción, pero su página no lo nombraba.
+11. **Negocios con clientela que repite.** Que los clientes vuelvan:
+    fidelización. Se preguntó a 17 herramientas.
+12. **Negocios de calle.** Que les encuentren: la ficha en Google y en los
+    directorios. Se preguntó a 7 herramientas.
+13. **Negocios con turnos.** Cuadrante, fichajes y vacaciones. Se preguntó a
+    8 herramientas.
+14. **Asociaciones.** Recibir donaciones y emitir el certificado. Se preguntó
+    a 7 herramientas; ningún oficio del catálogo la trae.
+
+### Por tamaño (juicio, no propuesta)
+
+**Pequeños y concretos, que podrían caber en una microapp:**
+- avisos de vencimientos y renovaciones de contratos;
+- calcular y documentar la liquidación a propietarios (el dinero lo
+  movería el banco);
+- inventario de vehículos y máquinas con calendario de revisiones;
+- fidelización con sellos o puntos;
+- cuadrante de turnos y vacaciones (el fichaje legal ya lo haría más grande).
+
+**Grandes o complejos:**
+- historia clínica y protección de datos;
+- TPV con caja y cierre;
+- contabilidad, impuestos, nóminas y factura electrónica obligatoria;
+- facturar a mutuas;
+- órdenes de fabricación;
+- ficha en Google y en directorios;
+- donaciones con certificado fiscal.
+
+**No requieren herramienta nueva, sino trabajo sobre el propio Molnip:** los
+casos 1 a 3 (comprensión y portada) y los 4 y 5 (evidencia que falta).
+
+**Relación con `data/investigacion/lo-que-falta/PARA-CONSTRUIR.md`** (24 de
+septiembre, con 65 herramientas). Este diagnóstico lo actualiza en tres
+puntos:
+- la agenda por profesional ya está cubierta;
+- se sirve a 8 oficios, no a 5;
+- y la clínica tiene candidatas en el catálogo a falta de prueba.
+
+---
+
 ## DÓNDE ESTAMOS — punto de partida al 2026-10-06
 
 Esta sección no decide nada: dice en qué punto quedó todo, para que quien

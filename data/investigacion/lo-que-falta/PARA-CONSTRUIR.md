@@ -1,5 +1,11 @@
 # A quién no podemos servir, y qué le falta exactamente
 
+> *Nota del 2026-10-10: este documento es la fotografía del 24 de septiembre,
+> con 65 herramientas, y se deja como estaba. El estado actual está en
+> `ATLAS.md`, «2026-10-10 — DIAGNÓSTICO: LOS PROBLEMAS DE CLIENTES QUE HOY
+> QUEDAN SIN SOLUCIÓN». Desde aquel día, la agenda por profesional quedó
+> cubierta y se sirve a 8 oficios, no a 5.*
+
 **24 de septiembre de 2026.** Encargo de la propietaria: *«dime qué necesita
 una clínica o qué necesitan esas personas a las que no les podemos servir, y
 yo desarrollaré un sistema propio de Molnip para ellos. De momento
