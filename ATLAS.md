@@ -7900,17 +7900,31 @@ ahí.
 - El aviso legal describe el cuestionario antiguo y dice «valorado
   editorialmente» (ver el informe, 1 y 2.B).
 
-### Search Console: en marcha
+### Search Console: dada de alta y verificada (2 de noviembre)
 
-**El 2 de noviembre la propietaria no sabía si la tenía, y empezó a darla
-de alta.** Le expliqué cómo:
-- entrar en search.google.com/search-console;
-- elegir el tipo «Dominio» con `molnip.com`;
-- pegar el texto `google-site-verification=…` en el DNS del dominio;
-- pulsar «Verificar».
+**No la tenía.** La dio de alta ella misma el 2 de noviembre por la tarde,
+paso a paso y con capturas:
+- en Search Console, propiedad de tipo **«Dominio»** con `molnip.com`;
+- en **Spaceship**, que es donde está el dominio y quien gestiona su DNS
+  (nameservers `launch1/launch2.spaceship.net`), añadió **un único
+  registro nuevo**: `@` · `TXT` · `google-site-verification=…`.
+- No se tocó ningún otro registro.
 
-Lo hace ella, porque es su cuenta y su dominio. Cuando la tenga, mandará
-una captura para mirarla juntas.
+**Lo que hay en ese DNS, para no romperlo:**
+- el `A` de `@` y el `CNAME` de `www` llevan la web a Vercel;
+- los cinco de Spacemail son el correo;
+- `studio` es un `CNAME` a `balloon-mockup-maker.pages.dev`, del otro
+  producto de la propietaria.
+
+**Ojo con los datos:** como la propiedad es de tipo «Dominio», Search
+Console mezclará los de molnip.com con los de `studio.molnip.com`. Hay
+que filtrar por página para ver sólo Molnip.
+
+**Estado al cerrar el día:** verificada. Todas las secciones dicen que
+se están procesando los datos y que se vuelva a mirar al día siguiente.
+**Lo primero mañana:** el informe de páginas (cuántas acepta Google y por
+qué rechaza las demás). Con eso se retoma el análisis de las
+comparaciones.
 
 **Lo que aporta** (lo pidió así: *«¿qué de nuevo y útil nos traerá?»*):
 - cuántas páginas acepta Google y por qué rechaza las demás;
@@ -7958,7 +7972,7 @@ entera cada vez que cambie; no se acumula.** Va la última antes del bloque
 > el inglés como etapa 2. Ver la sección «PRIMERO EL TRÁFICO» y
 > `INFORME-LANZAMIENTO-2026-11-02.md`. Allí está también:
 > - lo que Google conoce hoy: 4 páginas;
-> - Search Console, en marcha por la propietaria;
+> - Search Console, dada de alta y verificada; datos al día siguiente;
 > - la estrategia de comparaciones, **en análisis y no decidida**.
 >
 > La rama de trabajo lleva commits sin desplegar, todos de documentación,

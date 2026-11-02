@@ -306,8 +306,9 @@ Decidido por la propietaria el 2 de noviembre: *«déjalo como etapa 2»*.
 
 ## 8. Lo que no he podido comprobar
 
-- Cuántas páginas tiene Google indexadas: hay que mirarlo en Search
-  Console. **Primera pista, del mismo 2 de noviembre:** la propietaria
+- Cuántas páginas tiene Google indexadas: hay que mirarlo en Search Console,
+  dada de alta y verificada el mismo 2 de noviembre (datos al día siguiente).
+  **Primera pista, del mismo 2 de noviembre:** la propietaria
   buscó `site:molnip.com` desde su móvil y Google enseñó **4 páginas**:
   la portada, las cookies, «Cómo trabaja Molnip: los tres agentes» y el
   aviso legal. No salió ninguna ficha, categoría ni comparación. `site:`
