@@ -307,7 +307,11 @@ Decidido por la propietaria el 2 de noviembre: *«déjalo como etapa 2»*.
 ## 8. Lo que no he podido comprobar
 
 - Cuántas páginas tiene Google indexadas: hay que mirarlo en Search
-  Console.
+  Console. **Primera pista, del mismo 2 de noviembre:** la propietaria
+  buscó `site:molnip.com` desde su móvil y Google enseñó **4 páginas**:
+  la portada, las cookies, «Cómo trabaja Molnip: los tres agentes» y el
+  aviso legal. No salió ninguna ficha, categoría ni comparación. `site:`
+  es aproximado, y no está confirmado si la lista acababa ahí.
 - El precio oficial de Gemini, porque no puedo abrir la página de Google.
 - El plan contratado hoy en Vercel y en Neon.
 - Los volúmenes de búsqueda reales.

@@ -7866,6 +7866,85 @@ propuse, como análisis:
 apagar las 2.472, y esto es la alternativa que se está analizando. Las
 dos siguen sobre la mesa hasta que ella decida.
 
+**Mi compromiso tras el error.** Cuando la propietaria diga «me parece
+bien» a algo que estemos analizando, le pregunto si es una decisión antes
+de apuntarlo como tal. Es una regla mía, no una decisión suya.
+
+### Lo que Google conoce hoy de Molnip (2 de noviembre)
+
+La propietaria buscó en Google, desde su móvil, `site:molnip.com`. Salieron
+**4 páginas**:
+- la portada: «Molnip — El asesor que recomienda la…»;
+- la política de cookies;
+- «Cómo trabaja Molnip: los tres agentes detrás…»;
+- el aviso legal.
+
+No salió ninguna de las 90 fichas, ni las categorías, ni las
+comparaciones. `site:` es aproximado y no se confirmó si la lista acababa
+ahí.
+
+**Lo que se dedujo, como análisis y no como decisión:**
+- **Hoy casi seguro no llega nadie desde las búsquedas.** Lo dijo ella
+  —*«yo no creo que nadie llegue a molnip aún»*— y coincidí. No hay cifra,
+  porque Molnip no mide visitas.
+- **Por tanto, hoy ninguna comparación trae tráfico.** Ocultarlas todas o
+  elegir 40 no perdería nada de lo que ya funciona. Es un dato para el
+  análisis de arriba.
+- **El reto no es sólo crear páginas, sino que Google las acepte.** Search
+  Console dirá por qué no las incluye.
+
+**Dos textos viejos que Google enseña:**
+- «Cómo trabaja Molnip: los tres agentes» habla de «Researcher, Evaluador
+  y Recomendador». Hoy son 11 agentes, y «Evaluador» es el nombre antiguo
+  de «Atlas Advisor».
+- El aviso legal describe el cuestionario antiguo y dice «valorado
+  editorialmente» (ver el informe, 1 y 2.B).
+
+### Search Console: en marcha
+
+**El 2 de noviembre la propietaria no sabía si la tenía, y empezó a darla
+de alta.** Le expliqué cómo:
+- entrar en search.google.com/search-console;
+- elegir el tipo «Dominio» con `molnip.com`;
+- pegar el texto `google-site-verification=…` en el DNS del dominio;
+- pulsar «Verificar».
+
+Lo hace ella, porque es su cuenta y su dominio. Cuando la tenga, mandará
+una captura para mirarla juntas.
+
+**Lo que aporta** (lo pidió así: *«¿qué de nuevo y útil nos traerá?»*):
+- cuántas páginas acepta Google y por qué rechaza las demás;
+- qué escribe la gente antes de llegar;
+- cuántas veces sale Molnip y cuántos pinchan;
+- avisos de problemas;
+- pedir a Google que revise una página.
+
+Sin ella se trabaja con suposiciones; con ella, con los datos de Google.
+
+### La revisión del estado del 2 de noviembre
+
+Antes del informe pidió *«un informe del estado de molnip»* con las
+herramientas disponibles. Resultado:
+
+| Revisión | Resultado |
+|---|---|
+| Vitest | 2.310 pruebas, todas en verde |
+| Playwright | 61 pruebas, todas en verde |
+| Tipos | Sin errores |
+| Compilación | Sin errores |
+| ESLint | Los mismos 43 errores antiguos, todos `any` en scripts `cli-*` de uso puntual, ninguno en la web |
+| Impeccable (`impeccable detect`) | Funciona en esta sesión. Sólo marcó el texto con degradado de la portada y de «empezaría por…». Es parte del diseño que la propietaria aprobó («la portada me gusta»), así que se apunta y no se propone cambiarlo. |
+| Graphify | No se usó: dibuja el mapa del código y no responde al estado del producto. |
+
+**Herramientas de la sesión.**
+- **audit-suite** (Orbit, v1.1.0) lo activó la propietaria en su cuenta de
+  claude.ai, y llega como `audit-suite@anthropic-plugin-directory`.
+- Esta sesión no lo recibió porque empezó antes. Debería aparecer en la
+  próxima sesión nueva de Molnip; está sin comprobar.
+- `/plugin` no funciona en las sesiones en la nube.
+- El repositorio de Orbit no tiene licencia, por eso no se copió dentro de
+  Molnip.
+
 ---
 
 ## DÓNDE ESTAMOS — punto de partida al 2026-10-06
@@ -7877,7 +7956,13 @@ entera cada vez que cambie; no se acumula.** Va la última antes del bloque
 
 > **Desde el 2 de noviembre** el objetivo es lanzar para traer tráfico, con
 > el inglés como etapa 2. Ver la sección «PRIMERO EL TRÁFICO» y
-> `INFORME-LANZAMIENTO-2026-11-02.md`. El resto de esta sección sigue
+> `INFORME-LANZAMIENTO-2026-11-02.md`. Allí está también:
+> - lo que Google conoce hoy: 4 páginas;
+> - Search Console, en marcha por la propietaria;
+> - la estrategia de comparaciones, **en análisis y no decidida**.
+>
+> La rama de trabajo lleva commits sin desplegar, todos de documentación,
+> pruebas y skills; ninguno cambia la web. El resto de esta sección sigue
 > siendo válido.
 
 ### Qué hay en producción
