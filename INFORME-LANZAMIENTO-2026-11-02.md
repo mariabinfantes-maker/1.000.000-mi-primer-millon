@@ -116,17 +116,19 @@ Además, antes de abrir la puerta a desconocidos:
    diferencia destacable aquí» y aun así «gana ActiveCampaign». Además,
    Google castiga el contenido hecho en serie, y una web nueva con 2.472
    páginas casi iguales es lo que busca castigar.
-   ~~Propongo apagarlas todas para Google~~. **Sustituido el mismo 2 de
-   noviembre** por la estrategia que aprobó la propietaria. Ella preguntó:
-   *«¿no podemos seleccionar unas cuantas y no ocultarlas todas, porque
-   así nos va trayendo tráfico?»*. Lo aprobado:
+   **Primera propuesta:** apagarlas todas para Google sin borrarlas.
+
+   **Alternativa en análisis, planteada por la propietaria el mismo 2 de
+   noviembre:** *«¿no podemos seleccionar unas cuantas y no ocultarlas
+   todas, porque así nos va trayendo tráfico?»*. Consiste en:
    - **Arreglar la plantilla**, que es una sola para las 2.472: sin notas
      ni ganadores, sólo datos comprobados uno al lado del otro.
    - **Dejar visibles unas 40 parejas elegidas** y ocultar el resto sin
      borrarlo.
    - **No tocar las que Search Console diga que ya traen visitas.**
 
-   Ver ATLAS, «LA ESTRATEGIA DE TRÁFICO APROBADA».
+   **Ninguna de las dos está decidida.** Ver ATLAS, «UNA ESTRATEGIA DE
+   TRÁFICO EN ANÁLISIS, NO DECIDIDA».
 2. **Las frases de «valorado editorialmente»** en aviso legal, términos y
    subtipos, porque Google las repite.
 3. **`/herramientas` al mapa del sitio**, y su título sin el «Molnip»
@@ -288,9 +290,9 @@ Decidido por la propietaria el 2 de noviembre: *«déjalo como etapa 2»*.
 
 ## 7. Decisiones que te tocan
 
-1. ~~**Las 2.472 comparaciones**~~: **decidido el 2 de noviembre.** Se
-   arregla la plantilla, quedan visibles unas 40 elegidas y se respeta lo
-   que ya traiga visitas. Ver 2.B.
+1. **Las 2.472 comparaciones:** apagarlas todas, o arreglar la plantilla
+   y dejar visibles unas 40 elegidas. Las dos opciones están en análisis;
+   ver 2.B.
 2. **¿El bloque 4 incluye las comparaciones** y las frases de «valorado
    editorialmente»?
 3. **El orden:** ¿empates grandes antes del bloque 3, o al revés?

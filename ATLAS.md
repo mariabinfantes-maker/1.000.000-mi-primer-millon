@@ -7816,14 +7816,29 @@ informe y no decide nada. Lo más importante que encontró:
 
 Las decisiones que le tocan van en el apartado 7 del informe.
 
-### LA ESTRATEGIA DE TRÁFICO APROBADA (2 de noviembre)
+### UNA ESTRATEGIA DE TRÁFICO EN ANÁLISIS, NO DECIDIDA (2 de noviembre)
 
-**Qué sustituye y por qué.** Sustituye mi propuesta del informe de apagar
-para Google las 2.472 comparaciones. Ella la corrigió así: *«¿no podemos
-seleccionar unas cuantas y no ocultarlas todas, porque así nos va
-trayendo tráfico? Porque si las ocultamos todas ahora, quizás puedan estar
-trabajando para nosotros algunas mientras tanto.»* Le propuse esta
-estrategia y la aprobó: *«sí, me parece bien»*.
+**No está aprobada ni se va a hacer todavía.** Es una manera de pensar
+sobre el papel cuál es el siguiente paso más inteligente. La propietaria
+lo dejó claro:
+
+> *«Lo de que no borremos las páginas y utilicemos la que sirven, es una
+> estrategia que estamos planteando para ver si es la más útil. No es que
+> hayamos dicho vamos a hacerla. Es una manera de pensar sobre el papel, a
+> ver cuál es el siguiente paso y el más inteligente.»*
+
+**Corrección.** Primero escribí esta sección como «LA ESTRATEGIA DE
+TRÁFICO APROBADA». Tomé su «sí, me parece bien» como una aprobación, y no
+lo era. Es el error del que avisó el 29 de septiembre: ponerle decisiones
+que no ha tomado.
+
+**De dónde viene.** En el informe propuse apagar para Google las 2.472
+comparaciones. Ella preguntó: *«¿no podemos seleccionar unas cuantas y no
+ocultarlas todas, porque así nos va trayendo tráfico? Porque si las
+ocultamos todas ahora, quizás puedan estar trabajando para nosotros
+algunas mientras tanto.»* Y me pidió: *«Piensa en la estrategia más
+conveniente para ir trayendo tráfico a Molnip.»* Esto es lo que le
+propuse, como análisis:
 
 0. **Mirar primero qué funciona ya, en Search Console.** Las páginas que
    ya traigan visitas no se tocan, sean del tipo que sean. Ella no sabe si
@@ -7847,8 +7862,9 @@ estrategia y la aprobó: *«sí, me parece bien»*.
    bloque 5.
 6. **Revisión mensual con Search Console.**
 
-**Aprobar la estrategia no autoriza todavía a empezar ninguno de sus
-pasos.** Cada paso se pide aparte, como siempre.
+**Ninguno de estos pasos está decidido.** El informe sigue proponiendo
+apagar las 2.472, y esto es la alternativa que se está analizando. Las
+dos siguen sobre la mesa hasta que ella decida.
 
 ---
 
@@ -7860,7 +7876,7 @@ entera cada vez que cambie; no se acumula.** Va la última antes del bloque
 «MOLNIP VISUAL v1», que es donde `AGENTS.md` dice que se busque.
 
 > **Desde el 2 de noviembre** el objetivo es lanzar para traer tráfico, con
-> el inglés como etapa 2, y la estrategia de tráfico aprobada. Ver la sección «PRIMERO EL TRÁFICO» y
+> el inglés como etapa 2. Ver la sección «PRIMERO EL TRÁFICO» y
 > `INFORME-LANZAMIENTO-2026-11-02.md`. El resto de esta sección sigue
 > siendo válido.
 
