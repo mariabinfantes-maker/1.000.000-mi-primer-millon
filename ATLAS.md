@@ -7737,6 +7737,51 @@ puntos:
 
 ---
 
+## 2026-11-02 — TRES FALLOS DEL ASESOR CON «SOY PELUQUERA Y PIERDO CITAS»
+
+**Qué es esto:** lo que se vio al probar el asesor durante la revisión del
+estado de Molnip pedida por la propietaria el 2 de noviembre. Sólo apunta
+lo observado. **No se ha corregido nada ni se ha decidido cómo
+corregirlo.**
+
+**Cómo se probó.** Se probó en local, no en molnip.com, que el proxy no
+deja abrir:
+- la rama de trabajo en `b1c410b`, cuyo código de la web es el mismo que
+  el de producción (`d864fbb`): lo que lleva de más es documentación,
+  pruebas y skills;
+- `next start` con la IA encendida (`ATLAS_ASESOR_IA_ACTIVA=true`);
+- `/asesor` en el navegador, a tamaño de móvil.
+
+Se escribió «soy peluquera y pierdo citas». El asesor entendió bien la
+necesidad: «He entendido que necesitas «que puedan reservar sin
+llamarme»». Lo que viene después tiene tres fallos:
+
+1. **Llama «paciente» al cliente de una peluquería.** La pregunta dice «¿el
+   cliente elige profesional o lo deciden ustedes?», pero el botón de
+   respuesta dice **«El paciente elige profesional»**. El texto está en
+   `data/vocabulario/asesor.json`, en la respuesta `elige-el-cliente` de la
+   pregunta `dim.como-se-asignan-las-citas`. Viene del caso de la clínica
+   dental, y las pruebas de ese caso usan esa misma frase.
+2. **Las primeras opciones salen por orden alfabético: Agile CRM, Agiled y
+   Archivex.** Agile CRM y Agiled son CRM, y Archivex es un programa de
+   clínicas. Aparecen bajo «Una primera selección, a falta de tu
+   respuesta». Es el problema de los empates grandes, ya diagnosticado el
+   5 de octubre («DIAGNÓSTICO: LOS EMPATES GRANDES…»), visto ahora en el
+   caso de la peluquería.
+3. **El título dice «Nueve buenas opciones para tu caso», pero en pantalla
+   se ven tres tarjetas y un botón «Ver 3 más».** No se ha comprobado qué
+   enseña ese botón ni de dónde sale el nueve.
+
+Se probaron también otros dos casos, que no aportan nada nuevo:
+- «no doy a basto respondiendo a clientes por WhatsApp»
+- «tengo un hotel pequeño y quiero gestionar las reservas»
+
+Los dos acaban en «No tengo nada que proponerte», como recoge el
+diagnóstico del 10 de octubre: el primero no se entiende y el segundo no
+está en el catálogo.
+
+---
+
 ## DÓNDE ESTAMOS — punto de partida al 2026-10-06
 
 Esta sección no decide nada: dice en qué punto quedó todo, para que quien
