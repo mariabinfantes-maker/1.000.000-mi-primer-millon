@@ -7782,12 +7782,54 @@ está en el catálogo.
 
 ---
 
+## 2026-11-02 — PRIMERO EL TRÁFICO: LO QUE DECIDIÓ LA PROPIETARIA, Y EL INFORME DE LANZAMIENTO
+
+**Lo que decidió, con sus palabras:**
+
+- **Primero el tráfico, después la afiliación.** *«Primero quiero que
+  funcione como una página web que ayuda… que se va a mover y va a llevar
+  visitas. A lo mejor 30.000 visitas al mes… Lo primero es mover
+  tráfico.»* La afiliación va después, por etapas. Encaja con «la
+  afiliación se aparca» (17 de septiembre) y no la cambia.
+- **Con las herramientas que ya tenemos.** *«Enfoquémonos en las
+  herramientas que ya tenemos.»* El software muy pequeño para autónomos
+  queda fuera de Molnip: es otro campo, y ella misma desarrolla software
+  para emprendedores.
+- **El inglés es la etapa 2.** Lo propuso ella, por su experiencia con la
+  app de globos. Tras ver el análisis dijo: *«sí, déjalo como etapa 2 y
+  haz el informe»*. Molnip sigue en español para los seis países de
+  `lib/pais.ts`.
+
+**El informe:** `INFORME-LANZAMIENTO-2026-11-02.md`, en la raíz. Es un
+informe y no decide nada. Lo más importante que encontró:
+
+- Lo que falta para lanzar es, sobre todo, los bloques 3 a 6 del plan de
+  cierre del 3 de octubre.
+- El mapa del sitio envía a Google 2.690 páginas, y 2.472 son comparaciones
+  «X vs Y» con notas («90/100») y ganadores. Chocan con «Molnip no pone
+  nota».
+- Hoy no se mide ninguna visita.
+- Cada lectura del asesor cuesta entre medio y un céntimo de dólar con el
+  precio actual de Gemini. Ese precio no está comprobado en la fuente
+  oficial.
+- La ruta del asesor no tiene límite de consultas.
+
+Las decisiones que le tocan van en el apartado 7 del informe. **Ninguna
+está tomada.**
+
+---
+
 ## DÓNDE ESTAMOS — punto de partida al 2026-10-06
 
 Esta sección no decide nada: dice en qué punto quedó todo, para que quien
 retome no tenga que reconstruirlo leyendo doscientos commits. **Se reescribe
 entera cada vez que cambie; no se acumula.** Va la última antes del bloque
 «MOLNIP VISUAL v1», que es donde `AGENTS.md` dice que se busque.
+
+> **Desde el 2 de noviembre** el objetivo es lanzar para traer tráfico, con
+> el inglés como etapa 2. Ver la sección «PRIMERO EL TRÁFICO» y
+> `INFORME-LANZAMIENTO-2026-11-02.md`. El resto de esta sección sigue
+> siendo válido.
 
 ### Qué hay en producción
 
