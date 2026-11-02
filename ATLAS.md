@@ -7814,8 +7814,41 @@ informe y no decide nada. Lo más importante que encontró:
   oficial.
 - La ruta del asesor no tiene límite de consultas.
 
-Las decisiones que le tocan van en el apartado 7 del informe. **Ninguna
-está tomada.**
+Las decisiones que le tocan van en el apartado 7 del informe.
+
+### LA ESTRATEGIA DE TRÁFICO APROBADA (2 de noviembre)
+
+**Qué sustituye y por qué.** Sustituye mi propuesta del informe de apagar
+para Google las 2.472 comparaciones. Ella la corrigió así: *«¿no podemos
+seleccionar unas cuantas y no ocultarlas todas, porque así nos va
+trayendo tráfico? Porque si las ocultamos todas ahora, quizás puedan estar
+trabajando para nosotros algunas mientras tanto.»* Le propuse esta
+estrategia y la aprobó: *«sí, me parece bien»*.
+
+0. **Mirar primero qué funciona ya, en Search Console.** Las páginas que
+   ya traigan visitas no se tocan, sean del tipo que sean. Ella no sabe si
+   la tiene dada de alta.
+1. **Comparaciones:**
+   - Se arregla la plantilla, que es una sola para las 2.472: sin notas ni
+     ganadores, sólo datos comprobados uno al lado del otro (precio con
+     fecha, entrada sin coste, idioma o «no comprobado», para quién es,
+     usos).
+   - Quedan visibles unas 40 parejas de la misma especialidad que la gente
+     suele comparar.
+   - El resto se oculta a Google sin borrarlo.
+   - La lista inicial que le enseñé (HubSpot vs Pipedrive, Asana vs
+     monday.com, Booksy vs Fresha, Teachable vs Thinkific, etc.) **es una
+     suposición mía, no una medida**. Search Console la corregirá.
+2. **Las páginas que ya son buenas siguen visibles:** las 90 fichas, las 90
+   «alternativas a…» y las categorías. Sólo se les quitan las notas.
+3. **Páginas nuevas por oficio**, para los 8 que se sirven.
+4. **Artículos sobre búsquedas reales.**
+5. **Que el asesor convierta las visitas en ayuda.** Es la portada, el
+   bloque 5.
+6. **Revisión mensual con Search Console.**
+
+**Aprobar la estrategia no autoriza todavía a empezar ninguno de sus
+pasos.** Cada paso se pide aparte, como siempre.
 
 ---
 
@@ -7827,7 +7860,7 @@ entera cada vez que cambie; no se acumula.** Va la última antes del bloque
 «MOLNIP VISUAL v1», que es donde `AGENTS.md` dice que se busque.
 
 > **Desde el 2 de noviembre** el objetivo es lanzar para traer tráfico, con
-> el inglés como etapa 2. Ver la sección «PRIMERO EL TRÁFICO» y
+> el inglés como etapa 2, y la estrategia de tráfico aprobada. Ver la sección «PRIMERO EL TRÁFICO» y
 > `INFORME-LANZAMIENTO-2026-11-02.md`. El resto de esta sección sigue
 > siendo válido.
 

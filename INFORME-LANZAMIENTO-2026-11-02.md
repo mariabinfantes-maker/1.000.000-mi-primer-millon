@@ -116,10 +116,17 @@ Además, antes de abrir la puerta a desconocidos:
    diferencia destacable aquí» y aun así «gana ActiveCampaign». Además,
    Google castiga el contenido hecho en serie, y una web nueva con 2.472
    páginas casi iguales es lo que busca castigar.
-   **Propongo apagarlas para Google (`noindex`) sin borrarlas**, como
-   quedó decidido: «no se borra: se desconecta». Más adelante pueden
-   volver las parejas que la gente busque de verdad, escritas con datos
-   comprobados. Decides tú.
+   ~~Propongo apagarlas todas para Google~~. **Sustituido el mismo 2 de
+   noviembre** por la estrategia que aprobó la propietaria. Ella preguntó:
+   *«¿no podemos seleccionar unas cuantas y no ocultarlas todas, porque
+   así nos va trayendo tráfico?»*. Lo aprobado:
+   - **Arreglar la plantilla**, que es una sola para las 2.472: sin notas
+     ni ganadores, sólo datos comprobados uno al lado del otro.
+   - **Dejar visibles unas 40 parejas elegidas** y ocultar el resto sin
+     borrarlo.
+   - **No tocar las que Search Console diga que ya traen visitas.**
+
+   Ver ATLAS, «LA ESTRATEGIA DE TRÁFICO APROBADA».
 2. **Las frases de «valorado editorialmente»** en aviso legal, términos y
    subtipos, porque Google las repite.
 3. **`/herramientas` al mapa del sitio**, y su título sin el «Molnip»
@@ -281,15 +288,17 @@ Decidido por la propietaria el 2 de noviembre: *«déjalo como etapa 2»*.
 
 ## 7. Decisiones que te tocan
 
-1. **Las 2.472 comparaciones:** ¿se apagan para Google sin borrarlas? Es
-   mi propuesta.
+1. ~~**Las 2.472 comparaciones**~~: **decidido el 2 de noviembre.** Se
+   arregla la plantilla, quedan visibles unas 40 elegidas y se respeta lo
+   que ya traiga visitas. Ver 2.B.
 2. **¿El bloque 4 incluye las comparaciones** y las frases de «valorado
    editorialmente»?
 3. **El orden:** ¿empates grandes antes del bloque 3, o al revés?
 4. **La maqueta del paso intermedio** del bloque 5, que sigue sin aprobar.
 5. **Analítica de visitas:** cuál, y si se guarda lo que escribe la gente
    en el asesor.
-6. **Search Console:** si ya la tienes dada de alta o hay que hacerlo.
+6. **Search Console:** la propietaria no sabe si la tiene (2 de
+   noviembre). Es el paso 0 de la estrategia.
 7. **El límite de consultas y la alerta de presupuesto** de Gemini: qué
    cifra.
 
